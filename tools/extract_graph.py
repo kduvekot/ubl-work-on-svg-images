@@ -199,20 +199,54 @@ def is_final_ring(ink, n, W):
     return bool(ink[n["y"] + n["h"] // 2, n["x"] + n["w"] // 2])
 
 
-def drop_phantoms(ink, regs, cells=(), min_iou=0.88, max_open=2):
+def interior_ink(ink, n, inset=20):
+    """fraction of the region's interior that carries ink - i.e. does it hold a
+    label. Whitespace merely trapped between other shapes holds nothing."""
+    sub = ink[n["y"] + inset:n["y"] + n["h"] - inset,
+              n["x"] + inset:n["x"] + n["w"] - inset]
+    return float(sub.mean()) if sub.size else 0.0
+
+
+def in_title_band(n, bands, tol=10):
+    """does the region sit inside the column-title header or the sideways band-title
+    gutter - those hold partition titles, never nodes"""
+    hy, gx = bands
+    if hy is not None and n["y"] + n["h"] <= hy + tol:
+        return "the column-title header"
+    if gx is not None and n["x"] + n["w"] <= gx + tol:
+        return "the band-title gutter"
+    return None
+
+
+def drop_phantoms(ink, regs, cells=(), min_iou=0.88, max_open=2,
+                  own_iou=0.97, own_cov=0.97, min_interior=0.01,
+                  title_bands=(None, None), flags=None):
     """White trapped between boxes, partition rules and connectors looks like a
     shape. Four tests, in order: it must not be a partition cell, it must not
     enclose another region, and unless it is recognisably a note or an activity
     final it has to be solid (rectangle, rounded rectangle, rhombus...) and be
-    bounded by line-work that stops at its own edges."""
+    bounded by line-work that stops at its own edges.
+
+    The pass-through test cannot veto a region that carries a complete outline of
+    its own (`own_iou`/`own_cov`). UBL draws object nodes *on* the partition rule
+    and *on* the connector, so all four of their sides have line-work running past
+    them - that is the house style, not evidence of a phantom. Trapped whitespace
+    is concave, notched, or bounded only in part, so it fails one of the two.
+
+    Every drop, and every region kept only by that override, is appended to
+    `flags` so the caller can report it rather than discard it silently."""
     keep = []
     for a in regs:
         why = None
+        kept_by_outline = False
         iou, a["shape"] = shape_iou(a)
+        cov = border_coverage(ink, a)
         if any(abs(a["x"] - c[0]) <= 10 and abs(a["y"] - c[1]) <= 10 and
                abs(a["x"] + a["w"] - c[2]) <= 10 and abs(a["y"] + a["h"] - c[3]) <= 10
                for c in cells):
             why = "is a partition cell"
+        elif in_title_band(a, title_bands):
+            why = "lies in %s" % in_title_band(a, title_bands)
         elif any(b is not a and b["x"] >= a["x"] - 2 and b["y"] >= a["y"] - 2 and
                  b["x"] + b["w"] <= a["x"] + a["w"] + 2 and
                  b["y"] + b["h"] <= a["y"] + a["h"] + 2 for b in regs):
@@ -224,10 +258,29 @@ def drop_phantoms(ink, regs, cells=(), min_iou=0.88, max_open=2):
             if iou < min_iou:
                 why = "outline matches no UML node shape (best %s %.2f)" % (a["shape"], iou)
             elif open_sides > max_open:
-                why = "%d of 4 sides are pass-through line-work" % open_sides
+                # a complete outline of its own *and* something inside it. Trapped
+                # whitespace can be bounded on all four sides by its neighbours, but
+                # it never holds a label.
+                if iou >= own_iou and cov >= own_cov and interior_ink(ink, a) >= min_interior:
+                    kept_by_outline = True
+                else:
+                    why = "%d of 4 sides are pass-through line-work" % open_sides
+        note = dict(x=a["x"], y=a["y"], w=a["w"], h=a["h"],
+                    shape=a["shape"], iou=round(float(iou), 3), border=round(float(cov), 3))
         if why:
             print("   (dropped x=%-5d y=%-5d %4dx%-4d  %s)" % (a["x"], a["y"], a["w"], a["h"], why))
+            if flags is not None:
+                flags.append(dict(note, kind="dropped-region", reason=why,
+                                  check="a shape here would be missing from the SVG"))
             continue
+        if kept_by_outline:
+            print("   (kept    x=%-5d y=%-5d %4dx%-4d  own outline, iou %.2f border %.2f,"
+                  " despite pass-through line-work)" % (a["x"], a["y"], a["w"], a["h"], iou, cov))
+            if flags is not None:
+                flags.append(dict(note, kind="kept-on-outline",
+                                  reason="every side has pass-through line-work, but the"
+                                         " region carries a complete outline of its own",
+                                  check="confirm this is a node and not trapped whitespace"))
         keep.append(a)
     return keep
 
@@ -376,15 +429,26 @@ def main(path, out_json=None):
     cells = [(round(vb[c]), round(hb[r]), round(vb[c + 1]), round(hb[r + 1]))
              for r in range(len(hb) - 1) for c in range(len(vb) - 1)]
 
-    regs = drop_phantoms(ink, enclosed_regions(ink), cells)
+    uncertain = []
+    regs = drop_phantoms(ink, enclosed_regions(ink), cells, flags=uncertain,
+                         title_bands=(hb[1] if header else None,
+                                      vb[1] if strip else None))
     for n in regs:
         n["stroke"] = stroke_of(ink, n)
     # only the box-shaped nodes take part in the weight split: a decision rhombus
     # and a final ring are measured across a slanted or curved edge
-    heavy = heavy_stroke([n["stroke"] for n in regs
-                          if n.get("shape") in (None, "rect", "rounded")])
+    box_strokes = [n["stroke"] for n in regs if n.get("shape") in (None, "rect", "rounded")]
+    heavy = heavy_stroke(box_strokes)
     print("   object nodes are those stroked heavier than %.1fpx" % heavy
           if heavy < 10 ** 6 else "   one line weight only - no object nodes")
+    if heavy >= 10 ** 6 and len(box_strokes) > 1:
+        # object vs action is a *relative* weight, so one weight means either the
+        # diagram genuinely has no object nodes or a heavier box was never seen
+        uncertain.append(dict(kind="no-weight-split",
+                              reason="all %d box strokes are one weight (%s), so no object"
+                                     " node could be identified"
+                                     % (len(box_strokes), sorted(set(box_strokes))),
+                              check="confirm the diagram really has no object nodes"))
     nodes, partitions = [], []
     for n in regs:
         k = classify(n, W, H, ink, heavy)
@@ -598,10 +662,20 @@ def main(path, out_json=None):
     if out_json:
         for n in nodes + partitions:
             n.pop("mask", None)
+        # every edge the direction probe could not read confidently is a human-check
+        # item too, so the one list is the whole of what this run is unsure about
+        for e in edges:
+            if e.get("directionConfidence") == "LOW":
+                uncertain.append(dict(kind="edge-direction", reason="arrowhead ink is ambiguous"
+                                      " where several connectors meet",
+                                      edge=[e.get("from"), e.get("to")],
+                                      check="confirm which way this edge points"))
         json.dump(dict(source=path, size=[W, H], fontPx=font_px, rules=dict(v=vr, h=hr),
-                       partitions=grid, nodes=nodes, edges=edges, text=texts),
+                       partitions=grid, nodes=nodes, edges=edges, text=texts,
+                       uncertain=uncertain),
                   open(out_json, "w"), indent=1)
-        print("\nwrote %s   (%d nodes, %d edges)" % (out_json, len(nodes), len(edges)))
+        print("\nwrote %s   (%d nodes, %d edges, %d flagged for a human)"
+              % (out_json, len(nodes), len(edges), len(uncertain)))
 
 
 if __name__ == "__main__":
