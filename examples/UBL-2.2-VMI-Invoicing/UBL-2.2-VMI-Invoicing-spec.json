@@ -1,0 +1,117 @@
+{
+ "canvas": {
+  "w": 1480.0,
+  "h": 658.978
+ },
+ "stroke": {
+  "frame": 4.3,
+  "divider": 2.6,
+  "action": 2.6,
+  "object": 5.2,
+  "edge": 2.6
+ },
+ "font": {
+  "family": "Helvetica, Arial, sans-serif",
+  "node": 33.7,
+  "lane": 33.7,
+  "guard": 33.7
+ },
+ "arrow": 30.2,
+ "dividers": [
+  714.7
+ ],
+ "lanes": [
+  {
+   "title": "Producer",
+   "x": 0.0,
+   "w": 714.7,
+   "cx": 356.7,
+   "cy": 34.905
+  },
+  {
+   "title": "Retailer",
+   "x": 714.7,
+   "w": 765.3,
+   "cx": 1077.1,
+   "cy": 36.605
+  }
+ ],
+ "nodes": [
+  {
+   "id": "n1",
+   "kind": "object",
+   "label": "Invoice",
+   "x": 603.7,
+   "y": 290.8,
+   "w": 218.7,
+   "h": 89.9
+  },
+  {
+   "id": "n2",
+   "kind": "action",
+   "label": "Raise Invoice",
+   "x": 36.7,
+   "y": 296.0,
+   "w": 344.8,
+   "h": 82.1,
+   "rx": 42.5,
+   "ry": 18.5
+  },
+  {
+   "id": "n3",
+   "kind": "action",
+   "label": "Receive Invoice",
+   "x": 1098.4,
+   "y": 298.6,
+   "w": 344.8,
+   "h": 82.1,
+   "rx": 42.5,
+   "ry": 18.5
+  },
+  {
+   "id": "n4",
+   "kind": "final",
+   "label": "",
+   "x": 1244.9,
+   "y": 582.1,
+   "w": 48.8,
+   "h": 48.4,
+   "innerRatio": 0.425
+  },
+  {
+   "id": "init",
+   "kind": "initial",
+   "label": "",
+   "x": 185.8,
+   "y": 95.1,
+   "w": 48.4,
+   "h": 48.4
+  }
+ ],
+ "edges": [
+  {
+   "from": "init",
+   "to": "n2",
+   "exit": "b",
+   "entry": "t"
+  },
+  {
+   "from": "n2",
+   "to": "n1",
+   "exit": "r",
+   "entry": "l"
+  },
+  {
+   "from": "n1",
+   "to": "n3",
+   "exit": "r",
+   "entry": "l"
+  },
+  {
+   "from": "n3",
+   "to": "n4",
+   "exit": "b",
+   "entry": "t"
+  }
+ ]
+}
