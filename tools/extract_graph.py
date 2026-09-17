@@ -351,7 +351,18 @@ def drop_phantoms(ink, regs, cells=(), min_iou=0.88, max_open=2,
             why = "lies in %s" % in_title_band(a, title_bands)
         elif any(b is not a and b["x"] >= a["x"] - 2 and b["y"] >= a["y"] - 2 and
                  b["x"] + b["w"] <= a["x"] + a["w"] + 2 and
-                 b["y"] + b["h"] <= a["y"] + a["h"] + 2 for b in regs):
+                 b["y"] + b["h"] <= a["y"] + a["h"] + 2 and
+                 # ...but the counters of its own label are enclosed regions too.
+                 # A node containing a node covers a good part of it - a lane
+                 # holding an action box is ~15% of the lane - while the hole in a
+                 # "Q" is ~0.6% of the box around it. Without this, any box whose
+                 # label contains a closed letter deletes itself: three action
+                 # nodes vanished from Tender-QualificationInfo that way, and
+                 # nothing was reported because the drop looked principled.
+                 # The letter-counter filter proper needs the type size, which is
+                 # only measured after this runs.
+                 (b["w"] * b["h"]) >= 0.02 * (a["w"] * a["h"])
+                 for b in regs):
             why = "encloses another region"
         elif is_final_ring(ink, a, ink.shape[1]) or is_note(ink, a):
             why = None
