@@ -153,7 +153,36 @@ was far better. That is exactly what ground rule 3 forbids, so any "@ r40"
 figure in older notes, commit messages or the §9 table below should be treated
 as void rather than merely optimistic.
 
-**What to use instead — two checks, because the artwork has two kinds of
+**The acceptance test: structural completeness.** A redraw never lands every line
+exactly, so demanding a blank diff demands the impossible — pixel-blank is only
+reachable when the PNG was *generated from* the SVG. That is why the r40 fudge
+appeared: the gate as originally written could not be passed. Removing the fudge
+without replacing the gate left every diagram "improvable" forever.
+
+What matters is not that every pixel matches but that **nothing is missing and
+nothing is invented**. The two are distinguishable, and the distinction was noted
+in the first session and then dropped: *red paired with ink nearby* means the
+element is there and slightly displaced; *red with nothing near it* means the
+element is not there at all. `verify_conversion.py` mechanises that. A diagram is
+**structurally complete** when:
+
+1. **No unexplained ink in the original** — every cluster of missing line-work
+   lies within 15px of line-work the SVG drew, i.e. it is placement error. A
+   free-standing cluster the size of a letter or larger is a lost element.
+2. **Nothing invented** — the same test in reverse.
+3. **Text present, correct and placed** — every word the original's own OCR finds
+   must appear in a model text element covering that position.
+4. **The graph is coherent** — no dangling edge endpoint, no node typed against
+   its measured outline, no isolated node (notes excepted: UBL anchors them with
+   a dashed leader the extractor does not recover).
+5. **Nothing unresolved** — the `uncertain` list is empty, or signed off.
+
+This is not a weaker bar than the original "white diff = done". It is the second
+half of that same rule — *"anything red would require a check to see what caused
+it and if it's acceptable"* — with "acceptable" given a definition: a line 2px off
+is acceptable, a missing connector never is.
+
+**Underneath it, two measurements, because the artwork has two kinds of
 content.** Text redrawn in a different typeface never matches pixel for pixel,
 which is the real problem r40 was invented to dodge. Split them rather than
 widen the tolerance:

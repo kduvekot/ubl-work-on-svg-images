@@ -175,6 +175,108 @@ def check_text(bg_render, graph, findings, human):
                                  detail="%s renders as %r, model says %r" % (n["id"], got, want)))
 
 
+def structural(diff, other_linework, glyph_h, span=15):
+    """Split residual ink into placement error and genuinely absent content.
+
+    A redraw never lands every line exactly, so *some* residue is unavoidable and
+    demanding none of it is demanding the impossible. What is not acceptable is a
+    missing element. The two are distinguishable, and the distinction was noted in
+    the very first session and then dropped: red paired with ink nearby means the
+    element is there and displaced; red with nothing near it means the element is
+    not there at all.
+
+    So: residue that lies within `span` of line-work on the other side is a
+    placement error and is tolerated; anything else is a candidate loss, and
+    counts as structural when it is at least as long as a letter is tall -
+    nothing shorter than a glyph is a node, a connector or an arrowhead."""
+    free = diff & ~near(other_linework, span)
+    out = []
+    for f in components(free, min_area=max(MIN_FINDING_AREA, int(0.25 * glyph_h))):
+        # element-sized means a letter's worth of ink, or a line long enough to be
+        # a connector. A 33x15 sliver is neither, however it is oriented.
+        if f["area"] >= 0.5 * glyph_h * glyph_h or max(f["w"], f["h"]) >= 3 * glyph_h:
+            out.append(f)
+    return out
+
+
+def check_text_complete(bg_orig, graph, boxes, findings, glyph_h):
+    """Every word the original shows must be somewhere in the model, saying the
+    same thing, in the same place. Read off the original, so the model cannot
+    grade its own homework by simply not extracting a label."""
+    import difflib
+    placed = []
+    for n in graph.get("nodes", []):
+        for ln in n.get("labelLines") or []:
+            placed.append((ln, ln.get("text", ""), "label of %s" % n["id"]))
+    for t in graph.get("text", []):
+        for ln in t.get("lines") or [t]:
+            placed.append((ln, ln.get("text", ""), "text block"))
+    for p in graph.get("partitions", []):
+        b = p.get("titleBox")
+        if b:
+            placed.append((dict(x=b[0], y=b[1], w=b[2], h=b[3]), p.get("title", ""),
+                           "title of %s %s" % (p.get("axis"), p.get("index"))))
+    for x, y, w, h, label in boxes:
+        want = norm(label[6:].strip("'\"") if label.startswith("text ") else label)
+        # tesseract boxes are per word, the model holds whole lines, so the test is
+        # whether the word appears in the line covering it - not whether the word
+        # equals the line. Single marks are OCR reading the line-work ("|" off a
+        # divider) and are not text at all.
+        if len(re.sub(r"[^0-9A-Za-z]", "", want)) < 2:
+            continue
+        cx, cy = x + w / 2.0, y + h / 2.0
+        # every line whose box covers this word, not just the first: a label wraps,
+        # and the word may be on its second line
+        hits = [(txt, where) for ln, txt, where in placed
+                if ln["x"] - w <= cx <= ln["x"] + ln["w"] + w and
+                ln["y"] - h <= cy <= ln["y"] + ln["h"] + h]
+        hit = hits[0] if hits else None
+        if hit is None:
+            findings.append(dict(kind="text-absent", x=x, y=y, w=w, h=h, expected=want,
+                                 detail="the original says %r here and the model has "
+                                        "nothing there" % want[:40]))
+            continue
+        tokens = [t for txt, _ in hits for t in norm(txt).replace("\n", " ").split()]
+        if not any(difflib.SequenceMatcher(None, want.lower(), t.lower()).ratio() >= 0.8
+                   for t in tokens):
+            findings.append(dict(kind="text-differs", x=x, y=y, w=w, h=h, expected=want,
+                                 got=norm(hit[0]),
+                                 detail="original says %r, model has %r (%s)"
+                                        % (want[:24], norm(hit[0])[:30], hit[1])))
+
+
+def check_coherent(graph, glyph_h, findings):
+    """Internal consistency - cheap, and it catches nonsense the pixels cannot."""
+    ids = {n["id"] for n in graph.get("nodes", [])}
+    ok_for = {"rhombus": {"decision"}, "rounded": {"action"},
+              "rect": {"object", "fork", "note", "action"},
+              "ellipse": {"initial", "final"}, "circle": {"initial", "final"}}
+    for e in graph.get("edges", []):
+        for end in ("from", "to"):
+            if e.get(end) not in ids:
+                findings.append(dict(kind="edge-dangling",
+                                     detail="edge %s->%s has no node %r"
+                                            % (e.get("from"), e.get("to"), e.get(end))))
+    touched = {e.get(end) for e in graph.get("edges", []) for end in ("from", "to")}
+    for n in graph.get("nodes", []):
+        s, k = n.get("shape"), n["kind"]
+        # initial and final are a disc and a ring: the region measured is the
+        # annulus inside the ring, so its outline says nothing about the node's
+        # kind and comparing them raises a conflict that is not one.
+        if s in ok_for and k not in ok_for[s] and k not in ("initial", "final"):
+            findings.append(dict(kind="shape-kind-conflict", x=n["x"], y=n["y"],
+                                 w=n["w"], h=n["h"],
+                                 detail="%s is drawn as %s but typed %s" % (n["id"], s, k)))
+        # a note is an annotation; UBL anchors it with a dashed leader the
+        # extractor does not recover as an edge, so having none is normal
+        if k == "note":
+            continue
+        if n["id"] not in touched:
+            findings.append(dict(kind="node-isolated", x=n["x"], y=n["y"],
+                                 w=n["w"], h=n["h"],
+                                 detail="%s (%s %r) has no edge" % (n["id"], k, n.get("label", "")[:20])))
+
+
 def verify(orig_png, render_png, graph_path, radius=3, diff_out=None):
     graph = json.load(open(graph_path))
     a, bg_orig = ink_of(orig_png)
@@ -201,20 +303,44 @@ def verify(orig_png, render_png, graph_path, radius=3, diff_out=None):
     text_findings = []
     check_text(bg_render, graph, text_findings, human)
 
+    # ---- the five clauses of structural completeness -----------------------
+    glyph_h = max(8.0, float(graph.get("fontPx") or 0) * 0.7 or 12.0)
+    lost = [dict(f, kind="element-absent",
+                 detail="nothing is drawn here: " + attribute(f, graph))
+            for f in structural(missing, lb, glyph_h)]                    # clause 1
+    made = [dict(f, kind="element-invented",
+                 detail="drawn where the original has nothing: " + attribute(f, graph))
+            for f in structural(extra, la, glyph_h)]                      # clause 2
+    check_text_complete(bg_orig, graph, boxes, text_findings, glyph_h)    # clause 3
+    coherence = []
+    check_coherent(graph, glyph_h, coherence)                             # clause 4
+    blocking = lost + made + coherence + \
+        [t for t in text_findings if t["kind"] in ("text-absent", "text-differs",
+                                                   "label-missing")]
+
     if diff_out:
         out = np.full(a.shape + (3,), 255, np.uint8)
         out[missing] = (212, 0, 0)
         out[extra] = (0, 96, 208)
         Image.fromarray(out).save(diff_out)
 
-    all_f = findings + text_findings
-    verdict = "correct" if not all_f else "improvable"
-    if verdict == "correct" and human:
+    if blocking:
+        verdict = "improvable"
+    elif human:                                                           # clause 5
         verdict = "needs-human"
+    else:
+        verdict = "correct"
     return dict(name=graph.get("source", graph_path), verdict=verdict, radius=radius,
                 lineWorkInk=int(la.sum()),
                 missingPx=int(missing.sum()), inventedPx=int(extra.sum()),
-                findings=findings, text=text_findings, human=human)
+                structural=dict(absent=len(lost), invented=len(made),
+                                coherence=len(coherence),
+                                textAbsent=sum(1 for t in text_findings
+                                               if t["kind"] == "text-absent"),
+                                textDiffers=sum(1 for t in text_findings
+                                                if t["kind"] == "text-differs")),
+                blocking=blocking, findings=findings, text=text_findings,
+                coherence=coherence, human=human)
 
 
 def main(argv):
@@ -230,6 +356,16 @@ def main(argv):
 
     lw = max(1, rep.get("lineWorkInk", 1))
     print("  verdict: %s" % rep["verdict"].upper())
+    s = rep.get("structural") or {}
+    if s:
+        print("  structural: %d element(s) absent, %d invented, %d text absent, "
+              "%d text differs, %d incoherent"
+              % (s.get("absent", 0), s.get("invented", 0), s.get("textAbsent", 0),
+                 s.get("textDiffers", 0), s.get("coherence", 0)))
+        for f in (rep.get("blocking") or [])[:10]:
+            where = (" at %5d,%-5d %4dx%-4d" % (f["x"], f["y"], f["w"], f["h"])) \
+                if "x" in f else ""
+            print("    %-20s%s  %s" % (f["kind"], where, f.get("detail", "")[:70]))
     print("  line-work  missing %d px (%.3f%%)   invented %d px (%.3f%%)   radius %d"
           % (rep["missingPx"], 100.0 * rep["missingPx"] / lw,
              rep["inventedPx"], 100.0 * rep["inventedPx"] / lw, rep["radius"]))
