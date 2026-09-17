@@ -1057,6 +1057,24 @@
    "directionConfidence": "LOW"
   },
   {
+   "from": "n4",
+   "to": "n3",
+   "routing": "straight",
+   "fromPoint": [
+    2822,
+    284
+   ],
+   "toPoint": [
+    1684,
+    279
+   ],
+   "arrowInk": [
+    138,
+    472
+   ],
+   "directionConfidence": "high"
+  },
+  {
    "from": "n3",
    "to": "n7",
    "routing": "orthogonal",
@@ -1199,6 +1217,24 @@
     488
    ],
    "directionConfidence": "medium"
+  },
+  {
+   "from": "n4",
+   "to": "n11",
+   "routing": "straight",
+   "fromPoint": [
+    2822,
+    1078
+   ],
+   "toPoint": [
+    1701,
+    1081
+   ],
+   "arrowInk": [
+    184,
+    511
+   ],
+   "directionConfidence": "high"
   },
   {
    "from": "n13",
@@ -1471,6 +1507,24 @@
    "directionConfidence": "LOW"
   },
   {
+   "from": "n16",
+   "to": "n23",
+   "routing": "straight",
+   "fromPoint": [
+    1701,
+    2438
+   ],
+   "toPoint": [
+    1988,
+    2438
+   ],
+   "arrowInk": [
+    180,
+    403
+   ],
+   "directionConfidence": "medium"
+  },
+  {
    "from": "n24",
    "to": "n15",
    "routing": "straight",
@@ -1645,22 +1699,6 @@
    ]
   },
   {
-   "text": "(EE",
-   "x": 1684,
-   "y": 267,
-   "w": 1139,
-   "h": 34,
-   "lines": [
-    {
-     "x": 1680,
-     "y": 263,
-     "w": 1147,
-     "h": 42,
-     "text": "(EE"
-    }
-   ]
-  },
-  {
    "text": "oy)\n=\n=\n=\nSS\noO.",
    "x": 19,
    "y": 730,
@@ -1684,43 +1722,11 @@
    ]
   },
   {
-   "text": "a",
-   "x": 1701,
-   "y": 1060,
-   "w": 1122,
-   "h": 34,
-   "lines": [
-    {
-     "x": 1697,
-     "y": 1056,
-     "w": 1130,
-     "h": 42,
-     "text": "a"
-    }
-   ]
-  },
-  {
    "text": "=\n\u00b0)\na\n=)\n\u00a9\n\u00ae\nss\nLU",
    "x": 19,
    "y": 2063,
    "w": 25,
    "h": 145
-  },
-  {
-   "text": "oq >",
-   "x": 1701,
-   "y": 2431,
-   "w": 288,
-   "h": 26,
-   "lines": [
-    {
-     "x": 1697,
-     "y": 2427,
-     "w": 296,
-     "h": 34,
-     "text": "oq >"
-    }
-   ]
   },
   {
    "text": "<\nS)\n=\nx\noe\n\u20ac\n3\nO",

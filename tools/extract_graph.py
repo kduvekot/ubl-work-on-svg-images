@@ -88,6 +88,28 @@ def label_lines(ink, n, pad):
     return out
 
 
+def endpoint_nodes(xs, ys, cands):
+    """The two nodes a connector actually runs between, given everything it passes
+    near. Its ends are approximated by the usual two-pass diameter - farthest
+    pixel from the centroid, then farthest from that - and each end claims the
+    candidate whose box it is nearest. Returns None if both ends claim the same
+    node, which means this component is not a connector between two of them."""
+    cx, cy = xs.mean(), ys.mean()
+    i = int(np.argmax((xs - cx) ** 2 + (ys - cy) ** 2))
+    j = int(np.argmax((xs - xs[i]) ** 2 + (ys - ys[i]) ** 2))
+    picks = []
+    for px, py in ((xs[i], ys[i]), (xs[j], ys[j])):
+        best, bd = None, None
+        for n in cands:
+            dx = max(n["x"] - px, 0, px - (n["x"] + n["w"]))
+            dy = max(n["y"] - py, 0, py - (n["y"] + n["h"]))
+            d = dx * dx + dy * dy
+            if bd is None or d < bd:
+                best, bd = n, d
+        picks.append(best)
+    return None if picks[0] is picks[1] else picks
+
+
 def enclosed_regions(ink):
     free = ~ink
     lbl, _ = ndi.label(free)
@@ -563,7 +585,7 @@ def main(path, out_json=None):
             mask[a:b, both] = True
 
     lbl, _ = ndi.label(mask, structure=np.ones((3, 3)))
-    edges, textbits = [], []
+    edges, textbits, unexplained = [], [], []
     print("\nEDGES")
     for i, sl in enumerate(ndi.find_objects(lbl), start=1):
         if sl is None:
@@ -578,8 +600,31 @@ def main(path, out_json=None):
         touch = [n for n in nodes
                  if (((xs >= n["x"] - T) & (xs <= n["x"] + n["w"] + T) &
                       (ys >= n["y"] - T) & (ys <= n["y"] + n["h"] + T)).sum() > 3)]
+        if len(touch) > 2:
+            # A connector that merely runs close to a third node is still an edge.
+            # UBL routes inter-lane flows directly under the notes, so demanding
+            # exactly two nodes within T threw those away - and worse, dropped
+            # them into the text bin, where they were read as text and became
+            # part of a partition title. Keep the two nodes nearest the
+            # component's own ends instead.
+            touch = endpoint_nodes(xs, ys, touch) or touch
         if len(touch) != 2 or n_px < EDGE_MIN_AREA:
-            textbits.append([int(xs.min()), int(ys.min()), int(xs.max()), int(ys.max())])
+            bx0, by0 = int(xs.min()), int(ys.min())
+            bx1, by1 = int(xs.max()), int(ys.max())
+            # Only bin this as text if it is the size and shape of text. A
+            # rejected connector is neither, and letting one into the text bin
+            # is not harmless: the blocks are merged by proximity in four
+            # cascading passes, so a single long fragment chains unrelated
+            # labels into one block. That is how a partition title came out 764
+            # characters long, carrying half the diagram's words.
+            if (by1 - by0 + 1) <= font_px * 2.2 and (bx1 - bx0 + 1) <= font_px * 20:
+                textbits.append([bx0, by0, bx1, by1])
+            else:
+                unexplained.append(dict(kind="unexplained-line-work",
+                                        x=bx0, y=by0, w=bx1 - bx0 + 1, h=by1 - by0 + 1,
+                                        reason="line-work that is neither a connector"
+                                               " between two nodes nor the size of text",
+                                        check="decide what this is; the SVG does not draw it"))
             continue
 
         def contact(node):
@@ -694,6 +739,7 @@ def main(path, out_json=None):
             n.pop("mask", None)
         # every edge the direction probe could not read confidently is a human-check
         # item too, so the one list is the whole of what this run is unsure about
+        uncertain.extend(unexplained)
         for e in edges:
             if e.get("directionConfidence") == "LOW":
                 uncertain.append(dict(kind="edge-direction", reason="arrowhead ink is ambiguous"

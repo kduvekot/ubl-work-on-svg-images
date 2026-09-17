@@ -895,7 +895,8 @@
     303,
     510
    ],
-   "directionConfidence": "medium"
+   "directionConfidence": "medium",
+   "guard": "[yes]"
   },
   {
    "from": "n6",
@@ -931,8 +932,7 @@
     180,
     513
    ],
-   "directionConfidence": "high",
-   "guard": "Update Transport\nes) Execution Plan Request?\n[no]"
+   "directionConfidence": "high"
   },
   {
    "from": "n5",
@@ -969,6 +969,25 @@
     514
    ],
    "directionConfidence": "high"
+  },
+  {
+   "from": "n9",
+   "to": "n11",
+   "routing": "orthogonal",
+   "fromPoint": [
+    905,
+    683
+   ],
+   "toPoint": [
+    382,
+    843
+   ],
+   "arrowInk": [
+    184,
+    516
+   ],
+   "directionConfidence": "high",
+   "guard": "[no]"
   },
   {
    "from": "n3",
@@ -1117,6 +1136,25 @@
    "directionConfidence": "high"
   },
   {
+   "from": "n15",
+   "to": "n20",
+   "routing": "orthogonal",
+   "fromPoint": [
+    1108,
+    1302
+   ],
+   "toPoint": [
+    391,
+    1686
+   ],
+   "arrowInk": [
+    180,
+    599
+   ],
+   "directionConfidence": "high",
+   "guard": "Update Transport Execution\nPlan Request?\n> [no]"
+  },
+  {
    "from": "n17",
    "to": "n16",
    "routing": "straight",
@@ -1150,7 +1188,8 @@
     180,
     554
    ],
-   "directionConfidence": "high"
+   "directionConfidence": "high",
+   "guard": "[yes]"
   },
   {
    "from": "n16",
@@ -1293,12 +1332,11 @@
    ]
   },
   {
-   "text": "Update Transport\nes) Execution Plan Request?\n[no]",
+   "text": "\u201c|\u201d Update Transport\nes) Execution Plan Request?",
    "x": 308,
-   "y": 533,
-   "w": 598,
-   "h": 311,
-   "attachedTo": "n2->n5"
+   "y": 565,
+   "w": 500,
+   "h": 76
   },
   {
    "text": "Transport Execution\nPlan Request\nAcceptable?",
@@ -1348,6 +1386,23 @@
    "attachedTo": "n10->n8"
   },
   {
+   "text": "[no]",
+   "x": 431,
+   "y": 750,
+   "w": 49,
+   "h": 26,
+   "lines": [
+    {
+     "x": 431,
+     "y": 750,
+     "w": 49,
+     "h": 26,
+     "text": "[no]"
+    }
+   ],
+   "attachedTo": "n9->n11"
+  },
+  {
    "text": "[yes]",
    "x": 2853,
    "y": 767,
@@ -1365,11 +1420,109 @@
    "attachedTo": "n10->n14"
   },
   {
-   "text": "Transport Execution Plan\n\u00a9 Acceptable?\n[no]\n[yes]\nnian Maneport Execution Confirm Transport\nan Khequest: Execution Plan\n[no]\n[yes]",
+   "text": "Transport Execution Plan\nAcceptable?",
+   "x": 1179,
+   "y": 1411,
+   "w": 382,
+   "h": 76,
+   "lines": [
+    {
+     "x": 1180,
+     "y": 1411,
+     "w": 381,
+     "h": 31,
+     "text": "Transport Execution Plan"
+    },
+    {
+     "x": 1179,
+     "y": 1455,
+     "w": 187,
+     "h": 32,
+     "text": "Acceptable?"
+    }
+   ]
+  },
+  {
+   "text": "[no]",
+   "x": 999,
+   "y": 1503,
+   "w": 49,
+   "h": 25,
+   "lines": [
+    {
+     "x": 999,
+     "y": 1503,
+     "w": 49,
+     "h": 25,
+     "text": "[no]"
+    }
+   ],
+   "attachedTo": "n15->n20"
+  },
+  {
+   "text": "[yes]",
+   "x": 1150,
+   "y": 1540,
+   "w": 54,
+   "h": 26,
+   "lines": [
+    {
+     "x": 1150,
+     "y": 1540,
+     "w": 54,
+     "h": 26,
+     "text": "[yes]"
+    }
+   ],
+   "attachedTo": "n18->n17"
+  },
+  {
+   "text": "Update Transport Execution\nPlan Request?\n> [no]",
+   "x": 432,
+   "y": 1654,
+   "w": 421,
+   "h": 128,
+   "lines": [
+    {
+     "x": 432,
+     "y": 1654,
+     "w": 421,
+     "h": 32,
+     "text": "Update Transport Execution"
+    },
+    {
+     "x": 432,
+     "y": 1699,
+     "w": 219,
+     "h": 31,
+     "text": "Plan Request?"
+    },
+    {
+     "x": 428,
+     "y": 1742,
+     "w": 65,
+     "h": 40,
+     "text": "> [no]"
+    }
+   ],
+   "attachedTo": "n15->n20"
+  },
+  {
+   "text": "[yes]",
    "x": 250,
-   "y": 1302,
-   "w": 1311,
-   "h": 497
+   "y": 1773,
+   "w": 54,
+   "h": 26,
+   "lines": [
+    {
+     "x": 250,
+     "y": 1773,
+     "w": 54,
+     "h": 26,
+     "text": "[yes]"
+    }
+   ],
+   "attachedTo": "n20->n2"
   },
   {
    "text": "Transport Service Ready\nFor Execution",

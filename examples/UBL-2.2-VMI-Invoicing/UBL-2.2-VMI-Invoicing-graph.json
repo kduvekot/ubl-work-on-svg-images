@@ -1,5 +1,5 @@
 {
- "source": "/tmp/claude-0/-home-user-ubl-work-on-svg-images/8401bc7e-a4f8-5330-91e3-faad1b1f7c31/scratchpad/ubl/art/UBL-2.2-VMI-Invoicing.png",
+ "source": "ubl/art/UBL-2.2-VMI-Invoicing.png",
  "size": [
   3425,
   1525
@@ -315,30 +315,6 @@
   }
  ],
  "uncertain": [
-  {
-   "x": 10,
-   "y": 10,
-   "w": 1641,
-   "h": 1505,
-   "shape": "rect",
-   "iou": 0.906,
-   "border": 0.975,
-   "kind": "dropped-region",
-   "reason": "is a partition cell",
-   "check": "a shape here would be missing from the SVG"
-  },
-  {
-   "x": 1657,
-   "y": 10,
-   "w": 1758,
-   "h": 1505,
-   "shape": "rect",
-   "iou": 0.979,
-   "border": 0.973,
-   "kind": "dropped-region",
-   "reason": "is a partition cell",
-   "check": "a shape here would be missing from the SVG"
-  },
   {
    "x": 1403,
    "y": 679,

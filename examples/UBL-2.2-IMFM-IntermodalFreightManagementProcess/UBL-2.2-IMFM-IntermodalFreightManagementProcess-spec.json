@@ -690,6 +690,20 @@
    "confidence": "LOW"
   },
   {
+   "from": "n4",
+   "to": "n3",
+   "exitXY": [
+    0.0,
+    0.0336
+   ],
+   "entryXY": [
+    1.0,
+    0.6517
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
    "from": "n3",
    "to": "n7",
    "exitXY": [
@@ -800,6 +814,20 @@
    ],
    "straight": false,
    "confidence": "medium"
+  },
+  {
+   "from": "n4",
+   "to": "n11",
+   "exitXY": [
+    0.0,
+    0.4632
+   ],
+   "entryXY": [
+    1.0,
+    0.4467
+   ],
+   "straight": true,
+   "confidence": "high"
   },
   {
    "from": "n13",
@@ -1010,6 +1038,20 @@
    ],
    "straight": false,
    "confidence": "LOW"
+  },
+  {
+   "from": "n16",
+   "to": "n23",
+   "exitXY": [
+    1.0,
+    0.7938
+   ],
+   "entryXY": [
+    0.0,
+    0.4981
+   ],
+   "straight": true,
+   "confidence": "medium"
   },
   {
    "from": "n24",

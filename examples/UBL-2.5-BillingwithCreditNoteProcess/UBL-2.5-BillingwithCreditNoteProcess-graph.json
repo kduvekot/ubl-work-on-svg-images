@@ -527,7 +527,7 @@
     856
    ],
    "directionConfidence": "LOW",
-   "guard": "[initial\ncharges or\nunder\ncharged]"
+   "guard": "[over\ncharged"
   },
   {
    "from": "n3",
@@ -546,6 +546,25 @@
     945
    ],
    "directionConfidence": "high"
+  },
+  {
+   "from": "n9",
+   "to": "n4",
+   "routing": "orthogonal",
+   "fromPoint": [
+    2840,
+    1041
+   ],
+   "toPoint": [
+    2534,
+    524
+   ],
+   "arrowInk": [
+    244,
+    623
+   ],
+   "directionConfidence": "high",
+   "guard": "[incorrect information]"
   },
   {
    "from": "n5",
@@ -617,8 +636,7 @@
     220,
     426
    ],
-   "directionConfidence": "medium",
-   "guard": "[over\ncharged"
+   "directionConfidence": "medium"
   },
   {
    "from": "n10",
@@ -842,11 +860,27 @@
   },
   {
    "text": "[over\ncharged",
-   "x": 2534,
-   "y": 524,
-   "w": 360,
-   "h": 519,
-   "attachedTo": "n9->n8"
+   "x": 2769,
+   "y": 719,
+   "w": 125,
+   "h": 80,
+   "lines": [
+    {
+     "x": 2770,
+     "y": 719,
+     "w": 78,
+     "h": 33,
+     "text": "[over"
+    },
+    {
+     "x": 2769,
+     "y": 766,
+     "w": 127,
+     "h": 33,
+     "text": "charged"
+    }
+   ],
+   "attachedTo": "n4->n6"
   },
   {
    "text": "[incorrect\ncharges]",
@@ -873,34 +907,12 @@
    "attachedTo": "n10->n6"
   },
   {
-   "text": "XxX\n[incorrect information]\nS \\Y",
+   "text": "[incorrect information]",
    "x": 2675,
    "y": 1096,
    "w": 346,
-   "h": 199,
-   "lines": [
-    {
-     "x": 2772,
-     "y": 1092,
-     "w": 51,
-     "h": 56,
-     "text": "XxX"
-    },
-    {
-     "x": 2675,
-     "y": 1155,
-     "w": 346,
-     "h": 33,
-     "text": "[incorrect information]"
-    },
-    {
-     "x": 2671,
-     "y": 1193,
-     "w": 354,
-     "h": 106,
-     "text": "S \\Y"
-    }
-   ]
+   "h": 92,
+   "attachedTo": "n9->n4"
   },
   {
    "text": "[accept\ncredit]",
@@ -980,6 +992,15 @@
    "kind": "dropped-region",
    "reason": "outline matches no UML node shape (best rhombus 0.54)",
    "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "kind": "unexplained-line-work",
+   "x": 2853,
+   "y": 1193,
+   "w": 79,
+   "h": 102,
+   "reason": "line-work that is neither a connector between two nodes nor the size of text",
+   "check": "decide what this is; the SVG does not draw it"
   },
   {
    "kind": "edge-direction",

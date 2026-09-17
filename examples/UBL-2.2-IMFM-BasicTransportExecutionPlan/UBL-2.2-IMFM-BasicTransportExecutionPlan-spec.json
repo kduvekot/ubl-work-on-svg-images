@@ -583,7 +583,8 @@
     0.4495
    ],
    "straight": false,
-   "confidence": "medium"
+   "confidence": "medium",
+   "label": "[yes]"
   },
   {
    "from": "n6",
@@ -611,8 +612,7 @@
     0.4968
    ],
    "straight": true,
-   "confidence": "high",
-   "label": "Update Transport\nes) Execution Plan Request?\n[no]"
+   "confidence": "high"
   },
   {
    "from": "n5",
@@ -641,6 +641,21 @@
    ],
    "straight": true,
    "confidence": "high"
+  },
+  {
+   "from": "n9",
+   "to": "n11",
+   "exitXY": [
+    0.0,
+    0.5
+   ],
+   "entryXY": [
+    0.4939,
+    0.0
+   ],
+   "straight": false,
+   "confidence": "high",
+   "label": "[no]"
   },
   {
    "from": "n3",
@@ -757,6 +772,21 @@
    "confidence": "high"
   },
   {
+   "from": "n15",
+   "to": "n20",
+   "exitXY": [
+    0.4988,
+    1.0
+   ],
+   "entryXY": [
+    0.4947,
+    0.0
+   ],
+   "straight": false,
+   "confidence": "high",
+   "label": "Update Transport Execution\nPlan Request?\n> [no]"
+  },
+  {
    "from": "n17",
    "to": "n16",
    "exitXY": [
@@ -782,7 +812,8 @@
     0.4964
    ],
    "straight": true,
-   "confidence": "high"
+   "confidence": "high",
+   "label": "[yes]"
   },
   {
    "from": "n16",
@@ -857,13 +888,6 @@
  ],
  "guards": [
   {
-   "text": "Update Transport\nes) Execution Plan Request?\n[no]",
-   "x": 133.1,
-   "y": 230.3,
-   "w": 258.4,
-   "h": 134.4
-  },
-  {
    "text": "[no]",
    "x": 1197.4,
    "y": 272.7,
@@ -878,6 +902,20 @@
    ]
   },
   {
+   "text": "[no]",
+   "x": 186.2,
+   "y": 324.1,
+   "w": 21.2,
+   "h": 11.2,
+   "labelLines": [
+    {
+     "text": "[no]",
+     "cx": 196.8,
+     "cy": 329.7
+    }
+   ]
+  },
+  {
    "text": "[yes]",
    "x": 1232.8,
    "y": 331.4,
@@ -888,6 +926,72 @@
      "text": "[yes]",
      "cx": 1244.5,
      "cy": 337.1
+    }
+   ]
+  },
+  {
+   "text": "[no]",
+   "x": 431.7,
+   "y": 649.5,
+   "w": 21.2,
+   "h": 10.8,
+   "labelLines": [
+    {
+     "text": "[no]",
+     "cx": 442.3,
+     "cy": 654.9
+    }
+   ]
+  },
+  {
+   "text": "[yes]",
+   "x": 496.9,
+   "y": 665.5,
+   "w": 23.3,
+   "h": 11.2,
+   "labelLines": [
+    {
+     "text": "[yes]",
+     "cx": 508.6,
+     "cy": 671.1
+    }
+   ]
+  },
+  {
+   "text": "Update Transport Execution\nPlan Request?\n> [no]",
+   "x": 186.7,
+   "y": 714.7,
+   "w": 181.9,
+   "h": 55.3,
+   "labelLines": [
+    {
+     "text": "Update Transport Execution",
+     "cx": 277.6,
+     "cy": 721.6
+    },
+    {
+     "text": "Plan Request?",
+     "cx": 234.0,
+     "cy": 740.9
+    },
+    {
+     "text": "> [no]",
+     "cx": 199.0,
+     "cy": 761.4
+    }
+   ]
+  },
+  {
+   "text": "[yes]",
+   "x": 108.0,
+   "y": 766.1,
+   "w": 23.3,
+   "h": 11.2,
+   "labelLines": [
+    {
+     "text": "[yes]",
+     "cx": 119.7,
+     "cy": 771.8
     }
    ]
   }
