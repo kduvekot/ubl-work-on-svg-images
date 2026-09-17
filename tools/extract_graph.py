@@ -151,6 +151,32 @@ def enclosed_regions(ink):
     return out
 
 
+def glyph_height(bg, min_conf=30):
+    """Median height of a word in this diagram's own type, read once off the
+    original.
+
+    The phantom filter needs to know how big a letter is before it can tell a
+    node's own label from a node: the counters of letters - the holes in O, Q, R -
+    are enclosed regions like any other, and a box that encloses one would
+    otherwise delete itself. The type size measured later comes from node labels,
+    which is circular here, so this reads it independently. Returns 0 if nothing
+    legible was found, and the caller falls back to a relative-area test."""
+    try:
+        d = pytesseract.image_to_data(bg, config="--psm 11",
+                                      output_type=pytesseract.Output.DICT)
+    except Exception:
+        return 0.0
+    hs = []
+    for i, t in enumerate(d["text"]):
+        try:
+            conf = float(d["conf"][i])
+        except (TypeError, ValueError):
+            continue
+        if t.strip() and conf >= min_conf:
+            hs.append(d["height"][i])
+    return float(np.median(hs)) if hs else 0.0
+
+
 def border_coverage(ink, n, pad=3):
     """fraction of the bbox perimeter that sits on ink - a stroked box is ~1.0,
     white merely trapped between other shapes is much lower"""
@@ -322,7 +348,7 @@ def in_title_band(n, bands, tol=10):
 
 def drop_phantoms(ink, regs, cells=(), min_iou=0.88, max_open=2,
                   own_iou=0.97, own_cov=0.97, min_interior=0.01,
-                  title_bands=(None, None), flags=None):
+                  title_bands=(None, None), glyph_h=0.0, flags=None):
     """White trapped between boxes, partition rules and connectors looks like a
     shape. Four tests, in order: it must not be a partition cell, it must not
     enclose another region, and unless it is recognisably a note or an activity
@@ -352,16 +378,18 @@ def drop_phantoms(ink, regs, cells=(), min_iou=0.88, max_open=2,
         elif any(b is not a and b["x"] >= a["x"] - 2 and b["y"] >= a["y"] - 2 and
                  b["x"] + b["w"] <= a["x"] + a["w"] + 2 and
                  b["y"] + b["h"] <= a["y"] + a["h"] + 2 and
-                 # ...but the counters of its own label are enclosed regions too.
-                 # A node containing a node covers a good part of it - a lane
-                 # holding an action box is ~15% of the lane - while the hole in a
-                 # "Q" is ~0.6% of the box around it. Without this, any box whose
-                 # label contains a closed letter deletes itself: three action
-                 # nodes vanished from Tender-QualificationInfo that way, and
-                 # nothing was reported because the drop looked principled.
-                 # The letter-counter filter proper needs the type size, which is
-                 # only measured after this runs.
-                 (b["w"] * b["h"]) >= 0.02 * (a["w"] * a["h"])
+                 # ...but the counters of its own label are enclosed regions too,
+                 # so a box whose label holds a closed letter would delete itself.
+                 # Three action nodes vanished from Tender-QualificationInfo that
+                 # way and the only decision node from Tender-ContractInfoNotify,
+                 # and the drops looked principled enough that nothing was
+                 # reported. A counter is by definition smaller than the letter
+                 # around it, so measure the type and require the enclosed region
+                 # to be at least the height of a word. Relative area is a poor
+                 # stand-in: the hole in a "Q" is 0.6% of a wide action box but
+                 # the "O" of "OK?" is 3.4% of its own small rhombus.
+                 (b["h"] >= 0.9 * glyph_h if glyph_h else
+                  (b["w"] * b["h"]) >= 0.02 * (a["w"] * a["h"]))
                  for b in regs):
             why = "encloses another region"
         elif is_final_ring(ink, a, ink.shape[1]) or is_note(ink, a):
@@ -564,9 +592,13 @@ def main(path, out_json=None):
              for r in range(len(hb) - 1) for c in range(len(vb) - 1)]
 
     uncertain = []
+    gh = glyph_height(bg)
+    print("   type measured off the page: a word is %.0fpx tall" % gh
+          if gh else "   no legible type found; enclosure falls back to relative area")
     regs = drop_phantoms(ink, enclosed_regions(ink), cells, flags=uncertain,
                          title_bands=(hb[1] if header else None,
-                                      vb[1] if strip else None))
+                                      vb[1] if strip else None),
+                         glyph_h=gh)
     for n in regs:
         n["stroke"] = stroke_of(ink, n)
     # only the box-shaped nodes take part in the weight split: a decision rhombus
@@ -629,7 +661,12 @@ def main(path, out_json=None):
         boxes = label_lines(ink, n, max(4, n.get("stroke", 4)) + 2) \
             if n["kind"] in ("action", "object", "note") else []
         if n["kind"] == "decision":
-            # a rhombus only has room for text across its middle
+            # A rhombus only has room for text across its middle. Reading it off
+            # the interior mask the way a box is read was tried and is worse: the
+            # slanted border survives the erosion and sits in the crop, so
+            # "Reconcile Charges" came back as "xeconcile ~harges". The small
+            # rhombus labels ("OK?") are misread either way and need their own
+            # treatment.
             n["label"] = ocr(bg, n["x"] + n["w"] // 4, n["y"] + n["h"] // 4,
                              n["w"] // 2, n["h"] // 2)
         elif boxes:
