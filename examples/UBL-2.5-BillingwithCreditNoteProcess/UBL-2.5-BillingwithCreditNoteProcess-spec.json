@@ -72,8 +72,8 @@
    "y": 167.7,
    "w": 213.9,
    "h": 42.3,
-   "rx": 20.3,
-   "ry": 19.9,
+   "rx": 23.3,
+   "ry": 22.9,
    "labelLines": [
     {
      "text": "Receive Invoice",
@@ -90,8 +90,8 @@
    "y": 171.1,
    "w": 212.2,
    "h": 50.1,
-   "rx": 19.0,
-   "ry": 19.4,
+   "rx": 21.6,
+   "ry": 22.5,
    "labelLines": [
     {
      "text": "Raise Invoice",
@@ -133,8 +133,8 @@
    "y": 321.9,
    "w": 212.6,
    "h": 48.4,
-   "rx": 20.3,
-   "ry": 22.0,
+   "rx": 23.3,
+   "ry": 25.1,
    "labelLines": [
     {
      "text": "Receive Credit Note",
@@ -151,8 +151,8 @@
    "y": 328.0,
    "w": 212.6,
    "h": 44.1,
-   "rx": 22.5,
-   "ry": 20.3,
+   "rx": 25.5,
+   "ry": 23.3,
    "labelLines": [
     {
      "text": "Raise Credit Note",
@@ -217,8 +217,8 @@
    "y": 537.6,
    "w": 250.2,
    "h": 56.2,
-   "rx": 12.1,
-   "ry": 13.8,
+   "rx": 14.3,
+   "ry": 16.0,
    "labelLines": [
     {
      "text": "Receive Account Response",
@@ -235,8 +235,8 @@
    "y": 541.9,
    "w": 213.9,
    "h": 44.1,
-   "rx": 20.7,
-   "ry": 21.2,
+   "rx": 23.8,
+   "ry": 24.2,
    "labelLines": [
     {
      "text": "Send Account Response",

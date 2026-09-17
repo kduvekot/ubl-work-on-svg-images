@@ -129,10 +129,21 @@ def enclosed_regions(ink):
         # the label glyphs punch holes in the interior; fill them so that `solid`
         # measures the shape itself and not how much text it happens to carry
         solid = ndi.binary_fill_holes(l2[sl] == i)
-        # corner radii, read straight off the shape: the top row of a rounded
-        # rectangle starts rx in from the left, the left column ry down from the top
+        # Corner radii, read straight off the shape: the top row of a rounded
+        # rectangle starts rx in from the left, the left column ry down from the
+        # top - plus a correction, because that reading is biased small and the
+        # bias is geometric, not noise. An arc of radius r stays within one pixel
+        # of its own tangent for about sqrt(r) pixels either side of the top, so
+        # those pixels are not yet distinguishable from the straight edge and the
+        # raw reading lands at r - sqrt(r). Measured against rects rendered at
+        # known radii: r=30 reads 23-25, r=80 reads 67-69, r=120 reads 105-107.
+        # Leaving it uncorrected made the pipeline subtract the bias twice - once
+        # reading the original, once again when the render was measured - so every
+        # action box was drawn with a corner ~10px tighter than the artwork's.
         rx = int(np.argmax(solid[0])) if solid[0].any() else 0
         ry = int(np.argmax(solid[:, 0])) if solid[:, 0].any() else 0
+        rx += int(round(math.sqrt(rx))) if rx else 0
+        ry += int(round(math.sqrt(ry))) if ry else 0
         out.append(dict(x=int(x0), y=int(y0), w=int(w), h=int(h),
                         area=area, fill=round(area / (w * h), 3),
                         solid=round(float(solid.sum()) / (w * h), 3),
@@ -409,7 +420,7 @@ def heavy_stroke(strokes):
     return (s[i] + s[i - 1]) / 2.0
 
 
-def classify(n, W, H, ink=None, heavy=9):
+def classify(n, W, H, ink=None, heavy=9, has_rounded=False):
     # `solid` is the interior with the label glyphs filled back in, so it measures
     # the outline's shape: ~1.0 rectangle, ~0.79 ellipse, ~0.5 rhombus
     f, ar = n.get("solid", n["fill"]), n["w"] / n["h"]
@@ -433,6 +444,14 @@ def classify(n, W, H, ink=None, heavy=9):
     # weight only separates the boxes that really are rectangular.
     if n.get("shape") == "rounded" and max(n.get("rx") or 0, n.get("ry") or 0) > 2:
         return "action"
+    # Where the weight split found nothing, the artwork is not distinguishing the
+    # two by weight - so read the distinction it *is* making. A diagram holding
+    # both rounded and square boxes at one stroke weight is separating them by
+    # shape, and the square ones are the object nodes. UBL-2.3-Tender-Contract-Post
+    # draws every box at 8px and came out as 14 actions and no object node at all,
+    # so its three "Tender Contract" object nodes were rendered with round corners.
+    if heavy >= 10 ** 6 and has_rounded and n.get("shape") == "rect":
+        return "object"
     if n.get("stroke", 0) >= heavy:
         return "object"
     return "action"
@@ -541,6 +560,8 @@ def main(path, out_json=None):
         n["stroke"] = stroke_of(ink, n)
     # only the box-shaped nodes take part in the weight split: a decision rhombus
     # and a final ring are measured across a slanted or curved edge
+    has_rounded = any(r.get("shape") == "rounded" and
+                      max(r.get("rx") or 0, r.get("ry") or 0) > 2 for r in regs)
     box_strokes = [n["stroke"] for n in regs if n.get("shape") in (None, "rect", "rounded")]
     heavy = heavy_stroke(box_strokes)
     print("   object nodes are those stroked heavier than %.1fpx" % heavy
@@ -555,7 +576,7 @@ def main(path, out_json=None):
                               check="confirm the diagram really has no object nodes"))
     nodes, partitions = [], []
     for n in regs:
-        k = classify(n, W, H, ink, heavy)
+        k = classify(n, W, H, ink, heavy, has_rounded)
         rec = dict(n, kind=k)
         if k == "final":
             rec["innerRatio"] = inner_disc_ratio(ink, n)
