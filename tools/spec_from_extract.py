@@ -110,16 +110,35 @@ def main(src, out, model_w=1480.0):
     bandLabels = [{"title": b["title"], "cx": M(gutter / 2),
                    "cy": M((b["y0"] + b["y1"]) / 2)} for b in bands if gutter and b["title"]]
 
-    # guard labels keep the position they were measured at
+    # Free text keeps the position it was measured at.
+    #
+    # This used to carry only text the extractor had managed to attach to an edge,
+    # which silently dropped 323 of the 386 blocks read off the 78 UML diagrams -
+    # every "Yes"/"No" whose edge was not matched, and every free label such as
+    # "Publish Official Journal". The artwork has that ink, so the SVG needs it
+    # whether or not the attachment succeeded; an unattached label is still
+    # content, it just carries less meaning in the graph. Anything already drawn
+    # as a partition title is skipped so it is not drawn twice.
+    titles = [tuple(p["titleBox"]) for p in e.get("partitions", []) if p.get("titleBox")]
+    title_text = {" ".join((p.get("title") or "").split()).lower()
+                  for p in e.get("partitions", []) if p.get("title")}
+
+    def drawn_as_title(t):
+        if " ".join(t["text"].split()).lower() in title_text:
+            return True
+        return any(abs(t["x"] - b[0]) <= 2 and abs(t["y"] - b[1]) <= 2 and
+                   abs(t["w"] - b[2]) <= 2 and abs(t["h"] - b[3]) <= 2 for b in titles)
+
     guards = []
     for t in e.get("text", []):
-        if t.get("attachedTo") or t["text"].startswith("["):
-            g = {"text": t["text"], "x": M(t["x"]), "y": M(t["y"]),
-                 "w": M(t["w"]), "h": M(t["h"])}
-            if t.get("lines"):
-                g["labelLines"] = [{"text": l["text"], "cx": M(l["x"] + l["w"] / 2),
-                                    "cy": M(l["y"] + l["h"] / 2)} for l in t["lines"]]
-            guards.append(g)
+        if drawn_as_title(t):
+            continue
+        g = {"text": t["text"], "x": M(t["x"]), "y": M(t["y"]),
+             "w": M(t["w"]), "h": M(t["h"])}
+        if t.get("lines"):
+            g["labelLines"] = [{"text": l["text"], "cx": M(l["x"] + l["w"] / 2),
+                                "cy": M(l["y"] + l["h"] / 2)} for l in t["lines"]]
+        guards.append(g)
 
     spec = {
         "canvas": {"w": model_w, "h": round(H * s, 3)},

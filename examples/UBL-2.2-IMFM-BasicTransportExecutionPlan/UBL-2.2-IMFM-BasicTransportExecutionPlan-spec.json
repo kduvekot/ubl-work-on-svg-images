@@ -968,6 +968,51 @@
  ],
  "guards": [
   {
+   "text": "\u2014_",
+   "x": 61.8,
+   "y": 171.6,
+   "w": 16.4,
+   "h": 6.9,
+   "labelLines": [
+    {
+     "text": "\u2014_",
+     "cx": 70.0,
+     "cy": 174.1
+    }
+   ]
+  },
+  {
+   "text": "\u201c|\u201d Update Transport\nes) Execution Plan Request?",
+   "x": 133.1,
+   "y": 244.1,
+   "w": 216.1,
+   "h": 32.8
+  },
+  {
+   "text": "Transport Execution\nPlan Request\nAcceptable?",
+   "x": 1313.2,
+   "y": 269.2,
+   "w": 131.4,
+   "h": 51.9,
+   "labelLines": [
+    {
+     "text": "Transport Execution",
+     "cx": 1379.3,
+     "cy": 275.9
+    },
+    {
+     "text": "Plan Request",
+     "cx": 1358.4,
+     "cy": 295.4
+    },
+    {
+     "text": "Acceptable?",
+     "cx": 1353.6,
+     "cy": 314.1
+    }
+   ]
+  },
+  {
    "text": "[no]",
    "x": 1197.4,
    "y": 272.7,
@@ -1006,6 +1051,25 @@
      "text": "[yes]",
      "cx": 1244.5,
      "cy": 337.1
+    }
+   ]
+  },
+  {
+   "text": "Transport Execution Plan\nAcceptable?",
+   "x": 509.5,
+   "y": 609.7,
+   "w": 165.1,
+   "h": 32.8,
+   "labelLines": [
+    {
+     "text": "Transport Execution Plan",
+     "cx": 592.2,
+     "cy": 616.4
+    },
+    {
+     "text": "Acceptable?",
+     "cx": 549.9,
+     "cy": 635.6
     }
    ]
   },
@@ -1072,6 +1136,25 @@
      "text": "[yes]",
      "cx": 119.7,
      "cy": 771.8
+    }
+   ]
+  },
+  {
+   "text": "Transport Service Ready\nFor Execution",
+   "x": 1242.8,
+   "y": 768.3,
+   "w": 162.9,
+   "h": 30.2,
+   "labelLines": [
+    {
+     "text": "Transport Service Ready",
+     "cx": 1324.2,
+     "cy": 775.2
+    },
+    {
+     "text": "For Execution",
+     "cx": 1288.1,
+     "cy": 793.2
     }
    ]
   }

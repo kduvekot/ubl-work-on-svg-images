@@ -1144,5 +1144,55 @@
    "confidence": "high"
   }
  ],
- "guards": []
+ "guards": [
+  {
+   "text": "Transportation Network Manager",
+   "x": 1163.3,
+   "y": 9.1,
+   "w": 236.8,
+   "h": 12.5,
+   "labelLines": [
+    {
+     "text": "Transportation Network Manager",
+     "cx": 1281.7,
+     "cy": 15.3
+    }
+   ]
+  },
+  {
+   "text": "oy)\n=\n=\n=\nSS\noO.",
+   "x": 8.2,
+   "y": 315.4,
+   "w": 13.8,
+   "h": 54.9
+  },
+  {
+   "text": "\\/",
+   "x": 155.6,
+   "y": 322.8,
+   "w": 16.4,
+   "h": 14.3,
+   "labelLines": [
+    {
+     "text": "\\/",
+     "cx": 163.8,
+     "cy": 329.9
+    }
+   ]
+  },
+  {
+   "text": "=\n\u00b0)\na\n=)\n\u00a9\n\u00ae\nss\nLU",
+   "x": 8.2,
+   "y": 891.5,
+   "w": 10.8,
+   "h": 62.7
+  },
+  {
+   "text": "<\nS)\n=\nx\noe\n\u20ac\n3\nO",
+   "x": 8.2,
+   "y": 1249.7,
+   "w": 13.8,
+   "h": 71.7
+  }
+ ]
 }
