@@ -47,7 +47,9 @@ def main(src, out, model_w=1480.0):
         if k in ("action", "note") and n.get("rx"):
             d["rx"], d["ry"] = M(n["rx"]), M(n["ry"])
         if k == "final":
-            d["innerRatio"] = INNER_RATIO
+            # per-node measurement where the extractor made one; the constant is
+            # only a fallback for graphs written before it measured this
+            d["innerRatio"] = n.get("innerRatio") or INNER_RATIO
         # each label line keeps the position it was measured at, so a label the
         # artwork put near the top of a tall box does not drift to the middle
         if n.get("labelLines"):

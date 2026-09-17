@@ -229,6 +229,59 @@ def shape_iou(n):
     return best[1], best[0]
 
 
+def ring_stroke(ink, n):
+    """Thickness of an activity final's outer ring.
+
+    The generic probe walks down onto the top edge and keeps going, so on a ring
+    it measures ring + gap + inner disc: 60px of "stroke" on a 137px node. Every
+    node is then inflated by its stroke, so the final was drawn half as wide
+    again as the original. Only the first unbroken run of ink is the line."""
+    H, W = ink.shape
+    cx, cy = n["x"] + n["w"] // 2, n["y"] + n["h"] // 2
+    # Node geometry is the enclosed white annulus, so the ring lies just outside
+    # it. Probe all four sides and take the median: a connector almost always
+    # meets the final from one side, and walking outward there runs straight up
+    # the arrow - one probe measured 322px of "ring" on a 137px node.
+    starts = ((cy, n["x"] - 1, 0, -1), (cy, n["x"] + n["w"], 0, 1),
+              (n["y"] - 1, cx, -1, 0), (n["y"] + n["h"], cx, 1, 0))
+    runs = []
+    for y, x, dy, dx in starts:
+        t = 0
+        while 0 <= y < H and 0 <= x < W and ink[y, x]:
+            t += 1
+            y += dy
+            x += dx
+        runs.append(t)
+    t = int(np.median(runs))
+    # a ring line is a line; anything approaching the node's own size means the
+    # probe escaped along line-work on more than one side, so refuse it rather
+    # than inflate the node by it
+    return t if 0 < t <= n["w"] * 0.25 else 0
+
+
+def inner_disc_ratio(ink, n):
+    """The filled disc inside an activity final, as a fraction of the outer radius.
+
+    Measured, not assumed: UBL's finals run from 0.43 to 0.71 of the outer radius
+    across the artwork, so a fixed ratio draws a disc of the wrong size on most
+    diagrams and less than half the right area on the widest ones. Walks out from
+    the centre in four directions and takes the median, so one clipped side or a
+    connector meeting the ring cannot skew it."""
+    H, W = ink.shape
+    cy, cx = n["y"] + n["h"] // 2, n["x"] + n["w"] // 2
+    lim = max(2, min(n["w"], n["h"]) // 2)
+    runs = []
+    for dx, dy in ((1, 0), (-1, 0), (0, 1), (0, -1)):
+        r = 0
+        while r < lim:
+            y, x = cy + dy * (r + 1), cx + dx * (r + 1)
+            if not (0 <= y < H and 0 <= x < W) or not ink[y, x]:
+                break
+            r += 1
+        runs.append(r)
+    return round(float(np.median(runs)) / (n["w"] / 2.0), 3)
+
+
 def is_final_ring(ink, n, W):
     """activity final: white ring between the outer circle and the filled disc"""
     ar = n["w"] / n["h"]
@@ -372,6 +425,14 @@ def classify(n, W, H, ink=None, heavy=9):
         return "decision"
     if 0.56 < f <= 0.80 and 0.75 < ar < 1.35:
         return "final"
+    # UML notation *is* the outline: an action is a rounded rectangle, an object
+    # node a plain one. The stroke-weight split is a proxy for the same thing and
+    # it fails whenever a diagram draws both at one weight - the whole Tender
+    # family does, so every rounded box there was called an object and then drawn
+    # with square corners. Measured curvature is the direct evidence, so it wins;
+    # weight only separates the boxes that really are rectangular.
+    if n.get("shape") == "rounded" and max(n.get("rx") or 0, n.get("ry") or 0) > 2:
+        return "action"
     if n.get("stroke", 0) >= heavy:
         return "object"
     return "action"
@@ -495,7 +556,22 @@ def main(path, out_json=None):
     nodes, partitions = [], []
     for n in regs:
         k = classify(n, W, H, ink, heavy)
-        (partitions if k == "partition" else nodes).append(dict(n, kind=k))
+        rec = dict(n, kind=k)
+        if k == "final":
+            rec["innerRatio"] = inner_disc_ratio(ink, n)
+            rs = ring_stroke(ink, n)
+            if rs:
+                rec["stroke"] = rs
+            else:
+                rec["stroke"] = 0
+                uncertain.append(dict(kind="ring-stroke-unreadable", x=n["x"], y=n["y"],
+                                      w=n["w"], h=n["h"],
+                                      reason="line-work runs off this activity final on"
+                                             " more than one side, so its ring thickness"
+                                             " could not be measured",
+                                      check="confirm this is an activity final and how"
+                                            " thick its ring is"))
+        (partitions if k == "partition" else nodes).append(rec)
     discs, bars = solid_blobs(ink, W, H)
     nodes += bars
     for d in discs:
@@ -560,6 +636,29 @@ def main(path, out_json=None):
     font_px = round(float(np.percentile(caps, 90)) / 0.70, 1) if caps else 0.0
     print("\nTYPE  cap height %.0fpx over %d glyphs -> font %.1fpx"
           % (np.percentile(caps, 90) if caps else 0, len(caps), font_px))
+
+    # The counters of letters - the holes in O, D, R - are enclosed white regions
+    # too, and on a diagram with large type they clear the minimum node area. They
+    # then get masked out as if they were nodes, which cuts the lane title they sit
+    # in: "TENDERER" was being read as "TEN". Nothing smaller than one character of
+    # the diagram's own type can be a node, so measure that and drop them. Shapes
+    # found as solid blobs (initial, fork bars) never reach here.
+    if font_px > 0:
+        keep = []
+        for n in nodes:
+            if (not n.get("label") and n.get("mask") is not None
+                    and n["w"] < font_px and n["h"] < font_px):
+                print("   (dropped x=%-5d y=%-5d %4dx%-4d  smaller than one character"
+                      " of %.0fpx type - a letter counter, not a node)"
+                      % (n["x"], n["y"], n["w"], n["h"], font_px))
+                uncertain.append(dict(kind="sub-character-region", x=n["x"], y=n["y"],
+                                      w=n["w"], h=n["h"],
+                                      reason="enclosed region smaller than one character of"
+                                             " the diagram's type",
+                                      check="confirm this is glyph interior and not a node"))
+                continue
+            keep.append(n)
+        nodes = keep
 
     mask = ink.copy()
     for n in nodes:
