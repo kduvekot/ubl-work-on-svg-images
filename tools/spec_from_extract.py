@@ -21,9 +21,15 @@ def main(src, out, model_w=1480.0):
     s = model_w / W
     M = lambda v: round(v * s, 1)
 
-    frame = max(w for _, w in e["rules"]["h"] + e["rules"]["v"])
     inner_v = [(x, w) for x, w in e["rules"]["v"] if 0 < x < W - w - 1]
     inner_h = [(y, t) for y, t in e["rules"]["h"] if 0 < y < H - t - 1]
+    # The frame is the border rules only. Taking the widest of *all* rules made a
+    # partition divider heavier than the border set the border's weight - UBL
+    # draws some dividers at 22px against a 10px frame - and the extra width then
+    # ran the whole way round the canvas as invented line-work.
+    outer = ([w for x, w in e["rules"]["v"] if (x, w) not in inner_v] +
+             [t for y, t in e["rules"]["h"] if (y, t) not in inner_h])
+    frame = median(outer) if outer else max(w for _, w in e["rules"]["h"] + e["rules"]["v"])
     divider = median([w for _, w in inner_v + inner_h]) if (inner_v or inner_h) else frame
 
     nodes_in = e["nodes"]
@@ -45,7 +51,11 @@ def main(src, out, model_w=1480.0):
              "x": M(n["x"] - st / 2), "y": M(n["y"] - st / 2),
              "w": M(n["w"] + st), "h": M(n["h"] + st)}
         if k in ("action", "note") and n.get("rx"):
-            d["rx"], d["ry"] = M(n["rx"]), M(n["ry"])
+            # the box above is the outer edge - interior inflated by the stroke -
+            # so the corner radius has to be inflated with it. Carrying the
+            # interior radius onto the outer box draws a corner tighter than the
+            # original's, which is what leaves ink uncovered at all four corners.
+            d["rx"], d["ry"] = M(n["rx"] + st / 2), M(n["ry"] + st / 2)
         if k == "final":
             # per-node measurement where the extractor made one; the constant is
             # only a fallback for graphs written before it measured this

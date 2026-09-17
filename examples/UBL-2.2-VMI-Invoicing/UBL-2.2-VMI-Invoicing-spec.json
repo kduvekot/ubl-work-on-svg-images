@@ -72,8 +72,8 @@
    "y": 296.0,
    "w": 344.8,
    "h": 82.1,
-   "rx": 37.2,
-   "ry": 20.7,
+   "rx": 38.5,
+   "ry": 22.0,
    "labelLines": [
     {
      "text": "Raise Invoice",
@@ -90,8 +90,8 @@
    "y": 298.6,
    "w": 344.8,
    "h": 82.1,
-   "rx": 36.7,
-   "ry": 21.2,
+   "rx": 38.0,
+   "ry": 22.5,
    "labelLines": [
     {
      "text": "Receive Invoice",
