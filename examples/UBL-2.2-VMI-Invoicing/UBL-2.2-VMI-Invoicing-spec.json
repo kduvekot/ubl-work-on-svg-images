@@ -12,106 +12,180 @@
  },
  "font": {
   "family": "Helvetica, Arial, sans-serif",
-  "node": 33.7,
-  "lane": 33.7,
-  "guard": 33.7
+  "node": 30.6,
+  "lane": 30.6,
+  "guard": 30.6
  },
  "arrow": 30.2,
  "dividers": [
   714.7
  ],
+ "bands": [],
  "lanes": [
   {
    "title": "Producer",
    "x": 0.0,
    "w": 714.7,
    "cx": 356.7,
-   "cy": 34.905
+   "cy": 34.4
   },
   {
    "title": "Retailer",
    "x": 714.7,
    "w": 765.3,
    "cx": 1077.1,
-   "cy": 36.605
+   "cy": 36.1
   }
  ],
+ "bandLabels": [],
  "nodes": [
   {
    "id": "n1",
+   "kind": "initial",
+   "label": "",
+   "x": 184.5,
+   "y": 93.8,
+   "w": 51.9,
+   "h": 51.4
+  },
+  {
+   "id": "n2",
    "kind": "object",
    "label": "Invoice",
    "x": 603.7,
    "y": 290.8,
    "w": 218.7,
-   "h": 89.9
+   "h": 89.9,
+   "labelLines": [
+    {
+     "text": "Invoice",
+     "cx": 716.7,
+     "cy": 332.9
+    }
+   ]
   },
   {
-   "id": "n2",
+   "id": "n3",
    "kind": "action",
    "label": "Raise Invoice",
    "x": 36.7,
    "y": 296.0,
    "w": 344.8,
    "h": 82.1,
-   "rx": 42.5,
-   "ry": 18.5
+   "rx": 37.2,
+   "ry": 20.7,
+   "labelLines": [
+    {
+     "text": "Raise Invoice",
+     "cx": 208.5,
+     "cy": 335.5
+    }
+   ]
   },
   {
-   "id": "n3",
+   "id": "n4",
    "kind": "action",
    "label": "Receive Invoice",
    "x": 1098.4,
    "y": 298.6,
    "w": 344.8,
    "h": 82.1,
-   "rx": 42.5,
-   "ry": 18.5
+   "rx": 36.7,
+   "ry": 21.2,
+   "labelLines": [
+    {
+     "text": "Receive Invoice",
+     "cx": 1272.4,
+     "cy": 338.1
+    }
+   ]
   },
   {
-   "id": "n4",
+   "id": "n5",
+   "kind": "fork",
+   "label": "",
+   "x": 202.2,
+   "y": 323.2,
+   "w": 4.8,
+   "h": 24.2
+  },
+  {
+   "id": "n6",
+   "kind": "fork",
+   "label": "",
+   "x": 1284.7,
+   "y": 325.8,
+   "w": 4.8,
+   "h": 24.2
+  },
+  {
+   "id": "n7",
    "kind": "final",
    "label": "",
-   "x": 1244.9,
-   "y": 582.1,
-   "w": 48.8,
-   "h": 48.4,
+   "x": 1241.0,
+   "y": 578.2,
+   "w": 56.6,
+   "h": 56.2,
    "innerRatio": 0.425
-  },
-  {
-   "id": "init",
-   "kind": "initial",
-   "label": "",
-   "x": 185.8,
-   "y": 95.1,
-   "w": 48.4,
-   "h": 48.4
   }
  ],
  "edges": [
   {
-   "from": "init",
-   "to": "n2",
-   "exit": "b",
-   "entry": "t"
-  },
-  {
-   "from": "n2",
-   "to": "n1",
-   "exit": "r",
-   "entry": "l"
-  },
-  {
    "from": "n1",
    "to": "n3",
-   "exit": "r",
-   "entry": "l"
+   "exitXY": [
+    0.4913,
+    1.0
+   ],
+   "entryXY": [
+    0.5,
+    0.0
+   ],
+   "straight": false,
+   "confidence": "high"
   },
   {
    "from": "n3",
+   "to": "n2",
+   "exitXY": [
+    1.0,
+    0.5006
+   ],
+   "entryXY": [
+    0.0,
+    0.5006
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n2",
    "to": "n4",
-   "exit": "b",
-   "entry": "t"
+   "exitXY": [
+    1.0,
+    0.505
+   ],
+   "entryXY": [
+    0.0,
+    0.4994
+   ],
+   "straight": false,
+   "confidence": "high"
+  },
+  {
+   "from": "n4",
+   "to": "n7",
+   "exitXY": [
+    0.5003,
+    1.0
+   ],
+   "entryXY": [
+    0.4965,
+    0.0
+   ],
+   "straight": false,
+   "confidence": "high"
   }
- ]
+ ],
+ "guards": []
 }

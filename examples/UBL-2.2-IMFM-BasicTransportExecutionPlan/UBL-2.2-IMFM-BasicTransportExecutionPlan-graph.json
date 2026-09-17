@@ -1,0 +1,1457 @@
+{
+ "source": "ubl/art/UBL-2.2-IMFM-BasicTransportExecutionPlan.png",
+ "size": [
+  3425,
+  2204
+ ],
+ "fontPx": 35.7,
+ "rules": {
+  "v": [
+   [
+    0,
+    10
+   ],
+   [
+    1720,
+    4
+   ],
+   [
+    3415,
+    10
+   ]
+  ],
+  "h": [
+   [
+    0,
+    10
+   ],
+   [
+    2194,
+    10
+   ]
+  ]
+ },
+ "partitions": [
+  {
+   "axis": "column",
+   "index": 0,
+   "x0": 0,
+   "x1": 1722,
+   "title": "Transport User",
+   "titleBox": [
+    735,
+    59,
+    227,
+    31
+   ]
+  },
+  {
+   "axis": "column",
+   "index": 1,
+   "x0": 1722,
+   "x1": 3425,
+   "title": "Transport Service Provider",
+   "titleBox": [
+    2369,
+    58,
+    407,
+    32
+   ]
+  },
+  {
+   "axis": "band",
+   "index": 0,
+   "y0": 0,
+   "y1": 2204,
+   "title": ""
+  }
+ ],
+ "nodes": [
+  {
+   "x": 1060,
+   "y": 167,
+   "w": 69,
+   "h": 68,
+   "area": 3005,
+   "fill": 0.769,
+   "kind": "initial",
+   "id": "n1",
+   "label": "",
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 195,
+   "y": 294,
+   "w": 383,
+   "h": 225,
+   "area": 75595,
+   "fill": 0.877,
+   "solid": 0.974,
+   "rx": 42,
+   "ry": 47,
+   "shape": "rounded",
+   "stroke": 4,
+   "kind": "action",
+   "id": "n2",
+   "label": "Create/Update\nTransport Execution\nPlan Request",
+   "labelLines": [
+    {
+     "x": 267,
+     "y": 339,
+     "w": 229,
+     "h": 32,
+     "text": "Create/Update"
+    },
+    {
+     "x": 215,
+     "y": 381,
+     "w": 330,
+     "h": 31,
+     "text": "Transport Execution"
+    },
+    {
+     "x": 278,
+     "y": 422,
+     "w": 214,
+     "h": 31,
+     "text": "Plan Request"
+    }
+   ],
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 2751,
+   "y": 300,
+   "w": 383,
+   "h": 226,
+   "area": 76877,
+   "fill": 0.888,
+   "solid": 0.973,
+   "rx": 47,
+   "ry": 43,
+   "shape": "rounded",
+   "stroke": 4,
+   "kind": "action",
+   "id": "n3",
+   "label": "EvaluateTransport\nExecution Plan\nRequest",
+   "labelLines": [
+    {
+     "x": 2795,
+     "y": 351,
+     "w": 298,
+     "h": 32,
+     "text": "EvaluateTransport"
+    },
+    {
+     "x": 2829,
+     "y": 392,
+     "w": 241,
+     "h": 25,
+     "text": "Execution Plan"
+    },
+    {
+     "x": 2887,
+     "y": 433,
+     "w": 133,
+     "h": 32,
+     "text": "Request"
+    }
+   ],
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 1541,
+   "y": 312,
+   "w": 356,
+   "h": 191,
+   "area": 59370,
+   "fill": 0.873,
+   "solid": 1.0,
+   "rx": 1,
+   "ry": 1,
+   "shape": "rect",
+   "stroke": 7,
+   "kind": "object",
+   "id": "n4",
+   "label": "\u00abNotConfirmed\u00bb\nTransport Execution\nPlan Request",
+   "labelLines": [
+    {
+     "x": 1591,
+     "y": 341,
+     "w": 264,
+     "h": 26,
+     "text": "\u00abNotConfirmed\u00bb"
+    },
+    {
+     "x": 1555,
+     "y": 385,
+     "w": 327,
+     "h": 31,
+     "text": "Transport Execution"
+    },
+    {
+     "x": 1617,
+     "y": 422,
+     "w": 217,
+     "h": 32,
+     "text": "Plan Request"
+    }
+   ],
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 917,
+   "y": 335,
+   "w": 383,
+   "h": 139,
+   "area": 46545,
+   "fill": 0.874,
+   "solid": 0.959,
+   "rx": 42,
+   "ry": 45,
+   "shape": "rounded",
+   "stroke": 4,
+   "kind": "action",
+   "id": "n5",
+   "label": "Request Transport\nService",
+   "labelLines": [
+    {
+     "x": 955,
+     "y": 371,
+     "w": 302,
+     "h": 32,
+     "text": "Request Transport"
+    },
+    {
+     "x": 1043,
+     "y": 412,
+     "w": 119,
+     "h": 25,
+     "text": "Service"
+    }
+   ],
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 2279,
+   "y": 335,
+   "w": 372,
+   "h": 139,
+   "area": 43630,
+   "fill": 0.844,
+   "solid": 0.959,
+   "rx": 41,
+   "ry": 40,
+   "shape": "rounded",
+   "stroke": 4,
+   "kind": "action",
+   "id": "n6",
+   "label": "Receive Transport\nService Request",
+   "labelLines": [
+    {
+     "x": 2310,
+     "y": 367,
+     "w": 296,
+     "h": 31,
+     "text": "Receive Transport"
+    },
+    {
+     "x": 2326,
+     "y": 407,
+     "w": 265,
+     "h": 32,
+     "text": "Service Request"
+    }
+   ],
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 1541,
+   "y": 586,
+   "w": 356,
+   "h": 194,
+   "area": 62813,
+   "fill": 0.909,
+   "solid": 1.0,
+   "rx": 0,
+   "ry": 0,
+   "shape": "rect",
+   "stroke": 7,
+   "kind": "object",
+   "id": "n7",
+   "label": "\u00abRejected\u00bb\nTransport Execution\nPlan",
+   "labelLines": [
+    {
+     "x": 1632,
+     "y": 615,
+     "w": 179,
+     "h": 32,
+     "text": "\u00abRejected\u00bb"
+    },
+    {
+     "x": 1555,
+     "y": 658,
+     "w": 327,
+     "h": 32,
+     "text": "Transport Execution"
+    },
+    {
+     "x": 1689,
+     "y": 696,
+     "w": 70,
+     "h": 25,
+     "text": "Plan"
+    }
+   ],
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 2286,
+   "y": 598,
+   "w": 362,
+   "h": 164,
+   "area": 51461,
+   "fill": 0.867,
+   "solid": 0.962,
+   "rx": 44,
+   "ry": 40,
+   "shape": "rounded",
+   "stroke": 4,
+   "kind": "action",
+   "id": "n8",
+   "label": "Reject Transport\nService Request",
+   "labelLines": [
+    {
+     "x": 2327,
+     "y": 639,
+     "w": 269,
+     "h": 32,
+     "text": "Reject Transport"
+    },
+    {
+     "x": 2329,
+     "y": 680,
+     "w": 265,
+     "h": 32,
+     "text": "Service Request"
+    }
+   ],
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 920,
+   "y": 601,
+   "w": 383,
+   "h": 164,
+   "area": 53229,
+   "fill": 0.847,
+   "solid": 0.964,
+   "rx": 46,
+   "ry": 46,
+   "shape": "rounded",
+   "stroke": 4,
+   "kind": "action",
+   "id": "n9",
+   "label": "Receive Rejected\nTransport Execution\nPlan",
+   "labelLines": [
+    {
+     "x": 963,
+     "y": 633,
+     "w": 277,
+     "h": 32,
+     "text": "Receive Rejected"
+    },
+    {
+     "x": 945,
+     "y": 674,
+     "w": 330,
+     "h": 32,
+     "text": "Transport Execution"
+    },
+    {
+     "x": 1083,
+     "y": 715,
+     "w": 68,
+     "h": 25,
+     "text": "Plan"
+    }
+   ],
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 2889,
+   "y": 617,
+   "w": 110,
+   "h": 136,
+   "area": 7589,
+   "fill": 0.507,
+   "solid": 0.507,
+   "rx": 54,
+   "ry": 67,
+   "shape": "rhombus",
+   "stroke": 60,
+   "kind": "decision",
+   "id": "n10",
+   "label": "",
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 352,
+   "y": 858,
+   "w": 61,
+   "h": 61,
+   "area": 2369,
+   "fill": 0.637,
+   "solid": 0.792,
+   "rx": 25,
+   "ry": 31,
+   "shape": "ellipse",
+   "stroke": 15,
+   "kind": "final",
+   "id": "n11",
+   "label": "",
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 1541,
+   "y": 860,
+   "w": 356,
+   "h": 180,
+   "area": 57822,
+   "fill": 0.902,
+   "solid": 1.0,
+   "rx": 0,
+   "ry": 0,
+   "shape": "rect",
+   "stroke": 8,
+   "kind": "object",
+   "id": "n12",
+   "label": "\u00abConfirmed\u00bb\nTransport Execution\nPlan",
+   "labelLines": [
+    {
+     "x": 1621,
+     "y": 888,
+     "w": 207,
+     "h": 26,
+     "text": "\u00abConfirmed\u00bb"
+    },
+    {
+     "x": 1555,
+     "y": 932,
+     "w": 327,
+     "h": 31,
+     "text": "Transport Execution"
+    },
+    {
+     "x": 1689,
+     "y": 970,
+     "w": 70,
+     "h": 25,
+     "text": "Plan"
+    }
+   ],
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 914,
+   "y": 861,
+   "w": 382,
+   "h": 157,
+   "area": 50160,
+   "fill": 0.836,
+   "solid": 0.964,
+   "rx": 44,
+   "ry": 42,
+   "shape": "rounded",
+   "stroke": 4,
+   "kind": "action",
+   "id": "n13",
+   "label": "Receive Proposed\nTransport Execution\nPlan",
+   "labelLines": [
+    {
+     "x": 953,
+     "y": 888,
+     "w": 292,
+     "h": 32,
+     "text": "Receive Proposed"
+    },
+    {
+     "x": 938,
+     "y": 929,
+     "w": 330,
+     "h": 32,
+     "text": "Transport Execution"
+    },
+    {
+     "x": 1076,
+     "y": 970,
+     "w": 68,
+     "h": 25,
+     "text": "Plan"
+    }
+   ],
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 2282,
+   "y": 865,
+   "w": 369,
+   "h": 163,
+   "area": 52251,
+   "fill": 0.869,
+   "solid": 0.964,
+   "rx": 41,
+   "ry": 44,
+   "shape": "rounded",
+   "stroke": 4,
+   "kind": "action",
+   "id": "n14",
+   "label": "Confirm Transport\nService Request",
+   "labelLines": [
+    {
+     "x": 2316,
+     "y": 905,
+     "w": 299,
+     "h": 32,
+     "text": "Confirm Transport"
+    },
+    {
+     "x": 2329,
+     "y": 946,
+     "w": 265,
+     "h": 32,
+     "text": "Service Request"
+    }
+   ],
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 917,
+   "y": 1142,
+   "w": 383,
+   "h": 146,
+   "area": 48029,
+   "fill": 0.859,
+   "solid": 0.961,
+   "rx": 40,
+   "ry": 45,
+   "shape": "rounded",
+   "stroke": 4,
+   "kind": "action",
+   "id": "n15",
+   "label": "EvaluateTransport\nExecution Plan",
+   "labelLines": [
+    {
+     "x": 956,
+     "y": 1178,
+     "w": 299,
+     "h": 31,
+     "text": "EvaluateTransport"
+    },
+    {
+     "x": 991,
+     "y": 1219,
+     "w": 240,
+     "h": 25,
+     "text": "Execution Plan"
+    }
+   ],
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 2306,
+   "y": 1624,
+   "w": 362,
+   "h": 184,
+   "area": 56913,
+   "fill": 0.854,
+   "solid": 0.967,
+   "rx": 42,
+   "ry": 43,
+   "shape": "rounded",
+   "stroke": 4,
+   "kind": "action",
+   "id": "n16",
+   "label": "Receive Confirmed\nTransport Execution\nPlan",
+   "labelLines": [
+    {
+     "x": 2333,
+     "y": 1660,
+     "w": 306,
+     "h": 25,
+     "text": "Receive Confirmed"
+    },
+    {
+     "x": 2325,
+     "y": 1701,
+     "w": 330,
+     "h": 32,
+     "text": "Transport Execution"
+    },
+    {
+     "x": 2463,
+     "y": 1742,
+     "w": 68,
+     "h": 25,
+     "text": "Plan"
+    }
+   ],
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 1545,
+   "y": 1625,
+   "w": 355,
+   "h": 185,
+   "area": 59089,
+   "fill": 0.9,
+   "solid": 0.995,
+   "rx": 0,
+   "ry": 0,
+   "shape": "rect",
+   "stroke": 7,
+   "kind": "object",
+   "id": "n17",
+   "label": "\u00abConfirmed\u00bb\nTransport Execution\nPlan",
+   "labelLines": [
+    {
+     "x": 1625,
+     "y": 1659,
+     "w": 206,
+     "h": 26,
+     "text": "\u00abConfirmed\u00bb"
+    },
+    {
+     "x": 1558,
+     "y": 1703,
+     "w": 328,
+     "h": 31,
+     "text": "Transport Execution"
+    },
+    {
+     "x": 1692,
+     "y": 1740,
+     "w": 70,
+     "h": 26,
+     "text": "Plan"
+    }
+   ],
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 914,
+   "y": 1644,
+   "w": 382,
+   "h": 147,
+   "area": 48435,
+   "fill": 0.863,
+   "solid": 0.961,
+   "rx": 46,
+   "ry": 42,
+   "shape": "rounded",
+   "stroke": 4,
+   "kind": "action",
+   "id": "n18",
+   "label": "Confirm Transport\nExecution Plan",
+   "labelLines": [
+    {
+     "x": 955,
+     "y": 1675,
+     "w": 298,
+     "h": 32,
+     "text": "Confirm Transport"
+    },
+    {
+     "x": 983,
+     "y": 1717,
+     "w": 240,
+     "h": 25,
+     "text": "Execution Plan"
+    }
+   ],
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 2943,
+   "y": 1689,
+   "w": 61,
+   "h": 61,
+   "area": 2370,
+   "fill": 0.637,
+   "solid": 0.792,
+   "rx": 22,
+   "ry": 21,
+   "shape": "ellipse",
+   "stroke": 4,
+   "kind": "final",
+   "id": "n19",
+   "label": "",
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 350,
+   "y": 1701,
+   "w": 83,
+   "h": 108,
+   "area": 4571,
+   "fill": 0.51,
+   "solid": 0.51,
+   "rx": 41,
+   "ry": 53,
+   "shape": "rhombus",
+   "stroke": 60,
+   "kind": "decision",
+   "id": "n20",
+   "label": "",
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 1538,
+   "y": 1930,
+   "w": 355,
+   "h": 194,
+   "area": 62704,
+   "fill": 0.91,
+   "solid": 1.0,
+   "rx": 0,
+   "ry": 0,
+   "shape": "rect",
+   "stroke": 8,
+   "kind": "object",
+   "id": "n21",
+   "label": "\u00abRejected\u00bb\nTransport Execution\nPlan",
+   "labelLines": [
+    {
+     "x": 1629,
+     "y": 1962,
+     "w": 178,
+     "h": 32,
+     "text": "\u00abRejected\u00bb"
+    },
+    {
+     "x": 1551,
+     "y": 2007,
+     "w": 328,
+     "h": 31,
+     "text": "Transport Execution"
+    },
+    {
+     "x": 1685,
+     "y": 2044,
+     "w": 70,
+     "h": 25,
+     "text": "Plan"
+    }
+   ],
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 2323,
+   "y": 1938,
+   "w": 383,
+   "h": 185,
+   "area": 60915,
+   "fill": 0.86,
+   "solid": 0.963,
+   "rx": 45,
+   "ry": 44,
+   "shape": "rounded",
+   "stroke": 4,
+   "kind": "action",
+   "id": "n22",
+   "label": "Receive Rejected\nTransport Execution\nPlan",
+   "labelLines": [
+    {
+     "x": 2371,
+     "y": 1975,
+     "w": 277,
+     "h": 32,
+     "text": "Receive Rejected"
+    },
+    {
+     "x": 2352,
+     "y": 2016,
+     "w": 330,
+     "h": 31,
+     "text": "Transport Execution"
+    },
+    {
+     "x": 2490,
+     "y": 2057,
+     "w": 68,
+     "h": 25,
+     "text": "Plan"
+    }
+   ],
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 216,
+   "y": 1942,
+   "w": 362,
+   "h": 163,
+   "area": 51448,
+   "fill": 0.872,
+   "solid": 0.964,
+   "rx": 41,
+   "ry": 42,
+   "shape": "rounded",
+   "stroke": 4,
+   "kind": "action",
+   "id": "n23",
+   "label": "Reject Transport\nExecution Plan",
+   "labelLines": [
+    {
+     "x": 257,
+     "y": 1983,
+     "w": 270,
+     "h": 32,
+     "text": "Reject Transport"
+    },
+    {
+     "x": 274,
+     "y": 2024,
+     "w": 241,
+     "h": 25,
+     "text": "Execution Plan"
+    }
+   ],
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 2960,
+   "y": 2010,
+   "w": 61,
+   "h": 61,
+   "area": 2364,
+   "fill": 0.635,
+   "solid": 0.793,
+   "rx": 24,
+   "ry": 21,
+   "shape": "ellipse",
+   "stroke": 4,
+   "kind": "final",
+   "id": "n24",
+   "label": "",
+   "col": 1,
+   "row": 0
+  }
+ ],
+ "edges": [
+  {
+   "from": "n1",
+   "to": "n5",
+   "routing": "orthogonal",
+   "fromPoint": [
+    1094,
+    249
+   ],
+   "toPoint": [
+    1098,
+    320
+   ],
+   "arrowInk": [
+    272,
+    515
+   ],
+   "directionConfidence": "medium"
+  },
+  {
+   "from": "n20",
+   "to": "n2",
+   "routing": "orthogonal",
+   "fromPoint": [
+    335,
+    1755
+   ],
+   "toPoint": [
+    180,
+    395
+   ],
+   "arrowInk": [
+    303,
+    510
+   ],
+   "directionConfidence": "medium"
+  },
+  {
+   "from": "n6",
+   "to": "n3",
+   "routing": "orthogonal",
+   "fromPoint": [
+    2665,
+    395
+   ],
+   "toPoint": [
+    2736,
+    400
+   ],
+   "arrowInk": [
+    273,
+    515
+   ],
+   "directionConfidence": "medium"
+  },
+  {
+   "from": "n2",
+   "to": "n5",
+   "routing": "straight",
+   "fromPoint": [
+    592,
+    405
+   ],
+   "toPoint": [
+    902,
+    404
+   ],
+   "arrowInk": [
+    180,
+    513
+   ],
+   "directionConfidence": "high",
+   "guard": "Update Transport\nes) Execution Plan Request?\n[no]"
+  },
+  {
+   "from": "n5",
+   "to": "n4",
+   "routing": "straight",
+   "fromPoint": [
+    1314,
+    404
+   ],
+   "toPoint": [
+    1526,
+    407
+   ],
+   "arrowInk": [
+    180,
+    551
+   ],
+   "directionConfidence": "high"
+  },
+  {
+   "from": "n4",
+   "to": "n6",
+   "routing": "straight",
+   "fromPoint": [
+    1911,
+    409
+   ],
+   "toPoint": [
+    2264,
+    405
+   ],
+   "arrowInk": [
+    180,
+    514
+   ],
+   "directionConfidence": "high"
+  },
+  {
+   "from": "n3",
+   "to": "n10",
+   "routing": "orthogonal",
+   "fromPoint": [
+    2942,
+    540
+   ],
+   "toPoint": [
+    2944,
+    602
+   ],
+   "arrowInk": [
+    368,
+    529
+   ],
+   "directionConfidence": "LOW"
+  },
+  {
+   "from": "n7",
+   "to": "n9",
+   "routing": "straight",
+   "fromPoint": [
+    1526,
+    683
+   ],
+   "toPoint": [
+    1317,
+    683
+   ],
+   "arrowInk": [
+    184,
+    536
+   ],
+   "directionConfidence": "high"
+  },
+  {
+   "from": "n8",
+   "to": "n7",
+   "routing": "straight",
+   "fromPoint": [
+    2271,
+    683
+   ],
+   "toPoint": [
+    1911,
+    683
+   ],
+   "arrowInk": [
+    184,
+    551
+   ],
+   "directionConfidence": "high"
+  },
+  {
+   "from": "n10",
+   "to": "n8",
+   "routing": "straight",
+   "fromPoint": [
+    2874,
+    685
+   ],
+   "toPoint": [
+    2662,
+    680
+   ],
+   "arrowInk": [
+    184,
+    533
+   ],
+   "directionConfidence": "high",
+   "guard": "[no]"
+  },
+  {
+   "from": "n10",
+   "to": "n14",
+   "routing": "orthogonal",
+   "fromPoint": [
+    2944,
+    767
+   ],
+   "toPoint": [
+    2665,
+    946
+   ],
+   "arrowInk": [
+    253,
+    535
+   ],
+   "directionConfidence": "medium",
+   "guard": "[yes]"
+  },
+  {
+   "from": "n12",
+   "to": "n13",
+   "routing": "straight",
+   "fromPoint": [
+    1526,
+    939
+   ],
+   "toPoint": [
+    1310,
+    939
+   ],
+   "arrowInk": [
+    184,
+    539
+   ],
+   "directionConfidence": "high"
+  },
+  {
+   "from": "n14",
+   "to": "n12",
+   "routing": "straight",
+   "fromPoint": [
+    2267,
+    950
+   ],
+   "toPoint": [
+    1911,
+    950
+   ],
+   "arrowInk": [
+    184,
+    555
+   ],
+   "directionConfidence": "high"
+  },
+  {
+   "from": "n13",
+   "to": "n15",
+   "routing": "straight",
+   "fromPoint": [
+    1105,
+    1032
+   ],
+   "toPoint": [
+    1108,
+    1127
+   ],
+   "arrowInk": [
+    180,
+    516
+   ],
+   "directionConfidence": "high"
+  },
+  {
+   "from": "n17",
+   "to": "n16",
+   "routing": "straight",
+   "fromPoint": [
+    1914,
+    1712
+   ],
+   "toPoint": [
+    2291,
+    1716
+   ],
+   "arrowInk": [
+    180,
+    518
+   ],
+   "directionConfidence": "high"
+  },
+  {
+   "from": "n18",
+   "to": "n17",
+   "routing": "straight",
+   "fromPoint": [
+    1310,
+    1717
+   ],
+   "toPoint": [
+    1530,
+    1717
+   ],
+   "arrowInk": [
+    180,
+    554
+   ],
+   "directionConfidence": "high"
+  },
+  {
+   "from": "n16",
+   "to": "n19",
+   "routing": "straight",
+   "fromPoint": [
+    2682,
+    1716
+   ],
+   "toPoint": [
+    2928,
+    1719
+   ],
+   "arrowInk": [
+    180,
+    517
+   ],
+   "directionConfidence": "high"
+  },
+  {
+   "from": "n20",
+   "to": "n23",
+   "routing": "straight",
+   "fromPoint": [
+    391,
+    1823
+   ],
+   "toPoint": [
+    397,
+    1927
+   ],
+   "arrowInk": [
+    181,
+    517
+   ],
+   "directionConfidence": "high"
+  },
+  {
+   "from": "n23",
+   "to": "n21",
+   "routing": "straight",
+   "fromPoint": [
+    592,
+    2023
+   ],
+   "toPoint": [
+    1523,
+    2027
+   ],
+   "arrowInk": [
+    180,
+    547
+   ],
+   "directionConfidence": "high"
+  },
+  {
+   "from": "n21",
+   "to": "n22",
+   "routing": "straight",
+   "fromPoint": [
+    1907,
+    2027
+   ],
+   "toPoint": [
+    2308,
+    2030
+   ],
+   "arrowInk": [
+    180,
+    513
+   ],
+   "directionConfidence": "high"
+  },
+  {
+   "from": "n22",
+   "to": "n24",
+   "routing": "straight",
+   "fromPoint": [
+    2720,
+    2037
+   ],
+   "toPoint": [
+    2945,
+    2040
+   ],
+   "arrowInk": [
+    180,
+    518
+   ],
+   "directionConfidence": "high"
+  }
+ ],
+ "text": [
+  {
+   "text": "Transport Service Provider",
+   "x": 2369,
+   "y": 58,
+   "w": 407,
+   "h": 32,
+   "lines": [
+    {
+     "x": 2369,
+     "y": 58,
+     "w": 407,
+     "h": 32,
+     "text": "Transport Service Provider"
+    }
+   ]
+  },
+  {
+   "text": "Transport User",
+   "x": 735,
+   "y": 59,
+   "w": 227,
+   "h": 31,
+   "lines": [
+    {
+     "x": 735,
+     "y": 59,
+     "w": 227,
+     "h": 31,
+     "text": "Transport User"
+    }
+   ]
+  },
+  {
+   "text": "\u2014_",
+   "x": 143,
+   "y": 397,
+   "w": 38,
+   "h": 16,
+   "lines": [
+    {
+     "x": 139,
+     "y": 393,
+     "w": 46,
+     "h": 20,
+     "text": "\u2014_"
+    }
+   ]
+  },
+  {
+   "text": "Update Transport\nes) Execution Plan Request?\n[no]",
+   "x": 308,
+   "y": 533,
+   "w": 598,
+   "h": 311,
+   "attachedTo": "n2->n5"
+  },
+  {
+   "text": "Transport Execution\nPlan Request\nAcceptable?",
+   "x": 3039,
+   "y": 623,
+   "w": 304,
+   "h": 120,
+   "lines": [
+    {
+     "x": 3041,
+     "y": 623,
+     "w": 302,
+     "h": 31,
+     "text": "Transport Execution"
+    },
+    {
+     "x": 3042,
+     "y": 668,
+     "w": 203,
+     "h": 31,
+     "text": "Plan Request"
+    },
+    {
+     "x": 3039,
+     "y": 711,
+     "w": 187,
+     "h": 32,
+     "text": "Acceptable?"
+    }
+   ]
+  },
+  {
+   "text": "[no]",
+   "x": 2771,
+   "y": 631,
+   "w": 48,
+   "h": 26,
+   "lines": [
+    {
+     "x": 2771,
+     "y": 631,
+     "w": 48,
+     "h": 26,
+     "text": "[no]"
+    }
+   ],
+   "attachedTo": "n10->n8"
+  },
+  {
+   "text": "[yes]",
+   "x": 2853,
+   "y": 767,
+   "w": 54,
+   "h": 26,
+   "lines": [
+    {
+     "x": 2853,
+     "y": 767,
+     "w": 54,
+     "h": 26,
+     "text": "[yes]"
+    }
+   ],
+   "attachedTo": "n10->n14"
+  },
+  {
+   "text": "Transport Execution Plan\n\u00a9 Acceptable?\n[no]\n[yes]\nnian Maneport Execution Confirm Transport\nan Khequest: Execution Plan\n[no]\n[yes]",
+   "x": 250,
+   "y": 1302,
+   "w": 1311,
+   "h": 497
+  },
+  {
+   "text": "Transport Service Ready\nFor Execution",
+   "x": 2876,
+   "y": 1778,
+   "w": 377,
+   "h": 70,
+   "lines": [
+    {
+     "x": 2876,
+     "y": 1778,
+     "w": 377,
+     "h": 32,
+     "text": "Transport Service Ready"
+    },
+    {
+     "x": 2878,
+     "y": 1823,
+     "w": 206,
+     "h": 25,
+     "text": "For Execution"
+    }
+   ]
+  }
+ ],
+ "uncertain": [
+  {
+   "x": 390,
+   "y": 406,
+   "w": 1330,
+   "h": 277,
+   "shape": "rounded",
+   "iou": 0.686,
+   "border": 0.663,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best rounded 0.69)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "x": 347,
+   "y": 634,
+   "w": 83,
+   "h": 109,
+   "shape": "rhombus",
+   "iou": 0.973,
+   "border": 0.214,
+   "kind": "dropped-region",
+   "reason": "4 of 4 sides are pass-through line-work",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "x": 1109,
+   "y": 940,
+   "w": 611,
+   "h": 776,
+   "shape": "rounded",
+   "iou": 0.832,
+   "border": 0.712,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best rounded 0.83)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "x": 1065,
+   "y": 1417,
+   "w": 83,
+   "h": 109,
+   "shape": "rhombus",
+   "iou": 0.972,
+   "border": 0.197,
+   "kind": "dropped-region",
+   "reason": "3 of 4 sides are pass-through line-work",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "kind": "edge-direction",
+   "reason": "arrowhead ink is ambiguous where several connectors meet",
+   "edge": [
+    "n3",
+    "n10"
+   ],
+   "check": "confirm which way this edge points"
+  }
+ ]
+}

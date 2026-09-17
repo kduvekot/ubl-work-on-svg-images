@@ -131,11 +131,41 @@ Run it:
 `tesseract-ocr` binary, node with playwright, a JDK.
 
 **Reading the diff:** white = agreement, **red** = in the original and missing
-from the SVG, **blue** = invented by the SVG. Run it at two radii. Radius 2
-counts every displaced pixel and is dominated by glyph-shape differences.
-**Radius 40 ignores glyph shape and sub-pixel placement, so what stays red
-there is genuinely absent line-work** — that is the number to act on, and blue
-at radius 40 should always be zero.
+from the SVG, **blue** = invented by the SVG.
+
+**Do not use radius 40.** An earlier version of these notes called "missing at
+radius 40" the number to act on. It is not a measurement — it is a tolerance
+wide enough to pass. The radius means "count this pixel as matching if the other
+image has any ink within r", so r=40 is an 81×81 forgiveness window over artwork
+whose strokes are ~6px. Measured on `UBL-2.5-BillingwithCreditNoteProcess`:
+
+| candidate | missing @ r2 | missing @ r40 |
+|---|---|---|
+| unmodified render | 10.28% | 2.7355% |
+| one whole node box displaced 20px | 13.79% | **2.7355%** |
+| the same node deleted outright | 13.87% | 6.23% |
+
+Displacing an entire node changes the r40 figure by nothing at all, to four
+decimals. It was introduced (session of 2026-09-16, ~19:25) explicitly as "a
+criterion a person can actually pass", and then used to choose the PoC canvas
+height — 955 over 960 — although the stricter radius in the same table said 960
+was far better. That is exactly what ground rule 3 forbids, so any "@ r40"
+figure in older notes, commit messages or the §9 table below should be treated
+as void rather than merely optimistic.
+
+**What to use instead — two checks, because the artwork has two kinds of
+content.** Text redrawn in a different typeface never matches pixel for pixel,
+which is the real problem r40 was invented to dodge. Split them rather than
+widen the tolerance:
+
+- **Line-work** — boxes, arrows, rules, frames — with text masked out of *both*
+  images, compared at radius 2–3 (anti-aliasing only). Blank is achievable and
+  this is the gate. Unlike r40 it moves when geometry moves: the displacement
+  above shows up as 7.10% → 9.78%.
+- **Text** — compared *as text*, not as pixels: the label must be correct,
+  complete, and in the right place. This is stricter than any pixel test, which
+  would happily bury OCR turning "Send Transport Progress Status" into "end
+  Transport Progress Status".
 
 ---
 
@@ -169,10 +199,13 @@ be re-broken by a well-meaning change.
 - **Label text is not necessarily centred.** Several tall activity boxes carry
   their label near the top. Measure each line's position and put it back there;
   assuming centring was the single largest source of error (~240px on one node).
-- **Corner radii can be elliptical.** `UBL-2.2-VMI-Invoicing` measures
-  rx 91 / ry 58 — the artwork was scaled non-uniformly at some point. Assuming
-  a stadium (r = h/2) was measurably wrong; measuring both radii off the shape
-  cut that diagram's error from 6.11% to 4.42%.
+- **Corner radii can be elliptical.** `UBL-2.2-VMI-Invoicing` was reported as
+  measuring rx 91 / ry 58 — the artwork having been scaled non-uniformly at some
+  point — and measuring both radii rather than assuming a stadium (r = h/2) was
+  said to cut that diagram's error from 6.11% to 4.42%. *Treat the numbers as
+  unverified:* they were produced by an extractor that no longer exists, and the
+  current code measures rx 86 / ry 85 on the same shape. The principle — measure
+  both radii, do not assume a stadium — still holds; the figures do not.
 - **Font size from cap height.** The 90th percentile of glyph heights inside
   node labels is the cap height; divide by 0.70 for the em size. Deriving it
   from OCR bounding boxes is badly wrong when labels wrap.
@@ -245,13 +278,19 @@ target and guard. What changes is the renderer, not the content.
 
 ## 9. Validation results so far
 
-| diagram | nodes | edges | missing @ r40 | invented @ r40 |
+> **These figures are void** — they are "@ r40" numbers, and §6 explains why that
+> measures almost nothing. They are kept only so the claims can be traced. The
+> "neither invents anything" claim in particular was forgiveness, not fidelity:
+> swept across all 78 UML diagrams, the "blue at r40 is always zero" invariant
+> fails on 49 of them.
+
+| diagram | nodes | edges | missing @ r40 (void) | invented @ r40 (void) |
 |---|---|---|---|---|
 | `UBL-2.2-IMFM-IntermodalFreightManagementProcess` | 28 | 30 of 31 | 0.53% | 0% |
 | `UBL-2.5-BillingwithCreditNoteProcess` | 17 | 17 of 19 | 2.74% | 0% |
 
-Both align at scale 1.0000 on both axes, and **neither invents anything**. What
-is still missing is a short, named list rather than a percentage:
+Both align at scale 1.0000 on both axes. What is still missing is a short,
+named list rather than a percentage:
 
 - IMFM — the two note-anchor lines from the "Transportation Network
   Information" notes.
@@ -261,8 +300,25 @@ is still missing is a short, named list rather than a percentage:
 
 Earlier conversions, in `examples/`: `UBL-2.2-IMFM-BasicTransportExecutionPlan`
 (the first proof of concept, the most complex diagram in `art/`) and
-`UBL-2.2-VMI-Invoicing` (the simplest, converted end to end with no hand
-editing).
+`UBL-2.2-VMI-Invoicing` (the simplest).
+
+**Every example in `examples/` is now regenerated by `tools/`, and must stay that
+way** — an example the committed code cannot reproduce is worse than no example,
+because the next session will trust it. Both of the originals were of that kind
+and both cost a later session real time:
+
+- `VMI-Invoicing` was generated at 20:23 on 2026-09-16 and copied into
+  `examples/` at 21:30 — sixteen minutes *after* the extractor was rebuilt. Its
+  `-graph.json` was in the pre-rebuild schema (`lanes`, no `shape`, no
+  `routing`), which was the tell. It was described as "converted end to end with
+  no hand editing", but the committed code did not reproduce it.
+- `BasicTransportExecutionPlan` was built by `build_tep.py`, a bespoke script
+  deliberately excluded from the repo as superseded, so nothing here could
+  regenerate it. It is now pipeline output, which also measures better than the
+  hand-built version it replaced: line-work invented 6.87% → 4.16%, missing
+  unchanged at ~8.05%.
+
+**If you change the extractor, regenerate the examples in the same commit.**
 
 ---
 

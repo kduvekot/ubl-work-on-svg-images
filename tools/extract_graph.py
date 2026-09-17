@@ -27,6 +27,8 @@ MIN_NODE_AREA = 1200
 EDGE_MIN_AREA = 150
 TEXT_MIN_AREA = 60
 ARROW_PROBE_R = 45
+LABEL_PAD = 6          # breathing room around a label crop; tesseract reads a
+                       # tightly clipped glyph as a different glyph
 
 
 def load_ink(path):
@@ -51,9 +53,23 @@ def ocr(bg, x, y, w, h, inset=0):
 def label_lines(ink, n, pad):
     """Where each line of a node's label actually sits. Nothing here assumes the
     label is centred in its box: several UBL activity boxes carry the text near
-    the top, and a note left-aligns it."""
-    y0, x0 = n["y"] + pad, n["x"] + pad
-    sub = ink[y0:n["y"] + n["h"] - pad, x0:n["x"] + n["w"] - pad]
+    the top, and a note left-aligns it.
+
+    The region's own interior mask is used to exclude the border where it is
+    available, which a rectangular inset cannot do: inset far enough to clear a
+    rounded box's corner arcs and you cut into the label of a short box, inset
+    less and the arcs read as extra lines of text. The mask is the enclosed white
+    area, so the stroke is outside it whatever the shape - rounded, rhombus or
+    ring - and only the glyphs remain."""
+    m = n.get("mask")
+    if m is not None and m.shape == (n["h"], n["w"]):
+        # erode so the anti-aliased inner lip of the stroke is not read as ink
+        core = ndi.binary_erosion(m, np.ones((3, 3), bool), iterations=max(1, pad // 2))
+        y0, x0 = n["y"], n["x"]
+        sub = ink[y0:y0 + n["h"], x0:x0 + n["w"]] & core
+    else:
+        y0, x0 = n["y"] + pad, n["x"] + pad
+        sub = ink[y0:n["y"] + n["h"] - pad, x0:n["x"] + n["w"] - pad]
     if sub.size == 0 or not sub.any():
         return []
     rows = sub.any(axis=1)
@@ -269,7 +285,12 @@ def drop_phantoms(ink, regs, cells=(), min_iou=0.88, max_open=2,
                     shape=a["shape"], iou=round(float(iou), 3), border=round(float(cov), 3))
         if why:
             print("   (dropped x=%-5d y=%-5d %4dx%-4d  %s)" % (a["x"], a["y"], a["w"], a["h"], why))
-            if flags is not None:
+            # a partition cell, a region enclosing others, or a title strip is a
+            # confident drop with a reason that names itself - only the judgement
+            # calls are worth a person's time, or the list drowns in routine
+            if flags is not None and not why.startswith(("is a partition cell",
+                                                         "encloses another region",
+                                                         "lies in ")):
                 flags.append(dict(note, kind="dropped-region", reason=why,
                                   check="a shape here would be missing from the SVG"))
             continue
@@ -470,18 +491,27 @@ def main(path, out_json=None):
             inset = int(min(n["h"] * 0.22, n["w"] * 0.12))     # clear the rounded ends
         elif n["kind"] in ("object", "note"):
             inset = max(6, n.get("stroke", 6))
+        # Read the text from where the text actually is. A fixed geometric inset
+        # clips it: 22% of the height off the top and the bottom of a short box
+        # leaves too little for its own label, and half-height glyphs OCR as
+        # nonsense ("Draft" -> "Uiall", "Declaration" -> "Narlaratinn"). Find the
+        # line bands off the ink first, then read the block they span.
+        boxes = label_lines(ink, n, max(4, n.get("stroke", 4)) + 2) \
+            if n["kind"] in ("action", "object", "note") else []
         if n["kind"] == "decision":
             # a rhombus only has room for text across its middle
             n["label"] = ocr(bg, n["x"] + n["w"] // 4, n["y"] + n["h"] // 4,
                              n["w"] // 2, n["h"] // 2)
+        elif boxes:
+            bx0 = min(b["x"] for b in boxes); by0 = min(b["y"] for b in boxes)
+            bx1 = max(b["x"] + b["w"] for b in boxes); by1 = max(b["y"] + b["h"] for b in boxes)
+            n["label"] = ocr(bg, bx0, by0, bx1 - bx0, by1 - by0, -LABEL_PAD)
         else:
-            n["label"] = ocr(bg, n["x"], n["y"], n["w"], n["h"], inset) \
-                if n["kind"] in ("action", "object", "note") else ""
+            n["label"] = ""
         # pair each OCR line with the row band it was read from, so the rebuild can
         # put every line back where the original has it
         if n["label"]:
             got = n["label"].split("\n")
-            boxes = label_lines(ink, n, max(inset, max(4, n.get("stroke", 4)) + 2))
             n["labelLines"] = [dict(b, text=t) for b, t in zip(boxes, got)] \
                 if len(boxes) == len(got) else []
         print("   %-4s %-9s x=%-5d y=%-5d w=%-5d h=%-5d stroke=%-3d fill=%.2f  %r"

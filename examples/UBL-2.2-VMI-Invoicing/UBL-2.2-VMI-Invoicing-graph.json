@@ -1,8 +1,10 @@
 {
+ "source": "/tmp/claude-0/-home-user-ubl-work-on-svg-images/8401bc7e-a4f8-5330-91e3-faad1b1f7c31/scratchpad/ubl/art/UBL-2.2-VMI-Invoicing.png",
  "size": [
   3425,
   1525
  ],
+ "fontPx": 70.7,
  "rules": {
   "v": [
    [
@@ -29,29 +31,55 @@
    ]
   ]
  },
- "lanes": [
+ "partitions": [
   {
-   "x": 10,
-   "y": 10,
-   "w": 1641,
-   "h": 1505,
-   "area": 2231242,
-   "fill": 0.903,
-   "stroke": 10,
-   "kind": "lane"
+   "axis": "column",
+   "index": 0,
+   "x0": 0,
+   "x1": 1654,
+   "title": "Producer",
+   "titleBox": [
+    671,
+    51,
+    309,
+    57
+   ]
   },
   {
-   "x": 1657,
-   "y": 10,
-   "w": 1758,
-   "h": 1505,
-   "area": 2407899,
-   "fill": 0.91,
-   "stroke": 10,
-   "kind": "lane"
+   "axis": "column",
+   "index": 1,
+   "x0": 1654,
+   "x1": 3425,
+   "title": "Retailer",
+   "titleBox": [
+    2362,
+    55,
+    261,
+    57
+   ]
+  },
+  {
+   "axis": "band",
+   "index": 0,
+   "y0": 0,
+   "y1": 1525,
+   "title": ""
   }
  ],
  "nodes": [
+  {
+   "x": 427,
+   "y": 217,
+   "w": 120,
+   "h": 119,
+   "area": 9886,
+   "fill": 0.767,
+   "kind": "initial",
+   "id": "n1",
+   "label": "",
+   "col": 0,
+   "row": 0
+  },
   {
    "x": 1403,
    "y": 679,
@@ -59,10 +87,25 @@
    "h": 196,
    "area": 90649,
    "fill": 0.936,
+   "solid": 1.0,
+   "rx": 0,
+   "ry": 0,
+   "shape": "rect",
    "stroke": 12,
    "kind": "object",
-   "id": "n1",
-   "label": "Invoice"
+   "id": "n2",
+   "label": "Invoice",
+   "labelLines": [
+    {
+     "x": 1527,
+     "y": 742,
+     "w": 263,
+     "h": 57,
+     "text": "Invoice"
+    }
+   ],
+   "col": 0,
+   "row": 0
   },
   {
    "x": 88,
@@ -71,12 +114,25 @@
    "h": 184,
    "area": 131140,
    "fill": 0.9,
+   "solid": 0.981,
+   "rx": 86,
+   "ry": 48,
+   "shape": "rounded",
    "stroke": 6,
    "kind": "action",
-   "id": "n2",
+   "id": "n3",
    "label": "Raise Invoice",
-   "rx": 87.0,
-   "ry": 39.0
+   "labelLines": [
+    {
+     "x": 239,
+     "y": 748,
+     "w": 487,
+     "h": 57,
+     "text": "Raise Invoice"
+    }
+   ],
+   "col": 0,
+   "row": 0
   },
   {
    "x": 2545,
@@ -85,12 +141,51 @@
    "h": 184,
    "area": 129348,
    "fill": 0.888,
+   "solid": 0.981,
+   "rx": 85,
+   "ry": 49,
+   "shape": "rounded",
    "stroke": 7,
    "kind": "action",
-   "id": "n3",
+   "id": "n4",
    "label": "Receive Invoice",
-   "rx": 109.5,
-   "ry": 46.5
+   "labelLines": [
+    {
+     "x": 2658,
+     "y": 754,
+     "w": 573,
+     "h": 57,
+     "text": "Receive Invoice"
+    }
+   ],
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 468,
+   "y": 748,
+   "w": 11,
+   "h": 56,
+   "area": 250,
+   "fill": 1.0,
+   "kind": "fork",
+   "id": "n5",
+   "label": "",
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 2973,
+   "y": 754,
+   "w": 11,
+   "h": 56,
+   "area": 250,
+   "fill": 1.0,
+   "kind": "fork",
+   "id": "n6",
+   "label": "",
+   "col": 1,
+   "row": 0
   },
   {
    "x": 2884,
@@ -99,89 +194,90 @@
    "h": 106,
    "area": 7105,
    "fill": 0.626,
-   "stroke": 0,
+   "solid": 0.788,
+   "rx": 46,
+   "ry": 49,
+   "shape": "ellipse",
+   "stroke": 24,
    "kind": "final",
-   "id": "n4",
-   "label": ""
-  },
-  {
-   "x": 430,
-   "y": 220,
-   "w": 112,
-   "h": 112,
-   "kind": "initial",
-   "id": "init",
+   "id": "n7",
    "label": "",
-   "fill": 0.785,
-   "area": 0,
-   "stroke": 0
+   "col": 1,
+   "row": 0
   }
  ],
  "edges": [
   {
-   "from": "init",
-   "to": "n2",
+   "from": "n1",
+   "to": "n3",
+   "routing": "orthogonal",
+   "fromPoint": [
+    486,
+    350
+   ],
+   "toPoint": [
+    484,
+    673
+   ],
    "arrowInk": [
-    0,
-    0
-   ]
+    270,
+    898
+   ],
+   "directionConfidence": "high"
+  },
+  {
+   "from": "n3",
+   "to": "n2",
+   "routing": "straight",
+   "fromPoint": [
+    894,
+    780
+   ],
+   "toPoint": [
+    1388,
+    777
+   ],
+   "arrowInk": [
+    270,
+    820
+   ],
+   "directionConfidence": "high"
   },
   {
    "from": "n2",
-   "to": "n1",
-   "arrowInk": [
-    820,
-    270
+   "to": "n4",
+   "routing": "orthogonal",
+   "fromPoint": [
+    1912,
+    778
    ],
-   "at": [
-    [
-     1388,
-     777
-    ],
-    [
-     894,
-     780
-    ]
+   "toPoint": [
+    2530,
+    786
    ],
-   "stroke": 6
-  },
-  {
-   "from": "n1",
-   "to": "n3",
    "arrowInk": [
     268,
     903
    ],
-   "at": [
-    [
-     1912,
-     778
-    ],
-    [
-     2530,
-     786
-    ]
-   ],
-   "stroke": 6
+   "directionConfidence": "high"
   },
   {
-   "from": "n3",
-   "to": "n4",
+   "from": "n4",
+   "to": "n7",
+   "routing": "orthogonal",
+   "fromPoint": [
+    2941,
+    892
+   ],
+   "toPoint": [
+    2937,
+    1335
+   ],
    "arrowInk": [
     270,
     902
    ],
-   "at": [
-    [
-     2941,
-     892
-    ],
-    [
-     2937,
-     1335
-    ]
-   ],
-   "stroke": 6
+   "directionConfidence": "high"
   }
  ],
  "text": [
@@ -190,14 +286,70 @@
    "x": 671,
    "y": 51,
    "w": 309,
-   "h": 57
+   "h": 57,
+   "lines": [
+    {
+     "x": 671,
+     "y": 51,
+     "w": 309,
+     "h": 57,
+     "text": "Producer"
+    }
+   ]
   },
   {
    "text": "Retailer",
    "x": 2362,
    "y": 55,
    "w": 261,
-   "h": 57
+   "h": 57,
+   "lines": [
+    {
+     "x": 2362,
+     "y": 55,
+     "w": 261,
+     "h": 57,
+     "text": "Retailer"
+    }
+   ]
+  }
+ ],
+ "uncertain": [
+  {
+   "x": 10,
+   "y": 10,
+   "w": 1641,
+   "h": 1505,
+   "shape": "rect",
+   "iou": 0.906,
+   "border": 0.975,
+   "kind": "dropped-region",
+   "reason": "is a partition cell",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "x": 1657,
+   "y": 10,
+   "w": 1758,
+   "h": 1505,
+   "shape": "rect",
+   "iou": 0.979,
+   "border": 0.973,
+   "kind": "dropped-region",
+   "reason": "is a partition cell",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "x": 1403,
+   "y": 679,
+   "w": 494,
+   "h": 196,
+   "shape": "rect",
+   "iou": 1.0,
+   "border": 1.0,
+   "kind": "kept-on-outline",
+   "reason": "every side has pass-through line-work, but the region carries a complete outline of its own",
+   "check": "confirm this is a node and not trapped whitespace"
   }
  ]
 }

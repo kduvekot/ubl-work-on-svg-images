@@ -1,5 +1,5 @@
 {
- "source": "/home/user/oasis-tcs/ubl/art/UBL-2.5-BillingwithCreditNoteProcess.png",
+ "source": "ubl/art/UBL-2.5-BillingwithCreditNoteProcess.png",
  "size": [
   3425,
   1813
@@ -203,22 +203,7 @@
    "kind": "decision",
    "id": "n6",
    "label": "Reconcile\nCharges",
-   "labelLines": [
-    {
-     "x": 3011,
-     "y": 784,
-     "w": 155,
-     "h": 16,
-     "text": "Reconcile"
-    },
-    {
-     "x": 3010,
-     "y": 820,
-     "w": 133,
-     "h": 17,
-     "text": "Charges"
-    }
-   ],
+   "labelLines": [],
    "col": 1,
    "row": 0
   },
@@ -981,6 +966,29 @@
     }
    ],
    "attachedTo": "n11->n17"
+  }
+ ],
+ "uncertain": [
+  {
+   "x": 2357,
+   "y": 812,
+   "w": 493,
+   "h": 247,
+   "shape": "rhombus",
+   "iou": 0.538,
+   "border": 0.382,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best rhombus 0.54)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "kind": "edge-direction",
+   "reason": "arrowhead ink is ambiguous where several connectors meet",
+   "edge": [
+    "n4",
+    "n6"
+   ],
+   "check": "confirm which way this edge points"
   }
  ]
 }

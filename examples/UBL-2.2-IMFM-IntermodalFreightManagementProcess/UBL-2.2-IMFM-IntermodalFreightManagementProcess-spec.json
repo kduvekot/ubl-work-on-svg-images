@@ -88,17 +88,12 @@
   {
    "id": "n2",
    "kind": "note",
-   "label": "LA\nTransportation Network\nInformation",
+   "label": "Transportation Network\nInformation",
    "x": 878.1,
    "y": 49.7,
    "w": 188.0,
    "h": 65.2,
    "labelLines": [
-    {
-     "text": "LA",
-     "cx": 1055.2,
-     "cy": 59.8
-    },
     {
      "text": "Transportation Network",
      "cx": 965.6,
@@ -124,7 +119,7 @@
    "labelLines": [
     {
      "text": "Plan Transport Services",
-     "cx": 623.5,
+     "cx": 624.2,
      "cy": 112.8
     }
    ]
@@ -330,17 +325,12 @@
   {
    "id": "n12",
    "kind": "note",
-   "label": "L\\\nTransportation Network\nInformation",
+   "label": "Transportation Network\nInformation",
    "x": 861.6,
    "y": 382.0,
    "w": 184.1,
    "h": 69.1,
    "labelLines": [
-    {
-     "text": "L\\",
-     "cx": 1034.7,
-     "cy": 392.1
-    },
     {
      "text": "Transportation Network",
      "cx": 949.4,
@@ -554,17 +544,12 @@
   {
    "id": "n22",
    "kind": "note",
-   "label": "LN\nRegulatory\nInformation",
+   "label": "Regulatory\nInformation",
    "x": 747.6,
    "y": 977.4,
    "w": 105.4,
    "h": 67.8,
    "labelLines": [
-    {
-     "text": "LN",
-     "cx": 842.0,
-     "cy": 987.6
-    },
     {
      "text": "Regulatory",
      "cx": 793.4,
