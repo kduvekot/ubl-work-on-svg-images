@@ -97,8 +97,10 @@ def svg_body(spec):
     S, F = spec["stroke"], spec["font"]
     W, H = spec["canvas"]["w"], spec["canvas"]["h"]
     o = ['<rect x="0" y="0" width="%.1f" height="%.1f" fill="#fff"/>' % (W, H)]
+    fb = spec.get("frameBox") or [S["frame"] / 2, S["frame"] / 2,
+                                  W - S["frame"] / 2, H - S["frame"] / 2]
     o.append('<rect x="%.2f" y="%.2f" width="%.2f" height="%.2f" fill="none" stroke="#000" stroke-width="%.2f"/>'
-             % (S["frame"] / 2, S["frame"] / 2, W - S["frame"], H - S["frame"], S["frame"]))
+             % (fb[0], fb[1], fb[2] - fb[0], fb[3] - fb[1], S["frame"]))
     for d in spec.get("dividers", []):
         o.append('<line x1="%.1f" y1="0" x2="%.1f" y2="%.1f" stroke="#000" stroke-width="%.2f"/>'
                  % (d, d, H, S["divider"]))

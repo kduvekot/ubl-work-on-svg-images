@@ -21,14 +21,22 @@ def main(src, out, model_w=1480.0):
     s = model_w / W
     M = lambda v: round(v * s, 1)
 
-    inner_v = [(x, w) for x, w in e["rules"]["v"] if 0 < x < W - w - 1]
-    inner_h = [(y, t) for y, t in e["rules"]["h"] if 0 < y < H - t - 1]
+    # A rule belongs to the border if it sits at the canvas edge - within a small
+    # margin, because not every diagram draws its frame flush. UBL-2.3-Tender-
+    # Contract-Pre insets its frame to x=6, and testing for exactly 0 filed both
+    # of its frame rules as inner dividers, so the renderer drew divider lines
+    # along the border on top of the frame rect. The doubled border was the single
+    # largest invented component in the whole set.
+    mv, mh = max(3, W * 0.015), max(3, H * 0.015)
+    inner_v = [(x, w) for x, w in e["rules"]["v"] if mv < x and x + w < W - mv]
+    inner_h = [(y, t) for y, t in e["rules"]["h"] if mh < y and y + t < H - mh]
     # The frame is the border rules only. Taking the widest of *all* rules made a
     # partition divider heavier than the border set the border's weight - UBL
     # draws some dividers at 22px against a 10px frame - and the extra width then
     # ran the whole way round the canvas as invented line-work.
-    outer = ([w for x, w in e["rules"]["v"] if (x, w) not in inner_v] +
-             [t for y, t in e["rules"]["h"] if (y, t) not in inner_h])
+    outer_v = [(x, w) for x, w in e["rules"]["v"] if (x, w) not in inner_v]
+    outer_h = [(y, t) for y, t in e["rules"]["h"] if (y, t) not in inner_h]
+    outer = [w for _, w in outer_v] + [t for _, t in outer_h]
     frame = median(outer) if outer else max(w for _, w in e["rules"]["h"] + e["rules"]["v"])
     divider = median([w for _, w in inner_v + inner_h]) if (inner_v or inner_h) else frame
 
@@ -120,6 +128,13 @@ def main(src, out, model_w=1480.0):
         "font": {"family": "Helvetica, Arial, sans-serif",
                  "node": M(font_px), "lane": M(font_px), "guard": M(font_px)},
         "arrow": M(70),
+        # where the border rules actually are, rather than assuming the frame is
+        # flush with the canvas: some diagrams inset it (Tender-Contract-Pre puts
+        # it at x=6) and a flush frame then misses the original's by its own width
+        "frameBox": [M(min((x + w / 2 for x, w in outer_v), default=frame / 2)),
+                     M(min((y + t / 2 for y, t in outer_h), default=frame / 2)),
+                     M(max((x + w / 2 for x, w in outer_v), default=W - frame / 2)),
+                     M(max((y + t / 2 for y, t in outer_h), default=H - frame / 2))],
         "dividers": [M(x + w / 2) for x, w in inner_v],
         "bands": [M(y + t / 2) for y, t in inner_h],
         "lanes": lanes, "bandLabels": bandLabels,
