@@ -406,6 +406,24 @@
    "row": 0
   },
   {
+   "x": 347,
+   "y": 634,
+   "w": 83,
+   "h": 109,
+   "area": 4575,
+   "fill": 0.506,
+   "solid": 0.506,
+   "rx": 46,
+   "ry": 60,
+   "shape": "rhombus",
+   "stroke": 60,
+   "kind": "decision",
+   "id": "n11",
+   "label": "",
+   "col": 0,
+   "row": 0
+  },
+  {
    "x": 352,
    "y": 858,
    "w": 61,
@@ -419,7 +437,7 @@
    "stroke": 4,
    "kind": "final",
    "innerRatio": 0.426,
-   "id": "n11",
+   "id": "n12",
    "label": "",
    "col": 0,
    "row": 0
@@ -437,7 +455,7 @@
    "shape": "rect",
    "stroke": 8,
    "kind": "object",
-   "id": "n12",
+   "id": "n13",
    "label": "\u00abConfirmed\u00bb\nTransport Execution\nPlan",
    "labelLines": [
     {
@@ -478,7 +496,7 @@
    "shape": "rounded",
    "stroke": 4,
    "kind": "action",
-   "id": "n13",
+   "id": "n14",
    "label": "Receive Proposed\nTransport Execution\nPlan",
    "labelLines": [
     {
@@ -519,7 +537,7 @@
    "shape": "rounded",
    "stroke": 4,
    "kind": "action",
-   "id": "n14",
+   "id": "n15",
    "label": "Confirm Transport\nService Request",
    "labelLines": [
     {
@@ -553,7 +571,7 @@
    "shape": "rounded",
    "stroke": 4,
    "kind": "action",
-   "id": "n15",
+   "id": "n16",
    "label": "EvaluateTransport\nExecution Plan",
    "labelLines": [
     {
@@ -575,6 +593,24 @@
    "row": 0
   },
   {
+   "x": 1065,
+   "y": 1417,
+   "w": 83,
+   "h": 109,
+   "area": 4569,
+   "fill": 0.505,
+   "solid": 0.505,
+   "rx": 47,
+   "ry": 60,
+   "shape": "rhombus",
+   "stroke": 60,
+   "kind": "decision",
+   "id": "n17",
+   "label": "",
+   "col": 0,
+   "row": 0
+  },
+  {
    "x": 2306,
    "y": 1624,
    "w": 362,
@@ -587,7 +623,7 @@
    "shape": "rounded",
    "stroke": 4,
    "kind": "action",
-   "id": "n16",
+   "id": "n18",
    "label": "Receive Confirmed\nTransport Execution\nPlan",
    "labelLines": [
     {
@@ -628,7 +664,7 @@
    "shape": "rect",
    "stroke": 7,
    "kind": "object",
-   "id": "n17",
+   "id": "n19",
    "label": "\u00abConfirmed\u00bb\nTransport Execution\nPlan",
    "labelLines": [
     {
@@ -669,7 +705,7 @@
    "shape": "rounded",
    "stroke": 4,
    "kind": "action",
-   "id": "n18",
+   "id": "n20",
    "label": "Confirm Transport\nExecution Plan",
    "labelLines": [
     {
@@ -704,7 +740,7 @@
    "stroke": 4,
    "kind": "final",
    "innerRatio": 0.443,
-   "id": "n19",
+   "id": "n21",
    "label": "",
    "col": 1,
    "row": 0
@@ -722,7 +758,7 @@
    "shape": "rhombus",
    "stroke": 60,
    "kind": "decision",
-   "id": "n20",
+   "id": "n22",
    "label": "",
    "col": 0,
    "row": 0
@@ -740,7 +776,7 @@
    "shape": "rect",
    "stroke": 8,
    "kind": "object",
-   "id": "n21",
+   "id": "n23",
    "label": "\u00abRejected\u00bb\nTransport Execution\nPlan",
    "labelLines": [
     {
@@ -781,7 +817,7 @@
    "shape": "rounded",
    "stroke": 4,
    "kind": "action",
-   "id": "n22",
+   "id": "n24",
    "label": "Receive Rejected\nTransport Execution\nPlan",
    "labelLines": [
     {
@@ -822,7 +858,7 @@
    "shape": "rounded",
    "stroke": 4,
    "kind": "action",
-   "id": "n23",
+   "id": "n25",
    "label": "Reject Transport\nExecution Plan",
    "labelLines": [
     {
@@ -857,7 +893,7 @@
    "stroke": 4,
    "kind": "final",
    "innerRatio": 0.443,
-   "id": "n24",
+   "id": "n26",
    "label": "",
    "col": 1,
    "row": 0
@@ -883,7 +919,7 @@
    "directionConfidence": "medium"
   },
   {
-   "from": "n20",
+   "from": "n22",
    "to": "n2",
    "routing": "orthogonal",
    "fromPoint": [
@@ -974,23 +1010,22 @@
    "directionConfidence": "high"
   },
   {
-   "from": "n9",
-   "to": "n11",
-   "routing": "orthogonal",
+   "from": "n11",
+   "to": "n2",
+   "routing": "straight",
    "fromPoint": [
-    905,
-    683
+    388,
+    619
    ],
    "toPoint": [
-    382,
-    843
+    386,
+    533
    ],
    "arrowInk": [
-    184,
-    516
+    417,
+    561
    ],
-   "directionConfidence": "high",
-   "guard": "[no]"
+   "directionConfidence": "LOW"
   },
   {
    "from": "n3",
@@ -1009,6 +1044,24 @@
     529
    ],
    "directionConfidence": "LOW"
+  },
+  {
+   "from": "n9",
+   "to": "n11",
+   "routing": "straight",
+   "fromPoint": [
+    905,
+    683
+   ],
+   "toPoint": [
+    444,
+    688
+   ],
+   "arrowInk": [
+    184,
+    515
+   ],
+   "directionConfidence": "high"
   },
   {
    "from": "n7",
@@ -1066,8 +1119,27 @@
    "guard": "[no]"
   },
   {
+   "from": "n11",
+   "to": "n12",
+   "routing": "orthogonal",
+   "fromPoint": [
+    388,
+    757
+   ],
+   "toPoint": [
+    382,
+    843
+   ],
+   "arrowInk": [
+    203,
+    516
+   ],
+   "directionConfidence": "high",
+   "guard": "no]"
+  },
+  {
    "from": "n10",
-   "to": "n14",
+   "to": "n15",
    "routing": "orthogonal",
    "fromPoint": [
     2944,
@@ -1085,8 +1157,8 @@
    "guard": "[yes]"
   },
   {
-   "from": "n12",
-   "to": "n13",
+   "from": "n13",
+   "to": "n14",
    "routing": "straight",
    "fromPoint": [
     1526,
@@ -1103,8 +1175,8 @@
    "directionConfidence": "high"
   },
   {
-   "from": "n14",
-   "to": "n12",
+   "from": "n15",
+   "to": "n13",
    "routing": "straight",
    "fromPoint": [
     2267,
@@ -1121,8 +1193,8 @@
    "directionConfidence": "high"
   },
   {
-   "from": "n13",
-   "to": "n15",
+   "from": "n14",
+   "to": "n16",
    "routing": "straight",
    "fromPoint": [
     1105,
@@ -1139,27 +1211,64 @@
    "directionConfidence": "high"
   },
   {
-   "from": "n15",
-   "to": "n20",
-   "routing": "orthogonal",
+   "from": "n16",
+   "to": "n17",
+   "routing": "straight",
    "fromPoint": [
     1108,
     1302
+   ],
+   "toPoint": [
+    1106,
+    1402
+   ],
+   "arrowInk": [
+    180,
+    526
+   ],
+   "directionConfidence": "high"
+  },
+  {
+   "from": "n17",
+   "to": "n22",
+   "routing": "orthogonal",
+   "fromPoint": [
+    1050,
+    1471
    ],
    "toPoint": [
     391,
     1686
    ],
    "arrowInk": [
-    180,
+    334,
     599
    ],
-   "directionConfidence": "high",
+   "directionConfidence": "medium",
    "guard": "Update Transport Execution\nPlan Request?\n> [no]"
   },
   {
    "from": "n17",
-   "to": "n16",
+   "to": "n20",
+   "routing": "straight",
+   "fromPoint": [
+    1106,
+    1540
+   ],
+   "toPoint": [
+    1105,
+    1629
+   ],
+   "arrowInk": [
+    206,
+    511
+   ],
+   "directionConfidence": "medium",
+   "guard": "[yes]"
+  },
+  {
+   "from": "n19",
+   "to": "n18",
    "routing": "straight",
    "fromPoint": [
     1914,
@@ -1176,8 +1285,8 @@
    "directionConfidence": "high"
   },
   {
-   "from": "n18",
-   "to": "n17",
+   "from": "n20",
+   "to": "n19",
    "routing": "straight",
    "fromPoint": [
     1310,
@@ -1191,12 +1300,11 @@
     180,
     554
    ],
-   "directionConfidence": "high",
-   "guard": "[yes]"
+   "directionConfidence": "high"
   },
   {
-   "from": "n16",
-   "to": "n19",
+   "from": "n18",
+   "to": "n21",
    "routing": "straight",
    "fromPoint": [
     2682,
@@ -1213,8 +1321,8 @@
    "directionConfidence": "high"
   },
   {
-   "from": "n20",
-   "to": "n23",
+   "from": "n22",
+   "to": "n25",
    "routing": "straight",
    "fromPoint": [
     391,
@@ -1231,8 +1339,8 @@
    "directionConfidence": "high"
   },
   {
-   "from": "n23",
-   "to": "n21",
+   "from": "n25",
+   "to": "n23",
    "routing": "straight",
    "fromPoint": [
     592,
@@ -1249,8 +1357,8 @@
    "directionConfidence": "high"
   },
   {
-   "from": "n21",
-   "to": "n22",
+   "from": "n23",
+   "to": "n24",
    "routing": "straight",
    "fromPoint": [
     1907,
@@ -1267,8 +1375,8 @@
    "directionConfidence": "high"
   },
   {
-   "from": "n22",
-   "to": "n24",
+   "from": "n24",
+   "to": "n26",
    "routing": "straight",
    "fromPoint": [
     2720,
@@ -1389,21 +1497,21 @@
    "attachedTo": "n10->n8"
   },
   {
-   "text": "[no]",
-   "x": 431,
+   "text": "no]",
+   "x": 441,
    "y": 750,
-   "w": 49,
+   "w": 39,
    "h": 26,
    "lines": [
     {
-     "x": 431,
+     "x": 441,
      "y": 750,
-     "w": 49,
+     "w": 39,
      "h": 26,
-     "text": "[no]"
+     "text": "no]"
     }
    ],
-   "attachedTo": "n9->n11"
+   "attachedTo": "n11->n12"
   },
   {
    "text": "[yes]",
@@ -1420,7 +1528,7 @@
      "text": "[yes]"
     }
    ],
-   "attachedTo": "n10->n14"
+   "attachedTo": "n10->n15"
   },
   {
    "text": "Transport Execution Plan\nAcceptable?",
@@ -1460,7 +1568,7 @@
      "text": "[no]"
     }
    ],
-   "attachedTo": "n15->n20"
+   "attachedTo": "n17->n22"
   },
   {
    "text": "[yes]",
@@ -1477,7 +1585,7 @@
      "text": "[yes]"
     }
    ],
-   "attachedTo": "n18->n17"
+   "attachedTo": "n17->n20"
   },
   {
    "text": "Update Transport Execution\nPlan Request?\n> [no]",
@@ -1508,7 +1616,7 @@
      "text": "> [no]"
     }
    ],
-   "attachedTo": "n15->n20"
+   "attachedTo": "n17->n22"
   },
   {
    "text": "[yes]",
@@ -1525,7 +1633,7 @@
      "text": "[yes]"
     }
    ],
-   "attachedTo": "n20->n2"
+   "attachedTo": "n22->n2"
   },
   {
    "text": "Transport Service Ready\nFor Execution",
@@ -1572,9 +1680,9 @@
    "shape": "rhombus",
    "iou": 0.973,
    "border": 0.214,
-   "kind": "dropped-region",
-   "reason": "4 of 4 sides are pass-through line-work",
-   "check": "a shape here would be missing from the SVG"
+   "kind": "kept-on-outline",
+   "reason": "every side has pass-through line-work, but the region carries a complete outline of its own",
+   "check": "confirm this is a node and not trapped whitespace"
   },
   {
    "x": 1109,
@@ -1596,9 +1704,18 @@
    "shape": "rhombus",
    "iou": 0.972,
    "border": 0.197,
-   "kind": "dropped-region",
-   "reason": "3 of 4 sides are pass-through line-work",
-   "check": "a shape here would be missing from the SVG"
+   "kind": "kept-on-outline",
+   "reason": "every side has pass-through line-work, but the region carries a complete outline of its own",
+   "check": "confirm this is a node and not trapped whitespace"
+  },
+  {
+   "kind": "edge-direction",
+   "reason": "arrowhead ink is ambiguous where several connectors meet",
+   "edge": [
+    "n11",
+    "n2"
+   ],
+   "check": "confirm which way this edge points"
   },
   {
    "kind": "edge-direction",

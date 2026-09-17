@@ -270,6 +270,15 @@
   },
   {
    "id": "n11",
+   "kind": "decision",
+   "label": "",
+   "x": 149.1,
+   "y": 273.1,
+   "w": 37.6,
+   "h": 48.8
+  },
+  {
+   "id": "n12",
    "kind": "final",
    "label": "",
    "x": 151.2,
@@ -279,7 +288,7 @@
    "innerRatio": 0.426
   },
   {
-   "id": "n12",
+   "id": "n13",
    "kind": "object",
    "label": "\u00abConfirmed\u00bb\nTransport Execution\nPlan",
    "x": 664.4,
@@ -305,7 +314,7 @@
    ]
   },
   {
-   "id": "n13",
+   "id": "n14",
    "kind": "action",
    "label": "Receive Proposed\nTransport Execution\nPlan",
    "x": 394.1,
@@ -333,7 +342,7 @@
    ]
   },
   {
-   "id": "n14",
+   "id": "n15",
    "kind": "action",
    "label": "Confirm Transport\nService Request",
    "x": 985.2,
@@ -356,7 +365,7 @@
    ]
   },
   {
-   "id": "n15",
+   "id": "n16",
    "kind": "action",
    "label": "EvaluateTransport\nExecution Plan",
    "x": 395.4,
@@ -379,7 +388,16 @@
    ]
   },
   {
-   "id": "n16",
+   "id": "n17",
+   "kind": "decision",
+   "label": "",
+   "x": 459.3,
+   "y": 611.4,
+   "w": 37.6,
+   "h": 48.8
+  },
+  {
+   "id": "n18",
    "kind": "action",
    "label": "Receive Confirmed\nTransport Execution\nPlan",
    "x": 995.6,
@@ -407,7 +425,7 @@
    ]
   },
   {
-   "id": "n17",
+   "id": "n19",
    "kind": "object",
    "label": "\u00abConfirmed\u00bb\nTransport Execution\nPlan",
    "x": 666.1,
@@ -433,7 +451,7 @@
    ]
   },
   {
-   "id": "n18",
+   "id": "n20",
    "kind": "action",
    "label": "Confirm Transport\nExecution Plan",
    "x": 394.1,
@@ -456,7 +474,7 @@
    ]
   },
   {
-   "id": "n19",
+   "id": "n21",
    "kind": "final",
    "label": "",
    "x": 1270.9,
@@ -466,7 +484,7 @@
    "innerRatio": 0.443
   },
   {
-   "id": "n20",
+   "id": "n22",
    "kind": "decision",
    "label": "",
    "x": 150.4,
@@ -475,7 +493,7 @@
    "h": 48.4
   },
   {
-   "id": "n21",
+   "id": "n23",
    "kind": "object",
    "label": "\u00abRejected\u00bb\nTransport Execution\nPlan",
    "x": 663.1,
@@ -501,7 +519,7 @@
    ]
   },
   {
-   "id": "n22",
+   "id": "n24",
    "kind": "action",
    "label": "Receive Rejected\nTransport Execution\nPlan",
    "x": 1002.9,
@@ -529,7 +547,7 @@
    ]
   },
   {
-   "id": "n23",
+   "id": "n25",
    "kind": "action",
    "label": "Reject Transport\nExecution Plan",
    "x": 92.5,
@@ -552,7 +570,7 @@
    ]
   },
   {
-   "id": "n24",
+   "id": "n26",
    "kind": "final",
    "label": "",
    "x": 1278.2,
@@ -578,7 +596,7 @@
    "confidence": "medium"
   },
   {
-   "from": "n20",
+   "from": "n22",
    "to": "n2",
    "exitXY": [
     0.0,
@@ -649,19 +667,18 @@
    "confidence": "high"
   },
   {
-   "from": "n9",
-   "to": "n11",
+   "from": "n11",
+   "to": "n2",
    "exitXY": [
-    0.0,
-    0.5
-   ],
-   "entryXY": [
     0.4947,
     0.0
    ],
-   "straight": false,
-   "confidence": "high",
-   "label": "[no]"
+   "entryXY": [
+    0.4988,
+    1.0
+   ],
+   "straight": true,
+   "confidence": "LOW"
   },
   {
    "from": "n3",
@@ -676,6 +693,20 @@
    ],
    "straight": false,
    "confidence": "LOW"
+  },
+  {
+   "from": "n9",
+   "to": "n11",
+   "exitXY": [
+    0.0,
+    0.5
+   ],
+   "entryXY": [
+    1.0,
+    0.4959
+   ],
+   "straight": true,
+   "confidence": "high"
   },
   {
    "from": "n7",
@@ -721,8 +752,23 @@
    "label": "[no]"
   },
   {
+   "from": "n11",
+   "to": "n12",
+   "exitXY": [
+    0.4947,
+    1.0
+   ],
+   "entryXY": [
+    0.4947,
+    0.0
+   ],
+   "straight": false,
+   "confidence": "high",
+   "label": "no]"
+  },
+  {
    "from": "n10",
-   "to": "n14",
+   "to": "n15",
    "exitXY": [
     0.501,
     1.0
@@ -736,8 +782,8 @@
    "label": "[yes]"
   },
   {
-   "from": "n12",
-   "to": "n13",
+   "from": "n13",
+   "to": "n14",
    "exitXY": [
     0.0,
     0.4418
@@ -750,8 +796,8 @@
    "confidence": "high"
   },
   {
-   "from": "n14",
-   "to": "n12",
+   "from": "n15",
+   "to": "n13",
    "exitXY": [
     0.0,
     0.5208
@@ -764,8 +810,8 @@
    "confidence": "high"
   },
   {
-   "from": "n13",
-   "to": "n15",
+   "from": "n14",
+   "to": "n16",
    "exitXY": [
     0.5,
     1.0
@@ -778,8 +824,8 @@
    "confidence": "high"
   },
   {
-   "from": "n15",
-   "to": "n20",
+   "from": "n16",
+   "to": "n17",
    "exitXY": [
     0.4988,
     1.0
@@ -788,13 +834,42 @@
     0.4947,
     0.0
    ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n17",
+   "to": "n22",
+   "exitXY": [
+    0.0,
+    0.4959
+   ],
+   "entryXY": [
+    0.4947,
+    0.0
+   ],
    "straight": false,
-   "confidence": "high",
+   "confidence": "medium",
    "label": "Update Transport Execution\nPlan Request?\n> [no]"
   },
   {
    "from": "n17",
-   "to": "n16",
+   "to": "n20",
+   "exitXY": [
+    0.4947,
+    1.0
+   ],
+   "entryXY": [
+    0.5,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "medium",
+   "label": "[yes]"
+  },
+  {
+   "from": "n19",
+   "to": "n18",
    "exitXY": [
     1.0,
     0.4711
@@ -807,8 +882,8 @@
    "confidence": "high"
   },
   {
-   "from": "n18",
-   "to": "n17",
+   "from": "n20",
+   "to": "n19",
    "exitXY": [
     1.0,
     0.4969
@@ -818,12 +893,11 @@
     0.4964
    ],
    "straight": true,
-   "confidence": "high",
-   "label": "[yes]"
+   "confidence": "high"
   },
   {
-   "from": "n16",
-   "to": "n19",
+   "from": "n18",
+   "to": "n21",
    "exitXY": [
     1.0,
     0.5
@@ -836,8 +910,8 @@
    "confidence": "high"
   },
   {
-   "from": "n20",
-   "to": "n23",
+   "from": "n22",
+   "to": "n25",
    "exitXY": [
     0.4947,
     1.0
@@ -850,8 +924,8 @@
    "confidence": "high"
   },
   {
-   "from": "n23",
-   "to": "n21",
+   "from": "n25",
+   "to": "n23",
    "exitXY": [
     1.0,
     0.4972
@@ -864,8 +938,8 @@
    "confidence": "high"
   },
   {
-   "from": "n21",
-   "to": "n22",
+   "from": "n23",
+   "to": "n24",
    "exitXY": [
     1.0,
     0.4994
@@ -878,8 +952,8 @@
    "confidence": "high"
   },
   {
-   "from": "n22",
-   "to": "n24",
+   "from": "n24",
+   "to": "n26",
    "exitXY": [
     1.0,
     0.5337
@@ -908,15 +982,15 @@
    ]
   },
   {
-   "text": "[no]",
-   "x": 186.2,
+   "text": "no]",
+   "x": 190.6,
    "y": 324.1,
-   "w": 21.2,
+   "w": 16.9,
    "h": 11.2,
    "labelLines": [
     {
-     "text": "[no]",
-     "cx": 196.8,
+     "text": "no]",
+     "cx": 199.0,
      "cy": 329.7
     }
    ]

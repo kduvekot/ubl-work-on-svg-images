@@ -347,7 +347,7 @@ def in_title_band(n, bands, tol=10):
 
 
 def drop_phantoms(ink, regs, cells=(), min_iou=0.88, max_open=2,
-                  own_iou=0.97, own_cov=0.97, min_interior=0.01,
+                  own_iou=0.97, own_cov=0.97, own_iou_curved=0.95, min_interior=0.01,
                   title_bands=(None, None), glyph_h=0.0, flags=None):
     """White trapped between boxes, partition rules and connectors looks like a
     shape. Four tests, in order: it must not be a partition cell, it must not
@@ -399,10 +399,25 @@ def drop_phantoms(ink, regs, cells=(), min_iou=0.88, max_open=2,
             if iou < min_iou:
                 why = "outline matches no UML node shape (best %s %.2f)" % (a["shape"], iou)
             elif open_sides > max_open:
-                # a complete outline of its own *and* something inside it. Trapped
+                # A complete outline of its own *and* something inside it. Trapped
                 # whitespace can be bounded on all four sides by its neighbours, but
                 # it never holds a label.
-                if iou >= own_iou and cov >= own_cov and interior_ink(ink, a) >= min_interior:
+                #
+                # How "a complete outline" is established depends on the shape. For
+                # a rectangle the bbox *is* the outline, so border coverage settles
+                # it. For a rhombus, an ellipse or a rounded box the bbox corners
+                # are white by construction - a decision diamond measures 0.07
+                # coverage - so coverage says nothing and the outline match has to
+                # carry it alone. Requiring coverage of everything cost UBL-2.2-
+                # DigitalAgreement two of its three decision nodes: every diamond
+                # there matched its outline at 0.964 and held a label, and the two
+                # that were dropped differed from the one that survived only in
+                # having connectors on three sides - which is what a decision node
+                # is for.
+                curved = a["shape"] in ("rhombus", "ellipse", "rounded")
+                outline_ok = (iou >= own_iou_curved) if curved else \
+                             (iou >= own_iou and cov >= own_cov)
+                if outline_ok and interior_ink(ink, a) >= min_interior:
                     kept_by_outline = True
                 else:
                     why = "%d of 4 sides are pass-through line-work" % open_sides
