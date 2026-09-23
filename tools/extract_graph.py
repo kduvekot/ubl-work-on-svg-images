@@ -173,6 +173,64 @@ def glyph_height(bg, min_conf=30, path=None):
     return float(np.median(hs)) if hs else 0.0
 
 
+def _across(m, row, col, cap):
+    """how far the ink at (row, col) reaches across the line, counted up to cap+1"""
+    H, W = m.shape
+    if not (0 <= row < H) or not m[row, col]:
+        return cap + 1
+    n, c = 1, col - 1
+    while c >= 0 and m[row, c] and n <= cap:
+        n, c = n + 1, c - 1
+    c = col + 1
+    while c < W and m[row, c] and n <= cap:
+        n, c = n + 1, c + 1
+    return n
+
+
+def bridge_runs(mask, forbidden, gap, minrun, maxw, axis):
+    """Rejoin a straight line that a label interrupts.
+
+    A guard label is set ON the connector it belongs to, with a white halo, so the
+    connector arrives as two or three separate components. Neither piece then
+    touches two nodes, so the edge is dropped - and the edge really is gone from
+    the SVG, which is what the structural check reports as an absent element.
+
+    So close the gap, but only where it is certainly one line: the ink either side
+    continues for at least `minrun`, it is no more than `maxw` across (a stroke,
+    not the flank of something solid), the whole span is at most `gap`, and no
+    erased node lies in it - the two sides of a node are two different edges and
+    joining them would invent a connection. Runs shorter than `minrun` between the
+    two are stepped over: those are the glyphs sitting on the line.
+
+    Returns the spans to fill as (axis, line, start, end), so that the caller can
+    join the *components* the span links without redrawing the page: filling the
+    pixels and re-labelling would also swallow any glyph that happens to touch the
+    new ink, and those glyphs are the label, which still has to be read.
+
+    axis=0 rejoins vertical lines, axis=1 horizontal."""
+    m = mask if axis == 0 else mask.T
+    f = forbidden if axis == 0 else forbidden.T
+    H, _ = m.shape
+    joined = []
+    for c in np.where(m.sum(axis=0) >= 2 * minrun)[0]:
+        col = m[:, c]
+        d = np.diff(col.astype(np.int8))
+        starts, ends = list(np.where(d == 1)[0] + 1), list(np.where(d == -1)[0] + 1)
+        if col[0]:
+            starts.insert(0, 0)
+        if col[-1]:
+            ends.append(H)
+        longs = [(s, e) for s, e in zip(starts, ends) if e - s >= minrun]
+        for k in range(len(longs) - 1):
+            a, b = longs[k][1], longs[k + 1][0]
+            if not (0 < b - a <= gap) or f[a:b, c].any():
+                continue
+            if _across(m, a - 1, c, maxw) > maxw or _across(m, b, c, maxw) > maxw:
+                continue
+            joined.append((axis, int(c), int(a), int(b)))
+    return joined
+
+
 def border_coverage(ink, n, pad=3):
     """fraction of the bbox perimeter that sits on ink - a stroked box is ~1.0,
     white merely trapped between other shapes is much lower"""
@@ -774,9 +832,11 @@ def main(path, out_json=None):
         nodes = keep
 
     mask = ink.copy()
+    erased = np.zeros_like(ink)
     for n in nodes:
         m = 14
         mask[max(0, n["y"] - m):n["y"] + n["h"] + m, max(0, n["x"] - m):n["x"] + n["w"] + m] = False
+        erased[max(0, n["y"] - m):n["y"] + n["h"] + m, max(0, n["x"] - m):n["x"] + n["w"] + m] = True
     for x, w in vr:
         mask[:, max(0, x - 2):x + w + 2] = False
     for y, h in hr:
@@ -796,18 +856,66 @@ def main(path, out_json=None):
             both = mask[a - 1, :] & mask[b, :]
             mask[a:b, both] = True
 
-    lbl, _ = ndi.label(mask, structure=np.ones((3, 3)))
+    lbl, ncomp = ndi.label(mask, structure=np.ones((3, 3)))
+    slices = ndi.find_objects(lbl)
+
+    # A guard label is set ON its connector, breaking the connector into pieces
+    # that each touch only one node, so the edge was dropped. Rejoin the pieces -
+    # as components, not as pixels, so the label itself stays a separate component
+    # and is still read as text.
+    parent = list(range(ncomp + 1))
+
+    def root(i):
+        while parent[i] != i:
+            parent[i] = parent[parent[i]]
+            i = parent[i]
+        return i
+
+    spans, joined_px = {}, []              # the pixels of the spans themselves
+    if font_px > 0:
+        g = max(30, int(round(1.8 * font_px)))
+        run = max(20, int(round(0.5 * font_px)))
+        wide = max(8, int(round(0.3 * font_px)))
+        joins = (bridge_runs(mask, erased, g, run, wide, 0)
+                 + bridge_runs(mask, erased, g, run, wide, 1))
+        made = 0
+        for axis, c, a, b in joins:
+            (r1, c1), (r2, c2) = (((a - 1, c), (b, c)) if axis == 0
+                                  else ((c, a - 1), (c, b)))
+            i, j = int(lbl[r1, c1]), int(lbl[r2, c2])
+            if not (i and j):
+                continue
+            span = ((np.arange(a, b), np.full(b - a, c)) if axis == 0
+                    else (np.full(b - a, c), np.arange(a, b)))
+            if root(i) != root(j):
+                made += 1
+            parent[root(i)] = root(j)
+            joined_px.append((j, span))
+        for j, span in joined_px:          # after every union, so the root is final
+            spans.setdefault(root(j), []).append(span)
+        if made:
+            print("   rejoined %d line break(s) of up to %dpx, where a label sits"
+                  " on the line" % (made, g))
+
+    members = {}
+    for i in range(1, ncomp + 1):
+        if slices[i - 1] is not None:
+            members.setdefault(root(i), []).append(i)
+
     edges, textbits, unexplained = [], [], []
     print("\nEDGES")
-    for i, sl in enumerate(ndi.find_objects(lbl), start=1):
-        if sl is None:
-            continue
-        comp = (lbl[sl] == i)
-        n_px = int(comp.sum())
+    for grp, ids in members.items():
+        px = []
+        for i in ids:
+            sl = slices[i - 1]
+            ys, xs = np.where(lbl[sl] == i)
+            px.append((ys + sl[0].start, xs + sl[1].start))
+        px.extend(spans.get(grp, []))
+        ys = np.concatenate([p[0] for p in px])
+        xs = np.concatenate([p[1] for p in px])
+        n_px = int(ys.size)
         if n_px < TEXT_MIN_AREA:
             continue
-        ys, xs = np.where(comp)
-        ys, xs = ys + sl[0].start, xs + sl[1].start
         T = 34
         touch = [n for n in nodes
                  if (((xs >= n["x"] - T) & (xs <= n["x"] + n["w"] + T) &
