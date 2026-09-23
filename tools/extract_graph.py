@@ -971,6 +971,29 @@ def main(path, out_json=None):
             keep.append(n)
         nodes = keep
 
+    # An activity box, an object and a note are all there to carry words. White
+    # trapped inside a loop-back connector is not, and it survives the phantom
+    # tests: the corner a diagonal cuts off it reads as a note's folded corner,
+    # which skips those tests altogether. VMI-PermanentReplenishment came out with
+    # a 566x800 "action" over the loop below its decision, drawn as a great empty
+    # shape in the middle of the page. Nothing was read from any of these seven,
+    # while all 747 other boxes carry a label, so: no words and line-work running
+    # past two or more sides means this is the space between things, not a thing.
+    keep = []
+    for n in nodes:
+        if (n["kind"] in ("action", "object", "note") and not n.get("label", "").strip()
+                and sides_continue(ink, n) >= 2):
+            print("   (dropped x=%-5d y=%-5d %4dx%-4d  no text, and line-work runs past"
+                  " %d of its sides - whitespace between shapes, not a %s)"
+                  % (n["x"], n["y"], n["w"], n["h"], sides_continue(ink, n), n["kind"]))
+            uncertain.append(dict(kind="empty-box", x=n["x"], y=n["y"], w=n["w"], h=n["h"],
+                                  reason="a %s carrying no text, with line-work passing"
+                                         " its sides" % n["kind"],
+                                  check="confirm nothing is drawn here in the original"))
+            continue
+        keep.append(n)
+    nodes = keep
+
     mask = ink.copy()
     erased = np.zeros_like(ink)
     for n in nodes:
