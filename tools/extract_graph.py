@@ -17,7 +17,7 @@ re-rendered (UML now, BPMN later) as long as who-connects-to-what survives.
 
 Everything is derived from the pixels. The PNG is the source of truth.
 """
-import sys, os, json, math
+import sys, os, re, json, math
 import numpy as np
 import scipy.ndimage as ndi
 from PIL import Image
@@ -31,6 +31,13 @@ MIN_NODE_AREA = 1200
 EDGE_MIN_AREA = 150
 TEXT_MIN_AREA = 60
 ARROW_PROBE_R = 45
+TEXT_CONF = 45         # below this tesseract is reading line-work, not words:
+                       # every real label on UpdateCatalogueItemSpecification
+                       # scores 83-96 and the three arrowheads it read as text
+                       # score 39, 0 and 0. The floor sits below the gap rather
+                       # than in the middle of it because a real word can land
+                       # low - CRP-BaseArticleCatalogue's "Retailer" reads 58,
+                       # and a threshold at 55 is a coin toss for it
 LABEL_PAD = 6          # breathing room around a label crop; tesseract reads a
                        # tightly clipped glyph as a different glyph
 
@@ -52,6 +59,27 @@ def ocr(bg, x, y, w, h, inset=0):
     # keep the line breaks: the artwork wraps its labels deliberately and a
     # single-line re-render would not sit where the original does
     return "\n".join(" ".join(l.split()) for l in t.splitlines() if l.strip())
+
+
+def ocr_best_conf(bg, x, y, w, h, inset=0):
+    """How sure tesseract is of the best word it found in this block.
+
+    Free line-work that is not a node and not a connector gets read as text, and
+    an arrowhead that the node erasure cut away from its own line reads as "TZ",
+    "L" or "\\V/" - three of them on UpdateCatalogueItemSpecification alone,
+    drawn on the page as text the artwork does not have. Tesseract knows: every
+    real label on that diagram scores 83 to 96 and those three score 39, 0 and 0.
+    So ask it, and take the best word rather than the average, so that one word
+    misread inside a real label does not throw the label away."""
+    x0, y0, x1, y1 = x + inset, y + inset, x + w - inset, y + h - inset
+    if x1 - x0 < 10 or y1 - y0 < 10:
+        return 0
+    crop = bg.crop((x0, y0, x1, y1)).convert("L")
+    crop = crop.resize((crop.width * 2, crop.height * 2), Image.LANCZOS)
+    d = pytesseract.image_to_data(crop, config="--psm 6",
+                                  output_type=pytesseract.Output.DICT)
+    best = [int(float(c)) for t, c in zip(d["text"], d["conf"]) if t.strip()]
+    return max(best) if best else 0
 
 
 def ocr_inside(bg, ink, n, pad=6):
@@ -1965,6 +1993,16 @@ def main(path, out_json=None):
         min_head = 0.35 * font_px
         wide_a = arrow_size(xs, ys, pa, back_a, st0, min_len=min_head)
         wide_b = arrow_size(xs, ys, pb, back_b, st0, min_len=min_head)
+        # A head is a mark of the diagram's own size across the line as well as
+        # along it. Where the node erasure cut the point away from its own line -
+        # which is what happens at a join bar - what is left of the component at
+        # that end is the line itself, and it measured 9.6px across against
+        # arrowheads of 79. Taken for a head it decided the direction, and the
+        # flow into the bar on UpdateCatalogueItemSpecification came out of it.
+        if wide_a and wide_a[1] < 0.3 * font_px:
+            wide_a = None
+        if wide_b and wide_b[1] < 0.3 * font_px:
+            wide_b = None
         wa = wide_a[1] if wide_a else 0.0
         wb = wide_b[1] if wide_b else 0.0
 
@@ -1976,9 +2014,15 @@ def main(path, out_json=None):
         # not at the tail's. That reading needs the page rather than the component,
         # because the component has the boxes erased from around it and loses the
         # point with them - so it is used only where width has nothing to say.
+        # ...and where the component shows no head at either end. That happens
+        # when the head is not part of the component: the node erasure around a
+        # join bar cuts the point away from its own line, and the direction then
+        # fell back to counting ink in a square, which read the flow into the bar
+        # on UpdateCatalogueItemSpecification as a flow out of it. The corridor
+        # reads the page, so it still has the head the component lost.
         even = wa and wb and max(wa, wb) < 1.3 * min(wa, wb)
         point_a = point_b = None
-        if even:
+        if even or not (wa or wb):
             point_a = arrow_size(cxs, cys, tip_of(pa, back_a), back_a, st, reach,
                                  need_point=True, min_len=min_head)
             point_b = arrow_size(cxs, cys, tip_of(pb, back_b), back_b, st, reach,
@@ -2112,12 +2156,22 @@ def main(path, out_json=None):
 
     print("\nTEXT (titles, guards, notes)")
     texts = []
+    strays = []          # line-work that read as text: nearly always an arrowhead
     for b in lines:
         w, h = b[2] - b[0] + 1, b[3] - b[1] + 1
         if w < 25 or h < 14:
             continue
         t = ocr(bg, b[0], b[1], w, h, -6)
         if not t:
+            continue
+        # ...unless it reads as an actual word. Line-work comes back as one or
+        # two characters of punctuation - "\\V/", "TZ", "DN" - and a run of four
+        # letters is not something an arrowhead produces.
+        if (not re.search(r"[A-Za-z]{4,}", t)
+                and ocr_best_conf(bg, b[0], b[1], w, h, -6) < TEXT_CONF):
+            print("   (dropped x=%-5d y=%-5d %4dx%-4d  %r - line-work, not text)"
+                  % (b[0], b[1], w, h, t))
+            strays.append((b[0] + w / 2.0, b[1] + h / 2.0))
             continue
         item = dict(text=t, x=b[0], y=b[1], w=w, h=h)
         got = t.split("\n")
@@ -2168,6 +2222,30 @@ def main(path, out_json=None):
         cx, cy = n["x"] + n["w"] / 2, n["y"] + n["h"] / 2
         n["col"] = sum(1 for b in vb[1:-1] if cx > b) - c0
         n["row"] = sum(1 for b in hb[1:-1] if cy > b) - r0
+    # An arrowhead the node erasure cut away from its own line is a mark on the
+    # page that belongs to no component: it reads as text, fails to read as text,
+    # and is dropped above. It still says where the head is, though, and that is
+    # exactly what the edges it sits on could not work out for themselves - a join
+    # bar takes the point of every flow arriving at it. So where one such mark
+    # sits at one end of an edge and nothing sits at the other, and the edge is
+    # one the direction probe could not settle, the head is at the mark.
+    if strays:
+        r2 = (1.5 * font_px) ** 2
+        for e in edges:
+            if e.get("directionConfidence") != "LOW":
+                continue
+            def near(p):
+                return min(((p[0] - sx) ** 2 + (p[1] - sy) ** 2)
+                           for sx, sy in strays) <= r2
+            if near(e["fromPoint"]) and not near(e["toPoint"]):
+                e["from"], e["to"] = e["to"], e["from"]
+                e["fromPoint"], e["toPoint"] = e["toPoint"], e["fromPoint"]
+                if e.get("points"):
+                    e["points"] = e["points"][::-1]
+                e["directionConfidence"] = "mark-at-head"
+                print("   %-4s -> %-4s  turned round: the point it lost sits at the"
+                      " other end" % (e["from"], e["to"]))
+
     print("\nPARTITIONS")
     for g in grid:
         print("   %-6s %d  %r" % (g["axis"], g["index"], g["title"]))
