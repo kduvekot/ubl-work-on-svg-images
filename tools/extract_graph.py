@@ -879,6 +879,21 @@ def main(path, out_json=None):
                                             " thick its ring is"))
         (partitions if k == "partition" else nodes).append(rec)
     discs, bars = solid_blobs(ink, W, H, gh)
+    # A fork bar is drawn much heavier than a line - across the 78 diagrams every
+    # real one is at least four times the diagram's own stroke, 18px and up
+    # against strokes of 3 to 6. What is merely as thick as a stroke is a stroke:
+    # the top edge of a rounded box drawn at 8px survives the erosion that is
+    # meant to make line-work vanish, and 27 such "bars" were found, every one of
+    # them with no connector attached because there was no node there to connect.
+    line_w = float(np.median(box_strokes)) if box_strokes else 0.0
+    if line_w:
+        real = [b for b in bars if min(b["w"], b["h"]) >= 2 * line_w]
+        for b in bars:
+            if b not in real:
+                print("   (dropped x=%-5d y=%-5d %4dx%-4d  only %.0fpx across against a"
+                      " %.0fpx line - a stroke, not a fork bar)"
+                      % (b["x"], b["y"], b["w"], b["h"], min(b["w"], b["h"]), line_w))
+        bars = real
     nodes += bars
     for d in discs:
         if not any(n["x"] <= d["x"] and n["y"] <= d["y"] and
