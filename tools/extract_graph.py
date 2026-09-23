@@ -54,6 +54,40 @@ def ocr(bg, x, y, w, h, inset=0):
     return "\n".join(" ".join(l.split()) for l in t.splitlines() if l.strip())
 
 
+def ocr_inside(bg, ink, n, pad=6):
+    """Read a node's label with the node's own outline taken out of the picture.
+
+    A rhombus writes its label straight across the middle, where its two slanted
+    edges run within a few pixels of the glyphs, and tesseract joins them up: the
+    "OK?" on Tender-ContractInfoPrep came back as "DK'" and "JK'" - the O picking
+    up the left edge as a D, the ? picking up the right edge as an apostrophe.
+    Insetting a rectangle cannot help, because the border is diagonal and crosses
+    every rectangle that holds the text.
+
+    The interior mask can, and exactly: it is the enclosed white area, so the
+    stroke is outside it whatever the shape. Everything outside it is painted
+    white, which leaves the glyphs alone on the page. Returns "" when the shape
+    holds no glyphs, which is how an unlabelled diamond reads."""
+    m = n.get("mask")
+    if m is None or m.shape != (n["h"], n["w"]):
+        return None                      # caller falls back to reading a rectangle
+    g = m & ink[n["y"]:n["y"] + n["h"], n["x"]:n["x"] + n["w"]]
+    ys, xs = np.nonzero(g)
+    if xs.size < 10:
+        return ""
+    x0, x1 = max(0, int(xs.min()) - pad), min(n["w"], int(xs.max()) + pad + 1)
+    y0, y1 = max(0, int(ys.min()) - pad), min(n["h"], int(ys.max()) + pad + 1)
+    if x1 - x0 < 8 or y1 - y0 < 8:
+        return ""
+    crop = np.asarray(bg.crop((n["x"] + x0, n["y"] + y0,
+                               n["x"] + x1, n["y"] + y1)).convert("L"))
+    crop = np.where(m[y0:y1, x0:x1], crop, 255).astype(np.uint8)
+    im = Image.fromarray(crop)
+    im = im.resize((im.width * 3, im.height * 3), Image.LANCZOS)
+    t = pytesseract.image_to_string(im, config="--psm 6")
+    return "\n".join(" ".join(l.split()) for l in t.splitlines() if l.strip())
+
+
 def label_lines(ink, n, pad):
     """Where each line of a node's label actually sits. Nothing here assumes the
     label is centred in its box: several UBL activity boxes carry the text near
@@ -144,8 +178,19 @@ def enclosed_regions(ink, min_area=MIN_NODE_AREA):
         # Leaving it uncorrected made the pipeline subtract the bias twice - once
         # reading the original, once again when the render was measured - so every
         # action box was drawn with a corner ~10px tighter than the artwork's.
-        rx = int(np.argmax(solid[0])) if solid[0].any() else 0
-        ry = int(np.argmax(solid[:, 0])) if solid[:, 0].any() else 0
+        # ...read off the first row and column that are actually the shape's edge.
+        # Taking row 0 as given is what this did, and row 0 of "Prepare Prior
+        # Notice" on Tender-ContractInfoPrep is a single anti-aliased pixel 780
+        # columns in: the corner then measured 808 on an 877-wide box, SVG clamped
+        # it to half the width, and a stadium was drawn as an ellipse. One pixel
+        # is not an edge; ask for a few.
+        def first_edge(lines):
+            for i in range(min(4, len(lines))):
+                if lines[i].sum() >= 3:
+                    return int(np.argmax(lines[i]))
+            return 0
+        rx = first_edge(solid) if solid.any() else 0
+        ry = first_edge(solid.T) if solid.any() else 0
         rx += int(round(math.sqrt(rx))) if rx else 0
         ry += int(round(math.sqrt(ry))) if ry else 0
         out.append(dict(x=int(x0), y=int(y0), w=int(w), h=int(h),
@@ -1355,14 +1400,16 @@ def main(path, out_json=None):
         boxes = label_lines(ink, n, max(4, n.get("stroke", 4)) + 2) \
             if n["kind"] in ("action", "object", "note") else []
         if n["kind"] == "decision":
-            # A rhombus only has room for text across its middle. Reading it off
-            # the interior mask the way a box is read was tried and is worse: the
-            # slanted border survives the erosion and sits in the crop, so
-            # "Reconcile Charges" came back as "xeconcile ~harges". The small
-            # rhombus labels ("OK?") are misread either way and need their own
-            # treatment.
+            # A rhombus writes its label across its middle, with its two slanted
+            # edges a few pixels from the glyphs. Eroding the interior does not
+            # clear a diagonal stroke, and insetting a rectangle cannot either -
+            # every rectangle that holds the text crosses the border somewhere.
+            # Painting out everything outside the interior does clear it, whatever
+            # the slant; the middle-half crop below is what is left when no
+            # interior was measured.
+            t = ocr_inside(bg, ink, n)
             n["label"] = ocr(bg, n["x"] + n["w"] // 4, n["y"] + n["h"] // 4,
-                             n["w"] // 2, n["h"] // 2)
+                             n["w"] // 2, n["h"] // 2) if t is None else t
         elif boxes:
             bx0 = min(b["x"] for b in boxes); by0 = min(b["y"] for b in boxes)
             bx1 = max(b["x"] + b["w"] for b in boxes); by1 = max(b["y"] + b["h"] for b in boxes)
