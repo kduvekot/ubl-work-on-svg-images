@@ -157,6 +157,11 @@ def main(src, out, model_w=1480.0):
         # twice too big for the 26px-type diagrams and half the size of
         # ProcurementProcess's.
         "arrow": M((e.get("arrowPx") or 56) / 0.8),
+        # across the line as well as along it: the artwork's heads are blunter
+        # than a triangle as wide as it is long, and drawing them square lost a
+        # third of their ink
+        "arrowWidth": M((e.get("arrowWidthPx") or (e.get("arrowPx") or 56)) / 0.8),
+        "arrowStyle": e.get("arrowStyle") or "open",
         # the dashed rounded box a CPFR phase is drawn inside, with the artwork's
         # own dash and gap so the rebuild repeats the pattern rather than inventing
         # one

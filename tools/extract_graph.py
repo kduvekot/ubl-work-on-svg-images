@@ -404,7 +404,39 @@ def corridor(ink, node_fill, pa, pb, pad):
     return xs[keep], ys[keep]
 
 
-def arrow_size(xs, ys, tip, back, stroke, limit=None, need_point=False, min_len=0.0):
+def wedge(shape, apex, dx, dy, length, width, pad=2.0, inner=0.0, outer=None):
+    """The triangle an arrowhead occupies, as a mask and the box holding it.
+
+    One definition, used by the extractor to ask whether the head is filled and by
+    the referee to ask whether the rebuild drew one at all. Two definitions would
+    drift apart, and the referee would then be measuring a region the drawing
+    never claimed."""
+    L = max(float(length), 1.0)
+    y0, y1 = int(max(0, apex[1] - L - pad)), int(min(shape[0], apex[1] + L + pad + 1))
+    x0, x1 = int(max(0, apex[0] - L - pad)), int(min(shape[1], apex[0] + L + pad + 1))
+    if y1 <= y0 or x1 <= x0:
+        return None, (0, 0, 0, 0)
+    yy, xx = np.mgrid[y0:y1, x0:x1]
+    t = -((xx - apex[0]) * dx + (yy - apex[1]) * dy)      # back from the point
+    u = np.abs(-(xx - apex[0]) * dy + (yy - apex[1]) * dx)
+    # `inner` leaves the shaft out. The connector runs up the middle of its own
+    # arrowhead and is drawn whether or not the head is, so counting it answers
+    # a question nobody asked: with the shaft in, a head that is plainly there and
+    # one that was never drawn differ by a fifth, and with it out they differ by
+    # everything.
+    # `outer` widens the triangle into the sector behind the point - everywhere a
+    # head of this length could have put ink, whatever angle it was drawn at. The
+    # triangle is the right region for asking how a head is drawn, because it is
+    # where a filled one differs from an open one; it is the wrong region for
+    # asking *whether* one is drawn, because a head a few pixels wider or set a
+    # few pixels along falls outside it and reads as absent.
+    lim = float(outer) if outer else (width / 2.0) * np.clip(t / L, 0, 1)
+    return (t >= -pad) & (t <= L + pad) & (u >= inner) & (u <= lim + pad), \
+           (y0, y1, x0, x1)
+
+
+def arrow_size(xs, ys, tip, back, stroke, limit=None, need_point=False, min_len=0.0,
+               ahead=0):
     """How big the arrowhead at `tip` is, in the original's own pixels.
 
     The rebuild drew every arrowhead at one hard-coded size, so the same head
@@ -412,6 +444,16 @@ def arrow_size(xs, ys, tip, back, stroke, limit=None, need_point=False, min_len=
     diagrams it swamped the node it pointed at. The head is in the pixels like
     everything else - it is the stretch just behind the tip where the connector is
     wider than its own stroke.
+
+    `tip` is where the *trace* ended, which is not where the head's point is: the
+    walk down the centre of a connector stops as soon as the ink fans out, so it
+    stops inside the head and the point carries on ahead of it to the node's
+    border. Measured only backwards from there, a 26px head on
+    GoodsItemPassportApproval reads as 13px - and the rebuild then drew every head
+    at half the artwork's size, which no pixel difference could name because a
+    half-size head still sits inside the original's. Pass `ahead` to walk forward
+    to the real point as well, as far as the ink keeps narrowing; the direction
+    tests do not, so what decides which end carries the head is untouched.
 
     Returns (length, width) or None when the ink near the tip says nothing useful
     (crossing line-work, or a connector that has no head at this end)."""
@@ -478,10 +520,38 @@ def arrow_size(xs, ys, tip, back, stroke, limit=None, need_point=False, min_len=
     width = min(2.0 * float(half[1:length + 1].max()), 2.5 * length)
     if length < 2 * body or width < 2 * body:
         return None
+
+    # Everything that judges what this ink *is* - whether it clears the size floor
+    # below, and which way it tapers - keeps reading the stretch behind the tip,
+    # so adding the forward walk cannot make a join pass for a head or turn an
+    # edge round. It only makes the head that is there measure its full length.
+    back_len = length
+
+    # Forward, to the point. Beyond the trace's end the head is still narrowing,
+    # so take every step that stays ink and stays no wider than the step before
+    # it. The node's border is the wall that stops this: it crosses the probe and
+    # widens it again in a single step, and the head ends there, which is exactly
+    # where the artwork draws the point.
+    front = 0
+    if ahead > 0:
+        w0 = max(float(half[0:3].max()), body)
+        fwd = (t < 0) & (t >= -ahead) & (u <= w0 + 2.0)
+        if fwd.any():
+            fi = np.clip((-t[fwd]).astype(int), 0, ahead)
+            fh = np.zeros(ahead + 1)
+            seen = np.zeros(ahead + 1, bool)
+            np.maximum.at(fh, fi, u[fwd])
+            seen[fi] = True
+            prev = w0
+            for j in range(1, ahead + 1):
+                if not seen[j] or fh[j] > prev + 1.0:
+                    break
+                front, prev = j, min(prev, fh[j])
+            length += front
     # An arrowhead is a mark of the diagram's own size. Ten pixels of ink where a
     # connector meets a box is a join or a corner, not a head - and taken for one
     # it pointed "Send Trade Item Location Profile" at the wrong element.
-    if length < min_len:
+    if back_len < min_len:
         return None
     # Which end is the point. An arrowhead is a wedge, so its ink is narrow at the
     # tip and wide away from it; probed from the *other* end the same ink is wide
@@ -489,10 +559,14 @@ def arrow_size(xs, ys, tip, back, stroke, limit=None, need_point=False, min_len=
     # same at both ends of a head - which is how "Send Exception Criteria" came
     # out pointing at the wrong element, its head being nearly as long as the
     # 99px gap it sits in. The taper is what tells them apart.
-    lo = half[1:max(2, length // 3) + 1]
-    hi = half[max(1, 2 * length // 3):length + 1]
+    lo = half[1:max(2, back_len // 3) + 1]
+    hi = half[max(1, 2 * back_len // 3):back_len + 1]
     taper = (float(hi.mean()) / max(float(lo.mean()), 0.5)) if lo.size and hi.size else 1.0
-    return round(length, 1), round(width, 1), round(taper, 2)
+    # the fourth value is how far in front of `tip` the point turned out to be, so
+    # a caller that wants to look at the head's own pixels knows where it is; the
+    # fifth says the walk backwards ran to the end of its probe without finding
+    # where the head stops, which makes the length the probe's and not the head's
+    return round(length, 1), round(width, 1), round(taper, 2), front, back_len >= cap - 1
 
 
 def border_coverage(ink, n, pad=3):
@@ -1754,7 +1828,59 @@ def main(path, out_json=None):
         if turns:
             rec["points"] = turns
         if head:
-            rec["arrowPx"] = list(head)
+            # measured again, now that the direction is settled, with the walk
+            # allowed to run forward to the head's actual point. The reading above
+            # decided which end carries the head and must stay as it is; this one
+            # only says how big to draw it.
+            # on the page rather than on the component: the connector component
+            # has the node boxes erased from around it with a margin, and the
+            # head's point is inside that margin, so the walk forward finds
+            # nothing there and the head measures short exactly where it matters.
+            full = arrow_size(cxs, cys, p_to, (turns[-1] if turns else p_from), st,
+                              reach, min_len=min_head, ahead=int(max(10, 8 * st)))
+            if full and full[0] > head[0]:
+                head = full
+            rec["arrowPx"] = list(head[:3])
+            # A walk that ran to the end of its own probe never found where the
+            # head stops, and reports the probe's length instead: ProcurementProcess
+            # draws its flows as long diagonals, and four of them read as 111px
+            # heads - the probe - against real heads of about 40. The reading still
+            # stands for deciding which end carries the head, because that compares
+            # one end against the other; it is only useless as a size, so it is
+            # marked here and left out of the diagram's own measurement below.
+            if head[4]:
+                rec["arrowSaturated"] = True
+            # Solid triangle or open "V". The transport diagrams of UBL 2.3 fill
+            # their arrowheads and the CPFR and billing diagrams leave them open,
+            # and drawing every one of them open put a thin two-stroke mark where
+            # the artwork has a solid wedge - visible on the page, and the largest
+            # single class the difference could not name.
+            #
+            # Read it where the two drawings actually differ: inside the wedge,
+            # between the shaft and the barb. A filled head has ink there and an
+            # open one has white. Counting ink per unit of area around the tip -
+            # which is what this did - measures the head's own proportions instead,
+            # and read the same heads as filled or open depending only on how much
+            # of their length had been measured.
+            L, Wd = head[0], head[1]
+            bp = (turns[-1] if turns else p_from)
+            hL = math.hypot(p_to[0] - bp[0], p_to[1] - bp[1]) or 1.0
+            hx, hy = (p_to[0] - bp[0]) / hL, (p_to[1] - bp[1]) / hL
+            ap = (p_to[0] + hx * head[3], p_to[1] + hy * head[3])
+            y0, y1 = int(max(0, ap[1] - L)), int(min(H, ap[1] + L))
+            x0, x1 = int(max(0, ap[0] - L)), int(min(W, ap[0] + L))
+            patch = ink[y0:y1, x0:x1] & ~node_fill[y0:y1, x0:x1]
+            if patch.size:
+                yy, xx = np.nonzero(np.ones_like(patch))
+                tt = -((xx + x0 - ap[0]) * hx + (yy + y0 - ap[1]) * hy)
+                uu = np.abs(-(xx + x0 - ap[0]) * hy + (yy + y0 - ap[1]) * hx)
+                edge_u = (Wd / 2.0) * np.clip(tt / max(L, 1.0), 0, 1)
+                shaft = max(st / 2.0, 1.0) + 1.0
+                inside = ((tt >= 0.45 * L) & (tt <= 0.95 * L) &
+                          (uu >= shaft) & (uu <= 0.6 * edge_u))
+                if inside.sum() >= 6:
+                    rec["arrowFill"] = round(
+                        float(patch.reshape(-1)[inside].mean()), 3)
         edges.append(rec)
         print("   %-4s -> %-4s  %-11s arrowhead %5d vs %-5d  ratio %.1f  %s"
               % (src["id"], dst["id"], routing, hi, lo, ratio,
@@ -1857,16 +1983,50 @@ def main(path, out_json=None):
         # head stops and reports the probe's length instead - ProcurementProcess
         # had four such, all at 111px, against real heads of about 38 - so the
         # median is taken over the shortest cluster rather than over everything.
-        heads = sorted(e["arrowPx"][0] for e in edges if e.get("arrowPx"))
-        widths = sorted(e["arrowPx"][1] for e in edges if e.get("arrowPx"))
+        # Only the readings that found both ends of the head. The rest measured the
+        # probe. Cut what remains against its own median rather than against the
+        # shortest reading, because short readings happen too - a head whose point
+        # is buried in a node's border measures only the part behind the contact -
+        # and a floor set by the shortest threw away every head measured in full.
+        # A head is also narrower than it is long - across all 78 diagrams the
+        # measured aspect sits between 0.8 and 1.1 - so a reading half again wider
+        # than it is long is a box's border caught in the probe, not a head.
+        sized = [e for e in edges if e.get("arrowPx") and not e.get("arrowSaturated")
+                 and e["arrowPx"][1] <= 1.6 * e["arrowPx"][0]]
+        heads = sorted(e["arrowPx"][0] for e in sized)
+        widths = sorted(e["arrowPx"][1] for e in sized)
+        # Where too little of the diagram reads, say so rather than drawing to a
+        # number taken from two readings. UBL-1.0-ProcurementProcess is the case:
+        # its flows are long diagonals meeting boxes at an angle, every probe ends
+        # on a border, and the three readings that survive are 61, 76 and 106px
+        # against heads of about 40. The head is then set from the diagram's own
+        # type size, which is the one measurement it does give up reliably and
+        # which the other 77 diagrams' heads track at around 1.1 times.
+        if len(heads) < max(2, 0.25 * len(edges)):
+            heads, widths = [], []
+            if edges:
+                uncertain.append(dict(
+                    kind="arrowhead-size-unreadable", x=0, y=0, w=W, h=H,
+                    reason="only %d of %d connectors gave a usable arrowhead"
+                           " measurement; the head is drawn at 1.1x the type size"
+                           % (len(sized), len(edges))))
         if heads:
-            tight = [h for h in heads if h <= 2 * heads[0]]
-            arrow_px = round(float(np.median(tight)), 1)
-            arrow_w = float(np.median(widths))
+            keep = [h for h in heads if h <= 2 * float(np.median(heads))]
+            arrow_px = round(float(np.median(keep or heads)), 1)
+            # the width of the same cluster, not of everything: a head measured
+            # across a crossing line is wide for the wrong reason
+            tw = [e["arrowPx"][1] for e in sized if e["arrowPx"][0] <= 2 * arrow_px]
+            arrow_w = float(np.median(tw or widths))
         else:
-            arrow_px, arrow_w = 0.0, 0.0
+            arrow_px = round(1.1 * font_px, 1) if edges else 0.0
+            arrow_w = round(0.9 * arrow_px, 1)
+        fills = [e["arrowFill"] for e in edges if e.get("arrowFill") is not None]
+        arrow_fill = "filled" if fills and float(np.median(fills)) >= 0.5 else "open"
         if arrow_px:
-            print("\nARROWHEAD  %.0fpx long over %d connector(s)" % (arrow_px, len(heads)))
+            print("\nARROWHEAD  %.0f x %.0fpx, %s, %s"
+                  % (arrow_px, arrow_w, arrow_fill,
+                     "measured on %d connector(s)" % len(heads) if heads
+                     else "no connector read - set from the type size"))
         # An open end has no node to stop at, so a line that simply runs out can
         # read as a head. Against the diagram's own arrowhead it cannot: keep only
         # the ones that are the right size for this drawing.
@@ -1879,6 +2039,7 @@ def main(path, out_json=None):
                           % (o["node"], L, Wd, arrow_px, arrow_w))
                     o["arrow"] = False
         json.dump(dict(source=path, size=[W, H], fontPx=font_px, arrowPx=arrow_px,
+                       arrowWidthPx=round(arrow_w, 1), arrowStyle=arrow_fill,
                        rules=dict(v=vr, h=hr), greyRules=greys, dashed=dboxes,
                        openEnds=open_ends,
                        partitions=grid, nodes=nodes, edges=edges, text=texts,

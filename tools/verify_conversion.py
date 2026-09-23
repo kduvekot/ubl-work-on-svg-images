@@ -265,6 +265,72 @@ def check_text_complete(bg_orig, graph, boxes, findings, glyph_h):
                                         % (want[:24], norm(hit[0])[:30], hit[1])))
 
 
+def check_arrowheads(a, b, graph, glyph_h, findings, nodefill):
+    """Is there an arrowhead where the artwork has one.
+
+    Comparing ink between the two images says nothing on its own: the artwork's
+    solid triangles carry several times the ink of the open "V" the rebuild draws,
+    at every arrow, right or wrong. So measure the head itself, the same way at the
+    same place in both - the stretch behind the tip where the connector is wider
+    than its own line - and report only where the original has one and the SVG has
+    nothing. That is the defect a pixel difference cannot raise: a head is smaller
+    than the "element-sized" floor the structural test uses, so a connector drawn
+    without its point scores as clean."""
+    import extract_graph as E
+    for e in graph.get("edges", []):
+        p, q = e.get("fromPoint"), e.get("toPoint")
+        if not p or not q:
+            continue
+        back = (e.get("points") or [p])[-1]
+        st = max(2.0, 0.1 * (graph.get("fontPx") or 40))
+        reach = ((p[0] - q[0]) ** 2 + (p[1] - q[1]) ** 2) ** 0.5
+        xs, ys = E.corridor(a, nodefill, p, q, int(max(40, 10 * st)))
+        if xs.size < 8:
+            continue
+        head = E.arrow_size(xs, ys, q, back, st, reach,
+                            min_len=0.35 * (graph.get("fontPx") or 40),
+                            ahead=int(max(10, 8 * st)))
+        if not head:
+            continue                       # nothing measurable in the original
+
+        # How much ink each image puts where the head is. Measuring the *shape* of
+        # the rendered head the same way fails on the drawing rather than on the
+        # defect: the head's point sits a few pixels past the contact the model
+        # recorded, the cone that keeps a crossing line out of the measurement then
+        # cuts the head's own pixels, and a head that is plainly there measures as
+        # absent. Mass in a fixed region does not care where exactly the point
+        # lands - and the region is the head's own triangle, not a disc around it,
+        # because a disc is mostly connector: at the sizes these diagrams draw, the
+        # line through it carried more ink than the head did, and the reading then
+        # said as much about the head's proportions as about whether it was there.
+        L, Wd, front = head[0], head[1], head[3]
+        dx, dy = q[0] - back[0], q[1] - back[1]
+        dL = (dx * dx + dy * dy) ** 0.5 or 1.0
+        dx, dy = dx / dL, dy / dL
+        apex = (q[0] + dx * front, q[1] + dy * front)
+        mask, (y0, y1, x0, x1) = E.wedge(a.shape, apex, dx, dy, L, Wd,
+                                         inner=max(st / 2.0, 1.0) + 1.5, outer=L)
+        if mask is None or mask.sum() < 12:
+            continue
+        m = mask & ~nodefill[y0:y1, x0:x1]
+        m_orig = int((a[y0:y1, x0:x1] & m).sum())
+        m_rend = int((b[y0:y1, x0:x1] & m).sum())
+        # Calibrated against a control: the same renders with every marker-end
+        # stripped out, on a filled-head diagram and on two open-head ones. Where
+        # the head is drawn the rebuild keeps 0.43 to 1.7 of the original's ink
+        # here; where the marker was taken away it keeps at most 0.4, and 0.0 at
+        # the median. The floor sits at the bottom of the first range rather than
+        # in the gap: this reports heads that are absent, and a head drawn a little
+        # too small is the pixel difference's to report, not this test's.
+        if m_orig >= 40 and m_rend < 0.4 * m_orig:
+            findings.append(dict(kind="arrowhead-missing", x=x0, y=y0,
+                                 w=x1 - x0, h=y1 - y0,
+                                 detail="edge %s->%s: the original has a %.0fpx arrowhead"
+                                        " here (%d px of ink); the SVG has %d"
+                                        % (e.get("from"), e.get("to"), head[0],
+                                           m_orig, m_rend)))
+
+
 def check_arrow_directions(a, b, graph, glyph_h, findings, tmask=None, ratio=2.0):
     """An arrowhead sitting a few pixels off, or drawn at a slightly different
     angle, is placement error and is tolerated like any other. An arrowhead
@@ -416,7 +482,12 @@ def verify(orig_png, render_png, graph_path, radius=3, diff_out=None):
     check_text_complete(bg_orig, graph, boxes, text_findings, glyph_h)    # clause 3
     coherence = []
     check_coherent(graph, glyph_h, coherence)                             # clause 4
-    check_arrow_directions(a, b, graph, glyph_h, coherence, tmask)               # clause 4b
+    check_arrow_directions(a, b, graph, glyph_h, coherence, tmask)
+    nodefill = np.zeros(a.shape, bool)
+    for n in graph.get("nodes", []):
+        nodefill[max(0, n["y"] - 2):n["y"] + n["h"] + 3,
+                 max(0, n["x"] - 2):n["x"] + n["w"] + 3] = True
+    check_arrowheads(a, b, graph, glyph_h, coherence, nodefill)               # clause 4b
     blocking = lost + made + coherence + \
         [t for t in text_findings if t["kind"] in ("text-absent", "text-differs",
                                                    "label-missing")]

@@ -345,11 +345,17 @@ def classified(spec, defs, model):
 def main(spec_path, out):
     spec = load(spec_path)
     S = spec["stroke"]
+    # the head the artwork draws: a solid triangle in the UBL 2.3 transport
+    # diagrams, an open "V" in the CPFR and billing ones
+    filled = spec.get("arrowStyle") == "filled"
     defs = ('<defs><marker id="arrow" markerUnits="userSpaceOnUse" viewBox="0 0 20 20" '
-            'refX="18" refY="10" markerWidth="%.0f" markerHeight="%.0f" orient="auto">'
-            '<path d="M 2 2 L 18 10 L 2 18" fill="none" stroke="#000" stroke-width="%.2f" '
+            'refX="%d" refY="10" markerWidth="%.0f" markerHeight="%.0f" orient="auto">'
+            '<path d="M 2 2 L 18 10 L 2 18%s" fill="%s" stroke="#000" stroke-width="%.2f" '
             'stroke-linecap="round" stroke-linejoin="round"/></marker></defs>'
-            % (spec.get("arrow", 20), spec.get("arrow", 20), S["edge"] * 0.9))
+            % (18 if not filled else 17, spec.get("arrow", 20),
+               spec.get("arrowWidth") or spec.get("arrow", 20),
+               " Z" if filled else "", "#000" if filled else "none",
+               S["edge"] * (0.6 if filled else 0.9)))
     model = mxfile(spec)
     W, H = spec["canvas"]["w"], spec["canvas"]["h"]
     svg = ('<?xml version="1.0" encoding="UTF-8"?>\n<svg xmlns="http://www.w3.org/2000/svg" '

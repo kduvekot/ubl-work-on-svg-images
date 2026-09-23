@@ -27,6 +27,12 @@ if [ "${1:-}" = "--one" ]; then
 
   "$HERE/run-pipeline.sh" "$ART" "$OUT" "$n" > "$OUT/$n-pipeline.log" 2>&1 \
       || fail PIPELINE-FAIL
+  # the model read back as a sentence, and checked against the rules an activity
+  # diagram obeys. The pixel test below cannot see a flow that runs the right way
+  # on the page and the wrong way in the model, so this runs beside it.
+  python3 "$HERE/model_sheet.py" "$OUT/$n-graph.json" --json "$OUT/$n-model.json" \
+      > "$OUT/$n-model.txt" 2>&1 || true
+
   rep="$OUT/$n-struct.json"
   python3 "$HERE/verify_conversion.py" "$ART/$n.png" "$OUT/$n-render.png" \
       "$OUT/$n-graph.json" --radius "$RADIUS" --json "$rep" \
