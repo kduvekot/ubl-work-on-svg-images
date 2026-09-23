@@ -1034,7 +1034,7 @@ def grey_rules(gray, min_cov=0.45, min_w=3):
     return out
 
 
-def find_rules(ink, frac=0.40):
+def find_rules(ink, frac=0.40, partial=None):
     """Straight full-span rules: the frame and the partition dividers.
 
     Coverage alone cannot separate a divider from the edge of a tall node - both
@@ -1092,6 +1092,8 @@ def find_rules(ink, frac=0.40):
             # divider: no node edge is half the page long.
             if all(ends) or (any(ends) and line[lo:hi].mean() >= 0.5):
                 out.append((int(g[0]), int(g[-1] - g[0] + 1)))
+                if partial is not None and not all(ends):
+                    partial.add((axis, int(g[0])))
         return out
 
     vprof, hprof = ink.sum(axis=0), ink.sum(axis=1)
@@ -1105,7 +1107,8 @@ def main(path, out_json=None):
     H, W = ink.shape
     print("image %dx%d" % (W, H))
 
-    vr, hr = find_rules(ink)
+    partial_rules = set()
+    vr, hr = find_rules(ink, partial=partial_rules)
     greys = grey_rules(np.asarray(bg.convert("L")))
     for gr in greys:
         print("   grey %s rule at %d, %dpx wide, tone %d (covers %.0f%% of the page)"
@@ -1311,6 +1314,78 @@ def main(path, out_json=None):
             continue
         keep.append(n)
     nodes = keep
+
+    # A divider never runs through an activity or a decision. It may be straddled
+    # by a document box - UBL draws those on the divider on purpose - but a
+    # vertical that crosses a rounded box or a diamond is a connector that happens
+    # to line up, not a rule. ExceptionHandling has one: the flow from "Receive
+    # Sales Forecast & Wait for Exception Notification" down to its decision, with
+    # the No branch continuing below, covers two thirds of the page in one column
+    # and was read as a lane divider - which then erased that whole column from
+    # the connector search, so the decision lost its connectors and kept only the
+    # stray marks around them.
+    def crosses_a_shape(at, w, axis):
+        """the shape a rule would have to cut through, if any.
+
+        A box drawn *on* a divider is the house style, so crossing one is not by
+        itself disqualifying - what settles it is whether the line carries on past
+        the box on both sides. A divider does; a connector leaving that box does
+        not, because the box is where it starts."""
+        mid = int(at + w / 2.0)
+        line = (ink[:, max(0, mid - 1):mid + 2].any(axis=1) if axis == "v"
+                else ink[max(0, mid - 1):mid + 2, :].any(axis=0))
+        for n in nodes:
+            if n["kind"] == "object":
+                continue
+            lo, hi = ((n["x"], n["x"] + n["w"]) if axis == "v"
+                      else (n["y"], n["y"] + n["h"]))
+            if not (lo + 4 < mid < hi - 4):
+                continue
+            a0, a1 = ((n["y"], n["y"] + n["h"]) if axis == "v"
+                      else (n["x"], n["x"] + n["w"]))
+            look = max(60, 4 * (line_w or 4))
+            before = line[max(0, a0 - look):max(0, a0 - 2)]
+            after = line[min(len(line), a1 + 2):min(len(line), a1 + look)]
+            near_before = before.size and before.mean() > 0.3
+            near_after = after.size and after.mean() > 0.3
+            if near_before and near_after:
+                continue                   # the line runs on past the box: a divider
+            if not (near_before or near_after):
+                continue                   # the line does not reach this box at all
+            return n                       # it stops here, so this box is its source
+        return None
+
+    def keep_rules(rules, axis, span):
+        out = []
+        for at, w in rules:
+            # A rule that runs frame to frame is a divider whatever it passes: the
+            # swimlane grids draw tall boxes across their band lines on purpose.
+            # Only the ones that reach a single frame have to answer for what they
+            # cross, and those are the ones a connector can imitate.
+            edge = at <= max(3, span * 0.015) or at + w >= span - max(3, span * 0.015)
+            hit = (None if edge or (axis, at) not in partial_rules
+                   else crosses_a_shape(at, w, axis))
+            if hit is None:
+                out.append((at, w))
+            else:
+                print("   (dropped %s rule at %d: it starts at %s, a %s, and does not"
+                      " run on past it - a connector, not a divider)"
+                      % (axis, at, hit["id"], hit["kind"]))
+                uncertain.append(dict(kind="rule-through-shape",
+                                      x=at if axis == "v" else 0,
+                                      y=0 if axis == "v" else at, w=w, h=w,
+                                      reason="a rule reaching one frame only, stopping at %s"
+                                             % hit["id"],
+                                      check="confirm there is no lane divider here"))
+        return out
+
+    vr, hr = keep_rules(vr, "v", W), keep_rules(hr, "h", H)
+    inner_v = [r for r in vr if 6 < r[0] < W - 12]
+    inner_h = [r for r in hr if 6 < r[0] < H - 12]
+    vb = [0] + [x + w / 2 for x, w in inner_v] + [W]
+    hb = [0] + [y + h / 2 for y, h in inner_h] + [H]
+    strip = len(vb) > 2 and (vb[1] - vb[0]) < W * 0.04
+    header = len(hb) > 2 and (hb[1] - hb[0]) < H * 0.04
 
     # the dashed box that encloses a whole CPFR phase: found before the connector
     # search, so its dashes are not mistaken for line-work or for words
