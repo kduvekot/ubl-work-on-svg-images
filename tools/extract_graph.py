@@ -376,7 +376,35 @@ def trace_corners(xs, ys, p_from, p_to, stroke, max_turns=8):
     return corners
 
 
-def arrow_size(xs, ys, tip, back, stroke):
+def corridor(ink, node_fill, pa, pb, pad):
+    """The original's own ink along a connector, with the nodes taken out.
+
+    The head has to be measured on the page, not on the connector component: the
+    component has the node boxes erased from around it, and where two elements sit
+    close together - "Send Exception Criteria" and the document beside it, 99px
+    apart - that erasure takes most of the arrowhead with it, leaving the
+    direction to be decided by whatever ink happens to remain. Node outlines are
+    excluded so that a box's own edge, which lies across the probe at every
+    contact, cannot be read as a head."""
+    x0 = max(0, min(pa[0], pb[0]) - pad)
+    x1 = min(ink.shape[1], max(pa[0], pb[0]) + pad + 1)
+    y0 = max(0, min(pa[1], pb[1]) - pad)
+    y1 = min(ink.shape[0], max(pa[1], pb[1]) + pad + 1)
+    sub = ink[y0:y1, x0:x1] & ~node_fill[y0:y1, x0:x1]
+    ys, xs = np.where(sub)
+    if xs.size == 0:
+        return np.array([]), np.array([])
+    xs, ys = xs + x0, ys + y0
+    vx, vy = pb[0] - pa[0], pb[1] - pa[1]
+    L = math.hypot(vx, vy) or 1.0
+    dx, dy = vx / L, vy / L
+    t = (xs - pa[0]) * dx + (ys - pa[1]) * dy
+    u = np.abs(-(xs - pa[0]) * dy + (ys - pa[1]) * dx)
+    keep = (t >= -pad) & (t <= L + pad) & (u <= pad)
+    return xs[keep], ys[keep]
+
+
+def arrow_size(xs, ys, tip, back, stroke, limit=None, need_point=False):
     """How big the arrowhead at `tip` is, in the original's own pixels.
 
     The rebuild drew every arrowhead at one hard-coded size, so the same head
@@ -395,8 +423,19 @@ def arrow_size(xs, ys, tip, back, stroke):
     rel_x, rel_y = xs - tip[0], ys - tip[1]
     t = -(rel_x * dx + rel_y * dy)             # distance back from the tip
     u = np.abs(-rel_x * dy + rel_y * dx)       # distance across the line
+    # never probe further than halfway along the connector: past that the probe
+    # reaches the head at the *other* end, and then the tail also looks like ink
+    # that widens away from it - which flipped seventeen edges the wrong way round
     cap = int(max(30.0, 16.0 * stroke))
-    sel = (t >= -2) & (t <= cap)
+    if limit:
+        cap = int(min(cap, max(8.0, 0.5 * limit)))
+    # only ink that could belong to a wedge with its point here: a barb leaves the
+    # tip at an angle, so at distance t it is at most about t across. A line
+    # running parallel a fixed distance away - a second connector converging on
+    # the same node, which UBL draws often - is outside that cone and no longer
+    # counts as this head, which it did before, complete with a convincing taper.
+    body0 = max(0.5, stroke / 2.0)
+    sel = (t >= -2) & (t <= cap) & (u <= 1.2 * np.maximum(t, 0.0) + 3 * body0)
     if sel.sum() < 8:
         return None
     # how far the ink reaches across the line, a pixel-step at a time back from
@@ -405,15 +444,21 @@ def arrow_size(xs, ys, tip, back, stroke):
     ti = np.clip(t[sel].astype(int), 0, cap + 1)
     np.maximum.at(half, ti, u[sel])
 
-    # The line's own half-width is measured on the far part of the probe, where
-    # the head is over: the stroke of a connector is not the stroke of a box, and
-    # judging the head against the wrong one measured nothing on half the
-    # diagrams. Where the connector is too short for that, the caller's estimate
-    # stands in.
-    far = half[int(cap * 0.7):cap + 1]
-    far = far[far > 0]
-    body = float(np.median(far)) if far.size >= 4 else stroke / 2.0
+    # `stroke` is the connector's own weight, measured by the caller at the middle
+    # of the line where there is no head. Estimating it from the far end of this
+    # probe instead - which is what this did - fails whenever the head is longer
+    # than a fraction of the probe, because then the "far end" is still head: on
+    # this artwork that silently measured no head at all on most connectors.
+    body = max(0.5, stroke / 2.0)
     thresh = max(body * 1.6, body + 1.5)
+
+    # A point is narrow. Where several connectors converge on one node the ink at
+    # the far end of a probe fans out and looks like a wedge from either side, so
+    # the test that settles it is the tip itself: an arrowhead begins at the width
+    # of its own line and widens from there. Ink that is already several strokes
+    # across where the point should be is not a point.
+    if need_point and float(half[0:3].max()) > max(2.5 * body, body + 3.0):
+        return None
 
     # An open "V" head is two strokes that meet at the tip, so at the tip itself
     # the ink is no wider than the line: walk outward and take the last step that
@@ -433,7 +478,16 @@ def arrow_size(xs, ys, tip, back, stroke):
     width = min(2.0 * float(half[1:length + 1].max()), 2.5 * length)
     if length < 2 * body or width < 2 * body:
         return None
-    return round(length, 1), round(width, 1)
+    # Which end is the point. An arrowhead is a wedge, so its ink is narrow at the
+    # tip and wide away from it; probed from the *other* end the same ink is wide
+    # at the near end and narrow further along. Width alone therefore reads the
+    # same at both ends of a head - which is how "Send Exception Criteria" came
+    # out pointing at the wrong element, its head being nearly as long as the
+    # 99px gap it sits in. The taper is what tells them apart.
+    lo = half[1:max(2, length // 3) + 1]
+    hi = half[max(1, 2 * length // 3):length + 1]
+    taper = (float(hi.mean()) / max(float(lo.mean()), 0.5)) if lo.size and hi.size else 1.0
+    return round(length, 1), round(width, 1), round(taper, 2)
 
 
 def border_coverage(ink, n, pad=3):
@@ -894,6 +948,37 @@ def dashed_boxes(ink, stroke, min_dashes=8, min_span=0.35):
                  dashes=top["n"] + bot["n"] + left["n"] + right["n"])]
 
 
+def dash_pixels(ink, boxes, stroke):
+    """The marks that make up a dashed box, and nothing else.
+
+    Erasing a band along the box's edges instead - which is the obvious thing -
+    cuts every connector that crosses it, and in the CPFR diagrams several do:
+    the flow leaves a phase, crosses its own boundary and runs on to the next.
+    A dash is small; a connector crossing the boundary is not. Take the dashes
+    themselves and leave the crossings alone."""
+    m = np.zeros_like(ink)
+    if not boxes:
+        return m
+    band = int(max(6, 3 * stroke))
+    near_edge = np.zeros_like(ink)
+    for d in boxes:
+        for yy in (d["y"], d["y"] + d["h"]):
+            near_edge[max(0, yy - band):yy + band,
+                      max(0, d["x"] - band):d["x"] + d["w"] + band] = True
+        for xx in (d["x"], d["x"] + d["w"]):
+            near_edge[max(0, d["y"] - band):d["y"] + d["h"] + band,
+                      max(0, xx - band):xx + band] = True
+    lbl, _ = ndi.label(ink & near_edge, structure=np.ones((3, 3)))
+    thick = max(3.0, 2.5 * stroke)
+    for i, sl in enumerate(ndi.find_objects(lbl), start=1):
+        if sl is None:
+            continue
+        h, w = sl[0].stop - sl[0].start, sl[1].stop - sl[1].start
+        if min(w, h) <= thick and max(w, h) <= 14 * thick:
+            m[sl][lbl[sl] == i] = True
+    return m
+
+
 def find_rules(ink, frac=0.40):
     """Straight full-span rules: the frame and the partition dividers.
 
@@ -1176,12 +1261,13 @@ def main(path, out_json=None):
 
     mask = ink.copy()
     erased = np.zeros_like(ink)
-    for d in dboxes:
-        b = int(max(6, 3 * (line_w or 4.0)))
-        for yy in (d["y"], d["y"] + d["h"]):
-            mask[max(0, yy - b):yy + b, max(0, d["x"] - b):d["x"] + d["w"] + b] = False
-        for xx in (d["x"], d["x"] + d["w"]):
-            mask[max(0, d["y"] - b):d["y"] + d["h"] + b, max(0, xx - b):xx + b] = False
+    mask &= ~dash_pixels(ink, dboxes, line_w or 4.0)
+    # the nodes as solid blocks, for measuring an arrowhead on the page itself
+    # without a box's own outline joining in
+    node_fill = np.zeros_like(ink)
+    for n in nodes:
+        node_fill[max(0, n["y"] - 2):n["y"] + n["h"] + 3,
+                  max(0, n["x"] - 2):n["x"] + n["w"] + 3] = True
     for n in nodes:
         m = 14
         mask[max(0, n["y"] - m):n["y"] + n["h"] + m, max(0, n["x"] - m):n["x"] + n["w"] + m] = False
@@ -1251,7 +1337,7 @@ def main(path, out_json=None):
         if slices[i - 1] is not None:
             members.setdefault(root(i), []).append(i)
 
-    edges, textbits, unexplained = [], [], []
+    edges, textbits, unexplained, open_ends = [], [], [], []
     print("\nEDGES")
     for grp, ids in members.items():
         px = []
@@ -1280,6 +1366,29 @@ def main(path, out_json=None):
         if len(touch) != 2 or n_px < EDGE_MIN_AREA:
             bx0, by0 = int(xs.min()), int(ys.min())
             bx1, by1 = int(xs.max()), int(ys.max())
+            # A flow that leaves the diagram. The CPFR diagrams are phases of one
+            # larger process, so several of their connectors run from a node,
+            # across the phase boundary and off the page, to be picked up by the
+            # next diagram - there is no second node to find, and the whole line
+            # was being discarded as unexplained. It is still line-work, and the
+            # node it leaves is still connected to something.
+            if (len(touch) == 1 and n_px >= EDGE_MIN_AREA
+                    and max(bx1 - bx0, by1 - by0) >= 3 * max(font_px, 10)):
+                nd = touch[0]
+                cx, cy = nd["x"] + nd["w"] / 2.0, nd["y"] + nd["h"] / 2.0
+                near_i = int(np.argmin((xs - cx) ** 2 + (ys - cy) ** 2))
+                far_i = int(np.argmax((xs - cx) ** 2 + (ys - cy) ** 2))
+                at = (int(xs[near_i]), int(ys[near_i]))
+                end = (int(xs[far_i]), int(ys[far_i]))
+                turns = trace_corners(xs, ys, at, end,
+                                      max(2, int(round(font_px * 0.1))))
+                head = arrow_size(xs, ys, end, (turns[-1] if turns else at),
+                                  max(2.0, line_w or 4.0))
+                open_ends.append(dict(node=nd["id"], at=list(at), end=list(end),
+                                      points=turns, arrow=bool(head),
+                                      x=bx0, y=by0, w=bx1 - bx0 + 1, h=by1 - by0 + 1))
+                print("   %-4s -> (off the diagram) at %d,%d" % (nd["id"], end[0], end[1]))
+                continue
             # Only bin this as text if it is the size and shape of text. A
             # rejected connector is neither, and letting one into the text bin
             # is not harmless: the blocks are merged by proximity in four
@@ -1320,11 +1429,71 @@ def main(path, out_json=None):
         # end that happens to touch a node's border wins. Measure the head itself
         # at each end instead, along the connector's own direction there, and fall
         # back to the ink count only when neither end shows one.
-        head_b = arrow_size(xs, ys, pb, (turns[-1] if turns else pa), max(2.0, line_w or 4.0))
-        head_a = arrow_size(xs, ys, pa, (turns[0] if turns else pb), max(2.0, line_w or 4.0))
-        if head_a or head_b:
-            wa = head_a[1] if head_a else 0.0
-            wb = head_b[1] if head_b else 0.0
+        st = max(2.0, line_w or 4.0)
+        cxs, cys = corridor(ink, node_fill, pa, pb, int(max(40, 10 * st)))
+        if cxs.size < 8:
+            cxs, cys = xs, ys
+        else:
+            # this connector's own weight, read in the middle of it where there is
+            # no head to widen it
+            vx, vy = pb[0] - pa[0], pb[1] - pa[1]
+            L = math.hypot(vx, vy) or 1.0
+            tt = ((cxs - pa[0]) * vx + (cys - pa[1]) * vy) / L
+            uu = np.abs(-(cxs - pa[0]) * vy + (cys - pa[1]) * vx) / L
+            mid = (tt >= 0.4 * L) & (tt <= 0.6 * L) & (uu <= 6 * st)
+            if mid.sum() >= 6:
+                st = max(1.5, 2.0 * float(np.percentile(uu[mid], 85)))
+        reach = math.hypot(pb[0] - pa[0], pb[1] - pa[1])
+
+        def tip_of(end, back, by=16):
+            """the arrow's point, not the connector component's last pixel.
+
+            The component has the node boxes erased from around it with a margin,
+            so its end stops short of where the arrow actually touches the node -
+            inside the head, where the ink is already wide. Probing from there
+            reads a head as flat, which is how the arrow into "Receive & Resolve
+            Exception" came out pointing the other way."""
+            dx, dy = end[0] - back[0], end[1] - back[1]
+            L = math.hypot(dx, dy) or 1.0
+            return (int(round(end[0] + dx / L * by)), int(round(end[1] + dy / L * by)))
+
+        back_b = turns[-1] if turns else pa
+        back_a = turns[0] if turns else pb
+        st0 = max(2.0, line_w or 4.0)
+
+        # First reading: the head as it appears on the connector component. This
+        # is what has been deciding direction, and across the 78 diagrams it
+        # disagrees with the original on two edges, so it is not replaced.
+        wide_a = arrow_size(xs, ys, pa, back_a, st0)
+        wide_b = arrow_size(xs, ys, pb, back_b, st0)
+        wa = wide_a[1] if wide_a else 0.0
+        wb = wide_b[1] if wide_b else 0.0
+
+        # It cannot settle a head that fills the whole gap it sits in, though - a
+        # short connector between two elements set close together, like "Send
+        # Exception Criteria" and the document beside it, 99px apart. A wedge is
+        # as wide at one end as at the other, so width says nothing there; what
+        # separates them is that the ink narrows to a point at the head's end and
+        # not at the tail's. That reading needs the page rather than the component,
+        # because the component has the boxes erased from around it and loses the
+        # point with them - so it is used only where width has nothing to say.
+        even = wa and wb and max(wa, wb) < 1.3 * min(wa, wb)
+        point_a = point_b = None
+        if even:
+            point_a = arrow_size(cxs, cys, tip_of(pa, back_a), back_a, st, reach,
+                                 need_point=True)
+            point_b = arrow_size(cxs, cys, tip_of(pb, back_b), back_b, st, reach,
+                                 need_point=True)
+        if os.environ.get("UBL_TRACE_DEBUG"):
+            print("      head %s->%s: st=%.1f w=%.0f/%.0f point=%s/%s"
+                  % (touch[0]["id"], touch[1]["id"], st, wa, wb, point_a, point_b))
+
+        if point_a or point_b:
+            ta = point_a[2] if point_a else 0.0
+            tb = point_b[2] if point_b else 0.0
+            b_is_head = tb >= ta
+            ratio = max(ta, tb) / max(1e-6, min(ta, tb)) if ta and tb else 4.0
+        elif wa or wb:
             b_is_head = wb >= wa
             ratio = max(wa, wb) / max(1e-6, min(wa, wb)) if wa and wb else 4.0
         else:
@@ -1332,7 +1501,7 @@ def main(path, out_json=None):
             ratio = max(da, db) / max(1, min(da, db))
         src, dst = (touch[0], touch[1]) if b_is_head else (touch[1], touch[0])
         p_from, p_to = (pa, pb) if b_is_head else (pb, pa)
-        head = head_b if b_is_head else head_a
+        head = (wide_b or point_b) if b_is_head else (wide_a or point_a)
         if turns and not b_is_head:
             turns = turns[::-1]
         lo, hi = min(da, db), max(da, db)
@@ -1452,7 +1621,7 @@ def main(path, out_json=None):
         if arrow_px:
             print("\nARROWHEAD  %.0fpx long over %d connector(s)" % (arrow_px, len(heads)))
         json.dump(dict(source=path, size=[W, H], fontPx=font_px, arrowPx=arrow_px,
-                       rules=dict(v=vr, h=hr), dashed=dboxes,
+                       rules=dict(v=vr, h=hr), dashed=dboxes, openEnds=open_ends,
                        partitions=grid, nodes=nodes, edges=edges, text=texts,
                        uncertain=uncertain),
                   open(out_json, "w"), indent=1)

@@ -163,6 +163,12 @@ def main(src, out, model_w=1480.0):
         "dashed": [{"x": M(d["x"]), "y": M(d["y"]), "w": M(d["w"]), "h": M(d["h"]),
                     "rx": M(d["rx"]), "dash": M(d["dash"]), "gap": M(d["gap"])}
                    for d in e.get("dashed", [])],
+        # a flow that leaves the diagram: drawn along its measured route, from
+        # where it meets its node to where it runs off
+        "openEnds": [{"points": [[M(p[0]), M(p[1])] for p in
+                                 [o["at"]] + (o.get("points") or []) + [o["end"]]],
+                      "arrow": bool(o.get("arrow"))}
+                     for o in e.get("openEnds", [])],
         # where the border rules actually are, rather than assuming the frame is
         # flush with the canvas: some diagrams inset it (Tender-Contract-Pre puts
         # it at x=6) and a flush frame then misses the original's by its own width

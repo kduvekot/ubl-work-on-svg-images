@@ -157,6 +157,11 @@ def svg_body(spec):
         pts = polyline(spec, e)
         o.append('<polyline points="%s" fill="none" stroke="#000" stroke-width="%.2f" marker-end="url(#arrow)"/>'
                  % (" ".join("%.1f,%.1f" % p for p in pts), S["edge"]))
+    for oe in spec.get("openEnds", []):
+        # a flow that leaves the diagram, drawn along the route it actually takes
+        o.append('<polyline points="%s" fill="none" stroke="#000" stroke-width="%.2f"%s/>'
+                 % (" ".join("%.1f,%.1f" % (p[0], p[1]) for p in oe["points"]),
+                    S["edge"], ' marker-end="url(#arrow)"' if oe.get("arrow") else ""))
     for g in spec.get("guards", []):
         o.append(lines_of(g, g["x"] + g["w"] / 2, g["y"] + g["h"] / 2, F["guard"], F["family"]))
     return "".join(o)
