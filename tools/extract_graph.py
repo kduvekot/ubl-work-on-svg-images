@@ -799,7 +799,16 @@ def find_rules(ink, frac=0.40):
         for g in groups:
             line = (ink[:, g[0]:g[-1] + 1].any(axis=1) if axis == "v"
                     else ink[g[0]:g[-1] + 1, :].any(axis=0))
-            if reaches(line, lo + near, lo + reach) and reaches(line, hi - reach, hi - near):
+            ends = (reaches(line, lo + near, lo + reach),
+                    reaches(line, hi - reach, hi - near))
+            # A divider that reaches both frames is one on its own. Several lane
+            # dividers stop short of one of them - the column rule of the CRP and
+            # ROCD diagrams runs from the top frame down to the last object box
+            # and no further - and those were lost entirely, which also cuts the
+            # object nodes drawn *on* the divider into odd shapes. One end plus
+            # ink down more than half the page between the frames is still a
+            # divider: no node edge is half the page long.
+            if all(ends) or (any(ends) and line[lo:hi].mean() >= 0.5):
                 out.append((int(g[0]), int(g[-1] - g[0] + 1)))
         return out
 
