@@ -286,8 +286,20 @@ def verify(orig_png, render_png, graph_path, radius=3, diff_out=None):
                     findings=[dict(kind="size-mismatch", detail="original %s, render %s"
                                    % (a.shape[::-1], b.shape[::-1]))], human=[], text=[])
 
+    # Text is masked out of the line-work comparison on BOTH sides, found by OCR in
+    # each image independently. Masking only the original's text leaves every glyph
+    # the SVG drew a little outside that box counted as line-work: measured over the
+    # 78 diagrams, the median such "line-work" cluster was 0.95 of a glyph height -
+    # one letter - and they were about half of all residual ink. The numbers were
+    # partly measuring type.
+    #
+    # Reading the render's text from its pixels rather than from the model keeps
+    # this ungameable: a model cannot widen the mask by *claiming* text, only by
+    # actually drawing it, and text it draws where the original has none is caught
+    # by the text-completeness clause, which compares against the original.
     boxes = text_boxes(bg_orig)
-    tmask = mask_text(a.shape, boxes, graph.get("fontPx") or 12)
+    tmask = mask_text(a.shape, boxes + text_boxes(bg_render),
+                      graph.get("fontPx") or 12)
     la, lb = a & ~tmask, b & ~tmask                      # line-work only, both sides
 
     missing = la & ~near(lb, radius)
