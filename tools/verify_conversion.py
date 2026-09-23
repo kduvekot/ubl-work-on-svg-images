@@ -36,12 +36,16 @@ to the graph element they touch, so "what is wrong" is answerable without
 opening the diff by eye.
 """
 import json
+import os
 import re
 import sys
 
 import numpy as np
 import scipy.ndimage as ndi
 from PIL import Image
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import ocr_cache
 
 Image.MAX_IMAGE_PIXELS = None
 
@@ -57,7 +61,7 @@ def ink_of(path):
     return np.asarray(bg.convert("L")) < 128, bg
 
 
-def text_boxes(bg_original, min_conf=30):
+def text_boxes(bg_original, min_conf=30, path=None):
     """Every rectangle that holds text **in the original**, found independently of
     the model being judged.
 
@@ -69,21 +73,11 @@ def text_boxes(bg_original, min_conf=30):
     arrived at from the other end. The original cannot be gamed, so the mask
     comes from the original and is identical for every candidate."""
     try:
-        import pytesseract
+        words = ocr_cache.word_boxes(bg_original, path=path, config="--psm 11",
+                                     min_conf=min_conf)
     except ImportError:
         return []
-    d = pytesseract.image_to_data(bg_original, config="--psm 11",
-                                  output_type=pytesseract.Output.DICT)
-    out = []
-    for i, txt in enumerate(d["text"]):
-        try:
-            conf = float(d["conf"][i])
-        except (TypeError, ValueError):
-            continue
-        if txt.strip() and conf >= min_conf:
-            out.append((d["left"][i], d["top"][i], d["width"][i], d["height"][i],
-                        "text %r" % txt.strip()[:24]))
-    return out
+    return [(x, y, w, h, "text %r" % t.strip()[:24]) for x, y, w, h, t, _ in words]
 
 
 def mask_text(shape, boxes, font_px):
@@ -97,9 +91,14 @@ def mask_text(shape, boxes, font_px):
 
 
 def near(mask, radius):
-    """dilate by a square of the given radius - 'is there ink within r pixels'"""
-    k = 2 * radius + 1
-    return ndi.binary_dilation(mask, np.ones((k, k), bool))
+    """dilate by a square of the given radius - 'is there ink within r pixels'
+
+    A square is separable, and a maximum filter exploits that while a dilation
+    against an explicit k x k footprint does not: the results are identical
+    (checked pixel for pixel on the artwork), but at the span the structural test
+    uses this is two hundredths of a second instead of two seconds, and it ran
+    four times per diagram."""
+    return ndi.maximum_filter(mask, size=2 * radius + 1, mode="constant")
 
 
 def components(diff, min_area=MIN_FINDING_AREA):
@@ -341,8 +340,8 @@ def verify(orig_png, render_png, graph_path, radius=3, diff_out=None):
     # this ungameable: a model cannot widen the mask by *claiming* text, only by
     # actually drawing it, and text it draws where the original has none is caught
     # by the text-completeness clause, which compares against the original.
-    boxes = text_boxes(bg_orig)
-    tmask = mask_text(a.shape, boxes + text_boxes(bg_render),
+    boxes = text_boxes(bg_orig, path=orig_png)
+    tmask = mask_text(a.shape, boxes + text_boxes(bg_render, path=render_png),
                       graph.get("fontPx") or 12)
     la, lb = a & ~tmask, b & ~tmask                      # line-work only, both sides
 

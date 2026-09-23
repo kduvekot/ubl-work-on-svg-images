@@ -16,11 +16,14 @@ re-rendered (UML now, BPMN later) as long as who-connects-to-what survives.
 
 Everything is derived from the pixels. The PNG is the source of truth.
 """
-import sys, json, math
+import sys, os, json, math
 import numpy as np
 import scipy.ndimage as ndi
 from PIL import Image
 import pytesseract
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import ocr_cache
 
 Image.MAX_IMAGE_PIXELS = None
 MIN_NODE_AREA = 1200
@@ -151,7 +154,7 @@ def enclosed_regions(ink):
     return out
 
 
-def glyph_height(bg, min_conf=30):
+def glyph_height(bg, min_conf=30, path=None):
     """Median height of a word in this diagram's own type, read once off the
     original.
 
@@ -162,18 +165,11 @@ def glyph_height(bg, min_conf=30):
     which is circular here, so this reads it independently. Returns 0 if nothing
     legible was found, and the caller falls back to a relative-area test."""
     try:
-        d = pytesseract.image_to_data(bg, config="--psm 11",
-                                      output_type=pytesseract.Output.DICT)
+        words = ocr_cache.word_boxes(bg, path=path, config="--psm 11",
+                                     min_conf=min_conf)
     except Exception:
         return 0.0
-    hs = []
-    for i, t in enumerate(d["text"]):
-        try:
-            conf = float(d["conf"][i])
-        except (TypeError, ValueError):
-            continue
-        if t.strip() and conf >= min_conf:
-            hs.append(d["height"][i])
+    hs = [h for _, _, _, h, _, _ in words]
     return float(np.median(hs)) if hs else 0.0
 
 
@@ -640,7 +636,7 @@ def main(path, out_json=None):
              for r in range(len(hb) - 1) for c in range(len(vb) - 1)]
 
     uncertain = []
-    gh = glyph_height(bg)
+    gh = glyph_height(bg, path=path)
     print("   type measured off the page: a word is %.0fpx tall" % gh
           if gh else "   no legible type found; enclosure falls back to relative area")
     regs = drop_phantoms(ink, enclosed_regions(ink), cells, flags=uncertain,

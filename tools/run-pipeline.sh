@@ -24,8 +24,11 @@ for n in "$@"; do
   python3 "$here/build_diagram.py"     "$out/$n-spec.json"  "$out/$n"
   w=$(python3 -c "from PIL import Image;Image.MAX_IMAGE_PIXELS=None;print(Image.open('$art/$n.png').width)")
   node "$here/render-svg.js" "$out/$n.svg" "$out/$n-render.png" "$w" 600
-  # radius 2 counts every displaced pixel; radius 40 ignores glyph shape and
-  # sub-pixel placement, so what stays red there is genuinely absent line-work
+  # radius 2 counts every displaced pixel, which is the point. The radius-40 pass
+  # this used to run alongside it is gone: at that width a node box displaced 20px
+  # scores exactly as one in the right place, so it measured nothing (see
+  # docs/artwork-conversion-notes.md). verify_conversion.py is what separates a
+  # genuinely absent element from a displaced one, and it does it by looking for
+  # ink nearby rather than by blurring the whole page.
   java -cp "$here" VisualDiff "$art/$n.png" "$out/$n-render.png" "$out/$n-diff-r2.png"     2 2>/dev/null | grep -Ev '^Picked up'
-  java -cp "$here" VisualDiff "$art/$n.png" "$out/$n-render.png" "$out/$n-diff-r40.png"   40 2>/dev/null | grep -Ev '^Picked up'
 done

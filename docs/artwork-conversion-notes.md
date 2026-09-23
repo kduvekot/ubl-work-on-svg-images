@@ -272,6 +272,30 @@ without that pass.
 - **One `UBL-1.0-ProcurementProcess` render looked garbled** — that was FOP's
   raw-PNG path, not an artwork defect. Re-encoding the PNG fixed it.
 
+### Sweep cost
+
+A full sweep of the 78 UML diagrams went from **~20 minutes to 202 seconds**
+(cold cache, 4 cores) with every one of the 78 graphs and 78 verdict reports
+**byte-identical** to the run before. The three causes, measured:
+
+- **`OMP_THREAD_LIMIT=1`.** Tesseract splits one page across all cores with
+  OpenMP, and OpenMP busy-waits. With three pages in flight each read took
+  **15 s** where one alone took 0.25 s — the spinning threads were fighting, so
+  running the sweep in parallel was *five times slower* than serial. Pinned to
+  one thread, a serial run is unchanged and parallel scales.
+- **A square dilation is separable.** `near()` asks "is there ink within r
+  pixels", and `binary_dilation` against an explicit k×k footprint does not
+  exploit that; `maximum_filter(size=k)` does. Identical output pixel for pixel,
+  2.00 s → 0.02 s at the span the structural test uses, four calls per diagram.
+  That alone was 90% of the verifier.
+- **Page OCR is cached** on file content (`tools/ocr_cache.py`). The `art/` PNGs
+  never change and a re-rendered SVG usually hashes the same, so both sides of
+  the text mask hit. Keyed on content, not mtime, so an edited file cannot hit a
+  stale entry.
+
+The remaining per-diagram cost is ~6 s warm: extractor 1.6 s (mostly per-label
+OCR crops), verifier 3-5 s, render 1.2 s, `VisualDiff` 0.8 s.
+
 ---
 
 ## 8. The semantic graph
