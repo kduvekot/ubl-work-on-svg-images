@@ -52,6 +52,7 @@ Image.MAX_IMAGE_PIXELS = None
 MIN_FINDING_AREA = 60      # ignore specks: anti-aliasing crumbs, single stray pixels
 TEXT_PAD = 0.35            # pad text boxes by this fraction of the font size
 OCR_MATCH = 0.90           # difflib ratio above which a label reads back as correct
+TEXT_CONF = 55             # below this, tesseract is reading line-work, not words
 
 
 def ink_of(path):
@@ -77,7 +78,7 @@ def text_boxes(bg_original, min_conf=30, path=None):
                                      min_conf=min_conf)
     except ImportError:
         return []
-    return [(x, y, w, h, "text %r" % t.strip()[:24]) for x, y, w, h, t, _ in words]
+    return [(x, y, w, h, "text %r" % t.strip()[:24], c) for x, y, w, h, t, c in words]
 
 
 def mask_text(shape, boxes, font_px):
@@ -85,7 +86,7 @@ def mask_text(shape, boxes, font_px):
     m = np.zeros(shape, bool)
     pad = max(4, int(TEXT_PAD * max(font_px, 8)))
     H, W = shape
-    for x, y, w, h, _ in boxes:
+    for x, y, w, h, *_ in boxes:
         m[max(0, y - pad):min(H, y + h + pad), max(0, x - pad):min(W, x + w + pad)] = True
     return m
 
@@ -215,7 +216,16 @@ def check_text_complete(bg_orig, graph, boxes, findings, glyph_h):
         if b:
             placed.append((dict(x=b[0], y=b[1], w=b[2], h=b[3]), p.get("title", ""),
                            "title of %s %s" % (p.get("axis"), p.get("index"))))
-    for x, y, w, h, label in boxes:
+    for x, y, w, h, label, conf in boxes:
+        # A word the referee is not sure it read is not evidence of anything. The
+        # dashed dividers of CPFR-EstablishingCollaborativeRelationships read as
+        # "ee" 84 times, at confidence 31-49, and those 84 phantom words were a
+        # third of every missing label counted across the 78 diagrams. Real words
+        # on this artwork come back at 59 and above. The mask still covers the
+        # low-confidence boxes - masking generously costs nothing and hides no
+        # line-work defect, since the mask is built from the original either way.
+        if conf < TEXT_CONF:
+            continue
         want = norm(label[6:].strip("'\"") if label.startswith("text ") else label)
         # tesseract boxes are per word, the model holds whole lines, so the test is
         # whether the word appears in the line covering it - not whether the word
