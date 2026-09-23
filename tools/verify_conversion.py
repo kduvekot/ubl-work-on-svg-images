@@ -254,7 +254,7 @@ def check_text_complete(bg_orig, graph, boxes, findings, glyph_h):
                                         % (want[:24], norm(hit[0])[:30], hit[1])))
 
 
-def check_arrow_directions(a, b, graph, glyph_h, findings, ratio=1.25):
+def check_arrow_directions(a, b, graph, glyph_h, findings, tmask=None, ratio=2.0):
     """An arrowhead sitting a few pixels off, or drawn at a slightly different
     angle, is placement error and is tolerated like any other. An arrowhead
     pointing the *other way* is not: that is a reversed edge, and the diagram then
@@ -266,20 +266,46 @@ def check_arrow_directions(a, b, graph, glyph_h, findings, ratio=1.25):
     Where either image is ambiguous the edge is left alone; those are the ones the
     extractor already flags as LOW direction confidence for a person to settle."""
     H, W = a.shape
-    r = max(20, int(2.0 * glyph_h))
+    # A node's own outline is inside the probe at both ends, and the two images
+    # draw it at different weights - the original's object boxes are heavy, the
+    # SVG's are lighter - so the border, not the arrowhead, decided which end
+    # "had more ink" and edges drawn the right way round were reported reversed.
+    # Leave the node boxes out of both measurements; an arrowhead sits outside the
+    # box it points at.
+    inside = np.zeros(a.shape, bool)
+    pad = 8          # the SVG draws a box's stroke centred on a slightly larger
+                     # rectangle, so a few pixels of its border fall outside the
+                     # measured bbox - enough, on a 48px connector, to outweigh
+                     # the arrowhead at the other end
+    for n in graph.get("nodes", []):
+        inside[max(0, n["y"] - pad):n["y"] + n["h"] + pad,
+               max(0, n["x"] - pad):n["x"] + n["w"] + pad] = True
+    # and the labels with them: a guard set beside the tail of a short connector
+    # outweighs the head at its other end, and the two images do not put a label
+    # in quite the same place
+    if tmask is not None:
+        inside |= tmask
 
-    def mass(img, p):
+    def mass(img, p, r):
         y0, y1 = max(0, p[1] - r), min(H, p[1] + r)
         x0, x1 = max(0, p[0] - r), min(W, p[0] + r)
-        return int(img[y0:y1, x0:x1].sum())
+        return int((img[y0:y1, x0:x1] & ~inside[y0:y1, x0:x1]).sum())
 
     for e in graph.get("edges", []):
         p, q = e.get("fromPoint"), e.get("toPoint")
         if not p or not q:
             continue
+        # The two probes must not overlap, or both of them measure both ends and
+        # the answer is whichever node border happens to be nearer. A 55px
+        # connector between two boxes was read as reversed for exactly that
+        # reason, in a diagram where the SVG draws it the right way round.
+        span = ((p[0] - q[0]) ** 2 + (p[1] - q[1]) ** 2) ** 0.5
+        r = int(min(max(20, 2.0 * glyph_h), 0.4 * span))
+        if r < 12:
+            continue
 
-        def head(img):
-            f, t = mass(img, p), mass(img, q)
+        def head(img, r=r):
+            f, t = mass(img, p, r), mass(img, q, r)
             if t > f * ratio:
                 return "to"
             if f > t * ratio:
@@ -379,7 +405,7 @@ def verify(orig_png, render_png, graph_path, radius=3, diff_out=None):
     check_text_complete(bg_orig, graph, boxes, text_findings, glyph_h)    # clause 3
     coherence = []
     check_coherent(graph, glyph_h, coherence)                             # clause 4
-    check_arrow_directions(a, b, graph, glyph_h, coherence)               # clause 4b
+    check_arrow_directions(a, b, graph, glyph_h, coherence, tmask)               # clause 4b
     blocking = lost + made + coherence + \
         [t for t in text_findings if t["kind"] in ("text-absent", "text-differs",
                                                    "label-missing")]

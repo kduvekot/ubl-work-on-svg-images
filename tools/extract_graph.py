@@ -352,10 +352,25 @@ def trace_corners(xs, ys, p_from, p_to, stroke, max_turns=8):
             fixed.append(("h", (a + b) / 2.0 + y0,
                           (seg[0][0] + x0, seg[-1][0] + x0)))
 
+    # One straight line can arrive as two runs on the same axis, split where the
+    # walk steps around a crossing line or into the arrowhead. If they lie on the
+    # same line, they are the same run and are merged; if they do not, this is a
+    # jog the trace has not resolved and nothing is claimed.
+    merged = []
+    for run in fixed:
+        if merged and merged[-1][0] == run[0]:
+            if abs(merged[-1][1] - run[1]) > 2 * max(1, tol):
+                return []
+            prev = merged[-1]
+            merged[-1] = (prev[0], (prev[1] + run[1]) / 2.0,
+                          (min(prev[2][0], run[2][0]), max(prev[2][1], run[2][1])))
+            continue
+        merged.append(run)
+    if len(merged) < 2:
+        return []
+
     corners = []
-    for (a1, v1, _), (a2, v2, _) in zip(fixed, fixed[1:]):
-        if a1 == a2:
-            return []                      # two runs on the same axis: not resolved
+    for (a1, v1, _), (a2, v2, _) in zip(merged, merged[1:]):
         corners.append([int(round(v1)), int(round(v2))] if a1 == "v"
                        else [int(round(v2)), int(round(v1))])
     return corners
@@ -1215,16 +1230,38 @@ def main(path, out_json=None):
             return int(mask[max(0, py - r):py + r, max(0, px - r):px + r].sum()), (px, py)
 
         (da, pa), (db, pb) = contact(touch[0]), contact(touch[1])
-        src, dst = (touch[0], touch[1]) if da < db else (touch[1], touch[0])
-        p_from, p_to = (pa, pb) if da < db else (pb, pa)
-        vx, vy = p_to[0] - p_from[0], p_to[1] - p_from[1]
+        vx, vy = pb[0] - pa[0], pb[1] - pa[1]
         L = math.hypot(vx, vy) or 1
-        dist = np.abs((xs - p_from[0]) * vy - (ys - p_from[1]) * vx) / L
+        dist = np.abs((xs - pa[0]) * vy - (ys - pa[1]) * vx) / L
         straight = float(dist.mean()) < 6.0
         routing = ("diagonal" if straight and abs(vx) > 8 and abs(vy) > 8
                    else "straight" if straight else "orthogonal")
+        turns = trace_corners(xs, ys, pa, pb, max(2, int(round(font_px * 0.1)))) \
+            if routing == "orthogonal" else []
+
+        # Which end carries the arrowhead. Counting ink in a fixed 45px square
+        # around each contact - which is what this did - is not a measurement of
+        # anything on artwork that runs from 26px type to 84px: the square holds a
+        # whole node on one diagram and a fraction of the head on another, and the
+        # end that happens to touch a node's border wins. Measure the head itself
+        # at each end instead, along the connector's own direction there, and fall
+        # back to the ink count only when neither end shows one.
+        head_b = arrow_size(xs, ys, pb, (turns[-1] if turns else pa), max(2.0, line_w or 4.0))
+        head_a = arrow_size(xs, ys, pa, (turns[0] if turns else pb), max(2.0, line_w or 4.0))
+        if head_a or head_b:
+            wa = head_a[1] if head_a else 0.0
+            wb = head_b[1] if head_b else 0.0
+            b_is_head = wb >= wa
+            ratio = max(wa, wb) / max(1e-6, min(wa, wb)) if wa and wb else 4.0
+        else:
+            b_is_head = db >= da
+            ratio = max(da, db) / max(1, min(da, db))
+        src, dst = (touch[0], touch[1]) if b_is_head else (touch[1], touch[0])
+        p_from, p_to = (pa, pb) if b_is_head else (pb, pa)
+        head = head_b if b_is_head else head_a
+        if turns and not b_is_head:
+            turns = turns[::-1]
         lo, hi = min(da, db), max(da, db)
-        ratio = hi / max(1, lo)
         conf = "high" if ratio >= 2.5 else "medium" if ratio >= 1.6 else "LOW"
         if any(set((e["from"], e["to"])) == set((src["id"], dst["id"])) and
                abs(e["fromPoint"][0] - p_from[0]) + abs(e["fromPoint"][1] - p_from[1]) < 80
@@ -1233,15 +1270,10 @@ def main(path, out_json=None):
         rec = {"from": src["id"], "to": dst["id"], "routing": routing,
                "fromPoint": list(p_from), "toPoint": list(p_to),
                "arrowInk": [lo, hi], "directionConfidence": conf}
-        if routing == "orthogonal":
-            # where it turns, so the rebuild can put the line back on its own
-            # route instead of choosing an elbow of its own
-            corners = trace_corners(xs, ys, p_from, p_to,
-                                    max(2, int(round(font_px * 0.1))))
-            if corners:
-                rec["points"] = corners
-        back = rec.get("points", [p_from])[-1]
-        head = arrow_size(xs, ys, p_to, back, max(2.0, line_w or 4.0))
+        # where it turns, so the rebuild can put the line back on its own route
+        # instead of choosing an elbow of its own
+        if turns:
+            rec["points"] = turns
         if head:
             rec["arrowPx"] = list(head)
         edges.append(rec)
