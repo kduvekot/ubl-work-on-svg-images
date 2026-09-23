@@ -30,10 +30,14 @@
 <!-- the difference image with each finding boxed and numbered, as
      tools/mark_findings.py writes it; '-diff-r2.png' is the plain one -->
 <xsl:param name="diff-suffix" as="xs:string" select="'-marked.png'"/>
-<xsl:param name="svg-suffix"  as="xs:string" select="'.svg'"/>
-<!-- what the middle panel is called; change it with svg-suffix when showing the
-     classification copy rather than the plain drawing -->
-<xsl:param name="svg-caption" as="xs:string" select="'Generated SVG'"/>
+<!-- The middle panel shows the classification copy of the SVG: same drawing,
+     coloured by what each element was classified as, so a reviewer checks the
+     reading and the fidelity on one page. The difference panel is computed from
+     the plain black SVG whatever is shown here - colour cannot affect it. Pass
+     svg-suffix=.svg to show the plain drawing instead. -->
+<xsl:param name="svg-suffix"  as="xs:string" select="'-classified.svg'"/>
+<xsl:param name="svg-caption" as="xs:string"
+           select="'Generated SVG, coloured by classification'"/>
 <!-- space-separated basenames to include; empty means every figure -->
 <xsl:param name="include" as="xs:string" select="''"/>
 <!-- optional: directory of -struct.json reports, to print each figure's verdict -->
@@ -72,9 +76,17 @@
       <fo:static-content flow-name="xsl-region-after">
         <fo:block font-size="8pt" color="#666" border-top="0.3pt solid #ccc"
                   padding-top="1.5mm" text-align-last="justify">
-          <fo:inline>UBL artwork conversion - original, generated SVG,
-            difference (<fo:inline color="#D40000">red</fo:inline> = lost from the
-            SVG, <fo:inline color="#0060D0">blue</fo:inline> = invented by it)</fo:inline>
+          <fo:inline>
+            <fo:inline color="#2a78d6">action</fo:inline> ·
+            <fo:inline color="#e34948">document</fo:inline> ·
+            <fo:inline color="#1baf7a">start</fo:inline> ·
+            <fo:inline color="#eda100">end</fo:inline> ·
+            <fo:inline color="#4a3aa7">decision/note</fo:inline> ·
+            <fo:inline color="#008300">fork bar</fo:inline> ·
+            <fo:inline color="#8a8a85">structure</fo:inline>
+            <fo:inline color="#999"> | difference: </fo:inline>
+            <fo:inline color="#D40000">red</fo:inline> = lost from the SVG,
+            <fo:inline color="#0060D0">blue</fo:inline> = invented by it</fo:inline>
           <fo:leader leader-pattern="space"/>
           <fo:inline>page <fo:page-number/></fo:inline>
         </fo:block>
@@ -177,7 +189,7 @@
             <fo:block space-before="3mm" font-size="7.5pt">
               <xsl:for-each select="$v?review?*">
                 <xsl:sort select="?n" data-type="number"/>
-                <xsl:if test="position() le 18">
+                <xsl:if test="position() le 14">
                   <fo:block space-after="0.6mm">
                     <fo:inline font-weight="bold"
                         color="{if (?what = 'absent') then '#D00000'
@@ -202,9 +214,9 @@
                   </fo:block>
                 </xsl:if>
               </xsl:for-each>
-              <xsl:if test="count($v?review?*) gt 18">
+              <xsl:if test="count($v?review?*) gt 14">
                 <fo:block color="#777">
-                  <xsl:value-of select="'... and ' || (count($v?review?*) - 18) ||
+                  <xsl:value-of select="'... and ' || (count($v?review?*) - 14) ||
                                         ' more, all numbered on the difference image'"/>
                 </fo:block>
               </xsl:if>
