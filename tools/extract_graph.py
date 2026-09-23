@@ -833,6 +833,67 @@ def solid_blobs(ink, W, H, glyph_h=0.0):
     return discs, bars
 
 
+def dashed_boxes(ink, stroke, min_dashes=8, min_span=0.35):
+    """The dashed rounded rectangle that encloses a whole diagram.
+
+    The CPFR diagrams are each one phase of a larger process, and each is drawn
+    inside a dashed rounded box carrying the phase name. Nothing was looking for
+    it: its dashes are too short to be line-work and too regular to be text, so
+    they were dropped, and the box - the largest single thing on the page - was
+    missing from every one of those conversions.
+
+    A dash is a small solid mark much longer than it is thick. Where eight or more
+    of them share a row (or a column) and together span a third of the page, that
+    is a dashed line; four such lines bound a box. The dash and gap lengths are
+    measured too, so the rebuild can repeat the same pattern rather than invent
+    one."""
+    lbl, _ = ndi.label(ink, structure=np.ones((3, 3)))
+    thick = max(3.0, 2.5 * stroke)
+    rows, cols = {}, {}
+    for i, sl in enumerate(ndi.find_objects(lbl), start=1):
+        if sl is None:
+            continue
+        h, w = sl[0].stop - sl[0].start, sl[1].stop - sl[1].start
+        if min(w, h) > thick or not (2.0 * min(w, h) <= max(w, h) <= 14 * thick):
+            continue
+        if w > h:
+            rows.setdefault((sl[0].start + h // 2) // 4, []).append(
+                (sl[1].start, sl[1].stop, w))
+        else:
+            cols.setdefault((sl[1].start + w // 2) // 4, []).append(
+                (sl[0].start, sl[0].stop, h))
+
+    def lines(buckets, span):
+        out = []
+        for b, ds in buckets.items():
+            if len(ds) < min_dashes:
+                continue
+            lo = min(d[0] for d in ds)
+            hi = max(d[1] for d in ds)
+            if hi - lo < min_span * span:
+                continue
+            ds = sorted(ds)
+            gaps = [b0 - a1 for (_, a1, _), (b0, _, _) in zip(ds, ds[1:])]
+            out.append(dict(at=b * 4 + 2, lo=lo, hi=hi, n=len(ds),
+                            dash=float(np.median([d[2] for d in ds])),
+                            gap=float(np.median(gaps)) if gaps else 0.0))
+        return sorted(out, key=lambda r: r["at"])
+
+    H, W = ink.shape
+    hs, vs = lines(rows, W), lines(cols, H)
+    if len(hs) < 2 or len(vs) < 2:
+        return []
+    top, bot, left, right = hs[0], hs[-1], vs[0], vs[-1]
+    if bot["at"] - top["at"] < 0.3 * H or right["at"] - left["at"] < 0.3 * W:
+        return []
+    # the horizontal runs stop short of the corner by the corner radius
+    r = max(0, int(round(min(top["lo"] - left["at"], right["at"] - top["hi"]))))
+    return [dict(x=int(left["at"]), y=int(top["at"]),
+                 w=int(right["at"] - left["at"]), h=int(bot["at"] - top["at"]),
+                 rx=r, dash=round(top["dash"], 1), gap=round(top["gap"], 1),
+                 dashes=top["n"] + bot["n"] + left["n"] + right["n"])]
+
+
 def find_rules(ink, frac=0.40):
     """Straight full-span rules: the frame and the partition dividers.
 
@@ -1106,8 +1167,21 @@ def main(path, out_json=None):
         keep.append(n)
     nodes = keep
 
+    # the dashed box that encloses a whole CPFR phase: found before the connector
+    # search, so its dashes are not mistaken for line-work or for words
+    dboxes = dashed_boxes(ink, line_w or 4.0)
+    for d in dboxes:
+        print("   dashed enclosure x=%d y=%d %dx%d  r=%d  dash %.0f/%.0f over %d marks"
+              % (d["x"], d["y"], d["w"], d["h"], d["rx"], d["dash"], d["gap"], d["dashes"]))
+
     mask = ink.copy()
     erased = np.zeros_like(ink)
+    for d in dboxes:
+        b = int(max(6, 3 * (line_w or 4.0)))
+        for yy in (d["y"], d["y"] + d["h"]):
+            mask[max(0, yy - b):yy + b, max(0, d["x"] - b):d["x"] + d["w"] + b] = False
+        for xx in (d["x"], d["x"] + d["w"]):
+            mask[max(0, d["y"] - b):d["y"] + d["h"] + b, max(0, xx - b):xx + b] = False
     for n in nodes:
         m = 14
         mask[max(0, n["y"] - m):n["y"] + n["h"] + m, max(0, n["x"] - m):n["x"] + n["w"] + m] = False
@@ -1378,7 +1452,7 @@ def main(path, out_json=None):
         if arrow_px:
             print("\nARROWHEAD  %.0fpx long over %d connector(s)" % (arrow_px, len(heads)))
         json.dump(dict(source=path, size=[W, H], fontPx=font_px, arrowPx=arrow_px,
-                       rules=dict(v=vr, h=hr),
+                       rules=dict(v=vr, h=hr), dashed=dboxes,
                        partitions=grid, nodes=nodes, edges=edges, text=texts,
                        uncertain=uncertain),
                   open(out_json, "w"), indent=1)

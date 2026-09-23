@@ -157,6 +157,12 @@ def main(src, out, model_w=1480.0):
         # twice too big for the 26px-type diagrams and half the size of
         # ProcurementProcess's.
         "arrow": M((e.get("arrowPx") or 56) / 0.8),
+        # the dashed rounded box a CPFR phase is drawn inside, with the artwork's
+        # own dash and gap so the rebuild repeats the pattern rather than inventing
+        # one
+        "dashed": [{"x": M(d["x"]), "y": M(d["y"]), "w": M(d["w"]), "h": M(d["h"]),
+                    "rx": M(d["rx"]), "dash": M(d["dash"]), "gap": M(d["gap"])}
+                   for d in e.get("dashed", [])],
         # where the border rules actually are, rather than assuming the frame is
         # flush with the canvas: some diagrams inset it (Tender-Contract-Pre puts
         # it at x=6) and a flush frame then misses the original's by its own width
