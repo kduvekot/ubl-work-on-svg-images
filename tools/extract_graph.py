@@ -404,7 +404,7 @@ def corridor(ink, node_fill, pa, pb, pad):
     return xs[keep], ys[keep]
 
 
-def arrow_size(xs, ys, tip, back, stroke, limit=None, need_point=False):
+def arrow_size(xs, ys, tip, back, stroke, limit=None, need_point=False, min_len=0.0):
     """How big the arrowhead at `tip` is, in the original's own pixels.
 
     The rebuild drew every arrowhead at one hard-coded size, so the same head
@@ -477,6 +477,11 @@ def arrow_size(xs, ys, tip, back, stroke, limit=None, need_point=False):
     # and would otherwise be measured as an enormously wide head
     width = min(2.0 * float(half[1:length + 1].max()), 2.5 * length)
     if length < 2 * body or width < 2 * body:
+        return None
+    # An arrowhead is a mark of the diagram's own size. Ten pixels of ink where a
+    # connector meets a box is a join or a corner, not a head - and taken for one
+    # it pointed "Send Trade Item Location Profile" at the wrong element.
+    if length < min_len:
         return None
     # Which end is the point. An arrowhead is a wedge, so its ink is narrow at the
     # tip and wide away from it; probed from the *other* end the same ink is wide
@@ -1382,10 +1387,22 @@ def main(path, out_json=None):
                 end = (int(xs[far_i]), int(ys[far_i]))
                 turns = trace_corners(xs, ys, at, end,
                                       max(2, int(round(font_px * 0.1))))
-                head = arrow_size(xs, ys, end, (turns[-1] if turns else at),
-                                  max(2.0, line_w or 4.0))
+                st0 = max(2.0, line_w or 4.0)
+                mh = 0.35 * font_px
+                # which way it runs. A flow arriving from off the page points at
+                # its node - the line down into "Create Retail Event" does - and
+                # drawing every one of them outward left that arrowhead off.
+                out_head = arrow_size(xs, ys, end, (turns[-1] if turns else at),
+                                      st0, min_len=mh)
+                in_head = arrow_size(xs, ys, at, (turns[0] if turns else end),
+                                     st0, min_len=mh)
+                inward = bool(in_head) and (not out_head or in_head[1] > out_head[1])
+                if inward:
+                    at, end = end, at
+                    turns = turns[::-1]
+                head = in_head if inward else out_head
                 open_ends.append(dict(node=nd["id"], at=list(at), end=list(end),
-                                      points=turns, arrow=bool(head),
+                                      points=turns, arrow=bool(head), inward=inward,
                                       x=bx0, y=by0, w=bx1 - bx0 + 1, h=by1 - by0 + 1))
                 print("   %-4s -> (off the diagram) at %d,%d" % (nd["id"], end[0], end[1]))
                 continue
@@ -1464,8 +1481,9 @@ def main(path, out_json=None):
         # First reading: the head as it appears on the connector component. This
         # is what has been deciding direction, and across the 78 diagrams it
         # disagrees with the original on two edges, so it is not replaced.
-        wide_a = arrow_size(xs, ys, pa, back_a, st0)
-        wide_b = arrow_size(xs, ys, pb, back_b, st0)
+        min_head = 0.35 * font_px
+        wide_a = arrow_size(xs, ys, pa, back_a, st0, min_len=min_head)
+        wide_b = arrow_size(xs, ys, pb, back_b, st0, min_len=min_head)
         wa = wide_a[1] if wide_a else 0.0
         wb = wide_b[1] if wide_b else 0.0
 
@@ -1481,9 +1499,9 @@ def main(path, out_json=None):
         point_a = point_b = None
         if even:
             point_a = arrow_size(cxs, cys, tip_of(pa, back_a), back_a, st, reach,
-                                 need_point=True)
+                                 need_point=True, min_len=min_head)
             point_b = arrow_size(cxs, cys, tip_of(pb, back_b), back_b, st, reach,
-                                 need_point=True)
+                                 need_point=True, min_len=min_head)
         if os.environ.get("UBL_TRACE_DEBUG"):
             print("      head %s->%s: st=%.1f w=%.0f/%.0f point=%s/%s"
                   % (touch[0]["id"], touch[1]["id"], st, wa, wb, point_a, point_b))
@@ -1616,8 +1634,17 @@ def main(path, out_json=None):
         # the diagram's own arrowhead, as the median of the heads measured on its
         # connectors: the lengths cluster tightly, the widths do not, because a
         # crossing line lands inside the probe
-        heads = [e["arrowPx"][0] for e in edges if e.get("arrowPx")]
-        arrow_px = round(float(np.median(heads)), 1) if heads else 0.0
+        # The size of this diagram's arrowhead, from the heads measured on its
+        # connectors. A walk that ran to the end of its probe never found where the
+        # head stops and reports the probe's length instead - ProcurementProcess
+        # had four such, all at 111px, against real heads of about 38 - so the
+        # median is taken over the shortest cluster rather than over everything.
+        heads = sorted(e["arrowPx"][0] for e in edges if e.get("arrowPx"))
+        if heads:
+            tight = [h for h in heads if h <= 2 * heads[0]]
+            arrow_px = round(float(np.median(tight)), 1)
+        else:
+            arrow_px = 0.0
         if arrow_px:
             print("\nARROWHEAD  %.0fpx long over %d connector(s)" % (arrow_px, len(heads)))
         json.dump(dict(source=path, size=[W, H], fontPx=font_px, arrowPx=arrow_px,
