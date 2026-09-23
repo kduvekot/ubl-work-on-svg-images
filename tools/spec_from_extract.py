@@ -103,6 +103,13 @@ def main(src, out, model_w=1480.0):
             d["points"] = [[M(p[0]), M(p[1])] for p in ed["points"]]
         if ed.get("guard"):
             d["label"] = ed["guard"]
+        # the artwork's own dash pattern, where the flow is drawn dashed
+        if ed.get("dash"):
+            d["dash"], d["gap"] = M(ed["dash"]), M(ed["gap"])
+        # a point at both ends: a standing relationship between two parties, not
+        # a flow from one to the other
+        if ed.get("arrowBoth"):
+            d["arrowBoth"] = True
         edges.append(d)
 
     cols = [p for p in e.get("partitions", []) if p["axis"] == "column"]

@@ -480,6 +480,65 @@ def wedge(shape, apex, dx, dy, length, width, pad=2.0, inner=0.0, outer=None):
            (y0, y1, x0, x1)
 
 
+def dash_run(ink, node_fill, pa, pb, stroke, trim=0.0):
+    """Is this connector drawn dashed, and to what pattern.
+
+    UBL draws one kind of flow as a dashed line - the "prior exchange of public
+    keys" that the two Tender-Contract diagrams put across their lane divider -
+    and drawing it solid states something the artwork does not. The pattern is in
+    the ink: walk the line and record where there is ink under it, then read off
+    the runs. A solid connector has one run, a dashed one has several with gaps of
+    the same size between them.
+
+    `trim` keeps the arrowheads out of it; they are solid whatever the line does.
+    Returns (dash, gap) in pixels, or None."""
+    L = math.hypot(pb[0] - pa[0], pb[1] - pa[1])
+    if L < 60:
+        return None
+    ux, uy = (pb[0] - pa[0]) / L, (pb[1] - pa[1]) / L
+    half = max(3, int(round(2 * stroke)))
+    lo, hi = int(max(0, trim)), int(min(L, L - trim))
+    if hi - lo < 40:
+        return None
+    ts = np.arange(lo, hi + 1)
+    ofs = np.arange(-half, half + 1)
+    xx = np.clip(np.rint(pa[0] + ux * ts[:, None] - uy * ofs[None, :]).astype(int),
+                 0, ink.shape[1] - 1)
+    yy = np.clip(np.rint(pa[1] + uy * ts[:, None] + ux * ofs[None, :]).astype(int),
+                 0, ink.shape[0] - 1)
+    # the node boxes stay in: a connector that runs over one is not dashed, and
+    # taking them out left a gap exactly where it crossed. Tender-AwardPublication
+    # draws a solid line the length of the page over three of them, and it read as
+    # a 115/101 dash pattern.
+    occ = ink[yy, xx].any(axis=1)
+
+    runs, i = [], 0
+    while i < occ.size:
+        j = i
+        while j < occ.size and occ[j] == occ[i]:
+            j += 1
+        runs.append([bool(occ[i]), j - i])
+        i = j
+    # a one-pixel break in a dash, or a one-pixel speck in a gap, is anti-aliasing
+    merged = []
+    for v, n in runs:
+        if merged and n <= 2:
+            merged[-1][1] += n
+        elif merged and merged[-1][0] == v:
+            merged[-1][1] += n
+        else:
+            merged.append([v, n])
+    gaps = [n for v, n in merged[1:-1] if not v]
+    dashes = [n for v, n in merged[1:-1] if v]
+    if len(gaps) < 3 or not dashes:
+        return None
+    if min(gaps) < max(4, stroke) or max(gaps) > 2.0 * min(gaps):
+        return None
+    if sum(gaps) < 0.15 * (hi - lo):
+        return None
+    return round(float(np.median(dashes)), 1), round(float(np.median(gaps)), 1)
+
+
 def arrow_size(xs, ys, tip, back, stroke, limit=None, need_point=False, min_len=0.0,
                ahead=0):
     """How big the arrowhead at `tip` is, in the original's own pixels.
@@ -1873,7 +1932,15 @@ def main(path, out_json=None):
             uu = np.abs(-(cxs - pa[0]) * vy + (cys - pa[1]) * vx) / L
             mid = (tt >= 0.4 * L) & (tt <= 0.6 * L) & (uu <= 6 * st)
             if mid.sum() >= 6:
-                st = max(1.5, 2.0 * float(np.percentile(uu[mid], 85)))
+                # ...but not wider than the component itself says it is. A line
+                # crossing the middle - the lane divider the two Tender-Contract
+                # diagrams run their dashed flow across - puts its own pixels in
+                # this band, and they are all far from the connector's axis: the
+                # 8px dashed line read as 64px wide, and at that weight nothing on
+                # it is an arrowhead any more. The component's own reading cannot
+                # see a crossing line, so it is the ceiling here.
+                st = max(1.5, min(2.0 * float(np.percentile(uu[mid], 85)),
+                                  2.0 * max(2.0, line_w or 4.0)))
         reach = math.hypot(pb[0] - pa[0], pb[1] - pa[1])
 
         def tip_of(end, back, by=16):
@@ -1949,6 +2016,26 @@ def main(path, out_json=None):
         # instead of choosing an elbow of its own
         if turns:
             rec["points"] = turns
+        # Dashed or solid, and one head or two. A flow with a point at both ends
+        # is not a flow from one of them to the other - the "prior exchange of
+        # public keys" the Tender-Contract diagrams draw across their lane divider
+        # is a standing relationship between the two parties - and it is exactly
+        # the case the direction test cannot settle, because both ends really do
+        # look alike. Require a measured point at both ends, of the same size and
+        # tapering the same way, so that "cannot tell" is not mistaken for it.
+        pa_h = point_a or arrow_size(cxs, cys, tip_of(pa, back_a), back_a, st, reach,
+                                     need_point=True, min_len=min_head)
+        pb_h = point_b or arrow_size(cxs, cys, tip_of(pb, back_b), back_b, st, reach,
+                                     need_point=True, min_len=min_head)
+        if (pa_h and pb_h and pa_h[2] >= 1.3 and pb_h[2] >= 1.3
+                and max(pa_h[2], pb_h[2]) < 1.4 * min(pa_h[2], pb_h[2])
+                and max(pa_h[1], pb_h[1]) < 1.4 * min(pa_h[1], pb_h[1])):
+            rec["arrowBoth"] = True
+            rec["directionConfidence"] = "both-ends"
+        dash = dash_run(ink, node_fill, p_from, p_to, st0,
+                        trim=1.2 * (head[0] if head else 0.0))
+        if dash:
+            rec["dash"], rec["gap"] = dash
         if head:
             # measured again, now that the direction is settled, with the walk
             # allowed to run forward to the head's actual point. The reading above

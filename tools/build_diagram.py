@@ -229,8 +229,13 @@ def svg_body(spec):
                        source=e["from"], target=e["to"],
                        routing="straight" if e.get("straight") else "orthogonal",
                        confidence=e.get("confidence")))
-        o.append('<polyline points="%s" fill="none" stroke="#000" stroke-width="%.2f" marker-end="url(#arrow)"/>'
-                 % (" ".join("%.1f,%.1f" % p for p in pts), S["edge"]))
+        at = ' marker-end="url(#arrow)"'
+        if e.get("arrowBoth"):
+            at += ' marker-start="url(#arrowback)"'
+        if e.get("dash"):
+            at += ' stroke-dasharray="%.1f %.1f"' % (e["dash"], e["gap"])
+        o.append('<polyline points="%s" fill="none" stroke="#000" stroke-width="%.2f"%s/>'
+                 % (" ".join("%.1f,%.1f" % p for p in pts), S["edge"], at))
         o.append("</g>")
     for i, oe in enumerate(spec.get("openEnds", [])):
         # a flow that leaves the diagram, drawn along the route it actually takes
@@ -365,14 +370,23 @@ def main(spec_path, out):
     # the head the artwork draws: a solid triangle in the UBL 2.3 transport
     # diagrams, an open "V" in the CPFR and billing ones
     filled = spec.get("arrowStyle") == "filled"
-    defs = ('<defs><marker id="arrow" markerUnits="userSpaceOnUse" viewBox="0 0 20 20" '
-            'refX="%d" refY="10" markerWidth="%.0f" markerHeight="%.0f" orient="auto">'
-            '<path d="M 2 2 L 18 10 L 2 18%s" fill="%s" stroke="#000" stroke-width="%.2f" '
-            'stroke-linecap="round" stroke-linejoin="round"/></marker></defs>'
-            % (18 if not filled else 17, spec.get("arrow", 20),
-               spec.get("arrowWidth") or spec.get("arrow", 20),
-               " Z" if filled else "", "#000" if filled else "none",
-               S["edge"] * (0.6 if filled else 0.9)))
+    # two markers, the same head facing each way: a flow with a point at both ends
+    # needs one at its start as well, and a marker cannot be reused reversed
+    def marker(ident, back=False):
+        return ('<marker id="%s" markerUnits="userSpaceOnUse" viewBox="0 0 20 20" '
+                'refX="%d" refY="10" markerWidth="%.0f" markerHeight="%.0f" '
+                'orient="auto">'
+                '<path d="%s" fill="%s" stroke="#000" stroke-width="%.2f" '
+                'stroke-linecap="round" stroke-linejoin="round"/></marker>'
+                % (ident,
+                   (2 if filled else 2) if back else (17 if filled else 18),
+                   spec.get("arrow", 20),
+                   spec.get("arrowWidth") or spec.get("arrow", 20),
+                   ("M 18 2 L 2 10 L 18 18" if back else "M 2 2 L 18 10 L 2 18")
+                   + (" Z" if filled else ""),
+                   "#000" if filled else "none",
+                   S["edge"] * (0.6 if filled else 0.9)))
+    defs = "<defs>" + marker("arrow") + marker("arrowback", back=True) + "</defs>"
     model = mxfile(spec)
     W, H = spec["canvas"]["w"], spec["canvas"]["h"]
     svg = ('<?xml version="1.0" encoding="UTF-8"?>\n<svg xmlns="http://www.w3.org/2000/svg" '
