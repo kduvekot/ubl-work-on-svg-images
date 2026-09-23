@@ -1638,8 +1638,19 @@ def main(path, out_json=None):
             # next diagram - there is no second node to find, and the whole line
             # was being discarded as unexplained. It is still line-work, and the
             # node it leaves is still connected to something.
+            # Length is only a stand-in for "this runs off the page": a flow that
+            # reaches the border has left the diagram however short it is. The two
+            # "No" flows into "Ordering" on CPFR-ExceptionMonitor are 135px against
+            # a 137px floor, and both were thrown away by that margin - the diagram
+            # lost the two arrows that say where its work comes from. Where the
+            # component actually touches the border, ask only that it be longer
+            # than a line of type.
+            edge_margin = max(3.0, 0.015 * max(W, H))
+            at_border = (bx0 <= edge_margin or by0 <= edge_margin
+                         or bx1 >= W - 1 - edge_margin or by1 >= H - 1 - edge_margin)
+            floor = max(font_px, 10) * (1.0 if at_border else 3.0)
             if (len(touch) == 1 and n_px >= EDGE_MIN_AREA
-                    and max(bx1 - bx0, by1 - by0) >= 3 * max(font_px, 10)):
+                    and max(bx1 - bx0, by1 - by0) >= floor):
                 nd = touch[0]
                 cx, cy = nd["x"] + nd["w"] / 2.0, nd["y"] + nd["h"] / 2.0
                 near_i = int(np.argmin((xs - cx) ** 2 + (ys - cy) ** 2))
