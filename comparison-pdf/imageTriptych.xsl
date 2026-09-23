@@ -27,7 +27,9 @@
 <xsl:param name="art-dir"  as="xs:string"/>
 <xsl:param name="svg-dir"  as="xs:string"/>
 <xsl:param name="diff-dir" as="xs:string"/>
-<xsl:param name="diff-suffix" as="xs:string" select="'-diff-r2.png'"/>
+<!-- the difference image with each finding boxed and numbered, as
+     tools/mark_findings.py writes it; '-diff-r2.png' is the plain one -->
+<xsl:param name="diff-suffix" as="xs:string" select="'-marked.png'"/>
 <xsl:param name="svg-suffix"  as="xs:string" select="'.svg'"/>
 <!-- space-separated basenames to include; empty means every figure -->
 <xsl:param name="include" as="xs:string" select="''"/>
@@ -154,12 +156,60 @@
             </xsl:call-template>
             <fo:table-cell><fo:block/></fo:table-cell>
             <xsl:call-template name="panel">
-              <xsl:with-param name="caption" select="'Difference'"/>
+              <xsl:with-param name="caption" select="'Difference, findings numbered'"/>
               <xsl:with-param name="src" select="u:uri($diff-dir, $base || $diff-suffix)"/>
             </xsl:call-template>
           </fo:table-row>
         </fo:table-body>
       </fo:table>
+
+      <!-- what those numbers are. The list is not written here: it comes from the
+           report, in the order the numbers were drawn in, so the caption and the
+           picture cannot drift apart. -->
+      <xsl:if test="$verdict-dir != ''">
+        <xsl:try>
+          <xsl:variable name="v"
+              select="json-doc(u:uri($verdict-dir, $base || '-struct.json'))"/>
+          <xsl:if test="exists($v?review?*)">
+            <fo:block space-before="3mm" font-size="7.5pt">
+              <xsl:for-each select="$v?review?*">
+                <xsl:sort select="?n" data-type="number"/>
+                <xsl:if test="position() le 18">
+                  <fo:block space-after="0.6mm">
+                    <fo:inline font-weight="bold"
+                        color="{if (?what = 'absent') then '#D00000'
+                                else if (?what = 'invented') then '#0060D0'
+                                else if (?what = 'check') then '#967000'
+                                else '#D67A00'}">
+                      <xsl:value-of select="?n || '. ' || ?what"/>
+                    </fo:inline>
+                    <xsl:if test="?where != ''">
+                      <fo:inline color="#777">
+                        <xsl:value-of select="'  [' || ?where || ']'"/>
+                      </fo:inline>
+                    </xsl:if>
+                    <xsl:if test="?detail != ''">
+                      <xsl:value-of select="'  ' || ?detail"/>
+                    </xsl:if>
+                    <xsl:if test="?check != ''">
+                      <fo:inline font-style="italic" color="#555">
+                        <xsl:value-of select="'  -  ' || ?check"/>
+                      </fo:inline>
+                    </xsl:if>
+                  </fo:block>
+                </xsl:if>
+              </xsl:for-each>
+              <xsl:if test="count($v?review?*) gt 18">
+                <fo:block color="#777">
+                  <xsl:value-of select="'... and ' || (count($v?review?*) - 18) ||
+                                        ' more, all numbered on the difference image'"/>
+                </fo:block>
+              </xsl:if>
+            </fo:block>
+          </xsl:if>
+          <xsl:catch/>
+        </xsl:try>
+      </xsl:if>
     </fo:block>
   </xsl:if>
 </xsl:template>
