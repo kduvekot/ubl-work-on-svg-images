@@ -511,8 +511,14 @@ def classify(n, W, H, ink=None, heavy=9, has_rounded=False):
     return "action"
 
 
-def solid_blobs(ink, W, H):
-    """solid ink with no interior: initial nodes and fork/join bars"""
+def solid_blobs(ink, W, H, glyph_h=0.0):
+    """solid ink with no interior: initial nodes and fork/join bars
+
+    `glyph_h` is the height of a word in this diagram's type. A fork bar spans
+    several nodes; the stem of an "I" or a "T" in a lane title is solid, thin and
+    tall too, and without a length that beats the type it is indistinguishable
+    from one - relaxing the fill test alone turned 5 letter stems in "CONTRACTING
+    AUTHORITY" into fork bars."""
     core = ndi.binary_erosion(ink, np.ones((7, 7)))     # lines vanish, solids survive
     lbl, _ = ndi.label(core)
     discs, bars = [], []
@@ -530,8 +536,35 @@ def solid_blobs(ink, W, H):
                  area=area, fill=round(fill, 3))
         if fill > 0.70 and ar < 1.35 and 6 < w < W * 0.06:
             discs.append(dict(d, kind="initial"))
-        elif fill > 0.70 and ar > 3 and min(w, h) <= 60 and max(w, h) > W * 0.012:
-            bars.append(dict(d, kind="fork"))
+        elif (ar > 3 and min(w, h) <= 60
+                and max(w, h) > max(W * 0.012, 2.5 * glyph_h)):
+            # A fork or join bar arrives with the arrowheads that meet it still
+            # attached after erosion, so the bounding box is taller than the bar
+            # and the fill of that box falls well below a solid shape's - 0.56 on
+            # UBL-2.2-VMI-InitialStocking's join, against a 0.70 threshold, so the
+            # bar was discarded and with it the four connectors that meet it.
+            # Measure the bar rather than the box: the run of rows (or columns)
+            # that are nearly full across the component's length.
+            comp = (lbl[sl] == i)
+            cov = comp.mean(axis=1) if w >= h else comp.mean(axis=0)
+            dense = np.where(cov >= 0.8)[0]
+            if dense.size >= 2:
+                runs, s = [], dense[0]
+                for a_, b_ in zip(dense, dense[1:]):
+                    if b_ != a_ + 1:
+                        runs.append((s, a_)); s = b_
+                runs.append((s, dense[-1]))
+                lo, hi = max(runs, key=lambda r: r[1] - r[0])
+                if hi - lo + 1 >= 2:
+                    # the erosion took 3px off each side; the long axis keeps the
+                    # component's own extent, the short axis is the measured band
+                    if w >= h:
+                        d = dict(d, y=int(y0) + int(lo) - 3, h=int(hi - lo + 1) + 6)
+                    else:
+                        d = dict(d, x=int(x0) + int(lo) - 3, w=int(hi - lo + 1) + 6)
+                    bars.append(dict(d, kind="fork"))
+            elif fill > 0.70:
+                bars.append(dict(d, kind="fork"))
     return discs, bars
 
 
@@ -651,7 +684,7 @@ def main(path, out_json=None):
                                       check="confirm this is an activity final and how"
                                             " thick its ring is"))
         (partitions if k == "partition" else nodes).append(rec)
-    discs, bars = solid_blobs(ink, W, H)
+    discs, bars = solid_blobs(ink, W, H, gh)
     nodes += bars
     for d in discs:
         if not any(n["x"] <= d["x"] and n["y"] <= d["y"] and

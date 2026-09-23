@@ -245,6 +245,50 @@ def check_text_complete(bg_orig, graph, boxes, findings, glyph_h):
                                         % (want[:24], norm(hit[0])[:30], hit[1])))
 
 
+def check_arrow_directions(a, b, graph, glyph_h, findings, ratio=1.25):
+    """An arrowhead sitting a few pixels off, or drawn at a slightly different
+    angle, is placement error and is tolerated like any other. An arrowhead
+    pointing the *other way* is not: that is a reversed edge, and the diagram then
+    says something the artwork does not.
+
+    Which end carries the head is read the same way in both images - the head is
+    the end with markedly more ink around it - so the test compares what the
+    original shows against what the SVG drew, never against what the model claims.
+    Where either image is ambiguous the edge is left alone; those are the ones the
+    extractor already flags as LOW direction confidence for a person to settle."""
+    H, W = a.shape
+    r = max(20, int(2.0 * glyph_h))
+
+    def mass(img, p):
+        y0, y1 = max(0, p[1] - r), min(H, p[1] + r)
+        x0, x1 = max(0, p[0] - r), min(W, p[0] + r)
+        return int(img[y0:y1, x0:x1].sum())
+
+    for e in graph.get("edges", []):
+        p, q = e.get("fromPoint"), e.get("toPoint")
+        if not p or not q:
+            continue
+
+        def head(img):
+            f, t = mass(img, p), mass(img, q)
+            if t > f * ratio:
+                return "to"
+            if f > t * ratio:
+                return "from"
+            return None
+
+        ho, hr = head(a), head(b)
+        if ho and hr and ho != hr:
+            tip = q if ho == "to" else p
+            findings.append(dict(kind="arrow-reversed", x=tip[0] - r, y=tip[1] - r,
+                                 w=2 * r, h=2 * r,
+                                 detail="edge %s->%s: the original points %s %s, the SVG "
+                                        "points the other way"
+                                        % (e.get("from"), e.get("to"),
+                                           "towards" if ho == "to" else "back from",
+                                           e.get("to") if ho == "to" else e.get("from"))))
+
+
 def check_coherent(graph, glyph_h, findings):
     """Internal consistency - cheap, and it catches nonsense the pixels cannot."""
     ids = {n["id"] for n in graph.get("nodes", [])}
@@ -326,6 +370,7 @@ def verify(orig_png, render_png, graph_path, radius=3, diff_out=None):
     check_text_complete(bg_orig, graph, boxes, text_findings, glyph_h)    # clause 3
     coherence = []
     check_coherent(graph, glyph_h, coherence)                             # clause 4
+    check_arrow_directions(a, b, graph, glyph_h, coherence)               # clause 4b
     blocking = lost + made + coherence + \
         [t for t in text_findings if t["kind"] in ("text-absent", "text-differs",
                                                    "label-missing")]

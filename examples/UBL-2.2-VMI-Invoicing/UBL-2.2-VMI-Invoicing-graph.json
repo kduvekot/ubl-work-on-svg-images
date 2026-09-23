@@ -162,32 +162,6 @@
    "row": 0
   },
   {
-   "x": 468,
-   "y": 748,
-   "w": 11,
-   "h": 56,
-   "area": 250,
-   "fill": 1.0,
-   "kind": "fork",
-   "id": "n5",
-   "label": "",
-   "col": 0,
-   "row": 0
-  },
-  {
-   "x": 2973,
-   "y": 754,
-   "w": 11,
-   "h": 56,
-   "area": 250,
-   "fill": 1.0,
-   "kind": "fork",
-   "id": "n6",
-   "label": "",
-   "col": 1,
-   "row": 0
-  },
-  {
    "x": 2884,
    "y": 1350,
    "w": 107,
@@ -201,7 +175,7 @@
    "stroke": 7,
    "kind": "final",
    "innerRatio": 0.439,
-   "id": "n7",
+   "id": "n5",
    "label": "",
    "col": 1,
    "row": 0
@@ -264,7 +238,7 @@
   },
   {
    "from": "n4",
-   "to": "n7",
+   "to": "n5",
    "routing": "orthogonal",
    "fromPoint": [
     2941,
