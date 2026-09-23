@@ -655,11 +655,21 @@ def find_rules(ink, frac=0.40):
             cur.append(p)
         if cur:
             groups.append(cur)
+        def reaches(line, a, b):
+            # nearly all of the first (last) stretch, not every pixel of it: the
+            # header rule of several transport diagrams starts two pixels short of
+            # the frame, and demanding an unbroken run lost the whole rule - and
+            # with it the header band, the column titles it separates, and a
+            # line right across the page. A node edge has no ink here at all, so
+            # the distinction this test makes survives the tolerance.
+            seg = line[a:b]
+            return seg.size > 0 and seg.mean() >= 0.85
+
         out = []
         for g in groups:
             line = (ink[:, g[0]:g[-1] + 1].any(axis=1) if axis == "v"
                     else ink[g[0]:g[-1] + 1, :].any(axis=0))
-            if line[lo + near:lo + reach].all() and line[hi - reach:hi - near].all():
+            if reaches(line, lo + near, lo + reach) and reaches(line, hi - reach, hi - near):
                 out.append((int(g[0]), int(g[-1] - g[0] + 1)))
         return out
 
