@@ -14,6 +14,10 @@ disc, activity final = ring + disc, decision = rhombus, edges = open "V" arrowhe
 import html, json, sys, xml.sax.saxutils as su
 
 SIDE = {"l": (0, .5), "r": (1, .5), "t": (.5, 0), "b": (.5, 1)}
+# what each kind is called in the drawing, for the <title> a reader sees
+KIND_NAME = {"action": "action", "object": "object node (document)",
+             "initial": "initial node (start)", "final": "activity final (end)",
+             "decision": "decision", "fork": "fork/join bar", "note": "note"}
 STRAIGHT_TOLERANCE = 4.0     # below this, draw one straight segment, not an elbow
 
 
@@ -93,45 +97,83 @@ def text(label, cx, cy, size, font, weight="", style=""):
         for i, t in enumerate(lines))
 
 
+def group(kind, ident=None, title=None, **data):
+    """Open a <g> that says what this element is.
+
+    The classification is the durable part of this work, and it was living only in
+    the graph and in the draw.io model embedded in the SVG's `content` attribute -
+    the drawn shapes themselves were anonymous geometry, so anyone opening the SVG
+    saw a rounded rectangle and had to infer that it is an action. Each element now
+    carries its own kind, its id, and the ids it connects, which is also what makes
+    the file queryable and restylable by type."""
+    at = ' id="%s"' % ident if ident else ""
+    at += ' class="ubl-%s"' % kind + ' data-kind="%s"' % kind
+    for k, v in sorted(data.items()):
+        if v not in (None, ""):
+            at += ' data-%s="%s"' % (k.replace("_", "-"), su.escape(str(v), {'"': "&quot;"}))
+    head = "<g%s>" % at
+    return head + ("<title>%s</title>" % su.escape(title) if title else "")
+
+
 def svg_body(spec):
     S, F = spec["stroke"], spec["font"]
     W, H = spec["canvas"]["w"], spec["canvas"]["h"]
     o = ['<rect x="0" y="0" width="%.1f" height="%.1f" fill="#fff"/>' % (W, H)]
     fb = spec.get("frameBox") or [S["frame"] / 2, S["frame"] / 2,
                                   W - S["frame"] / 2, H - S["frame"] / 2]
+    o.append(group("frame", title="diagram frame"))
     o.append('<rect x="%.2f" y="%.2f" width="%.2f" height="%.2f" fill="none" stroke="#000" stroke-width="%.2f"/>'
              % (fb[0], fb[1], fb[2] - fb[0], fb[3] - fb[1], S["frame"]))
-    for d in spec.get("dividers", []):
+    o.append("</g>")
+    for i, d in enumerate(spec.get("dividers", [])):
+        o.append(group("lane-divider", "divider%d" % i, "lane divider", axis="v"))
         o.append('<line x1="%.1f" y1="0" x2="%.1f" y2="%.1f" stroke="#000" stroke-width="%.2f"/>'
                  % (d, d, H, S["divider"]))
-    for d in spec.get("bands", []):
+        o.append("</g>")
+    for i, d in enumerate(spec.get("bands", [])):
+        o.append(group("band-divider", "band%d" % i, "band divider", axis="h"))
         o.append('<line x1="0" y1="%.1f" x2="%.1f" y2="%.1f" stroke="#000" stroke-width="%.2f"/>'
                  % (d, W, d, S["divider"]))
-    for gr in spec.get("greyRules", []):
+        o.append("</g>")
+    for i, gr in enumerate(spec.get("greyRules", [])):
         # a divider the artwork draws in grey; promoting it to black would be a
         # louder line than the drawing has
+        o.append(group("lane-divider", "greyrule%d" % i, "lane divider (drawn in grey)",
+                       axis=gr["axis"], tone=gr["colour"]))
         if gr["axis"] == "v":
             o.append('<line x1="%.1f" y1="0" x2="%.1f" y2="%.1f" stroke="%s" stroke-width="%.2f"/>'
                      % (gr["at"] + gr["w"] / 2, gr["at"] + gr["w"] / 2, H, gr["colour"], gr["w"]))
         else:
             o.append('<line x1="0" y1="%.1f" x2="%.1f" y2="%.1f" stroke="%s" stroke-width="%.2f"/>'
                      % (gr["at"] + gr["w"] / 2, W, gr["at"] + gr["w"] / 2, gr["colour"], gr["w"]))
-    for d in spec.get("dashed", []):
+        o.append("</g>")
+    for i, d in enumerate(spec.get("dashed", [])):
         # the dashed rounded box a CPFR phase is drawn inside, at the artwork's own
         # dash and gap
+        o.append(group("phase-boundary", "phase%d" % i,
+                       "phase boundary (this diagram is one phase of a larger process)"))
         o.append('<rect x="%.2f" y="%.2f" width="%.2f" height="%.2f" rx="%.2f" ry="%.2f" '
                  'fill="none" stroke="#000" stroke-width="%.2f" stroke-dasharray="%.1f %.1f"/>'
                  % (d["x"], d["y"], d["w"], d["h"], d["rx"], d["rx"],
                     d.get("weight") or S["divider"],
                     max(d["dash"], 0.5), max(d["gap"], 0.5)))
-    for l in spec["lanes"]:
+        o.append("</g>")
+    for i, l in enumerate(spec["lanes"]):
+        o.append(group("lane-title", "lane%d" % i, l["title"]))
         o.append(text(l["title"], l["cx"], l["cy"], F["lane"], F["family"]))
-    for b in spec.get("bandLabels", []):     # band titles run sideways up the gutter
+        o.append("</g>")
+    for i, b in enumerate(spec.get("bandLabels", [])):   # band titles run up the gutter
+        o.append(group("band-title", "bandtitle%d" % i, b["title"]))
         o.append('<g transform="rotate(-90 %.1f %.1f)">%s</g>'
                  % (b["cx"], b["cy"], text(b["title"], b["cx"], b["cy"], F["lane"], F["family"])))
+        o.append("</g>")
     for n in spec["nodes"]:
         x, y, w, h = n["x"], n["y"], n["w"], n["h"]
         cx, cy, k = x + w / 2, y + h / 2, n["kind"]
+        o.append(group(k, n["id"],
+                       "%s%s" % (KIND_NAME.get(k, k),
+                                 ": " + " ".join(n["label"].split())
+                                 if n.get("label") else "")))
         if k == "action":
             rx = n.get("rx", n.get("r", h / 2))
             ry = n.get("ry", rx)          # the originals have ELLIPTICAL corners
@@ -163,17 +205,30 @@ def svg_body(spec):
             o.append('<path d="M %.1f %.1f V %.1f H %.1f" fill="none" stroke="#000" stroke-width="%.2f"/>'
                      % (x + w - f, y, y + f, x + w, S["action"]))
             o.append(lines_of(n, cx, cy, F["node"], F["family"]))
-    for e in spec["edges"]:
+        o.append("</g>")
+    for i, e in enumerate(spec["edges"]):
         pts = polyline(spec, e)
+        o.append(group("edge", "e%d" % i, "%s to %s" % (e["from"], e["to"]),
+                       source=e["from"], target=e["to"],
+                       routing="straight" if e.get("straight") else "orthogonal",
+                       confidence=e.get("confidence")))
         o.append('<polyline points="%s" fill="none" stroke="#000" stroke-width="%.2f" marker-end="url(#arrow)"/>'
                  % (" ".join("%.1f,%.1f" % p for p in pts), S["edge"]))
-    for oe in spec.get("openEnds", []):
+        o.append("</g>")
+    for i, oe in enumerate(spec.get("openEnds", [])):
         # a flow that leaves the diagram, drawn along the route it actually takes
+        o.append(group("off-page-flow", "open%d" % i,
+                       "flow continuing outside this diagram",
+                       node=oe.get("node"),
+                       direction="into the diagram" if oe.get("inward") else "out of the diagram"))
         o.append('<polyline points="%s" fill="none" stroke="#000" stroke-width="%.2f"%s/>'
                  % (" ".join("%.1f,%.1f" % (p[0], p[1]) for p in oe["points"]),
                     S["edge"], ' marker-end="url(#arrow)"' if oe.get("arrow") else ""))
-    for g in spec.get("guards", []):
+        o.append("</g>")
+    for i, g in enumerate(spec.get("guards", [])):
+        o.append(group("guard", "text%d" % i, " ".join(g.get("text", "").split())))
         o.append(lines_of(g, g["x"] + g["w"] / 2, g["y"] + g["h"] / 2, F["guard"], F["family"]))
+        o.append("</g>")
     return "".join(o)
 
 
