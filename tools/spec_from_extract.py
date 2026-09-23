@@ -161,8 +161,13 @@ def main(src, out, model_w=1480.0):
         # own dash and gap so the rebuild repeats the pattern rather than inventing
         # one
         "dashed": [{"x": M(d["x"]), "y": M(d["y"]), "w": M(d["w"]), "h": M(d["h"]),
-                    "rx": M(d["rx"]), "dash": M(d["dash"]), "gap": M(d["gap"])}
+                    "rx": M(d["rx"]), "dash": M(d["dash"]), "gap": M(d["gap"]),
+                    "weight": M(d.get("weight") or 0)}
                    for d in e.get("dashed", [])],
+        # dividers the artwork draws in grey rather than black, in their own tone
+        "greyRules": [{"axis": r["axis"], "at": M(r["at"]), "w": M(r["w"]),
+                       "colour": "#%02x%02x%02x" % ((r["level"],) * 3)}
+                      for r in e.get("greyRules", [])],
         # a flow that leaves the diagram: drawn along its measured route, from
         # where it meets its node to where it runs off
         "openEnds": [{"points": [[M(p[0]), M(p[1])] for p in

@@ -107,13 +107,23 @@ def svg_body(spec):
     for d in spec.get("bands", []):
         o.append('<line x1="0" y1="%.1f" x2="%.1f" y2="%.1f" stroke="#000" stroke-width="%.2f"/>'
                  % (d, W, d, S["divider"]))
+    for gr in spec.get("greyRules", []):
+        # a divider the artwork draws in grey; promoting it to black would be a
+        # louder line than the drawing has
+        if gr["axis"] == "v":
+            o.append('<line x1="%.1f" y1="0" x2="%.1f" y2="%.1f" stroke="%s" stroke-width="%.2f"/>'
+                     % (gr["at"] + gr["w"] / 2, gr["at"] + gr["w"] / 2, H, gr["colour"], gr["w"]))
+        else:
+            o.append('<line x1="0" y1="%.1f" x2="%.1f" y2="%.1f" stroke="%s" stroke-width="%.2f"/>'
+                     % (gr["at"] + gr["w"] / 2, W, gr["at"] + gr["w"] / 2, gr["colour"], gr["w"]))
     for d in spec.get("dashed", []):
         # the dashed rounded box a CPFR phase is drawn inside, at the artwork's own
         # dash and gap
         o.append('<rect x="%.2f" y="%.2f" width="%.2f" height="%.2f" rx="%.2f" ry="%.2f" '
                  'fill="none" stroke="#000" stroke-width="%.2f" stroke-dasharray="%.1f %.1f"/>'
                  % (d["x"], d["y"], d["w"], d["h"], d["rx"], d["rx"],
-                    S["divider"], max(d["dash"], 0.5), max(d["gap"], 0.5)))
+                    d.get("weight") or S["divider"],
+                    max(d["dash"], 0.5), max(d["gap"], 0.5)))
     for l in spec["lanes"]:
         o.append(text(l["title"], l["cx"], l["cy"], F["lane"], F["family"]))
     for b in spec.get("bandLabels", []):     # band titles run sideways up the gutter

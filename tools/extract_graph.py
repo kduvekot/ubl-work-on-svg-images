@@ -917,10 +917,10 @@ def dashed_boxes(ink, stroke, min_dashes=8, min_span=0.35):
             continue
         if w > h:
             rows.setdefault((sl[0].start + h // 2) // 4, []).append(
-                (sl[1].start, sl[1].stop, w))
+                (sl[1].start, sl[1].stop, w, h))
         else:
             cols.setdefault((sl[1].start + w // 2) // 4, []).append(
-                (sl[0].start, sl[0].stop, h))
+                (sl[0].start, sl[0].stop, h, w))
 
     def lines(buckets, span):
         out = []
@@ -932,9 +932,10 @@ def dashed_boxes(ink, stroke, min_dashes=8, min_span=0.35):
             if hi - lo < min_span * span:
                 continue
             ds = sorted(ds)
-            gaps = [b0 - a1 for (_, a1, _), (b0, _, _) in zip(ds, ds[1:])]
+            gaps = [b0 - a1 for (_, a1, _, _), (b0, _, _, _) in zip(ds, ds[1:])]
             out.append(dict(at=b * 4 + 2, lo=lo, hi=hi, n=len(ds),
                             dash=float(np.median([d[2] for d in ds])),
+                            weight=float(np.median([d[3] for d in ds])),
                             gap=float(np.median(gaps)) if gaps else 0.0))
         return sorted(out, key=lambda r: r["at"])
 
@@ -950,6 +951,8 @@ def dashed_boxes(ink, stroke, min_dashes=8, min_span=0.35):
     return [dict(x=int(left["at"]), y=int(top["at"]),
                  w=int(right["at"] - left["at"]), h=int(bot["at"] - top["at"]),
                  rx=r, dash=round(top["dash"], 1), gap=round(top["gap"], 1),
+                 weight=round(float(np.median([top["weight"], bot["weight"],
+                                               left["weight"], right["weight"]])), 1),
                  dashes=top["n"] + bot["n"] + left["n"] + right["n"])]
 
 
@@ -973,6 +976,14 @@ def dash_pixels(ink, boxes, stroke):
         for xx in (d["x"], d["x"] + d["w"]):
             near_edge[max(0, d["y"] - band):d["y"] + d["h"] + band,
                       max(0, xx - band):xx + band] = True
+        # and the four rounded corners, which lie outside all four of those bands.
+        # Left out, their dashes went on to be read as text, and the deck showed
+        # "4 7 ? o" curving around the top left corner of every CPFR diagram.
+        r = int(d.get("rx") or 0) + band
+        for cy in (d["y"], d["y"] + d["h"] - r):
+            for cx in (d["x"], d["x"] + d["w"] - r):
+                near_edge[max(0, cy - band):cy + r + band,
+                          max(0, cx - band):cx + r + band] = True
     lbl, _ = ndi.label(ink & near_edge, structure=np.ones((3, 3)))
     thick = max(3.0, 2.5 * stroke)
     for i, sl in enumerate(ndi.find_objects(lbl), start=1):
@@ -982,6 +993,45 @@ def dash_pixels(ink, boxes, stroke):
         if min(w, h) <= thick and max(w, h) <= 14 * thick:
             m[sl][lbl[sl] == i] = True
     return m
+
+
+def grey_rules(gray, min_cov=0.45, min_w=3):
+    """Dividers drawn in grey rather than black.
+
+    Everything else here works from ink, which is luminance below 128 - and the
+    lane divider of CreatingSalesForecast is drawn at 224, invisible at that
+    threshold. It was not that the divider failed a test: nothing had ever seen
+    it. A black line's own anti-aliased edge is grey too, so a grey rule has to be
+    several pixels across with no black core.
+
+    Returns position, thickness and the grey it is drawn in, so the rebuild can
+    use the artwork's own tone instead of promoting the line to black."""
+    g = gray.astype(np.int16)
+    grey = (g >= 140) & (g <= 242)
+    black = g < 140
+    H, W = g.shape
+    out = []
+    for axis, span in (("v", W), ("h", H)):
+        cov = (grey.sum(axis=0) / float(H)) if axis == "v" else (grey.sum(axis=1) / float(W))
+        bcov = (black.sum(axis=0) / float(H)) if axis == "v" else (black.sum(axis=1) / float(W))
+        groups, cur = [], []
+        for p in np.where(cov >= min_cov)[0]:
+            if cur and p - cur[-1] > 3:
+                groups.append(cur); cur = []
+            cur.append(p)
+        if cur:
+            groups.append(cur)
+        for gr in groups:
+            if len(gr) < min_w or not (6 < gr[0] < span - 12):
+                continue
+            mid = gr[len(gr) // 2]
+            if bcov[mid] > 0.12:
+                continue                       # a black line with grey edges
+            line = g[:, mid][grey[:, mid]] if axis == "v" else g[mid, :][grey[mid, :]]
+            out.append(dict(axis=axis, at=int(gr[0]), w=int(len(gr)),
+                            level=int(np.median(line)),
+                            coverage=round(float(cov[mid]), 2)))
+    return out
 
 
 def find_rules(ink, frac=0.40):
@@ -1056,6 +1106,11 @@ def main(path, out_json=None):
     print("image %dx%d" % (W, H))
 
     vr, hr = find_rules(ink)
+    greys = grey_rules(np.asarray(bg.convert("L")))
+    for gr in greys:
+        print("   grey %s rule at %d, %dpx wide, tone %d (covers %.0f%% of the page)"
+              % ("column" if gr["axis"] == "v" else "band", gr["at"], gr["w"],
+                 gr["level"], 100 * gr["coverage"]))
     inner_v = [r for r in vr if 6 < r[0] < W - 12]
     inner_h = [r for r in hr if 6 < r[0] < H - 12]
     vb = [0] + [x + w / 2 for x, w in inner_v] + [W]
@@ -1385,27 +1440,58 @@ def main(path, out_json=None):
                 far_i = int(np.argmax((xs - cx) ** 2 + (ys - cy) ** 2))
                 at = (int(xs[near_i]), int(ys[near_i]))
                 end = (int(xs[far_i]), int(ys[far_i]))
-                turns = trace_corners(xs, ys, at, end,
-                                      max(2, int(round(font_px * 0.1))))
-                st0 = max(2.0, line_w or 4.0)
-                mh = 0.35 * font_px
-                # which way it runs. A flow arriving from off the page points at
-                # its node - the line down into "Create Retail Event" does - and
-                # drawing every one of them outward left that arrowhead off.
-                out_head = arrow_size(xs, ys, end, (turns[-1] if turns else at),
-                                      st0, min_len=mh)
-                in_head = arrow_size(xs, ys, at, (turns[0] if turns else end),
-                                     st0, min_len=mh)
-                inward = bool(in_head) and (not out_head or in_head[1] > out_head[1])
-                if inward:
-                    at, end = end, at
-                    turns = turns[::-1]
-                head = in_head if inward else out_head
-                open_ends.append(dict(node=nd["id"], at=list(at), end=list(end),
-                                      points=turns, arrow=bool(head), inward=inward,
-                                      x=bx0, y=by0, w=bx1 - bx0 + 1, h=by1 - by0 + 1))
-                print("   %-4s -> (off the diagram) at %d,%d" % (nd["id"], end[0], end[1]))
-                continue
+                # ...unless it stops just short of another node. A connector to a
+                # document box stops a little further out than one to an activity,
+                # and several were landing 34-40px away - one pixel outside the
+                # reach that decides which nodes a component touches - so the flow
+                # from "Send Product Activity" to the document beside it became a
+                # line running off the page, arrowhead and all.
+                reach2 = max(60, 1.2 * font_px)
+                other = None
+                for cand in nodes:
+                    if cand is nd:
+                        continue
+                    dx = max(cand["x"] - end[0], 0, end[0] - (cand["x"] + cand["w"]))
+                    dy = max(cand["y"] - end[1], 0, end[1] - (cand["y"] + cand["h"]))
+                    if math.hypot(dx, dy) <= reach2:
+                        other = cand
+                        break
+                if other is not None:
+                    touch = [nd, other]          # a connector after all
+                else:
+                    turns = trace_corners(xs, ys, at, end,
+                                          max(2, int(round(font_px * 0.1))))
+                    st0 = max(2.0, line_w or 4.0)
+                    mh = 0.35 * font_px
+                    # which way it runs. A flow arriving from off the page points
+                    # at its node - the line down into "Create Retail Event" does -
+                    # and drawing every one of them outward left that arrowhead
+                    # off. Whether the mark at an open end is a head at all is
+                    # settled later, against the size of this diagram's own
+                    # arrowhead - a line that simply stops is not one, which is how
+                    # the right-hand flow out of "Forecast (sales - positive
+                    # response)" gained an arrow the artwork does not draw.
+                    out_head = arrow_size(xs, ys, end, (turns[-1] if turns else at),
+                                          st0, min_len=mh)
+                    in_head = arrow_size(xs, ys, at, (turns[0] if turns else end),
+                                         st0, min_len=mh)
+                    inward = bool(in_head) and (not out_head
+                                                or in_head[1] > out_head[1])
+                    if inward:
+                        at, end = end, at
+                        turns = turns[::-1]
+                    head = in_head if inward else out_head
+                    open_ends.append(dict(node=nd["id"], at=list(at), end=list(end),
+                                          points=turns, arrow=bool(head), inward=inward,
+                                          headPx=(list(head) if head else None),
+                                          x=bx0, y=by0, w=bx1 - bx0 + 1, h=by1 - by0 + 1))
+                    print("   %-4s -> (off the diagram) at %d,%d"
+                          % (nd["id"], end[0], end[1]))
+                    continue
+
+        if len(touch) != 2 or n_px < EDGE_MIN_AREA:
+            bx0, by0 = int(xs.min()), int(ys.min())
+            bx1, by1 = int(xs.max()), int(ys.max())
             # Only bin this as text if it is the size and shape of text. A
             # rejected connector is neither, and letting one into the text bin
             # is not harmless: the blocks are merged by proximity in four
@@ -1640,15 +1726,29 @@ def main(path, out_json=None):
         # had four such, all at 111px, against real heads of about 38 - so the
         # median is taken over the shortest cluster rather than over everything.
         heads = sorted(e["arrowPx"][0] for e in edges if e.get("arrowPx"))
+        widths = sorted(e["arrowPx"][1] for e in edges if e.get("arrowPx"))
         if heads:
             tight = [h for h in heads if h <= 2 * heads[0]]
             arrow_px = round(float(np.median(tight)), 1)
+            arrow_w = float(np.median(widths))
         else:
-            arrow_px = 0.0
+            arrow_px, arrow_w = 0.0, 0.0
         if arrow_px:
             print("\nARROWHEAD  %.0fpx long over %d connector(s)" % (arrow_px, len(heads)))
+        # An open end has no node to stop at, so a line that simply runs out can
+        # read as a head. Against the diagram's own arrowhead it cannot: keep only
+        # the ones that are the right size for this drawing.
+        for o in open_ends:
+            if o["arrow"] and arrow_px:
+                L, Wd = (o.get("headPx") or [0, 0])[:2]
+                if not (0.5 * arrow_px <= L <= 2.0 * arrow_px) or Wd < 0.5 * arrow_w:
+                    print("   (%s: the mark at its open end is %.0fx%.0f against a"
+                          " %.0fx%.0f arrowhead - not a head)"
+                          % (o["node"], L, Wd, arrow_px, arrow_w))
+                    o["arrow"] = False
         json.dump(dict(source=path, size=[W, H], fontPx=font_px, arrowPx=arrow_px,
-                       rules=dict(v=vr, h=hr), dashed=dboxes, openEnds=open_ends,
+                       rules=dict(v=vr, h=hr), greyRules=greys, dashed=dboxes,
+                       openEnds=open_ends,
                        partitions=grid, nodes=nodes, edges=edges, text=texts,
                        uncertain=uncertain),
                   open(out_json, "w"), indent=1)
