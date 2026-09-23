@@ -71,8 +71,14 @@ def main(src, out, model_w=1480.0):
         # each label line keeps the position it was measured at, so a label the
         # artwork put near the top of a tall box does not drift to the middle
         if n.get("labelLines"):
+            # each line's measured width travels with it, so the rebuild can set
+            # the line to exactly the width the artwork gives it rather than to
+            # whatever Helvetica happens to make of the same string
             d["labelLines"] = [{"text": l["text"], "cx": M(l["x"] + l["w"] / 2),
-                                "cy": M(l["y"] + l["h"] / 2)} for l in n["labelLines"]]
+                                "cy": M(l["y"] + l["h"] / 2), "w": M(l["w"])}
+                               for l in n["labelLines"]]
+        if n.get("bold") is not None:
+            d["bold"] = bool(n["bold"])
         nodes.append(d)
     byid = {n["id"]: n for n in nodes}
 
@@ -141,7 +147,8 @@ def main(src, out, model_w=1480.0):
              "w": M(t["w"]), "h": M(t["h"])}
         if t.get("lines"):
             g["labelLines"] = [{"text": l["text"], "cx": M(l["x"] + l["w"] / 2),
-                                "cy": M(l["y"] + l["h"] / 2)} for l in t["lines"]]
+                                "cy": M(l["y"] + l["h"] / 2), "w": M(l["w"])}
+                               for l in t["lines"]]
         guards.append(g)
 
     spec = {

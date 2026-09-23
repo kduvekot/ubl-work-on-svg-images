@@ -1470,6 +1470,42 @@ def main(path, out_json=None):
             keep.append(n)
         nodes = keep
 
+    # Bold or regular, measured rather than assumed. Every action label was drawn
+    # bold, and on Tender-QualificationApplication the artwork sets them regular:
+    # bold Helvetica at the measured size is wider than the box the artwork drew
+    # around its regular type, so six labels ran out of both ends of their boxes.
+    #
+    # Weight is stem width. Take the length of every run of ink across a label's
+    # own line band, and the middle of that distribution is how thick the strokes
+    # are; against the diagram's type size it comes out at 0.08 for regular and
+    # 0.13 to 0.18 for bold, with nothing in between anywhere in the 78. A short
+    # label gives too few runs to be sure on its own, so it falls back to the
+    # diagram's own reading for that kind of node.
+    if font_px > 0:
+        def stem_runs(b):
+            sub = ink[b["y"]:b["y"] + b["h"], b["x"]:b["x"] + b["w"]]
+            out = []
+            for row in sub:
+                idx = np.flatnonzero(np.diff(np.r_[0, row.view(np.int8), 0]))
+                out.extend(idx[1::2] - idx[0::2])
+            return out
+        per_kind = {}
+        for n in nodes:
+            runs = []
+            for l in (n.get("labelLines") or []):
+                runs.extend(stem_runs(l))
+            n["_stemRuns"] = runs
+            per_kind.setdefault(n["kind"], []).extend(runs)
+        kind_stem = {k: float(np.median(v)) / font_px
+                     for k, v in per_kind.items() if len(v) >= 20}
+        for n in nodes:
+            runs = n.pop("_stemRuns", [])
+            stem = (float(np.median(runs)) / font_px if len(runs) >= 20
+                    else kind_stem.get(n["kind"]))
+            if stem is not None:
+                n["stem"] = round(stem, 3)
+                n["bold"] = stem >= 0.11
+
     # An activity box, an object and a note are all there to carry words. White
     # trapped inside a loop-back connector is not, and it survives the phantom
     # tests: the corner a diagonal cuts off it reads as a note's folded corner,
@@ -1783,7 +1819,35 @@ def main(path, out_json=None):
         vx, vy = pb[0] - pa[0], pb[1] - pa[1]
         L = math.hypot(vx, vy) or 1
         dist = np.abs((xs - pa[0]) * vy - (ys - pa[1]) * vx) / L
-        straight = float(dist.mean()) < 6.0
+        # Is it one line or an elbow? Not the average distance of its ink from
+        # the chord between its ends: an arrowhead is 70px wide on the Tender
+        # diagrams and every pixel of it is far off the connector's own line, so
+        # on a short connector the head alone pushed the average past any
+        # threshold and lines the artwork draws dead straight were filed as
+        # orthogonal and redrawn with an elbow.
+        #
+        # A head is symmetric about the line it sits on, so it cancels when the
+        # distance keeps its sign; an elbow does not, because all of its ink is on
+        # one side of the chord. Measured across the 78, straight connectors come
+        # out at 0-5 and elbows at 15-460, so the two do not overlap anywhere near
+        # the middle. The second test is for the route that doubles back and
+        # cancels: however symmetric, it does not stay near its own chord.
+        sgn = float((((xs - pa[0]) * vy - (ys - pa[1]) * vx) / L).mean())
+        straight = abs(sgn) < 8.0 and float(np.median(dist)) < 0.15 * L + 3.0
+        # A straight connector that is within a few degrees of an axis is on that
+        # axis: the artwork does not draw a line 11px out of true over 265px, the
+        # trace's two ends are simply a few pixels apart on where they met their
+        # nodes. The line's own coordinate is measurable and is not a guess - the
+        # middle of its ink - so take it from there and put both ends on it,
+        # rather than drawing the slope the two contacts imply.
+        if straight and abs(vx) > 8 and abs(vy) > 8:
+            if abs(vy) <= max(4.0, 0.06 * abs(vx)):
+                c = int(round(float(np.median(ys))))
+                pa, pb = (pa[0], c), (pb[0], c)
+            elif abs(vx) <= max(4.0, 0.06 * abs(vy)):
+                c = int(round(float(np.median(xs))))
+                pa, pb = (c, pa[1]), (c, pb[1])
+            vx, vy = pb[0] - pa[0], pb[1] - pa[1]
         routing = ("diagonal" if straight and abs(vx) > 8 and abs(vy) > 8
                    else "straight" if straight else "orthogonal")
         turns = trace_corners(xs, ys, pa, pb, max(2, int(round(font_px * 0.1)))) \

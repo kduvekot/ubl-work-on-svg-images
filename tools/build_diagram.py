@@ -79,18 +79,35 @@ def polyline(spec, e):
 
 
 def lines_of(n, cx, cy, size, font, weight="", style=""):
-    """measured line positions when the extractor found them, centred otherwise"""
+    """measured line positions when the extractor found them, centred otherwise.
+
+    `bold` on the node overrides the caller: the weight is measured off the
+    artwork's own strokes, and the caller only says what this kind of node is
+    usually set in."""
+    if n.get("bold") is not None:
+        weight = "bold" if n["bold"] else ""
     ll = n.get("labelLines")
     if not ll:
         return text(n.get("label", ""), cx, cy, size, font, weight, style)
-    return "".join(text(l["text"], l["cx"], l["cy"], size, font, weight, style) for l in ll)
+    return "".join(text(l["text"], l["cx"], l["cy"], size, font, weight, style,
+                        l.get("w")) for l in ll)
 
 
-def text(label, cx, cy, size, font, weight="", style=""):
+def text(label, cx, cy, size, font, weight="", style="", width=None):
+    """One label, at the size and weight measured, in the width measured.
+
+    The width matters as much as the size. The artwork is not set in Helvetica,
+    so the same string at the same point size comes out a different length here,
+    and on Tender-QualificationApplication six labels ran out of both ends of
+    their boxes. Where the line's own width was measured, the line is set to it -
+    letter-spacing and glyphs together, so it stays legible rather than being
+    letter-spaced apart - and it then covers what the original covers."""
     lines = label.split("\n")
     lh = size * 1.25
     y0 = cy - (len(lines) - 1) * lh / 2
     extra = (' font-weight="%s"' % weight if weight else "") + (' font-style="%s"' % style if style else "")
+    if width and len(lines) == 1 and label.strip():
+        extra += ' textLength="%.1f" lengthAdjust="spacingAndGlyphs"' % width
     return "".join(
         '<text x="%.1f" y="%.1f" text-anchor="middle" font-family="%s" font-size="%.1f"%s>%s</text>'
         % (cx, y0 + i * lh + size * 0.35, font, size, extra, su.escape(t))
