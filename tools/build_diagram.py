@@ -276,6 +276,72 @@ def mxfile(spec):
             '<diagram id="d1" name="Page-1">' + "".join(c) + "</diagram></mxfile>")
 
 
+# A review copy of the drawing, coloured by what each element was classified as,
+# so that a reader can check the classification by eye rather than by reading JSON.
+#
+# Six hues, not one per kind. The published palette's eight clear the colour-blind
+# and normal-vision floors only for *adjacent* pairs; here any element can sit
+# beside any other, and on that all-pairs test the largest set that passes is six
+# (validated with the palette checker: worst normal-vision dE 15.6, worst CVD 6.9,
+# which the rules allow because shape carries the distinction as well as colour).
+# So notes share the decision hue - a folded box and a diamond are never mistaken
+# for each other - and connectors and structure stay in neutrals, which do not
+# compete with the six.
+CLASS_COLOUR = {
+    "action":         "#2a78d6",     # blue
+    "object":         "#e34948",     # red
+    "initial":        "#1baf7a",     # aqua
+    "final":          "#eda100",     # yellow
+    "decision":       "#4a3aa7",     # violet
+    "note":           "#4a3aa7",     # violet, shared: the shapes cannot be confused
+    "fork":           "#008300",     # green
+    "edge":           "#111111",     # connectors stay near-black
+    "off-page-flow":  "#111111",
+    "frame":          "#8a8a85",
+    "lane-divider":   "#8a8a85",
+    "band-divider":   "#8a8a85",
+    "phase-boundary": "#8a8a85",
+}
+LEGEND = [("action", "action"), ("object", "object node (document)"),
+          ("initial", "initial (start)"), ("final", "activity final (end)"),
+          ("decision", "decision / note"), ("fork", "fork or join bar"),
+          ("edge", "connector"), ("frame", "frame, lane divider, phase boundary")]
+
+
+def classified(spec, defs, model):
+    W, H = spec["canvas"]["w"], spec["canvas"]["h"]
+    fs = max(9.0, spec["font"]["lane"] * 0.8)
+    band = fs * 2.6
+    css = []
+    for kind, colour in CLASS_COLOUR.items():
+        css.append(".ubl-%s rect, .ubl-%s circle, .ubl-%s polygon, .ubl-%s path,"
+                   " .ubl-%s line, .ubl-%s polyline"
+                   " { stroke: %s !important; }" % ((kind,) * 6 + (colour,)))
+    # the shapes the artwork fills solid keep a fill, in their own hue
+    css.append(".ubl-initial circle { fill: %s !important; }" % CLASS_COLOUR["initial"])
+    css.append(".ubl-fork rect { fill: %s !important; }" % CLASS_COLOUR["fork"])
+    css.append(".ubl-final circle + circle { fill: %s !important; }" % CLASS_COLOUR["final"])
+    css.append("text { fill: #111 !important; }")     # labels stay ink, never a hue
+
+    leg = ['<g class="ubl-legend"><rect x="0" y="%.1f" width="%.1f" height="%.1f" fill="#fff"/>'
+           % (H, W, band)]
+    x = fs
+    for kind, name in LEGEND:
+        leg.append('<rect x="%.1f" y="%.1f" width="%.1f" height="%.1f" fill="%s"/>'
+                   % (x, H + band / 2 - fs * 0.45, fs * 0.9, fs * 0.9, CLASS_COLOUR[kind]))
+        leg.append('<text x="%.1f" y="%.1f" font-family="%s" font-size="%.1f" fill="#111">%s</text>'
+                   % (x + fs * 1.25, H + band / 2 + fs * 0.33, spec["font"]["family"], fs,
+                      su.escape(name)))
+        x += fs * 1.25 + fs * 0.55 * len(name) + fs * 1.2
+    leg.append("</g>")
+
+    return ('<?xml version="1.0" encoding="UTF-8"?>\n<svg xmlns="http://www.w3.org/2000/svg" '
+            'version="1.1" width="%.0f" height="%.0f" viewBox="0 0 %.1f %.1f" content="%s">'
+            % (W, H + band, W, H + band, html.escape(model, quote=True))
+            + "<style>" + "".join(css) + "</style>"
+            + defs + svg_body(spec) + "".join(leg) + "</svg>")
+
+
 def main(spec_path, out):
     spec = load(spec_path)
     S = spec["stroke"]
@@ -291,7 +357,9 @@ def main(spec_path, out):
            % (W, H, W, H, html.escape(model, quote=True)) + defs + svg_body(spec) + "</svg>")
     open(out + ".svg", "w", encoding="utf-8").write(svg)
     open(out + ".drawio", "w", encoding="utf-8").write(model)
-    print("  %s.svg + .drawio   (%d nodes, %d edges)" % (out, len(spec["nodes"]), len(spec["edges"])))
+    open(out + "-classified.svg", "w", encoding="utf-8").write(classified(spec, defs, model))
+    print("  %s.svg + .drawio + -classified.svg   (%d nodes, %d edges)"
+          % (out, len(spec["nodes"]), len(spec["edges"])))
 
 
 if __name__ == "__main__":

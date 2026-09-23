@@ -31,6 +31,9 @@
      tools/mark_findings.py writes it; '-diff-r2.png' is the plain one -->
 <xsl:param name="diff-suffix" as="xs:string" select="'-marked.png'"/>
 <xsl:param name="svg-suffix"  as="xs:string" select="'.svg'"/>
+<!-- what the middle panel is called; change it with svg-suffix when showing the
+     classification copy rather than the plain drawing -->
+<xsl:param name="svg-caption" as="xs:string" select="'Generated SVG'"/>
 <!-- space-separated basenames to include; empty means every figure -->
 <xsl:param name="include" as="xs:string" select="''"/>
 <!-- optional: directory of -struct.json reports, to print each figure's verdict -->
@@ -151,7 +154,7 @@
             </xsl:call-template>
             <fo:table-cell><fo:block/></fo:table-cell>
             <xsl:call-template name="panel">
-              <xsl:with-param name="caption" select="'Generated SVG'"/>
+              <xsl:with-param name="caption" select="$svg-caption"/>
               <xsl:with-param name="src" select="u:uri($svg-dir, $base || $svg-suffix)"/>
             </xsl:call-template>
             <fo:table-cell><fo:block/></fo:table-cell>
