@@ -8,7 +8,8 @@ Produces a NOTATION-NEUTRAL semantic graph, not just geometry:
     partitions : the lane / band grid, with titles
     nodes      : id, kind, label, geometry, the partition cell it sits in
     edges      : source -> target, routing (orthogonal | straight | diagonal),
-                 contact points, guard label where one could be matched
+                 contact points, the corners an orthogonal route turns at,
+                 guard label where one could be matched
     text       : anything left over, with position
 
 The graph is the durable part. Geometry can be re-laid-out and the notation
@@ -229,6 +230,135 @@ def bridge_runs(mask, forbidden, gap, minrun, maxw, axis):
                 continue
             joined.append((axis, int(c), int(a), int(b)))
     return joined
+
+
+def trace_corners(xs, ys, p_from, p_to, stroke, max_turns=8):
+    """Where an orthogonal connector actually turns.
+
+    Knowing only that an edge runs from A to B and that its routing is
+    "orthogonal" is not enough to put it back: a loop-back that leaves a decision,
+    runs to the right margin, climbs the page and comes in at the top gets redrawn
+    with its corner wherever the router chooses, which in the diff is a line
+    missing in one place and invented in another. The corners are in the pixels,
+    so read them.
+
+    Walk the connector's own ink from one end to the other (a breadth-first walk,
+    so the route is the one the ink takes), split that walk into straight runs,
+    and put each run back on the centre of the stroke it came from - the walk
+    hugs the inside of every corner, which is half a stroke off. Returns the
+    interior corners only, or [] when the ink does not resolve into a small number
+    of clean straight runs."""
+    from collections import deque
+    x0, y0 = int(xs.min()), int(ys.min())
+    W = int(xs.max()) - x0 + 1
+    H = int(ys.max()) - y0 + 1
+    if W * H > 40 * 10 ** 6:
+        return []
+    comp = np.zeros((H, W), bool)
+    comp[ys - y0, xs - x0] = True
+
+    start = (int(p_from[1]) - y0, int(p_from[0]) - x0)
+    goal = (int(p_to[1]) - y0, int(p_to[0]) - x0)
+    if not (comp[start] and comp[goal]):
+        return []
+    prev = np.full(H * W, -1, np.int64)
+    si, gi = start[0] * W + start[1], goal[0] * W + goal[1]
+    prev[si] = si
+    q = deque([si])
+    while q:
+        i = q.popleft()
+        if i == gi:
+            break
+        r, c = divmod(i, W)
+        for dr, dc in ((1, 0), (-1, 0), (0, 1), (0, -1),
+                       (1, 1), (1, -1), (-1, 1), (-1, -1)):
+            rr, cc = r + dr, c + dc
+            if 0 <= rr < H and 0 <= cc < W and comp[rr, cc]:
+                j = rr * W + cc
+                if prev[j] < 0:
+                    prev[j] = i
+                    q.append(j)
+    if prev[gi] < 0:
+        if os.environ.get("UBL_TRACE_DEBUG"):
+            print("      trace: no path from %s to %s" % (p_from, p_to))
+        return []
+    path, i = [], gi
+    while i != si:
+        r, c = divmod(i, W)
+        path.append((c, r))
+        i = prev[i]
+    path.append((start[1], start[0]))
+    path.reverse()
+
+    # split into runs that hold one axis still; anything shorter than a few
+    # strokes is the diagonal shortcut the walk takes across a corner
+    tol = max(2, int(stroke))
+    minrun = max(12, 4 * tol)
+    runs, i, npt = [], 0, len(path)
+    while i < npt - 1:
+        # which way a run goes has to be read from a stretch of it, not from the
+        # next step: every step is one pixel, so the first step of a horizontal
+        # run looks vertical as well, and seeding the axis from it cut every
+        # horizontal run off after a few pixels
+        k = min(i + minrun, npt - 1)
+        ax = ("v" if abs(path[k][1] - path[i][1]) >= abs(path[k][0] - path[i][0])
+              else "h")
+        j = i
+        while j + 1 < npt:
+            off = (abs(path[j + 1][0] - path[i][0]) if ax == "v"
+                   else abs(path[j + 1][1] - path[i][1]))
+            if off > tol:
+                break
+            j += 1
+        if j - i >= minrun:
+            runs.append((ax, path[i:j + 1]))
+        i = j + 1
+    if os.environ.get("UBL_TRACE_DEBUG"):
+        print("      trace: path %d px, %d run(s) %s"
+              % (len(path), len(runs), [(a, len(sg)) for a, sg in runs]))
+    if not (2 <= len(runs) <= max_turns + 1):
+        return []
+    # the straight runs have to account for nearly all of the walk. Where two
+    # lines cross they arrive as one component, and a diagonal that crosses
+    # another line is read as "orthogonal" because the pixels of both are in the
+    # fit; tracing that gives a staircase the artwork does not have. A real
+    # orthogonal route is covered by its runs but for the corners.
+    if sum(len(seg) for _, seg in runs) < 0.8 * len(path):
+        return []
+
+    # put each run on the centre of its own stroke, measured where the run is
+    # clear of its corners
+    fixed = []
+    for ax, seg in runs:
+        mid = seg[len(seg) // 2]
+        if ax == "v":
+            row = comp[mid[1]]
+            c = mid[0]
+            a = b = c
+            while a > 0 and row[a - 1]:
+                a -= 1
+            while b + 1 < W and row[b + 1]:
+                b += 1
+            fixed.append(("v", (a + b) / 2.0 + x0,
+                          (seg[0][1] + y0, seg[-1][1] + y0)))
+        else:
+            col = comp[:, mid[0]]
+            r = mid[1]
+            a = b = r
+            while a > 0 and col[a - 1]:
+                a -= 1
+            while b + 1 < H and col[b + 1]:
+                b += 1
+            fixed.append(("h", (a + b) / 2.0 + y0,
+                          (seg[0][0] + x0, seg[-1][0] + x0)))
+
+    corners = []
+    for (a1, v1, _), (a2, v2, _) in zip(fixed, fixed[1:]):
+        if a1 == a2:
+            return []                      # two runs on the same axis: not resolved
+        corners.append([int(round(v1)), int(round(v2))] if a1 == "v"
+                       else [int(round(v2)), int(round(v1))])
+    return corners
 
 
 def border_coverage(ink, n, pad=3):
@@ -980,9 +1110,17 @@ def main(path, out_json=None):
                abs(e["fromPoint"][0] - p_from[0]) + abs(e["fromPoint"][1] - p_from[1]) < 80
                for e in edges):
             continue                       # the same connector, found in two pieces
-        edges.append({"from": src["id"], "to": dst["id"], "routing": routing,
-                      "fromPoint": list(p_from), "toPoint": list(p_to),
-                      "arrowInk": [lo, hi], "directionConfidence": conf})
+        rec = {"from": src["id"], "to": dst["id"], "routing": routing,
+               "fromPoint": list(p_from), "toPoint": list(p_to),
+               "arrowInk": [lo, hi], "directionConfidence": conf}
+        if routing == "orthogonal":
+            # where it turns, so the rebuild can put the line back on its own
+            # route instead of choosing an elbow of its own
+            corners = trace_corners(xs, ys, p_from, p_to,
+                                    max(2, int(round(font_px * 0.1))))
+            if corners:
+                rec["points"] = corners
+        edges.append(rec)
         print("   %-4s -> %-4s  %-11s arrowhead %5d vs %-5d  ratio %.1f  %s"
               % (src["id"], dst["id"], routing, hi, lo, ratio,
                  "<-- CHECK DIRECTION" if conf == "LOW" else conf))

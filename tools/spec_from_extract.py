@@ -91,6 +91,10 @@ def main(src, out, model_w=1480.0):
              "exitXY": frac(a, ed["fromPoint"]), "entryXY": frac(b, ed["toPoint"]),
              "straight": ed["routing"] in ("straight", "diagonal"),
              "confidence": ed.get("directionConfidence", "")}
+        # the corners the connector actually turns at, so an orthogonal route is
+        # put back where the artwork draws it rather than wherever a router elbows
+        if ed.get("points"):
+            d["points"] = [[M(p[0]), M(p[1])] for p in ed["points"]]
         if ed.get("guard"):
             d["label"] = ed["guard"]
         edges.append(d)
