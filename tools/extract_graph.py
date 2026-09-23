@@ -114,7 +114,7 @@ def endpoint_nodes(xs, ys, cands):
     return None if picks[0] is picks[1] else picks
 
 
-def enclosed_regions(ink):
+def enclosed_regions(ink, min_area=MIN_NODE_AREA):
     free = ~ink
     lbl, _ = ndi.label(free)
     border = set(lbl[0, :]) | set(lbl[-1, :]) | set(lbl[:, 0]) | set(lbl[:, -1])
@@ -126,7 +126,7 @@ def enclosed_regions(ink):
         if sl is None:
             continue
         area = int((l2[sl] == i).sum())
-        if area < MIN_NODE_AREA:
+        if area < min_area:
             continue
         y0, x0 = sl[0].start, sl[1].start
         h, w = sl[0].stop - y0, sl[1].stop - x0
@@ -361,6 +361,66 @@ def trace_corners(xs, ys, p_from, p_to, stroke, max_turns=8):
     return corners
 
 
+def arrow_size(xs, ys, tip, back, stroke):
+    """How big the arrowhead at `tip` is, in the original's own pixels.
+
+    The rebuild drew every arrowhead at one hard-coded size, so the same head
+    appeared on artwork drawn at 26px type and at 84px type: on the small
+    diagrams it swamped the node it pointed at. The head is in the pixels like
+    everything else - it is the stretch just behind the tip where the connector is
+    wider than its own stroke.
+
+    Returns (length, width) or None when the ink near the tip says nothing useful
+    (crossing line-work, or a connector that has no head at this end)."""
+    dx, dy = tip[0] - back[0], tip[1] - back[1]
+    L = math.hypot(dx, dy)
+    if L < 1:
+        return None
+    dx, dy = dx / L, dy / L
+    rel_x, rel_y = xs - tip[0], ys - tip[1]
+    t = -(rel_x * dx + rel_y * dy)             # distance back from the tip
+    u = np.abs(-rel_x * dy + rel_y * dx)       # distance across the line
+    cap = int(max(30.0, 16.0 * stroke))
+    sel = (t >= -2) & (t <= cap)
+    if sel.sum() < 8:
+        return None
+    # how far the ink reaches across the line, a pixel-step at a time back from
+    # the tip
+    half = np.zeros(cap + 2)
+    ti = np.clip(t[sel].astype(int), 0, cap + 1)
+    np.maximum.at(half, ti, u[sel])
+
+    # The line's own half-width is measured on the far part of the probe, where
+    # the head is over: the stroke of a connector is not the stroke of a box, and
+    # judging the head against the wrong one measured nothing on half the
+    # diagrams. Where the connector is too short for that, the caller's estimate
+    # stands in.
+    far = half[int(cap * 0.7):cap + 1]
+    far = far[far > 0]
+    body = float(np.median(far)) if far.size >= 4 else stroke / 2.0
+    thresh = max(body * 1.6, body + 1.5)
+
+    # An open "V" head is two strokes that meet at the tip, so at the tip itself
+    # the ink is no wider than the line: walk outward and take the last step that
+    # is still clearly wider, allowing a short break for the anti-aliased join.
+    gap, run, length = max(4, int(2 * body)), 0, 0
+    for i in range(1, cap + 1):
+        if half[i] >= thresh:
+            length, run = i, 0
+        else:
+            run += 1
+            if run > gap:
+                break
+    if length < 2:
+        return None
+    # the tip usually lands on the node's own border, which runs across the probe
+    # and would otherwise be measured as an enormously wide head
+    width = min(2.0 * float(half[1:length + 1].max()), 2.5 * length)
+    if length < 2 * body or width < 2 * body:
+        return None
+    return round(length, 1), round(width, 1)
+
+
 def border_coverage(ink, n, pad=3):
     """fraction of the bbox perimeter that sits on ink - a stroked box is ~1.0,
     white merely trapped between other shapes is much lower"""
@@ -572,6 +632,12 @@ def drop_phantoms(ink, regs, cells=(), min_iou=0.88, max_open=2,
                  # to be at least the height of a word. Relative area is a poor
                  # stand-in: the hole in a "Q" is 0.6% of a wide action box but
                  # the "O" of "OK?" is 3.4% of its own small rhombus.
+                 # and it has to be big enough to be a node in its own right. The
+                 # floor on a region's area now scales with the type, so that a
+                 # small activity final's ring is not missed; letting those
+                 # smaller regions veto a parent as well cost IMFM three object
+                 # nodes, each vetoed by a 34x30 counter in its own bold label.
+                 b["area"] >= MIN_NODE_AREA and
                  (b["h"] >= 0.9 * glyph_h if glyph_h else
                   (b["w"] * b["h"]) >= 0.02 * (a["w"] * a["h"]))
                  for b in regs):
@@ -846,7 +912,14 @@ def main(path, out_json=None):
     gh = glyph_height(bg, path=path)
     print("   type measured off the page: a word is %.0fpx tall" % gh
           if gh else "   no legible type found; enclosure falls back to relative area")
-    regs = drop_phantoms(ink, enclosed_regions(ink), cells, flags=uncertain,
+    # The smallest thing that can be a node is not a fixed number of pixels: this
+    # artwork runs from 26px type to 84px type, and at the small end an activity
+    # final's ring encloses about 1000px of white - under the flat 1200 that was
+    # asked for, so three of them in each GoodsItemPassport diagram lost their
+    # ring and were drawn as plain initial discs. Scale the floor with the type,
+    # and never above the flat figure, so nothing that used to be found is lost.
+    min_area = min(MIN_NODE_AREA, max(200, int(0.6 * gh * gh))) if gh else MIN_NODE_AREA
+    regs = drop_phantoms(ink, enclosed_regions(ink, min_area), cells, flags=uncertain,
                          title_bands=(hb[1] if header else None,
                                       vb[1] if strip else None),
                          glyph_h=gh)
@@ -1167,6 +1240,10 @@ def main(path, out_json=None):
                                     max(2, int(round(font_px * 0.1))))
             if corners:
                 rec["points"] = corners
+        back = rec.get("points", [p_from])[-1]
+        head = arrow_size(xs, ys, p_to, back, max(2.0, line_w or 4.0))
+        if head:
+            rec["arrowPx"] = list(head)
         edges.append(rec)
         print("   %-4s -> %-4s  %-11s arrowhead %5d vs %-5d  ratio %.1f  %s"
               % (src["id"], dst["id"], routing, hi, lo, ratio,
@@ -1261,7 +1338,15 @@ def main(path, out_json=None):
                                       " where several connectors meet",
                                       edge=[e.get("from"), e.get("to")],
                                       check="confirm which way this edge points"))
-        json.dump(dict(source=path, size=[W, H], fontPx=font_px, rules=dict(v=vr, h=hr),
+        # the diagram's own arrowhead, as the median of the heads measured on its
+        # connectors: the lengths cluster tightly, the widths do not, because a
+        # crossing line lands inside the probe
+        heads = [e["arrowPx"][0] for e in edges if e.get("arrowPx")]
+        arrow_px = round(float(np.median(heads)), 1) if heads else 0.0
+        if arrow_px:
+            print("\nARROWHEAD  %.0fpx long over %d connector(s)" % (arrow_px, len(heads)))
+        json.dump(dict(source=path, size=[W, H], fontPx=font_px, arrowPx=arrow_px,
+                       rules=dict(v=vr, h=hr),
                        partitions=grid, nodes=nodes, edges=edges, text=texts,
                        uncertain=uncertain),
                   open(out_json, "w"), indent=1)

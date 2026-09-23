@@ -150,7 +150,13 @@ def main(src, out, model_w=1480.0):
                    "object": M(s_obj), "edge": M(s_act)},
         "font": {"family": "Helvetica, Arial, sans-serif",
                  "node": M(font_px), "lane": M(font_px), "guard": M(font_px)},
-        "arrow": M(70),
+        # the arrowhead the diagram itself draws, measured off its connectors.
+        # The marker's V occupies 0.8 of the marker box, so the box is the
+        # measured length divided by that. 56px - the effective size of the
+        # constant that used to be used everywhere - is the fallback, and it was
+        # twice too big for the 26px-type diagrams and half the size of
+        # ProcurementProcess's.
+        "arrow": M((e.get("arrowPx") or 56) / 0.8),
         # where the border rules actually are, rather than assuming the frame is
         # flush with the canvas: some diagrams inset it (Tender-Contract-Pre puts
         # it at x=6) and a flush frame then misses the original's by its own width
