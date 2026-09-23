@@ -835,6 +835,57 @@ def classify(n, W, H, ink=None, heavy=9, has_rounded=False):
     return "action"
 
 
+def disc_blobs(ink, glyph_h, W, H):
+    """Initial nodes, found by how thick the ink is rather than by its outline.
+
+    A start node is a filled disc with its outgoing connector attached, and that
+    connector survives the erosion that is meant to leave only solid shapes - so
+    the component is a disc with a tail, its bounding box is far from square, and
+    it was failing the roundness test. Fourteen diagrams had no start node at all
+    for that reason, among them every Tender process.
+
+    Thickness does not care about the tail: the distance to the nearest white
+    pixel peaks at the disc's own radius in its centre, and at half a stroke
+    anywhere along a line. Take the peaks, and keep the ones whose ink really does
+    fill the circle they claim."""
+    if glyph_h <= 0:
+        return []
+    dist = ndi.distance_transform_edt(ink)
+    lo = max(6.0, 0.55 * glyph_h)                  # smaller than any start node here
+    seeds = dist >= lo
+    if not seeds.any():
+        return []
+    lbl, _ = ndi.label(seeds, structure=np.ones((3, 3)))
+    out = []
+    yy, xx = None, None
+    for i, sl in enumerate(ndi.find_objects(lbl), start=1):
+        if sl is None:
+            continue
+        sub = dist[sl] * (lbl[sl] == i)
+        r = float(sub.max())
+        if not (lo <= r <= 0.06 * W):
+            continue
+        k = np.unravel_index(int(np.argmax(sub)), sub.shape)
+        cy, cx = sl[0].start + k[0], sl[1].start + k[1]
+        y0, y1 = int(max(0, cy - r * 1.6)), int(min(H, cy + r * 1.6 + 1))
+        x0, x1 = int(max(0, cx - r * 1.6)), int(min(W, cx + r * 1.6 + 1))
+        patch = ink[y0:y1, x0:x1]
+        if yy is None or yy.shape != patch.shape:
+            yy, xx = np.mgrid[0:patch.shape[0], 0:patch.shape[1]]
+        rr = np.hypot(yy[:patch.shape[0], :patch.shape[1]] - (cy - y0),
+                      xx[:patch.shape[0], :patch.shape[1]] - (cx - x0))
+        inside = rr <= r * 0.9
+        ring = (rr > r * 1.25) & (rr <= r * 1.5)
+        if not inside.any() or not ring.any():
+            continue
+        # solid inside, and mostly white just outside it: a bar or a thick corner
+        # keeps its ink going in the ring, a disc only where its connector leaves
+        if patch[inside].mean() > 0.95 and patch[ring].mean() < 0.35:
+            out.append(dict(x=int(cx - r), y=int(cy - r), w=int(2 * r), h=int(2 * r),
+                            area=int(math.pi * r * r), fill=1.0, kind="initial"))
+    return out
+
+
 def solid_blobs(ink, W, H, glyph_h=0.0):
     """solid ink with no interior: initial nodes and fork/join bars
 
@@ -1185,6 +1236,12 @@ def main(path, out_json=None):
                                             " thick its ring is"))
         (partitions if k == "partition" else nodes).append(rec)
     discs, bars = solid_blobs(ink, W, H, gh)
+    # and the start nodes whose connector keeps them from looking round
+    have = {(d["x"] // 20, d["y"] // 20) for d in discs}
+    for d in disc_blobs(ink, gh, W, H):
+        if not any(abs(d["x"] - e["x"]) < 0.6 * d["w"] and abs(d["y"] - e["y"]) < 0.6 * d["h"]
+                   for e in discs):
+            discs.append(d)
     # A fork bar is drawn much heavier than a line - across the 78 diagrams every
     # real one is at least four times the diagram's own stroke, 18px and up
     # against strokes of 3 to 6. What is merely as thick as a stroke is a stroke:

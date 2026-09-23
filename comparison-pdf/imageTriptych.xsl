@@ -27,9 +27,14 @@
 <xsl:param name="art-dir"  as="xs:string"/>
 <xsl:param name="svg-dir"  as="xs:string"/>
 <xsl:param name="diff-dir" as="xs:string"/>
-<!-- the difference image with each finding boxed and numbered, as
-     tools/mark_findings.py writes it; '-diff-r2.png' is the plain one -->
-<xsl:param name="diff-suffix" as="xs:string" select="'-marked.png'"/>
+<!-- The third panel shows only what the SVG *lost*, with the absent elements
+     numbered: on a busy diagram the two colours and their boxes overlap until
+     neither can be read, and a missing element is the half that matters first -
+     an invented line is a line in the wrong place, a missing one can be a whole
+     start event that is not there. Pass diff-suffix=-marked.png for both colours,
+     or -diff-r2.png for the raw pixel difference. -->
+<xsl:param name="diff-suffix" as="xs:string" select="'-marked-lost.png'"/>
+<xsl:param name="diff-caption" as="xs:string" select="'Lost from the SVG'"/>
 <!-- The middle panel shows the classification copy of the SVG: same drawing,
      coloured by what each element was classified as, so a reviewer checks the
      reading and the fidelity on one page. The difference panel is computed from
@@ -84,9 +89,10 @@
             <fo:inline color="#4a3aa7">decision/note</fo:inline> ·
             <fo:inline color="#008300">fork bar</fo:inline> ·
             <fo:inline color="#8a8a85">structure</fo:inline>
-            <fo:inline color="#999"> | difference: </fo:inline>
-            <fo:inline color="#D40000">red</fo:inline> = lost from the SVG,
-            <fo:inline color="#0060D0">blue</fo:inline> = invented by it</fo:inline>
+            <fo:inline color="#999"> | third panel: </fo:inline>
+            <fo:inline color="#D40000">red</fo:inline> = line-work the original has
+            and the SVG does not, text excluded; what the SVG invented is in the
+            list, not the picture</fo:inline>
           <fo:leader leader-pattern="space"/>
           <fo:inline>page <fo:page-number/></fo:inline>
         </fo:block>
@@ -171,7 +177,7 @@
             </xsl:call-template>
             <fo:table-cell><fo:block/></fo:table-cell>
             <xsl:call-template name="panel">
-              <xsl:with-param name="caption" select="'Difference, findings numbered'"/>
+              <xsl:with-param name="caption" select="$diff-caption"/>
               <xsl:with-param name="src" select="u:uri($diff-dir, $base || $diff-suffix)"/>
             </xsl:call-template>
           </fo:table-row>

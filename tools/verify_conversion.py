@@ -74,8 +74,19 @@ def text_boxes(bg_original, min_conf=30, path=None):
     arrived at from the other end. The original cannot be gamed, so the mask
     comes from the original and is identical for every candidate."""
     try:
-        words = ocr_cache.word_boxes(bg_original, path=path, config="--psm 11",
-                                     min_conf=min_conf)
+        # Two passes, because one is not enough: "sparse text" (psm 11) is the right
+        # model for labels scattered over a diagram, but it misses whole lines of
+        # large bold type - on Tender-ContractInfoNotify it found 10 words where the
+        # block reader (psm 6) found 23, and every word it missed was then counted
+        # as line-work the SVG had failed to reproduce. The union of the two is what
+        # the page says; the confidence floor still decides what is a word.
+        words = list(ocr_cache.word_boxes(bg_original, path=path, config="--psm 11",
+                                          min_conf=min_conf))
+        seen = {(x, y, w, h) for x, y, w, h, _, _ in words}
+        for it in ocr_cache.word_boxes(bg_original, path=path, config="--psm 6",
+                                       min_conf=min_conf):
+            if it[:4] not in seen:
+                words.append(it)
     except ImportError:
         return []
     return [(x, y, w, h, "text %r" % t.strip()[:24], c) for x, y, w, h, t, c in words]

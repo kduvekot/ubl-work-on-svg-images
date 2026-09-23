@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Number the findings on the difference image, and write the list that goes with it.
 
-    mark_findings.py <diff.png> <report.json> <marked.png>
+    mark_findings.py <diff.png> <report.json> <marked.png> [<line-work-diff.png>]
 
 A reviewer looking at a page that says "3 absent, 3 to check" has no way of
 telling which of the red marks those are, or where to look for the three things a
@@ -19,6 +19,7 @@ still numbered and listed, without a box, because there is nowhere to point.
 import json
 import sys
 
+import numpy as np
 from PIL import Image, ImageDraw, ImageFont
 
 Image.MAX_IMAGE_PIXELS = None
@@ -62,6 +63,7 @@ def main(argv):
         print(__doc__)
         return 2
     diff_png, report_path, out_png = argv[0], argv[1], argv[2]
+    lw_png = argv[3] if len(argv) > 3 else None
     report = json.load(open(report_path))
     im = Image.open(diff_png).convert("RGB")
     d = ImageDraw.Draw(im)
@@ -71,6 +73,23 @@ def main(argv):
     except OSError:
         font = ImageFont.load_default()
     pen = max(2, im.width // 900)
+
+    # The same picture with only what the SVG *lost*. On a busy diagram the two
+    # colours and their boxes overlap until neither can be read, and missing
+    # line-work is the half that matters first: an invented line is a line drawn
+    # in the wrong place, a missing one may be a whole start event that is not
+    # there at all. Blue and the findings that go with it are left out here; they
+    # are still in the full image and in the list.
+    # from the line-work difference where one was given: the raw pixel difference
+    # is mostly type, because a redrawn label differs from the original everywhere,
+    # and a page of red glyphs hides the missing arrowhead in the corner
+    src = Image.open(lw_png).convert("RGB") if lw_png else im
+    px = np.asarray(src).astype(np.int16)
+    lost = (px[:, :, 0] - np.maximum(px[:, :, 1], px[:, :, 2])) > 24
+    only = np.full(px.shape, 255, np.uint8)
+    only[lost] = (208, 0, 0)
+    miss = Image.fromarray(only)
+    dm = ImageDraw.Draw(miss)
 
     review = []
     for i, (f, is_check) in enumerate(order(report), start=1):
@@ -83,13 +102,16 @@ def main(argv):
             pad = size // 2
             x0, y0 = max(0, x - pad), max(0, y - pad)
             x1, y1 = min(im.width - 1, x + w + pad), min(im.height - 1, y + h + pad)
-            d.rectangle([x0, y0, x1, y1], outline=colour, width=pen)
-            # the number sits on the box's top-left corner, on a solid patch so it
-            # is readable over whatever the diagram has there
             tx, ty = x0, max(0, y0 - size - 4)
-            d.rectangle([tx, ty, tx + size * (1 + len(str(i))) // 1, ty + size + 4],
-                        fill=colour)
-            d.text((tx + 3, ty + 2), str(i), fill=(255, 255, 255), font=font)
+            for draw, wanted in ((d, True), (dm, f.get("kind") == "element-absent")):
+                if not wanted:
+                    continue
+                draw.rectangle([x0, y0, x1, y1], outline=colour, width=pen)
+                # the number sits on the box's top-left corner, on a solid patch so
+                # it is readable over whatever the diagram has there
+                draw.rectangle([tx, ty, tx + size * (1 + len(str(i))) // 1,
+                                ty + size + 4], fill=colour)
+                draw.text((tx + 3, ty + 2), str(i), fill=(255, 255, 255), font=font)
         review.append({
             "n": i,
             "what": what,
@@ -99,9 +121,11 @@ def main(argv):
         })
 
     im.save(out_png)
+    lost_png = (out_png[:-4] if out_png.endswith(".png") else out_png) + "-lost.png"
+    miss.save(lost_png)
     report["review"] = review
     json.dump(report, open(report_path, "w"), indent=1)
-    print("%s  (%d finding(s) numbered)" % (out_png, len(review)))
+    print("%s + %s  (%d finding(s) numbered)" % (out_png, lost_png, len(review)))
     return 0
 
 

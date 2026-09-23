@@ -30,12 +30,14 @@ if [ "${1:-}" = "--one" ]; then
   rep="$OUT/$n-struct.json"
   python3 "$HERE/verify_conversion.py" "$ART/$n.png" "$OUT/$n-render.png" \
       "$OUT/$n-graph.json" --radius "$RADIUS" --json "$rep" \
+      --diff "$OUT/$n-lwdiff.png" \
       > "$OUT/$n-verify.log" 2>&1 || fail VERIFY-FAIL
 
   # number each finding on a copy of the difference image, and write the same
   # numbering back into the report, so the review deck's list and its picture
   # cannot disagree
   python3 "$HERE/mark_findings.py" "$OUT/$n-diff-r2.png" "$rep" "$OUT/$n-marked.png" \
+      "$OUT/$n-lwdiff.png" \
       >> "$OUT/$n-verify.log" 2>&1 || true
 
   read -r v m i f p < <(python3 - "$rep" <<'PY'
