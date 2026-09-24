@@ -2800,7 +2800,26 @@ def main(path, out_json=None):
             # part of a partition title. Keep the two nodes nearest the
             # component's own ends instead.
             touch = endpoint_nodes(xs, ys, touch) or touch
-        if len(touch) != 2 or n_px < EDGE_MIN_AREA:
+        # A short connector is still a connector. "Validate Trade Certificate"
+        # stands 49px above the "OK?" diamond on the two GoodsCertificate
+        # diagrams, and with 14px erased at each end only 21px of a 2px line is
+        # left - some 60 pixels of ink against a floor of 150 - so the flow was
+        # thrown out and read as the letter "y", which left everything below that
+        # decision unreachable from the start event. The floor is there to keep
+        # specks and letters out, and what tells this apart from either is not how
+        # much ink it has but that it goes the whole way: it touches two nodes and
+        # it spans the clear space between them.
+        floor = EDGE_MIN_AREA
+        if len(touch) == 2:
+            a_, b_ = touch
+            gx = max(b_["x"] - (a_["x"] + a_["w"]), a_["x"] - (b_["x"] + b_["w"]), 0)
+            gy = max(b_["y"] - (a_["y"] + a_["h"]), a_["y"] - (b_["y"] + b_["h"]), 0)
+            clear = max(gx, gy) - 28          # what the node erasure leaves of it
+            span = ((ys.max() - ys.min() + 1) if gy >= gx
+                    else (xs.max() - xs.min() + 1))
+            if 0 < clear and span >= 0.6 * clear:
+                floor = 0.0
+        if len(touch) != 2 or n_px < floor:
             bx0, by0 = int(xs.min()), int(ys.min())
             bx1, by1 = int(xs.max()), int(ys.max())
             # A flow that leaves the diagram. The CPFR diagrams are phases of one
@@ -2877,7 +2896,7 @@ def main(path, out_json=None):
                           % (nd["id"], end[0], end[1]))
                     continue
 
-        if len(touch) != 2 or n_px < EDGE_MIN_AREA:
+        if len(touch) != 2 or n_px < floor:
             bx0, by0 = int(xs.min()), int(ys.min())
             bx1, by1 = int(xs.max()), int(ys.max())
             # Only bin this as text if it is the size and shape of text. A

@@ -134,10 +134,16 @@ def checks(g):
     def rule(name, bad, note=""):
         res.append(dict(rule=name, ok=not bad, bad=bad, note=note))
 
-    # 1 - every element takes part in the flow
+    # 1 - every element takes part in the flow, except the ones whose whole job
+    # is to stand beside it. A UML note is an annotation and is attached to
+    # nothing by design - "Transaction accessing Seller's catalogue application"
+    # on SourcingPunchout, the three on IMFM-Intermodal - and the reachability
+    # rule below already passes over them for the same reason.
+    open_ends = {o.get("node") for o in g.get("openEnds", [])}
     rule("every element is connected",
-         [label(n) for n in g["nodes"]
-          if not ins.get(n["id"]) and not outs.get(n["id"])])
+         [label(n) for n in g["nodes"] if n["kind"] != "note"
+          and not ins.get(n["id"]) and not outs.get(n["id"])
+          and n["id"] not in open_ends])
 
     # 2 - a start event starts something and nothing starts it
     rule("start events have a way out and no way in",
