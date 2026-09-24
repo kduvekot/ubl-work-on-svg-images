@@ -2909,8 +2909,22 @@ def main(path, out_json=None):
         straight = abs(sgn) < 8.0 and float(np.median(dist)) < 0.15 * L + 3.0
         routing = ("diagonal" if straight and abs(vx) > 8 and abs(vy) > 8
                    else "straight" if straight else "orthogonal")
-        turns = trace_corners(xs, ys, pa, pb, max(2, int(round(font_px * 0.1)))) \
-            if routing == "orthogonal" else []
+        # Trace the corners whatever the chord says, and let the ink settle it.
+        # Deciding "straight" first and only then looking for corners cannot see
+        # the elbow that doubles back symmetrically: half its ink sits on each
+        # side of the chord, so the signed offset cancels to nothing. Five
+        # connectors on CPFR-CreateOrderForecast run down, across and down again,
+        # and every one of them was read as a straight diagonal - which is where
+        # all nine of the "nothing is drawn here" findings left in the whole set
+        # come from, each paired with an "invented" a few pixels away, because the
+        # diagonal misses both legs of the elbow and draws a line of its own.
+        #
+        # The trace is its own test: it walks the connector's own ink and returns
+        # nothing unless that walk resolves into a few clean straight runs, which
+        # a diagonal never does.
+        turns = trace_corners(xs, ys, pa, pb, max(2, int(round(font_px * 0.1))))
+        if turns and routing != "orthogonal":
+            routing = "orthogonal"
 
         # Which end carries the arrowhead. Counting ink in a fixed 45px square
         # around each contact - which is what this did - is not a measurement of
