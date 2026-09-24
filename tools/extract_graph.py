@@ -3971,6 +3971,15 @@ def main(path, out_json=None):
             flip = (kind_of.get(e["from"]) == "final"
                     or kind_of.get(e["to"]) == "initial")
             if not flip:
+                # ...and where it is already that way round, the notation has
+                # still settled it. A flow at a start or an end event can only go
+                # one way whatever its arrowhead measured, so reporting it as a
+                # direction nobody could read sends a person to look at four
+                # flows in the 78 that are not in doubt.
+                if (kind_of.get(e["from"]) in ("initial", "final")
+                        or kind_of.get(e["to"]) in ("initial", "final")):
+                    if e.get("directionConfidence") == "LOW":
+                        e["directionConfidence"] = "notation"
                 continue
             what = "an end event" if kind_of.get(e["from"]) == "final" else "a start event"
             print("   turned %s -> %s round: %s is at the wrong end of it"
