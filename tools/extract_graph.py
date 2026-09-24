@@ -2671,7 +2671,14 @@ def main(path, out_json=None):
               % (src["id"], dst["id"], routing, hi, lo, ratio,
                  "<-- CHECK DIRECTION" if conf == "LOW" else conf))
 
-    def merge(bs, gx=70, gy=max(16, int(font_px * 0.9))):
+    # Blocks are joined when they are close enough to be one label. The gap
+    # across was a flat 70px, which at 36px type is two ems: on
+    # IMFM-BasicTransportExecutionPlan that swallowed the "[yes]" beside a
+    # connector into the question standing on the other side of it, and the two
+    # were then read as one line - "\u201c|* Update Transport es) Execution Plan
+    # Request?" - and drawn as one. A word gap is a third of an em, so measure
+    # this in the diagram's own type too.
+    def merge(bs, gx=max(24, int(font_px * 0.9)), gy=max(16, int(font_px * 0.9))):
         out = []
         for b in sorted(bs, key=lambda b: (b[1], b[0])):
             for o in out:
