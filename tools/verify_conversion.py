@@ -210,6 +210,12 @@ def structural(diff, other_linework, glyph_h, span=15):
     return out
 
 
+def _flat(s):
+    """the letters and digits of a reading, in order - no case, no spaces, no
+    punctuation: what the ink says, with how it was divided into words set aside"""
+    return re.sub(r"[^0-9a-z]", "", (s or "").lower())
+
+
 def check_text_complete(bg_orig, graph, boxes, findings, glyph_h):
     """Every word the original shows must be somewhere in the model, saying the
     same thing, in the same place. Read off the original, so the model cannot
@@ -265,12 +271,59 @@ def check_text_complete(bg_orig, graph, boxes, findings, glyph_h):
                                         "nothing there" % want[:40]))
             continue
         tokens = [t for txt, _ in hits for t in norm(txt).replace("\n", " ").split()]
-        if not any(difflib.SequenceMatcher(None, want.lower(), t.lower()).ratio() >= 0.8
+        if any(difflib.SequenceMatcher(None, want.lower(), t.lower()).ratio() >= 0.8
+               for t in tokens):
+            continue
+
+        # The reading itself has to be worth believing before it can accuse the
+        # model, and on this artwork it often is not: tesseract reads the same ink
+        # twice over, in overlapping boxes, and the confidence floor then keeps the
+        # pieces and drops the whole. "Receive tender withdrawal request" comes
+        # back as 'tend' at 96, 'ithd' at 92, 'wi' at 65 and 'rawal' at 74, with
+        # the correct 'tender' at 36 below the floor - four boxes over one line,
+        # three of which matched no whole word of a label that is right, and so
+        # three text errors against a model with nothing wrong with it. Of the 36
+        # differences reported over the 78 diagrams, 19 are this.
+        #
+        # Two ways a reading stops being evidence, both saying the same thing -
+        # that the ink here is already accounted for.
+        #
+        # One: the model's line does contain it, once the word division is set
+        # aside. A reading that is a run of characters inside the line is a piece
+        # of a word the line has in full, or two of its words run together where
+        # the space was missed - 'rawal' inside "withdrawal", 'tf' across
+        # "request for". The cost of setting the division aside is that a label
+        # split where the original joins it - "Way bill" for "Waybill" - reads as
+        # correct here; that is a deviation in the division and not in the words,
+        # and the letters are all present and in order.
+        flat, line_flat = _flat(want), _flat(" ".join(t for t, _ in hits))
+        if flat and flat in line_flat:
+            continue
+
+        # Two: another reading covering the same ink does match. Boxes overlap
+        # only where they read the same glyphs, so two of them are one thing read
+        # twice, and if either reading is the model's the ink is accounted for -
+        # 'tor' over the 'for' that the other pass read at 96, 'raise' over a
+        # 'False' read at 96 against its own 59.
+        rival = False
+        for bx, by, bw, bh, blabel, bconf in boxes:
+            if (bx, by, bw, bh) == (x, y, w, h):
+                continue
+            if bx + bw <= x or bx >= x + w or by + bh <= y or by >= y + h:
+                continue
+            other = norm(blabel[6:].strip("'\"") if blabel.startswith("text ")
+                         else blabel)
+            if any(difflib.SequenceMatcher(None, other.lower(), t.lower()).ratio() >= 0.8
                    for t in tokens):
-            findings.append(dict(kind="text-differs", x=x, y=y, w=w, h=h, expected=want,
-                                 got=norm(hit[0]),
-                                 detail="original says %r, model has %r (%s)"
-                                        % (want[:24], norm(hit[0])[:30], hit[1])))
+                rival = True
+                break
+        if rival:
+            continue
+
+        findings.append(dict(kind="text-differs", x=x, y=y, w=w, h=h, expected=want,
+                             got=norm(hit[0]),
+                             detail="original says %r, model has %r (%s)"
+                                    % (want[:24], norm(hit[0])[:30], hit[1])))
 
 
 def check_arrowheads(a, b, graph, glyph_h, findings, nodefill, human):
