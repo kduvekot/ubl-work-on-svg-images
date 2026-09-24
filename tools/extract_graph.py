@@ -2170,10 +2170,30 @@ def main(path, out_json=None):
     for n in nodes:
         node_fill[max(0, n["y"] - 2):n["y"] + n["h"] + 3,
                   max(0, n["x"] - 2):n["x"] + n["w"] + 3] = True
+    # A diamond fills half its bounding box, and UBL writes its guards in exactly
+    # the corners that are left over: "[query catalogue content]" stands in the
+    # top-right corner of the "Review Catalogue Content" diamond's box on
+    # CreateCatalogueProcess. The connector search wants the whole box gone, so
+    # that is what it gets; what the corners hold is kept here, to give the words
+    # cut off by the erasure back to the text pass below.
+    corner = np.zeros_like(ink)
     for n in nodes:
         m = 14
-        mask[max(0, n["y"] - m):n["y"] + n["h"] + m, max(0, n["x"] - m):n["x"] + n["w"] + m] = False
-        erased[max(0, n["y"] - m):n["y"] + n["h"] + m, max(0, n["x"] - m):n["x"] + n["w"] + m] = True
+        y0, y1 = max(0, n["y"] - m), min(H, n["y"] + n["h"] + m)
+        x0, x1 = max(0, n["x"] - m), min(W, n["x"] + n["w"] + m)
+        mask[y0:y1, x0:x1] = False
+        erased[y0:y1, x0:x1] = True
+        if n.get("shape") == "rhombus" and n["w"] > 2 and n["h"] > 2:
+            yy = np.arange(y0, y1)[:, None] - (n["y"] + n["h"] / 2.0)
+            xx = np.arange(x0, x1)[None, :] - (n["x"] + n["w"] / 2.0)
+            ry, rx = n["h"] / 2.0 + m, n["w"] / 2.0 + m
+            corner[y0:y1, x0:x1] |= np.abs(xx) / rx + np.abs(yy) / ry > 1.0
+    for n in nodes:                     # another node standing there is not a corner
+        if n.get("shape") == "rhombus":
+            continue
+        m = 14
+        corner[max(0, n["y"] - m):n["y"] + n["h"] + m,
+               max(0, n["x"] - m):n["x"] + n["w"] + m] = False
     for x, w in vr:
         mask[:, max(0, x - 2):x + w + 2] = False
     for y, h in hr:
@@ -3274,6 +3294,48 @@ def main(path, out_json=None):
             else:
                 out.append(list(b))
         return out
+    # Give back the characters the node erasure took. A guard written in the empty
+    # corner of a diamond's bounding box is cut where the box ends, and what is
+    # left reads short - "ary catalogue / tent]" for "[query catalogue /
+    # content]" on CreateCatalogueProcess, "[over charged" for "[over charged]" on
+    # the Billing pair, "oupplier Initiated Update" for "Supplier...". Thirty
+    # blocks over the 78 sit flush against an erased box, nearly all against a
+    # diamond's, and the short ones are most of the text differences left in the
+    # set.
+    #
+    # Only ink that continues a block already found is taken back, and only from
+    # a corner no other node stands in. A connector crossing that corner is
+    # claimed by nothing here, so it cannot arrive as a block of its own and be
+    # read as a word; it can only lengthen a block whose own ink already reaches
+    # it, which is what the cut half of a letter does.
+    if corner.any() and textbits:
+        lab, _ = ndi.label(ink & corner, np.ones((3, 3)))
+        bits = []
+        for sl in ndi.find_objects(lab):
+            cy0, cy1 = sl[0].start, sl[0].stop - 1
+            cx0, cx1 = sl[1].start, sl[1].stop - 1
+            if (cy1 - cy0 + 1) <= font_px * 2.2 and (cx1 - cx0 + 1) <= font_px * 20:
+                bits.append([cx0, cy0, cx1, cy1])
+        # a cut word arrives as a row of separate letters, each near the next and
+        # only the last of them near the block, so this runs until it stops
+        # growing rather than once over the list. The reach is a quarter of the
+        # diagram's own em - less than the word gap the blocks are merged on, so
+        # it takes in the rest of a word and not the next one along.
+        gap = max(6, int(font_px * 0.25))
+        for _ in range(8):
+            moved = False
+            for c in list(bits):
+                for b in textbits:
+                    if (c[0] <= b[2] + gap and c[2] >= b[0] - gap
+                            and c[1] <= b[3] + gap and c[3] >= b[1] - gap):
+                        b[0], b[1] = min(b[0], c[0]), min(b[1], c[1])
+                        b[2], b[3] = max(b[2], c[2]), max(b[3], c[3])
+                        bits.remove(c)
+                        moved = True
+                        break
+            if not moved:
+                break
+
     lines = textbits
     for _ in range(4):
         lines = merge(lines)
