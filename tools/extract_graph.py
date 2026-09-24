@@ -2692,10 +2692,19 @@ def main(path, out_json=None):
             sel = best == idx
             if sel.sum() >= text_floor(font_px):
                 out.append((ys[sel], xs[sel]))
+        # What no connector claimed is reported, not drawn. It is the ink the two
+        # real lines shed at their heads and their far ends, and its own two
+        # extreme points land near two nodes like anything else would - which on
+        # SelfBilling-with-CreditNote put a flow from "Raise Credit Note" to
+        # "Send Account Response" on the page, along a route the artwork never
+        # draws. This was always the intent: the comment above says the leftover
+        # stays together "so that it is still reported rather than quietly lost",
+        # and reporting is where it stops.
         rest = best < 0
-        if rest.sum() >= text_floor(font_px):
-            out.append((ys[rest], xs[rest]))
-        return out if len(out) >= 2 else None
+        if len(out) < 2:
+            return None
+        return out, ((ys[rest], xs[rest]) if rest.sum() >= text_floor(font_px)
+                     else None)
 
     groups = []
     for grp, ids in members.items():
@@ -2708,11 +2717,21 @@ def main(path, out_json=None):
         gy = np.concatenate([p[0] for p in px])
         gx = np.concatenate([p[1] for p in px])
         t = touching(gx, gy)
-        parts = split_crossing(gx, gy, t) if len(t) > 2 else None
-        if parts:
+        split = split_crossing(gx, gy, t) if len(t) > 2 else None
+        if split:
+            parts, rest = split
             print("   one component crossing %d nodes split into %d connectors"
                   % (len(t), len(parts)))
             groups.extend((a, b, grp) for a, b in parts)
+            if rest is not None:
+                ry, rx = rest
+                unexplained.append(dict(
+                    kind="unexplained-line-work",
+                    x=int(rx.min()), y=int(ry.min()),
+                    w=int(rx.max() - rx.min() + 1), h=int(ry.max() - ry.min() + 1),
+                    reason="ink left over where several connectors cross, claimed"
+                           " by none of them",
+                    check="decide what this is; the SVG does not draw it"))
         else:
             groups.append((gy, gx, grp))
 
