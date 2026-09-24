@@ -2369,20 +2369,73 @@ def main(path, out_json=None):
                 parent[root(i)] = root(j)
                 spans.setdefault(root(j), []).append((ry, rx))
 
-        seen_m, chains = set(), []
-        for i in link:
-            if i in seen_m:
-                continue
-            stack, chain = [i], []
-            while stack:
-                k = stack.pop()
-                if k in seen_m:
+        def build_chains():
+            seen_m, out_c = set(), []
+            for i in link:
+                if i in seen_m:
                     continue
-                seen_m.add(k)
-                chain.append(k)
-                stack += [m for m in link.get(k, ()) if m not in seen_m]
-            if len(chain) >= 3:
-                chains.append(chain)
+                stack, chain = [i], []
+                while stack:
+                    k = stack.pop()
+                    if k in seen_m:
+                        continue
+                    seen_m.add(k)
+                    chain.append(k)
+                    stack += [m for m in link.get(k, ()) if m not in seen_m]
+                if len(chain) >= 3:
+                    out_c.append(chain)
+            return out_c
+
+        chains = build_chains()
+        # One dashed line can come back as two chains, because where another line
+        # crosses it the dash under the crossing belongs to that line's component
+        # and is not a mark at all. The gap is then two pitches wide, past what a
+        # mark is allowed to reach, and the flow out of ReceiptAdvice on
+        # UBL-1.0-ProcurementProcess stopped dead in mid-lane. Close it between
+        # *chains* rather than by letting every mark look further: a chain has
+        # already been established as a dashed line and knows its own pitch, so
+        # the reach is measured rather than guessed, and two stray marks can
+        # never find each other this way. Letting marks reach further instead
+        # cost two diagrams their line-work and ate the "r" of "Seller".
+        def ends_of(chain):
+            pts = [(marks[k][0], marks[k][1], k) for k in chain]
+            i = max(range(len(pts)), key=lambda a: (pts[a][0], pts[a][1]))
+            j = min(range(len(pts)), key=lambda a: (pts[a][0], pts[a][1]))
+            steps = sorted(math.hypot(pts[a][0] - pts[b][0], pts[a][1] - pts[b][1])
+                           for a in range(len(pts)) for b in range(a + 1, len(pts)))
+            pitch = steps[0] if steps else 0.0
+            return pts[i], pts[j], pitch
+
+        merged = True
+        while merged:
+            merged = False
+            info = [ends_of(ch) for ch in chains]
+            for ci in range(len(chains)):
+                for cj in range(ci + 1, len(chains)):
+                    if merged:
+                        break
+                    for pa in info[ci][:2]:
+                        for pb in info[cj][:2]:
+                            gap = math.hypot(pb[0] - pa[0], pb[1] - pa[1])
+                            lim = 2.6 * max(info[ci][2], info[cj][2])
+                            if not (0 < gap <= lim):
+                                continue
+                            ua = (marks[pa[2]][2], marks[pa[2]][3])
+                            ub = (marks[pb[2]][2], marks[pb[2]][3])
+                            gx, gy2 = (pb[0] - pa[0]) / gap, (pb[1] - pa[1]) / gap
+                            if (abs(ua[0] * ub[0] + ua[1] * ub[1]) < 0.97
+                                    or abs(gx * ua[0] + gy2 * ua[1]) < 0.97):
+                                continue
+                            link.setdefault(pa[2], set()).add(pb[2])
+                            link.setdefault(pb[2], set()).add(pa[2])
+                            print("   closed a %.0fpx break between two runs of dashes"
+                                  % gap)
+                            merged = True
+                            break
+                        if merged:
+                            break
+            if merged:
+                chains = build_chains()
 
         for chain in chains:
             pts = sorted((marks[k][0], marks[k][1]) for k in chain)
@@ -2411,15 +2464,46 @@ def main(path, out_json=None):
                     # node needs no help, and carrying it past the node moved the
                     # point the arrowhead is measured at: two dashed flows on
                     # Fulfilment-ReceiptAdvice came back pointing up the page.
+                    #
+                    # "Already reaches" has to mean the same thing here as it does
+                    # where a connector's ends are matched to nodes, which is 34px
+                    # from the node's own box. Measured against the erased mask
+                    # instead - the box and a 14px margin - a chain 44px short of
+                    # "place order" counted as arriving, was left where it was,
+                    # and the flow from it to Order was lost.
                     r = 34
                     yy0, yy1 = int(max(0, yb - r)), int(min(H, yb + r + 1))
                     xx0, xx1 = int(max(0, xb - r)), int(min(W, xb + r + 1))
-                    sub = erased[yy0:yy1, xx0:xx1]
+                    sub = node_fill[yy0:yy1, xx0:xx1]
                     gy, gx = np.ogrid[yy0:yy1, xx0:xx1]
                     if sub[(gy - yb) ** 2 + (gx - xb) ** 2 <= r * r].any():
                         continue
-                    ex, ey = xb + (xb - xa) / d * pitch, yb + (yb - ya) / d * pitch
+                    # one pitch, or two where the end dash itself is missing -
+                    # the lane divider swallows it on the flow out of
+                    # ReceiptAdvice, which then stopped 94px short of the box it
+                    # points at. Step a pitch at a time and stop as soon as a node
+                    # is within reach, so the line is never carried past one.
+                    ux, uy = (xb - xa) / d, (yb - ya) / d
+                    ex, ey = xb + ux * pitch, yb + uy * pitch
                     n2 = int(max(abs(ex - xb), abs(ey - yb))) + 1
+                    yy0, yy1 = int(max(0, ey - r)), int(min(H, ey + r + 1))
+                    xx0, xx1 = int(max(0, ex - r)), int(min(W, ex + r + 1))
+                    sub = node_fill[yy0:yy1, xx0:xx1]
+                    gy, gx = np.ogrid[yy0:yy1, xx0:xx1]
+                    reached = sub[(gy - ey) ** 2 + (gx - ex) ** 2 <= r * r].any()
+                    # a second pitch, but only where a partition rule lies in the
+                    # way - that is a dash the drawing really has lost, and it is
+                    # the reason the flow out of ReceiptAdvice stopped 94px short
+                    # of the box it points at. Taking the second step everywhere
+                    # carried nine other diagrams' dashed lines past their own ends.
+                    if not reached:
+                        x2, y2 = ex + ux * pitch, ey + uy * pitch
+                        lo_x, hi_x = sorted((xb, x2)); lo_y, hi_y = sorted((yb, y2))
+                        crossed = (any(lo_x <= x + w / 2.0 <= hi_x for x, w in vr)
+                                   or any(lo_y <= y + h / 2.0 <= hi_y for y, h in hr))
+                        if crossed:
+                            ex, ey = x2, y2
+                            n2 = int(max(abs(ex - xb), abs(ey - yb))) + 1
                     spans.setdefault(rr, []).append(
                         (np.rint(np.linspace(yb, ey, n2)).astype(int),
                          np.rint(np.linspace(xb, ex, n2)).astype(int)))
