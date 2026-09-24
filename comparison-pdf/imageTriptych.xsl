@@ -107,10 +107,24 @@
 </xsl:template>
 
 <xsl:template match="figure">
-  <!-- the figure's number is its position among all figures, which is how the
-       published specification numbers them -->
-  <xsl:variable name="n" as="xs:integer"
-                select="count(preceding::figure[.//imagedata/@fileref]) + 1"/>
+  <!-- The figure's label, as the published specification writes it: figures in
+       the body run 1, 2, 3... and a figure inside an appendix takes that
+       appendix's letter and its own position within it. UBL-1.0-Procurement-
+       Process sits in Appendix C, the revision history, and the specification
+       calls it "Figure C.1" - counting straight through the document called it
+       91, which is a figure number the document does not have. Checked against
+       the published UBL 2.5: the other 77 diagrams here agree either way, and
+       that one did not. -->
+  <xsl:variable name="app" select="ancestor::appendix[1]"/>
+  <xsl:variable name="n" as="xs:string" select="
+      if ($app) then
+        codepoints-to-string(64 + count($app/preceding-sibling::appendix) + 1)
+        || '.'
+        || string(count($app//figure[.//imagedata/@fileref]
+                        intersect preceding::figure) + 1)
+      else
+        string(count(preceding::figure[.//imagedata/@fileref]
+                     [not(ancestor::appendix)]) + 1)"/>
   <xsl:variable name="ref" as="xs:string" select="string((.//imagedata/@fileref)[1])"/>
   <xsl:variable name="base" as="xs:string" select="u:base($ref)"/>
   <xsl:if test="empty($wanted) or $base = $wanted">
