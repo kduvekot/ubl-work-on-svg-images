@@ -149,10 +149,15 @@ def checks(g):
          [label(n) for n in g["nodes"] if n["kind"] == "final"
           and (outs.get(n["id"]) or not ins.get(n["id"]))])
 
-    # 4 - a decision that cannot branch is not a decision
+    # 4 - a decision that cannot branch is not a decision. A branch that leaves
+    # the drawing is still a branch: both diamonds on CPFR-ExceptionHandling send
+    # "Yes" to an action and take "No" down and out of the phase box, off the
+    # page, and counting only the flows that end on another element read them as
+    # decisions that cannot decide.
+    open_out = {o.get("node") for o in g.get("openEnds", []) if not o.get("inward")}
     rule("decisions have at least two ways out",
          [label(n) for n in g["nodes"] if n["kind"] == "decision"
-          and len(outs.get(n["id"], [])) < 2])
+          and len(outs.get(n["id"], [])) + (1 if n["id"] in open_out else 0) < 2])
 
     # 5 - the branches of a decision say which is which
     rule("branches out of a decision are labelled",
@@ -234,8 +239,14 @@ def checks(g):
          "informational: several diagrams do end on an action, so read these"
          " against the artwork rather than treating them as errors")
 
-    # 11 - every element is reachable by following arrows from a start event
-    seen, stack = set(), [n["id"] for n in g["nodes"] if n["kind"] == "initial"]
+    # 11 - every element is reachable by following arrows from a start event, or
+    # from where the work arrives on the page. Half the CPFR diagrams are one
+    # phase of a larger process and draw no start event at all - the flow comes in
+    # over the top edge - so an element fed only by an inward open end is reached,
+    # and a diagram whose only way in is one of those is not skipped.
+    starts = [n["id"] for n in g["nodes"] if n["kind"] == "initial"]
+    starts += [o["node"] for o in g.get("openEnds", []) if o.get("inward")]
+    seen, stack = set(), list(starts)
     while stack:
         i = stack.pop()
         if i in seen:
@@ -243,11 +254,11 @@ def checks(g):
         seen.add(i)
         stack += [e["to"] for e in outs.get(i, [])]
     rule("every element is reachable from a start event",
-         [] if not any(n["kind"] == "initial" for n in g["nodes"])
+         [] if not starts
          else [label(n) for n in g["nodes"] if n["id"] not in seen
                and n["kind"] not in ("note",)],
-         "" if any(n["kind"] == "initial" for n in g["nodes"])
-         else "skipped: this diagram has no start event")
+         "" if starts else "skipped: this diagram has no start event and no flow"
+                           " arriving from off the page")
     return res
 
 

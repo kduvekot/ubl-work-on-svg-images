@@ -3509,7 +3509,7 @@ def main(path, out_json=None):
             cx, cy = b[0] + w / 2, b[1] + h / 2
             kinds = {n["id"]: n["kind"] for n in nodes}
             bracketed = t.startswith("[") or t.endswith("]")
-            best, bd = None, 1e18
+            cand = []
             for e in edges:
                 branch = kinds.get(e["from"]) in ("decision", "fork")
                 # An unbracketed word is only a guard where a guard can be: on a
@@ -3520,10 +3520,34 @@ def main(path, out_json=None):
                 if not branch and not bracketed:
                     continue
                 bias = 1.0 if branch else 2.25
-                for p in (e["fromPoint"], e["toPoint"]):
-                    d = ((p[0] - cx) ** 2 + (p[1] - cy) ** 2) * bias
-                    if d < bd:
-                        bd, best = d, e
+                # ...beside the branch, which is the whole of it and not just its
+                # two ends. A guard on a long way round stands at the corner or
+                # along the leg: the "No" out of the right-hand diamond on
+                # CPFR-ExceptionMonitor sits by the foot of a route that leaves
+                # its diamond 900px above and ends 900px to the left, so it was
+                # nowhere near either end and went unattached. Six guards in the
+                # 78 are that - the only six, of the forty unlabelled branches,
+                # that have any word standing near them at all; the other
+                # thirty-four are branches UBL simply does not label.
+                pts_e = ([e["fromPoint"]] + [list(p) for p in (e.get("points") or [])]
+                         + [e["toPoint"]])
+                d_e = 1e18
+                for p, q in zip(pts_e, pts_e[1:]):
+                    vx, vy = q[0] - p[0], q[1] - p[1]
+                    L2 = float(vx * vx + vy * vy) or 1.0
+                    t_ = max(0.0, min(1.0, ((cx - p[0]) * vx + (cy - p[1]) * vy) / L2))
+                    ex, ey = p[0] + vx * t_ - cx, p[1] + vy * t_ - cy
+                    d_e = min(d_e, (ex * ex + ey * ey) * bias)
+                cand.append((d_e, e))
+            # A flow carries one guard, so two words do not go to the same branch.
+            # The two "No"s at the foot of CPFR-ExceptionMonitor stand a few
+            # hundred pixels apart where both diamonds' long ways round come
+            # together, and nearest-wins gave that edge both of them and left the
+            # other branch bare. Take the nearest branch that has none yet.
+            cand.sort(key=lambda c: c[0])
+            best = next((e for _, e in cand if not e.get("guard")),
+                        cand[0][1] if cand else None)
+            bd = next((d for d, e in cand if e is best), 1e18)
             if best is not None and bd < (W * 0.12) ** 2:
                 best["guard"] = one_line
                 item["attachedTo"] = "%s->%s" % (best["from"], best["to"])
@@ -3720,6 +3744,29 @@ def main(path, out_json=None):
                           " %.0fx%.0f arrowhead - not a head)"
                           % (o["node"], L, Wd, arrow_px, arrow_w))
                     o["arrow"] = False
+
+        # A partition rule is not a flow. UBL draws its object nodes *on* the lane
+        # divider, so the rule runs behind a document and out the other side, and
+        # the stretch between two documents stacked on the same divider looks like
+        # a connector joining them - which is the one flow in the whole set that
+        # runs straight from one document to another, illegal in an activity
+        # diagram and the reason that rule fires at all. What gives it away is
+        # that it is the rule: every point of it lies in the band, and neither end
+        # carries a head (90 against 92 pixels of ink, which is why its direction
+        # read LOW). One edge of the 1033 across the 78 is this.
+        st_r = max(3, int(line_w or 4))
+        for e in list(edges):
+            pts = ([e["fromPoint"]] + [list(p) for p in (e.get("points") or [])]
+                   + [e["toPoint"]])
+            on_rule = (any(all(x - st_r <= p[0] <= x + w + st_r for p in pts)
+                           for x, w in vr)
+                       or any(all(y - st_r <= p[1] <= y + h + st_r for p in pts)
+                              for y, h in hr))
+            if on_rule and e.get("directionConfidence") == "LOW":
+                print("   dropped %s -> %s: it lies along a partition rule from end"
+                      " to end and neither end carries a head - that is the rule,"
+                      " not a flow" % (e["from"], e["to"]))
+                edges.remove(e)
 
         # A connector does not go round a box. Where the traced route leaves the
         # straight line between its two ends on one side of a node, runs along
@@ -3990,6 +4037,50 @@ def main(path, out_json=None):
             if e.get("points"):
                 e["points"] = list(reversed(e["points"]))
             e["directionConfidence"] = "notation"
+
+        # Work leads somewhere - but only where the reading says otherwise on
+        # evidence that is not evidence. UBL really does end a lane on a "Receive
+        # X" action: of the 27 actions in the set that take a flow in and pass
+        # nothing on, the ones checked against the artwork - "Receive Bill of
+        # Lading", "Receive application response", "Endorse CoO" - are drawn
+        # exactly that way, with nothing leaving the box. So a dead end is not by
+        # itself a defect and this does not touch one.
+        #
+        # What it acts on is a dead end whose incoming flow was pointed there by
+        # something that is not an arrowhead. Of those 27, six have an incoming
+        # flow whose head measures outside the size this diagram draws; four are
+        # 1.8 to 3.7 times too wide, which is a junction read across and says
+        # nothing about direction, and two are a fifth of the width, which is not
+        # a head at all. Those two are "Receive Credit Note" and "Receive Debit
+        # Note", where the artwork draws the barbs into the diamond below and the
+        # flow runs the other way: the box's own rounded corner sits in the probe
+        # and carried 1057 pixels against the 232 at the far end.
+        if arrow_w:
+            open_at = {o.get("node") for o in open_ends}
+            for n in nodes:
+                if n["kind"] != "action" or n["id"] in open_at:
+                    continue
+                ins_ = [e for e in edges if e["to"] == n["id"]]
+                if not ins_ or any(e["from"] == n["id"] for e in edges):
+                    continue
+                thin = [e for e in ins_
+                        if (e.get("arrowPx") or [0, 0])[1]
+                        and e["arrowPx"][1] < 0.6 * arrow_w]
+                if len(thin) != 1:
+                    continue
+                e = thin[0]
+                print("   turned %s -> %s round: %r takes work in and passes none"
+                      " on, and the head that pointed it there is %.0fpx across"
+                      " against the %.0fpx this diagram draws"
+                      % (e["from"], e["to"], " ".join((n.get("label") or "").split()),
+                         e["arrowPx"][1], arrow_w))
+                e["from"], e["to"] = e["to"], e["from"]
+                e["fromPoint"], e["toPoint"] = e.get("toPoint"), e.get("fromPoint")
+                if isinstance(e.get("arrowInk"), list) and len(e["arrowInk"]) == 2:
+                    e["arrowInk"] = [e["arrowInk"][1], e["arrowInk"][0]]
+                if e.get("points"):
+                    e["points"] = list(reversed(e["points"]))
+                e["directionConfidence"] = "notation"
 
         # An unlabelled diamond is a plain branch: one flow in and the rest out.
         # Measured across the 78 rather than assumed - of the 31 diamonds that
