@@ -560,7 +560,10 @@ def dash_run(ink, node_fill, pa, pb, stroke, trim=0.0):
     dashes = [n for v, n in merged[1:-1] if v]
     if len(gaps) < 3 or not dashes:
         return None
-    if min(gaps) < max(4, stroke) or max(gaps) > 2.0 * min(gaps):
+    # ...allowing for one gap that another line happens to run through: the dashed
+    # diagonal on FulfilmentDespatchAdvice crosses a solid one, and the crossing
+    # fills a gap, which a strict evenness test reads as "not dashed at all".
+    if min(gaps) < max(4, stroke) or max(gaps) > 3.0 * min(gaps):
         return None
     if sum(gaps) < 0.15 * (hi - lo):
         return None
@@ -1371,10 +1374,44 @@ def find_rules(ink, frac=0.40, partial=None):
             seg = line[a:b]
             return seg.size > 0 and seg.mean() >= 0.85
 
+        def widen(g):
+            """the whole stroke, not the one column of it that is densest.
+
+            A divider is not always drawn true: ROCD-InitialStocking's wanders
+            across fifteen columns, so its best single column carries 44% of the
+            page and every column beside it less, and nothing reached the frame at
+            either end. Taken together they cover 90% and reach both. Only columns
+            beside one already chosen are added, so this widens the candidates
+            rather than adding any."""
+            a, b = g[0], g[-1]
+            while a - 1 >= 0 and profile[a - 1] > span * frac * 0.35:
+                a -= 1
+            while b + 1 < len(profile) and profile[b + 1] > span * frac * 0.35:
+                b += 1
+            return a, b
+
+        def stroke_width(a, b):
+            """where the rule is and how thick it is drawn, measured across it, so
+            that a line that wanders is not recorded as being as wide as its
+            wandering nor placed at the middle of where it wandered"""
+            sub = (ink[lo:hi, a:b + 1] if axis == "v" else ink[a:b + 1, lo:hi].T)
+            runs, starts = [], []
+            for row in sub:
+                e = np.flatnonzero(np.diff(np.r_[0, row.view(np.int8), 0]))
+                if e.size:
+                    k = int(np.argmax(e[1::2] - e[0::2]))
+                    runs.append(int(e[1::2][k] - e[0::2][k]))
+                    starts.append(a + int(e[0::2][k]))
+            if not runs:
+                return a, b - a + 1
+            return (int(round(float(np.median(starts)))),
+                    max(1, int(round(float(np.median(runs))))))
+
         out = []
         for g in groups:
-            line = (ink[:, g[0]:g[-1] + 1].any(axis=1) if axis == "v"
-                    else ink[g[0]:g[-1] + 1, :].any(axis=0))
+            a, b = widen(g)
+            line = (ink[:, a:b + 1].any(axis=1) if axis == "v"
+                    else ink[a:b + 1, :].any(axis=0))
             ends = (reaches(line, lo + near, lo + reach),
                     reaches(line, hi - reach, hi - near))
             # A divider that reaches both frames is one on its own. Several lane
@@ -1385,9 +1422,15 @@ def find_rules(ink, frac=0.40, partial=None):
             # ink down more than half the page between the frames is still a
             # divider: no node edge is half the page long.
             if all(ends) or (any(ends) and line[lo:hi].mean() >= 0.5):
-                out.append((int(g[0]), int(g[-1] - g[0] + 1)))
+                start, w = stroke_width(a, b)
+                # two groups can widen onto the same stroke and report it twice,
+                # which then draws the divider on top of itself and counts it as a
+                # partition boundary twice over
+                if out and abs(out[-1][0] - start) <= max(out[-1][1], w):
+                    continue
+                out.append((int(start), int(w)))
                 if partial is not None and not all(ends):
-                    partial.add((axis, int(g[0])))
+                    partial.add((axis, start))
         return out
 
     vprof, hprof = ink.sum(axis=0), ink.sum(axis=1)
@@ -1804,6 +1847,88 @@ def main(path, out_json=None):
         if made:
             print("   rejoined %d line break(s) of up to %dpx, where a label sits"
                   " on the line" % (made, g))
+
+        # A dashed flow is not one component with gaps in it: it is a row of
+        # separate marks, not one of which touches two nodes, so the whole line
+        # was discarded and its dashes were read as text - the dashed diagonal on
+        # FulfilmentDespatchAdvice came out as "\\\\\ Z aN --_ L\" drawn on the
+        # page. Chain them instead. A dash is a short straight mark; the next dash
+        # of the same line lies ahead of it along its own direction, parallel to
+        # it, within a few dash lengths. Three in a row is a dashed line, two is a
+        # coincidence.
+        marks = {}
+        for i in range(1, ncomp + 1):
+            sl = slices[i - 1]
+            if sl is None:
+                continue
+            hh, ww = sl[0].stop - sl[0].start, sl[1].stop - sl[1].start
+            if not (0.2 * font_px <= max(hh, ww) <= 1.5 * font_px):
+                continue
+            yy, xx = np.where(lbl[sl] == i)
+            if yy.size < 6:
+                continue
+            yy = yy + sl[0].start
+            xx = xx + sl[1].start
+            cx, cy = float(xx.mean()), float(yy.mean())
+            cov = np.cov(np.vstack([xx - cx, yy - cy]))
+            ev, evec = np.linalg.eigh(cov)
+            if ev[0] < 0.05 or ev[1] < 9.0 * ev[0]:      # not 3:1 or better
+                continue
+            marks[i] = (cx, cy, float(evec[0, 1]), float(evec[1, 1]),
+                        3.5 * math.sqrt(max(float(ev[1]), 1e-6)))
+
+        link = {}
+        for i, (cx, cy, ux, uy, ln) in marks.items():
+            # the nearest mark each way along its own direction, not just the
+            # nearest of the two: linking one way only breaks a line of six
+            # dashes into two chains of three
+            best = {1: (None, 1e18), -1: (None, 1e18)}
+            for j2, (px, py, vx2, vy2, ln2) in marks.items():
+                if j2 == i:
+                    continue
+                dx, dy = px - cx, py - cy
+                d = math.hypot(dx, dy)
+                if d < 1 or d > 3.0 * max(ln, ln2):
+                    continue
+                along = dx * ux + dy * uy
+                if abs(along) < 0.9 * d:                  # not ahead along its axis
+                    continue
+                if abs(ux * vx2 + uy * vy2) < 0.9:        # not parallel to it
+                    continue
+                side = 1 if along > 0 else -1
+                if d < best[side][1]:
+                    best[side] = (j2, d)
+            for j2, _ in best.values():
+                if j2 is not None:
+                    link.setdefault(i, set()).add(j2)
+                    link.setdefault(j2, set()).add(i)
+
+        seen_m, chains = set(), []
+        for i in link:
+            if i in seen_m:
+                continue
+            stack, chain = [i], []
+            while stack:
+                k = stack.pop()
+                if k in seen_m:
+                    continue
+                seen_m.add(k)
+                chain.append(k)
+                stack += [m for m in link.get(k, ()) if m not in seen_m]
+            if len(chain) >= 3:
+                chains.append(chain)
+
+        for chain in chains:
+            pts = sorted((marks[k][0], marks[k][1]) for k in chain)
+            for k in chain[1:]:
+                parent[root(chain[0])] = root(k)
+            rr = root(chain[0])
+            for (x1, y1), (x2, y2) in zip(pts, pts[1:]):
+                n2 = int(max(abs(x2 - x1), abs(y2 - y1))) + 1
+                spans.setdefault(rr, []).append(
+                    (np.rint(np.linspace(y1, y2, n2)).astype(int),
+                     np.rint(np.linspace(x1, x2, n2)).astype(int)))
+            print("   chained %d dashes into one dashed flow" % len(chain))
 
     members = {}
     for i in range(1, ncomp + 1):
