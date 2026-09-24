@@ -1990,6 +1990,75 @@ def main(path, out_json=None):
                     link.setdefault(i, set()).add(j2)
                     link.setdefault(j2, set()).add(i)
 
+        # A label set on a *diagonal* connector breaks it in two, and the rejoin
+        # above only closes gaps that run straight up or across, so the flow into
+        # the join bar on BillingwithDebitNote arrived as an arrowhead, a stub and
+        # a tail, and none of them touched two nodes. Join collinear pieces at any
+        # angle: same line, same slant, facing each other, with a gap no wider
+        # than a label and no node standing in it.
+        long_segs = {}
+        for i in range(1, ncomp + 1):
+            sl = slices[i - 1]
+            if sl is None:
+                continue
+            yy, xx = np.where(lbl[sl] == i)
+            if yy.size < 40:
+                continue
+            yy = yy + sl[0].start
+            xx = xx + sl[1].start
+            cx, cy = float(xx.mean()), float(yy.mean())
+            cov = np.cov(np.vstack([xx - cx, yy - cy]))
+            ev, evec = np.linalg.eigh(cov)
+            if ev[0] < 0.05 or ev[1] < 5.0 * ev[0]:
+                continue
+            ux, uy = float(evec[0, 1]), float(evec[1, 1])
+            t = (xx - cx) * ux + (yy - cy) * uy
+            half = float(t.max() - t.min()) / 2.0
+            if 2.0 * half < 0.4 * font_px:
+                continue
+            # a piece of a broken line, and whether it is unmistakably a line: the
+            # arrowhead at the end of one is a wedge, not a line, but its axis
+            # still points along the flow, so it may be joined *to* a line and
+            # never to another wedge
+            long_segs[i] = (cx, cy, ux, uy, half,
+                            ev[1] >= 36.0 * ev[0] and 2.0 * half >= 0.8 * font_px)
+
+        gapmax = 2.5 * font_px
+        for i, (cx, cy, ux, uy, ln, line_i) in long_segs.items():
+            for j, (px2, py2, vx2, vy2, ln2, line_j) in long_segs.items():
+                if j <= i or abs(ux * vx2 + uy * vy2) < 0.99:  # not the same slant
+                    continue
+                if not (line_i or line_j):
+                    continue
+                along = abs((px2 - cx) * ux + (py2 - cy) * uy)
+                gap = along - ln - ln2
+                if not (0 < gap <= gapmax):
+                    continue
+                sgn = 1.0 if ((px2 - cx) * ux + (py2 - cy) * uy) > 0 else -1.0
+                a_end = (cx + sgn * ux * ln, cy + sgn * uy * ln)
+                b_end = (px2 - sgn * ux * ln2, py2 - sgn * uy * ln2)
+                # the same line, judged where it matters: the two ends that face
+                # each other lie along both pieces' own direction. Comparing the
+                # pieces' centres instead is too strict on a short piece, whose
+                # centre is pulled sideways by the arrowhead that sits on it -
+                # 8px out of true on BillingwithDebitNote, against a 5px bound.
+                gx, gy2 = b_end[0] - a_end[0], b_end[1] - a_end[1]
+                gL = math.hypot(gx, gy2) or 1.0
+                if (abs(gx * ux + gy2 * uy) / gL < 0.985
+                        or abs(gx * vx2 + gy2 * vy2) / gL < 0.985):
+                    continue
+                n2 = int(max(abs(b_end[0] - a_end[0]), abs(b_end[1] - a_end[1]))) + 1
+                ry = np.rint(np.linspace(a_end[1], b_end[1], n2)).astype(int)
+                rx = np.rint(np.linspace(a_end[0], b_end[0], n2)).astype(int)
+                if erased[np.clip(ry, 0, H - 1), np.clip(rx, 0, W - 1)].any():
+                    continue                                   # a node stands in the gap
+                if root(i) != root(j):
+                    print("   rejoined a %.0fpx break in a line at %.0f degrees,"
+                          " where a label sits on it"
+                          % (gap, math.degrees(math.atan2(uy, ux)) % 180))
+                parent[root(i)] = root(j)
+                spans.setdefault(root(j), []).append((ry, rx))
+
         seen_m, chains = set(), []
         for i in link:
             if i in seen_m:
@@ -2024,23 +2093,120 @@ def main(path, out_json=None):
 
     edges, textbits, unexplained, open_ends = [], [], [], []
     cross_stubs = []
-    print("\nEDGES")
+
+    def touching(xs, ys, T=34):
+        """the nodes a piece of line-work runs to - notes excepted.
+
+        A note is an annotation, never a step in the flow. IMFM sets three of them
+        on lines that run the width of the page, and counting them as nodes turned
+        one straight flow into two sloping ones meeting at the note's middle, each
+        with an arrowhead of its own."""
+        return [n for n in nodes
+                if n["kind"] != "note"
+                and (((xs >= n["x"] - T) & (xs <= n["x"] + n["w"] + T) &
+                      (ys >= n["y"] - T) & (ys <= n["y"] + n["h"] + T)).sum() > 3)]
+
+    def split_crossing(xs, ys, touch):
+        """Two connectors that cross are one component, and one component is one
+        connector - so the pair came out as a single edge and the other was simply
+        gone. On BillingwithDebitNote that lost the flow from "Reconcile Charges"
+        to "Raise Debit Note" entirely, because the flow out of the join bar
+        crosses it.
+
+        A crossing is not a junction, though, and the difference is visible: the
+        straight line between two contacts of a real connector lies on ink for its
+        whole length, and between two contacts that are merely both on this
+        component it does not. Take every pair that does, drop any that runs
+        through a third contact on its way, and give each its own share of the
+        ink. Returns a list of pixel sets, or None to leave the component alone."""
+        pts = []
+        for nd in touch:
+            cx, cy = nd["x"] + nd["w"] / 2.0, nd["y"] + nd["h"] / 2.0
+            k = int(np.argmin((xs - cx) ** 2 + (ys - cy) ** 2))
+            pts.append((int(xs[k]), int(ys[k])))
+        tol = max(6.0, 0.15 * font_px)
+        x0, y0 = int(xs.min()), int(ys.min())
+        w = int(xs.max()) - x0 + 1
+        h = int(ys.max()) - y0 + 1
+        m = np.zeros((h, w), bool)
+        m[ys - y0, xs - x0] = True
+        near = ndi.maximum_filter(m, size=int(2 * tol) + 1)
+
+        def seg(p, q):
+            n = int(max(abs(q[0] - p[0]), abs(q[1] - p[1])))
+            xi = np.rint(np.linspace(p[0], q[0], max(n, 2))).astype(int) - x0
+            yi = np.rint(np.linspace(p[1], q[1], max(n, 2))).astype(int) - y0
+            return n, near[np.clip(yi, 0, h - 1), np.clip(xi, 0, w - 1)]
+
+        def off(p, q, r):
+            """how far r is off the segment p-q, and whether it is between them"""
+            dx, dy = q[0] - p[0], q[1] - p[1]
+            L = math.hypot(dx, dy) or 1.0
+            t = ((r[0] - p[0]) * dx + (r[1] - p[1]) * dy) / L
+            u = abs(-(r[0] - p[0]) * dy + (r[1] - p[1]) * dx) / L
+            return u, (0.1 * L < t < 0.9 * L)
+
+        pairs = []
+        for i in range(len(pts)):
+            for j in range(i + 1, len(pts)):
+                n, ok = seg(pts[i], pts[j])
+                if n < 10 or float(ok.mean()) < 0.92:
+                    continue
+                if any(off(pts[i], pts[j], pts[k])[0] <= tol
+                       and off(pts[i], pts[j], pts[k])[1]
+                       for k in range(len(pts)) if k not in (i, j)):
+                    continue                       # a route through a third node
+                pairs.append((i, j))
+        if len(pairs) < 2 or len({k for pr in pairs for k in pr}) < 3:
+            return None
+        # every pixel goes to the connector it lies on, and anything left over
+        # stays together so that it is still reported rather than quietly lost
+        best = np.full(xs.size, -1)
+        bestd = np.full(xs.size, 1e18)
+        for idx, (i, j) in enumerate(pairs):
+            p, q = pts[i], pts[j]
+            dx, dy = q[0] - p[0], q[1] - p[1]
+            L = math.hypot(dx, dy) or 1.0
+            t = ((xs - p[0]) * dx + (ys - p[1]) * dy) / L
+            u = np.abs(-(xs - p[0]) * dy + (ys - p[1]) * dx) / L
+            take = (t >= -tol) & (t <= L + tol) & (u < bestd) & (u <= 3 * tol)
+            bestd[take] = u[take]
+            best[take] = idx
+        out = []
+        for idx in range(len(pairs)):
+            sel = best == idx
+            if sel.sum() >= TEXT_MIN_AREA:
+                out.append((ys[sel], xs[sel]))
+        rest = best < 0
+        if rest.sum() >= TEXT_MIN_AREA:
+            out.append((ys[rest], xs[rest]))
+        return out if len(out) >= 2 else None
+
+    groups = []
     for grp, ids in members.items():
         px = []
         for i in ids:
             sl = slices[i - 1]
-            ys, xs = np.where(lbl[sl] == i)
-            px.append((ys + sl[0].start, xs + sl[1].start))
+            gy, gx = np.where(lbl[sl] == i)
+            px.append((gy + sl[0].start, gx + sl[1].start))
         px.extend(spans.get(grp, []))
-        ys = np.concatenate([p[0] for p in px])
-        xs = np.concatenate([p[1] for p in px])
+        gy = np.concatenate([p[0] for p in px])
+        gx = np.concatenate([p[1] for p in px])
+        t = touching(gx, gy)
+        parts = split_crossing(gx, gy, t) if len(t) > 2 else None
+        if parts:
+            print("   one component crossing %d nodes split into %d connectors"
+                  % (len(t), len(parts)))
+            groups.extend(parts)
+        else:
+            groups.append((gy, gx))
+
+    print("\nEDGES")
+    for ys, xs in groups:
         n_px = int(ys.size)
         if n_px < TEXT_MIN_AREA:
             continue
-        T = 34
-        touch = [n for n in nodes
-                 if (((xs >= n["x"] - T) & (xs <= n["x"] + n["w"] + T) &
-                      (ys >= n["y"] - T) & (ys <= n["y"] + n["h"] + T)).sum() > 3)]
+        touch = touching(xs, ys)
         if len(touch) > 2:
             # A connector that merely runs close to a third node is still an edge.
             # UBL routes inter-lane flows directly under the notes, so demanding
