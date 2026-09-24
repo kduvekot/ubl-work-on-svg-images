@@ -1064,7 +1064,15 @@ def is_final_ring(ink, n, W):
     ar = n["w"] / n["h"]
     if not (0.75 < ar < 1.35 and n["w"] < W * 0.06):
         return False
-    return bool(ink[n["y"] + n["h"] // 2, n["x"] + n["w"] // 2])
+    if not ink[n["y"] + n["h"] // 2, n["x"] + n["w"] // 2]:
+        return False
+    # ...and the ink at the centre has to be the filled disc, not a word. The
+    # "OK?" decision on Tender-AwardPublication is 203px square with its label
+    # across the middle, so a pixel at the centre is a letter and the diamond was
+    # called an end event - which then fixed the direction of both flows through
+    # it the wrong way round. A disc runs a fifth of the radius out from the
+    # centre in every direction; a glyph stroke stops at once.
+    return inner_disc_ratio(ink, n) >= 0.2
 
 
 def interior_ink(ink, n, inset=20):
@@ -1238,6 +1246,34 @@ def stroke_of(ink, n):
     # probe down onto the top edge. A box is sampled at several x so that an
     # incoming connector cannot inflate the result; a round or pointed shape only
     # has its outline at the bbox top in the middle, so there it is sampled once.
+    # A rhombus has no outline at the top of its bounding box except at the
+    # vertex, where its two edges meet - probing down onto that measures the
+    # corner, not the line. The "OK?" decision on Tender-AwardPublication came
+    # back at 60px of stroke on a 203px node and was drawn as a blot. Walk out
+    # across each edge at its middle instead, at right angles to it, which is
+    # what a stroke width is.
+    if n.get("shape") == "rhombus":
+        H, W = ink.shape
+        cx, cy = n["x"] + n["w"] / 2.0, n["y"] + n["h"] / 2.0
+        hw, hh = n["w"] / 2.0, n["h"] / 2.0
+        L = math.hypot(hw, hh) or 1.0
+        runs = []
+        for sx, sy in ((-1, -1), (1, -1), (-1, 1), (1, 1)):
+            px, py = cx + sx * hw / 2.0, cy + sy * hh / 2.0
+            nx, ny = sx * hh / L, sy * hw / L      # outward normal of that edge
+            t, k = 0, 0
+            while k < 60:
+                x, y = int(round(px + nx * k)), int(round(py + ny * k))
+                if not (0 <= x < W and 0 <= y < H) or not ink[y, x]:
+                    if t:
+                        break
+                else:
+                    t += 1
+                k += 1
+            runs.append(t)
+        good = [t for t in runs if t]
+        if good:
+            return int(np.median(good))
     ts = []
     for f in ((0.25, 0.4, 0.6, 0.75) if n.get("shape") in (None, "rect", "rounded") else (0.5,)):
         cx = int(n["x"] + n["w"] * f)
@@ -2285,7 +2321,10 @@ def main(path, out_json=None):
             long_segs[i] = (cx, cy, ux, uy, half,
                             ev[1] >= 36.0 * ev[0] and 2.0 * half >= 0.8 * font_px)
 
-        gapmax = 2.5 * font_px
+        # ...and the erasure itself widens every gap next to a node by its margin
+        # at each end, so a break the erasure made is up to 2m wider than the one
+        # the artwork drew
+        gapmax = 2.5 * font_px + 2 * 14
         for i, (cx, cy, ux, uy, ln, line_i) in long_segs.items():
             for j, (px2, py2, vx2, vy2, ln2, line_j) in long_segs.items():
                 if j <= i or abs(ux * vx2 + uy * vy2) < 0.99:  # not the same slant
@@ -2312,7 +2351,16 @@ def main(path, out_json=None):
                 n2 = int(max(abs(b_end[0] - a_end[0]), abs(b_end[1] - a_end[1]))) + 1
                 ry = np.rint(np.linspace(a_end[1], b_end[1], n2)).astype(int)
                 rx = np.rint(np.linspace(a_end[0], b_end[0], n2)).astype(int)
-                if erased[np.clip(ry, 0, H - 1), np.clip(rx, 0, W - 1)].any():
+                # A node stands in the gap only if the line would have to cross
+                # its box. Against the erased mask - the box plus a 14px margin -
+                # a line that merely clips a corner counted as blocked: the flow
+                # from the decision node to "add detail" on UBL-1.0-Procurement-
+                # Process passes 14px outside "accept order" and was cut in two,
+                # each half then ending on that box, one of them backwards. It
+                # crosses 5px of box; a flow that really runs through a node
+                # crosses the whole of it.
+                run = int(node_fill[np.clip(ry, 0, H - 1), np.clip(rx, 0, W - 1)].sum())
+                if run > max(20.0, 0.5 * font_px):
                     continue                                   # a node stands in the gap
                 if root(i) != root(j):
                     print("   rejoined a %.0fpx break in a line at %.0f degrees,"
@@ -2366,7 +2414,9 @@ def main(path, out_json=None):
                     r = 34
                     yy0, yy1 = int(max(0, yb - r)), int(min(H, yb + r + 1))
                     xx0, xx1 = int(max(0, xb - r)), int(min(W, xb + r + 1))
-                    if erased[yy0:yy1, xx0:xx1].any():
+                    sub = erased[yy0:yy1, xx0:xx1]
+                    gy, gx = np.ogrid[yy0:yy1, xx0:xx1]
+                    if sub[(gy - yb) ** 2 + (gx - xb) ** 2 <= r * r].any():
                         continue
                     ex, ey = xb + (xb - xa) / d * pitch, yb + (yb - ya) / d * pitch
                     n2 = int(max(abs(ex - xb), abs(ey - yb))) + 1
@@ -2413,6 +2463,33 @@ def main(path, out_json=None):
             cx, cy = nd["x"] + nd["w"] / 2.0, nd["y"] + nd["h"] / 2.0
             k = int(np.argmin((xs - cx) ** 2 + (ys - cy) ** 2))
             pts.append((int(xs[k]), int(ys[k])))
+        # A node the line runs *past* is not one of its ends. The flow from the
+        # decision node to "add detail" on UBL-1.0-ProcurementProcess clears the
+        # corner of "accept order" by 14px, and counting that as a contact split
+        # one arrow into two - one of them pointing backwards - and did the same
+        # on the left with "change order" and again with the dashed flow from
+        # "cancel order" to OrderCancellation. The difference is in the ink: at
+        # the end of a line it runs away in one direction only, and where the line
+        # merely passes it runs both ways.
+        def runs_past(p):
+            r = max(12.0, 0.6 * font_px)
+            d2 = (xs - p[0]) ** 2 + (ys - p[1]) ** 2
+            sel = np.flatnonzero((d2 > (0.35 * r) ** 2) & (d2 <= r * r))
+            if sel.size < 6:
+                return False
+            if sel.size > 400:
+                sel = sel[:: int(sel.size // 400) + 1]
+            vx, vy = xs[sel] - p[0], ys[sel] - p[1]
+            L = np.hypot(vx, vy)
+            vx, vy = vx / L, vy / L
+            return bool((np.outer(vx, vx) + np.outer(vy, vy)).min() < -0.9)
+
+        keep = [k for k, p in enumerate(pts) if not runs_past(p)]
+        if len(keep) >= 2:
+            pts = [pts[k] for k in keep]
+            touch = [touch[k] for k in keep]
+        if len(pts) < 3:
+            return None
         tol = max(6.0, 0.15 * font_px)
         x0, y0 = int(xs.min()), int(ys.min())
         w = int(xs.max()) - x0 + 1
@@ -3239,6 +3316,29 @@ def main(path, out_json=None):
                           " %.0fx%.0f arrowhead - not a head)"
                           % (o["node"], L, Wd, arrow_px, arrow_w))
                     o["arrow"] = False
+        # Two directions an activity diagram fixes whatever the ink says: nothing
+        # leaves an end event and nothing enters a start event. The arrowheads on
+        # UBL-1.0-ProcurementProcess are 42px on a 3425px page and the one at its
+        # end event read backwards, so the only end on the diagram was drawn
+        # handing work to "reconcile invoice". This is notation, not a reading, so
+        # it settles the direction rather than competing with it.
+        kind_of = {n["id"]: n["kind"] for n in nodes}
+        for e in edges:
+            flip = (kind_of.get(e["from"]) == "final"
+                    or kind_of.get(e["to"]) == "initial")
+            if not flip:
+                continue
+            what = "an end event" if kind_of.get(e["from"]) == "final" else "a start event"
+            print("   turned %s -> %s round: %s is at the wrong end of it"
+                  % (e["from"], e["to"], what))
+            e["from"], e["to"] = e["to"], e["from"]
+            e["fromPoint"], e["toPoint"] = e.get("toPoint"), e.get("fromPoint")
+            if isinstance(e.get("arrowInk"), list) and len(e["arrowInk"]) == 2:
+                e["arrowInk"] = [e["arrowInk"][1], e["arrowInk"][0]]
+            if e.get("points"):
+                e["points"] = list(reversed(e["points"]))
+            e["directionConfidence"] = "notation"
+
         json.dump(dict(source=path, size=[W, H], fontPx=font_px, arrowPx=arrow_px,
                        arrowWidthPx=round(arrow_w, 1), arrowStyle=arrow_fill,
                        rules=dict(v=vr, h=hr), greyRules=greys, dashed=dboxes,
