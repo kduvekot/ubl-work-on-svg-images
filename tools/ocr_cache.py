@@ -39,7 +39,11 @@ def _key(path, config):
     Hashing the bytes costs milliseconds against the seconds tesseract costs, and
     it buys correctness in both directions: a touched-but-unchanged file still
     hits, and an edited one cannot hit a stale entry however the timestamps fall."""
-    h = hashlib.sha1(config.encode("utf-8"))
+    # "v2" marks what the entry holds: every box tesseract returned, with the
+    # confidence floor applied on the way out rather than on the way in. Entries
+    # written before that were filtered before they were stored, so they cannot be
+    # told apart from a page that genuinely has no faint marks on it.
+    h = hashlib.sha1(("v2\x00" + config).encode("utf-8"))
     try:
         with open(path, "rb") as fh:
             for chunk in iter(lambda: fh.read(1 << 20), b""):
@@ -53,13 +57,23 @@ def word_boxes(image, path=None, config="--psm 11", min_conf=30):
     """[(left, top, width, height, text, conf), ...] for one page.
 
     `path` is the file the image came from and is what makes the result
-    cacheable; without it the OCR still runs, just uncached."""
+    cacheable; without it the OCR still runs, just uncached.
+
+    The cache is keyed on the page and the tesseract configuration, and not on
+    `min_conf` - so the floor is applied to what comes back, never to what goes
+    in. Filtering first made the entry depend on whichever caller happened to
+    write it: `glyph_height` asks for a word it can trust and was handed a list
+    built for someone else, which on CPFR-EstablishingCollaborativeRelationships
+    meant eighty-odd readings of its dashed phase boxes carrying the median down
+    to 4px against type that measures 33. Every size derived from that collapsed
+    with it."""
     key = _key(path, config) if path else None
     if key:
         hit = os.path.join(CACHE_DIR, key + ".json")
         try:
             with open(hit) as fh:
-                return [tuple(r) for r in json.load(fh)]
+                return [tuple(r) for r in json.load(fh)
+                        if float(r[5]) >= min_conf]
         except (OSError, ValueError):
             pass
 
@@ -72,7 +86,7 @@ def word_boxes(image, path=None, config="--psm 11", min_conf=30):
             conf = float(d["conf"][i])
         except (TypeError, ValueError):
             continue
-        if txt.strip() and conf >= min_conf:
+        if txt.strip():
             out.append((int(d["left"][i]), int(d["top"][i]), int(d["width"][i]),
                         int(d["height"][i]), txt, conf))
 
@@ -85,4 +99,4 @@ def word_boxes(image, path=None, config="--psm 11", min_conf=30):
             os.replace(tmp, os.path.join(CACHE_DIR, key + ".json"))
         except OSError:
             pass          # a cache that cannot be written is not an error
-    return out
+    return [r for r in out if r[5] >= min_conf]

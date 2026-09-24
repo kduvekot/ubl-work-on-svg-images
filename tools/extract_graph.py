@@ -309,7 +309,7 @@ def enclosed_regions(ink, min_area=MIN_NODE_AREA, min_dim=0.0):
     return out
 
 
-def glyph_height(bg, min_conf=30, path=None):
+def glyph_height(bg, min_conf=TEXT_CONF, path=None):
     """Median height of a word in this diagram's own type, read once off the
     original.
 
@@ -318,7 +318,19 @@ def glyph_height(bg, min_conf=30, path=None):
     are enclosed regions like any other, and a box that encloses one would
     otherwise delete itself. The type size measured later comes from node labels,
     which is circular here, so this reads it independently. Returns 0 if nothing
-    legible was found, and the caller falls back to a relative-area test."""
+    legible was found, and the caller falls back to a relative-area test.
+
+    The floor is the same one the rest of the file trusts a word at. Below it
+    tesseract returns marks that are not words, and where there are enough of
+    them they carry the median: the dashed phase boxes on CPFR-Establishing-
+    CollaborativeRelationships come back as eighty-odd two-letter readings at 31
+    to 49, and a word there measured 4px against the 33px its type actually
+    sets. Every size that hangs off this then collapsed - the smallest thing that
+    could be a node became 200px of area and 3px across - so 9x5 specks were
+    weighed as node candidates, and that one diagram raised 165 of the 446 things
+    flagged for a person across the whole set. At the same floor the other 77
+    diagrams do not move: the median reading matches the type measured from the
+    ink to within 5.6%, as it did before."""
     try:
         words = ocr_cache.word_boxes(bg, path=path, config="--psm 11",
                                      min_conf=min_conf)
@@ -1213,10 +1225,18 @@ def drop_phantoms(ink, regs, cells=(), min_iou=0.88, max_open=2,
             print("   (dropped x=%-5d y=%-5d %4dx%-4d  %s)" % (a["x"], a["y"], a["w"], a["h"], why))
             # a partition cell, a region enclosing others, or a title strip is a
             # confident drop with a reason that names itself - only the judgement
-            # calls are worth a person's time, or the list drowns in routine
-            if flags is not None and not why.startswith(("is a partition cell",
-                                                         "encloses another region",
-                                                         "lies in ")):
+            # calls are worth a person's time, or the list drowns in routine.
+            #
+            # Nor is a region smaller than one character of the diagram's own
+            # type, which is the rule this file already holds further down and is
+            # no more of a judgement call here: 69 of the 149 regions raised this
+            # way across the 78 are that small, the smallest of them 7x5px on
+            # 47px type, and the note on each says a shape here would be missing
+            # from the SVG. Nothing that size is a node, and saying so 69 times
+            # buries the eighty that are worth a look.
+            tiny = glyph_h > 0 and max(a["w"], a["h"]) < glyph_h / 0.70
+            if flags is not None and not tiny and not why.startswith(
+                    ("is a partition cell", "encloses another region", "lies in ")):
                 flags.append(dict(note, kind="dropped-region", reason=why,
                                   check="a shape here would be missing from the SVG"))
             continue
