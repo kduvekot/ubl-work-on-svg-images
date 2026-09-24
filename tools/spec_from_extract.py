@@ -8,7 +8,7 @@ font size, node rectangles (interior expanded by half a stroke), corner radii, t
 partition rules and titles, and the edges - including where each connector actually
 meets its nodes, so nothing about the routing is guessed.
 """
-import json, sys
+import json, re, sys
 from statistics import median
 
 ASCENDER = 0.73          # Helvetica ascender as a fraction of em
@@ -139,11 +139,17 @@ def main(src, out, model_w=1480.0):
     # content, it just carries less meaning in the graph. Anything already drawn
     # as a partition title is skipped so it is not drawn twice.
     titles = [tuple(p["titleBox"]) for p in e.get("partitions", []) if p.get("titleBox")]
-    title_text = {" ".join((p.get("title") or "").split()).lower()
+    title_text = {re.sub(r"[^a-z0-9]", "", " ".join((p.get("title") or "").split()).lower())
                   for p in e.get("partitions", []) if p.get("title")}
 
     def drawn_as_title(t):
-        if " ".join(t["text"].split()).lower() in title_text:
+        # Matched on letters alone, and either way round: the rule beside a title
+        # strip lands in its crop, so the partition read "Transportation Network
+        # Manager |" where the block reader read "Transportation Network Manager",
+        # the two did not match, and IMFM drew the title twice.
+        k = re.sub(r"[^a-z0-9]", "", " ".join(t["text"].split()).lower())
+        if k and any(k == o or (len(k) >= 6 and (k in o or o in k))
+                     for o in title_text):
             return True
         return any(abs(t["x"] - b[0]) <= 2 and abs(t["y"] - b[1]) <= 2 and
                    abs(t["w"] - b[2]) <= 2 and abs(t["h"] - b[3]) <= 2 for b in titles)

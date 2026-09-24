@@ -2709,6 +2709,18 @@ def main(path, out_json=None):
         w, h = b[2] - b[0] + 1, b[3] - b[1] + 1
         if w < 25 or h < 14:
             continue
+        # The gutter down the side carries the band titles, set sideways, and the
+        # partition pass reads them there by turning the crop. Read across, as
+        # here, they come back as nonsense - "Planning" as "Cc co Qa." - and IMFM
+        # drew both, the nonsense on top of the title. The header band along the
+        # top is different: its titles read correctly either way, and the reading
+        # here is the one that knows where they sit, so it stays.
+        mx = b[0] + w / 2.0
+        if strip and mx < vb[1]:
+            print("   (dropped x=%-5d y=%-5d %4dx%-4d - in the band-title gutter,"
+                  " where the text is set sideways and is read there)"
+                  % (b[0], b[1], w, h))
+            continue
         t = ocr(bg, b[0], b[1], w, h, -6)
         if not t:
             continue
@@ -2825,17 +2837,33 @@ def main(path, out_json=None):
     grid = []
     for c in range(c0, len(vb) - 1):
         box = None
+        box = None
         if header:
             t = ocr(bg, round(vb[c]), 0, round(vb[c + 1] - vb[c]), round(hb[r0]), 6)
+            # ...and where it sits, measured off its own ink rather than assumed
+            # to be centred in the cell: the rebuild draws the title where the
+            # artwork puts it, and the check that every word is in the right place
+            # has nothing to go on otherwise.
+            cx0, cx1 = int(vb[c]) + 6, int(vb[c + 1]) - 6
+            cy0 = int(hr[0][0] + hr[0][1] + 4) if hr else 2      # below the frame
+            cy1 = max(int(hb[r0]) - 4, cy0 + 1)
+            cell = ink[cy0:cy1, cx0:cx1]
+            if cell.any():
+                yy, xx = np.nonzero(cell)
+                box = dict(x=cx0 + int(xx.min()), y=cy0 + int(yy.min()),
+                           w=int(xx.max() - xx.min()) + 1,
+                           h=int(yy.max() - yy.min()) + 1)
         else:
             # no header band: the title is simply the topmost text in the column
             cand = [x for x in texts if vb[c] <= x["x"] + x["w"] / 2 <= vb[c + 1]
                     and x["y"] < H * 0.08]
             box = min(cand, key=lambda x: x["y"]) if cand else None
             t = box["text"] if box else ""
+        # the rule beside the strip lands in the crop and reads as a bar
+        t = re.sub(r"^[^0-9A-Za-z]+|[^0-9A-Za-z)\]]+$", "", t).strip()
         g = dict(axis="column", index=c - c0,
                  x0=round(vb[c]), x1=round(vb[c + 1]), title=t)
-        if not header and box:
+        if box:
             g["titleBox"] = [box["x"], box["y"], box["w"], box["h"]]
         grid.append(g)
     for r in range(r0, len(hb) - 1):
@@ -2845,6 +2873,7 @@ def main(path, out_json=None):
             w0, h0 = round(vb[c0] - vb[c0 - 1]), round(hb[r + 1] - hb[r])
             t = ocr(bg.crop((x0 + 4, y0 + 4, x0 + w0 - 4, y0 + h0 - 4)).rotate(-90, expand=True),
                     0, 0, h0 - 8, w0 - 8)
+        t = re.sub(r"^[^0-9A-Za-z]+|[^0-9A-Za-z)\]]+$", "", t).strip()
         grid.append(dict(axis="band", index=r - r0, y0=round(hb[r]), y1=round(hb[r + 1]), title=t))
     for n in nodes:
         cx, cy = n["x"] + n["w"] / 2, n["y"] + n["h"] / 2

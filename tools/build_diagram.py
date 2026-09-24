@@ -387,20 +387,27 @@ def main(spec_path, out):
     filled = spec.get("arrowStyle") == "filled"
     # two markers, the same head facing each way: a flow with a point at both ends
     # needs one at its start as well, and a marker cannot be reused reversed
+    mw = spec.get("arrow", 20)
+    mh = spec.get("arrowWidth") or mw
+    # The marker's own coordinates are a 20x20 box scaled to markerWidth by
+    # markerHeight, so a stroke written in them is scaled with it. Writing a fixed
+    # fraction of the connector's weight drew the barbs at that weight only while
+    # the box happened to be about 20 across: on IMFM-TransportServiceDescription,
+    # whose arrowheads are 97px on 74px type, the box is 48 and the barbs came out
+    # 2.2 times as heavy as the line they end. Divide it back out.
+    sw = S["edge"] * 20.0 / max(1.0, (mw + mh) / 2.0)
+
     def marker(ident, back=False):
         return ('<marker id="%s" markerUnits="userSpaceOnUse" viewBox="0 0 20 20" '
                 'refX="%d" refY="10" markerWidth="%.0f" markerHeight="%.0f" '
                 'orient="auto">'
                 '<path d="%s" fill="%s" stroke="#000" stroke-width="%.2f" '
                 'stroke-linecap="round" stroke-linejoin="round"/></marker>'
-                % (ident,
-                   (2 if filled else 2) if back else (17 if filled else 18),
-                   spec.get("arrow", 20),
-                   spec.get("arrowWidth") or spec.get("arrow", 20),
+                % (ident, 2 if back else (17 if filled else 18), mw, mh,
                    ("M 18 2 L 2 10 L 18 18" if back else "M 2 2 L 18 10 L 2 18")
                    + (" Z" if filled else ""),
                    "#000" if filled else "none",
-                   S["edge"] * (0.6 if filled else 0.9)))
+                   sw * (0.67 if filled else 1.0)))
     defs = "<defs>" + marker("arrow") + marker("arrowback", back=True) + "</defs>"
     model = mxfile(spec)
     W, H = spec["canvas"]["w"], spec["canvas"]["h"]
