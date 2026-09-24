@@ -3536,6 +3536,55 @@ def main(path, out_json=None):
                 e["points"] = list(reversed(e["points"]))
             e["directionConfidence"] = "notation"
 
+        # An unlabelled diamond is a plain branch: one flow in and the rest out.
+        # Measured across the 78 rather than assumed - of the 31 diamonds that
+        # carry no label, 28 already read that way, and the exceptions are three
+        # on UBL-1.0-ProcurementProcess, whose diamonds are 29px across with as
+        # many as five flows meeting at them. A *labelled* diamond is a different
+        # thing and is left alone: UML allows a merge and a decision to share one
+        # symbol, and the Billing family draws exactly that - "Reconcile Charges"
+        # takes two flows in and sends two out, guards on all four, which I
+        # checked against the artwork before writing this.
+        #
+        # Which flow is the incoming one cannot be had from the arrowheads there:
+        # where five lines converge on a shape smaller than the type, the ink at
+        # that end belongs to all of them. The page says it instead - these
+        # diagrams run top to bottom, and the step a branch follows is drawn above
+        # it. That reading is right for 19 of the 22 one-in diamonds where exactly
+        # one flow comes from above, which is not good enough to be a rule on its
+        # own; it only has to settle the three places where the shape is
+        # impossible, and there is no other evidence left to prefer.
+        for n in nodes:
+            if n["kind"] != "decision" or " ".join((n.get("label") or "").split()):
+                continue
+            ins_ = [e for e in edges if e["to"] == n["id"]]
+            if len(ins_) < 2:
+                continue
+            outs_ = [e for e in edges if e["from"] == n["id"]]
+            cy = n["y"] + n["h"] / 2.0
+
+            def far_y(e):
+                oid = e["from"] if e["to"] == n["id"] else e["to"]
+                o = next((m for m in nodes if m["id"] == oid), None)
+                return (o["y"] + o["h"] / 2.0) if o else cy
+
+            keep = min(ins_ + outs_, key=far_y)
+            if keep not in ins_:
+                keep = min(ins_, key=far_y)
+            for e in ins_:
+                if e is keep:
+                    continue
+                print("   turned %s -> %s round: an unlabelled diamond takes one"
+                      " flow in and sends the rest out, and this one comes from"
+                      " below it" % (e["from"], e["to"]))
+                e["from"], e["to"] = e["to"], e["from"]
+                e["fromPoint"], e["toPoint"] = e.get("toPoint"), e.get("fromPoint")
+                if isinstance(e.get("arrowInk"), list) and len(e["arrowInk"]) == 2:
+                    e["arrowInk"] = [e["arrowInk"][1], e["arrowInk"][0]]
+                if e.get("points"):
+                    e["points"] = list(reversed(e["points"]))
+                e["directionConfidence"] = "notation"
+
         json.dump(dict(source=path, size=[W, H], fontPx=font_px, arrowPx=arrow_px,
                        arrowWidthPx=round(arrow_w, 1), arrowStyle=arrow_fill,
                        rules=dict(v=vr, h=hr), greyRules=greys, dashed=dboxes,
