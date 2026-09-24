@@ -61,6 +61,68 @@ def ocr(bg, x, y, w, h, inset=0):
     return "\n".join(" ".join(l.split()) for l in t.splitlines() if l.strip())
 
 
+def line_like(ink, box, font_px):
+    """Is this band a stroke of line-work rather than words.
+
+    Tesseract is confident about shapes that are not letters: the arrowhead and
+    the line it sits on came back as "\\ Ne" at 78 out of 100 on
+    SelfBillingwithCreditNote, well clear of any floor a real short label like
+    "No" has to pass. The ink settles it instead. A word is a row of small marks,
+    none of them much longer than the type is tall; a stroke of line-work is one
+    long thin mark, and nothing in this artwork's text ever is."""
+    sub = ink[box["y"]:box["y"] + box["h"], box["x"]:box["x"] + box["w"]]
+    if sub.size == 0 or font_px <= 0:
+        return False
+    lbl, n = ndi.label(sub, structure=np.ones((3, 3), bool))
+    if n == 0:
+        return False
+    total = int(sub.sum())
+    long_ink = 0
+    for sl in ndi.find_objects(lbl):
+        if sl is None:
+            continue
+        yy, xx = np.where(lbl[sl] > 0)
+        if yy.size < 12:
+            continue
+        cx, cy = float(xx.mean()), float(yy.mean())
+        cov = np.cov(np.vstack([xx - cx, yy - cy]))
+        ev = np.linalg.eigvalsh(cov)
+        if ev[0] < 0.05 or ev[1] < 16.0 * ev[0]:      # 4:1 or it is not a stroke
+            continue
+        span = max(sl[0].stop - sl[0].start, sl[1].stop - sl[1].start)
+        if span >= 0.75 * font_px:
+            long_ink += int(yy.size)
+    return long_ink >= 0.3 * max(total, 1)
+
+
+def word_groups(ink, box, font_px):
+    """A line band split into the runs of ink a reader would call words.
+
+    The text blocks are merged by proximity, so an arrowhead lying beside a label
+    joins its band and rides in on the label's good name - "[accept credit]" came
+    back as "[accept credit] \\ Ne" on SelfBillingwithCreditNote. Splitting the
+    band at the gaps lets each run be judged on its own."""
+    sub = ink[box["y"]:box["y"] + box["h"], box["x"]:box["x"] + box["w"]]
+    if sub.size == 0:
+        return []
+    col = sub.any(axis=0)
+    gap = max(6, int(round(0.55 * font_px)))
+    out, i = [], 0
+    while i < col.size:
+        if not col[i]:
+            i += 1
+            continue
+        j = i
+        run = 0
+        while j < col.size and run <= gap:
+            run = 0 if col[j] else run + 1
+            j += 1
+        end = j - run
+        out.append(dict(box, x=box["x"] + i, w=max(1, end - i)))
+        i = j
+    return out
+
+
 def ocr_best_conf(bg, x, y, w, h, inset=0):
     """How sure tesseract is of the best word it found in this block.
 
@@ -2653,8 +2715,10 @@ def main(path, out_json=None):
         # ...unless it reads as an actual word. Line-work comes back as one or
         # two characters of punctuation - "\\V/", "TZ", "DN" - and a run of four
         # letters is not something an arrowhead produces.
+        box_b = dict(x=b[0], y=b[1], w=w, h=h)
         if (not re.search(r"[A-Za-z]{4,}", t)
-                and ocr_best_conf(bg, b[0], b[1], w, h, -6) < TEXT_CONF):
+                and (line_like(ink, box_b, font_px)
+                     or ocr_best_conf(bg, b[0], b[1], w, h, -6) < TEXT_CONF)):
             print("   (dropped x=%-5d y=%-5d %4dx%-4d  %r - line-work, not text)"
                   % (b[0], b[1], w, h, t))
             strays.append((b[0] + w / 2.0, b[1] + h / 2.0))
@@ -2662,7 +2726,70 @@ def main(path, out_json=None):
         item = dict(text=t, x=b[0], y=b[1], w=w, h=h)
         got = t.split("\n")
         boxes = label_lines(ink, dict(x=b[0], y=b[1], w=w, h=h), -4)
-        if len(boxes) == len(got):
+        # ...and line by line as well as block by block. The blocks are merged by
+        # proximity, so an arrowhead lying beside a real label joins it and rides
+        # in on the label's own good name: "[accept credit]" came back as
+        # "[accept credit] \ Ne" on SelfBillingwithCreditNote and the "\ Ne" was
+        # drawn on the page. A band that does not read as text is not text, even
+        # when the band above it is.
+        def reads_as_text(bx):
+            if re.search(r"[A-Za-z]{4,}",
+                         ocr(bg, bx["x"], bx["y"], bx["w"], bx["h"], -4)):
+                return True
+            if line_like(ink, bx, font_px):
+                return False
+            return (ocr_best_conf(bg, bx["x"], bx["y"], bx["w"], bx["h"], -4)
+                    >= TEXT_CONF)
+
+        trimmed = []
+        for bx in boxes:
+            # The ends of a band are where a stray mark attaches itself: the
+            # blocks are merged by proximity, so an arrowhead beside a label joins
+            # its band and rides in on the label's good name - "[accept credit]"
+            # came back as "[accept credit] \ Ne". Judge a short run at either end
+            # on its own; the middle of a band is words by construction.
+            runs = word_groups(ink, bx, font_px)
+            if len(runs) >= 2:
+                short = 2.0 * font_px
+                def stray(r):
+                    # line-work, not merely a word tesseract read badly: trimming
+                    # on a bad reading alone took "n Request]" off the end of a
+                    # real label on IMFM-BasicTransportExecutionPlan
+                    return (r["w"] <= short and line_like(ink, r, font_px)
+                            and not reads_as_text(r))
+                while len(runs) >= 2 and stray(runs[0]):
+                    runs = runs[1:]
+                while len(runs) >= 2 and stray(runs[-1]):
+                    runs = runs[:-1]
+                x_lo = min(g["x"] for g in runs)
+                x_hi = max(g["x"] + g["w"] for g in runs)
+                if x_hi - x_lo < bx["w"] - 4:
+                    print("   (trimmed a line at x=%-5d y=%-5d from %dpx to %dpx -"
+                          " line-work beside the words)"
+                          % (bx["x"], bx["y"], bx["w"], x_hi - x_lo))
+                    strays.append((bx["x"] + bx["w"] / 2.0, bx["y"] + bx["h"] / 2.0))
+                    bx = dict(bx, x=x_lo, w=x_hi - x_lo)
+            if reads_as_text(bx):
+                trimmed.append(bx)
+                continue
+            keep_w = [g for g in word_groups(ink, bx, font_px) if reads_as_text(g)]
+            if not keep_w:
+                print("   (dropped a line at x=%-5d y=%-5d %4dx%-4d - line-work,"
+                      " not text)" % (bx["x"], bx["y"], bx["w"], bx["h"]))
+                strays.append((bx["x"] + bx["w"] / 2.0, bx["y"] + bx["h"] / 2.0))
+                continue
+            x_lo = min(g["x"] for g in keep_w)
+            x_hi = max(g["x"] + g["w"] for g in keep_w)
+            if x_hi - x_lo < bx["w"] - 4:
+                print("   (trimmed a line at x=%-5d y=%-5d from %dpx to %dpx -"
+                      " line-work beside the words)"
+                      % (bx["x"], bx["y"], bx["w"], x_hi - x_lo))
+                strays.append((bx["x"] + bx["w"] / 2.0, bx["y"] + bx["h"] / 2.0))
+            trimmed.append(dict(bx, x=x_lo, w=x_hi - x_lo))
+        if trimmed != boxes:
+            boxes = trimmed
+            got = []                      # force the per-line read below
+        if boxes and len(boxes) == len(got):
             item["lines"] = [dict(bx, text=s2) for bx, s2 in zip(boxes, got)]
         elif boxes:
             # The block reader and the ink disagree on how many lines there are -
@@ -2677,6 +2804,8 @@ def main(path, out_json=None):
             if keep_l:
                 item["text"] = "\n".join(p for _, p in keep_l)
                 item["lines"] = [dict(bx, text=p) for bx, p in keep_l]
+            elif not got:
+                continue                  # every band was line-work
         if t.startswith("[") or t.endswith("]"):
             cx, cy = b[0] + w / 2, b[1] + h / 2
             best, bd = None, 1e18
