@@ -3464,6 +3464,26 @@ def main(path, out_json=None):
                   % (arrow_px, arrow_w, arrow_fill,
                      "measured on %d connector(s)" % len(heads) if heads
                      else "no connector read - set from the type size"))
+        # A head at both ends is a real thing - the two Tender-Contract diagrams
+        # draw their "prior exchange of public keys" that way - but it is also
+        # what a connector reads as when its far end lands where several lines
+        # and a box corner meet. The two real ones measure 1.01 and 1.04 times
+        # their diagram's own arrowhead across; the flow from "change order" to
+        # "receive advice" on UBL-1.0-ProcurementProcess measured 3.2 times, which
+        # is not an arrowhead but the junction it ends in.
+        if arrow_w:
+            for e in edges:
+                if not e.get("arrowBoth"):
+                    continue
+                wd = (e.get("arrowPx") or [0, 0, 0])[1]
+                if not (0.6 * arrow_w <= wd <= 1.6 * arrow_w):
+                    print("   (%s -> %s: the head at its far end is %.0fpx across"
+                          " against a %.0fpx arrowhead - not a head at both ends)"
+                          % (e["from"], e["to"], wd, arrow_w))
+                    e.pop("arrowBoth", None)
+                    if e.get("directionConfidence") == "both-ends":
+                        e["directionConfidence"] = "medium"
+
         # An open end has no node to stop at, so a line that simply runs out can
         # read as a head. Against the diagram's own arrowhead it cannot: keep only
         # the ones that are the right size for this drawing.
