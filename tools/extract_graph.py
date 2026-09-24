@@ -1952,8 +1952,19 @@ def main(path, out_json=None):
             # and that is what put it in this kind. UBL-1.0-ProcurementProcess
             # ends on a 23px activity final against 39px type, and dropping it
             # left the only end event on the page missing.
+            # ...but that exemption runs out somewhere, because a connector can
+            # cross a letter too: the flow down to "Exception Criteria Accepted?"
+            # on CPFR-EstablishingCollaborativeRelationships runs through the "i"
+            # of "Criteria", and its counter was kept as a 10x15 decision node
+            # with nothing joined to it. Where it runs out the 78 diagrams say:
+            # of the 28 regions kept this way, one measures a fifth of the
+            # diagram's type across and the next-smallest three quarters, with
+            # nothing in between. Below half a character a region is inside a
+            # letter, not beside one.
+            kept_small = (n.get("keptOnOutline")
+                          and min(n["w"], n["h"]) >= 0.5 * font_px)
             if (not n.get("label") and n.get("mask") is not None
-                    and not n.get("keptOnOutline")
+                    and not kept_small
                     and n["kind"] != "final"
                     and n["w"] < font_px and n["h"] < font_px):
                 print("   (dropped x=%-5d y=%-5d %4dx%-4d  smaller than one character"
@@ -3947,9 +3958,40 @@ def main(path, out_json=None):
                     e["points"] = list(reversed(e["points"]))
                 e["directionConfidence"] = "notation"
 
+        # How far each rule actually runs. A partition rule is not always drawn
+        # the whole way across: eleven of the inner rules in the 78 stop short,
+        # seven of them covering less than three quarters of the page - CRP-
+        # Synchronizing draws its lane divider down 61% of the height and
+        # ROCD-ArticleAvailability 62% - and drawing them edge to edge put a
+        # full-length line of invented ink on each. Read the span off the rule's
+        # own ink, ignoring the frame it meets at each end; where a white box
+        # stands over part of a rule the ink resumes beyond it, so the span still
+        # covers what the artwork draws.
+        fr_rows = np.zeros(H, bool)
+        fr_cols = np.zeros(W, bool)
+        for y, t in hr:
+            if not (max(3, H * 0.015) < y and y + t < H - max(3, H * 0.015)):
+                fr_rows[max(0, y - 3):y + t + 3] = True
+        for x, t in vr:
+            if not (max(3, W * 0.015) < x and x + t < W - max(3, W * 0.015)):
+                fr_cols[max(0, x - 3):x + t + 3] = True
+
+        def span_of(lo, wd, axis):
+            band = (ink[:, lo:lo + wd].any(axis=1) & ~fr_rows) if axis == "v" \
+                else (ink[lo:lo + wd, :].any(axis=0) & ~fr_cols)
+            at = np.nonzero(band)[0]
+            if not at.size:
+                return None
+            return [int(at[0]), int(at[-1])]
+
+        rule_span = dict(
+            v=[span_of(x, w, "v") for x, w in vr],
+            h=[span_of(y, t, "h") for y, t in hr])
+
         json.dump(dict(source=path, size=[W, H], fontPx=font_px, arrowPx=arrow_px,
                        arrowWidthPx=round(arrow_w, 1), arrowStyle=arrow_fill,
-                       rules=dict(v=vr, h=hr), greyRules=greys, dashed=dboxes,
+                       rules=dict(v=vr, h=hr), ruleSpan=rule_span,
+                       greyRules=greys, dashed=dboxes,
                        openEnds=open_ends, crossMarks=cross_marks,
                        partitions=grid, nodes=nodes, edges=edges, text=texts,
                        uncertain=uncertain),

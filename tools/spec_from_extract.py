@@ -40,6 +40,20 @@ def main(src, out, model_w=1480.0):
     frame = median(outer) if outer else max(w for _, w in e["rules"]["h"] + e["rules"]["v"])
     divider = median([w for _, w in inner_v + inner_h]) if (inner_v or inner_h) else frame
 
+    # How far each rule runs, read off its own ink rather than assumed to be edge
+    # to edge: eleven of the inner rules in the 78 stop short, seven of them
+    # covering less than three quarters of the page.
+    spans = e.get("ruleSpan") or {}
+
+    def span(key):
+        axis, at, wd = key
+        try:
+            i = e["rules"][axis].index([at, wd])
+        except (KeyError, ValueError):
+            return []
+        s = (spans.get(axis) or [None] * (i + 1))[i]
+        return [M(s[0]), M(s[1])] if s else []
+
     nodes_in = e["nodes"]
     acts = [n for n in nodes_in if n["kind"] == "action"]
     objs = [n for n in nodes_in if n["kind"] == "object"]
@@ -217,9 +231,9 @@ def main(src, out, model_w=1480.0):
                      M(min((y + t / 2 for y, t in outer_h), default=frame / 2)),
                      M(max((x + w / 2 for x, w in outer_v), default=W - frame / 2)),
                      M(max((y + t / 2 for y, t in outer_h), default=H - frame / 2))],
-        # position and weight, each rule at the one it was measured at
-        "dividers": [[M(x + w / 2), M(w)] for x, w in inner_v],
-        "bands": [[M(y + t / 2), M(t)] for y, t in inner_h],
+        # position, weight and the span the artwork draws it over
+        "dividers": [[M(x + w / 2), M(w)] + span(("v", x, w)) for x, w in inner_v],
+        "bands": [[M(y + t / 2), M(t)] + span(("h", y, t)) for y, t in inner_h],
         "lanes": lanes, "bandLabels": bandLabels,
         "nodes": nodes, "edges": edges, "guards": guards,
     }

@@ -273,7 +273,7 @@ def check_text_complete(bg_orig, graph, boxes, findings, glyph_h):
                                         % (want[:24], norm(hit[0])[:30], hit[1])))
 
 
-def check_arrowheads(a, b, graph, glyph_h, findings, nodefill):
+def check_arrowheads(a, b, graph, glyph_h, findings, nodefill, human):
     """Is there an arrowhead where the artwork has one.
 
     Comparing ink between the two images says nothing on its own: the artwork's
@@ -312,6 +312,33 @@ def check_arrowheads(a, b, graph, glyph_h, findings, nodefill):
         # line through it carried more ink than the head did, and the reading then
         # said as much about the head's proportions as about whether it was there.
         L, Wd, front = head[0], head[1], head[3]
+        # ...but only where what was read is a head at all, judged against the
+        # head this diagram draws rather than against the reading's own
+        # proportions: this probe reads a real head short as often as not, so a
+        # third of the set measures wider than it is long without anything being
+        # wrong. Too wide for the diagram's own arrowhead is the test, at the
+        # 1.6 the extractor already settles the same question at - where two real
+        # heads at both ends of a flow measure 1.01 and 1.04 times their diagram's
+        # head across and a junction measures 3.2.
+        #
+        # Where two flows meet an end event side by side, as the two "No" flows do
+        # on CPFR-ExceptionMonitor, the probe reads one head as 72 by 170 against
+        # that diagram's own 62 by 50, and a wedge that wide takes in the
+        # neighbouring head and both guard labels on the original while taking in
+        # only the one head on the rebuild. The comparison is then between two
+        # different things, so it is not made; a person is told instead, because
+        # whether a head is drawn here is exactly what this test cannot see.
+        own_w = graph.get("arrowWidthPx") or 0
+        if own_w and Wd > 1.6 * own_w:
+            human.append(dict(kind="arrowhead-unmeasurable", x=int(q[0] - L),
+                              y=int(q[1] - L), w=int(2 * L), h=int(2 * L),
+                              reason="the ink at the head end of %s->%s measures"
+                                     " %.0fx%.0fpx, too wide for this diagram's own"
+                                     " %.0fpx arrowhead - a junction, not a head"
+                                     % (e.get("from"), e.get("to"), L, Wd, own_w),
+                              check="confirm the arrowhead here is drawn and points"
+                                    " the way the original does"))
+            continue
         dx, dy = q[0] - back[0], q[1] - back[1]
         dL = (dx * dx + dy * dy) ** 0.5 or 1.0
         dx, dy = dx / dL, dy / dL
@@ -495,7 +522,7 @@ def verify(orig_png, render_png, graph_path, radius=3, diff_out=None):
     for n in graph.get("nodes", []):
         nodefill[max(0, n["y"] - 2):n["y"] + n["h"] + 3,
                  max(0, n["x"] - 2):n["x"] + n["w"] + 3] = True
-    check_arrowheads(a, b, graph, glyph_h, coherence, nodefill)               # clause 4b
+    check_arrowheads(a, b, graph, glyph_h, coherence, nodefill, human)        # clause 4b
     blocking = lost + made + coherence + \
         [t for t in text_findings if t["kind"] in ("text-absent", "text-differs",
                                                    "label-missing")]

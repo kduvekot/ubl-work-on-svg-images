@@ -149,23 +149,29 @@ def svg_body(spec):
     o.append('<rect x="%.2f" y="%.2f" width="%.2f" height="%.2f" fill="none" stroke="#000" stroke-width="%.2f"/>'
              % (fb[0], fb[1], fb[2] - fb[0], fb[3] - fb[1], S["frame"]))
     o.append("</g>")
-    # Each rule at the weight it was measured at, not one weight for all of them.
-    # IMFM draws its lane dividers at 4px and the rule under the lane titles at
-    # 3, and one median over both axes drew every one of them at 4.
-    def rule_at(d):
-        return (d[0], d[1]) if isinstance(d, (list, tuple)) else (d, S["divider"])
+    # Each rule at the weight it was measured at, over the span the artwork draws
+    # it. IMFM draws its lane dividers at 4px and the rule under the lane titles
+    # at 3, and one median over both axes drew every one of them at 4; and a
+    # partition rule does not always run the whole way across - CRP-Synchronizing
+    # takes its lane divider down 61% of the page - so an edge-to-edge line there
+    # is invented ink the height of the drawing.
+    def rule_at(d, end):
+        if not isinstance(d, (list, tuple)):
+            return d, S["divider"], 0.0, end
+        return (d[0], d[1] if len(d) > 1 else S["divider"],
+                d[2] if len(d) > 3 else 0.0, d[3] if len(d) > 3 else end)
 
     for i, d in enumerate(spec.get("dividers", [])):
-        at, wt = rule_at(d)
+        at, wt, a, b = rule_at(d, H)
         o.append(group("lane-divider", "divider%d" % i, "lane divider", axis="v"))
-        o.append('<line x1="%.1f" y1="0" x2="%.1f" y2="%.1f" stroke="#000" stroke-width="%.2f"/>'
-                 % (at, at, H, wt))
+        o.append('<line x1="%.1f" y1="%.1f" x2="%.1f" y2="%.1f" stroke="#000" stroke-width="%.2f"/>'
+                 % (at, a, at, b, wt))
         o.append("</g>")
     for i, d in enumerate(spec.get("bands", [])):
-        at, wt = rule_at(d)
+        at, wt, a, b = rule_at(d, W)
         o.append(group("band-divider", "band%d" % i, "band divider", axis="h"))
-        o.append('<line x1="0" y1="%.1f" x2="%.1f" y2="%.1f" stroke="#000" stroke-width="%.2f"/>'
-                 % (at, W, at, wt))
+        o.append('<line x1="%.1f" y1="%.1f" x2="%.1f" y2="%.1f" stroke="#000" stroke-width="%.2f"/>'
+                 % (a, at, b, at, wt))
         o.append("</g>")
     for i, gr in enumerate(spec.get("greyRules", [])):
         # a divider the artwork draws in grey; promoting it to black would be a
