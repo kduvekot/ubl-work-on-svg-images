@@ -255,6 +255,13 @@ def svg_body(spec):
                  % (" ".join("%.1f,%.1f" % (p[0], p[1]) for p in oe["points"]),
                     S["edge"], ' marker-end="url(#arrow)"' if oe.get("arrow") else ""))
         o.append("</g>")
+    for i, m in enumerate(spec.get("crossMarks", [])):
+        o.append(group("mark", "mark%d" % i, "stroke across a partition rule"))
+        o.append('<line x1="%.1f" y1="%.1f" x2="%.1f" y2="%.1f" stroke="#000" '
+                 'stroke-width="%.2f" stroke-linecap="butt"/>'
+                 % (m["x1"], m["y1"], m["x2"], m["y2"],
+                    m.get("weight") or S["divider"]))
+        o.append("</g>")
     for i, g in enumerate(spec.get("guards", [])):
         o.append(group("guard", "text%d" % i, " ".join(g.get("text", "").split())))
         o.append(lines_of(g, g["x"] + g["w"] / 2, g["y"] + g["h"] / 2, F["guard"], F["family"]))

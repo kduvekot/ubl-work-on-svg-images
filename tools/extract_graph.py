@@ -731,6 +731,87 @@ def is_fold(a, b):
                  or abs(b["x"] + b["w"] - a["x"] - a["w"]) <= tol))
 
 
+def cross_stub(xs, ys, vr, hr, font_px):
+    """Half of a short stroke drawn across a partition rule, or None.
+
+    UBL puts a pair of diagonal strokes across the lane divider under the document
+    box on BusinessCard and DigitalCapability. They belong to no node and no
+    connector, so they were binned with the text, failed to read as text, and
+    vanished off the page. They do not even arrive whole: the rule's ink is taken
+    out before the components are found, so each stroke comes in two halves, one
+    either side of it.
+
+    A half is straight, short, slanted - a divider's own ink is not, and a glyph is
+    neither - and it stops at the rule. The caller puts the halves back together."""
+    if xs.size < 20 or font_px <= 0:
+        return None
+    cx, cy = float(xs.mean()), float(ys.mean())
+    cov = np.cov(np.vstack([xs - cx, ys - cy]))
+    ev, evec = np.linalg.eigh(cov)
+    if ev[0] < 0.05 or ev[1] < 12.0 * ev[0]:          # 3.5:1, or it is not a stroke
+        return None
+    ux, uy = float(evec[0, 1]), float(evec[1, 1])
+    t = (xs - cx) * ux + (ys - cy) * uy
+    half = float(t.max() - t.min()) / 2.0
+    if not (0.5 * font_px <= 2.0 * half <= 3.0 * font_px):
+        return None
+    ang = math.degrees(math.atan2(uy, ux)) % 180.0
+    # Slanted, and to both axes. A stub that runs along the rule is the rule; one
+    # square to it is a connector that stopped there, and ProcurementProcess has
+    # three of those. The mark this is for is drawn at a slant - 34 degrees on
+    # BusinessCard - which is what makes it a mark rather than more line-work.
+    if min(ang, 180.0 - ang) < 15.0 or abs(ang - 90.0) < 15.0:
+        return None
+    for axis, rules in (("v", vr), ("h", hr)):
+        for start, w in rules:
+            mid = start + w / 2.0
+            side = (xs - mid) if axis == "v" else (ys - mid)
+            near = min(abs(float(side.min())), abs(float(side.max())))
+            if near <= w + 3 and (side.min() >= -w - 3 or side.max() <= w + 3):
+                return dict(rule=axis, at=int(round(mid)), angle=round(ang, 1),
+                            cx=cx, cy=cy, ux=ux, uy=uy, half=half,
+                            x1=cx - ux * half, y1=cy - uy * half,
+                            x2=cx + ux * half, y2=cy + uy * half,
+                            weight=round(4.0 * math.sqrt(max(float(ev[0]), 0.05)), 1))
+    return None
+
+
+def join_stubs(stubs):
+    """Put the halves of each stroke back together: same slant, same line, same
+    rule. A half with no partner is still ink and is kept as it stands."""
+    out, used = [], set()
+    for i, a in enumerate(stubs):
+        if i in used:
+            continue
+        best = None
+        for j, b in enumerate(stubs):
+            if j <= i or j in used or b["rule"] != a["rule"]:
+                continue
+            da = abs(a["angle"] - b["angle"])
+            if min(da, 180.0 - da) > 12.0:
+                continue
+            # the same line: the other's centre lies on this one's axis
+            off = abs(-(b["cx"] - a["cx"]) * a["uy"] + (b["cy"] - a["cy"]) * a["ux"])
+            if off > 6.0:
+                continue
+            if best is None or off < best[1]:
+                best = (j, off)
+        pts = [(a["x1"], a["y1"]), (a["x2"], a["y2"])]
+        if best is not None:
+            b = stubs[best[0]]
+            used.add(best[0])
+            pts += [(b["x1"], b["y1"]), (b["x2"], b["y2"])]
+        used.add(i)
+        p0 = min(pts, key=lambda p: p[0] * a["ux"] + p[1] * a["uy"])
+        p1 = max(pts, key=lambda p: p[0] * a["ux"] + p[1] * a["uy"])
+        out.append(dict(rule=a["rule"], at=a["at"], angle=a["angle"],
+                        weight=a["weight"], whole=best is not None,
+                        x1=int(round(p0[0])), y1=int(round(p0[1])),
+                        x2=int(round(p1[0])), y2=int(round(p1[1])),
+                        length=round(math.hypot(p1[0] - p0[0], p1[1] - p0[1]), 1)))
+    return out
+
+
 def border_coverage(ink, n, pad=3):
     """fraction of the bbox perimeter that sits on ink - a stroked box is ~1.0,
     white merely trapped between other shapes is much lower"""
@@ -1942,6 +2023,7 @@ def main(path, out_json=None):
             members.setdefault(root(i), []).append(i)
 
     edges, textbits, unexplained, open_ends = [], [], [], []
+    cross_stubs = []
     print("\nEDGES")
     for grp, ids in members.items():
         px = []
@@ -2053,6 +2135,17 @@ def main(path, out_json=None):
             # cascading passes, so a single long fragment chains unrelated
             # labels into one block. That is how a partition title came out 764
             # characters long, carrying half the diagram's words.
+            # A short straight stroke drawn across a partition rule. UBL puts a
+            # pair of them across the lane divider under the document box on
+            # BusinessCard and DigitalCapability, and they belong to no node and
+            # no connector, so they were binned with the text, failed to read as
+            # text, and vanished off the page. What they mean is the
+            # specification's to say; that they are ink is not in question, so
+            # they are measured, drawn, and named for a person to confirm.
+            m = cross_stub(xs, ys, vr, hr, font_px)
+            if m:
+                cross_stubs.append(m)
+                continue
             if (by1 - by0 + 1) <= font_px * 2.2 and (bx1 - bx0 + 1) <= font_px * 20:
                 textbits.append([bx0, by0, bx1, by1])
             else:
@@ -2365,6 +2458,22 @@ def main(path, out_json=None):
     for _ in range(4):
         lines = merge(lines)
 
+    cross_marks = join_stubs(cross_stubs)
+    for m in cross_marks:
+        print("   mark across the %s rule at %d: %.0fpx at %.0f degrees%s"
+              % ("column" if m["rule"] == "v" else "band", m["at"], m["length"],
+                 m["angle"], "" if m["whole"] else " (one half only)"))
+    if cross_marks:
+        uncertain.append(dict(
+            kind="mark-across-rule", x=min(m["x1"] for m in cross_marks),
+            y=min(m["y1"] for m in cross_marks),
+            w=max(m["x2"] for m in cross_marks) - min(m["x1"] for m in cross_marks),
+            h=max(m["y2"] for m in cross_marks) - min(m["y1"] for m in cross_marks),
+            reason="%d short stroke(s) drawn across a partition rule; they are"
+                   " redrawn as measured, but what they denote is not read"
+                   % len(cross_marks),
+            check="name this notation - the SVG carries it as line-work only"))
+
     print("\nTEXT (titles, guards, notes)")
     texts = []
     strays = []          # line-work that read as text: nearly always an arrowhead
@@ -2552,7 +2661,7 @@ def main(path, out_json=None):
         json.dump(dict(source=path, size=[W, H], fontPx=font_px, arrowPx=arrow_px,
                        arrowWidthPx=round(arrow_w, 1), arrowStyle=arrow_fill,
                        rules=dict(v=vr, h=hr), greyRules=greys, dashed=dboxes,
-                       openEnds=open_ends,
+                       openEnds=open_ends, crossMarks=cross_marks,
                        partitions=grid, nodes=nodes, edges=edges, text=texts,
                        uncertain=uncertain),
                   open(out_json, "w"), indent=1)

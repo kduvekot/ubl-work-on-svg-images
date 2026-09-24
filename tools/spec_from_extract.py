@@ -189,6 +189,13 @@ def main(src, out, model_w=1480.0):
         "greyRules": [{"axis": r["axis"], "at": M(r["at"]), "w": M(r["w"]),
                        "colour": "#%02x%02x%02x" % ((r["level"],) * 3)}
                       for r in e.get("greyRules", [])],
+        # a short stroke drawn across a partition rule: line-work the diagram
+        # carries whose meaning the specification has not been read for, so it is
+        # reproduced exactly as measured and classified as what it plainly is
+        "crossMarks": [{"x1": M(m["x1"]), "y1": M(m["y1"]),
+                        "x2": M(m["x2"]), "y2": M(m["y2"]),
+                        "weight": M(m.get("weight") or 0)}
+                       for m in e.get("crossMarks", [])],
         # a flow that leaves the diagram: drawn along its measured route, from
         # where it meets its node to where it runs off
         "openEnds": [{"points": [[M(p[0]), M(p[1])] for p in
