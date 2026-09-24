@@ -216,7 +216,7 @@ def _flat(s):
     return re.sub(r"[^0-9a-z]", "", (s or "").lower())
 
 
-def check_text_complete(bg_orig, graph, boxes, findings, glyph_h):
+def check_text_complete(bg_orig, graph, boxes, findings, glyph_h, orig_ink=None):
     """Every word the original shows must be somewhere in the model, saying the
     same thing, in the same place. Read off the original, so the model cannot
     grade its own homework by simply not extracting a label."""
@@ -258,6 +258,20 @@ def check_text_complete(bg_orig, graph, boxes, findings, glyph_h):
         # divider) and are not text at all.
         if len(re.sub(r"[^0-9A-Za-z]", "", want)) < 2:
             continue
+        # Tesseract is confident about shapes that are not letters, and on this
+        # artwork it names line-work: the solid arrowhead into "Application
+        # response" on the Import and Transit declaration diagrams comes back as
+        # 'mM' at 75, and the folded corner of a note on IMFM-Intermodal as 'IN'
+        # at 93 and 78. Four of the twelve differences left in the set are that,
+        # every one of them against a drawing with nothing wrong with it. The ink
+        # settles it, by the same test the extractor uses on its own blocks and
+        # read off the original alone: a word is a row of small marks, a stroke of
+        # line-work is one long thin one.
+        if orig_ink is not None:
+            import extract_graph as _E
+            if _E.line_like(orig_ink, dict(x=x, y=y, w=w, h=h),
+                            graph.get("fontPx") or glyph_h):
+                continue
         cx, cy = x + w / 2.0, y + h / 2.0
         # every line whose box covers this word, not just the first: a label wraps,
         # and the word may be on its second line
@@ -567,7 +581,7 @@ def verify(orig_png, render_png, graph_path, radius=3, diff_out=None):
     made = [dict(f, kind="element-invented",
                  detail="drawn where the original has nothing: " + attribute(f, graph))
             for f in structural(extra, la, glyph_h)]                      # clause 2
-    check_text_complete(bg_orig, graph, boxes, text_findings, glyph_h)    # clause 3
+    check_text_complete(bg_orig, graph, boxes, text_findings, glyph_h, a)  # clause 3
     coherence = []
     check_coherent(graph, glyph_h, coherence)                             # clause 4
     check_arrow_directions(a, b, graph, glyph_h, coherence, tmask)
