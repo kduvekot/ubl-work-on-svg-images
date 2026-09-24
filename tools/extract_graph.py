@@ -571,7 +571,7 @@ def dash_run(ink, node_fill, pa, pb, stroke, trim=0.0):
 
 
 def arrow_size(xs, ys, tip, back, stroke, limit=None, need_point=False, min_len=0.0,
-               ahead=0):
+               ahead=0, max_wide=0.0):
     """How big the arrowhead at `tip` is, in the original's own pixels.
 
     The rebuild drew every arrowhead at one hard-coded size, so the same head
@@ -685,8 +685,14 @@ def arrow_size(xs, ys, tip, back, stroke, limit=None, need_point=False, min_len=
             length += front
     # An arrowhead is a mark of the diagram's own size. Ten pixels of ink where a
     # connector meets a box is a join or a corner, not a head - and taken for one
-    # it pointed "Send Trade Item Location Profile" at the wrong element.
-    if back_len < min_len:
+    # it pointed "Send Trade Item Location Profile" at the wrong element. It has an
+    # upper bound for the same reason: across all 78 diagrams a head is 0.6 to 1.8
+    # times the type size across, so ink three times that is the box's own edge
+    # lying across the probe. Where two lines converge on one point - the apex of
+    # a decision diamond, which takes three at once - that is the only thing
+    # telling the two ends apart, and without it the solid diagonal on
+    # FulfilmentDespatchAdvice pointed away from the diamond its head is drawn at.
+    if back_len < min_len or (max_wide and width > max_wide):
         return None
     # Which end is the point. An arrowhead is a wedge, so its ink is narrow at the
     # tip and wide away from it; probed from the *other* end the same ink is wide
@@ -2219,6 +2225,19 @@ def main(path, out_json=None):
                                  need_point=True, min_len=min_head)
             point_b = arrow_size(cxs, cys, tip_of(pb, back_b), back_b, st, reach,
                                  need_point=True, min_len=min_head)
+            # An arrowhead is about as long as it is wide - 0.6 to 1.2 across the
+            # 78 - so ink half again wider than it is long is a box edge or a
+            # crossing line caught in the probe, not a point. This is the reading
+            # that settles the direction where neither end shows a head on the
+            # component itself, which is what happens at the apex of a decision
+            # diamond: three connectors converge there, so the apex reads as
+            # nothing and the other end's box edge reads as a 43x80 "head". The
+            # solid diagonal on FulfilmentDespatchAdvice then pointed away from
+            # the diamond its point is drawn at.
+            if point_a and point_a[1] > 1.6 * point_a[0]:
+                point_a = None
+            if point_b and point_b[1] > 1.6 * point_b[0]:
+                point_b = None
         if os.environ.get("UBL_TRACE_DEBUG"):
             print("      head %s->%s: st=%.1f w=%.0f/%.0f point=%s/%s"
                   % (touch[0]["id"], touch[1]["id"], st, wa, wb, point_a, point_b))

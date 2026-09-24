@@ -192,7 +192,21 @@ def checks(g):
                         label(byid.get(e["to"], {"kind": "action", "label": e["to"]})))
           for e in g["edges"] if e.get("directionConfidence") == "LOW"])
 
-    # 10 - every element is reachable by following arrows from a start event
+    # 10 - work leads somewhere. An action with a way in and no way out is the
+    # shape a reversed flow leaves behind, and it is the one the picture hides:
+    # the solid diagonal on FulfilmentDespatchAdvice, read backwards, left
+    # "Receive Fulfilment Cancellation" taking a flow from a decision and a
+    # document and passing nothing on, which is not something an activity diagram
+    # says. A flow into an end event is a way out, and so is an open flow that
+    # leaves the page.
+    rule("every action passes its work on",
+         [label(n) for n in g["nodes"] if n["kind"] == "action"
+          and ins.get(n["id"]) and not outs.get(n["id"])
+          and not any(o.get("node") == n["id"] for o in g.get("openEnds", []))],
+         "informational: several diagrams do end on an action, so read these"
+         " against the artwork rather than treating them as errors")
+
+    # 11 - every element is reachable by following arrows from a start event
     seen, stack = set(), [n["id"] for n in g["nodes"] if n["kind"] == "initial"]
     while stack:
         i = stack.pop()
@@ -226,7 +240,7 @@ def main(src, out_json=None):
     res = checks(g)
     for r in res:
         print("  %-4s %s%s" % ("ok" if r["ok"] else "FAIL", r["rule"],
-                               "   (%s)" % r["note"] if r["note"] and r["ok"] else ""))
+                               "   (%s)" % r["note"] if r["note"] else ""))
         for b in r["bad"][:8]:
             print("        - %s" % b)
         if len(r["bad"]) > 8:
