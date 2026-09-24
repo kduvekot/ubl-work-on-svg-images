@@ -251,7 +251,7 @@ def endpoint_nodes(xs, ys, cands):
     return None if picks[0] is picks[1] else picks
 
 
-def enclosed_regions(ink, min_area=MIN_NODE_AREA):
+def enclosed_regions(ink, min_area=MIN_NODE_AREA, min_dim=0.0):
     free = ~ink
     lbl, _ = ndi.label(free)
     border = set(lbl[0, :]) | set(lbl[-1, :]) | set(lbl[:, 0]) | set(lbl[:, -1])
@@ -263,10 +263,16 @@ def enclosed_regions(ink, min_area=MIN_NODE_AREA):
         if sl is None:
             continue
         area = int((l2[sl] == i).sum())
-        if area < min_area:
-            continue
         y0, x0 = sl[0].start, sl[1].start
         h, w = sl[0].stop - y0, sl[1].stop - x0
+        # An area floor is a proxy for "big enough to be a symbol", and it reads a
+        # ring or a diamond - mostly hole - as smaller than it is. The activity
+        # final on UBL-1.0-ProcurementProcess is a 23x23 annulus of 285 pixels
+        # against a floor of 470, so the only end event on the diagram was never
+        # a candidate. A symbol is also wide *and* tall, which a letter's counter
+        # is not: those run 11x16 against 28px type on the same page.
+        if area < min_area and not (min_dim and min(w, h) >= min_dim):
+            continue
         # the label glyphs punch holes in the interior; fill them so that `solid`
         # measures the shape itself and not how much text it happens to carry
         solid = ndi.binary_fill_holes(l2[sl] == i)
@@ -971,9 +977,33 @@ def shape_iou(n):
             quad = ((yy <= ky) if oy == 0 else (yy >= ky)) & ((xx <= kx) if ox == 0 else (xx >= kx))
             t &= ~(quad & ((yy - ky) ** 2 + (xx - kx) ** 2 > r * r))
         cands.append(("rounded", t))
-    best = max(((name, (m & t).sum() / float((m | t).sum())) for name, t in cands),
-               key=lambda p: p[1])
-    return best[1], best[0]
+    def score(t):
+        # how well this template matches, against the best it could manage at this
+        # size. Ranking on the raw overlap quietly prefers blunt shapes when the
+        # shape is small, because a pointy one loses more of its area to the same
+        # one-pixel uncertainty: UBL-1.0-ProcurementProcess's 29px decision nodes
+        # read 0.818 as a rounded box and 0.816 as a rhombus, and were drawn with
+        # round corners on a coin toss. Against each template's own ceiling the
+        # same four read 1.10-1.14 rhombus and 0.98-0.99 rounded, which is not a
+        # close call.
+        inter = float((m & t).sum())
+        raw = inter / float(max((m | t).sum(), 1))
+        er = ndi.binary_erosion(t, np.ones((3, 3)))
+        ceil = max(float(er.sum()) / float(max(t.sum(), 1)), 0.5)
+        return raw / ceil, raw, ceil
+    best = max(((name, t) + score(t) for name, t in cands), key=lambda p: p[2])
+    # ...and how well the best template could possibly have been matched at this
+    # size. A drawn outline is anti-aliased, so where its interior ends is uncertain
+    # by about a pixel all round, and that pixel costs a small shape far more of its
+    # own area than a large one: perimeter over area goes as 1/size. Eroding the
+    # template by one pixel measures exactly that cost. UBL-1.0-ProcurementProcess
+    # draws its four decision nodes 29px across, where a perfect rhombus can only
+    # reach 0.81; they read 0.82-0.85 and a flat 0.88 floor discarded all four, and
+    # the flows through them were then attributed to whatever stood at the far end.
+    # The same floor read against this ceiling keeps them and still drops the
+    # whitespace trapped between crossing connectors, which matches no outline at
+    # any size (0.47-0.71 here, against ceilings of 0.96 and up).
+    return best[3], best[0], best[4]
 
 
 def ring_stroke(ink, n):
@@ -1039,10 +1069,32 @@ def is_final_ring(ink, n, W):
 
 def interior_ink(ink, n, inset=20):
     """fraction of the region's interior that carries ink - i.e. does it hold a
-    label. Whitespace merely trapped between other shapes holds nothing."""
+    label. Whitespace merely trapped between other shapes holds nothing.
+
+    The inset keeps the shape's own outline out of the sample, so it has to be
+    smaller than the shape: at a flat 20px every region 40px or less across
+    sampled an empty array and read 0.0 - not "holds no label" but "was never
+    looked at"."""
+    inset = min(inset, max(1, min(n["w"], n["h"]) // 4))
     sub = ink[n["y"] + inset:n["y"] + n["h"] - inset,
               n["x"] + inset:n["x"] + n["w"] - inset]
     return float(sub.mean()) if sub.size else 0.0
+
+
+def room_for_a_word(n, glyph_h):
+    """could a label have been set inside this region at all.
+
+    "It holds nothing" is evidence that a region is trapped whitespace and not a
+    node - but only where something could have been written. A decision node drawn
+    29px across, as UBL-1.0-ProcurementProcess draws all four of its own, has
+    about 20px of clear width at its widest and the type is 28px tall: there is no
+    room for a label, so its absence says nothing either way. Measured off the
+    region's own mask rather than its bounding box, because the inscribed width of
+    a rhombus is half its box."""
+    m = n.get("mask")
+    if m is None or not glyph_h:
+        return True
+    return 2.0 * float(ndi.distance_transform_edt(m).max()) >= glyph_h
 
 
 def in_title_band(n, bands, tol=10):
@@ -1077,7 +1129,7 @@ def drop_phantoms(ink, regs, cells=(), min_iou=0.88, max_open=2,
     for a in regs:
         why = None
         kept_by_outline = False
-        iou, a["shape"] = shape_iou(a)
+        iou, a["shape"], ceiling = shape_iou(a)
         cov = border_coverage(ink, a)
         if any(abs(a["x"] - c[0]) <= 10 and abs(a["y"] - c[1]) <= 10 and
                abs(a["x"] + a["w"] - c[2]) <= 10 and abs(a["y"] + a["h"] - c[3]) <= 10
@@ -1118,8 +1170,10 @@ def drop_phantoms(ink, regs, cells=(), min_iou=0.88, max_open=2,
             why = None
         else:
             open_sides = sides_continue(ink, a)
-            if iou < min_iou:
-                why = "outline matches no UML node shape (best %s %.2f)" % (a["shape"], iou)
+            if iou < min_iou * ceiling:
+                why = ("outline matches no UML node shape (best %s %.2f, and %.2f"
+                       " is the most this shape can reach at this size)"
+                       % (a["shape"], iou, ceiling))
             elif open_sides > max_open:
                 # A complete outline of its own *and* something inside it. Trapped
                 # whitespace can be bounded on all four sides by its neighbours, but
@@ -1137,10 +1191,12 @@ def drop_phantoms(ink, regs, cells=(), min_iou=0.88, max_open=2,
                 # having connectors on three sides - which is what a decision node
                 # is for.
                 curved = a["shape"] in ("rhombus", "ellipse", "rounded")
-                outline_ok = (iou >= own_iou_curved) if curved else \
-                             (iou >= own_iou and cov >= own_cov)
-                if outline_ok and interior_ink(ink, a) >= min_interior:
+                outline_ok = (iou >= own_iou_curved * ceiling) if curved else \
+                             (iou >= own_iou * ceiling and cov >= own_cov)
+                if outline_ok and (interior_ink(ink, a) >= min_interior
+                                   or not room_for_a_word(a, glyph_h)):
                     kept_by_outline = True
+                    a["keptOnOutline"] = True
                 else:
                     why = "%d of 4 sides are pass-through line-work" % open_sides
         note = dict(x=a["x"], y=a["y"], w=a["w"], h=a["h"],
@@ -1220,7 +1276,19 @@ def classify(n, W, H, ink=None, heavy=9, has_rounded=False):
         return "note"
     if 0.40 <= f <= 0.56:
         return "decision"
-    if 0.56 < f <= 0.80 and 0.75 < ar < 1.35:
+    # ...and where the shape reading is unambiguous it beats the fill bands, which
+    # are a proxy for it. A rhombus fills half its box in the limit, but a small
+    # one fills more: the four 29px decision nodes on UBL-1.0-ProcurementProcess
+    # measure 0.59-0.61 and fell through the band into "final", drawn as a
+    # bullseye in the middle of a flow. The outline says rhombus at 1.10-1.14 of
+    # what a rhombus can reach at that size, against 0.98 for every other shape.
+    if n.get("shape") == "rhombus":
+        return "decision"
+    # an activity final is a ring *around a filled disc*, so there is ink at its
+    # centre. Without that this band called anything roundish and half-filled a
+    # final, decision nodes included.
+    if 0.56 < f <= 0.80 and 0.75 < ar < 1.35 and (
+            ink is None or bool(ink[n["y"] + n["h"] // 2, n["x"] + n["w"] // 2])):
         return "final"
     # UML notation *is* the outline: an action is a rounded rectangle, an object
     # node a plain one. The stroke-weight split is a proxy for the same thing and
@@ -1317,10 +1385,29 @@ def solid_blobs(ink, W, H, glyph_h=0.0):
         # the erosion shrank the shape by 3px on every side - restore it
         d = dict(x=int(x0) - 3, y=int(y0) - 3, w=int(w) + 6, h=int(h) + 6,
                  area=area, fill=round(fill, 3))
-        if fill > 0.70 and ar < 1.35 and 6 < w < W * 0.06:
+        # ...and a start node is a symbol, drawn at the scale of the page, not a
+        # thickening where two strokes meet. Where an open arrowhead lands on the
+        # side of a box its two strokes and the outline enclose a solid lump that
+        # is round enough and filled enough to pass every other test here: three
+        # of them on UBL-1.0-ProcurementProcess, which has no start node at all,
+        # and each one then stood between a flow and the box it points at, so the
+        # flow arrived as two edges through a node that is not there. Measured
+        # across the set, a real start node runs 0.89 to 3.12 times the type size
+        # and every phantom 0.41 or less, so the floor sits in open ground. Read
+        # in glyph heights, which is what this function is given: the type size
+        # the rest of the pipeline uses is about 1.4 glyph heights.
+        if (fill > 0.70 and ar < 1.35 and 6 < w < W * 0.06
+                and (glyph_h <= 0 or w >= 0.8 * glyph_h)):
             discs.append(dict(d, kind="initial"))
-        elif (ar > 3 and min(w, h) <= 60
-                and max(w, h) > max(W * 0.012, 2.5 * glyph_h)):
+        # ...and the same arrowheads that spoil the fill spoil the aspect. The two
+        # join bars on UBL-1.0-ProcurementProcess come out of the erosion 67x28
+        # and 71x25 - 2.4:1 and 2.8:1 - because each carries the two arrowheads
+        # that meet it, so neither was ever considered a bar and the four flows
+        # through them were drawn as elbows between whatever stood at the ends.
+        # Judge the band, not the box: find the run of nearly-full rows first, and
+        # ask whether *that* is long and thin. The length floor still scales with
+        # the type, which is what keeps a letter stem out.
+        elif min(w, h) <= 60 and max(w, h) + 6 > max(W * 0.012, 2.5 * glyph_h):
             # A fork or join bar arrives with the arrowheads that meet it still
             # attached after erosion, so the bounding box is taller than the bar
             # and the fill of that box falls well below a solid shape's - 0.56 on
@@ -1338,15 +1425,31 @@ def solid_blobs(ink, W, H, glyph_h=0.0):
                         runs.append((s, a_)); s = b_
                 runs.append((s, dense[-1]))
                 lo, hi = max(runs, key=lambda r: r[1] - r[0])
-                if hi - lo + 1 >= 2:
+                if hi - lo + 1 >= 2 and max(w, h) > 3.0 * (hi - lo + 1):
                     # the erosion took 3px off each side; the long axis keeps the
                     # component's own extent, the short axis is the measured band
+                    # keep both readings: the band is the bar, the box is the bar
+                    # plus whatever meets it, and the difference between them is
+                    # the evidence that anything does
+                    band, box = int(hi - lo + 1) + 6, int(min(w, h)) + 6
+                    # where along its length the component stands proud of the
+                    # bar. A join has an arrowhead landing at two or more places;
+                    # a plain connector that happens to be fused with a node at
+                    # one end has exactly one, at the end.
+                    thick = (comp.sum(axis=0) if w >= h else comp.sum(axis=1)) \
+                        > (hi - lo + 1) + 1
+                    lumps, run = 0, False
+                    for v in thick:
+                        if v and not run:
+                            lumps += 1
+                        run = bool(v)
                     if w >= h:
-                        d = dict(d, y=int(y0) + int(lo) - 3, h=int(hi - lo + 1) + 6)
+                        d = dict(d, y=int(y0) + int(lo) - 3, h=band)
                     else:
-                        d = dict(d, x=int(x0) + int(lo) - 3, w=int(hi - lo + 1) + 6)
-                    bars.append(dict(d, kind="fork"))
-            elif fill > 0.70:
+                        d = dict(d, x=int(x0) + int(lo) - 3, w=band)
+                    bars.append(dict(d, kind="fork", band=band, box=box,
+                                     lumps=lumps))
+            elif fill > 0.70 and ar > 3:
                 bars.append(dict(d, kind="fork"))
     return discs, bars
 
@@ -1642,7 +1745,8 @@ def main(path, out_json=None):
     # ring and were drawn as plain initial discs. Scale the floor with the type,
     # and never above the flat figure, so nothing that used to be found is lost.
     min_area = min(MIN_NODE_AREA, max(200, int(0.6 * gh * gh))) if gh else MIN_NODE_AREA
-    regs = drop_phantoms(ink, enclosed_regions(ink, min_area), cells, flags=uncertain,
+    regs = drop_phantoms(ink, enclosed_regions(ink, min_area, 0.7 * gh if gh else 0.0),
+                         cells, flags=uncertain,
                          title_bands=(hb[1] if header else None,
                                       vb[1] if strip else None),
                          glyph_h=gh)
@@ -1698,7 +1802,18 @@ def main(path, out_json=None):
     # them with no connector attached because there was no node there to connect.
     line_w = float(np.median(box_strokes)) if box_strokes else 0.0
     if line_w:
-        real = [b for b in bars if min(b["w"], b["h"]) >= 2 * line_w]
+        # ...or, where the artwork draws its bars no heavier than its lines, by
+        # what meets them. UBL-1.0-ProcurementProcess joins two flows into one
+        # twice, and both bars are 8-10px against a 7px line, so the weight test
+        # alone discarded them. The erosion that finds a bar keeps the arrowheads
+        # that land on it, so its component stands two to four times taller than
+        # the bar itself; a stroke that merely survived the erosion is exactly as
+        # thick as its own band - the 312px connector on the same diagram measures
+        # 8 and 8. That difference is the meeting, measured.
+        real = [b for b in bars
+                if min(b["w"], b["h"]) >= 2 * line_w
+                or (b.get("box", 0) >= 2 * b.get("band", 10 ** 6)
+                    and b.get("lumps", 0) >= 2)]
         for b in bars:
             if b not in real:
                 print("   (dropped x=%-5d y=%-5d %4dx%-4d  only %.0fpx across against a"
@@ -1789,7 +1904,21 @@ def main(path, out_json=None):
     if font_px > 0:
         keep = []
         for n in nodes:
+            # ...but a counter is a hole inside a letter, and the ink around it
+            # stops at its own edge. A node this small is one UBL draws on the
+            # flow - the four unlabelled decision nodes on UBL-1.0-Procurement-
+            # Process are 29px against 39px type - and it was kept above only
+            # because connectors run through it on three sides, which is what a
+            # letter can never do.
+            # ...nor is an end event, which is small on every diagram that has
+            # one and carries no label by definition. What marks it out from a
+            # counter is ink at its own centre - the filled disc inside the ring -
+            # and that is what put it in this kind. UBL-1.0-ProcurementProcess
+            # ends on a 23px activity final against 39px type, and dropping it
+            # left the only end event on the page missing.
             if (not n.get("label") and n.get("mask") is not None
+                    and not n.get("keptOnOutline")
+                    and n["kind"] != "final"
                     and n["w"] < font_px and n["h"] < font_px):
                 print("   (dropped x=%-5d y=%-5d %4dx%-4d  smaller than one character"
                       " of %.0fpx type - a letter counter, not a node)"
@@ -1802,6 +1931,50 @@ def main(path, out_json=None):
                 continue
             keep.append(n)
         nodes = keep
+
+    # One corner radius per kind of box, because that is how the artwork draws
+    # them. The radius is read off each box separately, and where a connector
+    # lands on the top edge or the first row of ink is a stray pixel the reading
+    # runs away: on UBL-1.0-ProcurementProcess three of eighteen action boxes
+    # measured 104, 173 and 175 against a median of 29, the SVG clamped each to
+    # half the box width, and three of the stadiums came out as ellipses standing
+    # among their square-shouldered neighbours.
+    #
+    # Two corrections, in order. A corner radius cannot exceed half the shorter
+    # side - that is geometry, not style, and it alone catches all three. Then the
+    # style: UBL gives every box of one kind the same corners, so a box whose own
+    # reading is more than half again the median for its kind is taking the
+    # median. Nothing moves where the readings already agree.
+    for kind in ("action", "object", "note"):
+        same = [n for n in nodes if n["kind"] == kind and n.get("rx") is not None]
+        if len(same) < 3:
+            continue
+        broke = {}
+        for n in same:
+            # the region is the interior, so the box the artwork drew is a
+            # stroke wider and taller than it - measure the limit against that,
+            # or every fully rounded end reads a few pixels too tight
+            lim = max(1.0, (min(n["w"], n["h"]) + (n.get("stroke") or 0)) / 2.0)
+            for key in ("rx", "ry"):
+                if n[key] > lim:
+                    broke.setdefault(key, []).append(n)
+                    n[key] = lim
+        # A reading that had to be clamped is known to be wrong, not merely
+        # different, so give it the diagram's own answer rather than the clamp.
+        # Only those: where two boxes of a kind simply read a few pixels apart the
+        # artwork may well have drawn them that way, and substituting the median
+        # there made three boxes on Fulfilment-ReceiptAdvice rounder than the
+        # original and cost more ink than it saved.
+        for key, victims in broke.items():
+            rest = [n[key] for n in same if n not in victims]
+            if not rest:
+                continue
+            med = float(np.median(rest))
+            for n in victims:
+                print("   corner radius %s on %r could not be read (it came back"
+                      " larger than the box) - taking the %.0f the rest of its kind"
+                      " measures" % (key, (n.get("label") or "")[:28], med))
+                n[key] = med
 
     # Bold or regular, measured rather than assumed. Every action label was drawn
     # bold, and on Tender-QualificationApplication the artwork sets them regular:
@@ -2038,7 +2211,17 @@ def main(path, out_json=None):
             cx, cy = float(xx.mean()), float(yy.mean())
             cov = np.cov(np.vstack([xx - cx, yy - cy]))
             ev, evec = np.linalg.eigh(cov)
-            if ev[0] < 0.05 or ev[1] < 9.0 * ev[0]:      # not 3:1 or better
+            # A dash only has to be elongated enough for its own direction to be
+            # readable, because what identifies a dashed line is the chain test
+            # below - three marks ahead of one another along that direction,
+            # parallel, evenly spaced. 3:1 was a guess and it is wrong for the
+            # oldest artwork: UBL-1.0-ProcurementProcess draws every object flow
+            # in 17x7 dashes, 2.4:1, so not one of its ~30 dashed connectors was
+            # ever considered and their dashes were read as text instead. The
+            # variance ratio of a LxW rectangle is (L/W)^2, so this is 2:1 - the
+            # point at which the principal axis of a rectangle is still determined
+            # to within about 10 degrees.
+            if ev[0] < 0.05 or ev[1] < 4.0 * ev[0]:      # not 2:1 or better
                 continue
             marks[i] = (cx, cy, float(evec[0, 1]), float(evec[1, 1]),
                         3.5 * math.sqrt(max(float(ev[1]), 1e-6)))
@@ -2163,6 +2346,33 @@ def main(path, out_json=None):
                 spans.setdefault(rr, []).append(
                     (np.rint(np.linspace(y1, y2, n2)).astype(int),
                      np.rint(np.linspace(x1, x2, n2)).astype(int)))
+            # A dashed line stops a gap short of the node at each end, so the
+            # chain of its dashes ends short too and the flow reads as running
+            # between nothing: "place order" to "Order" on UBL-1.0-Procurement-
+            # Process leaves 36px and 57px of white against a 34px reach, and the
+            # five dashes between them were dropped and then read as text. The
+            # line does reach; carry the chain one pitch further at each end,
+            # which is its own measurement of how far the drawing skips.
+            if len(pts) >= 2:
+                steps = [math.hypot(x2 - x1, y2 - y1)
+                         for (x1, y1), (x2, y2) in zip(pts, pts[1:])]
+                pitch = float(np.median(steps))
+                for (xa, ya), (xb, yb) in ((pts[1], pts[0]), (pts[-2], pts[-1])):
+                    d = math.hypot(xb - xa, yb - ya) or 1.0
+                    # ...only where it falls short. A chain that already ends on a
+                    # node needs no help, and carrying it past the node moved the
+                    # point the arrowhead is measured at: two dashed flows on
+                    # Fulfilment-ReceiptAdvice came back pointing up the page.
+                    r = 34
+                    yy0, yy1 = int(max(0, yb - r)), int(min(H, yb + r + 1))
+                    xx0, xx1 = int(max(0, xb - r)), int(min(W, xb + r + 1))
+                    if erased[yy0:yy1, xx0:xx1].any():
+                        continue
+                    ex, ey = xb + (xb - xa) / d * pitch, yb + (yb - ya) / d * pitch
+                    n2 = int(max(abs(ex - xb), abs(ey - yb))) + 1
+                    spans.setdefault(rr, []).append(
+                        (np.rint(np.linspace(yb, ey, n2)).astype(int),
+                         np.rint(np.linspace(xb, ex, n2)).astype(int)))
             print("   chained %d dashes into one dashed flow" % len(chain))
 
     members = {}

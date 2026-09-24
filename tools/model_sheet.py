@@ -186,7 +186,27 @@ def checks(g):
     rule("work crossing between parties goes through a document", cross,
          "informational: UBL draws the hand-over as a document on the divider")
 
-    # 9 - the direction of every flow was read with confidence
+    # 9 - UBL draws the two kinds of flow differently: a control flow, between
+    # actions and decisions, is a solid line; an object flow, into or out of a
+    # document, is dashed. So the line style and the ends have to agree, and where
+    # they do not one of the two was misread. Informational, because a handful of
+    # diagrams also dash an annotation between two actions - the "prior exchange
+    # of public keys" pair on the Billing processes is drawn that way.
+    style = []
+    for e in g["edges"]:
+        a, b = byid.get(e["from"]), byid.get(e["to"])
+        if not a or not b:
+            continue
+        doc = "object" in (a["kind"], b["kind"])
+        if bool(e.get("dash")) != doc:
+            style.append("%s %s %s (%s)"
+                         % (label(a), "--->" if e.get("dash") else "--->",
+                            label(b), "dashed but neither end is a document"
+                            if e.get("dash") else "solid but one end is a document"))
+    rule("dashed flows are the ones that touch a document", style,
+         "informational: UBL draws object flows dashed and control flows solid")
+
+    # 10 - the direction of every flow was read with confidence
     rule("every flow's direction was read with confidence",
          ["%s -> %s" % (label(byid.get(e["from"], {"kind": "action", "label": e["from"]})),
                         label(byid.get(e["to"], {"kind": "action", "label": e["to"]})))
