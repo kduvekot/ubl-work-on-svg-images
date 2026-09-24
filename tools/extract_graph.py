@@ -3541,6 +3541,13 @@ def main(path, out_json=None):
         # than it is long is a box's border caught in the probe, not a head.
         sized = [e for e in edges if e.get("arrowPx") and not e.get("arrowSaturated")
                  and e["arrowPx"][1] <= 1.6 * e["arrowPx"][0]]
+        # Which of those readings is a head at all. The aspect the note above
+        # describes is the test, at the figure the 78 diagrams actually give: of
+        # the 802 readings that get this far, 765 measure between 0.7 and 1.1
+        # times as wide as they are long, and 18 sit above 1.1 with nothing in
+        # between - each of those a junction or a border measured across, not a
+        # head.
+        firm = [e for e in sized if e["arrowPx"][1] <= 1.1 * e["arrowPx"][0]]
         heads = sorted(e["arrowPx"][0] for e in sized)
         widths = sorted(e["arrowPx"][1] for e in sized)
         # Where too little of the diagram reads, say so rather than drawing to a
@@ -3550,20 +3557,34 @@ def main(path, out_json=None):
         # against heads of about 40. The head is then set from the diagram's own
         # type size, which is the one measurement it does give up reliably and
         # which the other 77 diagrams' heads track at around 1.1 times.
-        if len(heads) < max(2, 0.25 * len(edges)):
+        #
+        # It is the believable readings that have to be counted here, not every
+        # reading that survived the loose cut. CPFR-ExceptionHandling gives up
+        # two heads and two junctions; counting all four called the diagram read
+        # and then drew every head on it a quarter wider than it is long, which
+        # no diagram in the set draws.
+        if len(firm) < max(2, 0.25 * len(edges)):
             heads, widths = [], []
             if edges:
                 uncertain.append(dict(
                     kind="arrowhead-size-unreadable", x=0, y=0, w=W, h=H,
                     reason="only %d of %d connectors gave a usable arrowhead"
                            " measurement; the head is drawn at 1.1x the type size"
-                           % (len(sized), len(edges))))
+                           % (len(firm), len(edges))))
         if heads:
             keep = [h for h in heads if h <= 2 * float(np.median(heads))]
             arrow_px = round(float(np.median(keep or heads)), 1)
             # the width of the same cluster, not of everything: a head measured
-            # across a crossing line is wide for the wrong reason
-            tw = [e["arrowPx"][1] for e in sized if e["arrowPx"][0] <= 2 * arrow_px]
+            # across a crossing line is wide for the wrong reason.
+            #
+            # And once the diagram reads at all, each dimension is taken on its
+            # own evidence: every reading counts towards the length, only the
+            # believable ones towards the width. Dropping a whole reading because
+            # its width is impossible drops its length too, and the length is the
+            # harder of the two to read - on FreightStatusReporting the eight
+            # heads measure 53.6 to 57.6 across and 42 to 83 along, so cutting by
+            # aspect kept only the long half and set the head half again too long.
+            tw = [e["arrowPx"][1] for e in firm if e["arrowPx"][0] <= 2 * arrow_px]
             arrow_w = float(np.median(tw or widths))
         else:
             arrow_px = round(1.1 * font_px, 1) if edges else 0.0
@@ -3606,6 +3627,180 @@ def main(path, out_json=None):
                           " %.0fx%.0f arrowhead - not a head)"
                           % (o["node"], L, Wd, arrow_px, arrow_w))
                     o["arrow"] = False
+
+        # A connector does not go round a box. Where the traced route leaves the
+        # straight line between its two ends on one side of a node, runs along
+        # that node's outline, and rejoins the line on the other side, the walk
+        # followed the box's border because the box was in its way: the shaft
+        # arriving on one side, the outline, and the shaft leaving on the other
+        # reach the tracer as a single component, and it walks the only path
+        # there is. What the artwork draws there is two flows, one into that node
+        # and one out of it - the document sits *on* the flow, which is how UBL
+        # draws "send X" -> [X] -> "receive X".
+        #
+        # The test separates without a threshold to choose. Thirteen routed
+        # connectors in the 78 have a chord that crosses some other node; two of
+        # them trace three sides of the node they skirt and the other eleven
+        # trace none of it, being long loop-backs that pass a box at a distance.
+        # Those two are on UBL-2.0-SourcingBuyerInitiatedProcess, and the two
+        # documents they skip are - of the 228 object nodes in the whole set -
+        # the only ones left with no flow at all that the artwork does draw one
+        # to.
+        def _clip(a, b, x0, y0, x1, y1):
+            """Where the segment a->b enters and leaves a box, as two fractions."""
+            t0, t1 = 0.0, 1.0
+            for p, q in ((-(b[0] - a[0]), a[0] - x0), (b[0] - a[0], x1 - a[0]),
+                         (-(b[1] - a[1]), a[1] - y0), (b[1] - a[1], y1 - a[1])):
+                if p == 0:
+                    if q < 0:
+                        return None
+                    continue
+                r = q / float(p)
+                if p < 0:
+                    t0 = max(t0, r)
+                else:
+                    t1 = min(t1, r)
+            return (t0, t1) if t0 <= t1 else None
+
+        split_out = []
+        for e in list(edges):
+            pts = ([e["fromPoint"]] + [list(p) for p in (e.get("points") or [])]
+                   + [e["toPoint"]])
+            if len(pts) < 3:
+                continue
+            A, B = pts[0], pts[-1]
+            for n in nodes:
+                if n["id"] in (e["from"], e["to"]):
+                    continue
+                x0, y0 = n["x"], n["y"]
+                x1, y1 = n["x"] + n["w"], n["y"] + n["h"]
+                ix, iy = 0.15 * n["w"], 0.15 * n["h"]
+                if not _clip(A, B, x0 + ix, y0 + iy, x1 - ix, y1 - iy):
+                    continue
+                band = max(3.0 * (n.get("stroke") or line_w or 3.0), 12.0)
+                sides = set()
+                for a, b in zip(pts, pts[1:]):
+                    horiz, vert = abs(a[1] - b[1]) <= 2, abs(a[0] - b[0]) <= 2
+                    ov_h = min(max(a[0], b[0]), x1) - max(min(a[0], b[0]), x0)
+                    ov_v = min(max(a[1], b[1]), y1) - max(min(a[1], b[1]), y0)
+                    if horiz and ov_h > 0 and 0 < y0 - a[1] <= band:
+                        sides.add("top")
+                    if horiz and ov_h > 0 and 0 < a[1] - y1 <= band:
+                        sides.add("bottom")
+                    if vert and ov_v > 0 and 0 < x0 - a[0] <= band:
+                        sides.add("left")
+                    if vert and ov_v > 0 and 0 < a[0] - x1 <= band:
+                        sides.add("right")
+                if len(sides) < 3:
+                    continue
+                cut = _clip(A, B, x0, y0, x1, y1)
+                if not cut:
+                    continue
+                t_in, t_out = cut
+                # A connector does not meet a node's outline. Where it stops is
+                # the artwork's business, not a margin to assume: these two flows
+                # break off 38px short of their document, and putting the new end
+                # on the box edge - or at the 14px the node erasure leaves - sets
+                # the arrowhead half its own length past the drawn one, so the
+                # whole of both counts as lost and as invented. Walk out from the
+                # box along the connector's own line until the page has ink again,
+                # and end it there.
+                chord = math.hypot(B[0] - A[0], B[1] - A[1]) or 1.0
+                ux, uy = (B[0] - A[0]) / chord, (B[1] - A[1]) / chord
+
+                def _own_ink(r, c):
+                    # neither a box's own outline nor a partition rule. A node's
+                    # bbox is the white it encloses, so its border is drawn
+                    # *outside* it - 17px of it here - and node_fill, which pads
+                    # by two, does not cover it. Taking that border for the
+                    # connector carries the end of the flow 16px past its own
+                    # arrowhead, which is the whole head lost and a whole head
+                    # invented beside it.
+                    if not (0 <= r < H and 0 <= c < W) or not ink[r, c]:
+                        return False
+                    if node_fill[r, c]:
+                        return False
+                    for q in nodes:
+                        s = (q.get("stroke") or 0) + 2
+                        if (q["x"] - s <= c <= q["x"] + q["w"] + s
+                                and q["y"] - s <= r <= q["y"] + q["h"] + s):
+                            return False
+                    if any(x - 2 <= c <= x + w + 2 for x, w in vr):
+                        return False
+                    if any(y - 2 <= r <= y + h + 2 for y, h in hr):
+                        return False
+                    return True
+
+                def _inked(t):
+                    qx = A[0] + (B[0] - A[0]) * t
+                    qy = A[1] + (B[1] - A[1]) * t
+                    return any(_own_ink(int(round(qy)) + dy, int(round(qx)) + dx)
+                               for dx in (-2, -1, 0, 1, 2)
+                               for dy in (-2, -1, 0, 1, 2))
+
+                def _run_out(t_start, t_stop):
+                    """The last of this connector's own ink, walking towards the
+                    box from the end that is known to be on it."""
+                    step = (t_stop - t_start) / max(1.0, abs(t_stop - t_start) * chord)
+                    last, blank, t = t_start, 0, t_start
+                    while (t - t_stop) * (t_start - t_stop) > 0:
+                        if _inked(t):
+                            last, blank = t, 0
+                        else:
+                            blank += 1
+                            if blank > 4:
+                                break
+                        t += step
+                    return last
+
+                t_in = _run_out(0.0, t_in)
+                t_out = _run_out(1.0, t_out)
+                enter = [int(round(A[0] + (B[0] - A[0]) * t_in)),
+                         int(round(A[1] + (B[1] - A[1]) * t_in))]
+                leave = [int(round(A[0] + (B[0] - A[0]) * t_out)),
+                         int(round(A[1] + (B[1] - A[1]) * t_out))]
+
+                def _outside(p):
+                    dx = max(x0 - p[0], 0, p[0] - x1)
+                    dy = max(y0 - p[1], 0, p[1] - y1)
+                    return math.hypot(dx, dy) > band
+
+                def _t(p):
+                    vx, vy = B[0] - A[0], B[1] - A[1]
+                    L2 = vx * vx + vy * vy or 1.0
+                    return ((p[0] - A[0]) * vx + (p[1] - A[1]) * vy) / L2
+
+                keep_a = [p for p in pts[1:-1] if _outside(p) and _t(p) < t_in]
+                keep_b = [p for p in pts[1:-1] if _outside(p) and _t(p) > t_out]
+                print("   split %s -> %s at %r: the route goes round it on %s,"
+                      " which is that box's own outline, not a connector"
+                      % (e["from"], e["to"],
+                         " ".join((n.get("label") or "").split()) or n["id"],
+                         ", ".join(sorted(sides))))
+                base = {k: v for k, v in e.items()
+                        if k in ("dash", "gap", "arrowPx", "arrowSaturated",
+                                 "arrowFill")}
+                half1 = dict(base, **{
+                    "from": e["from"], "to": n["id"],
+                    "routing": "orthogonal" if keep_a else "straight",
+                    "fromPoint": list(A), "toPoint": enter,
+                    "directionConfidence": "notation"})
+                half2 = dict(base, **{
+                    "from": n["id"], "to": e["to"],
+                    "routing": "orthogonal" if keep_b else "straight",
+                    "fromPoint": leave, "toPoint": list(B),
+                    "directionConfidence": "notation"})
+                if keep_a:
+                    half1["points"] = keep_a
+                if keep_b:
+                    half2["points"] = keep_b
+                if e.get("guard"):
+                    half1["guard"] = e["guard"]
+                split_out.append((e, half1, half2))
+                break
+        for old, h1, h2 in split_out:
+            edges[edges.index(old):edges.index(old) + 1] = [h1, h2]
+
         # Two directions an activity diagram fixes whatever the ink says: nothing
         # leaves an end event and nothing enters a start event. The arrowheads on
         # UBL-1.0-ProcurementProcess are 42px on a 3425px page and the one at its
@@ -3659,6 +3854,42 @@ def main(path, out_json=None):
                   % (e["from"], e["to"], " ".join((n.get("label") or "").split()),
                      "read by all of them" if side is outs else "written by all of them",
                      "writes" if side is outs else "reads", 100 * (decided(e) - 1)))
+            e["from"], e["to"] = e["to"], e["from"]
+            e["fromPoint"], e["toPoint"] = e.get("toPoint"), e.get("fromPoint")
+            if isinstance(e.get("arrowInk"), list) and len(e["arrowInk"]) == 2:
+                e["arrowInk"] = [e["arrowInk"][1], e["arrowInk"][0]]
+            if e.get("points"):
+                e["points"] = list(reversed(e["points"]))
+            e["directionConfidence"] = "notation"
+
+        # A diamond sends work more than one way - that is the whole of what the
+        # symbol says, labelled or not. So a decision with two or more flows in
+        # and fewer than two out has one of them backwards, and as with a
+        # document it is the least decided of them that is wrong.
+        #
+        # Across the 78 there are 74 diamonds; 68 of them carry flows, 65 of
+        # those already send work at least two ways, and the exceptions are three
+        # that read one-in-one-out (nothing to repair: turning their one incoming
+        # flow would leave them with none) and one that reads two-in-one-out.
+        # That one is "Match digital capabilities" on UBL-2.2-DigitalAgreement,
+        # whose "Y" branch the artwork draws into "Send digital agreement" and
+        # which read backwards because its head there measures 15.6px across
+        # against the 56px this diagram draws, and its guard - a bare "Y" - was
+        # too small for the type reader to find.
+        for n in nodes:
+            if n["kind"] != "decision":
+                continue
+            ins_ = [e for e in edges if e["to"] == n["id"]]
+            outs_ = [e for e in edges if e["from"] == n["id"]]
+            if len(ins_) < 2 or len(outs_) >= 2:
+                continue
+            e = min(ins_, key=decided)
+            print("   turned %s -> %s round: %r is a decision, and a decision"
+                  " sends work more than one way, but every flow here bar %d"
+                  " comes in; this one's two ends carry the same ink to within"
+                  " %.0f%%"
+                  % (e["from"], e["to"], " ".join((n.get("label") or "").split())
+                     or n["id"], len(outs_), 100 * (decided(e) - 1)))
             e["from"], e["to"] = e["to"], e["from"]
             e["fromPoint"], e["toPoint"] = e.get("toPoint"), e.get("fromPoint")
             if isinstance(e.get("arrowInk"), list) and len(e["arrowInk"]) == 2:

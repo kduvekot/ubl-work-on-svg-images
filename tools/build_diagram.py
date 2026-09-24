@@ -149,15 +149,23 @@ def svg_body(spec):
     o.append('<rect x="%.2f" y="%.2f" width="%.2f" height="%.2f" fill="none" stroke="#000" stroke-width="%.2f"/>'
              % (fb[0], fb[1], fb[2] - fb[0], fb[3] - fb[1], S["frame"]))
     o.append("</g>")
+    # Each rule at the weight it was measured at, not one weight for all of them.
+    # IMFM draws its lane dividers at 4px and the rule under the lane titles at
+    # 3, and one median over both axes drew every one of them at 4.
+    def rule_at(d):
+        return (d[0], d[1]) if isinstance(d, (list, tuple)) else (d, S["divider"])
+
     for i, d in enumerate(spec.get("dividers", [])):
+        at, wt = rule_at(d)
         o.append(group("lane-divider", "divider%d" % i, "lane divider", axis="v"))
         o.append('<line x1="%.1f" y1="0" x2="%.1f" y2="%.1f" stroke="#000" stroke-width="%.2f"/>'
-                 % (d, d, H, S["divider"]))
+                 % (at, at, H, wt))
         o.append("</g>")
     for i, d in enumerate(spec.get("bands", [])):
+        at, wt = rule_at(d)
         o.append(group("band-divider", "band%d" % i, "band divider", axis="h"))
         o.append('<line x1="0" y1="%.1f" x2="%.1f" y2="%.1f" stroke="#000" stroke-width="%.2f"/>'
-                 % (d, W, d, S["divider"]))
+                 % (at, W, at, wt))
         o.append("</g>")
     for i, gr in enumerate(spec.get("greyRules", [])):
         # a divider the artwork draws in grey; promoting it to black would be a
@@ -393,25 +401,47 @@ def main(spec_path, out):
     # needs one at its start as well, and a marker cannot be reused reversed
     mw = spec.get("arrow", 20)
     mh = spec.get("arrowWidth") or mw
-    # The marker's own coordinates are a 20x20 box scaled to markerWidth by
-    # markerHeight, so a stroke written in them is scaled with it. Writing a fixed
+    # The viewBox has to have the head's own proportions. A square 20x20 box
+    # inside a markerWidth by markerHeight rectangle is fitted uniformly - the
+    # default is xMidYMid meet - so the smaller of the two decides the scale, and
+    # every head whose measured width is less than its length came out short by
+    # exactly that ratio: 83px of measured head drawn as 70, on every arrowhead of
+    # all 78 diagrams, since the artwork's heads are longer than they are wide
+    # everywhere. Give the viewBox the same aspect as the box and the fit is
+    # exact, with the barbs still stroked round rather than stretched oval.
+    vh = 20.0 * max(1.0, mh) / max(1.0, mw)
+    # A stroke written in viewBox units is scaled with the box. Writing a fixed
     # fraction of the connector's weight drew the barbs at that weight only while
     # the box happened to be about 20 across: on IMFM-TransportServiceDescription,
     # whose arrowheads are 97px on 74px type, the box is 48 and the barbs came out
     # 2.2 times as heavy as the line they end. Divide it back out.
-    sw = S["edge"] * 20.0 / max(1.0, (mw + mh) / 2.0)
+    sw = S["edge"] * 20.0 / max(1.0, mw)
+
+    # The head's width is measured across the outside of the drawn barbs, and a
+    # barb ends in a round cap: putting the two centre-lines that far apart and
+    # then stroking them adds a whole stroke across, 8px on every head of the
+    # Tender family, whose heads are as wide as they are long. Its length does
+    # not need the same allowance - the tip is a join the connector's own line
+    # ends inside of, not a cap hanging past the measurement - and taking one
+    # there costs more than it saves on every diagram tried. So inset across the
+    # head only.
+    bw = sw * (0.67 if filled else 1.0)
+    half = max(0.05 * vh, (0.8 * vh - bw) / 2.0)
+    y0, y1 = vh / 2.0 - half, vh / 2.0 + half
 
     def marker(ident, back=False):
-        return ('<marker id="%s" markerUnits="userSpaceOnUse" viewBox="0 0 20 20" '
-                'refX="%d" refY="10" markerWidth="%.0f" markerHeight="%.0f" '
-                'orient="auto">'
+        return ('<marker id="%s" markerUnits="userSpaceOnUse" viewBox="0 0 20 %.2f" '
+                'refX="%d" refY="%.2f" markerWidth="%.0f" markerHeight="%.0f" '
+                'orient="auto" overflow="visible">'
                 '<path d="%s" fill="%s" stroke="#000" stroke-width="%.2f" '
                 'stroke-linecap="round" stroke-linejoin="round"/></marker>'
-                % (ident, 2 if back else (17 if filled else 18), mw, mh,
-                   ("M 18 2 L 2 10 L 18 18" if back else "M 2 2 L 18 10 L 2 18")
+                % (ident, vh, 2 if back else (17 if filled else 18), vh / 2.0,
+                   mw, mh,
+                   ("M %.2f %.2f L %.2f %.2f L %.2f %.2f"
+                    % ((18, y0, 2, vh / 2.0, 18, y1) if back else
+                       (2, y0, 18, vh / 2.0, 2, y1)))
                    + (" Z" if filled else ""),
-                   "#000" if filled else "none",
-                   sw * (0.67 if filled else 1.0)))
+                   "#000" if filled else "none", bw))
     defs = "<defs>" + marker("arrow") + marker("arrowback", back=True) + "</defs>"
     model = mxfile(spec)
     W, H = spec["canvas"]["w"], spec["canvas"]["h"]

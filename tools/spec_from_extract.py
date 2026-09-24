@@ -217,8 +217,9 @@ def main(src, out, model_w=1480.0):
                      M(min((y + t / 2 for y, t in outer_h), default=frame / 2)),
                      M(max((x + w / 2 for x, w in outer_v), default=W - frame / 2)),
                      M(max((y + t / 2 for y, t in outer_h), default=H - frame / 2))],
-        "dividers": [M(x + w / 2) for x, w in inner_v],
-        "bands": [M(y + t / 2) for y, t in inner_h],
+        # position and weight, each rule at the one it was measured at
+        "dividers": [[M(x + w / 2), M(w)] for x, w in inner_v],
+        "bands": [[M(y + t / 2), M(t)] for y, t in inner_h],
         "lanes": lanes, "bandLabels": bandLabels,
         "nodes": nodes, "edges": edges, "guards": guards,
     }
