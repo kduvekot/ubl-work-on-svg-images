@@ -2198,6 +2198,7 @@ def main(path, out_json=None):
         return i
 
     spans, joined_px = {}, []              # the pixels of the spans themselves
+    chain_dash = {}                        # each dashed chain's own dash/gap
     if font_px > 0:
         g = max(30, int(round(1.8 * font_px)))
         run = max(20, int(round(0.5 * font_px)))
@@ -2384,8 +2385,27 @@ def main(path, out_json=None):
                     stack += [m for m in link.get(k, ()) if m not in seen_m]
                 if len(chain) >= 3:
                     out_c.append(chain)
+                elif len(chain) == 2:
+                    pairs2.append(chain)
             return out_c
 
+        # Three marks in a row are a dashed line and two are a coincidence - but
+        # not when the two of them, carried one pitch further at each end, arrive
+        # at two different nodes. "advise receipt" writes ReceiptAdvice on
+        # UBL-1.0-ProcurementProcess over a span so short that only two of its
+        # dashes stand alone: the third is swallowed by the arrowhead on the box
+        # corner. Both ends landing on a node is what a coincidence does not do.
+        def reaches(px, py):
+            best = None
+            for nd in nodes:
+                dx = max(nd["x"] - px, 0, px - (nd["x"] + nd["w"]))
+                dy = max(nd["y"] - py, 0, py - (nd["y"] + nd["h"]))
+                if math.hypot(dx, dy) <= 34:
+                    if best is None or math.hypot(dx, dy) < best[1]:
+                        best = (nd["id"], math.hypot(dx, dy))
+            return best[0] if best else None
+
+        pairs2 = []
         chains = build_chains()
         # One dashed line can come back as two chains, because where another line
         # crosses it the dash under the crossing belongs to that line's component
@@ -2436,6 +2456,33 @@ def main(path, out_json=None):
                             break
             if merged:
                 chains = build_chains()
+
+        # ...and only now, with every run of dashes as long as it is going to get,
+        # look at the runs of two.
+        for pr in pairs2:
+            if any(pr[0] in ch for ch in chains):
+                continue
+            (ax, ay), (bx2, by2) = marks[pr[0]][:2], marks[pr[1]][:2]
+            d0 = math.hypot(bx2 - ax, by2 - ay)
+            if d0 < 1:
+                continue
+            # ...and the two of them have to be the same mark twice, which is
+            # what the dashes of one line are and what two letters are not. The
+            # "[" and "]" of a "[no action]" guard on SelfBilling-with-CreditNote
+            # sit between two nodes and pass every other test here; they measure
+            # 39 and 26 long, against 16.6 and 16.0 for the pair that really is a
+            # dashed flow.
+            la, lb = marks[pr[0]][4], marks[pr[1]][4]
+            if max(la, lb) > 1.25 * max(min(la, lb), 1e-6):
+                continue
+            ux, uy = (bx2 - ax) / d0, (by2 - ay) / d0
+            na = reaches(ax - ux * d0, ay - uy * d0)
+            nb = reaches(bx2 + ux * d0, by2 + uy * d0)
+            if na and nb and na != nb:
+                print("   two dashes between %s and %s, carried a dash further at"
+                      " each end, reach both - taking them as a dashed flow"
+                      % (na, nb))
+                chains.append(pr)
 
         for chain in chains:
             pts = sorted((marks[k][0], marks[k][1]) for k in chain)
@@ -2507,6 +2554,24 @@ def main(path, out_json=None):
                     spans.setdefault(rr, []).append(
                         (np.rint(np.linspace(yb, ey, n2)).astype(int),
                          np.rint(np.linspace(xb, ex, n2)).astype(int)))
+            # the chain knows its own pattern - it is made of the dashes. Reading
+            # it back off the page later cannot always find it: a long dashed flow
+            # is crossed by other lines that fill its gaps, and four flows on
+            # UBL-1.0-ProcurementProcess were drawn solid into a document because
+            # of it. The dash is the mark, the gap is what is left of the pitch.
+            lens = sorted(marks[k][4] for k in chain)
+            dl = float(lens[len(lens) // 2])
+            if len(pts) >= 2:
+                st2 = [math.hypot(x2 - x1, y2 - y1)
+                       for (x1, y1), (x2, y2) in zip(pts, pts[1:])]
+                pt = float(np.median(st2))
+                if pt > dl > 0:
+                    # ...and where along the line a dash actually begins. A dash
+                    # pattern in the right proportions but the wrong phase puts
+                    # every drawn dash over one of the original's gaps, which
+                    # costs more ink than drawing the line solid did.
+                    chain_dash[rr] = (round(dl, 1), round(pt - dl, 1),
+                                      pts[0][0], pts[0][1])
             print("   chained %d dashes into one dashed flow" % len(chain))
 
     members = {}
@@ -2647,12 +2712,12 @@ def main(path, out_json=None):
         if parts:
             print("   one component crossing %d nodes split into %d connectors"
                   % (len(t), len(parts)))
-            groups.extend(parts)
+            groups.extend((a, b, grp) for a, b in parts)
         else:
-            groups.append((gy, gx))
+            groups.append((gy, gx, grp))
 
     print("\nEDGES")
-    for ys, xs in groups:
+    for ys, xs, grp in groups:
         n_px = int(ys.size)
         if n_px < text_floor(font_px):
             continue
@@ -3000,6 +3065,16 @@ def main(path, out_json=None):
                         trim=1.2 * (head[0] if head else 0.0))
         if dash:
             rec["dash"], rec["gap"] = dash
+        elif grp in chain_dash:
+            dl, gp, mx, my = chain_dash[grp]
+            rec["dash"], rec["gap"] = dl, gp
+            # the phase, for a line drawn as one straight run
+            if not rec.get("points"):
+                vx, vy = p_to[0] - p_from[0], p_to[1] - p_from[1]
+                LL = math.hypot(vx, vy)
+                if LL > 1:
+                    t0 = ((mx - p_from[0]) * vx + (my - p_from[1]) * vy) / LL
+                    rec["dashOffset"] = round((-(t0 - dl / 2.0)) % (dl + gp), 1)
         if head:
             # measured again, now that the direction is settled, with the walk
             # allowed to run forward to the head's actual point. The reading above
@@ -3415,6 +3490,44 @@ def main(path, out_json=None):
             what = "an end event" if kind_of.get(e["from"]) == "final" else "a start event"
             print("   turned %s -> %s round: %s is at the wrong end of it"
                   % (e["from"], e["to"], what))
+            e["from"], e["to"] = e["to"], e["from"]
+            e["fromPoint"], e["toPoint"] = e.get("toPoint"), e.get("fromPoint")
+            if isinstance(e.get("arrowInk"), list) and len(e["arrowInk"]) == 2:
+                e["arrowInk"] = [e["arrowInk"][1], e["arrowInk"][0]]
+            if e.get("points"):
+                e["points"] = list(reversed(e["points"]))
+            e["directionConfidence"] = "notation"
+
+        # A document is written by something and read by something - that is what
+        # a document *is* in an activity diagram, and UBL draws every one of them
+        # that way. So a document whose flows all point the same way has one of
+        # them backwards, and the arrowheads say which: the one whose two ends are
+        # closest to carrying the same amount of ink was the least decided.
+        #
+        # This can only fire where the reading is impossible, which across the 78
+        # is two flows, both on UBL-1.0-ProcurementProcess - the coin-flip at
+        # Order (160 against 163) and the flow from "accept order" to the second
+        # OrderResponseSimple. It is a repair, not a preference: where the flows
+        # already go both ways it does nothing.
+        def decided(e):
+            ink2 = e.get("arrowInk") or [1, 1]
+            lo, hi = sorted((max(ink2[0], 1), max(ink2[1], 1)))
+            return hi / float(lo)
+
+        for n in nodes:
+            if n["kind"] != "object":
+                continue
+            ins = [e for e in edges if e["to"] == n["id"]]
+            outs = [e for e in edges if e["from"] == n["id"]]
+            side = ins if (ins and not outs) else (outs if (outs and not ins) else None)
+            if side is None or len(side) < 2:
+                continue
+            e = min(side, key=decided)
+            print("   turned %s -> %s round: %r is %s but nothing %s it, and this"
+                  " flow's two ends carry the same ink to within %.0f%%"
+                  % (e["from"], e["to"], " ".join((n.get("label") or "").split()),
+                     "read by all of them" if side is outs else "written by all of them",
+                     "writes" if side is outs else "reads", 100 * (decided(e) - 1)))
             e["from"], e["to"] = e["to"], e["from"]
             e["fromPoint"], e["toPoint"] = e.get("toPoint"), e.get("fromPoint")
             if isinstance(e.get("arrowInk"), list) and len(e["arrowInk"]) == 2:

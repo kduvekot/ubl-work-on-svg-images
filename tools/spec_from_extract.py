@@ -108,6 +108,8 @@ def main(src, out, model_w=1480.0):
         # the artwork's own dash pattern, where the flow is drawn dashed
         if ed.get("dash"):
             d["dash"], d["gap"] = M(ed["dash"]), M(ed["gap"])
+            if ed.get("dashOffset") is not None:
+                d["dashOffset"] = M(ed["dashOffset"])
         # a point at both ends: a standing relationship between two parties, not
         # a flow from one to the other
         if ed.get("arrowBoth"):

@@ -242,6 +242,10 @@ def svg_body(spec):
             at += ' marker-start="url(#arrowback)"'
         if e.get("dash"):
             at += ' stroke-dasharray="%.1f %.1f"' % (e["dash"], e["gap"])
+            # where the artwork's own first dash begins, so the pattern lands on
+            # the original's dashes rather than in the gaps between them
+            if e.get("dashOffset") is not None:
+                at += ' stroke-dashoffset="%.1f"' % e["dashOffset"]
         o.append('<polyline points="%s" fill="none" stroke="#000" stroke-width="%.2f"%s/>'
                  % (" ".join("%.1f,%.1f" % p for p in pts), S["edge"], at))
         o.append("</g>")
