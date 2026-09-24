@@ -3059,6 +3059,29 @@ def main(path, out_json=None):
         # instead of choosing an elbow of its own
         if turns:
             rec["points"] = turns
+            # ...and the ends have to sit on the leg they leave along. The corner
+            # is measured on the centre of its own stroke, but each end is a
+            # contact point, and a contact is a few pixels off wherever an
+            # arrowhead or the node erasure moved it. Left as it came, the first
+            # leg is not quite horizontal: the long "No" flow back to "Prepare
+            # Simplified Notice" on Tender-ContractInfoPrep leaves its diamond 13px
+            # above the run it joins and then slopes across 1972px of page to meet
+            # it, which is 86% of everything that diagram gets wrong. Snap each end
+            # onto the axis of the leg beside it, and only on that axis, so the
+            # point stays where it met the node in the other direction.
+            # ...and only where the leg is meant to be square. A contact is out
+            # by a few pixels; a leg that runs at a real angle is out by a real
+            # fraction of its own length, and snapping that one straightens a
+            # line the artwork drew slanted.
+            for pt, cor in ((rec["fromPoint"], turns[0]),
+                            (rec["toPoint"], turns[-1])):
+                dx, dy = abs(pt[0] - cor[0]), abs(pt[1] - cor[1])
+                if min(dx, dy) > 0.05 * max(dx, dy):
+                    continue
+                if dx > dy:
+                    pt[1] = cor[1]            # a horizontal leg
+                else:
+                    pt[0] = cor[0]            # a vertical one
         # Dashed or solid, and one head or two. A flow with a point at both ends
         # is not a flow from one of them to the other - the "prior exchange of
         # public keys" the Tender-Contract diagrams draw across their lane divider
