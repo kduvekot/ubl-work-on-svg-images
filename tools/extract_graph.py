@@ -29,7 +29,8 @@ import ocr_cache
 Image.MAX_IMAGE_PIXELS = None
 MIN_NODE_AREA = 1200
 EDGE_MIN_AREA = 150
-TEXT_MIN_AREA = 60
+TEXT_MIN_AREA = 60     # a flat floor, kept only for the diagrams whose type this
+                       # run never measured; text_floor() scales it with the type
 ARROW_PROBE_R = 45
 TEXT_CONF = 45         # below this tesseract is reading line-work, not words:
                        # every real label on UpdateCatalogueItemSpecification
@@ -47,6 +48,18 @@ def load_ink(path):
     bg = Image.new("RGB", im.size, "white")
     bg.paste(im, mask=im.split()[-1] if im.mode in ("RGBA", "LA") else None)
     return np.asarray(bg.convert("L")) < 128, bg
+
+
+def text_floor(font_px):
+    """The smallest piece of ink that can still be a letter of this diagram's type.
+
+    A flat 60 pixels is right for artwork set at 40px and wrong at both ends of the
+    range this set covers. The "o" of the "No" beside a decision on
+    GoodsItemPassportApproval, whose type is 26px, is 59 pixels - one short - so it
+    was discarded, its "N" was left alone and then too small to be a text block, and
+    the guard went missing from four transport diagrams. A letter's area goes with
+    the square of the type size, so the floor does too."""
+    return max(20, int(0.05 * font_px * font_px)) if font_px else TEXT_MIN_AREA
 
 
 def ocr(bg, x, y, w, h, inset=0):
@@ -1713,8 +1726,12 @@ def main(path, out_json=None):
         # leaves too little for its own label, and half-height glyphs OCR as
         # nonsense ("Draft" -> "Uiall", "Declaration" -> "Narlaratinn"). Find the
         # line bands off the ink first, then read the block they span.
+        # ...for a rhombus as well. The lines were never measured there, so every
+        # decision's label was drawn centred in its box and nothing said where the
+        # artwork actually sets it; the interior mask handles a rhombus as readily
+        # as a rectangle, because it is the enclosed white area whatever the shape.
         boxes = label_lines(ink, n, max(4, n.get("stroke", 4)) + 2) \
-            if n["kind"] in ("action", "object", "note") else []
+            if n["kind"] in ("action", "object", "note", "decision") else []
         if n["kind"] == "decision":
             # A rhombus writes its label across its middle, with its two slanted
             # edges a few pixels from the glyphs. Eroding the interior does not
@@ -2237,10 +2254,10 @@ def main(path, out_json=None):
         out = []
         for idx in range(len(pairs)):
             sel = best == idx
-            if sel.sum() >= TEXT_MIN_AREA:
+            if sel.sum() >= text_floor(font_px):
                 out.append((ys[sel], xs[sel]))
         rest = best < 0
-        if rest.sum() >= TEXT_MIN_AREA:
+        if rest.sum() >= text_floor(font_px):
             out.append((ys[rest], xs[rest]))
         return out if len(out) >= 2 else None
 
@@ -2266,7 +2283,7 @@ def main(path, out_json=None):
     print("\nEDGES")
     for ys, xs in groups:
         n_px = int(ys.size)
-        if n_px < TEXT_MIN_AREA:
+        if n_px < text_floor(font_px):
             continue
         touch = touching(xs, ys)
         if len(touch) > 2:
@@ -2714,7 +2731,10 @@ def main(path, out_json=None):
     strays = []          # line-work that read as text: nearly always an arrowhead
     for b in lines:
         w, h = b[2] - b[0] + 1, b[3] - b[1] + 1
-        if w < 25 or h < 14:
+        # ...and a block is too small to be text in this diagram's own type, not in
+        # a flat number of pixels: 25x14 is a word at 40px type and a whole "No" at
+        # 26px type, which is why four of the transport diagrams lost theirs.
+        if w < max(16, 0.55 * font_px) or h < max(10, 0.35 * font_px):
             continue
         # The gutter down the side carries the band titles, set sideways, and the
         # partition pass reads them there by turning the crop. Read across, as
@@ -2825,16 +2845,37 @@ def main(path, out_json=None):
                 item["lines"] = [dict(bx, text=p) for bx, p in keep_l]
             elif not got:
                 continue                  # every band was line-work
-        if t.startswith("[") or t.endswith("]"):
+        # A guard is a short label standing beside the branch it belongs to. Half
+        # of this artwork brackets them - "[accept charges]" - and half does not:
+        # the transport diagrams write a plain "Yes" and "No", and requiring the
+        # brackets left every one of those unattached, so the model could not say
+        # which way out of a decision was which.
+        one_line = " ".join(t.split())
+        in_title_strip = (header and b[1] < hb[1]) or (strip and b[0] < vb[1])
+        if (not in_title_strip
+                and (t.startswith("[") or t.endswith("]")
+                     or (len(one_line) <= 14 and len(one_line.split()) <= 2
+                         and len(re.sub(r"[^0-9A-Za-z]", "", one_line)) >= 2))):
             cx, cy = b[0] + w / 2, b[1] + h / 2
+            kinds = {n["id"]: n["kind"] for n in nodes}
+            bracketed = t.startswith("[") or t.endswith("]")
             best, bd = None, 1e18
             for e in edges:
+                branch = kinds.get(e["from"]) in ("decision", "fork")
+                # An unbracketed word is only a guard where a guard can be: on a
+                # branch. Without that, "Producer" and "Importer Party" - lane
+                # titles on the diagrams that set them without a header band -
+                # attached themselves to the flow out of the start event, which is
+                # not a thing an activity diagram has.
+                if not branch and not bracketed:
+                    continue
+                bias = 1.0 if branch else 2.25
                 for p in (e["fromPoint"], e["toPoint"]):
-                    d = (p[0] - cx) ** 2 + (p[1] - cy) ** 2
+                    d = ((p[0] - cx) ** 2 + (p[1] - cy) ** 2) * bias
                     if d < bd:
                         bd, best = d, e
             if best is not None and bd < (W * 0.12) ** 2:
-                best["guard"] = t
+                best["guard"] = one_line
                 item["attachedTo"] = "%s->%s" % (best["from"], best["to"])
         texts.append(item)
         print("   %-40r x=%-5d y=%-5d %s" % (t, b[0], b[1], item.get("attachedTo", "")))
@@ -2843,7 +2884,6 @@ def main(path, out_json=None):
     c0, r0 = (1 if strip else 0), (1 if header else 0)
     grid = []
     for c in range(c0, len(vb) - 1):
-        box = None
         box = None
         if header:
             t = ocr(bg, round(vb[c]), 0, round(vb[c + 1] - vb[c]), round(hb[r0]), 6)

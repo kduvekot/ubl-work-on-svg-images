@@ -217,7 +217,15 @@ def check_text_complete(bg_orig, graph, boxes, findings, glyph_h):
     import difflib
     placed = []
     for n in graph.get("nodes", []):
-        for ln in n.get("labelLines") or []:
+        lines = n.get("labelLines") or []
+        if not lines and (n.get("label") or "").strip():
+            # a label the extractor could not split into its lines is still a
+            # label, and the rebuild still draws it - centred in the node's own
+            # box. Counting it as absent said every decision diamond's words were
+            # missing from diagrams that draw them plainly inside it.
+            lines = [dict(x=n["x"], y=n["y"], w=n["w"], h=n["h"],
+                          text=" ".join(n["label"].split()))]
+        for ln in lines:
             placed.append((ln, ln.get("text", ""), "label of %s" % n["id"]))
     for t in graph.get("text", []):
         for ln in t.get("lines") or [t]:
