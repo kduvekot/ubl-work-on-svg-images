@@ -2845,6 +2845,61 @@ def main(path, out_json=None):
             return int(mask[max(0, py - r):py + r, max(0, px - r):px + r].sum()), (px, py)
 
         (da, pa), (db, pb) = contact(touch[0]), contact(touch[1])
+
+        # A contact is the pixel of this component nearest the node's centre, and
+        # on an arrowhead that is a corner of the head, not the line's own axis:
+        # the flow into "Raise Credit Note" on SelfBilling-with-CreditNote ends
+        # 6px to the left of the line it is drawn along, because the box it points
+        # at is wide and its centre lies that way. Both ends are pulled towards
+        # their own node, so the chord ends up beside the artwork's line and
+        # tilted, and the arrowhead is then drawn at the tilted angle too.
+        #
+        # Put each end back on the axis of its own shaft, sampled well clear of
+        # the head - a cross-section wider than a couple of strokes is the head
+        # or a crossing, and is not used.
+        cset = set(zip(ys.tolist(), xs.tolist()))
+
+        def recentre(p, q):
+            vx2, vy2 = q[0] - p[0], q[1] - p[1]
+            LL = math.hypot(vx2, vy2)
+            st2 = max(2.0, line_w or 4.0)
+            if LL < 24 * st2:
+                return p
+            ux2, uy2 = vx2 / LL, vy2 / LL
+            nx2, ny2 = -uy2, ux2
+            reach = int(max(8, 6 * st2))
+            offs = []
+            for k in (4, 7, 10, 14, 18):
+                d = k * st2
+                if d > 0.45 * LL:
+                    break
+                bx, by = p[0] + ux2 * d, p[1] + uy2 * d
+                hits = {t for t in range(-reach, reach + 1)
+                        if (int(round(by + ny2 * t)), int(round(bx + nx2 * t))) in cset}
+                if not hits:
+                    continue
+                # the run nearest the chord, not the run *on* it: the chord is
+                # what is being corrected, so it need not sit on the line at all
+                seed = min(hits, key=abs)
+                lo = hi = seed
+                while lo - 1 in hits:
+                    lo -= 1
+                while hi + 1 in hits:
+                    hi += 1
+                if hi - lo + 1 > 2.2 * st2:        # the head, or a line crossing it
+                    continue
+                offs.append((lo + hi) / 2.0)
+            if len(offs) < 2:
+                return p
+            off = float(np.median(offs))
+            if abs(off) > 2.5 * st2:
+                return p
+            moved = (int(round(p[0] + nx2 * off)), int(round(p[1] + ny2 * off)))
+            # the end has to stay on the connector: the corner trace walks the
+            # component from it and cannot start outside it
+            return moved if (moved[1], moved[0]) in cset else p
+
+        pa, pb = recentre(pa, pb), recentre(pb, pa)
         vx, vy = pb[0] - pa[0], pb[1] - pa[1]
 
         # A connector within a few degrees of an axis is on that axis. Its two
