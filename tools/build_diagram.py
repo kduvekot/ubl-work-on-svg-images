@@ -88,7 +88,14 @@ def lines_of(n, cx, cy, size, font, weight="", style=""):
         weight = "bold" if n["bold"] else ""
     ll = n.get("labelLines")
     if not ll:
-        return text(n.get("label", ""), cx, cy, size, font, weight, style)
+        # a node carries its words under "label" and a free block under "text",
+        # and reading only the first drew an empty <text> element for every block
+        # whose lines could not be measured one by one - "Catalogue update is
+        # needed? True" vanished from CRP-ChangeArticleCatalogue that way, and
+        # nothing said so, because the group around it still carried the words in
+        # its <title>
+        return text(n.get("label") or n.get("text") or "",
+                    cx, cy, size, font, weight, style)
     return "".join(text(l["text"], l["cx"], l["cy"], size, font, weight, style,
                         l.get("w")) for l in ll)
 
@@ -215,7 +222,8 @@ def svg_body(spec):
         elif k == "fork":
             o.append('<rect x="%.1f" y="%.1f" width="%.1f" height="%.1f" fill="#000"/>' % (x, y, w, h))
         elif k == "note":
-            f = min(w, h) * 0.30                      # the folded corner
+            # the folded corner, at the size the artwork turns it
+            f = n.get("fold") or min(w, h) * 0.30
             o.append('<path d="M %.1f %.1f H %.1f L %.1f %.1f V %.1f H %.1f Z" '
                      'fill="#fff" stroke="#000" stroke-width="%.2f"/>'
                      % (x, y, x + w - f, x + w, y + f, y + h, x, S["action"]))

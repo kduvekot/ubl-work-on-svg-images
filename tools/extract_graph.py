@@ -701,6 +701,27 @@ def arrow_size(xs, ys, tip, back, stroke, limit=None, need_point=False, min_len=
     return round(length, 1), round(width, 1), round(taper, 2), front, back_len >= cap - 1
 
 
+def is_fold(a, b):
+    """Is `b` the folded corner of the note `a` rather than a region inside it.
+
+    A note is a rectangle with one corner turned over, and the turned corner traps
+    a small triangle of white in that corner. It is small, it is about as wide as
+    it is tall, it is roughly half the ink of its own box, and it sits in a corner
+    - so it is nothing like the enclosed region the test around this is for, which
+    is a node drawn inside another node."""
+    if b["area"] > 0.06 * a["w"] * a["h"]:
+        return False
+    if not (0.25 <= b.get("fill", 1.0) <= 0.75):
+        return False
+    if max(b["w"], b["h"]) > 1.6 * max(1, min(b["w"], b["h"])):
+        return False
+    tol = max(8.0, 0.05 * min(a["w"], a["h"]))
+    return ((abs(b["y"] - a["y"]) <= tol
+             or abs(b["y"] + b["h"] - a["y"] - a["h"]) <= tol)
+            and (abs(b["x"] - a["x"]) <= tol
+                 or abs(b["x"] + b["w"] - a["x"] - a["w"]) <= tol))
+
+
 def border_coverage(ink, n, pad=3):
     """fraction of the bbox perimeter that sits on ink - a stroked box is ~1.0,
     white merely trapped between other shapes is much lower"""
@@ -919,7 +940,13 @@ def drop_phantoms(ink, regs, cells=(), min_iou=0.88, max_open=2,
                  # nodes, each vetoed by a 34x30 counter in its own bold label.
                  b["area"] >= MIN_NODE_AREA and
                  (b["h"] >= 0.9 * glyph_h if glyph_h else
-                  (b["w"] * b["h"]) >= 0.02 * (a["w"] * a["h"]))
+                  (b["w"] * b["h"]) >= 0.02 * (a["w"] * a["h"])) and
+                 # ...and a note's own folded corner is not a region it contains,
+                 # it is what makes it a note. SourcingPunchout draws one around
+                 # "Transaction accessing Seller's catalogue application" and the
+                 # 59x59 triangle its fold encloses deleted the whole box, leaving
+                 # the words standing on the page with nothing round them.
+                 not is_fold(a, b)
                  for b in regs):
             why = "encloses another region"
         elif is_final_ring(ink, a, ink.shape[1]) or is_note(ink, a):
@@ -972,6 +999,16 @@ def drop_phantoms(ink, regs, cells=(), min_iou=0.88, max_open=2,
                                   reason="every side has pass-through line-work, but the"
                                          " region carries a complete outline of its own",
                                   check="confirm this is a node and not trapped whitespace"))
+        # a note's fold is measurable, so it is not drawn at a fixed fraction of
+        # the box: SourcingPunchout turns a corner 59px across on a 533px box,
+        # against the 0.30 of the shorter side the rebuild used to assume
+        fold = next((b for b in regs
+                     if b is not a and b["x"] >= a["x"] - 2 and b["y"] >= a["y"] - 2
+                     and b["x"] + b["w"] <= a["x"] + a["w"] + 2
+                     and b["y"] + b["h"] <= a["y"] + a["h"] + 2
+                     and is_fold(a, b)), None)
+        if fold is not None:
+            a["fold"] = int(max(fold["w"], fold["h"]))
         keep.append(a)
     return keep
 
@@ -1904,6 +1941,50 @@ def main(path, out_json=None):
 
         (da, pa), (db, pb) = contact(touch[0]), contact(touch[1])
         vx, vy = pb[0] - pa[0], pb[1] - pa[1]
+
+        # A connector within a few degrees of an axis is on that axis. Its two
+        # contacts are where the trace met each node, and those can be a few
+        # pixels apart across the line - 24px over 782 on CRP-InitialStocking's
+        # flows into the join bar - which is enough to make the chord between them
+        # a slope the ink never follows. Every reading below is taken against that
+        # chord, so it is put right first: the line's own coordinate is the middle
+        # of its ink, which is measured and not inferred.
+        def reading(qa, qb):
+            ux, uy = qb[0] - qa[0], qb[1] - qa[1]
+            n = math.hypot(ux, uy) or 1
+            d = ((xs - qa[0]) * uy - (ys - qa[1]) * ux) / n
+            return n, np.abs(d), float(d.mean())
+
+        def is_line(n, d, sg):
+            return abs(sg) < 8.0 and float(np.median(d)) < 0.15 * n + 3.0
+
+        # ...and it is on that axis if putting it there makes its ink lie along
+        # it. No angle has to be guessed at: try the axis, keep it only if the
+        # reading comes back straight. A connector that really runs at an angle
+        # does not straighten when it is squared up, so it keeps its own chord.
+        #
+        # This is a repair, not a default. A connector whose own two contacts
+        # already read as one line is left exactly where they put it: squaring
+        # those up as well moved ten connectors a few pixels sideways, off the ink
+        # they were drawn on, which is a displacement where there was none.
+        if not is_line(*reading(pa, pb)):
+            # ...and only by as much as a contact can be out. The two ends of a
+            # trace land a few pixels apart on where they met their nodes - 24 and
+            # 29 on CRP-InitialStocking, against 73px type. A leg of an L is not
+            # that: ExportCustomsDeclaration routes a flow 90px out to the left of
+            # its box and then down, against 26px type, and squaring that up
+            # straightened a corner the artwork draws.
+            slack = max(8.0, 0.5 * font_px)
+            axis = None
+            if abs(vy) > 8 and abs(vx) <= slack:
+                c = int(round(float(np.median(xs))))
+                axis = ((c, pa[1]), (c, pb[1]))
+            elif abs(vx) > 8 and abs(vy) <= slack:
+                c = int(round(float(np.median(ys))))
+                axis = ((pa[0], c), (pb[0], c))
+            if axis and is_line(*reading(*axis)):
+                pa, pb = axis
+        vx, vy = pb[0] - pa[0], pb[1] - pa[1]
         L = math.hypot(vx, vy) or 1
         dist = np.abs((xs - pa[0]) * vy - (ys - pa[1]) * vx) / L
         # Is it one line or an elbow? Not the average distance of its ink from
@@ -1921,20 +2002,6 @@ def main(path, out_json=None):
         # cancels: however symmetric, it does not stay near its own chord.
         sgn = float((((xs - pa[0]) * vy - (ys - pa[1]) * vx) / L).mean())
         straight = abs(sgn) < 8.0 and float(np.median(dist)) < 0.15 * L + 3.0
-        # A straight connector that is within a few degrees of an axis is on that
-        # axis: the artwork does not draw a line 11px out of true over 265px, the
-        # trace's two ends are simply a few pixels apart on where they met their
-        # nodes. The line's own coordinate is measurable and is not a guess - the
-        # middle of its ink - so take it from there and put both ends on it,
-        # rather than drawing the slope the two contacts imply.
-        if straight and abs(vx) > 8 and abs(vy) > 8:
-            if abs(vy) <= max(4.0, 0.06 * abs(vx)):
-                c = int(round(float(np.median(ys))))
-                pa, pb = (pa[0], c), (pb[0], c)
-            elif abs(vx) <= max(4.0, 0.06 * abs(vy)):
-                c = int(round(float(np.median(xs))))
-                pa, pb = (c, pa[1]), (c, pb[1])
-            vx, vy = pb[0] - pa[0], pb[1] - pa[1]
         routing = ("diagonal" if straight and abs(vx) > 8 and abs(vy) > 8
                    else "straight" if straight else "orthogonal")
         turns = trace_corners(xs, ys, pa, pb, max(2, int(round(font_px * 0.1)))) \
@@ -2178,6 +2245,19 @@ def main(path, out_json=None):
         boxes = label_lines(ink, dict(x=b[0], y=b[1], w=w, h=h), -4)
         if len(boxes) == len(got):
             item["lines"] = [dict(bx, text=s2) for bx, s2 in zip(boxes, got)]
+        elif boxes:
+            # The block reader and the ink disagree on how many lines there are -
+            # an arrowhead caught in the block adds a ">", two lines set close
+            # together merge - and with no pairing the rebuild had nowhere to put
+            # any of them: it centred the lot on the block and drew them at the
+            # diagram's type size. Read each band on its own instead, so every
+            # line has its own place and its own width, measured.
+            per = [" ".join(ocr(bg, bx["x"], bx["y"], bx["w"], bx["h"], -4).split())
+                   for bx in boxes]
+            keep_l = [(bx, p) for bx, p in zip(boxes, per) if p]
+            if keep_l:
+                item["text"] = "\n".join(p for _, p in keep_l)
+                item["lines"] = [dict(bx, text=p) for bx, p in keep_l]
         if t.startswith("[") or t.endswith("]"):
             cx, cy = b[0] + w / 2, b[1] + h / 2
             best, bd = None, 1e18

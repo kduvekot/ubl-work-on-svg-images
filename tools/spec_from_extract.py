@@ -64,6 +64,8 @@ def main(src, out, model_w=1480.0):
             # interior radius onto the outer box draws a corner tighter than the
             # original's, which is what leaves ink uncovered at all four corners.
             d["rx"], d["ry"] = M(n["rx"] + st / 2), M(n["ry"] + st / 2)
+        if k == "note" and n.get("fold"):
+            d["fold"] = M(n["fold"])
         if k == "final":
             # per-node measurement where the extractor made one; the constant is
             # only a fallback for graphs written before it measured this
