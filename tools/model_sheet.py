@@ -186,25 +186,33 @@ def checks(g):
     rule("work crossing between parties goes through a document", cross,
          "informational: UBL draws the hand-over as a document on the divider")
 
-    # 9 - UBL draws the two kinds of flow differently: a control flow, between
-    # actions and decisions, is a solid line; an object flow, into or out of a
-    # document, is dashed. So the line style and the ends have to agree, and where
-    # they do not one of the two was misread. Informational, because a handful of
-    # diagrams also dash an annotation between two actions - the "prior exchange
-    # of public keys" pair on the Billing processes is drawn that way.
-    style = []
+    # 9 - what is drawn dashed, stated rather than judged.
+    #
+    # This used to check that a dashed flow is an object flow and a solid one a
+    # control flow, which is the UML convention and is not what UBL draws. Read
+    # off the artwork across the 78: of the 73 diagrams with documents on them,
+    # 71 draw every object flow solid, with no gap anywhere along it - the ink is
+    # continuous at every sample. Only UBL-1.0-ProcurementProcess draws them
+    # dashed, all nineteen of them. Meanwhile four diagrams dash a flow between
+    # two actions: the "prior exchange of public keys" on the two Tender-Contract
+    # diagrams, and five flows on the two Fulfilment processes, every one of them
+    # a clean pattern in the ink at the size the reading claims.
+    #
+    # So the convention does not hold here, and a rule that fails on 76 of 78
+    # diagrams is not a check, it is noise that hides the nine rules that do mean
+    # something. What a dashed flow denotes in UBL is the specification's to say;
+    # that it is drawn dashed is reported, and whether the reading matches the ink
+    # is tested where the ink is, in the extractor.
+    dashed = []
     for e in g["edges"]:
         a, b = byid.get(e["from"]), byid.get(e["to"])
-        if not a or not b:
-            continue
-        doc = "object" in (a["kind"], b["kind"])
-        if bool(e.get("dash")) != doc:
-            style.append("%s %s %s (%s)"
-                         % (label(a), "--->" if e.get("dash") else "--->",
-                            label(b), "dashed but neither end is a document"
-                            if e.get("dash") else "solid but one end is a document"))
-    rule("dashed flows are the ones that touch a document", style,
-         "informational: UBL draws object flows dashed and control flows solid")
+        if a and b and e.get("dash"):
+            dashed.append("%s ---> %s (%.0f on, %.0f off)"
+                          % (label(a), label(b), e["dash"], e.get("gap") or 0))
+    if dashed:
+        print("\n  drawn dashed (%d):" % len(dashed))
+        for d in dashed:
+            print("    %s" % d)
 
     # 10 - the direction of every flow was read with confidence
     rule("every flow's direction was read with confidence",
