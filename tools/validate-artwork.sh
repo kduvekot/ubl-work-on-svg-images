@@ -17,6 +17,11 @@ OUT=${3:?output directory}
 RADIUS=${4:-2}
 
 HERE=$(cd "$(dirname "$0")" && pwd)
+# playwright drives the headless render, and a global install is not on node's
+# default search path. run-pipeline.sh sets this; this script did not, so every
+# render failed with "Cannot find module 'playwright'" and the table said only
+# RENDER FAILED.
+export NODE_PATH="${NODE_PATH:+$NODE_PATH:}$(npm root -g 2>/dev/null)"
 mkdir -p "$OUT"
 [ -f "$HERE/VisualDiff.class" ] || javac -d "$HERE" "$HERE/VisualDiff.java"
 
@@ -30,7 +35,9 @@ for svgfile in "$SVG"/*.svg; do
   if [ ! -f "$png" ]; then skip=$((skip+1)); continue; fi
 
   width=$(python3 -c "import struct,sys;d=open(sys.argv[1],'rb').read(24);print(struct.unpack('>I',d[16:20])[0])" "$png")
-  node "$HERE/render-svg.js" "$svgfile" "$OUT/$name.render.png" "$width" >/dev/null 2>&1 || {
+  node "$HERE/render-svg.js" "$svgfile" "$OUT/$name.render.png" "$width" \
+      >/dev/null 2>"$OUT/$name.render.err" || {
+    sed 's/^/      /' "$OUT/$name.render.err" >&2
     printf '%-52s %10s %10s  %s\n' "$name" - - "RENDER FAILED"; fail=$((fail+1)); continue; }
 
   report=$(java -cp "$HERE" VisualDiff "$png" "$OUT/$name.render.png" "$OUT/$name.diff.png" "$RADIUS" 2>&1)

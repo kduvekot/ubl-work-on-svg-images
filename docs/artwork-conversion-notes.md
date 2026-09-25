@@ -743,3 +743,78 @@ of - and the artwork's own faults, recorded rather than corrected.
 - **UBL.xml's prose is still not wired into the pipeline.** It names, per figure,
   the UBL document types each process uses; that is the source to use when the
   BPMN re-render needs them.
+
+---
+
+## 13. Reproduction test (2026-09)
+
+The package was handed to an agent with no access to this repository: a zip of
+`tools/`, six 600-dpi `art/` PNGs, a names file and these notes, unpacked into a
+sandbox it was told not to leave. Its instructions said what to do - unpack, work
+out how to run it from the package alone, run every input, run whatever checks the
+package provides at whatever settings the package specifies - and never what
+result to produce. It was told to record every point where it had to guess, and
+that every figure it reported had to come from a command it ran rather than from
+these notes.
+
+**It reproduced the six exactly.** Its missing/invented percentages match this
+project's own run to three decimal places on all six, its structural lines are all
+zero, and it confirmed determinism independently: with a cold OCR cache, all 24
+compared `-graph.json`, `-spec.json`, `-struct.json` and `.svg` files came back
+byte-identical to the warm run. It installed nothing and needed nothing from
+outside the zip.
+
+### 13.1 Four defects it found, all real, three of them recent
+
+1. **`mark_findings.py` died on any diagram with a cross-mark.** A mark's two ends
+   are given along its own axis, so a stroke leaning up to the right has
+   `x1 > x2`; the bounding box was taken as `min(x1)` to `max(x2)` and came out
+   **126 pixels wide in the negative**. Pillow refused it. The numbered review
+   images and the `review` key were never written for Figs 86 and 87 - the two
+   diagrams the cross-mark recovery had just fixed - and because the sweep runs
+   that step with `|| true`, the summary table showed nothing wrong. Both halves
+   fixed: the box is built from both endpoints, and `mark_findings` orders the
+   corners of any box it is handed rather than trusting geometry it did not
+   measure.
+2. **The direction verdicts never retired the finding they exist to settle.** The
+   two Tender-Contract flows carried `directionConfidence: "checked"` on the edge
+   *and* an `edge-direction` item in the same graph's `uncertain` list, so the
+   sheet said "checked" and "confirm which way this edge points" in one breath.
+   The list is built from the confidences before the last direction decision is
+   made. Moving the verdicts earlier is the obvious fix and is wrong - it judges
+   the flows before they are final, and the table's own tripwire caught it
+   immediately. The items are cleared where the verdicts are applied instead.
+   Notes for a person: **291 -> 266**.
+3. **`validate-artwork.sh` could not render anything as shipped**: it never set
+   `NODE_PATH` for a global Playwright install the way `run-pipeline.sh` does, so
+   every diagram came back `RENDER FAILED`, and it discarded the renderer's stderr
+   so there was nothing to diagnose from. Fixed both.
+4. **The model sheet contradicted itself.** Its narrative walk seeded only from
+   drawn start events while its reachability rule also seeds from flows that come
+   onto the page from outside, so Fig 86 printed "not reached from any start
+   event: Download business card" directly above "ok every element is reachable
+   from a start event". The walk now uses the same seeds as the rule.
+
+Over the 78 after the four fixes: pixels and structural findings unchanged
+(1.189% ink, every count zero), 78 of 78 marked images written where 76 were
+before, no tracebacks, and the direction tripwire silent.
+
+### 13.2 What it could not work out, and what is still true
+
+Its other findings are about the package rather than the conversion, and stand:
+there is no README naming `verdict-sweep.sh` as the entry point; no dependency
+manifest; the radius is 2 in `run-pipeline.sh` and `validate-artwork.sh` and 3 in
+`verdict-sweep.sh`, so one sweep prints two "missing" percentages per diagram -
+7.8% and 0.050% for Fig 86 - with nothing saying which is the gate;
+`render-svg.js` hardcodes an absolute Chromium build path; the OCR cache defaults
+to `~/.cache/ubl-ocr`, outside the working tree; `build_lexicon.py` overwrites a
+shipped fixture by default; and the `|| true` guards hide exactly the crash it
+found.
+
+One of its conclusions is overstated and is recorded here so it is not repeated:
+it saw six diagrams that all carry notes for a person and concluded no diagram can
+ever reach `correct`. Nine of the 78 do. The point underneath it is fair - §6's
+acceptance criterion says "the `uncertain` list is empty, **or signed off**", the
+package ships signed-off tables, and `verify_conversion.py` has no notion of a
+sign-off, so a diagram with any note is `needs-human` whatever a person has
+already confirmed about it.

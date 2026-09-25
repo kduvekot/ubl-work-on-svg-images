@@ -100,8 +100,15 @@ def main(argv):
         boxed = None not in (x, y, w, h)
         if boxed:
             pad = size // 2
-            x0, y0 = max(0, x - pad), max(0, y - pad)
-            x1, y1 = min(im.width - 1, x + w + pad), min(im.height - 1, y + h + pad)
+            # order the corners rather than trusting the report's own: this draws
+            # geometry it did not measure, and a finding that arrives with a
+            # negative width should not be able to stop the whole step. One did -
+            # a mark across a partition rule, whose ends are given along the
+            # stroke - and the numbered images for that diagram were never written.
+            x0, x1 = sorted((x, x + w))
+            y0, y1 = sorted((y, y + h))
+            x0, y0 = max(0, x0 - pad), max(0, y0 - pad)
+            x1, y1 = min(im.width - 1, x1 + pad), min(im.height - 1, y1 + pad)
             tx, ty = x0, max(0, y0 - size - 4)
             for draw, wanted in ((d, True), (dm, f.get("kind") == "element-absent")):
                 if not wanted:

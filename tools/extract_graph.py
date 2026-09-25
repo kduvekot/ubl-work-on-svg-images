@@ -146,6 +146,17 @@ def apply_direction_verdicts(path, nodes, edges, uncertain):
                 e["directionChecked"] = verdict
                 if e.get("directionConfidence") == "LOW":
                     e["directionConfidence"] = "checked"
+                # ...and take the doubt off the list with it. That list is built
+                # from the confidences earlier in the run, before the last of the
+                # direction decisions is made, so this cannot simply run first:
+                # doing that judged the flows too early and the table's own
+                # tripwire caught it. Clearing the item here is the same thing at
+                # the right moment - without it the sheet said "checked" on the
+                # edge and "confirm which way this edge points" in the same breath,
+                # which is 24 of the 291 notes a person was being asked for.
+                uncertain[:] = [u for u in uncertain
+                                if not (u.get("kind") == "edge-direction"
+                                        and u.get("edge") == [e["from"], e["to"]])]
             continue
         a, b = key.split(" -> ", 1)
         why = ("it is now read the other way round"
@@ -3694,11 +3705,16 @@ def main(path, out_json=None):
               % ("column" if m["rule"] == "v" else "band", m["at"], m["length"],
                  m["angle"], "" if m["whole"] else " (one half only)"))
     if cross_marks:
+        # A mark's two ends are given along its own axis, not left to right, so a
+        # stroke leaning up to the right has x1 > x2. Taking the box as min(x1) to
+        # max(x2) then hands out a negative width - -126 on BusinessCard - which
+        # got as far as mark_findings.py and killed it, losing the numbered review
+        # images for that diagram and the two others drawn the same way.
+        mxs = [c for m in cross_marks for c in (m["x1"], m["x2"])]
+        mys = [c for m in cross_marks for c in (m["y1"], m["y2"])]
         uncertain.append(dict(
-            kind="mark-across-rule", x=min(m["x1"] for m in cross_marks),
-            y=min(m["y1"] for m in cross_marks),
-            w=max(m["x2"] for m in cross_marks) - min(m["x1"] for m in cross_marks),
-            h=max(m["y2"] for m in cross_marks) - min(m["y1"] for m in cross_marks),
+            kind="mark-across-rule", x=min(mxs), y=min(mys),
+            w=max(mxs) - min(mxs), h=max(mys) - min(mys),
             reason="%d short stroke(s) drawn across a partition rule; they are"
                    " redrawn as measured, but what they denote is not read"
                    % len(cross_marks),

@@ -124,6 +124,13 @@ def flow_lines(g):
                  " ".join((e.get("guard") or "").split()))
 
     starts = [n["id"] for n in g["nodes"] if n["kind"] == "initial"]
+    # A flow that comes onto the page from outside starts something here too, the
+    # same as a drawn start event - which is what the reachability rule below
+    # already counts. Leaving it out here made the sheet contradict itself: on
+    # BusinessCard the walk reported "Download business card" as not reached from
+    # any start event and the rule two lines later said every element was.
+    starts += [o["node"] for o in g.get("openEnds", []) if o.get("inward")
+               and o.get("node") not in starts]
     # a diagram whose start event was never found still has a first element: the
     # one nothing flows into
     if not starts:
