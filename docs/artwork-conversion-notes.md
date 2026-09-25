@@ -818,3 +818,96 @@ acceptance criterion says "the `uncertain` list is empty, **or signed off**", th
 package ships signed-off tables, and `verify_conversion.py` has no notion of a
 sign-off, so a diagram with any note is `needs-human` whatever a person has
 already confirmed about it.
+
+---
+
+## 14. Reading the deck page by page (2026-09)
+
+The comparison deck was read figure by figure against the original. Everything
+found was a defect in the reading, never a tolerance to widen; each rule below
+was measured over all 78 before it was kept, and every one of them leaves the
+structural counts at zero.
+
+### 14.1 Nine rules, each measured before it was kept
+
+1. **A dashed outline's corners are not words** (Figs 12, 13 and the rest of
+   CPFR). Neither shape nor confidence separates a row of marks from a word; the
+   size of the marks does. Over the 78 the largest mark in a real text block is
+   never below 0.51 of the type height, and these sit at 0.24-0.28: nine blocks
+   in 352 fall below half, and they are exactly the nine.
+2. **A guard is not a lane title** (Fig 14). Two guards in the header strip were
+   read as lanes called "No", and the spec then suppressed every other "No" on
+   the page as already drawn. Matching a title by name now needs six letters:
+   over the 78 that suppression fires eight times, four of them wrong and four
+   of them real titles of eleven letters and up.
+3. **A letter is not a flow leaving the page** (Figs 34, 35, 80). The left stems
+   of "C", "I" and "U" in "Customer Initiated Update" were traced as flows with
+   arrowheads and drawn through the word. An open end at least a fifth inside a
+   text block is that block's ink.
+4. **A sliver on a divider is the divider** (Figs 40, 41, 47, 54, 73, 76) - but
+   only where the measured rule span covers it. Dropping all ten cost five
+   elements: on four diagrams the artwork's divider overshoots its measured span
+   by 473-487 pixels and the sliver is the only ink drawing it.
+5. **A hair along a box's own border is that border** (Figs 73, 76). The IMFM
+   object boxes are stroked 15 pixels and fitted to the inside of that stroke, so
+   the outermost pixel survives the node's erasure and is traced as a flow round
+   the box. Twelve over the 78, three to a box on four boxes; invented ink on
+   Transport Progress Status falls from 963 pixels to 244.
+6. **A mark fused to a word is still line-work** (Figs 65, 69). Nineteen readings
+   carry a mark stuck into a word; eighteen are an arrowhead or a divider. The
+   one that is not is "Create/Update", where the artwork really writes a solidus,
+   so the solidus and the hyphen stay and the rest come out of a word as readily
+   as from beside one.
+7. **A guard of one letter**, §14.2 below (Fig 88).
+
+Figs 18, 42, 51 and 62 - a dropped or doubled letter, a guard set at the wrong
+size - were left by instruction after being traced to the same family: the type
+size is measured per diagram and a short reading is fitted to it, so a single
+letter set beside a long one reads as a different weight. Fig C.1's degraded
+readings were left the same way. Its mixed bold is not a reading fault: measured
+at identical scale the stems are 0.104 and 0.130 of the cap height, so the
+artwork itself uses two weights.
+
+### 14.2 The six "Y"/"N" guards on Fig 88, and the four ways that did not work
+
+DigitalAgreement's three decisions each carry a "Y" and an "N" beside their
+branches. One was read; five were not. A single character defeats the page
+reader outright - it segments into lines and words and returns nothing at all
+for one letter, however the crop is padded or scaled - so the letters were never
+in the reading to place.
+
+Four routes were tried and each was rejected by its own measurement:
+
+- **Let a stranded mark start a text block.** Gained one of the six and destroyed
+  four clean guards on the Tender diagrams, merging "Yes" and "No" into "7 No Yes".
+- **Relax the block width gate.** 332 narrow marks of letter height over the 78,
+  of which roughly 329 are dashes of a dashed outline or halves of an arrowhead.
+- **Filter by connectivity.** Rejects the letters themselves, which touch nothing.
+- **Accept any one alphanumeric near a branch.** Replaced the guard
+  "[accept charges]" with "X" and lost a "No".
+
+What separates a guard from every other small mark is *where* it is: beside a
+branch out of a decision, which the reading already knows. Looked for only there,
+only as one mark of this diagram's own cap height that no block already holds,
+and read with the single-character mode on an isolated canvas, the 78 give 31
+candidates and the reader names 2 - both of them a missing "N". The other 29 it
+declines, so none is ever admitted.
+
+That left three of the six still missing, for the reason the previous attempt
+predicted: the area a node holds was its bounding box, and **a decision is a
+diamond, whose bounding-box corners are empty canvas - which is exactly where the
+drawing puts the guard**. All three stand in one. A decision now holds its own
+area rather than its box: written as `|dx|/hx + |dy|/hy`, the diamond is 1 and
+the same 14 pixels of clearance is `1 + 14*hypot(1/hx, 1/hy)`; the three letters
+stand at 1.25, 1.24 and 1.35 against a clearance of 1.08.
+
+All six are now drawn, each beside the branch it belongs to and in the place the
+artwork puts it. Over the 78 one diagram changed, its ink in error fell from
+1.326% to 1.139%, the set mean from 1.214% to 1.212%, and every structural count
+stayed at zero with the same 266 notes for a person.
+
+### 14.3 Guard placement
+
+On Figs 64, 65, 74 and 88 a guard sits on the flow it labels rather than beside
+it, because the artwork puts it there and the conversion copies the artwork. It
+stays as drawn, by instruction.

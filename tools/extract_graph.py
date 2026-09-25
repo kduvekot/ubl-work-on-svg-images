@@ -335,6 +335,36 @@ def settle_readings(nodes, texts, grid, edges):
                                if (ln.get("text") or "").strip()]
 
 
+def read_one_glyph(ink, box, font_px):
+    """A single letter standing on its own, read as a single letter.
+
+    The block reader segments a page into lines and words and returns nothing at
+    all for one character by itself: the "Y" and "N" beside the branches of
+    DigitalAgreement's decisions come back empty however the crop is padded or
+    scaled. Tesseract has a mode for one character, and it needs the character
+    isolated - so the mark is lifted onto a clean canvas with a margin round it,
+    which reads every one of them. Only ever used where the ordinary read gives
+    nothing, and only for one mark of about this diagram's own type size, so it
+    cannot re-read anything the page reader has already had a view of."""
+    sub = ink[box["y"]:box["y"] + box["h"], box["x"]:box["x"] + box["w"]]
+    if sub.size == 0 or not sub.any():
+        return ""
+    lbl, n = ndi.label(sub, structure=np.ones((3, 3), bool))
+    if n != 1:
+        return ""
+    h, w = sub.shape
+    if not (0.4 * font_px <= h <= 1.4 * font_px and w <= 1.4 * font_px):
+        return ""
+    scale, margin = 3, 30
+    big = np.asarray(Image.fromarray(sub.astype(np.uint8) * 255)
+                     .resize((w * scale, h * scale), Image.LANCZOS)) > 127
+    canvas = np.zeros((h * scale + 2 * margin, w * scale + 2 * margin), bool)
+    canvas[margin:margin + h * scale, margin:margin + w * scale] = big
+    im = Image.fromarray(np.where(canvas, 0, 255).astype(np.uint8))
+    t = pytesseract.image_to_string(im, config="--psm 10").strip()
+    return t if len(t) == 1 and t.isalnum() else ""
+
+
 def mark_scale(ink, box):
     """The longest connected mark in this band, in pixels.
 
@@ -3717,7 +3747,8 @@ def main(path, out_json=None):
             cx0, cx1 = sl[1].start, sl[1].stop - 1
             if (cy1 - cy0 + 1) <= font_px * 2.2 and (cx1 - cx0 + 1) <= font_px * 20:
                 bits.append([cx0, cy0, cx1, cy1])
-        chain_in(bits)
+        if textbits:
+            chain_in(bits)
 
     # An arrowhead is not a word, and the reader is confident that it is: the head
     # under "[accept items]" on FulfilmentReceiptAdvice comes back as "VA", the one
@@ -3787,6 +3818,11 @@ def main(path, out_json=None):
         # read in the block they came out of, which is the better reading: "[no]"
         # there against ") Ino]" when the same four glyphs are read on their own
         t = b[4] if len(b) > 4 else ocr(bg, b[0], b[1], w, h, -6)
+        if not t:
+            t = read_one_glyph(ink, dict(x=b[0], y=b[1], w=w, h=h), font_px)
+            if t:
+                print("   (read %r at x=%-5d y=%-5d as a single character)"
+                      % (t, b[0], b[1]))
         if not t:
             continue
         box_b = dict(x=b[0], y=b[1], w=w, h=h)
@@ -4007,6 +4043,87 @@ def main(path, out_json=None):
                 item["attachedTo"] = "%s->%s" % (best["from"], best["to"])
         texts.append(item)
         print("   %-40r x=%-5d y=%-5d %s" % (t, b[0], b[1], item.get("attachedTo", "")))
+
+    # A guard of one letter, which the page reader cannot see at all. The "Y" and
+    # "N" beside the branches of DigitalAgreement's decisions are single
+    # characters: too narrow to pass the block gate, which is written for words,
+    # and unreadable to the page reader anyway - it returns nothing for one letter
+    # however the crop is padded or scaled. Relaxing the width gate is not the way:
+    # measured over the 78 it turns up 332 narrow marks of letter height, of which
+    # 329 are dashes of a dashed outline or halves of an arrowhead.
+    #
+    # What separates them is where a guard is: beside a branch out of a decision,
+    # which the reading already knows. Looked for only there, and only as one mark
+    # of this diagram's own type height that no block already holds, the 78 give 31
+    # candidates and the single-character reader names 2 - both of them the "N"
+    # that was missing. The other 29 it declines, so they are never admitted.
+    kinds = {n["id"]: n.get("kind") for n in nodes}
+    branches = []
+    for e in edges:
+        if kinds.get(e["from"]) != "decision":
+            continue
+        pts = [e.get("fromPoint")] + [list(q) for q in (e.get("points") or [])] \
+            + [e.get("toPoint")]
+        pts = [q for q in pts if q]
+        branches += [(a, b, e) for a, b in zip(pts, pts[1:])]
+    if branches:
+        held = np.zeros_like(ink)
+        for n in nodes:
+            y0, y1 = max(0, n["y"] - 14), n["y"] + n["h"] + 14
+            x0, x1 = max(0, n["x"] - 14), n["x"] + n["w"] + 14
+            if n.get("kind") != "decision":
+                held[y0:y1, x0:x1] = True
+                continue
+            # A decision is a diamond, and the corners of the box round it are
+            # empty canvas - which is exactly where the drawing puts the guard:
+            # all three letters missing from DigitalAgreement stand in one. So
+            # the diamond holds its own area, not its bounding box. Written as
+            # |dx|/hx + |dy|/hy, the diamond is 1 and the same 14px of clearance
+            # is 1 + 14*hypot(1/hx, 1/hy); the three letters stand at 1.25, 1.24
+            # and 1.35 against a clearance of 1.08.
+            hx, hy = max(1.0, n["w"] / 2.0), max(1.0, n["h"] / 2.0)
+            gy, gx = np.ogrid[y0:y1, x0:x1]
+            f = (np.abs(gx - (n["x"] + hx)) / hx
+                 + np.abs(gy - (n["y"] + hy)) / hy)
+            held[y0:y1, x0:x1] |= f <= 1.0 + 14.0 * math.hypot(1.0 / hx, 1.0 / hy)
+        for t in texts:
+            held[t["y"]:t["y"] + t["h"], t["x"]:t["x"] + t["w"]] = True
+        lab, _ = ndi.label(ink & ~held, np.ones((3, 3), bool))
+        for sl in ndi.find_objects(lab):
+            hh, ww = sl[0].stop - sl[0].start, sl[1].stop - sl[1].start
+            # A capital is as tall as this diagram's own capitals and no taller.
+            # The type size is measured from the cap height, so cap is 0.7 of it;
+            # the "N"s stand at 0.97 and 1.03 of that, while the fragment of a
+            # junction where five connectors meet on SelfBillingwithCreditNote -
+            # which the reader is happy to call an "X" - stands at 1.63.
+            cap = 0.7 * font_px
+            if not (0.6 * cap <= hh <= 1.2 * cap and 0.2 * cap <= ww <= 1.6 * cap):
+                continue
+            if int((lab[sl] > 0).sum()) < text_floor(font_px):
+                continue
+            cx, cy = sl[1].start + ww / 2.0, sl[0].start + hh / 2.0
+            best, bd = None, 1e18
+            for a, b, e in branches:
+                vx, vy = b[0] - a[0], b[1] - a[1]
+                L2 = float(vx * vx + vy * vy) or 1.0
+                t_ = max(0.0, min(1.0, ((cx - a[0]) * vx + (cy - a[1]) * vy) / L2))
+                d = math.hypot(a[0] + vx * t_ - cx, a[1] + vy * t_ - cy)
+                if d < bd:
+                    best, bd = e, d
+            if bd > font_px:
+                continue
+            box = dict(x=sl[1].start, y=sl[0].start, w=ww, h=hh)
+            ch = read_one_glyph(ink, box, font_px)
+            if not ch:
+                continue
+            item = dict(text=ch, **box)
+            item["lines"] = [dict(box, text=ch)]
+            if not best.get("guard"):
+                best["guard"] = ch
+                item["attachedTo"] = "%s->%s" % (best["from"], best["to"])
+            texts.append(item)
+            print("   %-40r x=%-5d y=%-5d %s  (one letter, beside a branch)"
+                  % (ch, box["x"], box["y"], item.get("attachedTo", "")))
 
     # column titles live in the header band, band titles sideways in the gutter
     c0, r0 = (1 if strip else 0), (1 if header else 0)
