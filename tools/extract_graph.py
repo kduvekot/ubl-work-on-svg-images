@@ -68,7 +68,7 @@ def ocr(bg, x, y, w, h, inset=0):
         return ""
     crop = bg.crop((x0, y0, x1, y1)).convert("L")
     crop = crop.resize((crop.width * 2, crop.height * 2), Image.LANCZOS)
-    t = pytesseract.image_to_string(crop, config="--psm 6")
+    t = ocr_cache.image_to_string(crop, config="--psm 6")
     # keep the line breaks: the artwork wraps its labels deliberately and a
     # single-line re-render would not sit where the original does
     return "\n".join(" ".join(l.split()) for l in t.splitlines() if l.strip())
@@ -361,7 +361,7 @@ def read_one_glyph(ink, box, font_px):
     canvas = np.zeros((h * scale + 2 * margin, w * scale + 2 * margin), bool)
     canvas[margin:margin + h * scale, margin:margin + w * scale] = big
     im = Image.fromarray(np.where(canvas, 0, 255).astype(np.uint8))
-    t = pytesseract.image_to_string(im, config="--psm 10").strip()
+    t = ocr_cache.image_to_string(im, config="--psm 10").strip()
     return t if len(t) == 1 and t.isalnum() else ""
 
 
@@ -461,8 +461,7 @@ def ocr_best_conf(bg, x, y, w, h, inset=0):
         return 0
     crop = bg.crop((x0, y0, x1, y1)).convert("L")
     crop = crop.resize((crop.width * 2, crop.height * 2), Image.LANCZOS)
-    d = pytesseract.image_to_data(crop, config="--psm 6",
-                                  output_type=pytesseract.Output.DICT)
+    d = ocr_cache.image_to_data(crop, config="--psm 6")
     best = [int(float(c)) for t, c in zip(d["text"], d["conf"]) if t.strip()]
     return max(best) if best else 0
 
@@ -497,7 +496,7 @@ def ocr_inside(bg, ink, n, pad=6):
     crop = np.where(m[y0:y1, x0:x1], crop, 255).astype(np.uint8)
     im = Image.fromarray(crop)
     im = im.resize((im.width * 3, im.height * 3), Image.LANCZOS)
-    t = pytesseract.image_to_string(im, config="--psm 6")
+    t = ocr_cache.image_to_string(im, config="--psm 6")
     return "\n".join(" ".join(l.split()) for l in t.splitlines() if l.strip())
 
 

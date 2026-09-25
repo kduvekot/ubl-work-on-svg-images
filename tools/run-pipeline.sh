@@ -20,7 +20,11 @@ export NODE_PATH="${NODE_PATH:+$NODE_PATH:}$(npm root -g 2>/dev/null)"
 
 for n in "$@"; do
   echo "== $n"
-  python3 "$here/extract_graph.py"     "$art/$n.png" --json "$out/$n-graph.json" > "$out/$n-extract.log"
+  # the reading is reused when nothing it depends on has changed (graph_cache.py)
+  if ! python3 "$here/graph_cache.py" get "$art/$n.png" "$out/$n-graph.json" "$out/$n-extract.log"; then
+    python3 "$here/extract_graph.py"   "$art/$n.png" --json "$out/$n-graph.json" > "$out/$n-extract.log"
+    python3 "$here/graph_cache.py"     put "$art/$n.png" "$out/$n-graph.json" "$out/$n-extract.log"
+  fi
   # the graph split into what the diagram says, where it is drawn and how the
   # reading went; split refuses a graph that does not join back exactly
   python3 "$here/model_io.py"          split "$out/$n-graph.json" "$out"

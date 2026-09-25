@@ -183,15 +183,34 @@ That run used tesseract 5.3.4 and Chromium 1194 (Playwright's build), in a
 container with no Helvetica or Arial: the SVGs rendered in Liberation Sans. A run
 elsewhere can differ in the renders and the text reading for that reason alone.
 
-## 6. The OCR cache
+## 6. The caches
 
-`ocr_cache.py` memoises every tesseract call, keyed by the image bytes and the
-settings. It defaults to `~/.cache/ubl-ocr`, outside the working tree; set
-`UBL_OCR_CACHE` to move it.
+Two caches make a repeat run fast. Both live outside the working tree, both are
+keyed on everything their result depends on, and a cold one is only slower,
+never different.
 
-A cold cache is only slower, never different: a blind reproduction test confirmed
-that 24 of 24 generated files came back byte-identical between a cold and a warm
-run.
+**`ocr_cache.py`** memoises every tesseract call - the whole-page reads, keyed on
+the file's bytes, and the label crops the extractor and verifier read one by one,
+keyed on the crop's pixels - with the settings. It defaults to `~/.cache/ubl-ocr`;
+set `UBL_OCR_CACHE` to move it. A blind reproduction test confirmed 24 of 24
+generated files byte-identical between a cold and a warm run.
+
+**`graph_cache.py`** keeps the extractor's reading of each PNG, keyed on the PNG,
+the extractor's code and fixtures, the tesseract version and the numeric
+libraries' versions. Most rounds of work - correcting the model, changing the JSON
+or the drawing - do not change the reading, and with this they do not repeat it;
+any change to the extractor misses and reads again. It defaults to
+`~/.cache/ubl-graph`; set `UBL_GRAPH_CACHE` to move it, or `UBL_NO_GRAPH_CACHE=1`
+to bypass it.
+
+Measured over all 78 on this container's 4 cores, every output byte-identical in
+each case:
+
+| sweep | time |
+|---|---|
+| nothing cached | 332 s |
+| labels cached, reading everything again | 252 s |
+| reading reused | 167 s |
 
 ## 7. Data that is not derived from the PNGs
 

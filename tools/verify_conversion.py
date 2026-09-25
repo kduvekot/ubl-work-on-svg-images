@@ -171,7 +171,7 @@ def check_text(bg_render, graph, findings, human):
         x1 = max(l["x"] + l["w"] for l in lines); y1 = max(l["y"] + l["h"] for l in lines)
         pad = 10
         crop = bg_render.crop((max(0, x0 - pad), max(0, y0 - pad), x1 + pad, y1 + pad))
-        got = norm(pytesseract.image_to_string(crop, config="--psm 6"))
+        got = norm(ocr_cache.image_to_string(crop, config="--psm 6"))
         if not got:
             findings.append(dict(kind="label-missing", node=n["id"], x=x0, y=y0,
                                  w=x1 - x0, h=y1 - y0, expected=want, got="",
