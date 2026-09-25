@@ -1,0 +1,2081 @@
+{
+ "source": "ubl/art/UBL-2.2-IMFM-IntermodalFreightManagementProcess.png",
+ "size": [
+  3425,
+  3221
+ ],
+ "fontPx": 32.9,
+ "rules": {
+  "v": [
+   [
+    0,
+    10
+   ],
+   [
+    70,
+    4
+   ],
+   [
+    953,
+    4
+   ],
+   [
+    1849,
+    4
+   ],
+   [
+    2510,
+    4
+   ],
+   [
+    3415,
+    10
+   ]
+  ],
+  "h": [
+   [
+    0,
+    9
+   ],
+   [
+    62,
+    3
+   ],
+   [
+    1534,
+    4
+   ],
+   [
+    2748,
+    3
+   ],
+   [
+    3212,
+    9
+   ]
+  ]
+ },
+ "partitions": [
+  {
+   "axis": "column",
+   "index": 0,
+   "x0": 72,
+   "x1": 955,
+   "title": "Transport User"
+  },
+  {
+   "axis": "column",
+   "index": 1,
+   "x0": 955,
+   "x1": 1851,
+   "title": "Transport Service Provider"
+  },
+  {
+   "axis": "column",
+   "index": 2,
+   "x0": 1851,
+   "x1": 2512,
+   "title": "Transport Regulator"
+  },
+  {
+   "axis": "column",
+   "index": 3,
+   "x0": 2512,
+   "x1": 3425,
+   "title": "Transportation Network Manager |"
+  },
+  {
+   "axis": "band",
+   "index": 0,
+   "y0": 64,
+   "y1": 1536,
+   "title": "Planning"
+  },
+  {
+   "axis": "band",
+   "index": 1,
+   "y0": 1536,
+   "y1": 2750,
+   "title": "Execution"
+  },
+  {
+   "axis": "band",
+   "index": 2,
+   "y0": 2750,
+   "y1": 3221,
+   "title": "| Completion"
+  }
+ ],
+ "nodes": [
+  {
+   "x": 1403,
+   "y": 74,
+   "w": 69,
+   "h": 62,
+   "area": 2631,
+   "fill": 0.746,
+   "kind": "initial",
+   "id": "n1",
+   "label": "",
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 2034,
+   "y": 117,
+   "w": 431,
+   "h": 147,
+   "area": 56985,
+   "fill": 0.899,
+   "solid": 0.97,
+   "rx": 0,
+   "ry": 0,
+   "shape": "rect",
+   "stroke": 3,
+   "kind": "note",
+   "id": "n2",
+   "label": "Transportation Network\nInformation",
+   "labelLines": [
+    {
+     "x": 2050,
+     "y": 163,
+     "w": 369,
+     "h": 29,
+     "text": "Transportation Network"
+    },
+    {
+     "x": 2052,
+     "y": 203,
+     "w": 179,
+     "h": 23,
+     "text": "Information"
+    }
+   ],
+   "col": 2,
+   "row": 0
+  },
+  {
+   "x": 1214,
+   "y": 197,
+   "w": 456,
+   "h": 125,
+   "area": 51301,
+   "fill": 0.9,
+   "solid": 0.966,
+   "rx": 47,
+   "ry": 47,
+   "shape": "rounded",
+   "stroke": 4,
+   "kind": "action",
+   "id": "n3",
+   "label": "Plan Transport Services",
+   "labelLines": [
+    {
+     "x": 1243,
+     "y": 246,
+     "w": 403,
+     "h": 30,
+     "text": "Plan Transport Services"
+    }
+   ],
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 2837,
+   "y": 224,
+   "w": 455,
+   "h": 1844,
+   "area": 829847,
+   "fill": 0.989,
+   "solid": 0.998,
+   "rx": 50,
+   "ry": 42,
+   "shape": "rect",
+   "stroke": 4,
+   "kind": "action",
+   "id": "n4",
+   "label": "Provide\nTransportation\nNetwork\nInformation",
+   "labelLines": [
+    {
+     "x": 3002,
+     "y": 992,
+     "w": 129,
+     "h": 23,
+     "text": "Provide"
+    },
+    {
+     "x": 2946,
+     "y": 1029,
+     "w": 237,
+     "h": 29,
+     "text": "Transportation"
+    },
+    {
+     "x": 2999,
+     "y": 1065,
+     "w": 135,
+     "h": 23,
+     "text": "Network"
+    },
+    {
+     "x": 2974,
+     "y": 1102,
+     "w": 185,
+     "h": 22,
+     "text": "Information"
+    }
+   ],
+   "col": 3,
+   "row": 0
+  },
+  {
+   "x": 778,
+   "y": 308,
+   "w": 355,
+   "h": 171,
+   "area": 54119,
+   "fill": 0.892,
+   "solid": 1.0,
+   "rx": 0,
+   "ry": 0,
+   "shape": "rect",
+   "stroke": 6,
+   "kind": "object",
+   "id": "n5",
+   "label": "Transport Service\nDescription\nRequest",
+   "labelLines": [
+    {
+     "x": 805,
+     "y": 343,
+     "w": 297,
+     "h": 29,
+     "text": "Transport Service"
+    },
+    {
+     "x": 861,
+     "y": 377,
+     "w": 191,
+     "h": 28,
+     "text": "Description"
+    },
+    {
+     "x": 888,
+     "y": 411,
+     "w": 139,
+     "h": 28,
+     "text": "Request"
+    }
+   ],
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 155,
+   "y": 365,
+   "w": 455,
+   "h": 346,
+   "area": 149838,
+   "fill": 0.952,
+   "solid": 0.988,
+   "rx": 47,
+   "ry": 45,
+   "shape": "rounded",
+   "stroke": 3,
+   "kind": "action",
+   "id": "n6",
+   "label": "Define Transport\nService Demand",
+   "labelLines": [
+    {
+     "x": 248,
+     "y": 501,
+     "w": 273,
+     "h": 29,
+     "text": "Define Transport"
+    },
+    {
+     "x": 244,
+     "y": 537,
+     "w": 277,
+     "h": 24,
+     "text": "Service Demand"
+    }
+   ],
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 1225,
+   "y": 396,
+   "w": 455,
+   "h": 346,
+   "area": 150867,
+   "fill": 0.958,
+   "solid": 0.988,
+   "rx": 45,
+   "ry": 43,
+   "shape": "rounded",
+   "stroke": 4,
+   "kind": "action",
+   "id": "n7",
+   "label": "Announce Transport\nServices",
+   "labelLines": [
+    {
+     "x": 1285,
+     "y": 526,
+     "w": 326,
+     "h": 29,
+     "text": "Announce Transport"
+    },
+    {
+     "x": 1379,
+     "y": 562,
+     "w": 150,
+     "h": 24,
+     "text": "Services"
+    }
+   ],
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 784,
+   "y": 538,
+   "w": 356,
+   "h": 171,
+   "area": 55833,
+   "fill": 0.917,
+   "solid": 1.0,
+   "rx": 0,
+   "ry": 0,
+   "shape": "rect",
+   "stroke": 7,
+   "kind": "object",
+   "id": "n8",
+   "label": "Transport Service\nDescription",
+   "labelLines": [
+    {
+     "x": 812,
+     "y": 589,
+     "w": 297,
+     "h": 28,
+     "text": "Transport Service"
+    },
+    {
+     "x": 868,
+     "y": 623,
+     "w": 191,
+     "h": 29,
+     "text": "Description"
+    }
+   ],
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 778,
+   "y": 783,
+   "w": 355,
+   "h": 171,
+   "area": 55000,
+   "fill": 0.906,
+   "solid": 1.0,
+   "rx": 0,
+   "ry": 0,
+   "shape": "rect",
+   "stroke": 6,
+   "kind": "object",
+   "id": "n9",
+   "label": "Transport\nExecution\nPlan Request",
+   "labelLines": [
+    {
+     "x": 880,
+     "y": 819,
+     "w": 161,
+     "h": 28,
+     "text": "Transport"
+    },
+    {
+     "x": 875,
+     "y": 852,
+     "w": 167,
+     "h": 23,
+     "text": "Execution"
+    },
+    {
+     "x": 848,
+     "y": 886,
+     "w": 224,
+     "h": 28,
+     "text": "Plan Request"
+    }
+   ],
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 151,
+   "y": 794,
+   "w": 456,
+   "h": 649,
+   "area": 288518,
+   "fill": 0.975,
+   "solid": 0.993,
+   "rx": 51,
+   "ry": 50,
+   "shape": "rect",
+   "stroke": 4,
+   "kind": "action",
+   "id": "n10",
+   "label": "Perform Booking\nManagement",
+   "labelLines": [
+    {
+     "x": 238,
+     "y": 1042,
+     "w": 277,
+     "h": 29,
+     "text": "Perform Booking"
+    },
+    {
+     "x": 276,
+     "y": 1079,
+     "w": 214,
+     "h": 29,
+     "text": "Management"
+    }
+   ],
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 1232,
+   "y": 794,
+   "w": 455,
+   "h": 643,
+   "area": 285819,
+   "fill": 0.977,
+   "solid": 0.993,
+   "rx": 50,
+   "ry": 42,
+   "shape": "rect",
+   "stroke": 4,
+   "kind": "action",
+   "id": "n11",
+   "label": "Perform\nOrder Management",
+   "labelLines": [
+    {
+     "x": 1397,
+     "y": 1047,
+     "w": 129,
+     "h": 23,
+     "text": "Perform"
+    },
+    {
+     "x": 1300,
+     "y": 1084,
+     "w": 322,
+     "h": 29,
+     "text": "Order Management"
+    }
+   ],
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 1996,
+   "y": 886,
+   "w": 422,
+   "h": 156,
+   "area": 59505,
+   "fill": 0.904,
+   "solid": 0.971,
+   "rx": 0,
+   "ry": 0,
+   "shape": "rect",
+   "stroke": 4,
+   "kind": "note",
+   "id": "n12",
+   "label": "Transportation Network\nInformation",
+   "labelLines": [
+    {
+     "x": 2012,
+     "y": 932,
+     "w": 370,
+     "h": 29,
+     "text": "Transportation Network"
+    },
+    {
+     "x": 2014,
+     "y": 972,
+     "w": 179,
+     "h": 23,
+     "text": "Information"
+    }
+   ],
+   "col": 2,
+   "row": 0
+  },
+  {
+   "x": 770,
+   "y": 1000,
+   "w": 357,
+   "h": 171,
+   "area": 56937,
+   "fill": 0.933,
+   "solid": 1.0,
+   "rx": 2,
+   "ry": 2,
+   "shape": "rect",
+   "stroke": 6,
+   "kind": "object",
+   "id": "n13",
+   "label": "Transport\nExecution Plan",
+   "labelLines": [
+    {
+     "x": 873,
+     "y": 1047,
+     "w": 162,
+     "h": 28,
+     "text": "Transport"
+    },
+    {
+     "x": 823,
+     "y": 1081,
+     "w": 253,
+     "h": 22,
+     "text": "Execution Plan"
+    }
+   ],
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 778,
+   "y": 1237,
+   "w": 355,
+   "h": 171,
+   "area": 57312,
+   "fill": 0.944,
+   "solid": 1.0,
+   "rx": 0,
+   "ry": 0,
+   "shape": "rect",
+   "stroke": 7,
+   "kind": "object",
+   "id": "n14",
+   "label": "Goods Item\nItinerary",
+   "labelLines": [
+    {
+     "x": 862,
+     "y": 1287,
+     "w": 190,
+     "h": 24,
+     "text": "Goods Item"
+    },
+    {
+     "x": 888,
+     "y": 1322,
+     "w": 140,
+     "h": 28,
+     "text": "Itinerary"
+    }
+   ],
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 158,
+   "y": 1593,
+   "w": 456,
+   "h": 1063,
+   "area": 474982,
+   "fill": 0.98,
+   "solid": 0.993,
+   "rx": 52,
+   "ry": 46,
+   "shape": "rect",
+   "stroke": 3,
+   "kind": "action",
+   "id": "n15",
+   "label": "Monitor and Control\nTransport Services",
+   "labelLines": [
+    {
+     "x": 221,
+     "y": 1852,
+     "w": 323,
+     "h": 23,
+     "text": "Monitor and Control"
+    },
+    {
+     "x": 226,
+     "y": 1888,
+     "w": 319,
+     "h": 30,
+     "text": "Transport Services"
+    }
+   ],
+   "col": 0,
+   "row": 1
+  },
+  {
+   "x": 1232,
+   "y": 1593,
+   "w": 455,
+   "h": 1063,
+   "area": 477109,
+   "fill": 0.986,
+   "solid": 0.995,
+   "rx": 51,
+   "ry": 43,
+   "shape": "rect",
+   "stroke": 3,
+   "kind": "action",
+   "id": "n16",
+   "label": "Execute\nTransport Services",
+   "labelLines": [
+    {
+     "x": 1394,
+     "y": 2034,
+     "w": 132,
+     "h": 23,
+     "text": "Execute"
+    },
+    {
+     "x": 1300,
+     "y": 2070,
+     "w": 318,
+     "h": 30,
+     "text": "Transport Services"
+    }
+   ],
+   "col": 1,
+   "row": 1
+  },
+  {
+   "x": 2328,
+   "y": 1641,
+   "w": 355,
+   "h": 171,
+   "area": 54822,
+   "fill": 0.903,
+   "solid": 1.0,
+   "rx": 0,
+   "ry": 0,
+   "shape": "rect",
+   "stroke": 7,
+   "kind": "object",
+   "id": "n17",
+   "label": "Transport\nProgress Status\nRequest",
+   "labelLines": [
+    {
+     "x": 2430,
+     "y": 1681,
+     "w": 161,
+     "h": 29,
+     "text": "Transport"
+    },
+    {
+     "x": 2367,
+     "y": 1714,
+     "w": 267,
+     "h": 29,
+     "text": "Progress Status"
+    },
+    {
+     "x": 2438,
+     "y": 1749,
+     "w": 140,
+     "h": 28,
+     "text": "Request"
+    }
+   ],
+   "col": 2,
+   "row": 1
+  },
+  {
+   "x": 770,
+   "y": 1678,
+   "w": 377,
+   "h": 171,
+   "area": 59294,
+   "fill": 0.92,
+   "solid": 1.0,
+   "rx": 0,
+   "ry": 0,
+   "shape": "rect",
+   "stroke": 7,
+   "kind": "object",
+   "id": "n18",
+   "label": "Transportation\nStatus Request",
+   "labelLines": [
+    {
+     "x": 843,
+     "y": 1724,
+     "w": 239,
+     "h": 28,
+     "text": "Transportation"
+    },
+    {
+     "x": 834,
+     "y": 1757,
+     "w": 255,
+     "h": 29,
+     "text": "Status Request"
+    }
+   ],
+   "col": 1,
+   "row": 1
+  },
+  {
+   "x": 2328,
+   "y": 1852,
+   "w": 355,
+   "h": 171,
+   "area": 56260,
+   "fill": 0.927,
+   "solid": 1.0,
+   "rx": 0,
+   "ry": 0,
+   "shape": "rect",
+   "stroke": 7,
+   "kind": "object",
+   "id": "n19",
+   "label": "Transport\nProgress Status",
+   "labelLines": [
+    {
+     "x": 2430,
+     "y": 1903,
+     "w": 161,
+     "h": 28,
+     "text": "Transport"
+    },
+    {
+     "x": 2373,
+     "y": 1937,
+     "w": 269,
+     "h": 29,
+     "text": "Progress Status"
+    }
+   ],
+   "col": 2,
+   "row": 1
+  },
+  {
+   "x": 780,
+   "y": 1920,
+   "w": 357,
+   "h": 171,
+   "area": 57398,
+   "fill": 0.94,
+   "solid": 1.0,
+   "rx": 0,
+   "ry": 0,
+   "shape": "rect",
+   "stroke": 7,
+   "kind": "object",
+   "id": "n20",
+   "label": "Transportation\nStatus",
+   "labelLines": [
+    {
+     "x": 842,
+     "y": 1971,
+     "w": 240,
+     "h": 28,
+     "text": "Transportation"
+    },
+    {
+     "x": 910,
+     "y": 2004,
+     "w": 102,
+     "h": 24,
+     "text": "Status"
+    }
+   ],
+   "col": 1,
+   "row": 1
+  },
+  {
+   "x": 788,
+   "y": 2158,
+   "w": 356,
+   "h": 171,
+   "area": 56797,
+   "fill": 0.933,
+   "solid": 1.0,
+   "rx": 0,
+   "ry": 0,
+   "shape": "rect",
+   "stroke": 6,
+   "kind": "object",
+   "id": "n21",
+   "label": "Transport\nExecution Plan",
+   "labelLines": [
+    {
+     "x": 890,
+     "y": 2188,
+     "w": 162,
+     "h": 29,
+     "text": "Transport"
+    },
+    {
+     "x": 840,
+     "y": 2222,
+     "w": 253,
+     "h": 23,
+     "text": "Execution Plan"
+    }
+   ],
+   "col": 1,
+   "row": 1
+  },
+  {
+   "x": 1732,
+   "y": 2264,
+   "w": 240,
+   "h": 153,
+   "area": 32112,
+   "fill": 0.875,
+   "solid": 0.959,
+   "rx": 0,
+   "ry": 0,
+   "shape": "rect",
+   "stroke": 4,
+   "kind": "note",
+   "id": "n22",
+   "label": "Regulatory\nInformation",
+   "labelLines": [
+    {
+     "x": 1751,
+     "y": 2310,
+     "w": 170,
+     "h": 29,
+     "text": "Regulatory"
+    },
+    {
+     "x": 1751,
+     "y": 2350,
+     "w": 178,
+     "h": 23,
+     "text": "Information"
+    }
+   ],
+   "col": 2,
+   "row": 1
+  },
+  {
+   "x": 2003,
+   "y": 2319,
+   "w": 456,
+   "h": 239,
+   "area": 101346,
+   "fill": 0.93,
+   "solid": 0.981,
+   "rx": 52,
+   "ry": 46,
+   "shape": "rounded",
+   "stroke": 3,
+   "kind": "action",
+   "id": "n23",
+   "label": "Perform Compliance\nManagement",
+   "labelLines": [
+    {
+     "x": 2059,
+     "y": 2395,
+     "w": 337,
+     "h": 30,
+     "text": "Perform Compliance"
+    },
+    {
+     "x": 2128,
+     "y": 2433,
+     "w": 213,
+     "h": 29,
+     "text": "Management"
+    }
+   ],
+   "col": 2,
+   "row": 1
+  },
+  {
+   "x": 791,
+   "y": 2409,
+   "w": 356,
+   "h": 171,
+   "area": 56756,
+   "fill": 0.932,
+   "solid": 1.0,
+   "rx": 0,
+   "ry": 0,
+   "shape": "rect",
+   "stroke": 6,
+   "kind": "object",
+   "id": "n24",
+   "label": "Transport\nExecution Plan",
+   "labelLines": [
+    {
+     "x": 894,
+     "y": 2440,
+     "w": 161,
+     "h": 28,
+     "text": "Transport"
+    },
+    {
+     "x": 844,
+     "y": 2473,
+     "w": 252,
+     "h": 23,
+     "text": "Execution Plan"
+    }
+   ],
+   "col": 1,
+   "row": 1
+  },
+  {
+   "x": 178,
+   "y": 2850,
+   "w": 456,
+   "h": 179,
+   "area": 75550,
+   "fill": 0.926,
+   "solid": 0.977,
+   "rx": 45,
+   "ry": 50,
+   "shape": "rounded",
+   "stroke": 4,
+   "kind": "action",
+   "id": "n25",
+   "label": "Finalize\nTransport Services",
+   "labelLines": [
+    {
+     "x": 345,
+     "y": 2905,
+     "w": 124,
+     "h": 22,
+     "text": "Finalize"
+    },
+    {
+     "x": 247,
+     "y": 2941,
+     "w": 319,
+     "h": 29,
+     "text": "Transport Services"
+    }
+   ],
+   "col": 0,
+   "row": 2
+  },
+  {
+   "x": 1228,
+   "y": 2850,
+   "w": 456,
+   "h": 176,
+   "area": 74874,
+   "fill": 0.933,
+   "solid": 0.977,
+   "rx": 45,
+   "ry": 45,
+   "shape": "rounded",
+   "stroke": 4,
+   "kind": "action",
+   "id": "n26",
+   "label": "Manage Completion",
+   "labelLines": [
+    {
+     "x": 1294,
+     "y": 2925,
+     "w": 328,
+     "h": 30,
+     "text": "Manage Completion"
+    }
+   ],
+   "col": 1,
+   "row": 2
+  },
+  {
+   "x": 784,
+   "y": 2854,
+   "w": 356,
+   "h": 171,
+   "area": 58421,
+   "fill": 0.96,
+   "solid": 1.0,
+   "rx": 0,
+   "ry": 0,
+   "shape": "rect",
+   "stroke": 7,
+   "kind": "object",
+   "id": "n27",
+   "label": "Freight Invoice",
+   "labelLines": [
+    {
+     "x": 840,
+     "y": 2927,
+     "w": 248,
+     "h": 28,
+     "text": "Freight Invoice"
+    }
+   ],
+   "col": 1,
+   "row": 2
+  },
+  {
+   "x": 374,
+   "y": 3146,
+   "w": 62,
+   "h": 56,
+   "area": 2050,
+   "fill": 0.59,
+   "solid": 0.757,
+   "rx": 33,
+   "ry": 32,
+   "shape": "rounded",
+   "stroke": 4,
+   "kind": "final",
+   "innerRatio": 0.419,
+   "id": "n28",
+   "label": "",
+   "col": 0,
+   "row": 2
+  }
+ ],
+ "edges": [
+  {
+   "from": "n3",
+   "to": "n1",
+   "routing": "orthogonal",
+   "fromPoint": [
+    1440,
+    182
+   ],
+   "toPoint": [
+    1437,
+    150
+   ],
+   "arrowInk": [
+    434,
+    434
+   ],
+   "directionConfidence": "LOW"
+  },
+  {
+   "from": "n4",
+   "to": "n3",
+   "routing": "straight",
+   "fromPoint": [
+    2822,
+    284
+   ],
+   "toPoint": [
+    1684,
+    279
+   ],
+   "arrowInk": [
+    138,
+    472
+   ],
+   "directionConfidence": "high"
+  },
+  {
+   "from": "n3",
+   "to": "n7",
+   "routing": "orthogonal",
+   "fromPoint": [
+    1447,
+    336
+   ],
+   "toPoint": [
+    1452,
+    381
+   ],
+   "arrowInk": [
+    512,
+    526
+   ],
+   "directionConfidence": "LOW"
+  },
+  {
+   "from": "n6",
+   "to": "n5",
+   "routing": "straight",
+   "fromPoint": [
+    624,
+    426
+   ],
+   "toPoint": [
+    763,
+    420
+   ],
+   "arrowInk": [
+    180,
+    526
+   ],
+   "directionConfidence": "high"
+  },
+  {
+   "from": "n5",
+   "to": "n7",
+   "routing": "orthogonal",
+   "fromPoint": [
+    1147,
+    438
+   ],
+   "toPoint": [
+    1210,
+    445
+   ],
+   "arrowInk": [
+    289,
+    448
+   ],
+   "directionConfidence": "LOW"
+  },
+  {
+   "from": "n8",
+   "to": "n6",
+   "routing": "straight",
+   "fromPoint": [
+    769,
+    623
+   ],
+   "toPoint": [
+    624,
+    619
+   ],
+   "arrowInk": [
+    138,
+    473
+   ],
+   "directionConfidence": "high"
+  },
+  {
+   "from": "n7",
+   "to": "n8",
+   "routing": "orthogonal",
+   "fromPoint": [
+    1210,
+    622
+   ],
+   "toPoint": [
+    1154,
+    623
+   ],
+   "arrowInk": [
+    433,
+    487
+   ],
+   "directionConfidence": "LOW"
+  },
+  {
+   "from": "n6",
+   "to": "n10",
+   "routing": "straight",
+   "fromPoint": [
+    380,
+    725
+   ],
+   "toPoint": [
+    379,
+    779
+   ],
+   "arrowInk": [
+    386,
+    480
+   ],
+   "directionConfidence": "LOW"
+  },
+  {
+   "from": "n10",
+   "to": "n9",
+   "routing": "straight",
+   "fromPoint": [
+    621,
+    879
+   ],
+   "toPoint": [
+    763,
+    874
+   ],
+   "arrowInk": [
+    180,
+    525
+   ],
+   "directionConfidence": "high"
+  },
+  {
+   "from": "n9",
+   "to": "n11",
+   "routing": "orthogonal",
+   "fromPoint": [
+    1147,
+    876
+   ],
+   "toPoint": [
+    1217,
+    883
+   ],
+   "arrowInk": [
+    273,
+    488
+   ],
+   "directionConfidence": "medium"
+  },
+  {
+   "from": "n4",
+   "to": "n11",
+   "routing": "straight",
+   "fromPoint": [
+    2822,
+    1078
+   ],
+   "toPoint": [
+    1701,
+    1081
+   ],
+   "arrowInk": [
+    184,
+    511
+   ],
+   "directionConfidence": "high"
+  },
+  {
+   "from": "n13",
+   "to": "n10",
+   "routing": "straight",
+   "fromPoint": [
+    755,
+    1085
+   ],
+   "toPoint": [
+    621,
+    1090
+   ],
+   "arrowInk": [
+    138,
+    476
+   ],
+   "directionConfidence": "high"
+  },
+  {
+   "from": "n11",
+   "to": "n13",
+   "routing": "straight",
+   "fromPoint": [
+    1217,
+    1087
+   ],
+   "toPoint": [
+    1141,
+    1085
+   ],
+   "arrowInk": [
+    259,
+    491
+   ],
+   "directionConfidence": "medium"
+  },
+  {
+   "from": "n11",
+   "to": "n14",
+   "routing": "straight",
+   "fromPoint": [
+    1217,
+    1311
+   ],
+   "toPoint": [
+    1147,
+    1315
+   ],
+   "arrowInk": [
+    360,
+    522
+   ],
+   "directionConfidence": "LOW"
+  },
+  {
+   "from": "n14",
+   "to": "n10",
+   "routing": "straight",
+   "fromPoint": [
+    763,
+    1322
+   ],
+   "toPoint": [
+    621,
+    1317
+   ],
+   "arrowInk": [
+    184,
+    512
+   ],
+   "directionConfidence": "high"
+  },
+  {
+   "from": "n11",
+   "to": "n16",
+   "routing": "straight",
+   "fromPoint": [
+    1459,
+    1451
+   ],
+   "toPoint": [
+    1459,
+    1578
+   ],
+   "arrowInk": [
+    225,
+    521
+   ],
+   "directionConfidence": "medium"
+  },
+  {
+   "from": "n16",
+   "to": "n17",
+   "routing": "straight",
+   "fromPoint": [
+    1701,
+    1727
+   ],
+   "toPoint": [
+    2313,
+    1726
+   ],
+   "arrowInk": [
+    180,
+    524
+   ],
+   "directionConfidence": "high"
+  },
+  {
+   "from": "n17",
+   "to": "n4",
+   "routing": "straight",
+   "fromPoint": [
+    2697,
+    1726
+   ],
+   "toPoint": [
+    2819,
+    1719
+   ],
+   "arrowInk": [
+    180,
+    503
+   ],
+   "directionConfidence": "high"
+  },
+  {
+   "from": "n15",
+   "to": "n18",
+   "routing": "straight",
+   "fromPoint": [
+    628,
+    1749
+   ],
+   "toPoint": [
+    755,
+    1751
+   ],
+   "arrowInk": [
+    180,
+    525
+   ],
+   "directionConfidence": "high"
+  },
+  {
+   "from": "n18",
+   "to": "n16",
+   "routing": "orthogonal",
+   "fromPoint": [
+    1161,
+    1763
+   ],
+   "toPoint": [
+    1217,
+    1768
+   ],
+   "arrowInk": [
+    389,
+    491
+   ],
+   "directionConfidence": "LOW"
+  },
+  {
+   "from": "n4",
+   "to": "n19",
+   "routing": "straight",
+   "fromPoint": [
+    2822,
+    1933
+   ],
+   "toPoint": [
+    2697,
+    1937
+   ],
+   "arrowInk": [
+    184,
+    520
+   ],
+   "directionConfidence": "high"
+  },
+  {
+   "from": "n19",
+   "to": "n16",
+   "routing": "straight",
+   "fromPoint": [
+    2313,
+    1939
+   ],
+   "toPoint": [
+    1701,
+    1945
+   ],
+   "arrowInk": [
+    184,
+    512
+   ],
+   "directionConfidence": "high"
+  },
+  {
+   "from": "n20",
+   "to": "n15",
+   "routing": "straight",
+   "fromPoint": [
+    765,
+    2005
+   ],
+   "toPoint": [
+    628,
+    2009
+   ],
+   "arrowInk": [
+    184,
+    511
+   ],
+   "directionConfidence": "high"
+  },
+  {
+   "from": "n16",
+   "to": "n20",
+   "routing": "straight",
+   "fromPoint": [
+    1217,
+    2006
+   ],
+   "toPoint": [
+    1151,
+    2005
+   ],
+   "arrowInk": [
+    389,
+    525
+   ],
+   "directionConfidence": "LOW"
+  },
+  {
+   "from": "n15",
+   "to": "n21",
+   "routing": "straight",
+   "fromPoint": [
+    628,
+    2242
+   ],
+   "toPoint": [
+    773,
+    2243
+   ],
+   "arrowInk": [
+    180,
+    528
+   ],
+   "directionConfidence": "high"
+  },
+  {
+   "from": "n21",
+   "to": "n16",
+   "routing": "orthogonal",
+   "fromPoint": [
+    1158,
+    2243
+   ],
+   "toPoint": [
+    1217,
+    2238
+   ],
+   "arrowInk": [
+    368,
+    490
+   ],
+   "directionConfidence": "LOW"
+  },
+  {
+   "from": "n16",
+   "to": "n23",
+   "routing": "straight",
+   "fromPoint": [
+    1701,
+    2438
+   ],
+   "toPoint": [
+    1988,
+    2438
+   ],
+   "arrowInk": [
+    180,
+    403
+   ],
+   "directionConfidence": "medium"
+  },
+  {
+   "from": "n24",
+   "to": "n15",
+   "routing": "straight",
+   "fromPoint": [
+    776,
+    2494
+   ],
+   "toPoint": [
+    628,
+    2490
+   ],
+   "arrowInk": [
+    138,
+    473
+   ],
+   "directionConfidence": "high"
+  },
+  {
+   "from": "n24",
+   "to": "n16",
+   "routing": "orthogonal",
+   "fromPoint": [
+    1161,
+    2494
+   ],
+   "toPoint": [
+    1206,
+    2478
+   ],
+   "arrowInk": [
+    488,
+    536
+   ],
+   "directionConfidence": "LOW"
+  },
+  {
+   "from": "n16",
+   "to": "n26",
+   "routing": "straight",
+   "fromPoint": [
+    1457,
+    2670
+   ],
+   "toPoint": [
+    1456,
+    2835
+   ],
+   "arrowInk": [
+    180,
+    484
+   ],
+   "directionConfidence": "high"
+  },
+  {
+   "from": "n27",
+   "to": "n25",
+   "routing": "straight",
+   "fromPoint": [
+    769,
+    2939
+   ],
+   "toPoint": [
+    648,
+    2939
+   ],
+   "arrowInk": [
+    138,
+    478
+   ],
+   "directionConfidence": "high"
+  },
+  {
+   "from": "n26",
+   "to": "n27",
+   "routing": "orthogonal",
+   "fromPoint": [
+    1213,
+    2938
+   ],
+   "toPoint": [
+    1154,
+    2939
+   ],
+   "arrowInk": [
+    401,
+    485
+   ],
+   "directionConfidence": "LOW"
+  },
+  {
+   "from": "n25",
+   "to": "n28",
+   "routing": "straight",
+   "fromPoint": [
+    406,
+    3043
+   ],
+   "toPoint": [
+    405,
+    3131
+   ],
+   "arrowInk": [
+    180,
+    475
+   ],
+   "directionConfidence": "high"
+  }
+ ],
+ "text": [
+  {
+   "text": "Transport User",
+   "x": 391,
+   "y": 21,
+   "w": 247,
+   "h": 29,
+   "lines": [
+    {
+     "x": 391,
+     "y": 21,
+     "w": 247,
+     "h": 29,
+     "text": "Transport User"
+    }
+   ]
+  },
+  {
+   "text": "Transport Service Provider",
+   "x": 1177,
+   "y": 21,
+   "w": 458,
+   "h": 29,
+   "lines": [
+    {
+     "x": 1177,
+     "y": 21,
+     "w": 458,
+     "h": 29,
+     "text": "Transport Service Provider"
+    }
+   ]
+  },
+  {
+   "text": "Transport Regulator",
+   "x": 2021,
+   "y": 21,
+   "w": 327,
+   "h": 29,
+   "lines": [
+    {
+     "x": 2021,
+     "y": 21,
+     "w": 327,
+     "h": 29,
+     "text": "Transport Regulator"
+    }
+   ]
+  },
+  {
+   "text": "Transportation Network Manager",
+   "x": 2692,
+   "y": 21,
+   "w": 548,
+   "h": 29,
+   "lines": [
+    {
+     "x": 2692,
+     "y": 21,
+     "w": 548,
+     "h": 29,
+     "text": "Transportation Network Manager"
+    }
+   ]
+  },
+  {
+   "text": "oy)\n=\n=\n=\nSS\noO.",
+   "x": 19,
+   "y": 730,
+   "w": 32,
+   "h": 127
+  },
+  {
+   "text": "\\/",
+   "x": 360,
+   "y": 747,
+   "w": 38,
+   "h": 33,
+   "lines": [
+    {
+     "x": 360,
+     "y": 743,
+     "w": 38,
+     "h": 41,
+     "text": "\\/"
+    }
+   ]
+  },
+  {
+   "text": "=\n\u00b0)\na\n=)\n\u00a9\n\u00ae\nss\nLU",
+   "x": 19,
+   "y": 2063,
+   "w": 25,
+   "h": 145
+  },
+  {
+   "text": "<\nS)\n=\nx\noe\n\u20ac\n3\nO",
+   "x": 19,
+   "y": 2892,
+   "w": 32,
+   "h": 166
+  }
+ ],
+ "uncertain": [
+  {
+   "x": 2514,
+   "y": 285,
+   "w": 318,
+   "h": 790,
+   "shape": "rect",
+   "iou": 1.0,
+   "border": 1.0,
+   "kind": "dropped-region",
+   "reason": "4 of 4 sides are pass-through line-work",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "x": 615,
+   "y": 427,
+   "w": 338,
+   "h": 195,
+   "shape": "rect",
+   "iou": 0.588,
+   "border": 0.64,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best rect 0.59)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "x": 381,
+   "y": 625,
+   "w": 572,
+   "h": 252,
+   "shape": "rhombus",
+   "iou": 0.706,
+   "border": 0.374,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best rhombus 0.71)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "x": 611,
+   "y": 880,
+   "w": 342,
+   "h": 205,
+   "shape": "rect",
+   "iou": 0.537,
+   "border": 0.645,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best rect 0.54)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "x": 1462,
+   "y": 1079,
+   "w": 387,
+   "h": 455,
+   "shape": "rect",
+   "iou": 0.532,
+   "border": 0.666,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best rect 0.53)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "x": 1853,
+   "y": 1079,
+   "w": 979,
+   "h": 455,
+   "shape": "rect",
+   "iou": 0.996,
+   "border": 1.0,
+   "kind": "dropped-region",
+   "reason": "4 of 4 sides are pass-through line-work",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "x": 957,
+   "y": 1085,
+   "w": 501,
+   "h": 449,
+   "shape": "rect",
+   "iou": 0.408,
+   "border": 0.572,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best rect 0.41)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "x": 611,
+   "y": 1088,
+   "w": 342,
+   "h": 232,
+   "shape": "rect",
+   "iou": 0.572,
+   "border": 0.67,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best rect 0.57)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "x": 957,
+   "y": 1538,
+   "w": 500,
+   "h": 226,
+   "shape": "rect",
+   "iou": 0.483,
+   "border": 0.628,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best rect 0.48)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "x": 1461,
+   "y": 1538,
+   "w": 388,
+   "h": 187,
+   "shape": "rect",
+   "iou": 0.574,
+   "border": 0.691,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best rect 0.57)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "x": 1691,
+   "y": 1728,
+   "w": 158,
+   "h": 211,
+   "shape": "rect",
+   "iou": 0.995,
+   "border": 1.0,
+   "kind": "dropped-region",
+   "reason": "4 of 4 sides are pass-through line-work",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "x": 1853,
+   "y": 1728,
+   "w": 657,
+   "h": 211,
+   "shape": "rect",
+   "iou": 0.747,
+   "border": 0.797,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best rect 0.75)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "x": 618,
+   "y": 1750,
+   "w": 335,
+   "h": 253,
+   "shape": "rect",
+   "iou": 0.567,
+   "border": 0.593,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best rect 0.57)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "x": 957,
+   "y": 1764,
+   "w": 270,
+   "h": 240,
+   "shape": "rect",
+   "iou": 0.447,
+   "border": 0.614,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best rect 0.45)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "x": 1691,
+   "y": 1943,
+   "w": 158,
+   "h": 495,
+   "shape": "rect",
+   "iou": 0.75,
+   "border": 0.908,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best rect 0.75)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "x": 957,
+   "y": 2006,
+   "w": 270,
+   "h": 238,
+   "shape": "rect",
+   "iou": 0.446,
+   "border": 0.603,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best rect 0.45)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "x": 618,
+   "y": 2007,
+   "w": 335,
+   "h": 236,
+   "shape": "rect",
+   "iou": 0.589,
+   "border": 0.711,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best rect 0.59)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "x": 957,
+   "y": 2245,
+   "w": 497,
+   "h": 503,
+   "shape": "rect",
+   "iou": 0.406,
+   "border": 0.519,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best rect 0.41)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "x": 618,
+   "y": 2246,
+   "w": 335,
+   "h": 248,
+   "shape": "rect",
+   "iou": 0.622,
+   "border": 0.741,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best rect 0.62)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "x": 1458,
+   "y": 2442,
+   "w": 391,
+   "h": 306,
+   "shape": "rect",
+   "iou": 0.582,
+   "border": 0.684,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best rect 0.58)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "kind": "edge-direction",
+   "reason": "arrowhead ink is ambiguous where several connectors meet",
+   "edge": [
+    "n3",
+    "n1"
+   ],
+   "check": "confirm which way this edge points"
+  },
+  {
+   "kind": "edge-direction",
+   "reason": "arrowhead ink is ambiguous where several connectors meet",
+   "edge": [
+    "n3",
+    "n7"
+   ],
+   "check": "confirm which way this edge points"
+  },
+  {
+   "kind": "edge-direction",
+   "reason": "arrowhead ink is ambiguous where several connectors meet",
+   "edge": [
+    "n5",
+    "n7"
+   ],
+   "check": "confirm which way this edge points"
+  },
+  {
+   "kind": "edge-direction",
+   "reason": "arrowhead ink is ambiguous where several connectors meet",
+   "edge": [
+    "n7",
+    "n8"
+   ],
+   "check": "confirm which way this edge points"
+  },
+  {
+   "kind": "edge-direction",
+   "reason": "arrowhead ink is ambiguous where several connectors meet",
+   "edge": [
+    "n6",
+    "n10"
+   ],
+   "check": "confirm which way this edge points"
+  },
+  {
+   "kind": "edge-direction",
+   "reason": "arrowhead ink is ambiguous where several connectors meet",
+   "edge": [
+    "n11",
+    "n14"
+   ],
+   "check": "confirm which way this edge points"
+  },
+  {
+   "kind": "edge-direction",
+   "reason": "arrowhead ink is ambiguous where several connectors meet",
+   "edge": [
+    "n18",
+    "n16"
+   ],
+   "check": "confirm which way this edge points"
+  },
+  {
+   "kind": "edge-direction",
+   "reason": "arrowhead ink is ambiguous where several connectors meet",
+   "edge": [
+    "n16",
+    "n20"
+   ],
+   "check": "confirm which way this edge points"
+  },
+  {
+   "kind": "edge-direction",
+   "reason": "arrowhead ink is ambiguous where several connectors meet",
+   "edge": [
+    "n21",
+    "n16"
+   ],
+   "check": "confirm which way this edge points"
+  },
+  {
+   "kind": "edge-direction",
+   "reason": "arrowhead ink is ambiguous where several connectors meet",
+   "edge": [
+    "n24",
+    "n16"
+   ],
+   "check": "confirm which way this edge points"
+  },
+  {
+   "kind": "edge-direction",
+   "reason": "arrowhead ink is ambiguous where several connectors meet",
+   "edge": [
+    "n26",
+    "n27"
+   ],
+   "check": "confirm which way this edge points"
+  }
+ ]
+}

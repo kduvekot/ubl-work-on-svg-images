@@ -1,0 +1,129 @@
+{
+ "_note": "the direction of every flow the reading could not settle, judged against the original artwork by a person (2026-09). Twenty-five were drawn the way the artwork draws them; one, on CPFR-ExceptionMonitor, was not and was corrected. A flow is named by where its two elements sit on the page, because that is what stays put: node ids are handed out in reading order and move, and a label can be re-read. The 'flow' beside each verdict is the labels as they read at the time, for a person to recognise it by. extract_graph marks these flows as checked, and says so loudly when one is no longer read the way this table says - which is what makes the table a fixture rather than an override: it never sets a direction, it records that a person checked the one that was read, and complains when that changes.",
+ "flows": {
+  "UBL-2.2-CPFR-ExceptionMonitor": {
+   "890,1358 -> 1436,1064": {
+    "verdict": "corrected",
+    "flow": "Send Exception -> Exception Notification (positive)"
+   }
+  },
+  "UBL-2.2-Tender-ContractInfoPrep": {
+   "2188,946 -> 2482,1365": {
+    "verdict": "confirmed",
+    "flow": "Validate Prior Information Notice -> OK?"
+   }
+  },
+  "UBL-2.2-Tender-QualificationApplication": {
+   "111,394 -> 105,699": {
+    "verdict": "confirmed",
+    "flow": "Prepare qualification application request -> Submit qualification application request"
+   }
+  },
+  "UBL-2.3-Tender-Contract-Pre": {
+   "110,693 -> 110,964": {
+    "verdict": "confirmed",
+    "flow": "Prepare tender contract -> Add W3C Digital Signature"
+   },
+   "110,964 -> 105,1250": {
+    "verdict": "confirmed",
+    "flow": "Add W3C Digital Signature -> Submit tender contract"
+   }
+  },
+  "UBL-2.3-Tender-Contract-Post": {
+   "110,693 -> 105,978": {
+    "verdict": "confirmed",
+    "flow": "Prepare tender contract -> Submit tender contract"
+   },
+   "105,1631 -> 110,1922": {
+    "verdict": "confirmed",
+    "flow": "Receive tender contract -> Add W3C Digital Signature"
+   },
+   "110,1922 -> 105,2207": {
+    "verdict": "confirmed",
+    "flow": "Add W3C Digital Signature -> Return tender contract"
+   },
+   "1368,2130 -> 2076,2204": {
+    "verdict": "confirmed",
+    "flow": "Tender Contract -> Receive tender contract"
+   }
+  },
+  "UBL-2.3-GoodsCertificateExportProcess": {
+   "1377,440 -> 1397,584": {
+    "verdict": "confirmed",
+    "flow": "Validate Trade Certificate -> OK?"
+   },
+   "1018,781 -> 766,793": {
+    "verdict": "confirmed",
+    "flow": "Goods Certificate -> Send authorized copy"
+   }
+  },
+  "UBL-2.3-RequestForProofOfReexportationProcess": {
+   "454,279 -> 739,291": {
+    "verdict": "confirmed",
+    "flow": "Request For Proof Of Reexportation -> Issue to 1 Relevant Chamber of Commerce"
+   },
+   "1377,440 -> 1397,584": {
+    "verdict": "confirmed",
+    "flow": "Get Status From Goods Item Passport -> Item Returned?"
+   }
+  },
+  "UBL-2.2-IMFM-IntermodalFreightManagementProcess": {
+   "1232,1593 -> 791,2409": {
+    "verdict": "confirmed",
+    "flow": "Execute Transport Services -> Transport Execution Plan"
+   }
+  },
+  "UBL-2.0-SelfBillingwithSelfBilledCreditNoteProcess": {
+   "273,1312 -> 656,1728": {
+    "verdict": "confirmed",
+    "flow": "Reconcile Charges -> Raise Self Billed Credit Note"
+   }
+  },
+  "UBL-1.0-ProcurementProcess": {
+   "2768,111 -> 2926,234": {
+    "verdict": "confirmed",
+    "flow": "receive order -> decision"
+   },
+   "2926,234 -> 3110,524": {
+    "verdict": "confirmed",
+    "flow": "decision -> acd Cetail"
+   },
+   "1825,659 -> 2300,613": {
+    "verdict": "confirmed",
+    "flow": "OrderChange -> change order"
+   },
+   "1788,798 -> 2325,792": {
+    "verdict": "confirmed",
+    "flow": "OrderCancellation -> cancel order"
+   },
+   "1226,837 -> 1168,1470": {
+    "verdict": "confirmed",
+    "flow": "receive advice -> reconcile invoice"
+   },
+   "1817,1093 -> 153,1107": {
+    "verdict": "confirmed",
+    "flow": "DespatchAdvice -> recerve dOvVCE"
+   },
+   "153,1107 -> 151,1258": {
+    "verdict": "confirmed",
+    "flow": "recerve dOvVCE -> recive goods"
+   },
+   "2063,1246 -> 2602,1376": {
+    "verdict": "confirmed",
+    "flow": "deoson if Rem(s) rejected -> fork"
+   },
+   "151,1258 -> 149,1397": {
+    "verdict": "confirmed",
+    "flow": "recive goods -> Sdvise receipt"
+   },
+   "149,1397 -> 559,1257": {
+    "verdict": "confirmed",
+    "flow": "Sdvise receipt -> ReceiptAdvice"
+   },
+   "1887,1474 -> 1168,1470": {
+    "verdict": "confirmed",
+    "flow": "Invoice -> reconcile invoice"
+   }
+  }
+ }
+}

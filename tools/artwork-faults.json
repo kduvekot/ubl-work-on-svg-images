@@ -1,0 +1,94 @@
+{
+ "_note": "rules that UML asks for and these drawings do not give, each one read against the original artwork and found to be the artwork's and not the reading's. model_sheet reports those instead of failing them, and only where every element it names is listed here - a new one anywhere else still fails, which is what keeps the rule a tripwire for a connector the model has lost. Checked 2026-09 with the TC; see docs/artwork-conversion-notes.md 11.4.",
+ "diagrams": {
+  "UBL-2.2-BusinessCard": {
+   "why": "Fig 86: the flow out of the Business Card runs down the lane divider itself, with the pair of diagonal break marks across it - a BPMN break borrowed into a UML diagram because the right-hand lane is 0..n parties. A route drawn as the divider cannot be read as a flow; the marks are drawn, and the document reads as written and never read.",
+   "rules": {
+    "documents are both written and read": [
+     "[Business Card]"
+    ]
+   }
+  },
+  "UBL-2.2-CPFR-CreateOrderForecast": {
+   "why": "Fig 12: the forecast is the last thing the phase produces and is handed off the page, so nothing on this sheet reads it. Faithful.",
+   "rules": {
+    "documents are both written and read": [
+     "[Forecast (order - positive response)]"
+    ]
+   }
+  },
+  "UBL-2.2-CPFR-CreatingSalesForecast": {
+   "why": "Fig 9: the forecast is handed off the page as on Fig 12, and the Item Information Request limb is drawn with no start event on it. Faithful to the artwork.",
+   "rules": {
+    "documents are both written and read": [
+     "[Forecast (sales - positive response)]"
+    ],
+    "every element is reachable from a start event": [
+     "[Item Information Request]",
+     "Create Item Information Request"
+    ]
+   }
+  },
+  "UBL-2.2-DigitalCapability": {
+   "why": "Fig 87: as Fig 86.",
+   "rules": {
+    "documents are both written and read": [
+     "[Digital Capability]"
+    ]
+   }
+  },
+  "UBL-2.2-FulfilmentDespatchAdviceProcess": {
+   "why": "Fig 55: the Despatch Party lane has a start event labelled 'From Order' and the Delivery Party lane has none, so Receive Order Item(s) simply begins. The TC: this diagram needs proper cleaning up, outside this exercise.",
+   "rules": {
+    "every element is reachable from a start event": [
+     "Receive Order Item(s)"
+    ]
+   }
+  },
+  "UBL-2.2-Tender-AwardNotification": {
+   "why": "Fig 28: the Awarded and Unawarded Notification have no connector at all in the artwork - the one flow runs straight past both. The TC's ruling: the diagram would need a decision to choose which notification to send, and arguably a lane for the awarded/unawarded split. Out of scope; keep the SVG faithful.",
+   "rules": {
+    "every element is connected": [
+     "[Unawarded Notification]",
+     "[Awarded Notification]"
+    ],
+    "documents are both written and read": [
+     "[Unawarded Notification]",
+     "[Awarded Notification]"
+    ],
+    "every element is reachable from a start event": [
+     "[Unawarded Notification]",
+     "[Awarded Notification]"
+    ]
+   }
+  },
+  "UBL-2.3-Tender-Contract-Post": {
+   "why": "Fig 32: as Fig 31.",
+   "rules": {
+    "every element is reachable from a start event": [
+     "Prior exchange of public keys",
+     "Prior exchange of public keys"
+    ]
+   }
+  },
+  "UBL-2.3-Tender-Contract-Pre": {
+   "why": "Fig 31: 'Prior exchange of public keys' is a standing precondition drawn with a head at each end, not a step in the flow, so nothing starts it. The TC: note that this precondition needs additional work in the BPMN conversion project.",
+   "rules": {
+    "every element is reachable from a start event": [
+     "Prior exchange of public keys",
+     "Prior exchange of public keys"
+    ]
+   }
+  },
+  "UBL-2.5-UtilityBillingProcess": {
+   "why": "Fig 83: 'Report usage -> Utility Statement -> Receive Utility Statement' is a three-element limb with nothing feeding it. The TC: this diagram needs proper cleaning up, outside this exercise.",
+   "rules": {
+    "every element is reachable from a start event": [
+     "[Utility Statement]",
+     "Receive Utility Statement",
+     "Report usage"
+    ]
+   }
+  }
+ }
+}
