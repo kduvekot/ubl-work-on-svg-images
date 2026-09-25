@@ -1,0 +1,92 @@
+{
+ "name": "UBL-2.3-TransitDeclarationProcess.png",
+ "verdict": "needs-human",
+ "radius": 3,
+ "lineWorkInk": 227772,
+ "missingPx": 121,
+ "inventedPx": 300,
+ "structural": {
+  "absent": 0,
+  "invented": 0,
+  "coherence": 0,
+  "textAbsent": 0,
+  "textDiffers": 0
+ },
+ "blocking": [],
+ "findings": [
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n6 (decision 'Is valid?')",
+   "x": 2586,
+   "y": 1079,
+   "w": 2,
+   "h": 41,
+   "area": 82
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n6 (decision 'Is valid?')",
+   "x": 2594,
+   "y": 1079,
+   "w": 2,
+   "h": 41,
+   "area": 75
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n8 -> n9",
+   "x": 1425,
+   "y": 1503,
+   "w": 1,
+   "h": 64,
+   "area": 64
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n5 -> n7",
+   "x": 1425,
+   "y": 1032,
+   "w": 1,
+   "h": 60,
+   "area": 60
+  }
+ ],
+ "text": [],
+ "coherence": [],
+ "human": [
+  {
+   "kind": "ring-stroke-unreadable",
+   "x": 199,
+   "y": 1812,
+   "w": 138,
+   "h": 138,
+   "reason": "line-work runs off this activity final on more than one side, so its ring thickness could not be measured",
+   "check": "confirm this is an activity final and how thick its ring is"
+  },
+  {
+   "kind": "unexplained-line-work",
+   "x": 2592,
+   "y": -16,
+   "w": 96,
+   "h": 173,
+   "reason": "line-work that is neither a connector between two nodes nor the size of text",
+   "check": "decide what this is; the SVG does not draw it"
+  }
+ ],
+ "review": [
+  {
+   "n": 1,
+   "what": "check",
+   "where": "199,1812 138x138",
+   "detail": "line-work runs off this activity final on more than one side, so its ring thickness could not be measured",
+   "check": "confirm this is an activity final and how thick its ring is"
+  },
+  {
+   "n": 2,
+   "what": "check",
+   "where": "2592,-16 96x173",
+   "detail": "line-work that is neither a connector between two nodes nor the size of text",
+   "check": "decide what this is; the SVG does not draw it"
+  }
+ ]
+}

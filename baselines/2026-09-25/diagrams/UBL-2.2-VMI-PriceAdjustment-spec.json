@@ -1,0 +1,297 @@
+{
+ "canvas": {
+  "w": 1480.0,
+  "h": 896.642
+ },
+ "stroke": {
+  "frame": 4.3,
+  "divider": 2.6,
+  "action": 2.2,
+  "object": 5.2,
+  "edge": 2.2
+ },
+ "font": {
+  "family": "Helvetica, Arial, sans-serif",
+  "node": 31.5,
+  "lane": 31.5,
+  "guard": 31.5
+ },
+ "arrow": 41.1,
+ "arrowWidth": 32.9,
+ "arrowStyle": "open",
+ "dashed": [],
+ "greyRules": [],
+ "crossMarks": [],
+ "openEnds": [],
+ "frameBox": [
+  2.2,
+  2.2,
+  1477.8,
+  894.5
+ ],
+ "dividers": [
+  [
+   783.9,
+   2.6,
+   5.6,
+   890.6
+  ]
+ ],
+ "bands": [],
+ "lanes": [
+  {
+   "title": "Producer",
+   "x": 0.0,
+   "w": 783.9,
+   "cx": 371.6,
+   "cy": 40.2
+  },
+  {
+   "title": "Retailer",
+   "x": 783.9,
+   "w": 696.1,
+   "cx": 1145.5,
+   "cy": 40.6
+  }
+ ],
+ "bandLabels": [],
+ "nodes": [
+  {
+   "id": "n1",
+   "kind": "initial",
+   "label": "",
+   "x": 290.8,
+   "y": 92.0,
+   "w": 49.7,
+   "h": 49.7
+  },
+  {
+   "id": "n2",
+   "kind": "decision",
+   "label": "",
+   "x": 283.7,
+   "y": 226.2,
+   "w": 59.2,
+   "h": 50.6
+  },
+  {
+   "id": "n3",
+   "kind": "final",
+   "label": "",
+   "x": 36.7,
+   "y": 230.3,
+   "w": 44.9,
+   "h": 44.9,
+   "innerRatio": 0.439
+  },
+  {
+   "id": "n4",
+   "kind": "object",
+   "label": "Catalogue",
+   "x": 684.5,
+   "y": 490.5,
+   "w": 200.9,
+   "h": 83.0,
+   "labelLines": [
+    {
+     "text": "Catalogue",
+     "cx": 789.0,
+     "cy": 532.2,
+     "w": 146.1
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n5",
+   "kind": "action",
+   "label": "Send Price List",
+   "x": 145.4,
+   "y": 492.8,
+   "w": 316.7,
+   "h": 73.0,
+   "rx": 35.2,
+   "ry": 25.3,
+   "labelLines": [
+    {
+     "text": "Send Price List",
+     "cx": 301.6,
+     "cy": 529.1,
+     "w": 221.2
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n6",
+   "kind": "action",
+   "label": "Receive Price List",
+   "x": 1126.7,
+   "y": 492.8,
+   "w": 316.3,
+   "h": 75.6,
+   "rx": 35.6,
+   "ry": 27.9,
+   "labelLines": [
+    {
+     "text": "Receive Price List",
+     "cx": 1283.0,
+     "cy": 529.3,
+     "w": 261.0
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n7",
+   "kind": "final",
+   "label": "",
+   "x": 1259.2,
+   "y": 819.3,
+   "w": 44.9,
+   "h": 44.5,
+   "innerRatio": 0.439
+  }
+ ],
+ "edges": [
+  {
+   "from": "n1",
+   "to": "n2",
+   "exitXY": [
+    0.4527,
+    1.0
+   ],
+   "entryXY": [
+    0.4932,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n2",
+   "to": "n3",
+   "exitXY": [
+    0.0,
+    0.5
+   ],
+   "entryXY": [
+    1.0,
+    0.4722
+   ],
+   "straight": true,
+   "confidence": "high",
+   "label": "False"
+  },
+  {
+   "from": "n2",
+   "to": "n5",
+   "exitXY": [
+    0.5,
+    1.0
+   ],
+   "entryXY": [
+    0.5273,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high",
+   "label": "True"
+  },
+  {
+   "from": "n5",
+   "to": "n4",
+   "exitXY": [
+    1.0,
+    0.5068
+   ],
+   "entryXY": [
+    0.0,
+    0.4892
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n4",
+   "to": "n6",
+   "exitXY": [
+    1.0,
+    0.4831
+   ],
+   "entryXY": [
+    0.0,
+    0.5
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n6",
+   "to": "n7",
+   "exitXY": [
+    0.4926,
+    1.0
+   ],
+   "entryXY": [
+    0.51,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  }
+ ],
+ "guards": [
+  {
+   "text": "Change of\nprices?",
+   "x": 401.9,
+   "y": 215.6,
+   "w": 108.9,
+   "h": 52.7,
+   "labelLines": [
+    {
+     "text": "Change of",
+     "cx": 456.3,
+     "cy": 226.6,
+     "w": 108.9
+    },
+    {
+     "text": "prices?",
+     "cx": 439.0,
+     "cy": 257.3,
+     "w": 73.5
+    }
+   ]
+  },
+  {
+   "text": "False",
+   "x": 180.2,
+   "y": 227.7,
+   "w": 55.3,
+   "h": 16.9,
+   "labelLines": [
+    {
+     "text": "False",
+     "cx": 207.8,
+     "cy": 236.2,
+     "w": 55.3
+    }
+   ]
+  },
+  {
+   "text": "True",
+   "x": 325.4,
+   "y": 298.6,
+   "w": 47.5,
+   "h": 16.9,
+   "labelLines": [
+    {
+     "text": "True",
+     "cx": 349.2,
+     "cy": 307.0,
+     "w": 47.5
+    }
+   ]
+  }
+ ]
+}

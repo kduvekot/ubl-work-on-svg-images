@@ -1,0 +1,66 @@
+image 3223x2374
+
+PARTITION RULES
+   vertical  : [(6, 8), (1601, 8), (3209, 8)]
+   horizontal: [(6, 8), (2360, 8)]
+   -> 3 column(s) x 2 band(s)
+   type measured off the page: a word is 57px tall
+   (dropped x=14    y=14    3195x2346  encloses another region)
+   object nodes are those stroked heavier than 5.5px
+   (dropped x=2585  y=1423     8x166   only 8px across against a 8px line - a stroke, not a fork bar)
+
+NODES
+   n1   object    x=2410  y=82    w=36    h=47    stroke=6   fill=0.82  ''
+   n2   action    x=2532  y=83    w=33    h=45    stroke=4   fill=0.86  ''
+   n3   action    x=2076  y=223   w=1036  h=167   stroke=8   fill=0.87  'Prior exchange of public keys'
+   n4   action    x=105   y=226   w=1019  h=175   stroke=8   fill=0.87  'Prior exchange of public keys'
+   n5   initial   x=523   y=471   w=116   h=116   stroke=0   fill=1.00  ''
+   n6   action    x=110   y=693   w=1028  h=156   stroke=8   fill=0.88  'Prepare tender contract'
+   n7   action    x=110   y=964   w=1028  h=157   stroke=7   fill=0.86  'Add W3C Digital Signature'
+   n8   object    x=1368  y=1172  w=485   h=326   stroke=8   fill=0.93  'Tender\nContract'
+   n9   action    x=2076  y=1246  w=1036  h=168   stroke=7   fill=0.89  'Receive tender contract'
+   n10  action    x=105   y=1250  w=1019  h=174   stroke=8   fill=0.90  'Submit tender contract'
+   n11  action    x=2076  y=1607  w=1028  h=156   stroke=8   fill=0.86  'Add W3C Digital Signature'
+   n12  object    x=1368  y=1825  w=485   h=326   stroke=8   fill=0.93  'Tender\nContract'
+   n13  action    x=2076  y=1899  w=1036  h=168   stroke=7   fill=0.90  'Return tender contract'
+   n14  action    x=105   y=1903  w=1019  h=175   stroke=8   fill=0.89  'Receive tender contract'
+   n15  final     x=531   y=2226  w=102   h=101   stroke=8   fill=0.58  ''
+
+TYPE  cap height 51px over 274 glyphs -> font 72.9px
+   (dropped x=2410  y=82      36x47    smaller than one character of 73px type - a letter counter, not a node)
+   (dropped x=2532  y=83      33x45    smaller than one character of 73px type - a letter counter, not a node)
+   corner radius rx on 'Prepare tender contract' could not be read (it came back larger than the box) - taking the 83 the rest of its kind measures
+   corner radius rx on 'Add W3C Digital Signature' could not be read (it came back larger than the box) - taking the 83 the rest of its kind measures
+   corner radius rx on 'Receive tender contract' could not be read (it came back larger than the box) - taking the 83 the rest of its kind measures
+   corner radius rx on 'Add W3C Digital Signature' could not be read (it came back larger than the box) - taking the 83 the rest of its kind measures
+   corner radius rx on 'Return tender contract' could not be read (it came back larger than the box) - taking the 83 the rest of its kind measures
+   rejoined 10 line break(s) of up to 131px, where a label sits on the line
+   chained 6 dashes into one dashed flow
+
+EDGES
+   n3   -> n4    straight    arrowhead  1091 vs 1083   ratio 4.0  high
+   n5   -> n6    straight    arrowhead  1076 vs 963    ratio 4.0  high
+   n6   -> n7    straight    arrowhead  1081 vs 810    ratio 1.0  <-- CHECK DIRECTION
+   n7   -> n10   straight    arrowhead  1063 vs 599    ratio 1.0  <-- CHECK DIRECTION
+   n10  -> n8    straight    arrowhead  1078 vs 360    ratio 4.0  high
+   n8   -> n9    diagonal    arrowhead  1042 vs 360    ratio 4.0  high
+   n9   -> n11   straight    arrowhead   882 vs 360    ratio 4.0  high
+   n11  -> n13   straight    arrowhead   982 vs 597    ratio 4.0  high
+   n12  -> n14   straight    arrowhead  1183 vs 368    ratio 4.0  high
+   n13  -> n12   straight    arrowhead  1072 vs 368    ratio 4.0  high
+   n14  -> n15   straight    arrowhead   911 vs 470    ratio 4.0  high
+
+TEXT (titles, guards, notes)
+   'INITIATING PARTY'                       x=279   y=71    
+   'RESPONDING PARTY'                       x=2204  y=76    
+
+PARTITIONS
+   column 0  'INITIATING PARTY'
+   column 1  'RESPONDING PARTY'
+   column 2  ''
+   band   0  ''
+   band   1  ''
+
+ARROWHEAD  76 x 66px, open, measured on 10 connector(s)
+
+wrote review/baseline/UBL-2.3-Tender-Contract-Pre-graph.json   (13 nodes, 11 edges, 2 flagged for a human)

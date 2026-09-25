@@ -1,0 +1,68 @@
+image 3425x1832
+
+PARTITION RULES
+   vertical  : [(0, 10), (1686, 5), (3415, 10)]
+   horizontal: [(0, 10), (1822, 10)]
+   -> 2 column(s) x 1 band(s)
+   type measured off the page: a word is 37px tall
+   (dropped x=10    y=10    1676x1812  is a partition cell)
+   (dropped x=1691  y=10    1724x1812  is a partition cell)
+   (dropped x=404   y=361   1282x607   encloses another region)
+   (dropped x=412   y=741   1274x344   outline matches no UML node shape (best ellipse 0.64, and 0.99 is the most this shape can reach at this size))
+   object nodes are those stroked heavier than 7.0px
+
+NODES
+   n1   initial   x=3072  y=171   w=91    h=91    stroke=0   fill=0.74  ''
+   n2   object    x=1496  y=273   w=356   h=192   stroke=9   fill=0.97  'Invoice'
+   n3   action    x=133   y=295   w=545   h=110   stroke=5   fill=0.89  'Receive Invoice'
+   n4   action    x=2105  y=316   w=544   h=122   stroke=5   fill=0.90  'Raise Invoice'
+   n5   object    x=1480  y=646   w=356   h=192   stroke=9   fill=0.94  'Utility Statement'
+   n6   action    x=716   y=676   w=544   h=127   stroke=4   fill=0.87  'Receive Utility Statement'
+   n7   action    x=2052  y=685   w=655   h=114   stroke=5   fill=0.91  'Report usage'
+   n8   decision  x=2927  y=936   w=380   h=280   stroke=5   fill=0.47  'Reconcile\nCharges'
+   n9   decision  x=228   y=981   w=348   h=198   stroke=5   fill=0.45  'Reconcile\nCharges'
+   n10  object    x=1484  y=990   w=413   h=192   stroke=9   fill=0.92  'Invoice Status\nResponse'
+   n11  action    x=2056  y=1004  w=642   h=147   stroke=4   fill=0.92  'Receive Account Response'
+   n12  action    x=789   y=1029  w=544   h=110   stroke=5   fill=0.85  'Send Account Response'
+   n13  final     x=359   y=1566  w=93    h=94    stroke=5   fill=0.54  ''
+   n14  final     x=3080  y=1689  w=74    h=73    stroke=4   fill=0.63  ''
+
+TYPE  cap height 30px over 164 glyphs -> font 42.9px
+   corner radius rx on 'Receive Invoice' could not be read (it came back larger than the box) - taking the 56 the rest of its kind measures
+   corner radius rx on 'Send Account Response' could not be read (it came back larger than the box) - taking the 56 the rest of its kind measures
+   corner radius ry on 'Receive Invoice' could not be read (it came back larger than the box) - taking the 56 the rest of its kind measures
+   rejoined 2 line break(s) of up to 77px, where a label sits on the line
+   one component crossing 3 nodes split into 2 connectors
+
+EDGES
+   n1   -> n8    straight    arrowhead   845 vs 180    ratio 4.0  high
+   n2   -> n3    straight    arrowhead   678 vs 230    ratio 4.0  high
+   n4   -> n2    straight    arrowhead   639 vs 230    ratio 4.0  high
+   n3   -> n9    straight    arrowhead  1010 vs 225    ratio 4.0  high
+   n8   -> n4    diagonal    arrowhead   934 vs 611    ratio 4.0  high
+   n5   -> n6    straight    arrowhead   686 vs 230    ratio 4.0  high
+   n7   -> n5    straight    arrowhead   643 vs 230    ratio 4.0  high
+   n6   -> n9    diagonal    arrowhead  1135 vs 213    ratio 5.3  high
+   n11  -> n8    straight    arrowhead   707 vs 225    ratio 4.0  high
+   n9   -> n12   straight    arrowhead   672 vs 180    ratio 4.0  high
+   n10  -> n11   straight    arrowhead   710 vs 227    ratio 4.0  high
+   n12  -> n10   straight    arrowhead   690 vs 216    ratio 4.0  high
+   n9   -> n13   straight    arrowhead   714 vs 225    ratio 4.0  high
+   n8   -> n14   straight    arrowhead   676 vs 180    ratio 4.0  high
+
+TEXT (titles, guards, notes)
+   'Accounting Customer'                    x=638   y=25    
+   'Accounting Supplier'                    x=2360  y=25    
+   '(from Business\nProcesses)'             x=1520  y=500   
+   '(from Business\nProcasses)'             x=1536  y=1218  
+   '[agree to\ncharges]'                    x=165   y=1419  n9->n13
+   '[no action\nrequired]'                  x=3171  y=1432  n8->n14
+
+PARTITIONS
+   column 0  'Accounting Customer'
+   column 1  'Accounting Supplier'
+   band   0  ''
+
+ARROWHEAD  56 x 46px, open, measured on 12 connector(s)
+
+wrote review/baseline/UBL-2.5-UtilityBillingProcess-graph.json   (14 nodes, 14 edges, 1 flagged for a human)

@@ -1,0 +1,101 @@
+image 3425x4173
+
+PARTITION RULES
+   vertical  : [(0, 10), (1608, 6), (3415, 10)]
+   horizontal: [(0, 10), (4163, 10)]
+   -> 2 column(s) x 1 band(s)
+   type measured off the page: a word is 41px tall
+   (dropped x=10    y=10    1598x4153  is a partition cell)
+   (dropped x=1614  y=10    1801x4153  is a partition cell)
+   (dropped x=1025  y=1443   583x460   outline matches no UML node shape (best ellipse 0.59, and 0.99 is the most this shape can reach at this size))
+   (dropped x=645   y=1908   963x874   outline matches no UML node shape (best rounded 0.73, and 1.00 is the most this shape can reach at this size))
+   (dropped x=645   y=2787   963x739   4 of 4 sides are pass-through line-work)
+   object nodes are those stroked heavier than 7.5px
+
+NODES
+   n1   initial   x=3121  y=155   w=90    h=90    stroke=0   fill=0.77  ''
+   n2   decision  x=2464  y=170   w=586   h=345   stroke=5   fill=0.47  'Respond to Request'
+   n3   object    x=1411  y=234   w=387   h=208   stroke=9   fill=0.93  'Catalogue\nRequest'
+   n4   action    x=512   y=281   w=619   h=128   stroke=5   fill=0.85  'Request Catalogue Update'
+   n5   initial   x=163   y=307   w=90    h=89    stroke=0   fill=0.78  ''
+   n6   object    x=1375  y=675   w=387   h=205   stroke=10  fill=0.87  'Application\nResponse\n(negative)'
+   n7   action    x=2055  y=682   w=544   h=160   stroke=5   fill=0.90  'Send Rejection'
+   n8   final     x=766   y=735   w=79    h=80    stroke=5   fill=0.64  ''
+   n9   fork      x=2621  y=953   w=295   h=28    stroke=0   fill=0.61  ''
+   n10  object    x=1384  y=1313  w=387   h=209   stroke=10  fill=0.88  'Application\nResponse\n(positive)'
+   n11  action    x=2046  y=1338  w=539   h=186   stroke=6   fill=0.88  'Send Acceptance\nResponse'
+   n12  action    x=2671  y=1364  w=588   h=183   stroke=5   fill=0.84  'Prepare Catalogue Item\nUpdate Information'
+   n13  object    x=1397  y=1799  w=388   h=209   stroke=10  fill=0.86  'Catalogue Item\nSpecification\nUpdate'
+   n14  action    x=2702  y=1810  w=597   h=187   stroke=5   fill=0.89  'Distribute Item\nModifications'
+   n15  fork      x=908   y=1889  w=179   h=28    stroke=0   fill=0.62  ''
+   n16  action    x=529   y=2211  w=620   h=142   stroke=5   fill=0.89  'Receive Item Update'
+   n17  decision  x=384   y=2582  w=516   h=403   stroke=5   fill=0.48  'Review Item\nDetails'
+   n18  decision  x=2820  y=2591  w=485   h=359   stroke=5   fill=0.48  'Decide on Action'
+   n19  object    x=1402  y=2682  w=387   h=208   stroke=10  fill=0.87  'Application\nResponse\n(negative)'
+   n20  action    x=378   y=3433  w=543   h=187   stroke=5   fill=0.89  'Acknowledge\nAcceptance'
+   n21  object    x=1379  y=3440  w=388   h=209   stroke=10  fill=0.88  'Application\nResponse\n(positive)'
+   n22  action    x=2149  y=3455  w=619   h=169   stroke=5   fill=0.92  'Activate Changes'
+   n23  final     x=3023  y=3478  w=80    h=79    stroke=0   fill=0.64  ''
+   n24  action    x=355   y=3910  w=544   h=187   stroke=5   fill=0.92  'Apply Changes'
+   n25  final     x=1324  y=3968  w=79    h=80    stroke=5   fill=0.64  ''
+
+TYPE  cap height 33px over 386 glyphs -> font 47.1px
+   rejoined 2 line break(s) of up to 85px, where a label sits on the line
+   chained 4 dashes into one dashed flow
+   chained 4 dashes into one dashed flow
+
+EDGES
+   n2   -> (off the diagram) at 3051,154
+   n1   -> n12   straight    arrowhead   748 vs 225    ratio 4.0  high
+   n4   -> n3    straight    arrowhead   718 vs 225    ratio 4.0  high
+   n3   -> n2    straight    arrowhead   738 vs 225    ratio 4.0  high
+   n5   -> n4    straight    arrowhead   794 vs 270    ratio 4.0  high
+   n2   -> n7    diagonal    arrowhead   523 vs 470    ratio 4.0  high
+   n2   -> n9    straight    arrowhead   760 vs 369    ratio 2.1  medium
+   n7   -> n6    straight    arrowhead   694 vs 276    ratio 4.0  high
+   n6   -> n8    straight    arrowhead   724 vs 230    ratio 4.0  high
+   n9   -> n11   diagonal    arrowhead   709 vs 518    ratio 4.0  high
+   n9   -> n12   diagonal    arrowhead   788 vs 372    ratio 4.0  high
+   n11  -> n10   straight    arrowhead   662 vs 230    ratio 4.0  high
+   n15  -> n10   diagonal    arrowhead   769 vs 297    ratio 1.4  <-- CHECK DIRECTION
+   n12  -> n14   straight    arrowhead   751 vs 225    ratio 4.0  high
+   n13  -> n15   straight    arrowhead   819 vs 230    ratio 4.0  high
+   n14  -> n13   straight    arrowhead   672 vs 230    ratio 4.0  high
+   n15  -> n16   straight    arrowhead   751 vs 225    ratio 4.0  high
+   n18  -> n14   straight    arrowhead   755 vs 276    ratio 4.0  high
+   n16  -> n17   straight    arrowhead   754 vs 226    ratio 4.0  high
+   n19  -> n18   straight    arrowhead   788 vs 270    ratio 4.0  high
+   n17  -> n19   straight    arrowhead   715 vs 225    ratio 4.0  high
+   n18  -> n23   straight    arrowhead   795 vs 270    ratio 4.0  high
+   n17  -> n20   straight    arrowhead   745 vs 225    ratio 4.0  high
+   n22  -> n23   straight    arrowhead   750 vs 225    ratio 4.0  high
+   n20  -> n21   straight    arrowhead   722 vs 225    ratio 4.0  high
+   n21  -> n22   straight    arrowhead   790 vs 270    ratio 4.0  high
+   n20  -> n24   straight    arrowhead   748 vs 225    ratio 4.0  high
+   n24  -> n25   straight    arrowhead   792 vs 270    ratio 4.0  high
+
+TEXT (titles, guards, notes)
+   'Receiver Party'                         x=660   y=27    
+   'Provider Party'                         x=2373  y=27    
+   'oupplier Initiated\nUpdate'             x=2942  y=67    
+   'Customer\nInitiated\nUpdate'            x=154   y=437   
+   '[reject request]'                       x=2283  y=549   n2->n7
+   '[accept request]'                       x=2742  y=701   n2->n9
+   (dropped x=2733  y=891     50x48    '\\V/' - line-work, not text)
+   (dropped x=2429  y=1306    41x18    'i”' - line-work, not text)
+   (dropped x=1016  y=1827    58x48    'TZ' - line-work, not text)
+   '[revise catalogue item]'                x=2551  y=2471  n18->n14
+   '[query changes]'                        x=989   y=2806  n17->n19
+   '[accept changes]'                       x=721   y=3194  n17->n20
+   '[cancel transaction]'                   x=2626  y=3212  n18->n23
+   n10  -> n15   turned round: the point it lost sits at the other end
+
+PARTITIONS
+   column 0  'Receiver Party'
+   column 1  'Provider Party'
+   band   0  ''
+
+ARROWHEAD  63 x 50px, open, measured on 23 connector(s)
+   (dropped the open end at 3041,-22 - it is ink inside 'oupplier Initiated Update')
+
+wrote review/baseline/UBL-2.0-UpdateCatalogueItemSpecificationProcess-graph.json   (25 nodes, 27 edges, 5 flagged for a human)

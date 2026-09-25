@@ -1,0 +1,11 @@
+== UBL-2.2-CRP-BaseArticleCatalogue
+  scale 0.43212   frame 10px  divider 6px  action 6px  object 12px
+  font 83px (35.8 model)   2 lanes, 1 bands, 5 nodes, 4 edges -> review/baseline/UBL-2.2-CRP-BaseArticleCatalogue-spec.json
+  review/baseline/UBL-2.2-CRP-BaseArticleCatalogue.svg + .drawio + -classified.svg   (5 nodes, 4 edges)
+  rendered UBL-2.2-CRP-BaseArticleCatalogue.svg -> UBL-2.2-CRP-BaseArticleCatalogue-render.png @ 3425pxx1516, 600 dpi
+  aligned on ink bounds: scale x 1.0000, y 1.0000
+  size 3425x1516  radius 2
+  ink: original 226708   candidate 227203
+  MISSING (red)    16011  = 7.0624% of original ink
+  EXTRA   (blue)   17255  = 7.6111% of original ink
+  RESULT: DIFFERENCES - inspect review/baseline/UBL-2.2-CRP-BaseArticleCatalogue-diff-r2.png

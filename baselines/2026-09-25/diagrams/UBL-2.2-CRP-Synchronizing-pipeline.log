@@ -1,0 +1,11 @@
+== UBL-2.2-CRP-Synchronizing
+  scale 0.43212   frame 10px  divider 5px  action 5px  object 11px
+  font 69px (29.6 model)   2 lanes, 1 bands, 5 nodes, 4 edges -> review/baseline/UBL-2.2-CRP-Synchronizing-spec.json
+  review/baseline/UBL-2.2-CRP-Synchronizing.svg + .drawio + -classified.svg   (5 nodes, 4 edges)
+  rendered UBL-2.2-CRP-Synchronizing.svg -> UBL-2.2-CRP-Synchronizing-render.png @ 3425pxx1206, 600 dpi
+  aligned on ink bounds: scale x 1.0000, y 1.0000
+  size 3425x1206  radius 2
+  ink: original 210121   candidate 208844
+  MISSING (red)     9709  = 4.6207% of original ink
+  EXTRA   (blue)    9786  = 4.6573% of original ink
+  RESULT: DIFFERENCES - inspect review/baseline/UBL-2.2-CRP-Synchronizing-diff-r2.png

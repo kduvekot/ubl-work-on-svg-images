@@ -1,0 +1,385 @@
+{
+ "canvas": {
+  "w": 1480.0,
+  "h": 913.063
+ },
+ "stroke": {
+  "frame": 4.3,
+  "divider": 2.2,
+  "action": 2.2,
+  "object": 3.9,
+  "edge": 2.2
+ },
+ "font": {
+  "family": "Helvetica, Arial, sans-serif",
+  "node": 22.2,
+  "lane": 22.2,
+  "guard": 22.2
+ },
+ "arrow": 31.9,
+ "arrowWidth": 26.0,
+ "arrowStyle": "open",
+ "dashed": [],
+ "greyRules": [],
+ "crossMarks": [],
+ "openEnds": [],
+ "frameBox": [
+  2.2,
+  2.2,
+  1477.8,
+  910.9
+ ],
+ "dividers": [
+  [
+   536.9,
+   2.2,
+   5.6,
+   907.0
+  ],
+  [
+   1028.2,
+   2.2,
+   5.6,
+   907.0
+  ]
+ ],
+ "bands": [],
+ "lanes": [
+  {
+   "title": "Accounting Customer",
+   "x": 0.0,
+   "w": 536.7,
+   "cx": 265.1,
+   "cy": 19.0
+  },
+  {
+   "title": "Accounting Supplier",
+   "x": 536.7,
+   "w": 491.7,
+   "cx": 776.9,
+   "cy": 19.0
+  },
+  {
+   "title": "Payee Party",
+   "x": 1028.4,
+   "w": 451.6,
+   "cx": 1251.6,
+   "cy": 19.2
+  }
+ ],
+ "bandLabels": [],
+ "nodes": [
+  {
+   "id": "n1",
+   "kind": "initial",
+   "label": "",
+   "x": 167.2,
+   "y": 67.8,
+   "w": 37.6,
+   "h": 37.6
+  },
+  {
+   "id": "n2",
+   "kind": "action",
+   "label": "Authorize Payment",
+   "x": 61.6,
+   "y": 197.7,
+   "w": 250.6,
+   "h": 54.4,
+   "rx": 25.9,
+   "ry": 27.4,
+   "labelLines": [
+    {
+     "text": "Authorize Payment",
+     "cx": 187.5,
+     "cy": 225.1,
+     "w": 169.4
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n3",
+   "kind": "object",
+   "label": "Remittance\nAdvice",
+   "x": 441.4,
+   "y": 334.2,
+   "w": 165.9,
+   "h": 91.6,
+   "labelLines": [
+    {
+     "text": "Remittance",
+     "cx": 521.3,
+     "cy": 363.6,
+     "w": 119.7
+    },
+    {
+     "text": "Advice",
+     "cx": 524.8,
+     "cy": 391.7,
+     "w": 73.9
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n4",
+   "kind": "action",
+   "label": "Receive Advice",
+   "x": 661.8,
+   "y": 352.8,
+   "w": 250.6,
+   "h": 56.2,
+   "rx": 28.3,
+   "ry": 27.4,
+   "labelLines": [
+    {
+     "text": "Receive Advice",
+     "cx": 783.0,
+     "cy": 378.1,
+     "w": 134.8
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n5",
+   "kind": "action",
+   "label": "Notify Payee",
+   "x": 674.8,
+   "y": 476.4,
+   "w": 230.3,
+   "h": 63.5,
+   "rx": 18.8,
+   "ry": 19.7,
+   "labelLines": [
+    {
+     "text": "Notify Payee",
+     "cx": 791.0,
+     "cy": 510.8,
+     "w": 110.2
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n6",
+   "kind": "action",
+   "label": "Notify of Payment",
+   "x": 72.8,
+   "y": 598.3,
+   "w": 250.6,
+   "h": 52.3,
+   "rx": 25.7,
+   "ry": 27.4,
+   "labelLines": [
+    {
+     "text": "Notify of Payment",
+     "cx": 199.9,
+     "cy": 624.8,
+     "w": 157.7
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n8",
+   "kind": "object",
+   "label": "Remittance\nAdvice",
+   "x": 942.2,
+   "y": 691.6,
+   "w": 166.4,
+   "h": 91.2,
+   "labelLines": [
+    {
+     "text": "Remittance",
+     "cx": 1022.2,
+     "cy": 720.8,
+     "w": 119.7
+    },
+    {
+     "text": "Advice",
+     "cx": 1026.1,
+     "cy": 748.9,
+     "w": 73.9
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n9",
+   "kind": "action",
+   "label": "Receive advice",
+   "x": 1213.2,
+   "y": 706.7,
+   "w": 222.5,
+   "h": 64.8,
+   "rx": 26.1,
+   "ry": 29.6,
+   "labelLines": [
+    {
+     "text": "Receive advice",
+     "cx": 1319.9,
+     "cy": 736.8,
+     "w": 131.8
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n10",
+   "kind": "final",
+   "label": "",
+   "x": 1306.9,
+   "y": 846.3,
+   "w": 35.4,
+   "h": 35.9,
+   "innerRatio": 0.442
+  }
+ ],
+ "edges": [
+  {
+   "from": "n1",
+   "to": "n2",
+   "exitXY": [
+    0.5053,
+    1.0
+   ],
+   "entryXY": [
+    0.4992,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n2",
+   "to": "n6",
+   "exitXY": [
+    0.5439,
+    1.0
+   ],
+   "entryXY": [
+    0.4992,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n3",
+   "to": "n4",
+   "exitXY": [
+    1.0,
+    0.4978
+   ],
+   "entryXY": [
+    0.0,
+    0.4964
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n4",
+   "to": "n5",
+   "exitXY": [
+    0.5148,
+    1.0
+   ],
+   "entryXY": [
+    0.5037,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n6",
+   "to": "n3",
+   "exitXY": [
+    0.6544,
+    0.0
+   ],
+   "entryXY": [
+    0.1157,
+    1.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n5",
+   "to": "n8",
+   "exitXY": [
+    0.8884,
+    1.0
+   ],
+   "entryXY": [
+    0.2716,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n6",
+   "to": "n8",
+   "exitXY": [
+    1.0,
+    0.8126
+   ],
+   "entryXY": [
+    0.0,
+    0.3816
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n8",
+   "to": "n9",
+   "exitXY": [
+    1.0,
+    0.5044
+   ],
+   "entryXY": [
+    0.0,
+    0.4907
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n9",
+   "to": "n10",
+   "exitXY": [
+    0.5038,
+    1.0
+   ],
+   "entryXY": [
+    0.5198,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  }
+ ],
+ "guards": [
+  {
+   "text": "From Billing",
+   "x": 226.0,
+   "y": 72.2,
+   "w": 95.9,
+   "h": 17.3,
+   "labelLines": [
+    {
+     "text": "From Billing",
+     "cx": 274.0,
+     "cy": 80.8,
+     "w": 95.9
+    }
+   ]
+  }
+ ]
+}

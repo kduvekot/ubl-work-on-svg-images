@@ -1,0 +1,21 @@
+  verdict: NEEDS-HUMAN
+  structural: 0 element(s) absent, 0 invented, 0 text absent, 0 text differs, 0 incoherent
+  line-work  missing 5945 px (2.013%)   invented 5990 px (2.028%)   radius 3
+    line-work-missing      173 px at  2000,1937    58x14    near edge n15 -> n13
+    line-work-missing      168 px at  2000,1960    49x25    near edge n15 -> n13
+    line-work-missing      164 px at  1958,965     51x18    near edge n5 -> n6
+    line-work-missing      164 px at  1927,2861    50x18    near edge n21 -> n20
+    line-work-missing      137 px at  1957,993     52x20    near edge n5 -> n6
+    line-work-missing      133 px at  1926,2889    51x20    near edge n21 -> n20
+    line-work-missing      124 px at  2219,2428    40x22    near edge n17 -> n18
+    line-work-invented     319 px at  1977,1935    57x47    near edge n15 -> n13
+    line-work-invented     240 px at  1932,964     56x32    near edge n5 -> n6
+    line-work-invented     230 px at  1901,2860    56x32    near edge n21 -> n20
+    line-work-invented     119 px at  2232,2427    52x29    near edge n17 -> n18
+    line-work-invented      75 px at  1946,996     42x16    near edge n5 -> n6
+    ... and 2 more line-work findings
+  needs a person (3):
+    arrowhead-unmeasurable at 208,397  confirm the arrowhead here is drawn and points the way the original does
+    arrowhead-unmeasurable at 2990,1826  confirm the arrowhead here is drawn and points the way the original does
+    arrowhead-unmeasurable at 3003,2740  confirm the arrowhead here is drawn and points the way the original does
+review/baseline/UBL-2.2-CPFR-CreateJointBusinessPlan-marked.png + review/baseline/UBL-2.2-CPFR-CreateJointBusinessPlan-marked-lost.png  (3 finding(s) numbered)

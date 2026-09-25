@@ -1,0 +1,106 @@
+image 3425x2537
+
+PARTITION RULES
+   vertical  : [(0, 10), (804, 4), (1799, 3), (2724, 4), (3415, 10)]
+   horizontal: [(0, 10), (2527, 10)]
+   -> 4 column(s) x 1 band(s)
+   type measured off the page: a word is 26px tall
+   (dropped x=10    y=10     794x2517  is a partition cell)
+   (dropped x=808   y=10     991x1456  encloses another region)
+   (dropped x=1802  y=10     922x2379  encloses another region)
+   (dropped x=2728  y=10     687x2517  is a partition cell)
+   (dropped x=224   y=403    580x678   outline matches no UML node shape (best rounded 0.75, and 0.99 is the most this shape can reach at this size))
+   (dropped x=214   y=1085   590x997   outline matches no UML node shape (best rounded 0.81, and 0.99 is the most this shape can reach at this size))
+   (dropped x=214   y=1684   590x705   encloses another region)
+   (dropped x=808   y=2393   991x134   4 of 4 sides are pass-through line-work)
+   (dropped x=1802  y=2393   922x134   4 of 4 sides are pass-through line-work)
+   object nodes are those stroked heavier than 5.5px
+
+NODES
+   n1   object    x=711   y=252   w=252   h=143   stroke=7   fill=0.90  'Certificate Of\nOrigin'
+   n2   action    x=330   y=261   w=252   h=112   stroke=4   fill=0.83  'Apply for CoO'
+   n3   action    x=1167  y=264   w=252   h=112   stroke=4   fill=0.84  'Receive CoO'
+   n4   initial   x=36    y=281   w=72    h=72    stroke=0   fill=0.78  ''
+   n5   action    x=1413  y=620   w=256   h=115   stroke=4   fill=0.84  'Endorse CoO'
+   n6   action    x=104   y=627   w=256   h=108   stroke=4   fill=0.82  'Request\nStatus'
+   n7   decision  x=1246  y=632   w=83    h=108   stroke=4   fill=0.51  ''
+   n8   action    x=908   y=633   w=255   h=113   stroke=4   fill=0.85  'Reject CoO'
+   n9   object    x=721   y=994   w=201   h=150   stroke=7   fill=0.86  'Application\nResponse'
+   n10  action    x=1170  y=1009  w=253   h=113   stroke=4   fill=0.84  'Query CoO'
+   n11  action    x=80    y=1020  w=383   h=132   stroke=4   fill=0.89  'Receive Response'
+   n12  note      x=808   y=1233  w=991   h=852   stroke=0   fill=0.81  ''
+   n13  object    x=1681  y=1438  w=297   h=160   stroke=8   fill=0.91  'Application\nResponse'
+   n14  action    x=2222  y=1463  w=369   h=116   stroke=4   fill=0.93  'Reject CoO'
+   n15  decision  x=170   y=1626  w=83    h=108   stroke=4   fill=0.51  ''
+   n16  decision  x=2336  y=1714  w=107   h=110   stroke=3   fill=0.50  ''
+   n17  action    x=1977  y=1716  w=231   h=109   stroke=4   fill=0.87  'Endorse CoO'
+   n18  final     x=3138  y=1990  w=68    h=68    stroke=4   fill=0.56  ''
+   n19  action    x=330   y=2020  w=450   h=127   stroke=4   fill=0.89  'Apply for Endorsement'
+   n20  object    x=1667  y=2032  w=301   h=164   stroke=7   fill=0.92  'Certificate Of\nOrigin'
+   n21  action    x=2157  y=2041  w=472   h=130   stroke=4   fill=0.88  'Receive Certificate Of\nOrigin'
+   n22  note      x=808   y=2086  w=991   h=303   stroke=1   fill=0.94  ''
+   n23  object    x=2569  y=2320  w=301   h=157   stroke=7   fill=0.92  'Certificate Of\nOrigin'
+   n24  action    x=39    y=2342  w=458   h=99    stroke=4   fill=0.91  'Send CoO'
+   n25  action    x=3056  y=2349  w=232   h=112   stroke=4   fill=0.88  'Receive CoO'
+
+TYPE  cap height 25px over 303 glyphs -> font 35.7px
+   corner radius rx on 'Send CoO' could not be read (it came back larger than the box) - taking the 47 the rest of its kind measures
+   (dropped x=808   y=1233   991x852   no text, and line-work runs past 4 of its sides - whitespace between shapes, not a note)
+   (dropped x=808   y=2086   991x303   no text, and line-work runs past 4 of its sides - whitespace between shapes, not a note)
+   rejoined 1 line break(s) of up to 64px, where a label sits on the line
+   chained 3 dashes into one dashed flow
+   chained 3 dashes into one dashed flow
+   chained 3 dashes into one dashed flow
+
+EDGES
+   n4   -> n2    straight    arrowhead   511 vs 180    ratio 4.0  high
+   n2   -> n1    straight    arrowhead   548 vs 180    ratio 4.0  high
+   n1   -> n3    straight    arrowhead   515 vs 180    ratio 4.0  high
+   n3   -> n7    straight    arrowhead   696 vs 180    ratio 4.0  high
+   n6   -> n1    diagonal    arrowhead   596 vs 202    ratio 4.0  high
+   n7   -> n8    straight    arrowhead   534 vs 464    ratio 4.0  high
+   n7   -> n5    diagonal    arrowhead   511 vs 403    ratio 4.0  high
+   n11  -> n6    straight    arrowhead   539 vs 184    ratio 4.0  high
+   n7   -> n10   straight    arrowhead   515 vs 180    ratio 4.0  high
+   n8   -> n9    diagonal    arrowhead   580 vs 214    ratio 4.0  high
+   n9   -> n11   straight    arrowhead   533 vs 184    ratio 4.0  high
+   n10  -> n9    straight    arrowhead   552 vs 184    ratio 4.0  high
+   n13  -> n11   diagonal    arrowhead   662 vs 196    ratio 4.0  high
+   n11  -> n15   straight    arrowhead   526 vs 180    ratio 4.0  high
+   n14  -> n13   straight    arrowhead   547 vs 184    ratio 4.0  high
+   n16  -> n14   straight    arrowhead   537 vs 184    ratio 4.0  high
+   n15  -> n19   diagonal    arrowhead   512 vs 372    ratio 4.0  high
+   n15  -> n24   straight    arrowhead   513 vs 180    ratio 4.0  high
+   n16  -> n17   straight    arrowhead   533 vs 186    ratio 4.0  high
+   n21  -> n16   straight    arrowhead   516 vs 184    ratio 4.0  high
+   n19  -> n20   straight    arrowhead   543 vs 180    ratio 4.0  high
+   n25  -> n18   straight    arrowhead   536 vs 184    ratio 4.0  high
+   n20  -> n21   straight    arrowhead   506 vs 180    ratio 4.0  high
+   n24  -> n23   straight    arrowhead   549 vs 180    ratio 4.0  high
+   n23  -> n25   straight    arrowhead   510 vs 180    ratio 4.0  high
+
+TEXT (titles, guards, notes)
+   'Exporter'                               x=341   y=19    
+   'Issuer'                                 x=1264  y=19    
+   'Endorser'                               x=2200  y=19    
+   'Importer'                               x=3013  y=19    
+   'Initiate\nransport\nProcess'            x=88    y=112   
+   (dropped x=278   y=320     38x16    '—' - line-work, not text)
+   'Accept\npplication?'                    x=1323  y=515   
+   'Endorsement\nRequired?'                 x=307   y=1642  
+   'Endorse\nApplication?'                  x=2453  y=1693  
+   'End of CoO\nProcess'                    x=3163  y=1891  
+   (dropped x=456   y=1989    27x17    '“A' - line-work, not text)
+   (dropped x=2106  y=2089    37x16    '“—' - line-work, not text)
+   (dropped x=3005  y=2404    37x17    'nn' - line-work, not text)
+
+PARTITIONS
+   column 0  'Exporter'
+   column 1  'Issuer'
+   column 2  'Endorser'
+   column 3  'Importer'
+   band   0  ''
+
+ARROWHEAD  48 x 38px, open, measured on 22 connector(s)
+
+wrote review/baseline/UBL-2.0-CertificationOfOriginOfGoodsProcess-graph.json   (23 nodes, 25 edges, 9 flagged for a human)

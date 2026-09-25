@@ -1,0 +1,625 @@
+{
+ "source": "UBL-2.2-FreightStatusReporting.png",
+ "size": [
+  3425,
+  1230
+ ],
+ "fontPx": 60.0,
+ "arrowPx": 57.0,
+ "arrowWidthPx": 55.5,
+ "arrowStyle": "open",
+ "rules": {
+  "v": [
+   [
+    0,
+    8
+   ],
+   [
+    1174,
+    8
+   ],
+   [
+    2773,
+    8
+   ],
+   [
+    3417,
+    8
+   ]
+  ],
+  "h": [
+   [
+    9,
+    9
+   ],
+   [
+    1216,
+    9
+   ]
+  ]
+ },
+ "ruleSpan": {
+  "v": [
+   [
+    21,
+    1212
+   ],
+   [
+    0,
+    1212
+   ],
+   [
+    21,
+    1229
+   ],
+   [
+    21,
+    1212
+   ]
+  ],
+  "h": [
+   [
+    11,
+    3413
+   ],
+   [
+    11,
+    3413
+   ]
+  ]
+ },
+ "greyRules": [],
+ "dashed": [],
+ "openEnds": [],
+ "crossMarks": [],
+ "partitions": [
+  {
+   "axis": "column",
+   "index": 0,
+   "x0": 0,
+   "x1": 1178,
+   "title": "",
+   "titleBox": [
+    6,
+    22,
+    2,
+    1
+   ]
+  },
+  {
+   "axis": "column",
+   "index": 1,
+   "x0": 1178,
+   "x1": 2777,
+   "title": ""
+  },
+  {
+   "axis": "column",
+   "index": 2,
+   "x0": 2777,
+   "x1": 3425,
+   "title": "",
+   "titleBox": [
+    3417,
+    22,
+    2,
+    1
+   ]
+  },
+  {
+   "axis": "band",
+   "index": 0,
+   "y0": 14,
+   "y1": 1220,
+   "title": ""
+  },
+  {
+   "axis": "band",
+   "index": 1,
+   "y0": 1220,
+   "y1": 1230,
+   "title": ""
+  }
+ ],
+ "nodes": [
+  {
+   "x": 448,
+   "y": 137,
+   "w": 100,
+   "h": 100,
+   "area": 8007,
+   "fill": 1.0,
+   "kind": "initial",
+   "id": "n1",
+   "label": "",
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 981,
+   "y": 266,
+   "w": 496,
+   "h": 281,
+   "area": 123254,
+   "fill": 0.884,
+   "solid": 1.0,
+   "rx": 0,
+   "ry": 0,
+   "shape": "rect",
+   "stroke": 7,
+   "kind": "object",
+   "id": "n2",
+   "label": "Transportation\nStatus Request",
+   "labelLines": [
+    {
+     "x": 1038,
+     "y": 361,
+     "w": 399,
+     "h": 56,
+     "text": "Transportation"
+    },
+    {
+     "x": 1028,
+     "y": 437,
+     "w": 422,
+     "h": 56,
+     "text": "Status Request"
+    }
+   ],
+   "stem": 0.133,
+   "bold": true,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 1774,
+   "y": 315,
+   "w": 766,
+   "h": 146,
+   "area": 100239,
+   "fill": 0.896,
+   "solid": 0.967,
+   "rx": 62,
+   "ry": 69,
+   "shape": "rounded",
+   "stroke": 6,
+   "kind": "action",
+   "id": "n3",
+   "label": "Receive Status Request",
+   "labelLines": [
+    {
+     "x": 1855,
+     "y": 364,
+     "w": 577,
+     "h": 50,
+     "text": "Receive Status Request"
+    }
+   ],
+   "stem": 0.083,
+   "bold": false,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 173,
+   "y": 338,
+   "w": 611,
+   "h": 138,
+   "area": 76256,
+   "fill": 0.904,
+   "solid": 0.963,
+   "rx": 54,
+   "ry": 67,
+   "shape": "rounded",
+   "stroke": 6,
+   "kind": "action",
+   "id": "n4",
+   "label": "Request status",
+   "labelLines": [
+    {
+     "x": 306,
+     "y": 377,
+     "w": 355,
+     "h": 49,
+     "text": "Request status"
+    }
+   ],
+   "stem": 0.083,
+   "bold": false,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 978,
+   "y": 701,
+   "w": 495,
+   "h": 281,
+   "area": 128072,
+   "fill": 0.921,
+   "solid": 1.0,
+   "rx": 10,
+   "ry": 2,
+   "shape": "rect",
+   "stroke": 7,
+   "kind": "object",
+   "id": "n5",
+   "label": "Transportation\nStatus",
+   "labelLines": [
+    {
+     "x": 1023,
+     "y": 763,
+     "w": 399,
+     "h": 56,
+     "text": "Transportation"
+    },
+    {
+     "x": 1135,
+     "y": 839,
+     "w": 173,
+     "h": 44,
+     "text": "Status"
+    }
+   ],
+   "stem": 0.133,
+   "bold": true,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 173,
+   "y": 774,
+   "w": 612,
+   "h": 137,
+   "area": 72152,
+   "fill": 0.861,
+   "solid": 0.963,
+   "rx": 56,
+   "ry": 69.0,
+   "shape": "rounded",
+   "stroke": 6,
+   "kind": "action",
+   "id": "n6",
+   "label": "Receive Status Report",
+   "labelLines": [
+    {
+     "x": 211,
+     "y": 825,
+     "w": 539,
+     "h": 49,
+     "text": "Receive Status Report"
+    }
+   ],
+   "stem": 0.1,
+   "bold": false,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 1888,
+   "y": 783,
+   "w": 531,
+   "h": 147,
+   "area": 70269,
+   "fill": 0.9,
+   "solid": 0.968,
+   "rx": 43,
+   "ry": 69,
+   "shape": "rounded",
+   "stroke": 5,
+   "kind": "action",
+   "id": "n7",
+   "label": "Report status",
+   "labelLines": [
+    {
+     "x": 2001,
+     "y": 832,
+     "w": 317,
+     "h": 50,
+     "text": "Report status"
+    }
+   ],
+   "stem": 0.1,
+   "bold": false,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 3051,
+   "y": 802,
+   "w": 93,
+   "h": 93,
+   "area": 6867,
+   "fill": 1.0,
+   "kind": "initial",
+   "id": "n8",
+   "label": "",
+   "col": 2,
+   "row": 0
+  },
+  {
+   "x": 446,
+   "y": 1064,
+   "w": 88,
+   "h": 88,
+   "area": 4573,
+   "fill": 0.591,
+   "solid": 0.79,
+   "rx": 44,
+   "ry": 43,
+   "shape": "ellipse",
+   "stroke": 7,
+   "kind": "final",
+   "innerRatio": 0.489,
+   "id": "n9",
+   "label": "",
+   "col": 0,
+   "row": 0
+  }
+ ],
+ "edges": [
+  {
+   "from": "n1",
+   "to": "n4",
+   "routing": "straight",
+   "fromPoint": [
+    498,
+    251
+   ],
+   "toPoint": [
+    495,
+    323
+   ],
+   "arrowInk": [
+    910,
+    914
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    68,
+    56.8,
+    2.14
+   ],
+   "arrowFill": 0.045,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n2",
+   "to": "n3",
+   "routing": "straight",
+   "fromPoint": [
+    1491,
+    398
+   ],
+   "toPoint": [
+    1759,
+    395
+   ],
+   "arrowInk": [
+    270,
+    791
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    82,
+    56.3,
+    2.91
+   ],
+   "arrowFill": 0.031,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n4",
+   "to": "n2",
+   "routing": "straight",
+   "fromPoint": [
+    798,
+    411
+   ],
+   "toPoint": [
+    966,
+    411
+   ],
+   "arrowInk": [
+    315,
+    960
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    48,
+    56.0,
+    2.12
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n3",
+   "to": "n7",
+   "routing": "straight",
+   "fromPoint": [
+    2135,
+    475
+   ],
+   "toPoint": [
+    2138,
+    768
+   ],
+   "arrowInk": [
+    316,
+    871
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    83,
+    53.6,
+    2.86
+   ],
+   "arrowFill": 0.009,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n5",
+   "to": "n6",
+   "routing": "straight",
+   "fromPoint": [
+    963,
+    850
+   ],
+   "toPoint": [
+    799,
+    848
+   ],
+   "arrowInk": [
+    368,
+    980
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    47,
+    57.1,
+    2.05
+   ],
+   "arrowFill": 0.07,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n8",
+   "to": "n7",
+   "routing": "straight",
+   "fromPoint": [
+    3036,
+    849
+   ],
+   "toPoint": [
+    2433,
+    852
+   ],
+   "arrowInk": [
+    368,
+    1029
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    49,
+    57.6,
+    2.23
+   ],
+   "arrowFill": 0.06,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n7",
+   "to": "n5",
+   "routing": "straight",
+   "fromPoint": [
+    1873,
+    862
+   ],
+   "toPoint": [
+    1487,
+    859
+   ],
+   "arrowInk": [
+    322,
+    907
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    42,
+    55.5,
+    1.96
+   ],
+   "arrowFill": 0.045,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n6",
+   "to": "n9",
+   "routing": "straight",
+   "fromPoint": [
+    487,
+    925
+   ],
+   "toPoint": [
+    490,
+    1049
+   ],
+   "arrowInk": [
+    315,
+    972
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    65,
+    54.7,
+    2.29
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "control"
+  }
+ ],
+ "text": [
+  {
+   "text": "Sender Party",
+   "x": 334,
+   "y": 35,
+   "w": 349,
+   "h": 58,
+   "lines": [
+    {
+     "x": 334,
+     "y": 35,
+     "w": 349,
+     "h": 58,
+     "text": "Sender Party"
+    }
+   ]
+  },
+  {
+   "text": "Receiver Party",
+   "x": 1882,
+   "y": 45,
+   "w": 387,
+   "h": 57,
+   "lines": [
+    {
+     "x": 1882,
+     "y": 45,
+     "w": 387,
+     "h": 57,
+     "text": "Receiver Party"
+    }
+   ]
+  },
+  {
+   "text": "Trigger reporting\nprocedure",
+   "x": 2928,
+   "y": 596,
+   "w": 393,
+   "h": 132,
+   "lines": [
+    {
+     "x": 2928,
+     "y": 596,
+     "w": 393,
+     "h": 50,
+     "text": "Trigger reporting"
+    },
+    {
+     "x": 2930,
+     "y": 663,
+     "w": 238,
+     "h": 50,
+     "text": "procedure"
+    }
+   ]
+  }
+ ],
+ "uncertain": [
+  {
+   "kind": "no-weight-split",
+   "reason": "all 6 box strokes are one weight ([5, 6, 7]), so no object node could be identified",
+   "check": "confirm the diagram really has no object nodes"
+  }
+ ]
+}

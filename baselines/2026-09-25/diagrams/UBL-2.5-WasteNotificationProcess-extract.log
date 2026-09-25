@@ -1,0 +1,48 @@
+image 2501x2069
+
+PARTITION RULES
+   vertical  : [(0, 5), (1248, 5), (2495, 5)]
+   horizontal: [(0, 5), (2063, 5)]
+   -> 2 column(s) x 1 band(s)
+   type measured off the page: a word is 53px tall
+   (dropped x=5     y=5     1243x2058  is a partition cell)
+   (dropped x=1253  y=5     1242x2058  is a partition cell)
+   (dropped x=1253  y=1060   763x429   outline matches no UML node shape (best ellipse 0.76, and 0.99 is the most this shape can reach at this size))
+   one line weight only - no object nodes
+
+NODES
+   n1   initial   x=528   y=288   w=52    h=52    stroke=0   fill=0.75  ''
+   n2   action    x=245   y=552   w=619   h=187   stroke=5   fill=0.83  'Prepare notification of\nwaste movement'
+   n3   object    x=1012  y=941   w=524   h=235   stroke=5   fill=0.94  'Waste Notification'
+   n4   action    x=235   y=964   w=571   h=188   stroke=4   fill=0.86  'Send Waste\nNotification'
+   n5   action    x=1732  y=964   w=571   h=188   stroke=4   fill=0.85  'Receive Waste\nNotification'
+   n6   object    x=1012  y=1372  w=476   h=235   stroke=4   fill=0.91  'Application\nResponse'
+   n7   action    x=197   y=1396  w=667   h=188   stroke=4   fill=0.84  'Receive Waste\nNotification Response'
+   n8   action    x=1732  y=1396  w=571   h=188   stroke=4   fill=0.85  'Prepare and send\nresponse'
+   n9   final     x=485   y=1828  w=91    h=91    stroke=5   fill=0.42  ''
+
+TYPE  cap height 41px over 189 glyphs -> font 58.6px
+   rejoined 4 line break(s) of up to 105px, where a label sits on the line
+
+EDGES
+   n1   -> n2    straight    arrowhead   495 vs 225    ratio 4.0  high
+   n2   -> n4    straight    arrowhead   558 vs 180    ratio 4.0  high
+   n4   -> n3    straight    arrowhead   437 vs 180    ratio 4.0  high
+   n3   -> n5    straight    arrowhead   453 vs 180    ratio 4.0  high
+   n5   -> n8    straight    arrowhead   494 vs 225    ratio 4.0  high
+   n6   -> n7    straight    arrowhead   449 vs 184    ratio 4.0  high
+   n8   -> n6    straight    arrowhead   435 vs 184    ratio 4.0  high
+   n7   -> n9    straight    arrowhead   496 vs 225    ratio 4.0  high
+
+TEXT (titles, guards, notes)
+   'Senderparty'                            x=362   y=144   
+   'ReceiverParty'                          x=1684  y=145   
+
+PARTITIONS
+   column 0  'Senderparty'
+   column 1  'ReceiverParty'
+   band   0  ''
+
+ARROWHEAD  36 x 36px, open, measured on 8 connector(s)
+
+wrote review/baseline/UBL-2.5-WasteNotificationProcess-graph.json   (9 nodes, 8 edges, 2 flagged for a human)

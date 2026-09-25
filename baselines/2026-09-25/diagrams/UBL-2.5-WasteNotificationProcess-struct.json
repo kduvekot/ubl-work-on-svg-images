@@ -1,0 +1,54 @@
+{
+ "name": "UBL-2.5-WasteNotificationProcess.png",
+ "verdict": "needs-human",
+ "radius": 3,
+ "lineWorkInk": 105978,
+ "missingPx": 63,
+ "inventedPx": 0,
+ "structural": {
+  "absent": 0,
+  "invented": 0,
+  "coherence": 0,
+  "textAbsent": 0,
+  "textDiffers": 0
+ },
+ "blocking": [],
+ "findings": [],
+ "text": [],
+ "coherence": [],
+ "human": [
+  {
+   "x": 1253,
+   "y": 1060,
+   "w": 763,
+   "h": 429,
+   "shape": "ellipse",
+   "iou": 0.763,
+   "border": 0.441,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best ellipse 0.76, and 0.99 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "kind": "no-weight-split",
+   "reason": "all 7 box strokes are one weight ([4, 5]), so no object node could be identified",
+   "check": "confirm the diagram really has no object nodes"
+  }
+ ],
+ "review": [
+  {
+   "n": 1,
+   "what": "check",
+   "where": "1253,1060 763x429",
+   "detail": "outline matches no UML node shape (best ellipse 0.76, and 0.99 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "n": 2,
+   "what": "check",
+   "where": "",
+   "detail": "all 7 box strokes are one weight ([4, 5]), so no object node could be identified",
+   "check": "confirm the diagram really has no object nodes"
+  }
+ ]
+}

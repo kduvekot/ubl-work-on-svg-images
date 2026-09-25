@@ -1,0 +1,11 @@
+== UBL-2.2-IMFM-TransportProgressStatus
+  scale 0.43212   frame 10px  divider 8px  action 8px  object 15px
+  font 74px (32.1 model)   2 lanes, 1 bands, 8 nodes, 7 edges -> review/baseline/UBL-2.2-IMFM-TransportProgressStatus-spec.json
+  review/baseline/UBL-2.2-IMFM-TransportProgressStatus.svg + .drawio + -classified.svg   (8 nodes, 7 edges)
+  rendered UBL-2.2-IMFM-TransportProgressStatus.svg -> UBL-2.2-IMFM-TransportProgressStatus-render.png @ 3425pxx2366, 600 dpi
+  aligned on ink bounds: scale x 1.0000, y 1.0000
+  size 3425x2366  radius 2
+  ink: original 490519   candidate 487304
+  MISSING (red)    46044  = 9.3868% of original ink
+  EXTRA   (blue)   47997  = 9.7849% of original ink
+  RESULT: DIFFERENCES - inspect review/baseline/UBL-2.2-IMFM-TransportProgressStatus-diff-r2.png

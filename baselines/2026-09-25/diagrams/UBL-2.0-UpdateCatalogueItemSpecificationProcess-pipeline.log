@@ -1,0 +1,11 @@
+== UBL-2.0-UpdateCatalogueItemSpecificationProcess
+  scale 0.43212   frame 10px  divider 6px  action 5px  object 10px
+  font 47px (20.4 model)   2 lanes, 1 bands, 25 nodes, 27 edges -> review/baseline/UBL-2.0-UpdateCatalogueItemSpecificationProcess-spec.json
+  review/baseline/UBL-2.0-UpdateCatalogueItemSpecificationProcess.svg + .drawio + -classified.svg   (25 nodes, 27 edges)
+  rendered UBL-2.0-UpdateCatalogueItemSpecificationProcess.svg -> UBL-2.0-UpdateCatalogueItemSpecificationProcess-render.png @ 3425pxx4173, 600 dpi
+  aligned on ink bounds: scale x 1.0000, y 1.0000
+  size 3425x4173  radius 2
+  ink: original 601824   candidate 611208
+  MISSING (red)    16906  = 2.8091% of original ink
+  EXTRA   (blue)   26355  = 4.3792% of original ink
+  RESULT: DIFFERENCES - inspect review/baseline/UBL-2.0-UpdateCatalogueItemSpecificationProcess-diff-r2.png

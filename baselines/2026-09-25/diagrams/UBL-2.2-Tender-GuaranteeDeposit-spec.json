@@ -1,0 +1,242 @@
+{
+ "canvas": {
+  "w": 1480.0,
+  "h": 681.88
+ },
+ "stroke": {
+  "frame": 4.3,
+  "divider": 9.5,
+  "action": 5.6,
+  "object": 5.6,
+  "edge": 5.6
+ },
+ "font": {
+  "family": "Helvetica, Arial, sans-serif",
+  "node": 35.2,
+  "lane": 35.2,
+  "guard": 35.2
+ },
+ "arrow": 38.1,
+ "arrowWidth": 40.0,
+ "arrowStyle": "open",
+ "dashed": [],
+ "greyRules": [],
+ "crossMarks": [],
+ "openEnds": [],
+ "frameBox": [
+  2.2,
+  2.2,
+  1477.8,
+  679.7
+ ],
+ "dividers": [
+  [
+   646.0,
+   9.5,
+   5.6,
+   675.8
+  ]
+ ],
+ "bands": [],
+ "lanes": [
+  {
+   "title": "TENDERER",
+   "x": 0.0,
+   "w": 646.0,
+   "cx": 306.8,
+   "cy": 42.6
+  },
+  {
+   "title": "CONTRACTING AUTHORITY",
+   "x": 646.0,
+   "w": 834.0,
+   "cx": 1057.2,
+   "cy": 43.4
+  }
+ ],
+ "bandLabels": [],
+ "nodes": [
+  {
+   "id": "n4",
+   "kind": "initial",
+   "label": "",
+   "x": 216.5,
+   "y": 94.2,
+   "w": 53.6,
+   "h": 53.6
+  },
+  {
+   "id": "n5",
+   "kind": "action",
+   "label": "Get Guarantee from\nfinancial institution",
+   "x": 38.2,
+   "y": 222.8,
+   "w": 410.1,
+   "h": 140.0,
+   "rx": 52.5,
+   "ry": 51.6,
+   "labelLines": [
+    {
+     "text": "Get Guarantee from",
+     "cx": 239.6,
+     "cy": 266.6,
+     "w": 302.0
+    },
+    {
+     "text": "financial institution",
+     "cx": 240.3,
+     "cy": 309.8,
+     "w": 278.3
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "n6",
+   "kind": "object",
+   "label": "Guarantee\nCertificate",
+   "x": 536.0,
+   "y": 409.0,
+   "w": 255.8,
+   "h": 109.3,
+   "labelLines": [
+    {
+     "text": "Guarantee",
+     "cx": 660.3,
+     "cy": 439.5,
+     "w": 166.8
+    },
+    {
+     "text": "Certificate",
+     "cx": 659.4,
+     "cy": 482.5,
+     "w": 165.1
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n7",
+   "kind": "action",
+   "label": "Submit Certificate",
+   "x": 60.7,
+   "y": 413.3,
+   "w": 365.1,
+   "h": 96.8,
+   "rx": 50.3,
+   "ry": 46.9,
+   "labelLines": [
+    {
+     "text": "Submit Certificate",
+     "cx": 240.0,
+     "cy": 460.0,
+     "w": 268.3
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "n8",
+   "kind": "action",
+   "label": "Receive guarantee certificate",
+   "x": 879.6,
+   "y": 415.5,
+   "w": 562.2,
+   "h": 96.8,
+   "rx": 47.3,
+   "ry": 49.0,
+   "labelLines": [
+    {
+     "text": "Receive guarantee certificate",
+     "cx": 1157.6,
+     "cy": 465.4,
+     "w": 441.6
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "n9",
+   "kind": "final",
+   "label": "",
+   "x": 1119.4,
+   "y": 562.4,
+   "w": 80.8,
+   "h": 80.8,
+   "innerRatio": 0.713
+  }
+ ],
+ "edges": [
+  {
+   "from": "n4",
+   "to": "n5",
+   "exitXY": [
+    0.5,
+    1.0
+   ],
+   "entryXY": [
+    0.5001,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n5",
+   "to": "n7",
+   "exitXY": [
+    0.5001,
+    1.0
+   ],
+   "entryXY": [
+    0.5001,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n7",
+   "to": "n6",
+   "exitXY": [
+    1.0,
+    0.4979
+   ],
+   "entryXY": [
+    0.0,
+    0.4922
+   ],
+   "straight": true,
+   "confidence": "medium"
+  },
+  {
+   "from": "n6",
+   "to": "n8",
+   "exitXY": [
+    1.0,
+    0.5005
+   ],
+   "entryXY": [
+    0.0,
+    0.4979
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n8",
+   "to": "n9",
+   "exitXY": [
+    0.5,
+    1.0
+   ],
+   "entryXY": [
+    0.5,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  }
+ ],
+ "guards": []
+}

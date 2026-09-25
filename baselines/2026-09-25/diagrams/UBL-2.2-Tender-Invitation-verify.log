@@ -1,0 +1,12 @@
+  verdict: NEEDS-HUMAN
+  structural: 0 element(s) absent, 0 invented, 0 text absent, 0 text differs, 0 incoherent
+  line-work  missing 52 px (0.018%)   invented 293 px (0.099%)   radius 3
+    line-work-invented     126 px at  1397,1023    42x20    near edge n10 -> n9
+  needs a person (6):
+    sub-character-region at 388,87  confirm this is glyph interior and not a node
+    sub-character-region at 1099,87  confirm this is glyph interior and not a node
+    sub-character-region at 2225,88  confirm this is glyph interior and not a node
+    sub-character-region at 2336,88  confirm this is glyph interior and not a node
+    sub-character-region at 2550,88  confirm this is glyph interior and not a node
+    sub-character-region at 2854,88  confirm this is glyph interior and not a node
+review/baseline/UBL-2.2-Tender-Invitation-marked.png + review/baseline/UBL-2.2-Tender-Invitation-marked-lost.png  (6 finding(s) numbered)

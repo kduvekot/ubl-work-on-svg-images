@@ -1,0 +1,47 @@
+image 3425x2075
+
+PARTITION RULES
+   vertical  : [(0, 10), (1811, 6), (3415, 10)]
+   horizontal: [(0, 10), (2065, 10)]
+   -> 2 column(s) x 1 band(s)
+   type measured off the page: a word is 51px tall
+   (dropped x=10    y=10    1806x2055  is a partition cell)
+   (dropped x=1817  y=10    1598x2055  is a partition cell)
+   object nodes are those stroked heavier than 8.5px
+
+NODES
+   n1   initial   x=673   y=213   w=115   h=115   stroke=0   fill=0.77  ''
+   n2   decision  x=659   y=526   w=132   h=112   stroke=6   fill=0.50  ''
+   n3   final     x=88    y=536   w=98    h=98    stroke=6   fill=0.62  ''
+   n4   object    x=1590  y=1141  w=453   h=180   stroke=12  fill=0.90  'Catalogue'
+   n5   action    x=339   y=1143  w=728   h=164   stroke=5   fill=0.88  'Send Price List'
+   n6   action    x=2610  y=1143  w=727   h=170   stroke=5   fill=0.87  'Receive Price List'
+   n7   final     x=2917  y=1899  w=98    h=97    stroke=6   fill=0.63  ''
+
+TYPE  cap height 51px over 46 glyphs -> font 72.9px
+
+EDGES
+   n1   -> n2    straight    arrowhead   848 vs 270    ratio 4.0  high
+   n2   -> n3    straight    arrowhead   771 vs 230    ratio 4.0  high
+   n2   -> n5    straight    arrowhead   856 vs 346    ratio 4.0  high
+   n5   -> n4    straight    arrowhead   782 vs 270    ratio 4.0  high
+   n4   -> n6    straight    arrowhead   859 vs 267    ratio 4.0  high
+   n6   -> n7    straight    arrowhead   849 vs 270    ratio 4.0  high
+   n4   -> (off the diagram) at 1821,2062
+
+TEXT (titles, guards, notes)
+   'Producer'                               x=718   y=67    
+   'Retailer'                               x=2531  y=68    
+   'Change of\nprices?'                     x=930   y=499   
+   'False'                                  x=417   y=527   n2->n3
+   'True'                                   x=753   y=691   n2->n5
+
+PARTITIONS
+   column 0  'Producer'
+   column 1  'Retailer'
+   band   0  ''
+
+ARROWHEAD  76 x 61px, open, measured on 6 connector(s)
+   (dropped the open end at 1819,1335 3x728 - a sliver lying along the rule at 1811)
+
+wrote review/baseline/UBL-2.2-VMI-PriceAdjustment-graph.json   (7 nodes, 6 edges, 0 flagged for a human)

@@ -1,0 +1,19 @@
+  verdict: NEEDS-HUMAN
+  structural: 0 element(s) absent, 0 invented, 0 text absent, 0 text differs, 0 incoherent
+  line-work  missing 2732 px (0.849%)   invented 2566 px (0.797%)   radius 3
+    line-work-missing      168 px at  3307,1421    34x30    on node n9 (action 'Send an advice to no')
+    line-work-missing      163 px at  2450,1421    34x30    on node n9 (action 'Send an advice to no')
+    line-work-missing      162 px at   940,1012    31x26    on node n6 (action 'Send Instruction for')
+    line-work-missing      154 px at   940,908     31x25    on node n6 (action 'Send Instruction for')
+    line-work-missing      153 px at  3307,1288    34x29    on node n9 (action 'Send an advice to no')
+    line-work-missing      147 px at  2451,1288    32x28    on node n9 (action 'Send an advice to no')
+    line-work-missing      143 px at   203,1012    30x26    on node n6 (action 'Send Instruction for')
+    line-work-missing      134 px at   203,909     28x22    on node n6 (action 'Send Instruction for')
+    line-work-missing      126 px at  1801,1769    21x19    unattributed
+    line-work-missing      103 px at  1833,1769    16x18    unattributed
+    line-work-missing       84 px at  3268,905     28x21    on node n5 (action 'Receive Instruction ')
+    line-work-missing       78 px at  2492,906     24x18    on node n5 (action 'Receive Instruction ')
+    ... and 17 more line-work findings
+  needs a person (1):
+    dropped-region     at 845,1763  a shape here would be missing from the SVG
+review/baseline/UBL-2.2-VMI-ReturnsByProducer-marked.png + review/baseline/UBL-2.2-VMI-ReturnsByProducer-marked-lost.png  (1 finding(s) numbered)

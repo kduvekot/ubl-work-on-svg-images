@@ -1,0 +1,22 @@
+MODEL  UBL-2.3-ManifestProcess
+  2 action, 1 final, 1 initial, 1 object, 4 flows, 3 partitions
+
+FLOW
+  (start)   [Sending Logistics Operator Party]
+  Send report   [Sending Logistics Operator Party]
+  [Manifest]   [Authority Party]
+  Receive Manifest   [Authority Party]
+  (end)   [Authority Party]
+
+CHECKS
+  ok   every element is connected
+  ok   start events have a way out and no way in
+  ok   end events have a way in and no way out
+  ok   decisions have at least two ways out
+  ok   branches out of a decision are labelled   (informational: several diagrams draw an unlabelled branch, so read these against the artwork rather than treating them as errors)
+  ok   documents are both written and read
+  ok   no flow runs straight from one document to another
+  ok   work crossing between parties goes through a document   (informational: UBL draws the hand-over as a document on the divider, and each exception below is named)
+  ok   every flow's direction was read with confidence
+  ok   every action passes its work on   (informational: several diagrams do end on an action, so read these against the artwork rather than treating them as errors)
+  ok   every element is reachable from a start event

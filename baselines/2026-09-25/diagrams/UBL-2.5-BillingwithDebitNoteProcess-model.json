@@ -1,0 +1,116 @@
+{
+ "name": "UBL-2.5-BillingwithDebitNoteProcess",
+ "counts": {
+  "initial": 1,
+  "object": 3,
+  "action": 6,
+  "decision": 3,
+  "fork": 1,
+  "final": 3
+ },
+ "flow": [
+  "(start)   [Accounting Supplier]",
+  "<Reconcile Charges>   [Accounting Supplier]",
+  "  -[initial charges or under charged]-> Raise Invoice   [Accounting Supplier]",
+  "  -> [Invoice]   [Accounting Customer]",
+  "  -> Receive Invoice   [Accounting Customer]",
+  "  -> <Reconcile Charges>   [Accounting Customer]",
+  "    -> Send Account Response   [Accounting Customer]",
+  "    -> [Invoice Status Response]   [Accounting Supplier]",
+  "    -> Receive Account Response   [Accounting Supplier]",
+  "    -> <Validate Response>   [Accounting Supplier]",
+  "      -[incorrect charges]-> <Reconcile Charges>   [Accounting Supplier]",
+  "      -[incorrect information]-> === bar ===   [Accounting Supplier]",
+  "        -> Raise Invoice   [Accounting Supplier]",
+  "        -> Raise Debit Note   [Accounting Supplier]",
+  "        -> [Debit Note]   [Accounting Customer]",
+  "        -> Receive Debit Note   [Accounting Customer]",
+  "        -> <Reconcile Charges>   [Accounting Customer]",
+  "      -[no action required]-> (end)   [Accounting Supplier]",
+  "    -[accept debit]-> (end)   [Accounting Customer]",
+  "    -[accept charges]-> (end)   [Accounting Customer]",
+  "  -[under charged]-> Raise Debit Note   [Accounting Supplier]",
+  ""
+ ],
+ "checks": [
+  {
+   "rule": "every element is connected",
+   "ok": true,
+   "bad": [],
+   "note": "",
+   "report": false
+  },
+  {
+   "rule": "start events have a way out and no way in",
+   "ok": true,
+   "bad": [],
+   "note": "",
+   "report": false
+  },
+  {
+   "rule": "end events have a way in and no way out",
+   "ok": true,
+   "bad": [],
+   "note": "",
+   "report": false
+  },
+  {
+   "rule": "decisions have at least two ways out",
+   "ok": true,
+   "bad": [],
+   "note": "",
+   "report": false
+  },
+  {
+   "rule": "branches out of a decision are labelled",
+   "ok": true,
+   "bad": [
+    "<Reconcile Charges> -> Send Account Response"
+   ],
+   "note": "informational: several diagrams draw an unlabelled branch, so read these against the artwork rather than treating them as errors",
+   "report": true
+  },
+  {
+   "rule": "documents are both written and read",
+   "ok": true,
+   "bad": [],
+   "note": "",
+   "report": false
+  },
+  {
+   "rule": "no flow runs straight from one document to another",
+   "ok": true,
+   "bad": [],
+   "note": "",
+   "report": false
+  },
+  {
+   "rule": "work crossing between parties goes through a document",
+   "ok": true,
+   "bad": [],
+   "note": "informational: UBL draws the hand-over as a document on the divider, and each exception below is named",
+   "report": true
+  },
+  {
+   "rule": "every flow's direction was read with confidence",
+   "ok": true,
+   "bad": [],
+   "note": "",
+   "report": false
+  },
+  {
+   "rule": "every action passes its work on",
+   "ok": true,
+   "bad": [],
+   "note": "informational: several diagrams do end on an action, so read these against the artwork rather than treating them as errors",
+   "report": true
+  },
+  {
+   "rule": "every element is reachable from a start event",
+   "ok": true,
+   "bad": [],
+   "note": "",
+   "report": false
+  }
+ ]
+}

@@ -1,0 +1,11 @@
+== UBL-2.2-IMFM-TransportServiceDescription
+  scale 0.43212   frame 10px  divider 8px  action 8px  object 16px
+  font 74px (32.1 model)   2 lanes, 1 bands, 8 nodes, 7 edges -> review/baseline/UBL-2.2-IMFM-TransportServiceDescription-spec.json
+  review/baseline/UBL-2.2-IMFM-TransportServiceDescription.svg + .drawio + -classified.svg   (8 nodes, 7 edges)
+  rendered UBL-2.2-IMFM-TransportServiceDescription.svg -> UBL-2.2-IMFM-TransportServiceDescription-render.png @ 3425pxx2013, 600 dpi
+  aligned on ink bounds: scale x 1.0000, y 1.0000
+  size 3425x2013  radius 2
+  ink: original 486501   candidate 486081
+  MISSING (red)    43792  = 9.0014% of original ink
+  EXTRA   (blue)   44935  = 9.2364% of original ink
+  RESULT: DIFFERENCES - inspect review/baseline/UBL-2.2-IMFM-TransportServiceDescription-diff-r2.png

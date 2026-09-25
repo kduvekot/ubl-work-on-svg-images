@@ -1,0 +1,64 @@
+{
+ "name": "UBL-2.3-RequestForProofOfReexportationProcess.png",
+ "verdict": "needs-human",
+ "radius": 3,
+ "lineWorkInk": 74992,
+ "missingPx": 105,
+ "inventedPx": 8,
+ "structural": {
+  "absent": 0,
+  "invented": 0,
+  "coherence": 0,
+  "textAbsent": 0,
+  "textDiffers": 0
+ },
+ "blocking": [],
+ "findings": [],
+ "text": [
+  {
+   "kind": "label-mismatch",
+   "node": "n8",
+   "x": 1422,
+   "y": 610,
+   "w": 111,
+   "h": 42,
+   "expected": "Item Returned?",
+   "got": "ZO Item \\ Returned?,",
+   "ratio": 0.824,
+   "detail": "n8 renders as 'ZO Item \\\\ Returned?,', model says 'Item Returned?'"
+  }
+ ],
+ "coherence": [],
+ "human": [
+  {
+   "kind": "no-weight-split",
+   "reason": "all 16 box strokes are one weight ([2, 3]), so no object node could be identified",
+   "check": "confirm the diagram really has no object nodes"
+  },
+  {
+   "kind": "ring-stroke-unreadable",
+   "x": 79,
+   "y": 1173,
+   "w": 58,
+   "h": 58,
+   "reason": "line-work runs off this activity final on more than one side, so its ring thickness could not be measured",
+   "check": "confirm this is an activity final and how thick its ring is"
+  }
+ ],
+ "review": [
+  {
+   "n": 1,
+   "what": "check",
+   "where": "",
+   "detail": "all 16 box strokes are one weight ([2, 3]), so no object node could be identified",
+   "check": "confirm the diagram really has no object nodes"
+  },
+  {
+   "n": 2,
+   "what": "check",
+   "where": "79,1173 58x58",
+   "detail": "line-work runs off this activity final on more than one side, so its ring thickness could not be measured",
+   "check": "confirm this is an activity final and how thick its ring is"
+  }
+ ]
+}

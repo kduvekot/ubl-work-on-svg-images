@@ -1,0 +1,1012 @@
+{
+ "canvas": {
+  "w": 1480.0,
+  "h": 1419.072
+ },
+ "stroke": {
+  "frame": 4.3,
+  "divider": 3.0,
+  "action": 2.6,
+  "object": 2.6,
+  "edge": 2.6
+ },
+ "font": {
+  "family": "Helvetica, Arial, sans-serif",
+  "node": 22.2,
+  "lane": 22.2,
+  "guard": 22.2
+ },
+ "arrow": 37.3,
+ "arrowWidth": 30.2,
+ "arrowStyle": "open",
+ "dashed": [],
+ "greyRules": [],
+ "crossMarks": [],
+ "openEnds": [],
+ "frameBox": [
+  2.2,
+  2.2,
+  1477.8,
+  1416.9
+ ],
+ "dividers": [
+  [
+   745.2,
+   3.0,
+   5.6,
+   1413.0
+  ]
+ ],
+ "bands": [],
+ "lanes": [
+  {
+   "title": "PARTICIPANT PARTY 1",
+   "x": 0.0,
+   "w": 745.0,
+   "cx": 385.7,
+   "cy": 29.8
+  },
+  {
+   "title": "PARTICIPANT PARTY 2",
+   "x": 745.0,
+   "w": 735.0,
+   "cx": 1132.8,
+   "cy": 29.8
+  }
+ ],
+ "bandLabels": [],
+ "nodes": [
+  {
+   "id": "n1",
+   "kind": "initial",
+   "label": "",
+   "x": 389.3,
+   "y": 73.0,
+   "w": 45.8,
+   "h": 45.8
+  },
+  {
+   "id": "n2",
+   "kind": "object",
+   "label": "Digital\nCapabilities",
+   "x": 644.3,
+   "y": 169.0,
+   "w": 193.2,
+   "h": 81.7,
+   "labelLines": [
+    {
+     "text": "Digital",
+     "cx": 741.9,
+     "cy": 198.6,
+     "w": 65.7
+    },
+    {
+     "text": "Capabilities",
+     "cx": 741.9,
+     "cy": 226.2,
+     "w": 118.4
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n3",
+   "kind": "action",
+   "label": "Send digital capabilities",
+   "x": 268.3,
+   "y": 179.8,
+   "w": 285.6,
+   "h": 57.9,
+   "rx": 31.5,
+   "ry": 30.2,
+   "labelLines": [
+    {
+     "text": "Send digital capabilities",
+     "cx": 414.0,
+     "cy": 209.8,
+     "w": 242.8
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n4",
+   "kind": "action",
+   "label": "Receive digital capabilities",
+   "x": 906.1,
+   "y": 181.9,
+   "w": 358.7,
+   "h": 55.7,
+   "rx": 31.5,
+   "ry": 26.8,
+   "labelLines": [
+    {
+     "text": "Receive digital capabilities",
+     "cx": 1085.9,
+     "cy": 212.2,
+     "w": 271.4
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n5",
+   "kind": "object",
+   "label": "Application\nResponse",
+   "x": 646.4,
+   "y": 306.4,
+   "w": 193.2,
+   "h": 81.7,
+   "labelLines": [
+    {
+     "text": "Application",
+     "cx": 742.2,
+     "cy": 336.0,
+     "w": 117.1
+    },
+    {
+     "text": "Response",
+     "cx": 742.2,
+     "cy": 363.8,
+     "w": 101.5
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n6",
+   "kind": "action",
+   "label": "Receive application response",
+   "x": 221.2,
+   "y": 317.2,
+   "w": 379.8,
+   "h": 60.1,
+   "rx": 31.5,
+   "ry": 30.2,
+   "labelLines": [
+    {
+     "text": "Receive application response",
+     "cx": 410.9,
+     "cy": 347.4,
+     "w": 299.9
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n7",
+   "kind": "action",
+   "label": "Send application response",
+   "x": 914.8,
+   "y": 319.3,
+   "w": 341.4,
+   "h": 55.7,
+   "rx": 31.5,
+   "ry": 29.4,
+   "labelLines": [
+    {
+     "text": "Send application response",
+     "cx": 1087.9,
+     "cy": 349.6,
+     "w": 271.8
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n8",
+   "kind": "decision",
+   "label": "Match\ndigital\ncapabilities",
+   "x": 1276.9,
+   "y": 351.7,
+   "w": 195.3,
+   "h": 143.0,
+   "labelLines": [
+    {
+     "text": "Match",
+     "cx": 1376.9,
+     "cy": 384.8,
+     "w": 55.7
+    },
+    {
+     "text": "digital",
+     "cx": 1375.2,
+     "cy": 414.8,
+     "w": 54.0
+    },
+    {
+     "text": "capabilities",
+     "cx": 1375.0,
+     "cy": 442.7,
+     "w": 104.6
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "n9",
+   "kind": "object",
+   "label": "Digital\nAgreement",
+   "x": 646.4,
+   "y": 454.6,
+   "w": 193.2,
+   "h": 83.8,
+   "labelLines": [
+    {
+     "text": "Digital",
+     "cx": 741.9,
+     "cy": 484.2,
+     "w": 65.7
+    },
+    {
+     "text": "Agreement",
+     "cx": 742.2,
+     "cy": 512.1,
+     "w": 113.6
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n10",
+   "kind": "action",
+   "label": "Receive digital agreement",
+   "x": 221.2,
+   "y": 465.4,
+   "w": 379.8,
+   "h": 57.9,
+   "rx": 31.5,
+   "ry": 29.4,
+   "labelLines": [
+    {
+     "text": "Receive digital agreement",
+     "cx": 412.0,
+     "cy": 495.6,
+     "w": 263.2
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n11",
+   "kind": "action",
+   "label": "Send digital agreement",
+   "x": 942.9,
+   "y": 465.4,
+   "w": 285.6,
+   "h": 60.1,
+   "rx": 31.1,
+   "ry": 30.2,
+   "labelLines": [
+    {
+     "text": "Send digital agreement",
+     "cx": 1088.7,
+     "cy": 495.4,
+     "w": 235.5
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n12",
+   "kind": "object",
+   "label": "Application\nResponse",
+   "x": 646.4,
+   "y": 587.7,
+   "w": 193.2,
+   "h": 83.8,
+   "labelLines": [
+    {
+     "text": "Application",
+     "cx": 742.2,
+     "cy": 617.3,
+     "w": 117.1
+    },
+    {
+     "text": "Response",
+     "cx": 742.2,
+     "cy": 645.2,
+     "w": 101.5
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n13",
+   "kind": "action",
+   "label": "Receive application response",
+   "x": 901.8,
+   "y": 596.3,
+   "w": 367.3,
+   "h": 62.2,
+   "rx": 32.0,
+   "ry": 29.4,
+   "labelLines": [
+    {
+     "text": "Receive application response",
+     "cx": 1085.5,
+     "cy": 626.6,
+     "w": 299.9
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n14",
+   "kind": "action",
+   "label": "Send application response",
+   "x": 244.6,
+   "y": 598.5,
+   "w": 333.2,
+   "h": 57.9,
+   "rx": 31.5,
+   "ry": 28.1,
+   "labelLines": [
+    {
+     "text": "Send application response",
+     "cx": 413.3,
+     "cy": 628.7,
+     "w": 271.8
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n15",
+   "kind": "decision",
+   "label": "Reconcile digital\nagreement with own\ndigital capabilities",
+   "x": 9.9,
+   "y": 643.9,
+   "w": 289.1,
+   "h": 192.7,
+   "labelLines": [
+    {
+     "text": "Reconcile digital",
+     "cx": 155.3,
+     "cy": 710.4,
+     "w": 153.4
+    },
+    {
+     "text": "agreement with own",
+     "cx": 157.7,
+     "cy": 738.5,
+     "w": 190.1
+    },
+    {
+     "text": "digital capabilities",
+     "cx": 154.7,
+     "cy": 766.1,
+     "w": 166.8
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "n16",
+   "kind": "object",
+   "label": "Digital\nAgreement",
+   "x": 655.1,
+   "y": 808.9,
+   "w": 193.2,
+   "h": 81.7,
+   "labelLines": [
+    {
+     "text": "Digital",
+     "cx": 741.9,
+     "cy": 838.5,
+     "w": 65.7
+    },
+    {
+     "text": "Agreement",
+     "cx": 742.2,
+     "cy": 866.4,
+     "w": 113.6
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n17",
+   "kind": "action",
+   "label": "Send digital agreement",
+   "x": 259.7,
+   "y": 817.6,
+   "w": 302.9,
+   "h": 64.4,
+   "rx": 31.5,
+   "ry": 32.8,
+   "labelLines": [
+    {
+     "text": "Send digital agreement",
+     "cx": 414.6,
+     "cy": 847.6,
+     "w": 235.5
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n18",
+   "kind": "action",
+   "label": "Receive digital agreement",
+   "x": 914.8,
+   "y": 824.0,
+   "w": 341.4,
+   "h": 57.9,
+   "rx": 31.5,
+   "ry": 29.4,
+   "labelLines": [
+    {
+     "text": "Receive digital agreement",
+     "cx": 1086.3,
+     "cy": 854.3,
+     "w": 263.6
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n19",
+   "kind": "decision",
+   "label": "Validate\ndigital\nagreement",
+   "x": 982.6,
+   "y": 964.1,
+   "w": 207.8,
+   "h": 145.2,
+   "labelLines": [
+    {
+     "text": "Validate",
+     "cx": 1087.4,
+     "cy": 1004.7,
+     "w": 74.8
+    },
+    {
+     "text": "digital",
+     "cx": 1088.3,
+     "cy": 1034.7,
+     "w": 54.0
+    },
+    {
+     "text": "agreement",
+     "cx": 1090.7,
+     "cy": 1062.8,
+     "w": 102.0
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "n20",
+   "kind": "object",
+   "label": "Application\nResponse",
+   "x": 652.9,
+   "y": 1165.4,
+   "w": 193.2,
+   "h": 107.2,
+   "labelLines": [
+    {
+     "text": "Application",
+     "cx": 742.2,
+     "cy": 1203.7,
+     "w": 117.1
+    },
+    {
+     "text": "Response",
+     "cx": 742.2,
+     "cy": 1231.5,
+     "w": 101.5
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n21",
+   "kind": "action",
+   "label": "Send application response",
+   "x": 897.5,
+   "y": 1189.2,
+   "w": 375.9,
+   "h": 57.9,
+   "rx": 31.5,
+   "ry": 28.1,
+   "labelLines": [
+    {
+     "text": "Send application response",
+     "cx": 1087.9,
+     "cy": 1219.0,
+     "w": 271.8
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n22",
+   "kind": "action",
+   "label": "Receive application response",
+   "x": 208.3,
+   "y": 1191.3,
+   "w": 401.4,
+   "h": 55.7,
+   "rx": 31.5,
+   "ry": 28.1,
+   "labelLines": [
+    {
+     "text": "Receive application response",
+     "cx": 410.9,
+     "cy": 1221.4,
+     "w": 299.9
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n23",
+   "kind": "final",
+   "label": "",
+   "x": 1353.0,
+   "y": 1341.3,
+   "w": 42.8,
+   "h": 43.2,
+   "innerRatio": 0.484
+  },
+  {
+   "id": "n24",
+   "kind": "final",
+   "label": "",
+   "x": 133.1,
+   "y": 1341.7,
+   "w": 42.8,
+   "h": 42.8,
+   "innerRatio": 0.484
+  }
+ ],
+ "edges": [
+  {
+   "from": "n1",
+   "to": "n3",
+   "exitXY": [
+    0.5,
+    1.0
+   ],
+   "entryXY": [
+    0.4993,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n3",
+   "to": "n2",
+   "exitXY": [
+    1.0,
+    0.506
+   ],
+   "entryXY": [
+    0.0,
+    0.4969
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n2",
+   "to": "n4",
+   "exitXY": [
+    1.0,
+    0.4969
+   ],
+   "entryXY": [
+    0.0,
+    0.4973
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n4",
+   "to": "n8",
+   "exitXY": [
+    1.0,
+    0.5583
+   ],
+   "entryXY": [
+    0.4956,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n4",
+   "to": "n7",
+   "exitXY": [
+    0.5024,
+    1.0
+   ],
+   "entryXY": [
+    0.5023,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n5",
+   "to": "n6",
+   "exitXY": [
+    0.0,
+    0.4969
+   ],
+   "entryXY": [
+    1.0,
+    0.4958
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n7",
+   "to": "n5",
+   "exitXY": [
+    0.0,
+    0.4901
+   ],
+   "entryXY": [
+    1.0,
+    0.492
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n8",
+   "to": "n11",
+   "exitXY": [
+    0.0,
+    0.4986
+   ],
+   "entryXY": [
+    0.9244,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "notation"
+  },
+  {
+   "from": "n9",
+   "to": "n10",
+   "exitXY": [
+    0.0,
+    0.4952
+   ],
+   "entryXY": [
+    1.0,
+    0.4991
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n11",
+   "to": "n9",
+   "exitXY": [
+    0.0,
+    0.4892
+   ],
+   "entryXY": [
+    1.0,
+    0.4893
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n10",
+   "to": "n15",
+   "exitXY": [
+    0.0,
+    0.5078
+   ],
+   "entryXY": [
+    0.4995,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n8",
+   "to": "n23",
+   "exitXY": [
+    0.5003,
+    1.0
+   ],
+   "entryXY": [
+    0.5444,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high",
+   "label": "N"
+  },
+  {
+   "from": "n10",
+   "to": "n14",
+   "exitXY": [
+    0.5145,
+    1.0
+   ],
+   "entryXY": [
+    0.5135,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n14",
+   "to": "n12",
+   "exitXY": [
+    1.0,
+    0.4991
+   ],
+   "entryXY": [
+    0.0,
+    0.5
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n12",
+   "to": "n13",
+   "exitXY": [
+    1.0,
+    0.5
+   ],
+   "entryXY": [
+    0.0,
+    0.5
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n15",
+   "to": "n17",
+   "exitXY": [
+    1.0,
+    0.5221
+   ],
+   "entryXY": [
+    0.2496,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high",
+   "label": "Y"
+  },
+  {
+   "from": "n17",
+   "to": "n16",
+   "exitXY": [
+    1.0,
+    0.4953
+   ],
+   "entryXY": [
+    0.0,
+    0.4969
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n16",
+   "to": "n18",
+   "exitXY": [
+    1.0,
+    0.4969
+   ],
+   "entryXY": [
+    0.0,
+    0.494
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n15",
+   "to": "n24",
+   "exitXY": [
+    0.4995,
+    1.0
+   ],
+   "entryXY": [
+    0.4953,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high",
+   "label": "N"
+  },
+  {
+   "from": "n18",
+   "to": "n19",
+   "exitXY": [
+    0.5012,
+    1.0
+   ],
+   "entryXY": [
+    0.5014,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n19",
+   "to": "n23",
+   "exitXY": [
+    1.0,
+    0.5234
+   ],
+   "entryXY": [
+    0.1612,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high",
+   "label": "Y"
+  },
+  {
+   "from": "n19",
+   "to": "n21",
+   "exitXY": [
+    0.499,
+    1.0
+   ],
+   "entryXY": [
+    0.4988,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high",
+   "label": "N"
+  },
+  {
+   "from": "n20",
+   "to": "n22",
+   "exitXY": [
+    0.0,
+    0.5
+   ],
+   "entryXY": [
+    1.0,
+    0.4973
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n21",
+   "to": "n20",
+   "exitXY": [
+    0.0,
+    0.4991
+   ],
+   "entryXY": [
+    1.0,
+    0.5
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n22",
+   "to": "n24",
+   "exitXY": [
+    0.4995,
+    1.0
+   ],
+   "entryXY": [
+    1.0,
+    0.264
+   ],
+   "straight": true,
+   "confidence": "high"
+  }
+ ],
+ "guards": [
+  {
+   "text": "Y",
+   "x": 1260.9,
+   "y": 443.4,
+   "w": 13.0,
+   "h": 15.6,
+   "labelLines": [
+    {
+     "text": "Y",
+     "cx": 1267.4,
+     "cy": 451.1,
+     "w": 13.0
+    }
+   ]
+  },
+  {
+   "text": "N",
+   "x": 1352.5,
+   "y": 499.1,
+   "w": 11.7,
+   "h": 15.6,
+   "labelLines": [
+    {
+     "text": "N",
+     "cx": 1358.4,
+     "cy": 506.9,
+     "w": 11.7
+    }
+   ]
+  },
+  {
+   "text": "Y",
+   "x": 285.6,
+   "y": 759.7,
+   "w": 13.0,
+   "h": 16.0,
+   "labelLines": [
+    {
+     "text": "Y",
+     "cx": 292.1,
+     "cy": 767.7,
+     "w": 13.0
+    }
+   ]
+  },
+  {
+   "text": "N",
+   "x": 168.5,
+   "y": 837.0,
+   "w": 12.1,
+   "h": 15.6,
+   "labelLines": [
+    {
+     "text": "N",
+     "cx": 174.6,
+     "cy": 844.8,
+     "w": 12.1
+    }
+   ]
+  },
+  {
+   "text": "Y",
+   "x": 1179.2,
+   "y": 1056.5,
+   "w": 13.0,
+   "h": 15.6,
+   "labelLines": [
+    {
+     "text": "Y",
+     "cx": 1185.7,
+     "cy": 1064.3,
+     "w": 13.0
+    }
+   ]
+  },
+  {
+   "text": "N",
+   "x": 1094.6,
+   "y": 1111.8,
+   "w": 12.1,
+   "h": 16.0,
+   "labelLines": [
+    {
+     "text": "N",
+     "cx": 1100.6,
+     "cy": 1119.8,
+     "w": 12.1
+    }
+   ]
+  }
+ ]
+}

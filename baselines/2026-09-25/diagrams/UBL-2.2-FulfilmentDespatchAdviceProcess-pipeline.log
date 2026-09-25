@@ -1,0 +1,11 @@
+== UBL-2.2-FulfilmentDespatchAdviceProcess
+  scale 0.43212   frame 10px  divider 4px  action 3px  object 6px
+  font 31px (13.6 model)   2 lanes, 1 bands, 20 nodes, 24 edges -> review/baseline/UBL-2.2-FulfilmentDespatchAdviceProcess-spec.json
+  review/baseline/UBL-2.2-FulfilmentDespatchAdviceProcess.svg + .drawio + -classified.svg   (20 nodes, 24 edges)
+  rendered UBL-2.2-FulfilmentDespatchAdviceProcess.svg -> UBL-2.2-FulfilmentDespatchAdviceProcess-render.png @ 3425pxx2354, 600 dpi
+  aligned on ink bounds: scale x 1.0000, y 1.0000
+  size 3425x2354  radius 2
+  ink: original 267346   candidate 258050
+  MISSING (red)     8119  = 3.0369% of original ink
+  EXTRA   (blue)    8245  = 3.0840% of original ink
+  RESULT: DIFFERENCES - inspect review/baseline/UBL-2.2-FulfilmentDespatchAdviceProcess-diff-r2.png

@@ -1,0 +1,326 @@
+{
+ "name": "UBL-2.5-BillingwithCreditNoteProcess.png",
+ "verdict": "needs-human",
+ "radius": 3,
+ "lineWorkInk": 213770,
+ "missingPx": 5046,
+ "inventedPx": 3917,
+ "structural": {
+  "absent": 0,
+  "invented": 0,
+  "coherence": 0,
+  "textAbsent": 0,
+  "textDiffers": 0
+ },
+ "blocking": [],
+ "findings": [
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n6 -> n4",
+   "x": 2725,
+   "y": 462,
+   "w": 358,
+   "h": 254,
+   "area": 1933
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n9 -> n8",
+   "x": 2559,
+   "y": 979,
+   "w": 136,
+   "h": 77,
+   "area": 562
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n10 -> n9",
+   "x": 2863,
+   "y": 1206,
+   "w": 74,
+   "h": 89,
+   "area": 498
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n9 -> n4",
+   "x": 2780,
+   "y": 934,
+   "w": 74,
+   "h": 122,
+   "area": 451
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n7 -> n11",
+   "x": 877,
+   "y": 859,
+   "w": 104,
+   "h": 72,
+   "area": 383
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n10 -> n9",
+   "x": 2769,
+   "y": 1085,
+   "w": 22,
+   "h": 51,
+   "area": 274
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n7 -> n11",
+   "x": 526,
+   "y": 1116,
+   "w": 65,
+   "h": 46,
+   "area": 181
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n7 -> n11",
+   "x": 495,
+   "y": 1143,
+   "w": 24,
+   "h": 35,
+   "area": 159
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n10 -> n9",
+   "x": 2800,
+   "y": 1118,
+   "w": 19,
+   "h": 24,
+   "area": 114
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n6 -> n8",
+   "x": 2709,
+   "y": 787,
+   "w": 16,
+   "h": 18,
+   "area": 102
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n6 -> n4",
+   "x": 2718,
+   "y": 441,
+   "w": 20,
+   "h": 10,
+   "area": 93
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n6 -> n4",
+   "x": 2725,
+   "y": 470,
+   "w": 353,
+   "h": 250,
+   "area": 1727
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n10 -> n9",
+   "x": 2875,
+   "y": 1206,
+   "w": 70,
+   "h": 89,
+   "area": 433
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n9 -> n8",
+   "x": 2568,
+   "y": 994,
+   "w": 105,
+   "h": 62,
+   "area": 393
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n9 -> n4",
+   "x": 2782,
+   "y": 954,
+   "w": 61,
+   "h": 102,
+   "area": 333
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n7 -> n11",
+   "x": 884,
+   "y": 856,
+   "w": 87,
+   "h": 60,
+   "area": 287
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n10 -> n9",
+   "x": 2801,
+   "y": 1110,
+   "w": 29,
+   "h": 32,
+   "area": 153
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n7 -> n11",
+   "x": 521,
+   "y": 1136,
+   "w": 56,
+   "h": 36,
+   "area": 141
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n7 -> n11",
+   "x": 519,
+   "y": 1143,
+   "w": 13,
+   "h": 15,
+   "area": 60
+  }
+ ],
+ "text": [],
+ "coherence": [],
+ "human": [
+  {
+   "x": 2357,
+   "y": 812,
+   "w": 493,
+   "h": 247,
+   "shape": "rhombus",
+   "iou": 0.538,
+   "border": 0.382,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best rhombus 0.54, and 0.98 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "kind": "unexplained-line-work",
+   "x": 2565,
+   "y": 540,
+   "w": 153,
+   "h": 290,
+   "reason": "ink left over where several connectors cross, claimed by none of them",
+   "check": "decide what this is; the SVG does not draw it"
+  },
+  {
+   "kind": "unexplained-line-work",
+   "x": 2770,
+   "y": 315,
+   "w": 15,
+   "h": 120,
+   "reason": "line-work that is neither a connector between two nodes nor the size of text",
+   "check": "decide what this is; the SVG does not draw it"
+  },
+  {
+   "kind": "unexplained-line-work",
+   "x": 3158,
+   "y": 1049,
+   "w": 74,
+   "h": 85,
+   "reason": "line-work that is neither a connector between two nodes nor the size of text",
+   "check": "decide what this is; the SVG does not draw it"
+  },
+  {
+   "kind": "arrowhead-unmeasurable",
+   "x": 2654,
+   "y": 397,
+   "w": 96,
+   "h": 96,
+   "reason": "the ink at the head end of n6->n4 measures 48x80px, too wide for this diagram's own 41px arrowhead - a junction, not a head",
+   "check": "confirm the arrowhead here is drawn and points the way the original does"
+  },
+  {
+   "kind": "arrowhead-unmeasurable",
+   "x": 443,
+   "y": 1136,
+   "w": 82,
+   "h": 82,
+   "reason": "the ink at the head end of n3->n11 measures 41x68px, too wide for this diagram's own 41px arrowhead - a junction, not a head",
+   "check": "confirm the arrowhead here is drawn and points the way the original does"
+  },
+  {
+   "kind": "arrowhead-unmeasurable",
+   "x": 464,
+   "y": 1143,
+   "w": 68,
+   "h": 68,
+   "reason": "the ink at the head end of n7->n11 measures 34x65px, too wide for this diagram's own 41px arrowhead - a junction, not a head",
+   "check": "confirm the arrowhead here is drawn and points the way the original does"
+  },
+  {
+   "kind": "arrowhead-unmeasurable",
+   "x": 2297,
+   "y": 813,
+   "w": 120,
+   "h": 120,
+   "reason": "the ink at the head end of n9->n8 measures 60x80px, too wide for this diagram's own 41px arrowhead - a junction, not a head",
+   "check": "confirm the arrowhead here is drawn and points the way the original does"
+  }
+ ],
+ "review": [
+  {
+   "n": 1,
+   "what": "check",
+   "where": "2357,812 493x247",
+   "detail": "outline matches no UML node shape (best rhombus 0.54, and 0.98 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "n": 2,
+   "what": "check",
+   "where": "2565,540 153x290",
+   "detail": "ink left over where several connectors cross, claimed by none of them",
+   "check": "decide what this is; the SVG does not draw it"
+  },
+  {
+   "n": 3,
+   "what": "check",
+   "where": "2770,315 15x120",
+   "detail": "line-work that is neither a connector between two nodes nor the size of text",
+   "check": "decide what this is; the SVG does not draw it"
+  },
+  {
+   "n": 4,
+   "what": "check",
+   "where": "3158,1049 74x85",
+   "detail": "line-work that is neither a connector between two nodes nor the size of text",
+   "check": "decide what this is; the SVG does not draw it"
+  },
+  {
+   "n": 5,
+   "what": "check",
+   "where": "2654,397 96x96",
+   "detail": "the ink at the head end of n6->n4 measures 48x80px, too wide for this diagram's own 41px arrowhead - a junction, not a head",
+   "check": "confirm the arrowhead here is drawn and points the way the original does"
+  },
+  {
+   "n": 6,
+   "what": "check",
+   "where": "443,1136 82x82",
+   "detail": "the ink at the head end of n3->n11 measures 41x68px, too wide for this diagram's own 41px arrowhead - a junction, not a head",
+   "check": "confirm the arrowhead here is drawn and points the way the original does"
+  },
+  {
+   "n": 7,
+   "what": "check",
+   "where": "464,1143 68x68",
+   "detail": "the ink at the head end of n7->n11 measures 34x65px, too wide for this diagram's own 41px arrowhead - a junction, not a head",
+   "check": "confirm the arrowhead here is drawn and points the way the original does"
+  },
+  {
+   "n": 8,
+   "what": "check",
+   "where": "2297,813 120x120",
+   "detail": "the ink at the head end of n9->n8 measures 60x80px, too wide for this diagram's own 41px arrowhead - a junction, not a head",
+   "check": "confirm the arrowhead here is drawn and points the way the original does"
+  }
+ ]
+}

@@ -1,0 +1,11 @@
+== UBL-2.2-Tender-QualificationInfo
+  scale 0.43212   frame 10px  divider 12px  action 13px  object 12px
+  font 80px (34.6 model)   2 lanes, 1 bands, 9 nodes, 8 edges -> review/baseline/UBL-2.2-Tender-QualificationInfo-spec.json
+  review/baseline/UBL-2.2-Tender-QualificationInfo.svg + .drawio + -classified.svg   (9 nodes, 8 edges)
+  rendered UBL-2.2-Tender-QualificationInfo.svg -> UBL-2.2-Tender-QualificationInfo-render.png @ 3425pxx2282, 600 dpi
+  aligned on ink bounds: scale x 1.0000, y 1.0000
+  size 3425x2282  radius 2
+  ink: original 532758   candidate 544003
+  MISSING (red)    23975  = 4.5002% of original ink
+  EXTRA   (blue)   28254  = 5.3033% of original ink
+  RESULT: DIFFERENCES - inspect review/baseline/UBL-2.2-Tender-QualificationInfo-diff-r2.png

@@ -1,0 +1,106 @@
+image 3425x2543
+
+PARTITION RULES
+   vertical  : [(0, 10), (641, 4), (1578, 5), (2541, 4), (3415, 10)]
+   horizontal: [(0, 10), (2533, 10)]
+   -> 4 column(s) x 1 band(s)
+   type measured off the page: a word is 30px tall
+   (dropped x=10    y=10     631x2523  is a partition cell)
+   (dropped x=645   y=10     933x231   4 of 4 sides are pass-through line-work)
+   (dropped x=1583  y=10     958x557   encloses another region)
+   (dropped x=2545  y=10     870x2523  is a partition cell)
+   (dropped x=645   y=242    933x682   encloses another region)
+   (dropped x=1583  y=343    958x1906  encloses another region)
+   (dropped x=645   y=929    933x538   encloses another region)
+   (dropped x=645   y=1471   933x887   encloses another region)
+   (dropped x=1583  y=2046   958x487   outline matches no UML node shape (best rect 0.77, and 0.99 is the most this shape can reach at this size))
+   one line weight only - no object nodes
+
+NODES
+   n1   object    x=1448  y=165   w=254   h=146   stroke=8   fill=0.88  'Forwarding\ninstructions'
+   n2   action    x=56    y=184   w=445   h=126   stroke=4   fill=0.87  'Request Logistic\nService'
+   n3   action    x=1913  y=271   w=437   h=129   stroke=4   fill=0.87  'Request Transport\nService'
+   n4   object    x=2443  y=273   w=254   h=146   stroke=8   fill=0.88  'Forwarding\nInstructions'
+   n5   action    x=2829  y=274   w=437   h=126   stroke=4   fill=0.83  'Receive Transport\nService Request'
+   n6   action    x=897   y=479   w=437   h=125   stroke=4   fill=0.87  'Request Logistic\nService'
+   n7   initial   x=598   y=500   w=79    h=80    stroke=0   fill=0.74  ''
+   n8   object    x=1469  y=574   w=262   h=144   stroke=7   fill=0.94  'Packing List'
+   n9   action    x=106   y=864   w=434   h=125   stroke=4   fill=0.87  'Receive Bill of Lading'
+   n10  object    x=1448  y=912   w=254   h=147   stroke=7   fill=0.93  'Bill of Lading'
+   n11  object    x=2443  y=920   w=254   h=146   stroke=8   fill=0.93  'Bill of Lading'
+   n12  action    x=1874  y=929   w=437   h=125   stroke=5   fill=0.84  'Send Bill of Lading to\nConsignor'
+   n13  action    x=2919  y=936   w=441   h=121   stroke=4   fill=0.89  'Send Bill of Lading'
+   n14  action    x=800   y=1008  w=433   h=125   stroke=5   fill=0.88  'Receive Bill of Lading'
+   n15  action    x=796   y=1220  w=434   h=125   stroke=5   fill=0.90  'Receive Waybill'
+   n16  object    x=2443  y=1394  w=254   h=146   stroke=8   fill=0.96  'Way bill'
+   n17  object    x=1444  y=1398  w=255   h=146   stroke=8   fill=0.96  'Waybill'
+   n18  action    x=95    y=1407  w=434   h=124   stroke=5   fill=0.90  'Receive Waybill'
+   n19  action    x=1863  y=1407  w=437   h=124   stroke=5   fill=0.86  'Send Waybill to\nConsignor'
+   n20  action    x=2919  y=1414  w=437   h=124   stroke=4   fill=0.91  'Send Waypbill'
+   n21  action    x=2922  y=1665  w=434   h=125   stroke=4   fill=0.82  'Transport Goods Items\nto Delivery Party —'
+   n22  object    x=1437  y=1753  w=312   h=168   stroke=8   fill=0.92  'Transportation\nStatus'
+   n23  action    x=825   y=1773  w=365   h=118   stroke=5   fill=0.84  'Receive Status\nReport'
+   n24  object    x=2374  y=1954  w=312   h=168   stroke=8   fill=0.92  'Transportation\nStatus'
+   n25  action    x=1805  y=1988  w=351   h=118   stroke=4   fill=0.87  'Report Status'
+   n26  action    x=2833  y=1988  w=351   h=122   stroke=4   fill=0.88  'Report Status'
+   n27  object    x=1408  y=2257  w=312   h=168   stroke=8   fill=0.92  'Transportation\nStatus'
+   n28  action    x=95    y=2302  w=363   h=114   stroke=5   fill=0.83  'Receive Status\nReport'
+   n29  note      x=645   y=2363  w=933   h=170   stroke=5   fill=0.92  ''
+   n30  final     x=3188  y=2417  w=64    h=64    stroke=4   fill=0.64  ''
+
+TYPE  cap height 26px over 542 glyphs -> font 37.1px
+   (dropped x=645   y=2363   933x170   no text, and line-work runs past 4 of its sides - whitespace between shapes, not a note)
+   chained 6 dashes into one dashed flow
+
+EDGES
+   n2   -> n1    straight    arrowhead   615 vs 225    ratio 4.0  high
+   n1   -> n3    diagonal    arrowhead   572 vs 197    ratio 4.0  high
+   n3   -> n4    straight    arrowhead   614 vs 426    ratio 4.0  high
+   n7   -> n2    diagonal    arrowhead   521 vs 261    ratio 4.0  high
+   n6   -> n1    diagonal    arrowhead   592 vs 219    ratio 4.0  high
+   n4   -> n5    straight    arrowhead   559 vs 180    ratio 4.0  high
+   n8   -> n3    diagonal    arrowhead   412 vs 231    ratio 4.0  high
+   n5   -> n13   straight    arrowhead   557 vs 180    ratio 4.0  high
+   n7   -> n6    straight    arrowhead   558 vs 180    ratio 4.0  high
+   n6   -> n8    diagonal    arrowhead   607 vs 196    ratio 4.0  high
+   n10  -> n9    straight    arrowhead   614 vs 230    ratio 4.0  high
+   n12  -> n10   straight    arrowhead   598 vs 230    ratio 4.0  high
+   n11  -> n12   straight    arrowhead   576 vs 184    ratio 4.0  high
+   n13  -> n11   straight    arrowhead   567 vs 184    ratio 4.0  high
+   n10  -> n14   diagonal    arrowhead   585 vs 196    ratio 4.0  high
+   n13  -> n20   straight    arrowhead   603 vs 225    ratio 4.0  high
+   n17  -> n15   diagonal    arrowhead   471 vs 348    ratio 4.0  high
+   n17  -> n18   straight    arrowhead   579 vs 185    ratio 4.0  high
+   n19  -> n17   straight    arrowhead   565 vs 184    ratio 4.0  high
+   n16  -> n19   straight    arrowhead   578 vs 184    ratio 4.0  high
+   n20  -> n16   straight    arrowhead   560 vs 207    ratio 4.0  high
+   n20  -> n21   straight    arrowhead   562 vs 193    ratio 4.0  high
+   n21  -> n26   straight    arrowhead   550 vs 180    ratio 4.0  high
+   n21  -> n30   straight    arrowhead   555 vs 180    ratio 4.0  high
+   n22  -> n23   straight    arrowhead   578 vs 184    ratio 4.0  high
+   n25  -> n22   diagonal    arrowhead   618 vs 260    ratio 4.0  high
+   n24  -> n25   straight    arrowhead   576 vs 184    ratio 4.0  high
+   n26  -> n24   straight    arrowhead   566 vs 184    ratio 4.0  high
+   n25  -> n27   diagonal    arrowhead   486 vs 223    ratio 4.0  high
+   n27  -> n28   straight    arrowhead   619 vs 230    ratio 4.0  high
+
+TEXT (titles, guards, notes)
+   'Consignee'                              x=235   y=20    
+   'Consignor'                              x=1033  y=20    
+   'Freight Forwarder'                      x=1921  y=20    
+   'Carrier'                                x=2929  y=20    
+   'Ordering\nProcess'                      x=437   y=584   
+   'Fulfillment\nProcess'                   x=2973  y=2396  
+
+PARTITIONS
+   column 0  'Consignee'
+   column 1  'Consignor'
+   column 2  'Freight Forwarder'
+   column 3  'Carrier'
+   band   0  ''
+
+ARROWHEAD  52 x 41px, open, measured on 26 connector(s)
+   reading settled: 'Transport Goods Items\nto Delivery Party ' -> 'Transport Goods Items\nto Delivery Party'
+   reading settled: 'to Delivery Party —' -> 'to Delivery Party'
+
+wrote review/baseline/UBL-2.2-InitiateFreightMgmtProcess-graph.json   (29 nodes, 30 edges, 4 flagged for a human)

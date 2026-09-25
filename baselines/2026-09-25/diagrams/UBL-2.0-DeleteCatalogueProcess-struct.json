@@ -1,0 +1,42 @@
+{
+ "name": "UBL-2.0-DeleteCatalogueProcess.png",
+ "verdict": "needs-human",
+ "radius": 3,
+ "lineWorkInk": 286748,
+ "missingPx": 335,
+ "inventedPx": 4,
+ "structural": {
+  "absent": 0,
+  "invented": 0,
+  "coherence": 0,
+  "textAbsent": 0,
+  "textDiffers": 0
+ },
+ "blocking": [],
+ "findings": [],
+ "text": [],
+ "coherence": [],
+ "human": [
+  {
+   "x": 414,
+   "y": 504,
+   "w": 1215,
+   "h": 874,
+   "shape": "rounded",
+   "iou": 0.942,
+   "border": 0.742,
+   "kind": "dropped-region",
+   "reason": "4 of 4 sides are pass-through line-work",
+   "check": "a shape here would be missing from the SVG"
+  }
+ ],
+ "review": [
+  {
+   "n": 1,
+   "what": "check",
+   "where": "414,504 1215x874",
+   "detail": "4 of 4 sides are pass-through line-work",
+   "check": "a shape here would be missing from the SVG"
+  }
+ ]
+}

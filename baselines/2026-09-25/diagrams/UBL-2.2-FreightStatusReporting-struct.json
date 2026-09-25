@@ -1,0 +1,108 @@
+{
+ "name": "UBL-2.2-FreightStatusReporting.png",
+ "verdict": "needs-human",
+ "radius": 3,
+ "lineWorkInk": 190648,
+ "missingPx": 1274,
+ "inventedPx": 744,
+ "structural": {
+  "absent": 0,
+  "invented": 0,
+  "coherence": 0,
+  "textAbsent": 0,
+  "textDiffers": 0
+ },
+ "blocking": [],
+ "findings": [
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n3 -> n7",
+   "x": 2111,
+   "y": 690,
+   "w": 21,
+   "h": 58,
+   "area": 358
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n3 -> n7",
+   "x": 2144,
+   "y": 689,
+   "w": 21,
+   "h": 58,
+   "area": 344
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n1 -> n4",
+   "x": 472,
+   "y": 256,
+   "w": 18,
+   "h": 47,
+   "area": 267
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n1 -> n4",
+   "x": 514,
+   "y": 256,
+   "w": 13,
+   "h": 21,
+   "area": 129
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n6 -> n9",
+   "x": 463,
+   "y": 991,
+   "w": 15,
+   "h": 26,
+   "area": 81
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n1 -> n4",
+   "x": 469,
+   "y": 274,
+   "w": 23,
+   "h": 55,
+   "area": 227
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n3 -> n7",
+   "x": 2110,
+   "y": 720,
+   "w": 19,
+   "h": 46,
+   "area": 162
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n3 -> n7",
+   "x": 2151,
+   "y": 720,
+   "w": 14,
+   "h": 36,
+   "area": 122
+  }
+ ],
+ "text": [],
+ "coherence": [],
+ "human": [
+  {
+   "kind": "no-weight-split",
+   "reason": "all 6 box strokes are one weight ([5, 6, 7]), so no object node could be identified",
+   "check": "confirm the diagram really has no object nodes"
+  }
+ ],
+ "review": [
+  {
+   "n": 1,
+   "what": "check",
+   "where": "",
+   "detail": "all 6 box strokes are one weight ([5, 6, 7]), so no object node could be identified",
+   "check": "confirm the diagram really has no object nodes"
+  }
+ ]
+}

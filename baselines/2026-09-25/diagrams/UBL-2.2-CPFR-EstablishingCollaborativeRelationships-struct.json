@@ -1,0 +1,123 @@
+{
+ "name": "UBL-2.2-CPFR-EstablishingCollaborativeRelationships.png",
+ "verdict": "needs-human",
+ "radius": 3,
+ "lineWorkInk": 247067,
+ "missingPx": 2880,
+ "inventedPx": 2371,
+ "structural": {
+  "absent": 0,
+  "invented": 0,
+  "coherence": 0,
+  "textAbsent": 0,
+  "textDiffers": 0
+ },
+ "blocking": [],
+ "findings": [
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n9 -> n6",
+   "x": 1892,
+   "y": 1716,
+   "w": 19,
+   "h": 53,
+   "area": 182
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n9 -> n6",
+   "x": 1920,
+   "y": 1714,
+   "w": 21,
+   "h": 55,
+   "area": 160
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n9 -> n6",
+   "x": 1892,
+   "y": 1692,
+   "w": 47,
+   "h": 55,
+   "area": 310
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n6 -> n10",
+   "x": 1483,
+   "y": 1692,
+   "w": 3,
+   "h": 55,
+   "area": 71
+  }
+ ],
+ "text": [],
+ "coherence": [],
+ "human": [
+  {
+   "x": 718,
+   "y": 2893,
+   "w": 987,
+   "h": 73,
+   "shape": "rect",
+   "iou": 1.0,
+   "border": 1.0,
+   "kind": "dropped-region",
+   "reason": "3 of 4 sides are pass-through line-work",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "kind": "no-weight-split",
+   "reason": "all 11 box strokes are one weight ([3, 4, 5, 6]), so no object node could be identified",
+   "check": "confirm the diagram really has no object nodes"
+  },
+  {
+   "kind": "arrowhead-unmeasurable",
+   "x": 417,
+   "y": 1243,
+   "w": 130,
+   "h": 130,
+   "reason": "the ink at the head end of n10->n5 measures 65x94px, too wide for this diagram's own 48px arrowhead - a junction, not a head",
+   "check": "confirm the arrowhead here is drawn and points the way the original does"
+  },
+  {
+   "kind": "arrowhead-unmeasurable",
+   "x": 844,
+   "y": 2224,
+   "w": 130,
+   "h": 130,
+   "reason": "the ink at the head end of n10->n11 measures 65x150px, too wide for this diagram's own 48px arrowhead - a junction, not a head",
+   "check": "confirm the arrowhead here is drawn and points the way the original does"
+  }
+ ],
+ "review": [
+  {
+   "n": 1,
+   "what": "check",
+   "where": "718,2893 987x73",
+   "detail": "3 of 4 sides are pass-through line-work",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "n": 2,
+   "what": "check",
+   "where": "",
+   "detail": "all 11 box strokes are one weight ([3, 4, 5, 6]), so no object node could be identified",
+   "check": "confirm the diagram really has no object nodes"
+  },
+  {
+   "n": 3,
+   "what": "check",
+   "where": "417,1243 130x130",
+   "detail": "the ink at the head end of n10->n5 measures 65x94px, too wide for this diagram's own 48px arrowhead - a junction, not a head",
+   "check": "confirm the arrowhead here is drawn and points the way the original does"
+  },
+  {
+   "n": 4,
+   "what": "check",
+   "where": "844,2224 130x130",
+   "detail": "the ink at the head end of n10->n11 measures 65x150px, too wide for this diagram's own 48px arrowhead - a junction, not a head",
+   "check": "confirm the arrowhead here is drawn and points the way the original does"
+  }
+ ]
+}

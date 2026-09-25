@@ -1,0 +1,25 @@
+  verdict: NEEDS-HUMAN
+  structural: 0 element(s) absent, 0 invented, 0 text absent, 0 text differs, 0 incoherent
+  line-work  missing 5041 px (2.346%)   invented 3932 px (1.830%)   radius 3
+    line-work-missing     1935 px at  2725,462    358x254   near edge n6 -> n4
+    line-work-missing      562 px at  2559,979    136x77    near edge n9 -> n8
+    line-work-missing      486 px at  2865,1208    72x87    near edge n10 -> n9
+    line-work-missing      451 px at  2780,934     74x122   near edge n9 -> n4
+    line-work-missing      383 px at   877,859    104x72    near edge n7 -> n11
+    line-work-missing      274 px at  2769,1085    22x51    near edge n10 -> n9
+    line-work-missing      193 px at   491,1143    28x45    near edge n7 -> n11
+    line-work-missing      180 px at   526,1116    65x46    near edge n7 -> n11
+    line-work-missing      124 px at  2710,438     27x12    near edge n6 -> n4
+    line-work-missing      108 px at  2800,1118    18x23    near edge n10 -> n9
+    line-work-missing       97 px at  2710,787     15x18    near edge n6 -> n8
+    line-work-invented    1727 px at  2725,470    353x250   near edge n6 -> n4
+    ... and 7 more line-work findings
+  needs a person (7):
+    dropped-region     at 2357,812  a shape here would be missing from the SVG
+    unexplained-line-work at 2770,315  decide what this is; the SVG does not draw it
+    unexplained-line-work at 2821,321  decide what this is; the SVG does not draw it
+    arrowhead-unmeasurable at 2654,397  confirm the arrowhead here is drawn and points the way the original does
+    arrowhead-unmeasurable at 443,1136  confirm the arrowhead here is drawn and points the way the original does
+    arrowhead-unmeasurable at 464,1143  confirm the arrowhead here is drawn and points the way the original does
+    arrowhead-unmeasurable at 2294,810  confirm the arrowhead here is drawn and points the way the original does
+review/baseline/UBL-2.5-BillingwithDebitNoteProcess-marked.png + review/baseline/UBL-2.5-BillingwithDebitNoteProcess-marked-lost.png  (7 finding(s) numbered)

@@ -1,0 +1,11 @@
+== UBL-2.2-Tender-Withdrawal
+  scale 0.43212   frame 8px  divider 9px  action 9px  object 8px
+  font 70px (30.2 model)   2 lanes, 1 bands, 6 nodes, 5 edges -> review/baseline/UBL-2.2-Tender-Withdrawal-spec.json
+  review/baseline/UBL-2.2-Tender-Withdrawal.svg + .drawio + -classified.svg   (6 nodes, 5 edges)
+  rendered UBL-2.2-Tender-Withdrawal.svg -> UBL-2.2-Tender-Withdrawal-render.png @ 3425pxx1264, 600 dpi
+  aligned on ink bounds: scale x 1.0000, y 1.0000
+  size 3425x1264  radius 2
+  ink: original 281062   candidate 277352
+  MISSING (red)    21502  = 7.6503% of original ink
+  EXTRA   (blue)   20802  = 7.4012% of original ink
+  RESULT: DIFFERENCES - inspect review/baseline/UBL-2.2-Tender-Withdrawal-diff-r2.png

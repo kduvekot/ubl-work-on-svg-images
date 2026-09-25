@@ -1,0 +1,26 @@
+  verdict: NEEDS-HUMAN
+  structural: 0 element(s) absent, 0 invented, 0 text absent, 0 text differs, 0 incoherent
+  line-work  missing 2299 px (0.615%)   invented 17249 px (4.612%)   radius 3
+    line-work-missing      623 px at  2772,1169   107x95    near edge n23 -> n29
+    line-work-missing       60 px at  2719,255     42x5     near edge n4 -> n5
+    line-work-invented     582 px at  2759,1169   103x92    near edge n23 -> n29
+    line-work-invented     382 px at  2683,265     80x21    near edge n4 -> n5
+    line-work-invented     319 px at  1403,445     32x36    near edge n11 -> n8
+    line-work-invented     306 px at  2646,806     72x29    near edge n17 -> n19
+    line-work-invented     286 px at  1406,362     30x27    near edge n6 -> n8
+    line-work-invented     237 px at  2631,748     28x34    near edge n14 -> n19
+    line-work-invented     232 px at  1125,656     29x29    near edge n12 -> n18
+    line-work-invented     216 px at  3017,846     22x34    near edge n23 -> n21
+    line-work-invented     206 px at  1366,604     13x30    near edge n12 -> n15
+    line-work-invented     205 px at  2568,1356    30x17    near edge n26 -> n29
+    ... and 67 more line-work findings
+  needs a person (17):
+    kept-on-outline    at 2926,234  confirm this is a node and not trapped whitespace
+    dropped-region     at 2859,260  a shape here would be missing from the SVG
+    dropped-region     at 2775,265  a shape here would be missing from the SVG
+    dropped-region     at 1172,468  a shape here would be missing from the SVG
+    kept-on-outline    at 1316,564  confirm this is a node and not trapped whitespace
+    dropped-region     at 1236,593  a shape here would be missing from the SVG
+    kept-on-outline    at 2835,616  confirm this is a node and not trapped whitespace
+    dropped-region     at 2626,647  a shape here would be missing from the SVG
+review/baseline/UBL-1.0-ProcurementProcess-marked.png + review/baseline/UBL-1.0-ProcurementProcess-marked-lost.png  (17 finding(s) numbered)

@@ -1,0 +1,46 @@
+MODEL  UBL-2.2-DigitalAgreement
+  12 action, 3 decision, 2 final, 1 initial, 6 object, 25 flows, 3 partitions
+
+FLOW
+  (start)   [PARTICIPANT PARTY 1]
+  Send digital capabilities   [PARTICIPANT PARTY 1]
+  [Digital Capabilities]   [PARTICIPANT PARTY 1]
+  Receive digital capabilities   [PARTICIPANT PARTY 2]
+    -> <Match digital capabilities>   [PARTICIPANT PARTY 2]
+      -> Send digital agreement   [PARTICIPANT PARTY 2]
+      -> [Digital Agreement]   [PARTICIPANT PARTY 1]
+      -> Receive digital agreement   [PARTICIPANT PARTY 1]
+        -> <Reconcile digital agreement with own digital capabilities>   [PARTICIPANT PARTY 1]
+          -Y-> Send digital agreement   [PARTICIPANT PARTY 1]
+          -> [Digital Agreement]   [PARTICIPANT PARTY 2]
+          -> Receive digital agreement   [PARTICIPANT PARTY 2]
+          -> <Validate digital agreement>   [PARTICIPANT PARTY 2]
+            -Y-> (end)   [PARTICIPANT PARTY 2]
+            -N-> Send application response   [PARTICIPANT PARTY 2]
+            -> [Application Response]   [PARTICIPANT PARTY 2]
+            -> Receive application response   [PARTICIPANT PARTY 1]
+            -> (end)   [PARTICIPANT PARTY 1]
+          -N-> (end)   [PARTICIPANT PARTY 1]
+        -> Send application response   [PARTICIPANT PARTY 1]
+        -> [Application Response]   [PARTICIPANT PARTY 1]
+        -> Receive application response   [PARTICIPANT PARTY 2]
+      -N-> (end)   [PARTICIPANT PARTY 2]
+    -> Send application response   [PARTICIPANT PARTY 2]
+    -> [Application Response]   [PARTICIPANT PARTY 1]
+    -> Receive application response   [PARTICIPANT PARTY 1]
+
+CHECKS
+  ok   every element is connected
+  ok   start events have a way out and no way in
+  ok   end events have a way in and no way out
+  ok   decisions have at least two ways out
+  note branches out of a decision are labelled   (informational: several diagrams draw an unlabelled branch, so read these against the artwork rather than treating them as errors)
+        - <Match digital capabilities> -> Send digital agreement
+  ok   documents are both written and read
+  ok   no flow runs straight from one document to another
+  ok   work crossing between parties goes through a document   (informational: UBL draws the hand-over as a document on the divider, and each exception below is named)
+  ok   every flow's direction was read with confidence
+  note every action passes its work on   (informational: several diagrams do end on an action, so read these against the artwork rather than treating them as errors)
+        - Receive application response
+        - Receive application response
+  ok   every element is reachable from a start event

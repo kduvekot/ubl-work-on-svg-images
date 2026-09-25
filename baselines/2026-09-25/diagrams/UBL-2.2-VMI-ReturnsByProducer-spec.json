@@ -1,0 +1,669 @@
+{
+ "canvas": {
+  "w": 1480.0,
+  "h": 1370.674
+ },
+ "stroke": {
+  "frame": 4.3,
+  "divider": 2.2,
+  "action": 2.2,
+  "object": 3.9,
+  "edge": 2.2
+ },
+ "font": {
+  "family": "Helvetica, Arial, sans-serif",
+  "node": 24.7,
+  "lane": 24.7,
+  "guard": 24.7
+ },
+ "arrow": 31.9,
+ "arrowWidth": 25.5,
+ "arrowStyle": "open",
+ "dashed": [],
+ "greyRules": [],
+ "crossMarks": [],
+ "openEnds": [
+  {
+   "points": [
+    [
+     791.6,
+     383.7
+    ],
+    [
+     792.1,
+     5.2
+    ]
+   ],
+   "arrow": false
+  },
+  {
+   "points": [
+    [
+     791.6,
+     1194.4
+    ],
+    [
+     792.1,
+     1365.1
+    ]
+   ],
+   "arrow": false
+  }
+ ],
+ "frameBox": [
+  2.2,
+  2.2,
+  1477.8,
+  1368.5
+ ],
+ "dividers": [
+  [
+   789.7,
+   2.2,
+   385.9,
+   1191.8
+  ]
+ ],
+ "bands": [],
+ "lanes": [
+  {
+   "title": "Producer",
+   "x": 0.0,
+   "w": 789.9,
+   "cx": 379.2,
+   "cy": 34.8
+  },
+  {
+   "title": "Retailer",
+   "x": 789.9,
+   "w": 690.1,
+   "cx": 1130.6,
+   "cy": 37.2
+  }
+ ],
+ "bandLabels": [],
+ "nodes": [
+  {
+   "id": "n1",
+   "kind": "initial",
+   "label": "",
+   "x": 234.2,
+   "y": 75.6,
+   "w": 38.9,
+   "h": 38.9
+  },
+  {
+   "id": "n2",
+   "kind": "decision",
+   "label": "",
+   "x": 228.4,
+   "y": 180.4,
+   "w": 46.7,
+   "h": 39.8
+  },
+  {
+   "id": "n3",
+   "kind": "final",
+   "label": "",
+   "x": 36.1,
+   "y": 183.4,
+   "w": 35.0,
+   "h": 35.0,
+   "innerRatio": 0.434
+  },
+  {
+   "id": "n4",
+   "kind": "object",
+   "label": "Instruction for Returns",
+   "x": 653.1,
+   "y": 388.3,
+   "w": 274.8,
+   "h": 64.4,
+   "labelLines": [
+    {
+     "text": "Instruction for Returns",
+     "cx": 792.5,
+     "cy": 418.3,
+     "w": 257.5
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n5",
+   "kind": "action",
+   "label": "Receive Instruction for\nReturns",
+   "x": 1075.3,
+   "y": 390.0,
+   "w": 350.0,
+   "h": 72.2,
+   "rx": 33.1,
+   "ry": 21.8,
+   "labelLines": [
+    {
+     "text": "Receive Instruction for",
+     "cx": 1246.7,
+     "cy": 413.3,
+     "w": 258.4
+    },
+    {
+     "text": "Returns",
+     "cx": 1251.6,
+     "cy": 440.3,
+     "w": 87.7
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n6",
+   "kind": "action",
+   "label": "Send Instruction for Returns",
+   "x": 87.5,
+   "y": 391.7,
+   "w": 331.9,
+   "h": 57.5,
+   "rx": 30.0,
+   "ry": 24.0,
+   "labelLines": [
+    {
+     "text": "Send Instruction for Returns",
+     "cx": 255.6,
+     "cy": 420.2,
+     "w": 322.8
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n7",
+   "kind": "object",
+   "label": "Despatch Advice",
+   "x": 651.4,
+   "y": 550.3,
+   "w": 274.8,
+   "h": 64.4,
+   "labelLines": [
+    {
+     "text": "Despatch Advice",
+     "cx": 791.4,
+     "cy": 582.7,
+     "w": 191.4
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n8",
+   "kind": "action",
+   "label": "Receive the advice",
+   "x": 102.6,
+   "y": 555.9,
+   "w": 311.6,
+   "h": 59.2,
+   "rx": 30.0,
+   "ry": 17.5,
+   "labelLines": [
+    {
+     "text": "Receive the advice",
+     "cx": 254.5,
+     "cy": 584.4,
+     "w": 211.7
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n9",
+   "kind": "action",
+   "label": "Send an advice to notify the\nreturn",
+   "x": 1058.5,
+   "y": 555.9,
+   "w": 385.4,
+   "h": 71.7,
+   "rx": 31.8,
+   "ry": 25.7,
+   "labelLines": [
+    {
+     "text": "Send an advice to notify the",
+     "cx": 1243.6,
+     "cy": 581.6,
+     "w": 316.3
+    },
+    {
+     "text": "return",
+     "cx": 1251.8,
+     "cy": 606.5,
+     "w": 65.7
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n10",
+   "kind": "action",
+   "label": "Receive the return item(s)",
+   "x": 316.1,
+   "y": 733.1,
+   "w": 311.6,
+   "h": 58.8,
+   "rx": 27.9,
+   "ry": 20.1,
+   "labelLines": [
+    {
+     "text": "Receive the return item(s)",
+     "cx": 471.9,
+     "cy": 763.6,
+     "w": 291.2
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n11",
+   "kind": "action",
+   "label": "Send item(s)",
+   "x": 1093.5,
+   "y": 734.8,
+   "w": 311.6,
+   "h": 59.2,
+   "rx": 28.3,
+   "ry": 20.5,
+   "labelLines": [
+    {
+     "text": "Send item(s)",
+     "cx": 1248.4,
+     "cy": 765.5,
+     "w": 141.7
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n12",
+   "kind": "fork",
+   "label": "",
+   "x": 206.6,
+   "y": 877.6,
+   "w": 315.0,
+   "h": 11.2
+  },
+  {
+   "id": "n13",
+   "kind": "action",
+   "label": "Check status of item(s)",
+   "x": 209.4,
+   "y": 976.4,
+   "w": 311.6,
+   "h": 58.8,
+   "rx": 30.0,
+   "ry": 18.8,
+   "labelLines": [
+    {
+     "text": "Check status of item(s)",
+     "cx": 367.1,
+     "cy": 1007.0,
+     "w": 261.4
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n14",
+   "kind": "object",
+   "label": "Receipt Advice",
+   "x": 653.1,
+   "y": 1125.4,
+   "w": 274.8,
+   "h": 64.8,
+   "labelLines": [
+    {
+     "text": "Receipt Advice",
+     "cx": 792.1,
+     "cy": 1158.3,
+     "w": 170.3
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n15",
+   "kind": "action",
+   "label": "Receive Receipt Advice",
+   "x": 1104.7,
+   "y": 1127.2,
+   "w": 311.6,
+   "h": 59.2,
+   "rx": 30.0,
+   "ry": 18.4,
+   "labelLines": [
+    {
+     "text": "Receive Receipt Advice",
+     "cx": 1258.1,
+     "cy": 1158.3,
+     "w": 266.6
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n16",
+   "kind": "action",
+   "label": "Send Receipt Advice",
+   "x": 209.4,
+   "y": 1129.3,
+   "w": 311.6,
+   "h": 59.2,
+   "rx": 28.3,
+   "ry": 18.8,
+   "labelLines": [
+    {
+     "text": "Send Receipt Advice",
+     "cx": 362.8,
+     "cy": 1159.8,
+     "w": 235.5
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n17",
+   "kind": "final",
+   "label": "",
+   "x": 1243.0,
+   "y": 1300.9,
+   "w": 35.0,
+   "h": 35.0,
+   "innerRatio": 0.434
+  }
+ ],
+ "edges": [
+  {
+   "from": "n1",
+   "to": "n2",
+   "exitXY": [
+    0.455,
+    1.0
+   ],
+   "entryXY": [
+    0.4861,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n2",
+   "to": "n3",
+   "exitXY": [
+    0.0,
+    0.495
+   ],
+   "entryXY": [
+    1.0,
+    0.4771
+   ],
+   "straight": true,
+   "confidence": "high",
+   "label": "False"
+  },
+  {
+   "from": "n2",
+   "to": "n6",
+   "exitXY": [
+    0.4861,
+    1.0
+   ],
+   "entryXY": [
+    0.4953,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high",
+   "label": "True"
+  },
+  {
+   "from": "n6",
+   "to": "n4",
+   "exitXY": [
+    1.0,
+    0.5148
+   ],
+   "entryXY": [
+    0.0,
+    0.5124
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n4",
+   "to": "n5",
+   "exitXY": [
+    1.0,
+    0.4984
+   ],
+   "entryXY": [
+    0.0,
+    0.4695
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n5",
+   "to": "n9",
+   "exitXY": [
+    0.4994,
+    1.0
+   ],
+   "entryXY": [
+    0.4982,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n7",
+   "to": "n8",
+   "exitXY": [
+    0.0,
+    0.5062
+   ],
+   "entryXY": [
+    1.0,
+    0.4713
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n9",
+   "to": "n7",
+   "exitXY": [
+    0.0,
+    0.4365
+   ],
+   "entryXY": [
+    1.0,
+    0.5342
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n8",
+   "to": "n12",
+   "exitXY": [
+    0.5013,
+    1.0
+   ],
+   "entryXY": [
+    0.1673,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n9",
+   "to": "n11",
+   "exitXY": [
+    0.4982,
+    1.0
+   ],
+   "entryXY": [
+    0.5013,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n11",
+   "to": "n10",
+   "exitXY": [
+    0.0,
+    0.4645
+   ],
+   "entryXY": [
+    1.0,
+    0.4881
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n10",
+   "to": "n12",
+   "exitXY": [
+    0.5026,
+    1.0
+   ],
+   "entryXY": [
+    0.8448,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n12",
+   "to": "n13",
+   "exitXY": [
+    0.4978,
+    1.0
+   ],
+   "entryXY": [
+    0.4971,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n13",
+   "to": "n16",
+   "exitXY": [
+    0.5013,
+    1.0
+   ],
+   "entryXY": [
+    0.5013,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n14",
+   "to": "n15",
+   "exitXY": [
+    1.0,
+    0.4846
+   ],
+   "entryXY": [
+    0.0,
+    0.5
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n16",
+   "to": "n14",
+   "exitXY": [
+    1.0,
+    0.5
+   ],
+   "entryXY": [
+    0.0,
+    0.5046
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n15",
+   "to": "n17",
+   "exitXY": [
+    0.5013,
+    1.0
+   ],
+   "entryXY": [
+    0.5114,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  }
+ ],
+ "guards": [
+  {
+   "text": "False",
+   "x": 148.2,
+   "y": 181.5,
+   "w": 43.2,
+   "h": 13.4,
+   "labelLines": [
+    {
+     "text": "False",
+     "cx": 169.8,
+     "cy": 188.2,
+     "w": 43.2
+    }
+   ]
+  },
+  {
+   "text": "Wrong despatching?",
+   "x": 285.2,
+   "y": 186.7,
+   "w": 168.1,
+   "h": 17.3,
+   "labelLines": [
+    {
+     "text": "Wrong despatching?",
+     "cx": 369.2,
+     "cy": 195.3,
+     "w": 168.1
+    }
+   ]
+  },
+  {
+   "text": "True",
+   "x": 261.4,
+   "y": 236.8,
+   "w": 36.7,
+   "h": 13.4,
+   "labelLines": [
+    {
+     "text": "True",
+     "cx": 279.8,
+     "cy": 243.5,
+     "w": 36.7
+    }
+   ]
+  }
+ ]
+}

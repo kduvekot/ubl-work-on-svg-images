@@ -1,0 +1,1013 @@
+{
+ "source": "UBL-2.2-CPFR-ExceptionMonitor.png",
+ "size": [
+  3425,
+  2410
+ ],
+ "fontPx": 45.7,
+ "arrowPx": 62.0,
+ "arrowWidthPx": 50.0,
+ "arrowStyle": "open",
+ "rules": {
+  "v": [
+   [
+    0,
+    10
+   ],
+   [
+    1701,
+    1
+   ],
+   [
+    3415,
+    10
+   ]
+  ],
+  "h": [
+   [
+    0,
+    10
+   ],
+   [
+    2400,
+    10
+   ]
+  ]
+ },
+ "ruleSpan": {
+  "v": [
+   [
+    13,
+    2396
+   ],
+   [
+    13,
+    2335
+   ],
+   [
+    13,
+    2396
+   ]
+  ],
+  "h": [
+   [
+    13,
+    3411
+   ],
+   [
+    13,
+    3411
+   ]
+  ]
+ },
+ "greyRules": [],
+ "dashed": [
+  {
+   "x": 82,
+   "y": 458,
+   "w": 3260,
+   "h": 1876,
+   "rx": 122,
+   "dash": 12.0,
+   "gap": 9.0,
+   "weight": 4.0,
+   "dashes": 444
+  }
+ ],
+ "openEnds": [
+  {
+   "node": "n1",
+   "at": [
+    1621,
+    12
+   ],
+   "end": [
+    1624,
+    146
+   ],
+   "points": [],
+   "arrow": true,
+   "inward": true,
+   "headPx": [
+    55,
+    45.6,
+    2.52,
+    0,
+    true
+   ],
+   "x": 1599,
+   "y": 12,
+   "w": 47,
+   "h": 135
+  },
+  {
+   "node": "n1",
+   "at": [
+    1777,
+    12
+   ],
+   "end": [
+    1773,
+    146
+   ],
+   "points": [],
+   "arrow": true,
+   "inward": true,
+   "headPx": [
+    55,
+    46.8,
+    2.41,
+    0,
+    true
+   ],
+   "x": 1753,
+   "y": 12,
+   "w": 47,
+   "h": 135
+  }
+ ],
+ "crossMarks": [],
+ "partitions": [
+  {
+   "axis": "column",
+   "index": 0,
+   "x0": 0,
+   "x1": 1702,
+   "title": "No",
+   "titleBox": [
+    1533,
+    78,
+    50,
+    32
+   ]
+  },
+  {
+   "axis": "column",
+   "index": 1,
+   "x0": 1702,
+   "x1": 3425,
+   "title": "No",
+   "titleBox": [
+    1687,
+    78,
+    50,
+    32
+   ]
+  },
+  {
+   "axis": "band",
+   "index": 0,
+   "y0": 0,
+   "y1": 2410,
+   "title": ""
+  }
+ ],
+ "nodes": [
+  {
+   "x": 1338,
+   "y": 161,
+   "w": 727,
+   "h": 221,
+   "area": 153949,
+   "fill": 0.958,
+   "solid": 0.977,
+   "rx": 61,
+   "ry": 65,
+   "shape": "rounded",
+   "stroke": 4,
+   "kind": "action",
+   "id": "n1",
+   "label": "Ordering",
+   "labelLines": [
+    {
+     "x": 1600,
+     "y": 242,
+     "w": 178,
+     "h": 41,
+     "text": "Ordering"
+    }
+   ],
+   "stem": 0.153,
+   "bold": true,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 410,
+   "y": 685,
+   "w": 591,
+   "h": 208,
+   "area": 110417,
+   "fill": 0.898,
+   "solid": 0.969,
+   "rx": 65,
+   "ry": 66,
+   "shape": "rounded",
+   "stroke": 3,
+   "kind": "action",
+   "id": "n2",
+   "label": "Wait for Exception\nNotification",
+   "labelLines": [
+    {
+     "x": 501,
+     "y": 740,
+     "w": 379,
+     "h": 41,
+     "text": "Wait for Exception"
+    },
+    {
+     "x": 587,
+     "y": 797,
+     "w": 232,
+     "h": 32,
+     "text": "Notification"
+    }
+   ],
+   "stem": 0.131,
+   "bold": true,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 2433,
+   "y": 703,
+   "w": 591,
+   "h": 207,
+   "area": 109849,
+   "fill": 0.898,
+   "solid": 0.97,
+   "rx": 61,
+   "ry": 66,
+   "shape": "rounded",
+   "stroke": 4,
+   "kind": "action",
+   "id": "n3",
+   "label": "Wait for Exception\nNotification",
+   "labelLines": [
+    {
+     "x": 2531,
+     "y": 754,
+     "w": 378,
+     "h": 41,
+     "text": "Wait for Exception"
+    },
+    {
+     "x": 2617,
+     "y": 811,
+     "w": 232,
+     "h": 32,
+     "text": "Notification"
+    }
+   ],
+   "stem": 0.153,
+   "bold": true,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 2663,
+   "y": 1038,
+   "w": 166,
+   "h": 162,
+   "area": 13573,
+   "fill": 0.505,
+   "solid": 0.505,
+   "rx": 88,
+   "ry": 88,
+   "shape": "rhombus",
+   "stroke": 3,
+   "kind": "decision",
+   "id": "n4",
+   "label": "",
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 644,
+   "y": 1051,
+   "w": 162,
+   "h": 157,
+   "area": 12806,
+   "fill": 0.503,
+   "solid": 0.503,
+   "rx": 88,
+   "ry": 84,
+   "shape": "rhombus",
+   "stroke": 3,
+   "kind": "decision",
+   "id": "n5",
+   "label": "",
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 1436,
+   "y": 1064,
+   "w": 500,
+   "h": 285,
+   "area": 133397,
+   "fill": 0.936,
+   "solid": 1.0,
+   "rx": 0,
+   "ry": 0,
+   "shape": "rect",
+   "stroke": 5,
+   "kind": "object",
+   "id": "n6",
+   "label": "Exception Notification\n(positive)",
+   "labelLines": [
+    {
+     "x": 1456,
+     "y": 1153,
+     "w": 452,
+     "h": 41,
+     "text": "Exception Notification"
+    },
+    {
+     "x": 1601,
+     "y": 1202,
+     "w": 188,
+     "h": 40,
+     "text": "(positive)"
+    }
+   ],
+   "stem": 0.131,
+   "bold": true,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 890,
+   "y": 1358,
+   "w": 462,
+   "h": 137,
+   "area": 55170,
+   "fill": 0.872,
+   "solid": 0.944,
+   "rx": 62,
+   "ry": 61,
+   "shape": "rounded",
+   "stroke": 3,
+   "kind": "action",
+   "id": "n7",
+   "label": "Send Exception",
+   "labelLines": [
+    {
+     "x": 954,
+     "y": 1406,
+     "w": 319,
+     "h": 41,
+     "text": "Send Exception"
+    }
+   ],
+   "stem": 0.153,
+   "bold": true,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 2139,
+   "y": 1428,
+   "w": 423,
+   "h": 129,
+   "area": 46285,
+   "fill": 0.848,
+   "solid": 0.932,
+   "rx": 66,
+   "ry": 61,
+   "shape": "rounded",
+   "stroke": 3,
+   "kind": "action",
+   "id": "n8",
+   "label": "Send Exception",
+   "labelLines": [
+    {
+     "x": 2185,
+     "y": 1473,
+     "w": 320,
+     "h": 41,
+     "text": "Send Exception"
+    }
+   ],
+   "stem": 0.153,
+   "bold": true,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 1013,
+   "y": 1732,
+   "w": 590,
+   "h": 159,
+   "area": 81950,
+   "fill": 0.874,
+   "solid": 0.962,
+   "rx": 61,
+   "ry": 61,
+   "shape": "rounded",
+   "stroke": 4,
+   "kind": "action",
+   "id": "n9",
+   "label": "Receive & Resolve\nException",
+   "labelLines": [
+    {
+     "x": 1100,
+     "y": 1763,
+     "w": 381,
+     "h": 32,
+     "text": "Receive & Resolve"
+    },
+    {
+     "x": 1209,
+     "y": 1821,
+     "w": 201,
+     "h": 40,
+     "text": "Exception"
+    }
+   ],
+   "stem": 0.153,
+   "bold": true,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 1945,
+   "y": 1740,
+   "w": 590,
+   "h": 160,
+   "area": 82542,
+   "fill": 0.874,
+   "solid": 0.961,
+   "rx": 69,
+   "ry": 66,
+   "shape": "rounded",
+   "stroke": 3,
+   "kind": "action",
+   "id": "n10",
+   "label": "Receive & Resolve\nException",
+   "labelLines": [
+    {
+     "x": 2042,
+     "y": 1772,
+     "w": 381,
+     "h": 32,
+     "text": "Receive & Resolve"
+    },
+    {
+     "x": 2152,
+     "y": 1829,
+     "w": 200,
+     "h": 41,
+     "text": "Exception"
+    }
+   ],
+   "stem": 0.153,
+   "bold": true,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 1637,
+   "y": 2103,
+   "w": 155,
+   "h": 155,
+   "area": 9643,
+   "fill": 0.401,
+   "solid": 0.787,
+   "rx": 79,
+   "ry": 79,
+   "shape": "ellipse",
+   "stroke": 3,
+   "kind": "final",
+   "innerRatio": 0.697,
+   "id": "n11",
+   "label": "",
+   "col": 1,
+   "row": 0
+  }
+ ],
+ "edges": [
+  {
+   "from": "n1",
+   "to": "n2",
+   "routing": "orthogonal",
+   "fromPoint": [
+    1323,
+    277
+   ],
+   "toPoint": [
+    694,
+    670
+   ],
+   "arrowInk": [
+    138,
+    454
+   ],
+   "directionConfidence": "high",
+   "points": [
+    [
+     694,
+     277
+    ]
+   ],
+   "arrowPx": [
+    62,
+    42.6,
+    2.16
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n1",
+   "to": "n3",
+   "routing": "orthogonal",
+   "fromPoint": [
+    2079,
+    330
+   ],
+   "toPoint": [
+    2717,
+    688
+   ],
+   "arrowInk": [
+    135,
+    448
+   ],
+   "directionConfidence": "high",
+   "points": [
+    [
+     2717,
+     330
+    ]
+   ],
+   "arrowPx": [
+    59,
+    47.4,
+    2.59
+   ],
+   "arrowSaturated": true,
+   "arrowFill": 0.055,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n2",
+   "to": "n5",
+   "routing": "straight",
+   "fromPoint": [
+    724,
+    907
+   ],
+   "toPoint": [
+    725,
+    1036
+   ],
+   "arrowInk": [
+    180,
+    502
+   ],
+   "directionConfidence": "high",
+   "edgeKind": "control"
+  },
+  {
+   "from": "n3",
+   "to": "n4",
+   "routing": "straight",
+   "fromPoint": [
+    2742,
+    924
+   ],
+   "toPoint": [
+    2744,
+    1023
+   ],
+   "arrowInk": [
+    135,
+    462
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    58,
+    46.0,
+    2.26
+   ],
+   "arrowSaturated": true,
+   "arrowFill": 0.0,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n4",
+   "to": "n8",
+   "routing": "orthogonal",
+   "fromPoint": [
+    2648,
+    1118
+   ],
+   "toPoint": [
+    2427,
+    1413
+   ],
+   "arrowInk": [
+    138,
+    500
+   ],
+   "directionConfidence": "high",
+   "points": [
+    [
+     2427,
+     1118
+    ]
+   ],
+   "arrowPx": [
+    59,
+    48.9,
+    2.43
+   ],
+   "arrowSaturated": true,
+   "arrowFill": 0.088,
+   "guard": "Yes",
+   "edgeKind": "control"
+  },
+  {
+   "from": "n5",
+   "to": "n7",
+   "routing": "orthogonal",
+   "fromPoint": [
+    820,
+    1127
+   ],
+   "toPoint": [
+    1010,
+    1342
+   ],
+   "arrowInk": [
+    135,
+    525
+   ],
+   "directionConfidence": "high",
+   "points": [
+    [
+     1010,
+     1127
+    ]
+   ],
+   "arrowPx": [
+    60,
+    136.0,
+    5.86
+   ],
+   "arrowSaturated": true,
+   "arrowFill": 0.177,
+   "guard": "Yes",
+   "edgeKind": "control"
+  },
+  {
+   "from": "n8",
+   "to": "n6",
+   "routing": "orthogonal",
+   "fromPoint": [
+    2229,
+    1413
+   ],
+   "toPoint": [
+    1955,
+    1237
+   ],
+   "arrowInk": [
+    138,
+    412
+   ],
+   "directionConfidence": "high",
+   "points": [
+    [
+     2229,
+     1237
+    ]
+   ],
+   "arrowPx": [
+    55,
+    41.6,
+    3.48
+   ],
+   "arrowSaturated": true,
+   "arrowFill": 0.0,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n4",
+   "to": "n11",
+   "routing": "orthogonal",
+   "fromPoint": [
+    2743,
+    1214
+   ],
+   "toPoint": [
+    1767,
+    2088
+   ],
+   "arrowInk": [
+    135,
+    495
+   ],
+   "directionConfidence": "high",
+   "points": [
+    [
+     2743,
+     1918
+    ],
+    [
+     1767,
+     1918
+    ]
+   ],
+   "arrowPx": [
+    62,
+    50.0,
+    2.4
+   ],
+   "arrowFill": 0.005,
+   "guard": "No",
+   "edgeKind": "control"
+  },
+  {
+   "from": "n5",
+   "to": "n11",
+   "routing": "orthogonal",
+   "fromPoint": [
+    724,
+    1222
+   ],
+   "toPoint": [
+    1648,
+    2088
+   ],
+   "arrowInk": [
+    180,
+    518
+   ],
+   "directionConfidence": "high",
+   "points": [
+    [
+     724,
+     1923
+    ],
+    [
+     1648,
+     1923
+    ]
+   ],
+   "arrowPx": [
+    72,
+    170.0,
+    8.09
+   ],
+   "arrowFill": 0.166,
+   "guard": "No",
+   "edgeKind": "control"
+  },
+  {
+   "from": "n7",
+   "to": "n6",
+   "routing": "orthogonal",
+   "fromPoint": [
+    1366,
+    1357
+   ],
+   "toPoint": [
+    1416,
+    1289
+   ],
+   "arrowInk": [
+    489,
+    211
+   ],
+   "directionConfidence": "notation",
+   "arrowPx": [
+    55,
+    75.4,
+    2.16
+   ],
+   "arrowSaturated": true,
+   "arrowFill": 0.091,
+   "edgeKind": "object",
+   "directionChecked": "corrected"
+  },
+  {
+   "from": "n6",
+   "to": "n9",
+   "routing": "diagonal",
+   "fromPoint": [
+    1579,
+    1368
+   ],
+   "toPoint": [
+    1358,
+    1717
+   ],
+   "arrowInk": [
+    177,
+    490
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    62,
+    52.1,
+    2.75
+   ],
+   "arrowSaturated": true,
+   "arrowFill": 0.032,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n6",
+   "to": "n10",
+   "routing": "diagonal",
+   "fromPoint": [
+    1828,
+    1368
+   ],
+   "toPoint": [
+    2153,
+    1725
+   ],
+   "arrowInk": [
+    199,
+    511
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    65,
+    50.6,
+    2.52
+   ],
+   "arrowFill": 0.032,
+   "edgeKind": "object"
+  }
+ ],
+ "text": [
+  {
+   "text": "No",
+   "x": 1533,
+   "y": 78,
+   "w": 50,
+   "h": 32,
+   "lines": [
+    {
+     "x": 1533,
+     "y": 78,
+     "w": 50,
+     "h": 32,
+     "text": "No"
+    }
+   ]
+  },
+  {
+   "text": "No",
+   "x": 1687,
+   "y": 78,
+   "w": 50,
+   "h": 32,
+   "lines": [
+    {
+     "x": 1687,
+     "y": 78,
+     "w": 50,
+     "h": 32,
+     "text": "No"
+    }
+   ]
+  },
+  {
+   "text": "Exception Monitor During Execution",
+   "x": 1326,
+   "y": 478,
+   "w": 738,
+   "h": 41,
+   "lines": [
+    {
+     "x": 1326,
+     "y": 474,
+     "w": 738,
+     "h": 49,
+     "text": "Exception Monitor During Execution"
+    }
+   ]
+  },
+  {
+   "text": "Exception Received ?",
+   "x": 2861,
+   "y": 1095,
+   "w": 411,
+   "h": 41,
+   "lines": [
+    {
+     "x": 2861,
+     "y": 1095,
+     "w": 411,
+     "h": 41,
+     "text": "Exception Received ?"
+    }
+   ]
+  },
+  {
+   "text": "Exception Received ?",
+   "x": 139,
+   "y": 1108,
+   "w": 411,
+   "h": 41,
+   "lines": [
+    {
+     "x": 139,
+     "y": 1108,
+     "w": 411,
+     "h": 41,
+     "text": "Exception Received ?"
+    }
+   ]
+  },
+  {
+   "text": "Yes",
+   "x": 901,
+   "y": 1275,
+   "w": 72,
+   "h": 32,
+   "lines": [
+    {
+     "x": 901,
+     "y": 1275,
+     "w": 72,
+     "h": 32,
+     "text": "Yes"
+    }
+   ],
+   "attachedTo": "n5->n7"
+  },
+  {
+   "text": "Yes",
+   "x": 2317,
+   "y": 1346,
+   "w": 72,
+   "h": 32,
+   "lines": [
+    {
+     "x": 2317,
+     "y": 1346,
+     "w": 72,
+     "h": 32,
+     "text": "Yes"
+    }
+   ],
+   "attachedTo": "n4->n8"
+  },
+  {
+   "text": "No",
+   "x": 1559,
+   "y": 2021,
+   "w": 51,
+   "h": 32,
+   "lines": [
+    {
+     "x": 1559,
+     "y": 2021,
+     "w": 51,
+     "h": 32,
+     "text": "No"
+    }
+   ],
+   "attachedTo": "n5->n11"
+  },
+  {
+   "text": "No",
+   "x": 1678,
+   "y": 2021,
+   "w": 50,
+   "h": 32,
+   "lines": [
+    {
+     "x": 1678,
+     "y": 2021,
+     "w": 50,
+     "h": 32,
+     "text": "No"
+    }
+   ],
+   "attachedTo": "n4->n11"
+  }
+ ],
+ "uncertain": [
+  {
+   "kind": "no-weight-split",
+   "reason": "all 8 box strokes are one weight ([3, 4, 5]), so no object node could be identified",
+   "check": "confirm the diagram really has no object nodes"
+  },
+  {
+   "kind": "edge-direction",
+   "reason": "arrowhead ink is ambiguous where several connectors meet",
+   "edge": [
+    "n6",
+    "n7"
+   ],
+   "check": "confirm which way this edge points"
+  }
+ ]
+}

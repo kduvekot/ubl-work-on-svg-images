@@ -1,0 +1,106 @@
+image 3425x2204
+
+PARTITION RULES
+   vertical  : [(0, 10), (1720, 4), (3415, 10)]
+   horizontal: [(0, 10), (2194, 10)]
+   -> 2 column(s) x 1 band(s)
+   type measured off the page: a word is 26px tall
+   (dropped x=10    y=10    1710x2184  is a partition cell)
+   (dropped x=1724  y=10    1691x2184  is a partition cell)
+   (dropped x=86    y=396   1634x1357  encloses another region)
+   (dropped x=390   y=406   1330x277   outline matches no UML node shape (best rounded 0.69, and 0.99 is the most this shape can reach at this size))
+   (kept    x=347   y=634     83x109   own outline, iou 0.97 border 0.21, despite pass-through line-work)
+   (dropped x=1109  y=940    611x776   outline matches no UML node shape (best rounded 0.83, and 0.99 is the most this shape can reach at this size))
+   (kept    x=1065  y=1417    83x109   own outline, iou 0.97 border 0.20, despite pass-through line-work)
+   (dropped x=393   y=1473  1327x550   encloses another region)
+   object nodes are those stroked heavier than 5.5px
+
+NODES
+   n1   initial   x=1060  y=167   w=69    h=68    stroke=0   fill=0.77  ''
+   n2   action    x=195   y=294   w=383   h=225   stroke=4   fill=0.88  'Create/Update\nTransport Execution\nPlan Request'
+   n3   action    x=2751  y=300   w=383   h=226   stroke=4   fill=0.89  'EvaluateTransport\nExecution Plan\nRequest'
+   n4   object    x=1541  y=312   w=356   h=191   stroke=7   fill=0.87  '«NotConfirmed»\nTransport Execution\nPlan Request'
+   n5   action    x=917   y=335   w=383   h=139   stroke=4   fill=0.87  'Request Transport\nService'
+   n6   action    x=2279  y=335   w=372   h=139   stroke=4   fill=0.84  'Receive Transport\nService Request'
+   n7   object    x=1541  y=586   w=356   h=194   stroke=7   fill=0.91  '«Rejected»\nTransport Execution\nPlan'
+   n8   action    x=2286  y=598   w=362   h=164   stroke=4   fill=0.87  'Reject Transport\nService Request'
+   n9   action    x=920   y=601   w=383   h=164   stroke=4   fill=0.85  'Receive Rejected\nTransport Execution\nPlan'
+   n10  decision  x=2889  y=617   w=110   h=136   stroke=4   fill=0.51  ''
+   n11  decision  x=347   y=634   w=83    h=109   stroke=4   fill=0.51  ''
+   n12  final     x=352   y=858   w=61    h=61    stroke=4   fill=0.64  ''
+   n13  object    x=1541  y=860   w=356   h=180   stroke=8   fill=0.90  '«Confirmed»\nTransport Execution\nPlan'
+   n14  action    x=914   y=861   w=382   h=157   stroke=4   fill=0.84  'Receive Proposed\nTransport Execution\nPlan'
+   n15  action    x=2282  y=865   w=369   h=163   stroke=4   fill=0.87  'Confirm Transport\nService Request'
+   n16  action    x=917   y=1142  w=383   h=146   stroke=4   fill=0.86  'EvaluateTransport\nExecution Plan'
+   n17  decision  x=1065  y=1417  w=83    h=109   stroke=4   fill=0.51  ''
+   n18  action    x=2306  y=1624  w=362   h=184   stroke=4   fill=0.85  'Receive Confirmed\nTransport Execution\nPlan'
+   n19  object    x=1545  y=1625  w=355   h=185   stroke=7   fill=0.90  '«Confirmed»\nTransport Execution\nPlan'
+   n20  action    x=914   y=1644  w=382   h=147   stroke=4   fill=0.86  'Confirm Transport\nExecution Plan'
+   n21  final     x=2943  y=1689  w=61    h=61    stroke=4   fill=0.64  ''
+   n22  decision  x=350   y=1701  w=83    h=108   stroke=4   fill=0.51  ''
+   n23  object    x=1538  y=1930  w=355   h=194   stroke=8   fill=0.91  '«Rejected»\nTransport Execution\nPlan'
+   n24  action    x=2323  y=1938  w=383   h=185   stroke=4   fill=0.86  'Receive Rejected\nTransport Execution\nPlan'
+   n25  action    x=216   y=1942  w=362   h=163   stroke=4   fill=0.87  'Reject Transport\nExecution Plan'
+   n26  final     x=2960  y=2010  w=61    h=61    stroke=4   fill=0.64  ''
+
+TYPE  cap height 25px over 641 glyphs -> font 35.7px
+   rejoined 1 line break(s) of up to 64px, where a label sits on the line
+   chained 3 dashes into one dashed flow
+   chained 3 dashes into one dashed flow
+
+EDGES
+   n1   -> n5    straight    arrowhead   515 vs 272    ratio 4.0  high
+   n22  -> n2    orthogonal  arrowhead   510 vs 303    ratio 4.0  high
+   n6   -> n3    straight    arrowhead   515 vs 273    ratio 4.0  high
+   n2   -> n5    straight    arrowhead   513 vs 180    ratio 4.0  high
+   n5   -> n4    straight    arrowhead   551 vs 180    ratio 4.0  high
+   n4   -> n6    straight    arrowhead   514 vs 180    ratio 4.0  high
+   n11  -> n2    straight    arrowhead   561 vs 417    ratio 4.0  high
+   n3   -> n10   straight    arrowhead   529 vs 368    ratio 4.0  high
+   n9   -> n11   straight    arrowhead   515 vs 184    ratio 4.0  high
+   n7   -> n9    straight    arrowhead   536 vs 184    ratio 4.0  high
+   n8   -> n7    straight    arrowhead   551 vs 184    ratio 4.0  high
+   n10  -> n8    straight    arrowhead   533 vs 184    ratio 4.0  high
+   n11  -> n12   straight    arrowhead   516 vs 203    ratio 4.0  high
+   n10  -> n15   orthogonal  arrowhead   535 vs 253    ratio 4.0  high
+   n13  -> n14   straight    arrowhead   539 vs 184    ratio 4.0  high
+   n15  -> n13   straight    arrowhead   555 vs 184    ratio 4.0  high
+   n14  -> n16   straight    arrowhead   516 vs 180    ratio 4.0  high
+   n16  -> n17   straight    arrowhead   526 vs 180    ratio 4.0  high
+   n17  -> n22   orthogonal  arrowhead   599 vs 334    ratio 4.0  high
+   n17  -> n20   straight    arrowhead   511 vs 206    ratio 4.0  high
+   n19  -> n18   straight    arrowhead   518 vs 180    ratio 4.0  high
+   n20  -> n19   straight    arrowhead   554 vs 180    ratio 4.0  high
+   n18  -> n21   straight    arrowhead   517 vs 180    ratio 4.0  high
+   n22  -> n25   straight    arrowhead   517 vs 181    ratio 4.0  high
+   n25  -> n23   straight    arrowhead   547 vs 180    ratio 4.0  high
+   n23  -> n24   straight    arrowhead   513 vs 180    ratio 4.0  high
+   n24  -> n26   straight    arrowhead   518 vs 180    ratio 4.0  high
+
+TEXT (titles, guards, notes)
+   'Transport Service Provider'             x=2369  y=58    
+   'Transport User'                         x=735   y=59    
+   (dropped x=143   y=397     38x16    '—_' - line-work, not text)
+   'Update Transport\nExecution Plan Request?' x=429   y=565   
+   '[yes]'                                  x=308   y=593   n11->n2
+   'Transport Execution\nPlan Request\nAcceptable?' x=3039  y=623   
+   '[no]'                                   x=2771  y=631   n10->n8
+   '[no]'                                   x=431   y=750   n11->n12
+   '[yes]'                                  x=2853  y=767   n10->n15
+   'Transport Execution Plan\nAcceptable?'  x=1179  y=1411  
+   '[no]'                                   x=999   y=1503  n17->n22
+   '[yes]'                                  x=1150  y=1540  n17->n20
+   (split x=432   y=1654  - a bracketed guard sharing a block with 2 other line(s))
+   '[yes]'                                  x=250   y=1773  n22->n2
+   'Transport Service Ready\nFor Execution' x=2876  y=1778  
+   '[no]'                                   x=428   y=1742  n22->n25
+   'Update Transport Execution\nPlan Request?' x=432   y=1654  
+
+PARTITIONS
+   column 0  'Transport User'
+   column 1  'Transport Service Provider'
+   band   0  ''
+
+ARROWHEAD  47 x 39px, open, measured on 24 connector(s)
+
+wrote review/baseline/UBL-2.2-IMFM-BasicTransportExecutionPlan-graph.json   (26 nodes, 27 edges, 6 flagged for a human)

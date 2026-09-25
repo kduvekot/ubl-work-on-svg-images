@@ -1,0 +1,685 @@
+{
+ "source": "UBL-2.2-Tender-QualificationInfo.png",
+ "size": [
+  3425,
+  2282
+ ],
+ "fontPx": 80.0,
+ "arrowPx": 69.0,
+ "arrowWidthPx": 71.3,
+ "arrowStyle": "open",
+ "rules": {
+  "v": [
+   [
+    0,
+    10
+   ],
+   [
+    1869,
+    12
+   ],
+   [
+    3415,
+    10
+   ]
+  ],
+  "h": [
+   [
+    0,
+    10
+   ],
+   [
+    2272,
+    10
+   ]
+  ]
+ },
+ "ruleSpan": {
+  "v": [
+   [
+    13,
+    2268
+   ],
+   [
+    13,
+    2268
+   ],
+   [
+    13,
+    2268
+   ]
+  ],
+  "h": [
+   [
+    13,
+    3411
+   ],
+   [
+    13,
+    3411
+   ]
+  ]
+ },
+ "greyRules": [],
+ "dashed": [],
+ "openEnds": [],
+ "crossMarks": [],
+ "partitions": [
+  {
+   "axis": "column",
+   "index": 0,
+   "x0": 0,
+   "x1": 1875,
+   "title": "TENDERER",
+   "titleBox": [
+    733,
+    72,
+    424,
+    56
+   ]
+  },
+  {
+   "axis": "column",
+   "index": 1,
+   "x0": 1875,
+   "x1": 3425,
+   "title": "CONTRACTING AUTHORITY",
+   "titleBox": [
+    2138,
+    71,
+    1039,
+    58
+   ]
+  },
+  {
+   "axis": "band",
+   "index": 0,
+   "y0": 0,
+   "y1": 2282,
+   "title": ""
+  }
+ ],
+ "nodes": [
+  {
+   "x": 715,
+   "y": 273,
+   "w": 122,
+   "h": 122,
+   "area": 10294,
+   "fill": 0.765,
+   "kind": "initial",
+   "id": "n4",
+   "label": "",
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 106,
+   "y": 558,
+   "w": 1340,
+   "h": 206,
+   "area": 244267,
+   "fill": 0.885,
+   "solid": 0.968,
+   "rx": 101,
+   "ry": 99,
+   "shape": "rounded",
+   "stroke": 13,
+   "kind": "action",
+   "id": "n5",
+   "label": "Prepare qualification document",
+   "labelLines": [
+    {
+     "x": 237,
+     "y": 628,
+     "w": 1067,
+     "h": 72,
+     "text": "Prepare qualification document"
+    }
+   ],
+   "stem": 0.087,
+   "bold": false,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 1652,
+   "y": 862,
+   "w": 427,
+   "h": 442,
+   "area": 173770,
+   "fill": 0.921,
+   "solid": 1.0,
+   "rx": 0,
+   "ry": 0,
+   "shape": "rect",
+   "keptOnOutline": true,
+   "stroke": 12,
+   "kind": "object",
+   "id": "n6",
+   "label": "Tenderer\nQualification",
+   "labelLines": [
+    {
+     "x": 1674,
+     "y": 996,
+     "w": 279,
+     "h": 49,
+     "text": "Tenderer"
+    },
+    {
+     "x": 1672,
+     "y": 1098,
+     "w": 391,
+     "h": 54,
+     "text": "Qualification"
+    }
+   ],
+   "stem": 0.113,
+   "bold": true,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 2318,
+   "y": 933,
+   "w": 1013,
+   "h": 304,
+   "area": 272909,
+   "fill": 0.886,
+   "solid": 0.963,
+   "rx": 118,
+   "ry": 116,
+   "shape": "rounded",
+   "stroke": 12,
+   "kind": "action",
+   "id": "n7",
+   "label": "Evaluate Qualification\ndocument",
+   "labelLines": [
+    {
+     "x": 2444,
+     "y": 1003,
+     "w": 765,
+     "h": 61,
+     "text": "Evaluate Qualification"
+    },
+    {
+     "x": 2697,
+     "y": 1102,
+     "w": 339,
+     "h": 57,
+     "text": "document"
+    }
+   ],
+   "stem": 0.087,
+   "bold": false,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 94,
+   "y": 983,
+   "w": 1366,
+   "h": 207,
+   "area": 251541,
+   "fill": 0.89,
+   "solid": 0.968,
+   "rx": 102,
+   "ry": 101,
+   "shape": "rounded",
+   "stroke": 13,
+   "kind": "action",
+   "id": "n8",
+   "label": "Submit Qualification document",
+   "labelLines": [
+    {
+     "x": 252,
+     "y": 1053,
+     "w": 1053,
+     "h": 61,
+     "text": "Submit Qualification document"
+    }
+   ],
+   "stem": 0.087,
+   "bold": false,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 1641,
+   "y": 1431,
+   "w": 411,
+   "h": 425,
+   "area": 152491,
+   "fill": 0.873,
+   "solid": 1.0,
+   "rx": 0,
+   "ry": 0,
+   "shape": "rect",
+   "stroke": 13,
+   "kind": "object",
+   "id": "n11",
+   "label": "Tenderer\nQualification\nResponse",
+   "labelLines": [
+    {
+     "x": 1654,
+     "y": 1503,
+     "w": 279,
+     "h": 48,
+     "text": "Tenderer"
+    },
+    {
+     "x": 1652,
+     "y": 1605,
+     "w": 391,
+     "h": 53,
+     "text": "Qualification"
+    },
+    {
+     "x": 1650,
+     "y": 1708,
+     "w": 310,
+     "h": 61,
+     "text": "Response"
+    }
+   ],
+   "stem": 0.125,
+   "bold": true,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 2362,
+   "y": 1491,
+   "w": 924,
+   "h": 304,
+   "area": 250794,
+   "fill": 0.893,
+   "solid": 0.96,
+   "rx": 112,
+   "ry": 119,
+   "shape": "rounded",
+   "stroke": 13,
+   "kind": "action",
+   "id": "n12",
+   "label": "Submit Qualification\nresult",
+   "labelLines": [
+    {
+     "x": 2479,
+     "y": 1561,
+     "w": 684,
+     "h": 61,
+     "text": "Submit Qualification"
+    },
+    {
+     "x": 2778,
+     "y": 1660,
+     "w": 184,
+     "h": 56,
+     "text": "result"
+    }
+   ],
+   "stem": 0.087,
+   "bold": false,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 446,
+   "y": 1535,
+   "w": 660,
+   "h": 207,
+   "area": 117790,
+   "fill": 0.862,
+   "solid": 0.933,
+   "rx": 105,
+   "ry": 102,
+   "shape": "rounded",
+   "stroke": 12,
+   "kind": "action",
+   "id": "n13",
+   "label": "Receive result",
+   "labelLines": [
+    {
+     "x": 526,
+     "y": 1607,
+     "w": 486,
+     "h": 56,
+     "text": "Receive result"
+    }
+   ],
+   "stem": 0.087,
+   "bold": false,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 691,
+   "y": 2012,
+   "w": 170,
+   "h": 171,
+   "area": 11009,
+   "fill": 0.379,
+   "solid": 0.783,
+   "rx": 92,
+   "ry": 85,
+   "shape": "rounded",
+   "stroke": 12,
+   "kind": "final",
+   "innerRatio": 0.712,
+   "id": "n15",
+   "label": "",
+   "col": 0,
+   "row": 0
+  }
+ ],
+ "edges": [
+  {
+   "from": "n4",
+   "to": "n5",
+   "routing": "straight",
+   "fromPoint": [
+    776,
+    409
+   ],
+   "toPoint": [
+    776,
+    543
+   ],
+   "arrowInk": [
+    540,
+    1329
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    69,
+    72.0,
+    3.06
+   ],
+   "arrowFill": 0.092,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n5",
+   "to": "n8",
+   "routing": "straight",
+   "fromPoint": [
+    776,
+    778
+   ],
+   "toPoint": [
+    777,
+    968
+   ],
+   "arrowInk": [
+    549,
+    1345
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    68,
+    71.3,
+    3.15
+   ],
+   "arrowFill": 0.22,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n8",
+   "to": "n6",
+   "routing": "straight",
+   "fromPoint": [
+    1474,
+    1086
+   ],
+   "toPoint": [
+    1637,
+    1083
+   ],
+   "arrowInk": [
+    555,
+    1343
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    69,
+    70.3,
+    3.03
+   ],
+   "arrowFill": 0.147,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n6",
+   "to": "n7",
+   "routing": "straight",
+   "fromPoint": [
+    2093,
+    1083
+   ],
+   "toPoint": [
+    2303,
+    1085
+   ],
+   "arrowInk": [
+    570,
+    1339
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    69,
+    70.8,
+    3.09
+   ],
+   "arrowFill": 0.167,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n7",
+   "to": "n12",
+   "routing": "straight",
+   "fromPoint": [
+    2824,
+    1251
+   ],
+   "toPoint": [
+    2824,
+    1476
+   ],
+   "arrowInk": [
+    585,
+    1347
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    70,
+    70.0,
+    3.18
+   ],
+   "arrowFill": 0.149,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n11",
+   "to": "n13",
+   "routing": "straight",
+   "fromPoint": [
+    1626,
+    1643
+   ],
+   "toPoint": [
+    1120,
+    1638
+   ],
+   "arrowInk": [
+    553,
+    1290
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    70,
+    71.3,
+    3.04
+   ],
+   "arrowFill": 0.17,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n12",
+   "to": "n11",
+   "routing": "straight",
+   "fromPoint": [
+    2347,
+    1643
+   ],
+   "toPoint": [
+    2066,
+    1643
+   ],
+   "arrowInk": [
+    552,
+    1311
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    70,
+    72.0,
+    3.12
+   ],
+   "arrowFill": 0.223,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n13",
+   "to": "n15",
+   "routing": "straight",
+   "fromPoint": [
+    776,
+    1756
+   ],
+   "toPoint": [
+    776,
+    1997
+   ],
+   "arrowInk": [
+    540,
+    1158
+   ],
+   "directionConfidence": "medium",
+   "edgeKind": "control"
+  }
+ ],
+ "text": [
+  {
+   "text": "CONTRACTING AUTHORITY",
+   "x": 2138,
+   "y": 71,
+   "w": 1039,
+   "h": 58,
+   "lines": [
+    {
+     "x": 2138,
+     "y": 71,
+     "w": 1039,
+     "h": 58,
+     "text": "CONTRACTING AUTHORITY"
+    }
+   ]
+  },
+  {
+   "text": "TENDERER",
+   "x": 733,
+   "y": 72,
+   "w": 424,
+   "h": 56,
+   "lines": [
+    {
+     "x": 733,
+     "y": 72,
+     "w": 424,
+     "h": 56,
+     "text": "TENDERER"
+    }
+   ]
+  }
+ ],
+ "uncertain": [
+  {
+   "x": 1652,
+   "y": 862,
+   "w": 427,
+   "h": 442,
+   "shape": "rect",
+   "iou": 1.0,
+   "border": 1.0,
+   "kind": "kept-on-outline",
+   "reason": "every side has pass-through line-work, but the region carries a complete outline of its own",
+   "check": "confirm this is a node and not trapped whitespace"
+  },
+  {
+   "x": 1881,
+   "y": 1089,
+   "w": 940,
+   "h": 551,
+   "shape": "rhombus",
+   "iou": 0.647,
+   "border": 0.376,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best rhombus 0.65, and 0.99 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "kind": "sub-character-region",
+   "x": 900,
+   "y": 78,
+   "w": 31,
+   "h": 43,
+   "reason": "enclosed region smaller than one character of the diagram's type",
+   "check": "confirm this is glyph interior and not a node"
+  },
+  {
+   "kind": "sub-character-region",
+   "x": 2202,
+   "y": 78,
+   "w": 38,
+   "h": 44,
+   "reason": "enclosed region smaller than one character of the diagram's type",
+   "check": "confirm this is glyph interior and not a node"
+  },
+  {
+   "kind": "sub-character-region",
+   "x": 2951,
+   "y": 78,
+   "w": 38,
+   "h": 44,
+   "reason": "enclosed region smaller than one character of the diagram's type",
+   "check": "confirm this is glyph interior and not a node"
+  },
+  {
+   "kind": "sub-character-region",
+   "x": 2795,
+   "y": 1010,
+   "w": 38,
+   "h": 45,
+   "reason": "enclosed region smaller than one character of the diagram's type",
+   "check": "confirm this is glyph interior and not a node"
+  },
+  {
+   "kind": "sub-character-region",
+   "x": 524,
+   "y": 1060,
+   "w": 38,
+   "h": 45,
+   "reason": "enclosed region smaller than one character of the diagram's type",
+   "check": "confirm this is glyph interior and not a node"
+  },
+  {
+   "kind": "sub-character-region",
+   "x": 2750,
+   "y": 1568,
+   "w": 38,
+   "h": 44,
+   "reason": "enclosed region smaller than one character of the diagram's type",
+   "check": "confirm this is glyph interior and not a node"
+  }
+ ]
+}

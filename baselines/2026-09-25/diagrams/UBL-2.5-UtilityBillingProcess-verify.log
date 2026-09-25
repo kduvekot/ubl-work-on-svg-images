@@ -1,0 +1,16 @@
+  verdict: NEEDS-HUMAN
+  structural: 0 element(s) absent, 0 invented, 0 text absent, 0 text differs, 0 incoherent
+  line-work  missing 1592 px (0.668%)   invented 1287 px (0.540%)   radius 3
+    line-work-missing      387 px at   755,811    111x40    near edge n6 -> n9
+    line-work-missing      370 px at  2988,838    117x88    near edge n8 -> n4
+    line-work-missing      335 px at   409,938     40x42    near edge n6 -> n9
+    line-work-missing       95 px at   458,940     42x17    near edge n6 -> n9
+    line-work-invented     399 px at  2982,845    121x90    near edge n8 -> n4
+    line-work-invented     299 px at   743,811     97x35    near edge n6 -> n9
+    line-work-invented     202 px at   436,945     76x27    near edge n6 -> n9
+    line-work-invented     108 px at   449,936     21x17    near edge n6 -> n9
+    line-work-invented      84 px at   468,974     17x5     on node n9 (decision 'Reconcile\nCharges')
+  needs a person (2):
+    dropped-region     at 412,741  a shape here would be missing from the SVG
+    arrowhead-unmeasurable at 2379,384  confirm the arrowhead here is drawn and points the way the original does
+review/baseline/UBL-2.5-UtilityBillingProcess-marked.png + review/baseline/UBL-2.5-UtilityBillingProcess-marked-lost.png  (2 finding(s) numbered)

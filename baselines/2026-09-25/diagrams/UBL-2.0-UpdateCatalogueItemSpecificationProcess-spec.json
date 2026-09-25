@@ -1,0 +1,1090 @@
+{
+ "canvas": {
+  "w": 1480.0,
+  "h": 1803.223
+ },
+ "stroke": {
+  "frame": 4.3,
+  "divider": 2.6,
+  "action": 2.2,
+  "object": 4.3,
+  "edge": 2.2
+ },
+ "font": {
+  "family": "Helvetica, Arial, sans-serif",
+  "node": 20.4,
+  "lane": 20.4,
+  "guard": 20.4
+ },
+ "arrow": 34.0,
+ "arrowWidth": 27.2,
+ "arrowStyle": "open",
+ "dashed": [],
+ "greyRules": [],
+ "crossMarks": [],
+ "openEnds": [],
+ "frameBox": [
+  2.2,
+  2.2,
+  1477.8,
+  1801.1
+ ],
+ "dividers": [
+  [
+   696.1,
+   2.6,
+   5.6,
+   1797.2
+  ]
+ ],
+ "bands": [],
+ "lanes": [
+  {
+   "title": "Receiver Party",
+   "x": 0.0,
+   "w": 696.1,
+   "cx": 347.2,
+   "cy": 20.5
+  },
+  {
+   "title": "Provider Party",
+   "x": 696.1,
+   "w": 783.9,
+   "cx": 1085.3,
+   "cy": 20.5
+  }
+ ],
+ "bandLabels": [],
+ "nodes": [
+  {
+   "id": "n1",
+   "kind": "initial",
+   "label": "",
+   "x": 1348.6,
+   "y": 67.0,
+   "w": 38.9,
+   "h": 38.9
+  },
+  {
+   "id": "n2",
+   "kind": "decision",
+   "label": "Respond to Request",
+   "x": 1063.7,
+   "y": 72.4,
+   "w": 255.4,
+   "h": 151.2,
+   "labelLines": [
+    {
+     "text": "Respond to Request",
+     "cx": 1183.8,
+     "cy": 145.8,
+     "w": 174.1
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "n3",
+   "kind": "object",
+   "label": "Catalogue\nRequest",
+   "x": 607.6,
+   "y": 99.0,
+   "w": 171.6,
+   "h": 94.2,
+   "labelLines": [
+    {
+     "text": "Catalogue",
+     "cx": 690.1,
+     "cy": 130.5,
+     "w": 91.6
+    },
+    {
+     "text": "Request",
+     "cx": 693.3,
+     "cy": 151.5,
+     "w": 76.5
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n4",
+   "kind": "action",
+   "label": "Request Catalogue Update",
+   "x": 220.2,
+   "y": 120.3,
+   "w": 269.6,
+   "h": 57.5,
+   "rx": 27.9,
+   "ry": 26.1,
+   "labelLines": [
+    {
+     "text": "Request Catalogue Update",
+     "cx": 354.1,
+     "cy": 148.0,
+     "w": 243.3
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n5",
+   "kind": "initial",
+   "label": "",
+   "x": 70.4,
+   "y": 132.7,
+   "w": 38.9,
+   "h": 38.5
+  },
+  {
+   "id": "n6",
+   "kind": "object",
+   "label": "Application\nResponse\n(negative)",
+   "x": 592.0,
+   "y": 289.5,
+   "w": 171.6,
+   "h": 92.9,
+   "labelLines": [
+    {
+     "text": "Application",
+     "cx": 675.2,
+     "cy": 316.1,
+     "w": 105.0
+    },
+    {
+     "text": "Response",
+     "cx": 675.4,
+     "cy": 337.3,
+     "w": 91.6
+    },
+    {
+     "text": "(negative)",
+     "cx": 678.9,
+     "cy": 358.7,
+     "w": 89.9
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n7",
+   "kind": "action",
+   "label": "Send Rejection",
+   "x": 886.9,
+   "y": 293.6,
+   "w": 237.2,
+   "h": 71.3,
+   "rx": 30.5,
+   "ry": 28.3,
+   "labelLines": [
+    {
+     "text": "Send Rejection",
+     "cx": 1002.5,
+     "cy": 329.3,
+     "w": 137.4
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n8",
+   "kind": "final",
+   "label": "",
+   "x": 329.9,
+   "y": 316.5,
+   "w": 36.3,
+   "h": 36.7,
+   "innerRatio": 0.443
+  },
+  {
+   "id": "n9",
+   "kind": "fork",
+   "label": "",
+   "x": 1132.6,
+   "y": 411.8,
+   "w": 127.5,
+   "h": 12.1
+  },
+  {
+   "id": "n10",
+   "kind": "object",
+   "label": "Application\nResponse\n(positive)",
+   "x": 595.9,
+   "y": 565.2,
+   "w": 171.6,
+   "h": 94.6,
+   "labelLines": [
+    {
+     "text": "Application",
+     "cx": 679.3,
+     "cy": 591.4,
+     "w": 104.6
+    },
+    {
+     "text": "Response",
+     "cx": 679.3,
+     "cy": 612.5,
+     "w": 91.6
+    },
+    {
+     "text": "(positive)",
+     "cx": 681.9,
+     "cy": 633.7,
+     "w": 84.7
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n11",
+   "kind": "action",
+   "label": "Send Acceptance\nResponse",
+   "x": 883.0,
+   "y": 577.1,
+   "w": 235.1,
+   "h": 82.5,
+   "rx": 26.6,
+   "ry": 27.9,
+   "labelLines": [
+    {
+     "text": "Send Acceptance",
+     "cx": 996.2,
+     "cy": 604.3,
+     "w": 159.5
+    },
+    {
+     "text": "Response",
+     "cx": 1000.6,
+     "cy": 629.6,
+     "w": 90.3
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n12",
+   "kind": "action",
+   "label": "Prepare Catalogue Item\nUpdate Information",
+   "x": 1153.1,
+   "y": 588.3,
+   "w": 256.2,
+   "h": 81.2,
+   "rx": 28.3,
+   "ry": 29.2,
+   "labelLines": [
+    {
+     "text": "Prepare Catalogue Item",
+     "cx": 1276.0,
+     "cy": 616.2,
+     "w": 212.6
+    },
+    {
+     "text": "Update Information",
+     "cx": 1281.9,
+     "cy": 641.0,
+     "w": 174.1
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n13",
+   "kind": "object",
+   "label": "Catalogue Item\nSpecification\nUpdate",
+   "x": 601.5,
+   "y": 775.2,
+   "w": 172.0,
+   "h": 94.6,
+   "labelLines": [
+    {
+     "text": "Catalogue Item",
+     "cx": 685.1,
+     "cy": 805.0,
+     "w": 136.1
+    },
+    {
+     "text": "Specification",
+     "cx": 683.4,
+     "cy": 826.2,
+     "w": 118.8
+    },
+    {
+     "text": "Update",
+     "cx": 689.4,
+     "cy": 847.6,
+     "w": 63.5
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n14",
+   "kind": "action",
+   "label": "Distribute Item\nModifications",
+   "x": 1166.5,
+   "y": 781.1,
+   "w": 260.1,
+   "h": 83.0,
+   "rx": 30.9,
+   "ry": 29.2,
+   "labelLines": [
+    {
+     "text": "Distribute Item",
+     "cx": 1293.8,
+     "cy": 807.2,
+     "w": 132.2
+    },
+    {
+     "text": "Modifications",
+     "cx": 1296.1,
+     "cy": 832.0,
+     "w": 122.3
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n15",
+   "kind": "fork",
+   "label": "",
+   "x": 392.4,
+   "y": 816.3,
+   "w": 77.3,
+   "h": 12.1
+  },
+  {
+   "id": "n16",
+   "kind": "action",
+   "label": "Receive Item Update",
+   "x": 227.5,
+   "y": 954.3,
+   "w": 270.1,
+   "h": 63.5,
+   "rx": 29.6,
+   "ry": 28.3,
+   "labelLines": [
+    {
+     "text": "Receive Item Update",
+     "cx": 358.7,
+     "cy": 986.3,
+     "w": 186.7
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n17",
+   "kind": "decision",
+   "label": "Review Item\nDetails",
+   "x": 164.9,
+   "y": 1114.6,
+   "w": 225.1,
+   "h": 176.3,
+   "labelLines": [
+    {
+     "text": "Review Item",
+     "cx": 282.6,
+     "cy": 1184.6,
+     "w": 102.8
+    },
+    {
+     "text": "Details",
+     "cx": 259.3,
+     "cy": 1209.7,
+     "w": 56.2
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "n18",
+   "kind": "decision",
+   "label": "Decide on Action",
+   "x": 1217.5,
+   "y": 1118.5,
+   "w": 211.7,
+   "h": 157.3,
+   "labelLines": [
+    {
+     "text": "Decide on Action",
+     "cx": 1316.4,
+     "cy": 1192.4,
+     "w": 143.0
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "n19",
+   "kind": "object",
+   "label": "Application\nResponse\n(negative)",
+   "x": 603.7,
+   "y": 1156.8,
+   "w": 171.6,
+   "h": 94.2,
+   "labelLines": [
+    {
+     "text": "Application",
+     "cx": 686.8,
+     "cy": 1180.3,
+     "w": 105.0
+    },
+    {
+     "text": "Response",
+     "cx": 686.8,
+     "cy": 1201.5,
+     "w": 91.2
+    },
+    {
+     "text": "(negative)",
+     "cx": 690.5,
+     "cy": 1222.9,
+     "w": 89.9
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n20",
+   "kind": "action",
+   "label": "Acknowledge\nAcceptance",
+   "x": 162.3,
+   "y": 1482.4,
+   "w": 236.8,
+   "h": 83.0,
+   "rx": 29.6,
+   "ry": 26.6,
+   "labelLines": [
+    {
+     "text": "Acknowledge",
+     "cx": 275.7,
+     "cy": 1510.2,
+     "w": 123.6
+    },
+    {
+     "text": "Acceptance",
+     "cx": 279.1,
+     "cy": 1535.1,
+     "w": 107.2
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n21",
+   "kind": "object",
+   "label": "Application\nResponse\n(positive)",
+   "x": 593.7,
+   "y": 1484.3,
+   "w": 172.0,
+   "h": 94.6,
+   "labelLines": [
+    {
+     "text": "Application",
+     "cx": 677.3,
+     "cy": 1509.6,
+     "w": 105.0
+    },
+    {
+     "text": "Response",
+     "cx": 677.3,
+     "cy": 1530.8,
+     "w": 91.2
+    },
+    {
+     "text": "(positive)",
+     "cx": 680.2,
+     "cy": 1551.9,
+     "w": 84.7
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n22",
+   "kind": "action",
+   "label": "Activate Changes",
+   "x": 927.5,
+   "y": 1491.9,
+   "w": 269.6,
+   "h": 75.2,
+   "rx": 29.6,
+   "ry": 29.2,
+   "labelLines": [
+    {
+     "text": "Activate Changes",
+     "cx": 1059.8,
+     "cy": 1529.3,
+     "w": 160.3
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n23",
+   "kind": "final",
+   "label": "",
+   "x": 1305.2,
+   "y": 1501.8,
+   "w": 36.7,
+   "h": 36.3,
+   "innerRatio": 0.45
+  },
+  {
+   "id": "n24",
+   "kind": "action",
+   "label": "Apply Changes",
+   "x": 152.3,
+   "y": 1688.5,
+   "w": 237.2,
+   "h": 83.0,
+   "rx": 28.3,
+   "ry": 28.3,
+   "labelLines": [
+    {
+     "text": "Apply Changes",
+     "cx": 269.4,
+     "cy": 1727.6,
+     "w": 138.7
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n25",
+   "kind": "final",
+   "label": "",
+   "x": 571.0,
+   "y": 1713.6,
+   "w": 36.3,
+   "h": 36.7,
+   "innerRatio": 0.443
+  }
+ ],
+ "edges": [
+  {
+   "from": "n1",
+   "to": "n12",
+   "exitXY": [
+    0.5681,
+    1.0
+   ],
+   "entryXY": [
+    0.8493,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n4",
+   "to": "n3",
+   "exitXY": [
+    1.0,
+    0.4713
+   ],
+   "entryXY": [
+    0.0,
+    0.5042
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n3",
+   "to": "n2",
+   "exitXY": [
+    1.0,
+    0.5085
+   ],
+   "entryXY": [
+    0.0,
+    0.4927
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n5",
+   "to": "n4",
+   "exitXY": [
+    1.0,
+    0.4805
+   ],
+   "entryXY": [
+    0.0,
+    0.5148
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n2",
+   "to": "n7",
+   "exitXY": [
+    0.471,
+    1.0
+   ],
+   "entryXY": [
+    0.6931,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high",
+   "label": "[reject request]"
+  },
+  {
+   "from": "n2",
+   "to": "n9",
+   "exitXY": [
+    0.4996,
+    1.0
+   ],
+   "entryXY": [
+    0.4604,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "medium",
+   "label": "[accept request]"
+  },
+  {
+   "from": "n7",
+   "to": "n6",
+   "exitXY": [
+    0.0,
+    0.5554
+   ],
+   "entryXY": [
+    1.0,
+    0.4844
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n6",
+   "to": "n8",
+   "exitXY": [
+    0.0,
+    0.4984
+   ],
+   "entryXY": [
+    1.0,
+    0.5259
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n9",
+   "to": "n11",
+   "exitXY": [
+    0.4306,
+    1.0
+   ],
+   "entryXY": [
+    0.6755,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n9",
+   "to": "n12",
+   "exitXY": [
+    0.5286,
+    1.0
+   ],
+   "entryXY": [
+    0.4375,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n11",
+   "to": "n10",
+   "exitXY": [
+    0.0,
+    0.4424
+   ],
+   "entryXY": [
+    1.0,
+    0.5021
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n10",
+   "to": "n15",
+   "exitXY": [
+    0.0,
+    0.6025
+   ],
+   "entryXY": [
+    0.6481,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "mark-at-head"
+  },
+  {
+   "from": "n12",
+   "to": "n14",
+   "exitXY": [
+    0.5,
+    1.0
+   ],
+   "entryXY": [
+    0.4479,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n13",
+   "to": "n15",
+   "exitXY": [
+    0.0,
+    0.5074
+   ],
+   "entryXY": [
+    1.0,
+    0.5702
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n14",
+   "to": "n13",
+   "exitXY": [
+    0.0,
+    0.5072
+   ],
+   "entryXY": [
+    1.0,
+    0.5074
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n15",
+   "to": "n16",
+   "exitXY": [
+    0.5136,
+    1.0
+   ],
+   "entryXY": [
+    0.7545,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n18",
+   "to": "n14",
+   "exitXY": [
+    0.4988,
+    0.0
+   ],
+   "entryXY": [
+    0.5971,
+    1.0
+   ],
+   "straight": true,
+   "confidence": "high",
+   "label": "[revise catalogue item]"
+  },
+  {
+   "from": "n16",
+   "to": "n17",
+   "exitXY": [
+    0.1929,
+    1.0
+   ],
+   "entryXY": [
+    0.4998,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n19",
+   "to": "n18",
+   "exitXY": [
+    1.0,
+    0.431
+   ],
+   "entryXY": [
+    0.0,
+    0.499
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n17",
+   "to": "n19",
+   "exitXY": [
+    1.0,
+    0.5014
+   ],
+   "entryXY": [
+    0.0,
+    0.4904
+   ],
+   "straight": true,
+   "confidence": "high",
+   "label": "[query changes]"
+  },
+  {
+   "from": "n18",
+   "to": "n23",
+   "exitXY": [
+    0.4969,
+    1.0
+   ],
+   "entryXY": [
+    0.4768,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high",
+   "label": "[cancel transaction]"
+  },
+  {
+   "from": "n17",
+   "to": "n20",
+   "exitXY": [
+    0.498,
+    1.0
+   ],
+   "entryXY": [
+    0.4954,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high",
+   "label": "[accept changes]"
+  },
+  {
+   "from": "n22",
+   "to": "n23",
+   "exitXY": [
+    1.0,
+    0.359
+   ],
+   "entryXY": [
+    0.0,
+    0.4711
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n20",
+   "to": "n21",
+   "exitXY": [
+    1.0,
+    0.5024
+   ],
+   "entryXY": [
+    0.0,
+    0.4292
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n21",
+   "to": "n22",
+   "exitXY": [
+    1.0,
+    0.4937
+   ],
+   "entryXY": [
+    0.0,
+    0.5027
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n20",
+   "to": "n24",
+   "exitXY": [
+    0.5042,
+    1.0
+   ],
+   "entryXY": [
+    0.5422,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n24",
+   "to": "n25",
+   "exitXY": [
+    1.0,
+    0.5024
+   ],
+   "entryXY": [
+    0.0,
+    0.4877
+   ],
+   "straight": true,
+   "confidence": "high"
+  }
+ ],
+ "guards": [
+  {
+   "text": "oupplier Initiated\nUpdate",
+   "x": 1271.3,
+   "y": 29.0,
+   "w": 141.7,
+   "h": 43.2,
+   "labelLines": [
+    {
+     "text": "oupplier Initiated",
+     "cx": 1342.2,
+     "cy": 38.0,
+     "w": 141.7
+    },
+    {
+     "text": "Update",
+     "cx": 1327.5,
+     "cy": 64.2,
+     "w": 110.6
+    }
+   ]
+  },
+  {
+   "text": "Customer\nInitiated\nUpdate",
+   "x": 66.5,
+   "y": 188.8,
+   "w": 82.5,
+   "h": 68.3,
+   "labelLines": [
+    {
+     "text": "Customer",
+     "cx": 107.8,
+     "cy": 196.2,
+     "w": 82.5
+    },
+    {
+     "text": "Initiated",
+     "cx": 99.4,
+     "cy": 221.5,
+     "w": 64.8
+    },
+    {
+     "text": "Update",
+     "cx": 97.0,
+     "cy": 248.3,
+     "w": 60.1
+    }
+   ]
+  },
+  {
+   "text": "[reject request]",
+   "x": 986.5,
+   "y": 237.2,
+   "w": 124.9,
+   "h": 17.7,
+   "labelLines": [
+    {
+     "text": "[reject request]",
+     "cx": 1049.0,
+     "cy": 246.1,
+     "w": 124.9
+    }
+   ]
+  },
+  {
+   "text": "[accept request]",
+   "x": 1184.9,
+   "y": 302.9,
+   "w": 135.3,
+   "h": 17.7,
+   "labelLines": [
+    {
+     "text": "[accept request]",
+     "cx": 1252.5,
+     "cy": 311.8,
+     "w": 135.3
+    }
+   ]
+  },
+  {
+   "text": "[revise catalogue item]",
+   "x": 1102.3,
+   "y": 1067.8,
+   "w": 190.1,
+   "h": 17.7,
+   "labelLines": [
+    {
+     "text": "[revise catalogue item]",
+     "cx": 1197.4,
+     "cy": 1076.6,
+     "w": 190.1
+    }
+   ]
+  },
+  {
+   "text": "[query changes]",
+   "x": 427.4,
+   "y": 1212.5,
+   "w": 134.8,
+   "h": 17.3,
+   "labelLines": [
+    {
+     "text": "[query changes]",
+     "cx": 494.8,
+     "cy": 1221.2,
+     "w": 134.8
+    }
+   ]
+  },
+  {
+   "text": "[accept changes]",
+   "x": 311.6,
+   "y": 1380.2,
+   "w": 143.5,
+   "h": 17.7,
+   "labelLines": [
+    {
+     "text": "[accept changes]",
+     "cx": 383.3,
+     "cy": 1389.0,
+     "w": 143.5
+    }
+   ]
+  },
+  {
+   "text": "[cancel transaction]",
+   "x": 1134.7,
+   "y": 1388.0,
+   "w": 164.2,
+   "h": 17.3,
+   "labelLines": [
+    {
+     "text": "[cancel transaction]",
+     "cx": 1216.8,
+     "cy": 1396.6,
+     "w": 164.2
+    }
+   ]
+  }
+ ]
+}

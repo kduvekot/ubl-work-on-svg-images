@@ -1,0 +1,20 @@
+  verdict: NEEDS-HUMAN
+  structural: 0 element(s) absent, 0 invented, 0 text absent, 0 text differs, 0 incoherent
+  line-work  missing 3656 px (1.735%)   invented 2583 px (1.226%)   radius 3
+    line-work-missing      532 px at  1606,13       1x532   unattributed
+    line-work-missing      258 px at  2058,907     44x40    on node n7 (action 'Receive a report abo')
+    line-work-missing      258 px at  3177,907     45x43    on node n7 (action 'Receive a report abo')
+    line-work-missing      254 px at  3177,1027    45x43    on node n7 (action 'Receive a report abo')
+    line-work-missing      243 px at  2058,1030    44x40    on node n7 (action 'Receive a report abo')
+    line-work-missing      192 px at  1606,704      1x192   unattributed
+    line-work-missing      189 px at  2972,630     99x3     near edge n3 -> n8
+    line-work-missing      186 px at  1136,1018    42x27    on node n6 (action 'Send a report about ')
+    line-work-missing      180 px at    84,1018    42x27    on node n6 (action 'Send a report about ')
+    line-work-missing      161 px at  1140,907     38x26    on node n6 (action 'Send a report about ')
+    line-work-missing      160 px at    84,907     38x26    on node n6 (action 'Send a report about ')
+    line-work-missing      130 px at  2933,698     35x24    on node n3 (action 'Receive a report abo')
+    ... and 26 more line-work findings
+  needs a person (2):
+    dropped-region     at 629,629  a shape here would be missing from the SVG
+    edge-direction      confirm which way this edge points
+review/baseline/UBL-2.2-VMI-SalesAndInventoryMovement-marked.png + review/baseline/UBL-2.2-VMI-SalesAndInventoryMovement-marked-lost.png  (2 finding(s) numbered)

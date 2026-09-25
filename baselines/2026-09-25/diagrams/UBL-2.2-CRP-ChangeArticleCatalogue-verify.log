@@ -1,0 +1,17 @@
+  verdict: CORRECT
+  structural: 0 element(s) absent, 0 invented, 0 text absent, 0 text differs, 0 incoherent
+  line-work  missing 1949 px (1.066%)   invented 1900 px (1.040%)   radius 3
+    line-work-missing      258 px at    83,896     44x41    on node n5 (action 'Inform about changes')
+    line-work-missing      257 px at    83,1022    43x41    on node n5 (action 'Inform about changes')
+    line-work-missing      256 px at  1144,896     44x41    on node n5 (action 'Inform about changes')
+    line-work-missing      254 px at  1145,1022    43x41    on node n5 (action 'Inform about changes')
+    line-work-missing      184 px at  3289,1003    32x33    on node n6 (action 'Receive information')
+    line-work-missing      181 px at  3287,905     34x34    on node n6 (action 'Receive information')
+    line-work-missing      162 px at  2546,906     31x30    on node n6 (action 'Receive information')
+    line-work-missing      161 px at  2546,1006    31x30    on node n6 (action 'Receive information')
+    line-work-invented     260 px at    90,903     44x40    on node n5 (action 'Inform about changes')
+    line-work-invented     255 px at  1137,903     44x40    on node n5 (action 'Inform about changes')
+    line-work-invented     249 px at    90,1016    43x40    on node n5 (action 'Inform about changes')
+    line-work-invented     243 px at  1138,1016    43x40    on node n5 (action 'Inform about changes')
+    ... and 4 more line-work findings
+review/baseline/UBL-2.2-CRP-ChangeArticleCatalogue-marked.png + review/baseline/UBL-2.2-CRP-ChangeArticleCatalogue-marked-lost.png  (0 finding(s) numbered)

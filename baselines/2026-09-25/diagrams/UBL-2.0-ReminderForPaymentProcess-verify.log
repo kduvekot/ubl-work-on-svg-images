@@ -1,0 +1,8 @@
+  verdict: NEEDS-HUMAN
+  structural: 0 element(s) absent, 0 invented, 0 text absent, 0 text differs, 0 incoherent
+  line-work  missing 203 px (0.098%)   invented 26 px (0.013%)   radius 3
+    line-work-missing       68 px at  2206,1040    10x9     near edge n4 -> n2
+    line-work-missing       68 px at  2206,1098    10x9     near edge n4 -> n2
+  needs a person (1):
+    kept-on-outline    at 1475,912  confirm this is a node and not trapped whitespace
+review/baseline/UBL-2.0-ReminderForPaymentProcess-marked.png + review/baseline/UBL-2.0-ReminderForPaymentProcess-marked-lost.png  (1 finding(s) numbered)

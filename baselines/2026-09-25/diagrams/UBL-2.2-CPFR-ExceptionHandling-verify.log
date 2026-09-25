@@ -1,0 +1,25 @@
+  verdict: NEEDS-HUMAN
+  structural: 0 element(s) absent, 0 invented, 0 text absent, 0 text differs, 0 incoherent
+  line-work  missing 3446 px (2.046%)   invented 2584 px (1.534%)   radius 3
+    line-work-missing      273 px at  1476,1192    69x60    near edge n5 -> n9
+    line-work-missing      238 px at  1848,1192    62x54    near edge n5 -> n8
+    line-work-missing      127 px at  1011,953     19x48    near edge n4 -> n7
+    line-work-missing      123 px at  2344,931     18x46    near edge n3 -> n6
+    line-work-missing      119 px at  1958,1316    37x15    near edge n5 -> n8
+    line-work-missing      113 px at  1392,1320    38x16    near edge n5 -> n9
+    line-work-missing       94 px at  2377,930     14x34    near edge n3 -> n6
+    line-work-missing       94 px at  1043,953     15x36    near edge n4 -> n7
+    line-work-invented     238 px at  1475,1181    65x62    near edge n5 -> n9
+    line-work-invented     206 px at  1852,1181    59x56    near edge n5 -> n8
+    line-work-invented     124 px at  1970,1327    43x17    near edge n5 -> n8
+    line-work-invented     114 px at  1375,1331    43x17    near edge n5 -> n9
+    ... and 1 more line-work findings
+  needs a person (7):
+    kept-on-outline    at 855,1614  confirm this is a node and not trapped whitespace
+    empty-box          at 855,1614  confirm nothing is drawn here in the original
+    rule-through-shape at 660,0  confirm there is no lane divider here
+    arrowhead-size-unreadable at 0,0  only 0 of 8 connectors gave a usable arrowhead measurement; the head is drawn at 1.1x the type size
+    arrowhead-unmeasurable at 969,947  confirm the arrowhead here is drawn and points the way the original does
+    arrowhead-unmeasurable at 1304,1276  confirm the arrowhead here is drawn and points the way the original does
+    arrowhead-unmeasurable at 1957,1271  confirm the arrowhead here is drawn and points the way the original does
+review/baseline/UBL-2.2-CPFR-ExceptionHandling-marked.png + review/baseline/UBL-2.2-CPFR-ExceptionHandling-marked-lost.png  (7 finding(s) numbered)

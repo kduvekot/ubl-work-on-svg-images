@@ -1,0 +1,69 @@
+image 3425x2410
+
+PARTITION RULES
+   vertical  : [(0, 10), (1701, 1), (3415, 10)]
+   horizontal: [(0, 10), (2400, 10)]
+   -> 2 column(s) x 1 band(s)
+   type measured off the page: a word is 32px tall
+   (dropped x=10    y=10    3405x2390  encloses another region)
+   one line weight only - no object nodes
+
+NODES
+   n1   action    x=1338  y=161   w=727   h=221   stroke=4   fill=0.96  'Ordering'
+   n2   action    x=410   y=685   w=591   h=208   stroke=3   fill=0.90  'Wait for Exception\nNotification'
+   n3   action    x=2433  y=703   w=591   h=207   stroke=4   fill=0.90  'Wait for Exception\nNotification'
+   n4   decision  x=2663  y=1038  w=166   h=162   stroke=3   fill=0.51  ''
+   n5   decision  x=644   y=1051  w=162   h=157   stroke=3   fill=0.50  ''
+   n6   object    x=1436  y=1064  w=500   h=285   stroke=5   fill=0.94  'Exception Notification\n(positive)'
+   n7   action    x=890   y=1358  w=462   h=137   stroke=3   fill=0.87  'Send Exception'
+   n8   action    x=2139  y=1428  w=423   h=129   stroke=3   fill=0.85  'Send Exception'
+   n9   action    x=1013  y=1732  w=590   h=159   stroke=4   fill=0.87  'Receive & Resolve\nException'
+   n10  action    x=1945  y=1740  w=590   h=160   stroke=3   fill=0.87  'Receive & Resolve\nException'
+   n11  final     x=1637  y=2103  w=155   h=155   stroke=3   fill=0.40  ''
+
+TYPE  cap height 32px over 197 glyphs -> font 45.7px
+   dashed enclosure x=82 y=458 3260x1876  r=122  dash 12/9 over 444 marks
+   rejoined 1 line break(s) of up to 82px, where a label sits on the line
+   chained 4 dashes into one dashed flow
+   chained 3 dashes into one dashed flow
+   chained 3 dashes into one dashed flow
+
+EDGES
+   n1   -> (off the diagram) at 1624,146
+   n1   -> (off the diagram) at 1773,146
+   n1   -> n2    orthogonal  arrowhead   454 vs 138    ratio 4.0  high
+   n1   -> n3    orthogonal  arrowhead   448 vs 135    ratio 4.0  high
+   n2   -> n5    straight    arrowhead   502 vs 180    ratio 2.8  high
+   n3   -> n4    straight    arrowhead   462 vs 135    ratio 4.0  high
+   n4   -> n8    orthogonal  arrowhead   500 vs 138    ratio 4.0  high
+   n5   -> n7    orthogonal  arrowhead   525 vs 135    ratio 4.0  high
+   n8   -> n6    orthogonal  arrowhead   412 vs 138    ratio 4.0  high
+   n4   -> n11   orthogonal  arrowhead   495 vs 135    ratio 4.0  high
+   n5   -> n11   orthogonal  arrowhead   518 vs 180    ratio 4.0  high
+   n6   -> n7    orthogonal  arrowhead   489 vs 211    ratio 1.0  <-- CHECK DIRECTION
+   n6   -> n9    diagonal    arrowhead   490 vs 177    ratio 4.0  high
+   n6   -> n10   diagonal    arrowhead   511 vs 199    ratio 4.0  high
+
+TEXT (titles, guards, notes)
+   'No'                                     x=1533  y=78    
+   'No'                                     x=1687  y=78    
+   (dropped x=88    y=471     77x71    '-\n7\n¢\n¢\n/\n,' - marks a quarter of the type's height: a dashed line, not words)
+   'Exception Monitor During Execution'     x=1326  y=478   
+   (dropped x=3274  y=478     60x58    '~\ns\n‘\n\\\nA' - marks a quarter of the type's height: a dashed line, not words)
+   'Exception Received ?'                   x=2861  y=1095  
+   'Exception Received ?'                   x=139   y=1108  
+   'Yes'                                    x=901   y=1275  n5->n7
+   'Yes'                                    x=2317  y=1346  n4->n8
+   'No'                                     x=1559  y=2021  n5->n11
+   'No'                                     x=1678  y=2021  n4->n11
+   (dropped x=97    y=2264    65x55    '‘\\\nN\nSs\n~' - marks a quarter of the type's height: a dashed line, not words)
+
+PARTITIONS
+   column 0  'No'
+   column 1  'No'
+   band   0  ''
+
+ARROWHEAD  62 x 50px, open, measured on 3 connector(s)
+   turned n6 -> n7 round: 'Send Exception' takes work in and passes none on, and the head that pointed it there is 75px across against the 50px this diagram draws
+
+wrote review/baseline/UBL-2.2-CPFR-ExceptionMonitor-graph.json   (11 nodes, 12 edges, 2 flagged for a human)

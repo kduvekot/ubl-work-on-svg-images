@@ -1,0 +1,11 @@
+== UBL-2.0-SourcingBuyerInitiatedProcess
+  scale 0.43212   frame 10px  divider 9px  action 9px  object 17px
+  font 63px (27.2 model)   2 lanes, 1 bands, 8 nodes, 7 edges -> review/baseline/UBL-2.0-SourcingBuyerInitiatedProcess-spec.json
+  review/baseline/UBL-2.0-SourcingBuyerInitiatedProcess.svg + .drawio + -classified.svg   (8 nodes, 7 edges)
+  rendered UBL-2.0-SourcingBuyerInitiatedProcess.svg -> UBL-2.0-SourcingBuyerInitiatedProcess-render.png @ 3425pxx2020, 600 dpi
+  aligned on ink bounds: scale x 1.0000, y 1.0000
+  size 3425x2020  radius 2
+  ink: original 376464   candidate 375601
+  MISSING (red)    16874  = 4.4822% of original ink
+  EXTRA   (blue)   18008  = 4.7835% of original ink
+  RESULT: DIFFERENCES - inspect review/baseline/UBL-2.0-SourcingBuyerInitiatedProcess-diff-r2.png

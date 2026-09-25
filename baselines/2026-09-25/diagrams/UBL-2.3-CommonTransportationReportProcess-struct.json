@@ -1,0 +1,21 @@
+{
+ "name": "UBL-2.3-CommonTransportationReportProcess.png",
+ "verdict": "correct",
+ "radius": 3,
+ "lineWorkInk": 146030,
+ "missingPx": 5,
+ "inventedPx": 0,
+ "structural": {
+  "absent": 0,
+  "invented": 0,
+  "coherence": 0,
+  "textAbsent": 0,
+  "textDiffers": 0
+ },
+ "blocking": [],
+ "findings": [],
+ "text": [],
+ "coherence": [],
+ "human": [],
+ "review": []
+}

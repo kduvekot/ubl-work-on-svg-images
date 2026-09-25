@@ -1,0 +1,361 @@
+{
+ "canvas": {
+  "w": 1480.0,
+  "h": 778.902
+ },
+ "stroke": {
+  "frame": 3.5,
+  "divider": 3.5,
+  "action": 3.5,
+  "object": 3.5,
+  "edge": 3.5
+ },
+ "font": {
+  "family": "Helvetica, Arial, sans-serif",
+  "node": 26.5,
+  "lane": 26.5,
+  "guard": 26.5
+ },
+ "arrow": 43.2,
+ "arrowWidth": 36.0,
+ "arrowStyle": "open",
+ "dashed": [],
+ "greyRules": [],
+ "crossMarks": [],
+ "openEnds": [],
+ "frameBox": [
+  1.7,
+  1.7,
+  1477.0,
+  777.2
+ ],
+ "dividers": [
+  [
+   737.0,
+   3.5,
+   4.8,
+   773.7
+  ]
+ ],
+ "bands": [],
+ "lanes": [
+  {
+   "title": "CONTRACTING AUTHORITY",
+   "x": 0.0,
+   "w": 737.0,
+   "cx": 348.6,
+   "cy": 29.0
+  },
+  {
+   "title": "ECONOMIC OPERATOR",
+   "x": 737.0,
+   "w": 740.0,
+   "cx": 1132.3,
+   "cy": 34.1
+  },
+  {
+   "title": "",
+   "x": 1477.0,
+   "w": 3.0,
+   "cx": 1478.5,
+   "cy": 26.5
+  }
+ ],
+ "bandLabels": [],
+ "nodes": [
+  {
+   "id": "n1",
+   "kind": "initial",
+   "label": "",
+   "x": 238.2,
+   "y": 67.9,
+   "w": 53.6,
+   "h": 53.6
+  },
+  {
+   "id": "n2",
+   "kind": "action",
+   "label": "Prepare qualification application request",
+   "x": 46.2,
+   "y": 168.6,
+   "w": 477.2,
+   "h": 75.6,
+   "rx": 39.8,
+   "ry": 37.6,
+   "labelLines": [
+    {
+     "text": "Prepare qualification application request",
+     "cx": 284.2,
+     "cy": 208.3,
+     "w": 446.5
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "n3",
+   "kind": "object",
+   "label": "Qualification\nApplication\nRequest",
+   "x": 626.3,
+   "y": 261.9,
+   "w": 226.5,
+   "h": 153.9,
+   "labelLines": [
+    {
+     "text": "Qualification",
+     "cx": 740.4,
+     "cy": 291.8,
+     "w": 192.8
+    },
+    {
+     "text": "Application",
+     "cx": 727.5,
+     "cy": 341.9,
+     "w": 176.4
+    },
+    {
+     "text": "Request",
+     "cx": 706.9,
+     "cy": 386.9,
+     "w": 128.4
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n4",
+   "kind": "action",
+   "label": "Receive qualification application request",
+   "x": 952.7,
+   "y": 298.7,
+   "w": 480.7,
+   "h": 80.4,
+   "rx": 39.8,
+   "ry": 36.3,
+   "labelLines": [
+    {
+     "text": "Receive qualification application request",
+     "cx": 1188.2,
+     "cy": 338.0,
+     "w": 447.8
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "n5",
+   "kind": "action",
+   "label": "Submit qualification application request",
+   "x": 43.7,
+   "y": 300.4,
+   "w": 473.3,
+   "h": 83.9,
+   "rx": 39.3,
+   "ry": 40.6,
+   "labelLines": [
+    {
+     "text": "Submit qualification application request",
+     "cx": 285.5,
+     "cy": 342.8,
+     "w": 436.1
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "n6",
+   "kind": "object",
+   "label": "Qualification\nApplication\nResponse",
+   "x": 626.3,
+   "y": 481.5,
+   "w": 226.5,
+   "h": 181.1,
+   "labelLines": [
+    {
+     "text": "Qualification",
+     "cx": 740.4,
+     "cy": 521.9,
+     "w": 192.8
+    },
+    {
+     "text": "Application",
+     "cx": 727.5,
+     "cy": 572.3,
+     "w": 176.4
+    },
+    {
+     "text": "Response",
+     "cx": 719.5,
+     "cy": 617.2,
+     "w": 153.4
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n7",
+   "kind": "action",
+   "label": "Submit qualification application response",
+   "x": 952.7,
+   "y": 525.6,
+   "w": 479.8,
+   "h": 95.5,
+   "rx": 39.8,
+   "ry": 36.3,
+   "labelLines": [
+    {
+     "text": "Submit qualification application response",
+     "cx": 1193.2,
+     "cy": 574.2,
+     "w": 455.2
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "n8",
+   "kind": "action",
+   "label": "Receive qualification application response",
+   "x": 45.8,
+   "y": 533.4,
+   "w": 488.0,
+   "h": 76.5,
+   "rx": 39.8,
+   "ry": 30.7,
+   "labelLines": [
+    {
+     "text": "Receive qualification application response",
+     "cx": 288.3,
+     "cy": 571.0,
+     "w": 466.8
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "n9",
+   "kind": "final",
+   "label": "",
+   "x": 240.1,
+   "y": 687.9,
+   "w": 50.6,
+   "h": 50.6,
+   "innerRatio": 0.5
+  }
+ ],
+ "edges": [
+  {
+   "from": "n1",
+   "to": "n2",
+   "exitXY": [
+    0.5,
+    1.0
+   ],
+   "entryXY": [
+    0.4656,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n2",
+   "to": "n5",
+   "exitXY": [
+    0.4621,
+    1.0
+   ],
+   "entryXY": [
+    0.4748,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "checked"
+  },
+  {
+   "from": "n5",
+   "to": "n3",
+   "exitXY": [
+    1.0,
+    0.4374
+   ],
+   "entryXY": [
+    0.0,
+    0.4886
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n3",
+   "to": "n4",
+   "exitXY": [
+    1.0,
+    0.4886
+   ],
+   "entryXY": [
+    0.0,
+    0.4776
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n4",
+   "to": "n7",
+   "exitXY": [
+    0.5045,
+    1.0
+   ],
+   "entryXY": [
+    0.5044,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n6",
+   "to": "n8",
+   "exitXY": [
+    0.0,
+    0.4942
+   ],
+   "entryXY": [
+    1.0,
+    0.4915
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n7",
+   "to": "n6",
+   "exitXY": [
+    0.0,
+    0.489
+   ],
+   "entryXY": [
+    1.0,
+    0.4964
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n8",
+   "to": "n9",
+   "exitXY": [
+    0.4527,
+    1.0
+   ],
+   "entryXY": [
+    0.5,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  }
+ ],
+ "guards": []
+}

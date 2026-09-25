@@ -1,0 +1,63 @@
+image 3425x1786
+
+PARTITION RULES
+   vertical  : [(0, 10), (660, 3), (1694, 1), (3415, 10)]
+   horizontal: [(0, 10), (1776, 10)]
+   -> 3 column(s) x 1 band(s)
+   type measured off the page: a word is 32px tall
+   (dropped x=10    y=10    1684x1766  encloses another region)
+   (dropped x=1695  y=10    1720x1766  is a partition cell)
+   (kept    x=855   y=1614   839x162   own outline, iou 1.00 border 1.00, despite pass-through line-work)
+   object nodes are those stroked heavier than 5.0px
+
+NODES
+   n1   action    x=2484  y=276   w=595   h=236   stroke=3   fill=0.86  'Receive Sales Forecast &\nWait for Exception\nNotification'
+   n2   action    x=372   y=281   w=594   h=231   stroke=4   fill=0.86  'Receive Sales Forecast &\nWait for Exception\nNotification'
+   n3   decision  x=2702  y=669   w=150   h=145   stroke=3   fill=0.50  ''
+   n4   decision  x=590   y=691   w=145   h=145   stroke=3   fill=0.51  ''
+   n5   object    x=1427  y=957   w=543   h=216   stroke=6   fill=0.92  'Exception Notification\n(positive)'
+   n6   action    x=2134  y=1005  w=462   h=138   stroke=4   fill=0.87  'Send Exception'
+   n7   action    x=801   y=1027  w=489   h=125   stroke=4   fill=0.86  'Send Exception'
+   n8   action    x=1829  y=1350  w=594   h=147   stroke=3   fill=0.86  'Receive & Resolve\nException'
+   n9   action    x=974   y=1354  w=595   h=147   stroke=3   fill=0.86  'Receive & Resolve\nException'
+   n10  action    x=855   y=1614  w=839   h=162   stroke=3   fill=0.99  ''
+
+TYPE  cap height 32px over 227 glyphs -> font 45.7px
+   corner radius ry on 'Send Exception' could not be read (it came back larger than the box) - taking the 66 the rest of its kind measures
+   (dropped x=855   y=1614   839x162   no text, and line-work runs past 3 of its sides - whitespace between shapes, not a action)
+   (dropped v rule at 660: it starts at n2, a action, and does not run on past it - a connector, not a divider)
+   dashed enclosure x=82 y=82 3260x1636  r=158  dash 12/9 over 416 marks
+   chained 3 dashes into one dashed flow
+
+EDGES
+   n2   -> (off the diagram) at 788,266
+   n1   -> (off the diagram) at 2645,260
+   n2   -> n4    straight    arrowhead   468 vs 135    ratio 3.5  high
+   n1   -> n3    straight    arrowhead   461 vs 135    ratio 3.4  high
+   n3   -> n6    orthogonal  arrowhead   491 vs 138    ratio 4.0  high
+   n4   -> n7    orthogonal  arrowhead   483 vs 135    ratio 4.0  high
+   n3   -> (off the diagram) at 851,1773
+   n4   -> (off the diagram) at 658,1773
+   n6   -> n5    straight    arrowhead   429 vs 158    ratio 2.7  high
+   n7   -> n5    straight    arrowhead   437 vs 196    ratio 4.0  high
+   n5   -> n9    diagonal    arrowhead   474 vs 200    ratio 4.0  high
+   n5   -> n8    diagonal    arrowhead   482 vs 193    ratio 4.0  high
+
+TEXT (titles, guards, notes)
+   'Exception Handling'                     x=1502  y=105   
+   'Exception Received ?'                   x=2884  y=705   
+   'Exception Received ?'                   x=99    y=727   
+   'No'                                     x=2704  y=920   n3->n6
+   'Yes'                                    x=2257  y=921   
+   'No'                                     x=571   y=941   n4->n7
+   'Yes'                                    x=924   y=944   n4->n7
+   (dropped x=3283  y=1639    61x60    'f\n4\n7\n7\na' - marks a quarter of the type's height: a dashed line, not words)
+
+PARTITIONS
+   column 0  ''
+   column 1  'Exception Handling'
+   band   0  ''
+
+ARROWHEAD  50 x 45px, open, no connector read - set from the type size
+
+wrote review/baseline/UBL-2.2-CPFR-ExceptionHandling-graph.json   (9 nodes, 8 edges, 4 flagged for a human)

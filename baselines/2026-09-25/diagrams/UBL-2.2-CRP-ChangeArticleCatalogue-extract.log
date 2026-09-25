@@ -1,0 +1,47 @@
+image 3425x1894
+
+PARTITION RULES
+   vertical  : [(0, 10), (1888, 4), (3415, 10)]
+   horizontal: [(0, 10), (1884, 10)]
+   -> 2 column(s) x 1 band(s)
+   type measured off the page: a word is 36px tall
+   (dropped x=10    y=10    3405x1874  encloses another region)
+   object nodes are those stroked heavier than 7.0px
+
+NODES
+   n1   initial   x=593   y=164   w=90    h=90    stroke=0   fill=0.76  ''
+   n2   decision  x=582   y=410   w=103   h=87    stroke=5   fill=0.51  ''
+   n3   final     x=133   y=417   w=77    h=77    stroke=4   fill=0.62  ''
+   n4   object    x=1573  y=896   w=631   h=141   stroke=9   fill=0.94  'Catalogue'
+   n5   action    x=86    y=898   w=1099  h=163   stroke=5   fill=0.88  'Inform about changes inside the\ncatalogue'
+   n6   action    x=2549  y=907   w=768   h=128   stroke=5   fill=0.89  'Receive information'
+   n7   action    x=2528  y=1349  w=811   h=133   stroke=5   fill=0.87  'Update Product database'
+   n8   final     x=2893  y=1757  w=77    h=77    stroke=5   fill=0.62  ''
+
+TYPE  cap height 41px over 89 glyphs -> font 58.6px
+
+EDGES
+   n1   -> n2    straight    arrowhead   647 vs 180    ratio 4.0  high
+   n2   -> n3    straight    arrowhead   661 vs 230    ratio 4.0  high
+   n2   -> n5    straight    arrowhead   651 vs 324    ratio 4.0  high
+   n5   -> n4    straight    arrowhead   648 vs 209    ratio 4.0  high
+   n4   -> n6    straight    arrowhead   696 vs 225    ratio 4.0  high
+   n6   -> n7    straight    arrowhead   690 vs 225    ratio 4.0  high
+   n7   -> n8    straight    arrowhead   691 vs 225    ratio 4.0  high
+
+TEXT (titles, guards, notes)
+   'Producer'                               x=544   y=48    n2->n3
+   'Retailer'                               x=2627  y=50    
+   'False'                                  x=392   y=410   n2->n5
+   '> Catalogue update is\nneeded?\nTrue'   x=656   y=422   
+
+PARTITIONS
+   column 0  'Producer'
+   column 1  'Retailer'
+   band   0  ''
+
+ARROWHEAD  59 x 46px, open, measured on 7 connector(s)
+   reading settled: '> Catalogue update is needed?\nTrue' -> 'Catalogue update is needed?\nTrue'
+   reading settled: '> Catalogue update is needed?' -> 'Catalogue update is needed?'
+
+wrote review/baseline/UBL-2.2-CRP-ChangeArticleCatalogue-graph.json   (8 nodes, 7 edges, 0 flagged for a human)

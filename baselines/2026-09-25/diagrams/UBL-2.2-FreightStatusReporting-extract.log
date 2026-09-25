@@ -1,0 +1,52 @@
+image 3425x1230
+
+PARTITION RULES
+   vertical  : [(0, 8), (1174, 8), (2773, 8), (3417, 8)]
+   horizontal: [(9, 9), (1216, 9)]
+   -> 3 column(s) x 2 band(s), column-title header
+   type measured off the page: a word is 50px tall
+   (dropped x=8     y=18    1172x1198  is a partition cell)
+   (dropped x=1181  y=18    1593x1198  is a partition cell)
+   (dropped x=2781  y=18     636x1198  is a partition cell)
+   one line weight only - no object nodes
+
+NODES
+   n1   initial   x=448   y=137   w=100   h=100   stroke=0   fill=1.00  ''
+   n2   object    x=981   y=266   w=496   h=281   stroke=7   fill=0.88  'Transportation\nStatus Request'
+   n3   action    x=1774  y=315   w=766   h=146   stroke=6   fill=0.90  'Receive Status Request'
+   n4   action    x=173   y=338   w=611   h=138   stroke=6   fill=0.90  'Request status'
+   n5   object    x=978   y=701   w=495   h=281   stroke=7   fill=0.92  'Transportation\nStatus'
+   n6   action    x=173   y=774   w=612   h=137   stroke=6   fill=0.86  'Receive Status Report'
+   n7   action    x=1888  y=783   w=531   h=147   stroke=5   fill=0.90  'Report status'
+   n8   initial   x=3051  y=802   w=93    h=93    stroke=0   fill=1.00  ''
+   n9   final     x=446   y=1064  w=88    h=88    stroke=7   fill=0.59  ''
+
+TYPE  cap height 42px over 127 glyphs -> font 60.0px
+   corner radius ry on 'Receive Status Report' could not be read (it came back larger than the box) - taking the 69 the rest of its kind measures
+   chained 3 dashes into one dashed flow
+
+EDGES
+   n1   -> n4    straight    arrowhead   914 vs 910    ratio 4.0  high
+   n2   -> n3    straight    arrowhead   791 vs 270    ratio 4.0  high
+   n4   -> n2    straight    arrowhead   960 vs 315    ratio 4.0  high
+   n3   -> n7    straight    arrowhead   871 vs 316    ratio 4.0  high
+   n5   -> n6    straight    arrowhead   980 vs 368    ratio 4.0  high
+   n8   -> n7    straight    arrowhead  1029 vs 368    ratio 4.0  high
+   n7   -> n5    straight    arrowhead   907 vs 322    ratio 4.0  high
+   n6   -> n9    straight    arrowhead   972 vs 315    ratio 4.0  high
+
+TEXT (titles, guards, notes)
+   'Sender Party'                           x=334   y=35    
+   'Receiver Party'                         x=1882  y=45    
+   'Trigger reporting\nprocedure'           x=2928  y=596   
+
+PARTITIONS
+   column 0  ''
+   column 1  ''
+   column 2  ''
+   band   0  ''
+   band   1  ''
+
+ARROWHEAD  57 x 56px, open, measured on 8 connector(s)
+
+wrote review/baseline/UBL-2.2-FreightStatusReporting-graph.json   (9 nodes, 8 edges, 1 flagged for a human)

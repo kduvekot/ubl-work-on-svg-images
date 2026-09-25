@@ -1,0 +1,11 @@
+== UBL-2.2-Tender-GuaranteeDeposit
+  scale 0.43212   frame 10px  divider 22px  action 13px  object 13px
+  font 81px (35.2 model)   2 lanes, 1 bands, 6 nodes, 5 edges -> review/baseline/UBL-2.2-Tender-GuaranteeDeposit-spec.json
+  review/baseline/UBL-2.2-Tender-GuaranteeDeposit.svg + .drawio + -classified.svg   (6 nodes, 5 edges)
+  rendered UBL-2.2-Tender-GuaranteeDeposit.svg -> UBL-2.2-Tender-GuaranteeDeposit-render.png @ 3425pxx1578, 600 dpi
+  aligned on ink bounds: scale x 1.0000, y 1.0000
+  size 3425x1578  radius 2
+  ink: original 394065   candidate 390252
+  MISSING (red)    14321  = 3.6342% of original ink
+  EXTRA   (blue)   14354  = 3.6425% of original ink
+  RESULT: DIFFERENCES - inspect review/baseline/UBL-2.2-Tender-GuaranteeDeposit-diff-r2.png

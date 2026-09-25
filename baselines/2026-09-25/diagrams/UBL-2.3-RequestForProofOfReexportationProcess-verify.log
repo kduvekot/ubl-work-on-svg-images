@@ -1,0 +1,8 @@
+  verdict: NEEDS-HUMAN
+  structural: 0 element(s) absent, 0 invented, 0 text absent, 0 text differs, 0 incoherent
+  line-work  missing 105 px (0.140%)   invented 8 px (0.011%)   radius 3
+    label-mismatch       n8 renders as 'ZO Item \\ Returned?,', model says 'Item Returned?'
+  needs a person (2):
+    no-weight-split     confirm the diagram really has no object nodes
+    ring-stroke-unreadable at 79,1173  confirm this is an activity final and how thick its ring is
+review/baseline/UBL-2.3-RequestForProofOfReexportationProcess-marked.png + review/baseline/UBL-2.3-RequestForProofOfReexportationProcess-marked-lost.png  (2 finding(s) numbered)

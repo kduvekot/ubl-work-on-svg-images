@@ -1,0 +1,89 @@
+{
+ "name": "UBL-2.2-IMFM-TransportProgressStatus.png",
+ "verdict": "needs-human",
+ "radius": 3,
+ "lineWorkInk": 325241,
+ "missingPx": 733,
+ "inventedPx": 244,
+ "structural": {
+  "absent": 0,
+  "invented": 0,
+  "coherence": 0,
+  "textAbsent": 0,
+  "textDiffers": 0
+ },
+ "blocking": [],
+ "findings": [
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n6 -> n7",
+   "x": 2106,
+   "y": 1706,
+   "w": 72,
+   "h": 32,
+   "area": 232
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n6 -> n7",
+   "x": 2118,
+   "y": 1659,
+   "w": 60,
+   "h": 29,
+   "area": 201
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n6 -> n7",
+   "x": 2107,
+   "y": 1719,
+   "w": 53,
+   "h": 19,
+   "area": 85
+  }
+ ],
+ "text": [],
+ "coherence": [],
+ "human": [
+  {
+   "x": 1356,
+   "y": 655,
+   "w": 705,
+   "h": 330,
+   "shape": "rect",
+   "iou": 1.0,
+   "border": 1.0,
+   "kind": "kept-on-outline",
+   "reason": "every side has pass-through line-work, but the region carries a complete outline of its own",
+   "check": "confirm this is a node and not trapped whitespace"
+  },
+  {
+   "x": 1349,
+   "y": 1537,
+   "w": 705,
+   "h": 330,
+   "shape": "rect",
+   "iou": 1.0,
+   "border": 1.0,
+   "kind": "kept-on-outline",
+   "reason": "every side has pass-through line-work, but the region carries a complete outline of its own",
+   "check": "confirm this is a node and not trapped whitespace"
+  }
+ ],
+ "review": [
+  {
+   "n": 1,
+   "what": "check",
+   "where": "1356,655 705x330",
+   "detail": "every side has pass-through line-work, but the region carries a complete outline of its own",
+   "check": "confirm this is a node and not trapped whitespace"
+  },
+  {
+   "n": 2,
+   "what": "check",
+   "where": "1349,1537 705x330",
+   "detail": "every side has pass-through line-work, but the region carries a complete outline of its own",
+   "check": "confirm this is a node and not trapped whitespace"
+  }
+ ]
+}

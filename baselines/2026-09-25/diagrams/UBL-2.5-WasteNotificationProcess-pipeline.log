@@ -1,0 +1,11 @@
+== UBL-2.5-WasteNotificationProcess
+  scale 0.59176   frame 5px  divider 5px  action 4px  object 4px
+  font 59px (34.7 model)   2 lanes, 1 bands, 9 nodes, 8 edges -> review/baseline/UBL-2.5-WasteNotificationProcess-spec.json
+  review/baseline/UBL-2.5-WasteNotificationProcess.svg + .drawio + -classified.svg   (9 nodes, 8 edges)
+  rendered UBL-2.5-WasteNotificationProcess.svg -> UBL-2.5-WasteNotificationProcess-render.png @ 2501pxx2069, 600 dpi
+  aligned on ink bounds: scale x 1.0000, y 1.0000
+  size 2501x2069  radius 2
+  ink: original 192624   candidate 178539
+  MISSING (red)    15654  = 8.1267% of original ink
+  EXTRA   (blue)   10569  = 5.4869% of original ink
+  RESULT: DIFFERENCES - inspect review/baseline/UBL-2.5-WasteNotificationProcess-diff-r2.png

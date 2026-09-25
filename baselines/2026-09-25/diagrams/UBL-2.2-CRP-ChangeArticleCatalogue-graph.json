@@ -1,0 +1,551 @@
+{
+ "source": "UBL-2.2-CRP-ChangeArticleCatalogue.png",
+ "size": [
+  3425,
+  1894
+ ],
+ "fontPx": 58.6,
+ "arrowPx": 59.0,
+ "arrowWidthPx": 46.0,
+ "arrowStyle": "open",
+ "rules": {
+  "v": [
+   [
+    0,
+    10
+   ],
+   [
+    1888,
+    4
+   ],
+   [
+    3415,
+    10
+   ]
+  ],
+  "h": [
+   [
+    0,
+    10
+   ],
+   [
+    1884,
+    10
+   ]
+  ]
+ },
+ "ruleSpan": {
+  "v": [
+   [
+    13,
+    1880
+   ],
+   [
+    13,
+    1880
+   ],
+   [
+    13,
+    1880
+   ]
+  ],
+  "h": [
+   [
+    13,
+    3411
+   ],
+   [
+    13,
+    3411
+   ]
+  ]
+ },
+ "greyRules": [],
+ "dashed": [],
+ "openEnds": [],
+ "crossMarks": [],
+ "partitions": [
+  {
+   "axis": "column",
+   "index": 0,
+   "x0": 0,
+   "x1": 1890,
+   "title": "Producer",
+   "titleBox": [
+    544,
+    48,
+    222,
+    41
+   ]
+  },
+  {
+   "axis": "column",
+   "index": 1,
+   "x0": 1890,
+   "x1": 3425,
+   "title": "Retailer",
+   "titleBox": [
+    2627,
+    50,
+    188,
+    41
+   ]
+  },
+  {
+   "axis": "band",
+   "index": 0,
+   "y0": 0,
+   "y1": 1894,
+   "title": ""
+  }
+ ],
+ "nodes": [
+  {
+   "x": 593,
+   "y": 164,
+   "w": 90,
+   "h": 90,
+   "area": 5391,
+   "fill": 0.764,
+   "kind": "initial",
+   "id": "n1",
+   "label": "",
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 582,
+   "y": 410,
+   "w": 103,
+   "h": 87,
+   "area": 4590,
+   "fill": 0.512,
+   "solid": 0.512,
+   "rx": 57,
+   "ry": 48,
+   "shape": "rhombus",
+   "stroke": 5,
+   "kind": "decision",
+   "id": "n2",
+   "label": "",
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 133,
+   "y": 417,
+   "w": 77,
+   "h": 77,
+   "area": 3680,
+   "fill": 0.621,
+   "solid": 0.781,
+   "rx": 39,
+   "ry": 43,
+   "shape": "ellipse",
+   "stroke": 4,
+   "kind": "final",
+   "innerRatio": 0.442,
+   "id": "n3",
+   "label": "",
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 1573,
+   "y": 896,
+   "w": 631,
+   "h": 141,
+   "area": 83777,
+   "fill": 0.942,
+   "solid": 1.0,
+   "rx": 0,
+   "ry": 0,
+   "shape": "rect",
+   "stroke": 9,
+   "kind": "object",
+   "id": "n4",
+   "label": "Catalogue",
+   "labelLines": [
+    {
+     "x": 1763,
+     "y": 941,
+     "w": 265,
+     "h": 53,
+     "text": "Catalogue"
+    }
+   ],
+   "stem": 0.137,
+   "bold": true,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 86,
+   "y": 898,
+   "w": 1099,
+   "h": 163,
+   "area": 157558,
+   "fill": 0.88,
+   "solid": 0.989,
+   "rx": 79,
+   "ry": 68,
+   "shape": "rounded",
+   "stroke": 5,
+   "kind": "action",
+   "id": "n5",
+   "label": "Inform about changes inside the\ncatalogue",
+   "labelLines": [
+    {
+     "x": 195,
+     "y": 918,
+     "w": 853,
+     "h": 53,
+     "text": "Inform about changes inside the"
+    },
+    {
+     "x": 502,
+     "y": 987,
+     "w": 257,
+     "h": 52,
+     "text": "catalogue"
+    }
+   ],
+   "stem": 0.137,
+   "bold": true,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 2549,
+   "y": 907,
+   "w": 768,
+   "h": 128,
+   "area": 87746,
+   "fill": 0.893,
+   "solid": 0.986,
+   "rx": 65,
+   "ry": 57,
+   "shape": "rounded",
+   "stroke": 5,
+   "kind": "action",
+   "id": "n6",
+   "label": "Receive information",
+   "labelLines": [
+    {
+     "x": 2663,
+     "y": 949,
+     "w": 525,
+     "h": 42,
+     "text": "Receive information"
+    }
+   ],
+   "stem": 0.137,
+   "bold": true,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 2528,
+   "y": 1349,
+   "w": 811,
+   "h": 133,
+   "area": 93706,
+   "fill": 0.869,
+   "solid": 0.986,
+   "rx": 61,
+   "ry": 44,
+   "shape": "rounded",
+   "stroke": 5,
+   "kind": "action",
+   "id": "n7",
+   "label": "Update Product database",
+   "labelLines": [
+    {
+     "x": 2594,
+     "y": 1392,
+     "w": 667,
+     "h": 52,
+     "text": "Update Product database"
+    }
+   ],
+   "stem": 0.137,
+   "bold": true,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 2893,
+   "y": 1757,
+   "w": 77,
+   "h": 77,
+   "area": 3690,
+   "fill": 0.622,
+   "solid": 0.782,
+   "rx": 37,
+   "ry": 38,
+   "shape": "ellipse",
+   "stroke": 5,
+   "kind": "final",
+   "innerRatio": 0.442,
+   "id": "n8",
+   "label": "",
+   "col": 1,
+   "row": 0
+  }
+ ],
+ "edges": [
+  {
+   "from": "n1",
+   "to": "n2",
+   "routing": "straight",
+   "fromPoint": [
+    633,
+    268
+   ],
+   "toPoint": [
+    633,
+    395
+   ],
+   "arrowInk": [
+    180,
+    647
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    62,
+    46.0,
+    2.28
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n2",
+   "to": "n3",
+   "routing": "straight",
+   "fromPoint": [
+    567,
+    453
+   ],
+   "toPoint": [
+    224,
+    453
+   ],
+   "arrowInk": [
+    230,
+    661
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    63,
+    46.0,
+    2.54
+   ],
+   "arrowFill": 0.0,
+   "guard": "Producer",
+   "edgeKind": "control"
+  },
+  {
+   "from": "n2",
+   "to": "n5",
+   "routing": "straight",
+   "fromPoint": [
+    633,
+    511
+   ],
+   "toPoint": [
+    633,
+    883
+   ],
+   "arrowInk": [
+    324,
+    651
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    59,
+    46.0,
+    2.21
+   ],
+   "arrowFill": 0.0,
+   "guard": "False",
+   "edgeKind": "control"
+  },
+  {
+   "from": "n5",
+   "to": "n4",
+   "routing": "straight",
+   "fromPoint": [
+    1199,
+    973
+   ],
+   "toPoint": [
+    1558,
+    968
+   ],
+   "arrowInk": [
+    209,
+    648
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    60,
+    47.5,
+    2.68
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n4",
+   "to": "n6",
+   "routing": "straight",
+   "fromPoint": [
+    2218,
+    967
+   ],
+   "toPoint": [
+    2534,
+    969
+   ],
+   "arrowInk": [
+    225,
+    696
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    58,
+    47.4,
+    2.09
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n6",
+   "to": "n7",
+   "routing": "straight",
+   "fromPoint": [
+    2933,
+    1049
+   ],
+   "toPoint": [
+    2933,
+    1334
+   ],
+   "arrowInk": [
+    225,
+    690
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    59,
+    46.0,
+    2.25
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n7",
+   "to": "n8",
+   "routing": "straight",
+   "fromPoint": [
+    2933,
+    1496
+   ],
+   "toPoint": [
+    2933,
+    1742
+   ],
+   "arrowInk": [
+    225,
+    691
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    59,
+    46.0,
+    2.23
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "control"
+  }
+ ],
+ "text": [
+  {
+   "text": "Producer",
+   "x": 544,
+   "y": 48,
+   "w": 222,
+   "h": 41,
+   "lines": [
+    {
+     "x": 544,
+     "y": 48,
+     "w": 222,
+     "h": 41,
+     "text": "Producer"
+    }
+   ],
+   "attachedTo": "n2->n3"
+  },
+  {
+   "text": "Retailer",
+   "x": 2627,
+   "y": 50,
+   "w": 188,
+   "h": 41,
+   "lines": [
+    {
+     "x": 2627,
+     "y": 50,
+     "w": 188,
+     "h": 41,
+     "text": "Retailer"
+    }
+   ]
+  },
+  {
+   "text": "False",
+   "x": 392,
+   "y": 410,
+   "w": 100,
+   "h": 31,
+   "lines": [
+    {
+     "x": 392,
+     "y": 410,
+     "w": 100,
+     "h": 31,
+     "text": "False"
+    }
+   ],
+   "attachedTo": "n2->n5"
+  },
+  {
+   "text": "Catalogue update is needed?\nTrue",
+   "x": 656,
+   "y": 422,
+   "w": 435,
+   "h": 148,
+   "lines": [
+    {
+     "x": 652,
+     "y": 419,
+     "w": 439,
+     "h": 90,
+     "text": "Catalogue update is needed?"
+    },
+    {
+     "x": 656,
+     "y": 538,
+     "w": 86,
+     "h": 32,
+     "text": "True"
+    }
+   ]
+  }
+ ],
+ "uncertain": []
+}

@@ -1,0 +1,10 @@
+  verdict: NEEDS-HUMAN
+  structural: 0 element(s) absent, 0 invented, 0 text absent, 0 text differs, 0 incoherent
+  line-work  missing 621 px (0.196%)   invented 152 px (0.048%)   radius 3
+    line-work-missing      235 px at  2115,1363    73x32    near edge n7 -> n5
+    line-work-missing      126 px at  2164,1316    24x15    near edge n7 -> n5
+    line-work-invented      60 px at  2117,1376    42x15    near edge n7 -> n5
+  needs a person (2):
+    kept-on-outline    at 1369,564  confirm this is a node and not trapped whitespace
+    kept-on-outline    at 1369,1172  confirm this is a node and not trapped whitespace
+review/baseline/UBL-2.2-IMFM-TransportServiceDescription-marked.png + review/baseline/UBL-2.2-IMFM-TransportServiceDescription-marked-lost.png  (2 finding(s) numbered)

@@ -1,0 +1,374 @@
+{
+ "source": "UBL-2.2-VMI-Invoicing.png",
+ "size": [
+  3425,
+  1525
+ ],
+ "fontPx": 70.7,
+ "arrowPx": 82.5,
+ "arrowWidthPx": 66.7,
+ "arrowStyle": "open",
+ "rules": {
+  "v": [
+   [
+    0,
+    10
+   ],
+   [
+    1651,
+    6
+   ],
+   [
+    3415,
+    10
+   ]
+  ],
+  "h": [
+   [
+    0,
+    10
+   ],
+   [
+    1515,
+    10
+   ]
+  ]
+ },
+ "ruleSpan": {
+  "v": [
+   [
+    13,
+    1511
+   ],
+   [
+    13,
+    1511
+   ],
+   [
+    13,
+    1511
+   ]
+  ],
+  "h": [
+   [
+    13,
+    3411
+   ],
+   [
+    13,
+    3411
+   ]
+  ]
+ },
+ "greyRules": [],
+ "dashed": [],
+ "openEnds": [],
+ "crossMarks": [],
+ "partitions": [
+  {
+   "axis": "column",
+   "index": 0,
+   "x0": 0,
+   "x1": 1654,
+   "title": "Producer",
+   "titleBox": [
+    671,
+    51,
+    309,
+    57
+   ]
+  },
+  {
+   "axis": "column",
+   "index": 1,
+   "x0": 1654,
+   "x1": 3425,
+   "title": "Retailer",
+   "titleBox": [
+    2362,
+    55,
+    261,
+    57
+   ]
+  },
+  {
+   "axis": "band",
+   "index": 0,
+   "y0": 0,
+   "y1": 1525,
+   "title": ""
+  }
+ ],
+ "nodes": [
+  {
+   "x": 427,
+   "y": 217,
+   "w": 120,
+   "h": 119,
+   "area": 9886,
+   "fill": 0.767,
+   "kind": "initial",
+   "id": "n1",
+   "label": "",
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 1403,
+   "y": 679,
+   "w": 494,
+   "h": 196,
+   "area": 90649,
+   "fill": 0.936,
+   "solid": 1.0,
+   "rx": 0,
+   "ry": 0,
+   "shape": "rect",
+   "keptOnOutline": true,
+   "stroke": 12,
+   "kind": "object",
+   "id": "n2",
+   "label": "Invoice",
+   "labelLines": [
+    {
+     "x": 1527,
+     "y": 742,
+     "w": 263,
+     "h": 57,
+     "text": "Invoice"
+    }
+   ],
+   "stem": 0.156,
+   "bold": true,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 88,
+   "y": 688,
+   "w": 792,
+   "h": 184,
+   "area": 131140,
+   "fill": 0.9,
+   "solid": 0.981,
+   "rx": 95,
+   "ry": 55,
+   "shape": "rounded",
+   "stroke": 6,
+   "kind": "action",
+   "id": "n3",
+   "label": "Raise Invoice",
+   "labelLines": [
+    {
+     "x": 239,
+     "y": 748,
+     "w": 487,
+     "h": 57,
+     "text": "Raise Invoice"
+    }
+   ],
+   "stem": 0.156,
+   "bold": true,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 2545,
+   "y": 694,
+   "w": 792,
+   "h": 184,
+   "area": 129348,
+   "fill": 0.888,
+   "solid": 0.981,
+   "rx": 94,
+   "ry": 56,
+   "shape": "rounded",
+   "stroke": 7,
+   "kind": "action",
+   "id": "n4",
+   "label": "Receive Invoice",
+   "labelLines": [
+    {
+     "x": 2658,
+     "y": 754,
+     "w": 573,
+     "h": 57,
+     "text": "Receive Invoice"
+    }
+   ],
+   "stem": 0.156,
+   "bold": true,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 2884,
+   "y": 1350,
+   "w": 107,
+   "h": 106,
+   "area": 7105,
+   "fill": 0.626,
+   "solid": 0.788,
+   "rx": 53,
+   "ry": 56,
+   "shape": "ellipse",
+   "stroke": 7,
+   "kind": "final",
+   "innerRatio": 0.439,
+   "id": "n5",
+   "label": "",
+   "col": 1,
+   "row": 0
+  }
+ ],
+ "edges": [
+  {
+   "from": "n1",
+   "to": "n3",
+   "routing": "straight",
+   "fromPoint": [
+    484,
+    350
+   ],
+   "toPoint": [
+    484,
+    673
+   ],
+   "arrowInk": [
+    270,
+    898
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    83,
+    66.0,
+    2.44
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n3",
+   "to": "n2",
+   "routing": "straight",
+   "fromPoint": [
+    894,
+    780
+   ],
+   "toPoint": [
+    1388,
+    779
+   ],
+   "arrowInk": [
+    270,
+    820
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    84,
+    65.7,
+    3.08
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n2",
+   "to": "n4",
+   "routing": "straight",
+   "fromPoint": [
+    1912,
+    778
+   ],
+   "toPoint": [
+    2530,
+    781
+   ],
+   "arrowInk": [
+    268,
+    903
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    81,
+    67.3,
+    2.33
+   ],
+   "arrowFill": 0.047,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n4",
+   "to": "n5",
+   "routing": "straight",
+   "fromPoint": [
+    2941,
+    892
+   ],
+   "toPoint": [
+    2939,
+    1335
+   ],
+   "arrowInk": [
+    270,
+    902
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    82,
+    67.4,
+    2.35
+   ],
+   "arrowFill": 0.007,
+   "edgeKind": "control"
+  }
+ ],
+ "text": [
+  {
+   "text": "Producer",
+   "x": 671,
+   "y": 51,
+   "w": 309,
+   "h": 57,
+   "lines": [
+    {
+     "x": 671,
+     "y": 51,
+     "w": 309,
+     "h": 57,
+     "text": "Producer"
+    }
+   ]
+  },
+  {
+   "text": "Retailer",
+   "x": 2362,
+   "y": 55,
+   "w": 261,
+   "h": 57,
+   "lines": [
+    {
+     "x": 2362,
+     "y": 55,
+     "w": 261,
+     "h": 57,
+     "text": "Retailer"
+    }
+   ]
+  }
+ ],
+ "uncertain": [
+  {
+   "x": 1403,
+   "y": 679,
+   "w": 494,
+   "h": 196,
+   "shape": "rect",
+   "iou": 1.0,
+   "border": 1.0,
+   "kind": "kept-on-outline",
+   "reason": "every side has pass-through line-work, but the region carries a complete outline of its own",
+   "check": "confirm this is a node and not trapped whitespace"
+  }
+ ]
+}

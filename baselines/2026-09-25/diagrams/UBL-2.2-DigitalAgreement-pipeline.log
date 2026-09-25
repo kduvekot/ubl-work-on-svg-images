@@ -1,0 +1,11 @@
+== UBL-2.2-DigitalAgreement
+  scale 0.43212   frame 10px  divider 7px  action 6px  object 6px
+  font 51px (22.2 model)   2 lanes, 1 bands, 24 nodes, 25 edges -> review/baseline/UBL-2.2-DigitalAgreement-spec.json
+  review/baseline/UBL-2.2-DigitalAgreement.svg + .drawio + -classified.svg   (24 nodes, 25 edges)
+  rendered UBL-2.2-DigitalAgreement.svg -> UBL-2.2-DigitalAgreement-render.png @ 3425pxx3284, 600 dpi
+  aligned on ink bounds: scale x 1.0000, y 1.0000
+  size 3425x3284  radius 2
+  ink: original 642274   candidate 620390
+  MISSING (red)    46237  = 7.1990% of original ink
+  EXTRA   (blue)   36652  = 5.7066% of original ink
+  RESULT: DIFFERENCES - inspect review/baseline/UBL-2.2-DigitalAgreement-diff-r2.png

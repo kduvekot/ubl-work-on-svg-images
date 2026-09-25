@@ -1,0 +1,15 @@
+  verdict: NEEDS-HUMAN
+  structural: 0 element(s) absent, 0 invented, 0 text absent, 0 text differs, 0 incoherent
+  line-work  missing 268 px (0.068%)   invented 383 px (0.098%)   radius 3
+    line-work-missing      177 px at  2880,1438     3x59    near edge n10 -> n6
+    line-work-invented      61 px at  2677,1355    13x31    near edge n9 -> n10
+  needs a person (11):
+    dropped-region     at 660,667  a shape here would be missing from the SVG
+    kept-on-outline    at 1615,950  confirm this is a node and not trapped whitespace
+    dropped-region     at 1814,1145  a shape here would be missing from the SVG
+    dropped-region     at 665,1148  a shape here would be missing from the SVG
+    kept-on-outline    at 2628,1503  confirm this is a node and not trapped whitespace
+    sub-character-region at 421,72  confirm this is glyph interior and not a node
+    sub-character-region at 1215,72  confirm this is glyph interior and not a node
+    sub-character-region at 2601,74  confirm this is glyph interior and not a node
+review/baseline/UBL-2.2-Tender-ContractInfoNotify-marked.png + review/baseline/UBL-2.2-Tender-ContractInfoNotify-marked-lost.png  (11 finding(s) numbered)

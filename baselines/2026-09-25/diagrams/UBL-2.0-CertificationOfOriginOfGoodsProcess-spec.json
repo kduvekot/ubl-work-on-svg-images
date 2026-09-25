@@ -1,0 +1,989 @@
+{
+ "canvas": {
+  "w": 1480.0,
+  "h": 1096.28
+ },
+ "stroke": {
+  "frame": 4.3,
+  "divider": 1.7,
+  "action": 1.7,
+  "object": 3.0,
+  "edge": 1.7
+ },
+ "font": {
+  "family": "Helvetica, Arial, sans-serif",
+  "node": 15.4,
+  "lane": 15.4,
+  "guard": 15.4
+ },
+ "arrow": 25.9,
+ "arrowWidth": 20.5,
+ "arrowStyle": "open",
+ "dashed": [],
+ "greyRules": [],
+ "crossMarks": [],
+ "openEnds": [],
+ "frameBox": [
+  2.2,
+  2.2,
+  1477.8,
+  1094.1
+ ],
+ "dividers": [
+  [
+   348.3,
+   1.7,
+   5.6,
+   1090.2
+  ],
+  [
+   778.0,
+   1.3,
+   5.6,
+   1090.2
+  ],
+  [
+   1178.0,
+   1.7,
+   5.6,
+   1090.2
+  ]
+ ],
+ "bands": [],
+ "lanes": [
+  {
+   "title": "Exporter",
+   "x": 0.0,
+   "w": 348.3,
+   "cx": 174.6,
+   "cy": 15.1
+  },
+  {
+   "title": "Issuer",
+   "x": 348.3,
+   "w": 429.5,
+   "cx": 565.6,
+   "cy": 13.6
+  },
+  {
+   "title": "Endorser",
+   "x": 777.8,
+   "w": 400.1,
+   "cx": 979.8,
+   "cy": 13.6
+  },
+  {
+   "title": "Importer",
+   "x": 1178.0,
+   "w": 302.0,
+   "cx": 1328.8,
+   "cy": 15.1
+  }
+ ],
+ "bandLabels": [],
+ "nodes": [
+  {
+   "id": "n1",
+   "kind": "object",
+   "label": "Certificate Of\nOrigin",
+   "x": 305.7,
+   "y": 107.4,
+   "w": 111.9,
+   "h": 64.8,
+   "labelLines": [
+    {
+     "text": "Certificate Of",
+     "cx": 361.0,
+     "cy": 128.8,
+     "w": 92.9
+    },
+    {
+     "text": "Origin",
+     "cx": 361.9,
+     "cy": 146.5,
+     "w": 41.9
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n2",
+   "kind": "action",
+   "label": "Apply for CoO",
+   "x": 141.7,
+   "y": 111.9,
+   "w": 110.6,
+   "h": 50.1,
+   "rx": 21.2,
+   "ry": 21.2,
+   "labelLines": [
+    {
+     "text": "Apply for CoO",
+     "cx": 197.3,
+     "cy": 136.8,
+     "w": 99.0
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n3",
+   "kind": "action",
+   "label": "Receive CoO",
+   "x": 503.4,
+   "y": 113.2,
+   "w": 110.6,
+   "h": 50.1,
+   "rx": 23.8,
+   "ry": 21.6,
+   "labelLines": [
+    {
+     "text": "Receive CoO",
+     "cx": 556.4,
+     "cy": 135.9,
+     "w": 89.4
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n4",
+   "kind": "initial",
+   "label": "",
+   "x": 15.6,
+   "y": 121.4,
+   "w": 31.1,
+   "h": 31.1
+  },
+  {
+   "id": "n5",
+   "kind": "action",
+   "label": "Endorse CoO",
+   "x": 609.7,
+   "y": 267.0,
+   "w": 112.4,
+   "h": 51.4,
+   "rx": 21.2,
+   "ry": 21.2,
+   "labelLines": [
+    {
+     "text": "Endorse CoO",
+     "cx": 665.9,
+     "cy": 291.7,
+     "w": 92.5
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n6",
+   "kind": "action",
+   "label": "Request\nStatus",
+   "x": 44.1,
+   "y": 270.1,
+   "w": 112.4,
+   "h": 48.4,
+   "rx": 21.2,
+   "ry": 24.2,
+   "labelLines": [
+    {
+     "text": "Request",
+     "cx": 99.0,
+     "cy": 287.6,
+     "w": 57.0
+    },
+    {
+     "text": "Status",
+     "cx": 100.7,
+     "cy": 305.3,
+     "w": 44.1
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n7",
+   "kind": "decision",
+   "label": "",
+   "x": 537.6,
+   "y": 272.2,
+   "w": 37.6,
+   "h": 48.4
+  },
+  {
+   "id": "n8",
+   "kind": "action",
+   "label": "Reject CoO",
+   "x": 391.5,
+   "y": 272.7,
+   "w": 111.9,
+   "h": 50.6,
+   "rx": 22.9,
+   "ry": 20.7,
+   "labelLines": [
+    {
+     "text": "Reject CoO",
+     "cx": 445.9,
+     "cy": 294.1,
+     "w": 77.8
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n9",
+   "kind": "object",
+   "label": "Application\nResponse",
+   "x": 310.0,
+   "y": 428.0,
+   "w": 89.9,
+   "h": 67.8,
+   "labelLines": [
+    {
+     "text": "Application",
+     "cx": 353.3,
+     "cy": 450.5,
+     "w": 79.9
+    },
+    {
+     "text": "Response",
+     "cx": 354.6,
+     "cy": 466.9,
+     "w": 69.6
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n10",
+   "kind": "action",
+   "label": "Query CoO",
+   "x": 504.7,
+   "y": 435.1,
+   "w": 111.1,
+   "h": 50.6,
+   "rx": 22.9,
+   "ry": 24.2,
+   "labelLines": [
+    {
+     "text": "Query CoO",
+     "cx": 560.2,
+     "cy": 461.7,
+     "w": 76.5
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n11",
+   "kind": "action",
+   "label": "Receive Response",
+   "x": 33.7,
+   "y": 439.9,
+   "w": 167.2,
+   "h": 58.8,
+   "rx": 21.2,
+   "ry": 24.2,
+   "labelLines": [
+    {
+     "text": "Receive Response",
+     "cx": 114.1,
+     "cy": 467.8,
+     "w": 128.8
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n13",
+   "kind": "object",
+   "label": "Application\nResponse",
+   "x": 724.9,
+   "y": 619.9,
+   "w": 131.4,
+   "h": 72.2,
+   "labelLines": [
+    {
+     "text": "Application",
+     "cx": 788.6,
+     "cy": 645.2,
+     "w": 80.4
+    },
+    {
+     "text": "Response",
+     "cx": 790.1,
+     "cy": 661.4,
+     "w": 69.6
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n14",
+   "kind": "action",
+   "label": "Reject CoO",
+   "x": 959.3,
+   "y": 631.3,
+   "w": 161.2,
+   "h": 51.9,
+   "rx": 17.3,
+   "ry": 16.0,
+   "labelLines": [
+    {
+     "text": "Reject CoO",
+     "cx": 1039.2,
+     "cy": 660.3,
+     "w": 77.8
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n15",
+   "kind": "decision",
+   "label": "",
+   "x": 72.6,
+   "y": 701.8,
+   "w": 37.6,
+   "h": 48.4
+  },
+  {
+   "id": "n16",
+   "kind": "decision",
+   "label": "",
+   "x": 1008.6,
+   "y": 739.8,
+   "w": 48.0,
+   "h": 49.3
+  },
+  {
+   "id": "n17",
+   "kind": "action",
+   "label": "Endorse CoO",
+   "x": 853.4,
+   "y": 740.6,
+   "w": 101.5,
+   "h": 48.8,
+   "rx": 15.6,
+   "ry": 13.4,
+   "labelLines": [
+    {
+     "text": "Endorse CoO",
+     "cx": 905.1,
+     "cy": 766.6,
+     "w": 92.9
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n18",
+   "kind": "final",
+   "label": "",
+   "x": 1355.1,
+   "y": 859.0,
+   "w": 31.1,
+   "h": 31.1,
+   "innerRatio": 0.485
+  },
+  {
+   "id": "n19",
+   "kind": "action",
+   "label": "Apply for Endorsement",
+   "x": 141.7,
+   "y": 872.0,
+   "w": 196.2,
+   "h": 56.6,
+   "rx": 23.3,
+   "ry": 22.5,
+   "labelLines": [
+    {
+     "text": "Apply for Endorsement",
+     "cx": 239.6,
+     "cy": 899.0,
+     "w": 162.9
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n20",
+   "kind": "object",
+   "label": "Certificate Of\nOrigin",
+   "x": 718.8,
+   "y": 876.5,
+   "w": 133.1,
+   "h": 73.9,
+   "labelLines": [
+    {
+     "text": "Certificate Of",
+     "cx": 784.7,
+     "cy": 903.6,
+     "w": 93.3
+    },
+    {
+     "text": "Origin",
+     "cx": 785.6,
+     "cy": 921.3,
+     "w": 42.3
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n21",
+   "kind": "action",
+   "label": "Receive Certificate Of\nOrigin",
+   "x": 931.2,
+   "y": 881.1,
+   "w": 205.7,
+   "h": 57.9,
+   "rx": 21.2,
+   "ry": 24.2,
+   "labelLines": [
+    {
+     "text": "Receive Certificate Of",
+     "cx": 1029.1,
+     "cy": 901.2,
+     "w": 151.7
+    },
+    {
+     "text": "Origin",
+     "cx": 1034.3,
+     "cy": 921.9,
+     "w": 41.9
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n23",
+   "kind": "object",
+   "label": "Certificate Of\nOrigin",
+   "x": 1108.6,
+   "y": 1001.0,
+   "w": 133.1,
+   "h": 70.9,
+   "labelLines": [
+    {
+     "text": "Certificate Of",
+     "cx": 1174.5,
+     "cy": 1025.8,
+     "w": 93.3
+    },
+    {
+     "text": "Origin",
+     "cx": 1175.4,
+     "cy": 1043.6,
+     "w": 42.3
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n24",
+   "kind": "action",
+   "label": "Send CoO",
+   "x": 16.0,
+   "y": 1011.2,
+   "w": 199.6,
+   "h": 44.5,
+   "rx": 21.2,
+   "ry": 20.3,
+   "labelLines": [
+    {
+     "text": "Send CoO",
+     "cx": 115.4,
+     "cy": 1031.0,
+     "w": 70.0
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n25",
+   "kind": "action",
+   "label": "Receive CoO",
+   "x": 1319.7,
+   "y": 1014.2,
+   "w": 102.0,
+   "h": 50.1,
+   "rx": 14.7,
+   "ry": 14.3,
+   "labelLines": [
+    {
+     "text": "Receive CoO",
+     "cx": 1370.2,
+     "cy": 1038.4,
+     "w": 88.2
+    }
+   ],
+   "bold": true
+  }
+ ],
+ "edges": [
+  {
+   "from": "n4",
+   "to": "n2",
+   "exitXY": [
+    1.0,
+    0.4855
+   ],
+   "entryXY": [
+    0.0,
+    0.491
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n2",
+   "to": "n1",
+   "exitXY": [
+    1.0,
+    0.501
+   ],
+   "entryXY": [
+    0.0,
+    0.483
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n1",
+   "to": "n3",
+   "exitXY": [
+    1.0,
+    0.4769
+   ],
+   "entryXY": [
+    0.0,
+    0.501
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n3",
+   "to": "n7",
+   "exitXY": [
+    0.481,
+    1.0
+   ],
+   "entryXY": [
+    0.492,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n6",
+   "to": "n1",
+   "exitXY": [
+    0.9297,
+    0.0
+   ],
+   "entryXY": [
+    0.0,
+    1.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n7",
+   "to": "n8",
+   "exitXY": [
+    0.0,
+    0.5
+   ],
+   "entryXY": [
+    1.0,
+    0.4941
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n7",
+   "to": "n5",
+   "exitXY": [
+    1.0,
+    0.5
+   ],
+   "entryXY": [
+    0.0,
+    0.4961
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n11",
+   "to": "n6",
+   "exitXY": [
+    0.372,
+    0.0
+   ],
+   "entryXY": [
+    0.4653,
+    1.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n7",
+   "to": "n10",
+   "exitXY": [
+    0.492,
+    1.0
+   ],
+   "entryXY": [
+    0.4743,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n8",
+   "to": "n9",
+   "exitXY": [
+    0.3628,
+    1.0
+   ],
+   "entryXY": [
+    0.782,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n9",
+   "to": "n11",
+   "exitXY": [
+    0.0,
+    0.5767
+   ],
+   "entryXY": [
+    1.0,
+    0.4847
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n10",
+   "to": "n9",
+   "exitXY": [
+    0.0,
+    0.666
+   ],
+   "entryXY": [
+    1.0,
+    0.6018
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n13",
+   "to": "n11",
+   "exitXY": [
+    0.0,
+    0.1884
+   ],
+   "entryXY": [
+    1.0,
+    0.8605
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n11",
+   "to": "n15",
+   "exitXY": [
+    0.3463,
+    1.0
+   ],
+   "entryXY": [
+    0.4947,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n14",
+   "to": "n13",
+   "exitXY": [
+    0.0,
+    0.4836
+   ],
+   "entryXY": [
+    1.0,
+    0.5
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n16",
+   "to": "n14",
+   "exitXY": [
+    0.4771,
+    0.0
+   ],
+   "entryXY": [
+    0.4529,
+    1.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n15",
+   "to": "n19",
+   "exitXY": [
+    1.0,
+    0.6054
+   ],
+   "entryXY": [
+    0.37,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n15",
+   "to": "n24",
+   "exitXY": [
+    0.4947,
+    1.0
+   ],
+   "entryXY": [
+    0.3808,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n16",
+   "to": "n17",
+   "exitXY": [
+    0.0,
+    0.499
+   ],
+   "entryXY": [
+    1.0,
+    0.4959
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n21",
+   "to": "n16",
+   "exitXY": [
+    0.4895,
+    0.0
+   ],
+   "entryXY": [
+    0.4854,
+    1.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n19",
+   "to": "n20",
+   "exitXY": [
+    1.0,
+    0.4965
+   ],
+   "entryXY": [
+    0.0,
+    0.3424
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n25",
+   "to": "n18",
+   "exitXY": [
+    0.5,
+    0.0
+   ],
+   "entryXY": [
+    0.5016,
+    1.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n20",
+   "to": "n21",
+   "exitXY": [
+    1.0,
+    0.4885
+   ],
+   "entryXY": [
+    0.0,
+    0.4991
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n24",
+   "to": "n23",
+   "exitXY": [
+    1.0,
+    0.4944
+   ],
+   "entryXY": [
+    0.0,
+    0.4542
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n23",
+   "to": "n25",
+   "exitXY": [
+    1.0,
+    0.4965
+   ],
+   "entryXY": [
+    0.0,
+    0.4651
+   ],
+   "straight": true,
+   "confidence": "high"
+  }
+ ],
+ "guards": [
+  {
+   "text": "Initiate\nransport\nProcess",
+   "x": 38.0,
+   "y": 48.4,
+   "w": 54.4,
+   "h": 49.3,
+   "labelLines": [
+    {
+     "text": "Initiate",
+     "cx": 60.5,
+     "cy": 53.8,
+     "w": 41.5
+    },
+    {
+     "text": "ransport",
+     "cx": 64.4,
+     "cy": 74.1,
+     "w": 56.2
+    },
+    {
+     "text": "Process",
+     "cx": 64.0,
+     "cy": 92.0,
+     "w": 51.9
+    }
+   ]
+  },
+  {
+   "text": "Accept\npplication?",
+   "x": 571.7,
+   "y": 222.5,
+   "w": 68.7,
+   "h": 32.8,
+   "labelLines": [
+    {
+     "text": "Accept",
+     "cx": 604.1,
+     "cy": 229.2,
+     "w": 44.9
+    },
+    {
+     "text": "pplication?",
+     "cx": 606.0,
+     "cy": 248.5,
+     "w": 68.7
+    }
+   ]
+  },
+  {
+   "text": "Endorsement\nRequired?",
+   "x": 132.7,
+   "y": 709.5,
+   "w": 86.4,
+   "h": 32.8,
+   "labelLines": [
+    {
+     "text": "Endorsement",
+     "cx": 175.9,
+     "cy": 714.9,
+     "w": 86.4
+    },
+    {
+     "text": "Required?",
+     "cx": 165.7,
+     "cy": 735.7,
+     "w": 66.1
+    }
+   ]
+  },
+  {
+   "text": "Endorse\nApplication?",
+   "x": 1060.0,
+   "y": 731.6,
+   "w": 79.5,
+   "h": 32.8,
+   "labelLines": [
+    {
+     "text": "Endorse",
+     "cx": 1087.9,
+     "cy": 737.0,
+     "w": 53.2
+    },
+    {
+     "text": "Application?",
+     "cx": 1099.7,
+     "cy": 757.7,
+     "w": 79.5
+    }
+   ]
+  },
+  {
+   "text": "End of CoO\nProcess",
+   "x": 1366.8,
+   "y": 817.1,
+   "w": 75.2,
+   "h": 30.2,
+   "labelLines": [
+    {
+     "text": "End of CoO",
+     "cx": 1404.4,
+     "cy": 822.8,
+     "w": 75.2
+    },
+    {
+     "text": "Process",
+     "cx": 1407.2,
+     "cy": 842.0,
+     "w": 51.4
+    }
+   ]
+  }
+ ]
+}

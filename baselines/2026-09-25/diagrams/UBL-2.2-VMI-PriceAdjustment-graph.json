@@ -1,0 +1,506 @@
+{
+ "source": "UBL-2.2-VMI-PriceAdjustment.png",
+ "size": [
+  3425,
+  2075
+ ],
+ "fontPx": 72.9,
+ "arrowPx": 76.0,
+ "arrowWidthPx": 61.0,
+ "arrowStyle": "open",
+ "rules": {
+  "v": [
+   [
+    0,
+    10
+   ],
+   [
+    1811,
+    6
+   ],
+   [
+    3415,
+    10
+   ]
+  ],
+  "h": [
+   [
+    0,
+    10
+   ],
+   [
+    2065,
+    10
+   ]
+  ]
+ },
+ "ruleSpan": {
+  "v": [
+   [
+    13,
+    2061
+   ],
+   [
+    13,
+    2061
+   ],
+   [
+    13,
+    2061
+   ]
+  ],
+  "h": [
+   [
+    13,
+    3411
+   ],
+   [
+    13,
+    3411
+   ]
+  ]
+ },
+ "greyRules": [],
+ "dashed": [],
+ "openEnds": [],
+ "crossMarks": [],
+ "partitions": [
+  {
+   "axis": "column",
+   "index": 0,
+   "x0": 0,
+   "x1": 1814,
+   "title": "Producer",
+   "titleBox": [
+    718,
+    67,
+    284,
+    52
+   ]
+  },
+  {
+   "axis": "column",
+   "index": 1,
+   "x0": 1814,
+   "x1": 3425,
+   "title": "Retailer",
+   "titleBox": [
+    2531,
+    68,
+    240,
+    52
+   ]
+  },
+  {
+   "axis": "band",
+   "index": 0,
+   "y0": 0,
+   "y1": 2075,
+   "title": ""
+  }
+ ],
+ "nodes": [
+  {
+   "x": 673,
+   "y": 213,
+   "w": 115,
+   "h": 115,
+   "area": 9126,
+   "fill": 0.768,
+   "kind": "initial",
+   "id": "n1",
+   "label": "",
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 659,
+   "y": 526,
+   "w": 132,
+   "h": 112,
+   "area": 7455,
+   "fill": 0.504,
+   "solid": 0.504,
+   "rx": 72,
+   "ry": 62,
+   "shape": "rhombus",
+   "stroke": 6,
+   "kind": "decision",
+   "id": "n2",
+   "label": "",
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 88,
+   "y": 536,
+   "w": 98,
+   "h": 98,
+   "area": 5974,
+   "fill": 0.622,
+   "solid": 0.783,
+   "rx": 50,
+   "ry": 44,
+   "shape": "ellipse",
+   "stroke": 6,
+   "kind": "final",
+   "innerRatio": 0.439,
+   "id": "n3",
+   "label": "",
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 1590,
+   "y": 1141,
+   "w": 453,
+   "h": 180,
+   "area": 73068,
+   "fill": 0.896,
+   "solid": 1.0,
+   "rx": 0,
+   "ry": 0,
+   "shape": "rect",
+   "stroke": 12,
+   "kind": "object",
+   "id": "n4",
+   "label": "Catalogue",
+   "labelLines": [
+    {
+     "x": 1657,
+     "y": 1198,
+     "w": 338,
+     "h": 67,
+     "text": "Catalogue"
+    }
+   ],
+   "stem": 0.137,
+   "bold": true,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 339,
+   "y": 1143,
+   "w": 728,
+   "h": 164,
+   "area": 105535,
+   "fill": 0.884,
+   "solid": 0.975,
+   "rx": 79,
+   "ry": 56,
+   "shape": "rounded",
+   "stroke": 5,
+   "kind": "action",
+   "id": "n5",
+   "label": "Send Price List",
+   "labelLines": [
+    {
+     "x": 442,
+     "y": 1198,
+     "w": 512,
+     "h": 53,
+     "text": "Send Price List"
+    }
+   ],
+   "stem": 0.137,
+   "bold": true,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 2610,
+   "y": 1143,
+   "w": 727,
+   "h": 170,
+   "area": 107857,
+   "fill": 0.873,
+   "solid": 0.975,
+   "rx": 80,
+   "ry": 62,
+   "shape": "rounded",
+   "stroke": 5,
+   "kind": "action",
+   "id": "n6",
+   "label": "Receive Price List",
+   "labelLines": [
+    {
+     "x": 2667,
+     "y": 1199,
+     "w": 604,
+     "h": 52,
+     "text": "Receive Price List"
+    }
+   ],
+   "stem": 0.137,
+   "bold": true,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 2917,
+   "y": 1899,
+   "w": 98,
+   "h": 97,
+   "area": 5963,
+   "fill": 0.627,
+   "solid": 0.79,
+   "rx": 44,
+   "ry": 45,
+   "shape": "ellipse",
+   "stroke": 6,
+   "kind": "final",
+   "innerRatio": 0.439,
+   "id": "n7",
+   "label": "",
+   "col": 1,
+   "row": 0
+  }
+ ],
+ "edges": [
+  {
+   "from": "n1",
+   "to": "n2",
+   "routing": "straight",
+   "fromPoint": [
+    725,
+    342
+   ],
+   "toPoint": [
+    724,
+    511
+   ],
+   "arrowInk": [
+    270,
+    848
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    77,
+    60.8,
+    2.45
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n2",
+   "to": "n3",
+   "routing": "straight",
+   "fromPoint": [
+    644,
+    582
+   ],
+   "toPoint": [
+    200,
+    582
+   ],
+   "arrowInk": [
+    230,
+    771
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    81,
+    60.0,
+    2.73
+   ],
+   "arrowFill": 0.0,
+   "guard": "False",
+   "edgeKind": "control"
+  },
+  {
+   "from": "n2",
+   "to": "n5",
+   "routing": "straight",
+   "fromPoint": [
+    725,
+    652
+   ],
+   "toPoint": [
+    723,
+    1128
+   ],
+   "arrowInk": [
+    346,
+    856
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    75,
+    61.5,
+    2.24
+   ],
+   "arrowFill": 0.019,
+   "guard": "True",
+   "edgeKind": "control"
+  },
+  {
+   "from": "n5",
+   "to": "n4",
+   "routing": "straight",
+   "fromPoint": [
+    1081,
+    1226
+   ],
+   "toPoint": [
+    1575,
+    1229
+   ],
+   "arrowInk": [
+    270,
+    782
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    77,
+    61.1,
+    2.8
+   ],
+   "arrowFill": 0.054,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n4",
+   "to": "n6",
+   "routing": "straight",
+   "fromPoint": [
+    2057,
+    1228
+   ],
+   "toPoint": [
+    2595,
+    1228
+   ],
+   "arrowInk": [
+    267,
+    859
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    75,
+    60.0,
+    2.37
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n6",
+   "to": "n7",
+   "routing": "straight",
+   "fromPoint": [
+    2968,
+    1327
+   ],
+   "toPoint": [
+    2967,
+    1884
+   ],
+   "arrowInk": [
+    270,
+    849
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    75,
+    61.8,
+    2.37
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "control"
+  }
+ ],
+ "text": [
+  {
+   "text": "Producer",
+   "x": 718,
+   "y": 67,
+   "w": 284,
+   "h": 52,
+   "lines": [
+    {
+     "x": 718,
+     "y": 67,
+     "w": 284,
+     "h": 52,
+     "text": "Producer"
+    }
+   ]
+  },
+  {
+   "text": "Retailer",
+   "x": 2531,
+   "y": 68,
+   "w": 240,
+   "h": 52,
+   "lines": [
+    {
+     "x": 2531,
+     "y": 68,
+     "w": 240,
+     "h": 52,
+     "text": "Retailer"
+    }
+   ]
+  },
+  {
+   "text": "Change of\nprices?",
+   "x": 930,
+   "y": 499,
+   "w": 252,
+   "h": 122,
+   "lines": [
+    {
+     "x": 930,
+     "y": 499,
+     "w": 252,
+     "h": 51,
+     "text": "Change of"
+    },
+    {
+     "x": 931,
+     "y": 570,
+     "w": 170,
+     "h": 51,
+     "text": "prices?"
+    }
+   ]
+  },
+  {
+   "text": "False",
+   "x": 417,
+   "y": 527,
+   "w": 128,
+   "h": 39,
+   "lines": [
+    {
+     "x": 417,
+     "y": 527,
+     "w": 128,
+     "h": 39,
+     "text": "False"
+    }
+   ],
+   "attachedTo": "n2->n3"
+  },
+  {
+   "text": "True",
+   "x": 753,
+   "y": 691,
+   "w": 110,
+   "h": 39,
+   "lines": [
+    {
+     "x": 753,
+     "y": 691,
+     "w": 110,
+     "h": 39,
+     "text": "True"
+    }
+   ],
+   "attachedTo": "n2->n5"
+  }
+ ],
+ "uncertain": []
+}

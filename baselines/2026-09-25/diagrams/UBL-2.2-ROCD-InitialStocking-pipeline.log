@@ -1,0 +1,11 @@
+== UBL-2.2-ROCD-InitialStocking
+  scale 0.43212   frame 10px  divider 4px  action 4px  object 7px
+  font 49px (21.0 model)   2 lanes, 1 bands, 20 nodes, 22 edges -> review/baseline/UBL-2.2-ROCD-InitialStocking-spec.json
+  review/baseline/UBL-2.2-ROCD-InitialStocking.svg + .drawio + -classified.svg   (20 nodes, 22 edges)
+  rendered UBL-2.2-ROCD-InitialStocking.svg -> UBL-2.2-ROCD-InitialStocking-render.png @ 3425pxx3241, 600 dpi
+  aligned on ink bounds: scale x 1.0000, y 1.0000
+  size 3425x3241  radius 2
+  ink: original 414232   candidate 425505
+  MISSING (red)    13023  = 3.1439% of original ink
+  EXTRA   (blue)   18120  = 4.3744% of original ink
+  RESULT: DIFFERENCES - inspect review/baseline/UBL-2.2-ROCD-InitialStocking-diff-r2.png

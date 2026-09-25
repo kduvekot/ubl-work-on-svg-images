@@ -1,0 +1,41 @@
+MODEL  UBL-2.3-GoodsItemPassportReturnProcess
+  12 action, 2 decision, 3 final, 1 initial, 6 object, 23 flows, 4 partitions
+
+FLOW
+  (start)   [Representative Party]
+  Present Goods To Leave Country   [Representative Party]
+  [Goodsitem Passport (Imported)]   [Representative Party]
+  Receive and Verify Goodsitem Passport   [Importing Customs Party]
+  <Valid?>   [Importing Customs Party]
+    -Yes-> Apply Stamps And Signature   [Importing Customs Party]
+    -> [Goodslitem Passport (Reexported)]   [Representative Party]
+    -> Receive Goodsitem Passport   [Representative Party]
+    -> Present Goods To Re-enter Country   [Representative Party]
+    -> [Goodsitem Passport (Reexported)]   [Exporting Customs Party]
+    -> Receive and Verify Goodsitem Passport   [Exporting Customs Party]
+    -> <Valid?>   [Exporting Customs Party]
+      -Yes-> Apply Stamps And Signature   [Exporting Customs Party]
+      -> [Goodsltem Passport (Reimported)]   [Exporting Customs Party]
+      -> Receive Goodsitem Passport   [Representative Party]
+      -> (end)   [Representative Party]
+      -No-> Send Declined   [Exporting Customs Party]
+      -> [Application response]   [Exporting Customs Party]
+      -> Receive Declined   [Representative Party]
+      -> (end)   [Representative Party]
+    -No-> Send Reject   [Importing Customs Party]
+    -> [Application response]   [Representative Party]
+    -> Receive Reject   [Representative Party]
+    -> (end)   [Representative Party]
+
+CHECKS
+  ok   every element is connected
+  ok   start events have a way out and no way in
+  ok   end events have a way in and no way out
+  ok   decisions have at least two ways out
+  ok   branches out of a decision are labelled   (informational: several diagrams draw an unlabelled branch, so read these against the artwork rather than treating them as errors)
+  ok   documents are both written and read
+  ok   no flow runs straight from one document to another
+  ok   work crossing between parties goes through a document   (informational: UBL draws the hand-over as a document on the divider, and each exception below is named)
+  ok   every flow's direction was read with confidence
+  ok   every action passes its work on   (informational: several diagrams do end on an action, so read these against the artwork rather than treating them as errors)
+  ok   every element is reachable from a start event

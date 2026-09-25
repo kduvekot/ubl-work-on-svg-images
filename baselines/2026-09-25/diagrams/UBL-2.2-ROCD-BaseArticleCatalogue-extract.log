@@ -1,0 +1,39 @@
+image 3425x1492
+
+PARTITION RULES
+   vertical  : [(0, 10), (1664, 6), (3415, 10)]
+   horizontal: [(0, 10), (1482, 10)]
+   -> 2 column(s) x 1 band(s)
+   type measured off the page: a word is 58px tall
+   (dropped x=10    y=10    3405x1472  encloses another region)
+   (kept    x=1415  y=792    498x197   own outline, iou 1.00 border 1.00, despite pass-through line-work)
+   object nodes are those stroked heavier than 10.0px
+
+NODES
+   n1   initial   x=434   y=194   w=120   h=121   stroke=0   fill=0.76  ''
+   n2   object    x=1415  y=792   w=498   h=197   stroke=13  fill=0.90  'Catalogue'
+   n3   action    x=2534  y=795   w=798   h=185   stroke=7   fill=0.86  'Receive Catalogue'
+   n4   action    x=92    y=801   w=798   h=185   stroke=7   fill=0.88  'Send Catalogue'
+   n5   final     x=2882  y=1329  w=108   h=107   stroke=6   fill=0.62  ''
+
+TYPE  cap height 58px over 47 glyphs -> font 82.9px
+
+EDGES
+   n1   -> n4    straight    arrowhead   898 vs 270    ratio 4.0  high
+   n2   -> n3    straight    arrowhead   952 vs 310    ratio 4.0  high
+   n4   -> n2    straight    arrowhead   867 vs 315    ratio 4.0  high
+   n3   -> n5    straight    arrowhead   907 vs 270    ratio 4.0  high
+   n2   -> (off the diagram) at 1658,1479
+
+TEXT (titles, guards, notes)
+   'Retailer'                               x=2397  y=49    
+   'Producer'                               x=620   y=52    
+
+PARTITIONS
+   column 0  'Producer'
+   column 1  'Retailer'
+   band   0  ''
+
+ARROWHEAD  83 x 66px, open, measured on 4 connector(s)
+
+wrote review/baseline/UBL-2.2-ROCD-BaseArticleCatalogue-graph.json   (5 nodes, 4 edges, 1 flagged for a human)

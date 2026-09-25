@@ -1,0 +1,72 @@
+image 3425x3172
+
+PARTITION RULES
+   vertical  : [(0, 10), (1825, 5), (3415, 10)]
+   horizontal: [(0, 10), (3162, 10)]
+   -> 2 column(s) x 1 band(s)
+   type measured off the page: a word is 40px tall
+   (dropped x=10    y=10    3405x3152  encloses another region)
+   (dropped x=845   y=1763   980x917   outline matches no UML node shape (best rounded 0.78, and 1.00 is the most this shape can reach at this size))
+   object nodes are those stroked heavier than 7.0px
+
+NODES
+   n1   initial   x=542   y=175   w=90    h=90    stroke=0   fill=0.76  ''
+   n2   decision  x=531   y=420   w=103   h=87    stroke=5   fill=0.51  ''
+   n3   final     x=86    y=427   w=76    h=76    stroke=5   fill=0.63  ''
+   n4   object    x=1516  y=903   w=627   h=140   stroke=9   fill=0.89  'Instruction for Returns'
+   n5   action    x=2491  y=905   w=805   h=162   stroke=5   fill=0.88  'Receive Instruction for\nReturns'
+   n6   action    x=205   y=909   w=763   h=128   stroke=4   fill=0.86  'Send Instruction for Returns'
+   n7   object    x=1512  y=1278  w=627   h=140   stroke=9   fill=0.91  'Despatch Advice'
+   n8   action    x=240   y=1289  w=716   h=132   stroke=5   fill=0.90  'Receive the advice'
+   n9   action    x=2452  y=1289  w=887   h=161   stroke=5   fill=0.89  'Send an advice to notify the\nreturn'
+   n10  action    x=734   y=1699  w=716   h=131   stroke=5   fill=0.87  'Receive the return item(s)'
+   n11  action    x=2533  y=1703  w=716   h=132   stroke=5   fill=0.92  'Send item(s)'
+   n12  fork      x=478   y=2031  w=729   h=26    stroke=0   fill=0.59  ''
+   n13  action    x=487   y=2262  w=716   h=131   stroke=5   fill=0.88  'Check status of item(s)'
+   n14  object    x=1516  y=2609  w=627   h=141   stroke=9   fill=0.92  'Receipt Advice'
+   n15  action    x=2559  y=2611  w=716   h=132   stroke=4   fill=0.87  'Receive Receipt Advice'
+   n16  action    x=487   y=2616  w=716   h=132   stroke=5   fill=0.88  'Send Receipt Advice'
+   n17  final     x=2879  y=3013  w=76    h=76    stroke=5   fill=0.63  ''
+
+TYPE  cap height 40px over 257 glyphs -> font 57.1px
+   corner radius rx on 'Send Instruction for Returns' could not be read (it came back larger than the box) - taking the 67 the rest of its kind measures
+   corner radius rx on 'Receive Receipt Advice' could not be read (it came back larger than the box) - taking the 67 the rest of its kind measures
+
+EDGES
+   n4   -> (off the diagram) at 1833,12
+   n1   -> n2    straight    arrowhead   681 vs 225    ratio 4.0  high
+   n2   -> n3    straight    arrowhead   619 vs 184    ratio 4.0  high
+   n2   -> n6    straight    arrowhead   689 vs 351    ratio 4.0  high
+   n6   -> n4    straight    arrowhead   663 vs 225    ratio 4.0  high
+   n4   -> n5    straight    arrowhead   645 vs 223    ratio 4.0  high
+   n5   -> n9    straight    arrowhead   688 vs 225    ratio 4.0  high
+   n7   -> n8    straight    arrowhead   660 vs 230    ratio 4.0  high
+   n9   -> n7    straight    arrowhead   613 vs 210    ratio 4.0  high
+   n8   -> n12   straight    arrowhead   638 vs 180    ratio 4.0  high
+   n9   -> n11   straight    arrowhead   691 vs 225    ratio 4.0  high
+   n11  -> n10   straight    arrowhead   631 vs 208    ratio 4.0  high
+   n10  -> n12   straight    arrowhead   680 vs 225    ratio 4.0  high
+   n12  -> n13   straight    arrowhead   690 vs 225    ratio 4.0  high
+   n13  -> n16   straight    arrowhead   643 vs 180    ratio 4.0  high
+   n14  -> n15   straight    arrowhead   688 vs 225    ratio 4.0  high
+   n16  -> n14   straight    arrowhead   665 vs 225    ratio 4.0  high
+   n15  -> n17   straight    arrowhead   647 vs 180    ratio 4.0  high
+   n14  -> (off the diagram) at 1833,3159
+
+TEXT (titles, guards, notes)
+   'Producer'                               x=767   y=60    
+   'Retailer'                               x=2523  y=66    
+   'False'                                  x=343   y=420   n2->n3
+   'Wrong despatching?'                     x=660   y=432   
+   'True'                                   x=605   y=548   n2->n6
+   (dropped x=576   y=1971    47x46    '\\/' - line-work, not text)
+   (dropped x=1071  y=1971    47x46    '\\/' - line-work, not text)
+
+PARTITIONS
+   column 0  'Producer'
+   column 1  'Retailer'
+   band   0  ''
+
+ARROWHEAD  59 x 47px, open, measured on 15 connector(s)
+
+wrote review/baseline/UBL-2.2-VMI-ReturnsByProducer-graph.json   (17 nodes, 17 edges, 1 flagged for a human)

@@ -1,0 +1,13 @@
+  verdict: NEEDS-HUMAN
+  structural: 0 element(s) absent, 0 invented, 0 text absent, 0 text differs, 0 incoherent
+  line-work  missing 2880 px (1.166%)   invented 2371 px (0.960%)   radius 3
+    line-work-missing      182 px at  1892,1716    19x53    near edge n9 -> n6
+    line-work-missing      160 px at  1920,1714    21x55    near edge n9 -> n6
+    line-work-invented     310 px at  1892,1692    47x55    near edge n9 -> n6
+    line-work-invented      71 px at  1483,1692     3x55    near edge n6 -> n10
+  needs a person (4):
+    dropped-region     at 718,2893  a shape here would be missing from the SVG
+    no-weight-split     confirm the diagram really has no object nodes
+    arrowhead-unmeasurable at 417,1243  confirm the arrowhead here is drawn and points the way the original does
+    arrowhead-unmeasurable at 844,2224  confirm the arrowhead here is drawn and points the way the original does
+review/baseline/UBL-2.2-CPFR-EstablishingCollaborativeRelationships-marked.png + review/baseline/UBL-2.2-CPFR-EstablishingCollaborativeRelationships-marked-lost.png  (4 finding(s) numbered)

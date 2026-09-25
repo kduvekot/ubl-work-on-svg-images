@@ -1,0 +1,610 @@
+{
+ "source": "UBL-2.2-VMI-SalesAndInventoryMovement.png",
+ "size": [
+  3425,
+  1987
+ ],
+ "fontPx": 57.1,
+ "arrowPx": 57.5,
+ "arrowWidthPx": 46.0,
+ "arrowStyle": "open",
+ "rules": {
+  "v": [
+   [
+    0,
+    10
+   ],
+   [
+    1610,
+    5
+   ],
+   [
+    3415,
+    10
+   ]
+  ],
+  "h": [
+   [
+    0,
+    10
+   ],
+   [
+    1977,
+    10
+   ]
+  ]
+ },
+ "ruleSpan": {
+  "v": [
+   [
+    13,
+    1973
+   ],
+   [
+    13,
+    1973
+   ],
+   [
+    13,
+    1973
+   ]
+  ],
+  "h": [
+   [
+    13,
+    3411
+   ],
+   [
+    13,
+    3411
+   ]
+  ]
+ },
+ "greyRules": [],
+ "dashed": [],
+ "openEnds": [],
+ "crossMarks": [],
+ "partitions": [
+  {
+   "axis": "column",
+   "index": 0,
+   "x0": 0,
+   "x1": 1612,
+   "title": "Retailer",
+   "titleBox": [
+    677,
+    57,
+    183,
+    40
+   ]
+  },
+  {
+   "axis": "column",
+   "index": 1,
+   "x0": 1612,
+   "x1": 3425,
+   "title": "Producer",
+   "titleBox": [
+    2408,
+    62,
+    216,
+    40
+   ]
+  },
+  {
+   "axis": "band",
+   "index": 0,
+   "y0": 0,
+   "y1": 1987,
+   "title": ""
+  }
+ ],
+ "nodes": [
+  {
+   "x": 587,
+   "y": 181,
+   "w": 84,
+   "h": 84,
+   "area": 4572,
+   "fill": 0.751,
+   "kind": "initial",
+   "id": "n1",
+   "label": "",
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 1370,
+   "y": 556,
+   "w": 476,
+   "h": 137,
+   "area": 58237,
+   "fill": 0.893,
+   "solid": 1.0,
+   "rx": 0,
+   "ry": 0,
+   "shape": "rect",
+   "stroke": 8,
+   "kind": "object",
+   "id": "n2",
+   "label": "Product Activity",
+   "labelLines": [
+    {
+     "x": 1408,
+     "y": 600,
+     "w": 416,
+     "h": 51,
+     "text": "Product Activity"
+    }
+   ],
+   "stem": 0.14,
+   "bold": true,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 2208,
+   "y": 562,
+   "w": 759,
+   "h": 159,
+   "area": 106574,
+   "fill": 0.883,
+   "solid": 0.985,
+   "rx": 76.0,
+   "ry": 46,
+   "shape": "rounded",
+   "stroke": 4,
+   "kind": "action",
+   "id": "n3",
+   "label": "Receive a report about sales",
+   "labelLines": [
+    {
+     "x": 2223,
+     "y": 611,
+     "w": 730,
+     "h": 49,
+     "text": "Receive a report about sales"
+    }
+   ],
+   "stem": 0.14,
+   "bold": true,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 228,
+   "y": 571,
+   "w": 798,
+   "h": 108,
+   "area": 73829,
+   "fill": 0.857,
+   "solid": 0.986,
+   "rx": 76.0,
+   "ry": 35,
+   "shape": "rounded",
+   "stroke": 5,
+   "kind": "action",
+   "id": "n4",
+   "label": "Send a report about sales",
+   "labelLines": [
+    {
+     "x": 296,
+     "y": 601,
+     "w": 660,
+     "h": 50,
+     "text": "Send a report about sales"
+    }
+   ],
+   "stem": 0.14,
+   "bold": true,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 1366,
+   "y": 907,
+   "w": 489,
+   "h": 138,
+   "area": 60491,
+   "fill": 0.896,
+   "solid": 1.0,
+   "rx": 0,
+   "ry": 0,
+   "shape": "rect",
+   "stroke": 9,
+   "kind": "object",
+   "id": "n5",
+   "label": "Product Activity",
+   "labelLines": [
+    {
+     "x": 1408,
+     "y": 952,
+     "w": 416,
+     "h": 50,
+     "text": "Product Activity"
+    }
+   ],
+   "stem": 0.14,
+   "bold": true,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 86,
+   "y": 909,
+   "w": 1090,
+   "h": 133,
+   "area": 125693,
+   "fill": 0.867,
+   "solid": 0.99,
+   "rx": 76.0,
+   "ry": 45,
+   "shape": "rounded",
+   "stroke": 4,
+   "kind": "action",
+   "id": "n6",
+   "label": "Send a report about movement of goods",
+   "labelLines": [
+    {
+     "x": 111,
+     "y": 951,
+     "w": 1039,
+     "h": 51,
+     "text": "Send a report about movement of goods"
+    }
+   ],
+   "stem": 0.14,
+   "bold": true,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 2061,
+   "y": 909,
+   "w": 1157,
+   "h": 159,
+   "area": 163236,
+   "fill": 0.887,
+   "solid": 0.989,
+   "rx": 76,
+   "ry": 63,
+   "shape": "rounded",
+   "stroke": 4,
+   "kind": "action",
+   "id": "n7",
+   "label": "Receive a report about movement of goods",
+   "labelLines": [
+    {
+     "x": 2081,
+     "y": 956,
+     "w": 1110,
+     "h": 52,
+     "text": "Receive a report about movement of goods"
+    }
+   ],
+   "stem": 0.14,
+   "bold": true,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 2955,
+   "y": 1574,
+   "w": 388,
+   "h": 25,
+   "area": 7295,
+   "fill": 0.597,
+   "kind": "fork",
+   "band": 25,
+   "box": 38,
+   "lumps": 2,
+   "id": "n8",
+   "label": "",
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 3114,
+   "y": 1841,
+   "w": 75,
+   "h": 75,
+   "area": 3492,
+   "fill": 0.621,
+   "solid": 0.781,
+   "rx": 41,
+   "ry": 37,
+   "shape": "ellipse",
+   "stroke": 4,
+   "kind": "final",
+   "innerRatio": 0.44,
+   "id": "n9",
+   "label": "",
+   "col": 1,
+   "row": 0
+  }
+ ],
+ "edges": [
+  {
+   "from": "n1",
+   "to": "n4",
+   "routing": "straight",
+   "fromPoint": [
+    627,
+    279
+   ],
+   "toPoint": [
+    627,
+    556
+   ],
+   "arrowInk": [
+    180,
+    635
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    58,
+    46.0,
+    2.13
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n4",
+   "to": "n2",
+   "routing": "straight",
+   "fromPoint": [
+    1040,
+    626
+   ],
+   "toPoint": [
+    1355,
+    626
+   ],
+   "arrowInk": [
+    180,
+    623
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    60,
+    46.0,
+    2.55
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n2",
+   "to": "n3",
+   "routing": "straight",
+   "fromPoint": [
+    1860,
+    629
+   ],
+   "toPoint": [
+    2193,
+    636
+   ],
+   "arrowInk": [
+    225,
+    664
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    56,
+    46.1,
+    2.04
+   ],
+   "arrowFill": 0.072,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n3",
+   "to": "n8",
+   "routing": "orthogonal",
+   "fromPoint": [
+    2981,
+    625
+   ],
+   "toPoint": [
+    3262,
+    1559
+   ],
+   "arrowInk": [
+    197,
+    618
+   ],
+   "directionConfidence": "high",
+   "points": [
+    [
+     3262,
+     625
+    ]
+   ],
+   "edgeKind": "control"
+  },
+  {
+   "from": "n4",
+   "to": "n6",
+   "routing": "straight",
+   "fromPoint": [
+    626,
+    693
+   ],
+   "toPoint": [
+    628,
+    894
+   ],
+   "arrowInk": [
+    180,
+    636
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    57,
+    47.1,
+    2.0
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n6",
+   "to": "n5",
+   "routing": "straight",
+   "fromPoint": [
+    1190,
+    978
+   ],
+   "toPoint": [
+    1351,
+    978
+   ],
+   "arrowInk": [
+    180,
+    622
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    59,
+    46.0,
+    2.56
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n5",
+   "to": "n7",
+   "routing": "straight",
+   "fromPoint": [
+    1869,
+    976
+   ],
+   "toPoint": [
+    2046,
+    983
+   ],
+   "arrowInk": [
+    197,
+    664
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    57,
+    45.7,
+    1.98
+   ],
+   "arrowFill": 0.027,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n7",
+   "to": "n8",
+   "routing": "straight",
+   "fromPoint": [
+    3069,
+    1082
+   ],
+   "toPoint": [
+    3070,
+    1559
+   ],
+   "arrowInk": [
+    180,
+    623
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    56,
+    45.8,
+    1.99
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n8",
+   "to": "n9",
+   "routing": "straight",
+   "fromPoint": [
+    3149,
+    1613
+   ],
+   "toPoint": [
+    3149,
+    1826
+   ],
+   "arrowInk": [
+    180,
+    638
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    58,
+    46.0,
+    2.13
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "control"
+  }
+ ],
+ "text": [
+  {
+   "text": "Retailer",
+   "x": 677,
+   "y": 57,
+   "w": 183,
+   "h": 40,
+   "lines": [
+    {
+     "x": 677,
+     "y": 57,
+     "w": 183,
+     "h": 40,
+     "text": "Retailer"
+    }
+   ]
+  },
+  {
+   "text": "Producer",
+   "x": 2408,
+   "y": 62,
+   "w": 216,
+   "h": 40,
+   "lines": [
+    {
+     "x": 2408,
+     "y": 62,
+     "w": 216,
+     "h": 40,
+     "text": "Producer"
+    }
+   ]
+  }
+ ],
+ "uncertain": [
+  {
+   "x": 629,
+   "y": 629,
+   "w": 977,
+   "h": 347,
+   "shape": "ellipse",
+   "iou": 0.797,
+   "border": 0.639,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best ellipse 0.80, and 0.99 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "kind": "edge-direction",
+   "reason": "arrowhead ink is ambiguous where several connectors meet",
+   "edge": [
+    "n2",
+    "n5"
+   ],
+   "check": "confirm which way this edge points"
+  }
+ ]
+}

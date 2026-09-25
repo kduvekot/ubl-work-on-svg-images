@@ -1,0 +1,791 @@
+{
+ "canvas": {
+  "w": 1480.0,
+  "h": 1105.678
+ },
+ "stroke": {
+  "frame": 4.3,
+  "divider": 1.7,
+  "action": 1.7,
+  "object": 2.6,
+  "edge": 1.7
+ },
+ "font": {
+  "family": "Helvetica, Arial, sans-serif",
+  "node": 22.2,
+  "lane": 22.2,
+  "guard": 22.2
+ },
+ "arrow": 24.3,
+ "arrowWidth": 19.7,
+ "arrowStyle": "filled",
+ "dashed": [],
+ "greyRules": [],
+ "crossMarks": [],
+ "openEnds": [],
+ "frameBox": [
+  2.2,
+  2.2,
+  1477.0,
+  1103.5
+ ],
+ "dividers": [
+  [
+   495.4,
+   1.7,
+   6.9,
+   1097.9
+  ],
+  [
+   984.6,
+   1.7,
+   6.9,
+   1097.9
+  ]
+ ],
+ "bands": [
+  [
+   54.5,
+   1.7,
+   6.9,
+   1470.5
+  ]
+ ],
+ "lanes": [
+  {
+   "title": "Export party",
+   "x": 0.0,
+   "w": 495.4,
+   "cx": 250.7,
+   "cy": 35.9
+  },
+  {
+   "title": "Preparation party",
+   "x": 495.4,
+   "w": 489.3,
+   "cx": 738.3,
+   "cy": 35.9
+  },
+  {
+   "title": "Certification party",
+   "x": 984.6,
+   "w": 495.4,
+   "cx": 1229.3,
+   "cy": 35.9
+  }
+ ],
+ "bandLabels": [],
+ "nodes": [
+  {
+   "id": "n1",
+   "kind": "initial",
+   "label": "",
+   "x": 152.1,
+   "y": 100.3,
+   "w": 39.8,
+   "h": 38.9
+  },
+  {
+   "id": "n2",
+   "kind": "action",
+   "label": "raft Goods Certificat",
+   "x": 67.4,
+   "y": 209.2,
+   "w": 209.2,
+   "h": 104.6,
+   "rx": 13.8,
+   "ry": 13.8,
+   "labelLines": [
+    {
+     "text": "raft Goods Certificat",
+     "cx": 172.9,
+     "cy": 263.7,
+     "w": 183.3
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "n3",
+   "kind": "object",
+   "label": "Goods Certificate",
+   "x": 391.2,
+   "y": 208.8,
+   "w": 209.2,
+   "h": 104.6,
+   "labelLines": [
+    {
+     "text": "Goods Certificate",
+     "cx": 494.9,
+     "cy": 261.1,
+     "w": 173.8
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n4",
+   "kind": "action",
+   "label": "Prepare for export",
+   "x": 645.8,
+   "y": 209.2,
+   "w": 180.7,
+   "h": 101.1,
+   "rx": 13.8,
+   "ry": 16.4,
+   "labelLines": [
+    {
+     "text": "Prepare for export",
+     "cx": 737.0,
+     "cy": 263.7,
+     "w": 166.8
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "n5",
+   "kind": "object",
+   "label": "Goods Certificate",
+   "x": 878.8,
+   "y": 369.6,
+   "w": 209.2,
+   "h": 104.6,
+   "labelLines": [
+    {
+     "text": "Goods Certificate",
+     "cx": 983.4,
+     "cy": 421.4,
+     "w": 173.8
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n6",
+   "kind": "action",
+   "label": "Issue Trade\nCertificates for\nexport as bundle",
+   "x": 638.0,
+   "y": 379.5,
+   "w": 198.0,
+   "h": 83.9,
+   "rx": 13.0,
+   "ry": 13.0,
+   "labelLines": [
+    {
+     "text": "Issue Trade",
+     "cx": 738.7,
+     "cy": 393.3,
+     "w": 106.3
+    },
+    {
+     "text": "Certificates for",
+     "cx": 738.7,
+     "cy": 419.3,
+     "w": 134.0
+    },
+    {
+     "text": "export as bundle",
+     "cx": 738.3,
+     "cy": 448.2,
+     "w": 153.9
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "n7",
+   "kind": "action",
+   "label": "Validate Trade\nCertificate",
+   "x": 1189.5,
+   "y": 379.5,
+   "w": 168.6,
+   "h": 83.9,
+   "rx": 13.0,
+   "ry": 15.6,
+   "labelLines": [
+    {
+     "text": "Validate Trade",
+     "cx": 1274.7,
+     "cy": 411.5,
+     "w": 132.3
+    },
+    {
+     "text": "Certificate",
+     "cx": 1274.7,
+     "cy": 431.8,
+     "w": 92.5
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "n8",
+   "kind": "decision",
+   "label": "OK?",
+   "x": 1206.8,
+   "y": 504.0,
+   "w": 137.5,
+   "h": 99.4,
+   "labelLines": [
+    {
+     "text": "OK?",
+     "cx": 1274.7,
+     "cy": 555.4,
+     "w": 40.6
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n9",
+   "kind": "object",
+   "label": "Goods Certificate",
+   "x": 391.2,
+   "y": 673.9,
+   "w": 209.2,
+   "h": 104.6,
+   "labelLines": [
+    {
+     "text": "Goods Certificate",
+     "cx": 494.9,
+     "cy": 724.4,
+     "w": 173.8
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n10",
+   "kind": "object",
+   "label": "Goods Certificate",
+   "x": 878.8,
+   "y": 673.9,
+   "w": 209.2,
+   "h": 104.6,
+   "labelLines": [
+    {
+     "text": "Goods Certificate",
+     "cx": 983.4,
+     "cy": 722.3,
+     "w": 173.8
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n11",
+   "kind": "action",
+   "label": "Receive\nGoods Certificate",
+   "x": 142.6,
+   "y": 681.2,
+   "w": 183.3,
+   "h": 90.8,
+   "rx": 11.2,
+   "ry": 12.1,
+   "labelLines": [
+    {
+     "text": "Receive",
+     "cx": 239.9,
+     "cy": 715.8,
+     "w": 73.5
+    },
+    {
+     "text": "Goods Certificate",
+     "cx": 239.9,
+     "cy": 736.5,
+     "w": 159.9
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "n12",
+   "kind": "action",
+   "label": "Apply stamps\nand signature",
+   "x": 1191.3,
+   "y": 681.2,
+   "w": 166.8,
+   "h": 90.8,
+   "rx": 12.1,
+   "ry": 15.6,
+   "labelLines": [
+    {
+     "text": "Apply stamps",
+     "cx": 1273.0,
+     "cy": 715.8,
+     "w": 125.4
+    },
+    {
+     "text": "and signature",
+     "cx": 1273.0,
+     "cy": 737.0,
+     "w": 125.4
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "n13",
+   "kind": "action",
+   "label": "Send\nauthorized\ncopy",
+   "x": 661.3,
+   "y": 684.7,
+   "w": 148.7,
+   "h": 83.9,
+   "rx": 11.2,
+   "ry": 15.6,
+   "labelLines": [
+    {
+     "text": "Send",
+     "cx": 733.1,
+     "cy": 703.3,
+     "w": 46.7
+    },
+    {
+     "text": "authorized",
+     "cx": 733.5,
+     "cy": 724.4,
+     "w": 96.0
+    },
+    {
+     "text": "copy",
+     "cx": 733.5,
+     "cy": 749.5,
+     "w": 44.1
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "n14",
+   "kind": "object",
+   "label": "Application response",
+   "x": 391.2,
+   "y": 848.5,
+   "w": 209.2,
+   "h": 104.6,
+   "labelLines": [
+    {
+     "text": "Application response",
+     "cx": 495.8,
+     "cy": 905.5,
+     "w": 201.4
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n15",
+   "kind": "object",
+   "label": "Application response",
+   "x": 878.8,
+   "y": 848.5,
+   "w": 209.2,
+   "h": 104.6,
+   "labelLines": [
+    {
+     "text": "Application response",
+     "cx": 983.4,
+     "cy": 905.5,
+     "w": 201.4
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n16",
+   "kind": "action",
+   "label": "Receive reject",
+   "x": 142.6,
+   "y": 855.8,
+   "w": 183.3,
+   "h": 90.8,
+   "rx": 12.1,
+   "ry": 12.1,
+   "labelLines": [
+    {
+     "text": "Receive reject",
+     "cx": 234.7,
+     "cy": 905.5,
+     "w": 130.5
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "n17",
+   "kind": "action",
+   "label": "Send reject",
+   "x": 659.6,
+   "y": 855.8,
+   "w": 166.8,
+   "h": 90.8,
+   "rx": 13.0,
+   "ry": 16.4,
+   "labelLines": [
+    {
+     "text": "Send reject",
+     "cx": 743.0,
+     "cy": 905.5,
+     "w": 104.6
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "n18",
+   "kind": "action",
+   "label": "Send reject",
+   "x": 1193.0,
+   "y": 855.8,
+   "w": 166.8,
+   "h": 90.8,
+   "rx": 13.0,
+   "ry": 15.6,
+   "labelLines": [
+    {
+     "text": "Send reject",
+     "cx": 1276.4,
+     "cy": 905.5,
+     "w": 104.6
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "n19",
+   "kind": "final",
+   "label": "",
+   "x": 67.4,
+   "y": 1013.2,
+   "w": 51.9,
+   "h": 51.9,
+   "innerRatio": 0.776
+  }
+ ],
+ "edges": [
+  {
+   "from": "n1",
+   "to": "n2",
+   "exitXY": [
+    0.4799,
+    1.0
+   ],
+   "entryXY": [
+    0.4962,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n2",
+   "to": "n3",
+   "exitXY": [
+    1.0,
+    0.4962
+   ],
+   "entryXY": [
+    0.0,
+    0.5
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n3",
+   "to": "n4",
+   "exitXY": [
+    1.0,
+    0.5076
+   ],
+   "entryXY": [
+    0.0,
+    0.4955
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n4",
+   "to": "n6",
+   "exitXY": [
+    0.5163,
+    1.0
+   ],
+   "entryXY": [
+    0.502,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n6",
+   "to": "n5",
+   "exitXY": [
+    1.0,
+    0.4946
+   ],
+   "entryXY": [
+    0.0,
+    0.5
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n5",
+   "to": "n7",
+   "exitXY": [
+    1.0,
+    0.5
+   ],
+   "entryXY": [
+    0.0,
+    0.4946
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n7",
+   "to": "n8",
+   "exitXY": [
+    0.5077,
+    1.0
+   ],
+   "entryXY": [
+    0.4967,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "checked"
+  },
+  {
+   "from": "n8",
+   "to": "n18",
+   "exitXY": [
+    1.0,
+    0.496
+   ],
+   "entryXY": [
+    1.0,
+    0.4956
+   ],
+   "straight": false,
+   "confidence": "high",
+   "points": [
+    [
+     1409.1,
+     553.3
+    ],
+    [
+     1409.1,
+     900.8
+    ]
+   ],
+   "label": "No"
+  },
+  {
+   "from": "n8",
+   "to": "n12",
+   "exitXY": [
+    0.4967,
+    1.0
+   ],
+   "entryXY": [
+    0.5024,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high",
+   "label": "Yes"
+  },
+  {
+   "from": "n9",
+   "to": "n11",
+   "exitXY": [
+    0.0,
+    0.5
+   ],
+   "entryXY": [
+    1.0,
+    0.4956
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n13",
+   "to": "n9",
+   "exitXY": [
+    0.0,
+    0.4946
+   ],
+   "entryXY": [
+    1.0,
+    0.5
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n10",
+   "to": "n13",
+   "exitXY": [
+    0.0,
+    0.5
+   ],
+   "entryXY": [
+    1.0,
+    0.4946
+   ],
+   "straight": true,
+   "confidence": "checked"
+  },
+  {
+   "from": "n12",
+   "to": "n10",
+   "exitXY": [
+    0.0,
+    0.4956
+   ],
+   "entryXY": [
+    1.0,
+    0.5
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n11",
+   "to": "n19",
+   "exitXY": [
+    0.0,
+    0.4956
+   ],
+   "entryXY": [
+    0.501,
+    0.0
+   ],
+   "straight": false,
+   "confidence": "high",
+   "points": [
+    [
+     93.4,
+     726.2
+    ]
+   ]
+  },
+  {
+   "from": "n14",
+   "to": "n16",
+   "exitXY": [
+    0.0,
+    0.5
+   ],
+   "entryXY": [
+    1.0,
+    0.4956
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n17",
+   "to": "n14",
+   "exitXY": [
+    0.0,
+    0.4956
+   ],
+   "entryXY": [
+    1.0,
+    0.5
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n18",
+   "to": "n15",
+   "exitXY": [
+    0.0,
+    0.5143
+   ],
+   "entryXY": [
+    1.0,
+    0.5163
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n15",
+   "to": "n17",
+   "exitXY": [
+    0.0,
+    0.5249
+   ],
+   "entryXY": [
+    1.0,
+    0.4956
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n16",
+   "to": "n19",
+   "exitXY": [
+    0.5046,
+    1.0
+   ],
+   "entryXY": [
+    1.0,
+    0.499
+   ],
+   "straight": false,
+   "confidence": "high",
+   "points": [
+    [
+     235.1,
+     1039.1
+    ]
+   ]
+  }
+ ],
+ "guards": [
+  {
+   "text": "Yes",
+   "x": 1222.4,
+   "y": 627.6,
+   "w": 29.4,
+   "h": 13.8,
+   "labelLines": [
+    {
+     "text": "Yes",
+     "cx": 1237.1,
+     "cy": 634.5,
+     "w": 29.4
+    }
+   ]
+  },
+  {
+   "text": "No",
+   "x": 1417.8,
+   "y": 701.1,
+   "w": 22.5,
+   "h": 14.7,
+   "labelLines": [
+    {
+     "text": "No",
+     "cx": 1429.0,
+     "cy": 708.4,
+     "w": 22.5
+    }
+   ]
+  }
+ ]
+}

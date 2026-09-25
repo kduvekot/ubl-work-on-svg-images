@@ -1,0 +1,438 @@
+{
+ "name": "UBL-2.2-IMFM-IntermodalFreightManagementProcess.png",
+ "verdict": "needs-human",
+ "radius": 3,
+ "lineWorkInk": 404453,
+ "missingPx": 924,
+ "inventedPx": 111,
+ "structural": {
+  "absent": 0,
+  "invented": 0,
+  "coherence": 0,
+  "textAbsent": 0,
+  "textDiffers": 0
+ },
+ "blocking": [],
+ "findings": [
+  {
+   "kind": "line-work-missing",
+   "detail": "unattributed",
+   "x": 26,
+   "y": 730,
+   "w": 25,
+   "h": 6,
+   "area": 110
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "unattributed",
+   "x": 25,
+   "y": 2063,
+   "w": 19,
+   "h": 9,
+   "area": 89
+  }
+ ],
+ "text": [],
+ "coherence": [],
+ "human": [
+  {
+   "x": 2514,
+   "y": 285,
+   "w": 318,
+   "h": 790,
+   "shape": "rect",
+   "iou": 1.0,
+   "border": 1.0,
+   "kind": "dropped-region",
+   "reason": "4 of 4 sides are pass-through line-work",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "x": 615,
+   "y": 427,
+   "w": 338,
+   "h": 195,
+   "shape": "rect",
+   "iou": 0.588,
+   "border": 0.64,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best rect 0.59, and 0.98 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "x": 381,
+   "y": 625,
+   "w": 572,
+   "h": 252,
+   "shape": "rhombus",
+   "iou": 0.706,
+   "border": 0.374,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best rhombus 0.71, and 0.98 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "x": 611,
+   "y": 880,
+   "w": 342,
+   "h": 205,
+   "shape": "rect",
+   "iou": 0.537,
+   "border": 0.645,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best rect 0.54, and 0.98 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "x": 1462,
+   "y": 1079,
+   "w": 387,
+   "h": 455,
+   "shape": "rect",
+   "iou": 0.532,
+   "border": 0.666,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best rect 0.53, and 0.99 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "x": 1853,
+   "y": 1079,
+   "w": 979,
+   "h": 455,
+   "shape": "rect",
+   "iou": 0.996,
+   "border": 1.0,
+   "kind": "dropped-region",
+   "reason": "4 of 4 sides are pass-through line-work",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "x": 957,
+   "y": 1085,
+   "w": 501,
+   "h": 449,
+   "shape": "rect",
+   "iou": 0.408,
+   "border": 0.572,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best rect 0.41, and 0.99 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "x": 611,
+   "y": 1088,
+   "w": 342,
+   "h": 232,
+   "shape": "rect",
+   "iou": 0.572,
+   "border": 0.67,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best rect 0.57, and 0.99 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "x": 957,
+   "y": 1538,
+   "w": 500,
+   "h": 226,
+   "shape": "rect",
+   "iou": 0.483,
+   "border": 0.628,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best rect 0.48, and 0.99 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "x": 1461,
+   "y": 1538,
+   "w": 388,
+   "h": 187,
+   "shape": "rect",
+   "iou": 0.574,
+   "border": 0.691,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best rect 0.57, and 0.98 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "x": 1691,
+   "y": 1728,
+   "w": 158,
+   "h": 211,
+   "shape": "rect",
+   "iou": 0.995,
+   "border": 1.0,
+   "kind": "dropped-region",
+   "reason": "4 of 4 sides are pass-through line-work",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "x": 1853,
+   "y": 1728,
+   "w": 657,
+   "h": 211,
+   "shape": "rect",
+   "iou": 0.747,
+   "border": 0.797,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best rect 0.75, and 0.99 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "x": 618,
+   "y": 1750,
+   "w": 335,
+   "h": 253,
+   "shape": "rect",
+   "iou": 0.567,
+   "border": 0.593,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best rect 0.57, and 0.99 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "x": 957,
+   "y": 1764,
+   "w": 270,
+   "h": 240,
+   "shape": "rect",
+   "iou": 0.447,
+   "border": 0.614,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best rect 0.45, and 0.98 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "x": 1691,
+   "y": 1943,
+   "w": 158,
+   "h": 495,
+   "shape": "rect",
+   "iou": 0.75,
+   "border": 0.908,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best rect 0.75, and 0.98 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "x": 957,
+   "y": 2006,
+   "w": 270,
+   "h": 238,
+   "shape": "rect",
+   "iou": 0.446,
+   "border": 0.603,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best rect 0.45, and 0.98 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "x": 618,
+   "y": 2007,
+   "w": 335,
+   "h": 236,
+   "shape": "rect",
+   "iou": 0.589,
+   "border": 0.711,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best rect 0.59, and 0.99 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "x": 957,
+   "y": 2245,
+   "w": 497,
+   "h": 503,
+   "shape": "rect",
+   "iou": 0.406,
+   "border": 0.519,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best rect 0.41, and 0.99 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "x": 618,
+   "y": 2246,
+   "w": 335,
+   "h": 248,
+   "shape": "rect",
+   "iou": 0.622,
+   "border": 0.741,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best rect 0.62, and 0.99 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "x": 1458,
+   "y": 2442,
+   "w": 391,
+   "h": 306,
+   "shape": "rect",
+   "iou": 0.582,
+   "border": 0.684,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best rect 0.58, and 0.99 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "kind": "edge-direction",
+   "reason": "arrowhead ink is ambiguous where several connectors meet",
+   "edge": [
+    "n1",
+    "n3"
+   ],
+   "check": "confirm which way this edge points"
+  }
+ ],
+ "review": [
+  {
+   "n": 1,
+   "what": "check",
+   "where": "2514,285 318x790",
+   "detail": "4 of 4 sides are pass-through line-work",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "n": 2,
+   "what": "check",
+   "where": "615,427 338x195",
+   "detail": "outline matches no UML node shape (best rect 0.59, and 0.98 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "n": 3,
+   "what": "check",
+   "where": "381,625 572x252",
+   "detail": "outline matches no UML node shape (best rhombus 0.71, and 0.98 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "n": 4,
+   "what": "check",
+   "where": "611,880 342x205",
+   "detail": "outline matches no UML node shape (best rect 0.54, and 0.98 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "n": 5,
+   "what": "check",
+   "where": "1462,1079 387x455",
+   "detail": "outline matches no UML node shape (best rect 0.53, and 0.99 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "n": 6,
+   "what": "check",
+   "where": "1853,1079 979x455",
+   "detail": "4 of 4 sides are pass-through line-work",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "n": 7,
+   "what": "check",
+   "where": "957,1085 501x449",
+   "detail": "outline matches no UML node shape (best rect 0.41, and 0.99 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "n": 8,
+   "what": "check",
+   "where": "611,1088 342x232",
+   "detail": "outline matches no UML node shape (best rect 0.57, and 0.99 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "n": 9,
+   "what": "check",
+   "where": "957,1538 500x226",
+   "detail": "outline matches no UML node shape (best rect 0.48, and 0.99 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "n": 10,
+   "what": "check",
+   "where": "1461,1538 388x187",
+   "detail": "outline matches no UML node shape (best rect 0.57, and 0.98 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "n": 11,
+   "what": "check",
+   "where": "1691,1728 158x211",
+   "detail": "4 of 4 sides are pass-through line-work",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "n": 12,
+   "what": "check",
+   "where": "1853,1728 657x211",
+   "detail": "outline matches no UML node shape (best rect 0.75, and 0.99 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "n": 13,
+   "what": "check",
+   "where": "618,1750 335x253",
+   "detail": "outline matches no UML node shape (best rect 0.57, and 0.99 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "n": 14,
+   "what": "check",
+   "where": "957,1764 270x240",
+   "detail": "outline matches no UML node shape (best rect 0.45, and 0.98 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "n": 15,
+   "what": "check",
+   "where": "1691,1943 158x495",
+   "detail": "outline matches no UML node shape (best rect 0.75, and 0.98 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "n": 16,
+   "what": "check",
+   "where": "957,2006 270x238",
+   "detail": "outline matches no UML node shape (best rect 0.45, and 0.98 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "n": 17,
+   "what": "check",
+   "where": "618,2007 335x236",
+   "detail": "outline matches no UML node shape (best rect 0.59, and 0.99 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "n": 18,
+   "what": "check",
+   "where": "957,2245 497x503",
+   "detail": "outline matches no UML node shape (best rect 0.41, and 0.99 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "n": 19,
+   "what": "check",
+   "where": "618,2246 335x248",
+   "detail": "outline matches no UML node shape (best rect 0.62, and 0.99 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "n": 20,
+   "what": "check",
+   "where": "1458,2442 391x306",
+   "detail": "outline matches no UML node shape (best rect 0.58, and 0.99 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "n": 21,
+   "what": "check",
+   "where": "",
+   "detail": "arrowhead ink is ambiguous where several connectors meet",
+   "check": "confirm which way this edge points"
+  }
+ ]
+}

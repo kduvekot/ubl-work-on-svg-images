@@ -1,0 +1,11 @@
+== UBL-2.2-Enquiry
+  scale 0.43224   frame 8px  divider 8px  action 9px  object 8px
+  font 70px (30.3 model)   3 lanes, 1 bands, 9 nodes, 8 edges -> review/baseline/UBL-2.2-Enquiry-spec.json
+  review/baseline/UBL-2.2-Enquiry.svg + .drawio + -classified.svg   (9 nodes, 8 edges)
+  rendered UBL-2.2-Enquiry.svg -> UBL-2.2-Enquiry-render.png @ 3424pxx1802, 600 dpi
+  aligned on ink bounds: scale x 1.0009, y 1.0000
+  size 3424x1802  radius 2
+  ink: original 347448   candidate 343695
+  MISSING (red)    34257  = 9.8596% of original ink
+  EXTRA   (blue)   25992  = 7.4808% of original ink
+  RESULT: DIFFERENCES - inspect review/baseline/UBL-2.2-Enquiry-diff-r2.png

@@ -1,0 +1,166 @@
+{
+ "name": "UBL-2.2-CRP-ChangeArticleCatalogue.png",
+ "verdict": "correct",
+ "radius": 3,
+ "lineWorkInk": 182748,
+ "missingPx": 1949,
+ "inventedPx": 1900,
+ "structural": {
+  "absent": 0,
+  "invented": 0,
+  "coherence": 0,
+  "textAbsent": 0,
+  "textDiffers": 0
+ },
+ "blocking": [],
+ "findings": [
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n5 (action 'Inform about changes')",
+   "x": 83,
+   "y": 896,
+   "w": 44,
+   "h": 41,
+   "area": 258
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n5 (action 'Inform about changes')",
+   "x": 83,
+   "y": 1022,
+   "w": 43,
+   "h": 41,
+   "area": 257
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n5 (action 'Inform about changes')",
+   "x": 1144,
+   "y": 896,
+   "w": 44,
+   "h": 41,
+   "area": 256
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n5 (action 'Inform about changes')",
+   "x": 1145,
+   "y": 1022,
+   "w": 43,
+   "h": 41,
+   "area": 254
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n6 (action 'Receive information')",
+   "x": 3289,
+   "y": 1003,
+   "w": 32,
+   "h": 33,
+   "area": 184
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n6 (action 'Receive information')",
+   "x": 3287,
+   "y": 905,
+   "w": 34,
+   "h": 34,
+   "area": 181
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n6 (action 'Receive information')",
+   "x": 2546,
+   "y": 906,
+   "w": 31,
+   "h": 30,
+   "area": 162
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n6 (action 'Receive information')",
+   "x": 2546,
+   "y": 1006,
+   "w": 31,
+   "h": 30,
+   "area": 161
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n5 (action 'Inform about changes')",
+   "x": 90,
+   "y": 903,
+   "w": 44,
+   "h": 40,
+   "area": 260
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n5 (action 'Inform about changes')",
+   "x": 1137,
+   "y": 903,
+   "w": 44,
+   "h": 40,
+   "area": 255
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n5 (action 'Inform about changes')",
+   "x": 90,
+   "y": 1016,
+   "w": 43,
+   "h": 40,
+   "area": 249
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n5 (action 'Inform about changes')",
+   "x": 1138,
+   "y": 1016,
+   "w": 43,
+   "h": 40,
+   "area": 243
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n6 (action 'Receive information')",
+   "x": 3282,
+   "y": 913,
+   "w": 32,
+   "h": 32,
+   "area": 183
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n6 (action 'Receive information')",
+   "x": 3282,
+   "y": 997,
+   "w": 32,
+   "h": 32,
+   "area": 179
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n6 (action 'Receive information')",
+   "x": 2554,
+   "y": 913,
+   "w": 30,
+   "h": 28,
+   "area": 161
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n6 (action 'Receive information')",
+   "x": 2554,
+   "y": 1001,
+   "w": 30,
+   "h": 28,
+   "area": 157
+  }
+ ],
+ "text": [],
+ "coherence": [],
+ "human": [],
+ "review": []
+}

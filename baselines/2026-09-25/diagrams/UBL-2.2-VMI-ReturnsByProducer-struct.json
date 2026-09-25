@@ -1,0 +1,304 @@
+{
+ "name": "UBL-2.2-VMI-ReturnsByProducer.png",
+ "verdict": "needs-human",
+ "radius": 3,
+ "lineWorkInk": 321813,
+ "missingPx": 2732,
+ "inventedPx": 2566,
+ "structural": {
+  "absent": 0,
+  "invented": 0,
+  "coherence": 0,
+  "textAbsent": 0,
+  "textDiffers": 0
+ },
+ "blocking": [],
+ "findings": [
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n9 (action 'Send an advice to no')",
+   "x": 3307,
+   "y": 1421,
+   "w": 34,
+   "h": 30,
+   "area": 168
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n9 (action 'Send an advice to no')",
+   "x": 2450,
+   "y": 1421,
+   "w": 34,
+   "h": 30,
+   "area": 163
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n6 (action 'Send Instruction for')",
+   "x": 940,
+   "y": 1012,
+   "w": 31,
+   "h": 26,
+   "area": 162
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n6 (action 'Send Instruction for')",
+   "x": 940,
+   "y": 908,
+   "w": 31,
+   "h": 25,
+   "area": 154
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n9 (action 'Send an advice to no')",
+   "x": 3307,
+   "y": 1288,
+   "w": 34,
+   "h": 29,
+   "area": 153
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n9 (action 'Send an advice to no')",
+   "x": 2451,
+   "y": 1288,
+   "w": 32,
+   "h": 28,
+   "area": 147
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n6 (action 'Send Instruction for')",
+   "x": 203,
+   "y": 1012,
+   "w": 30,
+   "h": 26,
+   "area": 143
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n6 (action 'Send Instruction for')",
+   "x": 203,
+   "y": 909,
+   "w": 28,
+   "h": 22,
+   "area": 134
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "unattributed",
+   "x": 1801,
+   "y": 1769,
+   "w": 21,
+   "h": 19,
+   "area": 126
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "unattributed",
+   "x": 1833,
+   "y": 1769,
+   "w": 16,
+   "h": 18,
+   "area": 103
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n5 (action 'Receive Instruction ')",
+   "x": 3268,
+   "y": 905,
+   "w": 28,
+   "h": 21,
+   "area": 84
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n5 (action 'Receive Instruction ')",
+   "x": 2492,
+   "y": 906,
+   "w": 24,
+   "h": 18,
+   "area": 78
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n10 (action 'Receive the return i')",
+   "x": 1433,
+   "y": 1811,
+   "w": 18,
+   "h": 17,
+   "area": 74
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n5 (action 'Receive Instruction ')",
+   "x": 2492,
+   "y": 1048,
+   "w": 24,
+   "h": 18,
+   "area": 69
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n5 (action 'Receive Instruction ')",
+   "x": 3271,
+   "y": 1049,
+   "w": 23,
+   "h": 17,
+   "area": 61
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n9 (action 'Send an advice to no')",
+   "x": 3298,
+   "y": 1417,
+   "w": 35,
+   "h": 28,
+   "area": 168
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n9 (action 'Send an advice to no')",
+   "x": 2458,
+   "y": 1417,
+   "w": 32,
+   "h": 27,
+   "area": 162
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n9 (action 'Send an advice to no')",
+   "x": 3301,
+   "y": 1295,
+   "w": 32,
+   "h": 27,
+   "area": 153
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n9 (action 'Send an advice to no')",
+   "x": 2458,
+   "y": 1296,
+   "w": 29,
+   "h": 26,
+   "area": 147
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n6 (action 'Send Instruction for')",
+   "x": 933,
+   "y": 1012,
+   "w": 30,
+   "h": 19,
+   "area": 135
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n6 (action 'Send Instruction for')",
+   "x": 211,
+   "y": 1012,
+   "w": 29,
+   "h": 19,
+   "area": 130
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n6 (action 'Send Instruction for')",
+   "x": 936,
+   "y": 916,
+   "w": 26,
+   "h": 17,
+   "area": 120
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n6 (action 'Send Instruction for')",
+   "x": 213,
+   "y": 916,
+   "w": 25,
+   "h": 15,
+   "area": 107
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n5 (action 'Receive Instruction ')",
+   "x": 3262,
+   "y": 912,
+   "w": 27,
+   "h": 20,
+   "area": 91
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n5 (action 'Receive Instruction ')",
+   "x": 2498,
+   "y": 912,
+   "w": 27,
+   "h": 20,
+   "area": 87
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n5 (action 'Receive Instruction ')",
+   "x": 2499,
+   "y": 1042,
+   "w": 26,
+   "h": 18,
+   "area": 78
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n5 (action 'Receive Instruction ')",
+   "x": 3264,
+   "y": 1042,
+   "w": 24,
+   "h": 17,
+   "area": 75
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "unattributed",
+   "x": 1807,
+   "y": 1761,
+   "w": 15,
+   "h": 5,
+   "area": 72
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n13 (action 'Check status of item')",
+   "x": 494,
+   "y": 2371,
+   "w": 24,
+   "h": 16,
+   "area": 67
+  }
+ ],
+ "text": [],
+ "coherence": [],
+ "human": [
+  {
+   "x": 845,
+   "y": 1763,
+   "w": 980,
+   "h": 917,
+   "shape": "rounded",
+   "iou": 0.777,
+   "border": 0.701,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best rounded 0.78, and 1.00 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  }
+ ],
+ "review": [
+  {
+   "n": 1,
+   "what": "check",
+   "where": "845,1763 980x917",
+   "detail": "outline matches no UML node shape (best rounded 0.78, and 1.00 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  }
+ ]
+}

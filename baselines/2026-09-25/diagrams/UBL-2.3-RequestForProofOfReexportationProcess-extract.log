@@ -1,0 +1,82 @@
+image 1712x1279
+
+PARTITION RULES
+   vertical  : [(0, 5), (572, 2), (1138, 2), (1705, 7)]
+   horizontal: [(0, 5), (62, 2), (1274, 5)]
+   -> 3 column(s) x 2 band(s)
+   type measured off the page: a word is 18px tall
+   (dropped x=5     y=5      567x1269  encloses another region)
+   (dropped x=574   y=5      564x57    is a partition cell)
+   (dropped x=1140  y=5      565x57    is a partition cell)
+   (dropped x=574   y=64     564x1210  is a partition cell)
+   (dropped x=1140  y=64     565x1210  is a partition cell)
+   one line weight only - no object nodes
+
+NODES
+   n1   initial   x=248   y=144   w=46    h=46    stroke=0   fill=0.74  ''
+   n2   action    x=151   y=279   w=240   h=119   stroke=2   fill=0.91  'Query if goods have\nleft the country'
+   n3   object    x=454   y=279   w=239   h=118   stroke=3   fill=0.88  'Request For Proof\nOf Reexportation'
+   n4   object    x=1018  y=279   w=239   h=118   stroke=3   fill=0.88  'Request For Proof\nOf Reexportation'
+   n5   action    x=739   y=291   w=227   h=95    stroke=2   fill=0.87  'Issue to |\nRelevant Chamber\nof Commerce ~'
+   n6   action    x=1377  y=291   w=193   h=95    stroke=2   fill=0.92  'Create\nCase Number'
+   n7   action    x=1377  y=440   w=193   h=95    stroke=2   fill=0.85  'Get Status From\nGoods Item\nPassport'
+   n8   decision  x=1397  y=584   w=157   h=113   stroke=2   fill=0.45  'Item\nReturned?'
+   n9   object    x=454   y=781   w=239   h=118   stroke=3   fill=0.92  'Proof\nOf Reexportation'
+   n10  object    x=1018  y=781   w=239   h=118   stroke=3   fill=0.92  'Proof\nOf Reexportation'
+   n11  action    x=166   y=789   w=210   h=103   stroke=2   fill=0.88  'Receive Proof\nof Reexportation'
+   n12  action    x=1379  y=789   w=191   h=103   stroke=2   fill=0.88  'Apply Stamps\nAnd Signature'
+   n13  action    x=767   y=793   w=170   h=95    stroke=2   fill=0.92  'Issue\nto\nCustoms'
+   n14  object    x=454   y=983   w=239   h=118   stroke=3   fill=0.93  'Application response}'
+   n15  object    x=1018  y=983   w=239   h=118   stroke=3   fill=0.93  'Application response}'
+   n16  action    x=166   y=991   w=210   h=103   stroke=2   fill=0.93  'Receive Declined'
+   n17  action    x=764   y=991   w=175   h=103   stroke=2   fill=0.93  'Issue\nto\nCustoms'
+   n18  action    x=1381  y=991   w=191   h=103   stroke=2   fill=0.93  'Send Declined'
+   n19  final     x=79    y=1173  w=58    h=58    stroke=0   fill=0.30  ''
+
+TYPE  cap height 18px over 331 glyphs -> font 25.7px
+
+EDGES
+   n1   -> n2    straight    arrowhead   271 vs 115    ratio 4.0  high
+   n2   -> n3    straight    arrowhead   241 vs 241    ratio 4.0  high
+   n3   -> n5    straight    arrowhead   195 vs 195    ratio 1.0  <-- CHECK DIRECTION
+   n5   -> n4    straight    arrowhead   200 vs 200    ratio 4.0  high
+   n4   -> n6    straight    arrowhead   265 vs 90     ratio 4.0  high
+   n6   -> n7    straight    arrowhead   203 vs 203    ratio 4.0  high
+   n7   -> n8    straight    arrowhead   143 vs 143    ratio 1.0  <-- CHECK DIRECTION
+   n8   -> n18   orthogonal  arrowhead   307 vs 90     ratio 4.0  high
+   n8   -> n12   straight    arrowhead   386 vs 228    ratio 4.0  high
+   n9   -> n11   straight    arrowhead   226 vs 188    ratio 4.0  high
+   n13  -> n9    straight    arrowhead   209 vs 207    ratio 4.0  high
+   n10  -> n13   straight    arrowhead   246 vs 182    ratio 4.0  high
+   n12  -> n10   straight    arrowhead   255 vs 92     ratio 4.0  high
+   n11  -> n19   orthogonal  arrowhead   178 vs 158    ratio 4.0  high
+   n14  -> n16   straight    arrowhead   226 vs 188    ratio 4.0  high
+   n17  -> n14   straight    arrowhead   203 vs 203    ratio 4.0  high
+   n18  -> n15   straight    arrowhead   255 vs 92     ratio 4.0  high
+   n15  -> n17   straight    arrowhead   272 vs 254    ratio 4.0  high
+   n16  -> n19   orthogonal  arrowhead   157 vs 90     ratio 4.0  high
+
+TEXT (titles, guards, notes)
+   'Importing Guarantor Party'              x=703   y=29    
+   'Exporting Guarantor Party'              x=1271  y=29    
+   'Importing Customs Party'                x=146   y=30    
+   'Yes'                                    x=1414  y=726   n8->n12
+   'No'                                     x=1640  y=811   n8->n18
+
+PARTITIONS
+   column 0  'Importing Customs Party'
+   column 1  'Importing Guarantor Party'
+   column 2  'Exporting Guarantor Party'
+   band   0  ''
+   band   1  ''
+
+ARROWHEAD  23 x 18px, filled, measured on 13 connector(s)
+   reading settled: 'Issue to |\nRelevant Chamber\nof Commerce ' -> 'Issue to 1\nRelevant Chamber\nof Commerce'
+   reading settled: 'Issue to |' -> 'Issue to 1'
+   reading settled: 'of Commerce ~' -> 'of Commerce'
+   reading settled: 'Application response}' -> 'Application response'
+   reading settled: 'Application response}' -> 'Application response'
+   reading settled: 'Application response}' -> 'Application response'
+   reading settled: 'Application response}' -> 'Application response'
+
+wrote review/baseline/UBL-2.3-RequestForProofOfReexportationProcess-graph.json   (19 nodes, 19 edges, 2 flagged for a human)

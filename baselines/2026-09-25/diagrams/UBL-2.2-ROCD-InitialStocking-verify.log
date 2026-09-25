@@ -1,0 +1,17 @@
+  verdict: NEEDS-HUMAN
+  structural: 0 element(s) absent, 0 invented, 0 text absent, 0 text differs, 0 incoherent
+  line-work  missing 1401 px (0.445%)   invented 1265 px (0.402%)   radius 3
+    line-work-missing      121 px at  2817,2108     3x74    near edge n14 -> n15
+    line-work-missing      105 px at  2819,2163    19x46    near edge n14 -> n15
+    line-work-missing       89 px at  2558,1436    22x21    on node n11 (action 'Receive Despatch Adv')
+    line-work-missing       89 px at  3151,1436    22x21    on node n11 (action 'Receive Despatch Adv')
+    line-work-missing       66 px at  2559,1349    19x18    on node n11 (action 'Receive Despatch Adv')
+    line-work-missing       62 px at  3155,1350    18x19    on node n11 (action 'Receive Despatch Adv')
+    line-work-invented     182 px at  1667,2356     2x140   near edge n16 -> n18
+    line-work-invented     123 px at  2810,2106     3x75    near edge n14 -> n15
+    line-work-invented      96 px at  2793,2163    17x46    near edge n14 -> n15
+    line-work-invented      80 px at  3145,1431    22x20    on node n11 (action 'Receive Despatch Adv')
+    line-work-invented      78 px at  2565,1432    21x19    on node n11 (action 'Receive Despatch Adv')
+  needs a person (1):
+    dropped-region     at 85,814  a shape here would be missing from the SVG
+review/baseline/UBL-2.2-ROCD-InitialStocking-marked.png + review/baseline/UBL-2.2-ROCD-InitialStocking-marked-lost.png  (1 finding(s) numbered)

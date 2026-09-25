@@ -1,0 +1,20 @@
+  verdict: NEEDS-HUMAN
+  structural: 0 element(s) absent, 0 invented, 0 text absent, 0 text differs, 0 incoherent
+  line-work  missing 3378 px (1.568%)   invented 2233 px (1.037%)   radius 3
+    line-work-missing      640 px at  1070,787    147x230   near edge n7 -> n11
+    line-work-missing      384 px at  1243,1167   108x99    near edge n10 -> n16
+    line-work-missing      378 px at  1560,1629   110x47    near edge n18 -> n15
+    line-work-missing      357 px at  2570,1272   105x54    near edge n14 -> n8
+    line-work-missing      268 px at  2922,892     77x53    near edge n8 -> n5
+    line-work-missing      260 px at  2950,1114    33x35    near edge n14 -> n8
+    line-work-missing      196 px at   873,1540    69x67    near edge n10 -> n16
+    line-work-missing      194 px at  2870,1137    66x37    near edge n14 -> n8
+    line-work-missing      186 px at  2603,684     64x45    near edge n8 -> n5
+    line-work-missing      162 px at  1047,1021    40x31    near edge n7 -> n11
+    line-work-invented     353 px at  1100,787    107x169   near edge n7 -> n11
+    line-work-invented     224 px at  1267,1168    70x65    near edge n10 -> n16
+    ... and 7 more line-work findings
+  needs a person (2):
+    dropped-region     at 847,1098  a shape here would be missing from the SVG
+    arrowhead-unmeasurable at 2518,612  confirm the arrowhead here is drawn and points the way the original does
+review/baseline/UBL-2.2-FulfilmentDespatchAdviceProcess-marked.png + review/baseline/UBL-2.2-FulfilmentDespatchAdviceProcess-marked-lost.png  (2 finding(s) numbered)

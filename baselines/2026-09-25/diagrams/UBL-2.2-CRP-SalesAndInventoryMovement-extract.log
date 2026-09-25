@@ -1,0 +1,51 @@
+image 3425x1746
+
+PARTITION RULES
+   vertical  : [(0, 10), (1777, 4), (3415, 10)]
+   horizontal: [(0, 10), (1736, 10)]
+   -> 2 column(s) x 1 band(s)
+   type measured off the page: a word is 36px tall
+   (dropped x=10    y=10    3405x1726  encloses another region)
+   object nodes are those stroked heavier than 6.5px
+
+NODES
+   n1   initial   x=2828  y=171   w=76    h=76    stroke=0   fill=0.77  ''
+   n2   object    x=1562  y=494   w=435   h=126   stroke=8   fill=0.89  'Product Activity'
+   n3   action    x=391   y=500   w=695   h=118   stroke=4   fill=0.86  'Receive a report about sales'
+   n4   action    x=2503  y=507   w=729   h=99    stroke=4   fill=0.86  'Send a report about sales'
+   n5   object    x=1558  y=819   w=447   h=126   stroke=8   fill=0.89  'Product Activity'
+   n6   action    x=2392  y=821   w=947   h=145   stroke=5   fill=0.88  'Send a report about movement of\ngoods'
+   n7   action    x=219   y=824   w=1027  h=146   stroke=4   fill=0.88  'Receive a report about movement of\ngoods'
+   n8   fork      x=82    y=1405  w=355   h=23    stroke=0   fill=1.00  ''
+   n9   final     x=223   y=1620  w=69    h=68    stroke=4   fill=0.62  ''
+
+TYPE  cap height 36px over 140 glyphs -> font 51.4px
+   corner radius rx on 'Send a report about sales' could not be read (it came back larger than the box) - taking the 60 the rest of its kind measures
+   corner radius rx on 'Receive a report about movem' could not be read (it came back larger than the box) - taking the 60 the rest of its kind measures
+
+EDGES
+   n2   -> (off the diagram) at 1771,12
+   n1   -> n4    straight    arrowhead   569 vs 180    ratio 4.0  high
+   n2   -> n3    straight    arrowhead   579 vs 184    ratio 4.0  high
+   n4   -> n2    straight    arrowhead   555 vs 184    ratio 4.0  high
+   n3   -> n8    orthogonal  arrowhead   531 vs 184    ratio 4.0  high
+   n4   -> n6    straight    arrowhead   574 vs 180    ratio 4.0  high
+   n6   -> n5    straight    arrowhead   557 vs 184    ratio 4.0  high
+   n5   -> n7    diagonal    arrowhead   595 vs 196    ratio 4.0  high
+   n7   -> n8    straight    arrowhead   531 vs 180    ratio 4.0  high
+   n8   -> n9    straight    arrowhead   577 vs 180    ratio 4.0  high
+
+TEXT (titles, guards, notes)
+   'Producer'                               x=792   y=49    
+   'Retailer'                               x=2520  y=49    
+   (dropped x=124   y=1352    42x39    '\\/' - line-work, not text)
+   (dropped x=357   y=1352    42x39    '\\/' - line-work, not text)
+
+PARTITIONS
+   column 0  'Producer'
+   column 1  'Retailer'
+   band   0  ''
+
+ARROWHEAD  53 x 42px, open, measured on 8 connector(s)
+
+wrote review/baseline/UBL-2.2-CRP-SalesAndInventoryMovement-graph.json   (9 nodes, 9 edges, 0 flagged for a human)

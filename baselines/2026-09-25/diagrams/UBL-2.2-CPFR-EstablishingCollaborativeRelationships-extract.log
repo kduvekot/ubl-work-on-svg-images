@@ -1,0 +1,64 @@
+image 3425x2976
+
+PARTITION RULES
+   vertical  : [(0, 10), (1705, 1), (3415, 10)]
+   horizontal: [(0, 10), (2966, 10)]
+   -> 2 column(s) x 1 band(s)
+   type measured off the page: a word is 33px tall
+   (dropped x=10    y=10    1695x2956  is a partition cell)
+   (dropped x=1706  y=10    1709x2956  is a partition cell)
+   (dropped x=718   y=2893   987x73    3 of 4 sides are pass-through line-work)
+   one line weight only - no object nodes
+
+NODES
+   n1   initial   x=2778  y=296   w=147   h=147   stroke=0   fill=0.78  ''
+   n2   object    x=1443  y=705   w=520   h=232   stroke=6   fill=0.96  'Exception Criteria'
+   n3   action    x=376   y=708   w=572   h=221   stroke=3   fill=0.91  'Receive Exception\nCriteria'
+   n4   action    x=2547  y=726   w=608   h=203   stroke=3   fill=0.91  'Send Exception Criteria'
+   n5   action    x=381   y=1059  w=572   h=235   stroke=4   fill=0.92  'Revise Exception\nCriteria'
+   n6   object    x=1488  y=1446  w=498   h=238   stroke=5   fill=0.93  'Exception Criteria\n(revision)'
+   n7   action    x=2332  y=1450  w=558   h=221   stroke=4   fill=0.93  'Receive Revision'
+   n8   action    x=583   y=1477  w=577   h=185   stroke=4   fill=0.92  'Send Revision'
+   n9   action    x=2305  y=1872  w=608   h=213   stroke=3   fill=0.90  'Review and Resend\nRevision'
+   n10  decision  x=391   y=1900  w=188   h=175   stroke=4   fill=0.50  ''
+   n11  action    x=754   y=2304  w=603   h=181   stroke=3   fill=0.90  'Send Exception Criteria'
+   n12  action    x=2309  y=2385  w=604   h=208   stroke=4   fill=0.91  'Receive Exception\nCriteria'
+   n13  object    x=1456  y=2404  w=552   h=246   stroke=6   fill=0.92  'Exception Criteria\n(response positive)'
+
+TYPE  cap height 33px over 274 glyphs -> font 47.1px
+   dashed enclosure x=82 y=142 3260x2668  r=126  dash 13/9 over 501 marks
+
+EDGES
+   n1   -> n4    straight    arrowhead   471 vs 135    ratio 4.0  high
+   n2   -> n3    straight    arrowhead   457 vs 136    ratio 4.0  high
+   n4   -> n2    straight    arrowhead   453 vs 181    ratio 2.5  high
+   n3   -> n5    straight    arrowhead   469 vs 167    ratio 4.0  high
+   n10  -> n5    straight    arrowhead   816 vs 475    ratio 4.0  high
+   n5   -> n8    straight    arrowhead   466 vs 135    ratio 4.0  high
+   n6   -> n7    straight    arrowhead   473 vs 135    ratio 4.0  high
+   n8   -> n6    straight    arrowhead   469 vs 180    ratio 2.6  high
+   n7   -> n9    straight    arrowhead   475 vs 135    ratio 4.0  high
+   n6   -> n10   orthogonal  arrowhead   470 vs 135    ratio 3.5  high
+   n9   -> n6    orthogonal  arrowhead   432 vs 138    ratio 4.0  high
+   n10  -> n11   orthogonal  arrowhead   490 vs 135    ratio 4.0  high
+   n11  -> n13   orthogonal  arrowhead   496 vs 474    ratio 4.0  high
+   n13  -> n12   straight    arrowhead   472 vs 133    ratio 4.0  high
+   n12  -> (off the diagram) at 715,2963
+
+TEXT (titles, guards, notes)
+   'Buyer Party'                            x=701   y=53    
+   'Seller Party'                           x=2552  y=53    
+   'Establishing Collaborative Relationship' x=1276  y=162   
+   'No'                                     x=391   y=1334  n10->n5
+   'Exception Criteria Accepted?'           x=162   y=1829  
+   (dropped x=593   y=1990    53x22    'SS' - line-work, not text)
+   'Yes'                                    x=797   y=2220  n10->n11
+
+PARTITIONS
+   column 0  'Buyer Party'
+   column 1  'Seller Party'
+   band   0  ''
+
+ARROWHEAD  60 x 48px, open, measured on 9 connector(s)
+
+wrote review/baseline/UBL-2.2-CPFR-EstablishingCollaborativeRelationships-graph.json   (13 nodes, 14 edges, 2 flagged for a human)

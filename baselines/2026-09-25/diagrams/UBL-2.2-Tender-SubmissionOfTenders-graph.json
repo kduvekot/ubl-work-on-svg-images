@@ -1,0 +1,615 @@
+{
+ "source": "UBL-2.2-Tender-SubmissionOfTenders.png",
+ "size": [
+  3425,
+  2135
+ ],
+ "fontPx": 77.1,
+ "arrowPx": 66.0,
+ "arrowWidthPx": 68.6,
+ "arrowStyle": "open",
+ "rules": {
+  "v": [
+   [
+    0,
+    10
+   ],
+   [
+    1791,
+    12
+   ],
+   [
+    3415,
+    10
+   ]
+  ],
+  "h": [
+   [
+    0,
+    10
+   ],
+   [
+    2125,
+    10
+   ]
+  ]
+ },
+ "ruleSpan": {
+  "v": [
+   [
+    13,
+    2121
+   ],
+   [
+    13,
+    2121
+   ],
+   [
+    13,
+    2121
+   ]
+  ],
+  "h": [
+   [
+    13,
+    3411
+   ],
+   [
+    13,
+    3411
+   ]
+  ]
+ },
+ "greyRules": [],
+ "dashed": [],
+ "openEnds": [],
+ "crossMarks": [],
+ "partitions": [
+  {
+   "axis": "column",
+   "index": 0,
+   "x0": 0,
+   "x1": 1797,
+   "title": "TENDERER",
+   "titleBox": [
+    704,
+    75,
+    407,
+    53
+   ]
+  },
+  {
+   "axis": "column",
+   "index": 1,
+   "x0": 1797,
+   "x1": 3425,
+   "title": "CONTRACTING AUTHORITY",
+   "titleBox": [
+    2117,
+    77,
+    996,
+    55
+   ]
+  },
+  {
+   "axis": "band",
+   "index": 0,
+   "y0": 0,
+   "y1": 2135,
+   "title": ""
+  }
+ ],
+ "nodes": [
+  {
+   "x": 586,
+   "y": 218,
+   "w": 117,
+   "h": 117,
+   "area": 9416,
+   "fill": 0.764,
+   "kind": "initial",
+   "id": "n3",
+   "label": "",
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 93,
+   "y": 491,
+   "w": 1104,
+   "h": 198,
+   "area": 192237,
+   "fill": 0.879,
+   "solid": 0.961,
+   "rx": 97,
+   "ry": 103,
+   "shape": "rounded",
+   "stroke": 12,
+   "kind": "action",
+   "id": "n4",
+   "label": "Prepare tender documents",
+   "labelLines": [
+    {
+     "x": 197,
+     "y": 559,
+     "w": 876,
+     "h": 68,
+     "text": "Prepare tender documents"
+    }
+   ],
+   "stem": 0.091,
+   "bold": false,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 1592,
+   "y": 792,
+   "w": 377,
+   "h": 390,
+   "area": 142436,
+   "fill": 0.969,
+   "solid": 1.0,
+   "rx": 0,
+   "ry": 0,
+   "shape": "rect",
+   "stroke": 12,
+   "kind": "object",
+   "id": "n5",
+   "label": "Tender",
+   "labelLines": [
+    {
+     "x": 1670,
+     "y": 945,
+     "w": 218,
+     "h": 48,
+     "text": "Tender"
+    }
+   ],
+   "stem": 0.13,
+   "bold": true,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 2222,
+   "y": 885,
+   "w": 1109,
+   "h": 199,
+   "area": 194729,
+   "fill": 0.882,
+   "solid": 0.961,
+   "rx": 102,
+   "ry": 99,
+   "shape": "rounded",
+   "stroke": 12,
+   "kind": "action",
+   "id": "n6",
+   "label": "Receive tender documents",
+   "labelLines": [
+    {
+     "x": 2335,
+     "y": 953,
+     "w": 881,
+     "h": 55,
+     "text": "Receive tender documents"
+    }
+   ],
+   "stem": 0.091,
+   "bold": false,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 105,
+   "y": 899,
+   "w": 1080,
+   "h": 198,
+   "area": 189101,
+   "fill": 0.884,
+   "solid": 0.961,
+   "rx": 98,
+   "ry": 96,
+   "shape": "rounded",
+   "stroke": 12,
+   "kind": "action",
+   "id": "n7",
+   "label": "Submit tender documents",
+   "labelLines": [
+    {
+     "x": 217,
+     "y": 966,
+     "w": 846,
+     "h": 56,
+     "text": "Submit tender documents"
+    }
+   ],
+   "stem": 0.091,
+   "bold": false,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 1596,
+   "y": 1329,
+   "w": 348,
+   "h": 360,
+   "area": 115025,
+   "fill": 0.918,
+   "solid": 1.0,
+   "rx": 0,
+   "ry": 0,
+   "shape": "rect",
+   "stroke": 12,
+   "kind": "object",
+   "id": "n8",
+   "label": "Tender\nReceipt",
+   "labelLines": [
+    {
+     "x": 1658,
+     "y": 1433,
+     "w": 217,
+     "h": 48,
+     "text": "Tender"
+    },
+    {
+     "x": 1653,
+     "y": 1531,
+     "w": 238,
+     "h": 60,
+     "text": "Receipt"
+    }
+   ],
+   "stem": 0.13,
+   "bold": true,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 2445,
+   "y": 1357,
+   "w": 664,
+   "h": 292,
+   "area": 169439,
+   "fill": 0.874,
+   "solid": 0.946,
+   "rx": 107,
+   "ry": 106,
+   "shape": "rounded",
+   "stroke": 12,
+   "kind": "action",
+   "id": "n9",
+   "label": "Submit tender\nreceipt",
+   "labelLines": [
+    {
+     "x": 2547,
+     "y": 1424,
+     "w": 462,
+     "h": 56,
+     "text": "Submit tender"
+    },
+    {
+     "x": 2698,
+     "y": 1519,
+     "w": 218,
+     "h": 68,
+     "text": "receipt"
+    }
+   ],
+   "stem": 0.091,
+   "bold": false,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 304,
+   "y": 1406,
+   "w": 682,
+   "h": 198,
+   "area": 116231,
+   "fill": 0.861,
+   "solid": 0.938,
+   "rx": 94,
+   "ry": 97,
+   "shape": "rounded",
+   "stroke": 12,
+   "kind": "action",
+   "id": "n10",
+   "label": "Receive receipt",
+   "labelLines": [
+    {
+     "x": 407,
+     "y": 1474,
+     "w": 508,
+     "h": 68,
+     "text": "Receive receipt"
+    }
+   ],
+   "stem": 0.091,
+   "bold": false,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 563,
+   "y": 1887,
+   "w": 164,
+   "h": 163,
+   "area": 10115,
+   "fill": 0.378,
+   "solid": 0.782,
+   "rx": 79,
+   "ry": 86,
+   "shape": "rounded",
+   "stroke": 12,
+   "kind": "final",
+   "innerRatio": 0.707,
+   "id": "n11",
+   "label": "",
+   "col": 0,
+   "row": 0
+  }
+ ],
+ "edges": [
+  {
+   "from": "n3",
+   "to": "n4",
+   "routing": "straight",
+   "fromPoint": [
+    644,
+    349
+   ],
+   "toPoint": [
+    645,
+    476
+   ],
+   "arrowInk": [
+    540,
+    1321
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    65,
+    67.1,
+    3.04
+   ],
+   "arrowFill": 0.034,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n4",
+   "to": "n7",
+   "routing": "straight",
+   "fromPoint": [
+    645,
+    703
+   ],
+   "toPoint": [
+    645,
+    884
+   ],
+   "arrowInk": [
+    540,
+    1318
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    67,
+    68.0,
+    3.03
+   ],
+   "arrowFill": 0.218,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n5",
+   "to": "n6",
+   "routing": "straight",
+   "fromPoint": [
+    1983,
+    987
+   ],
+   "toPoint": [
+    2207,
+    984
+   ],
+   "arrowInk": [
+    541,
+    1330
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    66,
+    67.6,
+    2.98
+   ],
+   "arrowFill": 0.143,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n7",
+   "to": "n5",
+   "routing": "diagonal",
+   "fromPoint": [
+    1199,
+    998
+   ],
+   "toPoint": [
+    1577,
+    989
+   ],
+   "arrowInk": [
+    541,
+    1170
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    70,
+    69.0,
+    3.42
+   ],
+   "arrowFill": 0.275,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n6",
+   "to": "n9",
+   "routing": "straight",
+   "fromPoint": [
+    2776,
+    1098
+   ],
+   "toPoint": [
+    2777,
+    1342
+   ],
+   "arrowInk": [
+    540,
+    1314
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    66,
+    69.5,
+    2.96
+   ],
+   "arrowFill": 0.187,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n8",
+   "to": "n10",
+   "routing": "straight",
+   "fromPoint": [
+    1581,
+    1508
+   ],
+   "toPoint": [
+    1000,
+    1505
+   ],
+   "arrowInk": [
+    553,
+    1290
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    66,
+    68.6,
+    2.79
+   ],
+   "arrowFill": 0.178,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n9",
+   "to": "n8",
+   "routing": "straight",
+   "fromPoint": [
+    2430,
+    1503
+   ],
+   "toPoint": [
+    1958,
+    1509
+   ],
+   "arrowInk": [
+    553,
+    1301
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    65,
+    70.5,
+    2.86
+   ],
+   "arrowFill": 0.23,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n10",
+   "to": "n11",
+   "routing": "straight",
+   "fromPoint": [
+    645,
+    1618
+   ],
+   "toPoint": [
+    645,
+    1872
+   ],
+   "arrowInk": [
+    540,
+    1110
+   ],
+   "directionConfidence": "medium",
+   "edgeKind": "control"
+  }
+ ],
+ "text": [
+  {
+   "text": "TENDERER",
+   "x": 704,
+   "y": 75,
+   "w": 407,
+   "h": 53,
+   "lines": [
+    {
+     "x": 704,
+     "y": 75,
+     "w": 407,
+     "h": 53,
+     "text": "TENDERER"
+    }
+   ]
+  },
+  {
+   "text": "CONTRACTING AUTHORITY",
+   "x": 2117,
+   "y": 77,
+   "w": 996,
+   "h": 55,
+   "lines": [
+    {
+     "x": 2117,
+     "y": 77,
+     "w": 996,
+     "h": 55,
+     "text": "CONTRACTING AUTHORITY"
+    }
+   ]
+  }
+ ],
+ "uncertain": [
+  {
+   "x": 1803,
+   "y": 988,
+   "w": 970,
+   "h": 517,
+   "shape": "ellipse",
+   "iou": 0.743,
+   "border": 0.517,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best ellipse 0.74, and 0.99 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "kind": "sub-character-region",
+   "x": 2178,
+   "y": 83,
+   "w": 36,
+   "h": 43,
+   "reason": "enclosed region smaller than one character of the diagram's type",
+   "check": "confirm this is glyph interior and not a node"
+  },
+  {
+   "kind": "sub-character-region",
+   "x": 2896,
+   "y": 83,
+   "w": 37,
+   "h": 43,
+   "reason": "enclosed region smaller than one character of the diagram's type",
+   "check": "confirm this is glyph interior and not a node"
+  }
+ ]
+}

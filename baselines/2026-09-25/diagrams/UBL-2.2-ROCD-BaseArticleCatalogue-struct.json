@@ -1,0 +1,187 @@
+{
+ "name": "UBL-2.2-ROCD-BaseArticleCatalogue.png",
+ "verdict": "needs-human",
+ "radius": 3,
+ "lineWorkInk": 182091,
+ "missingPx": 2159,
+ "inventedPx": 2069,
+ "structural": {
+  "absent": 0,
+  "invented": 0,
+  "coherence": 0,
+  "textAbsent": 0,
+  "textDiffers": 0
+ },
+ "blocking": [],
+ "findings": [
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n3 (action 'Receive Catalogue')",
+   "x": 3290,
+   "y": 793,
+   "w": 47,
+   "h": 40,
+   "area": 304
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n3 (action 'Receive Catalogue')",
+   "x": 3290,
+   "y": 942,
+   "w": 47,
+   "h": 40,
+   "area": 303
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n3 (action 'Receive Catalogue')",
+   "x": 2530,
+   "y": 944,
+   "w": 46,
+   "h": 38,
+   "area": 298
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n3 (action 'Receive Catalogue')",
+   "x": 2530,
+   "y": 793,
+   "w": 47,
+   "h": 38,
+   "area": 289
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n4 (action 'Send Catalogue')",
+   "x": 849,
+   "y": 953,
+   "w": 44,
+   "h": 35,
+   "area": 234
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n4 (action 'Send Catalogue')",
+   "x": 89,
+   "y": 954,
+   "w": 44,
+   "h": 34,
+   "area": 227
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n4 (action 'Send Catalogue')",
+   "x": 849,
+   "y": 799,
+   "w": 44,
+   "h": 35,
+   "area": 226
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n4 (action 'Send Catalogue')",
+   "x": 89,
+   "y": 799,
+   "w": 44,
+   "h": 35,
+   "area": 217
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n3 (action 'Receive Catalogue')",
+   "x": 3283,
+   "y": 802,
+   "w": 44,
+   "h": 37,
+   "area": 293
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n3 (action 'Receive Catalogue')",
+   "x": 3283,
+   "y": 936,
+   "w": 44,
+   "h": 37,
+   "area": 290
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n3 (action 'Receive Catalogue')",
+   "x": 2540,
+   "y": 938,
+   "w": 46,
+   "h": 36,
+   "area": 290
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n3 (action 'Receive Catalogue')",
+   "x": 2540,
+   "y": 802,
+   "w": 43,
+   "h": 35,
+   "area": 279
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n4 (action 'Send Catalogue')",
+   "x": 842,
+   "y": 947,
+   "w": 42,
+   "h": 32,
+   "area": 226
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n4 (action 'Send Catalogue')",
+   "x": 98,
+   "y": 947,
+   "w": 42,
+   "h": 32,
+   "area": 219
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n4 (action 'Send Catalogue')",
+   "x": 842,
+   "y": 808,
+   "w": 42,
+   "h": 32,
+   "area": 218
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n4 (action 'Send Catalogue')",
+   "x": 98,
+   "y": 808,
+   "w": 42,
+   "h": 32,
+   "area": 214
+  }
+ ],
+ "text": [],
+ "coherence": [],
+ "human": [
+  {
+   "x": 1415,
+   "y": 792,
+   "w": 498,
+   "h": 197,
+   "shape": "rect",
+   "iou": 1.0,
+   "border": 1.0,
+   "kind": "kept-on-outline",
+   "reason": "every side has pass-through line-work, but the region carries a complete outline of its own",
+   "check": "confirm this is a node and not trapped whitespace"
+  }
+ ],
+ "review": [
+  {
+   "n": 1,
+   "what": "check",
+   "where": "1415,792 498x197",
+   "detail": "every side has pass-through line-work, but the region carries a complete outline of its own",
+   "check": "confirm this is a node and not trapped whitespace"
+  }
+ ]
+}

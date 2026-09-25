@@ -1,0 +1,22 @@
+  verdict: NEEDS-HUMAN
+  structural: 0 element(s) absent, 0 invented, 0 text absent, 0 text differs, 0 incoherent
+  line-work  missing 2779 px (0.645%)   invented 2127 px (0.494%)   radius 3
+    line-work-missing     1340 px at   678,2892   288x124   near edge n22 -> n24
+    line-work-missing      389 px at  2761,2400    86x155   near edge n19 -> n23
+    line-work-missing      317 px at   456,1133    50x118   near edge n10 -> n15
+    line-work-missing      117 px at   697,1716    24x48    near edge n15 -> n17
+    line-work-missing       79 px at  2808,1014    27x32    near edge n8 -> n11
+    line-work-invented    1089 px at   687,2892   251x109   near edge n22 -> n24
+    line-work-invented     224 px at   467,1157    41x94    near edge n10 -> n15
+    line-work-invented     207 px at  2776,2447    56x102   near edge n19 -> n23
+    line-work-invented     114 px at   690,1724    23x47    near edge n15 -> n17
+    line-work-invented      67 px at  2821,1017    21x29    near edge n8 -> n11
+  needs a person (7):
+    dropped-region     at 1728,488  a shape here would be missing from the SVG
+    kept-on-outline    at 2958,817  confirm this is a node and not trapped whitespace
+    dropped-region     at 967,1149  a shape here would be missing from the SVG
+    kept-on-outline    at 26,1493  confirm this is a node and not trapped whitespace
+    dropped-region     at 1728,1969  a shape here would be missing from the SVG
+    no-weight-split     confirm the diagram really has no object nodes
+    arrowhead-unmeasurable at 3113,3020  confirm the arrowhead here is drawn and points the way the original does
+review/baseline/UBL-2.2-DigitalAgreement-marked.png + review/baseline/UBL-2.2-DigitalAgreement-marked-lost.png  (7 finding(s) numbered)

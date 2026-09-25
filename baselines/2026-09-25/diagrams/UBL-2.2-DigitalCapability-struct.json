@@ -1,0 +1,61 @@
+{
+ "name": "UBL-2.2-DigitalCapability.png",
+ "verdict": "needs-human",
+ "radius": 3,
+ "lineWorkInk": 156351,
+ "missingPx": 391,
+ "inventedPx": 538,
+ "structural": {
+  "absent": 0,
+  "invented": 0,
+  "coherence": 0,
+  "textAbsent": 0,
+  "textDiffers": 0
+ },
+ "blocking": [],
+ "findings": [
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n2 (object 'Digital\\nCapability')",
+   "x": 1649,
+   "y": 474,
+   "w": 25,
+   "h": 4,
+   "area": 65
+  }
+ ],
+ "text": [],
+ "coherence": [],
+ "human": [
+  {
+   "kind": "no-weight-split",
+   "reason": "all 3 box strokes are one weight ([6]), so no object node could be identified",
+   "check": "confirm the diagram really has no object nodes"
+  },
+  {
+   "kind": "mark-across-rule",
+   "x": 1655,
+   "y": 634,
+   "w": 126,
+   "h": 120,
+   "reason": "2 short stroke(s) drawn across a partition rule; they are redrawn as measured, but what they denote is not read",
+   "check": "name this notation - the SVG carries it as line-work only"
+  }
+ ],
+ "review": [
+  {
+   "n": 1,
+   "what": "check",
+   "where": "",
+   "detail": "all 3 box strokes are one weight ([6]), so no object node could be identified",
+   "check": "confirm the diagram really has no object nodes"
+  },
+  {
+   "n": 2,
+   "what": "check",
+   "where": "1655,634 126x120",
+   "detail": "2 short stroke(s) drawn across a partition rule; they are redrawn as measured, but what they denote is not read",
+   "check": "name this notation - the SVG carries it as line-work only"
+  }
+ ]
+}

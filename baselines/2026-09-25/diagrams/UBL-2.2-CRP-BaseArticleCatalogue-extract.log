@@ -1,0 +1,38 @@
+image 3425x1516
+
+PARTITION RULES
+   vertical  : [(0, 10), (1664, 6), (3415, 10)]
+   horizontal: [(0, 10), (1506, 10)]
+   -> 2 column(s) x 1 band(s)
+   type measured off the page: a word is 58px tall
+   (dropped x=10    y=10    3405x1496  encloses another region)
+   object nodes are those stroked heavier than 9.0px
+
+NODES
+   n1   initial   x=434   y=204   w=120   h=120   stroke=0   fill=0.77  ''
+   n2   object    x=1415  y=801   w=498   h=198   stroke=12  fill=0.90  'Catalogue'
+   n3   action    x=2534  y=804   w=798   h=186   stroke=6   fill=0.86  'Receive Catalogue'
+   n4   action    x=92    y=810   w=798   h=186   stroke=6   fill=0.88  'send Catalogue'
+   n5   final     x=2882  y=1338  w=108   h=108   stroke=6   fill=0.62  ''
+
+TYPE  cap height 58px over 47 glyphs -> font 82.9px
+
+EDGES
+   n1   -> n4    straight    arrowhead   894 vs 270    ratio 4.0  high
+   n2   -> n3    straight    arrowhead   916 vs 267    ratio 4.0  high
+   n4   -> n2    straight    arrowhead   838 vs 270    ratio 4.0  high
+   n3   -> n5    straight    arrowhead   907 vs 270    ratio 4.0  high
+   n2   -> (off the diagram) at 1658,1503
+
+TEXT (titles, guards, notes)
+   'Retailer'                               x=2389  y=60    
+   'Producer'                               x=620   y=61    
+
+PARTITIONS
+   column 0  'Producer'
+   column 1  'Retailer'
+   band   0  ''
+
+ARROWHEAD  83 x 66px, open, measured on 4 connector(s)
+
+wrote review/baseline/UBL-2.2-CRP-BaseArticleCatalogue-graph.json   (5 nodes, 4 edges, 0 flagged for a human)

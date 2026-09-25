@@ -1,0 +1,1716 @@
+{
+ "source": "UBL-2.0-CertificationOfOriginOfGoodsProcess.png",
+ "size": [
+  3425,
+  2537
+ ],
+ "fontPx": 35.7,
+ "arrowPx": 48.0,
+ "arrowWidthPx": 38.0,
+ "arrowStyle": "open",
+ "rules": {
+  "v": [
+   [
+    0,
+    10
+   ],
+   [
+    804,
+    4
+   ],
+   [
+    1799,
+    3
+   ],
+   [
+    2724,
+    4
+   ],
+   [
+    3415,
+    10
+   ]
+  ],
+  "h": [
+   [
+    0,
+    10
+   ],
+   [
+    2527,
+    10
+   ]
+  ]
+ },
+ "ruleSpan": {
+  "v": [
+   [
+    13,
+    2523
+   ],
+   [
+    13,
+    2523
+   ],
+   [
+    13,
+    2523
+   ],
+   [
+    13,
+    2523
+   ],
+   [
+    13,
+    2523
+   ]
+  ],
+  "h": [
+   [
+    13,
+    3411
+   ],
+   [
+    13,
+    3411
+   ]
+  ]
+ },
+ "greyRules": [],
+ "dashed": [],
+ "openEnds": [],
+ "crossMarks": [],
+ "partitions": [
+  {
+   "axis": "column",
+   "index": 0,
+   "x0": 0,
+   "x1": 806,
+   "title": "Exporter",
+   "titleBox": [
+    341,
+    19,
+    126,
+    32
+   ]
+  },
+  {
+   "axis": "column",
+   "index": 1,
+   "x0": 806,
+   "x1": 1800,
+   "title": "Issuer",
+   "titleBox": [
+    1264,
+    19,
+    90,
+    25
+   ]
+  },
+  {
+   "axis": "column",
+   "index": 2,
+   "x0": 1800,
+   "x1": 2726,
+   "title": "Endorser",
+   "titleBox": [
+    2200,
+    19,
+    135,
+    25
+   ]
+  },
+  {
+   "axis": "column",
+   "index": 3,
+   "x0": 2726,
+   "x1": 3425,
+   "title": "Importer",
+   "titleBox": [
+    3013,
+    19,
+    124,
+    32
+   ]
+  },
+  {
+   "axis": "band",
+   "index": 0,
+   "y0": 0,
+   "y1": 2537,
+   "title": ""
+  }
+ ],
+ "nodes": [
+  {
+   "x": 711,
+   "y": 252,
+   "w": 252,
+   "h": 143,
+   "area": 32353,
+   "fill": 0.898,
+   "solid": 1.0,
+   "rx": 0,
+   "ry": 0,
+   "shape": "rect",
+   "stroke": 7,
+   "kind": "object",
+   "id": "n1",
+   "label": "Certificate Of\nOrigin",
+   "labelLines": [
+    {
+     "x": 728,
+     "y": 285,
+     "w": 215,
+     "h": 26,
+     "text": "Certificate Of"
+    },
+    {
+     "x": 789,
+     "y": 323,
+     "w": 97,
+     "h": 32,
+     "text": "Origin"
+    }
+   ],
+   "stem": 0.14,
+   "bold": true,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 330,
+   "y": 261,
+   "w": 252,
+   "h": 112,
+   "area": 23363,
+   "fill": 0.828,
+   "solid": 0.924,
+   "rx": 47,
+   "ry": 47,
+   "shape": "rounded",
+   "stroke": 4,
+   "kind": "action",
+   "id": "n2",
+   "label": "Apply for CoO",
+   "labelLines": [
+    {
+     "x": 342,
+     "y": 300,
+     "w": 229,
+     "h": 33,
+     "text": "Apply for CoO"
+    }
+   ],
+   "stem": 0.14,
+   "bold": true,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 1167,
+   "y": 264,
+   "w": 252,
+   "h": 112,
+   "area": 23654,
+   "fill": 0.838,
+   "solid": 0.924,
+   "rx": 53,
+   "ry": 48,
+   "shape": "rounded",
+   "stroke": 4,
+   "kind": "action",
+   "id": "n3",
+   "label": "Receive CoO",
+   "labelLines": [
+    {
+     "x": 1184,
+     "y": 302,
+     "w": 207,
+     "h": 25,
+     "text": "Receive CoO"
+    }
+   ],
+   "stem": 0.14,
+   "bold": true,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 36,
+   "y": 281,
+   "w": 72,
+   "h": 72,
+   "area": 3387,
+   "fill": 0.778,
+   "kind": "initial",
+   "id": "n4",
+   "label": "",
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 1413,
+   "y": 620,
+   "w": 256,
+   "h": 115,
+   "area": 24699,
+   "fill": 0.839,
+   "solid": 0.926,
+   "rx": 47,
+   "ry": 47,
+   "shape": "rounded",
+   "stroke": 4,
+   "kind": "action",
+   "id": "n5",
+   "label": "Endorse CoO",
+   "labelLines": [
+    {
+     "x": 1434,
+     "y": 662,
+     "w": 214,
+     "h": 26,
+     "text": "Endorse CoO"
+    }
+   ],
+   "stem": 0.14,
+   "bold": true,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 104,
+   "y": 627,
+   "w": 256,
+   "h": 108,
+   "area": 22749,
+   "fill": 0.823,
+   "solid": 0.922,
+   "rx": 47,
+   "ry": 54,
+   "shape": "rounded",
+   "stroke": 4,
+   "kind": "action",
+   "id": "n6",
+   "label": "Request\nStatus",
+   "labelLines": [
+    {
+     "x": 163,
+     "y": 650,
+     "w": 132,
+     "h": 31,
+     "text": "Request"
+    },
+    {
+     "x": 182,
+     "y": 694,
+     "w": 102,
+     "h": 25,
+     "text": "Status"
+    }
+   ],
+   "stem": 0.14,
+   "bold": true,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 1246,
+   "y": 632,
+   "w": 83,
+   "h": 108,
+   "area": 4560,
+   "fill": 0.509,
+   "solid": 0.509,
+   "rx": 46,
+   "ry": 58,
+   "shape": "rhombus",
+   "stroke": 4,
+   "kind": "decision",
+   "id": "n7",
+   "label": "",
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 908,
+   "y": 633,
+   "w": 255,
+   "h": 113,
+   "area": 24401,
+   "fill": 0.847,
+   "solid": 0.923,
+   "rx": 51,
+   "ry": 46,
+   "shape": "rounded",
+   "stroke": 4,
+   "kind": "action",
+   "id": "n8",
+   "label": "Reject CoO",
+   "labelLines": [
+    {
+     "x": 942,
+     "y": 664,
+     "w": 180,
+     "h": 33,
+     "text": "Reject CoO"
+    }
+   ],
+   "stem": 0.14,
+   "bold": true,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 721,
+   "y": 994,
+   "w": 201,
+   "h": 150,
+   "area": 26065,
+   "fill": 0.865,
+   "solid": 1.0,
+   "rx": 0,
+   "ry": 0,
+   "shape": "rect",
+   "stroke": 7,
+   "kind": "object",
+   "id": "n9",
+   "label": "Application\nResponse",
+   "labelLines": [
+    {
+     "x": 725,
+     "y": 1027,
+     "w": 185,
+     "h": 31,
+     "text": "Application"
+    },
+    {
+     "x": 740,
+     "y": 1065,
+     "w": 161,
+     "h": 31,
+     "text": "Response"
+    }
+   ],
+   "stem": 0.14,
+   "bold": true,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 1170,
+   "y": 1009,
+   "w": 253,
+   "h": 113,
+   "area": 23994,
+   "fill": 0.839,
+   "solid": 0.918,
+   "rx": 51,
+   "ry": 54,
+   "shape": "rounded",
+   "stroke": 4,
+   "kind": "action",
+   "id": "n10",
+   "label": "Query CoO",
+   "labelLines": [
+    {
+     "x": 1208,
+     "y": 1052,
+     "w": 177,
+     "h": 33,
+     "text": "Query CoO"
+    }
+   ],
+   "stem": 0.14,
+   "bold": true,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 80,
+   "y": 1020,
+   "w": 383,
+   "h": 132,
+   "area": 44987,
+   "fill": 0.89,
+   "solid": 0.956,
+   "rx": 47,
+   "ry": 54,
+   "shape": "rounded",
+   "stroke": 4,
+   "kind": "action",
+   "id": "n11",
+   "label": "Receive Response",
+   "labelLines": [
+    {
+     "x": 115,
+     "y": 1067,
+     "w": 298,
+     "h": 31,
+     "text": "Receive Response"
+    }
+   ],
+   "stem": 0.14,
+   "bold": true,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 1681,
+   "y": 1438,
+   "w": 297,
+   "h": 160,
+   "area": 43413,
+   "fill": 0.914,
+   "solid": 1.0,
+   "rx": 0,
+   "ry": 0,
+   "shape": "rect",
+   "stroke": 8,
+   "kind": "object",
+   "id": "n13",
+   "label": "Application\nResponse",
+   "labelLines": [
+    {
+     "x": 1732,
+     "y": 1477,
+     "w": 186,
+     "h": 32,
+     "text": "Application"
+    },
+    {
+     "x": 1748,
+     "y": 1515,
+     "w": 161,
+     "h": 31,
+     "text": "Response"
+    }
+   ],
+   "stem": 0.14,
+   "bold": true,
+   "col": 2,
+   "row": 0
+  },
+  {
+   "x": 2222,
+   "y": 1463,
+   "w": 369,
+   "h": 116,
+   "area": 39745,
+   "fill": 0.929,
+   "solid": 0.979,
+   "rx": 38,
+   "ry": 35,
+   "shape": "rounded",
+   "stroke": 4,
+   "kind": "action",
+   "id": "n14",
+   "label": "Reject CoO",
+   "labelLines": [
+    {
+     "x": 2315,
+     "y": 1512,
+     "w": 180,
+     "h": 32,
+     "text": "Reject CoO"
+    }
+   ],
+   "stem": 0.14,
+   "bold": true,
+   "col": 2,
+   "row": 0
+  },
+  {
+   "x": 170,
+   "y": 1626,
+   "w": 83,
+   "h": 108,
+   "area": 4561,
+   "fill": 0.509,
+   "solid": 0.509,
+   "rx": 46,
+   "ry": 59,
+   "shape": "rhombus",
+   "stroke": 4,
+   "kind": "decision",
+   "id": "n15",
+   "label": "",
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 2336,
+   "y": 1714,
+   "w": 107,
+   "h": 110,
+   "area": 5904,
+   "fill": 0.502,
+   "solid": 0.502,
+   "rx": 57,
+   "ry": 60,
+   "shape": "rhombus",
+   "stroke": 3,
+   "kind": "decision",
+   "id": "n16",
+   "label": "",
+   "col": 2,
+   "row": 0
+  },
+  {
+   "x": 1977,
+   "y": 1716,
+   "w": 231,
+   "h": 109,
+   "area": 21855,
+   "fill": 0.868,
+   "solid": 0.969,
+   "rx": 34,
+   "ry": 29,
+   "shape": "rounded",
+   "stroke": 4,
+   "kind": "action",
+   "id": "n17",
+   "label": "Endorse CoO",
+   "labelLines": [
+    {
+     "x": 1987,
+     "y": 1761,
+     "w": 215,
+     "h": 26,
+     "text": "Endorse CoO"
+    }
+   ],
+   "stem": 0.14,
+   "bold": true,
+   "col": 2,
+   "row": 0
+  },
+  {
+   "x": 3138,
+   "y": 1990,
+   "w": 68,
+   "h": 68,
+   "area": 2594,
+   "fill": 0.561,
+   "solid": 0.768,
+   "rx": 32,
+   "ry": 31,
+   "shape": "rounded",
+   "stroke": 4,
+   "kind": "final",
+   "innerRatio": 0.485,
+   "id": "n18",
+   "label": "",
+   "col": 3,
+   "row": 0
+  },
+  {
+   "x": 330,
+   "y": 2020,
+   "w": 450,
+   "h": 127,
+   "area": 50919,
+   "fill": 0.891,
+   "solid": 0.961,
+   "rx": 52,
+   "ry": 50,
+   "shape": "rounded",
+   "stroke": 4,
+   "kind": "action",
+   "id": "n19",
+   "label": "Apply for Endorsement",
+   "labelLines": [
+    {
+     "x": 366,
+     "y": 2064,
+     "w": 377,
+     "h": 33,
+     "text": "Apply for Endorsement"
+    }
+   ],
+   "stem": 0.14,
+   "bold": true,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 1667,
+   "y": 2032,
+   "w": 301,
+   "h": 164,
+   "area": 45619,
+   "fill": 0.924,
+   "solid": 1.0,
+   "rx": 0,
+   "ry": 0,
+   "shape": "rect",
+   "stroke": 7,
+   "kind": "object",
+   "id": "n20",
+   "label": "Certificate Of\nOrigin",
+   "labelLines": [
+    {
+     "x": 1708,
+     "y": 2078,
+     "w": 216,
+     "h": 26,
+     "text": "Certificate Of"
+    },
+    {
+     "x": 1769,
+     "y": 2116,
+     "w": 98,
+     "h": 32,
+     "text": "Origin"
+    }
+   ],
+   "stem": 0.14,
+   "bold": true,
+   "col": 2,
+   "row": 0
+  },
+  {
+   "x": 2157,
+   "y": 2041,
+   "w": 472,
+   "h": 130,
+   "area": 53982,
+   "fill": 0.88,
+   "solid": 0.962,
+   "rx": 47,
+   "ry": 54,
+   "shape": "rounded",
+   "stroke": 4,
+   "kind": "action",
+   "id": "n21",
+   "label": "Receive Certificate Of\nOrigin",
+   "labelLines": [
+    {
+     "x": 2206,
+     "y": 2073,
+     "w": 351,
+     "h": 25,
+     "text": "Receive Certificate Of"
+    },
+    {
+     "x": 2345,
+     "y": 2117,
+     "w": 97,
+     "h": 33,
+     "text": "Origin"
+    }
+   ],
+   "stem": 0.14,
+   "bold": true,
+   "col": 2,
+   "row": 0
+  },
+  {
+   "x": 2569,
+   "y": 2320,
+   "w": 301,
+   "h": 157,
+   "area": 43592,
+   "fill": 0.922,
+   "solid": 1.0,
+   "rx": 0,
+   "ry": 0,
+   "shape": "rect",
+   "stroke": 7,
+   "kind": "object",
+   "id": "n23",
+   "label": "Certificate Of\nOrigin",
+   "labelLines": [
+    {
+     "x": 2610,
+     "y": 2361,
+     "w": 216,
+     "h": 26,
+     "text": "Certificate Of"
+    },
+    {
+     "x": 2671,
+     "y": 2399,
+     "w": 98,
+     "h": 32,
+     "text": "Origin"
+    }
+   ],
+   "stem": 0.14,
+   "bold": true,
+   "col": 2,
+   "row": 0
+  },
+  {
+   "x": 39,
+   "y": 2342,
+   "w": 458,
+   "h": 99,
+   "area": 41027,
+   "fill": 0.905,
+   "solid": 0.949,
+   "rx": 47.0,
+   "ry": 45,
+   "shape": "rounded",
+   "stroke": 4,
+   "kind": "action",
+   "id": "n24",
+   "label": "Send CoO",
+   "labelLines": [
+    {
+     "x": 186,
+     "y": 2373,
+     "w": 162,
+     "h": 26,
+     "text": "Send CoO"
+    }
+   ],
+   "stem": 0.14,
+   "bold": true,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 3056,
+   "y": 2349,
+   "w": 232,
+   "h": 112,
+   "area": 22801,
+   "fill": 0.878,
+   "solid": 0.968,
+   "rx": 32,
+   "ry": 31,
+   "shape": "rounded",
+   "stroke": 4,
+   "kind": "action",
+   "id": "n25",
+   "label": "Receive CoO",
+   "labelLines": [
+    {
+     "x": 3069,
+     "y": 2390,
+     "w": 204,
+     "h": 26,
+     "text": "Receive CoO"
+    }
+   ],
+   "stem": 0.14,
+   "bold": true,
+   "col": 3,
+   "row": 0
+  }
+ ],
+ "edges": [
+  {
+   "from": "n4",
+   "to": "n2",
+   "routing": "straight",
+   "fromPoint": [
+    122,
+    316
+   ],
+   "toPoint": [
+    315,
+    316
+   ],
+   "arrowInk": [
+    180,
+    511
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    47,
+    38.0,
+    1.91
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n2",
+   "to": "n1",
+   "routing": "straight",
+   "fromPoint": [
+    596,
+    317
+   ],
+   "toPoint": [
+    696,
+    321
+   ],
+   "arrowInk": [
+    180,
+    548
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    48,
+    37.3,
+    2.27
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n1",
+   "to": "n3",
+   "routing": "straight",
+   "fromPoint": [
+    977,
+    320
+   ],
+   "toPoint": [
+    1152,
+    320
+   ],
+   "arrowInk": [
+    180,
+    515
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    47,
+    38.0,
+    1.98
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n3",
+   "to": "n7",
+   "routing": "straight",
+   "fromPoint": [
+    1288,
+    390
+   ],
+   "toPoint": [
+    1287,
+    617
+   ],
+   "arrowInk": [
+    180,
+    696
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    57,
+    79.7,
+    4.4
+   ],
+   "arrowSaturated": true,
+   "arrowFill": 0.237,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n6",
+   "to": "n1",
+   "routing": "diagonal",
+   "fromPoint": [
+    344,
+    612
+   ],
+   "toPoint": [
+    696,
+    402
+   ],
+   "arrowInk": [
+    202,
+    596
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    63,
+    40.3,
+    0.66
+   ],
+   "arrowSaturated": true,
+   "arrowFill": 0.081,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n7",
+   "to": "n8",
+   "routing": "straight",
+   "fromPoint": [
+    1231,
+    686
+   ],
+   "toPoint": [
+    1177,
+    689
+   ],
+   "arrowInk": [
+    464,
+    534
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    41,
+    39.7,
+    1.78
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n7",
+   "to": "n5",
+   "routing": "diagonal",
+   "fromPoint": [
+    1343,
+    686
+   ],
+   "toPoint": [
+    1398,
+    677
+   ],
+   "arrowInk": [
+    403,
+    511
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    35,
+    31.4,
+    2.11
+   ],
+   "arrowFill": 0.016,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n11",
+   "to": "n6",
+   "routing": "straight",
+   "fromPoint": [
+    222,
+    1005
+   ],
+   "toPoint": [
+    223,
+    749
+   ],
+   "arrowInk": [
+    184,
+    539
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    50,
+    39.7,
+    2.04
+   ],
+   "arrowFill": 0.017,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n7",
+   "to": "n10",
+   "routing": "straight",
+   "fromPoint": [
+    1287,
+    754
+   ],
+   "toPoint": [
+    1290,
+    994
+   ],
+   "arrowInk": [
+    180,
+    515
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    46,
+    41.2,
+    1.76
+   ],
+   "arrowFill": 0.157,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n8",
+   "to": "n9",
+   "routing": "diagonal",
+   "fromPoint": [
+    1000,
+    760
+   ],
+   "toPoint": [
+    880,
+    979
+   ],
+   "arrowInk": [
+    214,
+    580
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    63,
+    45.2,
+    0.54
+   ],
+   "arrowSaturated": true,
+   "arrowFill": 0.123,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n9",
+   "to": "n11",
+   "routing": "straight",
+   "fromPoint": [
+    706,
+    1081
+   ],
+   "toPoint": [
+    477,
+    1084
+   ],
+   "arrowInk": [
+    184,
+    533
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    49,
+    41.0,
+    1.98
+   ],
+   "arrowFill": 0.097,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n10",
+   "to": "n9",
+   "routing": "straight",
+   "fromPoint": [
+    1155,
+    1085
+   ],
+   "toPoint": [
+    936,
+    1085
+   ],
+   "arrowInk": [
+    184,
+    552
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    51,
+    38.0,
+    2.67
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n13",
+   "to": "n11",
+   "routing": "diagonal",
+   "fromPoint": [
+    1666,
+    1466
+   ],
+   "toPoint": [
+    477,
+    1135
+   ],
+   "arrowInk": [
+    196,
+    662
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    113,
+    48.9,
+    0.32
+   ],
+   "arrowFill": 0.122,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n11",
+   "to": "n15",
+   "routing": "straight",
+   "fromPoint": [
+    212,
+    1166
+   ],
+   "toPoint": [
+    211,
+    1611
+   ],
+   "arrowInk": [
+    180,
+    526
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    48,
+    37.8,
+    2.06
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n14",
+   "to": "n13",
+   "routing": "straight",
+   "fromPoint": [
+    2207,
+    1519
+   ],
+   "toPoint": [
+    1992,
+    1518
+   ],
+   "arrowInk": [
+    184,
+    547
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    49,
+    37.6,
+    2.41
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n16",
+   "to": "n14",
+   "routing": "straight",
+   "fromPoint": [
+    2387,
+    1699
+   ],
+   "toPoint": [
+    2389,
+    1593
+   ],
+   "arrowInk": [
+    184,
+    537
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    49,
+    38.6,
+    1.97
+   ],
+   "arrowFill": 0.012,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n15",
+   "to": "n19",
+   "routing": "diagonal",
+   "fromPoint": [
+    267,
+    1692
+   ],
+   "toPoint": [
+    496,
+    2005
+   ],
+   "arrowInk": [
+    372,
+    512
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    128,
+    49.2,
+    0.38
+   ],
+   "arrowFill": 0.18,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n15",
+   "to": "n24",
+   "routing": "straight",
+   "fromPoint": [
+    211,
+    1748
+   ],
+   "toPoint": [
+    213,
+    2327
+   ],
+   "arrowInk": [
+    180,
+    513
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    46,
+    39.8,
+    1.84
+   ],
+   "arrowFill": 0.008,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n16",
+   "to": "n17",
+   "routing": "straight",
+   "fromPoint": [
+    2321,
+    1769
+   ],
+   "toPoint": [
+    2222,
+    1770
+   ],
+   "arrowInk": [
+    186,
+    533
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    49,
+    40.8,
+    1.93
+   ],
+   "arrowFill": 0.078,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n21",
+   "to": "n16",
+   "routing": "straight",
+   "fromPoint": [
+    2388,
+    2026
+   ],
+   "toPoint": [
+    2388,
+    1838
+   ],
+   "arrowInk": [
+    184,
+    516
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    49,
+    38.0,
+    2.03
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n19",
+   "to": "n20",
+   "routing": "straight",
+   "fromPoint": [
+    794,
+    2083
+   ],
+   "toPoint": [
+    1652,
+    2087
+   ],
+   "arrowInk": [
+    180,
+    543
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    47,
+    37.6,
+    2.35
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n25",
+   "to": "n18",
+   "routing": "straight",
+   "fromPoint": [
+    3172,
+    2334
+   ],
+   "toPoint": [
+    3172,
+    2072
+   ],
+   "arrowInk": [
+    184,
+    536
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    50,
+    40.0,
+    2.08
+   ],
+   "arrowFill": 0.01,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n20",
+   "to": "n21",
+   "routing": "straight",
+   "fromPoint": [
+    1982,
+    2112
+   ],
+   "toPoint": [
+    2142,
+    2106
+   ],
+   "arrowInk": [
+    180,
+    506
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    45,
+    37.4,
+    1.81
+   ],
+   "arrowFill": 0.029,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n24",
+   "to": "n23",
+   "routing": "straight",
+   "fromPoint": [
+    511,
+    2391
+   ],
+   "toPoint": [
+    2554,
+    2391
+   ],
+   "arrowInk": [
+    180,
+    549
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    49,
+    38.0,
+    2.32
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n23",
+   "to": "n25",
+   "routing": "straight",
+   "fromPoint": [
+    2884,
+    2398
+   ],
+   "toPoint": [
+    3041,
+    2401
+   ],
+   "arrowInk": [
+    180,
+    510
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    46,
+    39.4,
+    1.92
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "object"
+  }
+ ],
+ "text": [
+  {
+   "text": "Exporter",
+   "x": 341,
+   "y": 19,
+   "w": 126,
+   "h": 32,
+   "lines": [
+    {
+     "x": 341,
+     "y": 19,
+     "w": 126,
+     "h": 32,
+     "text": "Exporter"
+    }
+   ]
+  },
+  {
+   "text": "Issuer",
+   "x": 1264,
+   "y": 19,
+   "w": 90,
+   "h": 25,
+   "lines": [
+    {
+     "x": 1264,
+     "y": 19,
+     "w": 90,
+     "h": 25,
+     "text": "Issuer"
+    }
+   ]
+  },
+  {
+   "text": "Endorser",
+   "x": 2200,
+   "y": 19,
+   "w": 135,
+   "h": 25,
+   "lines": [
+    {
+     "x": 2200,
+     "y": 19,
+     "w": 135,
+     "h": 25,
+     "text": "Endorser"
+    }
+   ]
+  },
+  {
+   "text": "Importer",
+   "x": 3013,
+   "y": 19,
+   "w": 124,
+   "h": 32,
+   "lines": [
+    {
+     "x": 3013,
+     "y": 19,
+     "w": 124,
+     "h": 32,
+     "text": "Importer"
+    }
+   ]
+  },
+  {
+   "text": "Initiate\nransport\nProcess",
+   "x": 88,
+   "y": 112,
+   "w": 126,
+   "h": 114,
+   "lines": [
+    {
+     "x": 92,
+     "y": 112,
+     "w": 96,
+     "h": 25,
+     "text": "Initiate"
+    },
+    {
+     "x": 84,
+     "y": 156,
+     "w": 130,
+     "h": 31,
+     "text": "ransport"
+    },
+    {
+     "x": 88,
+     "y": 200,
+     "w": 120,
+     "h": 26,
+     "text": "Process"
+    }
+   ]
+  },
+  {
+   "text": "Accept\npplication?",
+   "x": 1323,
+   "y": 515,
+   "w": 159,
+   "h": 76,
+   "lines": [
+    {
+     "x": 1346,
+     "y": 515,
+     "w": 104,
+     "h": 31,
+     "text": "Accept"
+    },
+    {
+     "x": 1323,
+     "y": 559,
+     "w": 159,
+     "h": 32,
+     "text": "pplication?"
+    }
+   ]
+  },
+  {
+   "text": "Endorsement\nRequired?",
+   "x": 307,
+   "y": 1642,
+   "w": 200,
+   "h": 76,
+   "lines": [
+    {
+     "x": 307,
+     "y": 1642,
+     "w": 200,
+     "h": 25,
+     "text": "Endorsement"
+    },
+    {
+     "x": 307,
+     "y": 1687,
+     "w": 153,
+     "h": 31,
+     "text": "Required?"
+    }
+   ]
+  },
+  {
+   "text": "Endorse\nApplication?",
+   "x": 2453,
+   "y": 1693,
+   "w": 184,
+   "h": 76,
+   "lines": [
+    {
+     "x": 2456,
+     "y": 1693,
+     "w": 123,
+     "h": 25,
+     "text": "Endorse"
+    },
+    {
+     "x": 2453,
+     "y": 1738,
+     "w": 184,
+     "h": 31,
+     "text": "Application?"
+    }
+   ]
+  },
+  {
+   "text": "End of CoO\nProcess",
+   "x": 3163,
+   "y": 1891,
+   "w": 174,
+   "h": 70,
+   "lines": [
+    {
+     "x": 3163,
+     "y": 1891,
+     "w": 174,
+     "h": 26,
+     "text": "End of CoO"
+    },
+    {
+     "x": 3197,
+     "y": 1936,
+     "w": 119,
+     "h": 25,
+     "text": "Process"
+    }
+   ]
+  }
+ ],
+ "uncertain": [
+  {
+   "x": 224,
+   "y": 403,
+   "w": 580,
+   "h": 678,
+   "shape": "rounded",
+   "iou": 0.745,
+   "border": 0.614,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best rounded 0.75, and 0.99 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "x": 214,
+   "y": 1085,
+   "w": 590,
+   "h": 997,
+   "shape": "rounded",
+   "iou": 0.815,
+   "border": 0.785,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best rounded 0.81, and 0.99 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "x": 808,
+   "y": 2393,
+   "w": 991,
+   "h": 134,
+   "shape": "rect",
+   "iou": 1.0,
+   "border": 1.0,
+   "kind": "dropped-region",
+   "reason": "4 of 4 sides are pass-through line-work",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "x": 1802,
+   "y": 2393,
+   "w": 922,
+   "h": 134,
+   "shape": "rect",
+   "iou": 0.879,
+   "border": 0.896,
+   "kind": "dropped-region",
+   "reason": "4 of 4 sides are pass-through line-work",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "kind": "empty-box",
+   "x": 808,
+   "y": 1233,
+   "w": 991,
+   "h": 852,
+   "reason": "a note carrying no text, with line-work passing its sides",
+   "check": "confirm nothing is drawn here in the original"
+  },
+  {
+   "kind": "empty-box",
+   "x": 808,
+   "y": 2086,
+   "w": 991,
+   "h": 303,
+   "reason": "a note carrying no text, with line-work passing its sides",
+   "check": "confirm nothing is drawn here in the original"
+  },
+  {
+   "kind": "unexplained-line-work",
+   "x": 64,
+   "y": 112,
+   "w": 37,
+   "h": 103,
+   "reason": "line-work that is neither a connector between two nodes nor the size of text",
+   "check": "decide what this is; the SVG does not draw it"
+  },
+  {
+   "kind": "unexplained-line-work",
+   "x": 386,
+   "y": 1628,
+   "w": 39,
+   "h": 83,
+   "reason": "line-work that is neither a connector between two nodes nor the size of text",
+   "check": "decide what this is; the SVG does not draw it"
+  },
+  {
+   "kind": "unexplained-line-work",
+   "x": 2491,
+   "y": 1679,
+   "w": 54,
+   "h": 83,
+   "reason": "line-work that is neither a connector between two nodes nor the size of text",
+   "check": "decide what this is; the SVG does not draw it"
+  }
+ ]
+}

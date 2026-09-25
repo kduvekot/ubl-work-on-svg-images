@@ -1,0 +1,11 @@
+== UBL-2.2-IMFM-BasicTransportExecutionPlan
+  scale 0.43212   frame 10px  divider 4px  action 4px  object 7px
+  font 36px (15.4 model)   2 lanes, 1 bands, 26 nodes, 27 edges -> review/baseline/UBL-2.2-IMFM-BasicTransportExecutionPlan-spec.json
+  review/baseline/UBL-2.2-IMFM-BasicTransportExecutionPlan.svg + .drawio + -classified.svg   (26 nodes, 27 edges)
+  rendered UBL-2.2-IMFM-BasicTransportExecutionPlan.svg -> UBL-2.2-IMFM-BasicTransportExecutionPlan-render.png @ 3425pxx2204, 600 dpi
+  aligned on ink bounds: scale x 1.0000, y 1.0000
+  size 3425x2204  radius 2
+  ink: original 410826   candidate 409310
+  MISSING (red)     9807  = 2.3871% of original ink
+  EXTRA   (blue)   12402  = 3.0188% of original ink
+  RESULT: DIFFERENCES - inspect review/baseline/UBL-2.2-IMFM-BasicTransportExecutionPlan-diff-r2.png

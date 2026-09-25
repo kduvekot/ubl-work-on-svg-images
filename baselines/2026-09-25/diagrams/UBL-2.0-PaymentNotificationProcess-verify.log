@@ -1,0 +1,11 @@
+  verdict: NEEDS-HUMAN
+  structural: 0 element(s) absent, 0 invented, 0 text absent, 0 text differs, 0 incoherent
+  line-work  missing 505 px (0.234%)   invented 387 px (0.180%)   radius 3
+    line-work-missing      229 px at   540,1322    77x57    near edge n6 -> n3
+    line-work-missing       93 px at  1001,1003    30x11    near edge n6 -> n3
+    line-work-invented     156 px at   556,1333    62x45    near edge n6 -> n3
+    line-work-invented     119 px at  1003,993     41x12    near edge n6 -> n3
+  needs a person (2):
+    empty-box          at 1245,1553  confirm nothing is drawn here in the original
+    arrowhead-unmeasurable at 989,918  confirm the arrowhead here is drawn and points the way the original does
+review/baseline/UBL-2.0-PaymentNotificationProcess-marked.png + review/baseline/UBL-2.0-PaymentNotificationProcess-marked-lost.png  (2 finding(s) numbered)

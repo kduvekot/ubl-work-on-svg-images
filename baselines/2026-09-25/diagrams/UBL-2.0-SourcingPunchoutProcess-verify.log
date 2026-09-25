@@ -1,0 +1,8 @@
+  verdict: NEEDS-HUMAN
+  structural: 0 element(s) absent, 0 invented, 0 text absent, 0 text differs, 0 incoherent
+  line-work  missing 222 px (0.088%)   invented 36 px (0.014%)   radius 3
+    line-work-missing       71 px at  2112,1411    10x10    near edge n7 -> n5
+    line-work-missing       70 px at  2112,1354    10x9     near edge n7 -> n5
+  needs a person (1):
+    kept-on-outline    at 1495,1244  confirm this is a node and not trapped whitespace
+review/baseline/UBL-2.0-SourcingPunchoutProcess-marked.png + review/baseline/UBL-2.0-SourcingPunchoutProcess-marked-lost.png  (1 finding(s) numbered)

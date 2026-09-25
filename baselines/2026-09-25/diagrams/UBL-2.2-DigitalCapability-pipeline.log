@@ -1,0 +1,11 @@
+== UBL-2.2-DigitalCapability
+  scale 0.43212   frame 10px  divider 7px  action 6px  object 6px
+  font 51px (22.2 model)   2 lanes, 1 bands, 5 nodes, 3 edges -> review/baseline/UBL-2.2-DigitalCapability-spec.json
+  review/baseline/UBL-2.2-DigitalCapability.svg + .drawio + -classified.svg   (5 nodes, 3 edges)
+  rendered UBL-2.2-DigitalCapability.svg -> UBL-2.2-DigitalCapability-render.png @ 3425pxx1234, 600 dpi
+  aligned on ink bounds: scale x 1.0000, y 1.0000
+  size 3425x1234  radius 2
+  ink: original 199084   candidate 187751
+  MISSING (red)    18952  = 9.5196% of original ink
+  EXTRA   (blue)   10337  = 5.1923% of original ink
+  RESULT: DIFFERENCES - inspect review/baseline/UBL-2.2-DigitalCapability-diff-r2.png

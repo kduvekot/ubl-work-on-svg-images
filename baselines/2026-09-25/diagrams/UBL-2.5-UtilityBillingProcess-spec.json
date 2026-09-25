@@ -1,0 +1,591 @@
+{
+ "canvas": {
+  "w": 1480.0,
+  "h": 791.638
+ },
+ "stroke": {
+  "frame": 4.3,
+  "divider": 2.2,
+  "action": 2.2,
+  "object": 3.9,
+  "edge": 2.2
+ },
+ "font": {
+  "family": "Helvetica, Arial, sans-serif",
+  "node": 18.5,
+  "lane": 18.5,
+  "guard": 18.5
+ },
+ "arrow": 30.5,
+ "arrowWidth": 24.8,
+ "arrowStyle": "open",
+ "dashed": [],
+ "greyRules": [],
+ "crossMarks": [],
+ "openEnds": [],
+ "frameBox": [
+  2.2,
+  2.2,
+  1477.8,
+  789.5
+ ],
+ "dividers": [
+  [
+   729.6,
+   2.2,
+   5.6,
+   785.6
+  ]
+ ],
+ "bands": [],
+ "lanes": [
+  {
+   "title": "Accounting Customer",
+   "x": 0.0,
+   "w": 729.4,
+   "cx": 360.8,
+   "cy": 19.2
+  },
+  {
+   "title": "Accounting Supplier",
+   "x": 729.4,
+   "w": 750.6,
+   "cx": 1098.9,
+   "cy": 19.2
+  }
+ ],
+ "bandLabels": [],
+ "nodes": [
+  {
+   "id": "n1",
+   "kind": "initial",
+   "label": "",
+   "x": 1327.5,
+   "y": 73.9,
+   "w": 39.3,
+   "h": 39.3
+  },
+  {
+   "id": "n2",
+   "kind": "object",
+   "label": "Invoice",
+   "x": 644.5,
+   "y": 116.0,
+   "w": 157.7,
+   "h": 86.9,
+   "labelLines": [
+    {
+     "text": "Invoice",
+     "cx": 722.5,
+     "cy": 156.4,
+     "w": 59.6
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n3",
+   "kind": "action",
+   "label": "Receive Invoice",
+   "x": 56.4,
+   "y": 126.4,
+   "w": 237.7,
+   "h": 49.7,
+   "rx": 25.1,
+   "ry": 25.3,
+   "labelLines": [
+    {
+     "text": "Receive Invoice",
+     "cx": 171.1,
+     "cy": 150.6,
+     "w": 130.5
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n4",
+   "kind": "action",
+   "label": "Raise Invoice",
+   "x": 908.5,
+   "y": 135.5,
+   "w": 237.2,
+   "h": 54.9,
+   "rx": 25.3,
+   "ry": 26.6,
+   "labelLines": [
+    {
+     "text": "Raise Invoice",
+     "cx": 1023.7,
+     "cy": 159.5,
+     "w": 111.5
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n5",
+   "kind": "object",
+   "label": "Utility Statement",
+   "x": 637.6,
+   "y": 277.2,
+   "w": 157.7,
+   "h": 86.9,
+   "labelLines": [
+    {
+     "text": "Utility Statement",
+     "cx": 716.9,
+     "cy": 318.7,
+     "w": 139.1
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n6",
+   "kind": "action",
+   "label": "Receive Utility Statement",
+   "x": 308.3,
+   "y": 291.0,
+   "w": 237.2,
+   "h": 57.0,
+   "rx": 26.6,
+   "ry": 25.3,
+   "labelLines": [
+    {
+     "text": "Receive Utility Statement",
+     "cx": 427.8,
+     "cy": 320.4,
+     "w": 210.9
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n7",
+   "kind": "action",
+   "label": "Report usage",
+   "x": 885.6,
+   "y": 294.9,
+   "w": 285.2,
+   "h": 51.4,
+   "rx": 24.8,
+   "ry": 25.3,
+   "labelLines": [
+    {
+     "text": "Report usage",
+     "cx": 1023.5,
+     "cy": 321.7,
+     "w": 111.1
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n8",
+   "kind": "decision",
+   "label": "Reconcile\nCharges",
+   "x": 1263.7,
+   "y": 403.4,
+   "w": 166.4,
+   "h": 123.2,
+   "labelLines": [
+    {
+     "text": "Reconcile",
+     "cx": 1348.0,
+     "cy": 449.8,
+     "w": 75.6
+    },
+    {
+     "text": "Charges",
+     "cx": 1342.2,
+     "cy": 474.0,
+     "w": 65.7
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "n9",
+   "kind": "decision",
+   "label": "Reconcile\nCharges",
+   "x": 97.4,
+   "y": 422.8,
+   "w": 152.5,
+   "h": 87.7,
+   "labelLines": [
+    {
+     "text": "Reconcile",
+     "cx": 176.5,
+     "cy": 453.3,
+     "w": 75.6
+    },
+    {
+     "text": "Charges",
+     "cx": 170.9,
+     "cy": 477.7,
+     "w": 65.2
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "n10",
+   "kind": "object",
+   "label": "Invoice Status\nResponse",
+   "x": 639.3,
+   "y": 425.9,
+   "w": 182.4,
+   "h": 86.9,
+   "labelLines": [
+    {
+     "text": "Invoice Status",
+     "cx": 731.6,
+     "cy": 458.7,
+     "w": 119.3
+    },
+    {
+     "text": "Response",
+     "cx": 731.8,
+     "cy": 481.4,
+     "w": 83.4
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n11",
+   "kind": "action",
+   "label": "Receive Account Response",
+   "x": 887.4,
+   "y": 432.8,
+   "w": 279.6,
+   "h": 65.7,
+   "rx": 17.5,
+   "ry": 17.9,
+   "labelLines": [
+    {
+     "text": "Receive Account Response",
+     "cx": 1023.0,
+     "cy": 466.5,
+     "w": 230.3
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n12",
+   "kind": "action",
+   "label": "Send Account Response",
+   "x": 339.9,
+   "y": 443.6,
+   "w": 237.2,
+   "h": 49.7,
+   "rx": 25.1,
+   "ry": 25.3,
+   "labelLines": [
+    {
+     "text": "Send Account Response",
+     "cx": 456.7,
+     "cy": 468.8,
+     "w": 207.4
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n13",
+   "kind": "final",
+   "label": "",
+   "x": 154.0,
+   "y": 675.6,
+   "w": 42.3,
+   "h": 42.8,
+   "innerRatio": 0.57
+  },
+  {
+   "id": "n14",
+   "kind": "final",
+   "label": "",
+   "x": 1330.1,
+   "y": 729.0,
+   "w": 33.7,
+   "h": 33.3,
+   "innerRatio": 0.432
+  }
+ ],
+ "edges": [
+  {
+   "from": "n1",
+   "to": "n8",
+   "exitXY": [
+    0.4707,
+    1.0
+   ],
+   "entryXY": [
+    0.4946,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n2",
+   "to": "n3",
+   "exitXY": [
+    0.0,
+    0.4649
+   ],
+   "entryXY": [
+    1.0,
+    0.6036
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n4",
+   "to": "n2",
+   "exitXY": [
+    0.0,
+    0.4827
+   ],
+   "entryXY": [
+    1.0,
+    0.5201
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n3",
+   "to": "n9",
+   "exitXY": [
+    0.4918,
+    1.0
+   ],
+   "entryXY": [
+    0.4977,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n8",
+   "to": "n4",
+   "exitXY": [
+    0.4639,
+    0.0
+   ],
+   "entryXY": [
+    0.6277,
+    1.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n5",
+   "to": "n6",
+   "exitXY": [
+    0.0,
+    0.4902
+   ],
+   "entryXY": [
+    1.0,
+    0.4965
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n7",
+   "to": "n5",
+   "exitXY": [
+    0.0,
+    0.5097
+   ],
+   "entryXY": [
+    1.0,
+    0.5052
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n6",
+   "to": "n9",
+   "exitXY": [
+    0.2449,
+    1.0
+   ],
+   "entryXY": [
+    0.5626,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n11",
+   "to": "n8",
+   "exitXY": [
+    1.0,
+    0.4825
+   ],
+   "entryXY": [
+    0.0,
+    0.4959
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n9",
+   "to": "n12",
+   "exitXY": [
+    1.0,
+    0.496
+   ],
+   "entryXY": [
+    0.0,
+    0.4728
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n10",
+   "to": "n11",
+   "exitXY": [
+    1.0,
+    0.5086
+   ],
+   "entryXY": [
+    0.0,
+    0.5297
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n12",
+   "to": "n10",
+   "exitXY": [
+    1.0,
+    0.499
+   ],
+   "entryXY": [
+    0.0,
+    0.504
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n9",
+   "to": "n13",
+   "exitXY": [
+    0.4977,
+    1.0
+   ],
+   "entryXY": [
+    0.4563,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high",
+   "label": "[agree to charges]"
+  },
+  {
+   "from": "n8",
+   "to": "n14",
+   "exitXY": [
+    0.4946,
+    1.0
+   ],
+   "entryXY": [
+    0.4718,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high",
+   "label": "[no action required]"
+  }
+ ],
+ "guards": [
+  {
+   "text": "(from Business Processes)",
+   "x": 656.8,
+   "y": 216.1,
+   "w": 127.5,
+   "h": 36.3,
+   "labelLines": [
+    {
+     "text": "(from Business Processes)",
+     "cx": 720.6,
+     "cy": 234.2,
+     "w": 127.5
+    }
+   ]
+  },
+  {
+   "text": "(from Business Processes)",
+   "x": 663.7,
+   "y": 526.3,
+   "w": 127.5,
+   "h": 35.9,
+   "labelLines": [
+    {
+     "text": "(from Business Processes)",
+     "cx": 727.5,
+     "cy": 544.3,
+     "w": 127.5
+    }
+   ]
+  },
+  {
+   "text": "[agree to\ncharges]",
+   "x": 71.3,
+   "y": 613.2,
+   "w": 68.7,
+   "h": 39.3,
+   "labelLines": [
+    {
+     "text": "[agree to",
+     "cx": 106.1,
+     "cy": 621.4,
+     "w": 67.8
+    },
+    {
+     "text": "charges]",
+     "cx": 104.4,
+     "cy": 644.5,
+     "w": 66.1
+    }
+   ]
+  },
+  {
+   "text": "[no action\nrequired]",
+   "x": 1370.2,
+   "y": 618.8,
+   "w": 74.3,
+   "h": 38.9,
+   "labelLines": [
+    {
+     "text": "[no action",
+     "cx": 1407.4,
+     "cy": 626.8,
+     "w": 74.3
+    },
+    {
+     "text": "required]",
+     "cx": 1403.9,
+     "cy": 649.7,
+     "w": 67.4
+    }
+   ]
+  }
+ ]
+}

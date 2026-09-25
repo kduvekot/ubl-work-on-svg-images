@@ -1,0 +1,95 @@
+MODEL  UBL-1.0-ProcurementProcess
+  18 action, 4 decision, 1 final, 2 fork, 9 object, 43 flows, 4 partitions
+
+FLOW
+  place order   [Buyer]
+  [Order]   [Buyer / Seller]
+  receive order   [Seller]
+  <?>   [Seller]
+    -Seller-> reject order   [Seller]
+    -> [OrderResponseSimple]   [Seller]
+    -> receive response   [Buyer]
+      -> receive advice   [Buyer]
+      -> reconcile invoice   [Buyer]
+      -> (end)   [Buyer]
+      -> <?>   [Buyer]
+        -> cancel order   [Buyer]
+        -> [OrderCancellation]   [Seller]
+        -> cancel order   [Seller]
+        -> change order   [Buyer]
+          -> [OrderChange]   [Seller]
+          -> change order   [Seller]
+          -> receive advice   [Buyer]
+    -> acd Cetail   [Seller]
+      -> [OrderResponse (detailed)]   [Seller]
+      -> receive response   [Buyer]
+      -> <?>   [Seller]
+        -> cancel order   [Seller]
+        -> === bar ===   [Seller]
+    -> change order   [Seller]
+    -> accept order   [Seller]
+      -> [OrderResponseSimple]   [Seller]
+      -> receive response   [Buyer]
+      -> <?>   [Seller]
+        -> cancel order   [Seller]
+        -> === bar ===   [Seller]
+
+  Gespatch order Rens)   [Seller]
+    -> === bar ===   [Seller]
+    -> [DespatchAdvice]   [Seller]
+      -> receive advice   [Buyer]
+      -> recerve dOvVCE   [Delivery Recipient]
+      -> recive goods   [Delivery Recipient]
+      -> Sdvise receipt   [Delivery Recipient]
+      -> [ReceiptAdvice]   [Buyer]
+      -> deoson if Rem(s) rejected   [Seller]
+      -> === bar ===   [Seller]
+      -> fase wwoce   [Seller]
+      -> [Invoice]   [Buyer]
+      -> reconcile invoice   [Buyer]
+    -> === bar ===   [Seller]
+
+CHECKS
+
+  drawn dashed (19):
+    [Order] ---> receive order (16 on, 17 off)
+    place order ---> [Order] (16 on, 18 off)
+    reject order ---> [OrderResponseSimple] (16 on, 17 off)
+    [OrderResponseSimple] ---> receive response (17 on, 16 off)
+    [OrderResponseSimple] ---> receive response (16 on, 17 off)
+    accept order ---> [OrderResponseSimple] (16 on, 18 off)
+    [OrderResponse (detailed)] ---> receive response (17 on, 16 off)
+    acd Cetail ---> [OrderResponse (detailed)] (15 on, 19 off)
+    [OrderChange] ---> change order (17 on, 16 off)
+    change order ---> [OrderChange] (16 on, 18 off)
+    cancel order ---> [OrderCancellation] (15 on, 18 off)
+    [OrderCancellation] ---> cancel order (16 on, 18 off)
+    [DespatchAdvice] ---> receive advice (18 on, 16 off)
+    Gespatch order Rens) ---> [DespatchAdvice] (15 on, 18 off)
+    [DespatchAdvice] ---> recerve dOvVCE (17 on, 17 off)
+    [ReceiptAdvice] ---> deoson if Rem(s) rejected (16 on, 18 off)
+    Sdvise receipt ---> [ReceiptAdvice] (17 on, 17 off)
+    fase wwoce ---> [Invoice] (16 on, 17 off)
+    [Invoice] ---> reconcile invoice (16 on, 17 off)
+  ok   every element is connected
+  ok   start events have a way out and no way in
+  ok   end events have a way in and no way out
+  ok   decisions have at least two ways out
+  note branches out of a decision are labelled   (informational: several diagrams draw an unlabelled branch, so read these against the artwork rather than treating them as errors)
+        - <?> -> acd Cetail
+        - <?> -> change order
+        - <?> -> accept order
+        - <?> -> cancel order
+        - <?> -> change order
+        - <?> -> cancel order
+        - <?> -> === bar ===
+        - <?> -> cancel order
+        - ... and 1 more
+  ok   documents are both written and read
+  ok   no flow runs straight from one document to another
+  ok   work crossing between parties goes through a document   (informational: UBL draws the hand-over as a document on the divider, and each exception below is named)
+  ok   every flow's direction was read with confidence
+  note every action passes its work on   (informational: several diagrams do end on an action, so read these against the artwork rather than treating them as errors)
+        - change order
+        - cancel order
+  ok   every element is reachable from a start event   (skipped: this diagram has no start event and no flow arriving from off the page)

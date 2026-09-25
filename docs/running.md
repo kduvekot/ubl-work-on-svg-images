@@ -123,8 +123,35 @@ A landscape page per figure: the original, the conversion, and the difference
 with red for ink lost and blue for ink invented, plus that figure's findings.
 Needs Saxon and Apache FOP on `CLASSPATH`/`PATH` - see the script's header.
 
-FOP will not read a 1-bit PNG, and three of the 97 are 1-bit. The script re-saves
-those three as RGB into a scratch directory; the pixels are untouched.
+FOP will not read a 1-bit PNG, and three of the 97 are 1-bit. Most of the
+greyscale originals also embed a grey ICC profile, which FOP carries into the PDF
+and at least one viewer then paints solid black, and 25 are RGBA on a transparent
+black ground. The script re-saves all of those as RGB, flattened onto white and
+without the profile, into a scratch directory; the drawing's pixels are untouched.
+
+It was last run with Saxon-HE 9.9 and FOP 2.8 as Debian/Ubuntu package them
+(`apt-get install libsaxonhe-java fop`, then `SAXON_JAR=/usr/share/java/Saxon-HE.jar`).
+
+### Saved baselines
+
+`baselines/<date>/` holds a complete sweep, kept so that any later run can be
+compared against it and so that it can always be gone back to. A baseline is
+never regenerated or overwritten: a new one goes into a new dated directory
+beside it. Each holds
+
+| | |
+|---|---|
+| `sweep.txt` | the sweep's table, as printed |
+| `review-deck.pdf` | the review deck built from it |
+| `diagrams/` | everything the sweep wrote, per diagram |
+
+| baseline | artwork | result |
+|---|---|---|
+| `2026-09-25` | `ubl-2.5` at `3d81e8a` | the table above, exactly: every structural count 0, 1.212% ink, 9 `correct`, 266 notes |
+
+That run used tesseract 5.3.4 and Chromium 1194 (Playwright's build), in a
+container with no Helvetica or Arial: the SVGs rendered in Liberation Sans. A run
+elsewhere can differ in the renders and the text reading for that reason alone.
 
 ## 6. The OCR cache
 

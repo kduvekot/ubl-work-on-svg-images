@@ -1,0 +1,550 @@
+{
+ "canvas": {
+  "w": 1480.0,
+  "h": 771.761
+ },
+ "stroke": {
+  "frame": 4.3,
+  "divider": 0.4,
+  "action": 1.3,
+  "object": 2.6,
+  "edge": 1.3
+ },
+ "font": {
+  "family": "Helvetica, Arial, sans-serif",
+  "node": 19.7,
+  "lane": 19.7,
+  "guard": 19.7
+ },
+ "arrow": 27.2,
+ "arrowWidth": 24.5,
+ "arrowStyle": "open",
+ "dashed": [
+  {
+   "x": 35.4,
+   "y": 35.4,
+   "w": 1408.7,
+   "h": 706.9,
+   "rx": 68.3,
+   "dash": 5.2,
+   "gap": 3.9,
+   "weight": 1.3
+  }
+ ],
+ "greyRules": [],
+ "crossMarks": [],
+ "openEnds": [
+  {
+   "points": [
+    [
+     342.2,
+     5.2
+    ],
+    [
+     340.5,
+     114.9
+    ]
+   ],
+   "arrow": true
+  },
+  {
+   "points": [
+    [
+     1140.8,
+     5.2
+    ],
+    [
+     1142.9,
+     112.4
+    ]
+   ],
+   "arrow": true
+  },
+  {
+   "points": [
+    [
+     1199.1,
+     357.8
+    ],
+    [
+     1198.7,
+     696.6
+    ],
+    [
+     368.2,
+     696.6
+    ],
+    [
+     367.7,
+     766.1
+    ]
+   ],
+   "arrow": false
+  },
+  {
+   "points": [
+    [
+     286.1,
+     367.3
+    ],
+    [
+     284.3,
+     766.1
+    ]
+   ],
+   "arrow": false
+  }
+ ],
+ "frameBox": [
+  2.2,
+  2.2,
+  1477.8,
+  769.6
+ ],
+ "dividers": [
+  [
+   732.2,
+   0.4,
+   5.6,
+   765.7
+  ]
+ ],
+ "bands": [],
+ "lanes": [
+  {
+   "title": "",
+   "x": 0.0,
+   "w": 732.0,
+   "cx": 366.0,
+   "cy": 19.7
+  },
+  {
+   "title": "Exception Handling",
+   "x": 732.0,
+   "w": 748.0,
+   "cx": 735.0,
+   "cy": 54.2
+  }
+ ],
+ "bandLabels": [],
+ "nodes": [
+  {
+   "id": "n1",
+   "kind": "action",
+   "label": "Receive Sales Forecast &\nWait for Exception\nNotification",
+   "x": 1072.7,
+   "y": 118.6,
+   "w": 258.4,
+   "h": 103.3,
+   "rx": 29.6,
+   "ry": 29.2,
+   "labelLines": [
+    {
+     "text": "Receive Sales Forecast &",
+     "cx": 1201.7,
+     "cy": 144.3,
+     "w": 227.3
+    },
+    {
+     "text": "Wait for Exception",
+     "cx": 1205.8,
+     "cy": 171.3,
+     "w": 164.6
+    },
+    {
+     "text": "Notification",
+     "cx": 1211.4,
+     "cy": 194.2,
+     "w": 100.7
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n2",
+   "kind": "action",
+   "label": "Receive Sales Forecast &\nWait for Exception\nNotification",
+   "x": 160.1,
+   "y": 120.8,
+   "w": 258.0,
+   "h": 101.1,
+   "rx": 27.4,
+   "ry": 28.7,
+   "labelLines": [
+    {
+     "text": "Receive Sales Forecast &",
+     "cx": 287.4,
+     "cy": 146.5,
+     "w": 227.3
+    },
+    {
+     "text": "Wait for Exception",
+     "cx": 291.2,
+     "cy": 173.1,
+     "w": 165.1
+    },
+    {
+     "text": "Notification",
+     "cx": 296.9,
+     "cy": 196.2,
+     "w": 101.1
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n3",
+   "kind": "decision",
+   "label": "",
+   "x": 1166.9,
+   "y": 288.4,
+   "w": 66.1,
+   "h": 64.0
+  },
+  {
+   "id": "n4",
+   "kind": "decision",
+   "label": "",
+   "x": 254.3,
+   "y": 297.9,
+   "w": 64.0,
+   "h": 64.0
+  },
+  {
+   "id": "n5",
+   "kind": "object",
+   "label": "Exception Notification\n(positive)",
+   "x": 615.3,
+   "y": 412.2,
+   "w": 237.2,
+   "h": 95.9,
+   "labelLines": [
+    {
+     "text": "Exception Notification",
+     "cx": 727.9,
+     "cy": 448.8,
+     "w": 196.6
+    },
+    {
+     "text": "(positive)",
+     "cx": 731.6,
+     "cy": 469.7,
+     "w": 82.1
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n6",
+   "kind": "action",
+   "label": "Send Exception",
+   "x": 921.5,
+   "y": 433.6,
+   "w": 200.9,
+   "h": 60.9,
+   "rx": 27.4,
+   "ry": 29.6,
+   "labelLines": [
+    {
+     "text": "Send Exception",
+     "cx": 1018.3,
+     "cy": 463.0,
+     "w": 138.7
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n7",
+   "kind": "action",
+   "label": "Send Exception",
+   "x": 345.5,
+   "y": 443.1,
+   "w": 212.6,
+   "h": 55.3,
+   "rx": 27.4,
+   "ry": 29.0,
+   "labelLines": [
+    {
+     "text": "Send Exception",
+     "cx": 448.1,
+     "cy": 470.8,
+     "w": 139.1
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n8",
+   "kind": "action",
+   "label": "Receive & Resolve\nException",
+   "x": 789.7,
+   "y": 582.7,
+   "w": 258.0,
+   "h": 64.8,
+   "rx": 27.9,
+   "ry": 27.4,
+   "labelLines": [
+    {
+     "text": "Receive & Resolve",
+     "cx": 908.3,
+     "cy": 602.8,
+     "w": 165.9
+    },
+    {
+     "text": "Exception",
+     "cx": 916.5,
+     "cy": 629.4,
+     "w": 87.3
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n9",
+   "kind": "action",
+   "label": "Receive & Resolve\nException",
+   "x": 420.2,
+   "y": 584.4,
+   "w": 258.4,
+   "h": 64.8,
+   "rx": 29.6,
+   "ry": 29.6,
+   "labelLines": [
+    {
+     "text": "Receive & Resolve",
+     "cx": 538.8,
+     "cy": 602.8,
+     "w": 165.9
+    },
+    {
+     "text": "Exception",
+     "cx": 547.3,
+     "cy": 629.4,
+     "w": 86.9
+    }
+   ],
+   "bold": true
+  }
+ ],
+ "edges": [
+  {
+   "from": "n2",
+   "to": "n4",
+   "exitXY": [
+    0.4884,
+    1.0
+   ],
+   "entryXY": [
+    0.4969,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n1",
+   "to": "n3",
+   "exitXY": [
+    0.4876,
+    1.0
+   ],
+   "entryXY": [
+    0.4811,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n3",
+   "to": "n6",
+   "exitXY": [
+    0.0,
+    0.4969
+   ],
+   "entryXY": [
+    0.5042,
+    0.0
+   ],
+   "straight": false,
+   "confidence": "high",
+   "points": [
+    [
+     1022.8,
+     320.2
+    ]
+   ],
+   "label": "No"
+  },
+  {
+   "from": "n4",
+   "to": "n7",
+   "exitXY": [
+    1.0,
+    0.4969
+   ],
+   "entryXY": [
+    0.4765,
+    0.0
+   ],
+   "straight": false,
+   "confidence": "high",
+   "points": [
+    [
+     446.8,
+     329.7
+    ]
+   ],
+   "label": "Yes"
+  },
+  {
+   "from": "n6",
+   "to": "n5",
+   "exitXY": [
+    0.0,
+    0.4647
+   ],
+   "entryXY": [
+    1.0,
+    0.4964
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n7",
+   "to": "n5",
+   "exitXY": [
+    1.0,
+    0.4105
+   ],
+   "entryXY": [
+    0.0,
+    0.5318
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n5",
+   "to": "n9",
+   "exitXY": [
+    0.2188,
+    1.0
+   ],
+   "entryXY": [
+    0.6598,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n5",
+   "to": "n8",
+   "exitXY": [
+    0.7728,
+    1.0
+   ],
+   "entryXY": [
+    0.324,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  }
+ ],
+ "guards": [
+  {
+   "text": "Exception Received ?",
+   "x": 1246.2,
+   "y": 304.6,
+   "w": 178.9,
+   "h": 17.7,
+   "labelLines": [
+    {
+     "text": "Exception Received ?",
+     "cx": 1335.7,
+     "cy": 313.5,
+     "w": 178.9
+    }
+   ]
+  },
+  {
+   "text": "Exception Received ?",
+   "x": 42.8,
+   "y": 314.1,
+   "w": 178.5,
+   "h": 17.7,
+   "labelLines": [
+    {
+     "text": "Exception Received ?",
+     "cx": 132.0,
+     "cy": 323.0,
+     "w": 178.5
+    }
+   ]
+  },
+  {
+   "text": "No",
+   "x": 1168.4,
+   "y": 397.5,
+   "w": 22.0,
+   "h": 14.3,
+   "labelLines": [
+    {
+     "text": "No",
+     "cx": 1179.5,
+     "cy": 404.7,
+     "w": 22.0
+    }
+   ]
+  },
+  {
+   "text": "Yes",
+   "x": 975.3,
+   "y": 398.0,
+   "w": 31.1,
+   "h": 14.3,
+   "labelLines": [
+    {
+     "text": "Yes",
+     "cx": 990.8,
+     "cy": 405.1,
+     "w": 31.1
+    }
+   ]
+  },
+  {
+   "text": "No",
+   "x": 246.7,
+   "y": 406.6,
+   "w": 22.0,
+   "h": 14.3,
+   "labelLines": [
+    {
+     "text": "No",
+     "cx": 257.8,
+     "cy": 413.8,
+     "w": 22.0
+    }
+   ]
+  },
+  {
+   "text": "Yes",
+   "x": 399.3,
+   "y": 407.9,
+   "w": 31.1,
+   "h": 13.8,
+   "labelLines": [
+    {
+     "text": "Yes",
+     "cx": 414.8,
+     "cy": 414.8,
+     "w": 31.1
+    }
+   ]
+  }
+ ]
+}

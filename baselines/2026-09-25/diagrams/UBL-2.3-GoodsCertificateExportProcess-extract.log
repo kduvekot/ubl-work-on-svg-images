@@ -1,0 +1,79 @@
+image 1712x1279
+
+PARTITION RULES
+   vertical  : [(0, 5), (572, 2), (1138, 2), (1705, 7)]
+   horizontal: [(0, 5), (62, 2), (1274, 5)]
+   -> 3 column(s) x 2 band(s)
+   type measured off the page: a word is 18px tall
+   (dropped x=5     y=5      567x1269  encloses another region)
+   (dropped x=574   y=5      564x57    is a partition cell)
+   (dropped x=1140  y=5      565x57    is a partition cell)
+   (dropped x=574   y=64     564x1210  is a partition cell)
+   (dropped x=1140  y=64     565x1210  is a partition cell)
+   one line weight only - no object nodes
+
+NODES
+   n1   initial   x=176   y=116   w=46    h=45    stroke=0   fill=0.75  ''
+   n2   action    x=79    y=243   w=240   h=119   stroke=2   fill=0.93  'raft Goods Certificat'
+   n3   object    x=454   y=243   w=239   h=118   stroke=3   fill=0.94  'Goods Certificate'
+   n4   action    x=748   y=243   w=207   h=115   stroke=2   fill=0.93  'Prepare for export'
+   n5   object    x=1018  y=429   w=239   h=118   stroke=4   fill=0.94  'Goods Certificate'
+   n6   action    x=739   y=440   w=227   h=95    stroke=2   fill=0.85  'Issue Trade\nCertificates for\nexport as bundle'
+   n7   action    x=1377  y=440   w=193   h=95    stroke=2   fill=0.90  'Validate Trade\nCertificate'
+   n8   decision  x=1397  y=584   w=157   h=113   stroke=2   fill=0.49  'OK?'
+   n9   object    x=454   y=781   w=239   h=118   stroke=3   fill=0.94  'Goods Certificate'
+   n10  object    x=1018  y=781   w=239   h=118   stroke=3   fill=0.94  'Goods Certificate'
+   n11  action    x=166   y=789   w=210   h=103   stroke=2   fill=0.91  'Receive\nGoods Certificate'
+   n12  action    x=1379  y=789   w=191   h=103   stroke=2   fill=0.89  'Apply stamps\nand signature'
+   n13  action    x=766   y=793   w=170   h=95    stroke=2   fill=0.89  'Send\nauthorized\ncopy'
+   n14  object    x=454   y=983   w=239   h=118   stroke=3   fill=0.93  'Application response}'
+   n15  object    x=1018  y=983   w=239   h=118   stroke=3   fill=0.93  'Application response}'
+   n16  action    x=166   y=991   w=210   h=103   stroke=2   fill=0.95  'Receive reject'
+   n17  action    x=764   y=991   w=191   h=103   stroke=2   fill=0.95  'Send reject'
+   n18  action    x=1381  y=991   w=191   h=103   stroke=2   fill=0.95  'Send reject'
+   n19  final     x=79    y=1173  w=58    h=58    stroke=0   fill=0.30  ''
+
+TYPE  cap height 18px over 273 glyphs -> font 25.7px
+
+EDGES
+   n1   -> n2    straight    arrowhead   224 vs 111    ratio 4.0  high
+   n2   -> n3    straight    arrowhead   263 vs 90     ratio 4.0  high
+   n3   -> n4    straight    arrowhead   207 vs 207    ratio 4.0  high
+   n4   -> n6    straight    arrowhead   236 vs 130    ratio 4.0  high
+   n6   -> n5    straight    arrowhead   201 vs 201    ratio 4.0  high
+   n5   -> n7    straight    arrowhead   265 vs 90     ratio 4.0  high
+   n7   -> n8    straight    arrowhead   143 vs 143    ratio 1.0  <-- CHECK DIRECTION
+   n8   -> n18   orthogonal  arrowhead   307 vs 90     ratio 4.0  high
+   n8   -> n12   straight    arrowhead   386 vs 228    ratio 4.0  high
+   n9   -> n11   straight    arrowhead   226 vs 188    ratio 4.0  high
+   n13  -> n9    straight    arrowhead   207 vs 207    ratio 4.0  high
+   n10  -> n13   straight    arrowhead   277 vs 267    ratio 1.0  <-- CHECK DIRECTION
+   n12  -> n10   straight    arrowhead   255 vs 92     ratio 4.0  high
+   n11  -> n19   orthogonal  arrowhead   178 vs 158    ratio 4.0  high
+   n14  -> n16   straight    arrowhead   226 vs 188    ratio 4.0  high
+   n17  -> n14   straight    arrowhead   203 vs 203    ratio 4.0  high
+   n18  -> n15   straight    arrowhead   255 vs 92     ratio 4.0  high
+   n15  -> n17   straight    arrowhead   200 vs 200    ratio 4.0  high
+   n16  -> n19   orthogonal  arrowhead   157 vs 90     ratio 4.0  high
+
+TEXT (titles, guards, notes)
+   'Export party'                           x=220   y=30    
+   'Preparation party'                      x=755   y=30    
+   'Certification party'                    x=1319  y=30    
+   'Yes'                                    x=1414  y=726   n8->n12
+   'No'                                     x=1640  y=811   n8->n18
+
+PARTITIONS
+   column 0  'Export party'
+   column 1  'Preparation party'
+   column 2  'Certification party'
+   band   0  ''
+   band   1  ''
+
+ARROWHEAD  22 x 18px, filled, measured on 12 connector(s)
+   reading settled: 'Application response}' -> 'Application response'
+   reading settled: 'Application response}' -> 'Application response'
+   reading settled: 'Application response}' -> 'Application response'
+   reading settled: 'Application response}' -> 'Application response'
+
+wrote review/baseline/UBL-2.3-GoodsCertificateExportProcess-graph.json   (19 nodes, 19 edges, 2 flagged for a human)

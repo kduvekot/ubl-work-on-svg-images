@@ -1,0 +1,157 @@
+{
+ "name": "UBL-2.2-CRP-Synchronizing.png",
+ "verdict": "correct",
+ "radius": 3,
+ "lineWorkInk": 155184,
+ "missingPx": 1705,
+ "inventedPx": 1181,
+ "structural": {
+  "absent": 0,
+  "invented": 0,
+  "coherence": 0,
+  "textAbsent": 0,
+  "textDiffers": 0
+ },
+ "blocking": [],
+ "findings": [
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n4 (action 'Send information abo')",
+   "x": 3284,
+   "y": 580,
+   "w": 58,
+   "h": 39,
+   "area": 317
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n4 (action 'Send information abo')",
+   "x": 2287,
+   "y": 581,
+   "w": 54,
+   "h": 38,
+   "area": 308
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n4 (action 'Send information abo')",
+   "x": 3289,
+   "y": 705,
+   "w": 53,
+   "h": 38,
+   "area": 294
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n4 (action 'Send information abo')",
+   "x": 2288,
+   "y": 707,
+   "w": 48,
+   "h": 35,
+   "area": 286
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n3 (action 'Synchronize stock in')",
+   "x": 86,
+   "y": 579,
+   "w": 30,
+   "h": 22,
+   "area": 100
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n3 (action 'Synchronize stock in')",
+   "x": 1059,
+   "y": 579,
+   "w": 30,
+   "h": 22,
+   "area": 94
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n3 (action 'Synchronize stock in')",
+   "x": 91,
+   "y": 722,
+   "w": 25,
+   "h": 13,
+   "area": 72
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n3 (action 'Synchronize stock in')",
+   "x": 1061,
+   "y": 716,
+   "w": 26,
+   "h": 18,
+   "area": 70
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n3 (action 'Synchronize stock in')",
+   "x": 81,
+   "y": 625,
+   "w": 1,
+   "h": 64,
+   "area": 64
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n4 (action 'Send information abo')",
+   "x": 2296,
+   "y": 589,
+   "w": 49,
+   "h": 33,
+   "area": 249
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n4 (action 'Send information abo')",
+   "x": 3284,
+   "y": 589,
+   "w": 49,
+   "h": 33,
+   "area": 249
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n4 (action 'Send information abo')",
+   "x": 2296,
+   "y": 702,
+   "w": 45,
+   "h": 32,
+   "area": 233
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n4 (action 'Send information abo')",
+   "x": 3288,
+   "y": 702,
+   "w": 45,
+   "h": 32,
+   "area": 231
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n3 (action 'Synchronize stock in')",
+   "x": 95,
+   "y": 587,
+   "w": 25,
+   "h": 17,
+   "area": 67
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n3 (action 'Synchronize stock in')",
+   "x": 1054,
+   "y": 587,
+   "w": 25,
+   "h": 16,
+   "area": 67
+  }
+ ],
+ "text": [],
+ "coherence": [],
+ "human": [],
+ "review": []
+}

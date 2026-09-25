@@ -1,0 +1,11 @@
+== UBL-2.2-VMI-SalesAndInventoryMovement
+  scale 0.43212   frame 10px  divider 5px  action 4px  object 8px
+  font 57px (24.7 model)   2 lanes, 1 bands, 9 nodes, 9 edges -> review/baseline/UBL-2.2-VMI-SalesAndInventoryMovement-spec.json
+  review/baseline/UBL-2.2-VMI-SalesAndInventoryMovement.svg + .drawio + -classified.svg   (9 nodes, 9 edges)
+  rendered UBL-2.2-VMI-SalesAndInventoryMovement.svg -> UBL-2.2-VMI-SalesAndInventoryMovement-render.png @ 3425pxx1987, 600 dpi
+  aligned on ink bounds: scale x 1.0000, y 1.0000
+  size 3425x1987  radius 2
+  ink: original 281317   candidate 275931
+  MISSING (red)    15848  = 5.6335% of original ink
+  EXTRA   (blue)   16302  = 5.7949% of original ink
+  RESULT: DIFFERENCES - inspect review/baseline/UBL-2.2-VMI-SalesAndInventoryMovement-diff-r2.png

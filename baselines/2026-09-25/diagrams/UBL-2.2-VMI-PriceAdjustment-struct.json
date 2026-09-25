@@ -1,0 +1,184 @@
+{
+ "name": "UBL-2.2-VMI-PriceAdjustment.png",
+ "verdict": "correct",
+ "radius": 3,
+ "lineWorkInk": 190553,
+ "missingPx": 3346,
+ "inventedPx": 2621,
+ "structural": {
+  "absent": 0,
+  "invented": 0,
+  "coherence": 0,
+  "textAbsent": 0,
+  "textDiffers": 0
+ },
+ "blocking": [],
+ "findings": [
+  {
+   "kind": "line-work-missing",
+   "detail": "unattributed",
+   "x": 1820,
+   "y": 1336,
+   "w": 2,
+   "h": 726,
+   "area": 1452
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n6 (action 'Receive Price List')",
+   "x": 3299,
+   "y": 1273,
+   "w": 43,
+   "h": 41,
+   "area": 283
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n6 (action 'Receive Price List')",
+   "x": 3299,
+   "y": 1142,
+   "w": 43,
+   "h": 41,
+   "area": 269
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n6 (action 'Receive Price List')",
+   "x": 2606,
+   "y": 1276,
+   "w": 42,
+   "h": 39,
+   "area": 259
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n6 (action 'Receive Price List')",
+   "x": 2606,
+   "y": 1143,
+   "w": 39,
+   "h": 37,
+   "area": 238
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n5 (action 'Send Price List')",
+   "x": 336,
+   "y": 1276,
+   "w": 41,
+   "h": 33,
+   "area": 214
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n5 (action 'Send Price List')",
+   "x": 1029,
+   "y": 1275,
+   "w": 41,
+   "h": 34,
+   "area": 205
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n5 (action 'Send Price List')",
+   "x": 336,
+   "y": 1143,
+   "w": 36,
+   "h": 31,
+   "area": 175
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n5 (action 'Send Price List')",
+   "x": 1034,
+   "y": 1143,
+   "w": 36,
+   "h": 32,
+   "area": 167
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "unattributed",
+   "x": 1811,
+   "y": 1335,
+   "w": 2,
+   "h": 726,
+   "area": 1452
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n6 (action 'Receive Price List')",
+   "x": 3297,
+   "y": 1271,
+   "w": 36,
+   "h": 34,
+   "area": 188
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n6 (action 'Receive Price List')",
+   "x": 3300,
+   "y": 1152,
+   "w": 33,
+   "h": 33,
+   "area": 182
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n6 (action 'Receive Price List')",
+   "x": 2615,
+   "y": 1274,
+   "w": 34,
+   "h": 31,
+   "area": 170
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n6 (action 'Receive Price List')",
+   "x": 2615,
+   "y": 1152,
+   "w": 32,
+   "h": 30,
+   "area": 160
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n5 (action 'Send Price List')",
+   "x": 345,
+   "y": 1273,
+   "w": 31,
+   "h": 26,
+   "area": 133
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n5 (action 'Send Price List')",
+   "x": 1030,
+   "y": 1275,
+   "w": 30,
+   "h": 24,
+   "area": 124
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n5 (action 'Send Price List')",
+   "x": 345,
+   "y": 1153,
+   "w": 27,
+   "h": 24,
+   "area": 106
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n5 (action 'Send Price List')",
+   "x": 1034,
+   "y": 1153,
+   "w": 26,
+   "h": 22,
+   "area": 93
+  }
+ ],
+ "text": [],
+ "coherence": [],
+ "human": [],
+ "review": []
+}

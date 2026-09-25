@@ -1,0 +1,134 @@
+{
+ "name": "UBL-2.2-IMFM-IntermodalFreightManagementProcess",
+ "counts": {
+  "initial": 1,
+  "note": 3,
+  "action": 11,
+  "object": 12,
+  "final": 1
+ },
+ "flow": [
+  "(start)   [Transport Service Provider / Planning]",
+  "Plan Transport Services   [Transport Service Provider / Planning]",
+  "Announce Transport Services   [Transport Service Provider / Planning]",
+  "[Transport Service Description]   [Transport Service Provider / Planning]",
+  "Define Transport Service Demand   [Transport User / Planning]",
+  "  -> [Transport Service Description Request]   [Transport Service Provider / Planning]",
+  "  -> Announce Transport Services   [Transport Service Provider / Planning]",
+  "  -> Perform Booking Management   [Transport User / Planning]",
+  "  -> [Transport Execution Plan Request]   [Transport Service Provider / Planning]",
+  "  -> Perform Order Management   [Transport Service Provider / Planning]",
+  "    -> [Transport Execution Plan]   [Transport User / Planning]",
+  "    -> Perform Booking Management   [Transport User / Planning]",
+  "    -> [Goods Item Itinerary]   [Transport Service Provider / Planning]",
+  "    -> Perform Booking Management   [Transport User / Planning]",
+  "    -> Execute Transport Services   [Transport Service Provider / Execution]",
+  "      -> [Transport Progress Status Request]   [Transport Regulator / Execution]",
+  "      -> Provide Transportation Network Information   [Transportation Network Manager / Planning]",
+  "        -> Plan Transport Services   [Transport Service Provider / Planning]",
+  "        -> Perform Order Management   [Transport Service Provider / Planning]",
+  "        -> [Transport Progress Status]   [Transport Regulator / Execution]",
+  "        -> Execute Transport Services   [Transport Service Provider / Execution]",
+  "      -> [Transportation Status]   [Transport Service Provider / Execution]",
+  "      -> Monitor and Control Transport Services   [Transport User / Execution]",
+  "        -> [Transportation Status Request]   [Transport Service Provider / Execution]",
+  "        -> Execute Transport Services   [Transport Service Provider / Execution]",
+  "        -> [Transport Execution Plan]   [Transport Service Provider / Execution]",
+  "        -> Execute Transport Services   [Transport Service Provider / Execution]",
+  "      -> Perform Compliance Management   [Transport Regulator / Execution]",
+  "      -> [Transport Execution Plan]   [Transport Service Provider / Execution]",
+  "      -> Monitor and Control Transport Services   [Transport User / Execution]",
+  "      -> Manage Completion   [Transport Service Provider / Completion]",
+  "      -> [Freight Invoice]   [Transport Service Provider / Completion]",
+  "      -> Finalize Transport Services   [Transport User / Completion]",
+  "      -> (end)   [Transport User / Completion]",
+  ""
+ ],
+ "checks": [
+  {
+   "rule": "every element is connected",
+   "ok": true,
+   "bad": [],
+   "note": "",
+   "report": false
+  },
+  {
+   "rule": "start events have a way out and no way in",
+   "ok": true,
+   "bad": [],
+   "note": "",
+   "report": false
+  },
+  {
+   "rule": "end events have a way in and no way out",
+   "ok": true,
+   "bad": [],
+   "note": "",
+   "report": false
+  },
+  {
+   "rule": "decisions have at least two ways out",
+   "ok": true,
+   "bad": [],
+   "note": "",
+   "report": false
+  },
+  {
+   "rule": "branches out of a decision are labelled",
+   "ok": true,
+   "bad": [],
+   "note": "informational: several diagrams draw an unlabelled branch, so read these against the artwork rather than treating them as errors",
+   "report": true
+  },
+  {
+   "rule": "documents are both written and read",
+   "ok": true,
+   "bad": [],
+   "note": "",
+   "report": false
+  },
+  {
+   "rule": "no flow runs straight from one document to another",
+   "ok": true,
+   "bad": [],
+   "note": "",
+   "report": false
+  },
+  {
+   "rule": "work crossing between parties goes through a document",
+   "ok": true,
+   "bad": [
+    "Provide Transportation Network Information [Transportation Network Manager / Planning] -> Plan Transport Services [Transport Service Provider / Planning]   (no document drawn - read this one against the artwork)",
+    "Provide Transportation Network Information [Transportation Network Manager / Planning] -> Perform Order Management [Transport Service Provider / Planning]   (no document drawn - read this one against the artwork)",
+    "Perform Order Management [Transport Service Provider / Planning] -> Execute Transport Services [Transport Service Provider / Execution]   (the same party, next phase band)",
+    "Execute Transport Services [Transport Service Provider / Execution] -> Perform Compliance Management [Transport Regulator / Execution]   (no document drawn - read this one against the artwork)",
+    "Execute Transport Services [Transport Service Provider / Execution] -> Manage Completion [Transport Service Provider / Completion]   (the same party, next phase band)"
+   ],
+   "note": "informational: UBL draws the hand-over as a document on the divider, and each exception below is named",
+   "report": true
+  },
+  {
+   "rule": "every flow's direction was read with confidence",
+   "ok": true,
+   "bad": [],
+   "note": "",
+   "report": false
+  },
+  {
+   "rule": "every action passes its work on",
+   "ok": true,
+   "bad": [
+    "Perform Compliance Management"
+   ],
+   "note": "informational: several diagrams do end on an action, so read these against the artwork rather than treating them as errors",
+   "report": true
+  },
+  {
+   "rule": "every element is reachable from a start event",
+   "ok": true,
+   "bad": [],
+   "note": "",
+   "report": false
+  }
+ ]
+}

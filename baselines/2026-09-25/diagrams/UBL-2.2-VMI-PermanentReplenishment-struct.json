@@ -1,0 +1,122 @@
+{
+ "name": "UBL-2.2-VMI-PermanentReplenishment.png",
+ "verdict": "needs-human",
+ "radius": 3,
+ "lineWorkInk": 241939,
+ "missingPx": 651,
+ "inventedPx": 395,
+ "structural": {
+  "absent": 0,
+  "invented": 0,
+  "coherence": 0,
+  "textAbsent": 0,
+  "textDiffers": 0
+ },
+ "blocking": [],
+ "findings": [
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n9 (action 'Send Despatch\\nAdvice')",
+   "x": 399,
+   "y": 1261,
+   "w": 25,
+   "h": 19,
+   "area": 85
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n9 (action 'Send Despatch\\nAdvice')",
+   "x": 399,
+   "y": 1137,
+   "w": 26,
+   "h": 20,
+   "area": 84
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n9 (action 'Send Despatch\\nAdvice')",
+   "x": 891,
+   "y": 1261,
+   "w": 25,
+   "h": 19,
+   "area": 80
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n9 (action 'Send Despatch\\nAdvice')",
+   "x": 890,
+   "y": 1137,
+   "w": 26,
+   "h": 19,
+   "area": 79
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n9 (action 'Send Despatch\\nAdvice')",
+   "x": 406,
+   "y": 1257,
+   "w": 22,
+   "h": 16,
+   "area": 66
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n9 (action 'Send Despatch\\nAdvice')",
+   "x": 406,
+   "y": 1144,
+   "w": 22,
+   "h": 17,
+   "area": 63
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n9 (action 'Send Despatch\\nAdvice')",
+   "x": 887,
+   "y": 1257,
+   "w": 22,
+   "h": 16,
+   "area": 63
+  }
+ ],
+ "text": [],
+ "coherence": [],
+ "human": [
+  {
+   "x": 2207,
+   "y": 865,
+   "w": 782,
+   "h": 990,
+   "shape": "rounded",
+   "iou": 0.617,
+   "border": 0.756,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best rounded 0.62, and 1.00 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "kind": "empty-box",
+   "x": 86,
+   "y": 408,
+   "w": 566,
+   "h": 800,
+   "reason": "a action carrying no text, with line-work passing its sides",
+   "check": "confirm nothing is drawn here in the original"
+  }
+ ],
+ "review": [
+  {
+   "n": 1,
+   "what": "check",
+   "where": "2207,865 782x990",
+   "detail": "outline matches no UML node shape (best rounded 0.62, and 1.00 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "n": 2,
+   "what": "check",
+   "where": "86,408 566x800",
+   "detail": "a action carrying no text, with line-work passing its sides",
+   "check": "confirm nothing is drawn here in the original"
+  }
+ ]
+}

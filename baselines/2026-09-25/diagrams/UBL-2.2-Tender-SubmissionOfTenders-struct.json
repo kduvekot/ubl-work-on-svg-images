@@ -1,0 +1,120 @@
+{
+ "name": "UBL-2.2-Tender-SubmissionOfTenders.png",
+ "verdict": "needs-human",
+ "radius": 3,
+ "lineWorkInk": 316554,
+ "missingPx": 515,
+ "inventedPx": 873,
+ "structural": {
+  "absent": 0,
+  "invented": 0,
+  "coherence": 0,
+  "textAbsent": 0,
+  "textDiffers": 0
+ },
+ "blocking": [],
+ "findings": [
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n5 (object 'Tender')",
+   "x": 1675,
+   "y": 954,
+   "w": 10,
+   "h": 38,
+   "area": 116
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n7 -> n5",
+   "x": 1526,
+   "y": 959,
+   "w": 51,
+   "h": 25,
+   "area": 160
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n5 (object 'Tender')",
+   "x": 1682,
+   "y": 955,
+   "w": 16,
+   "h": 41,
+   "area": 124
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n10 -> n11",
+   "x": 616,
+   "y": 1827,
+   "w": 17,
+   "h": 34,
+   "area": 80
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n10 -> n11",
+   "x": 657,
+   "y": 1827,
+   "w": 17,
+   "h": 34,
+   "area": 80
+  }
+ ],
+ "text": [],
+ "coherence": [],
+ "human": [
+  {
+   "x": 1803,
+   "y": 988,
+   "w": 970,
+   "h": 517,
+   "shape": "ellipse",
+   "iou": 0.743,
+   "border": 0.517,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best ellipse 0.74, and 0.99 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "kind": "sub-character-region",
+   "x": 2178,
+   "y": 83,
+   "w": 36,
+   "h": 43,
+   "reason": "enclosed region smaller than one character of the diagram's type",
+   "check": "confirm this is glyph interior and not a node"
+  },
+  {
+   "kind": "sub-character-region",
+   "x": 2896,
+   "y": 83,
+   "w": 37,
+   "h": 43,
+   "reason": "enclosed region smaller than one character of the diagram's type",
+   "check": "confirm this is glyph interior and not a node"
+  }
+ ],
+ "review": [
+  {
+   "n": 1,
+   "what": "check",
+   "where": "1803,988 970x517",
+   "detail": "outline matches no UML node shape (best ellipse 0.74, and 0.99 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "n": 2,
+   "what": "check",
+   "where": "2178,83 36x43",
+   "detail": "enclosed region smaller than one character of the diagram's type",
+   "check": "confirm this is glyph interior and not a node"
+  },
+  {
+   "n": 3,
+   "what": "check",
+   "where": "2896,83 37x43",
+   "detail": "enclosed region smaller than one character of the diagram's type",
+   "check": "confirm this is glyph interior and not a node"
+  }
+ ]
+}

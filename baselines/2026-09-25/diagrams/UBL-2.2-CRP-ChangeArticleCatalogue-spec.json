@@ -1,0 +1,322 @@
+{
+ "canvas": {
+  "w": 1480.0,
+  "h": 818.429
+ },
+ "stroke": {
+  "frame": 4.3,
+  "divider": 1.7,
+  "action": 2.2,
+  "object": 3.9,
+  "edge": 2.2
+ },
+ "font": {
+  "family": "Helvetica, Arial, sans-serif",
+  "node": 25.3,
+  "lane": 25.3,
+  "guard": 25.3
+ },
+ "arrow": 31.9,
+ "arrowWidth": 24.8,
+ "arrowStyle": "open",
+ "dashed": [],
+ "greyRules": [],
+ "crossMarks": [],
+ "openEnds": [],
+ "frameBox": [
+  2.2,
+  2.2,
+  1477.8,
+  816.3
+ ],
+ "dividers": [
+  [
+   816.7,
+   1.7,
+   5.6,
+   812.4
+  ]
+ ],
+ "bands": [],
+ "lanes": [
+  {
+   "title": "Producer",
+   "x": 0.0,
+   "w": 816.7,
+   "cx": 283.0,
+   "cy": 29.6
+  },
+  {
+   "title": "Retailer",
+   "x": 816.7,
+   "w": 663.3,
+   "cx": 1175.8,
+   "cy": 30.5
+  }
+ ],
+ "bandLabels": [],
+ "nodes": [
+  {
+   "id": "n1",
+   "kind": "initial",
+   "label": "",
+   "x": 256.2,
+   "y": 70.9,
+   "w": 38.9,
+   "h": 38.9
+  },
+  {
+   "id": "n2",
+   "kind": "decision",
+   "label": "",
+   "x": 250.4,
+   "y": 176.1,
+   "w": 46.7,
+   "h": 39.8
+  },
+  {
+   "id": "n3",
+   "kind": "final",
+   "label": "",
+   "x": 56.6,
+   "y": 179.3,
+   "w": 35.0,
+   "h": 35.0,
+   "innerRatio": 0.442
+  },
+  {
+   "id": "n4",
+   "kind": "object",
+   "label": "Catalogue",
+   "x": 677.8,
+   "y": 385.2,
+   "w": 276.6,
+   "h": 64.8,
+   "labelLines": [
+    {
+     "text": "Catalogue",
+     "cx": 819.1,
+     "cy": 418.1,
+     "w": 114.5
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n5",
+   "kind": "action",
+   "label": "Inform about changes inside the\ncatalogue",
+   "x": 36.1,
+   "y": 387.0,
+   "w": 477.1,
+   "h": 72.6,
+   "rx": 35.2,
+   "ry": 30.5,
+   "labelLines": [
+    {
+     "text": "Inform about changes inside the",
+     "cx": 268.6,
+     "cy": 408.1,
+     "w": 368.6
+    },
+    {
+     "text": "catalogue",
+     "cx": 272.4,
+     "cy": 437.7,
+     "w": 111.1
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n6",
+   "kind": "action",
+   "label": "Receive information",
+   "x": 1100.4,
+   "y": 390.8,
+   "w": 334.0,
+   "h": 57.5,
+   "rx": 29.2,
+   "ry": 25.7,
+   "labelLines": [
+    {
+     "text": "Receive information",
+     "cx": 1264.2,
+     "cy": 419.2,
+     "w": 226.9
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n7",
+   "kind": "action",
+   "label": "Update Product database",
+   "x": 1091.3,
+   "y": 581.8,
+   "w": 352.6,
+   "h": 59.6,
+   "rx": 27.4,
+   "ry": 20.1,
+   "labelLines": [
+    {
+     "text": "Update Product database",
+     "cx": 1265.0,
+     "cy": 612.7,
+     "w": 288.2
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n8",
+   "kind": "final",
+   "label": "",
+   "x": 1249.0,
+   "y": 758.1,
+   "w": 35.4,
+   "h": 35.4,
+   "innerRatio": 0.442
+  }
+ ],
+ "edges": [
+  {
+   "from": "n1",
+   "to": "n2",
+   "exitXY": [
+    0.4447,
+    1.0
+   ],
+   "entryXY": [
+    0.4946,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n2",
+   "to": "n3",
+   "exitXY": [
+    0.0,
+    0.4925
+   ],
+   "entryXY": [
+    1.0,
+    0.4686
+   ],
+   "straight": true,
+   "confidence": "high",
+   "label": "Producer"
+  },
+  {
+   "from": "n2",
+   "to": "n5",
+   "exitXY": [
+    0.4946,
+    1.0
+   ],
+   "entryXY": [
+    0.4976,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high",
+   "label": "False"
+  },
+  {
+   "from": "n5",
+   "to": "n4",
+   "exitXY": [
+    1.0,
+    0.4601
+   ],
+   "entryXY": [
+    0.0,
+    0.5108
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n4",
+   "to": "n6",
+   "exitXY": [
+    1.0,
+    0.5046
+   ],
+   "entryXY": [
+    0.0,
+    0.4852
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n6",
+   "to": "n7",
+   "exitXY": [
+    0.5,
+    1.0
+   ],
+   "entryXY": [
+    0.4994,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n7",
+   "to": "n8",
+   "exitXY": [
+    0.4994,
+    1.0
+   ],
+   "entryXY": [
+    0.5198,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  }
+ ],
+ "guards": [
+  {
+   "text": "False",
+   "x": 169.4,
+   "y": 177.2,
+   "w": 43.2,
+   "h": 13.4,
+   "labelLines": [
+    {
+     "text": "False",
+     "cx": 191.0,
+     "cy": 183.9,
+     "w": 43.2
+    }
+   ]
+  },
+  {
+   "text": "Catalogue update is needed?\nTrue",
+   "x": 283.5,
+   "y": 182.4,
+   "w": 188.0,
+   "h": 64.0,
+   "labelLines": [
+    {
+     "text": "Catalogue update is needed?",
+     "cx": 376.6,
+     "cy": 200.5,
+     "w": 189.7
+    },
+    {
+     "text": "True",
+     "cx": 302.0,
+     "cy": 239.4,
+     "w": 37.2
+    }
+   ]
+  }
+ ]
+}

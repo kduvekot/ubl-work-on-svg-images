@@ -1,0 +1,41 @@
+MODEL  UBL-2.2-ROCD-InitialStocking
+  12 action, 1 decision, 1 final, 1 fork, 1 initial, 4 object, 22 flows, 3 partitions
+
+FLOW
+  (start)   [Retailer]
+  Send Order   [Retailer]
+  [Order]   [Producer]
+  Receive Order   [Producer]
+  <?>   [Producer]
+    -False-> Send Despatch Advice   [Producer]
+      -> [Despatch Advice]   [Producer]
+      -> Receive Despatch Advice   [Retailer]
+      -> === bar ===   [Retailer]
+      -> Check status of item(s)   [Retailer]
+      -> Send Receipt Advice   [Retailer]
+      -> [Receipt Advice]   [Retailer]
+      -> Receive Receipt Advice   [Producer]
+      -> Adjust supply status   [Producer]
+      -> (end)   [Producer]
+      -> Despatch order item(s)   [Producer]
+      -> Receive order item(s)   [Retailer]
+      -> === bar ===   [Retailer]
+    -True-> Send information about changes in Order   [Producer]
+      -> [Order Response]   [Producer]
+      -> Receive information about changes in Order   [Retailer]
+      -> === bar ===   [Retailer]
+      -> Send Despatch Advice   [Producer]
+
+CHECKS
+  ok   every element is connected
+  ok   start events have a way out and no way in
+  ok   end events have a way in and no way out
+  ok   decisions have at least two ways out
+  ok   branches out of a decision are labelled   (informational: several diagrams draw an unlabelled branch, so read these against the artwork rather than treating them as errors)
+  ok   documents are both written and read
+  ok   no flow runs straight from one document to another
+  note work crossing between parties goes through a document   (informational: UBL draws the hand-over as a document on the divider, and each exception below is named)
+        - Despatch order item(s) [Producer] -> Receive order item(s) [Retailer]   (the goods, beside their Despatch Advice)
+  ok   every flow's direction was read with confidence
+  ok   every action passes its work on   (informational: several diagrams do end on an action, so read these against the artwork rather than treating them as errors)
+  ok   every element is reachable from a start event

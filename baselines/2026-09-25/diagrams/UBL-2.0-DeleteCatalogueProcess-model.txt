@@ -1,0 +1,32 @@
+MODEL  UBL-2.0-DeleteCatalogueProcess
+  5 action, 2 decision, 2 final, 1 initial, 3 object, 14 flows, 3 partitions
+
+FLOW
+  (start)   [Provider Party]
+  Notify of Catalogue Deletion   [Provider Party]
+  [Catalogue Deletion]   [Receiver Party]
+  Identify Catalogue   [Receiver Party]
+  <Decide on Action>   [Receiver Party]
+    -[query catalogue deletion]-> [Application Response (negative)]   [Provider Party]
+    -> <Review Deletion of Catalogue>   [Provider Party]
+      -[insist on deletion]-> Notify of Catalogue Deletion   [Provider Party]
+      -[cancel deletion]-> (end)   [Provider Party]
+    -[accept catalogue deletion]-> Acknowledge Cancelation   [Receiver Party]
+      -> [Application Response (positive)]   [Receiver Party]
+      -> Cancel Catalogue   [Provider Party]
+      -> (end)   [Provider Party]
+      -> Delete Catalogue   [Receiver Party]
+      -> (end)   [Receiver Party]
+
+CHECKS
+  ok   every element is connected
+  ok   start events have a way out and no way in
+  ok   end events have a way in and no way out
+  ok   decisions have at least two ways out
+  ok   branches out of a decision are labelled   (informational: several diagrams draw an unlabelled branch, so read these against the artwork rather than treating them as errors)
+  ok   documents are both written and read
+  ok   no flow runs straight from one document to another
+  ok   work crossing between parties goes through a document   (informational: UBL draws the hand-over as a document on the divider, and each exception below is named)
+  ok   every flow's direction was read with confidence
+  ok   every action passes its work on   (informational: several diagrams do end on an action, so read these against the artwork rather than treating them as errors)
+  ok   every element is reachable from a start event

@@ -1,0 +1,11 @@
+== UBL-2.3-ImportDeclarationProcess
+  scale 0.43199   frame 8px  divider 10px  action 5px  object 10px
+  font 59px (25.3 model)   2 lanes, 1 bands, 10 nodes, 10 edges -> review/baseline/UBL-2.3-ImportDeclarationProcess-spec.json
+  review/baseline/UBL-2.3-ImportDeclarationProcess.svg + .drawio + -classified.svg   (10 nodes, 10 edges)
+  rendered UBL-2.3-ImportDeclarationProcess.svg -> UBL-2.3-ImportDeclarationProcess-render.png @ 3426pxx2050, 600 dpi
+  aligned on ink bounds: scale x 1.0000, y 1.0005
+  size 3426x2050  radius 2
+  ink: original 291546   candidate 305057
+  MISSING (red)    12330  = 4.2292% of original ink
+  EXTRA   (blue)   15633  = 5.3621% of original ink
+  RESULT: DIFFERENCES - inspect review/baseline/UBL-2.3-ImportDeclarationProcess-diff-r2.png

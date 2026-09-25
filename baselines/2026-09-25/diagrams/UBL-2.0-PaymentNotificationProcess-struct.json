@@ -1,0 +1,92 @@
+{
+ "name": "UBL-2.0-PaymentNotificationProcess.png",
+ "verdict": "needs-human",
+ "radius": 3,
+ "lineWorkInk": 215515,
+ "missingPx": 505,
+ "inventedPx": 387,
+ "structural": {
+  "absent": 0,
+  "invented": 0,
+  "coherence": 0,
+  "textAbsent": 0,
+  "textDiffers": 0
+ },
+ "blocking": [],
+ "findings": [
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n6 -> n3",
+   "x": 540,
+   "y": 1322,
+   "w": 77,
+   "h": 57,
+   "area": 229
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n6 -> n3",
+   "x": 1001,
+   "y": 1003,
+   "w": 30,
+   "h": 11,
+   "area": 93
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n6 -> n3",
+   "x": 556,
+   "y": 1333,
+   "w": 62,
+   "h": 45,
+   "area": 156
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n6 -> n3",
+   "x": 1003,
+   "y": 993,
+   "w": 41,
+   "h": 12,
+   "area": 119
+  }
+ ],
+ "text": [],
+ "coherence": [],
+ "human": [
+  {
+   "kind": "empty-box",
+   "x": 1245,
+   "y": 1553,
+   "w": 1132,
+   "h": 550,
+   "reason": "a note carrying no text, with line-work passing its sides",
+   "check": "confirm nothing is drawn here in the original"
+  },
+  {
+   "kind": "arrowhead-unmeasurable",
+   "x": 989,
+   "y": 918,
+   "w": 154,
+   "h": 154,
+   "reason": "the ink at the head end of n6->n3 measures 77x85px, too wide for this diagram's own 48px arrowhead - a junction, not a head",
+   "check": "confirm the arrowhead here is drawn and points the way the original does"
+  }
+ ],
+ "review": [
+  {
+   "n": 1,
+   "what": "check",
+   "where": "1245,1553 1132x550",
+   "detail": "a note carrying no text, with line-work passing its sides",
+   "check": "confirm nothing is drawn here in the original"
+  },
+  {
+   "n": 2,
+   "what": "check",
+   "where": "989,918 154x154",
+   "detail": "the ink at the head end of n6->n3 measures 77x85px, too wide for this diagram's own 48px arrowhead - a junction, not a head",
+   "check": "confirm the arrowhead here is drawn and points the way the original does"
+  }
+ ]
+}

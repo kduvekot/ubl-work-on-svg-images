@@ -1,0 +1,89 @@
+image 1712x1642
+
+PARTITION RULES
+   vertical  : [(0, 5), (535, 3), (1138, 2), (1705, 7)]
+   horizontal: [(0, 5), (62, 2), (1637, 5)]
+   -> 3 column(s) x 1 band(s), column-title header
+   type measured off the page: a word is 19px tall
+   (dropped x=5     y=5      530x1631  encloses another region)
+   (dropped x=538   y=5      600x57    is a partition cell)
+   (dropped x=1140  y=5      565x57    is a partition cell)
+   (dropped x=538   y=64     600x1573  is a partition cell)
+   (dropped x=1140  y=64     565x1573  is a partition cell)
+   one line weight only - no object nodes
+
+NODES
+   n1   initial   x=817   y=77    w=46    h=46    stroke=0   fill=0.73  ''
+   n2   action    x=719   y=188   w=241   h=119   stroke=2   fill=0.92  'Draft\nGoodsitem Passport'
+   n3   object    x=1022  y=188   w=239   h=118   stroke=3   fill=0.89  'Goodsitem\nPassport\n(Drafted)'
+   n4   action    x=1325  y=200   w=227   h=95    stroke=2   fill=0.90  'Verify\nGoodsitem Passport'
+   n5   decision  x=1360  y=349   w=158   h=114   stroke=2   fill=0.48  'OK?'
+   n6   final     x=809   y=399   w=58    h=59    stroke=2   fill=0.29  ''
+   n7   object    x=1022  y=521   w=239   h=118   stroke=3   fill=0.93  'Application response}'
+   n8   action    x=735   y=528   w=210   h=104   stroke=2   fill=0.93  'Receive Declined'
+   n9   action    x=1343  y=528   w=190   h=104   stroke=2   fill=0.93  'Send Declined'
+   n10  object    x=1022  y=683   w=239   h=118   stroke=4   fill=0.89  'Goodsltem\nPassport\n(Authorized)'
+   n11  action    x=719   y=690   w=226   h=103   stroke=2   fill=0.90  'Receive\nGoodsitem Passport'
+   n12  action    x=1345  y=690   w=190   h=103   stroke=2   fill=0.88  'Apply Stamps\nAnd Signature'
+   n13  object    x=396   y=875   w=240   h=118   stroke=3   fill=0.89  'Goodsitem\nPassport\n(Authorized)'
+   n14  action    x=713   y=875   w=241   h=119   stroke=2   fill=0.91  'Request Goods\nTo Leave Country'
+   n15  action    x=116   y=887   w=227   h=95    stroke=2   fill=0.86  'Receive and Verify\nGoodsitem Passport'
+   n16  decision  x=152   y=1036  w=157   h=114   stroke=2   fill=0.48  'Valid?'
+   n17  final     x=802   y=1086  w=59    h=59    stroke=2   fill=0.29  ''
+   n18  object    x=404   y=1208  w=240   h=118   stroke=3   fill=0.93  'Application response}'
+   n19  action    x=134   y=1216  w=190   h=103   stroke=2   fill=0.94  'Send Reject'
+   n20  action    x=728   y=1216  w=211   h=103   stroke=2   fill=0.94  'Receive Reject'
+   n21  object    x=404   y=1370  w=240   h=118   stroke=4   fill=0.89  'Goodsitem\nPassport\n(Approved)'
+   n22  action    x=136   y=1377  w=190   h=103   stroke=2   fill=0.88  'Apply Stamps\nAnd Signature'
+   n23  action    x=713   y=1377  w=226   h=103   stroke=2   fill=0.90  'Receive\nGoodsitem Passport'
+   n24  final     x=802   y=1558  w=59    h=58    stroke=2   fill=0.29  ''
+
+TYPE  cap height 18px over 371 glyphs -> font 25.7px
+
+EDGES
+   n1   -> n2    straight    arrowhead   224 vs 224    ratio 4.0  high
+   n2   -> n3    straight    arrowhead   241 vs 241    ratio 4.0  high
+   n3   -> n4    straight    arrowhead   252 vs 252    ratio 4.0  high
+   n4   -> n5    straight    arrowhead   205 vs 205    ratio 4.0  high
+   n5   -> n12   orthogonal  arrowhead   243 vs 90     ratio 4.0  high
+   n8   -> n6    straight    arrowhead   265 vs 265    ratio 4.0  high
+   n5   -> n9    straight    arrowhead   323 vs 319    ratio 4.0  high
+   n7   -> n8    straight    arrowhead   178 vs 141    ratio 4.0  high
+   n9   -> n7    straight    arrowhead   276 vs 245    ratio 4.0  high
+   n10  -> n11   straight    arrowhead   272 vs 263    ratio 4.0  high
+   n12  -> n10   straight    arrowhead   275 vs 230    ratio 4.0  high
+   n11  -> n14   straight    arrowhead   257 vs 172    ratio 4.0  high
+   n14  -> n13   straight    arrowhead   243 vs 220    ratio 4.0  high
+   n13  -> n15   straight    arrowhead   183 vs 183    ratio 4.0  high
+   n15  -> n16   straight    arrowhead   203 vs 203    ratio 4.0  high
+   n16  -> n22   orthogonal  arrowhead   277 vs 92     ratio 4.0  high
+   n20  -> n17   straight    arrowhead   269 vs 269    ratio 4.0  high
+   n16  -> n19   straight    arrowhead   331 vs 327    ratio 4.0  high
+   n18  -> n20   straight    arrowhead   269 vs 175    ratio 4.0  high
+   n19  -> n18   straight    arrowhead   279 vs 245    ratio 4.0  high
+   n21  -> n23   straight    arrowhead   253 vs 253    ratio 4.0  high
+   n22  -> n21   straight    arrowhead   262 vs 225    ratio 4.0  high
+   n23  -> n24   straight    arrowhead   275 vs 251    ratio 4.0  high
+
+TEXT (titles, guards, notes)
+   'Exporting Customs Party'                x=113   y=27    
+   'Holder Party'                           x=754   y=28    
+   'Issuer Party'                           x=1364  y=28    
+   'No'                                     x=1385  y=474   n5->n9
+   'Yes'                                    x=1605  y=579   n5->n12
+   'No'                                     x=176   y=1161  n16->n19
+   'Yes'                                    x=35    y=1266  n16->n22
+
+PARTITIONS
+   column 0  'Exporting Customs Party'
+   column 1  'Holder Party'
+   column 2  'Issuer Party'
+   band   0  ''
+
+ARROWHEAD  24 x 19px, filled, measured on 16 connector(s)
+   reading settled: 'Application response}' -> 'Application response'
+   reading settled: 'Application response}' -> 'Application response'
+   reading settled: 'Application response}' -> 'Application response'
+   reading settled: 'Application response}' -> 'Application response'
+
+wrote review/baseline/UBL-2.3-GoodsItemPassportApprovalProcess-graph.json   (24 nodes, 23 edges, 1 flagged for a human)

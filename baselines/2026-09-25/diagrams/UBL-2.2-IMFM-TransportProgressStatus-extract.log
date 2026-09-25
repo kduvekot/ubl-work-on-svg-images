@@ -1,0 +1,64 @@
+image 3425x2366
+
+PARTITION RULES
+   vertical  : [(0, 10), (1704, 8), (3415, 10)]
+   horizontal: [(0, 10), (2356, 10)]
+   -> 2 column(s) x 1 band(s)
+   type measured off the page: a word is 65px tall
+   (dropped x=10    y=10    1694x2346  is a partition cell)
+   (dropped x=1712  y=10    1703x2346  is a partition cell)
+   (kept    x=1356  y=655    705x330   own outline, iou 1.00 border 1.00, despite pass-through line-work)
+   (kept    x=1349  y=1537   705x330   own outline, iou 1.00 border 1.00, despite pass-through line-work)
+   object nodes are those stroked heavier than 12.0px
+   (dropped x=2459  y=657    799x9     only 9px across against a 9px line - a stroke, not a fork bar)
+   (dropped x=3327  y=737      8x173   only 8px across against a 9px line - a stroke, not a fork bar)
+   (dropped x=159   y=982    800x8     only 8px across against a 9px line - a stroke, not a fork bar)
+   (dropped x=162   y=1525   793x8     only 8px across against a 9px line - a stroke, not a fork bar)
+   (dropped x=3334  y=1605     8x184   only 8px across against a 9px line - a stroke, not a fork bar)
+   (dropped x=2467  y=1857   789x8     only 8px across against a 9px line - a stroke, not a fork bar)
+
+NODES
+   n1   initial   x=477   y=185   w=140   h=140   stroke=0   fill=1.00  ''
+   n2   object    x=1356  y=655   w=705   h=330   stroke=15  fill=0.89  'Transport\nProgress Status\nRequest'
+   n3   action    x=89    y=666   w=938   h=316   stroke=9   fill=0.88  'Request Transport\nProgress Status'
+   n4   action    x=2390  y=666   w=937   h=316   stroke=9   fill=0.86  'Receive Transport\nProgress Status Request'
+   n5   action    x=89    y=1533  w=938   h=324   stroke=8   fill=0.89  'Receive Transport\nProgress Status'
+   n6   action    x=2397  y=1533  w=937   h=324   stroke=8   fill=0.89  'Send Transport Progress\nStatus'
+   n7   object    x=1349  y=1537  w=705   h=330   stroke=15  fill=0.92  'Transport\nProgress Status'
+   n8   final     x=456   y=2147  w=126   h=126   stroke=8   fill=0.64  ''
+
+TYPE  cap height 52px over 193 glyphs -> font 74.3px
+
+EDGES
+   n1   -> n3    straight    arrowhead  1131 vs 360    ratio 4.0  high
+   n2   -> (off the diagram) at 1345,640
+   n2   -> (off the diagram) at 2075,643
+   n3   -> n2    straight    arrowhead  1076 vs 360    ratio 4.0  high
+   n2   -> n4    straight    arrowhead  1131 vs 441    ratio 4.0  high
+   n4   -> n6    straight    arrowhead  1138 vs 360    ratio 4.0  high
+   n2   -> (off the diagram) at 1344,999
+   n7   -> (off the diagram) at 1338,1522
+   n7   -> (off the diagram) at 2068,1525
+   n7   -> n5    straight    arrowhead  1015 vs 451    ratio 4.0  high
+   n6   -> n7    straight    arrowhead   972 vs 368    ratio 2.6  high
+   n5   -> n8    straight    arrowhead  1137 vs 360    ratio 4.0  high
+   n7   -> (off the diagram) at 1338,1881
+
+TEXT (titles, guards, notes)
+   'Transport Service Provider'             x=438   y=65    
+   'Transportation Network Manager'         x=2057  y=66    
+
+PARTITIONS
+   column 0  'Transport Service Provider'
+   column 1  'Transportation Network Manager'
+   band   0  ''
+
+ARROWHEAD  97 x 79px, open, measured on 6 connector(s)
+   (dropped the open end at 1345,640 726x1 - the outer edge of n2's own border)
+   (dropped the open end at 2075,643 1x354 - the outer edge of n2's own border)
+   (dropped the open end at 1344,999 729x2 - the outer edge of n2's own border)
+   (dropped the open end at 1338,1522 727x1 - the outer edge of n7's own border)
+   (dropped the open end at 2068,1525 1x354 - the outer edge of n7's own border)
+   (dropped the open end at 1338,1881 728x2 - the outer edge of n7's own border)
+
+wrote review/baseline/UBL-2.2-IMFM-TransportProgressStatus-graph.json   (8 nodes, 7 edges, 2 flagged for a human)

@@ -1,0 +1,11 @@
+== UBL-2.0-ReminderForPaymentProcess
+  scale 0.43212   frame 10px  divider 7px  action 7px  object 13px
+  font 62px (26.8 model)   2 lanes, 1 bands, 5 nodes, 4 edges -> review/baseline/UBL-2.0-ReminderForPaymentProcess-spec.json
+  review/baseline/UBL-2.0-ReminderForPaymentProcess.svg + .drawio + -classified.svg   (5 nodes, 4 edges)
+  rendered UBL-2.0-ReminderForPaymentProcess.svg -> UBL-2.0-ReminderForPaymentProcess-render.png @ 3425pxx1980, 600 dpi
+  aligned on ink bounds: scale x 1.0000, y 1.0000
+  size 3425x1980  radius 2
+  ink: original 251607   candidate 249789
+  MISSING (red)     9934  = 3.9482% of original ink
+  EXTRA   (blue)    8800  = 3.4975% of original ink
+  RESULT: DIFFERENCES - inspect review/baseline/UBL-2.0-ReminderForPaymentProcess-diff-r2.png

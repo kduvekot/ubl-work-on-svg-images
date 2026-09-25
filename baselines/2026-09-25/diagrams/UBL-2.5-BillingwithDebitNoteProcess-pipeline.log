@@ -1,0 +1,11 @@
+== UBL-2.5-BillingwithDebitNoteProcess
+  scale 0.43212   frame 10px  divider 4px  action 4px  object 8px
+  font 40px (17.3 model)   2 lanes, 1 bands, 17 nodes, 20 edges -> review/baseline/UBL-2.5-BillingwithDebitNoteProcess-spec.json
+  review/baseline/UBL-2.5-BillingwithDebitNoteProcess.svg + .drawio + -classified.svg   (17 nodes, 20 edges)
+  rendered UBL-2.5-BillingwithDebitNoteProcess.svg -> UBL-2.5-BillingwithDebitNoteProcess-render.png @ 3425pxx1813, 600 dpi
+  aligned on ink bounds: scale x 1.0000, y 1.0000
+  size 3425x1813  radius 2
+  ink: original 297680   candidate 292474
+  MISSING (red)    10324  = 3.4682% of original ink
+  EXTRA   (blue)   12891  = 4.3305% of original ink
+  RESULT: DIFFERENCES - inspect review/baseline/UBL-2.5-BillingwithDebitNoteProcess-diff-r2.png

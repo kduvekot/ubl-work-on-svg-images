@@ -1,0 +1,11 @@
+== UBL-2.2-ROCD-ArticleAvailability
+  scale 0.43212   frame 10px  divider 5px  action 5px  object 10px
+  font 66px (28.4 model)   2 lanes, 1 bands, 5 nodes, 4 edges -> review/baseline/UBL-2.2-ROCD-ArticleAvailability-spec.json
+  review/baseline/UBL-2.2-ROCD-ArticleAvailability.svg + .drawio + -classified.svg   (5 nodes, 4 edges)
+  rendered UBL-2.2-ROCD-ArticleAvailability.svg -> UBL-2.2-ROCD-ArticleAvailability-render.png @ 3425pxx1323, 600 dpi
+  aligned on ink bounds: scale x 1.0000, y 1.0000
+  size 3425x1323  radius 2
+  ink: original 216281   candidate 213357
+  MISSING (red)    14223  = 6.5762% of original ink
+  EXTRA   (blue)   12921  = 5.9742% of original ink
+  RESULT: DIFFERENCES - inspect review/baseline/UBL-2.2-ROCD-ArticleAvailability-diff-r2.png

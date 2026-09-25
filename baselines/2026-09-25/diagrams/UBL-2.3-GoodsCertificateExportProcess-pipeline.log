@@ -1,0 +1,11 @@
+== UBL-2.3-GoodsCertificateExportProcess
+  scale 0.86449   frame 5px  divider 2px  action 2px  object 3px
+  font 26px (22.2 model)   3 lanes, 2 bands, 19 nodes, 19 edges -> review/baseline/UBL-2.3-GoodsCertificateExportProcess-spec.json
+  review/baseline/UBL-2.3-GoodsCertificateExportProcess.svg + .drawio + -classified.svg   (19 nodes, 19 edges)
+  rendered UBL-2.3-GoodsCertificateExportProcess.svg -> UBL-2.3-GoodsCertificateExportProcess-render.png @ 1712pxx1279, 600 dpi
+  aligned on ink bounds: scale x 1.0006, y 1.0000
+  size 1712x1279  radius 2
+  ink: original 105504   candidate 100739
+  MISSING (red)     1301  = 1.2331% of original ink
+  EXTRA   (blue)    1164  = 1.1033% of original ink
+  RESULT: DIFFERENCES - inspect review/baseline/UBL-2.3-GoodsCertificateExportProcess-diff-r2.png

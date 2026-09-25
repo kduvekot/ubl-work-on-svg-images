@@ -1,0 +1,57 @@
+image 3425x1987
+
+PARTITION RULES
+   vertical  : [(0, 10), (1610, 5), (3415, 10)]
+   horizontal: [(0, 10), (1977, 10)]
+   -> 2 column(s) x 1 band(s)
+   type measured off the page: a word is 40px tall
+   (dropped x=10    y=10    1600x1967  is a partition cell)
+   (dropped x=1611  y=10    1804x1967  is a partition cell)
+   (dropped x=629   y=629    977x347   outline matches no UML node shape (best ellipse 0.80, and 0.99 is the most this shape can reach at this size))
+   object nodes are those stroked heavier than 6.5px
+
+NODES
+   n1   initial   x=587   y=181   w=84    h=84    stroke=0   fill=0.75  ''
+   n2   object    x=1370  y=556   w=476   h=137   stroke=8   fill=0.89  'Product Activity'
+   n3   action    x=2208  y=562   w=759   h=159   stroke=4   fill=0.88  'Receive a report about sales'
+   n4   action    x=228   y=571   w=798   h=108   stroke=5   fill=0.86  'Send a report about sales'
+   n5   object    x=1366  y=907   w=489   h=138   stroke=9   fill=0.90  'Product Activity'
+   n6   action    x=86    y=909   w=1090  h=133   stroke=4   fill=0.87  'Send a report about movement of goods'
+   n7   action    x=2061  y=909   w=1157  h=159   stroke=4   fill=0.89  'Receive a report about movement of goods'
+   n8   fork      x=2955  y=1574  w=388   h=25    stroke=0   fill=0.60  ''
+   n9   final     x=3114  y=1841  w=75    h=75    stroke=4   fill=0.62  ''
+
+TYPE  cap height 40px over 139 glyphs -> font 57.1px
+   corner radius rx on 'Receive a report about sales' could not be read (it came back larger than the box) - taking the 76 the rest of its kind measures
+   corner radius rx on 'Send a report about sales' could not be read (it came back larger than the box) - taking the 76 the rest of its kind measures
+   corner radius rx on 'Send a report about movement' could not be read (it came back larger than the box) - taking the 76 the rest of its kind measures
+
+EDGES
+   n2   -> (off the diagram) at 1606,12
+   n1   -> n4    straight    arrowhead   635 vs 180    ratio 4.0  high
+   n4   -> n2    straight    arrowhead   623 vs 180    ratio 4.0  high
+   n2   -> n3    straight    arrowhead   664 vs 225    ratio 4.0  high
+   n3   -> n8    orthogonal  arrowhead   618 vs 197    ratio 3.1  high
+   n4   -> n6    straight    arrowhead   636 vs 180    ratio 4.0  high
+   n2   -> n5    straight    arrowhead    92 vs 90     ratio 1.0  <-- CHECK DIRECTION
+   n6   -> n5    straight    arrowhead   622 vs 180    ratio 4.0  high
+   n5   -> n7    straight    arrowhead   664 vs 197    ratio 4.0  high
+   n7   -> n8    straight    arrowhead   623 vs 180    ratio 4.0  high
+   n8   -> n9    straight    arrowhead   638 vs 180    ratio 4.0  high
+
+TEXT (titles, guards, notes)
+   'Retailer'                               x=677   y=57    
+   'Producer'                               x=2408  y=62    
+   (dropped x=3047  y=1515    46x45    '\\/' - line-work, not text)
+   (dropped x=3239  y=1515    46x45    '\\/' - line-work, not text)
+
+PARTITIONS
+   column 0  'Retailer'
+   column 1  'Producer'
+   band   0  ''
+
+ARROWHEAD  58 x 46px, open, measured on 8 connector(s)
+   dropped n2 -> n5: it lies along a partition rule from end to end and neither end carries a head - that is the rule, not a flow
+   (dropped the open end at 1606,12 2x530 - a sliver lying along the rule at 1610)
+
+wrote review/baseline/UBL-2.2-VMI-SalesAndInventoryMovement-graph.json   (9 nodes, 9 edges, 2 flagged for a human)

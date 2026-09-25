@@ -1,0 +1,11 @@
+  verdict: NEEDS-HUMAN
+  structural: 0 element(s) absent, 0 invented, 0 text absent, 0 text differs, 0 incoherent
+  line-work  missing 92 px (0.034%)   invented 231 px (0.086%)   radius 3
+    line-work-invented      89 px at   525,1139    17x35    near edge n7 -> n9
+  needs a person (5):
+    kept-on-outline    at 1316,978  confirm this is a node and not trapped whitespace
+    sub-character-region at 2072,85  confirm this is glyph interior and not a node
+    sub-character-region at 2785,85  confirm this is glyph interior and not a node
+    node-isolated-in-the-artwork at 1317,693  confirm against the artwork that nothing connects to this element
+    node-isolated-in-the-artwork at 1316,978  confirm against the artwork that nothing connects to this element
+review/baseline/UBL-2.2-Tender-AwardNotification-marked.png + review/baseline/UBL-2.2-Tender-AwardNotification-marked-lost.png  (5 finding(s) numbered)

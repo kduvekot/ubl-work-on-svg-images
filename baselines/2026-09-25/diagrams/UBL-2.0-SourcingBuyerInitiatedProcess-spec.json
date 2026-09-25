@@ -1,0 +1,308 @@
+{
+ "canvas": {
+  "w": 1480.0,
+  "h": 872.876
+ },
+ "stroke": {
+  "frame": 4.3,
+  "divider": 3.9,
+  "action": 3.9,
+  "object": 7.3,
+  "edge": 3.9
+ },
+ "font": {
+  "family": "Helvetica, Arial, sans-serif",
+  "node": 27.2,
+  "lane": 27.2,
+  "guard": 27.2
+ },
+ "arrow": 44.8,
+ "arrowWidth": 37.4,
+ "arrowStyle": "open",
+ "dashed": [],
+ "greyRules": [],
+ "crossMarks": [],
+ "openEnds": [],
+ "frameBox": [
+  2.2,
+  2.2,
+  1477.8,
+  870.7
+ ],
+ "dividers": [
+  [
+   760.3,
+   3.9,
+   5.6,
+   866.8
+  ]
+ ],
+ "bands": [],
+ "lanes": [
+  {
+   "title": "Originator Customer Party",
+   "x": 0.0,
+   "w": 760.5,
+   "cx": 241.8,
+   "cy": 36.3
+  },
+  {
+   "title": "seller Supplier Party",
+   "x": 760.5,
+   "w": 719.5,
+   "cx": 1176.7,
+   "cy": 36.3
+  }
+ ],
+ "bandLabels": [],
+ "nodes": [
+  {
+   "id": "n1",
+   "kind": "initial",
+   "label": "",
+   "x": 203.5,
+   "y": 74.3,
+   "w": 52.7,
+   "h": 52.7
+  },
+  {
+   "id": "n2",
+   "kind": "object",
+   "label": "Request for\nQuotation",
+   "x": 633.7,
+   "y": 268.6,
+   "w": 230.3,
+   "h": 127.0,
+   "labelLines": [
+    {
+     "text": "Request for",
+     "cx": 746.0,
+     "cy": 314.8,
+     "w": 144.8
+    },
+    {
+     "text": "Quotation",
+     "cx": 749.7,
+     "cy": 341.8,
+     "w": 119.3
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n3",
+   "kind": "action",
+   "label": "Receive request for\nquotation",
+   "x": 1071.4,
+   "y": 271.2,
+   "w": 302.9,
+   "h": 142.6,
+   "rx": 40.8,
+   "ry": 39.1,
+   "labelLines": [
+    {
+     "text": "Receive request for",
+     "cx": 1222.9,
+     "cy": 321.9,
+     "w": 239.4
+    },
+    {
+     "text": "quotation",
+     "cx": 1230.5,
+     "cy": 355.8,
+     "w": 115.4
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n4",
+   "kind": "action",
+   "label": "Send request for Quotation",
+   "x": 60.7,
+   "y": 278.9,
+   "w": 347.4,
+   "h": 108.9,
+   "rx": 40.8,
+   "ry": 40.8,
+   "labelLines": [
+    {
+     "text": "Send request for Quotation",
+     "cx": 233.3,
+     "cy": 331.0,
+     "w": 332.7
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n5",
+   "kind": "object",
+   "label": "Quotation",
+   "x": 649.3,
+   "y": 514.9,
+   "w": 230.3,
+   "h": 127.0,
+   "labelLines": [
+    {
+     "text": "Quotation",
+     "cx": 762.3,
+     "cy": 572.1,
+     "w": 119.3
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n6",
+   "kind": "action",
+   "label": "Receive quotation",
+   "x": 71.1,
+   "y": 522.6,
+   "w": 316.3,
+   "h": 108.9,
+   "rx": 40.0,
+   "ry": 40.8,
+   "labelLines": [
+    {
+     "text": "Receive quotation",
+     "cx": 226.9,
+     "cy": 577.5,
+     "w": 219.5
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n7",
+   "kind": "action",
+   "label": "Send quotation",
+   "x": 1084.4,
+   "y": 533.0,
+   "w": 331.4,
+   "h": 93.3,
+   "rx": 39.5,
+   "ry": 39.1,
+   "labelLines": [
+    {
+     "text": "Send quotation",
+     "cx": 1250.8,
+     "cy": 570.0,
+     "w": 186.2
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n8",
+   "kind": "final",
+   "label": "",
+   "x": 203.3,
+   "y": 787.1,
+   "w": 49.3,
+   "h": 49.3,
+   "innerRatio": 0.476
+  }
+ ],
+ "edges": [
+  {
+   "from": "n1",
+   "to": "n4",
+   "exitXY": [
+    0.5085,
+    1.0
+   ],
+   "entryXY": [
+    0.4957,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n4",
+   "to": "n2",
+   "exitXY": [
+    1.0,
+    0.4986
+   ],
+   "entryXY": [
+    0.0,
+    0.5087
+   ],
+   "straight": true,
+   "confidence": "notation"
+  },
+  {
+   "from": "n2",
+   "to": "n3",
+   "exitXY": [
+    1.0,
+    0.5087
+   ],
+   "entryXY": [
+    0.0,
+    0.4348
+   ],
+   "straight": true,
+   "confidence": "notation"
+  },
+  {
+   "from": "n3",
+   "to": "n7",
+   "exitXY": [
+    0.5002,
+    1.0
+   ],
+   "entryXY": [
+    0.4258,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n7",
+   "to": "n5",
+   "exitXY": [
+    0.0,
+    0.4984
+   ],
+   "entryXY": [
+    1.0,
+    0.5016
+   ],
+   "straight": true,
+   "confidence": "notation"
+  },
+  {
+   "from": "n5",
+   "to": "n6",
+   "exitXY": [
+    0.0,
+    0.4945
+   ],
+   "entryXY": [
+    1.0,
+    0.4986
+   ],
+   "straight": true,
+   "confidence": "notation"
+  },
+  {
+   "from": "n6",
+   "to": "n8",
+   "exitXY": [
+    0.5008,
+    1.0
+   ],
+   "entryXY": [
+    0.5132,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  }
+ ],
+ "guards": []
+}

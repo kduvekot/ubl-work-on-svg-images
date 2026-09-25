@@ -1,0 +1,49 @@
+{
+ "name": "UBL-2.2-Tender-Withdrawal.png",
+ "verdict": "correct",
+ "radius": 3,
+ "lineWorkInk": 192760,
+ "missingPx": 291,
+ "inventedPx": 310,
+ "structural": {
+  "absent": 0,
+  "invented": 0,
+  "coherence": 0,
+  "textAbsent": 0,
+  "textDiffers": 0
+ },
+ "blocking": [],
+ "findings": [
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n2 -> n5",
+   "x": 610,
+   "y": 574,
+   "w": 2,
+   "h": 73,
+   "area": 100
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n2 -> n5",
+   "x": 625,
+   "y": 612,
+   "w": 27,
+   "h": 76,
+   "area": 150
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n2 -> n5",
+   "x": 622,
+   "y": 573,
+   "w": 2,
+   "h": 74,
+   "area": 107
+  }
+ ],
+ "text": [],
+ "coherence": [],
+ "human": [],
+ "review": []
+}

@@ -1,0 +1,12 @@
+  verdict: NEEDS-HUMAN
+  structural: 0 element(s) absent, 0 invented, 0 text absent, 0 text differs, 0 incoherent
+  line-work  missing 207 px (0.070%)   invented 536 px (0.181%)   radius 3
+    line-work-missing      115 px at  1155,1034    36x27    near edge n7 -> n6
+    line-work-invented     157 px at  1179,1037    52x27    near edge n7 -> n6
+    line-work-invented     121 px at  1189,1078    42x21    near edge n7 -> n6
+  needs a person (4):
+    kept-on-outline    at 1247,953  confirm this is a node and not trapped whitespace
+    sub-character-region at 665,76  confirm this is glyph interior and not a node
+    sub-character-region at 1981,78  confirm this is glyph interior and not a node
+    sub-character-region at 2746,78  confirm this is glyph interior and not a node
+review/baseline/UBL-2.2-Tender-GuaranteeDeposit-marked.png + review/baseline/UBL-2.2-Tender-GuaranteeDeposit-marked-lost.png  (4 finding(s) numbered)

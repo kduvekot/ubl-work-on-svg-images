@@ -1,0 +1,373 @@
+{
+ "canvas": {
+  "w": 1480.0,
+  "h": 781.039
+ },
+ "stroke": {
+  "frame": 3.5,
+  "divider": 3.5,
+  "action": 3.5,
+  "object": 3.5,
+  "edge": 3.5
+ },
+ "font": {
+  "family": "Helvetica, Arial, sans-serif",
+  "node": 30.2,
+  "lane": 30.2,
+  "guard": 30.2
+ },
+ "arrow": 42.9,
+ "arrowWidth": 36.3,
+ "arrowStyle": "open",
+ "dashed": [],
+ "greyRules": [],
+ "crossMarks": [],
+ "openEnds": [],
+ "frameBox": [
+  2.2,
+  2.2,
+  1476.5,
+  776.7
+ ],
+ "dividers": [
+  [
+   737.0,
+   3.5,
+   5.2,
+   773.3
+  ]
+ ],
+ "bands": [],
+ "lanes": [
+  {
+   "title": "ECONOMIC OPERATOR",
+   "x": 0.0,
+   "w": 737.0,
+   "cx": 355.7,
+   "cy": 32.8
+  },
+  {
+   "title": "CONTRACTING AUTHORITY",
+   "x": 737.0,
+   "w": 739.6,
+   "cx": 1102.7,
+   "cy": 32.8
+  },
+  {
+   "title": "",
+   "x": 1476.5,
+   "w": 3.5,
+   "cx": 1478.3,
+   "cy": 30.2
+  }
+ ],
+ "bandLabels": [],
+ "nodes": [
+  {
+   "id": "n1",
+   "kind": "initial",
+   "label": "",
+   "x": 238.5,
+   "y": 68.3,
+   "w": 53.6,
+   "h": 53.6
+  },
+  {
+   "id": "n2",
+   "kind": "action",
+   "label": "Prepare expression of interest",
+   "x": 46.7,
+   "y": 168.9,
+   "w": 435.9,
+   "h": 75.6,
+   "rx": 38.0,
+   "ry": 37.2,
+   "labelLines": [
+    {
+     "text": "Prepare expression of interest",
+     "cx": 267.8,
+     "cy": 205.6,
+     "w": 381.9
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "n3",
+   "kind": "object",
+   "label": "Expression\nOf Interest\nRequest",
+   "x": 626.0,
+   "y": 262.2,
+   "w": 226.8,
+   "h": 153.4,
+   "labelLines": [
+    {
+     "text": "Expression",
+     "cx": 728.8,
+     "cy": 293.8,
+     "w": 172.8
+    },
+    {
+     "text": "Of Interest",
+     "cx": 722.9,
+     "cy": 338.9,
+     "w": 161.1
+    },
+    {
+     "text": "Request",
+     "cx": 707.0,
+     "cy": 386.8,
+     "w": 128.3
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n4",
+   "kind": "action",
+   "label": "Submit expression of interest",
+   "x": 44.1,
+   "y": 299.8,
+   "w": 440.6,
+   "h": 78.2,
+   "rx": 39.3,
+   "ry": 37.6,
+   "labelLines": [
+    {
+     "text": "Submit expression of interest",
+     "cx": 268.7,
+     "cy": 336.7,
+     "w": 369.8
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "n5",
+   "kind": "action",
+   "label": "Receive expression of interest",
+   "x": 976.3,
+   "y": 299.8,
+   "w": 451.0,
+   "h": 80.8,
+   "rx": 39.3,
+   "ry": 39.7,
+   "labelLines": [
+    {
+     "text": "Receive expression of interest",
+     "cx": 1205.7,
+     "cy": 336.7,
+     "w": 383.6
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "n6",
+   "kind": "object",
+   "label": "Expression\nOf Interest\nResponse",
+   "x": 626.0,
+   "y": 495.1,
+   "w": 226.8,
+   "h": 145.1,
+   "labelLines": [
+    {
+     "text": "Expression",
+     "cx": 728.8,
+     "cy": 530.3,
+     "w": 172.8
+    },
+    {
+     "text": "Of Interest",
+     "cx": 722.9,
+     "cy": 570.0,
+     "w": 161.1
+    },
+    {
+     "text": "Response",
+     "cx": 719.5,
+     "cy": 614.5,
+     "w": 153.4
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n7",
+   "kind": "action",
+   "label": "Receive expression of interest\nconfirmation",
+   "x": 56.6,
+   "y": 524.0,
+   "w": 415.6,
+   "h": 100.7,
+   "rx": 39.7,
+   "ry": 38.4,
+   "labelLines": [
+    {
+     "text": "Receive expression of interest",
+     "cx": 263.9,
+     "cy": 560.9,
+     "w": 383.6
+    },
+    {
+     "text": "confirmation",
+     "cx": 263.9,
+     "cy": 591.0,
+     "w": 153.8
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "n8",
+   "kind": "action",
+   "label": "Submit expression of interest\nconfirmation",
+   "x": 976.3,
+   "y": 526.6,
+   "w": 451.0,
+   "h": 95.5,
+   "rx": 38.9,
+   "ry": 39.3,
+   "labelLines": [
+    {
+     "text": "Submit expression of interest",
+     "cx": 1202.9,
+     "cy": 563.3,
+     "w": 370.2
+    },
+    {
+     "text": "confirmation",
+     "cx": 1203.1,
+     "cy": 593.6,
+     "w": 153.8
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "n9",
+   "kind": "final",
+   "label": "",
+   "x": 240.6,
+   "y": 687.7,
+   "w": 50.1,
+   "h": 50.5,
+   "innerRatio": 0.5
+  }
+ ],
+ "edges": [
+  {
+   "from": "n1",
+   "to": "n2",
+   "exitXY": [
+    0.4981,
+    1.0
+   ],
+   "entryXY": [
+    0.4994,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n2",
+   "to": "n4",
+   "exitXY": [
+    0.4994,
+    1.0
+   ],
+   "entryXY": [
+    0.5,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n4",
+   "to": "n3",
+   "exitXY": [
+    1.0,
+    0.4808
+   ],
+   "entryXY": [
+    0.0,
+    0.4902
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n3",
+   "to": "n5",
+   "exitXY": [
+    1.0,
+    0.4876
+   ],
+   "entryXY": [
+    0.0,
+    0.4703
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n5",
+   "to": "n8",
+   "exitXY": [
+    0.502,
+    1.0
+   ],
+   "entryXY": [
+    0.502,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n6",
+   "to": "n7",
+   "exitXY": [
+    0.0,
+    0.521
+   ],
+   "entryXY": [
+    1.0,
+    0.4846
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n8",
+   "to": "n6",
+   "exitXY": [
+    0.0,
+    0.4838
+   ],
+   "entryXY": [
+    1.0,
+    0.521
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n7",
+   "to": "n9",
+   "exitXY": [
+    0.5,
+    1.0
+   ],
+   "entryXY": [
+    0.501,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  }
+ ],
+ "guards": []
+}

@@ -1,0 +1,88 @@
+image 3425x3289
+
+PARTITION RULES
+   vertical  : [(0, 10), (1690, 1), (3415, 10)]
+   horizontal: [(0, 10), (3279, 10)]
+   -> 2 column(s) x 1 band(s)
+   type measured off the page: a word is 32px tall
+   (dropped x=10    y=10    1680x3269  is a partition cell)
+   (dropped x=1691  y=10    1724x3269  is a partition cell)
+   object nodes are those stroked heavier than 5.0px
+
+NODES
+   n1   action    x=215   y=254   w=595   h=189   stroke=3   fill=0.92  'Create Retail Event'
+   n2   action    x=2544  y=504   w=608   h=233   stroke=3   fill=0.93  'Receive Retail Event'
+   n3   object    x=1510  y=528   w=423   h=221   stroke=6   fill=0.96  'Retail Event'
+   n4   action    x=380   y=575   w=595   h=184   stroke=3   fill=0.92  'Send Retail Event'
+   n5   action    x=2539  y=879   w=613   h=224   stroke=4   fill=0.89  'Revise Retail Event and\nSend Revision'
+   n6   object    x=1492  y=880   w=432   h=217   stroke=6   fill=0.94  'Retail Event\n(revision)'
+   n7   action    x=742   y=923   w=599   h=171   stroke=3   fill=0.88  'Receive Retail Event\nRevision'
+   n8   decision  x=194   y=942   w=168   h=164   stroke=4   fill=0.50  ''
+   n9   object    x=1465  y=1322  w=548   h=239   stroke=6   fill=0.93  'Retail Event (response\npositive)'
+   n10  action    x=496   y=1361  w=599   h=161   stroke=4   fill=0.91  'Send Retail Event'
+   n11  action    x=2548  y=1370  w=577   h=157   stroke=4   fill=0.89  'Receive Retail Event'
+   n12  action    x=2566  y=1637  w=590   h=238   stroke=3   fill=0.91  'Create Trade Item\nLocation Profile'
+   n13  object    x=1443  y=1790  w=525   h=244   stroke=6   fill=0.94  'Trade Item Location\nProfile'
+   n14  action    x=474   y=1793  w=599   h=233   stroke=3   fill=0.90  'Receive Trade Item\nLocation Profile'
+   n15  action    x=2419  y=1963  w=599   h=197   stroke=3   fill=0.89  'Send Trade Item Location\nProfile'
+   n16  action    x=469   y=2213  w=599   h=286   stroke=4   fill=0.89  'Revise Trade ltem\nLocation Profile and Send\nRevision'
+   n17  object    x=1465  y=2245  w=472   h=218   stroke=6   fill=0.91  'Trade Item Location\nProfile (revision)'
+   n18  action    x=2290  y=2436  w=451   h=148   stroke=4   fill=0.89  'Receive TILP'
+   n19  decision  x=2982  y=2486  w=155   h=159   stroke=4   fill=0.50  ''
+   n20  object    x=1497  y=2803  w=396   h=217   stroke=6   fill=0.92  'TILP (response\npositive)'
+   n21  action    x=2705  y=2819  w=438   h=131   stroke=3   fill=0.88  'Send TILP'
+   n22  action    x=710   y=2828  w=523   h=153   stroke=3   fill=0.91  'Receive TILP'
+
+TYPE  cap height 32px over 502 glyphs -> font 45.7px
+   dashed enclosure x=94 y=94 3248x3096  r=131  dash 12/9 over 531 marks
+   one component crossing 3 nodes split into 2 connectors
+
+EDGES
+   n1   -> (off the diagram) at 705,239
+   n8   -> n1    straight    arrowhead   774 vs 498    ratio 4.0  high
+   n1   -> n4    straight    arrowhead   458 vs 138    ratio 4.0  high
+   n3   -> n2    diagonal    arrowhead   488 vs 133    ratio 4.0  high
+   n4   -> n3    straight    arrowhead   464 vs 180    ratio 4.0  high
+   n2   -> n5    straight    arrowhead   458 vs 135    ratio 4.0  high
+   n6   -> n7    straight    arrowhead   450 vs 136    ratio 4.0  high
+   n5   -> n6    straight    arrowhead   417 vs 138    ratio 4.0  high
+   n7   -> n8    straight    arrowhead   458 vs 138    ratio 4.0  high
+   n8   -> n10   orthogonal  arrowhead   490 vs 180    ratio 4.0  high
+   n9   -> n11   straight    arrowhead   457 vs 133    ratio 4.0  high
+   n10  -> n9    straight    arrowhead   431 vs 135    ratio 4.0  high
+   n11  -> n12   straight    arrowhead   460 vs 298    ratio 4.0  high
+   n13  -> n14   straight    arrowhead   448 vs 136    ratio 4.0  high
+   n12  -> n15   orthogonal  arrowhead   501 vs 485    ratio 4.0  high
+   n12  -> n15   diagonal    arrowhead   912 vs 490    ratio 1.9  medium
+   n19  -> n12   straight    arrowhead   505 vs 431    ratio 4.0  high
+   n15  -> n13   diagonal    arrowhead   425 vs 163    ratio 2.6  high
+   n14  -> n16   straight    arrowhead   458 vs 135    ratio 4.0  high
+   n16  -> n17   straight    arrowhead   429 vs 135    ratio 4.0  high
+   n17  -> n18   diagonal    arrowhead   469 vs 154    ratio 4.0  high
+   n18  -> n19   diagonal    arrowhead   497 vs 141    ratio 4.0  high
+   n19  -> n21   straight    arrowhead   503 vs 135    ratio 4.0  high
+   n21  -> n20   straight    arrowhead   421 vs 138    ratio 4.0  high
+   n20  -> n22   straight    arrowhead   448 vs 136    ratio 4.0  high
+   n22  -> (off the diagram) at 970,3276
+
+TEXT (titles, guards, notes)
+   'Creating Joint Business Plan'           x=1402  y=114   
+   'No'                                     x=181   y=483   n8->n1
+   'Retail Event|Accepted ?'                x=38    y=864   
+   'Yes'                                    x=575   y=1277  n8->n10
+   'No'                                     x=2964  y=1915  n19->n12
+   'TILP Accepted ?'                        x=2877  y=2401  
+   'Yes'                                    x=2958  y=2736  n19->n21
+
+PARTITIONS
+   column 0  ''
+   column 1  'Creating Joint Business Plan'
+   band   0  ''
+
+ARROWHEAD  60 x 48px, open, measured on 15 connector(s)
+   reading settled: 'Revise Trade ltem\nLocation Profile and S' -> 'Revise Trade Item\nLocation Profile and S'
+   reading settled: 'Revise Trade ltem' -> 'Revise Trade Item'
+   reading settled: 'Retail Event|Accepted ?' -> 'Retail Event Accepted ?'
+   reading settled: 'Retail Event|Accepted ?' -> 'Retail Event Accepted ?'
+
+wrote review/baseline/UBL-2.2-CPFR-CreateJointBusinessPlan-graph.json   (22 nodes, 24 edges, 0 flagged for a human)

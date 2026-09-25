@@ -1,0 +1,87 @@
+image 3425x1813
+
+PARTITION RULES
+   vertical  : [(0, 10), (1811, 4), (3415, 10)]
+   horizontal: [(0, 10), (1803, 10)]
+   -> 2 column(s) x 1 band(s)
+   type measured off the page: a word is 33px tall
+   (dropped x=10    y=10    1801x1793  is a partition cell)
+   (dropped x=1815  y=10    1600x1793  is a partition cell)
+   (dropped x=486   y=444   1325x859   encloses another region)
+   (dropped x=2357  y=812    493x247   outline matches no UML node shape (best rhombus 0.54, and 0.98 is the most this shape can reach at this size))
+   object nodes are those stroked heavier than 6.5px
+
+NODES
+   n1   initial   x=3042  y=80    w=95    h=96    stroke=0   fill=0.74  ''
+   n2   object    x=1639  y=363   w=316   h=170   stroke=8   fill=0.96  'Invoice'
+   n3   action    x=326   y=390   w=491   h=94    stroke=4   fill=0.89  'Receive Invoice'
+   n4   action    x=2198  y=398   w=487   h=112   stroke=5   fill=0.91  'Raise Invoice'
+   n5   object    x=1635  y=719   w=316   h=171   stroke=8   fill=0.94  'Credit Note'
+   n6   decision  x=2908  y=722   w=366   h=177   stroke=5   fill=0.46  'Reconcile\nCharges'
+   n7   action    x=963   y=747   w=488   h=108   stroke=5   fill=0.88  'Receive Credit Note'
+   n8   action    x=2099  y=761   w=488   h=98    stroke=4   fill=0.88  'Raise Credit Note'
+   n9   fork      x=2667  y=1059  w=277   h=23    stroke=0   fill=0.89  ''
+   n10  decision  x=2946  y=1191  w=294   h=227   stroke=4   fill=0.45  'Validate\nResponse'
+   n11  decision  x=339   y=1192  w=291   h=226   stroke=4   fill=0.46  'Reconcile\nCharges'
+   n12  object    x=1650  y=1215  w=367   h=170   stroke=8   fill=0.89  'Invoice Status\nResponse'
+   n13  action    x=2132  y=1246  w=575   h=126   stroke=5   fill=0.91  'Receive Account Response'
+   n14  action    x=956   y=1256  w=491   h=98    stroke=4   fill=0.85  'Send Account Response'
+   n15  final     x=50    y=1278  w=64    h=65    stroke=4   fill=0.65  ''
+   n16  final     x=3054  y=1653  w=90    h=90    stroke=4   fill=0.48  ''
+   n17  final     x=450   y=1678  w=72    h=72    stroke=5   fill=0.56  ''
+
+TYPE  cap height 27px over 157 glyphs -> font 38.6px
+   corner radius rx on 'Receive Invoice' could not be read (it came back larger than the box) - taking the 48 the rest of its kind measures
+   corner radius rx on 'Raise Credit Note' could not be read (it came back larger than the box) - taking the 48 the rest of its kind measures
+   corner radius rx on 'Send Account Response' could not be read (it came back larger than the box) - taking the 48 the rest of its kind measures
+   corner radius ry on 'Raise Credit Note' could not be read (it came back larger than the box) - taking the 46 the rest of its kind measures
+   corner radius ry on 'Send Account Response' could not be read (it came back larger than the box) - taking the 46 the rest of its kind measures
+   rejoined 1 line break(s) of up to 69px, where a label sits on the line
+   rejoined a 60px break in a line at 48 degrees, where a label sits on it
+   chained 4 dashes into one dashed flow
+   chained 3 dashes into one dashed flow
+   one component crossing 4 nodes split into 2 connectors
+
+EDGES
+   n1   -> n6    straight    arrowhead   783 vs 225    ratio 4.0  high
+   n2   -> n3    straight    arrowhead   593 vs 184    ratio 4.0  high
+   n4   -> n2    straight    arrowhead   571 vs 184    ratio 4.0  high
+   n6   -> n4    diagonal    arrowhead   856 vs 642    ratio 4.0  high
+   n3   -> n11   straight    arrowhead   945 vs 180    ratio 4.0  high
+   n9   -> n4    diagonal    arrowhead   623 vs 237    ratio 4.0  high
+   n6   -> n8    straight    arrowhead   616 vs 591    ratio 4.0  high
+   n5   -> n7    straight    arrowhead   579 vs 184    ratio 4.0  high
+   n8   -> n5    straight    arrowhead   595 vs 230    ratio 4.0  high
+   n11  -> n7    diagonal    arrowhead  1057 vs 232    ratio 4.0  high
+   n9   -> n8    diagonal    arrowhead   426 vs 222    ratio 4.0  high
+   n10  -> n6    straight    arrowhead   597 vs 230    ratio 4.0  high
+   n10  -> n9    diagonal    arrowhead   824 vs 592    ratio 4.0  high
+   n14  -> n12   straight    arrowhead   608 vs 180    ratio 4.0  high
+   n11  -> n14   straight    arrowhead   568 vs 180    ratio 4.0  high
+   n12  -> n13   diagonal    arrowhead   580 vs 183    ratio 4.0  high
+   n13  -> n10   straight    arrowhead   768 vs 180    ratio 4.0  high
+   n11  -> n15   straight    arrowhead   621 vs 185    ratio 4.0  high
+   n11  -> n17   straight    arrowhead   555 vs 180    ratio 4.0  high
+   n10  -> n16   straight    arrowhead   612 vs 232    ratio 4.0  high
+
+TEXT (titles, guards, notes)
+   'Accounting Customer'                    x=724   y=24    
+   'Accounting Supplier'                    x=2443  y=24    
+   '[initial\ncharges or\nunder\ncharged]'  x=2751  y=267   n6->n4
+   '[over\ncharged]'                        x=2769  y=719   n6->n8
+   '[incorrect\ncharges]'                   x=3108  y=1042  n10->n6
+   (dropped x=2788  y=1096    32x18    '~~' - line-work, not text)
+   '[incorrect information]'                x=2675  y=1155  n10->n9
+   '[accept\ncredit]'                       x=147   y=1348  n11->n15
+   '[no action\nrequired]'                  x=3101  y=1476  n10->n16
+   '[accept charges]'                       x=516   y=1548  n11->n17
+
+PARTITIONS
+   column 0  'Accounting Customer'
+   column 1  'Accounting Supplier'
+   band   0  ''
+
+ARROWHEAD  52 x 41px, open, measured on 14 connector(s)
+   turned n11 -> n7 round: 'Receive Credit Note' takes work in and passes none on, and the head that pointed it there is 8px across against the 41px this diagram draws
+
+wrote review/baseline/UBL-2.5-BillingwithCreditNoteProcess-graph.json   (17 nodes, 20 edges, 4 flagged for a human)

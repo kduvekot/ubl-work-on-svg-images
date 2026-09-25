@@ -1,0 +1,23 @@
+  verdict: NEEDS-HUMAN
+  structural: 0 element(s) absent, 0 invented, 0 text absent, 0 text differs, 0 incoherent
+  line-work  missing 1070 px (0.173%)   invented 807 px (0.130%)   radius 3
+    line-work-missing      174 px at   710,884     18x17    near edge n6 -> n9
+    line-work-missing      168 px at  2528,3140     3x56    near edge n19 -> n17
+    line-work-missing      165 px at   645,884     18x16    near edge n6 -> n9
+    line-work-missing      165 px at   735,1366     3x55    near edge n9 -> n14
+    line-work-missing      111 px at  2771,1374     2x56    near edge n10 -> n6
+    line-work-missing       66 px at  2563,3140     2x34    near edge n19 -> n17
+    line-work-invented      87 px at  1554,2867    33x16    near edge n17 -> n15
+    line-work-invented      68 px at   663,936     15x31    near edge n6 -> n9
+    line-work-invented      64 px at  2538,3164     2x33    near edge n19 -> n17
+    label-mismatch       n19 renders as 'OK?.', model says 'OK?'
+  needs a person (16):
+    dropped-region     at 690,651  a shape here would be missing from the SVG
+    dropped-region     at 690,1099  a shape here would be missing from the SVG
+    kept-on-outline    at 2528,1460  confirm this is a node and not trapped whitespace
+    dropped-region     at 690,2893  a shape here would be missing from the SVG
+    dropped-region     at 1866,2893  a shape here would be missing from the SVG
+    kept-on-outline    at 2719,3228  confirm this is a node and not trapped whitespace
+    sub-character-region at 2639,96  confirm this is glyph interior and not a node
+    sub-character-region at 2776,96  confirm this is glyph interior and not a node
+review/baseline/UBL-2.2-Tender-ContractInfoPrep-marked.png + review/baseline/UBL-2.2-Tender-ContractInfoPrep-marked-lost.png  (16 finding(s) numbered)

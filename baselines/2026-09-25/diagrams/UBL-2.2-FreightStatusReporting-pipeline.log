@@ -1,0 +1,11 @@
+== UBL-2.2-FreightStatusReporting
+  scale 0.43212   frame 8px  divider 8px  action 6px  object 7px
+  font 60px (25.9 model)   3 lanes, 2 bands, 9 nodes, 8 edges -> review/baseline/UBL-2.2-FreightStatusReporting-spec.json
+  review/baseline/UBL-2.2-FreightStatusReporting.svg + .drawio + -classified.svg   (9 nodes, 8 edges)
+  rendered UBL-2.2-FreightStatusReporting.svg -> UBL-2.2-FreightStatusReporting-render.png @ 3425pxx1230, 600 dpi
+  aligned on ink bounds: scale x 1.0000, y 1.0008
+  size 3425x1230  radius 2
+  ink: original 259969   candidate 251782
+  MISSING (red)    22466  = 8.6418% of original ink
+  EXTRA   (blue)   20704  = 7.9640% of original ink
+  RESULT: DIFFERENCES - inspect review/baseline/UBL-2.2-FreightStatusReporting-diff-r2.png

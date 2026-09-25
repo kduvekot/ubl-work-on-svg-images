@@ -1,0 +1,11 @@
+== UBL-2.2-Tender-UnsubscribeFromProcedure
+  scale 0.43199   frame 8px  divider 8px  action 8px  object 8px
+  font 61px (26.5 model)   3 lanes, 2 bands, 9 nodes, 8 edges -> review/baseline/UBL-2.2-Tender-UnsubscribeFromProcedure-spec.json
+  review/baseline/UBL-2.2-Tender-UnsubscribeFromProcedure.svg + .drawio + -classified.svg   (9 nodes, 8 edges)
+  rendered UBL-2.2-Tender-UnsubscribeFromProcedure.svg -> UBL-2.2-Tender-UnsubscribeFromProcedure-render.png @ 3426pxx1808, 600 dpi
+  aligned on ink bounds: scale x 1.0009, y 1.0000
+  size 3426x1808  radius 2
+  ink: original 423193   candidate 384729
+  MISSING (red)    54971  = 12.9896% of original ink
+  EXTRA   (blue)   31291  = 7.3940% of original ink
+  RESULT: DIFFERENCES - inspect review/baseline/UBL-2.2-Tender-UnsubscribeFromProcedure-diff-r2.png

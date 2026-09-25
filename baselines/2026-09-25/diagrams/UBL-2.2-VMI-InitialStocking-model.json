@@ -1,0 +1,114 @@
+{
+ "name": "UBL-2.2-VMI-InitialStocking",
+ "counts": {
+  "initial": 1,
+  "action": 12,
+  "object": 3,
+  "fork": 1,
+  "final": 1
+ },
+ "flow": [
+  "(start)   [Producer]",
+  "Calculate the initial delivery   [Producer]",
+  "Send Catalogue   [Producer]",
+  "  -> [Catalogue]   [Producer]",
+  "  -> Receive Catalogue   [Retailer]",
+  "  -> Update products database   [Retailer]",
+  "  -> === bar ===   [Retailer]",
+  "  -> Check status of item(s)   [Retailer]",
+  "  -> Send Receipt Advice   [Retailer]",
+  "  -> [Receipt Advice]   [Retailer]",
+  "  -> Receive Receipt Advice   [Producer]",
+  "  -> Adjust supply status   [Producer]",
+  "  -> (end)   [Producer]",
+  "  -> Send Despatch Advice   [Producer]",
+  "    -> [Despatch Advice]   [Retailer]",
+  "    -> Receive Despatch Advice   [Retailer]",
+  "    -> === bar ===   [Retailer]",
+  "    -> Despatch item(s)   [Producer]",
+  "    -> Receive item(s)   [Retailer]",
+  "    -> === bar ===   [Retailer]",
+  ""
+ ],
+ "checks": [
+  {
+   "rule": "every element is connected",
+   "ok": true,
+   "bad": [],
+   "note": "",
+   "report": false
+  },
+  {
+   "rule": "start events have a way out and no way in",
+   "ok": true,
+   "bad": [],
+   "note": "",
+   "report": false
+  },
+  {
+   "rule": "end events have a way in and no way out",
+   "ok": true,
+   "bad": [],
+   "note": "",
+   "report": false
+  },
+  {
+   "rule": "decisions have at least two ways out",
+   "ok": true,
+   "bad": [],
+   "note": "",
+   "report": false
+  },
+  {
+   "rule": "branches out of a decision are labelled",
+   "ok": true,
+   "bad": [],
+   "note": "informational: several diagrams draw an unlabelled branch, so read these against the artwork rather than treating them as errors",
+   "report": true
+  },
+  {
+   "rule": "documents are both written and read",
+   "ok": true,
+   "bad": [],
+   "note": "",
+   "report": false
+  },
+  {
+   "rule": "no flow runs straight from one document to another",
+   "ok": true,
+   "bad": [],
+   "note": "",
+   "report": false
+  },
+  {
+   "rule": "work crossing between parties goes through a document",
+   "ok": true,
+   "bad": [
+    "Despatch item(s) [Producer] -> Receive item(s) [Retailer]   (the goods, beside their Despatch Advice)"
+   ],
+   "note": "informational: UBL draws the hand-over as a document on the divider, and each exception below is named",
+   "report": true
+  },
+  {
+   "rule": "every flow's direction was read with confidence",
+   "ok": true,
+   "bad": [],
+   "note": "",
+   "report": false
+  },
+  {
+   "rule": "every action passes its work on",
+   "ok": true,
+   "bad": [],
+   "note": "informational: several diagrams do end on an action, so read these against the artwork rather than treating them as errors",
+   "report": true
+  },
+  {
+   "rule": "every element is reachable from a start event",
+   "ok": true,
+   "bad": [],
+   "note": "",
+   "report": false
+  }
+ ]
+}

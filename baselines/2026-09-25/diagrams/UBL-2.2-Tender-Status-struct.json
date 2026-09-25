@@ -1,0 +1,325 @@
+{
+ "name": "UBL-2.2-Tender-Status.png",
+ "verdict": "needs-human",
+ "radius": 3,
+ "lineWorkInk": 295253,
+ "missingPx": 2900,
+ "inventedPx": 2999,
+ "structural": {
+  "absent": 0,
+  "invented": 0,
+  "coherence": 0,
+  "textAbsent": 0,
+  "textDiffers": 0
+ },
+ "blocking": [],
+ "findings": [
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n5 (action 'Receive tender statu')",
+   "x": 2342,
+   "y": 761,
+   "w": 33,
+   "h": 47,
+   "area": 182
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n5 (action 'Receive tender statu')",
+   "x": 2387,
+   "y": 773,
+   "w": 25,
+   "h": 29,
+   "area": 119
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n5 (action 'Receive tender statu')",
+   "x": 2357,
+   "y": 777,
+   "w": 18,
+   "h": 11,
+   "area": 106
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n7 (action 'Receive tender statu')",
+   "x": 274,
+   "y": 1276,
+   "w": 2,
+   "h": 48,
+   "area": 96
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n5 (action 'Receive tender statu')",
+   "x": 2425,
+   "y": 773,
+   "w": 24,
+   "h": 20,
+   "area": 87
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n5 (action 'Receive tender statu')",
+   "x": 2460,
+   "y": 773,
+   "w": 22,
+   "h": 12,
+   "area": 67
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n5 (action 'Receive tender statu')",
+   "x": 2441,
+   "y": 796,
+   "w": 13,
+   "h": 12,
+   "area": 67
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n5 (action 'Receive tender statu')",
+   "x": 2526,
+   "y": 774,
+   "w": 13,
+   "h": 23,
+   "area": 63
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n5 (action 'Receive tender statu')",
+   "x": 2729,
+   "y": 773,
+   "w": 24,
+   "h": 14,
+   "area": 60
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n5 (action 'Receive tender statu')",
+   "x": 2347,
+   "y": 790,
+   "w": 15,
+   "h": 26,
+   "area": 131
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n5 (action 'Receive tender statu')",
+   "x": 2523,
+   "y": 785,
+   "w": 17,
+   "h": 31,
+   "area": 110
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n5 (action 'Receive tender statu')",
+   "x": 2397,
+   "y": 807,
+   "w": 25,
+   "h": 9,
+   "area": 105
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n5 (action 'Receive tender statu')",
+   "x": 2467,
+   "y": 807,
+   "w": 25,
+   "h": 9,
+   "area": 101
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n5 (action 'Receive tender statu')",
+   "x": 2810,
+   "y": 805,
+   "w": 27,
+   "h": 11,
+   "area": 100
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n5 (action 'Receive tender statu')",
+   "x": 2434,
+   "y": 805,
+   "w": 24,
+   "h": 11,
+   "area": 96
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n5 (action 'Receive tender statu')",
+   "x": 2552,
+   "y": 807,
+   "w": 25,
+   "h": 9,
+   "area": 96
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n5 (action 'Receive tender statu')",
+   "x": 2953,
+   "y": 807,
+   "w": 27,
+   "h": 9,
+   "area": 96
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n5 (action 'Receive tender statu')",
+   "x": 2626,
+   "y": 807,
+   "w": 25,
+   "h": 9,
+   "area": 94
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n5 (action 'Receive tender statu')",
+   "x": 2736,
+   "y": 807,
+   "w": 25,
+   "h": 9,
+   "area": 94
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n5 (action 'Receive tender statu')",
+   "x": 3174,
+   "y": 810,
+   "w": 26,
+   "h": 6,
+   "area": 91
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n5 (action 'Receive tender statu')",
+   "x": 3140,
+   "y": 810,
+   "w": 25,
+   "h": 6,
+   "area": 85
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n5 (action 'Receive tender statu')",
+   "x": 3030,
+   "y": 809,
+   "w": 25,
+   "h": 7,
+   "area": 84
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n5 (action 'Receive tender statu')",
+   "x": 2376,
+   "y": 774,
+   "w": 9,
+   "h": 19,
+   "area": 69
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n5 (action 'Receive tender statu')",
+   "x": 2351,
+   "y": 769,
+   "w": 17,
+   "h": 10,
+   "area": 68
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n5 (action 'Receive tender statu')",
+   "x": 2698,
+   "y": 811,
+   "w": 19,
+   "h": 5,
+   "area": 67
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n5 (action 'Receive tender statu')",
+   "x": 3102,
+   "y": 810,
+   "w": 20,
+   "h": 6,
+   "area": 64
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n5 (action 'Receive tender statu')",
+   "x": 2919,
+   "y": 811,
+   "w": 19,
+   "h": 5,
+   "area": 62
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n5 (action 'Receive tender statu')",
+   "x": 3065,
+   "y": 810,
+   "w": 18,
+   "h": 6,
+   "area": 61
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n5 (action 'Receive tender statu')",
+   "x": 2862,
+   "y": 811,
+   "w": 19,
+   "h": 5,
+   "area": 61
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n5 (action 'Receive tender statu')",
+   "x": 2501,
+   "y": 781,
+   "w": 6,
+   "h": 35,
+   "area": 60
+  }
+ ],
+ "text": [],
+ "coherence": [],
+ "human": [
+  {
+   "x": 1709,
+   "y": 785,
+   "w": 1071,
+   "h": 534,
+   "shape": "ellipse",
+   "iou": 0.733,
+   "border": 0.499,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best ellipse 0.73, and 0.99 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "kind": "no-weight-split",
+   "reason": "all 7 box strokes are one weight ([8, 9]), so no object node could be identified",
+   "check": "confirm the diagram really has no object nodes"
+  }
+ ],
+ "review": [
+  {
+   "n": 1,
+   "what": "check",
+   "where": "1709,785 1071x534",
+   "detail": "outline matches no UML node shape (best ellipse 0.73, and 0.99 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "n": 2,
+   "what": "check",
+   "where": "",
+   "detail": "all 7 box strokes are one weight ([8, 9]), so no object node could be identified",
+   "check": "confirm the diagram really has no object nodes"
+  }
+ ]
+}

@@ -1,0 +1,723 @@
+{
+ "canvas": {
+  "w": 1480.0,
+  "h": 1387.527
+ },
+ "stroke": {
+  "frame": 4.3,
+  "divider": 1.7,
+  "action": 1.7,
+  "object": 3.5,
+  "edge": 1.7
+ },
+ "font": {
+  "family": "Helvetica, Arial, sans-serif",
+  "node": 22.2,
+  "lane": 22.2,
+  "guard": 22.2
+ },
+ "arrow": 27.5,
+ "arrowWidth": 22.7,
+ "arrowStyle": "open",
+ "dashed": [],
+ "greyRules": [],
+ "crossMarks": [],
+ "openEnds": [],
+ "frameBox": [
+  2.2,
+  2.2,
+  1477.8,
+  1385.4
+ ],
+ "dividers": [
+  [
+   608.4,
+   1.7,
+   5.6,
+   1381.5
+  ]
+ ],
+ "bands": [],
+ "lanes": [
+  {
+   "title": "Producer",
+   "x": 0.0,
+   "w": 608.4,
+   "cx": 286.7,
+   "cy": 29.0
+  },
+  {
+   "title": "Retailer",
+   "x": 608.4,
+   "w": 871.6,
+   "cx": 1032.1,
+   "cy": 29.4
+  }
+ ],
+ "bandLabels": [],
+ "nodes": [
+  {
+   "id": "n1",
+   "kind": "initial",
+   "label": "",
+   "x": 267.0,
+   "y": 64.8,
+   "w": 34.1,
+   "h": 34.6
+  },
+  {
+   "id": "n2",
+   "kind": "decision",
+   "label": "",
+   "x": 261.9,
+   "y": 157.7,
+   "w": 41.1,
+   "h": 35.0
+  },
+  {
+   "id": "n4",
+   "kind": "object",
+   "label": "Catalogue",
+   "x": 538.4,
+   "y": 340.1,
+   "w": 138.7,
+   "h": 57.0,
+   "labelLines": [
+    {
+     "text": "Catalogue",
+     "cx": 610.8,
+     "cy": 369.0,
+     "w": 100.7
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n5",
+   "kind": "action",
+   "label": "Send Catalogue",
+   "x": 166.8,
+   "y": 341.8,
+   "w": 218.7,
+   "h": 50.6,
+   "rx": 24.0,
+   "ry": 14.7,
+   "labelLines": [
+    {
+     "text": "Send Catalogue",
+     "cx": 272.9,
+     "cy": 369.0,
+     "w": 158.6
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n6",
+   "kind": "action",
+   "label": "Update products database",
+   "x": 1140.8,
+   "y": 346.6,
+   "w": 302.9,
+   "h": 52.3,
+   "rx": 24.0,
+   "ry": 14.3,
+   "labelLines": [
+    {
+     "text": "Update products database",
+     "cx": 1291.8,
+     "cy": 374.0,
+     "w": 264.0
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n7",
+   "kind": "action",
+   "label": "Receive Catalogue",
+   "x": 843.5,
+   "y": 348.3,
+   "w": 218.7,
+   "h": 52.3,
+   "rx": 24.0,
+   "ry": 19.4,
+   "labelLines": [
+    {
+     "text": "Receive Catalogue",
+     "cx": 949.6,
+     "cy": 375.5,
+     "w": 186.2
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n8",
+   "kind": "object",
+   "label": "Despatch Advice",
+   "x": 517.2,
+   "y": 488.7,
+   "w": 182.8,
+   "h": 57.5,
+   "labelLines": [
+    {
+     "text": "Despatch Advice",
+     "cx": 609.3,
+     "cy": 517.5,
+     "w": 169.4
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n9",
+   "kind": "action",
+   "label": "Send Despatch\nAdvice",
+   "x": 171.6,
+   "y": 490.5,
+   "w": 225.1,
+   "h": 63.5,
+   "rx": 29.4,
+   "ry": 19.9,
+   "labelLines": [
+    {
+     "text": "Send Despatch",
+     "cx": 280.2,
+     "cy": 512.9,
+     "w": 150.8
+    },
+    {
+     "text": "Advice",
+     "cx": 284.3,
+     "cy": 537.3,
+     "w": 68.3
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n10",
+   "kind": "action",
+   "label": "Receive Despatch Advice",
+   "x": 815.8,
+   "y": 492.2,
+   "w": 326.2,
+   "h": 52.3,
+   "rx": 24.6,
+   "ry": 17.3,
+   "labelLines": [
+    {
+     "text": "Receive Despatch Advice",
+     "cx": 977.4,
+     "cy": 519.2,
+     "w": 254.9
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n11",
+   "kind": "action",
+   "label": "Despatch item(s)",
+   "x": 160.3,
+   "y": 652.1,
+   "w": 249.3,
+   "h": 52.3,
+   "rx": 25.5,
+   "ry": 14.7,
+   "labelLines": [
+    {
+     "text": "Despatch item(s)",
+     "cx": 286.5,
+     "cy": 679.3,
+     "w": 168.5
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n12",
+   "kind": "action",
+   "label": "Receive item(s)",
+   "x": 827.5,
+   "y": 653.8,
+   "w": 249.3,
+   "h": 52.3,
+   "rx": 22.9,
+   "ry": 15.1,
+   "labelLines": [
+    {
+     "text": "Receive item(s)",
+     "cx": 951.1,
+     "cy": 680.8,
+     "w": 153.0
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n13",
+   "kind": "fork",
+   "label": "",
+   "x": 870.7,
+   "y": 801.6,
+   "w": 500.8,
+   "h": 9.5
+  },
+  {
+   "id": "n14",
+   "kind": "action",
+   "label": "Check status of item(s)",
+   "x": 993.9,
+   "y": 929.9,
+   "w": 251.1,
+   "h": 53.6,
+   "rx": 23.3,
+   "ry": 15.6,
+   "labelLines": [
+    {
+     "text": "Check status of item(s)",
+     "cx": 1121.8,
+     "cy": 956.7,
+     "w": 231.6
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n15",
+   "kind": "object",
+   "label": "Receipt Advice",
+   "x": 515.5,
+   "y": 1058.7,
+   "w": 184.5,
+   "h": 58.8,
+   "labelLines": [
+    {
+     "text": "Receipt Advice",
+     "cx": 609.1,
+     "cy": 1087.4,
+     "w": 150.8
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n16",
+   "kind": "action",
+   "label": "Send Receipt Advice",
+   "x": 992.1,
+   "y": 1060.0,
+   "w": 251.1,
+   "h": 52.3,
+   "rx": 24.0,
+   "ry": 16.0,
+   "labelLines": [
+    {
+     "text": "Send Receipt Advice",
+     "cx": 1114.9,
+     "cy": 1087.2,
+     "w": 208.3
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n17",
+   "kind": "action",
+   "label": "Receive Receipt Advice",
+   "x": 175.0,
+   "y": 1063.4,
+   "w": 251.1,
+   "h": 50.6,
+   "rx": 24.0,
+   "ry": 14.3,
+   "labelLines": [
+    {
+     "text": "Receive Receipt Advice",
+     "cx": 299.0,
+     "cy": 1090.4,
+     "w": 235.9
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n18",
+   "kind": "action",
+   "label": "Adjust supply status",
+   "x": 175.0,
+   "y": 1189.2,
+   "w": 251.1,
+   "h": 54.0,
+   "rx": 24.0,
+   "ry": 15.1,
+   "labelLines": [
+    {
+     "text": "Adjust supply status",
+     "cx": 302.9,
+     "cy": 1216.4,
+     "w": 207.4
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n19",
+   "kind": "final",
+   "label": "",
+   "x": 285.6,
+   "y": 1341.3,
+   "w": 31.1,
+   "h": 30.7,
+   "innerRatio": 0.426
+  }
+ ],
+ "edges": [
+  {
+   "from": "n1",
+   "to": "n2",
+   "exitXY": [
+    0.4692,
+    1.0
+   ],
+   "entryXY": [
+    0.4939,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n2",
+   "to": "n9",
+   "exitXY": [
+    0.0,
+    0.5057
+   ],
+   "entryXY": [
+    0.0,
+    0.4898
+   ],
+   "straight": false,
+   "confidence": "high",
+   "points": [
+    [
+     36.3,
+     175.4
+    ],
+    [
+     36.3,
+     521.6
+    ]
+   ],
+   "label": "Producer"
+  },
+  {
+   "from": "n2",
+   "to": "n5",
+   "exitXY": [
+    0.5036,
+    1.0
+   ],
+   "entryXY": [
+    0.5254,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high",
+   "label": "False"
+  },
+  {
+   "from": "n5",
+   "to": "n4",
+   "exitXY": [
+    1.0,
+    0.504
+   ],
+   "entryXY": [
+    0.0,
+    0.4842
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n4",
+   "to": "n7",
+   "exitXY": [
+    1.0,
+    0.5
+   ],
+   "entryXY": [
+    0.0,
+    0.413
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n7",
+   "to": "n6",
+   "exitXY": [
+    1.0,
+    0.4704
+   ],
+   "entryXY": [
+    0.0,
+    0.4952
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n5",
+   "to": "n9",
+   "exitXY": [
+    0.5176,
+    1.0
+   ],
+   "entryXY": [
+    0.4891,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n6",
+   "to": "n13",
+   "exitXY": [
+    0.4992,
+    1.0
+   ],
+   "entryXY": [
+    0.8413,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n7",
+   "to": "n10",
+   "exitXY": [
+    0.4979,
+    1.0
+   ],
+   "entryXY": [
+    0.4227,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n9",
+   "to": "n8",
+   "exitXY": [
+    1.0,
+    0.4614
+   ],
+   "entryXY": [
+    0.0,
+    0.5043
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n8",
+   "to": "n10",
+   "exitXY": [
+    1.0,
+    0.5043
+   ],
+   "entryXY": [
+    0.0,
+    0.4952
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n10",
+   "to": "n13",
+   "exitXY": [
+    0.8798,
+    1.0
+   ],
+   "entryXY": [
+    0.4643,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n9",
+   "to": "n11",
+   "exitXY": [
+    0.4833,
+    1.0
+   ],
+   "entryXY": [
+    0.4854,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n11",
+   "to": "n12",
+   "exitXY": [
+    1.0,
+    0.4952
+   ],
+   "entryXY": [
+    0.0,
+    0.4627
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n12",
+   "to": "n13",
+   "exitXY": [
+    0.4994,
+    1.0
+   ],
+   "entryXY": [
+    0.1647,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n13",
+   "to": "n14",
+   "exitXY": [
+    0.4962,
+    1.0
+   ],
+   "entryXY": [
+    0.499,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n14",
+   "to": "n16",
+   "exitXY": [
+    0.4938,
+    1.0
+   ],
+   "entryXY": [
+    0.4994,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n16",
+   "to": "n15",
+   "exitXY": [
+    0.0,
+    0.4952
+   ],
+   "entryXY": [
+    1.0,
+    0.4694
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n15",
+   "to": "n17",
+   "exitXY": [
+    0.0,
+    0.5
+   ],
+   "entryXY": [
+    1.0,
+    0.4881
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n17",
+   "to": "n18",
+   "exitXY": [
+    0.4974,
+    1.0
+   ],
+   "entryXY": [
+    0.4974,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n18",
+   "to": "n19",
+   "exitXY": [
+    0.499,
+    1.0
+   ],
+   "entryXY": [
+    0.4727,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  }
+ ],
+ "guards": [
+  {
+   "text": "Is there a new item to be delivered?\nTrue",
+   "x": 291.2,
+   "y": 157.7,
+   "w": 178.9,
+   "h": 61.8,
+   "labelLines": [
+    {
+     "text": "Is there a new item to be delivered?",
+     "cx": 379.8,
+     "cy": 179.3,
+     "w": 180.6
+    },
+    {
+     "text": "True",
+     "cx": 307.5,
+     "cy": 213.7,
+     "w": 32.4
+    }
+   ]
+  },
+  {
+   "text": "False",
+   "x": 191.0,
+   "y": 158.6,
+   "w": 38.0,
+   "h": 11.7,
+   "labelLines": [
+    {
+     "text": "False",
+     "cx": 210.0,
+     "cy": 164.4,
+     "w": 38.0
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,360 @@
+{
+ "canvas": {
+  "w": 1480.0,
+  "h": 986.091
+ },
+ "stroke": {
+  "frame": 4.3,
+  "divider": 5.2,
+  "action": 5.6,
+  "object": 5.2,
+  "edge": 5.6
+ },
+ "font": {
+  "family": "Helvetica, Arial, sans-serif",
+  "node": 34.6,
+  "lane": 34.6,
+  "guard": 34.6
+ },
+ "arrow": 37.3,
+ "arrowWidth": 38.5,
+ "arrowStyle": "open",
+ "dashed": [],
+ "greyRules": [],
+ "crossMarks": [],
+ "openEnds": [],
+ "frameBox": [
+  2.2,
+  2.2,
+  1477.8,
+  983.9
+ ],
+ "dividers": [
+  [
+   810.2,
+   5.2,
+   5.6,
+   980.0
+  ]
+ ],
+ "bands": [],
+ "lanes": [
+  {
+   "title": "TENDERER",
+   "x": 0.0,
+   "w": 810.2,
+   "cx": 408.4,
+   "cy": 43.2
+  },
+  {
+   "title": "CONTRACTING AUTHORITY",
+   "x": 810.2,
+   "w": 669.8,
+   "cx": 1148.4,
+   "cy": 43.2
+  }
+ ],
+ "bandLabels": [],
+ "nodes": [
+  {
+   "id": "n4",
+   "kind": "initial",
+   "label": "",
+   "x": 309.0,
+   "y": 118.0,
+   "w": 52.7,
+   "h": 52.7
+  },
+  {
+   "id": "n5",
+   "kind": "action",
+   "label": "Prepare qualification document",
+   "x": 43.0,
+   "y": 238.3,
+   "w": 584.7,
+   "h": 94.6,
+   "rx": 46.5,
+   "ry": 45.6,
+   "labelLines": [
+    {
+     "text": "Prepare qualification document",
+     "cx": 332.9,
+     "cy": 286.9,
+     "w": 461.1
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "n6",
+   "kind": "object",
+   "label": "Tenderer\nQualification",
+   "x": 711.3,
+   "y": 369.9,
+   "w": 189.7,
+   "h": 196.2,
+   "labelLines": [
+    {
+     "text": "Tenderer",
+     "cx": 783.6,
+     "cy": 441.0,
+     "w": 120.6
+    },
+    {
+     "text": "Qualification",
+     "cx": 807.0,
+     "cy": 486.1,
+     "w": 169.0
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n7",
+   "kind": "action",
+   "label": "Evaluate Qualification\ndocument",
+   "x": 998.8,
+   "y": 400.4,
+   "w": 443.4,
+   "h": 137.0,
+   "rx": 53.8,
+   "ry": 52.9,
+   "labelLines": [
+    {
+     "text": "Evaluate Qualification",
+     "cx": 1221.4,
+     "cy": 446.6,
+     "w": 330.6
+    },
+    {
+     "text": "document",
+     "cx": 1238.7,
+     "cy": 488.5,
+     "w": 146.5
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "n8",
+   "kind": "action",
+   "label": "Submit Qualification document",
+   "x": 37.8,
+   "y": 422.0,
+   "w": 595.9,
+   "h": 95.1,
+   "rx": 46.9,
+   "ry": 46.5,
+   "labelLines": [
+    {
+     "text": "Submit Qualification document",
+     "cx": 336.4,
+     "cy": 468.2,
+     "w": 455.0
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "n11",
+   "kind": "object",
+   "label": "Tenderer\nQualification\nResponse",
+   "x": 706.5,
+   "y": 615.8,
+   "w": 182.8,
+   "h": 188.8,
+   "labelLines": [
+    {
+     "text": "Tenderer",
+     "cx": 775.0,
+     "cy": 659.8,
+     "w": 120.6
+    },
+    {
+     "text": "Qualification",
+     "cx": 798.3,
+     "cy": 705.0,
+     "w": 169.0
+    },
+    {
+     "text": "Response",
+     "cx": 780.0,
+     "cy": 751.2,
+     "w": 134.0
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n12",
+   "kind": "action",
+   "label": "Submit Qualification\nresult",
+   "x": 1017.9,
+   "y": 641.5,
+   "w": 404.9,
+   "h": 137.0,
+   "rx": 51.2,
+   "ry": 54.2,
+   "labelLines": [
+    {
+     "text": "Submit Qualification",
+     "cx": 1219.0,
+     "cy": 687.7,
+     "w": 295.6
+    },
+    {
+     "text": "result",
+     "cx": 1240.2,
+     "cy": 729.4,
+     "w": 79.5
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "n13",
+   "kind": "action",
+   "label": "Receive result",
+   "x": 189.9,
+   "y": 660.5,
+   "w": 290.8,
+   "h": 95.1,
+   "rx": 48.2,
+   "ry": 46.9,
+   "labelLines": [
+    {
+     "text": "Receive result",
+     "cx": 332.3,
+     "cy": 706.5,
+     "w": 210.0
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "n15",
+   "kind": "final",
+   "label": "",
+   "x": 296.0,
+   "y": 866.8,
+   "w": 78.6,
+   "h": 79.1,
+   "innerRatio": 0.712
+  }
+ ],
+ "edges": [
+  {
+   "from": "n4",
+   "to": "n5",
+   "exitXY": [
+    0.4991,
+    1.0
+   ],
+   "entryXY": [
+    0.4999,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n5",
+   "to": "n8",
+   "exitXY": [
+    0.4999,
+    1.0
+   ],
+   "entryXY": [
+    0.5001,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n8",
+   "to": "n6",
+   "exitXY": [
+    1.0,
+    0.4974
+   ],
+   "entryXY": [
+    0.0,
+    0.5
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n6",
+   "to": "n7",
+   "exitXY": [
+    1.0,
+    0.5
+   ],
+   "entryXY": [
+    0.0,
+    0.4993
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n7",
+   "to": "n12",
+   "exitXY": [
+    0.4995,
+    1.0
+   ],
+   "entryXY": [
+    0.4999,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n11",
+   "to": "n13",
+   "exitXY": [
+    0.0,
+    0.4989
+   ],
+   "entryXY": [
+    1.0,
+    0.4974
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n12",
+   "to": "n11",
+   "exitXY": [
+    0.0,
+    0.5
+   ],
+   "entryXY": [
+    1.0,
+    0.4989
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n13",
+   "to": "n15",
+   "exitXY": [
+    0.5,
+    1.0
+   ],
+   "entryXY": [
+    0.5,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "medium"
+  }
+ ],
+ "guards": []
+}

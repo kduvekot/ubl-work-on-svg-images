@@ -1,0 +1,173 @@
+image 3425x1609
+   grey column rule at 706, 4px wide, tone 182 (covers 93% of the page)
+   grey column rule at 719, 3px wide, tone 211 (covers 93% of the page)
+
+PARTITION RULES
+   vertical  : [(0, 12), (710, 8), (1976, 8), (3413, 12)]
+   horizontal: [(0, 12), (1597, 12)]
+   -> 3 column(s) x 1 band(s)
+   type measured off the page: a word is 28px tall
+   (dropped x=12    y=12     698x1585  encloses another region)
+   (dropped x=718   y=12    1258x1585  encloses another region)
+   (dropped x=1984  y=12    1429x1585  encloses another region)
+   (kept    x=2926  y=234     29x29    own outline, iou 0.85 border 0.87, despite pass-through line-work)
+   (dropped x=2859  y=260    345x469   outline matches no UML node shape (best ellipse 0.53, and 0.99 is the most this shape can reach at this size))
+   (dropped x=2775  y=265    161x111   outline matches no UML node shape (best rounded 0.49, and 0.96 is the most this shape can reach at this size))
+   (dropped x=1172  y=468    146x161   outline matches no UML node shape (best ellipse 0.71, and 0.97 is the most this shape can reach at this size))
+   (kept    x=1316  y=564     29x29    own outline, iou 0.82 border 0.88, despite pass-through line-work)
+   (dropped x=1236  y=593    273x238   outline matches no UML node shape (best rounded 0.55, and 0.98 is the most this shape can reach at this size))
+   (kept    x=2835  y=616     29x29    own outline, iou 0.82 border 0.91, despite pass-through line-work)
+   (dropped x=2626  y=647    310x169   outline matches no UML node shape (best rhombus 0.47, and 0.96 is the most this shape can reach at this size))
+   (kept    x=3146  y=660     29x29    own outline, iou 0.84 border 0.85, despite pass-through line-work)
+   (dropped x=2953  y=681    195x151   outline matches no UML node shape (best rhombus 0.68, and 0.96 is the most this shape can reach at this size))
+   object nodes are those stroked heavier than 9.0px
+   (dropped x=845   y=1507   312x8     only 8px across against a 7px line - a stroke, not a fork bar)
+
+NODES
+   n1   action    x=1363  y=111   w=283   h=74    stroke=7   fill=0.90  'place order'
+   n2   object    x=1889  y=111   w=182   h=70    stroke=11  fill=0.87  'Order'
+   n3   action    x=2768  y=111   w=316   h=74    stroke=7   fill=0.91  'receive order'
+   n4   decision  x=2926  y=234   w=29    h=29    stroke=7   fill=0.59  ''
+   n5   action    x=2382  y=241   w=292   h=75    stroke=6   fill=0.89  'reject order'
+   n6   object    x=1742  y=246   w=484   h=70    stroke=11  fill=0.82  'OrderResponseSimple'
+   n7   action    x=2754  y=382   w=326   h=75    stroke=6   fill=0.90  'accept order'
+   n8   action    x=1011  y=387   w=382   h=74    stroke=7   fill=0.92  'receive response'
+   n9   object    x=1744  y=387   w=474   h=70    stroke=11  fill=0.82  'OrderResponseSimple'
+   n10  action    x=3110  y=524   w=260   h=74    stroke=7   fill=0.89  'acd Cetail'
+   n11  object    x=1728  y=526   w=507   h=70    stroke=11  fill=0.81  'OrderResponse (detailed)'
+   n12  decision  x=1316  y=564   w=29    h=29    stroke=7   fill=0.61  ''
+   n13  action    x=2300  y=613   w=318   h=75    stroke=7   fill=0.89  'change order'
+   n14  decision  x=2835  y=616   w=29    h=29    stroke=16  fill=0.61  ''
+   n15  action    x=1359  y=655   w=318   h=74    stroke=7   fill=0.90  'change order'
+   n16  object    x=1825  y=659   w=312   h=70    stroke=11  fill=0.84  'OrderChange'
+   n17  decision  x=3146  y=660   w=29    h=29    stroke=7   fill=0.60  ''
+   n18  action    x=814   y=688   w=302   h=74    stroke=7   fill=0.90  'cancel order'
+   n19  action    x=2325  y=792   w=301   h=74    stroke=7   fill=0.91  'cancel order'
+   n20  object    x=1788  y=798   w=385   h=70    stroke=11  fill=0.83  'OrderCancellation'
+   n21  fork      x=3018  y=832   w=73    h=8     stroke=0   fill=0.24  ''
+   n22  action    x=1226  y=837   w=335   h=75    stroke=6   fill=0.89  'receive advice'
+   n23  action    x=2569  y=1085  w=492   h=74    stroke=7   fill=0.92  'Gespatch order Rens)'
+   n24  object    x=1817  y=1093  w=335   h=69    stroke=11  fill=0.82  'DespatchAdvice'
+   n25  action    x=153   y=1107  w=335   h=75    stroke=7   fill=0.90  'recerve dOvVCE'
+   n26  action    x=2063  y=1246  w=561   h=75    stroke=7   fill=0.91  'deoson if Rem(s) rejected'
+   n27  object    x=559   y=1257  w=317   h=70    stroke=11  fill=0.82  'ReceiptAdvice'
+   n28  action    x=151   y=1258  w=330   h=75    stroke=6   fill=0.90  'recive goods'
+   n29  fork      x=2602  y=1376  w=77    h=9     stroke=0   fill=0.33  ''
+   n30  action    x=149   y=1397  w=330   h=75    stroke=6   fill=0.90  'Sdvise receipt'
+   n31  action    x=1168  y=1470  w=381   h=75    stroke=6   fill=0.92  'reconcile invoice'
+   n32  action    x=2574  y=1470  w=305   h=75    stroke=6   fill=0.91  'fase wwoce'
+   n33  object    x=1887  y=1474  w=182   h=71    stroke=11  fill=0.83  'Invoice'
+   n34  final     x=822   y=1499  w=23    h=23    stroke=0   fill=0.54  ''
+
+TYPE  cap height 27px over 304 glyphs -> font 38.6px
+   corner radius ry on 'reject order' could not be read (it came back larger than the box) - taking the 40 the rest of its kind measures
+   corner radius ry on 'accept order' could not be read (it came back larger than the box) - taking the 40 the rest of its kind measures
+   corner radius ry on 'receive response' could not be read (it came back larger than the box) - taking the 40 the rest of its kind measures
+   corner radius ry on 'change order' could not be read (it came back larger than the box) - taking the 40 the rest of its kind measures
+   corner radius ry on 'cancel order' could not be read (it came back larger than the box) - taking the 40 the rest of its kind measures
+   corner radius ry on 'Gespatch order Rens)' could not be read (it came back larger than the box) - taking the 40 the rest of its kind measures
+   corner radius ry on 'recerve dOvVCE' could not be read (it came back larger than the box) - taking the 40 the rest of its kind measures
+   corner radius ry on 'recive goods' could not be read (it came back larger than the box) - taking the 40 the rest of its kind measures
+   corner radius ry on 'Sdvise receipt' could not be read (it came back larger than the box) - taking the 40 the rest of its kind measures
+   corner radius ry on 'reconcile invoice' could not be read (it came back larger than the box) - taking the 40 the rest of its kind measures
+   corner radius rx on 'accept order' could not be read (it came back larger than the box) - taking the 29 the rest of its kind measures
+   corner radius rx on 'acd Cetail' could not be read (it came back larger than the box) - taking the 29 the rest of its kind measures
+   corner radius rx on 'recive goods' could not be read (it came back larger than the box) - taking the 29 the rest of its kind measures
+   rejoined 3 line break(s) of up to 69px, where a label sits on the line
+   rejoined a 34px break in a line at 45 degrees, where a label sits on it
+   rejoined a 42px break in a line at 144 degrees, where a label sits on it
+   closed a 67px break between two runs of dashes
+   closed a 67px break between two runs of dashes
+   closed a 67px break between two runs of dashes
+   closed a 67px break between two runs of dashes
+   closed a 67px break between two runs of dashes
+   closed a 68px break between two runs of dashes
+   two dashes between n27 and n30, carried a dash further at each end, reach both - taking them as a dashed flow
+   chained 19 dashes into one dashed flow
+   chained 5 dashes into one dashed flow
+   chained 3 dashes into one dashed flow
+   chained 9 dashes into one dashed flow
+   chained 9 dashes into one dashed flow
+   chained 13 dashes into one dashed flow
+   chained 9 dashes into one dashed flow
+   chained 22 dashes into one dashed flow
+   chained 3 dashes into one dashed flow
+   chained 3 dashes into one dashed flow
+   chained 17 dashes into one dashed flow
+   chained 3 dashes into one dashed flow
+   chained 8 dashes into one dashed flow
+   chained 11 dashes into one dashed flow
+   chained 36 dashes into one dashed flow
+   chained 30 dashes into one dashed flow
+   chained 13 dashes into one dashed flow
+   chained 8 dashes into one dashed flow
+   chained 2 dashes into one dashed flow
+   one component crossing 4 nodes split into 2 connectors
+   one component crossing 4 nodes split into 2 connectors
+   one component crossing 3 nodes split into 2 connectors
+
+EDGES
+   n3   -> n2    straight    arrowhead   163 vs 160    ratio 1.0  <-- CHECK DIRECTION
+   n1   -> n2    straight    arrowhead   364 vs 122    ratio 3.0  high
+   n3   -> n4    straight    arrowhead   376 vs 278    ratio 1.4  <-- CHECK DIRECTION
+   n4   -> n5    diagonal    arrowhead   935 vs 337    ratio 4.0  high
+   n4   -> n10   diagonal    arrowhead   653 vs 401    ratio 1.5  <-- CHECK DIRECTION
+   n13  -> n4    diagonal    arrowhead   920 vs 639    ratio 4.0  high
+   n5   -> n6    straight    arrowhead   260 vs 118    ratio 2.2  medium
+   n7   -> n4    diagonal    arrowhead   720 vs 410    ratio 1.8  medium
+   n6   -> n8    diagonal    arrowhead   321 vs 165    ratio 1.9  medium
+   n9   -> n8    straight    arrowhead   540 vs 155    ratio 3.5  high
+   n9   -> n7    straight    arrowhead   764 vs 320    ratio 2.4  medium
+   n11  -> n8    diagonal    arrowhead   451 vs 168    ratio 2.7  high
+   n7   -> n14   diagonal    arrowhead   625 vs 333    ratio 4.0  high
+   n8   -> n22   diagonal    arrowhead   408 vs 328    ratio 4.0  high
+   n18  -> n12   diagonal    arrowhead   388 vs 382    ratio 4.0  high
+   n8   -> n12   diagonal    arrowhead   371 vs 338    ratio 4.0  high
+   n10  -> n11   straight    arrowhead   324 vs 122    ratio 2.7  high
+   n12  -> n15   diagonal    arrowhead   319 vs 296    ratio 4.0  high
+   n10  -> n17   diagonal    arrowhead   402 vs 305    ratio 4.0  high
+   n14  -> n19   diagonal    arrowhead   746 vs 378    ratio 2.0  medium
+   n14  -> n21   diagonal    arrowhead   480 vs 393    ratio 4.0  high
+   n17  -> n19   diagonal    arrowhead   532 vs 392    ratio 4.0  high
+   n16  -> n13   diagonal    arrowhead   223 vs 173    ratio 1.3  <-- CHECK DIRECTION
+   n15  -> n16   straight    arrowhead   318 vs 139    ratio 2.3  medium
+   n17  -> n21   diagonal    arrowhead   560 vs 492    ratio 4.0  high
+   n18  -> n20   diagonal    arrowhead   365 vs 143    ratio 2.6  high
+   n15  -> n22   diagonal    arrowhead   571 vs 472    ratio 4.0  high
+   n20  -> n19   straight    arrowhead   226 vs 157    ratio 1.4  <-- CHECK DIRECTION
+   n23  -> n21   diagonal    arrowhead   545 vs 444    ratio 4.0  high
+   n24  -> n22   diagonal    arrowhead   316 vs 107    ratio 4.0  high
+   n22  -> n31   straight    arrowhead   403 vs 301    ratio 1.3  <-- CHECK DIRECTION
+   n23  -> n24   straight    arrowhead   242 vs 112    ratio 2.2  medium
+   n24  -> n25   straight    arrowhead   222 vs 205    ratio 1.1  <-- CHECK DIRECTION
+   n23  -> n29   diagonal    arrowhead   469 vs 419    ratio 4.0  high
+   n25  -> n28   straight    arrowhead   405 vs 364    ratio 1.5  <-- CHECK DIRECTION
+   n27  -> n26   straight    arrowhead   277 vs 157    ratio 1.8  medium
+   n26  -> n29   diagonal    arrowhead   360 vs 305    ratio 1.5  <-- CHECK DIRECTION
+   n28  -> n30   straight    arrowhead   336 vs 336    ratio 1.0  <-- CHECK DIRECTION
+   n30  -> n27   diagonal    arrowhead   229 vs 212    ratio 1.1  <-- CHECK DIRECTION
+   n29  -> n32   diagonal    arrowhead   450 vs 404    ratio 4.0  high
+   n31  -> n34   straight    arrowhead   440 vs 368    ratio 4.0  high
+   n32  -> n33   straight    arrowhead   347 vs 117    ratio 3.0  high
+   n33  -> n31   straight    arrowhead   267 vs 169    ratio 1.6  <-- CHECK DIRECTION
+
+TEXT (titles, guards, notes)
+   'Delivery Recipient'                     x=123   y=19    
+   'Seller'                                 x=2632  y=20    n4->n5
+   'Buyer'                                  x=1293  y=21    
+
+PARTITIONS
+   column 0  'Delivery Recipient'
+   column 1  'Buyer'
+   column 2  'Seller'
+   band   0  ''
+
+ARROWHEAD  42 x 38px, open, no connector read - set from the type size
+   (n15 -> n22: the head at its far end is 122px across against a 38px arrowhead - not a head at both ends)
+   turned n3 -> n2 round: 'Order' is written by all of them but nothing reads it, and this flow's two ends carry the same ink to within 2%
+   turned n9 -> n7 round: 'OrderResponseSimple' is read by all of them but nothing writes it, and this flow's two ends carry the same ink to within 139%
+   turned n18 -> n12 round: 'n12' is a decision, and a decision sends work more than one way, but every flow here bar 1 comes in; this one's two ends carry the same ink to within 2%
+   turned n13 -> n4 round: an unlabelled diamond takes one flow in and sends the rest out, and this one comes from below it
+   turned n7 -> n4 round: an unlabelled diamond takes one flow in and sends the rest out, and this one comes from below it
+
+wrote review/baseline/UBL-1.0-ProcurementProcess-graph.json   (34 nodes, 43 edges, 13 flagged for a human)

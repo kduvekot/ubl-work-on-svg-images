@@ -1,0 +1,11 @@
+== UBL-2.2-ROCD-BaseArticleCatalogue
+  scale 0.43212   frame 10px  divider 6px  action 7px  object 13px
+  font 83px (35.8 model)   2 lanes, 1 bands, 5 nodes, 4 edges -> review/baseline/UBL-2.2-ROCD-BaseArticleCatalogue-spec.json
+  review/baseline/UBL-2.2-ROCD-BaseArticleCatalogue.svg + .drawio + -classified.svg   (5 nodes, 4 edges)
+  rendered UBL-2.2-ROCD-BaseArticleCatalogue.svg -> UBL-2.2-ROCD-BaseArticleCatalogue-render.png @ 3425pxx1492, 600 dpi
+  aligned on ink bounds: scale x 1.0000, y 1.0000
+  size 3425x1492  radius 2
+  ink: original 230751   candidate 236454
+  MISSING (red)    12682  = 5.4960% of original ink
+  EXTRA   (blue)   14776  = 6.4034% of original ink
+  RESULT: DIFFERENCES - inspect review/baseline/UBL-2.2-ROCD-BaseArticleCatalogue-diff-r2.png

@@ -1,0 +1,429 @@
+{
+ "source": "UBL-2.5-WasteMovementProcess.png",
+ "size": [
+  2501,
+  1733
+ ],
+ "fontPx": 58.6,
+ "arrowPx": 36.0,
+ "arrowWidthPx": 36.0,
+ "arrowStyle": "open",
+ "rules": {
+  "v": [
+   [
+    0,
+    5
+   ],
+   [
+    1248,
+    5
+   ],
+   [
+    2495,
+    5
+   ]
+  ],
+  "h": [
+   [
+    0,
+    5
+   ],
+   [
+    1727,
+    5
+   ]
+  ]
+ },
+ "ruleSpan": {
+  "v": [
+   [
+    8,
+    1723
+   ],
+   [
+    8,
+    1723
+   ],
+   [
+    8,
+    1723
+   ]
+  ],
+  "h": [
+   [
+    8,
+    2491
+   ],
+   [
+    8,
+    2491
+   ]
+  ]
+ },
+ "greyRules": [],
+ "dashed": [],
+ "openEnds": [],
+ "crossMarks": [],
+ "partitions": [
+  {
+   "axis": "column",
+   "index": 0,
+   "x0": 0,
+   "x1": 1250,
+   "title": ""
+  },
+  {
+   "axis": "column",
+   "index": 1,
+   "x0": 1250,
+   "x1": 2501,
+   "title": ""
+  },
+  {
+   "axis": "band",
+   "index": 0,
+   "y0": 0,
+   "y1": 1733,
+   "title": ""
+  }
+ ],
+ "nodes": [
+  {
+   "x": 485,
+   "y": 288,
+   "w": 52,
+   "h": 52,
+   "area": 1589,
+   "fill": 0.751,
+   "kind": "initial",
+   "id": "n1",
+   "label": "",
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 202,
+   "y": 485,
+   "w": 619,
+   "h": 187,
+   "area": 98333,
+   "fill": 0.85,
+   "solid": 0.959,
+   "rx": 71,
+   "ry": 70,
+   "shape": "rounded",
+   "stroke": 5,
+   "kind": "action",
+   "id": "n2",
+   "label": "Prepare partial waste\nmovement",
+   "labelLines": [
+    {
+     "x": 241,
+     "y": 520,
+     "w": 537,
+     "h": 53,
+     "text": "Prepare partial waste"
+    },
+    {
+     "x": 378,
+     "y": 594,
+     "w": 264,
+     "h": 40,
+     "text": "movement"
+    }
+   ],
+   "stem": 0.102,
+   "bold": false,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 1012,
+   "y": 941,
+   "w": 524,
+   "h": 235,
+   "area": 116389,
+   "fill": 0.945,
+   "solid": 1.0,
+   "rx": 0,
+   "ry": 0,
+   "shape": "rect",
+   "stroke": 5,
+   "kind": "object",
+   "id": "n3",
+   "label": "Waste Movement",
+   "labelLines": [
+    {
+     "x": 1050,
+     "y": 1034,
+     "w": 443,
+     "h": 42,
+     "text": "Waste Movement"
+    }
+   ],
+   "stem": 0.102,
+   "bold": false,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 226,
+   "y": 964,
+   "w": 571,
+   "h": 188,
+   "area": 93795,
+   "fill": 0.874,
+   "solid": 0.955,
+   "rx": 83,
+   "ry": 71,
+   "shape": "rounded",
+   "stroke": 4,
+   "kind": "action",
+   "id": "n4",
+   "label": "Issue Waste\nMovement",
+   "labelLines": [
+    {
+     "x": 357,
+     "y": 1000,
+     "w": 306,
+     "h": 42,
+     "text": "Issue Waste"
+    },
+    {
+     "x": 378,
+     "y": 1072,
+     "w": 264,
+     "h": 42,
+     "text": "Movement"
+    }
+   ],
+   "stem": 0.102,
+   "bold": false,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 1732,
+   "y": 964,
+   "w": 571,
+   "h": 188,
+   "area": 92260,
+   "fill": 0.859,
+   "solid": 0.955,
+   "rx": 83,
+   "ry": 77,
+   "shape": "rounded",
+   "stroke": 4,
+   "kind": "action",
+   "id": "n5",
+   "label": "Receive Waste\nMovement",
+   "labelLines": [
+    {
+     "x": 1828,
+     "y": 1000,
+     "w": 377,
+     "h": 42,
+     "text": "Receive Waste"
+    },
+    {
+     "x": 1885,
+     "y": 1072,
+     "w": 263,
+     "h": 42,
+     "text": "Movement"
+    }
+   ],
+   "stem": 0.102,
+   "bold": false,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 1972,
+   "y": 1588,
+   "w": 91,
+   "h": 91,
+   "area": 3472,
+   "fill": 0.419,
+   "solid": 0.788,
+   "rx": 48,
+   "ry": 47,
+   "shape": "ellipse",
+   "stroke": 5,
+   "kind": "final",
+   "innerRatio": 0.67,
+   "id": "n6",
+   "label": "",
+   "col": 1,
+   "row": 0
+  }
+ ],
+ "edges": [
+  {
+   "from": "n1",
+   "to": "n2",
+   "routing": "straight",
+   "fromPoint": [
+    510,
+    354
+   ],
+   "toPoint": [
+    510,
+    470
+   ],
+   "arrowInk": [
+    180,
+    457
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    36,
+    38.0,
+    2.04
+   ],
+   "arrowFill": 0.02,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n2",
+   "to": "n4",
+   "routing": "straight",
+   "fromPoint": [
+    510,
+    686
+   ],
+   "toPoint": [
+    510,
+    949
+   ],
+   "arrowInk": [
+    180,
+    563
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    46,
+    46.0,
+    2.2
+   ],
+   "arrowFill": 0.003,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n4",
+   "to": "n3",
+   "routing": "straight",
+   "fromPoint": [
+    811,
+    1058
+   ],
+   "toPoint": [
+    997,
+    1058
+   ],
+   "arrowInk": [
+    180,
+    437
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    36,
+    36.0,
+    2.04
+   ],
+   "arrowFill": 0.016,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n3",
+   "to": "n5",
+   "routing": "straight",
+   "fromPoint": [
+    1550,
+    1058
+   ],
+   "toPoint": [
+    1717,
+    1058
+   ],
+   "arrowInk": [
+    180,
+    453
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    36,
+    36.0,
+    1.99
+   ],
+   "arrowFill": 0.016,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n5",
+   "to": "n6",
+   "routing": "straight",
+   "fromPoint": [
+    2017,
+    1166
+   ],
+   "toPoint": [
+    2017,
+    1573
+   ],
+   "arrowInk": [
+    225,
+    494
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    37,
+    36.0,
+    1.99
+   ],
+   "arrowFill": 0.005,
+   "edgeKind": "control"
+  }
+ ],
+ "text": [
+  {
+   "text": "Senderparty",
+   "x": 362,
+   "y": 144,
+   "w": 332,
+   "h": 55,
+   "lines": [
+    {
+     "x": 362,
+     "y": 144,
+     "w": 332,
+     "h": 55,
+     "text": "Senderparty"
+    }
+   ]
+  },
+  {
+   "text": "ReceiverParty",
+   "x": 1684,
+   "y": 145,
+   "w": 378,
+   "h": 54,
+   "lines": [
+    {
+     "x": 1684,
+     "y": 145,
+     "w": 378,
+     "h": 54,
+     "text": "ReceiverParty"
+    }
+   ]
+  }
+ ],
+ "uncertain": [
+  {
+   "kind": "no-weight-split",
+   "reason": "all 4 box strokes are one weight ([4, 5]), so no object node could be identified",
+   "check": "confirm the diagram really has no object nodes"
+  }
+ ]
+}

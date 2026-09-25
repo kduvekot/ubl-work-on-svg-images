@@ -1,0 +1,14 @@
+  verdict: NEEDS-HUMAN
+  structural: 0 element(s) absent, 0 invented, 0 text absent, 0 text differs, 0 incoherent
+  line-work  missing 1274 px (0.668%)   invented 744 px (0.390%)   radius 3
+    line-work-missing      358 px at  2111,690     21x58    near edge n3 -> n7
+    line-work-missing      344 px at  2144,689     21x58    near edge n3 -> n7
+    line-work-missing      267 px at   472,256     18x47    near edge n1 -> n4
+    line-work-missing      129 px at   514,256     13x21    near edge n1 -> n4
+    line-work-missing       81 px at   463,991     15x26    near edge n6 -> n9
+    line-work-invented     227 px at   469,274     23x55    near edge n1 -> n4
+    line-work-invented     162 px at  2110,720     19x46    near edge n3 -> n7
+    line-work-invented     122 px at  2151,720     14x36    near edge n3 -> n7
+  needs a person (1):
+    no-weight-split     confirm the diagram really has no object nodes
+review/baseline/UBL-2.2-FreightStatusReporting-marked.png + review/baseline/UBL-2.2-FreightStatusReporting-marked-lost.png  (1 finding(s) numbered)

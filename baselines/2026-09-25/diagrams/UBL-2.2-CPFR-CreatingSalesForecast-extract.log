@@ -1,0 +1,77 @@
+image 3425x3604
+   grey column rule at 1712, 7px wide, tone 224 (covers 67% of the page)
+
+PARTITION RULES
+   vertical  : [(0, 10), (3415, 10)]
+   horizontal: [(0, 10), (3594, 10)]
+   -> 1 column(s) x 1 band(s)
+   type measured off the page: a word is 29px tall
+   (dropped x=10    y=10    3405x3584  is a partition cell)
+   one line weight only - no object nodes
+
+NODES
+   n1   object    x=1477  y=310   w=467   h=220   stroke=6   fill=0.94  'Item Information\nRequest'
+   n2   action    x=561   y=313   w=514   h=214   stroke=7   fill=0.88  'Create Product Activity\n(POS Data)'
+   n3   action    x=2334  y=313   w=515   h=214   stroke=7   fill=0.89  'Create Item\nInformation Request'
+   n4   action    x=561   y=720   w=514   h=214   stroke=7   fill=0.88  'Create Product Activity\n(DC Data)'
+   n5   object    x=1477  y=1120  w=467   h=220   stroke=7   fill=0.96  'Product Activity'
+   n6   action    x=561   y=1123  w=514   h=214   stroke=7   fill=0.91  'Send Product Activity'
+   n7   action    x=2334  y=1123  w=515   h=214   stroke=7   fill=0.90  'Receive Product Activity'
+   n8   action    x=2334  y=1519  w=515   h=214   stroke=7   fill=0.91  'Create Sales Forecast'
+   n9   object    x=1477  y=1909  w=467   h=220   stroke=7   fill=0.96  'Forecast (sales)'
+   n10  action    x=554   y=1912  w=515   h=214   stroke=7   fill=0.90  'Receive Sales Forecast'
+   n11  action    x=2334  y=1912  w=515   h=214   stroke=7   fill=0.91  'Send Sales Forecast'
+   n12  object    x=1477  y=2294  w=467   h=220   stroke=7   fill=0.94  'Forecast Revision\n(sales)'
+   n13  action    x=554   y=2297  w=515   h=214   stroke=7   fill=0.87  'Revise Sales Forecast\nand Send Revision'
+   n14  action    x=2334  y=2297  w=515   h=214   stroke=7   fill=0.88  'Receive Sales Forecast\nRevision'
+   n15  action    x=2334  y=2695  w=515   h=214   stroke=7   fill=0.89  'Revise and Resend\nRevision'
+   n16  decision  x=739   y=2740  w=122   h=123   stroke=7   fill=0.51  ''
+   n17  action    x=1128  y=2743  w=486   h=117   stroke=6   fill=0.88  'Receive Revision'
+   n18  action    x=548   y=3044  w=486   h=117   stroke=6   fill=0.87  'Send Sales Forecast'
+   n19  object    x=1477  y=3069  w=467   h=220   stroke=7   fill=0.92  'Forecast (sales -\npositive response)'
+
+TYPE  cap height 29px over 459 glyphs -> font 41.4px
+   corner radius rx on 'Receive Revision' could not be read (it came back larger than the box) - taking the 76 the rest of its kind measures
+   dashed enclosure x=86 y=66 3260x3448  r=220  dash 20/20 over 287 marks
+   rejoined 1 line break(s) of up to 75px, where a label sits on the line
+
+EDGES
+   n2   -> (off the diagram) at 970,287
+   n1   -> n2    straight    arrowhead   798 vs 314    ratio 4.0  high
+   n3   -> n1    straight    arrowhead   763 vs 314    ratio 2.4  medium
+   n2   -> n4    straight    arrowhead   750 vs 296    ratio 2.5  high
+   n4   -> n6    straight    arrowhead   757 vs 298    ratio 4.0  high
+   n6   -> n5    straight    arrowhead   772 vs 315    ratio 2.5  medium
+   n5   -> n7    straight    arrowhead   768 vs 307    ratio 2.5  high
+   n7   -> n8    straight    arrowhead   827 vs 267    ratio 4.0  high
+   n8   -> n11   straight    arrowhead   876 vs 264    ratio 4.0  high
+   n9   -> n10   straight    arrowhead   750 vs 313    ratio 2.4  medium
+   n11  -> n9    straight    arrowhead   754 vs 322    ratio 2.3  medium
+   n10  -> n13   straight    arrowhead   755 vs 293    ratio 4.0  high
+   n13  -> n12   straight    arrowhead   774 vs 306    ratio 2.5  high
+   n12  -> n14   straight    arrowhead   770 vs 307    ratio 2.5  high
+   n16  -> n13   straight    arrowhead   765 vs 274    ratio 2.8  high
+   n14  -> n15   straight    arrowhead   769 vs 270    ratio 2.8  high
+   n12  -> n17   straight    arrowhead   924 vs 273    ratio 4.0  high
+   n15  -> n12   orthogonal  arrowhead   757 vs 322    ratio 4.0  high
+   n17  -> n16   straight    arrowhead   738 vs 312    ratio 4.0  high
+   n16  -> n18   straight    arrowhead   768 vs 286    ratio 4.0  high
+   n18  -> n19   straight    arrowhead   775 vs 307    ratio 2.5  high
+   n19  -> (off the diagram) at 1456,3210
+   n19  -> (off the diagram) at 2608,3591
+
+TEXT (titles, guards, notes)
+   'Creating Sales Forecast'                x=1496  y=117   
+   'No'                                     x=694   y=2550  n16->n13
+   'Sales Forecast Accepted?'               x=238   y=2784  
+   'Yes'                                    x=697   y=2944  n16->n18
+
+PARTITIONS
+   column 0  'Creating Sales Forecast'
+   band   0  ''
+
+ARROWHEAD  55 x 43px, open, measured on 8 connector(s)
+   (n19: the mark at its open end is 87x12 against a 55x43 arrowhead - not a head)
+   (n19: the mark at its open end is 50x12 against a 55x43 arrowhead - not a head)
+
+wrote review/baseline/UBL-2.2-CPFR-CreatingSalesForecast-graph.json   (19 nodes, 20 edges, 1 flagged for a human)

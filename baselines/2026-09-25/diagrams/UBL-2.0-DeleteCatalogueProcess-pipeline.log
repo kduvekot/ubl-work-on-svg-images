@@ -1,0 +1,11 @@
+== UBL-2.0-DeleteCatalogueProcess
+  scale 0.43212   frame 10px  divider 5px  action 5px  object 10px
+  font 50px (21.6 model)   2 lanes, 1 bands, 13 nodes, 14 edges -> review/baseline/UBL-2.0-DeleteCatalogueProcess-spec.json
+  review/baseline/UBL-2.0-DeleteCatalogueProcess.svg + .drawio + -classified.svg   (13 nodes, 14 edges)
+  rendered UBL-2.0-DeleteCatalogueProcess.svg -> UBL-2.0-DeleteCatalogueProcess-render.png @ 3425pxx2747, 600 dpi
+  aligned on ink bounds: scale x 1.0000, y 1.0000
+  size 3425x2747  radius 2
+  ink: original 390577   candidate 382520
+  MISSING (red)    13842  = 3.5440% of original ink
+  EXTRA   (blue)   15967  = 4.0881% of original ink
+  RESULT: DIFFERENCES - inspect review/baseline/UBL-2.0-DeleteCatalogueProcess-diff-r2.png

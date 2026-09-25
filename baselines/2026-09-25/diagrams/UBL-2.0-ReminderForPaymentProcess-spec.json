@@ -1,0 +1,202 @@
+{
+ "canvas": {
+  "w": 1480.0,
+  "h": 855.591
+ },
+ "stroke": {
+  "frame": 4.3,
+  "divider": 3.0,
+  "action": 3.0,
+  "object": 5.6,
+  "edge": 3.0
+ },
+ "font": {
+  "family": "Helvetica, Arial, sans-serif",
+  "node": 26.8,
+  "lane": 26.8,
+  "guard": 26.8
+ },
+ "arrow": 44.8,
+ "arrowWidth": 35.7,
+ "arrowStyle": "open",
+ "dashed": [],
+ "greyRules": [],
+ "crossMarks": [],
+ "openEnds": [],
+ "frameBox": [
+  2.2,
+  2.2,
+  1477.8,
+  853.4
+ ],
+ "dividers": [
+  [
+   782.3,
+   3.0,
+   5.6,
+   849.5
+  ]
+ ],
+ "bands": [],
+ "lanes": [
+  {
+   "title": "Accounting Customer",
+   "x": 0.0,
+   "w": 782.1,
+   "cx": 325.4,
+   "cy": 40.6
+  },
+  {
+   "title": "Accounting Supplier",
+   "x": 782.1,
+   "w": 697.9,
+   "cx": 1162.0,
+   "cy": 40.6
+  }
+ ],
+ "bandLabels": [],
+ "nodes": [
+  {
+   "id": "n1",
+   "kind": "initial",
+   "label": "",
+   "x": 1216.4,
+   "y": 104.6,
+   "w": 52.3,
+   "h": 52.3
+  },
+  {
+   "id": "n2",
+   "kind": "object",
+   "label": "Reminder",
+   "x": 634.6,
+   "y": 391.3,
+   "w": 280.0,
+   "h": 150.4,
+   "labelLines": [
+    {
+     "text": "Reminder",
+     "cx": 776.3,
+     "cy": 453.9,
+     "w": 144.8
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n3",
+   "kind": "action",
+   "label": "Receive Reminder",
+   "x": 59.0,
+   "y": 409.4,
+   "w": 344.8,
+   "h": 90.7,
+   "rx": 39.1,
+   "ry": 37.8,
+   "labelLines": [
+    {
+     "text": "Receive Reminder",
+     "cx": 226.6,
+     "cy": 453.3,
+     "w": 223.4
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n4",
+   "kind": "action",
+   "label": "Request Payment of\nAccount",
+   "x": 1077.9,
+   "y": 409.4,
+   "w": 342.2,
+   "h": 108.9,
+   "rx": 39.1,
+   "ry": 38.2,
+   "labelLines": [
+    {
+     "text": "Request Payment of",
+     "cx": 1244.9,
+     "cy": 446.6,
+     "w": 248.0
+    },
+    {
+     "text": "Account",
+     "cx": 1248.8,
+     "cy": 477.9,
+     "w": 103.7
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n5",
+   "kind": "final",
+   "label": "",
+   "x": 206.8,
+   "y": 764.6,
+   "w": 51.9,
+   "h": 51.4,
+   "innerRatio": 0.478
+  }
+ ],
+ "edges": [
+  {
+   "from": "n1",
+   "to": "n4",
+   "exitXY": [
+    0.5124,
+    1.0
+   ],
+   "entryXY": [
+    0.4933,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n2",
+   "to": "n3",
+   "exitXY": [
+    0.0,
+    0.4322
+   ],
+   "entryXY": [
+    1.0,
+    0.5083
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n4",
+   "to": "n2",
+   "exitXY": [
+    0.0,
+    0.4986
+   ],
+   "entryXY": [
+    1.0,
+    0.4814
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n3",
+   "to": "n5",
+   "exitXY": [
+    0.5032,
+    1.0
+   ],
+   "entryXY": [
+    0.4952,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  }
+ ],
+ "guards": []
+}

@@ -1,0 +1,645 @@
+{
+ "canvas": {
+  "w": 1480.0,
+  "h": 1285.98
+ },
+ "stroke": {
+  "frame": 4.3,
+  "divider": 0.4,
+  "action": 1.3,
+  "object": 2.6,
+  "edge": 1.3
+ },
+ "font": {
+  "family": "Helvetica, Arial, sans-serif",
+  "node": 20.4,
+  "lane": 20.4,
+  "guard": 20.4
+ },
+ "arrow": 32.4,
+ "arrowWidth": 25.9,
+ "arrowStyle": "open",
+ "dashed": [
+  {
+   "x": 35.4,
+   "y": 61.4,
+   "w": 1408.7,
+   "h": 1152.9,
+   "rx": 54.4,
+   "dash": 5.6,
+   "gap": 3.9,
+   "weight": 1.3
+  }
+ ],
+ "greyRules": [],
+ "crossMarks": [],
+ "openEnds": [
+  {
+   "points": [
+    [
+     1024.5,
+     1126.5
+    ],
+    [
+     1024.1,
+     1248.8
+    ],
+    [
+     309.4,
+     1248.8
+    ],
+    [
+     309.0,
+     1280.4
+    ]
+   ],
+   "arrow": false
+  }
+ ],
+ "frameBox": [
+  2.2,
+  2.2,
+  1477.8,
+  1283.8
+ ],
+ "dividers": [
+  [
+   737.0,
+   0.4,
+   5.6,
+   1279.9
+  ]
+ ],
+ "bands": [],
+ "lanes": [
+  {
+   "title": "Buyer Party",
+   "x": 0.0,
+   "w": 737.2,
+   "cx": 352.0,
+   "cy": 31.8
+  },
+  {
+   "title": "Seller Party",
+   "x": 737.2,
+   "w": 742.8,
+   "cx": 1151.6,
+   "cy": 31.8
+  }
+ ],
+ "bandLabels": [],
+ "nodes": [
+  {
+   "id": "n1",
+   "kind": "initial",
+   "label": "",
+   "x": 1200.4,
+   "y": 127.9,
+   "w": 63.5,
+   "h": 63.5
+  },
+  {
+   "id": "n2",
+   "kind": "object",
+   "label": "Exception Criteria",
+   "x": 622.2,
+   "y": 303.3,
+   "w": 227.3,
+   "h": 102.8,
+   "labelLines": [
+    {
+     "text": "Exception Criteria",
+     "cx": 731.6,
+     "cy": 350.9,
+     "w": 162.5
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n3",
+   "kind": "action",
+   "label": "Receive Exception\nCriteria",
+   "x": 161.8,
+   "y": 305.3,
+   "w": 248.5,
+   "h": 96.8,
+   "rx": 30.0,
+   "ry": 30.9,
+   "labelLines": [
+    {
+     "text": "Receive Exception",
+     "cx": 277.2,
+     "cy": 339.2,
+     "w": 166.4
+    },
+    {
+     "text": "Criteria",
+     "cx": 285.2,
+     "cy": 362.5,
+     "w": 66.5
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n4",
+   "kind": "action",
+   "label": "Send Exception Criteria",
+   "x": 1100.0,
+   "y": 313.1,
+   "w": 264.0,
+   "h": 89.0,
+   "rx": 30.0,
+   "ry": 30.9,
+   "labelLines": [
+    {
+     "text": "Send Exception Criteria",
+     "cx": 1227.4,
+     "cy": 352.8,
+     "w": 214.8
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n5",
+   "kind": "action",
+   "label": "Revise Exception\nCriteria",
+   "x": 164.0,
+   "y": 457.0,
+   "w": 248.5,
+   "h": 102.8,
+   "rx": 28.7,
+   "ry": 29.2,
+   "labelLines": [
+    {
+     "text": "Revise Exception",
+     "cx": 279.6,
+     "cy": 492.6,
+     "w": 155.6
+    },
+    {
+     "text": "Criteria",
+     "cx": 287.1,
+     "cy": 515.9,
+     "w": 66.1
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n6",
+   "kind": "object",
+   "label": "Exception Criteria\n(revision)",
+   "x": 641.7,
+   "y": 623.5,
+   "w": 217.8,
+   "h": 105.4,
+   "labelLines": [
+    {
+     "text": "Exception Criteria",
+     "cx": 743.2,
+     "cy": 664.6,
+     "w": 162.5
+    },
+    {
+     "text": "(revision)",
+     "cx": 748.9,
+     "cy": 686.0,
+     "w": 84.7
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n7",
+   "kind": "action",
+   "label": "Receive Revision",
+   "x": 1007.0,
+   "y": 625.9,
+   "w": 242.4,
+   "h": 96.8,
+   "rx": 28.7,
+   "ry": 28.7,
+   "labelLines": [
+    {
+     "text": "Receive Revision",
+     "cx": 1120.3,
+     "cy": 668.5,
+     "w": 154.3
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n8",
+   "kind": "action",
+   "label": "Send Revision",
+   "x": 251.3,
+   "y": 637.6,
+   "w": 250.6,
+   "h": 81.2,
+   "rx": 29.2,
+   "ry": 30.0,
+   "labelLines": [
+    {
+     "text": "Send Revision",
+     "cx": 370.8,
+     "cy": 673.5,
+     "w": 129.6
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n9",
+   "kind": "action",
+   "label": "Review and Resend\nRevision",
+   "x": 995.4,
+   "y": 808.3,
+   "w": 264.0,
+   "h": 93.3,
+   "rx": 30.5,
+   "ry": 28.7,
+   "labelLines": [
+    {
+     "text": "Review and Resend",
+     "cx": 1117.5,
+     "cy": 837.4,
+     "w": 176.3
+    },
+    {
+     "text": "Revision",
+     "cx": 1124.2,
+     "cy": 862.7,
+     "w": 76.5
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n10",
+   "kind": "decision",
+   "label": "",
+   "x": 168.3,
+   "y": 820.4,
+   "w": 82.5,
+   "h": 76.9
+  },
+  {
+   "id": "n11",
+   "kind": "action",
+   "label": "Send Exception Criteria",
+   "x": 325.2,
+   "y": 994.9,
+   "w": 261.9,
+   "h": 79.5,
+   "rx": 29.6,
+   "ry": 29.6,
+   "labelLines": [
+    {
+     "text": "Send Exception Criteria",
+     "cx": 450.5,
+     "cy": 1032.8,
+     "w": 214.8
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n12",
+   "kind": "action",
+   "label": "Receive Exception\nCriteria",
+   "x": 997.1,
+   "y": 1030.0,
+   "w": 262.3,
+   "h": 91.2,
+   "rx": 29.2,
+   "ry": 30.0,
+   "labelLines": [
+    {
+     "text": "Receive Exception",
+     "cx": 1117.7,
+     "cy": 1060.8,
+     "w": 167.2
+    },
+    {
+     "text": "Criteria",
+     "cx": 1126.1,
+     "cy": 1084.2,
+     "w": 66.5
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n13",
+   "kind": "object",
+   "label": "Exception Criteria\n(response positive)",
+   "x": 627.9,
+   "y": 1037.5,
+   "w": 241.1,
+   "h": 108.9,
+   "labelLines": [
+    {
+     "text": "Exception Criteria",
+     "cx": 741.3,
+     "cy": 1077.5,
+     "w": 162.9
+    },
+    {
+     "text": "(response positive)",
+     "cx": 745.0,
+     "cy": 1098.9,
+     "w": 173.7
+    }
+   ],
+   "bold": true
+  }
+ ],
+ "edges": [
+  {
+   "from": "n1",
+   "to": "n4",
+   "exitXY": [
+    0.4976,
+    1.0
+   ],
+   "entryXY": [
+    0.5,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n2",
+   "to": "n3",
+   "exitXY": [
+    0.0,
+    0.4883
+   ],
+   "entryXY": [
+    1.0,
+    0.4979
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n4",
+   "to": "n2",
+   "exitXY": [
+    0.0,
+    0.4775
+   ],
+   "entryXY": [
+    1.0,
+    0.4883
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n3",
+   "to": "n5",
+   "exitXY": [
+    0.4982,
+    1.0
+   ],
+   "entryXY": [
+    0.493,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n10",
+   "to": "n5",
+   "exitXY": [
+    0.4848,
+    0.0
+   ],
+   "entryXY": [
+    0.1783,
+    1.0
+   ],
+   "straight": true,
+   "confidence": "high",
+   "label": "No"
+  },
+  {
+   "from": "n5",
+   "to": "n8",
+   "exitXY": [
+    0.7626,
+    1.0
+   ],
+   "entryXY": [
+    0.411,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n6",
+   "to": "n7",
+   "exitXY": [
+    1.0,
+    0.4801
+   ],
+   "entryXY": [
+    0.0,
+    0.4979
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n8",
+   "to": "n6",
+   "exitXY": [
+    1.0,
+    0.4766
+   ],
+   "entryXY": [
+    0.0,
+    0.5009
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n7",
+   "to": "n9",
+   "exitXY": [
+    0.495,
+    1.0
+   ],
+   "entryXY": [
+    0.4985,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n6",
+   "to": "n10",
+   "exitXY": [
+    0.0,
+    1.0
+   ],
+   "entryXY": [
+    1.0,
+    0.4967
+   ],
+   "straight": false,
+   "confidence": "high",
+   "points": [
+    [
+     639.5,
+     858.6
+    ]
+   ]
+  },
+  {
+   "from": "n9",
+   "to": "n6",
+   "exitXY": [
+    0.0,
+    0.5391
+   ],
+   "entryXY": [
+    0.8549,
+    1.0
+   ],
+   "straight": false,
+   "confidence": "high",
+   "points": [
+    [
+     827.9,
+     858.6
+    ]
+   ]
+  },
+  {
+   "from": "n10",
+   "to": "n11",
+   "exitXY": [
+    0.4848,
+    1.0
+   ],
+   "entryXY": [
+    0.2581,
+    0.0
+   ],
+   "straight": false,
+   "confidence": "high",
+   "points": [
+    [
+     208.3,
+     934.2
+    ],
+    [
+     392.8,
+     934.2
+    ]
+   ],
+   "label": "Yes"
+  },
+  {
+   "from": "n11",
+   "to": "n13",
+   "exitXY": [
+    1.0,
+    0.6013
+   ],
+   "entryXY": [
+    0.0,
+    0.1469
+   ],
+   "straight": false,
+   "confidence": "high"
+  },
+  {
+   "from": "n13",
+   "to": "n12",
+   "exitXY": [
+    1.0,
+    0.4444
+   ],
+   "entryXY": [
+    0.0,
+    0.6129
+   ],
+   "straight": true,
+   "confidence": "high"
+  }
+ ],
+ "guards": [
+  {
+   "text": "Establishing Collaborative Relationship",
+   "x": 551.4,
+   "y": 70.0,
+   "w": 357.8,
+   "h": 17.7,
+   "labelLines": [
+    {
+     "text": "Establishing Collaborative Relationship",
+     "cx": 730.3,
+     "cy": 78.9,
+     "w": 357.8
+    }
+   ]
+  },
+  {
+   "text": "No",
+   "x": 169.0,
+   "y": 576.4,
+   "w": 22.5,
+   "h": 14.3,
+   "labelLines": [
+    {
+     "text": "No",
+     "cx": 180.2,
+     "cy": 583.6,
+     "w": 22.5
+    }
+   ]
+  },
+  {
+   "text": "Exception Criteria Accepted?",
+   "x": 70.0,
+   "y": 790.3,
+   "w": 243.7,
+   "h": 17.7,
+   "labelLines": [
+    {
+     "text": "Exception Criteria Accepted?",
+     "cx": 191.9,
+     "cy": 799.2,
+     "w": 243.7
+    }
+   ]
+  },
+  {
+   "text": "Yes",
+   "x": 344.4,
+   "y": 959.3,
+   "w": 32.0,
+   "h": 13.8,
+   "labelLines": [
+    {
+     "text": "Yes",
+     "cx": 360.4,
+     "cy": 966.2,
+     "w": 32.0
+    }
+   ]
+  }
+ ]
+}

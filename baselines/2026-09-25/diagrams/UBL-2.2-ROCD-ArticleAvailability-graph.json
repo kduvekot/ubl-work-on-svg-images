@@ -1,0 +1,387 @@
+{
+ "source": "UBL-2.2-ROCD-ArticleAvailability.png",
+ "size": [
+  3425,
+  1323
+ ],
+ "fontPx": 65.7,
+ "arrowPx": 67.0,
+ "arrowWidthPx": 54.7,
+ "arrowStyle": "open",
+ "rules": {
+  "v": [
+   [
+    0,
+    10
+   ],
+   [
+    1665,
+    5
+   ],
+   [
+    3415,
+    10
+   ]
+  ],
+  "h": [
+   [
+    0,
+    10
+   ],
+   [
+    1313,
+    10
+   ]
+  ]
+ },
+ "ruleSpan": {
+  "v": [
+   [
+    13,
+    1309
+   ],
+   [
+    13,
+    835
+   ],
+   [
+    13,
+    1309
+   ]
+  ],
+  "h": [
+   [
+    13,
+    3411
+   ],
+   [
+    13,
+    3411
+   ]
+  ]
+ },
+ "greyRules": [],
+ "dashed": [],
+ "openEnds": [
+  {
+   "node": "n2",
+   "at": [
+    1673,
+    840
+   ],
+   "end": [
+    1672,
+    1310
+   ],
+   "points": [],
+   "arrow": false,
+   "inward": false,
+   "headPx": null,
+   "x": 1672,
+   "y": 840,
+   "w": 3,
+   "h": 471
+  }
+ ],
+ "crossMarks": [],
+ "partitions": [
+  {
+   "axis": "column",
+   "index": 0,
+   "x0": 0,
+   "x1": 1668,
+   "title": "Producer",
+   "titleBox": [
+    697,
+    49,
+    255,
+    47
+   ]
+  },
+  {
+   "axis": "column",
+   "index": 1,
+   "x0": 1668,
+   "x1": 3425,
+   "title": "Retailer",
+   "titleBox": [
+    2440,
+    46,
+    216,
+    47
+   ]
+  },
+  {
+   "axis": "band",
+   "index": 0,
+   "y0": 0,
+   "y1": 1323,
+   "title": ""
+  }
+ ],
+ "nodes": [
+  {
+   "x": 495,
+   "y": 179,
+   "w": 98,
+   "h": 99,
+   "area": 6534,
+   "fill": 0.764,
+   "kind": "initial",
+   "id": "n1",
+   "label": "",
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 1285,
+   "y": 664,
+   "w": 777,
+   "h": 162,
+   "area": 110396,
+   "fill": 0.877,
+   "solid": 1.0,
+   "rx": 0,
+   "ry": 0,
+   "shape": "rect",
+   "stroke": 10,
+   "kind": "object",
+   "id": "n2",
+   "label": "Stock Availability Report",
+   "labelLines": [
+    {
+     "x": 1305,
+     "y": 719,
+     "w": 732,
+     "h": 59,
+     "text": "Stock Availability Report"
+    }
+   ],
+   "stem": 0.137,
+   "bold": true,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 2364,
+   "y": 666,
+   "w": 974,
+   "h": 187,
+   "area": 160219,
+   "fill": 0.88,
+   "solid": 0.985,
+   "rx": 122,
+   "ry": 70,
+   "shape": "rounded",
+   "stroke": 5,
+   "kind": "action",
+   "id": "n3",
+   "label": "Receive stock availability\nreport",
+   "labelLines": [
+    {
+     "x": 2450,
+     "y": 696,
+     "w": 766,
+     "h": 59,
+     "text": "Receive stock availability"
+    },
+    {
+     "x": 2765,
+     "y": 769,
+     "w": 180,
+     "h": 57,
+     "text": "report"
+    }
+   ],
+   "stem": 0.137,
+   "bold": true,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 87,
+   "y": 671,
+   "w": 929,
+   "h": 152,
+   "area": 121396,
+   "fill": 0.86,
+   "solid": 0.986,
+   "rx": 122,
+   "ry": 45,
+   "shape": "rounded",
+   "stroke": 5,
+   "kind": "action",
+   "id": "n4",
+   "label": "Send stock availability report",
+   "labelLines": [
+    {
+     "x": 101,
+     "y": 720,
+     "w": 887,
+     "h": 61,
+     "text": "Send stock availability report"
+    }
+   ],
+   "stem": 0.137,
+   "bold": true,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 2807,
+   "y": 1168,
+   "w": 88,
+   "h": 88,
+   "area": 4833,
+   "fill": 0.624,
+   "solid": 0.786,
+   "rx": 43,
+   "ry": 46,
+   "shape": "ellipse",
+   "stroke": 6,
+   "kind": "final",
+   "innerRatio": 0.443,
+   "id": "n5",
+   "label": "",
+   "col": 1,
+   "row": 0
+  }
+ ],
+ "edges": [
+  {
+   "from": "n1",
+   "to": "n4",
+   "routing": "straight",
+   "fromPoint": [
+    545,
+    292
+   ],
+   "toPoint": [
+    547,
+    656
+   ],
+   "arrowInk": [
+    225,
+    759
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    67,
+    55.4,
+    2.21
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n4",
+   "to": "n2",
+   "routing": "straight",
+   "fromPoint": [
+    1030,
+    747
+   ],
+   "toPoint": [
+    1270,
+    747
+   ],
+   "arrowInk": [
+    225,
+    716
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    67,
+    54.0,
+    2.97
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n2",
+   "to": "n3",
+   "routing": "straight",
+   "fromPoint": [
+    2076,
+    750
+   ],
+   "toPoint": [
+    2349,
+    754
+   ],
+   "arrowInk": [
+    225,
+    759
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    67,
+    56.4,
+    2.1
+   ],
+   "arrowFill": 0.056,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n3",
+   "to": "n5",
+   "routing": "straight",
+   "fromPoint": [
+    2853,
+    867
+   ],
+   "toPoint": [
+    2853,
+    1153
+   ],
+   "arrowInk": [
+    225,
+    756
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    68,
+    54.0,
+    2.32
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "control"
+  }
+ ],
+ "text": [
+  {
+   "text": "Retailer",
+   "x": 2440,
+   "y": 46,
+   "w": 216,
+   "h": 47,
+   "lines": [
+    {
+     "x": 2440,
+     "y": 46,
+     "w": 216,
+     "h": 47,
+     "text": "Retailer"
+    }
+   ]
+  },
+  {
+   "text": "Producer",
+   "x": 697,
+   "y": 49,
+   "w": 255,
+   "h": 47,
+   "lines": [
+    {
+     "x": 697,
+     "y": 49,
+     "w": 255,
+     "h": 47,
+     "text": "Producer"
+    }
+   ]
+  }
+ ],
+ "uncertain": []
+}

@@ -1,0 +1,11 @@
+== UBL-2.2-CPFR-CreatingSalesForecast
+  scale 0.43212   frame 10px  divider 10px  action 7px  object 7px
+  font 41px (17.9 model)   1 lanes, 1 bands, 19 nodes, 20 edges -> review/baseline/UBL-2.2-CPFR-CreatingSalesForecast-spec.json
+  review/baseline/UBL-2.2-CPFR-CreatingSalesForecast.svg + .drawio + -classified.svg   (19 nodes, 20 edges)
+  rendered UBL-2.2-CPFR-CreatingSalesForecast.svg -> UBL-2.2-CPFR-CreatingSalesForecast-render.png @ 3425pxx3604, 600 dpi
+  aligned on ink bounds: scale x 1.0000, y 1.0000
+  size 3425x3604  radius 2
+  ink: original 527553   candidate 543727
+  MISSING (red)    32618  = 6.1829% of original ink
+  EXTRA   (blue)   38108  = 7.2235% of original ink
+  RESULT: DIFFERENCES - inspect review/baseline/UBL-2.2-CPFR-CreatingSalesForecast-diff-r2.png

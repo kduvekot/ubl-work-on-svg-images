@@ -1,0 +1,87 @@
+image 3425x3211
+
+PARTITION RULES
+   vertical  : [(0, 10), (1406, 4), (3415, 10)]
+   horizontal: [(0, 10), (3201, 10)]
+   -> 2 column(s) x 1 band(s)
+   type measured off the page: a word is 28px tall
+   (dropped x=10    y=10    3405x3191  encloses another region)
+   (dropped x=2207  y=865    782x990   outline matches no UML node shape (best rounded 0.62, and 1.00 is the most this shape can reach at this size))
+   object nodes are those stroked heavier than 6.5px
+
+NODES
+   n1   initial   x=618   y=150   w=79    h=80    stroke=0   fill=0.75  ''
+   n2   decision  x=608   y=367   w=91    h=77    stroke=4   fill=0.51  ''
+   n3   action    x=86    y=408   w=566   h=800   stroke=4   fill=0.88  ''
+   n4   object    x=1250  y=791   w=313   h=124   stroke=8   fill=0.90  'Catalogue'
+   n5   action    x=388   y=793   w=502   h=113   stroke=4   fill=0.87  'Send Catalogue'
+   n6   action    x=2642  y=804   w=697   h=117   stroke=4   fill=0.86  'Update products database'
+   n7   action    x=1954  y=808   w=502   h=117   stroke=4   fill=0.86  'Receive Catalogue'
+   n8   object    x=1201  y=1135  w=415   h=125   stroke=8   fill=0.88  'Despatch Advice'
+   n9   action    x=399   y=1137  w=517   h=143   stroke=4   fill=0.86  'Send Despatch\nAdvice'
+   n10  action    x=1890  y=1141  w=751   h=117   stroke=4   fill=0.88  'Receive Despatch Advice'
+   n11  action    x=373   y=1511  w=573   h=117   stroke=4   fill=0.89  'Despatch item(s)'
+   n12  action    x=1917  y=1515  w=573   h=117   stroke=5   fill=0.90  'Receive item(s)'
+   n13  fork      x=2015  y=1855  w=1159  h=22    stroke=0   fill=0.57  ''
+   n14  action    x=2302  y=2154  w=577   h=120   stroke=5   fill=0.88  'Check status of item(s)'
+   n15  object    x=1197  y=2454  w=419   h=128   stroke=8   fill=0.90  'Receipt Advice'
+   n16  action    x=2298  y=2455  w=577   h=117   stroke=4   fill=0.87  'Send Receipt Advice'
+   n17  action    x=407   y=2463  w=577   h=113   stroke=4   fill=0.85  'Receive Receipt Advice'
+   n18  action    x=407   y=2754  w=577   h=121   stroke=4   fill=0.87  'Adjust supply status'
+   n19  final     x=663   y=3106  w=68    h=67    stroke=4   fill=0.62  ''
+
+TYPE  cap height 36px over 245 glyphs -> font 51.4px
+   corner radius rx on 'Send Catalogue' could not be read (it came back larger than the box) - taking the 54 the rest of its kind measures
+   corner radius rx on 'Update products database' could not be read (it came back larger than the box) - taking the 54 the rest of its kind measures
+   corner radius rx on 'Receive Catalogue' could not be read (it came back larger than the box) - taking the 54 the rest of its kind measures
+   corner radius rx on 'Send Receipt Advice' could not be read (it came back larger than the box) - taking the 54 the rest of its kind measures
+   corner radius rx on 'Receive Receipt Advice' could not be read (it came back larger than the box) - taking the 54 the rest of its kind measures
+   corner radius rx on 'Adjust supply status' could not be read (it came back larger than the box) - taking the 54 the rest of its kind measures
+   (dropped x=86    y=408    566x800   no text, and line-work runs past 2 of its sides - whitespace between shapes, not a action)
+   rejoined 1 line break(s) of up to 93px, where a label sits on the line
+   chained 3 dashes into one dashed flow
+
+EDGES
+   n1   -> n2    straight    arrowhead   571 vs 180    ratio 4.0  high
+   n2   -> n9    orthogonal  arrowhead   561 vs 184    ratio 4.0  high
+   n2   -> n5    straight    arrowhead   563 vs 319    ratio 4.0  high
+   n5   -> n4    straight    arrowhead   583 vs 180    ratio 4.0  high
+   n4   -> n7    straight    arrowhead   562 vs 180    ratio 4.0  high
+   n7   -> n6    straight    arrowhead   562 vs 180    ratio 4.0  high
+   n5   -> n9    straight    arrowhead   563 vs 180    ratio 4.0  high
+   n6   -> n13   straight    arrowhead   570 vs 225    ratio 4.0  high
+   n7   -> n10   straight    arrowhead   563 vs 180    ratio 4.0  high
+   n9   -> n8    straight    arrowhead   585 vs 180    ratio 4.0  high
+   n8   -> n10   straight    arrowhead   561 vs 180    ratio 4.0  high
+   n10  -> n13   straight    arrowhead   528 vs 180    ratio 4.0  high
+   n9   -> n11   straight    arrowhead   565 vs 180    ratio 4.0  high
+   n11  -> n12   straight    arrowhead   569 vs 180    ratio 4.0  high
+   n12  -> n13   straight    arrowhead   525 vs 180    ratio 4.0  high
+   n13  -> n14   straight    arrowhead   570 vs 180    ratio 4.0  high
+   n14  -> n16   straight    arrowhead   555 vs 180    ratio 4.0  high
+   n16  -> n15   straight    arrowhead   548 vs 184    ratio 4.0  high
+   n15  -> n17   straight    arrowhead   575 vs 184    ratio 4.0  high
+   n17  -> n18   straight    arrowhead   560 vs 180    ratio 4.0  high
+   n15  -> (off the diagram) at 1403,3198
+   n18  -> n19   straight    arrowhead   563 vs 180    ratio 4.0  high
+
+TEXT (titles, guards, notes)
+   'Producer'                               x=566   y=49    n2->n9
+   'Retailer'                               x=2306  y=50    
+   '> Is there a new item to\nbe delivered?\nTrue' x=674   y=365   
+   'False'                                  x=442   y=367   n2->n5
+   (dropped x=2184  y=1802    42x39    '\\/' - line-work, not text)
+   (dropped x=2532  y=1802    42x39    '\\/' - line-work, not text)
+   (dropped x=2970  y=1802    41x39    '\\/' - line-work, not text)
+
+PARTITIONS
+   column 0  'Producer'
+   column 1  'Retailer'
+   band   0  ''
+
+ARROWHEAD  51 x 42px, open, measured on 19 connector(s)
+   (dropped the open end at 1403,2596 1x603 - a sliver lying along the rule at 1406)
+   reading settled: '> ls there a new item to be delivered?\nT' -> 'Is there a new item to be delivered?\nTru'
+   reading settled: '> ls there a new item to be delivered?' -> 'Is there a new item to be delivered?'
+
+wrote review/baseline/UBL-2.2-VMI-PermanentReplenishment-graph.json   (18 nodes, 21 edges, 2 flagged for a human)

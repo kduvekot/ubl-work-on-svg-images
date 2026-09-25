@@ -1,0 +1,11 @@
+== UBL-2.2-CPFR-CreateOrderForecast
+  scale 0.43212   frame 10px  divider 1px  action 3px  object 5px
+  font 46px (19.7 model)   2 lanes, 1 bands, 18 nodes, 20 edges -> review/baseline/UBL-2.2-CPFR-CreateOrderForecast-spec.json
+  review/baseline/UBL-2.2-CPFR-CreateOrderForecast.svg + .drawio + -classified.svg   (18 nodes, 20 edges)
+  rendered UBL-2.2-CPFR-CreateOrderForecast.svg -> UBL-2.2-CPFR-CreateOrderForecast-render.png @ 3425pxx4004, 600 dpi
+  aligned on ink bounds: scale x 1.0000, y 1.0000
+  size 3425x4004  radius 2
+  ink: original 424974   candidate 421594
+  MISSING (red)    14241  = 3.3510% of original ink
+  EXTRA   (blue)   15058  = 3.5433% of original ink
+  RESULT: DIFFERENCES - inspect review/baseline/UBL-2.2-CPFR-CreateOrderForecast-diff-r2.png

@@ -1,0 +1,11 @@
+== UBL-2.3-Tender-Contract-Pre
+  scale 0.45920   frame 8px  divider 8px  action 8px  object 8px
+  font 73px (33.5 model)   3 lanes, 2 bands, 13 nodes, 11 edges -> review/baseline/UBL-2.3-Tender-Contract-Pre-spec.json
+  review/baseline/UBL-2.3-Tender-Contract-Pre.svg + .drawio + -classified.svg   (13 nodes, 11 edges)
+  rendered UBL-2.3-Tender-Contract-Pre.svg -> UBL-2.3-Tender-Contract-Pre-render.png @ 3223pxx2374, 600 dpi
+  aligned on ink bounds: scale x 1.0000, y 1.0000
+  size 3223x2374  radius 2
+  ink: original 484739   candidate 484703
+  MISSING (red)    42675  = 8.8037% of original ink
+  EXTRA   (blue)   37839  = 7.8061% of original ink
+  RESULT: DIFFERENCES - inspect review/baseline/UBL-2.3-Tender-Contract-Pre-diff-r2.png

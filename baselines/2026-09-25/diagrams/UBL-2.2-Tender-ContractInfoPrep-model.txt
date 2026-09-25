@@ -1,0 +1,36 @@
+MODEL  UBL-2.2-Tender-ContractInfoPrep
+  7 action, 3 decision, 2 final, 1 initial, 2 object, 16 flows, 3 partitions
+
+FLOW
+  (start)   [CONTRACTING AUTHORITY]
+  Prepare Prior Notice   [CONTRACTING AUTHORITY]
+  <?>   [CONTRACTING AUTHORITY]
+    -Yes-> [Prior Information Notice]   [CONTRACTING AUTHORITY]
+    -> Validate Prior Information Notice   [PUBLICATION OFFICE]
+    -> <OK?>   [PUBLICATION OFFICE]
+      -No-> Prepare Prior Notice   [CONTRACTING AUTHORITY]
+      -Yes-> Publish Prior Information Notice   [PUBLICATION OFFICE]
+      -> (end)   [PUBLICATION OFFICE]
+    -No-> Publish in Buyer Profile   [CONTRACTING AUTHORITY]
+    -> Prepare Simplified Notice   [CONTRACTING AUTHORITY]
+    -> [Prior Information Notice]   [CONTRACTING AUTHORITY]
+    -> Validate Simplified Notice   [PUBLICATION OFFICE]
+    -> <OK?>   [PUBLICATION OFFICE]
+      -No-> Prepare Simplified Notice   [CONTRACTING AUTHORITY]
+      -Yes-> Publish Simplified Notice   [PUBLICATION OFFICE]
+      -> (end)   [PUBLICATION OFFICE]
+
+CHECKS
+  ok   every element is connected
+  ok   start events have a way out and no way in
+  ok   end events have a way in and no way out
+  ok   decisions have at least two ways out
+  ok   branches out of a decision are labelled   (informational: several diagrams draw an unlabelled branch, so read these against the artwork rather than treating them as errors)
+  ok   documents are both written and read
+  ok   no flow runs straight from one document to another
+  note work crossing between parties goes through a document   (informational: UBL draws the hand-over as a document on the divider, and each exception below is named)
+        - <OK?> [PUBLICATION OFFICE] -> Prepare Prior Notice [CONTRACTING AUTHORITY]   (a guarded branch out of a decision)
+        - <OK?> [PUBLICATION OFFICE] -> Prepare Simplified Notice [CONTRACTING AUTHORITY]   (a guarded branch out of a decision)
+  ok   every flow's direction was read with confidence
+  ok   every action passes its work on   (informational: several diagrams do end on an action, so read these against the artwork rather than treating them as errors)
+  ok   every element is reachable from a start event

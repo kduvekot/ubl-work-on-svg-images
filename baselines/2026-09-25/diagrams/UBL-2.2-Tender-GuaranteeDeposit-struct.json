@@ -1,0 +1,118 @@
+{
+ "name": "UBL-2.2-Tender-GuaranteeDeposit.png",
+ "verdict": "needs-human",
+ "radius": 3,
+ "lineWorkInk": 295982,
+ "missingPx": 207,
+ "inventedPx": 536,
+ "structural": {
+  "absent": 0,
+  "invented": 0,
+  "coherence": 0,
+  "textAbsent": 0,
+  "textDiffers": 0
+ },
+ "blocking": [],
+ "findings": [
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n7 -> n6",
+   "x": 1155,
+   "y": 1034,
+   "w": 36,
+   "h": 27,
+   "area": 115
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n7 -> n6",
+   "x": 1179,
+   "y": 1037,
+   "w": 52,
+   "h": 27,
+   "area": 157
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n7 -> n6",
+   "x": 1189,
+   "y": 1078,
+   "w": 42,
+   "h": 21,
+   "area": 121
+  }
+ ],
+ "text": [],
+ "coherence": [],
+ "human": [
+  {
+   "x": 1247,
+   "y": 953,
+   "w": 579,
+   "h": 240,
+   "shape": "rect",
+   "iou": 1.0,
+   "border": 1.0,
+   "kind": "kept-on-outline",
+   "reason": "every side has pass-through line-work, but the region carries a complete outline of its own",
+   "check": "confirm this is a node and not trapped whitespace"
+  },
+  {
+   "kind": "sub-character-region",
+   "x": 665,
+   "y": 76,
+   "w": 31,
+   "h": 44,
+   "reason": "enclosed region smaller than one character of the diagram's type",
+   "check": "confirm this is glyph interior and not a node"
+  },
+  {
+   "kind": "sub-character-region",
+   "x": 1981,
+   "y": 78,
+   "w": 38,
+   "h": 45,
+   "reason": "enclosed region smaller than one character of the diagram's type",
+   "check": "confirm this is glyph interior and not a node"
+  },
+  {
+   "kind": "sub-character-region",
+   "x": 2746,
+   "y": 78,
+   "w": 39,
+   "h": 45,
+   "reason": "enclosed region smaller than one character of the diagram's type",
+   "check": "confirm this is glyph interior and not a node"
+  }
+ ],
+ "review": [
+  {
+   "n": 1,
+   "what": "check",
+   "where": "1247,953 579x240",
+   "detail": "every side has pass-through line-work, but the region carries a complete outline of its own",
+   "check": "confirm this is a node and not trapped whitespace"
+  },
+  {
+   "n": 2,
+   "what": "check",
+   "where": "665,76 31x44",
+   "detail": "enclosed region smaller than one character of the diagram's type",
+   "check": "confirm this is glyph interior and not a node"
+  },
+  {
+   "n": 3,
+   "what": "check",
+   "where": "1981,78 38x45",
+   "detail": "enclosed region smaller than one character of the diagram's type",
+   "check": "confirm this is glyph interior and not a node"
+  },
+  {
+   "n": 4,
+   "what": "check",
+   "where": "2746,78 39x45",
+   "detail": "enclosed region smaller than one character of the diagram's type",
+   "check": "confirm this is glyph interior and not a node"
+  }
+ ]
+}

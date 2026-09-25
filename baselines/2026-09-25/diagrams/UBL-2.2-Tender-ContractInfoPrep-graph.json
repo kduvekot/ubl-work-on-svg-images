@@ -1,0 +1,1275 @@
+{
+ "source": "UBL-2.2-Tender-ContractInfoPrep.png",
+ "size": [
+  3425,
+  4268
+ ],
+ "fontPx": 80.0,
+ "arrowPx": 68.0,
+ "arrowWidthPx": 70.0,
+ "arrowStyle": "open",
+ "rules": {
+  "v": [
+   [
+    0,
+    10
+   ],
+   [
+    1854,
+    12
+   ],
+   [
+    3415,
+    10
+   ]
+  ],
+  "h": [
+   [
+    0,
+    10
+   ],
+   [
+    4258,
+    10
+   ]
+  ]
+ },
+ "ruleSpan": {
+  "v": [
+   [
+    13,
+    4254
+   ],
+   [
+    13,
+    4254
+   ],
+   [
+    13,
+    4254
+   ]
+  ],
+  "h": [
+   [
+    13,
+    3411
+   ],
+   [
+    13,
+    3411
+   ]
+  ]
+ },
+ "greyRules": [],
+ "dashed": [],
+ "openEnds": [],
+ "crossMarks": [],
+ "partitions": [
+  {
+   "axis": "column",
+   "index": 0,
+   "x0": 0,
+   "x1": 1860,
+   "title": "CONTRACTING AUTHORITY",
+   "titleBox": [
+    443,
+    91,
+    1028,
+    57
+   ]
+  },
+  {
+   "axis": "column",
+   "index": 1,
+   "x0": 1860,
+   "x1": 3425,
+   "title": "PUBLICATION OFFICE",
+   "titleBox": [
+    2236,
+    90,
+    807,
+    57
+   ]
+  },
+  {
+   "axis": "band",
+   "index": 0,
+   "y0": 0,
+   "y1": 4268,
+   "title": ""
+  }
+ ],
+ "nodes": [
+  {
+   "x": 626,
+   "y": 208,
+   "w": 120,
+   "h": 120,
+   "area": 10038,
+   "fill": 0.772,
+   "kind": "initial",
+   "id": "n5",
+   "label": "",
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 248,
+   "y": 545,
+   "w": 877,
+   "h": 205,
+   "area": 154913,
+   "fill": 0.862,
+   "solid": 0.945,
+   "rx": 96,
+   "ry": 103,
+   "shape": "rounded",
+   "stroke": 12,
+   "kind": "action",
+   "id": "n6",
+   "label": "Prepare Prior Notice",
+   "labelLines": [
+    {
+     "x": 349,
+     "y": 616,
+     "w": 689,
+     "h": 70,
+     "text": "Prepare Prior Notice"
+    }
+   ],
+   "stem": 0.087,
+   "bold": false,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 1595,
+   "y": 853,
+   "w": 481,
+   "h": 498,
+   "area": 218389,
+   "fill": 0.912,
+   "solid": 1.0,
+   "rx": 2,
+   "ry": 2,
+   "shape": "rect",
+   "stroke": 12,
+   "kind": "object",
+   "id": "n7",
+   "label": "Prior\nInformation\nNotice",
+   "labelLines": [
+    {
+     "x": 1626,
+     "y": 962,
+     "w": 183,
+     "h": 56,
+     "text": "Prior"
+    },
+    {
+     "x": 1625,
+     "y": 1058,
+     "w": 420,
+     "h": 57,
+     "text": "Information"
+    },
+    {
+     "x": 1626,
+     "y": 1155,
+     "w": 232,
+     "h": 56,
+     "text": "Notice"
+    }
+   ],
+   "stem": 0.138,
+   "bold": true,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 2188,
+   "y": 946,
+   "w": 823,
+   "h": 301,
+   "area": 213919,
+   "fill": 0.864,
+   "solid": 0.955,
+   "rx": 112,
+   "ry": 109,
+   "shape": "rounded",
+   "stroke": 12,
+   "kind": "action",
+   "id": "n8",
+   "label": "Validate Prior\nInformation Notice",
+   "labelLines": [
+    {
+     "x": 2370,
+     "y": 1014,
+     "w": 462,
+     "h": 56,
+     "text": "Validate Prior"
+    },
+    {
+     "x": 2289,
+     "y": 1109,
+     "w": 615,
+     "h": 57,
+     "text": "Information Notice"
+    }
+   ],
+   "stem": 0.087,
+   "bold": false,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 575,
+   "y": 982,
+   "w": 222,
+   "h": 222,
+   "area": 24814,
+   "fill": 0.503,
+   "solid": 0.503,
+   "rx": 119,
+   "ry": 120,
+   "shape": "rhombus",
+   "stroke": 12,
+   "kind": "decision",
+   "id": "n9",
+   "label": "",
+   "stem": 0.1,
+   "bold": false,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 2482,
+   "y": 1365,
+   "w": 223,
+   "h": 223,
+   "area": 20986,
+   "fill": 0.422,
+   "solid": 0.501,
+   "rx": 120,
+   "ry": 120,
+   "shape": "rhombus",
+   "stroke": 12,
+   "kind": "decision",
+   "id": "n10",
+   "label": "OK?",
+   "labelLines": [
+    {
+     "x": 2521,
+     "y": 1454,
+     "w": 147,
+     "h": 57,
+     "text": "OK?"
+    }
+   ],
+   "stem": 0.1,
+   "bold": false,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 2175,
+   "y": 1781,
+   "w": 824,
+   "h": 301,
+   "area": 214841,
+   "fill": 0.866,
+   "solid": 0.954,
+   "rx": 122,
+   "ry": 119,
+   "shape": "rounded",
+   "stroke": 12,
+   "kind": "action",
+   "id": "n12",
+   "label": "Publish Prior\nInformation Notice",
+   "labelLines": [
+    {
+     "x": 2370,
+     "y": 1852,
+     "w": 431,
+     "h": 56,
+     "text": "Publish Prior"
+    },
+    {
+     "x": 2264,
+     "y": 1947,
+     "w": 615,
+     "h": 57,
+     "text": "Information Notice"
+    }
+   ],
+   "stem": 0.087,
+   "bold": false,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 2497,
+   "y": 2189,
+   "w": 168,
+   "h": 168,
+   "area": 10748,
+   "fill": 0.381,
+   "solid": 0.787,
+   "rx": 86,
+   "ry": 86,
+   "shape": "ellipse",
+   "stroke": 13,
+   "kind": "final",
+   "innerRatio": 0.714,
+   "id": "n13",
+   "label": "",
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 190,
+   "y": 2414,
+   "w": 993,
+   "h": 204,
+   "area": 177157,
+   "fill": 0.875,
+   "solid": 0.956,
+   "rx": 98,
+   "ry": 99,
+   "shape": "rounded",
+   "stroke": 13,
+   "kind": "action",
+   "id": "n14",
+   "label": "Publish in Buyer Profile",
+   "labelLines": [
+    {
+     "x": 286,
+     "y": 2483,
+     "w": 788,
+     "h": 72,
+     "text": "Publish in Buyer Profile"
+    }
+   ],
+   "stem": 0.087,
+   "bold": false,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 1602,
+   "y": 2638,
+   "w": 481,
+   "h": 497,
+   "area": 217937,
+   "fill": 0.912,
+   "solid": 1.0,
+   "rx": 0,
+   "ry": 0,
+   "shape": "rect",
+   "stroke": 12,
+   "kind": "object",
+   "id": "n15",
+   "label": "Prior\nInformation\nNotice",
+   "labelLines": [
+    {
+     "x": 1640,
+     "y": 2748,
+     "w": 183,
+     "h": 56,
+     "text": "Prior"
+    },
+    {
+     "x": 1639,
+     "y": 2844,
+     "w": 420,
+     "h": 57,
+     "text": "Information"
+    },
+    {
+     "x": 1640,
+     "y": 2941,
+     "w": 231,
+     "h": 56,
+     "text": "Notice"
+    }
+   ],
+   "stem": 0.138,
+   "bold": true,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 2237,
+   "y": 2788,
+   "w": 1094,
+   "h": 205,
+   "area": 196490,
+   "fill": 0.876,
+   "solid": 0.959,
+   "rx": 98.5,
+   "ry": 103,
+   "shape": "rounded",
+   "stroke": 12,
+   "kind": "action",
+   "id": "n16",
+   "label": "Validate Simplified Notice",
+   "labelLines": [
+    {
+     "x": 2326,
+     "y": 2858,
+     "w": 870,
+     "h": 71,
+     "text": "Validate Simplified Notice"
+    }
+   ],
+   "stem": 0.087,
+   "bold": false,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 146,
+   "y": 2795,
+   "w": 1081,
+   "h": 204,
+   "area": 192848,
+   "fill": 0.874,
+   "solid": 0.959,
+   "rx": 99,
+   "ry": 102,
+   "shape": "rounded",
+   "stroke": 13,
+   "kind": "action",
+   "id": "n17",
+   "label": "Prepare Simplified Notice",
+   "labelLines": [
+    {
+     "x": 232,
+     "y": 2864,
+     "w": 861,
+     "h": 72,
+     "text": "Prepare Simplified Notice"
+    }
+   ],
+   "stem": 0.087,
+   "bold": false,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 2673,
+   "y": 3134,
+   "w": 222,
+   "h": 222,
+   "area": 20942,
+   "fill": 0.425,
+   "solid": 0.505,
+   "rx": 119,
+   "ry": 119,
+   "shape": "rhombus",
+   "stroke": 12,
+   "kind": "decision",
+   "id": "n19",
+   "label": "OK?",
+   "labelLines": [
+    {
+     "x": 2712,
+     "y": 3222,
+     "w": 146,
+     "h": 57,
+     "text": "OK?"
+    }
+   ],
+   "stem": 0.1,
+   "bold": false,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 2261,
+   "y": 3580,
+   "w": 1059,
+   "h": 204,
+   "area": 189359,
+   "fill": 0.877,
+   "solid": 0.959,
+   "rx": 97,
+   "ry": 97,
+   "shape": "rounded",
+   "stroke": 13,
+   "kind": "action",
+   "id": "n21",
+   "label": "Publish Simplified Notice",
+   "labelLines": [
+    {
+     "x": 2358,
+     "y": 3649,
+     "w": 839,
+     "h": 72,
+     "text": "Publish Simplified Notice"
+    }
+   ],
+   "stem": 0.087,
+   "bold": false,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 2706,
+   "y": 3993,
+   "w": 168,
+   "h": 169,
+   "area": 10755,
+   "fill": 0.379,
+   "solid": 0.782,
+   "rx": 89,
+   "ry": 84,
+   "shape": "rounded",
+   "stroke": 12,
+   "kind": "final",
+   "innerRatio": 0.714,
+   "id": "n22",
+   "label": "",
+   "col": 1,
+   "row": 0
+  }
+ ],
+ "edges": [
+  {
+   "from": "n5",
+   "to": "n6",
+   "routing": "straight",
+   "fromPoint": [
+    686,
+    342
+   ],
+   "toPoint": [
+    686,
+    530
+   ],
+   "arrowInk": [
+    540,
+    1345
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    69,
+    70.0,
+    3.08
+   ],
+   "arrowFill": 0.205,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n10",
+   "to": "n6",
+   "routing": "orthogonal",
+   "fromPoint": [
+    2719,
+    1476
+   ],
+   "toPoint": [
+    1139,
+    647
+   ],
+   "arrowInk": [
+    540,
+    1333
+   ],
+   "directionConfidence": "high",
+   "points": [
+    [
+     3284,
+     1476
+    ],
+    [
+     3284,
+     647
+    ]
+   ],
+   "arrowPx": [
+    67,
+    70.0,
+    3.06
+   ],
+   "arrowFill": 0.069,
+   "guard": "No",
+   "edgeKind": "control"
+  },
+  {
+   "from": "n6",
+   "to": "n9",
+   "routing": "straight",
+   "fromPoint": [
+    686,
+    764
+   ],
+   "toPoint": [
+    686,
+    967
+   ],
+   "arrowInk": [
+    540,
+    1226
+   ],
+   "directionConfidence": "medium",
+   "edgeKind": "control"
+  },
+  {
+   "from": "n7",
+   "to": "n8",
+   "routing": "straight",
+   "fromPoint": [
+    2090,
+    1102
+   ],
+   "toPoint": [
+    2173,
+    1096
+   ],
+   "arrowInk": [
+    1316,
+    1323
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    68,
+    71.2,
+    3.12
+   ],
+   "arrowFill": 0.099,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n9",
+   "to": "n7",
+   "routing": "diagonal",
+   "fromPoint": [
+    811,
+    1093
+   ],
+   "toPoint": [
+    1580,
+    1102
+   ],
+   "arrowInk": [
+    557,
+    1337
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    68,
+    70.5,
+    3.05
+   ],
+   "arrowFill": 0.159,
+   "guard": "Yes",
+   "edgeKind": "object"
+  },
+  {
+   "from": "n9",
+   "to": "n14",
+   "routing": "straight",
+   "fromPoint": [
+    686,
+    1218
+   ],
+   "toPoint": [
+    686,
+    2399
+   ],
+   "arrowInk": [
+    540,
+    1299
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    69,
+    70.0,
+    3.22
+   ],
+   "arrowFill": 0.174,
+   "guard": "No",
+   "edgeKind": "control"
+  },
+  {
+   "from": "n8",
+   "to": "n10",
+   "routing": "straight",
+   "fromPoint": [
+    2599,
+    1261
+   ],
+   "toPoint": [
+    2593,
+    1350
+   ],
+   "arrowInk": [
+    1205,
+    1255
+   ],
+   "directionConfidence": "checked",
+   "edgeKind": "control",
+   "directionChecked": "confirmed"
+  },
+  {
+   "from": "n10",
+   "to": "n12",
+   "routing": "straight",
+   "fromPoint": [
+    2593,
+    1602
+   ],
+   "toPoint": [
+    2587,
+    1766
+   ],
+   "arrowInk": [
+    547,
+    1352
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    82,
+    202.5,
+    2.89
+   ],
+   "arrowSaturated": true,
+   "arrowFill": 0.272,
+   "guard": "Yes",
+   "edgeKind": "control"
+  },
+  {
+   "from": "n12",
+   "to": "n13",
+   "routing": "straight",
+   "fromPoint": [
+    2587,
+    2096
+   ],
+   "toPoint": [
+    2581,
+    2174
+   ],
+   "arrowInk": [
+    1351,
+    1440
+   ],
+   "directionConfidence": "notation",
+   "arrowPx": [
+    68,
+    71.6,
+    3.03
+   ],
+   "arrowFill": 0.07,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n14",
+   "to": "n17",
+   "routing": "straight",
+   "fromPoint": [
+    686,
+    2632
+   ],
+   "toPoint": [
+    686,
+    2780
+   ],
+   "arrowInk": [
+    540,
+    1345
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    68,
+    70.0,
+    3.08
+   ],
+   "arrowFill": 0.051,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n15",
+   "to": "n16",
+   "routing": "straight",
+   "fromPoint": [
+    2097,
+    2886
+   ],
+   "toPoint": [
+    2222,
+    2890
+   ],
+   "arrowInk": [
+    556,
+    1342
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    67,
+    70.1,
+    3.04
+   ],
+   "arrowFill": 0.075,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n17",
+   "to": "n15",
+   "routing": "straight",
+   "fromPoint": [
+    1241,
+    2897
+   ],
+   "toPoint": [
+    1587,
+    2890
+   ],
+   "arrowInk": [
+    567,
+    1233
+   ],
+   "directionConfidence": "medium",
+   "edgeKind": "object"
+  },
+  {
+   "from": "n16",
+   "to": "n19",
+   "routing": "straight",
+   "fromPoint": [
+    2784,
+    3007
+   ],
+   "toPoint": [
+    2784,
+    3119
+   ],
+   "arrowInk": [
+    584,
+    1208
+   ],
+   "directionConfidence": "medium",
+   "edgeKind": "control"
+  },
+  {
+   "from": "n19",
+   "to": "n17",
+   "routing": "orthogonal",
+   "fromPoint": [
+    2658,
+    3258
+   ],
+   "toPoint": [
+    686,
+    3013
+   ],
+   "arrowInk": [
+    574,
+    1305
+   ],
+   "directionConfidence": "medium",
+   "points": [
+    [
+     686,
+     3258
+    ]
+   ],
+   "arrowPx": [
+    68,
+    70.0,
+    3.08
+   ],
+   "arrowFill": 0.051,
+   "guard": "No",
+   "edgeKind": "control"
+  },
+  {
+   "from": "n19",
+   "to": "n21",
+   "routing": "straight",
+   "fromPoint": [
+    2784,
+    3370
+   ],
+   "toPoint": [
+    2790,
+    3565
+   ],
+   "arrowInk": [
+    557,
+    1331
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    68,
+    70.3,
+    3.03
+   ],
+   "arrowFill": 0.068,
+   "guard": "Yes",
+   "edgeKind": "control"
+  },
+  {
+   "from": "n21",
+   "to": "n22",
+   "routing": "straight",
+   "fromPoint": [
+    2790,
+    3798
+   ],
+   "toPoint": [
+    2790,
+    3978
+   ],
+   "arrowInk": [
+    540,
+    1339
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    69,
+    70.0,
+    3.06
+   ],
+   "arrowFill": 0.193,
+   "edgeKind": "control"
+  }
+ ],
+ "text": [
+  {
+   "text": "PUBLICATION OFFICE",
+   "x": 2236,
+   "y": 90,
+   "w": 807,
+   "h": 57,
+   "lines": [
+    {
+     "x": 2236,
+     "y": 90,
+     "w": 807,
+     "h": 57,
+     "text": "PUBLICATION OFFICE"
+    }
+   ]
+  },
+  {
+   "text": "CONTRACTING AUTHORITY",
+   "x": 443,
+   "y": 91,
+   "w": 1028,
+   "h": 57,
+   "lines": [
+    {
+     "x": 443,
+     "y": 91,
+     "w": 1028,
+     "h": 57,
+     "text": "CONTRACTING AUTHORITY"
+    }
+   ]
+  },
+  {
+   "text": "Yes",
+   "x": 956,
+   "y": 1001,
+   "w": 129,
+   "h": 57,
+   "lines": [
+    {
+     "x": 956,
+     "y": 1001,
+     "w": 129,
+     "h": 57,
+     "text": "Yes"
+    }
+   ],
+   "attachedTo": "n9->n7"
+  },
+  {
+   "text": "Above\nThresholds?",
+   "x": 82,
+   "y": 1051,
+   "w": 419,
+   "h": 152,
+   "lines": [
+    {
+     "x": 82,
+     "y": 1051,
+     "w": 215,
+     "h": 56,
+     "text": "Above"
+    },
+    {
+     "x": 83,
+     "y": 1147,
+     "w": 418,
+     "h": 56,
+     "text": "Thresholds?"
+    }
+   ]
+  },
+  {
+   "text": "No",
+   "x": 735,
+   "y": 1366,
+   "w": 89,
+   "h": 56,
+   "lines": [
+    {
+     "x": 735,
+     "y": 1366,
+     "w": 89,
+     "h": 56,
+     "text": "No"
+    }
+   ],
+   "attachedTo": "n9->n14"
+  },
+  {
+   "text": "No",
+   "x": 2771,
+   "y": 1374,
+   "w": 89,
+   "h": 57,
+   "lines": [
+    {
+     "x": 2771,
+     "y": 1374,
+     "w": 89,
+     "h": 57,
+     "text": "No"
+    }
+   ],
+   "attachedTo": "n10->n6"
+  },
+  {
+   "text": "Yes",
+   "x": 2644,
+   "y": 1636,
+   "w": 130,
+   "h": 57,
+   "lines": [
+    {
+     "x": 2644,
+     "y": 1636,
+     "w": 130,
+     "h": 57,
+     "text": "Yes"
+    }
+   ],
+   "attachedTo": "n10->n12"
+  },
+  {
+   "text": "Publish Official\nJournal",
+   "x": 1014,
+   "y": 3027,
+   "w": 488,
+   "h": 146,
+   "lines": [
+    {
+     "x": 1018,
+     "y": 3027,
+     "w": 484,
+     "h": 56,
+     "text": "Publish Official"
+    },
+    {
+     "x": 1014,
+     "y": 3118,
+     "w": 239,
+     "h": 55,
+     "text": "Journal"
+    }
+   ]
+  },
+  {
+   "text": "No",
+   "x": 2528,
+   "y": 3140,
+   "w": 92,
+   "h": 57,
+   "lines": [
+    {
+     "x": 2528,
+     "y": 3140,
+     "w": 92,
+     "h": 57,
+     "text": "No"
+    }
+   ],
+   "attachedTo": "n19->n17"
+  },
+  {
+   "text": "Yes",
+   "x": 2823,
+   "y": 3417,
+   "w": 130,
+   "h": 58,
+   "lines": [
+    {
+     "x": 2823,
+     "y": 3417,
+     "w": 130,
+     "h": 58,
+     "text": "Yes"
+    }
+   ],
+   "attachedTo": "n19->n21"
+  }
+ ],
+ "uncertain": [
+  {
+   "x": 690,
+   "y": 651,
+   "w": 1164,
+   "h": 448,
+   "shape": "rounded",
+   "iou": 0.761,
+   "border": 0.699,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best rounded 0.76, and 0.99 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "x": 690,
+   "y": 1099,
+   "w": 1164,
+   "h": 1792,
+   "shape": "rounded",
+   "iou": 0.865,
+   "border": 0.741,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best rounded 0.86, and 1.00 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "x": 2528,
+   "y": 1460,
+   "w": 38,
+   "h": 44,
+   "shape": "ellipse",
+   "iou": 0.982,
+   "border": 0.927,
+   "kind": "kept-on-outline",
+   "reason": "every side has pass-through line-work, but the region carries a complete outline of its own",
+   "check": "confirm this is a node and not trapped whitespace"
+  },
+  {
+   "x": 690,
+   "y": 2893,
+   "w": 1164,
+   "h": 360,
+   "shape": "rect",
+   "iou": 0.68,
+   "border": 0.734,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best rect 0.68, and 0.99 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "x": 1866,
+   "y": 2893,
+   "w": 915,
+   "h": 360,
+   "shape": "rounded",
+   "iou": 0.628,
+   "border": 0.657,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best rounded 0.63, and 0.99 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "x": 2719,
+   "y": 3228,
+   "w": 38,
+   "h": 44,
+   "shape": "ellipse",
+   "iou": 0.986,
+   "border": 0.932,
+   "kind": "kept-on-outline",
+   "reason": "every side has pass-through line-work, but the region carries a complete outline of its own",
+   "check": "confirm this is a node and not trapped whitespace"
+  },
+  {
+   "kind": "sub-character-region",
+   "x": 2639,
+   "y": 96,
+   "w": 38,
+   "h": 44,
+   "reason": "enclosed region smaller than one character of the diagram's type",
+   "check": "confirm this is glyph interior and not a node"
+  },
+  {
+   "kind": "sub-character-region",
+   "x": 2776,
+   "y": 96,
+   "w": 37,
+   "h": 44,
+   "reason": "enclosed region smaller than one character of the diagram's type",
+   "check": "confirm this is glyph interior and not a node"
+  },
+  {
+   "kind": "sub-character-region",
+   "x": 506,
+   "y": 98,
+   "w": 38,
+   "h": 44,
+   "reason": "enclosed region smaller than one character of the diagram's type",
+   "check": "confirm this is glyph interior and not a node"
+  },
+  {
+   "kind": "sub-character-region",
+   "x": 1247,
+   "y": 98,
+   "w": 38,
+   "h": 44,
+   "reason": "enclosed region smaller than one character of the diagram's type",
+   "check": "confirm this is glyph interior and not a node"
+  },
+  {
+   "kind": "sub-character-region",
+   "x": 2528,
+   "y": 1460,
+   "w": 38,
+   "h": 44,
+   "reason": "enclosed region smaller than one character of the diagram's type",
+   "check": "confirm this is glyph interior and not a node"
+  },
+  {
+   "kind": "sub-character-region",
+   "x": 1290,
+   "y": 3034,
+   "w": 37,
+   "h": 42,
+   "reason": "enclosed region smaller than one character of the diagram's type",
+   "check": "confirm this is glyph interior and not a node"
+  },
+  {
+   "kind": "sub-character-region",
+   "x": 2719,
+   "y": 3228,
+   "w": 38,
+   "h": 44,
+   "reason": "enclosed region smaller than one character of the diagram's type",
+   "check": "confirm this is glyph interior and not a node"
+  },
+  {
+   "kind": "unexplained-line-work",
+   "x": 1138,
+   "y": 3028,
+   "w": 85,
+   "h": 177,
+   "reason": "line-work that is neither a connector between two nodes nor the size of text",
+   "check": "decide what this is; the SVG does not draw it"
+  },
+  {
+   "kind": "edge-direction",
+   "reason": "arrowhead ink is ambiguous where several connectors meet",
+   "edge": [
+    "n12",
+    "n13"
+   ],
+   "check": "confirm which way this edge points"
+  }
+ ]
+}

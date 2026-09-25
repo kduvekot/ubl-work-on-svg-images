@@ -1,0 +1,342 @@
+{
+ "canvas": {
+  "w": 1480.0,
+  "h": 922.569
+ },
+ "stroke": {
+  "frame": 4.3,
+  "divider": 5.2,
+  "action": 5.2,
+  "object": 5.2,
+  "edge": 5.2
+ },
+ "font": {
+  "family": "Helvetica, Arial, sans-serif",
+  "node": 33.3,
+  "lane": 33.3,
+  "guard": 33.3
+ },
+ "arrow": 35.6,
+ "arrowWidth": 37.1,
+ "arrowStyle": "open",
+ "dashed": [],
+ "greyRules": [],
+ "crossMarks": [],
+ "openEnds": [],
+ "frameBox": [
+  2.2,
+  2.2,
+  1477.8,
+  920.4
+ ],
+ "dividers": [
+  [
+   776.5,
+   5.2,
+   5.6,
+   916.5
+  ]
+ ],
+ "bands": [],
+ "lanes": [
+  {
+   "title": "TENDERER",
+   "x": 0.0,
+   "w": 776.5,
+   "cx": 392.1,
+   "cy": 43.9
+  },
+  {
+   "title": "CONTRACTING AUTHORITY",
+   "x": 776.5,
+   "w": 703.5,
+   "cx": 1130.0,
+   "cy": 45.2
+  }
+ ],
+ "bandLabels": [],
+ "nodes": [
+  {
+   "id": "n3",
+   "kind": "initial",
+   "label": "",
+   "x": 253.2,
+   "y": 94.2,
+   "w": 50.6,
+   "h": 50.6
+  },
+  {
+   "id": "n4",
+   "kind": "action",
+   "label": "Prepare tender documents",
+   "x": 37.6,
+   "y": 209.6,
+   "w": 482.2,
+   "h": 90.7,
+   "rx": 44.5,
+   "ry": 47.1,
+   "labelLines": [
+    {
+     "text": "Prepare tender documents",
+     "cx": 274.4,
+     "cy": 256.2,
+     "w": 378.5
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "n5",
+   "kind": "object",
+   "label": "Tender",
+   "x": 685.3,
+   "y": 339.6,
+   "w": 168.1,
+   "h": 173.7,
+   "labelLines": [
+    {
+     "text": "Tender",
+     "cx": 768.7,
+     "cy": 418.7,
+     "w": 94.2
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n6",
+   "kind": "action",
+   "label": "Receive tender documents",
+   "x": 957.6,
+   "y": 379.8,
+   "w": 484.4,
+   "h": 91.2,
+   "rx": 46.7,
+   "ry": 45.4,
+   "labelLines": [
+    {
+     "text": "Receive tender documents",
+     "cx": 1199.3,
+     "cy": 423.7,
+     "w": 380.7
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "n7",
+   "kind": "action",
+   "label": "Submit tender documents",
+   "x": 42.8,
+   "y": 385.9,
+   "w": 471.9,
+   "h": 90.7,
+   "rx": 44.9,
+   "ry": 44.1,
+   "labelLines": [
+    {
+     "text": "Submit tender documents",
+     "cx": 276.6,
+     "cy": 429.5,
+     "w": 365.6
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "n8",
+   "kind": "object",
+   "label": "Tender\nReceipt",
+   "x": 687.1,
+   "y": 571.7,
+   "w": 155.6,
+   "h": 160.7,
+   "labelLines": [
+    {
+     "text": "Tender",
+     "cx": 763.3,
+     "cy": 629.6,
+     "w": 93.8
+    },
+    {
+     "text": "Receipt",
+     "cx": 765.7,
+     "cy": 674.5,
+     "w": 102.8
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n9",
+   "kind": "action",
+   "label": "Submit tender\nreceipt",
+   "x": 1053.9,
+   "y": 583.8,
+   "w": 292.1,
+   "h": 131.4,
+   "rx": 48.8,
+   "ry": 48.4,
+   "labelLines": [
+    {
+     "text": "Submit tender",
+     "cx": 1200.4,
+     "cy": 627.4,
+     "w": 199.6
+    },
+    {
+     "text": "receipt",
+     "cx": 1213.0,
+     "cy": 671.1,
+     "w": 94.2
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "n10",
+   "kind": "action",
+   "label": "Receive receipt",
+   "x": 128.8,
+   "y": 605.0,
+   "w": 299.9,
+   "h": 90.7,
+   "rx": 43.2,
+   "ry": 44.5,
+   "labelLines": [
+    {
+     "text": "Receive receipt",
+     "cx": 285.6,
+     "cy": 651.6,
+     "w": 219.5
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "n11",
+   "kind": "final",
+   "label": "",
+   "x": 240.7,
+   "y": 812.8,
+   "w": 76.1,
+   "h": 75.6,
+   "innerRatio": 0.707
+  }
+ ],
+ "edges": [
+  {
+   "from": "n3",
+   "to": "n4",
+   "exitXY": [
+    0.496,
+    1.0
+   ],
+   "entryXY": [
+    0.5,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n4",
+   "to": "n7",
+   "exitXY": [
+    0.5,
+    1.0
+   ],
+   "entryXY": [
+    0.4999,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n5",
+   "to": "n6",
+   "exitXY": [
+    1.0,
+    0.5003
+   ],
+   "entryXY": [
+    0.0,
+    0.4978
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n7",
+   "to": "n5",
+   "exitXY": [
+    1.0,
+    0.5006
+   ],
+   "entryXY": [
+    0.0,
+    0.5055
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n6",
+   "to": "n9",
+   "exitXY": [
+    0.4996,
+    1.0
+   ],
+   "entryXY": [
+    0.5002,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n8",
+   "to": "n10",
+   "exitXY": [
+    0.0,
+    0.4972
+   ],
+   "entryXY": [
+    1.0,
+    0.4994
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n9",
+   "to": "n8",
+   "exitXY": [
+    0.0,
+    0.5
+   ],
+   "entryXY": [
+    1.0,
+    0.5003
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n10",
+   "to": "n11",
+   "exitXY": [
+    0.4998,
+    1.0
+   ],
+   "entryXY": [
+    0.4993,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "medium"
+  }
+ ],
+ "guards": []
+}

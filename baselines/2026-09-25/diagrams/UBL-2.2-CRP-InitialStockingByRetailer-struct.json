@@ -1,0 +1,634 @@
+{
+ "name": "UBL-2.2-CRP-InitialStockingByRetailer.png",
+ "verdict": "correct",
+ "radius": 3,
+ "lineWorkInk": 442223,
+ "missingPx": 6870,
+ "inventedPx": 4774,
+ "structural": {
+  "absent": 0,
+  "invented": 0,
+  "coherence": 0,
+  "textAbsent": 0,
+  "textDiffers": 0
+ },
+ "blocking": [],
+ "findings": [
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n5 (action 'Receive Despatch Adv')",
+   "x": 3276,
+   "y": 1265,
+   "w": 45,
+   "h": 42,
+   "area": 292
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n5 (action 'Receive Despatch Adv')",
+   "x": 2385,
+   "y": 1268,
+   "w": 44,
+   "h": 39,
+   "area": 270
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n5 (action 'Receive Despatch Adv')",
+   "x": 3278,
+   "y": 1139,
+   "w": 43,
+   "h": 41,
+   "area": 262
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n3 (action 'Send Order')",
+   "x": 2417,
+   "y": 800,
+   "w": 43,
+   "h": 38,
+   "area": 254
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n3 (action 'Send Order')",
+   "x": 3091,
+   "y": 800,
+   "w": 43,
+   "h": 38,
+   "area": 250
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n9 (action 'Receive order item(s')",
+   "x": 2204,
+   "y": 1803,
+   "w": 43,
+   "h": 37,
+   "area": 244
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n7 (action 'Send Despatch Advice')",
+   "x": 980,
+   "y": 1287,
+   "w": 43,
+   "h": 36,
+   "area": 242
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n3 (action 'Send Order')",
+   "x": 3092,
+   "y": 670,
+   "w": 42,
+   "h": 38,
+   "area": 238
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n3 (action 'Send Order')",
+   "x": 2417,
+   "y": 670,
+   "w": 42,
+   "h": 38,
+   "area": 236
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n5 (action 'Receive Despatch Adv')",
+   "x": 2385,
+   "y": 1139,
+   "w": 42,
+   "h": 38,
+   "area": 236
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n7 (action 'Send Despatch Advice')",
+   "x": 169,
+   "y": 1289,
+   "w": 42,
+   "h": 34,
+   "area": 230
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n9 (action 'Receive order item(s')",
+   "x": 2205,
+   "y": 1672,
+   "w": 40,
+   "h": 34,
+   "area": 227
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n7 (action 'Send Despatch Advice')",
+   "x": 985,
+   "y": 1156,
+   "w": 38,
+   "h": 34,
+   "area": 203
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n7 (action 'Send Despatch Advice')",
+   "x": 169,
+   "y": 1156,
+   "w": 37,
+   "h": 32,
+   "area": 186
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n8 (action 'Despatch order item(')",
+   "x": 176,
+   "y": 1673,
+   "w": 34,
+   "h": 26,
+   "area": 138
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n8 (action 'Despatch order item(')",
+   "x": 176,
+   "y": 1813,
+   "w": 36,
+   "h": 26,
+   "area": 136
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n15 (action 'Adjust supply status')",
+   "x": 181,
+   "y": 3570,
+   "w": 36,
+   "h": 27,
+   "area": 135
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n15 (action 'Adjust supply status')",
+   "x": 181,
+   "y": 3430,
+   "w": 36,
+   "h": 27,
+   "area": 132
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n13 (action 'Receive Receipt Advi')",
+   "x": 176,
+   "y": 2961,
+   "w": 37,
+   "h": 26,
+   "area": 130
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n14 -> n12",
+   "x": 2058,
+   "y": 3010,
+   "w": 54,
+   "h": 23,
+   "area": 130
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n14 (action 'Send Receipt Advice')",
+   "x": 2490,
+   "y": 2961,
+   "w": 38,
+   "h": 24,
+   "area": 122
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n15 (action 'Adjust supply status')",
+   "x": 996,
+   "y": 3572,
+   "w": 35,
+   "h": 25,
+   "area": 120
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n15 (action 'Adjust supply status')",
+   "x": 998,
+   "y": 3431,
+   "w": 33,
+   "h": 24,
+   "area": 112
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n8 (action 'Despatch order item(')",
+   "x": 993,
+   "y": 1673,
+   "w": 32,
+   "h": 23,
+   "area": 110
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n11 (action 'Check status of item')",
+   "x": 2490,
+   "y": 2604,
+   "w": 34,
+   "h": 23,
+   "area": 110
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n13 (action 'Receive Receipt Advi')",
+   "x": 176,
+   "y": 3103,
+   "w": 34,
+   "h": 25,
+   "area": 110
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n14 (action 'Send Receipt Advice')",
+   "x": 2490,
+   "y": 3105,
+   "w": 34,
+   "h": 23,
+   "area": 108
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n8 (action 'Despatch order item(')",
+   "x": 994,
+   "y": 1815,
+   "w": 31,
+   "h": 23,
+   "area": 105
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n11 (action 'Check status of item')",
+   "x": 2490,
+   "y": 2461,
+   "w": 34,
+   "h": 23,
+   "area": 103
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n13 (action 'Receive Receipt Advi')",
+   "x": 992,
+   "y": 2962,
+   "w": 32,
+   "h": 21,
+   "area": 99
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n4 (action 'Receive Order')",
+   "x": 355,
+   "y": 731,
+   "w": 2,
+   "h": 49,
+   "area": 98
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n14 (action 'Send Receipt Advice')",
+   "x": 3305,
+   "y": 2962,
+   "w": 32,
+   "h": 21,
+   "area": 96
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n4 (action 'Receive Order')",
+   "x": 86,
+   "y": 811,
+   "w": 29,
+   "h": 20,
+   "area": 92
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n4 (action 'Receive Order')",
+   "x": 86,
+   "y": 687,
+   "w": 30,
+   "h": 20,
+   "area": 91
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n4 (action 'Receive Order')",
+   "x": 1070,
+   "y": 687,
+   "w": 30,
+   "h": 20,
+   "area": 90
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n4 (action 'Receive Order')",
+   "x": 1071,
+   "y": 811,
+   "w": 29,
+   "h": 20,
+   "area": 90
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n14 (action 'Send Receipt Advice')",
+   "x": 3305,
+   "y": 3107,
+   "w": 32,
+   "h": 21,
+   "area": 88
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n11 (action 'Check status of item')",
+   "x": 3305,
+   "y": 2608,
+   "w": 31,
+   "h": 19,
+   "area": 87
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n13 (action 'Receive Receipt Advi')",
+   "x": 995,
+   "y": 3107,
+   "w": 29,
+   "h": 20,
+   "area": 83
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n11 (action 'Check status of item')",
+   "x": 3305,
+   "y": 2461,
+   "w": 31,
+   "h": 19,
+   "area": 82
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n9 (action 'Receive order item(s')",
+   "x": 3016,
+   "y": 1830,
+   "w": 19,
+   "h": 10,
+   "area": 62
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "unattributed",
+   "x": 1645,
+   "y": 3190,
+   "w": 2,
+   "h": 367,
+   "area": 511
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n5 (action 'Receive Despatch Adv')",
+   "x": 3272,
+   "y": 1264,
+   "w": 40,
+   "h": 35,
+   "area": 207
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n5 (action 'Receive Despatch Adv')",
+   "x": 2394,
+   "y": 1267,
+   "w": 37,
+   "h": 31,
+   "area": 185
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n5 (action 'Receive Despatch Adv')",
+   "x": 3276,
+   "y": 1148,
+   "w": 35,
+   "h": 31,
+   "area": 182
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n3 (action 'Send Order')",
+   "x": 2427,
+   "y": 800,
+   "w": 36,
+   "h": 29,
+   "area": 181
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n3 (action 'Send Order')",
+   "x": 3089,
+   "y": 800,
+   "w": 35,
+   "h": 29,
+   "area": 176
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n7 (action 'Send Despatch Advice')",
+   "x": 978,
+   "y": 1285,
+   "w": 36,
+   "h": 29,
+   "area": 172
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n9 (action 'Receive order item(s')",
+   "x": 2213,
+   "y": 1681,
+   "w": 35,
+   "h": 29,
+   "area": 172
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n3 (action 'Send Order')",
+   "x": 2427,
+   "y": 679,
+   "w": 34,
+   "h": 28,
+   "area": 170
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n3 (action 'Send Order')",
+   "x": 3090,
+   "y": 679,
+   "w": 34,
+   "h": 28,
+   "area": 170
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n9 (action 'Receive order item(s')",
+   "x": 2213,
+   "y": 1801,
+   "w": 33,
+   "h": 29,
+   "area": 163
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n5 (action 'Receive Despatch Adv')",
+   "x": 2395,
+   "y": 1148,
+   "w": 33,
+   "h": 28,
+   "area": 161
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n7 (action 'Send Despatch Advice')",
+   "x": 178,
+   "y": 1287,
+   "w": 35,
+   "h": 27,
+   "area": 158
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n7 (action 'Send Despatch Advice')",
+   "x": 983,
+   "y": 1165,
+   "w": 30,
+   "h": 25,
+   "area": 136
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n7 (action 'Send Despatch Advice')",
+   "x": 178,
+   "y": 1165,
+   "w": 30,
+   "h": 25,
+   "area": 129
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n15 (action 'Adjust supply status')",
+   "x": 190,
+   "y": 3567,
+   "w": 29,
+   "h": 21,
+   "area": 90
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n8 (action 'Despatch order item(')",
+   "x": 185,
+   "y": 1682,
+   "w": 27,
+   "h": 20,
+   "area": 85
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n8 (action 'Despatch order item(')",
+   "x": 185,
+   "y": 1809,
+   "w": 26,
+   "h": 20,
+   "area": 83
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n9 (action 'Receive order item(s')",
+   "x": 3013,
+   "y": 1680,
+   "w": 22,
+   "h": 13,
+   "area": 78
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n15 (action 'Adjust supply status')",
+   "x": 191,
+   "y": 3440,
+   "w": 26,
+   "h": 19,
+   "area": 77
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n9 (action 'Receive order item(s')",
+   "x": 3014,
+   "y": 1818,
+   "w": 21,
+   "h": 13,
+   "area": 73
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n13 (action 'Receive Receipt Advi')",
+   "x": 186,
+   "y": 2971,
+   "w": 27,
+   "h": 18,
+   "area": 73
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n14 (action 'Send Receipt Advice')",
+   "x": 2499,
+   "y": 2971,
+   "w": 27,
+   "h": 18,
+   "area": 71
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n8 (action 'Despatch order item(')",
+   "x": 993,
+   "y": 1683,
+   "w": 23,
+   "h": 17,
+   "area": 67
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n8 (action 'Despatch order item(')",
+   "x": 992,
+   "y": 1812,
+   "w": 24,
+   "h": 17,
+   "area": 63
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n15 (action 'Adjust supply status')",
+   "x": 999,
+   "y": 3570,
+   "w": 22,
+   "h": 16,
+   "area": 63
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n15 (action 'Adjust supply status')",
+   "x": 999,
+   "y": 3441,
+   "w": 22,
+   "h": 16,
+   "area": 60
+  }
+ ],
+ "text": [],
+ "coherence": [],
+ "human": [],
+ "review": []
+}

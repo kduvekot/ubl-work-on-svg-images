@@ -1,0 +1,147 @@
+{
+ "name": "UBL-2.2-IMFM-BasicTransportExecutionPlan.png",
+ "verdict": "needs-human",
+ "radius": 3,
+ "lineWorkInk": 269436,
+ "missingPx": 237,
+ "inventedPx": 182,
+ "structural": {
+  "absent": 0,
+  "invented": 0,
+  "coherence": 0,
+  "textAbsent": 0,
+  "textDiffers": 0
+ },
+ "blocking": [],
+ "findings": [],
+ "text": [],
+ "coherence": [],
+ "human": [
+  {
+   "x": 390,
+   "y": 406,
+   "w": 1330,
+   "h": 277,
+   "shape": "rounded",
+   "iou": 0.686,
+   "border": 0.663,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best rounded 0.69, and 0.99 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "x": 347,
+   "y": 634,
+   "w": 83,
+   "h": 109,
+   "shape": "rhombus",
+   "iou": 0.973,
+   "border": 0.214,
+   "kind": "kept-on-outline",
+   "reason": "every side has pass-through line-work, but the region carries a complete outline of its own",
+   "check": "confirm this is a node and not trapped whitespace"
+  },
+  {
+   "x": 1109,
+   "y": 940,
+   "w": 611,
+   "h": 776,
+   "shape": "rounded",
+   "iou": 0.832,
+   "border": 0.712,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best rounded 0.83, and 0.99 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "x": 1065,
+   "y": 1417,
+   "w": 83,
+   "h": 109,
+   "shape": "rhombus",
+   "iou": 0.972,
+   "border": 0.197,
+   "kind": "kept-on-outline",
+   "reason": "every side has pass-through line-work, but the region carries a complete outline of its own",
+   "check": "confirm this is a node and not trapped whitespace"
+  },
+  {
+   "kind": "unexplained-line-work",
+   "x": 503,
+   "y": 552,
+   "w": 58,
+   "h": 83,
+   "reason": "line-work that is neither a connector between two nodes nor the size of text",
+   "check": "decide what this is; the SVG does not draw it"
+  },
+  {
+   "kind": "unexplained-line-work",
+   "x": 3022,
+   "y": 620,
+   "w": 50,
+   "h": 90,
+   "reason": "line-work that is neither a connector between two nodes nor the size of text",
+   "check": "decide what this is; the SVG does not draw it"
+  },
+  {
+   "kind": "arrowhead-unmeasurable",
+   "x": 340,
+   "y": 1636,
+   "w": 100,
+   "h": 100,
+   "reason": "the ink at the head end of n17->n22 measures 50x86px, too wide for this diagram's own 39px arrowhead - a junction, not a head",
+   "check": "confirm the arrowhead here is drawn and points the way the original does"
+  }
+ ],
+ "review": [
+  {
+   "n": 1,
+   "what": "check",
+   "where": "390,406 1330x277",
+   "detail": "outline matches no UML node shape (best rounded 0.69, and 0.99 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "n": 2,
+   "what": "check",
+   "where": "347,634 83x109",
+   "detail": "every side has pass-through line-work, but the region carries a complete outline of its own",
+   "check": "confirm this is a node and not trapped whitespace"
+  },
+  {
+   "n": 3,
+   "what": "check",
+   "where": "1109,940 611x776",
+   "detail": "outline matches no UML node shape (best rounded 0.83, and 0.99 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "n": 4,
+   "what": "check",
+   "where": "1065,1417 83x109",
+   "detail": "every side has pass-through line-work, but the region carries a complete outline of its own",
+   "check": "confirm this is a node and not trapped whitespace"
+  },
+  {
+   "n": 5,
+   "what": "check",
+   "where": "503,552 58x83",
+   "detail": "line-work that is neither a connector between two nodes nor the size of text",
+   "check": "decide what this is; the SVG does not draw it"
+  },
+  {
+   "n": 6,
+   "what": "check",
+   "where": "3022,620 50x90",
+   "detail": "line-work that is neither a connector between two nodes nor the size of text",
+   "check": "decide what this is; the SVG does not draw it"
+  },
+  {
+   "n": 7,
+   "what": "check",
+   "where": "340,1636 100x100",
+   "detail": "the ink at the head end of n17->n22 measures 50x86px, too wide for this diagram's own 39px arrowhead - a junction, not a head",
+   "check": "confirm the arrowhead here is drawn and points the way the original does"
+  }
+ ]
+}

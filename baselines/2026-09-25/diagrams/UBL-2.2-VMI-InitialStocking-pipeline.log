@@ -1,0 +1,11 @@
+== UBL-2.2-VMI-InitialStocking
+  scale 0.43212   frame 10px  divider 4px  action 5px  object 9px
+  font 56px (24.1 model)   2 lanes, 1 bands, 18 nodes, 19 edges -> review/baseline/UBL-2.2-VMI-InitialStocking-spec.json
+  review/baseline/UBL-2.2-VMI-InitialStocking.svg + .drawio + -classified.svg   (18 nodes, 19 edges)
+  rendered UBL-2.2-VMI-InitialStocking.svg -> UBL-2.2-VMI-InitialStocking-render.png @ 3425pxx3499, 600 dpi
+  aligned on ink bounds: scale x 1.0000, y 1.0000
+  size 3425x3499  radius 2
+  ink: original 453439   candidate 475458
+  MISSING (red)    21694  = 4.7843% of original ink
+  EXTRA   (blue)   24290  = 5.3568% of original ink
+  RESULT: DIFFERENCES - inspect review/baseline/UBL-2.2-VMI-InitialStocking-diff-r2.png

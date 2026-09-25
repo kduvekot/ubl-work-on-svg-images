@@ -1,0 +1,1161 @@
+{
+ "canvas": {
+  "w": 1480.0,
+  "h": 1098.873
+ },
+ "stroke": {
+  "frame": 4.3,
+  "divider": 1.7,
+  "action": 1.7,
+  "object": 3.5,
+  "edge": 1.7
+ },
+ "font": {
+  "family": "Helvetica, Arial, sans-serif",
+  "node": 16.0,
+  "lane": 16.0,
+  "guard": 16.0
+ },
+ "arrow": 28.4,
+ "arrowWidth": 22.0,
+ "arrowStyle": "open",
+ "dashed": [],
+ "greyRules": [],
+ "crossMarks": [],
+ "openEnds": [],
+ "frameBox": [
+  2.2,
+  2.2,
+  1477.8,
+  1096.7
+ ],
+ "dividers": [
+  [
+   277.9,
+   1.7,
+   5.6,
+   1092.8
+  ],
+  [
+   683.0,
+   2.2,
+   5.6,
+   1092.8
+  ],
+  [
+   1098.9,
+   1.7,
+   5.6,
+   1092.8
+  ]
+ ],
+ "bands": [],
+ "lanes": [
+  {
+   "title": "Consignee",
+   "x": 0.0,
+   "w": 277.9,
+   "cx": 138.1,
+   "cy": 15.8
+  },
+  {
+   "title": "Consignor",
+   "x": 277.9,
+   "w": 404.9,
+   "cx": 481.4,
+   "cy": 15.8
+  },
+  {
+   "title": "Freight Forwarder",
+   "x": 682.7,
+   "w": 416.1,
+   "cx": 891.2,
+   "cy": 15.8
+  },
+  {
+   "title": "Carrier",
+   "x": 1098.9,
+   "w": 381.1,
+   "cx": 1289.0,
+   "cy": 14.5
+  }
+ ],
+ "bandLabels": [],
+ "nodes": [
+  {
+   "id": "n1",
+   "kind": "object",
+   "label": "Forwarding\ninstructions",
+   "x": 624.0,
+   "y": 69.6,
+   "w": 113.2,
+   "h": 66.5,
+   "labelLines": [
+    {
+     "text": "Forwarding",
+     "cx": 679.3,
+     "cy": 93.8,
+     "w": 83.8
+    },
+    {
+     "text": "instructions",
+     "cx": 681.2,
+     "cy": 109.3,
+     "w": 87.7
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n2",
+   "kind": "action",
+   "label": "Request Logistic\nService",
+   "x": 23.3,
+   "y": 78.6,
+   "w": 194.0,
+   "h": 56.2,
+   "rx": 25.1,
+   "ry": 23.3,
+   "labelLines": [
+    {
+     "text": "Request Logistic",
+     "cx": 117.1,
+     "cy": 98.5,
+     "w": 123.6
+    },
+    {
+     "text": "Service",
+     "cx": 117.8,
+     "cy": 116.9,
+     "w": 54.0
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n3",
+   "kind": "action",
+   "label": "Request Transport\nService",
+   "x": 825.8,
+   "y": 116.2,
+   "w": 190.6,
+   "h": 57.5,
+   "rx": 22.9,
+   "ry": 23.3,
+   "labelLines": [
+    {
+     "text": "Request Transport",
+     "cx": 921.5,
+     "cy": 135.5,
+     "w": 137.0
+    },
+    {
+     "text": "Service",
+     "cx": 919.8,
+     "cy": 154.0,
+     "w": 54.0
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n4",
+   "kind": "object",
+   "label": "Forwarding\nInstructions",
+   "x": 1053.9,
+   "y": 116.2,
+   "w": 113.2,
+   "h": 66.5,
+   "labelLines": [
+    {
+     "text": "Forwarding",
+     "cx": 1109.5,
+     "cy": 140.2,
+     "w": 84.3
+    },
+    {
+     "text": "Instructions",
+     "cx": 1111.2,
+     "cy": 155.8,
+     "w": 87.7
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n5",
+   "kind": "action",
+   "label": "Receive Transport\nService Request",
+   "x": 1221.6,
+   "y": 117.5,
+   "w": 190.6,
+   "h": 56.2,
+   "rx": 25.1,
+   "ry": 23.8,
+   "labelLines": [
+    {
+     "text": "Receive Transport",
+     "cx": 1317.3,
+     "cy": 135.9,
+     "w": 134.4
+    },
+    {
+     "text": "Service Request",
+     "cx": 1319.0,
+     "cy": 156.0,
+     "w": 120.6
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n6",
+   "kind": "action",
+   "label": "Request Logistic\nService",
+   "x": 386.7,
+   "y": 206.1,
+   "w": 190.6,
+   "h": 55.7,
+   "rx": 24.2,
+   "ry": 21.6,
+   "labelLines": [
+    {
+     "text": "Request Logistic",
+     "cx": 478.8,
+     "cy": 224.5,
+     "w": 123.6
+    },
+    {
+     "text": "Service",
+     "cx": 479.2,
+     "cy": 243.1,
+     "w": 54.4
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n7",
+   "kind": "initial",
+   "label": "",
+   "x": 258.4,
+   "y": 216.1,
+   "w": 34.1,
+   "h": 34.6
+  },
+  {
+   "id": "n8",
+   "kind": "object",
+   "label": "Packing List",
+   "x": 633.1,
+   "y": 246.3,
+   "w": 116.7,
+   "h": 65.7,
+   "labelLines": [
+    {
+     "text": "Packing List",
+     "cx": 691.0,
+     "cy": 277.6,
+     "w": 91.6
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n9",
+   "kind": "action",
+   "label": "Receive Bill of Lading",
+   "x": 44.9,
+   "y": 372.5,
+   "w": 189.3,
+   "h": 55.7,
+   "rx": 22.5,
+   "ry": 25.5,
+   "labelLines": [
+    {
+     "text": "Receive Bill of Lading",
+     "cx": 139.1,
+     "cy": 401.0,
+     "w": 159.0
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n10",
+   "kind": "object",
+   "label": "Bill of Lading",
+   "x": 624.0,
+   "y": 392.4,
+   "w": 113.2,
+   "h": 67.0,
+   "labelLines": [
+    {
+     "text": "Bill of Lading",
+     "cx": 681.9,
+     "cy": 425.4,
+     "w": 97.7
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n11",
+   "kind": "object",
+   "label": "Bill of Lading",
+   "x": 1053.9,
+   "y": 395.8,
+   "w": 113.2,
+   "h": 66.5,
+   "labelLines": [
+    {
+     "text": "Bill of Lading",
+     "cx": 1110.3,
+     "cy": 427.8,
+     "w": 98.1
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n12",
+   "kind": "action",
+   "label": "Send Bill of Lading to\nConsignor",
+   "x": 808.9,
+   "y": 400.6,
+   "w": 190.6,
+   "h": 55.7,
+   "rx": 21.6,
+   "ry": 21.2,
+   "bold": true
+  },
+  {
+   "id": "n13",
+   "kind": "action",
+   "label": "Send Bill of Lading",
+   "x": 1260.5,
+   "y": 403.6,
+   "w": 192.3,
+   "h": 54.0,
+   "rx": 21.6,
+   "ry": 21.6,
+   "labelLines": [
+    {
+     "text": "Send Bill of Lading",
+     "cx": 1355.1,
+     "cy": 430.0,
+     "w": 139.1
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n14",
+   "kind": "action",
+   "label": "Receive Bill of Lading",
+   "x": 344.8,
+   "y": 434.7,
+   "w": 188.8,
+   "h": 55.7,
+   "rx": 21.6,
+   "ry": 21.6,
+   "labelLines": [
+    {
+     "text": "Receive Bill of Lading",
+     "cx": 438.8,
+     "cy": 461.1,
+     "w": 159.5
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n15",
+   "kind": "action",
+   "label": "Receive Waybill",
+   "x": 343.1,
+   "y": 526.3,
+   "w": 189.3,
+   "h": 55.7,
+   "rx": 21.6,
+   "ry": 23.3,
+   "labelLines": [
+    {
+     "text": "Receive Waybill",
+     "cx": 435.8,
+     "cy": 554.6,
+     "w": 115.4
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n16",
+   "kind": "object",
+   "label": "Way bill",
+   "x": 1053.9,
+   "y": 600.6,
+   "w": 113.2,
+   "h": 66.5,
+   "labelLines": [
+    {
+     "text": "Way bill",
+     "cx": 1109.2,
+     "cy": 631.5,
+     "w": 53.6
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n17",
+   "kind": "object",
+   "label": "Waybill",
+   "x": 622.2,
+   "y": 602.4,
+   "w": 113.6,
+   "h": 66.5,
+   "labelLines": [
+    {
+     "text": "Waybill",
+     "cx": 679.9,
+     "cy": 633.9,
+     "w": 53.2
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n18",
+   "kind": "action",
+   "label": "Receive Waybill",
+   "x": 40.2,
+   "y": 607.1,
+   "w": 189.3,
+   "h": 55.3,
+   "rx": 21.6,
+   "ry": 25.1,
+   "labelLines": [
+    {
+     "text": "Receive Waybill",
+     "cx": 133.1,
+     "cy": 633.3,
+     "w": 114.9
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n19",
+   "kind": "action",
+   "label": "Send Waybill to\nConsignor",
+   "x": 804.2,
+   "y": 607.1,
+   "w": 190.6,
+   "h": 55.3,
+   "rx": 21.2,
+   "ry": 21.6,
+   "labelLines": [
+    {
+     "text": "Send Waybill to",
+     "cx": 898.8,
+     "cy": 625.3,
+     "w": 114.9
+    },
+    {
+     "text": "Consignor",
+     "cx": 902.0,
+     "cy": 645.6,
+     "w": 77.3
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n20",
+   "kind": "action",
+   "label": "Send Waypbill",
+   "x": 1260.5,
+   "y": 610.1,
+   "w": 190.6,
+   "h": 55.3,
+   "rx": 21.2,
+   "ry": 21.6,
+   "labelLines": [
+    {
+     "text": "Send Waypbill",
+     "cx": 1354.9,
+     "cy": 636.5,
+     "w": 95.5
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n21",
+   "kind": "action",
+   "label": "Transport Goods Items\nto Delivery Party",
+   "x": 1261.8,
+   "y": 718.6,
+   "w": 189.3,
+   "h": 55.7,
+   "rx": 23.3,
+   "ry": 23.3,
+   "labelLines": [
+    {
+     "text": "Transport Goods Items",
+     "cx": 1356.8,
+     "cy": 737.4,
+     "w": 169.4
+    },
+    {
+     "text": "to Delivery Party",
+     "cx": 1359.0,
+     "cy": 757.9,
+     "w": 121.9
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n22",
+   "kind": "object",
+   "label": "Transportation\nStatus",
+   "x": 619.2,
+   "y": 755.8,
+   "w": 138.3,
+   "h": 76.1,
+   "labelLines": [
+    {
+     "text": "Transportation",
+     "cx": 687.5,
+     "cy": 783.6,
+     "w": 107.2
+    },
+    {
+     "text": "Status",
+     "cx": 688.6,
+     "cy": 799.2,
+     "w": 46.2
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n23",
+   "kind": "action",
+   "label": "Receive Status\nReport",
+   "x": 355.6,
+   "y": 765.3,
+   "w": 159.5,
+   "h": 52.7,
+   "rx": 22.9,
+   "ry": 21.6,
+   "labelLines": [
+    {
+     "text": "Receive Status",
+     "cx": 430.8,
+     "cy": 780.6,
+     "w": 108.0
+    },
+    {
+     "text": "Report",
+     "cx": 436.7,
+     "cy": 802.2,
+     "w": 48.8
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n24",
+   "kind": "object",
+   "label": "Transportation\nStatus",
+   "x": 1024.1,
+   "y": 842.6,
+   "w": 138.3,
+   "h": 76.1,
+   "labelLines": [
+    {
+     "text": "Transportation",
+     "cx": 1092.8,
+     "cy": 871.8,
+     "w": 107.2
+    },
+    {
+     "text": "Status",
+     "cx": 1093.7,
+     "cy": 887.4,
+     "w": 46.7
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n25",
+   "kind": "action",
+   "label": "Report Status",
+   "x": 779.1,
+   "y": 858.2,
+   "w": 153.4,
+   "h": 52.7,
+   "rx": 24.6,
+   "ry": 23.8,
+   "labelLines": [
+    {
+     "text": "Report Status",
+     "cx": 856.5,
+     "cy": 884.5,
+     "w": 100.3
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n26",
+   "kind": "action",
+   "label": "Report Status",
+   "x": 1223.3,
+   "y": 858.2,
+   "w": 153.4,
+   "h": 54.4,
+   "rx": 24.6,
+   "ry": 22.5,
+   "labelLines": [
+    {
+     "text": "Report Status",
+     "cx": 1300.5,
+     "cy": 883.2,
+     "w": 99.8
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n27",
+   "kind": "object",
+   "label": "Transportation\nStatus",
+   "x": 606.7,
+   "y": 973.6,
+   "w": 138.3,
+   "h": 76.1,
+   "labelLines": [
+    {
+     "text": "Transportation",
+     "cx": 675.4,
+     "cy": 1001.0,
+     "w": 107.2
+    },
+    {
+     "text": "Status",
+     "cx": 676.0,
+     "cy": 1016.6,
+     "w": 46.2
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n28",
+   "kind": "action",
+   "label": "Receive Status\nReport",
+   "x": 40.2,
+   "y": 993.9,
+   "w": 158.6,
+   "h": 51.0,
+   "rx": 22.5,
+   "ry": 25.1,
+   "labelLines": [
+    {
+     "text": "Receive Status",
+     "cx": 118.6,
+     "cy": 1008.3,
+     "w": 108.5
+    },
+    {
+     "text": "Report",
+     "cx": 124.7,
+     "cy": 1030.0,
+     "w": 48.8
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n30",
+   "kind": "final",
+   "label": "",
+   "x": 1376.7,
+   "y": 1043.6,
+   "w": 29.4,
+   "h": 29.4,
+   "innerRatio": 0.453
+  }
+ ],
+ "edges": [
+  {
+   "from": "n2",
+   "to": "n1",
+   "exitXY": [
+    1.0,
+    0.4698
+   ],
+   "entryXY": [
+    0.0,
+    0.5068
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n1",
+   "to": "n3",
+   "exitXY": [
+    1.0,
+    0.6436
+   ],
+   "entryXY": [
+    0.0,
+    0.233
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n3",
+   "to": "n4",
+   "exitXY": [
+    1.0,
+    0.527
+   ],
+   "entryXY": [
+    0.0,
+    0.5008
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n7",
+   "to": "n2",
+   "exitXY": [
+    0.0,
+    0.0
+   ],
+   "entryXY": [
+    0.6928,
+    1.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n6",
+   "to": "n1",
+   "exitXY": [
+    0.7576,
+    0.0
+   ],
+   "entryXY": [
+    0.0115,
+    1.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n4",
+   "to": "n5",
+   "exitXY": [
+    1.0,
+    0.5008
+   ],
+   "entryXY": [
+    0.0,
+    0.532
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n8",
+   "to": "n3",
+   "exitXY": [
+    1.0,
+    0.0
+   ],
+   "entryXY": [
+    0.2219,
+    1.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n5",
+   "to": "n13",
+   "exitXY": [
+    0.5986,
+    1.0
+   ],
+   "entryXY": [
+    0.3978,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n7",
+   "to": "n6",
+   "exitXY": [
+    1.0,
+    0.5116
+   ],
+   "entryXY": [
+    0.0,
+    0.4973
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n6",
+   "to": "n8",
+   "exitXY": [
+    1.0,
+    0.8618
+   ],
+   "entryXY": [
+    0.0,
+    0.3029
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n10",
+   "to": "n9",
+   "exitXY": [
+    0.0,
+    0.1149
+   ],
+   "entryXY": [
+    1.0,
+    0.4955
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n12",
+   "to": "n10",
+   "exitXY": [
+    0.0,
+    0.4722
+   ],
+   "entryXY": [
+    1.0,
+    0.503
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n11",
+   "to": "n12",
+   "exitXY": [
+    0.0,
+    0.4947
+   ],
+   "entryXY": [
+    1.0,
+    0.4955
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n13",
+   "to": "n11",
+   "exitXY": [
+    0.0,
+    0.4963
+   ],
+   "entryXY": [
+    1.0,
+    0.5008
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n10",
+   "to": "n14",
+   "exitXY": [
+    0.0,
+    0.6179
+   ],
+   "entryXY": [
+    1.0,
+    0.2406
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n13",
+   "to": "n20",
+   "exitXY": [
+    0.4987,
+    1.0
+   ],
+   "entryXY": [
+    0.5031,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n17",
+   "to": "n15",
+   "exitXY": [
+    0.0,
+    0.2015
+   ],
+   "entryXY": [
+    0.9974,
+    1.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n17",
+   "to": "n18",
+   "exitXY": [
+    0.0,
+    0.4872
+   ],
+   "entryXY": [
+    1.0,
+    0.5009
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n19",
+   "to": "n17",
+   "exitXY": [
+    0.0,
+    0.4919
+   ],
+   "entryXY": [
+    1.0,
+    0.4932
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n16",
+   "to": "n19",
+   "exitXY": [
+    0.0,
+    0.5008
+   ],
+   "entryXY": [
+    1.0,
+    0.5009
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n20",
+   "to": "n16",
+   "exitXY": [
+    0.0,
+    0.4774
+   ],
+   "entryXY": [
+    1.0,
+    0.5008
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n20",
+   "to": "n21",
+   "exitXY": [
+    0.499,
+    1.0
+   ],
+   "entryXY": [
+    0.4997,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n21",
+   "to": "n26",
+   "exitXY": [
+    0.2076,
+    1.0
+   ],
+   "entryXY": [
+    0.4987,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n21",
+   "to": "n30",
+   "exitXY": [
+    0.719,
+    1.0
+   ],
+   "entryXY": [
+    0.7211,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n22",
+   "to": "n23",
+   "exitXY": [
+    0.0,
+    0.4704
+   ],
+   "entryXY": [
+    1.0,
+    0.4991
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n25",
+   "to": "n22",
+   "exitXY": [
+    0.1297,
+    0.0
+   ],
+   "entryXY": [
+    1.0,
+    0.9934
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n24",
+   "to": "n25",
+   "exitXY": [
+    0.0,
+    0.523
+   ],
+   "entryXY": [
+    1.0,
+    0.4839
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n26",
+   "to": "n24",
+   "exitXY": [
+    0.0,
+    0.4688
+   ],
+   "entryXY": [
+    1.0,
+    0.5112
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n25",
+   "to": "n27",
+   "exitXY": [
+    0.1858,
+    1.0
+   ],
+   "entryXY": [
+    0.8373,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n27",
+   "to": "n28",
+   "exitXY": [
+    0.0,
+    0.6071
+   ],
+   "entryXY": [
+    1.0,
+    0.5078
+   ],
+   "straight": true,
+   "confidence": "high"
+  }
+ ],
+ "guards": [
+  {
+   "text": "Ordering\nProcess",
+   "x": 188.8,
+   "y": 252.4,
+   "w": 59.2,
+   "h": 32.0,
+   "labelLines": [
+    {
+     "text": "Ordering",
+     "cx": 218.0,
+     "cy": 259.7,
+     "w": 58.3
+    },
+    {
+     "text": "Process",
+     "cx": 221.0,
+     "cy": 278.5,
+     "w": 54.0
+    }
+   ]
+  },
+  {
+   "text": "Fulfillment\nProcess",
+   "x": 1284.7,
+   "y": 1035.4,
+   "w": 69.6,
+   "h": 31.5,
+   "labelLines": [
+    {
+     "text": "Fulfillment",
+     "cx": 1319.5,
+     "cy": 1041.0,
+     "w": 69.6
+    },
+    {
+     "text": "Process",
+     "cx": 1324.4,
+     "cy": 1061.1,
+     "w": 54.4
+    }
+   ]
+  }
+ ]
+}

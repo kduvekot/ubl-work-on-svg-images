@@ -1,0 +1,11 @@
+== UBL-2.2-CRP-InitialStockingByRetailer
+  scale 0.43212   frame 10px  divider 6px  action 5px  object 11px
+  font 73px (31.5 model)   2 lanes, 1 bands, 16 nodes, 16 edges -> review/baseline/UBL-2.2-CRP-InitialStockingByRetailer-spec.json
+  review/baseline/UBL-2.2-CRP-InitialStockingByRetailer.svg + .drawio + -classified.svg   (16 nodes, 16 edges)
+  rendered UBL-2.2-CRP-InitialStockingByRetailer.svg -> UBL-2.2-CRP-InitialStockingByRetailer-render.png @ 3425pxx4033, 600 dpi
+  aligned on ink bounds: scale x 1.0000, y 1.0000
+  size 3425x4033  radius 2
+  ink: original 594692   candidate 576192
+  MISSING (red)    45451  = 7.6428% of original ink
+  EXTRA   (blue)   43682  = 7.3453% of original ink
+  RESULT: DIFFERENCES - inspect review/baseline/UBL-2.2-CRP-InitialStockingByRetailer-diff-r2.png

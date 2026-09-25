@@ -1,0 +1,580 @@
+{
+ "canvas": {
+  "w": 1480.0,
+  "h": 1225.144
+ },
+ "stroke": {
+  "frame": 3.7,
+  "divider": 3.7,
+  "action": 3.7,
+  "object": 3.7,
+  "edge": 3.7
+ },
+ "font": {
+  "family": "Helvetica, Arial, sans-serif",
+  "node": 33.5,
+  "lane": 33.5,
+  "guard": 33.5
+ },
+ "arrow": 42.5,
+ "arrowWidth": 37.9,
+ "arrowStyle": "open",
+ "dashed": [],
+ "greyRules": [],
+ "crossMarks": [],
+ "openEnds": [],
+ "frameBox": [
+  4.6,
+  4.6,
+  1475.4,
+  1220.6
+ ],
+ "dividers": [
+  [
+   737.0,
+   3.7,
+   7.8,
+   1130.5
+  ]
+ ],
+ "bands": [],
+ "lanes": [
+  {
+   "title": "INITIATING PARTY",
+   "x": 0.0,
+   "w": 737.0,
+   "cx": 281.9,
+   "cy": 46.1
+  },
+  {
+   "title": "RESPONDING PARTY",
+   "x": 737.0,
+   "w": 738.4,
+   "cx": 1191.2,
+   "cy": 48.4
+  },
+  {
+   "title": "",
+   "x": 1475.4,
+   "w": 4.6,
+   "cx": 1477.7,
+   "cy": 33.5
+  }
+ ],
+ "bandLabels": [],
+ "nodes": [
+  {
+   "id": "n3",
+   "kind": "action",
+   "label": "Prior exchange of public keys",
+   "x": 951.5,
+   "y": 100.1,
+   "w": 479.4,
+   "h": 80.8,
+   "rx": 40.2,
+   "ry": 39.5,
+   "labelLines": [
+    {
+     "text": "Prior exchange of public keys",
+     "cx": 1191.4,
+     "cy": 143.7,
+     "w": 418.3
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "n4",
+   "kind": "action",
+   "label": "Prior exchange of public keys",
+   "x": 46.4,
+   "y": 101.9,
+   "w": 471.6,
+   "h": 84.0,
+   "rx": 40.4,
+   "ry": 39.5,
+   "labelLines": [
+    {
+     "text": "Prior exchange of public keys",
+     "cx": 282.2,
+     "cy": 143.7,
+     "w": 418.3
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "n5",
+   "kind": "initial",
+   "label": "",
+   "x": 240.2,
+   "y": 216.3,
+   "w": 53.3,
+   "h": 53.3
+  },
+  {
+   "id": "n6",
+   "kind": "action",
+   "label": "Prepare tender contract",
+   "x": 48.7,
+   "y": 316.4,
+   "w": 475.7,
+   "h": 75.3,
+   "rx": 40.2,
+   "ry": 38.6,
+   "labelLines": [
+    {
+     "text": "Prepare tender contract",
+     "cx": 281.7,
+     "cy": 356.6,
+     "w": 336.6
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "n7",
+   "kind": "object",
+   "label": "Tender\nContract",
+   "x": 626.3,
+   "y": 411.9,
+   "w": 226.4,
+   "h": 153.4,
+   "labelLines": [
+    {
+     "text": "Tender",
+     "cx": 700.5,
+     "cy": 459.0,
+     "w": 105.2
+    },
+    {
+     "text": "Contract",
+     "cx": 711.3,
+     "cy": 507.0,
+     "w": 131.3
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n8",
+   "kind": "action",
+   "label": "Receive tender contract",
+   "x": 951.5,
+   "y": 445.9,
+   "w": 479.4,
+   "h": 80.4,
+   "rx": 40.0,
+   "ry": 38.6,
+   "labelLines": [
+    {
+     "text": "Receive tender contract",
+     "cx": 1196.0,
+     "cy": 484.2,
+     "w": 338.4
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "n9",
+   "kind": "action",
+   "label": "Submit tender contract",
+   "x": 46.4,
+   "y": 447.3,
+   "w": 471.6,
+   "h": 84.0,
+   "rx": 40.2,
+   "ry": 40.0,
+   "labelLines": [
+    {
+     "text": "Submit tender contract",
+     "cx": 285.2,
+     "cy": 486.3,
+     "w": 323.3
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "n10",
+   "kind": "action",
+   "label": "Add W3C Digital Signature",
+   "x": 951.5,
+   "y": 611.2,
+   "w": 475.7,
+   "h": 75.3,
+   "rx": 40.2,
+   "ry": 39.5,
+   "labelLines": [
+    {
+     "text": "Add W3C Digital Signature",
+     "cx": 1189.3,
+     "cy": 651.6,
+     "w": 383.0
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "n11",
+   "kind": "object",
+   "label": "Tender\nContract",
+   "x": 626.3,
+   "y": 711.8,
+   "w": 226.4,
+   "h": 152.9,
+   "labelLines": [
+    {
+     "text": "Tender",
+     "cx": 700.5,
+     "cy": 758.8,
+     "w": 105.2
+    },
+    {
+     "text": "Contract",
+     "cx": 711.3,
+     "cy": 806.8,
+     "w": 131.3
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n12",
+   "kind": "action",
+   "label": "Return tender contract",
+   "x": 951.5,
+   "y": 745.7,
+   "w": 479.4,
+   "h": 80.4,
+   "rx": 39.5,
+   "ry": 38.6,
+   "labelLines": [
+    {
+     "text": "Return tender contract",
+     "cx": 1186.1,
+     "cy": 784.1,
+     "w": 318.7
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "n13",
+   "kind": "action",
+   "label": "Receive tender contract",
+   "x": 46.4,
+   "y": 747.1,
+   "w": 471.6,
+   "h": 84.0,
+   "rx": 42.2,
+   "ry": 39.5,
+   "labelLines": [
+    {
+     "text": "Receive tender contract",
+     "cx": 293.9,
+     "cy": 786.1,
+     "w": 338.9
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "n14",
+   "kind": "action",
+   "label": "Add W3C Digital Signature",
+   "x": 48.7,
+   "y": 880.7,
+   "w": 475.7,
+   "h": 75.3,
+   "rx": 40.2,
+   "ry": 38.6,
+   "labelLines": [
+    {
+     "text": "Add W3C Digital Signature",
+     "cx": 286.5,
+     "cy": 920.7,
+     "w": 383.0
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "n15",
+   "kind": "object",
+   "label": "Tender\nContract",
+   "x": 626.3,
+   "y": 976.3,
+   "w": 226.4,
+   "h": 152.9,
+   "labelLines": [
+    {
+     "text": "Tender",
+     "cx": 700.5,
+     "cy": 1023.1,
+     "w": 105.2
+    },
+    {
+     "text": "Contract",
+     "cx": 711.3,
+     "cy": 1071.1,
+     "w": 131.3
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n16",
+   "kind": "action",
+   "label": "Receive tender contract",
+   "x": 951.5,
+   "y": 1010.2,
+   "w": 479.4,
+   "h": 80.4,
+   "rx": 38.6,
+   "ry": 38.6,
+   "labelLines": [
+    {
+     "text": "Receive tender contract",
+     "cx": 1196.0,
+     "cy": 1048.6,
+     "w": 338.4
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "n17",
+   "kind": "action",
+   "label": "Return tender contract",
+   "x": 46.4,
+   "y": 1011.6,
+   "w": 471.6,
+   "h": 84.0,
+   "rx": 41.3,
+   "ry": 39.5,
+   "labelLines": [
+    {
+     "text": "Return tender contract",
+     "cx": 284.0,
+     "cy": 1050.4,
+     "w": 319.1
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "n18",
+   "kind": "final",
+   "label": "",
+   "x": 1163.6,
+   "y": 1152.6,
+   "w": 50.5,
+   "h": 50.1,
+   "innerRatio": 0.49
+  }
+ ],
+ "edges": [
+  {
+   "from": "n3",
+   "to": "n4",
+   "exitXY": [
+    0.0,
+    0.4777
+   ],
+   "entryXY": [
+    1.0,
+    0.4488
+   ],
+   "straight": true,
+   "confidence": "both-ends",
+   "dash": 32.1,
+   "gap": 25.3,
+   "arrowBoth": true
+  },
+  {
+   "from": "n5",
+   "to": "n6",
+   "exitXY": [
+    0.4991,
+    1.0
+   ],
+   "entryXY": [
+    0.4663,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n6",
+   "to": "n9",
+   "exitXY": [
+    0.4623,
+    1.0
+   ],
+   "entryXY": [
+    0.4752,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "checked"
+  },
+  {
+   "from": "n9",
+   "to": "n7",
+   "exitXY": [
+    1.0,
+    0.4369
+   ],
+   "entryXY": [
+    0.0,
+    0.4759
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n7",
+   "to": "n8",
+   "exitXY": [
+    1.0,
+    0.4817
+   ],
+   "entryXY": [
+    0.0,
+    0.4963
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n8",
+   "to": "n10",
+   "exitXY": [
+    0.4979,
+    1.0
+   ],
+   "entryXY": [
+    0.4999,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n10",
+   "to": "n12",
+   "exitXY": [
+    0.4999,
+    1.0
+   ],
+   "entryXY": [
+    0.499,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n11",
+   "to": "n13",
+   "exitXY": [
+    0.0,
+    0.4683
+   ],
+   "entryXY": [
+    1.0,
+    0.4536
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n12",
+   "to": "n11",
+   "exitXY": [
+    0.0,
+    0.5261
+   ],
+   "entryXY": [
+    1.0,
+    0.4984
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n13",
+   "to": "n14",
+   "exitXY": [
+    0.4712,
+    1.0
+   ],
+   "entryXY": [
+    0.4663,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "checked"
+  },
+  {
+   "from": "n14",
+   "to": "n17",
+   "exitXY": [
+    0.4623,
+    1.0
+   ],
+   "entryXY": [
+    0.4752,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "checked"
+  },
+  {
+   "from": "n17",
+   "to": "n15",
+   "exitXY": [
+    1.0,
+    0.4381
+   ],
+   "entryXY": [
+    0.0,
+    0.4774
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n15",
+   "to": "n16",
+   "exitXY": [
+    1.0,
+    0.4833
+   ],
+   "entryXY": [
+    0.0,
+    0.4975
+   ],
+   "straight": true,
+   "confidence": "checked"
+  },
+  {
+   "from": "n16",
+   "to": "n18",
+   "exitXY": [
+    0.4979,
+    1.0
+   ],
+   "entryXY": [
+    0.501,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "notation"
+  }
+ ],
+ "guards": []
+}

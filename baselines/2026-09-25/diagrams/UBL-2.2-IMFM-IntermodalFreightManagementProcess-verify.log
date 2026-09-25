@@ -1,0 +1,15 @@
+  verdict: NEEDS-HUMAN
+  structural: 0 element(s) absent, 0 invented, 0 text absent, 0 text differs, 0 incoherent
+  line-work  missing 924 px (0.228%)   invented 111 px (0.027%)   radius 3
+    line-work-missing      110 px at    26,730     25x6     unattributed
+    line-work-missing       89 px at    25,2063    19x9     unattributed
+  needs a person (21):
+    dropped-region     at 2514,285  a shape here would be missing from the SVG
+    dropped-region     at 615,427  a shape here would be missing from the SVG
+    dropped-region     at 381,625  a shape here would be missing from the SVG
+    dropped-region     at 611,880  a shape here would be missing from the SVG
+    dropped-region     at 1462,1079  a shape here would be missing from the SVG
+    dropped-region     at 1853,1079  a shape here would be missing from the SVG
+    dropped-region     at 957,1085  a shape here would be missing from the SVG
+    dropped-region     at 611,1088  a shape here would be missing from the SVG
+review/baseline/UBL-2.2-IMFM-IntermodalFreightManagementProcess-marked.png + review/baseline/UBL-2.2-IMFM-IntermodalFreightManagementProcess-marked-lost.png  (21 finding(s) numbered)

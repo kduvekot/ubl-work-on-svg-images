@@ -1,0 +1,11 @@
+== UBL-2.0-SelfBillingwithSelfBilledCreditNoteProcess
+  scale 0.43212   frame 10px  divider 5px  action 4px  object 13px
+  font 41px (17.9 model)   2 lanes, 1 bands, 15 nodes, 16 edges -> review/baseline/UBL-2.0-SelfBillingwithSelfBilledCreditNoteProcess-spec.json
+  review/baseline/UBL-2.0-SelfBillingwithSelfBilledCreditNoteProcess.svg + .drawio + -classified.svg   (15 nodes, 16 edges)
+  rendered UBL-2.0-SelfBillingwithSelfBilledCreditNoteProcess.svg -> UBL-2.0-SelfBillingwithSelfBilledCreditNoteProcess-render.png @ 3425pxx2162, 600 dpi
+  aligned on ink bounds: scale x 1.0000, y 1.0000
+  size 3425x2162  radius 2
+  ink: original 326073   candidate 321718
+  MISSING (red)     6850  = 2.1008% of original ink
+  EXTRA   (blue)   13957  = 4.2803% of original ink
+  RESULT: DIFFERENCES - inspect review/baseline/UBL-2.0-SelfBillingwithSelfBilledCreditNoteProcess-diff-r2.png

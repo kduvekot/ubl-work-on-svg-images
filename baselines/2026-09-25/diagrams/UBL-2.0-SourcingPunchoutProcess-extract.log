@@ -1,0 +1,45 @@
+image 3425x2060
+
+PARTITION RULES
+   vertical  : [(0, 10), (1743, 7), (3415, 10)]
+   horizontal: [(0, 10), (2050, 10)]
+   -> 2 column(s) x 1 band(s)
+   type measured off the page: a word is 50px tall
+   (dropped x=10    y=10    1733x2040  is a partition cell)
+   (dropped x=1750  y=10    1665x2040  is a partition cell)
+   (dropped x=1924  y=341     59x59    outline matches no UML node shape (best rect 0.51, and 0.93 is the most this shape can reach at this size))
+   (kept    x=1495  y=1244   521x281   own outline, iou 1.00 border 1.00, despite pass-through line-work)
+   object nodes are those stroked heavier than 10.0px
+
+NODES
+   n1   initial   x=478   y=190   w=121   h=121   stroke=0   fill=0.78  ''
+   n2   note      x=1456  y=335   w=533   h=413   stroke=7   fill=0.88  "Transaction\naccessing Seller's\ncatalogue\napplication"
+   n3   action    x=2530  y=683   w=772   h=257   stroke=7   fill=0.90  'Build shopping basket'
+   n4   action    x=167   y=689   w=755   h=245   stroke=7   fill=0.89  'Initiate a punchout\nsession'
+   n5   object    x=1495  y=1244  w=521   h=281   stroke=13  fill=0.94  'Quotation'
+   n6   action    x=149   y=1265  w=725   h=245   stroke=7   fill=0.91  'Receive quotation'
+   n7   action    x=2548  y=1271  w=736   h=227   stroke=7   fill=0.88  'Send shopping basket'
+   n8   final     x=455   y=1865  w=107   h=107   stroke=7   fill=0.64  ''
+
+TYPE  cap height 44px over 161 glyphs -> font 62.9px
+
+EDGES
+   n1   -> n4    straight    arrowhead   995 vs 315    ratio 4.0  high
+   n4   -> n3    straight    arrowhead  1000 vs 315    ratio 4.0  high
+   n3   -> n7    straight    arrowhead   995 vs 315    ratio 4.0  high
+   n5   -> n6    straight    arrowhead   920 vs 322    ratio 4.0  high
+   n7   -> n5    straight    arrowhead   799 vs 322    ratio 2.5  medium
+   n6   -> n8    straight    arrowhead   993 vs 315    ratio 4.0  high
+
+TEXT (titles, guards, notes)
+   'Originator Customer Party'              x=245   y=74    
+   'seller Supplier Party'                  x=2313  y=74    
+
+PARTITIONS
+   column 0  'Originator Customer Party'
+   column 1  'seller Supplier Party'
+   band   0  ''
+
+ARROWHEAD  83 x 66px, open, measured on 5 connector(s)
+
+wrote review/baseline/UBL-2.0-SourcingPunchoutProcess-graph.json   (8 nodes, 6 edges, 1 flagged for a human)

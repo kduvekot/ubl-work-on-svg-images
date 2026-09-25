@@ -1,0 +1,463 @@
+{
+ "source": "UBL-2.2-Tender-GuaranteeDeposit.png",
+ "size": [
+  3425,
+  1578
+ ],
+ "fontPx": 81.4,
+ "arrowPx": 70.5,
+ "arrowWidthPx": 74.0,
+ "arrowStyle": "open",
+ "rules": {
+  "v": [
+   [
+    0,
+    10
+   ],
+   [
+    1484,
+    22
+   ],
+   [
+    3415,
+    10
+   ]
+  ],
+  "h": [
+   [
+    0,
+    10
+   ],
+   [
+    1568,
+    10
+   ]
+  ]
+ },
+ "ruleSpan": {
+  "v": [
+   [
+    13,
+    1564
+   ],
+   [
+    13,
+    1564
+   ],
+   [
+    13,
+    1564
+   ]
+  ],
+  "h": [
+   [
+    13,
+    3411
+   ],
+   [
+    13,
+    3411
+   ]
+  ]
+ },
+ "greyRules": [],
+ "dashed": [],
+ "openEnds": [],
+ "crossMarks": [],
+ "partitions": [
+  {
+   "axis": "column",
+   "index": 0,
+   "x0": 0,
+   "x1": 1495,
+   "title": "TENDERER",
+   "titleBox": [
+    493,
+    70,
+    434,
+    57
+   ]
+  },
+  {
+   "axis": "column",
+   "index": 1,
+   "x0": 1495,
+   "x1": 3425,
+   "title": "CONTRACTING AUTHORITY",
+   "titleBox": [
+    1915,
+    71,
+    1063,
+    59
+   ]
+  },
+  {
+   "axis": "band",
+   "index": 0,
+   "y0": 0,
+   "y1": 1578,
+   "title": ""
+  }
+ ],
+ "nodes": [
+  {
+   "x": 501,
+   "y": 218,
+   "w": 124,
+   "h": 124,
+   "area": 11035,
+   "fill": 0.793,
+   "kind": "initial",
+   "id": "n4",
+   "label": "",
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 95,
+   "y": 522,
+   "w": 936,
+   "h": 311,
+   "area": 253237,
+   "fill": 0.87,
+   "solid": 0.959,
+   "rx": 115,
+   "ry": 113,
+   "shape": "rounded",
+   "stroke": 13,
+   "kind": "action",
+   "id": "n5",
+   "label": "Get Guarantee from\nfinancial institution",
+   "labelLines": [
+    {
+     "x": 205,
+     "y": 588,
+     "w": 699,
+     "h": 58,
+     "text": "Get Guarantee from"
+    },
+    {
+     "x": 234,
+     "y": 688,
+     "w": 644,
+     "h": 58,
+     "text": "financial institution"
+    }
+   ],
+   "stem": 0.086,
+   "bold": false,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 1247,
+   "y": 953,
+   "w": 579,
+   "h": 240,
+   "area": 119489,
+   "fill": 0.86,
+   "solid": 1.0,
+   "rx": 0,
+   "ry": 0,
+   "shape": "rect",
+   "keptOnOutline": true,
+   "stroke": 13,
+   "kind": "object",
+   "id": "n6",
+   "label": "Guarantee\nCertificate",
+   "labelLines": [
+    {
+     "x": 1335,
+     "y": 988,
+     "w": 386,
+     "h": 58,
+     "text": "Guarantee"
+    },
+    {
+     "x": 1335,
+     "y": 1087,
+     "w": 382,
+     "h": 59,
+     "text": "Certificate"
+    }
+   ],
+   "stem": 0.147,
+   "bold": true,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 147,
+   "y": 963,
+   "w": 832,
+   "h": 211,
+   "area": 153629,
+   "fill": 0.875,
+   "solid": 0.946,
+   "rx": 110,
+   "ry": 102,
+   "shape": "rounded",
+   "stroke": 13,
+   "kind": "action",
+   "id": "n7",
+   "label": "Submit Certificate",
+   "labelLines": [
+    {
+     "x": 245,
+     "y": 1035,
+     "w": 621,
+     "h": 59,
+     "text": "Submit Certificate"
+    }
+   ],
+   "stem": 0.086,
+   "bold": false,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 2042,
+   "y": 968,
+   "w": 1288,
+   "h": 211,
+   "area": 240857,
+   "fill": 0.886,
+   "solid": 0.964,
+   "rx": 103,
+   "ry": 107,
+   "shape": "rounded",
+   "stroke": 14,
+   "kind": "action",
+   "id": "n8",
+   "label": "Receive guarantee certificate",
+   "labelLines": [
+    {
+     "x": 2168,
+     "y": 1040,
+     "w": 1022,
+     "h": 74,
+     "text": "Receive guarantee certificate"
+    }
+   ],
+   "stem": 0.086,
+   "bold": false,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 2597,
+   "y": 1308,
+   "w": 174,
+   "h": 174,
+   "area": 11104,
+   "fill": 0.367,
+   "solid": 0.779,
+   "rx": 89,
+   "ry": 93,
+   "shape": "rounded",
+   "stroke": 13,
+   "kind": "final",
+   "innerRatio": 0.713,
+   "id": "n9",
+   "label": "",
+   "col": 1,
+   "row": 0
+  }
+ ],
+ "edges": [
+  {
+   "from": "n4",
+   "to": "n5",
+   "routing": "straight",
+   "fromPoint": [
+    563,
+    356
+   ],
+   "toPoint": [
+    563,
+    507
+   ],
+   "arrowInk": [
+    630,
+    1388
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    71,
+    74.0,
+    3.05
+   ],
+   "arrowFill": 0.118,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n5",
+   "to": "n7",
+   "routing": "straight",
+   "fromPoint": [
+    563,
+    847
+   ],
+   "toPoint": [
+    563,
+    948
+   ],
+   "arrowInk": [
+    983,
+    1409
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    70,
+    74.0,
+    2.98
+   ],
+   "arrowFill": 0.144,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n7",
+   "to": "n6",
+   "routing": "straight",
+   "fromPoint": [
+    993,
+    1068
+   ],
+   "toPoint": [
+    1232,
+    1071
+   ],
+   "arrowInk": [
+    607,
+    1148
+   ],
+   "directionConfidence": "medium",
+   "edgeKind": "object"
+  },
+  {
+   "from": "n6",
+   "to": "n8",
+   "routing": "straight",
+   "fromPoint": [
+    1840,
+    1073
+   ],
+   "toPoint": [
+    2027,
+    1073
+   ],
+   "arrowInk": [
+    630,
+    1399
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    72,
+    74.0,
+    3.08
+   ],
+   "arrowFill": 0.226,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n8",
+   "to": "n9",
+   "routing": "straight",
+   "fromPoint": [
+    2686,
+    1193
+   ],
+   "toPoint": [
+    2684,
+    1293
+   ],
+   "arrowInk": [
+    979,
+    1395
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    70,
+    74.6,
+    2.94
+   ],
+   "arrowFill": 0.152,
+   "edgeKind": "control"
+  }
+ ],
+ "text": [
+  {
+   "text": "TENDERER",
+   "x": 493,
+   "y": 70,
+   "w": 434,
+   "h": 57,
+   "lines": [
+    {
+     "x": 493,
+     "y": 70,
+     "w": 434,
+     "h": 57,
+     "text": "TENDERER"
+    }
+   ]
+  },
+  {
+   "text": "CONTRACTING AUTHORITY",
+   "x": 1915,
+   "y": 71,
+   "w": 1063,
+   "h": 59,
+   "lines": [
+    {
+     "x": 1915,
+     "y": 71,
+     "w": 1063,
+     "h": 59,
+     "text": "CONTRACTING AUTHORITY"
+    }
+   ]
+  }
+ ],
+ "uncertain": [
+  {
+   "x": 1247,
+   "y": 953,
+   "w": 579,
+   "h": 240,
+   "shape": "rect",
+   "iou": 1.0,
+   "border": 1.0,
+   "kind": "kept-on-outline",
+   "reason": "every side has pass-through line-work, but the region carries a complete outline of its own",
+   "check": "confirm this is a node and not trapped whitespace"
+  },
+  {
+   "kind": "sub-character-region",
+   "x": 665,
+   "y": 76,
+   "w": 31,
+   "h": 44,
+   "reason": "enclosed region smaller than one character of the diagram's type",
+   "check": "confirm this is glyph interior and not a node"
+  },
+  {
+   "kind": "sub-character-region",
+   "x": 1981,
+   "y": 78,
+   "w": 38,
+   "h": 45,
+   "reason": "enclosed region smaller than one character of the diagram's type",
+   "check": "confirm this is glyph interior and not a node"
+  },
+  {
+   "kind": "sub-character-region",
+   "x": 2746,
+   "y": 78,
+   "w": 39,
+   "h": 45,
+   "reason": "enclosed region smaller than one character of the diagram's type",
+   "check": "confirm this is glyph interior and not a node"
+  }
+ ]
+}

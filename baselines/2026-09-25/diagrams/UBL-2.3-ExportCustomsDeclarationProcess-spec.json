@@ -1,0 +1,558 @@
+{
+ "canvas": {
+  "w": 1480.0,
+  "h": 1369.842
+ },
+ "stroke": {
+  "frame": 6.5,
+  "divider": 2.6,
+  "action": 2.6,
+  "object": 3.9,
+  "edge": 2.6
+ },
+ "font": {
+  "family": "Helvetica, Arial, sans-serif",
+  "node": 33.3,
+  "lane": 33.3,
+  "guard": 33.3
+ },
+ "arrow": 35.6,
+ "arrowWidth": 29.5,
+ "arrowStyle": "filled",
+ "dashed": [],
+ "greyRules": [],
+ "crossMarks": [],
+ "openEnds": [],
+ "frameBox": [
+  3.2,
+  3.2,
+  1476.8,
+  1366.6
+ ],
+ "dividers": [
+  [
+   742.6,
+   2.6,
+   10.4,
+   1358.2
+  ]
+ ],
+ "bands": [
+  [
+   82.9,
+   2.6,
+   10.4,
+   1468.3
+  ]
+ ],
+ "lanes": [
+  {
+   "title": "Exporter party",
+   "x": 0.0,
+   "w": 742.6,
+   "cx": 375.2,
+   "cy": 53.8
+  },
+  {
+   "title": "CustomsParty",
+   "x": 742.6,
+   "w": 737.4,
+   "cx": 1106.1,
+   "cy": 53.8
+  }
+ ],
+ "bandLabels": [],
+ "nodes": [
+  {
+   "id": "n1",
+   "kind": "initial",
+   "label": "",
+   "x": 321.4,
+   "y": 119.2,
+   "w": 59.6,
+   "h": 59.6
+  },
+  {
+   "id": "n2",
+   "kind": "object",
+   "label": "Export Customs\nDeclaration",
+   "x": 586.4,
+   "y": 268.9,
+   "w": 313.6,
+   "h": 156.8,
+   "labelLines": [
+    {
+     "text": "Export Customs",
+     "cx": 742.6,
+     "cy": 335.0,
+     "w": 241.1
+    },
+    {
+     "text": "Declaration",
+     "cx": 742.6,
+     "cy": 362.9,
+     "w": 168.5
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n3",
+   "kind": "action",
+   "label": "Draft\nExport Customs\nDeclaration",
+   "x": 203.5,
+   "y": 285.1,
+   "w": 295.5,
+   "h": 125.7,
+   "rx": 16.8,
+   "ry": 15.6,
+   "labelLines": [
+    {
+     "text": "Draft",
+     "cx": 356.4,
+     "cy": 316.2,
+     "w": 64.8
+    },
+    {
+     "text": "Export Customs",
+     "cx": 356.4,
+     "cy": 350.6,
+     "w": 220.3
+    },
+    {
+     "text": "Declaration",
+     "cx": 355.7,
+     "cy": 379.1,
+     "w": 154.2
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "n4",
+   "kind": "action",
+   "label": "Validate\nExport Customs\nDeclaration",
+   "x": 994.0,
+   "y": 285.1,
+   "w": 251.4,
+   "h": 125.7,
+   "rx": 16.8,
+   "ry": 19.4,
+   "labelLines": [
+    {
+     "text": "Validate",
+     "cx": 1119.7,
+     "cy": 316.2,
+     "w": 108.9
+    },
+    {
+     "text": "Export Customs",
+     "cx": 1119.7,
+     "cy": 350.6,
+     "w": 220.3
+    },
+    {
+     "text": "Declaration",
+     "cx": 1119.7,
+     "cy": 379.1,
+     "w": 155.5
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "n5",
+   "kind": "decision",
+   "label": "OK?",
+   "x": 1019.9,
+   "y": 470.4,
+   "w": 206.1,
+   "h": 150.3,
+   "labelLines": [
+    {
+     "text": "OK?",
+     "cx": 1121.7,
+     "cy": 548.2,
+     "w": 60.9
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n6",
+   "kind": "object",
+   "label": "Export Customs\nDeclaration",
+   "x": 586.4,
+   "y": 726.4,
+   "w": 313.6,
+   "h": 156.8,
+   "labelLines": [
+    {
+     "text": "Export Customs",
+     "cx": 742.6,
+     "cy": 791.2,
+     "w": 241.1
+    },
+    {
+     "text": "Declaration",
+     "cx": 742.6,
+     "cy": 820.4,
+     "w": 168.5
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n7",
+   "kind": "action",
+   "label": "Receive\nExport Customs\nDeclaration",
+   "x": 213.8,
+   "y": 736.1,
+   "w": 274.7,
+   "h": 136.1,
+   "rx": 19.4,
+   "ry": 18.1,
+   "labelLines": [
+    {
+     "text": "Receive",
+     "cx": 351.2,
+     "cy": 773.0,
+     "w": 108.9
+    },
+    {
+     "text": "Export Customs",
+     "cx": 351.2,
+     "cy": 806.7,
+     "w": 220.3
+    },
+    {
+     "text": "Declaration",
+     "cx": 350.6,
+     "cy": 835.9,
+     "w": 154.2
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "n8",
+   "kind": "action",
+   "label": "Apply stamps\nand signature",
+   "x": 996.6,
+   "y": 736.1,
+   "w": 248.8,
+   "h": 136.1,
+   "rx": 20.7,
+   "ry": 20.7,
+   "labelLines": [
+    {
+     "text": "Apply stamps",
+     "cx": 1119.7,
+     "cy": 788.6,
+     "w": 186.6
+    },
+    {
+     "text": "and signature",
+     "cx": 1119.1,
+     "cy": 819.7,
+     "w": 187.9
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "n9",
+   "kind": "object",
+   "label": "Application response",
+   "x": 586.4,
+   "y": 988.2,
+   "w": 313.6,
+   "h": 156.8,
+   "labelLines": [
+    {
+     "text": "Application response",
+     "cx": 743.2,
+     "cy": 1073.1,
+     "w": 302.0
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n10",
+   "kind": "action",
+   "label": "Receive reject",
+   "x": 213.8,
+   "y": 997.9,
+   "w": 274.7,
+   "h": 137.4,
+   "rx": 23.3,
+   "ry": 18.1,
+   "labelLines": [
+    {
+     "text": "Receive reject",
+     "cx": 351.9,
+     "cy": 1073.1,
+     "w": 195.7
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "n11",
+   "kind": "action",
+   "label": "Send reject",
+   "x": 999.2,
+   "y": 997.9,
+   "w": 248.8,
+   "h": 137.4,
+   "rx": 23.3,
+   "ry": 23.3,
+   "labelLines": [
+    {
+     "text": "Send reject",
+     "cx": 1124.3,
+     "cy": 1072.4,
+     "w": 156.8
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "n12",
+   "kind": "final",
+   "label": "",
+   "x": 101.1,
+   "y": 1233.8,
+   "w": 77.8,
+   "h": 79.1,
+   "innerRatio": 0.793
+  }
+ ],
+ "edges": [
+  {
+   "from": "n1",
+   "to": "n3",
+   "exitXY": [
+    0.4782,
+    1.0
+   ],
+   "entryXY": [
+    0.4954,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n3",
+   "to": "n2",
+   "exitXY": [
+    1.0,
+    0.4948
+   ],
+   "entryXY": [
+    0.0,
+    0.5
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n2",
+   "to": "n4",
+   "exitXY": [
+    1.0,
+    0.5
+   ],
+   "entryXY": [
+    0.0,
+    0.4948
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n4",
+   "to": "n5",
+   "exitXY": [
+    0.5052,
+    1.0
+   ],
+   "entryXY": [
+    0.4968,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n5",
+   "to": "n11",
+   "exitXY": [
+    1.0,
+    0.4917
+   ],
+   "entryXY": [
+    1.0,
+    0.5095
+   ],
+   "straight": false,
+   "confidence": "high",
+   "points": [
+    [
+     1321.9,
+     544.3
+    ],
+    [
+     1321.9,
+     1067.9
+    ]
+   ],
+   "label": "No"
+  },
+  {
+   "from": "n5",
+   "to": "n8",
+   "exitXY": [
+    0.4968,
+    1.0
+   ],
+   "entryXY": [
+    0.5,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high",
+   "label": "Yes"
+  },
+  {
+   "from": "n6",
+   "to": "n7",
+   "exitXY": [
+    0.0,
+    0.5
+   ],
+   "entryXY": [
+    1.0,
+    0.4952
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n8",
+   "to": "n6",
+   "exitXY": [
+    0.0,
+    0.4952
+   ],
+   "entryXY": [
+    1.0,
+    0.5
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n7",
+   "to": "n12",
+   "exitXY": [
+    0.0,
+    0.4952
+   ],
+   "entryXY": [
+    0.5,
+    0.0
+   ],
+   "straight": false,
+   "confidence": "high",
+   "points": [
+    [
+     140.0,
+     803.5
+    ]
+   ]
+  },
+  {
+   "from": "n9",
+   "to": "n10",
+   "exitXY": [
+    0.0,
+    0.4917
+   ],
+   "entryXY": [
+    1.0,
+    0.4905
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n11",
+   "to": "n9",
+   "exitXY": [
+    0.0,
+    0.5095
+   ],
+   "entryXY": [
+    1.0,
+    0.5083
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n10",
+   "to": "n12",
+   "exitXY": [
+    0.5049,
+    1.0
+   ],
+   "entryXY": [
+    1.0,
+    0.4905
+   ],
+   "straight": false,
+   "confidence": "high",
+   "points": [
+    [
+     352.5,
+     1272.6
+    ]
+   ]
+  }
+ ],
+ "guards": [
+  {
+   "text": "Yes",
+   "x": 1043.3,
+   "y": 655.8,
+   "w": 44.1,
+   "h": 22.0,
+   "labelLines": [
+    {
+     "text": "Yes",
+     "cx": 1065.3,
+     "cy": 666.8,
+     "w": 44.1
+    }
+   ]
+  },
+  {
+   "text": "No",
+   "x": 1336.1,
+   "y": 767.2,
+   "w": 33.7,
+   "h": 20.7,
+   "labelLines": [
+    {
+     "text": "No",
+     "cx": 1353.0,
+     "cy": 777.6,
+     "w": 33.7
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,8 @@
+  verdict: NEEDS-HUMAN
+  structural: 0 element(s) absent, 0 invented, 0 text absent, 0 text differs, 0 incoherent
+  line-work  missing 159 px (0.107%)   invented 163 px (0.110%)   radius 3
+    line-work-missing       86 px at  1633,557      5x28    on node n2 (object 'Manifest')
+    line-work-invented      76 px at  1674,557      5x26    on node n2 (object 'Manifest')
+  needs a person (1):
+    unexplained-line-work at 1071,-61  decide what this is; the SVG does not draw it
+review/baseline/UBL-2.3-ManifestProcess-marked.png + review/baseline/UBL-2.3-ManifestProcess-marked-lost.png  (1 finding(s) numbered)

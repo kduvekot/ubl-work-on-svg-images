@@ -1,0 +1,469 @@
+{
+ "source": "UBL-2.2-IMFM-GoodsItemItinerary.png",
+ "size": [
+  3425,
+  1258
+ ],
+ "fontPx": 61.4,
+ "arrowPx": 82.5,
+ "arrowWidthPx": 66.2,
+ "arrowStyle": "open",
+ "rules": {
+  "v": [
+   [
+    0,
+    10
+   ],
+   [
+    1504,
+    7
+   ],
+   [
+    3415,
+    10
+   ]
+  ],
+  "h": [
+   [
+    0,
+    10
+   ],
+   [
+    1248,
+    10
+   ]
+  ]
+ },
+ "ruleSpan": {
+  "v": [
+   [
+    13,
+    1244
+   ],
+   [
+    13,
+    1244
+   ],
+   [
+    13,
+    1244
+   ]
+  ],
+  "h": [
+   [
+    13,
+    3411
+   ],
+   [
+    13,
+    3411
+   ]
+  ]
+ },
+ "greyRules": [],
+ "dashed": [],
+ "openEnds": [],
+ "crossMarks": [],
+ "partitions": [
+  {
+   "axis": "column",
+   "index": 0,
+   "x0": 0,
+   "x1": 1508,
+   "title": "Transport User",
+   "titleBox": [
+    550,
+    58,
+    384,
+    53
+   ]
+  },
+  {
+   "axis": "column",
+   "index": 1,
+   "x0": 1508,
+   "x1": 3425,
+   "title": "Transport Service Provider",
+   "titleBox": [
+    2092,
+    57,
+    687,
+    54
+   ]
+  },
+  {
+   "axis": "band",
+   "index": 0,
+   "y0": 0,
+   "y1": 1258,
+   "title": ""
+  }
+ ],
+ "nodes": [
+  {
+   "x": 2441,
+   "y": 184,
+   "w": 117,
+   "h": 117,
+   "area": 9510,
+   "fill": 0.772,
+   "kind": "initial",
+   "id": "n1",
+   "label": "",
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 1201,
+   "y": 575,
+   "w": 607,
+   "h": 242,
+   "area": 137157,
+   "fill": 0.934,
+   "solid": 1.0,
+   "rx": 2,
+   "ry": 2,
+   "shape": "rect",
+   "stroke": 12,
+   "kind": "object",
+   "id": "n2",
+   "label": "Goods Item\nItinerary",
+   "labelLines": [
+    {
+     "x": 1353,
+     "y": 631,
+     "w": 311,
+     "h": 44,
+     "text": "Goods Item"
+    },
+    {
+     "x": 1390,
+     "y": 696,
+     "w": 228,
+     "h": 54,
+     "text": "Itinerary"
+    }
+   ],
+   "stem": 0.13,
+   "bold": true,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 2136,
+   "y": 578,
+   "w": 768,
+   "h": 225,
+   "area": 153769,
+   "fill": 0.89,
+   "solid": 0.963,
+   "rx": 85,
+   "ry": 88,
+   "shape": "rounded",
+   "stroke": 6,
+   "kind": "action",
+   "id": "n3",
+   "label": "Send Goods Item Itinerary",
+   "labelLines": [
+    {
+     "x": 2166,
+     "y": 663,
+     "w": 716,
+     "h": 55,
+     "text": "Send Goods Item Itinerary"
+    }
+   ],
+   "stem": 0.13,
+   "bold": true,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 88,
+   "y": 584,
+   "w": 768,
+   "h": 219,
+   "area": 147936,
+   "fill": 0.88,
+   "solid": 0.962,
+   "rx": 85,
+   "ry": 91,
+   "shape": "rounded",
+   "stroke": 7,
+   "kind": "action",
+   "id": "n4",
+   "label": "Receive Goods Item\nItinerary",
+   "labelLines": [
+    {
+     "x": 181,
+     "y": 637,
+     "w": 545,
+     "h": 44,
+     "text": "Receive Goods Item"
+    },
+    {
+     "x": 361,
+     "y": 713,
+     "w": 221,
+     "h": 54,
+     "text": "Itinerary"
+    }
+   ],
+   "stem": 0.13,
+   "bold": true,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 3205,
+   "y": 653,
+   "w": 117,
+   "h": 116,
+   "area": 9478,
+   "fill": 0.776,
+   "kind": "initial",
+   "id": "n5",
+   "label": "",
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 377,
+   "y": 1082,
+   "w": 103,
+   "h": 103,
+   "area": 6783,
+   "fill": 0.639,
+   "solid": 0.796,
+   "rx": 47,
+   "ry": 53,
+   "shape": "ellipse",
+   "stroke": 6,
+   "kind": "final",
+   "innerRatio": 0.447,
+   "id": "n6",
+   "label": "",
+   "col": 0,
+   "row": 0
+  }
+ ],
+ "edges": [
+  {
+   "from": "n1",
+   "to": "n3",
+   "routing": "straight",
+   "fromPoint": [
+    2499,
+    315
+   ],
+   "toPoint": [
+    2505,
+    563
+   ],
+   "arrowInk": [
+    315,
+    968
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    79,
+    66.6,
+    2.15
+   ],
+   "arrowFill": 0.067,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n3",
+   "to": "n2",
+   "routing": "straight",
+   "fromPoint": [
+    2121,
+    690
+   ],
+   "toPoint": [
+    1822,
+    690
+   ],
+   "arrowInk": [
+    322,
+    772
+   ],
+   "directionConfidence": "medium",
+   "edgeKind": "object"
+  },
+  {
+   "from": "n2",
+   "to": "n4",
+   "routing": "straight",
+   "fromPoint": [
+    1186,
+    697
+   ],
+   "toPoint": [
+    870,
+    695
+   ],
+   "arrowInk": [
+    322,
+    884
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    85,
+    65.1,
+    2.7
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n5",
+   "to": "n3",
+   "routing": "straight",
+   "fromPoint": [
+    3190,
+    709
+   ],
+   "toPoint": [
+    2918,
+    701
+   ],
+   "arrowInk": [
+    277,
+    892
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    85,
+    66.6,
+    2.86
+   ],
+   "arrowFill": 0.004,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n4",
+   "to": "n6",
+   "routing": "straight",
+   "fromPoint": [
+    433,
+    817
+   ],
+   "toPoint": [
+    429,
+    1067
+   ],
+   "arrowInk": [
+    315,
+    955
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    80,
+    65.8,
+    2.18
+   ],
+   "arrowFill": 0.044,
+   "edgeKind": "control"
+  }
+ ],
+ "text": [
+  {
+   "text": "Transport Service Provider",
+   "x": 2092,
+   "y": 57,
+   "w": 687,
+   "h": 54,
+   "lines": [
+    {
+     "x": 2092,
+     "y": 57,
+     "w": 687,
+     "h": 54,
+     "text": "Transport Service Provider"
+    }
+   ]
+  },
+  {
+   "text": "Transport User",
+   "x": 550,
+   "y": 58,
+   "w": 384,
+   "h": 53,
+   "lines": [
+    {
+     "x": 550,
+     "y": 58,
+     "w": 384,
+     "h": 53,
+     "text": "Transport User"
+    }
+   ]
+  },
+  {
+   "text": "Transport Execution\nPlan Confirmed",
+   "x": 2554,
+   "y": 360,
+   "w": 508,
+   "h": 118,
+   "lines": [
+    {
+     "x": 2551,
+     "y": 360,
+     "w": 511,
+     "h": 54,
+     "text": "Transport Execution"
+    },
+    {
+     "x": 2554,
+     "y": 435,
+     "w": 390,
+     "h": 43,
+     "text": "Plan Confirmed"
+    }
+   ]
+  },
+  {
+   "text": "Transport\nExecution\nUpdates",
+   "x": 3095,
+   "y": 811,
+   "w": 248,
+   "h": 203,
+   "lines": [
+    {
+     "x": 3095,
+     "y": 811,
+     "w": 245,
+     "h": 53,
+     "text": "Transport"
+    },
+    {
+     "x": 3098,
+     "y": 886,
+     "w": 245,
+     "h": 42,
+     "text": "Execution"
+    },
+    {
+     "x": 3098,
+     "y": 961,
+     "w": 208,
+     "h": 53,
+     "text": "Updates"
+    }
+   ]
+  }
+ ],
+ "uncertain": [
+  {
+   "kind": "unexplained-line-work",
+   "x": 2521,
+   "y": 360,
+   "w": 83,
+   "h": 146,
+   "reason": "line-work that is neither a connector between two nodes nor the size of text",
+   "check": "decide what this is; the SVG does not draw it"
+  }
+ ]
+}
