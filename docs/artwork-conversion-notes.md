@@ -4,6 +4,12 @@ Handover notes for the effort to recover **editable sources** for the UBL
 specification artwork. Written at the end of a working session so the next one
 does not have to rediscover any of it.
 
+These notes are the *why*: what each rule is for, what it was measured against,
+and what was tried and rejected. **`docs/running.md` is the *how*** - where to get
+the artwork, what has to be installed, the commands, and the numbers a new run
+should reproduce. Start there if the object is to run this rather than to change
+it.
+
 ---
 
 ## 1. Why this exists
@@ -801,15 +807,25 @@ before, no tracebacks, and the direction tripwire silent.
 
 ### 13.2 What it could not work out, and what is still true
 
-Its other findings are about the package rather than the conversion, and stand:
-there is no README naming `verdict-sweep.sh` as the entry point; no dependency
-manifest; the radius is 2 in `run-pipeline.sh` and `validate-artwork.sh` and 3 in
+Its other findings are about the package rather than the conversion. Those that
+stand: the radius is 2 in `run-pipeline.sh` and `validate-artwork.sh` and 3 in
 `verdict-sweep.sh`, so one sweep prints two "missing" percentages per diagram -
-7.8% and 0.050% for Fig 86 - with nothing saying which is the gate;
-`render-svg.js` hardcodes an absolute Chromium build path; the OCR cache defaults
-to `~/.cache/ubl-ocr`, outside the working tree; `build_lexicon.py` overwrites a
-shipped fixture by default; and the `|| true` guards hide exactly the crash it
-found.
+7.8% and 0.050% for Fig 86 - with nothing saying which is the gate; the OCR cache
+defaults to `~/.cache/ubl-ocr`, outside the working tree; `build_lexicon.py`
+overwrites a shipped fixture by default; and the `|| true` guards hide exactly the
+crash it found. They are listed again in §8 of `docs/running.md`, where someone
+about to run this will meet them.
+
+Two it found are now answered: `docs/running.md` names `verdict-sweep.sh` as the
+entry point and lists what has to be installed, and `tools/uml78-bycomplexity.txt`
+is the names file a sweep needs, which until now existed only outside the
+repository.
+
+One it got wrong: `render-svg.js` does not hardcode the Chromium path. The
+absolute path is a default and `CHROMIUM_PATH` has overridden it since the first
+commit. The agent read the default and reported it as fixed; it is recorded here
+because a finding from a test like that is worth no more than the evidence under
+it.
 
 One of its conclusions is overstated and is recorded here so it is not repeated:
 it saw six diagrams that all carry notes for a person and concluded no diagram can
