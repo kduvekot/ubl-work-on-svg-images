@@ -6,19 +6,19 @@
  },
  "lanes": [
   {
-   "id": "lane0",
+   "id": "lane-producer",
    "axis": "column",
    "index": 0,
    "title": "Producer"
   },
   {
-   "id": "lane1",
+   "id": "lane-retailer",
    "axis": "column",
    "index": 1,
    "title": "Retailer"
   },
   {
-   "id": "lane2",
+   "id": "band-1",
    "axis": "band",
    "index": 0,
    "title": ""
@@ -26,73 +26,73 @@
  ],
  "nodes": [
   {
-   "id": "n1",
+   "id": "initial-producer",
    "kind": "initial",
    "label": "",
-   "lane": "lane0",
-   "band": "lane2"
+   "lane": "lane-producer",
+   "band": "band-1"
   },
   {
-   "id": "n2",
+   "id": "object-invoice",
    "kind": "object",
    "label": "Invoice",
-   "lane": "lane0",
-   "band": "lane2"
+   "lane": "lane-producer",
+   "band": "band-1"
   },
   {
-   "id": "n3",
+   "id": "action-raise-invoice",
    "kind": "action",
    "label": "Raise Invoice",
-   "lane": "lane0",
-   "band": "lane2"
+   "lane": "lane-producer",
+   "band": "band-1"
   },
   {
-   "id": "n4",
+   "id": "action-receive-invoice",
    "kind": "action",
    "label": "Receive Invoice",
-   "lane": "lane1",
-   "band": "lane2"
+   "lane": "lane-retailer",
+   "band": "band-1"
   },
   {
-   "id": "n5",
+   "id": "final-retailer",
    "kind": "final",
    "label": "",
-   "lane": "lane1",
-   "band": "lane2"
+   "lane": "lane-retailer",
+   "band": "band-1"
   }
  ],
  "flows": [
   {
-   "id": "f0",
-   "from": "n1",
-   "to": "n3",
+   "id": "flow-initial-producer-to-raise-invoice",
+   "from": "initial-producer",
+   "to": "action-raise-invoice",
    "kind": "control",
    "direction": {
     "confidence": "high"
    }
   },
   {
-   "id": "f1",
-   "from": "n3",
-   "to": "n2",
+   "id": "flow-raise-invoice-to-invoice",
+   "from": "action-raise-invoice",
+   "to": "object-invoice",
    "kind": "object",
    "direction": {
     "confidence": "high"
    }
   },
   {
-   "id": "f2",
-   "from": "n2",
-   "to": "n4",
+   "id": "flow-invoice-to-receive-invoice",
+   "from": "object-invoice",
+   "to": "action-receive-invoice",
    "kind": "object",
    "direction": {
     "confidence": "high"
    }
   },
   {
-   "id": "f3",
-   "from": "n4",
-   "to": "n5",
+   "id": "flow-receive-invoice-to-final-retailer",
+   "from": "action-receive-invoice",
+   "to": "final-retailer",
    "kind": "control",
    "direction": {
     "confidence": "high"

@@ -6,19 +6,19 @@
  },
  "lanes": [
   {
-   "id": "lane0",
+   "id": "lane-transport-user",
    "axis": "column",
    "index": 0,
    "title": "Transport User"
   },
   {
-   "id": "lane1",
+   "id": "lane-transport-service-provider",
    "axis": "column",
    "index": 1,
    "title": "Transport Service Provider"
   },
   {
-   "id": "lane2",
+   "id": "band-1",
    "axis": "band",
    "index": 0,
    "title": ""
@@ -26,435 +26,435 @@
  ],
  "nodes": [
   {
-   "id": "n1",
+   "id": "initial-transport-user",
    "kind": "initial",
    "label": "",
-   "lane": "lane0",
-   "band": "lane2"
+   "lane": "lane-transport-user",
+   "band": "band-1"
   },
   {
-   "id": "n2",
+   "id": "action-create-update-transport-execution-plan",
    "kind": "action",
    "label": "Create/Update\nTransport Execution\nPlan Request",
-   "lane": "lane0",
-   "band": "lane2"
+   "lane": "lane-transport-user",
+   "band": "band-1"
   },
   {
-   "id": "n3",
+   "id": "action-evaluatetransport-execution-plan-request",
    "kind": "action",
    "label": "EvaluateTransport\nExecution Plan\nRequest",
-   "lane": "lane1",
-   "band": "lane2"
+   "lane": "lane-transport-service-provider",
+   "band": "band-1"
   },
   {
-   "id": "n4",
+   "id": "object-notconfirmed-transport-execution-plan",
    "kind": "object",
    "label": "«NotConfirmed»\nTransport Execution\nPlan Request",
-   "lane": "lane0",
-   "band": "lane2"
+   "lane": "lane-transport-user",
+   "band": "band-1"
   },
   {
-   "id": "n5",
+   "id": "action-request-transport-service",
    "kind": "action",
    "label": "Request Transport\nService",
-   "lane": "lane0",
-   "band": "lane2"
+   "lane": "lane-transport-user",
+   "band": "band-1"
   },
   {
-   "id": "n6",
+   "id": "action-receive-transport-service-request",
    "kind": "action",
    "label": "Receive Transport\nService Request",
-   "lane": "lane1",
-   "band": "lane2"
+   "lane": "lane-transport-service-provider",
+   "band": "band-1"
   },
   {
-   "id": "n7",
+   "id": "object-rejected-transport-execution-plan-in-transport-user",
    "kind": "object",
    "label": "«Rejected»\nTransport Execution\nPlan",
-   "lane": "lane0",
-   "band": "lane2"
+   "lane": "lane-transport-user",
+   "band": "band-1"
   },
   {
-   "id": "n8",
+   "id": "action-reject-transport-service-request",
    "kind": "action",
    "label": "Reject Transport\nService Request",
-   "lane": "lane1",
-   "band": "lane2"
+   "lane": "lane-transport-service-provider",
+   "band": "band-1"
   },
   {
-   "id": "n9",
+   "id": "action-receive-rejected-transport-execution-in-transport-user",
    "kind": "action",
    "label": "Receive Rejected\nTransport Execution\nPlan",
-   "lane": "lane0",
-   "band": "lane2"
+   "lane": "lane-transport-user",
+   "band": "band-1"
   },
   {
-   "id": "n10",
+   "id": "decision-transport-service-provider",
    "kind": "decision",
    "label": "",
-   "lane": "lane1",
-   "band": "lane2"
+   "lane": "lane-transport-service-provider",
+   "band": "band-1"
   },
   {
-   "id": "n11",
+   "id": "decision-transport-user",
    "kind": "decision",
    "label": "",
-   "lane": "lane0",
-   "band": "lane2"
+   "lane": "lane-transport-user",
+   "band": "band-1"
   },
   {
-   "id": "n12",
+   "id": "final-transport-user",
    "kind": "final",
    "label": "",
-   "lane": "lane0",
-   "band": "lane2"
+   "lane": "lane-transport-user",
+   "band": "band-1"
   },
   {
-   "id": "n13",
+   "id": "object-confirmed-transport-execution-plan-in-transport-user",
    "kind": "object",
    "label": "«Confirmed»\nTransport Execution\nPlan",
-   "lane": "lane0",
-   "band": "lane2"
+   "lane": "lane-transport-user",
+   "band": "band-1"
   },
   {
-   "id": "n14",
+   "id": "action-receive-proposed-transport-execution",
    "kind": "action",
    "label": "Receive Proposed\nTransport Execution\nPlan",
-   "lane": "lane0",
-   "band": "lane2"
+   "lane": "lane-transport-user",
+   "band": "band-1"
   },
   {
-   "id": "n15",
+   "id": "action-confirm-transport-service-request",
    "kind": "action",
    "label": "Confirm Transport\nService Request",
-   "lane": "lane1",
-   "band": "lane2"
+   "lane": "lane-transport-service-provider",
+   "band": "band-1"
   },
   {
-   "id": "n16",
+   "id": "action-evaluatetransport-execution-plan",
    "kind": "action",
    "label": "EvaluateTransport\nExecution Plan",
-   "lane": "lane0",
-   "band": "lane2"
+   "lane": "lane-transport-user",
+   "band": "band-1"
   },
   {
-   "id": "n17",
+   "id": "decision-transport-user-2",
    "kind": "decision",
    "label": "",
-   "lane": "lane0",
-   "band": "lane2"
+   "lane": "lane-transport-user",
+   "band": "band-1"
   },
   {
-   "id": "n18",
+   "id": "action-receive-confirmed-transport-execution",
    "kind": "action",
    "label": "Receive Confirmed\nTransport Execution\nPlan",
-   "lane": "lane1",
-   "band": "lane2"
+   "lane": "lane-transport-service-provider",
+   "band": "band-1"
   },
   {
-   "id": "n19",
+   "id": "object-confirmed-transport-execution-plan-in-transport-service-provider",
    "kind": "object",
    "label": "«Confirmed»\nTransport Execution\nPlan",
-   "lane": "lane1",
-   "band": "lane2"
+   "lane": "lane-transport-service-provider",
+   "band": "band-1"
   },
   {
-   "id": "n20",
+   "id": "action-confirm-transport-execution-plan",
    "kind": "action",
    "label": "Confirm Transport\nExecution Plan",
-   "lane": "lane0",
-   "band": "lane2"
+   "lane": "lane-transport-user",
+   "band": "band-1"
   },
   {
-   "id": "n21",
+   "id": "final-transport-service-provider",
    "kind": "final",
    "label": "",
-   "lane": "lane1",
-   "band": "lane2"
+   "lane": "lane-transport-service-provider",
+   "band": "band-1"
   },
   {
-   "id": "n22",
+   "id": "decision-transport-user-3",
    "kind": "decision",
    "label": "",
-   "lane": "lane0",
-   "band": "lane2"
+   "lane": "lane-transport-user",
+   "band": "band-1"
   },
   {
-   "id": "n23",
+   "id": "object-rejected-transport-execution-plan-in-transport-user-2",
    "kind": "object",
    "label": "«Rejected»\nTransport Execution\nPlan",
-   "lane": "lane0",
-   "band": "lane2"
+   "lane": "lane-transport-user",
+   "band": "band-1"
   },
   {
-   "id": "n24",
+   "id": "action-receive-rejected-transport-execution-in-transport-service-provider",
    "kind": "action",
    "label": "Receive Rejected\nTransport Execution\nPlan",
-   "lane": "lane1",
-   "band": "lane2"
+   "lane": "lane-transport-service-provider",
+   "band": "band-1"
   },
   {
-   "id": "n25",
+   "id": "action-reject-transport-execution-plan",
    "kind": "action",
    "label": "Reject Transport\nExecution Plan",
-   "lane": "lane0",
-   "band": "lane2"
+   "lane": "lane-transport-user",
+   "band": "band-1"
   },
   {
-   "id": "n26",
+   "id": "final-transport-service-provider-2",
    "kind": "final",
    "label": "",
-   "lane": "lane1",
-   "band": "lane2"
+   "lane": "lane-transport-service-provider",
+   "band": "band-1"
   }
  ],
  "flows": [
   {
-   "id": "f0",
-   "from": "n1",
-   "to": "n5",
+   "id": "flow-initial-transport-user-to-request-transport-service",
+   "from": "initial-transport-user",
+   "to": "action-request-transport-service",
    "kind": "control",
    "direction": {
     "confidence": "high"
    }
   },
   {
-   "id": "f1",
-   "from": "n22",
-   "to": "n2",
-   "kind": "control",
-   "direction": {
-    "confidence": "high"
-   },
-   "guard": "t11"
-  },
-  {
-   "id": "f2",
-   "from": "n6",
-   "to": "n3",
-   "kind": "control",
-   "direction": {
-    "confidence": "high"
-   }
-  },
-  {
-   "id": "f3",
-   "from": "n2",
-   "to": "n5",
-   "kind": "control",
-   "direction": {
-    "confidence": "high"
-   }
-  },
-  {
-   "id": "f4",
-   "from": "n5",
-   "to": "n4",
-   "kind": "object",
-   "direction": {
-    "confidence": "high"
-   }
-  },
-  {
-   "id": "f5",
-   "from": "n4",
-   "to": "n6",
-   "kind": "object",
-   "direction": {
-    "confidence": "high"
-   }
-  },
-  {
-   "id": "f6",
-   "from": "n11",
-   "to": "n2",
+   "id": "flow-decision-transport-user-3-to-create-update-transport-execution-plan",
+   "from": "decision-transport-user-3",
+   "to": "action-create-update-transport-execution-plan",
    "kind": "control",
    "direction": {
     "confidence": "high"
    },
-   "guard": "t3"
+   "guard": "text-yes-4"
   },
   {
-   "id": "f7",
-   "from": "n3",
-   "to": "n10",
+   "id": "flow-receive-transport-service-request-to-evaluatetransport-execution-plan-request",
+   "from": "action-receive-transport-service-request",
+   "to": "action-evaluatetransport-execution-plan-request",
    "kind": "control",
    "direction": {
     "confidence": "high"
    }
   },
   {
-   "id": "f8",
-   "from": "n9",
-   "to": "n11",
+   "id": "flow-create-update-transport-execution-plan-to-request-transport-service",
+   "from": "action-create-update-transport-execution-plan",
+   "to": "action-request-transport-service",
    "kind": "control",
    "direction": {
     "confidence": "high"
    }
   },
   {
-   "id": "f9",
-   "from": "n7",
-   "to": "n9",
+   "id": "flow-request-transport-service-to-notconfirmed-transport-execution-plan",
+   "from": "action-request-transport-service",
+   "to": "object-notconfirmed-transport-execution-plan",
    "kind": "object",
    "direction": {
     "confidence": "high"
    }
   },
   {
-   "id": "f10",
-   "from": "n8",
-   "to": "n7",
+   "id": "flow-notconfirmed-transport-execution-plan-to-receive-transport-service-request",
+   "from": "object-notconfirmed-transport-execution-plan",
+   "to": "action-receive-transport-service-request",
    "kind": "object",
    "direction": {
     "confidence": "high"
    }
   },
   {
-   "id": "f11",
-   "from": "n10",
-   "to": "n8",
+   "id": "flow-decision-transport-user-to-create-update-transport-execution-plan",
+   "from": "decision-transport-user",
+   "to": "action-create-update-transport-execution-plan",
    "kind": "control",
    "direction": {
     "confidence": "high"
    },
-   "guard": "t5"
+   "guard": "text-yes"
   },
   {
-   "id": "f12",
-   "from": "n11",
-   "to": "n12",
+   "id": "flow-evaluatetransport-execution-plan-request-to-decision-transport-service-provider",
+   "from": "action-evaluatetransport-execution-plan-request",
+   "to": "decision-transport-service-provider",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-receive-rejected-transport-execution-in-transport-user-to-decision-transport-user",
+   "from": "action-receive-rejected-transport-execution-in-transport-user",
+   "to": "decision-transport-user",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-rejected-transport-execution-plan-in-transport-user-to-receive-rejected-transport-execution-in-transport-user",
+   "from": "object-rejected-transport-execution-plan-in-transport-user",
+   "to": "action-receive-rejected-transport-execution-in-transport-user",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-reject-transport-service-request-to-rejected-transport-execution-plan-in-transport-user",
+   "from": "action-reject-transport-service-request",
+   "to": "object-rejected-transport-execution-plan-in-transport-user",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-decision-transport-service-provider-to-reject-transport-service-request",
+   "from": "decision-transport-service-provider",
+   "to": "action-reject-transport-service-request",
    "kind": "control",
    "direction": {
     "confidence": "high"
    },
-   "guard": "t6"
+   "guard": "text-no"
   },
   {
-   "id": "f13",
-   "from": "n10",
-   "to": "n15",
+   "id": "flow-decision-transport-user-to-final-transport-user",
+   "from": "decision-transport-user",
+   "to": "final-transport-user",
    "kind": "control",
    "direction": {
     "confidence": "high"
    },
-   "guard": "t7"
+   "guard": "text-no-2"
   },
   {
-   "id": "f14",
-   "from": "n13",
-   "to": "n14",
-   "kind": "object",
-   "direction": {
-    "confidence": "high"
-   }
-  },
-  {
-   "id": "f15",
-   "from": "n15",
-   "to": "n13",
-   "kind": "object",
-   "direction": {
-    "confidence": "high"
-   }
-  },
-  {
-   "id": "f16",
-   "from": "n14",
-   "to": "n16",
-   "kind": "control",
-   "direction": {
-    "confidence": "high"
-   }
-  },
-  {
-   "id": "f17",
-   "from": "n16",
-   "to": "n17",
-   "kind": "control",
-   "direction": {
-    "confidence": "high"
-   }
-  },
-  {
-   "id": "f18",
-   "from": "n17",
-   "to": "n22",
+   "id": "flow-decision-transport-service-provider-to-confirm-transport-service-request",
+   "from": "decision-transport-service-provider",
+   "to": "action-confirm-transport-service-request",
    "kind": "control",
    "direction": {
     "confidence": "high"
    },
-   "guard": "t9"
+   "guard": "text-yes-2"
   },
   {
-   "id": "f19",
-   "from": "n17",
-   "to": "n20",
+   "id": "flow-confirmed-transport-execution-plan-in-transport-user-to-receive-proposed-transport-execution",
+   "from": "object-confirmed-transport-execution-plan-in-transport-user",
+   "to": "action-receive-proposed-transport-execution",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-confirm-transport-service-request-to-confirmed-transport-execution-plan-in-transport-user",
+   "from": "action-confirm-transport-service-request",
+   "to": "object-confirmed-transport-execution-plan-in-transport-user",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-receive-proposed-transport-execution-to-evaluatetransport-execution-plan",
+   "from": "action-receive-proposed-transport-execution",
+   "to": "action-evaluatetransport-execution-plan",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-evaluatetransport-execution-plan-to-decision-transport-user-2",
+   "from": "action-evaluatetransport-execution-plan",
+   "to": "decision-transport-user-2",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-decision-transport-user-2-to-decision-transport-user-3",
+   "from": "decision-transport-user-2",
+   "to": "decision-transport-user-3",
    "kind": "control",
    "direction": {
     "confidence": "high"
    },
-   "guard": "t10"
+   "guard": "text-no-3"
   },
   {
-   "id": "f20",
-   "from": "n19",
-   "to": "n18",
-   "kind": "object",
-   "direction": {
-    "confidence": "high"
-   }
-  },
-  {
-   "id": "f21",
-   "from": "n20",
-   "to": "n19",
-   "kind": "object",
-   "direction": {
-    "confidence": "high"
-   }
-  },
-  {
-   "id": "f22",
-   "from": "n18",
-   "to": "n21",
-   "kind": "control",
-   "direction": {
-    "confidence": "high"
-   }
-  },
-  {
-   "id": "f23",
-   "from": "n22",
-   "to": "n25",
+   "id": "flow-decision-transport-user-2-to-confirm-transport-execution-plan",
+   "from": "decision-transport-user-2",
+   "to": "action-confirm-transport-execution-plan",
    "kind": "control",
    "direction": {
     "confidence": "high"
    },
-   "guard": "t13"
+   "guard": "text-yes-3"
   },
   {
-   "id": "f24",
-   "from": "n25",
-   "to": "n23",
+   "id": "flow-confirmed-transport-execution-plan-in-transport-service-provider-to-receive-confirmed-transport-execution",
+   "from": "object-confirmed-transport-execution-plan-in-transport-service-provider",
+   "to": "action-receive-confirmed-transport-execution",
    "kind": "object",
    "direction": {
     "confidence": "high"
    }
   },
   {
-   "id": "f25",
-   "from": "n23",
-   "to": "n24",
+   "id": "flow-confirm-transport-execution-plan-to-confirmed-transport-execution-plan-in-transport-service-provider",
+   "from": "action-confirm-transport-execution-plan",
+   "to": "object-confirmed-transport-execution-plan-in-transport-service-provider",
    "kind": "object",
    "direction": {
     "confidence": "high"
    }
   },
   {
-   "id": "f26",
-   "from": "n24",
-   "to": "n26",
+   "id": "flow-receive-confirmed-transport-execution-to-final-transport-service-provider",
+   "from": "action-receive-confirmed-transport-execution",
+   "to": "final-transport-service-provider",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-decision-transport-user-3-to-reject-transport-execution-plan",
+   "from": "decision-transport-user-3",
+   "to": "action-reject-transport-execution-plan",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   },
+   "guard": "text-no-4"
+  },
+  {
+   "id": "flow-reject-transport-execution-plan-to-rejected-transport-execution-plan-in-transport-user-2",
+   "from": "action-reject-transport-execution-plan",
+   "to": "object-rejected-transport-execution-plan-in-transport-user-2",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-rejected-transport-execution-plan-in-transport-user-2-to-receive-rejected-transport-execution-in-transport-service-provider",
+   "from": "object-rejected-transport-execution-plan-in-transport-user-2",
+   "to": "action-receive-rejected-transport-execution-in-transport-service-provider",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-receive-rejected-transport-execution-in-transport-service-provider-to-final-transport-service-provider-2",
+   "from": "action-receive-rejected-transport-execution-in-transport-service-provider",
+   "to": "final-transport-service-provider-2",
    "kind": "control",
    "direction": {
     "confidence": "high"
@@ -463,63 +463,63 @@
  ],
  "texts": [
   {
-   "id": "t2",
+   "id": "text-update-transport-execution-plan-request",
    "text": "Update Transport\nExecution Plan Request?"
   },
   {
-   "id": "t3",
+   "id": "text-yes",
    "text": "[yes]",
-   "labels": "f6"
+   "labels": "flow-decision-transport-user-to-create-update-transport-execution-plan"
   },
   {
-   "id": "t4",
+   "id": "text-transport-execution-plan-request",
    "text": "Transport Execution\nPlan Request\nAcceptable?"
   },
   {
-   "id": "t5",
+   "id": "text-no",
    "text": "[no]",
-   "labels": "f11"
+   "labels": "flow-decision-transport-service-provider-to-reject-transport-service-request"
   },
   {
-   "id": "t6",
+   "id": "text-no-2",
    "text": "[no]",
-   "labels": "f12"
+   "labels": "flow-decision-transport-user-to-final-transport-user"
   },
   {
-   "id": "t7",
+   "id": "text-yes-2",
    "text": "[yes]",
-   "labels": "f13"
+   "labels": "flow-decision-transport-service-provider-to-confirm-transport-service-request"
   },
   {
-   "id": "t8",
+   "id": "text-transport-execution-plan-acceptable",
    "text": "Transport Execution Plan\nAcceptable?"
   },
   {
-   "id": "t9",
+   "id": "text-no-3",
    "text": "[no]",
-   "labels": "f18"
+   "labels": "flow-decision-transport-user-2-to-decision-transport-user-3"
   },
   {
-   "id": "t10",
+   "id": "text-yes-3",
    "text": "[yes]",
-   "labels": "f19"
+   "labels": "flow-decision-transport-user-2-to-confirm-transport-execution-plan"
   },
   {
-   "id": "t11",
+   "id": "text-yes-4",
    "text": "[yes]",
-   "labels": "f1"
+   "labels": "flow-decision-transport-user-3-to-create-update-transport-execution-plan"
   },
   {
-   "id": "t12",
+   "id": "text-transport-service-ready-for-execution",
    "text": "Transport Service Ready\nFor Execution"
   },
   {
-   "id": "t13",
+   "id": "text-no-4",
    "text": "[no]",
-   "labels": "f23"
+   "labels": "flow-decision-transport-user-3-to-reject-transport-execution-plan"
   },
   {
-   "id": "t14",
+   "id": "text-update-transport-execution-plan-request-2",
    "text": "Update Transport Execution\nPlan Request?"
   }
  ],

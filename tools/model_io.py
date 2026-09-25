@@ -31,12 +31,14 @@ Two things the graph holds twice are held once here:
   those readings are moved to the extraction report (`titleReadings`), because
   they are how the extractor read the title and not a second thing on the page.
 
-The graph's ids (`n1`, `n2`, ...) are handed out in reading order. They are kept
-as they are for now, and the elements that had no id are given one in the same
-spirit, by position in their list; so the ids are not yet stable across changes to
-the extractor.
+Every element gets an id that says what it is, not when it was read: the graph's
+ids (`n1`, `n2`, ...) are handed out in reading order and move whenever the
+extractor changes, so nothing could be pinned to one. See `assign_ids()`. The
+graph's own ids are kept in the extraction report as `formerIds`, which is also
+how the split joins back.
 """
 import json, os, re, sys
+from collections import Counter
 
 MODEL_SCHEMA = "ubl-activity-diagram/1"
 LAYOUT_SCHEMA = "ubl-activity-diagram-layout/1"
@@ -108,6 +110,149 @@ def _pick(d, keys):
 def _rest(d, *exclude):
     drop = set().union(*exclude)
     return {k: v for k, v in d.items() if k not in drop}
+
+
+def slug(s, limit=40):
+    """lower case, words joined by hyphens, cut at a word boundary"""
+    words = re.findall(r"[a-z0-9]+", (s or "").lower())
+    out = ""
+    for w in words:
+        if out and len(out) + 1 + len(w) > limit:
+            break
+        out = (out + "-" + w) if out else w[:limit]
+    return out
+
+
+def _unique(wanted, order_key):
+    """Give each element the id it asks for, numbering the ones that ask for the
+    same thing - "-2", "-3" ... in the order of `order_key` (where they are on the
+    page), the first keeping the bare name."""
+    groups = {}
+    for el, want in wanted:
+        groups.setdefault(want, []).append(el)
+    out = {}
+    for want, els in groups.items():
+        els = sorted(els, key=order_key)
+        for i, el in enumerate(els):
+            out[id(el)] = want if i == 0 else "%s-%d" % (want, i + 1)
+    return out
+
+
+def assign_ids(model, layout, report):
+    """Replace the reading-order ids with ids that say what each element is.
+
+        lane-<title> / band-<title>            lane-accounting-supplier
+        <kind>-<label>                         action-raise-invoice, object-invoice
+        <kind>-<lane>                          initial-accounting-supplier
+        flow-<from>-to-<to>                    flow-raise-invoice-to-invoice
+        text-<words>                           text-accept-charges
+        offpage-<node>, mark, phase            offpage-action-download-business-card
+
+    Where two elements would get the same id, the one higher on the page (then
+    further left) keeps it and the others are numbered -2, -3 in that order. A
+    label shared by nodes in different lanes takes the lane's name first.
+
+    These are names, not a hash: once a model is kept and corrected by hand, its
+    ids are kept too, and a later correction to a label does not rename anything.
+    They are derived afresh only while the model is still made from a reading."""
+    lay_of = {}
+    for sec in ("lanes", "nodes", "flows", "texts", "offPage", "marks", "phases"):
+        for el in model[sec]:
+            lay_of[id(el)] = layout[sec].get(el["id"], {})
+
+    def at(el):
+        """where an element is, for ordering duplicates: top, then left"""
+        g = lay_of[id(el)]
+        if "x" in g:
+            return (g["y"], g["x"])
+        if "fromPoint" in g:
+            return (g["fromPoint"][1], g["fromPoint"][0], g["toPoint"][1], g["toPoint"][0])
+        if "y2" in g:                                    # a cross-mark
+            return (min(g["y1"], g["y2"]), min(g["x1"], g["x2"]))
+        if "at" in g and isinstance(g["at"], list):
+            return (g["at"][1], g["at"][0])
+        return (g.get("y0", 0), g.get("x0", 0))
+
+    new = {}
+    # lanes: by title, or by position where the artwork gives none
+    want = []
+    for l in model["lanes"]:
+        kind = "lane" if l["axis"] == "column" else "band"
+        want.append((l, "%s-%s" % (kind, slug(l["title"]) or str(l["index"] + 1))))
+    for el, v in _unique(want, at).items():
+        new[el] = v
+    lane_name = {l["id"]: new[id(l)] for l in model["lanes"]}
+
+    # nodes: by kind and label; unlabelled ones by kind and lane
+    want = []
+    for n in model["nodes"]:
+        lab = slug(n.get("label"))
+        if lab:
+            want.append((n, "%s-%s" % (n["kind"], lab)))
+        else:
+            ln = lane_name.get(n.get("lane"))
+            want.append((n, "%s-%s" % (n["kind"], ln[len("lane-"):]) if ln else n["kind"]))
+    # the same label in different lanes: say which lane before resorting to numbers
+    seen = Counter(w for _, w in want)
+    want = [(n, w if seen[w] == 1 or not n.get("lane") or not slug(n.get("label"))
+             else "%s-in-%s" % (w, lane_name[n["lane"]][len("lane-"):]))
+            for n, w in want]
+    for el, v in _unique(want, at).items():
+        new[el] = v
+    node_name = {n["id"]: new[id(n)] for n in model["nodes"]}
+
+    # a flow is named by its two ends, the labelled ones without their kinds:
+    # "flow-raise-invoice-to-invoice" says enough, and any two that come out the
+    # same are numbered. An unlabelled end keeps its kind - "initial-accounting-
+    # supplier" - since without it the name would be just a lane's.
+    labelled = {n["id"] for n in model["nodes"] if slug(n.get("label"))}
+    bare = lambda i: (re.sub(r"^[a-z]+-", "", node_name[i]) if i in labelled
+                      else node_name.get(i, i))
+    want = [(f, "flow-%s-to-%s" % (bare(f["from"]), bare(f["to"]))) for f in model["flows"]]
+    for el, v in _unique(want, at).items():
+        new[el] = v
+    want = [(t, "text-%s" % (slug(t["text"]) or "blank")) for t in model["texts"]]
+    for el, v in _unique(want, at).items():
+        new[el] = v
+    want = [(o, "offpage-%s" % node_name.get(o["node"], o["node"])) for o in model["offPage"]]
+    for el, v in _unique(want, at).items():
+        new[el] = v
+    # marks and phases have no words of their own, so they are numbered from the
+    # top of the page; always numbered, so their ids are never a plain word
+    for sec, word in (("marks", "mark"), ("phases", "phase")):
+        for i, el in enumerate(sorted(model[sec], key=at)):
+            new[id(el)] = "%s-%d" % (word, i + 1)
+
+    rename = {}
+    for sec in ("lanes", "nodes", "flows", "texts", "offPage", "marks", "phases"):
+        for el in model[sec]:
+            rename[el["id"]] = new[id(el)]
+    if len(set(rename.values())) != len(rename):
+        raise ValueError("%s: two elements were given the same id" % model["figure"]["name"])
+    _rename(model, layout, report, rename)
+    report["formerIds"] = {v: k for k, v in rename.items()}
+
+
+def _rename(model, layout, report, rename):
+    """apply an old-id -> new-id map to every place an id is held"""
+    r = lambda v: rename.get(v, v) if isinstance(v, str) else v
+    for sec in ("lanes", "nodes", "flows", "texts", "offPage", "marks", "phases"):
+        for el in model[sec]:
+            el["id"] = r(el["id"])
+            for k in ("lane", "band", "from", "to", "guard", "labels", "node"):
+                if k in el:
+                    el[k] = r(el[k])
+        layout[sec] = {r(k): v for k, v in layout[sec].items()}
+    for sec in ("nodes", "flows", "offPage", "marks", "phases"):
+        report[sec] = {r(k): v for k, v in report[sec].items()}
+    if "unresolvedAttachments" in report:
+        report["unresolvedAttachments"] = {r(k): v for k, v in report["unresolvedAttachments"].items()}
+    for f in report["findings"]:
+        for k in ("flow", "lane"):
+            if k in f:
+                f[k] = r(f[k])
+        if "texts" in f:
+            f["texts"] = [r(t) for t in f["texts"]]
 
 
 def split(g, name):
@@ -282,11 +427,15 @@ def split(g, name):
     if extra:
         report["unmapped"] = extra
     report["present"] = [k for k in g]          # the graph's own key order
+    assign_ids(model, layout, report)
     return model, layout, report
 
 
 def join(model, layout, report):
     """The graph the three files were split from, exactly."""
+    model, layout, report = (json.loads(json.dumps(x)) for x in (model, layout, report))
+    if "formerIds" in report:
+        _rename(model, layout, report, report.pop("formerIds"))
     lanes = {l["id"]: l for l in model["lanes"]}
     g = {}
     g["source"] = model["figure"]["source"]

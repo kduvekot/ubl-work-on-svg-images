@@ -16,11 +16,19 @@
 #   - every pixel is compared exactly as well, because the red/blue picture is
 #     drawn from ink thresholded at mid-grey and a change of shade below that
 #     would not show in it
-#   - the SVG, the .drawio and the spec are compared byte for byte
+#   - the SVG, the .drawio and the spec are compared byte for byte, and where the
+#     SVG differs, compared again with the ids put back: the elements of the two
+#     SVGs are paired in document order, the pairing must be a consistent one-to-
+#     one renaming, and with the baseline's ids written back into the new SVG and
+#     .drawio they must then be byte-identical. That is what "the same drawing,
+#     with its elements renamed" means, and nothing looser passes for it.
 #
 # Writes, into <out-dir>, <name>-base.png, <name>-new.png, <name>-basediff.png and
 # <name>-compare.json per diagram, and summary.json over them all. Prints one line
-# per diagram and a tally, and exits non-zero if any render differs by a pixel.
+# per diagram and a tally - "same" for a byte-identical file, "ids" for one that is
+# identical once renamed back, "DIFF" for anything else - and exits non-zero unless
+# every diagram is identical: not a pixel different, and its SVG the baseline's,
+# byte for byte or once renamed back.
 #
 # JOBS diagrams run at a time (default: one per core).
 set -uo pipefail
@@ -57,18 +65,76 @@ def same(suffix):
     if not (os.path.exists(p) and os.path.exists(q)):
         return None
     return filecmp.cmp(p, q, shallow=False)
+def renamed():
+    """(svg, drawio) identical once the new SVG's ids are mapped back, or None
+    where there is nothing to map"""
+    p, q = os.path.join(base, n + ".svg"), os.path.join(new, n + ".svg")
+    old_svg, new_svg = open(p, encoding="utf-8").read(), open(q, encoding="utf-8").read()
+    ids = lambda t: re.findall(r'<g id="([^"]+)"', t)
+    a_ids, b_ids = ids(old_svg), ids(new_svg)
+    if len(a_ids) != len(b_ids):
+        return False, False
+    back = {}
+    for o, nw in zip(a_ids, b_ids):
+        if back.setdefault(nw, o) != o:
+            return False, False
+    if len(set(back.values())) != len(back):
+        return False, False
+    back = {k: v for k, v in back.items() if k != v}
+    if not back:
+        return None, None
+    pat = re.compile(r"(?<![A-Za-z0-9_-])(%s)(?![A-Za-z0-9_-])"
+                     % "|".join(re.escape(k) for k in sorted(back, key=len, reverse=True)))
+    put_back = lambda t: pat.sub(lambda m: back[m.group(1)], t)
+    svg_ok = put_back(new_svg) == old_svg
+    pd, qd = os.path.join(base, n + ".drawio"), os.path.join(new, n + ".drawio")
+    drawio_ok = (put_back(open(qd, encoding="utf-8").read()) == open(pd, encoding="utf-8").read()
+                 if os.path.exists(pd) and os.path.exists(qd) else None)
+    return svg_ok, drawio_ok
+
 r = dict(name=n, size=list(a.size),
          pixelsDiffer=differ,
          onlyInBaseline=grab(r"MISSING \(red\)\s+(\d+)"),
          onlyInNew=grab(r"EXTRA\s+\(blue\)\s+(\d+)"),
          svgIdentical=same(".svg"), drawioIdentical=same(".drawio"),
          specIdentical=same("-spec.json"))
-r["verdict"] = "identical" if differ == 0 else "differs"
+if r["svgIdentical"] is False:
+    r["svgIdenticalUpToIds"], r["drawioIdenticalUpToIds"] = renamed()
+
+def spec_renamed():
+    """The spec carries the model's ids where the baseline's had none. Equal once
+    those ids are taken out and the node ids mapped back through the new run's
+    formerIds, or None where there is no such map."""
+    rep = os.path.join(new, n + "-extraction.json")
+    ps, qs = os.path.join(base, n + "-spec.json"), os.path.join(new, n + "-spec.json")
+    if not (os.path.exists(rep) and os.path.exists(ps) and os.path.exists(qs)):
+        return None
+    back = json.load(open(rep)).get("formerIds")
+    if not back:
+        return None
+    def strip(o):
+        if isinstance(o, dict):   # a node keeps its id (it has a kind); nothing else had one
+            return {k: strip(v) for k, v in o.items() if k != "id" or "kind" in o}
+        if isinstance(o, list):
+            return [strip(x) for x in o]
+        return back.get(o, o) if isinstance(o, str) else o
+    return strip(json.load(open(qs))) == json.load(open(ps))
+if r["specIdentical"] is False:
+    r["specIdenticalUpToIds"] = spec_renamed()
+# identical: not one pixel differs, and the SVG is the baseline's, byte for byte
+# or once its elements are renamed back
+r["verdict"] = ("identical" if differ == 0 and (r["svgIdentical"] is not False
+                                               or r.get("svgIdenticalUpToIds"))
+                else "differs")
 json.dump(r, open(os.path.join(out, n + "-compare.json"), "w"), indent=1)
 yn = lambda v: "-" if v is None else ("same" if v else "DIFF")
+# "ids" where a file differs only by the renaming checked above
+ya = lambda v, up: "ids" if (v is False and up) else yn(v)
 line = "%-52s %-10s %9d %8d %8d   %-4s %-4s %-4s" % (
     n, r["verdict"], differ, r["onlyInBaseline"], r["onlyInNew"],
-    yn(r["svgIdentical"]), yn(r["drawioIdentical"]), yn(r["specIdentical"]))
+    ya(r["svgIdentical"], r.get("svgIdenticalUpToIds")),
+    ya(r["drawioIdentical"], r.get("drawioIdenticalUpToIds")),
+    ya(r["specIdentical"], r.get("specIdenticalUpToIds")))
 open(os.path.join(out, n + "-compare.line"), "w").write(line + "\n")
 print(line)
 PY

@@ -2,107 +2,107 @@
  "schema": "ubl-activity-diagram-extraction/1",
  "figure": "UBL-2.5-BillingwithCreditNoteProcess",
  "nodes": {
-  "n1": {
+  "initial-accounting-supplier": {
    "area": 5922,
    "fill": 0.739
   },
-  "n2": {
+  "object-invoice": {
    "area": 51715,
    "fill": 0.963,
    "solid": 1.0,
    "stem": 0.155
   },
-  "n3": {
+  "action-receive-invoice": {
    "area": 41006,
    "fill": 0.888,
    "solid": 0.953,
    "stem": 0.13
   },
-  "n4": {
+  "action-raise-invoice": {
    "area": 49509,
    "fill": 0.908,
    "solid": 0.955,
    "stem": 0.13
   },
-  "n5": {
+  "object-credit-note": {
    "area": 50547,
    "fill": 0.935,
    "solid": 1.0,
    "stem": 0.155
   },
-  "n6": {
+  "decision-reconcile-charges-in-accounting-supplier": {
    "area": 29576,
    "fill": 0.457,
    "solid": 0.503,
    "stem": 0.104
   },
-  "n7": {
+  "action-receive-credit-note": {
    "area": 46321,
    "fill": 0.879,
    "solid": 0.953,
    "stem": 0.13
   },
-  "n8": {
+  "action-raise-credit-note": {
    "area": 42006,
    "fill": 0.878,
    "solid": 0.951,
    "stem": 0.13
   },
-  "n9": {
+  "fork-accounting-supplier": {
    "area": 4599,
    "fill": 0.893,
    "lumps": 1,
    "band": 23,
    "box": 25
   },
-  "n10": {
+  "decision-validate-response": {
    "area": 30237,
    "fill": 0.453,
    "solid": 0.502,
    "stem": 0.104
   },
-  "n11": {
+  "decision-reconcile-charges-in-accounting-customer": {
    "area": 30075,
    "fill": 0.457,
    "solid": 0.503,
    "stem": 0.078
   },
-  "n12": {
+  "object-invoice-status-response": {
    "area": 55735,
    "fill": 0.893,
    "solid": 1.0,
    "stem": 0.155
   },
-  "n13": {
+  "action-receive-account-response": {
    "area": 66199,
    "fill": 0.914,
    "solid": 0.988,
    "stem": 0.13
   },
-  "n14": {
+  "action-send-account-response": {
    "area": 40949,
    "fill": 0.851,
    "solid": 0.953,
    "stem": 0.13
   },
-  "n15": {
+  "final-accounting-customer": {
    "area": 2682,
    "fill": 0.645,
    "solid": 0.804
   },
-  "n16": {
+  "final-accounting-supplier": {
    "area": 3908,
    "fill": 0.482,
    "solid": 0.782
   },
-  "n17": {
+  "final-accounting-customer-2": {
    "area": 2916,
    "fill": 0.562,
    "solid": 0.771
   }
  },
  "flows": {
-  "f0": {
+  "flow-initial-accounting-supplier-to-reconcile-charges-in-accounting-supplier": {
    "arrowInk": [
     225,
     783
@@ -114,7 +114,7 @@
    ],
    "arrowFill": 0.0
   },
-  "f1": {
+  "flow-invoice-to-receive-invoice": {
    "arrowInk": [
     184,
     593
@@ -126,7 +126,7 @@
    ],
    "arrowFill": 0.013
   },
-  "f2": {
+  "flow-raise-invoice-to-invoice": {
    "arrowInk": [
     184,
     571
@@ -138,7 +138,7 @@
    ],
    "arrowFill": 0.036
   },
-  "f3": {
+  "flow-reconcile-charges-in-accounting-supplier-to-raise-invoice": {
    "arrowInk": [
     642,
     856
@@ -150,7 +150,7 @@
    ],
    "arrowFill": 0.169
   },
-  "f4": {
+  "flow-receive-invoice-to-reconcile-charges-in-accounting-customer": {
    "arrowInk": [
     180,
     945
@@ -162,7 +162,7 @@
    ],
    "arrowFill": 0.185
   },
-  "f5": {
+  "flow-fork-accounting-supplier-to-raise-invoice": {
    "arrowInk": [
     237,
     623
@@ -175,7 +175,7 @@
    "arrowFill": 0.016,
    "arrowSaturated": true
   },
-  "f6": {
+  "flow-reconcile-charges-in-accounting-supplier-to-raise-credit-note": {
    "arrowInk": [
     591,
     616
@@ -187,7 +187,7 @@
    ],
    "arrowFill": 0.0
   },
-  "f7": {
+  "flow-credit-note-to-receive-credit-note": {
    "arrowInk": [
     184,
     579
@@ -199,7 +199,7 @@
    ],
    "arrowFill": 0.017
   },
-  "f8": {
+  "flow-raise-credit-note-to-credit-note": {
    "arrowInk": [
     230,
     595
@@ -211,7 +211,7 @@
    ],
    "arrowFill": 0.007
   },
-  "f9": {
+  "flow-receive-credit-note-to-reconcile-charges-in-accounting-customer": {
    "arrowInk": [
     1057,
     232
@@ -222,7 +222,7 @@
     0.94
    ]
   },
-  "f10": {
+  "flow-fork-accounting-supplier-to-raise-credit-note": {
    "arrowInk": [
     222,
     426
@@ -234,7 +234,7 @@
    ],
    "arrowFill": 0.055
   },
-  "f11": {
+  "flow-validate-response-to-reconcile-charges-in-accounting-supplier": {
    "arrowInk": [
     230,
     597
@@ -246,7 +246,7 @@
    ],
    "arrowFill": 0.0
   },
-  "f12": {
+  "flow-validate-response-to-fork-accounting-supplier": {
    "arrowInk": [
     592,
     824
@@ -259,7 +259,7 @@
    "arrowFill": 0.132,
    "arrowSaturated": true
   },
-  "f13": {
+  "flow-send-account-response-to-invoice-status-response": {
    "arrowInk": [
     180,
     608
@@ -271,7 +271,7 @@
    ],
    "arrowFill": 0.014
   },
-  "f14": {
+  "flow-reconcile-charges-in-accounting-customer-to-send-account-response": {
    "arrowInk": [
     180,
     568
@@ -283,7 +283,7 @@
    ],
    "arrowFill": 0.0
   },
-  "f15": {
+  "flow-invoice-status-response-to-receive-account-response": {
    "arrowInk": [
     183,
     580
@@ -296,7 +296,7 @@
    "arrowFill": 0.089,
    "arrowSaturated": true
   },
-  "f16": {
+  "flow-receive-account-response-to-validate-response": {
    "arrowInk": [
     180,
     768
@@ -308,7 +308,7 @@
    ],
    "arrowFill": 0.0
   },
-  "f17": {
+  "flow-reconcile-charges-in-accounting-customer-to-final-accounting-customer": {
    "arrowInk": [
     185,
     621
@@ -320,7 +320,7 @@
    ],
    "arrowFill": 0.259
   },
-  "f18": {
+  "flow-reconcile-charges-in-accounting-customer-to-final-accounting-customer-2": {
    "arrowInk": [
     180,
     555
@@ -332,7 +332,7 @@
    ],
    "arrowFill": 0.0
   },
-  "f19": {
+  "flow-validate-response-to-final-accounting-supplier": {
    "arrowInk": [
     232,
     612
@@ -445,5 +445,54 @@
   "edges",
   "text",
   "uncertain"
- ]
+ ],
+ "formerIds": {
+  "lane-accounting-customer": "lane0",
+  "lane-accounting-supplier": "lane1",
+  "band-1": "lane2",
+  "initial-accounting-supplier": "n1",
+  "object-invoice": "n2",
+  "action-receive-invoice": "n3",
+  "action-raise-invoice": "n4",
+  "object-credit-note": "n5",
+  "decision-reconcile-charges-in-accounting-supplier": "n6",
+  "action-receive-credit-note": "n7",
+  "action-raise-credit-note": "n8",
+  "fork-accounting-supplier": "n9",
+  "decision-validate-response": "n10",
+  "decision-reconcile-charges-in-accounting-customer": "n11",
+  "object-invoice-status-response": "n12",
+  "action-receive-account-response": "n13",
+  "action-send-account-response": "n14",
+  "final-accounting-customer": "n15",
+  "final-accounting-supplier": "n16",
+  "final-accounting-customer-2": "n17",
+  "flow-initial-accounting-supplier-to-reconcile-charges-in-accounting-supplier": "f0",
+  "flow-invoice-to-receive-invoice": "f1",
+  "flow-raise-invoice-to-invoice": "f2",
+  "flow-reconcile-charges-in-accounting-supplier-to-raise-invoice": "f3",
+  "flow-receive-invoice-to-reconcile-charges-in-accounting-customer": "f4",
+  "flow-fork-accounting-supplier-to-raise-invoice": "f5",
+  "flow-reconcile-charges-in-accounting-supplier-to-raise-credit-note": "f6",
+  "flow-credit-note-to-receive-credit-note": "f7",
+  "flow-raise-credit-note-to-credit-note": "f8",
+  "flow-receive-credit-note-to-reconcile-charges-in-accounting-customer": "f9",
+  "flow-fork-accounting-supplier-to-raise-credit-note": "f10",
+  "flow-validate-response-to-reconcile-charges-in-accounting-supplier": "f11",
+  "flow-validate-response-to-fork-accounting-supplier": "f12",
+  "flow-send-account-response-to-invoice-status-response": "f13",
+  "flow-reconcile-charges-in-accounting-customer-to-send-account-response": "f14",
+  "flow-invoice-status-response-to-receive-account-response": "f15",
+  "flow-receive-account-response-to-validate-response": "f16",
+  "flow-reconcile-charges-in-accounting-customer-to-final-accounting-customer": "f17",
+  "flow-reconcile-charges-in-accounting-customer-to-final-accounting-customer-2": "f18",
+  "flow-validate-response-to-final-accounting-supplier": "f19",
+  "text-initial-charges-or-under-charged": "t2",
+  "text-over-charged": "t3",
+  "text-incorrect-charges": "t4",
+  "text-incorrect-information": "t5",
+  "text-accept-credit": "t6",
+  "text-no-action-required": "t7",
+  "text-accept-charges": "t8"
+ }
 }

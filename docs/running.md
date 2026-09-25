@@ -152,8 +152,10 @@ The first renders the baseline's SVG and the new run's SVG side by side, now and
 with the same renderer, at the original PNG's pixel width, and differences them
 at radius 0 with no alignment. It also counts every pixel that differs at all,
 because the red/blue picture is drawn from ink and would not show a change of
-shade, and compares the SVG, `.drawio` and spec byte for byte. It prints a line
-per diagram, writes `summary.json`, and exits non-zero if any render differs.
+shade, and compares the SVG, `.drawio` and spec byte for byte - and, where they
+differ, again with the new run's element ids mapped back to the baseline's, so a
+renaming alone shows as `ids` rather than `DIFF`. It prints a line per diagram,
+writes `summary.json`, and exits non-zero unless every diagram is identical.
 
 The second makes the PDF: a summary page, then per figure the baseline render,
 the new render, and the difference, red for ink only the baseline has and blue for

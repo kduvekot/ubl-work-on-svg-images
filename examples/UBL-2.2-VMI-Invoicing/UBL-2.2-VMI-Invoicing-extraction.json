@@ -2,37 +2,37 @@
  "schema": "ubl-activity-diagram-extraction/1",
  "figure": "UBL-2.2-VMI-Invoicing",
  "nodes": {
-  "n1": {
+  "initial-producer": {
    "area": 9886,
    "fill": 0.767
   },
-  "n2": {
+  "object-invoice": {
    "area": 90649,
    "fill": 0.936,
    "solid": 1.0,
    "stem": 0.156,
    "keptOnOutline": true
   },
-  "n3": {
+  "action-raise-invoice": {
    "area": 131140,
    "fill": 0.9,
    "solid": 0.981,
    "stem": 0.156
   },
-  "n4": {
+  "action-receive-invoice": {
    "area": 129348,
    "fill": 0.888,
    "solid": 0.981,
    "stem": 0.156
   },
-  "n5": {
+  "final-retailer": {
    "area": 7105,
    "fill": 0.626,
    "solid": 0.788
   }
  },
  "flows": {
-  "f0": {
+  "flow-initial-producer-to-raise-invoice": {
    "arrowInk": [
     270,
     898
@@ -44,7 +44,7 @@
    ],
    "arrowFill": 0.0
   },
-  "f1": {
+  "flow-raise-invoice-to-invoice": {
    "arrowInk": [
     270,
     820
@@ -56,7 +56,7 @@
    ],
    "arrowFill": 0.0
   },
-  "f2": {
+  "flow-invoice-to-receive-invoice": {
    "arrowInk": [
     268,
     903
@@ -68,7 +68,7 @@
    ],
    "arrowFill": 0.047
   },
-  "f3": {
+  "flow-receive-invoice-to-final-retailer": {
    "arrowInk": [
     270,
     902
@@ -154,5 +154,19 @@
   "edges",
   "text",
   "uncertain"
- ]
+ ],
+ "formerIds": {
+  "lane-producer": "lane0",
+  "lane-retailer": "lane1",
+  "band-1": "lane2",
+  "initial-producer": "n1",
+  "object-invoice": "n2",
+  "action-raise-invoice": "n3",
+  "action-receive-invoice": "n4",
+  "final-retailer": "n5",
+  "flow-initial-producer-to-raise-invoice": "f0",
+  "flow-raise-invoice-to-invoice": "f1",
+  "flow-invoice-to-receive-invoice": "f2",
+  "flow-receive-invoice-to-final-retailer": "f3"
+ }
 }

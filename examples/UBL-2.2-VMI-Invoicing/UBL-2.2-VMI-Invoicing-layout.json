@@ -60,7 +60,7 @@
  },
  "greyRules": [],
  "lanes": {
-  "lane0": {
+  "lane-producer": {
    "x0": 0,
    "x1": 1654,
    "titleBox": [
@@ -70,7 +70,7 @@
     57
    ]
   },
-  "lane1": {
+  "lane-retailer": {
    "x0": 1654,
    "x1": 3425,
    "titleBox": [
@@ -80,19 +80,19 @@
     57
    ]
   },
-  "lane2": {
+  "band-1": {
    "y0": 0,
    "y1": 1525
   }
  },
  "nodes": {
-  "n1": {
+  "initial-producer": {
    "x": 427,
    "y": 217,
    "w": 120,
    "h": 119
   },
-  "n2": {
+  "object-invoice": {
    "x": 1403,
    "y": 679,
    "w": 494,
@@ -112,7 +112,7 @@
     }
    ]
   },
-  "n3": {
+  "action-raise-invoice": {
    "x": 88,
    "y": 688,
    "w": 792,
@@ -132,7 +132,7 @@
     }
    ]
   },
-  "n4": {
+  "action-receive-invoice": {
    "x": 2545,
    "y": 694,
    "w": 792,
@@ -152,7 +152,7 @@
     }
    ]
   },
-  "n5": {
+  "final-retailer": {
    "x": 2884,
    "y": 1350,
    "w": 107,
@@ -165,7 +165,7 @@
   }
  },
  "flows": {
-  "f0": {
+  "flow-initial-producer-to-raise-invoice": {
    "fromPoint": [
     484,
     350
@@ -176,7 +176,7 @@
    ],
    "routing": "straight"
   },
-  "f1": {
+  "flow-raise-invoice-to-invoice": {
    "fromPoint": [
     894,
     780
@@ -187,7 +187,7 @@
    ],
    "routing": "straight"
   },
-  "f2": {
+  "flow-invoice-to-receive-invoice": {
    "fromPoint": [
     1912,
     778
@@ -198,7 +198,7 @@
    ],
    "routing": "straight"
   },
-  "f3": {
+  "flow-receive-invoice-to-final-retailer": {
    "fromPoint": [
     2941,
     892

@@ -6,43 +6,43 @@
  },
  "lanes": [
   {
-   "id": "lane0",
+   "id": "lane-transport-user",
    "axis": "column",
    "index": 0,
    "title": "Transport User"
   },
   {
-   "id": "lane1",
+   "id": "lane-transport-service-provider",
    "axis": "column",
    "index": 1,
    "title": "Transport Service Provider"
   },
   {
-   "id": "lane2",
+   "id": "lane-transport-regulator",
    "axis": "column",
    "index": 2,
    "title": "Transport Regulator"
   },
   {
-   "id": "lane3",
+   "id": "lane-transportation-network-manager",
    "axis": "column",
    "index": 3,
    "title": "Transportation Network Manager"
   },
   {
-   "id": "lane4",
+   "id": "band-planning",
    "axis": "band",
    "index": 0,
    "title": "Planning"
   },
   {
-   "id": "lane5",
+   "id": "band-execution",
    "axis": "band",
    "index": 1,
    "title": "Execution"
   },
   {
-   "id": "lane6",
+   "id": "band-completion",
    "axis": "band",
    "index": 2,
    "title": "Completion"
@@ -50,459 +50,459 @@
  ],
  "nodes": [
   {
-   "id": "n1",
+   "id": "initial-transport-service-provider",
    "kind": "initial",
    "label": "",
-   "lane": "lane1",
-   "band": "lane4"
+   "lane": "lane-transport-service-provider",
+   "band": "band-planning"
   },
   {
-   "id": "n2",
+   "id": "note-transportation-network-information-in-transport-regulator",
    "kind": "note",
    "label": "Transportation Network\nInformation",
-   "lane": "lane2",
-   "band": "lane4"
+   "lane": "lane-transport-regulator",
+   "band": "band-planning"
   },
   {
-   "id": "n3",
+   "id": "action-plan-transport-services",
    "kind": "action",
    "label": "Plan Transport Services",
-   "lane": "lane1",
-   "band": "lane4"
+   "lane": "lane-transport-service-provider",
+   "band": "band-planning"
   },
   {
-   "id": "n4",
+   "id": "action-provide-transportation-network",
    "kind": "action",
    "label": "Provide\nTransportation\nNetwork\nInformation",
-   "lane": "lane3",
-   "band": "lane4"
+   "lane": "lane-transportation-network-manager",
+   "band": "band-planning"
   },
   {
-   "id": "n5",
+   "id": "object-transport-service-description-request",
    "kind": "object",
    "label": "Transport Service\nDescription\nRequest",
-   "lane": "lane1",
-   "band": "lane4"
+   "lane": "lane-transport-service-provider",
+   "band": "band-planning"
   },
   {
-   "id": "n6",
+   "id": "action-define-transport-service-demand",
    "kind": "action",
    "label": "Define Transport\nService Demand",
-   "lane": "lane0",
-   "band": "lane4"
+   "lane": "lane-transport-user",
+   "band": "band-planning"
   },
   {
-   "id": "n7",
+   "id": "action-announce-transport-services",
    "kind": "action",
    "label": "Announce Transport\nServices",
-   "lane": "lane1",
-   "band": "lane4"
+   "lane": "lane-transport-service-provider",
+   "band": "band-planning"
   },
   {
-   "id": "n8",
+   "id": "object-transport-service-description",
    "kind": "object",
    "label": "Transport Service\nDescription",
-   "lane": "lane1",
-   "band": "lane4"
+   "lane": "lane-transport-service-provider",
+   "band": "band-planning"
   },
   {
-   "id": "n9",
+   "id": "object-transport-execution-plan-request",
    "kind": "object",
    "label": "Transport\nExecution\nPlan Request",
-   "lane": "lane1",
-   "band": "lane4"
+   "lane": "lane-transport-service-provider",
+   "band": "band-planning"
   },
   {
-   "id": "n10",
+   "id": "action-perform-booking-management",
    "kind": "action",
    "label": "Perform Booking\nManagement",
-   "lane": "lane0",
-   "band": "lane4"
+   "lane": "lane-transport-user",
+   "band": "band-planning"
   },
   {
-   "id": "n11",
+   "id": "action-perform-order-management",
    "kind": "action",
    "label": "Perform\nOrder Management",
-   "lane": "lane1",
-   "band": "lane4"
+   "lane": "lane-transport-service-provider",
+   "band": "band-planning"
   },
   {
-   "id": "n12",
+   "id": "note-transportation-network-information-in-transport-regulator-2",
    "kind": "note",
    "label": "Transportation Network\nInformation",
-   "lane": "lane2",
-   "band": "lane4"
+   "lane": "lane-transport-regulator",
+   "band": "band-planning"
   },
   {
-   "id": "n13",
+   "id": "object-transport-execution-plan-in-transport-user",
    "kind": "object",
    "label": "Transport\nExecution Plan",
-   "lane": "lane0",
-   "band": "lane4"
+   "lane": "lane-transport-user",
+   "band": "band-planning"
   },
   {
-   "id": "n14",
+   "id": "object-goods-item-itinerary",
    "kind": "object",
    "label": "Goods Item\nItinerary",
-   "lane": "lane1",
-   "band": "lane4"
+   "lane": "lane-transport-service-provider",
+   "band": "band-planning"
   },
   {
-   "id": "n15",
+   "id": "action-monitor-and-control-transport-services",
    "kind": "action",
    "label": "Monitor and Control\nTransport Services",
-   "lane": "lane0",
-   "band": "lane5"
+   "lane": "lane-transport-user",
+   "band": "band-execution"
   },
   {
-   "id": "n16",
+   "id": "action-execute-transport-services",
    "kind": "action",
    "label": "Execute\nTransport Services",
-   "lane": "lane1",
-   "band": "lane5"
+   "lane": "lane-transport-service-provider",
+   "band": "band-execution"
   },
   {
-   "id": "n17",
+   "id": "object-transport-progress-status-request",
    "kind": "object",
    "label": "Transport\nProgress Status\nRequest",
-   "lane": "lane2",
-   "band": "lane5"
+   "lane": "lane-transport-regulator",
+   "band": "band-execution"
   },
   {
-   "id": "n18",
+   "id": "object-transportation-status-request",
    "kind": "object",
    "label": "Transportation\nStatus Request",
-   "lane": "lane1",
-   "band": "lane5"
+   "lane": "lane-transport-service-provider",
+   "band": "band-execution"
   },
   {
-   "id": "n19",
+   "id": "object-transport-progress-status",
    "kind": "object",
    "label": "Transport\nProgress Status",
-   "lane": "lane2",
-   "band": "lane5"
+   "lane": "lane-transport-regulator",
+   "band": "band-execution"
   },
   {
-   "id": "n20",
+   "id": "object-transportation-status",
    "kind": "object",
    "label": "Transportation\nStatus",
-   "lane": "lane1",
-   "band": "lane5"
+   "lane": "lane-transport-service-provider",
+   "band": "band-execution"
   },
   {
-   "id": "n21",
+   "id": "object-transport-execution-plan-in-transport-service-provider",
    "kind": "object",
    "label": "Transport\nExecution Plan",
-   "lane": "lane1",
-   "band": "lane5"
+   "lane": "lane-transport-service-provider",
+   "band": "band-execution"
   },
   {
-   "id": "n22",
+   "id": "note-regulatory-information",
    "kind": "note",
    "label": "Regulatory\nInformation",
-   "lane": "lane2",
-   "band": "lane5"
+   "lane": "lane-transport-regulator",
+   "band": "band-execution"
   },
   {
-   "id": "n23",
+   "id": "action-perform-compliance-management",
    "kind": "action",
    "label": "Perform Compliance\nManagement",
-   "lane": "lane2",
-   "band": "lane5"
+   "lane": "lane-transport-regulator",
+   "band": "band-execution"
   },
   {
-   "id": "n24",
+   "id": "object-transport-execution-plan-in-transport-service-provider-2",
    "kind": "object",
    "label": "Transport\nExecution Plan",
-   "lane": "lane1",
-   "band": "lane5"
+   "lane": "lane-transport-service-provider",
+   "band": "band-execution"
   },
   {
-   "id": "n25",
+   "id": "action-finalize-transport-services",
    "kind": "action",
    "label": "Finalize\nTransport Services",
-   "lane": "lane0",
-   "band": "lane6"
+   "lane": "lane-transport-user",
+   "band": "band-completion"
   },
   {
-   "id": "n26",
+   "id": "action-manage-completion",
    "kind": "action",
    "label": "Manage Completion",
-   "lane": "lane1",
-   "band": "lane6"
+   "lane": "lane-transport-service-provider",
+   "band": "band-completion"
   },
   {
-   "id": "n27",
+   "id": "object-freight-invoice",
    "kind": "object",
    "label": "Freight Invoice",
-   "lane": "lane1",
-   "band": "lane6"
+   "lane": "lane-transport-service-provider",
+   "band": "band-completion"
   },
   {
-   "id": "n28",
+   "id": "final-transport-user",
    "kind": "final",
    "label": "",
-   "lane": "lane0",
-   "band": "lane6"
+   "lane": "lane-transport-user",
+   "band": "band-completion"
   }
  ],
  "flows": [
   {
-   "id": "f0",
-   "from": "n1",
-   "to": "n3",
+   "id": "flow-initial-transport-service-provider-to-plan-transport-services",
+   "from": "initial-transport-service-provider",
+   "to": "action-plan-transport-services",
    "kind": "control",
    "direction": {
     "confidence": "notation"
    }
   },
   {
-   "id": "f1",
-   "from": "n4",
-   "to": "n3",
+   "id": "flow-provide-transportation-network-to-plan-transport-services",
+   "from": "action-provide-transportation-network",
+   "to": "action-plan-transport-services",
    "kind": "control",
    "direction": {
     "confidence": "high"
    }
   },
   {
-   "id": "f2",
-   "from": "n3",
-   "to": "n7",
+   "id": "flow-plan-transport-services-to-announce-transport-services",
+   "from": "action-plan-transport-services",
+   "to": "action-announce-transport-services",
    "kind": "control",
    "direction": {
     "confidence": "high"
    }
   },
   {
-   "id": "f3",
-   "from": "n6",
-   "to": "n5",
+   "id": "flow-define-transport-service-demand-to-transport-service-description-request",
+   "from": "action-define-transport-service-demand",
+   "to": "object-transport-service-description-request",
    "kind": "object",
    "direction": {
     "confidence": "high"
    }
   },
   {
-   "id": "f4",
-   "from": "n5",
-   "to": "n7",
+   "id": "flow-transport-service-description-request-to-announce-transport-services",
+   "from": "object-transport-service-description-request",
+   "to": "action-announce-transport-services",
    "kind": "object",
    "direction": {
     "confidence": "high"
    }
   },
   {
-   "id": "f5",
-   "from": "n8",
-   "to": "n6",
+   "id": "flow-transport-service-description-to-define-transport-service-demand",
+   "from": "object-transport-service-description",
+   "to": "action-define-transport-service-demand",
    "kind": "object",
    "direction": {
     "confidence": "high"
    }
   },
   {
-   "id": "f6",
-   "from": "n7",
-   "to": "n8",
+   "id": "flow-announce-transport-services-to-transport-service-description",
+   "from": "action-announce-transport-services",
+   "to": "object-transport-service-description",
    "kind": "object",
    "direction": {
     "confidence": "high"
    }
   },
   {
-   "id": "f7",
-   "from": "n6",
-   "to": "n10",
+   "id": "flow-define-transport-service-demand-to-perform-booking-management",
+   "from": "action-define-transport-service-demand",
+   "to": "action-perform-booking-management",
    "kind": "control",
    "direction": {
     "confidence": "high"
    }
   },
   {
-   "id": "f8",
-   "from": "n10",
-   "to": "n9",
+   "id": "flow-perform-booking-management-to-transport-execution-plan-request",
+   "from": "action-perform-booking-management",
+   "to": "object-transport-execution-plan-request",
    "kind": "object",
    "direction": {
     "confidence": "high"
    }
   },
   {
-   "id": "f9",
-   "from": "n9",
-   "to": "n11",
+   "id": "flow-transport-execution-plan-request-to-perform-order-management",
+   "from": "object-transport-execution-plan-request",
+   "to": "action-perform-order-management",
    "kind": "object",
    "direction": {
     "confidence": "high"
    }
   },
   {
-   "id": "f10",
-   "from": "n4",
-   "to": "n11",
+   "id": "flow-provide-transportation-network-to-perform-order-management",
+   "from": "action-provide-transportation-network",
+   "to": "action-perform-order-management",
    "kind": "control",
    "direction": {
     "confidence": "high"
    }
   },
   {
-   "id": "f11",
-   "from": "n13",
-   "to": "n10",
+   "id": "flow-transport-execution-plan-in-transport-user-to-perform-booking-management",
+   "from": "object-transport-execution-plan-in-transport-user",
+   "to": "action-perform-booking-management",
    "kind": "object",
    "direction": {
     "confidence": "high"
    }
   },
   {
-   "id": "f12",
-   "from": "n11",
-   "to": "n13",
+   "id": "flow-perform-order-management-to-transport-execution-plan-in-transport-user",
+   "from": "action-perform-order-management",
+   "to": "object-transport-execution-plan-in-transport-user",
    "kind": "object",
    "direction": {
     "confidence": "high"
    }
   },
   {
-   "id": "f13",
-   "from": "n11",
-   "to": "n14",
+   "id": "flow-perform-order-management-to-goods-item-itinerary",
+   "from": "action-perform-order-management",
+   "to": "object-goods-item-itinerary",
    "kind": "object",
    "direction": {
     "confidence": "high"
    }
   },
   {
-   "id": "f14",
-   "from": "n14",
-   "to": "n10",
+   "id": "flow-goods-item-itinerary-to-perform-booking-management",
+   "from": "object-goods-item-itinerary",
+   "to": "action-perform-booking-management",
    "kind": "object",
    "direction": {
     "confidence": "high"
    }
   },
   {
-   "id": "f15",
-   "from": "n11",
-   "to": "n16",
+   "id": "flow-perform-order-management-to-execute-transport-services",
+   "from": "action-perform-order-management",
+   "to": "action-execute-transport-services",
    "kind": "control",
    "direction": {
     "confidence": "high"
    }
   },
   {
-   "id": "f16",
-   "from": "n16",
-   "to": "n17",
+   "id": "flow-execute-transport-services-to-transport-progress-status-request",
+   "from": "action-execute-transport-services",
+   "to": "object-transport-progress-status-request",
    "kind": "object",
    "direction": {
     "confidence": "high"
    }
   },
   {
-   "id": "f17",
-   "from": "n17",
-   "to": "n4",
+   "id": "flow-transport-progress-status-request-to-provide-transportation-network",
+   "from": "object-transport-progress-status-request",
+   "to": "action-provide-transportation-network",
    "kind": "object",
    "direction": {
     "confidence": "high"
    }
   },
   {
-   "id": "f18",
-   "from": "n15",
-   "to": "n18",
+   "id": "flow-monitor-and-control-transport-services-to-transportation-status-request",
+   "from": "action-monitor-and-control-transport-services",
+   "to": "object-transportation-status-request",
    "kind": "object",
    "direction": {
     "confidence": "high"
    }
   },
   {
-   "id": "f19",
-   "from": "n18",
-   "to": "n16",
+   "id": "flow-transportation-status-request-to-execute-transport-services",
+   "from": "object-transportation-status-request",
+   "to": "action-execute-transport-services",
    "kind": "object",
    "direction": {
     "confidence": "high"
    }
   },
   {
-   "id": "f20",
-   "from": "n4",
-   "to": "n19",
+   "id": "flow-provide-transportation-network-to-transport-progress-status",
+   "from": "action-provide-transportation-network",
+   "to": "object-transport-progress-status",
    "kind": "object",
    "direction": {
     "confidence": "high"
    }
   },
   {
-   "id": "f21",
-   "from": "n19",
-   "to": "n16",
+   "id": "flow-transport-progress-status-to-execute-transport-services",
+   "from": "object-transport-progress-status",
+   "to": "action-execute-transport-services",
    "kind": "object",
    "direction": {
     "confidence": "high"
    }
   },
   {
-   "id": "f22",
-   "from": "n20",
-   "to": "n15",
+   "id": "flow-transportation-status-to-monitor-and-control-transport-services",
+   "from": "object-transportation-status",
+   "to": "action-monitor-and-control-transport-services",
    "kind": "object",
    "direction": {
     "confidence": "high"
    }
   },
   {
-   "id": "f23",
-   "from": "n16",
-   "to": "n20",
+   "id": "flow-execute-transport-services-to-transportation-status",
+   "from": "action-execute-transport-services",
+   "to": "object-transportation-status",
    "kind": "object",
    "direction": {
     "confidence": "high"
    }
   },
   {
-   "id": "f24",
-   "from": "n15",
-   "to": "n21",
+   "id": "flow-monitor-and-control-transport-services-to-transport-execution-plan-in-transport-service-provider",
+   "from": "action-monitor-and-control-transport-services",
+   "to": "object-transport-execution-plan-in-transport-service-provider",
    "kind": "object",
    "direction": {
     "confidence": "high"
    }
   },
   {
-   "id": "f25",
-   "from": "n21",
-   "to": "n16",
+   "id": "flow-transport-execution-plan-in-transport-service-provider-to-execute-transport-services",
+   "from": "object-transport-execution-plan-in-transport-service-provider",
+   "to": "action-execute-transport-services",
    "kind": "object",
    "direction": {
     "confidence": "high"
    }
   },
   {
-   "id": "f26",
-   "from": "n16",
-   "to": "n23",
+   "id": "flow-execute-transport-services-to-perform-compliance-management",
+   "from": "action-execute-transport-services",
+   "to": "action-perform-compliance-management",
    "kind": "control",
    "direction": {
     "confidence": "high"
    }
   },
   {
-   "id": "f27",
-   "from": "n24",
-   "to": "n15",
+   "id": "flow-transport-execution-plan-in-transport-service-provider-2-to-monitor-and-control-transport-services",
+   "from": "object-transport-execution-plan-in-transport-service-provider-2",
+   "to": "action-monitor-and-control-transport-services",
    "kind": "object",
    "direction": {
     "confidence": "high"
    }
   },
   {
-   "id": "f28",
-   "from": "n16",
-   "to": "n24",
+   "id": "flow-execute-transport-services-to-transport-execution-plan-in-transport-service-provider-2",
+   "from": "action-execute-transport-services",
+   "to": "object-transport-execution-plan-in-transport-service-provider-2",
    "kind": "object",
    "direction": {
     "confidence": "checked",
@@ -510,36 +510,36 @@
    }
   },
   {
-   "id": "f29",
-   "from": "n16",
-   "to": "n26",
+   "id": "flow-execute-transport-services-to-manage-completion",
+   "from": "action-execute-transport-services",
+   "to": "action-manage-completion",
    "kind": "control",
    "direction": {
     "confidence": "high"
    }
   },
   {
-   "id": "f30",
-   "from": "n27",
-   "to": "n25",
+   "id": "flow-freight-invoice-to-finalize-transport-services",
+   "from": "object-freight-invoice",
+   "to": "action-finalize-transport-services",
    "kind": "object",
    "direction": {
     "confidence": "high"
    }
   },
   {
-   "id": "f31",
-   "from": "n26",
-   "to": "n27",
+   "id": "flow-manage-completion-to-freight-invoice",
+   "from": "action-manage-completion",
+   "to": "object-freight-invoice",
    "kind": "object",
    "direction": {
     "confidence": "high"
    }
   },
   {
-   "id": "f32",
-   "from": "n25",
-   "to": "n28",
+   "id": "flow-finalize-transport-services-to-final-transport-user",
+   "from": "action-finalize-transport-services",
+   "to": "final-transport-user",
    "kind": "control",
    "direction": {
     "confidence": "high"

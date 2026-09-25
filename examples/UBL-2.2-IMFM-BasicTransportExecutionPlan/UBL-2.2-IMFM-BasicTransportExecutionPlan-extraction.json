@@ -2,158 +2,158 @@
  "schema": "ubl-activity-diagram-extraction/1",
  "figure": "UBL-2.2-IMFM-BasicTransportExecutionPlan",
  "nodes": {
-  "n1": {
+  "initial-transport-user": {
    "area": 3005,
    "fill": 0.769
   },
-  "n2": {
+  "action-create-update-transport-execution-plan": {
    "area": 75595,
    "fill": 0.877,
    "solid": 0.974,
    "stem": 0.14
   },
-  "n3": {
+  "action-evaluatetransport-execution-plan-request": {
    "area": 76877,
    "fill": 0.888,
    "solid": 0.973,
    "stem": 0.14
   },
-  "n4": {
+  "object-notconfirmed-transport-execution-plan": {
    "area": 59370,
    "fill": 0.873,
    "solid": 1.0,
    "stem": 0.14
   },
-  "n5": {
+  "action-request-transport-service": {
    "area": 46545,
    "fill": 0.874,
    "solid": 0.959,
    "stem": 0.14
   },
-  "n6": {
+  "action-receive-transport-service-request": {
    "area": 43630,
    "fill": 0.844,
    "solid": 0.959,
    "stem": 0.14
   },
-  "n7": {
+  "object-rejected-transport-execution-plan-in-transport-user": {
    "area": 62813,
    "fill": 0.909,
    "solid": 1.0,
    "stem": 0.14
   },
-  "n8": {
+  "action-reject-transport-service-request": {
    "area": 51461,
    "fill": 0.867,
    "solid": 0.962,
    "stem": 0.14
   },
-  "n9": {
+  "action-receive-rejected-transport-execution-in-transport-user": {
    "area": 53229,
    "fill": 0.847,
    "solid": 0.964,
    "stem": 0.14
   },
-  "n10": {
+  "decision-transport-service-provider": {
    "area": 7589,
    "fill": 0.507,
    "solid": 0.507
   },
-  "n11": {
+  "decision-transport-user": {
    "area": 4575,
    "fill": 0.506,
    "solid": 0.506,
    "keptOnOutline": true
   },
-  "n12": {
+  "final-transport-user": {
    "area": 2369,
    "fill": 0.637,
    "solid": 0.792
   },
-  "n13": {
+  "object-confirmed-transport-execution-plan-in-transport-user": {
    "area": 57822,
    "fill": 0.902,
    "solid": 1.0,
    "stem": 0.14
   },
-  "n14": {
+  "action-receive-proposed-transport-execution": {
    "area": 50160,
    "fill": 0.836,
    "solid": 0.964,
    "stem": 0.14
   },
-  "n15": {
+  "action-confirm-transport-service-request": {
    "area": 52251,
    "fill": 0.869,
    "solid": 0.964,
    "stem": 0.14
   },
-  "n16": {
+  "action-evaluatetransport-execution-plan": {
    "area": 48029,
    "fill": 0.859,
    "solid": 0.961,
    "stem": 0.14
   },
-  "n17": {
+  "decision-transport-user-2": {
    "area": 4569,
    "fill": 0.505,
    "solid": 0.505,
    "keptOnOutline": true
   },
-  "n18": {
+  "action-receive-confirmed-transport-execution": {
    "area": 56913,
    "fill": 0.854,
    "solid": 0.967,
    "stem": 0.14
   },
-  "n19": {
+  "object-confirmed-transport-execution-plan-in-transport-service-provider": {
    "area": 59089,
    "fill": 0.9,
    "solid": 0.995,
    "stem": 0.14
   },
-  "n20": {
+  "action-confirm-transport-execution-plan": {
    "area": 48435,
    "fill": 0.863,
    "solid": 0.961,
    "stem": 0.14
   },
-  "n21": {
+  "final-transport-service-provider": {
    "area": 2370,
    "fill": 0.637,
    "solid": 0.792
   },
-  "n22": {
+  "decision-transport-user-3": {
    "area": 4571,
    "fill": 0.51,
    "solid": 0.51
   },
-  "n23": {
+  "object-rejected-transport-execution-plan-in-transport-user-2": {
    "area": 62704,
    "fill": 0.91,
    "solid": 1.0,
    "stem": 0.14
   },
-  "n24": {
+  "action-receive-rejected-transport-execution-in-transport-service-provider": {
    "area": 60915,
    "fill": 0.86,
    "solid": 0.963,
    "stem": 0.14
   },
-  "n25": {
+  "action-reject-transport-execution-plan": {
    "area": 51448,
    "fill": 0.872,
    "solid": 0.964,
    "stem": 0.14
   },
-  "n26": {
+  "final-transport-service-provider-2": {
    "area": 2364,
    "fill": 0.635,
    "solid": 0.793
   }
  },
  "flows": {
-  "f0": {
+  "flow-initial-transport-user-to-request-transport-service": {
    "arrowInk": [
     272,
     515
@@ -165,7 +165,7 @@
    ],
    "arrowFill": 0.03
   },
-  "f1": {
+  "flow-decision-transport-user-3-to-create-update-transport-execution-plan": {
    "arrowInk": [
     303,
     510
@@ -177,7 +177,7 @@
    ],
    "arrowFill": 0.0
   },
-  "f2": {
+  "flow-receive-transport-service-request-to-evaluatetransport-execution-plan-request": {
    "arrowInk": [
     273,
     515
@@ -190,7 +190,7 @@
    "arrowFill": 0.056,
    "arrowSaturated": true
   },
-  "f3": {
+  "flow-create-update-transport-execution-plan-to-request-transport-service": {
    "arrowInk": [
     180,
     513
@@ -202,7 +202,7 @@
    ],
    "arrowFill": 0.0
   },
-  "f4": {
+  "flow-request-transport-service-to-notconfirmed-transport-execution-plan": {
    "arrowInk": [
     180,
     551
@@ -214,7 +214,7 @@
    ],
    "arrowFill": 0.0
   },
-  "f5": {
+  "flow-notconfirmed-transport-execution-plan-to-receive-transport-service-request": {
    "arrowInk": [
     180,
     514
@@ -226,7 +226,7 @@
    ],
    "arrowFill": 0.018
   },
-  "f6": {
+  "flow-decision-transport-user-to-create-update-transport-execution-plan": {
    "arrowInk": [
     417,
     561
@@ -238,7 +238,7 @@
    ],
    "arrowFill": 0.02
   },
-  "f7": {
+  "flow-evaluatetransport-execution-plan-request-to-decision-transport-service-provider": {
    "arrowInk": [
     368,
     529
@@ -251,7 +251,7 @@
    "arrowFill": 0.0,
    "arrowSaturated": true
   },
-  "f8": {
+  "flow-receive-rejected-transport-execution-in-transport-user-to-decision-transport-user": {
    "arrowInk": [
     184,
     515
@@ -263,7 +263,7 @@
    ],
    "arrowFill": 0.0
   },
-  "f9": {
+  "flow-rejected-transport-execution-plan-in-transport-user-to-receive-rejected-transport-execution-in-transport-user": {
    "arrowInk": [
     184,
     536
@@ -275,7 +275,7 @@
    ],
    "arrowFill": 0.0
   },
-  "f10": {
+  "flow-reject-transport-service-request-to-rejected-transport-execution-plan-in-transport-user": {
    "arrowInk": [
     184,
     551
@@ -287,7 +287,7 @@
    ],
    "arrowFill": 0.004
   },
-  "f11": {
+  "flow-decision-transport-service-provider-to-reject-transport-service-request": {
    "arrowInk": [
     184,
     533
@@ -299,7 +299,7 @@
    ],
    "arrowFill": 0.008
   },
-  "f12": {
+  "flow-decision-transport-user-to-final-transport-user": {
    "arrowInk": [
     203,
     516
@@ -311,7 +311,7 @@
    ],
    "arrowFill": 0.0
   },
-  "f13": {
+  "flow-decision-transport-service-provider-to-confirm-transport-service-request": {
    "arrowInk": [
     253,
     535
@@ -323,7 +323,7 @@
    ],
    "arrowFill": 0.103
   },
-  "f14": {
+  "flow-confirmed-transport-execution-plan-in-transport-user-to-receive-proposed-transport-execution": {
    "arrowInk": [
     184,
     539
@@ -335,7 +335,7 @@
    ],
    "arrowFill": 0.0
   },
-  "f15": {
+  "flow-confirm-transport-service-request-to-confirmed-transport-execution-plan-in-transport-user": {
    "arrowInk": [
     184,
     555
@@ -347,7 +347,7 @@
    ],
    "arrowFill": 0.007
   },
-  "f16": {
+  "flow-receive-proposed-transport-execution-to-evaluatetransport-execution-plan": {
    "arrowInk": [
     180,
     516
@@ -359,7 +359,7 @@
    ],
    "arrowFill": 0.008
   },
-  "f17": {
+  "flow-evaluatetransport-execution-plan-to-decision-transport-user-2": {
    "arrowInk": [
     180,
     526
@@ -371,7 +371,7 @@
    ],
    "arrowFill": 0.0
   },
-  "f18": {
+  "flow-decision-transport-user-2-to-decision-transport-user-3": {
    "arrowInk": [
     334,
     599
@@ -383,7 +383,7 @@
    ],
    "arrowFill": 0.292
   },
-  "f19": {
+  "flow-decision-transport-user-2-to-confirm-transport-execution-plan": {
    "arrowInk": [
     206,
     511
@@ -395,7 +395,7 @@
    ],
    "arrowFill": 0.0
   },
-  "f20": {
+  "flow-confirmed-transport-execution-plan-in-transport-service-provider-to-receive-confirmed-transport-execution": {
    "arrowInk": [
     180,
     518
@@ -407,7 +407,7 @@
    ],
    "arrowFill": 0.025
   },
-  "f21": {
+  "flow-confirm-transport-execution-plan-to-confirmed-transport-execution-plan-in-transport-service-provider": {
    "arrowInk": [
     180,
     554
@@ -419,7 +419,7 @@
    ],
    "arrowFill": 0.004
   },
-  "f22": {
+  "flow-receive-confirmed-transport-execution-to-final-transport-service-provider": {
    "arrowInk": [
     180,
     517
@@ -431,7 +431,7 @@
    ],
    "arrowFill": 0.0
   },
-  "f23": {
+  "flow-decision-transport-user-3-to-reject-transport-execution-plan": {
    "arrowInk": [
     181,
     517
@@ -443,7 +443,7 @@
    ],
    "arrowFill": 0.031
   },
-  "f24": {
+  "flow-reject-transport-execution-plan-to-rejected-transport-execution-plan-in-transport-user-2": {
    "arrowInk": [
     180,
     547
@@ -455,7 +455,7 @@
    ],
    "arrowFill": 0.0
   },
-  "f25": {
+  "flow-rejected-transport-execution-plan-in-transport-user-2-to-receive-rejected-transport-execution-in-transport-service-provider": {
    "arrowInk": [
     180,
     513
@@ -467,7 +467,7 @@
    ],
    "arrowFill": 0.0
   },
-  "f26": {
+  "flow-receive-rejected-transport-execution-in-transport-service-provider-to-final-transport-service-provider-2": {
    "arrowInk": [
     180,
     518
@@ -607,5 +607,76 @@
   "edges",
   "text",
   "uncertain"
- ]
+ ],
+ "formerIds": {
+  "lane-transport-user": "lane0",
+  "lane-transport-service-provider": "lane1",
+  "band-1": "lane2",
+  "initial-transport-user": "n1",
+  "action-create-update-transport-execution-plan": "n2",
+  "action-evaluatetransport-execution-plan-request": "n3",
+  "object-notconfirmed-transport-execution-plan": "n4",
+  "action-request-transport-service": "n5",
+  "action-receive-transport-service-request": "n6",
+  "object-rejected-transport-execution-plan-in-transport-user": "n7",
+  "action-reject-transport-service-request": "n8",
+  "action-receive-rejected-transport-execution-in-transport-user": "n9",
+  "decision-transport-service-provider": "n10",
+  "decision-transport-user": "n11",
+  "final-transport-user": "n12",
+  "object-confirmed-transport-execution-plan-in-transport-user": "n13",
+  "action-receive-proposed-transport-execution": "n14",
+  "action-confirm-transport-service-request": "n15",
+  "action-evaluatetransport-execution-plan": "n16",
+  "decision-transport-user-2": "n17",
+  "action-receive-confirmed-transport-execution": "n18",
+  "object-confirmed-transport-execution-plan-in-transport-service-provider": "n19",
+  "action-confirm-transport-execution-plan": "n20",
+  "final-transport-service-provider": "n21",
+  "decision-transport-user-3": "n22",
+  "object-rejected-transport-execution-plan-in-transport-user-2": "n23",
+  "action-receive-rejected-transport-execution-in-transport-service-provider": "n24",
+  "action-reject-transport-execution-plan": "n25",
+  "final-transport-service-provider-2": "n26",
+  "flow-initial-transport-user-to-request-transport-service": "f0",
+  "flow-decision-transport-user-3-to-create-update-transport-execution-plan": "f1",
+  "flow-receive-transport-service-request-to-evaluatetransport-execution-plan-request": "f2",
+  "flow-create-update-transport-execution-plan-to-request-transport-service": "f3",
+  "flow-request-transport-service-to-notconfirmed-transport-execution-plan": "f4",
+  "flow-notconfirmed-transport-execution-plan-to-receive-transport-service-request": "f5",
+  "flow-decision-transport-user-to-create-update-transport-execution-plan": "f6",
+  "flow-evaluatetransport-execution-plan-request-to-decision-transport-service-provider": "f7",
+  "flow-receive-rejected-transport-execution-in-transport-user-to-decision-transport-user": "f8",
+  "flow-rejected-transport-execution-plan-in-transport-user-to-receive-rejected-transport-execution-in-transport-user": "f9",
+  "flow-reject-transport-service-request-to-rejected-transport-execution-plan-in-transport-user": "f10",
+  "flow-decision-transport-service-provider-to-reject-transport-service-request": "f11",
+  "flow-decision-transport-user-to-final-transport-user": "f12",
+  "flow-decision-transport-service-provider-to-confirm-transport-service-request": "f13",
+  "flow-confirmed-transport-execution-plan-in-transport-user-to-receive-proposed-transport-execution": "f14",
+  "flow-confirm-transport-service-request-to-confirmed-transport-execution-plan-in-transport-user": "f15",
+  "flow-receive-proposed-transport-execution-to-evaluatetransport-execution-plan": "f16",
+  "flow-evaluatetransport-execution-plan-to-decision-transport-user-2": "f17",
+  "flow-decision-transport-user-2-to-decision-transport-user-3": "f18",
+  "flow-decision-transport-user-2-to-confirm-transport-execution-plan": "f19",
+  "flow-confirmed-transport-execution-plan-in-transport-service-provider-to-receive-confirmed-transport-execution": "f20",
+  "flow-confirm-transport-execution-plan-to-confirmed-transport-execution-plan-in-transport-service-provider": "f21",
+  "flow-receive-confirmed-transport-execution-to-final-transport-service-provider": "f22",
+  "flow-decision-transport-user-3-to-reject-transport-execution-plan": "f23",
+  "flow-reject-transport-execution-plan-to-rejected-transport-execution-plan-in-transport-user-2": "f24",
+  "flow-rejected-transport-execution-plan-in-transport-user-2-to-receive-rejected-transport-execution-in-transport-service-provider": "f25",
+  "flow-receive-rejected-transport-execution-in-transport-service-provider-to-final-transport-service-provider-2": "f26",
+  "text-update-transport-execution-plan-request": "t2",
+  "text-yes": "t3",
+  "text-transport-execution-plan-request": "t4",
+  "text-no": "t5",
+  "text-no-2": "t6",
+  "text-yes-2": "t7",
+  "text-transport-execution-plan-acceptable": "t8",
+  "text-no-3": "t9",
+  "text-yes-3": "t10",
+  "text-yes-4": "t11",
+  "text-transport-service-ready-for-execution": "t12",
+  "text-no-4": "t13",
+  "text-update-transport-execution-plan-request-2": "t14"
+ }
 }

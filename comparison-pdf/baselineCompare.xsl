@@ -115,7 +115,8 @@
     </fo:inline>
     <xsl:value-of select="'  -  ' || $s?differs || ' differ, ' || $s?notCompared
                           || ' could not be compared. Identical means every pixel of the two
-                          renders is the same.'"/>
+                          renders is the same, and the SVG is the baseline''s byte for byte
+                          or once its elements'' ids are mapped back to the baseline''s.'"/>
   </fo:block>
   <fo:table table-layout="fixed" width="100%" font-size="8pt">
     <fo:table-column column-width="14mm"/>
@@ -124,9 +125,9 @@
     <fo:table-column column-width="24mm"/>
     <fo:table-column column-width="22mm"/>
     <fo:table-column column-width="22mm"/>
-    <fo:table-column column-width="18mm"/>
-    <fo:table-column column-width="18mm"/>
-    <fo:table-column column-width="18mm"/>
+    <fo:table-column column-width="30mm"/>
+    <fo:table-column column-width="30mm"/>
+    <fo:table-column column-width="30mm"/>
     <fo:table-header font-weight="bold" color="#444">
       <fo:table-row border-bottom="0.3pt solid #999">
         <xsl:for-each select="('Figure', 'Diagram', 'Result', 'Pixels differ',
@@ -154,10 +155,14 @@
           </xsl:for-each>
           <xsl:for-each select="('svgIdentical', 'drawioIdentical', 'specIdentical')">
             <xsl:variable name="k" select="."/>
+            <!-- a file that differs only because its elements were renamed says so -->
+            <xsl:variable name="up" select="$c($k || 'UpToIds')"/>
             <fo:table-cell padding="0.5mm">
-              <fo:block color="{if ($c($k) = false()) then '#a02020' else '#444'}">
+              <fo:block color="{if ($c($k) = false() and not($up = true())) then '#a02020' else '#444'}">
                 <xsl:value-of select="if (empty($c($k))) then '-'
-                                      else if ($c($k)) then 'same bytes' else 'differs'"/>
+                                      else if ($c($k)) then 'same bytes'
+                                      else if ($up = true()) then 'same, ids renamed'
+                                      else 'differs'"/>
               </fo:block>
             </fo:table-cell>
           </xsl:for-each>
@@ -189,7 +194,10 @@
           <xsl:value-of select="'  (' || $c?pixelsDiffer || ' pixels differ: '
                                 || $c?onlyInBaseline || ' ink only in the baseline, '
                                 || $c?onlyInNew || ' only in the new SVG; SVG '
-                                || (if ($c?svgIdentical) then 'byte-identical' else 'bytes differ')
+                                || (if ($c?svgIdentical) then 'byte-identical'
+                                    else if ($c?svgIdenticalUpToIds = true())
+                                    then 'identical once its ids are mapped back'
+                                    else 'bytes differ')
                                 || ')'"/>
           <xsl:catch>
             <xsl:text>  -  NOT COMPARED</xsl:text>

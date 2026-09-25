@@ -121,7 +121,7 @@ def main(src, out, model_w=1480.0):
         a, b = byid.get(ed["from"]), byid.get(ed["to"])
         if not a or not b:
             continue
-        d = {"from": ed["from"], "to": ed["to"],
+        d = {"id": f["id"], "from": ed["from"], "to": ed["to"],
              "exitXY": frac(a, ed["fromPoint"]), "entryXY": frac(b, ed["toPoint"]),
              "straight": ed["routing"] in ("straight", "diagonal"),
              "confidence": (f.get("direction") or {}).get("confidence", "")}
@@ -154,14 +154,14 @@ def main(src, out, model_w=1480.0):
     lanes = []
     for c in cols:
         b = c.get("titleBox")
-        lanes.append({"title": c["title"], "x": M(c["x0"]), "w": M(c["x1"] - c["x0"]),
+        lanes.append({"id": c["id"], "title": c["title"], "x": M(c["x0"]), "w": M(c["x1"] - c["x0"]),
                       "cx": M(b[0] + b[2] / 2) if b else M((c["x0"] + c["x1"]) / 2),
                       "cy": M(b[1] + b[3] / 2) if b else M(font_px)})
 
     # a narrow first column is the gutter the band titles run up
     gutter = rules["v"][1][0] if len(rules["v"]) > 2 and \
         rules["v"][1][0] < W * 0.04 else 0
-    bandLabels = [{"title": b["title"], "cx": M(gutter / 2),
+    bandLabels = [{"id": b["id"], "title": b["title"], "cx": M(gutter / 2),
                    "cy": M((b["y0"] + b["y1"]) / 2)} for b in bands if gutter and b["title"]]
 
     # Free text keeps the position it was measured at.
@@ -177,7 +177,7 @@ def main(src, out, model_w=1480.0):
     guards = []
     for tm in model["texts"]:
         t = dict(lay["texts"][tm["id"]], text=tm["text"])
-        g = {"text": t["text"], "x": M(t["x"]), "y": M(t["y"]),
+        g = {"id": tm["id"], "text": t["text"], "x": M(t["x"]), "y": M(t["y"]),
              "w": M(t["w"]), "h": M(t["h"])}
         if t.get("lines"):
             g["labelLines"] = [{"text": l["text"], "cx": M(l["x"] + l["w"] / 2),
@@ -206,10 +206,10 @@ def main(src, out, model_w=1480.0):
         # the dashed rounded box a CPFR phase is drawn inside, with the artwork's
         # own dash and gap so the rebuild repeats the pattern rather than inventing
         # one
-        "dashed": [{"x": M(d["x"]), "y": M(d["y"]), "w": M(d["w"]), "h": M(d["h"]),
+        "dashed": [{"id": p["id"], "x": M(d["x"]), "y": M(d["y"]), "w": M(d["w"]), "h": M(d["h"]),
                     "rx": M(d["rx"]), "dash": M(d["dash"]), "gap": M(d["gap"]),
                     "weight": M(d.get("weight") or 0)}
-                   for d in (lay["phases"][p["id"]] for p in model["phases"])],
+                   for p in model["phases"] for d in [lay["phases"][p["id"]]]],
         # dividers the artwork draws in grey rather than black, in their own tone
         "greyRules": [{"axis": r["axis"], "at": M(r["at"]), "w": M(r["w"]),
                        "colour": "#%02x%02x%02x" % ((r["level"],) * 3)}
@@ -217,13 +217,13 @@ def main(src, out, model_w=1480.0):
         # a short stroke drawn across a partition rule: line-work the diagram
         # carries whose meaning the specification has not been read for, so it is
         # reproduced exactly as measured and classified as what it plainly is
-        "crossMarks": [{"x1": M(m["x1"]), "y1": M(m["y1"]),
+        "crossMarks": [{"id": c["id"], "x1": M(m["x1"]), "y1": M(m["y1"]),
                         "x2": M(m["x2"]), "y2": M(m["y2"]),
                         "weight": M(m.get("weight") or 0)}
-                       for m in (lay["marks"][c["id"]] for c in model["marks"])],
+                       for c in model["marks"] for m in [lay["marks"][c["id"]]]],
         # a flow that leaves the diagram: drawn along its measured route, from
         # where it meets its node to where it runs off
-        "openEnds": [{"points": [[M(p[0]), M(p[1])] for p in
+        "openEnds": [{"id": om["id"], "points": [[M(p[0]), M(p[1])] for p in
                                  [o["at"]] + (o.get("points") or []) + [o["end"]]],
                       "arrow": bool(om.get("arrow"))}
                      for om in model["offPage"] for o in [lay["offPage"][om["id"]]]],

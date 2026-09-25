@@ -22,6 +22,8 @@
     "properties": {"kind": {"enum": ["guard-is-lane-title", "flow-with-two-texts"]}}}},
   "uncertain": {"description": "the extractor's own open questions, as it wrote them",
    "type": "array", "items": {"type": "object", "required": ["kind"]}},
+  "formerIds": {"type": "object", "additionalProperties": {"type": "string"},
+   "description": "each id in the model, and the id the extractor's graph gave the same element (by reading order, or by position in its list where the graph gave none)"},
   "unresolvedAttachments": {"type": "object", "additionalProperties": {"type": "string"}},
   "unmapped": {"type": "object", "description": "graph fields the split does not know, carried so nothing is lost"},
   "present": {"type": "array", "items": {"type": "string"}, "description": "the graph's own fields, in its order, so it can be put back together exactly"}

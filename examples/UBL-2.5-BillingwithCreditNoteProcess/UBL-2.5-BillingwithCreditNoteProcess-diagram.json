@@ -6,19 +6,19 @@
  },
  "lanes": [
   {
-   "id": "lane0",
+   "id": "lane-accounting-customer",
    "axis": "column",
    "index": 0,
    "title": "Accounting Customer"
   },
   {
-   "id": "lane1",
+   "id": "lane-accounting-supplier",
    "axis": "column",
    "index": 1,
    "title": "Accounting Supplier"
   },
   {
-   "id": "lane2",
+   "id": "band-1",
    "axis": "band",
    "index": 0,
    "title": ""
@@ -26,349 +26,349 @@
  ],
  "nodes": [
   {
-   "id": "n1",
+   "id": "initial-accounting-supplier",
    "kind": "initial",
    "label": "",
-   "lane": "lane1",
-   "band": "lane2"
+   "lane": "lane-accounting-supplier",
+   "band": "band-1"
   },
   {
-   "id": "n2",
+   "id": "object-invoice",
    "kind": "object",
    "label": "Invoice",
-   "lane": "lane0",
-   "band": "lane2"
+   "lane": "lane-accounting-customer",
+   "band": "band-1"
   },
   {
-   "id": "n3",
+   "id": "action-receive-invoice",
    "kind": "action",
    "label": "Receive Invoice",
-   "lane": "lane0",
-   "band": "lane2"
+   "lane": "lane-accounting-customer",
+   "band": "band-1"
   },
   {
-   "id": "n4",
+   "id": "action-raise-invoice",
    "kind": "action",
    "label": "Raise Invoice",
-   "lane": "lane1",
-   "band": "lane2"
+   "lane": "lane-accounting-supplier",
+   "band": "band-1"
   },
   {
-   "id": "n5",
+   "id": "object-credit-note",
    "kind": "object",
    "label": "Credit Note",
-   "lane": "lane0",
-   "band": "lane2"
+   "lane": "lane-accounting-customer",
+   "band": "band-1"
   },
   {
-   "id": "n6",
+   "id": "decision-reconcile-charges-in-accounting-supplier",
    "kind": "decision",
    "label": "Reconcile\nCharges",
-   "lane": "lane1",
-   "band": "lane2"
+   "lane": "lane-accounting-supplier",
+   "band": "band-1"
   },
   {
-   "id": "n7",
+   "id": "action-receive-credit-note",
    "kind": "action",
    "label": "Receive Credit Note",
-   "lane": "lane0",
-   "band": "lane2"
+   "lane": "lane-accounting-customer",
+   "band": "band-1"
   },
   {
-   "id": "n8",
+   "id": "action-raise-credit-note",
    "kind": "action",
    "label": "Raise Credit Note",
-   "lane": "lane1",
-   "band": "lane2"
+   "lane": "lane-accounting-supplier",
+   "band": "band-1"
   },
   {
-   "id": "n9",
+   "id": "fork-accounting-supplier",
    "kind": "fork",
    "label": "",
-   "lane": "lane1",
-   "band": "lane2"
+   "lane": "lane-accounting-supplier",
+   "band": "band-1"
   },
   {
-   "id": "n10",
+   "id": "decision-validate-response",
    "kind": "decision",
    "label": "Validate\nResponse",
-   "lane": "lane1",
-   "band": "lane2"
+   "lane": "lane-accounting-supplier",
+   "band": "band-1"
   },
   {
-   "id": "n11",
+   "id": "decision-reconcile-charges-in-accounting-customer",
    "kind": "decision",
    "label": "Reconcile\nCharges",
-   "lane": "lane0",
-   "band": "lane2"
+   "lane": "lane-accounting-customer",
+   "band": "band-1"
   },
   {
-   "id": "n12",
+   "id": "object-invoice-status-response",
    "kind": "object",
    "label": "Invoice Status\nResponse",
-   "lane": "lane1",
-   "band": "lane2"
+   "lane": "lane-accounting-supplier",
+   "band": "band-1"
   },
   {
-   "id": "n13",
+   "id": "action-receive-account-response",
    "kind": "action",
    "label": "Receive Account Response",
-   "lane": "lane1",
-   "band": "lane2"
+   "lane": "lane-accounting-supplier",
+   "band": "band-1"
   },
   {
-   "id": "n14",
+   "id": "action-send-account-response",
    "kind": "action",
    "label": "Send Account Response",
-   "lane": "lane0",
-   "band": "lane2"
+   "lane": "lane-accounting-customer",
+   "band": "band-1"
   },
   {
-   "id": "n15",
+   "id": "final-accounting-customer",
    "kind": "final",
    "label": "",
-   "lane": "lane0",
-   "band": "lane2"
+   "lane": "lane-accounting-customer",
+   "band": "band-1"
   },
   {
-   "id": "n16",
+   "id": "final-accounting-supplier",
    "kind": "final",
    "label": "",
-   "lane": "lane1",
-   "band": "lane2"
+   "lane": "lane-accounting-supplier",
+   "band": "band-1"
   },
   {
-   "id": "n17",
+   "id": "final-accounting-customer-2",
    "kind": "final",
    "label": "",
-   "lane": "lane0",
-   "band": "lane2"
+   "lane": "lane-accounting-customer",
+   "band": "band-1"
   }
  ],
  "flows": [
   {
-   "id": "f0",
-   "from": "n1",
-   "to": "n6",
+   "id": "flow-initial-accounting-supplier-to-reconcile-charges-in-accounting-supplier",
+   "from": "initial-accounting-supplier",
+   "to": "decision-reconcile-charges-in-accounting-supplier",
    "kind": "control",
    "direction": {
     "confidence": "high"
    }
   },
   {
-   "id": "f1",
-   "from": "n2",
-   "to": "n3",
+   "id": "flow-invoice-to-receive-invoice",
+   "from": "object-invoice",
+   "to": "action-receive-invoice",
    "kind": "object",
    "direction": {
     "confidence": "high"
    }
   },
   {
-   "id": "f2",
-   "from": "n4",
-   "to": "n2",
+   "id": "flow-raise-invoice-to-invoice",
+   "from": "action-raise-invoice",
+   "to": "object-invoice",
    "kind": "object",
    "direction": {
     "confidence": "high"
    }
   },
   {
-   "id": "f3",
-   "from": "n6",
-   "to": "n4",
+   "id": "flow-reconcile-charges-in-accounting-supplier-to-raise-invoice",
+   "from": "decision-reconcile-charges-in-accounting-supplier",
+   "to": "action-raise-invoice",
    "kind": "control",
    "direction": {
     "confidence": "high"
    },
-   "guard": "t2"
+   "guard": "text-initial-charges-or-under-charged"
   },
   {
-   "id": "f4",
-   "from": "n3",
-   "to": "n11",
+   "id": "flow-receive-invoice-to-reconcile-charges-in-accounting-customer",
+   "from": "action-receive-invoice",
+   "to": "decision-reconcile-charges-in-accounting-customer",
    "kind": "control",
    "direction": {
     "confidence": "high"
    }
   },
   {
-   "id": "f5",
-   "from": "n9",
-   "to": "n4",
+   "id": "flow-fork-accounting-supplier-to-raise-invoice",
+   "from": "fork-accounting-supplier",
+   "to": "action-raise-invoice",
    "kind": "control",
    "direction": {
     "confidence": "high"
    }
   },
   {
-   "id": "f6",
-   "from": "n6",
-   "to": "n8",
+   "id": "flow-reconcile-charges-in-accounting-supplier-to-raise-credit-note",
+   "from": "decision-reconcile-charges-in-accounting-supplier",
+   "to": "action-raise-credit-note",
    "kind": "control",
    "direction": {
     "confidence": "high"
    },
-   "guard": "t3"
+   "guard": "text-over-charged"
   },
   {
-   "id": "f7",
-   "from": "n5",
-   "to": "n7",
+   "id": "flow-credit-note-to-receive-credit-note",
+   "from": "object-credit-note",
+   "to": "action-receive-credit-note",
    "kind": "object",
    "direction": {
     "confidence": "high"
    }
   },
   {
-   "id": "f8",
-   "from": "n8",
-   "to": "n5",
+   "id": "flow-raise-credit-note-to-credit-note",
+   "from": "action-raise-credit-note",
+   "to": "object-credit-note",
    "kind": "object",
    "direction": {
     "confidence": "high"
    }
   },
   {
-   "id": "f9",
-   "from": "n7",
-   "to": "n11",
+   "id": "flow-receive-credit-note-to-reconcile-charges-in-accounting-customer",
+   "from": "action-receive-credit-note",
+   "to": "decision-reconcile-charges-in-accounting-customer",
    "kind": "control",
    "direction": {
     "confidence": "notation"
    }
   },
   {
-   "id": "f10",
-   "from": "n9",
-   "to": "n8",
+   "id": "flow-fork-accounting-supplier-to-raise-credit-note",
+   "from": "fork-accounting-supplier",
+   "to": "action-raise-credit-note",
    "kind": "control",
    "direction": {
     "confidence": "high"
    }
   },
   {
-   "id": "f11",
-   "from": "n10",
-   "to": "n6",
+   "id": "flow-validate-response-to-reconcile-charges-in-accounting-supplier",
+   "from": "decision-validate-response",
+   "to": "decision-reconcile-charges-in-accounting-supplier",
    "kind": "control",
    "direction": {
     "confidence": "high"
    },
-   "guard": "t4"
+   "guard": "text-incorrect-charges"
   },
   {
-   "id": "f12",
-   "from": "n10",
-   "to": "n9",
+   "id": "flow-validate-response-to-fork-accounting-supplier",
+   "from": "decision-validate-response",
+   "to": "fork-accounting-supplier",
    "kind": "control",
    "direction": {
     "confidence": "high"
    },
-   "guard": "t5"
+   "guard": "text-incorrect-information"
   },
   {
-   "id": "f13",
-   "from": "n14",
-   "to": "n12",
+   "id": "flow-send-account-response-to-invoice-status-response",
+   "from": "action-send-account-response",
+   "to": "object-invoice-status-response",
    "kind": "object",
    "direction": {
     "confidence": "high"
    }
   },
   {
-   "id": "f14",
-   "from": "n11",
-   "to": "n14",
+   "id": "flow-reconcile-charges-in-accounting-customer-to-send-account-response",
+   "from": "decision-reconcile-charges-in-accounting-customer",
+   "to": "action-send-account-response",
    "kind": "control",
    "direction": {
     "confidence": "high"
    }
   },
   {
-   "id": "f15",
-   "from": "n12",
-   "to": "n13",
+   "id": "flow-invoice-status-response-to-receive-account-response",
+   "from": "object-invoice-status-response",
+   "to": "action-receive-account-response",
    "kind": "object",
    "direction": {
     "confidence": "high"
    }
   },
   {
-   "id": "f16",
-   "from": "n13",
-   "to": "n10",
+   "id": "flow-receive-account-response-to-validate-response",
+   "from": "action-receive-account-response",
+   "to": "decision-validate-response",
    "kind": "control",
    "direction": {
     "confidence": "high"
    }
   },
   {
-   "id": "f17",
-   "from": "n11",
-   "to": "n15",
+   "id": "flow-reconcile-charges-in-accounting-customer-to-final-accounting-customer",
+   "from": "decision-reconcile-charges-in-accounting-customer",
+   "to": "final-accounting-customer",
    "kind": "control",
    "direction": {
     "confidence": "high"
    },
-   "guard": "t6"
+   "guard": "text-accept-credit"
   },
   {
-   "id": "f18",
-   "from": "n11",
-   "to": "n17",
+   "id": "flow-reconcile-charges-in-accounting-customer-to-final-accounting-customer-2",
+   "from": "decision-reconcile-charges-in-accounting-customer",
+   "to": "final-accounting-customer-2",
    "kind": "control",
    "direction": {
     "confidence": "high"
    },
-   "guard": "t8"
+   "guard": "text-accept-charges"
   },
   {
-   "id": "f19",
-   "from": "n10",
-   "to": "n16",
+   "id": "flow-validate-response-to-final-accounting-supplier",
+   "from": "decision-validate-response",
+   "to": "final-accounting-supplier",
    "kind": "control",
    "direction": {
     "confidence": "high"
    },
-   "guard": "t7"
+   "guard": "text-no-action-required"
   }
  ],
  "texts": [
   {
-   "id": "t2",
+   "id": "text-initial-charges-or-under-charged",
    "text": "[initial\ncharges or\nunder\ncharged]",
-   "labels": "f3"
+   "labels": "flow-reconcile-charges-in-accounting-supplier-to-raise-invoice"
   },
   {
-   "id": "t3",
+   "id": "text-over-charged",
    "text": "[over\ncharged]",
-   "labels": "f6"
+   "labels": "flow-reconcile-charges-in-accounting-supplier-to-raise-credit-note"
   },
   {
-   "id": "t4",
+   "id": "text-incorrect-charges",
    "text": "[incorrect\ncharges]",
-   "labels": "f11"
+   "labels": "flow-validate-response-to-reconcile-charges-in-accounting-supplier"
   },
   {
-   "id": "t5",
+   "id": "text-incorrect-information",
    "text": "[incorrect information]",
-   "labels": "f12"
+   "labels": "flow-validate-response-to-fork-accounting-supplier"
   },
   {
-   "id": "t6",
+   "id": "text-accept-credit",
    "text": "[accept\ncredit]",
-   "labels": "f17"
+   "labels": "flow-reconcile-charges-in-accounting-customer-to-final-accounting-customer"
   },
   {
-   "id": "t7",
+   "id": "text-no-action-required",
    "text": "[no action\nrequired]",
-   "labels": "f19"
+   "labels": "flow-validate-response-to-final-accounting-supplier"
   },
   {
-   "id": "t8",
+   "id": "text-accept-charges",
    "text": "[accept charges]",
-   "labels": "f18"
+   "labels": "flow-reconcile-charges-in-accounting-customer-to-final-accounting-customer-2"
   }
  ],
  "offPage": [],

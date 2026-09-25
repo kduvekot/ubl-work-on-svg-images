@@ -188,7 +188,7 @@ def svg_body(spec):
     for i, d in enumerate(spec.get("dashed", [])):
         # the dashed rounded box a CPFR phase is drawn inside, at the artwork's own
         # dash and gap
-        o.append(group("phase-boundary", "phase%d" % i,
+        o.append(group("phase-boundary", d.get("id") or "phase%d" % i,
                        "phase boundary (this diagram is one phase of a larger process)"))
         o.append('<rect x="%.2f" y="%.2f" width="%.2f" height="%.2f" rx="%.2f" ry="%.2f" '
                  'fill="none" stroke="#000" stroke-width="%.2f" stroke-dasharray="%.1f %.1f"/>'
@@ -197,11 +197,11 @@ def svg_body(spec):
                     max(d["dash"], 0.5), max(d["gap"], 0.5)))
         o.append("</g>")
     for i, l in enumerate(spec["lanes"]):
-        o.append(group("lane-title", "lane%d" % i, l["title"]))
+        o.append(group("lane-title", l.get("id") or "lane%d" % i, l["title"]))
         o.append(text(l["title"], l["cx"], l["cy"], F["lane"], F["family"]))
         o.append("</g>")
     for i, b in enumerate(spec.get("bandLabels", [])):   # band titles run up the gutter
-        o.append(group("band-title", "bandtitle%d" % i, b["title"]))
+        o.append(group("band-title", b.get("id") or "bandtitle%d" % i, b["title"]))
         o.append('<g transform="rotate(-90 %.1f %.1f)">%s</g>'
                  % (b["cx"], b["cy"], text(b["title"], b["cx"], b["cy"], F["lane"], F["family"])))
         o.append("</g>")
@@ -247,7 +247,7 @@ def svg_body(spec):
         o.append("</g>")
     for i, e in enumerate(spec["edges"]):
         pts = polyline(spec, e)
-        o.append(group("edge", "e%d" % i, "%s to %s" % (e["from"], e["to"]),
+        o.append(group("edge", e.get("id") or "e%d" % i, "%s to %s" % (e["from"], e["to"]),
                        source=e["from"], target=e["to"],
                        routing="straight" if e.get("straight") else "orthogonal",
                        confidence=e.get("confidence")))
@@ -265,7 +265,7 @@ def svg_body(spec):
         o.append("</g>")
     for i, oe in enumerate(spec.get("openEnds", [])):
         # a flow that leaves the diagram, drawn along the route it actually takes
-        o.append(group("off-page-flow", "open%d" % i,
+        o.append(group("off-page-flow", oe.get("id") or "open%d" % i,
                        "flow continuing outside this diagram",
                        node=oe.get("node"),
                        direction="into the diagram" if oe.get("inward") else "out of the diagram"))
@@ -274,14 +274,14 @@ def svg_body(spec):
                     S["edge"], ' marker-end="url(#arrow)"' if oe.get("arrow") else ""))
         o.append("</g>")
     for i, m in enumerate(spec.get("crossMarks", [])):
-        o.append(group("mark", "mark%d" % i, "stroke across a partition rule"))
+        o.append(group("mark", m.get("id") or "mark%d" % i, "stroke across a partition rule"))
         o.append('<line x1="%.1f" y1="%.1f" x2="%.1f" y2="%.1f" stroke="#000" '
                  'stroke-width="%.2f" stroke-linecap="butt"/>'
                  % (m["x1"], m["y1"], m["x2"], m["y2"],
                     m.get("weight") or S["divider"]))
         o.append("</g>")
     for i, g in enumerate(spec.get("guards", [])):
-        o.append(group("guard", "text%d" % i, " ".join(g.get("text", "").split())))
+        o.append(group("guard", g.get("id") or "text%d" % i, " ".join(g.get("text", "").split())))
         o.append(lines_of(g, g["x"] + g["w"] / 2, g["y"] + g["h"] / 2, F["guard"], F["family"]))
         o.append("</g>")
     return "".join(o)
@@ -306,9 +306,9 @@ def mxfile(spec):
          'pageWidth="%d" pageHeight="%d"><root><mxCell id="0"/><mxCell id="1" parent="0"/>'
          % (round(spec["canvas"]["w"]), round(spec["canvas"]["h"]))]
     for i, l in enumerate(spec["lanes"]):
-        c.append('<mxCell id="lane%d" value="%s" style="%s" vertex="1" parent="1">'
+        c.append('<mxCell id="%s" value="%s" style="%s" vertex="1" parent="1">'
                  '<mxGeometry x="%.1f" y="0" width="%.1f" height="%.1f" as="geometry"/></mxCell>'
-                 % (i, su.escape(l["title"]), MXSTYLE["lane"] % round(F["lane"] * 2),
+                 % (l.get("id") or "lane%d" % i, su.escape(l["title"]), MXSTYLE["lane"] % round(F["lane"] * 2),
                     l["x"], l["w"], spec["canvas"]["h"]))
     for n in spec["nodes"]:
         c.append('<mxCell id="%s" value="%s" style="%sfontFamily=Helvetica;fontSize=%d;" vertex="1" parent="1">'
@@ -322,9 +322,9 @@ def mxfile(spec):
         if e.get("straight"):
             st = st.replace("edgeStyle=orthogonalEdgeStyle;", "edgeStyle=none;")
         pts = "".join('<mxPoint x="%.1f" y="%.1f"/>' % tuple(p) for p in e.get("points", []))
-        c.append('<mxCell id="e%d" value="%s" style="%s" edge="1" parent="1" source="%s" target="%s">'
+        c.append('<mxCell id="%s" value="%s" style="%s" edge="1" parent="1" source="%s" target="%s">'
                  '<mxGeometry relative="1" as="geometry">%s</mxGeometry></mxCell>'
-                 % (i, su.escape(e.get("label", "")), st, e["from"], e["to"],
+                 % (e.get("id") or "e%d" % i, su.escape(e.get("label", "")), st, e["from"], e["to"],
                     ('<Array as="points">%s</Array>' % pts) if pts else ""))
     c.append("</root></mxGraphModel>")
     return ('<mxfile host="UBL-TC" agent="UBL artwork pipeline" type="device">'

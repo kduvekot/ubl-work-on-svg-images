@@ -2,174 +2,174 @@
  "schema": "ubl-activity-diagram-extraction/1",
  "figure": "UBL-2.2-IMFM-IntermodalFreightManagementProcess",
  "nodes": {
-  "n1": {
+  "initial-transport-service-provider": {
    "area": 2631,
    "fill": 0.746
   },
-  "n2": {
+  "note-transportation-network-information-in-transport-regulator": {
    "area": 56985,
    "fill": 0.899,
    "solid": 0.97,
    "stem": 0.091
   },
-  "n3": {
+  "action-plan-transport-services": {
    "area": 51301,
    "fill": 0.9,
    "solid": 0.966,
    "stem": 0.152
   },
-  "n4": {
+  "action-provide-transportation-network": {
    "area": 829847,
    "fill": 0.989,
    "solid": 0.998,
    "stem": 0.152
   },
-  "n5": {
+  "object-transport-service-description-request": {
    "area": 54119,
    "fill": 0.892,
    "solid": 1.0,
    "stem": 0.152
   },
-  "n6": {
+  "action-define-transport-service-demand": {
    "area": 149838,
    "fill": 0.952,
    "solid": 0.988,
    "stem": 0.152
   },
-  "n7": {
+  "action-announce-transport-services": {
    "area": 150867,
    "fill": 0.958,
    "solid": 0.988,
    "stem": 0.152
   },
-  "n8": {
+  "object-transport-service-description": {
    "area": 55833,
    "fill": 0.917,
    "solid": 1.0,
    "stem": 0.152
   },
-  "n9": {
+  "object-transport-execution-plan-request": {
    "area": 55000,
    "fill": 0.906,
    "solid": 1.0,
    "stem": 0.152
   },
-  "n10": {
+  "action-perform-booking-management": {
    "area": 288518,
    "fill": 0.975,
    "solid": 0.993,
    "stem": 0.152
   },
-  "n11": {
+  "action-perform-order-management": {
    "area": 285819,
    "fill": 0.977,
    "solid": 0.993,
    "stem": 0.152
   },
-  "n12": {
+  "note-transportation-network-information-in-transport-regulator-2": {
    "area": 59505,
    "fill": 0.904,
    "solid": 0.971,
    "stem": 0.091
   },
-  "n13": {
+  "object-transport-execution-plan-in-transport-user": {
    "area": 56937,
    "fill": 0.933,
    "solid": 1.0,
    "stem": 0.152
   },
-  "n14": {
+  "object-goods-item-itinerary": {
    "area": 57312,
    "fill": 0.944,
    "solid": 1.0,
    "stem": 0.152
   },
-  "n15": {
+  "action-monitor-and-control-transport-services": {
    "area": 474982,
    "fill": 0.98,
    "solid": 0.993,
    "stem": 0.152
   },
-  "n16": {
+  "action-execute-transport-services": {
    "area": 477109,
    "fill": 0.986,
    "solid": 0.995,
    "stem": 0.152
   },
-  "n17": {
+  "object-transport-progress-status-request": {
    "area": 54822,
    "fill": 0.903,
    "solid": 1.0,
    "stem": 0.152
   },
-  "n18": {
+  "object-transportation-status-request": {
    "area": 59294,
    "fill": 0.92,
    "solid": 1.0,
    "stem": 0.152
   },
-  "n19": {
+  "object-transport-progress-status": {
    "area": 56260,
    "fill": 0.927,
    "solid": 1.0,
    "stem": 0.152
   },
-  "n20": {
+  "object-transportation-status": {
    "area": 57398,
    "fill": 0.94,
    "solid": 1.0,
    "stem": 0.152
   },
-  "n21": {
+  "object-transport-execution-plan-in-transport-service-provider": {
    "area": 56797,
    "fill": 0.933,
    "solid": 1.0,
    "stem": 0.152
   },
-  "n22": {
+  "note-regulatory-information": {
    "area": 32112,
    "fill": 0.875,
    "solid": 0.959,
    "stem": 0.091
   },
-  "n23": {
+  "action-perform-compliance-management": {
    "area": 101346,
    "fill": 0.93,
    "solid": 0.981,
    "stem": 0.152
   },
-  "n24": {
+  "object-transport-execution-plan-in-transport-service-provider-2": {
    "area": 56756,
    "fill": 0.932,
    "solid": 1.0,
    "stem": 0.152
   },
-  "n25": {
+  "action-finalize-transport-services": {
    "area": 75550,
    "fill": 0.926,
    "solid": 0.977,
    "stem": 0.152
   },
-  "n26": {
+  "action-manage-completion": {
    "area": 74874,
    "fill": 0.933,
    "solid": 0.977,
    "stem": 0.152
   },
-  "n27": {
+  "object-freight-invoice": {
    "area": 58421,
    "fill": 0.96,
    "solid": 1.0,
    "stem": 0.152
   },
-  "n28": {
+  "final-transport-user": {
    "area": 2050,
    "fill": 0.59,
    "solid": 0.757
   }
  },
  "flows": {
-  "f0": {
+  "flow-initial-transport-service-provider-to-plan-transport-services": {
    "arrowInk": [
     434,
     434
@@ -181,7 +181,7 @@
    ],
    "arrowFill": 0.0
   },
-  "f1": {
+  "flow-provide-transportation-network-to-plan-transport-services": {
    "arrowInk": [
     138,
     472
@@ -194,7 +194,7 @@
    "arrowFill": 0.015,
    "arrowSaturated": true
   },
-  "f2": {
+  "flow-plan-transport-services-to-announce-transport-services": {
    "arrowInk": [
     512,
     526
@@ -206,7 +206,7 @@
    ],
    "arrowFill": 0.0
   },
-  "f3": {
+  "flow-define-transport-service-demand-to-transport-service-description-request": {
    "arrowInk": [
     180,
     526
@@ -218,7 +218,7 @@
    ],
    "arrowFill": 0.106
   },
-  "f4": {
+  "flow-transport-service-description-request-to-announce-transport-services": {
    "arrowInk": [
     289,
     448
@@ -230,7 +230,7 @@
    ],
    "arrowFill": 0.029
   },
-  "f5": {
+  "flow-transport-service-description-to-define-transport-service-demand": {
    "arrowInk": [
     138,
     473
@@ -242,7 +242,7 @@
    ],
    "arrowFill": 0.088
   },
-  "f6": {
+  "flow-announce-transport-services-to-transport-service-description": {
    "arrowInk": [
     433,
     487
@@ -254,7 +254,7 @@
    ],
    "arrowFill": 0.0
   },
-  "f7": {
+  "flow-define-transport-service-demand-to-perform-booking-management": {
    "arrowInk": [
     386,
     480
@@ -267,7 +267,7 @@
    "arrowFill": 0.0,
    "arrowSaturated": true
   },
-  "f8": {
+  "flow-perform-booking-management-to-transport-execution-plan-request": {
    "arrowInk": [
     180,
     525
@@ -279,7 +279,7 @@
    ],
    "arrowFill": 0.009
   },
-  "f9": {
+  "flow-transport-execution-plan-request-to-perform-order-management": {
    "arrowInk": [
     273,
     488
@@ -292,7 +292,7 @@
    "arrowFill": 0.272,
    "arrowSaturated": true
   },
-  "f10": {
+  "flow-provide-transportation-network-to-perform-order-management": {
    "arrowInk": [
     184,
     511
@@ -304,7 +304,7 @@
    ],
    "arrowFill": 0.0
   },
-  "f11": {
+  "flow-transport-execution-plan-in-transport-user-to-perform-booking-management": {
    "arrowInk": [
     138,
     476
@@ -317,7 +317,7 @@
    "arrowFill": 0.044,
    "arrowSaturated": true
   },
-  "f12": {
+  "flow-perform-order-management-to-transport-execution-plan-in-transport-user": {
    "arrowInk": [
     259,
     491
@@ -329,7 +329,7 @@
    ],
    "arrowFill": 0.0
   },
-  "f13": {
+  "flow-perform-order-management-to-goods-item-itinerary": {
    "arrowInk": [
     360,
     522
@@ -341,7 +341,7 @@
    ],
    "arrowFill": 0.0
   },
-  "f14": {
+  "flow-goods-item-itinerary-to-perform-booking-management": {
    "arrowInk": [
     184,
     512
@@ -353,7 +353,7 @@
    ],
    "arrowFill": 0.018
   },
-  "f15": {
+  "flow-perform-order-management-to-execute-transport-services": {
    "arrowInk": [
     225,
     521
@@ -365,7 +365,7 @@
    ],
    "arrowFill": 0.0
   },
-  "f16": {
+  "flow-execute-transport-services-to-transport-progress-status-request": {
    "arrowInk": [
     180,
     524
@@ -377,7 +377,7 @@
    ],
    "arrowFill": 0.0
   },
-  "f17": {
+  "flow-transport-progress-status-request-to-provide-transportation-network": {
    "arrowInk": [
     180,
     503
@@ -389,7 +389,7 @@
    ],
    "arrowFill": 0.107
   },
-  "f18": {
+  "flow-monitor-and-control-transport-services-to-transportation-status-request": {
    "arrowInk": [
     180,
     525
@@ -401,7 +401,7 @@
    ],
    "arrowFill": 0.0
   },
-  "f19": {
+  "flow-transportation-status-request-to-execute-transport-services": {
    "arrowInk": [
     389,
     491
@@ -413,7 +413,7 @@
    ],
    "arrowFill": 0.077
   },
-  "f20": {
+  "flow-provide-transportation-network-to-transport-progress-status": {
    "arrowInk": [
     184,
     520
@@ -425,7 +425,7 @@
    ],
    "arrowFill": 0.02
   },
-  "f21": {
+  "flow-transport-progress-status-to-execute-transport-services": {
    "arrowInk": [
     184,
     512
@@ -437,7 +437,7 @@
    ],
    "arrowFill": 0.04
   },
-  "f22": {
+  "flow-transportation-status-to-monitor-and-control-transport-services": {
    "arrowInk": [
     184,
     511
@@ -449,7 +449,7 @@
    ],
    "arrowFill": 0.014
   },
-  "f23": {
+  "flow-execute-transport-services-to-transportation-status": {
    "arrowInk": [
     389,
     525
@@ -461,7 +461,7 @@
    ],
    "arrowFill": 0.0
   },
-  "f24": {
+  "flow-monitor-and-control-transport-services-to-transport-execution-plan-in-transport-service-provider": {
    "arrowInk": [
     180,
     528
@@ -473,7 +473,7 @@
    ],
    "arrowFill": 0.0
   },
-  "f25": {
+  "flow-transport-execution-plan-in-transport-service-provider-to-execute-transport-services": {
    "arrowInk": [
     368,
     490
@@ -485,7 +485,7 @@
    ],
    "arrowFill": 0.087
   },
-  "f26": {
+  "flow-execute-transport-services-to-perform-compliance-management": {
    "arrowInk": [
     180,
     403
@@ -497,7 +497,7 @@
    ],
    "arrowFill": 0.275
   },
-  "f27": {
+  "flow-transport-execution-plan-in-transport-service-provider-2-to-monitor-and-control-transport-services": {
    "arrowInk": [
     138,
     473
@@ -509,7 +509,7 @@
    ],
    "arrowFill": 0.062
   },
-  "f28": {
+  "flow-execute-transport-services-to-transport-execution-plan-in-transport-service-provider-2": {
    "arrowInk": [
     488,
     536
@@ -521,7 +521,7 @@
    ],
    "arrowFill": 0.0
   },
-  "f29": {
+  "flow-execute-transport-services-to-manage-completion": {
    "arrowInk": [
     180,
     484
@@ -533,7 +533,7 @@
    ],
    "arrowFill": 0.0
   },
-  "f30": {
+  "flow-freight-invoice-to-finalize-transport-services": {
    "arrowInk": [
     138,
     478
@@ -546,7 +546,7 @@
    "arrowFill": 0.02,
    "arrowSaturated": true
   },
-  "f31": {
+  "flow-manage-completion-to-freight-invoice": {
    "arrowInk": [
     401,
     485
@@ -558,7 +558,7 @@
    ],
    "arrowFill": 0.0
   },
-  "f32": {
+  "flow-finalize-transport-services-to-final-transport-user": {
    "arrowInk": [
     180,
     475
@@ -915,5 +915,75 @@
   "edges",
   "text",
   "uncertain"
- ]
+ ],
+ "formerIds": {
+  "lane-transport-user": "lane0",
+  "lane-transport-service-provider": "lane1",
+  "lane-transport-regulator": "lane2",
+  "lane-transportation-network-manager": "lane3",
+  "band-planning": "lane4",
+  "band-execution": "lane5",
+  "band-completion": "lane6",
+  "initial-transport-service-provider": "n1",
+  "note-transportation-network-information-in-transport-regulator": "n2",
+  "action-plan-transport-services": "n3",
+  "action-provide-transportation-network": "n4",
+  "object-transport-service-description-request": "n5",
+  "action-define-transport-service-demand": "n6",
+  "action-announce-transport-services": "n7",
+  "object-transport-service-description": "n8",
+  "object-transport-execution-plan-request": "n9",
+  "action-perform-booking-management": "n10",
+  "action-perform-order-management": "n11",
+  "note-transportation-network-information-in-transport-regulator-2": "n12",
+  "object-transport-execution-plan-in-transport-user": "n13",
+  "object-goods-item-itinerary": "n14",
+  "action-monitor-and-control-transport-services": "n15",
+  "action-execute-transport-services": "n16",
+  "object-transport-progress-status-request": "n17",
+  "object-transportation-status-request": "n18",
+  "object-transport-progress-status": "n19",
+  "object-transportation-status": "n20",
+  "object-transport-execution-plan-in-transport-service-provider": "n21",
+  "note-regulatory-information": "n22",
+  "action-perform-compliance-management": "n23",
+  "object-transport-execution-plan-in-transport-service-provider-2": "n24",
+  "action-finalize-transport-services": "n25",
+  "action-manage-completion": "n26",
+  "object-freight-invoice": "n27",
+  "final-transport-user": "n28",
+  "flow-initial-transport-service-provider-to-plan-transport-services": "f0",
+  "flow-provide-transportation-network-to-plan-transport-services": "f1",
+  "flow-plan-transport-services-to-announce-transport-services": "f2",
+  "flow-define-transport-service-demand-to-transport-service-description-request": "f3",
+  "flow-transport-service-description-request-to-announce-transport-services": "f4",
+  "flow-transport-service-description-to-define-transport-service-demand": "f5",
+  "flow-announce-transport-services-to-transport-service-description": "f6",
+  "flow-define-transport-service-demand-to-perform-booking-management": "f7",
+  "flow-perform-booking-management-to-transport-execution-plan-request": "f8",
+  "flow-transport-execution-plan-request-to-perform-order-management": "f9",
+  "flow-provide-transportation-network-to-perform-order-management": "f10",
+  "flow-transport-execution-plan-in-transport-user-to-perform-booking-management": "f11",
+  "flow-perform-order-management-to-transport-execution-plan-in-transport-user": "f12",
+  "flow-perform-order-management-to-goods-item-itinerary": "f13",
+  "flow-goods-item-itinerary-to-perform-booking-management": "f14",
+  "flow-perform-order-management-to-execute-transport-services": "f15",
+  "flow-execute-transport-services-to-transport-progress-status-request": "f16",
+  "flow-transport-progress-status-request-to-provide-transportation-network": "f17",
+  "flow-monitor-and-control-transport-services-to-transportation-status-request": "f18",
+  "flow-transportation-status-request-to-execute-transport-services": "f19",
+  "flow-provide-transportation-network-to-transport-progress-status": "f20",
+  "flow-transport-progress-status-to-execute-transport-services": "f21",
+  "flow-transportation-status-to-monitor-and-control-transport-services": "f22",
+  "flow-execute-transport-services-to-transportation-status": "f23",
+  "flow-monitor-and-control-transport-services-to-transport-execution-plan-in-transport-service-provider": "f24",
+  "flow-transport-execution-plan-in-transport-service-provider-to-execute-transport-services": "f25",
+  "flow-execute-transport-services-to-perform-compliance-management": "f26",
+  "flow-transport-execution-plan-in-transport-service-provider-2-to-monitor-and-control-transport-services": "f27",
+  "flow-execute-transport-services-to-transport-execution-plan-in-transport-service-provider-2": "f28",
+  "flow-execute-transport-services-to-manage-completion": "f29",
+  "flow-freight-invoice-to-finalize-transport-services": "f30",
+  "flow-manage-completion-to-freight-invoice": "f31",
+  "flow-finalize-transport-services-to-final-transport-user": "f32"
+ }
 }

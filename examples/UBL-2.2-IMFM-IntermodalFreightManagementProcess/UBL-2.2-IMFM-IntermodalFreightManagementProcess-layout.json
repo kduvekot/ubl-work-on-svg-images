@@ -108,7 +108,7 @@
  },
  "greyRules": [],
  "lanes": {
-  "lane0": {
+  "lane-transport-user": {
    "x0": 72,
    "x1": 955,
    "titleBox": [
@@ -118,7 +118,7 @@
     29
    ]
   },
-  "lane1": {
+  "lane-transport-service-provider": {
    "x0": 955,
    "x1": 1851,
    "titleBox": [
@@ -128,7 +128,7 @@
     29
    ]
   },
-  "lane2": {
+  "lane-transport-regulator": {
    "x0": 1851,
    "x1": 2512,
    "titleBox": [
@@ -138,7 +138,7 @@
     29
    ]
   },
-  "lane3": {
+  "lane-transportation-network-manager": {
    "x0": 2512,
    "x1": 3425,
    "titleBox": [
@@ -148,27 +148,27 @@
     46
    ]
   },
-  "lane4": {
+  "band-planning": {
    "y0": 64,
    "y1": 1536
   },
-  "lane5": {
+  "band-execution": {
    "y0": 1536,
    "y1": 2750
   },
-  "lane6": {
+  "band-completion": {
    "y0": 2750,
    "y1": 3221
   }
  },
  "nodes": {
-  "n1": {
+  "initial-transport-service-provider": {
    "x": 1403,
    "y": 74,
    "w": 69,
    "h": 62
   },
-  "n2": {
+  "note-transportation-network-information-in-transport-regulator": {
    "x": 2034,
    "y": 117,
    "w": 431,
@@ -196,7 +196,7 @@
     }
    ]
   },
-  "n3": {
+  "action-plan-transport-services": {
    "x": 1214,
    "y": 197,
    "w": 456,
@@ -216,7 +216,7 @@
     }
    ]
   },
-  "n4": {
+  "action-provide-transportation-network": {
    "x": 2837,
    "y": 224,
    "w": 455,
@@ -257,7 +257,7 @@
     }
    ]
   },
-  "n5": {
+  "object-transport-service-description-request": {
    "x": 778,
    "y": 308,
    "w": 355,
@@ -291,7 +291,7 @@
     }
    ]
   },
-  "n6": {
+  "action-define-transport-service-demand": {
    "x": 155,
    "y": 365,
    "w": 455,
@@ -318,7 +318,7 @@
     }
    ]
   },
-  "n7": {
+  "action-announce-transport-services": {
    "x": 1225,
    "y": 396,
    "w": 455,
@@ -345,7 +345,7 @@
     }
    ]
   },
-  "n8": {
+  "object-transport-service-description": {
    "x": 784,
    "y": 538,
    "w": 356,
@@ -372,7 +372,7 @@
     }
    ]
   },
-  "n9": {
+  "object-transport-execution-plan-request": {
    "x": 778,
    "y": 783,
    "w": 355,
@@ -406,7 +406,7 @@
     }
    ]
   },
-  "n10": {
+  "action-perform-booking-management": {
    "x": 151,
    "y": 794,
    "w": 456,
@@ -433,7 +433,7 @@
     }
    ]
   },
-  "n11": {
+  "action-perform-order-management": {
    "x": 1232,
    "y": 794,
    "w": 455,
@@ -460,7 +460,7 @@
     }
    ]
   },
-  "n12": {
+  "note-transportation-network-information-in-transport-regulator-2": {
    "x": 1996,
    "y": 886,
    "w": 422,
@@ -488,7 +488,7 @@
     }
    ]
   },
-  "n13": {
+  "object-transport-execution-plan-in-transport-user": {
    "x": 770,
    "y": 1000,
    "w": 357,
@@ -515,7 +515,7 @@
     }
    ]
   },
-  "n14": {
+  "object-goods-item-itinerary": {
    "x": 778,
    "y": 1237,
    "w": 355,
@@ -542,7 +542,7 @@
     }
    ]
   },
-  "n15": {
+  "action-monitor-and-control-transport-services": {
    "x": 158,
    "y": 1593,
    "w": 456,
@@ -569,7 +569,7 @@
     }
    ]
   },
-  "n16": {
+  "action-execute-transport-services": {
    "x": 1232,
    "y": 1593,
    "w": 455,
@@ -596,7 +596,7 @@
     }
    ]
   },
-  "n17": {
+  "object-transport-progress-status-request": {
    "x": 2328,
    "y": 1641,
    "w": 355,
@@ -630,7 +630,7 @@
     }
    ]
   },
-  "n18": {
+  "object-transportation-status-request": {
    "x": 770,
    "y": 1678,
    "w": 377,
@@ -657,7 +657,7 @@
     }
    ]
   },
-  "n19": {
+  "object-transport-progress-status": {
    "x": 2328,
    "y": 1852,
    "w": 355,
@@ -684,7 +684,7 @@
     }
    ]
   },
-  "n20": {
+  "object-transportation-status": {
    "x": 780,
    "y": 1920,
    "w": 357,
@@ -711,7 +711,7 @@
     }
    ]
   },
-  "n21": {
+  "object-transport-execution-plan-in-transport-service-provider": {
    "x": 788,
    "y": 2158,
    "w": 356,
@@ -738,7 +738,7 @@
     }
    ]
   },
-  "n22": {
+  "note-regulatory-information": {
    "x": 1732,
    "y": 2264,
    "w": 240,
@@ -766,7 +766,7 @@
     }
    ]
   },
-  "n23": {
+  "action-perform-compliance-management": {
    "x": 2003,
    "y": 2319,
    "w": 456,
@@ -793,7 +793,7 @@
     }
    ]
   },
-  "n24": {
+  "object-transport-execution-plan-in-transport-service-provider-2": {
    "x": 791,
    "y": 2409,
    "w": 356,
@@ -820,7 +820,7 @@
     }
    ]
   },
-  "n25": {
+  "action-finalize-transport-services": {
    "x": 178,
    "y": 2850,
    "w": 456,
@@ -847,7 +847,7 @@
     }
    ]
   },
-  "n26": {
+  "action-manage-completion": {
    "x": 1228,
    "y": 2850,
    "w": 456,
@@ -867,7 +867,7 @@
     }
    ]
   },
-  "n27": {
+  "object-freight-invoice": {
    "x": 784,
    "y": 2854,
    "w": 356,
@@ -887,7 +887,7 @@
     }
    ]
   },
-  "n28": {
+  "final-transport-user": {
    "x": 374,
    "y": 3146,
    "w": 62,
@@ -900,7 +900,7 @@
   }
  },
  "flows": {
-  "f0": {
+  "flow-initial-transport-service-provider-to-plan-transport-services": {
    "fromPoint": [
     1437,
     150
@@ -911,7 +911,7 @@
    ],
    "routing": "straight"
   },
-  "f1": {
+  "flow-provide-transportation-network-to-plan-transport-services": {
    "fromPoint": [
     2822,
     283
@@ -922,7 +922,7 @@
    ],
    "routing": "straight"
   },
-  "f2": {
+  "flow-plan-transport-services-to-announce-transport-services": {
    "fromPoint": [
     1447,
     336
@@ -933,7 +933,7 @@
    ],
    "routing": "straight"
   },
-  "f3": {
+  "flow-define-transport-service-demand-to-transport-service-description-request": {
    "fromPoint": [
     624,
     426
@@ -944,7 +944,7 @@
    ],
    "routing": "straight"
   },
-  "f4": {
+  "flow-transport-service-description-request-to-announce-transport-services": {
    "fromPoint": [
     1147,
     438
@@ -955,7 +955,7 @@
    ],
    "routing": "straight"
   },
-  "f5": {
+  "flow-transport-service-description-to-define-transport-service-demand": {
    "fromPoint": [
     769,
     624
@@ -966,7 +966,7 @@
    ],
    "routing": "straight"
   },
-  "f6": {
+  "flow-announce-transport-services-to-transport-service-description": {
    "fromPoint": [
     1210,
     622
@@ -977,7 +977,7 @@
    ],
    "routing": "straight"
   },
-  "f7": {
+  "flow-define-transport-service-demand-to-perform-booking-management": {
    "fromPoint": [
     380,
     725
@@ -988,7 +988,7 @@
    ],
    "routing": "straight"
   },
-  "f8": {
+  "flow-perform-booking-management-to-transport-execution-plan-request": {
    "fromPoint": [
     621,
     879
@@ -999,7 +999,7 @@
    ],
    "routing": "straight"
   },
-  "f9": {
+  "flow-transport-execution-plan-request-to-perform-order-management": {
    "fromPoint": [
     1147,
     876
@@ -1010,7 +1010,7 @@
    ],
    "routing": "straight"
   },
-  "f10": {
+  "flow-provide-transportation-network-to-perform-order-management": {
    "fromPoint": [
     2822,
     1077
@@ -1021,7 +1021,7 @@
    ],
    "routing": "straight"
   },
-  "f11": {
+  "flow-transport-execution-plan-in-transport-user-to-perform-booking-management": {
    "fromPoint": [
     755,
     1085
@@ -1032,7 +1032,7 @@
    ],
    "routing": "straight"
   },
-  "f12": {
+  "flow-perform-order-management-to-transport-execution-plan-in-transport-user": {
    "fromPoint": [
     1217,
     1087
@@ -1043,7 +1043,7 @@
    ],
    "routing": "straight"
   },
-  "f13": {
+  "flow-perform-order-management-to-goods-item-itinerary": {
    "fromPoint": [
     1217,
     1311
@@ -1054,7 +1054,7 @@
    ],
    "routing": "straight"
   },
-  "f14": {
+  "flow-goods-item-itinerary-to-perform-booking-management": {
    "fromPoint": [
     763,
     1322
@@ -1065,7 +1065,7 @@
    ],
    "routing": "straight"
   },
-  "f15": {
+  "flow-perform-order-management-to-execute-transport-services": {
    "fromPoint": [
     1459,
     1451
@@ -1076,7 +1076,7 @@
    ],
    "routing": "straight"
   },
-  "f16": {
+  "flow-execute-transport-services-to-transport-progress-status-request": {
    "fromPoint": [
     1701,
     1726
@@ -1087,7 +1087,7 @@
    ],
    "routing": "straight"
   },
-  "f17": {
+  "flow-transport-progress-status-request-to-provide-transportation-network": {
    "fromPoint": [
     2697,
     1727
@@ -1098,7 +1098,7 @@
    ],
    "routing": "straight"
   },
-  "f18": {
+  "flow-monitor-and-control-transport-services-to-transportation-status-request": {
    "fromPoint": [
     628,
     1747
@@ -1109,7 +1109,7 @@
    ],
    "routing": "straight"
   },
-  "f19": {
+  "flow-transportation-status-request-to-execute-transport-services": {
    "fromPoint": [
     1161,
     1763
@@ -1120,7 +1120,7 @@
    ],
    "routing": "straight"
   },
-  "f20": {
+  "flow-provide-transportation-network-to-transport-progress-status": {
    "fromPoint": [
     2822,
     1933
@@ -1131,7 +1131,7 @@
    ],
    "routing": "straight"
   },
-  "f21": {
+  "flow-transport-progress-status-to-execute-transport-services": {
    "fromPoint": [
     2313,
     1940
@@ -1142,7 +1142,7 @@
    ],
    "routing": "straight"
   },
-  "f22": {
+  "flow-transportation-status-to-monitor-and-control-transport-services": {
    "fromPoint": [
     765,
     2004
@@ -1153,7 +1153,7 @@
    ],
    "routing": "straight"
   },
-  "f23": {
+  "flow-execute-transport-services-to-transportation-status": {
    "fromPoint": [
     1217,
     2006
@@ -1164,7 +1164,7 @@
    ],
    "routing": "straight"
   },
-  "f24": {
+  "flow-monitor-and-control-transport-services-to-transport-execution-plan-in-transport-service-provider": {
    "fromPoint": [
     628,
     2243
@@ -1175,7 +1175,7 @@
    ],
    "routing": "straight"
   },
-  "f25": {
+  "flow-transport-execution-plan-in-transport-service-provider-to-execute-transport-services": {
    "fromPoint": [
     1158,
     2243
@@ -1186,7 +1186,7 @@
    ],
    "routing": "straight"
   },
-  "f26": {
+  "flow-execute-transport-services-to-perform-compliance-management": {
    "fromPoint": [
     1701,
     2440
@@ -1197,7 +1197,7 @@
    ],
    "routing": "straight"
   },
-  "f27": {
+  "flow-transport-execution-plan-in-transport-service-provider-2-to-monitor-and-control-transport-services": {
    "fromPoint": [
     776,
     2496
@@ -1208,7 +1208,7 @@
    ],
    "routing": "straight"
   },
-  "f28": {
+  "flow-execute-transport-services-to-transport-execution-plan-in-transport-service-provider-2": {
    "fromPoint": [
     1206,
     2495
@@ -1219,7 +1219,7 @@
    ],
    "routing": "straight"
   },
-  "f29": {
+  "flow-execute-transport-services-to-manage-completion": {
    "fromPoint": [
     1456,
     2670
@@ -1230,7 +1230,7 @@
    ],
    "routing": "straight"
   },
-  "f30": {
+  "flow-freight-invoice-to-finalize-transport-services": {
    "fromPoint": [
     769,
     2939
@@ -1241,7 +1241,7 @@
    ],
    "routing": "straight"
   },
-  "f31": {
+  "flow-manage-completion-to-freight-invoice": {
    "fromPoint": [
     1213,
     2938
@@ -1252,7 +1252,7 @@
    ],
    "routing": "straight"
   },
-  "f32": {
+  "flow-finalize-transport-services-to-final-transport-user": {
    "fromPoint": [
     406,
     3043

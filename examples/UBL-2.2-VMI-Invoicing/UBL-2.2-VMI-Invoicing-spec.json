@@ -40,6 +40,7 @@
  "bands": [],
  "lanes": [
   {
+   "id": "lane-producer",
    "title": "Producer",
    "x": 0.0,
    "w": 714.7,
@@ -47,6 +48,7 @@
    "cy": 34.4
   },
   {
+   "id": "lane-retailer",
    "title": "Retailer",
    "x": 714.7,
    "w": 765.3,
@@ -57,7 +59,7 @@
  "bandLabels": [],
  "nodes": [
   {
-   "id": "n1",
+   "id": "initial-producer",
    "kind": "initial",
    "label": "",
    "x": 184.5,
@@ -66,7 +68,7 @@
    "h": 51.4
   },
   {
-   "id": "n2",
+   "id": "object-invoice",
    "kind": "object",
    "label": "Invoice",
    "x": 603.7,
@@ -84,7 +86,7 @@
    "bold": true
   },
   {
-   "id": "n3",
+   "id": "action-raise-invoice",
    "kind": "action",
    "label": "Raise Invoice",
    "x": 36.7,
@@ -104,7 +106,7 @@
    "bold": true
   },
   {
-   "id": "n4",
+   "id": "action-receive-invoice",
    "kind": "action",
    "label": "Receive Invoice",
    "x": 1098.4,
@@ -124,7 +126,7 @@
    "bold": true
   },
   {
-   "id": "n5",
+   "id": "final-retailer",
    "kind": "final",
    "label": "",
    "x": 1244.7,
@@ -136,8 +138,9 @@
  ],
  "edges": [
   {
-   "from": "n1",
-   "to": "n3",
+   "id": "flow-initial-producer-to-raise-invoice",
+   "from": "initial-producer",
+   "to": "action-raise-invoice",
    "exitXY": [
     0.474,
     1.0
@@ -150,8 +153,9 @@
    "confidence": "high"
   },
   {
-   "from": "n3",
-   "to": "n2",
+   "id": "flow-raise-invoice-to-invoice",
+   "from": "action-raise-invoice",
+   "to": "object-invoice",
    "exitXY": [
     1.0,
     0.5006
@@ -164,8 +168,9 @@
    "confidence": "high"
   },
   {
-   "from": "n2",
-   "to": "n4",
+   "id": "flow-invoice-to-receive-invoice",
+   "from": "object-invoice",
+   "to": "action-receive-invoice",
    "exitXY": [
     1.0,
     0.505
@@ -178,8 +183,9 @@
    "confidence": "high"
   },
   {
-   "from": "n4",
-   "to": "n5",
+   "id": "flow-receive-invoice-to-final-retailer",
+   "from": "action-receive-invoice",
+   "to": "final-retailer",
    "exitXY": [
     0.5003,
     1.0

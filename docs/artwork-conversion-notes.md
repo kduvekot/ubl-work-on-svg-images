@@ -384,9 +384,11 @@ and both cost a later session real time:
 **If you change the extractor, regenerate the examples in the same commit.**
 
 That rule had lapsed: the examples were last written at `80f72c4` and 41 commits
-to the extractor, spec and builder followed before anyone noticed. They are now
-copied from the saved baseline, `baselines/2026-09-25/diagrams/`, so each file in
-`examples/` is byte-identical to its namesake there. The two `-diff-r40.png`
+to the extractor, spec and builder followed before anyone noticed. They were
+refreshed from the saved baseline, `baselines/2026-09-25/diagrams/`, and are kept
+as the current pipeline writes them: since §15 that adds the model, layout and
+extraction files, and the SVG, `.drawio` and spec carry the model's ids, which is
+their only difference from the baseline's. The two `-diff-r40.png`
 images went with the refresh, since that radius is void (§6) and nothing
 produces them any more.
 
@@ -989,8 +991,36 @@ rendered pixel is the same, and so are the verifier reports, the model sheets an
 the sweep table. Until the model starts being corrected on purpose, that is the
 rule for any change to the JSON.
 
-**Not yet done.** The ids are still the extractor's (`n1`, `n2`, ... in reading
-order) and, for the elements that had none, their position in their list (`f3`,
-`t5`, `lane2`). They move when the extractor changes, so a correction cannot yet
-be pinned to one. That is the next step. The verifier, the model sheet and the
-review marks still read the graph itself.
+**Stable ids.** The graph's ids were handed out in reading order (`n1`, `n2`, ...)
+and moved whenever the extractor changed, so no correction could be pinned to one.
+Every element of the model now has an id that says what it is:
+
+| element | id | example |
+|---|---|---|
+| lane, band | `lane-<title>`, `band-<title>` | `lane-accounting-supplier`, `band-1` where untitled |
+| node | `<kind>-<label>` | `action-raise-invoice`, `object-invoice` |
+| unlabelled node | `<kind>-<lane>` | `initial-accounting-supplier`, `fork-accounting-supplier` |
+| flow | `flow-<from>-to-<to>` | `flow-raise-invoice-to-invoice` |
+| text | `text-<words>` | `text-accept-charges` |
+| off-page flow, mark, phase | `offpage-<node>`, `mark-<n>`, `phase-<n>` | |
+
+A label shared by nodes in different lanes takes the lane's name
+(`decision-reconcile-charges-in-accounting-supplier`); anything still alike is
+numbered `-2`, `-3` from the top of the page. The ids are names, not a hash: once
+a model is kept and corrected by hand its ids stay, and correcting a label does
+not rename anything. The graph's own ids are kept in the extraction report as
+`formerIds`, which is also how the split joins back.
+
+The SVG and the `.drawio` carry the same ids, so every drawn element can be
+traced to the model: a lane title, a flow, a guard are no longer `lane0`, `e3`,
+`text5`. That is the one change in their bytes. Against `baselines/2026-09-25`,
+over all 78: not a pixel differs, and the SVG, the `.drawio` and the spec are
+each the baseline's exactly once the ids are mapped back - a check
+`compare-to-baseline.sh` makes by pairing the elements in document order,
+requiring the pairing to be one-to-one, and comparing bytes after renaming. The
+verifier reports, model sheets and sweep table are unchanged.
+
+**Not yet done.** The verifier, the model sheet and the review marks still read
+the graph itself, not the model; the uncertain list still points at places by
+coordinates rather than at elements by id; and the model is still regenerated
+from the PNG on every run, so nothing yet keeps a correction made to it.
