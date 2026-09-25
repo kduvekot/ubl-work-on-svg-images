@@ -4091,9 +4091,32 @@ def main(path, out_json=None):
                 ins_ = [e for e in edges if e["to"] == n["id"]]
                 if not ins_ or any(e["from"] == n["id"] for e in edges):
                     continue
-                thin = [e for e in ins_
-                        if (e.get("arrowPx") or [0, 0])[1]
-                        and e["arrowPx"][1] < 0.6 * arrow_w]
+                # A flow the notation already settled is not in doubt, and
+                # neither is a guard leaving a decision - across the 78 all 114
+                # guarded flows leave one.
+                openq = [e for e in ins_
+                         if e.get("directionConfidence") != "notation"
+                         and not (e.get("guard")
+                                  and kind_of.get(e["from"]) == "decision")]
+
+                def _not_a_head(e):
+                    w = (e.get("arrowPx") or [0, 0])[1]
+                    if not w:
+                        return False
+                    # Of the 953 heads measured across the set, 90% fall between
+                    # 0.7 and 1.1 times their own diagram's. Below 0.6 there is
+                    # no head at either end to speak of, and that alone is
+                    # enough. Above 1.1 the probe has taken in a junction or a
+                    # border, which is common and mostly harmless - four flows
+                    # measure 1.14 to 1.76 times and are drawn the way the model
+                    # has them - so a wide reading only counts where the ink at
+                    # the two ends did not settle the direction either.
+                    if w < 0.6 * arrow_w:
+                        return True
+                    return (w > 1.1 * arrow_w
+                            and e.get("directionConfidence") == "LOW")
+
+                thin = [e for e in openq if _not_a_head(e)]
                 if len(thin) != 1:
                     continue
                 e = thin[0]
