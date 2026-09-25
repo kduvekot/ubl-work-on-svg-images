@@ -1024,3 +1024,18 @@ verifier reports, model sheets and sweep table are unchanged.
 the graph itself, not the model; the uncertain list still points at places by
 coordinates rather than at elements by id; and the model is still regenerated
 from the PNG on every run, so nothing yet keeps a correction made to it.
+
+**Corrections to the model.** `tools/model-corrections.json` holds what a person
+decided about a model where the reading got it wrong, question and answer
+included, naming the elements by their stable ids. `model_io.py` applies it
+after the ids are assigned. Each correction also records what the reading held
+before (`was`); if a later reading no longer holds that, the split stops rather
+than apply a decision to something it was not made for. What each correction
+touched is kept in the extraction report, so the split still joins back to the
+graph exactly, and the finding it settles is marked `resolvedBy`.
+
+The first, `q1` on `CPFR-ExceptionHandling`: of the two texts attached to the
+flow into *Send Exception*, "Yes" is its guard and "No" is the guard of the flow
+that leaves the page downwards. To say so, an off-page flow can now carry a
+guard. None of this changes the drawing: over all 78 the renders are still the
+baseline's, and the only files that changed are that diagram's model and report.

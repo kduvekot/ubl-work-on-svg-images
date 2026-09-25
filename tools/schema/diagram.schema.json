@@ -74,7 +74,7 @@
     "properties": {
      "id": {"$ref": "#/$defs/id"},
      "text": {"type": "string"},
-     "labels": {"$ref": "#/$defs/ref", "description": "the flow this text was attached to, if any"}
+     "labels": {"$ref": "#/$defs/ref", "description": "the flow or off-page flow this text is attached to, if any"}
     }
    }
   },
@@ -87,7 +87,8 @@
      "id": {"$ref": "#/$defs/id"},
      "node": {"$ref": "#/$defs/id"},
      "direction": {"enum": ["in", "out"]},
-     "arrow": {"type": "boolean"}
+     "arrow": {"type": "boolean"},
+     "guard": {"$ref": "#/$defs/id", "description": "the text that is this flow's guard"}
     }
    }
   },

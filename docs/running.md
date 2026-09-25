@@ -195,7 +195,7 @@ run.
 
 ## 7. Data that is not derived from the PNGs
 
-Three fixtures hold judgements the pixels cannot supply, and are read by the
+Four fixtures hold judgements the pixels cannot supply, and are read by the
 tools at run time:
 
 | file | what it holds |
@@ -203,6 +203,7 @@ tools at run time:
 | `tools/reading-lexicon.json` | 367 words, for settling an OCR reading against the rest of the set |
 | `tools/direction-verdicts.json` | 26 flow directions checked against the originals, keyed by position |
 | `tools/artwork-faults.json` | 9 diagrams, 12 rules: the artwork's own gaps, recorded rather than corrected |
+| `tools/model-corrections.json` | what a person decided about the model where the reading got it wrong, by stable id; applied by `model_io.py` |
 
 `build_lexicon.py` regenerates the first from a sweep. It overwrites the shipped
 fixture by default, so pass it an output path if that is not what you want.

@@ -255,6 +255,71 @@ def _rename(model, layout, report, rename):
             f["texts"] = [r(t) for t in f["texts"]]
 
 
+_CORRECTIONS = None
+
+
+def corrections_for(name):
+    """the corrections recorded for one diagram, from tools/model-corrections.json"""
+    global _CORRECTIONS
+    if _CORRECTIONS is None:
+        p = os.path.join(os.path.dirname(os.path.abspath(__file__)), "model-corrections.json")
+        _CORRECTIONS = json.load(open(p, encoding="utf-8"))["diagrams"] if os.path.exists(p) else {}
+    return _CORRECTIONS.get(name, [])
+
+
+def apply_corrections(model, report, name, recorded=None):
+    """Apply what a person decided about this diagram's model.
+
+    One kind so far:
+
+      attach-guard   the text `text` is the guard of `to`, a flow or an off-page
+                     flow, and not of whatever it was attached to before
+
+    Each correction says what the reading held before (`was`), and is refused if
+    the reading no longer holds it: a correction is a decision about one reading,
+    and applied to another it would be a guess. What each touched element held
+    before is kept in the report, so the split still joins back exactly."""
+    todo = corrections_for(name) if recorded is None else recorded
+    if not todo:
+        return
+    els = {x["id"]: x for sec in ("flows", "texts", "offPage") for x in model[sec]}
+    applied = []
+    for c in todo:
+        if c["op"] != "attach-guard":
+            raise ValueError("%s: correction %s: unknown op %r" % (name, c["id"], c["op"]))
+        t, to = els.get(c["text"]), els.get(c["to"])
+        if t is None or to is None or "text" not in t or ("from" not in to and "node" not in to):
+            raise ValueError("%s: correction %s names %s and %s, which this reading does not "
+                             "have as a text and a flow" % (name, c["id"], c["text"], c["to"]))
+        for k, v in c.get("was", {}).items():
+            if t.get(k) != v:
+                raise ValueError("%s: correction %s was made for %s %s = %r, and this reading "
+                                 "has %r - check it again against the artwork"
+                                 % (name, c["id"], c["text"], k, v, t.get(k)))
+        touched = [t, to] + [x for x in els.values()
+                             if x.get("guard") == t["id"] or x["id"] == t.get("labels")]
+        before = {x["id"]: json.loads(json.dumps(x)) for x in touched}
+        for x in els.values():                  # it is no longer anyone else's guard
+            if x.get("guard") == t["id"]:
+                del x["guard"]
+        t["labels"] = to["id"]
+        to["guard"] = t["id"]
+        applied.append(dict(id=c["id"], before=before))
+        for f in report["findings"]:
+            if t["id"] in f.get("texts", []) or f.get("flow") in before:
+                f["resolvedBy"] = c["id"]
+    report["corrections"] = applied
+
+
+def undo_corrections(model, report):
+    """put back what apply_corrections() changed, from the report"""
+    for c in reversed(report.pop("corrections", [])):
+        for sec in ("flows", "texts", "offPage"):
+            model[sec] = [c["before"].get(x["id"], x) for x in model[sec]]
+    for f in report["findings"]:
+        f.pop("resolvedBy", None)
+
+
 def split(g, name):
     parts = g.get("partitions", [])
     lane_id = {(p["axis"], p["index"]): "lane%d" % i for i, p in enumerate(parts)}
@@ -428,12 +493,14 @@ def split(g, name):
         report["unmapped"] = extra
     report["present"] = [k for k in g]          # the graph's own key order
     assign_ids(model, layout, report)
+    apply_corrections(model, report, name)
     return model, layout, report
 
 
 def join(model, layout, report):
     """The graph the three files were split from, exactly."""
     model, layout, report = (json.loads(json.dumps(x)) for x in (model, layout, report))
+    undo_corrections(model, report)
     if "formerIds" in report:
         _rename(model, layout, report, report.pop("formerIds"))
     lanes = {l["id"]: l for l in model["lanes"]}
@@ -576,9 +643,17 @@ def validate(diagram_path):
         ref("flow %s's target" % f["id"], f["to"], "nodes")
         ref("flow %s's guard" % f["id"], f.get("guard"), "texts", "lanes")
     for t in m["texts"]:
-        ref("text %s" % t["id"], t.get("labels"), "flows")
+        ref("text %s" % t["id"], t.get("labels"), "flows", "offPage")
     for o in m["offPage"]:
         ref("off-page flow %s" % o["id"], o["node"], "nodes")
+        ref("off-page flow %s's guard" % o["id"], o.get("guard"), "texts")
+    # a guard and its text agree about each other
+    for x in m["flows"] + m["offPage"]:
+        g = x.get("guard")
+        t = next((t for t in m["texts"] if t["id"] == g), None)
+        if t is not None and t.get("labels") != x["id"]:
+            errs.append("%s's guard is %s, which says it labels %r"
+                        % (x["id"], g, t.get("labels")))
     for sec in ("lanes", "nodes", "flows", "texts", "offPage", "marks", "phases"):
         want = {x["id"] for x in m.get(sec, [])}
         have = set(l.get(sec, {}))

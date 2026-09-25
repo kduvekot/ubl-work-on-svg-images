@@ -1,0 +1,18 @@
+{
+ "about": "Corrections to the model that the artwork settles and the reading gets wrong, each decided by a person looking at the original. model_io.py applies them when it splits a graph, after the ids are assigned. Each names the elements it touches by their stable ids and says what the model held before (`was`); if the reading no longer holds that, the split stops rather than apply a correction to something it was not made for. The drawing is not changed by any of them: they correct what the model says, not where anything is drawn.",
+ "diagrams": {
+  "UBL-2.2-CPFR-ExceptionHandling": [
+   {
+    "id": "q1",
+    "decided": "2026-09-25",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "The left decision 'Exception Received ?' has two ways out: right and down into Send Exception, and straight down off the page. The reading attached both 'No' and 'Yes' to the flow into Send Exception. Which does each label?",
+    "answer": "'Yes' labels the flow into Send Exception; 'No' labels the flow that leaves the diagram downwards.",
+    "op": "attach-guard",
+    "text": "text-no-2",
+    "to": "offpage-decision-1",
+    "was": {"labels": "flow-decision-1-to-send-exception-in-1"}
+   }
+  ]
+ }
+}
