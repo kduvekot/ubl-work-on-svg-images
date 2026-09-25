@@ -1,0 +1,29 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "$id": "ubl-activity-diagram-extraction/1",
+ "title": "UBL activity diagram: the extraction report",
+ "description": "How the extractor read the diagram: its own measurements per element, keyed by the model's ids, the questions it left open, and what splitting its graph into model and layout turned up. For review only - nothing is drawn from it. Written by tools/model_io.py.",
+ "type": "object",
+ "required": ["schema", "figure", "nodes", "flows", "offPage", "marks", "phases", "greyRules", "titleReadings", "findings", "uncertain", "present"],
+ "additionalProperties": false,
+ "properties": {
+  "schema": {"const": "ubl-activity-diagram-extraction/1"},
+  "figure": {"type": "string"},
+  "nodes": {"type": "object", "additionalProperties": {"type": "object"}},
+  "flows": {"type": "object", "additionalProperties": {"type": "object"}},
+  "offPage": {"type": "object", "additionalProperties": {"type": "object"}},
+  "marks": {"type": "object", "additionalProperties": {"type": "object"}},
+  "phases": {"type": "object", "additionalProperties": {"type": "object"}},
+  "greyRules": {"type": "array", "items": {"type": "object"}},
+  "titleReadings": {"description": "free text blocks that were a lane title read a second time, with their place in the extractor's text list",
+   "type": "array", "items": {"type": "object", "required": ["position", "text"]}},
+  "findings": {"description": "what the split found inconsistent in the reading",
+   "type": "array", "items": {"type": "object", "required": ["kind", "detail", "check"],
+    "properties": {"kind": {"enum": ["guard-is-lane-title", "flow-with-two-texts"]}}}},
+  "uncertain": {"description": "the extractor's own open questions, as it wrote them",
+   "type": "array", "items": {"type": "object", "required": ["kind"]}},
+  "unresolvedAttachments": {"type": "object", "additionalProperties": {"type": "string"}},
+  "unmapped": {"type": "object", "description": "graph fields the split does not know, carried so nothing is lost"},
+  "present": {"type": "array", "items": {"type": "string"}, "description": "the graph's own fields, in its order, so it can be put back together exactly"}
+ }
+}

@@ -1,0 +1,377 @@
+{
+ "schema": "ubl-activity-diagram/1",
+ "figure": {
+  "name": "UBL-2.5-BillingwithCreditNoteProcess",
+  "source": "UBL-2.5-BillingwithCreditNoteProcess.png"
+ },
+ "lanes": [
+  {
+   "id": "lane0",
+   "axis": "column",
+   "index": 0,
+   "title": "Accounting Customer"
+  },
+  {
+   "id": "lane1",
+   "axis": "column",
+   "index": 1,
+   "title": "Accounting Supplier"
+  },
+  {
+   "id": "lane2",
+   "axis": "band",
+   "index": 0,
+   "title": ""
+  }
+ ],
+ "nodes": [
+  {
+   "id": "n1",
+   "kind": "initial",
+   "label": "",
+   "lane": "lane1",
+   "band": "lane2"
+  },
+  {
+   "id": "n2",
+   "kind": "object",
+   "label": "Invoice",
+   "lane": "lane0",
+   "band": "lane2"
+  },
+  {
+   "id": "n3",
+   "kind": "action",
+   "label": "Receive Invoice",
+   "lane": "lane0",
+   "band": "lane2"
+  },
+  {
+   "id": "n4",
+   "kind": "action",
+   "label": "Raise Invoice",
+   "lane": "lane1",
+   "band": "lane2"
+  },
+  {
+   "id": "n5",
+   "kind": "object",
+   "label": "Credit Note",
+   "lane": "lane0",
+   "band": "lane2"
+  },
+  {
+   "id": "n6",
+   "kind": "decision",
+   "label": "Reconcile\nCharges",
+   "lane": "lane1",
+   "band": "lane2"
+  },
+  {
+   "id": "n7",
+   "kind": "action",
+   "label": "Receive Credit Note",
+   "lane": "lane0",
+   "band": "lane2"
+  },
+  {
+   "id": "n8",
+   "kind": "action",
+   "label": "Raise Credit Note",
+   "lane": "lane1",
+   "band": "lane2"
+  },
+  {
+   "id": "n9",
+   "kind": "fork",
+   "label": "",
+   "lane": "lane1",
+   "band": "lane2"
+  },
+  {
+   "id": "n10",
+   "kind": "decision",
+   "label": "Validate\nResponse",
+   "lane": "lane1",
+   "band": "lane2"
+  },
+  {
+   "id": "n11",
+   "kind": "decision",
+   "label": "Reconcile\nCharges",
+   "lane": "lane0",
+   "band": "lane2"
+  },
+  {
+   "id": "n12",
+   "kind": "object",
+   "label": "Invoice Status\nResponse",
+   "lane": "lane1",
+   "band": "lane2"
+  },
+  {
+   "id": "n13",
+   "kind": "action",
+   "label": "Receive Account Response",
+   "lane": "lane1",
+   "band": "lane2"
+  },
+  {
+   "id": "n14",
+   "kind": "action",
+   "label": "Send Account Response",
+   "lane": "lane0",
+   "band": "lane2"
+  },
+  {
+   "id": "n15",
+   "kind": "final",
+   "label": "",
+   "lane": "lane0",
+   "band": "lane2"
+  },
+  {
+   "id": "n16",
+   "kind": "final",
+   "label": "",
+   "lane": "lane1",
+   "band": "lane2"
+  },
+  {
+   "id": "n17",
+   "kind": "final",
+   "label": "",
+   "lane": "lane0",
+   "band": "lane2"
+  }
+ ],
+ "flows": [
+  {
+   "id": "f0",
+   "from": "n1",
+   "to": "n6",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "f1",
+   "from": "n2",
+   "to": "n3",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "f2",
+   "from": "n4",
+   "to": "n2",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "f3",
+   "from": "n6",
+   "to": "n4",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   },
+   "guard": "t2"
+  },
+  {
+   "id": "f4",
+   "from": "n3",
+   "to": "n11",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "f5",
+   "from": "n9",
+   "to": "n4",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "f6",
+   "from": "n6",
+   "to": "n8",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   },
+   "guard": "t3"
+  },
+  {
+   "id": "f7",
+   "from": "n5",
+   "to": "n7",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "f8",
+   "from": "n8",
+   "to": "n5",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "f9",
+   "from": "n7",
+   "to": "n11",
+   "kind": "control",
+   "direction": {
+    "confidence": "notation"
+   }
+  },
+  {
+   "id": "f10",
+   "from": "n9",
+   "to": "n8",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "f11",
+   "from": "n10",
+   "to": "n6",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   },
+   "guard": "t4"
+  },
+  {
+   "id": "f12",
+   "from": "n10",
+   "to": "n9",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   },
+   "guard": "t5"
+  },
+  {
+   "id": "f13",
+   "from": "n14",
+   "to": "n12",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "f14",
+   "from": "n11",
+   "to": "n14",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "f15",
+   "from": "n12",
+   "to": "n13",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "f16",
+   "from": "n13",
+   "to": "n10",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "f17",
+   "from": "n11",
+   "to": "n15",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   },
+   "guard": "t6"
+  },
+  {
+   "id": "f18",
+   "from": "n11",
+   "to": "n17",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   },
+   "guard": "t8"
+  },
+  {
+   "id": "f19",
+   "from": "n10",
+   "to": "n16",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   },
+   "guard": "t7"
+  }
+ ],
+ "texts": [
+  {
+   "id": "t2",
+   "text": "[initial\ncharges or\nunder\ncharged]",
+   "labels": "f3"
+  },
+  {
+   "id": "t3",
+   "text": "[over\ncharged]",
+   "labels": "f6"
+  },
+  {
+   "id": "t4",
+   "text": "[incorrect\ncharges]",
+   "labels": "f11"
+  },
+  {
+   "id": "t5",
+   "text": "[incorrect information]",
+   "labels": "f12"
+  },
+  {
+   "id": "t6",
+   "text": "[accept\ncredit]",
+   "labels": "f17"
+  },
+  {
+   "id": "t7",
+   "text": "[no action\nrequired]",
+   "labels": "f19"
+  },
+  {
+   "id": "t8",
+   "text": "[accept charges]",
+   "labels": "f18"
+  }
+ ],
+ "offPage": [],
+ "marks": [],
+ "phases": []
+}

@@ -120,8 +120,10 @@ rather than a new dependency.
 ## 6. The pipeline
 
 ```
-art/NAME.png  ─▶ extract_graph.py    ─▶ NAME-graph.json   (semantic graph)
-              ─▶ spec_from_extract.py ─▶ NAME-spec.json    (build spec)
+art/NAME.png  ─▶ extract_graph.py    ─▶ NAME-graph.json   (the reading)
+              ─▶ model_io.py split    ─▶ NAME-diagram.json (model), -layout.json,
+                                         -extraction.json  (see §15)
+              ─▶ spec_from_model.py   ─▶ NAME-spec.json    (build spec)
               ─▶ build_diagram.py     ─▶ NAME.svg + .drawio
               ─▶ render-svg.js        ─▶ NAME-render.png   (original's exact size)
               ─▶ VisualDiff           ─▶ NAME-diff.png     (the acceptance test)
@@ -307,7 +309,9 @@ OCR crops), verifier 3-5 s, render 1.2 s, `VisualDiff` 0.8 s.
 ## 8. The semantic graph
 
 `extract_graph.py` emits a **notation-neutral** model, which is the durable
-part of this work. Geometry can be re-laid-out and the notation re-rendered as
+part of this work. (Since §15 it reaches the rest of the pipeline split into a
+model, a layout and an extraction report; the graph below is what the extractor
+writes and what the split is made from.) Geometry can be re-laid-out and the notation re-rendered as
 long as who-connects-to-what survives.
 
 ```json
@@ -934,3 +938,59 @@ stayed at zero with the same 266 notes for a person.
 On Figs 64, 65, 74 and 88 a guard sits on the flow it labels rather than beside
 it, because the artwork puts it there and the conversion copies the artwork. It
 stays as drawn, by instruction.
+
+---
+
+## 15. The graph split into model, layout and extraction (2026-09)
+
+The graph mixed three things in the same objects: what the diagram says (a node
+is an action called "Raise Invoice" in the Supplier's lane), where it is drawn
+(its box, its corner radii, where each line of its label sits), and how the
+reading went (the fill ratio of its outline, the ink at an arrowhead). A person
+correcting a label, or a BPMN rendering, needs the first; the SVG needs the first
+two; only a reviewer needs the third. They are now three files per diagram, each
+with a schema in `tools/schema/`:
+
+| file | holds | keyed by |
+|---|---|---|
+| `-diagram.json` | lanes, nodes, flows, texts, off-page flows, marks, phases, and what refers to what | its own ids |
+| `-layout.json` | every element's geometry, the rules, the type and arrowhead sizes | the model's ids |
+| `-extraction.json` | the extractor's measurements, its open questions, and what the split found | the model's ids |
+
+`tools/model_io.py` makes them from the graph and can put the graph back together
+from them. The split is refused if the two are not equal field for field, so no
+reading is lost on the way; all 78 round-trip. The spec is now made from the model
+and layout alone (`spec_from_model.py`, formerly `spec_from_extract.py`).
+
+**Held once instead of twice.** A guard was the words of a text block and a copy
+of them on its flow; the flow now points at the block. A lane title was the lane's
+and a second reading of it as a free text block; the second reading is moved to
+the extraction report as `titleReadings`. Named fields replace the positional
+arrays (`rules` and `ruleSpan` become one list of `{at, width, span}`), and a node
+names the lane and band it stands in by their ids rather than by index.
+
+**What the split turned up**, recorded as `findings` in the extraction report,
+and all of it drawn exactly as before:
+
+- *A lane title used as a guard*, four times. The reading attached the lane title
+  "Seller" to a flow on `UBL-1.0-ProcurementProcess`, and "Producer" on
+  `CRP-ChangeArticleCatalogue` and `VMI-PermanentReplenishment`. On
+  `CPFR-CreateOrderForecast` it is the other way round: a real "No" guard in the
+  header strip was read as the title of a lane. The SVG never drew these as flow
+  labels, but the draw.io model did.
+- *Two texts on one flow*, once: on `CPFR-ExceptionHandling` both "No" and "Yes"
+  are attached to `n4->n7`, and the flow kept "Yes". One of them belongs to
+  another branch.
+
+**The fixed reference point.** Every step of this restructuring is held against
+`baselines/2026-09-25` with `tools/compare-to-baseline.sh`: after the split, all
+78 SVGs, `.drawio` files and specs are byte-identical to the baseline's, every
+rendered pixel is the same, and so are the verifier reports, the model sheets and
+the sweep table. Until the model starts being corrected on purpose, that is the
+rule for any change to the JSON.
+
+**Not yet done.** The ids are still the extractor's (`n1`, `n2`, ... in reading
+order) and, for the elements that had none, their position in their list (`f3`,
+`t5`, `lane2`). They move when the extractor changes, so a correction cannot yet
+be pinned to one. That is the next step. The verifier, the model sheet and the
+review marks still read the graph itself.

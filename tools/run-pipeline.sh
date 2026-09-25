@@ -1,7 +1,8 @@
 #!/bin/bash
 # One artwork, end to end:
 #
-#   original PNG -> semantic graph -> build spec -> draw.io-editable SVG
+#   original PNG -> graph -> model + layout + extraction report -> build spec
+#                -> draw.io-editable SVG
 #                -> PNG rendered at the original's own pixel size -> pixel diff
 #
 #   tools/run-pipeline.sh <art-dir> <out-dir> <basename> [<basename> ...]
@@ -20,7 +21,12 @@ export NODE_PATH="${NODE_PATH:+$NODE_PATH:}$(npm root -g 2>/dev/null)"
 for n in "$@"; do
   echo "== $n"
   python3 "$here/extract_graph.py"     "$art/$n.png" --json "$out/$n-graph.json" > "$out/$n-extract.log"
-  python3 "$here/spec_from_extract.py" "$out/$n-graph.json" "$out/$n-spec.json" 1480
+  # the graph split into what the diagram says, where it is drawn and how the
+  # reading went; split refuses a graph that does not join back exactly
+  python3 "$here/model_io.py"          split "$out/$n-graph.json" "$out"
+  python3 "$here/model_io.py"          validate "$out/$n-diagram.json" > "$out/$n-validate.log" \
+      || { cat "$out/$n-validate.log"; exit 1; }
+  python3 "$here/spec_from_model.py"   "$out/$n-diagram.json" "$out/$n-spec.json" 1480
   python3 "$here/build_diagram.py"     "$out/$n-spec.json"  "$out/$n"
   w=$(python3 -c "from PIL import Image;Image.MAX_IMAGE_PIXELS=None;print(Image.open('$art/$n.png').width)")
   node "$here/render-svg.js" "$out/$n.svg" "$out/$n-render.png" "$w" 600

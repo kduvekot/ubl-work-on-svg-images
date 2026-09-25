@@ -1,0 +1,158 @@
+{
+ "schema": "ubl-activity-diagram-extraction/1",
+ "figure": "UBL-2.2-VMI-Invoicing",
+ "nodes": {
+  "n1": {
+   "area": 9886,
+   "fill": 0.767
+  },
+  "n2": {
+   "area": 90649,
+   "fill": 0.936,
+   "solid": 1.0,
+   "stem": 0.156,
+   "keptOnOutline": true
+  },
+  "n3": {
+   "area": 131140,
+   "fill": 0.9,
+   "solid": 0.981,
+   "stem": 0.156
+  },
+  "n4": {
+   "area": 129348,
+   "fill": 0.888,
+   "solid": 0.981,
+   "stem": 0.156
+  },
+  "n5": {
+   "area": 7105,
+   "fill": 0.626,
+   "solid": 0.788
+  }
+ },
+ "flows": {
+  "f0": {
+   "arrowInk": [
+    270,
+    898
+   ],
+   "arrowPx": [
+    83,
+    66.0,
+    2.44
+   ],
+   "arrowFill": 0.0
+  },
+  "f1": {
+   "arrowInk": [
+    270,
+    820
+   ],
+   "arrowPx": [
+    84,
+    65.7,
+    3.08
+   ],
+   "arrowFill": 0.0
+  },
+  "f2": {
+   "arrowInk": [
+    268,
+    903
+   ],
+   "arrowPx": [
+    81,
+    67.3,
+    2.33
+   ],
+   "arrowFill": 0.047
+  },
+  "f3": {
+   "arrowInk": [
+    270,
+    902
+   ],
+   "arrowPx": [
+    82,
+    67.4,
+    2.35
+   ],
+   "arrowFill": 0.007
+  }
+ },
+ "offPage": {},
+ "marks": {},
+ "phases": {},
+ "greyRules": [],
+ "titleReadings": [
+  {
+   "position": 0,
+   "text": "Producer",
+   "x": 671,
+   "y": 51,
+   "w": 309,
+   "h": 57,
+   "lines": [
+    {
+     "x": 671,
+     "y": 51,
+     "w": 309,
+     "h": 57,
+     "text": "Producer"
+    }
+   ]
+  },
+  {
+   "position": 1,
+   "text": "Retailer",
+   "x": 2362,
+   "y": 55,
+   "w": 261,
+   "h": 57,
+   "lines": [
+    {
+     "x": 2362,
+     "y": 55,
+     "w": 261,
+     "h": 57,
+     "text": "Retailer"
+    }
+   ]
+  }
+ ],
+ "findings": [],
+ "uncertain": [
+  {
+   "x": 1403,
+   "y": 679,
+   "w": 494,
+   "h": 196,
+   "shape": "rect",
+   "iou": 1.0,
+   "border": 1.0,
+   "kind": "kept-on-outline",
+   "reason": "every side has pass-through line-work, but the region carries a complete outline of its own",
+   "check": "confirm this is a node and not trapped whitespace"
+  }
+ ],
+ "present": [
+  "source",
+  "size",
+  "fontPx",
+  "arrowPx",
+  "arrowWidthPx",
+  "arrowStyle",
+  "rules",
+  "ruleSpan",
+  "greyRules",
+  "dashed",
+  "openEnds",
+  "crossMarks",
+  "partitions",
+  "nodes",
+  "edges",
+  "text",
+  "uncertain"
+ ]
+}

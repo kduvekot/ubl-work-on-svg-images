@@ -1,0 +1,119 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "$id": "ubl-activity-diagram/1",
+ "title": "UBL activity diagram: the model",
+ "description": "What one UBL UML activity diagram says: its lanes, nodes, flows and texts, and what refers to what. Where each element is drawn is in the diagram's layout file, keyed by these ids; how the extractor read it is in its extraction file. Written by tools/model_io.py.",
+ "type": "object",
+ "required": ["schema", "figure", "lanes", "nodes", "flows", "texts", "offPage", "marks", "phases"],
+ "additionalProperties": false,
+ "properties": {
+  "schema": {"const": "ubl-activity-diagram/1"},
+  "figure": {
+   "type": "object", "required": ["name", "source"], "additionalProperties": false,
+   "properties": {
+    "name": {"type": "string", "description": "the figure's basename, as in art/"},
+    "source": {"type": ["string", "null"], "description": "the PNG it was read from, by file name"}
+   }
+  },
+  "lanes": {
+   "description": "partitions: a column is a swimlane (a party), a band a horizontal division (a phase). Every diagram has at least one band, with an empty title where the artwork draws none.",
+   "type": "array",
+   "items": {
+    "type": "object", "required": ["id", "axis", "index", "title"], "additionalProperties": false,
+    "properties": {
+     "id": {"$ref": "#/$defs/id"},
+     "axis": {"enum": ["column", "band"]},
+     "index": {"type": "integer", "minimum": 0, "description": "position along its axis, left to right or top to bottom"},
+     "title": {"type": "string"}
+    }
+   }
+  },
+  "nodes": {
+   "type": "array",
+   "items": {
+    "type": "object", "required": ["id", "kind", "label"], "additionalProperties": false,
+    "properties": {
+     "id": {"$ref": "#/$defs/id"},
+     "kind": {"enum": ["initial", "final", "action", "object", "decision", "fork", "note"],
+              "description": "object is an object node (a document); fork is a fork or join bar"},
+     "label": {"type": "string", "description": "the words in the node, a newline where the artwork breaks the line"},
+     "lane": {"$ref": "#/$defs/ref", "description": "the column lane it stands in"},
+     "band": {"$ref": "#/$defs/ref", "description": "the band it stands in"}
+    }
+   }
+  },
+  "flows": {
+   "type": "array",
+   "items": {
+    "type": "object", "required": ["id", "from", "to"], "additionalProperties": false,
+    "properties": {
+     "id": {"$ref": "#/$defs/id"},
+     "from": {"$ref": "#/$defs/id"},
+     "to": {"$ref": "#/$defs/id"},
+     "kind": {"enum": ["control", "object", "goods"],
+              "description": "control flow, object flow (a document passing), or a physical goods movement"},
+     "guard": {"$ref": "#/$defs/id", "description": "the text that is this flow's guard; a lane id where the reading attached a lane title (see the extraction file's findings)"},
+     "bothEnds": {"type": "boolean", "description": "an arrowhead at both ends: a standing relationship, not a flow from one to the other"},
+     "direction": {
+      "type": "object", "additionalProperties": false,
+      "properties": {
+       "confidence": {"enum": ["high", "medium", "LOW", "notation", "checked", "both-ends", "mark-at-head"],
+                      "description": "how the direction was settled"},
+       "checked": {"enum": ["confirmed", "corrected"],
+                   "description": "a person compared it with the artwork (tools/direction-verdicts.json)"}
+      }
+     }
+    }
+   }
+  },
+  "texts": {
+   "description": "words on the page that are not a node's label or a lane's title: guards, and free labels",
+   "type": "array",
+   "items": {
+    "type": "object", "required": ["id", "text"], "additionalProperties": false,
+    "properties": {
+     "id": {"$ref": "#/$defs/id"},
+     "text": {"type": "string"},
+     "labels": {"$ref": "#/$defs/ref", "description": "the flow this text was attached to, if any"}
+    }
+   }
+  },
+  "offPage": {
+   "description": "a flow with only one end on this diagram",
+   "type": "array",
+   "items": {
+    "type": "object", "required": ["id", "node", "direction", "arrow"], "additionalProperties": false,
+    "properties": {
+     "id": {"$ref": "#/$defs/id"},
+     "node": {"$ref": "#/$defs/id"},
+     "direction": {"enum": ["in", "out"]},
+     "arrow": {"type": "boolean"}
+    }
+   }
+  },
+  "marks": {
+   "description": "a stroke across a partition rule (a BPMN-style break, on Figs 86/87)",
+   "type": "array",
+   "items": {
+    "type": "object", "required": ["id", "kind"], "additionalProperties": false,
+    "properties": {
+     "id": {"$ref": "#/$defs/id"},
+     "kind": {"const": "cross-mark"},
+     "rule": {"enum": ["v", "h"], "description": "the axis of the rule it crosses"}
+    }
+   }
+  },
+  "phases": {
+   "description": "the dashed box a CPFR phase is drawn inside",
+   "type": "array",
+   "items": {
+    "type": "object", "required": ["id"], "additionalProperties": false,
+    "properties": {"id": {"$ref": "#/$defs/id"}}
+   }
+  }
+ },
+ "$defs": {
+  "id": {"type": "string", "pattern": "^[A-Za-z][A-Za-z0-9_.:-]*$"},
+  "ref": {"oneOf": [{"$ref": "#/$defs/id"}, {"type": "null"}]}
+ }
+}

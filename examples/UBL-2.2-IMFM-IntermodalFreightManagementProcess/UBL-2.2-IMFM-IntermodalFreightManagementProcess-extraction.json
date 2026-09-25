@@ -1,0 +1,919 @@
+{
+ "schema": "ubl-activity-diagram-extraction/1",
+ "figure": "UBL-2.2-IMFM-IntermodalFreightManagementProcess",
+ "nodes": {
+  "n1": {
+   "area": 2631,
+   "fill": 0.746
+  },
+  "n2": {
+   "area": 56985,
+   "fill": 0.899,
+   "solid": 0.97,
+   "stem": 0.091
+  },
+  "n3": {
+   "area": 51301,
+   "fill": 0.9,
+   "solid": 0.966,
+   "stem": 0.152
+  },
+  "n4": {
+   "area": 829847,
+   "fill": 0.989,
+   "solid": 0.998,
+   "stem": 0.152
+  },
+  "n5": {
+   "area": 54119,
+   "fill": 0.892,
+   "solid": 1.0,
+   "stem": 0.152
+  },
+  "n6": {
+   "area": 149838,
+   "fill": 0.952,
+   "solid": 0.988,
+   "stem": 0.152
+  },
+  "n7": {
+   "area": 150867,
+   "fill": 0.958,
+   "solid": 0.988,
+   "stem": 0.152
+  },
+  "n8": {
+   "area": 55833,
+   "fill": 0.917,
+   "solid": 1.0,
+   "stem": 0.152
+  },
+  "n9": {
+   "area": 55000,
+   "fill": 0.906,
+   "solid": 1.0,
+   "stem": 0.152
+  },
+  "n10": {
+   "area": 288518,
+   "fill": 0.975,
+   "solid": 0.993,
+   "stem": 0.152
+  },
+  "n11": {
+   "area": 285819,
+   "fill": 0.977,
+   "solid": 0.993,
+   "stem": 0.152
+  },
+  "n12": {
+   "area": 59505,
+   "fill": 0.904,
+   "solid": 0.971,
+   "stem": 0.091
+  },
+  "n13": {
+   "area": 56937,
+   "fill": 0.933,
+   "solid": 1.0,
+   "stem": 0.152
+  },
+  "n14": {
+   "area": 57312,
+   "fill": 0.944,
+   "solid": 1.0,
+   "stem": 0.152
+  },
+  "n15": {
+   "area": 474982,
+   "fill": 0.98,
+   "solid": 0.993,
+   "stem": 0.152
+  },
+  "n16": {
+   "area": 477109,
+   "fill": 0.986,
+   "solid": 0.995,
+   "stem": 0.152
+  },
+  "n17": {
+   "area": 54822,
+   "fill": 0.903,
+   "solid": 1.0,
+   "stem": 0.152
+  },
+  "n18": {
+   "area": 59294,
+   "fill": 0.92,
+   "solid": 1.0,
+   "stem": 0.152
+  },
+  "n19": {
+   "area": 56260,
+   "fill": 0.927,
+   "solid": 1.0,
+   "stem": 0.152
+  },
+  "n20": {
+   "area": 57398,
+   "fill": 0.94,
+   "solid": 1.0,
+   "stem": 0.152
+  },
+  "n21": {
+   "area": 56797,
+   "fill": 0.933,
+   "solid": 1.0,
+   "stem": 0.152
+  },
+  "n22": {
+   "area": 32112,
+   "fill": 0.875,
+   "solid": 0.959,
+   "stem": 0.091
+  },
+  "n23": {
+   "area": 101346,
+   "fill": 0.93,
+   "solid": 0.981,
+   "stem": 0.152
+  },
+  "n24": {
+   "area": 56756,
+   "fill": 0.932,
+   "solid": 1.0,
+   "stem": 0.152
+  },
+  "n25": {
+   "area": 75550,
+   "fill": 0.926,
+   "solid": 0.977,
+   "stem": 0.152
+  },
+  "n26": {
+   "area": 74874,
+   "fill": 0.933,
+   "solid": 0.977,
+   "stem": 0.152
+  },
+  "n27": {
+   "area": 58421,
+   "fill": 0.96,
+   "solid": 1.0,
+   "stem": 0.152
+  },
+  "n28": {
+   "area": 2050,
+   "fill": 0.59,
+   "solid": 0.757
+  }
+ },
+ "flows": {
+  "f0": {
+   "arrowInk": [
+    434,
+    434
+   ],
+   "arrowPx": [
+    33,
+    36.0,
+    1.66
+   ],
+   "arrowFill": 0.0
+  },
+  "f1": {
+   "arrowInk": [
+    138,
+    472
+   ],
+   "arrowPx": [
+    42,
+    30.0,
+    2.1
+   ],
+   "arrowFill": 0.015,
+   "arrowSaturated": true
+  },
+  "f2": {
+   "arrowInk": [
+    512,
+    526
+   ],
+   "arrowPx": [
+    34,
+    38.7,
+    1.65
+   ],
+   "arrowFill": 0.0
+  },
+  "f3": {
+   "arrowInk": [
+    180,
+    526
+   ],
+   "arrowPx": [
+    47,
+    33.9,
+    2.0
+   ],
+   "arrowFill": 0.106
+  },
+  "f4": {
+   "arrowInk": [
+    289,
+    448
+   ],
+   "arrowPx": [
+    40,
+    36.4,
+    1.49
+   ],
+   "arrowFill": 0.029
+  },
+  "f5": {
+   "arrowInk": [
+    138,
+    473
+   ],
+   "arrowPx": [
+    49,
+    36.5,
+    1.97
+   ],
+   "arrowFill": 0.088
+  },
+  "f6": {
+   "arrowInk": [
+    433,
+    487
+   ],
+   "arrowPx": [
+    46,
+    35.6,
+    2.68
+   ],
+   "arrowFill": 0.0
+  },
+  "f7": {
+   "arrowInk": [
+    386,
+    480
+   ],
+   "arrowPx": [
+    35,
+    37.0,
+    1.74
+   ],
+   "arrowFill": 0.0,
+   "arrowSaturated": true
+  },
+  "f8": {
+   "arrowInk": [
+    180,
+    525
+   ],
+   "arrowPx": [
+    48,
+    34.3,
+    2.07
+   ],
+   "arrowFill": 0.009
+  },
+  "f9": {
+   "arrowInk": [
+    273,
+    488
+   ],
+   "arrowPx": [
+    41,
+    35.8,
+    1.39
+   ],
+   "arrowFill": 0.272,
+   "arrowSaturated": true
+  },
+  "f10": {
+   "arrowInk": [
+    184,
+    511
+   ],
+   "arrowPx": [
+    51,
+    34.0,
+    2.16
+   ],
+   "arrowFill": 0.0
+  },
+  "f11": {
+   "arrowInk": [
+    138,
+    476
+   ],
+   "arrowPx": [
+    43,
+    33.0,
+    1.95
+   ],
+   "arrowFill": 0.044,
+   "arrowSaturated": true
+  },
+  "f12": {
+   "arrowInk": [
+    259,
+    491
+   ],
+   "arrowPx": [
+    45,
+    34.4,
+    2.53
+   ],
+   "arrowFill": 0.0
+  },
+  "f13": {
+   "arrowInk": [
+    360,
+    522
+   ],
+   "arrowPx": [
+    47,
+    33.1,
+    2.07
+   ],
+   "arrowFill": 0.0
+  },
+  "f14": {
+   "arrowInk": [
+    184,
+    512
+   ],
+   "arrowPx": [
+    50,
+    35.0,
+    1.99
+   ],
+   "arrowFill": 0.018
+  },
+  "f15": {
+   "arrowInk": [
+    225,
+    521
+   ],
+   "arrowPx": [
+    42,
+    38.0,
+    1.87
+   ],
+   "arrowFill": 0.0
+  },
+  "f16": {
+   "arrowInk": [
+    180,
+    524
+   ],
+   "arrowPx": [
+    49,
+    34.0,
+    2.44
+   ],
+   "arrowFill": 0.0
+  },
+  "f17": {
+   "arrowInk": [
+    180,
+    503
+   ],
+   "arrowPx": [
+    35,
+    36.0,
+    1.63
+   ],
+   "arrowFill": 0.107
+  },
+  "f18": {
+   "arrowInk": [
+    180,
+    525
+   ],
+   "arrowPx": [
+    48,
+    33.4,
+    2.18
+   ],
+   "arrowFill": 0.0
+  },
+  "f19": {
+   "arrowInk": [
+    389,
+    491
+   ],
+   "arrowPx": [
+    39,
+    38.0,
+    1.45
+   ],
+   "arrowFill": 0.077
+  },
+  "f20": {
+   "arrowInk": [
+    184,
+    520
+   ],
+   "arrowPx": [
+    50,
+    35.9,
+    2.31
+   ],
+   "arrowFill": 0.02
+  },
+  "f21": {
+   "arrowInk": [
+    184,
+    512
+   ],
+   "arrowPx": [
+    50,
+    35.8,
+    2.03
+   ],
+   "arrowFill": 0.04
+  },
+  "f22": {
+   "arrowInk": [
+    184,
+    511
+   ],
+   "arrowPx": [
+    49,
+    34.9,
+    1.97
+   ],
+   "arrowFill": 0.014
+  },
+  "f23": {
+   "arrowInk": [
+    389,
+    525
+   ],
+   "arrowPx": [
+    45,
+    35.4,
+    2.56
+   ],
+   "arrowFill": 0.0
+  },
+  "f24": {
+   "arrowInk": [
+    180,
+    528
+   ],
+   "arrowPx": [
+    49,
+    34.0,
+    2.22
+   ],
+   "arrowFill": 0.0
+  },
+  "f25": {
+   "arrowInk": [
+    368,
+    490
+   ],
+   "arrowPx": [
+    41,
+    38.3,
+    1.3
+   ],
+   "arrowFill": 0.087
+  },
+  "f26": {
+   "arrowInk": [
+    180,
+    403
+   ],
+   "arrowPx": [
+    47,
+    54.0,
+    1.9
+   ],
+   "arrowFill": 0.275
+  },
+  "f27": {
+   "arrowInk": [
+    138,
+    473
+   ],
+   "arrowPx": [
+    48,
+    34.6,
+    1.91
+   ],
+   "arrowFill": 0.062
+  },
+  "f28": {
+   "arrowInk": [
+    488,
+    536
+   ],
+   "arrowPx": [
+    46,
+    34.0,
+    2.69
+   ],
+   "arrowFill": 0.0
+  },
+  "f29": {
+   "arrowInk": [
+    180,
+    484
+   ],
+   "arrowPx": [
+    42,
+    38.0,
+    1.9
+   ],
+   "arrowFill": 0.0
+  },
+  "f30": {
+   "arrowInk": [
+    138,
+    478
+   ],
+   "arrowPx": [
+    42,
+    30.0,
+    2.12
+   ],
+   "arrowFill": 0.02,
+   "arrowSaturated": true
+  },
+  "f31": {
+   "arrowInk": [
+    401,
+    485
+   ],
+   "arrowPx": [
+    46,
+    35.5,
+    2.73
+   ],
+   "arrowFill": 0.0
+  },
+  "f32": {
+   "arrowInk": [
+    180,
+    475
+   ],
+   "arrowPx": [
+    41,
+    39.4,
+    1.75
+   ],
+   "arrowFill": 0.0
+  }
+ },
+ "offPage": {},
+ "marks": {},
+ "phases": {},
+ "greyRules": [],
+ "titleReadings": [
+  {
+   "position": 0,
+   "text": "Transport User",
+   "x": 391,
+   "y": 21,
+   "w": 247,
+   "h": 29,
+   "lines": [
+    {
+     "x": 391,
+     "y": 21,
+     "w": 247,
+     "h": 29,
+     "text": "Transport User"
+    }
+   ]
+  },
+  {
+   "position": 1,
+   "text": "Transport Service Provider",
+   "x": 1177,
+   "y": 21,
+   "w": 458,
+   "h": 29,
+   "lines": [
+    {
+     "x": 1177,
+     "y": 21,
+     "w": 458,
+     "h": 29,
+     "text": "Transport Service Provider"
+    }
+   ]
+  },
+  {
+   "position": 2,
+   "text": "Transport Regulator",
+   "x": 2021,
+   "y": 21,
+   "w": 327,
+   "h": 29,
+   "lines": [
+    {
+     "x": 2021,
+     "y": 21,
+     "w": 327,
+     "h": 29,
+     "text": "Transport Regulator"
+    }
+   ]
+  },
+  {
+   "position": 3,
+   "text": "Transportation Network Manager",
+   "x": 2692,
+   "y": 21,
+   "w": 548,
+   "h": 29,
+   "lines": [
+    {
+     "x": 2692,
+     "y": 21,
+     "w": 548,
+     "h": 29,
+     "text": "Transportation Network Manager"
+    }
+   ]
+  }
+ ],
+ "findings": [],
+ "uncertain": [
+  {
+   "x": 2514,
+   "y": 285,
+   "w": 318,
+   "h": 790,
+   "shape": "rect",
+   "iou": 1.0,
+   "border": 1.0,
+   "kind": "dropped-region",
+   "reason": "4 of 4 sides are pass-through line-work",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "x": 615,
+   "y": 427,
+   "w": 338,
+   "h": 195,
+   "shape": "rect",
+   "iou": 0.588,
+   "border": 0.64,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best rect 0.59, and 0.98 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "x": 381,
+   "y": 625,
+   "w": 572,
+   "h": 252,
+   "shape": "rhombus",
+   "iou": 0.706,
+   "border": 0.374,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best rhombus 0.71, and 0.98 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "x": 611,
+   "y": 880,
+   "w": 342,
+   "h": 205,
+   "shape": "rect",
+   "iou": 0.537,
+   "border": 0.645,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best rect 0.54, and 0.98 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "x": 1462,
+   "y": 1079,
+   "w": 387,
+   "h": 455,
+   "shape": "rect",
+   "iou": 0.532,
+   "border": 0.666,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best rect 0.53, and 0.99 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "x": 1853,
+   "y": 1079,
+   "w": 979,
+   "h": 455,
+   "shape": "rect",
+   "iou": 0.996,
+   "border": 1.0,
+   "kind": "dropped-region",
+   "reason": "4 of 4 sides are pass-through line-work",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "x": 957,
+   "y": 1085,
+   "w": 501,
+   "h": 449,
+   "shape": "rect",
+   "iou": 0.408,
+   "border": 0.572,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best rect 0.41, and 0.99 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "x": 611,
+   "y": 1088,
+   "w": 342,
+   "h": 232,
+   "shape": "rect",
+   "iou": 0.572,
+   "border": 0.67,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best rect 0.57, and 0.99 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "x": 957,
+   "y": 1538,
+   "w": 500,
+   "h": 226,
+   "shape": "rect",
+   "iou": 0.483,
+   "border": 0.628,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best rect 0.48, and 0.99 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "x": 1461,
+   "y": 1538,
+   "w": 388,
+   "h": 187,
+   "shape": "rect",
+   "iou": 0.574,
+   "border": 0.691,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best rect 0.57, and 0.98 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "x": 1691,
+   "y": 1728,
+   "w": 158,
+   "h": 211,
+   "shape": "rect",
+   "iou": 0.995,
+   "border": 1.0,
+   "kind": "dropped-region",
+   "reason": "4 of 4 sides are pass-through line-work",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "x": 1853,
+   "y": 1728,
+   "w": 657,
+   "h": 211,
+   "shape": "rect",
+   "iou": 0.747,
+   "border": 0.797,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best rect 0.75, and 0.99 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "x": 618,
+   "y": 1750,
+   "w": 335,
+   "h": 253,
+   "shape": "rect",
+   "iou": 0.567,
+   "border": 0.593,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best rect 0.57, and 0.99 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "x": 957,
+   "y": 1764,
+   "w": 270,
+   "h": 240,
+   "shape": "rect",
+   "iou": 0.447,
+   "border": 0.614,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best rect 0.45, and 0.98 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "x": 1691,
+   "y": 1943,
+   "w": 158,
+   "h": 495,
+   "shape": "rect",
+   "iou": 0.75,
+   "border": 0.908,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best rect 0.75, and 0.98 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "x": 957,
+   "y": 2006,
+   "w": 270,
+   "h": 238,
+   "shape": "rect",
+   "iou": 0.446,
+   "border": 0.603,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best rect 0.45, and 0.98 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "x": 618,
+   "y": 2007,
+   "w": 335,
+   "h": 236,
+   "shape": "rect",
+   "iou": 0.589,
+   "border": 0.711,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best rect 0.59, and 0.99 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "x": 957,
+   "y": 2245,
+   "w": 497,
+   "h": 503,
+   "shape": "rect",
+   "iou": 0.406,
+   "border": 0.519,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best rect 0.41, and 0.99 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "x": 618,
+   "y": 2246,
+   "w": 335,
+   "h": 248,
+   "shape": "rect",
+   "iou": 0.622,
+   "border": 0.741,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best rect 0.62, and 0.99 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "x": 1458,
+   "y": 2442,
+   "w": 391,
+   "h": 306,
+   "shape": "rect",
+   "iou": 0.582,
+   "border": 0.684,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best rect 0.58, and 0.99 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "kind": "edge-direction",
+   "reason": "arrowhead ink is ambiguous where several connectors meet",
+   "edge": [
+    "n1",
+    "n3"
+   ],
+   "check": "confirm which way this edge points"
+  }
+ ],
+ "present": [
+  "source",
+  "size",
+  "fontPx",
+  "arrowPx",
+  "arrowWidthPx",
+  "arrowStyle",
+  "rules",
+  "ruleSpan",
+  "greyRules",
+  "dashed",
+  "openEnds",
+  "crossMarks",
+  "partitions",
+  "nodes",
+  "edges",
+  "text",
+  "uncertain"
+ ]
+}

@@ -1,25 +1,34 @@
 #!/usr/bin/env python3
-"""Turn extract_graph.py output into a build_diagram.py spec - no hand editing.
+"""Turn a diagram's model and layout into a build_diagram.py spec - no hand editing.
 
-    python3 spec_from_extract.py <extracted.json> <spec.json> [modelWidth]
+    python3 spec_from_model.py <NAME-diagram.json> <spec.json> [modelWidth]
+
+reads NAME-diagram.json and, beside it, NAME-layout.json (both written by
+model_io.py from the extractor's graph). Nothing is read from the extraction
+report: what is drawn comes from the model and its layout alone.
 
 Everything here is derived from the measurements: the model scale, stroke weights,
 font size, node rectangles (interior expanded by half a stroke), corner radii, the
 partition rules and titles, and the edges - including where each connector actually
 meets its nodes, so nothing about the routing is guessed.
 """
-import json, re, sys
+import json, os, sys
 from statistics import median
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import model_io
 
 ASCENDER = 0.73          # Helvetica ascender as a fraction of em
 INNER_RATIO = 0.425      # activity-final inner disc / outer ring (measured)
 
 
 def main(src, out, model_w=1480.0):
-    e = json.load(open(src))
-    W, H = e["size"]
+    model, lay = model_io.load(src)
+    W, H = lay["size"]
     s = model_w / W
     M = lambda v: round(v * s, 1)
+    rules = {ax: [(r["at"], r["width"]) for r in lay["rules"][k]]
+             for ax, k in (("v", "vertical"), ("h", "horizontal"))}
 
     # A rule belongs to the border if it sits at the canvas edge - within a small
     # margin, because not every diagram draws its frame flush. UBL-2.3-Tender-
@@ -28,38 +37,38 @@ def main(src, out, model_w=1480.0):
     # along the border on top of the frame rect. The doubled border was the single
     # largest invented component in the whole set.
     mv, mh = max(3, W * 0.015), max(3, H * 0.015)
-    inner_v = [(x, w) for x, w in e["rules"]["v"] if mv < x and x + w < W - mv]
-    inner_h = [(y, t) for y, t in e["rules"]["h"] if mh < y and y + t < H - mh]
+    inner_v = [(x, w) for x, w in rules["v"] if mv < x and x + w < W - mv]
+    inner_h = [(y, t) for y, t in rules["h"] if mh < y and y + t < H - mh]
     # The frame is the border rules only. Taking the widest of *all* rules made a
     # partition divider heavier than the border set the border's weight - UBL
     # draws some dividers at 22px against a 10px frame - and the extra width then
     # ran the whole way round the canvas as invented line-work.
-    outer_v = [(x, w) for x, w in e["rules"]["v"] if (x, w) not in inner_v]
-    outer_h = [(y, t) for y, t in e["rules"]["h"] if (y, t) not in inner_h]
+    outer_v = [(x, w) for x, w in rules["v"] if (x, w) not in inner_v]
+    outer_h = [(y, t) for y, t in rules["h"] if (y, t) not in inner_h]
     outer = [w for _, w in outer_v] + [t for _, t in outer_h]
-    frame = median(outer) if outer else max(w for _, w in e["rules"]["h"] + e["rules"]["v"])
+    frame = median(outer) if outer else max(w for _, w in rules["h"] + rules["v"])
     divider = median([w for _, w in inner_v + inner_h]) if (inner_v or inner_h) else frame
 
     # How far each rule runs, read off its own ink rather than assumed to be edge
     # to edge: eleven of the inner rules in the 78 stop short, seven of them
     # covering less than three quarters of the page.
-    spans = e.get("ruleSpan") or {}
-
     def span(key):
         axis, at, wd = key
-        try:
-            i = e["rules"][axis].index([at, wd])
-        except (KeyError, ValueError):
-            return []
-        s = (spans.get(axis) or [None] * (i + 1))[i]
-        return [M(s[0]), M(s[1])] if s else []
+        for r in lay["rules"]["vertical" if axis == "v" else "horizontal"]:
+            if (r["at"], r["width"]) == (at, wd):
+                s = r["span"]
+                return [M(s[0]), M(s[1])] if s else []
+        return []
 
-    nodes_in = e["nodes"]
+    # each node as the extractor measured it: what it is from the model, where
+    # and how it is drawn from the layout
+    nodes_in = [dict(lay["nodes"][n["id"]], **n) for n in model["nodes"]]
     acts = [n for n in nodes_in if n["kind"] == "action"]
     objs = [n for n in nodes_in if n["kind"] == "object"]
     s_act = int(median([n["stroke"] for n in acts])) if acts else 6
     s_obj = int(median([n["stroke"] for n in objs])) if objs else s_act * 2
-    font_px = e.get("fontPx") or 78
+    style = lay["style"]
+    font_px = style.get("fontPx") or 78
 
     nodes = []
     for n in nodes_in:
@@ -104,21 +113,30 @@ def main(src, out, model_w=1480.0):
         fy = (M(pt[1]) - node["y"]) / max(node["h"], 1e-6)
         return [round(min(max(fx, 0.0), 1.0), 4), round(min(max(fy, 0.0), 1.0), 4)]
 
+    texts = {t["id"]: t for t in model["texts"]}
+    lanes_by_id = {l["id"]: l for l in model["lanes"]}
     edges = []
-    for ed in e["edges"]:
+    for f in model["flows"]:
+        ed = dict(lay["flows"][f["id"]], **f)
         a, b = byid.get(ed["from"]), byid.get(ed["to"])
         if not a or not b:
             continue
         d = {"from": ed["from"], "to": ed["to"],
              "exitXY": frac(a, ed["fromPoint"]), "entryXY": frac(b, ed["toPoint"]),
              "straight": ed["routing"] in ("straight", "diagonal"),
-             "confidence": ed.get("directionConfidence", "")}
+             "confidence": (f.get("direction") or {}).get("confidence", "")}
         # the corners the connector actually turns at, so an orthogonal route is
         # put back where the artwork draws it rather than wherever a router elbows
         if ed.get("points"):
             d["points"] = [[M(p[0]), M(p[1])] for p in ed["points"]]
-        if ed.get("guard"):
-            d["label"] = ed["guard"]
+        # the guard's words, from the text block that is the guard (or, where the
+        # reading attached a lane title to the flow, from that lane's title)
+        if f.get("guard"):
+            g = f["guard"]
+            label = (model_io.guard_text(texts[g]) if g in texts
+                     else model_io.norm(lanes_by_id[g]["title"]))
+            if label:
+                d["label"] = label
         # the artwork's own dash pattern, where the flow is drawn dashed
         if ed.get("dash"):
             d["dash"], d["gap"] = M(ed["dash"]), M(ed["gap"])
@@ -126,12 +144,13 @@ def main(src, out, model_w=1480.0):
                 d["dashOffset"] = M(ed["dashOffset"])
         # a point at both ends: a standing relationship between two parties, not
         # a flow from one to the other
-        if ed.get("arrowBoth"):
+        if f.get("bothEnds"):
             d["arrowBoth"] = True
         edges.append(d)
 
-    cols = [p for p in e.get("partitions", []) if p["axis"] == "column"]
-    bands = [p for p in e.get("partitions", []) if p["axis"] == "band"]
+    parts = [dict(lay["lanes"][l["id"]], **l) for l in model["lanes"]]
+    cols = [p for p in parts if p["axis"] == "column"]
+    bands = [p for p in parts if p["axis"] == "band"]
     lanes = []
     for c in cols:
         b = c.get("titleBox")
@@ -140,8 +159,8 @@ def main(src, out, model_w=1480.0):
                       "cy": M(b[1] + b[3] / 2) if b else M(font_px)})
 
     # a narrow first column is the gutter the band titles run up
-    gutter = e["rules"]["v"][1][0] if len(e["rules"]["v"]) > 2 and \
-        e["rules"]["v"][1][0] < W * 0.04 else 0
+    gutter = rules["v"][1][0] if len(rules["v"]) > 2 and \
+        rules["v"][1][0] < W * 0.04 else 0
     bandLabels = [{"title": b["title"], "cx": M(gutter / 2),
                    "cy": M((b["y0"] + b["y1"]) / 2)} for b in bands if gutter and b["title"]]
 
@@ -152,38 +171,12 @@ def main(src, out, model_w=1480.0):
     # every "Yes"/"No" whose edge was not matched, and every free label such as
     # "Publish Official Journal". The artwork has that ink, so the SVG needs it
     # whether or not the attachment succeeded; an unattached label is still
-    # content, it just carries less meaning in the graph. Anything already drawn
-    # as a partition title is skipped so it is not drawn twice.
-    titles = [tuple(p["titleBox"]) for p in e.get("partitions", []) if p.get("titleBox")]
-    title_text = {re.sub(r"[^a-z0-9]", "", " ".join((p.get("title") or "").split()).lower())
-                  for p in e.get("partitions", []) if p.get("title")}
-
-    def drawn_as_title(t):
-        # Matched on letters alone, and either way round: the rule beside a title
-        # strip lands in its crop, so the partition read "Transportation Network
-        # Manager |" where the block reader read "Transportation Network Manager",
-        # the two did not match, and IMFM drew the title twice.
-        #
-        # Matching by name alone needs a name long enough to be evidence. A lane
-        # read as "No" - which happens where a guard sits up in the header strip,
-        # on CPFR-ExceptionMonitor and CPFR-CreateOrderForecast - otherwise deletes
-        # every other "No" on the page, and the two guards on the flows into the
-        # end event went missing from the drawing while the artwork showed them
-        # plainly. Over the 78 this branch suppresses eight blocks: the four
-        # "No"s, wrongly, and four real lane titles of eleven letters and more,
-        # rightly. The position test below still catches a short title in its own
-        # place, which is the only place a short one is evidence of anything.
-        k = re.sub(r"[^a-z0-9]", "", " ".join(t["text"].split()).lower())
-        if k and len(k) >= 6 and any(k == o or k in o or o in k
-                                     for o in title_text):
-            return True
-        return any(abs(t["x"] - b[0]) <= 2 and abs(t["y"] - b[1]) <= 2 and
-                   abs(t["w"] - b[2]) <= 2 and abs(t["h"] - b[3]) <= 2 for b in titles)
-
+    # content, it just carries less meaning in the graph. A lane title is not
+    # among them: the model holds it once, as the lane's, and model_io.py moves
+    # the extractor's second reading of it to the extraction report.
     guards = []
-    for t in e.get("text", []):
-        if drawn_as_title(t):
-            continue
+    for tm in model["texts"]:
+        t = dict(lay["texts"][tm["id"]], text=tm["text"])
         g = {"text": t["text"], "x": M(t["x"]), "y": M(t["y"]),
              "w": M(t["w"]), "h": M(t["h"])}
         if t.get("lines"):
@@ -204,36 +197,36 @@ def main(src, out, model_w=1480.0):
         # constant that used to be used everywhere - is the fallback, and it was
         # twice too big for the 26px-type diagrams and half the size of
         # ProcurementProcess's.
-        "arrow": M((e.get("arrowPx") or 56) / 0.8),
+        "arrow": M((style.get("arrowPx") or 56) / 0.8),
         # across the line as well as along it: the artwork's heads are blunter
         # than a triangle as wide as it is long, and drawing them square lost a
         # third of their ink
-        "arrowWidth": M((e.get("arrowWidthPx") or (e.get("arrowPx") or 56)) / 0.8),
-        "arrowStyle": e.get("arrowStyle") or "open",
+        "arrowWidth": M((style.get("arrowWidthPx") or (style.get("arrowPx") or 56)) / 0.8),
+        "arrowStyle": style.get("arrowStyle") or "open",
         # the dashed rounded box a CPFR phase is drawn inside, with the artwork's
         # own dash and gap so the rebuild repeats the pattern rather than inventing
         # one
         "dashed": [{"x": M(d["x"]), "y": M(d["y"]), "w": M(d["w"]), "h": M(d["h"]),
                     "rx": M(d["rx"]), "dash": M(d["dash"]), "gap": M(d["gap"]),
                     "weight": M(d.get("weight") or 0)}
-                   for d in e.get("dashed", [])],
+                   for d in (lay["phases"][p["id"]] for p in model["phases"])],
         # dividers the artwork draws in grey rather than black, in their own tone
         "greyRules": [{"axis": r["axis"], "at": M(r["at"]), "w": M(r["w"]),
                        "colour": "#%02x%02x%02x" % ((r["level"],) * 3)}
-                      for r in e.get("greyRules", [])],
+                      for r in lay["greyRules"]],
         # a short stroke drawn across a partition rule: line-work the diagram
         # carries whose meaning the specification has not been read for, so it is
         # reproduced exactly as measured and classified as what it plainly is
         "crossMarks": [{"x1": M(m["x1"]), "y1": M(m["y1"]),
                         "x2": M(m["x2"]), "y2": M(m["y2"]),
                         "weight": M(m.get("weight") or 0)}
-                       for m in e.get("crossMarks", [])],
+                       for m in (lay["marks"][c["id"]] for c in model["marks"])],
         # a flow that leaves the diagram: drawn along its measured route, from
         # where it meets its node to where it runs off
         "openEnds": [{"points": [[M(p[0]), M(p[1])] for p in
                                  [o["at"]] + (o.get("points") or []) + [o["end"]]],
-                      "arrow": bool(o.get("arrow"))}
-                     for o in e.get("openEnds", [])],
+                      "arrow": bool(om.get("arrow"))}
+                     for om in model["offPage"] for o in [lay["offPage"][om["id"]]]],
         # where the border rules actually are, rather than assuming the frame is
         # flush with the canvas: some diagrams inset it (Tender-Contract-Pre puts
         # it at x=6) and a flush frame then misses the original's by its own width

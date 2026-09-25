@@ -1,0 +1,553 @@
+{
+ "schema": "ubl-activity-diagram/1",
+ "figure": {
+  "name": "UBL-2.2-IMFM-IntermodalFreightManagementProcess",
+  "source": "UBL-2.2-IMFM-IntermodalFreightManagementProcess.png"
+ },
+ "lanes": [
+  {
+   "id": "lane0",
+   "axis": "column",
+   "index": 0,
+   "title": "Transport User"
+  },
+  {
+   "id": "lane1",
+   "axis": "column",
+   "index": 1,
+   "title": "Transport Service Provider"
+  },
+  {
+   "id": "lane2",
+   "axis": "column",
+   "index": 2,
+   "title": "Transport Regulator"
+  },
+  {
+   "id": "lane3",
+   "axis": "column",
+   "index": 3,
+   "title": "Transportation Network Manager"
+  },
+  {
+   "id": "lane4",
+   "axis": "band",
+   "index": 0,
+   "title": "Planning"
+  },
+  {
+   "id": "lane5",
+   "axis": "band",
+   "index": 1,
+   "title": "Execution"
+  },
+  {
+   "id": "lane6",
+   "axis": "band",
+   "index": 2,
+   "title": "Completion"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "n1",
+   "kind": "initial",
+   "label": "",
+   "lane": "lane1",
+   "band": "lane4"
+  },
+  {
+   "id": "n2",
+   "kind": "note",
+   "label": "Transportation Network\nInformation",
+   "lane": "lane2",
+   "band": "lane4"
+  },
+  {
+   "id": "n3",
+   "kind": "action",
+   "label": "Plan Transport Services",
+   "lane": "lane1",
+   "band": "lane4"
+  },
+  {
+   "id": "n4",
+   "kind": "action",
+   "label": "Provide\nTransportation\nNetwork\nInformation",
+   "lane": "lane3",
+   "band": "lane4"
+  },
+  {
+   "id": "n5",
+   "kind": "object",
+   "label": "Transport Service\nDescription\nRequest",
+   "lane": "lane1",
+   "band": "lane4"
+  },
+  {
+   "id": "n6",
+   "kind": "action",
+   "label": "Define Transport\nService Demand",
+   "lane": "lane0",
+   "band": "lane4"
+  },
+  {
+   "id": "n7",
+   "kind": "action",
+   "label": "Announce Transport\nServices",
+   "lane": "lane1",
+   "band": "lane4"
+  },
+  {
+   "id": "n8",
+   "kind": "object",
+   "label": "Transport Service\nDescription",
+   "lane": "lane1",
+   "band": "lane4"
+  },
+  {
+   "id": "n9",
+   "kind": "object",
+   "label": "Transport\nExecution\nPlan Request",
+   "lane": "lane1",
+   "band": "lane4"
+  },
+  {
+   "id": "n10",
+   "kind": "action",
+   "label": "Perform Booking\nManagement",
+   "lane": "lane0",
+   "band": "lane4"
+  },
+  {
+   "id": "n11",
+   "kind": "action",
+   "label": "Perform\nOrder Management",
+   "lane": "lane1",
+   "band": "lane4"
+  },
+  {
+   "id": "n12",
+   "kind": "note",
+   "label": "Transportation Network\nInformation",
+   "lane": "lane2",
+   "band": "lane4"
+  },
+  {
+   "id": "n13",
+   "kind": "object",
+   "label": "Transport\nExecution Plan",
+   "lane": "lane0",
+   "band": "lane4"
+  },
+  {
+   "id": "n14",
+   "kind": "object",
+   "label": "Goods Item\nItinerary",
+   "lane": "lane1",
+   "band": "lane4"
+  },
+  {
+   "id": "n15",
+   "kind": "action",
+   "label": "Monitor and Control\nTransport Services",
+   "lane": "lane0",
+   "band": "lane5"
+  },
+  {
+   "id": "n16",
+   "kind": "action",
+   "label": "Execute\nTransport Services",
+   "lane": "lane1",
+   "band": "lane5"
+  },
+  {
+   "id": "n17",
+   "kind": "object",
+   "label": "Transport\nProgress Status\nRequest",
+   "lane": "lane2",
+   "band": "lane5"
+  },
+  {
+   "id": "n18",
+   "kind": "object",
+   "label": "Transportation\nStatus Request",
+   "lane": "lane1",
+   "band": "lane5"
+  },
+  {
+   "id": "n19",
+   "kind": "object",
+   "label": "Transport\nProgress Status",
+   "lane": "lane2",
+   "band": "lane5"
+  },
+  {
+   "id": "n20",
+   "kind": "object",
+   "label": "Transportation\nStatus",
+   "lane": "lane1",
+   "band": "lane5"
+  },
+  {
+   "id": "n21",
+   "kind": "object",
+   "label": "Transport\nExecution Plan",
+   "lane": "lane1",
+   "band": "lane5"
+  },
+  {
+   "id": "n22",
+   "kind": "note",
+   "label": "Regulatory\nInformation",
+   "lane": "lane2",
+   "band": "lane5"
+  },
+  {
+   "id": "n23",
+   "kind": "action",
+   "label": "Perform Compliance\nManagement",
+   "lane": "lane2",
+   "band": "lane5"
+  },
+  {
+   "id": "n24",
+   "kind": "object",
+   "label": "Transport\nExecution Plan",
+   "lane": "lane1",
+   "band": "lane5"
+  },
+  {
+   "id": "n25",
+   "kind": "action",
+   "label": "Finalize\nTransport Services",
+   "lane": "lane0",
+   "band": "lane6"
+  },
+  {
+   "id": "n26",
+   "kind": "action",
+   "label": "Manage Completion",
+   "lane": "lane1",
+   "band": "lane6"
+  },
+  {
+   "id": "n27",
+   "kind": "object",
+   "label": "Freight Invoice",
+   "lane": "lane1",
+   "band": "lane6"
+  },
+  {
+   "id": "n28",
+   "kind": "final",
+   "label": "",
+   "lane": "lane0",
+   "band": "lane6"
+  }
+ ],
+ "flows": [
+  {
+   "id": "f0",
+   "from": "n1",
+   "to": "n3",
+   "kind": "control",
+   "direction": {
+    "confidence": "notation"
+   }
+  },
+  {
+   "id": "f1",
+   "from": "n4",
+   "to": "n3",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "f2",
+   "from": "n3",
+   "to": "n7",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "f3",
+   "from": "n6",
+   "to": "n5",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "f4",
+   "from": "n5",
+   "to": "n7",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "f5",
+   "from": "n8",
+   "to": "n6",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "f6",
+   "from": "n7",
+   "to": "n8",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "f7",
+   "from": "n6",
+   "to": "n10",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "f8",
+   "from": "n10",
+   "to": "n9",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "f9",
+   "from": "n9",
+   "to": "n11",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "f10",
+   "from": "n4",
+   "to": "n11",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "f11",
+   "from": "n13",
+   "to": "n10",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "f12",
+   "from": "n11",
+   "to": "n13",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "f13",
+   "from": "n11",
+   "to": "n14",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "f14",
+   "from": "n14",
+   "to": "n10",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "f15",
+   "from": "n11",
+   "to": "n16",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "f16",
+   "from": "n16",
+   "to": "n17",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "f17",
+   "from": "n17",
+   "to": "n4",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "f18",
+   "from": "n15",
+   "to": "n18",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "f19",
+   "from": "n18",
+   "to": "n16",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "f20",
+   "from": "n4",
+   "to": "n19",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "f21",
+   "from": "n19",
+   "to": "n16",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "f22",
+   "from": "n20",
+   "to": "n15",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "f23",
+   "from": "n16",
+   "to": "n20",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "f24",
+   "from": "n15",
+   "to": "n21",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "f25",
+   "from": "n21",
+   "to": "n16",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "f26",
+   "from": "n16",
+   "to": "n23",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "f27",
+   "from": "n24",
+   "to": "n15",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "f28",
+   "from": "n16",
+   "to": "n24",
+   "kind": "object",
+   "direction": {
+    "confidence": "checked",
+    "checked": "confirmed"
+   }
+  },
+  {
+   "id": "f29",
+   "from": "n16",
+   "to": "n26",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "f30",
+   "from": "n27",
+   "to": "n25",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "f31",
+   "from": "n26",
+   "to": "n27",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "f32",
+   "from": "n25",
+   "to": "n28",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  }
+ ],
+ "texts": [],
+ "offPage": [],
+ "marks": [],
+ "phases": []
+}

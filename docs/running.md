@@ -31,7 +31,7 @@ There is no dependency manifest. What the current result was produced with:
 
 | | |
 |---|---|
-| Python 3 | `numpy`, `scipy`, `pillow`, `pytesseract` |
+| Python 3 | `numpy`, `scipy`, `pillow`, `pytesseract`, and `jsonschema` for the schema checks |
 | tesseract | 5.3.4, with the English data |
 | Node | 22, with `playwright` (a global install is fine) |
 | A JDK | `javac`/`java`, for `VisualDiff` |
@@ -56,12 +56,21 @@ Reads `<art-dir>/<basename>.png` and writes, into `<out-dir>`:
 
 | file | what it is |
 |---|---|
-| `-graph.json` | the reading: nodes, flows, labels, dividers, guards, and what it is unsure of |
-| `-spec.json` | that reading turned into a drawing spec |
+| `-graph.json` | the extractor's reading, as it writes it: everything below is made from this |
+| `-diagram.json` | the model: lanes, nodes, flows, texts and what refers to what |
+| `-layout.json` | where each element of the model is drawn, keyed by its id |
+| `-extraction.json` | the extractor's own measurements and open questions, for review only |
+| `-spec.json` | the model and layout turned into a drawing spec |
 | `.svg`, `.drawio` | the editable output |
 | `-classified.svg` | the same drawing coloured by what each element was classified as |
 | `-render.png` | the SVG rendered back at the original's own pixel width |
 | `-diff-r2.png` | the pixel difference: red lost from the SVG, blue invented by it |
+
+The graph is split into the three files by `tools/model_io.py`, which refuses a
+split that does not join back into exactly the graph it came from, and checks
+each file against its schema in `tools/schema/` and every reference between them
+(`model_io.py validate`). Nothing is drawn from the extraction report. What each
+file holds, and why, is in section 15 of the notes.
 
 ## 4. The whole set
 
@@ -131,6 +140,25 @@ without the profile, into a scratch directory; the drawing's pixels are untouche
 
 It was last run with Saxon-HE 9.9 and FOP 2.8 as Debian/Ubuntu package them
 (`apt-get install libsaxonhe-java fop`, then `SAXON_JAR=/usr/share/java/Saxon-HE.jar`).
+
+### Comparing a run with a baseline
+
+```sh
+tools/compare-to-baseline.sh baselines/<date>/diagrams <sweep-dir> <compare-dir>
+comparison-pdf/build-compare-deck.sh <ubl-clone> <compare-dir> <out.pdf> <date> "<what changed>"
+```
+
+The first renders the baseline's SVG and the new run's SVG side by side, now and
+with the same renderer, at the original PNG's pixel width, and differences them
+at radius 0 with no alignment. It also counts every pixel that differs at all,
+because the red/blue picture is drawn from ink and would not show a change of
+shade, and compares the SVG, `.drawio` and spec byte for byte. It prints a line
+per diagram, writes `summary.json`, and exits non-zero if any render differs.
+
+The second makes the PDF: a summary page, then per figure the baseline render,
+the new render, and the difference, red for ink only the baseline has and blue for
+ink only the new SVG has. While the JSON is being restructured, **every figure
+must come out identical**: that is the fixed reference point.
 
 ### Saved baselines
 

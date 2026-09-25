@@ -1,0 +1,106 @@
+{
+ "schema": "ubl-activity-diagram/1",
+ "figure": {
+  "name": "UBL-2.2-VMI-Invoicing",
+  "source": "UBL-2.2-VMI-Invoicing.png"
+ },
+ "lanes": [
+  {
+   "id": "lane0",
+   "axis": "column",
+   "index": 0,
+   "title": "Producer"
+  },
+  {
+   "id": "lane1",
+   "axis": "column",
+   "index": 1,
+   "title": "Retailer"
+  },
+  {
+   "id": "lane2",
+   "axis": "band",
+   "index": 0,
+   "title": ""
+  }
+ ],
+ "nodes": [
+  {
+   "id": "n1",
+   "kind": "initial",
+   "label": "",
+   "lane": "lane0",
+   "band": "lane2"
+  },
+  {
+   "id": "n2",
+   "kind": "object",
+   "label": "Invoice",
+   "lane": "lane0",
+   "band": "lane2"
+  },
+  {
+   "id": "n3",
+   "kind": "action",
+   "label": "Raise Invoice",
+   "lane": "lane0",
+   "band": "lane2"
+  },
+  {
+   "id": "n4",
+   "kind": "action",
+   "label": "Receive Invoice",
+   "lane": "lane1",
+   "band": "lane2"
+  },
+  {
+   "id": "n5",
+   "kind": "final",
+   "label": "",
+   "lane": "lane1",
+   "band": "lane2"
+  }
+ ],
+ "flows": [
+  {
+   "id": "f0",
+   "from": "n1",
+   "to": "n3",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "f1",
+   "from": "n3",
+   "to": "n2",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "f2",
+   "from": "n2",
+   "to": "n4",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "f3",
+   "from": "n4",
+   "to": "n5",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  }
+ ],
+ "texts": [],
+ "offPage": [],
+ "marks": [],
+ "phases": []
+}

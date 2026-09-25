@@ -1,0 +1,221 @@
+{
+ "schema": "ubl-activity-diagram-layout/1",
+ "figure": "UBL-2.2-VMI-Invoicing",
+ "units": "px of the original PNG",
+ "size": [
+  3425,
+  1525
+ ],
+ "style": {
+  "fontPx": 70.7,
+  "arrowPx": 82.5,
+  "arrowWidthPx": 66.7,
+  "arrowStyle": "open"
+ },
+ "rules": {
+  "vertical": [
+   {
+    "at": 0,
+    "width": 10,
+    "span": [
+     13,
+     1511
+    ]
+   },
+   {
+    "at": 1651,
+    "width": 6,
+    "span": [
+     13,
+     1511
+    ]
+   },
+   {
+    "at": 3415,
+    "width": 10,
+    "span": [
+     13,
+     1511
+    ]
+   }
+  ],
+  "horizontal": [
+   {
+    "at": 0,
+    "width": 10,
+    "span": [
+     13,
+     3411
+    ]
+   },
+   {
+    "at": 1515,
+    "width": 10,
+    "span": [
+     13,
+     3411
+    ]
+   }
+  ]
+ },
+ "greyRules": [],
+ "lanes": {
+  "lane0": {
+   "x0": 0,
+   "x1": 1654,
+   "titleBox": [
+    671,
+    51,
+    309,
+    57
+   ]
+  },
+  "lane1": {
+   "x0": 1654,
+   "x1": 3425,
+   "titleBox": [
+    2362,
+    55,
+    261,
+    57
+   ]
+  },
+  "lane2": {
+   "y0": 0,
+   "y1": 1525
+  }
+ },
+ "nodes": {
+  "n1": {
+   "x": 427,
+   "y": 217,
+   "w": 120,
+   "h": 119
+  },
+  "n2": {
+   "x": 1403,
+   "y": 679,
+   "w": 494,
+   "h": 196,
+   "shape": "rect",
+   "stroke": 12,
+   "rx": 0,
+   "ry": 0,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 1527,
+     "y": 742,
+     "w": 263,
+     "h": 57,
+     "text": "Invoice"
+    }
+   ]
+  },
+  "n3": {
+   "x": 88,
+   "y": 688,
+   "w": 792,
+   "h": 184,
+   "shape": "rounded",
+   "stroke": 6,
+   "rx": 95,
+   "ry": 55,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 239,
+     "y": 748,
+     "w": 487,
+     "h": 57,
+     "text": "Raise Invoice"
+    }
+   ]
+  },
+  "n4": {
+   "x": 2545,
+   "y": 694,
+   "w": 792,
+   "h": 184,
+   "shape": "rounded",
+   "stroke": 7,
+   "rx": 94,
+   "ry": 56,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 2658,
+     "y": 754,
+     "w": 573,
+     "h": 57,
+     "text": "Receive Invoice"
+    }
+   ]
+  },
+  "n5": {
+   "x": 2884,
+   "y": 1350,
+   "w": 107,
+   "h": 106,
+   "shape": "ellipse",
+   "stroke": 7,
+   "rx": 53,
+   "ry": 56,
+   "innerRatio": 0.439
+  }
+ },
+ "flows": {
+  "f0": {
+   "fromPoint": [
+    484,
+    350
+   ],
+   "toPoint": [
+    484,
+    673
+   ],
+   "routing": "straight"
+  },
+  "f1": {
+   "fromPoint": [
+    894,
+    780
+   ],
+   "toPoint": [
+    1388,
+    779
+   ],
+   "routing": "straight"
+  },
+  "f2": {
+   "fromPoint": [
+    1912,
+    778
+   ],
+   "toPoint": [
+    2530,
+    781
+   ],
+   "routing": "straight"
+  },
+  "f3": {
+   "fromPoint": [
+    2941,
+    892
+   ],
+   "toPoint": [
+    2939,
+    1335
+   ],
+   "routing": "straight"
+  }
+ },
+ "texts": {},
+ "offPage": {},
+ "marks": {},
+ "phases": {},
+ "rulesHaveSpans": {
+  "vertical": true,
+  "horizontal": true
+ }
+}

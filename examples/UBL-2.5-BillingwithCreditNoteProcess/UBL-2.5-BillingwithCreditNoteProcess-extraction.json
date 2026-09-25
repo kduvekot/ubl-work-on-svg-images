@@ -1,0 +1,449 @@
+{
+ "schema": "ubl-activity-diagram-extraction/1",
+ "figure": "UBL-2.5-BillingwithCreditNoteProcess",
+ "nodes": {
+  "n1": {
+   "area": 5922,
+   "fill": 0.739
+  },
+  "n2": {
+   "area": 51715,
+   "fill": 0.963,
+   "solid": 1.0,
+   "stem": 0.155
+  },
+  "n3": {
+   "area": 41006,
+   "fill": 0.888,
+   "solid": 0.953,
+   "stem": 0.13
+  },
+  "n4": {
+   "area": 49509,
+   "fill": 0.908,
+   "solid": 0.955,
+   "stem": 0.13
+  },
+  "n5": {
+   "area": 50547,
+   "fill": 0.935,
+   "solid": 1.0,
+   "stem": 0.155
+  },
+  "n6": {
+   "area": 29576,
+   "fill": 0.457,
+   "solid": 0.503,
+   "stem": 0.104
+  },
+  "n7": {
+   "area": 46321,
+   "fill": 0.879,
+   "solid": 0.953,
+   "stem": 0.13
+  },
+  "n8": {
+   "area": 42006,
+   "fill": 0.878,
+   "solid": 0.951,
+   "stem": 0.13
+  },
+  "n9": {
+   "area": 4599,
+   "fill": 0.893,
+   "lumps": 1,
+   "band": 23,
+   "box": 25
+  },
+  "n10": {
+   "area": 30237,
+   "fill": 0.453,
+   "solid": 0.502,
+   "stem": 0.104
+  },
+  "n11": {
+   "area": 30075,
+   "fill": 0.457,
+   "solid": 0.503,
+   "stem": 0.078
+  },
+  "n12": {
+   "area": 55735,
+   "fill": 0.893,
+   "solid": 1.0,
+   "stem": 0.155
+  },
+  "n13": {
+   "area": 66199,
+   "fill": 0.914,
+   "solid": 0.988,
+   "stem": 0.13
+  },
+  "n14": {
+   "area": 40949,
+   "fill": 0.851,
+   "solid": 0.953,
+   "stem": 0.13
+  },
+  "n15": {
+   "area": 2682,
+   "fill": 0.645,
+   "solid": 0.804
+  },
+  "n16": {
+   "area": 3908,
+   "fill": 0.482,
+   "solid": 0.782
+  },
+  "n17": {
+   "area": 2916,
+   "fill": 0.562,
+   "solid": 0.771
+  }
+ },
+ "flows": {
+  "f0": {
+   "arrowInk": [
+    225,
+    783
+   ],
+   "arrowPx": [
+    43,
+    40.0,
+    2.06
+   ],
+   "arrowFill": 0.0
+  },
+  "f1": {
+   "arrowInk": [
+    184,
+    593
+   ],
+   "arrowPx": [
+    53,
+    41.8,
+    2.17
+   ],
+   "arrowFill": 0.013
+  },
+  "f2": {
+   "arrowInk": [
+    184,
+    571
+   ],
+   "arrowPx": [
+    53,
+    40.7,
+    2.5
+   ],
+   "arrowFill": 0.036
+  },
+  "f3": {
+   "arrowInk": [
+    642,
+    856
+   ],
+   "arrowPx": [
+    61,
+    99.7,
+    3.14
+   ],
+   "arrowFill": 0.169
+  },
+  "f4": {
+   "arrowInk": [
+    180,
+    945
+   ],
+   "arrowPx": [
+    41,
+    68.0,
+    1.81
+   ],
+   "arrowFill": 0.185
+  },
+  "f5": {
+   "arrowInk": [
+    237,
+    623
+   ],
+   "arrowPx": [
+    79,
+    35.6,
+    0.43
+   ],
+   "arrowFill": 0.016,
+   "arrowSaturated": true
+  },
+  "f6": {
+   "arrowInk": [
+    591,
+    616
+   ],
+   "arrowPx": [
+    54,
+    40.0,
+    2.23
+   ],
+   "arrowFill": 0.0
+  },
+  "f7": {
+   "arrowInk": [
+    184,
+    579
+   ],
+   "arrowPx": [
+    52,
+    40.4,
+    2.07
+   ],
+   "arrowFill": 0.017
+  },
+  "f8": {
+   "arrowInk": [
+    230,
+    595
+   ],
+   "arrowPx": [
+    54,
+    40.8,
+    2.39
+   ],
+   "arrowFill": 0.007
+  },
+  "f9": {
+   "arrowInk": [
+    1057,
+    232
+   ],
+   "arrowPx": [
+    65,
+    8.5,
+    0.94
+   ]
+  },
+  "f10": {
+   "arrowInk": [
+    222,
+    426
+   ],
+   "arrowPx": [
+    98,
+    99.2,
+    2.31
+   ],
+   "arrowFill": 0.055
+  },
+  "f11": {
+   "arrowInk": [
+    230,
+    597
+   ],
+   "arrowPx": [
+    51,
+    40.0,
+    2.03
+   ],
+   "arrowFill": 0.0
+  },
+  "f12": {
+   "arrowInk": [
+    592,
+    824
+   ],
+   "arrowPx": [
+    139,
+    100.0,
+    2.26
+   ],
+   "arrowFill": 0.132,
+   "arrowSaturated": true
+  },
+  "f13": {
+   "arrowInk": [
+    180,
+    608
+   ],
+   "arrowPx": [
+    51,
+    40.5,
+    2.27
+   ],
+   "arrowFill": 0.014
+  },
+  "f14": {
+   "arrowInk": [
+    180,
+    568
+   ],
+   "arrowPx": [
+    50,
+    42.0,
+    1.96
+   ],
+   "arrowFill": 0.0
+  },
+  "f15": {
+   "arrowInk": [
+    183,
+    580
+   ],
+   "arrowPx": [
+    50,
+    40.0,
+    1.51
+   ],
+   "arrowFill": 0.089,
+   "arrowSaturated": true
+  },
+  "f16": {
+   "arrowInk": [
+    180,
+    768
+   ],
+   "arrowPx": [
+    43,
+    41.6,
+    2.08
+   ],
+   "arrowFill": 0.0
+  },
+  "f17": {
+   "arrowInk": [
+    185,
+    621
+   ],
+   "arrowPx": [
+    53,
+    99.8,
+    4.61
+   ],
+   "arrowFill": 0.259
+  },
+  "f18": {
+   "arrowInk": [
+    180,
+    555
+   ],
+   "arrowPx": [
+    50,
+    40.0,
+    1.99
+   ],
+   "arrowFill": 0.0
+  },
+  "f19": {
+   "arrowInk": [
+    232,
+    612
+   ],
+   "arrowPx": [
+    50,
+    41.3,
+    1.91
+   ],
+   "arrowFill": 0.0
+  }
+ },
+ "offPage": {},
+ "marks": {},
+ "phases": {},
+ "greyRules": [],
+ "titleReadings": [
+  {
+   "position": 0,
+   "text": "Accounting Customer",
+   "x": 724,
+   "y": 24,
+   "w": 349,
+   "h": 34,
+   "lines": [
+    {
+     "x": 724,
+     "y": 24,
+     "w": 349,
+     "h": 34,
+     "text": "Accounting Customer"
+    }
+   ]
+  },
+  {
+   "position": 1,
+   "text": "Accounting Supplier",
+   "x": 2443,
+   "y": 24,
+   "w": 325,
+   "h": 34,
+   "lines": [
+    {
+     "x": 2443,
+     "y": 24,
+     "w": 325,
+     "h": 34,
+     "text": "Accounting Supplier"
+    }
+   ]
+  }
+ ],
+ "findings": [],
+ "uncertain": [
+  {
+   "x": 2357,
+   "y": 812,
+   "w": 493,
+   "h": 247,
+   "shape": "rhombus",
+   "iou": 0.538,
+   "border": 0.382,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best rhombus 0.54, and 0.98 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "kind": "unexplained-line-work",
+   "x": 2565,
+   "y": 540,
+   "w": 153,
+   "h": 290,
+   "reason": "ink left over where several connectors cross, claimed by none of them",
+   "check": "decide what this is; the SVG does not draw it"
+  },
+  {
+   "kind": "unexplained-line-work",
+   "x": 2770,
+   "y": 315,
+   "w": 15,
+   "h": 120,
+   "reason": "line-work that is neither a connector between two nodes nor the size of text",
+   "check": "decide what this is; the SVG does not draw it"
+  },
+  {
+   "kind": "unexplained-line-work",
+   "x": 3158,
+   "y": 1049,
+   "w": 74,
+   "h": 85,
+   "reason": "line-work that is neither a connector between two nodes nor the size of text",
+   "check": "decide what this is; the SVG does not draw it"
+  }
+ ],
+ "present": [
+  "source",
+  "size",
+  "fontPx",
+  "arrowPx",
+  "arrowWidthPx",
+  "arrowStyle",
+  "rules",
+  "ruleSpan",
+  "greyRules",
+  "dashed",
+  "openEnds",
+  "crossMarks",
+  "partitions",
+  "nodes",
+  "edges",
+  "text",
+  "uncertain"
+ ]
+}

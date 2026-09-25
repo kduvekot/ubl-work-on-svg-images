@@ -1,0 +1,90 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "$id": "ubl-activity-diagram-layout/1",
+ "title": "UBL activity diagram: the layout",
+ "description": "Where each element of the diagram's model is drawn, keyed by the model's ids, in pixels of the 600-dpi original. Written by tools/model_io.py.",
+ "type": "object",
+ "required": ["schema", "figure", "units", "size", "style", "rules", "greyRules", "lanes", "nodes", "flows", "texts", "offPage", "marks", "phases"],
+ "additionalProperties": false,
+ "properties": {
+  "schema": {"const": "ubl-activity-diagram-layout/1"},
+  "figure": {"type": "string"},
+  "units": {"const": "px of the original PNG"},
+  "size": {"$ref": "#/$defs/pair"},
+  "style": {
+   "type": "object", "additionalProperties": false,
+   "properties": {
+    "fontPx": {"type": ["number", "null"], "description": "the em size of the labels"},
+    "arrowPx": {"type": ["number", "null"], "description": "arrowhead length"},
+    "arrowWidthPx": {"type": ["number", "null"], "description": "arrowhead width"},
+    "arrowStyle": {"enum": ["open", "filled", null]}
+   }
+  },
+  "rules": {
+   "description": "the frame and the partition dividers, in the order read",
+   "type": "object", "required": ["vertical", "horizontal"], "additionalProperties": false,
+   "properties": {
+    "vertical": {"$ref": "#/$defs/rules"},
+    "horizontal": {"$ref": "#/$defs/rules"}
+   }
+  },
+  "rulesHaveSpans": {"description": "whether the extractor measured spans at all, per axis",
+   "oneOf": [{"type": "null"}, {"type": "object", "additionalProperties": {"type": "boolean"}}]},
+  "greyRules": {"type": "array", "items": {
+   "type": "object", "required": ["axis", "at", "w", "level"], "additionalProperties": false,
+   "properties": {"axis": {"enum": ["v", "h"]}, "at": {"type": "number"}, "w": {"type": "number"},
+                  "level": {"type": "integer", "minimum": 0, "maximum": 255, "description": "its grey"}}}},
+  "lanes": {"type": "object", "additionalProperties": {
+   "type": "object", "additionalProperties": false,
+   "properties": {"x0": {"type": "number"}, "x1": {"type": "number"},
+                  "y0": {"type": "number"}, "y1": {"type": "number"},
+                  "titleBox": {"$ref": "#/$defs/box"}}}},
+  "nodes": {"type": "object", "additionalProperties": {
+   "type": "object", "required": ["x", "y", "w", "h"], "additionalProperties": false,
+   "properties": {
+    "x": {"type": "number"}, "y": {"type": "number"}, "w": {"type": "number"}, "h": {"type": "number"},
+    "shape": {"type": "string"}, "stroke": {"type": "number"},
+    "rx": {"type": "number"}, "ry": {"type": "number"}, "fold": {"type": "number"},
+    "innerRatio": {"type": "number"}, "bold": {"type": "boolean"},
+    "labelLines": {"$ref": "#/$defs/lines"}}}},
+  "flows": {"type": "object", "additionalProperties": {
+   "type": "object", "required": ["fromPoint", "toPoint", "routing"], "additionalProperties": false,
+   "properties": {
+    "fromPoint": {"$ref": "#/$defs/pair"}, "toPoint": {"$ref": "#/$defs/pair"},
+    "routing": {"enum": ["straight", "diagonal", "orthogonal"]},
+    "points": {"type": "array", "items": {"$ref": "#/$defs/pair"}},
+    "dash": {"type": "number"}, "gap": {"type": "number"}, "dashOffset": {"type": "number"}}}},
+  "texts": {"type": "object", "additionalProperties": {
+   "type": "object", "required": ["x", "y", "w", "h"], "additionalProperties": false,
+   "properties": {"x": {"type": "number"}, "y": {"type": "number"}, "w": {"type": "number"}, "h": {"type": "number"},
+                  "lines": {"$ref": "#/$defs/lines"}}}},
+  "offPage": {"type": "object", "additionalProperties": {
+   "type": "object", "required": ["at", "end"], "additionalProperties": false,
+   "properties": {"at": {"$ref": "#/$defs/pair"}, "end": {"$ref": "#/$defs/pair"},
+                  "points": {"type": "array", "items": {"$ref": "#/$defs/pair"}},
+                  "x": {"type": "number"}, "y": {"type": "number"}, "w": {"type": "number"}, "h": {"type": "number"}}}},
+  "marks": {"type": "object", "additionalProperties": {
+   "type": "object", "required": ["x1", "y1", "x2", "y2"], "additionalProperties": false,
+   "properties": {"x1": {"type": "number"}, "y1": {"type": "number"}, "x2": {"type": "number"},
+                  "y2": {"type": "number"}, "weight": {"type": "number"}}}},
+  "phases": {"type": "object", "additionalProperties": {
+   "type": "object", "required": ["x", "y", "w", "h"], "additionalProperties": false,
+   "properties": {"x": {"type": "number"}, "y": {"type": "number"}, "w": {"type": "number"}, "h": {"type": "number"},
+                  "rx": {"type": "number"}, "dash": {"type": "number"}, "gap": {"type": "number"},
+                  "weight": {"type": "number"}}}}
+ },
+ "$defs": {
+  "pair": {"type": "array", "items": {"type": "number"}, "minItems": 2, "maxItems": 2},
+  "box": {"type": "array", "items": {"type": "number"}, "minItems": 4, "maxItems": 4, "description": "x, y, width, height"},
+  "rules": {"type": "array", "items": {
+   "type": "object", "required": ["at", "width", "span"], "additionalProperties": false,
+   "properties": {"at": {"type": "number", "description": "the rule's near edge"},
+                  "width": {"type": "number", "description": "its weight"},
+                  "span": {"description": "how far along it runs, where measured",
+                           "oneOf": [{"type": "null"}, {"$ref": "#/$defs/pair"}]}}}},
+  "lines": {"type": "array", "items": {
+   "type": "object", "required": ["x", "y", "w", "h", "text"], "additionalProperties": false,
+   "properties": {"x": {"type": "number"}, "y": {"type": "number"}, "w": {"type": "number"},
+                  "h": {"type": "number"}, "text": {"type": "string"}}}}
+ }
+}

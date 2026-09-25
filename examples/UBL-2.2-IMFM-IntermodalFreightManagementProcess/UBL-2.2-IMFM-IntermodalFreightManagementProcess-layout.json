@@ -1,0 +1,1275 @@
+{
+ "schema": "ubl-activity-diagram-layout/1",
+ "figure": "UBL-2.2-IMFM-IntermodalFreightManagementProcess",
+ "units": "px of the original PNG",
+ "size": [
+  3425,
+  3221
+ ],
+ "style": {
+  "fontPx": 32.9,
+  "arrowPx": 46.5,
+  "arrowWidthPx": 35.5,
+  "arrowStyle": "open"
+ },
+ "rules": {
+  "vertical": [
+   {
+    "at": 0,
+    "width": 10,
+    "span": [
+     12,
+     3208
+    ]
+   },
+   {
+    "at": 70,
+    "width": 4,
+    "span": [
+     12,
+     3208
+    ]
+   },
+   {
+    "at": 953,
+    "width": 4,
+    "span": [
+     12,
+     3208
+    ]
+   },
+   {
+    "at": 1849,
+    "width": 4,
+    "span": [
+     12,
+     3208
+    ]
+   },
+   {
+    "at": 2510,
+    "width": 4,
+    "span": [
+     12,
+     3208
+    ]
+   },
+   {
+    "at": 3415,
+    "width": 10,
+    "span": [
+     12,
+     3208
+    ]
+   }
+  ],
+  "horizontal": [
+   {
+    "at": 0,
+    "width": 9,
+    "span": [
+     13,
+     3411
+    ]
+   },
+   {
+    "at": 62,
+    "width": 3,
+    "span": [
+     13,
+     3411
+    ]
+   },
+   {
+    "at": 1534,
+    "width": 4,
+    "span": [
+     13,
+     3411
+    ]
+   },
+   {
+    "at": 2748,
+    "width": 3,
+    "span": [
+     13,
+     3411
+    ]
+   },
+   {
+    "at": 3212,
+    "width": 9,
+    "span": [
+     13,
+     3411
+    ]
+   }
+  ]
+ },
+ "greyRules": [],
+ "lanes": {
+  "lane0": {
+   "x0": 72,
+   "x1": 955,
+   "titleBox": [
+    391,
+    21,
+    247,
+    29
+   ]
+  },
+  "lane1": {
+   "x0": 955,
+   "x1": 1851,
+   "titleBox": [
+    1177,
+    21,
+    458,
+    29
+   ]
+  },
+  "lane2": {
+   "x0": 1851,
+   "x1": 2512,
+   "titleBox": [
+    2021,
+    21,
+    327,
+    29
+   ]
+  },
+  "lane3": {
+   "x0": 2512,
+   "x1": 3425,
+   "titleBox": [
+    2692,
+    13,
+    727,
+    46
+   ]
+  },
+  "lane4": {
+   "y0": 64,
+   "y1": 1536
+  },
+  "lane5": {
+   "y0": 1536,
+   "y1": 2750
+  },
+  "lane6": {
+   "y0": 2750,
+   "y1": 3221
+  }
+ },
+ "nodes": {
+  "n1": {
+   "x": 1403,
+   "y": 74,
+   "w": 69,
+   "h": 62
+  },
+  "n2": {
+   "x": 2034,
+   "y": 117,
+   "w": 431,
+   "h": 147,
+   "shape": "rect",
+   "stroke": 3,
+   "rx": 0,
+   "ry": 0,
+   "fold": 34,
+   "bold": false,
+   "labelLines": [
+    {
+     "x": 2050,
+     "y": 163,
+     "w": 369,
+     "h": 29,
+     "text": "Transportation Network"
+    },
+    {
+     "x": 2052,
+     "y": 203,
+     "w": 179,
+     "h": 23,
+     "text": "Information"
+    }
+   ]
+  },
+  "n3": {
+   "x": 1214,
+   "y": 197,
+   "w": 456,
+   "h": 125,
+   "shape": "rounded",
+   "stroke": 4,
+   "rx": 47,
+   "ry": 47,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 1243,
+     "y": 246,
+     "w": 403,
+     "h": 30,
+     "text": "Plan Transport Services"
+    }
+   ]
+  },
+  "n4": {
+   "x": 2837,
+   "y": 224,
+   "w": 455,
+   "h": 1844,
+   "shape": "rect",
+   "stroke": 4,
+   "rx": 50,
+   "ry": 42,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 3002,
+     "y": 992,
+     "w": 129,
+     "h": 23,
+     "text": "Provide"
+    },
+    {
+     "x": 2946,
+     "y": 1029,
+     "w": 237,
+     "h": 29,
+     "text": "Transportation"
+    },
+    {
+     "x": 2999,
+     "y": 1065,
+     "w": 135,
+     "h": 23,
+     "text": "Network"
+    },
+    {
+     "x": 2974,
+     "y": 1102,
+     "w": 185,
+     "h": 22,
+     "text": "Information"
+    }
+   ]
+  },
+  "n5": {
+   "x": 778,
+   "y": 308,
+   "w": 355,
+   "h": 171,
+   "shape": "rect",
+   "stroke": 6,
+   "rx": 0,
+   "ry": 0,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 805,
+     "y": 343,
+     "w": 297,
+     "h": 29,
+     "text": "Transport Service"
+    },
+    {
+     "x": 861,
+     "y": 377,
+     "w": 191,
+     "h": 28,
+     "text": "Description"
+    },
+    {
+     "x": 888,
+     "y": 411,
+     "w": 139,
+     "h": 28,
+     "text": "Request"
+    }
+   ]
+  },
+  "n6": {
+   "x": 155,
+   "y": 365,
+   "w": 455,
+   "h": 346,
+   "shape": "rounded",
+   "stroke": 3,
+   "rx": 47,
+   "ry": 45,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 248,
+     "y": 501,
+     "w": 273,
+     "h": 29,
+     "text": "Define Transport"
+    },
+    {
+     "x": 244,
+     "y": 537,
+     "w": 277,
+     "h": 24,
+     "text": "Service Demand"
+    }
+   ]
+  },
+  "n7": {
+   "x": 1225,
+   "y": 396,
+   "w": 455,
+   "h": 346,
+   "shape": "rounded",
+   "stroke": 4,
+   "rx": 45,
+   "ry": 43,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 1285,
+     "y": 526,
+     "w": 326,
+     "h": 29,
+     "text": "Announce Transport"
+    },
+    {
+     "x": 1379,
+     "y": 562,
+     "w": 150,
+     "h": 24,
+     "text": "Services"
+    }
+   ]
+  },
+  "n8": {
+   "x": 784,
+   "y": 538,
+   "w": 356,
+   "h": 171,
+   "shape": "rect",
+   "stroke": 7,
+   "rx": 0,
+   "ry": 0,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 812,
+     "y": 589,
+     "w": 297,
+     "h": 28,
+     "text": "Transport Service"
+    },
+    {
+     "x": 868,
+     "y": 623,
+     "w": 191,
+     "h": 29,
+     "text": "Description"
+    }
+   ]
+  },
+  "n9": {
+   "x": 778,
+   "y": 783,
+   "w": 355,
+   "h": 171,
+   "shape": "rect",
+   "stroke": 6,
+   "rx": 0,
+   "ry": 0,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 880,
+     "y": 819,
+     "w": 161,
+     "h": 28,
+     "text": "Transport"
+    },
+    {
+     "x": 875,
+     "y": 852,
+     "w": 167,
+     "h": 23,
+     "text": "Execution"
+    },
+    {
+     "x": 848,
+     "y": 886,
+     "w": 224,
+     "h": 28,
+     "text": "Plan Request"
+    }
+   ]
+  },
+  "n10": {
+   "x": 151,
+   "y": 794,
+   "w": 456,
+   "h": 649,
+   "shape": "rect",
+   "stroke": 4,
+   "rx": 51,
+   "ry": 50,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 238,
+     "y": 1042,
+     "w": 277,
+     "h": 29,
+     "text": "Perform Booking"
+    },
+    {
+     "x": 276,
+     "y": 1079,
+     "w": 214,
+     "h": 29,
+     "text": "Management"
+    }
+   ]
+  },
+  "n11": {
+   "x": 1232,
+   "y": 794,
+   "w": 455,
+   "h": 643,
+   "shape": "rect",
+   "stroke": 4,
+   "rx": 50,
+   "ry": 42,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 1397,
+     "y": 1047,
+     "w": 129,
+     "h": 23,
+     "text": "Perform"
+    },
+    {
+     "x": 1300,
+     "y": 1084,
+     "w": 322,
+     "h": 29,
+     "text": "Order Management"
+    }
+   ]
+  },
+  "n12": {
+   "x": 1996,
+   "y": 886,
+   "w": 422,
+   "h": 156,
+   "shape": "rect",
+   "stroke": 4,
+   "rx": 0,
+   "ry": 0,
+   "fold": 34,
+   "bold": false,
+   "labelLines": [
+    {
+     "x": 2012,
+     "y": 932,
+     "w": 370,
+     "h": 29,
+     "text": "Transportation Network"
+    },
+    {
+     "x": 2014,
+     "y": 972,
+     "w": 179,
+     "h": 23,
+     "text": "Information"
+    }
+   ]
+  },
+  "n13": {
+   "x": 770,
+   "y": 1000,
+   "w": 357,
+   "h": 171,
+   "shape": "rect",
+   "stroke": 6,
+   "rx": 2,
+   "ry": 2,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 873,
+     "y": 1047,
+     "w": 162,
+     "h": 28,
+     "text": "Transport"
+    },
+    {
+     "x": 823,
+     "y": 1081,
+     "w": 253,
+     "h": 22,
+     "text": "Execution Plan"
+    }
+   ]
+  },
+  "n14": {
+   "x": 778,
+   "y": 1237,
+   "w": 355,
+   "h": 171,
+   "shape": "rect",
+   "stroke": 7,
+   "rx": 0,
+   "ry": 0,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 862,
+     "y": 1287,
+     "w": 190,
+     "h": 24,
+     "text": "Goods Item"
+    },
+    {
+     "x": 888,
+     "y": 1322,
+     "w": 140,
+     "h": 28,
+     "text": "Itinerary"
+    }
+   ]
+  },
+  "n15": {
+   "x": 158,
+   "y": 1593,
+   "w": 456,
+   "h": 1063,
+   "shape": "rect",
+   "stroke": 3,
+   "rx": 46,
+   "ry": 41,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 221,
+     "y": 1852,
+     "w": 323,
+     "h": 23,
+     "text": "Monitor and Control"
+    },
+    {
+     "x": 226,
+     "y": 1888,
+     "w": 319,
+     "h": 30,
+     "text": "Transport Services"
+    }
+   ]
+  },
+  "n16": {
+   "x": 1232,
+   "y": 1593,
+   "w": 455,
+   "h": 1063,
+   "shape": "rect",
+   "stroke": 3,
+   "rx": 45,
+   "ry": 43,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 1394,
+     "y": 2034,
+     "w": 132,
+     "h": 23,
+     "text": "Execute"
+    },
+    {
+     "x": 1300,
+     "y": 2070,
+     "w": 318,
+     "h": 30,
+     "text": "Transport Services"
+    }
+   ]
+  },
+  "n17": {
+   "x": 2328,
+   "y": 1641,
+   "w": 355,
+   "h": 171,
+   "shape": "rect",
+   "stroke": 7,
+   "rx": 0,
+   "ry": 0,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 2430,
+     "y": 1681,
+     "w": 161,
+     "h": 29,
+     "text": "Transport"
+    },
+    {
+     "x": 2367,
+     "y": 1714,
+     "w": 267,
+     "h": 29,
+     "text": "Progress Status"
+    },
+    {
+     "x": 2438,
+     "y": 1749,
+     "w": 140,
+     "h": 28,
+     "text": "Request"
+    }
+   ]
+  },
+  "n18": {
+   "x": 770,
+   "y": 1678,
+   "w": 377,
+   "h": 171,
+   "shape": "rect",
+   "stroke": 7,
+   "rx": 0,
+   "ry": 0,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 843,
+     "y": 1724,
+     "w": 239,
+     "h": 28,
+     "text": "Transportation"
+    },
+    {
+     "x": 834,
+     "y": 1757,
+     "w": 255,
+     "h": 29,
+     "text": "Status Request"
+    }
+   ]
+  },
+  "n19": {
+   "x": 2328,
+   "y": 1852,
+   "w": 355,
+   "h": 171,
+   "shape": "rect",
+   "stroke": 7,
+   "rx": 0,
+   "ry": 0,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 2430,
+     "y": 1903,
+     "w": 161,
+     "h": 28,
+     "text": "Transport"
+    },
+    {
+     "x": 2373,
+     "y": 1937,
+     "w": 269,
+     "h": 29,
+     "text": "Progress Status"
+    }
+   ]
+  },
+  "n20": {
+   "x": 780,
+   "y": 1920,
+   "w": 357,
+   "h": 171,
+   "shape": "rect",
+   "stroke": 7,
+   "rx": 0,
+   "ry": 0,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 842,
+     "y": 1971,
+     "w": 240,
+     "h": 28,
+     "text": "Transportation"
+    },
+    {
+     "x": 910,
+     "y": 2004,
+     "w": 102,
+     "h": 24,
+     "text": "Status"
+    }
+   ]
+  },
+  "n21": {
+   "x": 788,
+   "y": 2158,
+   "w": 356,
+   "h": 171,
+   "shape": "rect",
+   "stroke": 6,
+   "rx": 0,
+   "ry": 0,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 890,
+     "y": 2188,
+     "w": 162,
+     "h": 29,
+     "text": "Transport"
+    },
+    {
+     "x": 840,
+     "y": 2222,
+     "w": 253,
+     "h": 23,
+     "text": "Execution Plan"
+    }
+   ]
+  },
+  "n22": {
+   "x": 1732,
+   "y": 2264,
+   "w": 240,
+   "h": 153,
+   "shape": "rect",
+   "stroke": 4,
+   "rx": 0,
+   "ry": 0,
+   "fold": 32,
+   "bold": false,
+   "labelLines": [
+    {
+     "x": 1751,
+     "y": 2310,
+     "w": 170,
+     "h": 29,
+     "text": "Regulatory"
+    },
+    {
+     "x": 1751,
+     "y": 2350,
+     "w": 178,
+     "h": 23,
+     "text": "Information"
+    }
+   ]
+  },
+  "n23": {
+   "x": 2003,
+   "y": 2319,
+   "w": 456,
+   "h": 239,
+   "shape": "rounded",
+   "stroke": 3,
+   "rx": 52,
+   "ry": 46,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 2059,
+     "y": 2395,
+     "w": 337,
+     "h": 30,
+     "text": "Perform Compliance"
+    },
+    {
+     "x": 2128,
+     "y": 2433,
+     "w": 213,
+     "h": 29,
+     "text": "Management"
+    }
+   ]
+  },
+  "n24": {
+   "x": 791,
+   "y": 2409,
+   "w": 356,
+   "h": 171,
+   "shape": "rect",
+   "stroke": 6,
+   "rx": 0,
+   "ry": 0,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 894,
+     "y": 2440,
+     "w": 161,
+     "h": 28,
+     "text": "Transport"
+    },
+    {
+     "x": 844,
+     "y": 2473,
+     "w": 252,
+     "h": 23,
+     "text": "Execution Plan"
+    }
+   ]
+  },
+  "n25": {
+   "x": 178,
+   "y": 2850,
+   "w": 456,
+   "h": 179,
+   "shape": "rounded",
+   "stroke": 4,
+   "rx": 45,
+   "ry": 50,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 345,
+     "y": 2905,
+     "w": 124,
+     "h": 22,
+     "text": "Finalize"
+    },
+    {
+     "x": 247,
+     "y": 2941,
+     "w": 319,
+     "h": 29,
+     "text": "Transport Services"
+    }
+   ]
+  },
+  "n26": {
+   "x": 1228,
+   "y": 2850,
+   "w": 456,
+   "h": 176,
+   "shape": "rounded",
+   "stroke": 4,
+   "rx": 45,
+   "ry": 45,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 1294,
+     "y": 2925,
+     "w": 328,
+     "h": 30,
+     "text": "Manage Completion"
+    }
+   ]
+  },
+  "n27": {
+   "x": 784,
+   "y": 2854,
+   "w": 356,
+   "h": 171,
+   "shape": "rect",
+   "stroke": 7,
+   "rx": 0,
+   "ry": 0,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 840,
+     "y": 2927,
+     "w": 248,
+     "h": 28,
+     "text": "Freight Invoice"
+    }
+   ]
+  },
+  "n28": {
+   "x": 374,
+   "y": 3146,
+   "w": 62,
+   "h": 56,
+   "shape": "rounded",
+   "stroke": 4,
+   "rx": 33,
+   "ry": 27,
+   "innerRatio": 0.419
+  }
+ },
+ "flows": {
+  "f0": {
+   "fromPoint": [
+    1437,
+    150
+   ],
+   "toPoint": [
+    1440,
+    182
+   ],
+   "routing": "straight"
+  },
+  "f1": {
+   "fromPoint": [
+    2822,
+    283
+   ],
+   "toPoint": [
+    1684,
+    283
+   ],
+   "routing": "straight"
+  },
+  "f2": {
+   "fromPoint": [
+    1447,
+    336
+   ],
+   "toPoint": [
+    1452,
+    381
+   ],
+   "routing": "straight"
+  },
+  "f3": {
+   "fromPoint": [
+    624,
+    426
+   ],
+   "toPoint": [
+    763,
+    422
+   ],
+   "routing": "straight"
+  },
+  "f4": {
+   "fromPoint": [
+    1147,
+    438
+   ],
+   "toPoint": [
+    1210,
+    445
+   ],
+   "routing": "straight"
+  },
+  "f5": {
+   "fromPoint": [
+    769,
+    624
+   ],
+   "toPoint": [
+    624,
+    621
+   ],
+   "routing": "straight"
+  },
+  "f6": {
+   "fromPoint": [
+    1210,
+    622
+   ],
+   "toPoint": [
+    1154,
+    623
+   ],
+   "routing": "straight"
+  },
+  "f7": {
+   "fromPoint": [
+    380,
+    725
+   ],
+   "toPoint": [
+    379,
+    779
+   ],
+   "routing": "straight"
+  },
+  "f8": {
+   "fromPoint": [
+    621,
+    879
+   ],
+   "toPoint": [
+    763,
+    876
+   ],
+   "routing": "straight"
+  },
+  "f9": {
+   "fromPoint": [
+    1147,
+    876
+   ],
+   "toPoint": [
+    1217,
+    883
+   ],
+   "routing": "straight"
+  },
+  "f10": {
+   "fromPoint": [
+    2822,
+    1077
+   ],
+   "toPoint": [
+    1701,
+    1077
+   ],
+   "routing": "straight"
+  },
+  "f11": {
+   "fromPoint": [
+    755,
+    1085
+   ],
+   "toPoint": [
+    621,
+    1087
+   ],
+   "routing": "straight"
+  },
+  "f12": {
+   "fromPoint": [
+    1217,
+    1087
+   ],
+   "toPoint": [
+    1141,
+    1085
+   ],
+   "routing": "straight"
+  },
+  "f13": {
+   "fromPoint": [
+    1217,
+    1311
+   ],
+   "toPoint": [
+    1147,
+    1315
+   ],
+   "routing": "straight"
+  },
+  "f14": {
+   "fromPoint": [
+    763,
+    1322
+   ],
+   "toPoint": [
+    621,
+    1320
+   ],
+   "routing": "straight"
+  },
+  "f15": {
+   "fromPoint": [
+    1459,
+    1451
+   ],
+   "toPoint": [
+    1459,
+    1578
+   ],
+   "routing": "straight"
+  },
+  "f16": {
+   "fromPoint": [
+    1701,
+    1726
+   ],
+   "toPoint": [
+    2313,
+    1726
+   ],
+   "routing": "straight"
+  },
+  "f17": {
+   "fromPoint": [
+    2697,
+    1727
+   ],
+   "toPoint": [
+    2819,
+    1723
+   ],
+   "routing": "straight"
+  },
+  "f18": {
+   "fromPoint": [
+    628,
+    1747
+   ],
+   "toPoint": [
+    755,
+    1748
+   ],
+   "routing": "straight"
+  },
+  "f19": {
+   "fromPoint": [
+    1161,
+    1763
+   ],
+   "toPoint": [
+    1217,
+    1768
+   ],
+   "routing": "straight"
+  },
+  "f20": {
+   "fromPoint": [
+    2822,
+    1933
+   ],
+   "toPoint": [
+    2697,
+    1936
+   ],
+   "routing": "straight"
+  },
+  "f21": {
+   "fromPoint": [
+    2313,
+    1940
+   ],
+   "toPoint": [
+    1701,
+    1942
+   ],
+   "routing": "straight"
+  },
+  "f22": {
+   "fromPoint": [
+    765,
+    2004
+   ],
+   "toPoint": [
+    628,
+    2006
+   ],
+   "routing": "straight"
+  },
+  "f23": {
+   "fromPoint": [
+    1217,
+    2006
+   ],
+   "toPoint": [
+    1151,
+    2005
+   ],
+   "routing": "straight"
+  },
+  "f24": {
+   "fromPoint": [
+    628,
+    2243
+   ],
+   "toPoint": [
+    773,
+    2243
+   ],
+   "routing": "straight"
+  },
+  "f25": {
+   "fromPoint": [
+    1158,
+    2243
+   ],
+   "toPoint": [
+    1217,
+    2238
+   ],
+   "routing": "straight"
+  },
+  "f26": {
+   "fromPoint": [
+    1701,
+    2440
+   ],
+   "toPoint": [
+    1988,
+    2440
+   ],
+   "routing": "straight"
+  },
+  "f27": {
+   "fromPoint": [
+    776,
+    2496
+   ],
+   "toPoint": [
+    628,
+    2493
+   ],
+   "routing": "straight"
+  },
+  "f28": {
+   "fromPoint": [
+    1206,
+    2495
+   ],
+   "toPoint": [
+    1161,
+    2495
+   ],
+   "routing": "straight"
+  },
+  "f29": {
+   "fromPoint": [
+    1456,
+    2670
+   ],
+   "toPoint": [
+    1456,
+    2835
+   ],
+   "routing": "straight"
+  },
+  "f30": {
+   "fromPoint": [
+    769,
+    2939
+   ],
+   "toPoint": [
+    648,
+    2939
+   ],
+   "routing": "straight"
+  },
+  "f31": {
+   "fromPoint": [
+    1213,
+    2938
+   ],
+   "toPoint": [
+    1154,
+    2939
+   ],
+   "routing": "straight"
+  },
+  "f32": {
+   "fromPoint": [
+    406,
+    3043
+   ],
+   "toPoint": [
+    405,
+    3131
+   ],
+   "routing": "straight"
+  }
+ },
+ "texts": {},
+ "offPage": {},
+ "marks": {},
+ "phases": {},
+ "rulesHaveSpans": {
+  "vertical": true,
+  "horizontal": true
+ }
+}
