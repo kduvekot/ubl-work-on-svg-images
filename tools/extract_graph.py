@@ -87,15 +87,36 @@ CONFUSABLE = str.maketrans({"l": "\x01", "I": "\x01", "1": "\x01", "|": "\x01",
 # folded corner as "~". Read off the 78: these appear 61 times as a token on their
 # own and not once as anything the artwork actually writes, while "&", "?" and the
 # hyphen - the only other non-word tokens in the set - are always real.
-STROKE_MARKS = set("|\\/~—–_><%¢^*`‘’“”")
+STROKE_MARKS = set("|\\/~—–_><%¢^*`‘’“”{}")
+
+# ...and the ones that are never anything else, even fused to a word. A mark can
+# reach a word without standing apart from it: the solid arrowhead landing on a
+# document box's border reads as "Application response}" on eleven boxes over six
+# of the transport and customs diagrams, a lane divider as "Event|Accepted" and
+# "charges|", an arrowhead beside a guard as "'Yes". Nineteen readings in the set
+# carry a mark fused into a word and eighteen are that; the one that is not is
+# "Create/Update" on IMFM-BasicTransportExecutionPlan, where the artwork really
+# writes a solidus. So the solidus and the hyphen stay wherever they are found,
+# and the rest are taken out of a word as readily as from beside one.
+FUSED_MARKS = STROKE_MARKS - set("/-")
 
 
 def strip_strokes(s):
-    """Drop the tokens that are line-work the reader named as a character."""
+    """Drop what the reader made out of line-work: whole tokens that are nothing
+    but marks, and the marks that have attached themselves to a word."""
     out = []
     for line in (s or "").split("\n"):
-        out.append(" ".join(t for t in line.split()
-                            if not all(ch in STROKE_MARKS for ch in t)))
+        kept = []
+        for t in line.split():
+            if all(ch in STROKE_MARKS for ch in t):
+                continue
+            # a mark standing between two words held them apart, so it leaves a
+            # gap behind it: "Retail Event|Accepted ?" is two words, and simply
+            # deleting the bar ran them into one.
+            for part in re.split("[" + re.escape("".join(FUSED_MARKS)) + "]", t):
+                if part:
+                    kept.append(part)
+        out.append(" ".join(kept))
     return "\n".join(out).strip("\n")
 
 
