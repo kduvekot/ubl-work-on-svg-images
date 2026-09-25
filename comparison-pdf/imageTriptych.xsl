@@ -90,9 +90,22 @@
             <fo:inline color="#008300">fork bar</fo:inline> ·
             <fo:inline color="#8a8a85">structure</fo:inline>
             <fo:inline color="#999"> | third panel: </fo:inline>
-            <fo:inline color="#D40000">red</fo:inline> = line-work the original has
-            and the SVG does not, text excluded; what the SVG invented is in the
-            list, not the picture</fo:inline>
+            <xsl:choose>
+              <!-- the legend has to say what this deck's third panel actually
+                   shows, or the page contradicts its own picture -->
+              <xsl:when test="$diff-suffix = '-marked-lost.png'">
+                <fo:inline color="#D40000">red</fo:inline>
+                <xsl:text> = line-work the original has and the SVG does not, text
+                  excluded; what the SVG invented is in the list, not the picture</xsl:text>
+              </xsl:when>
+              <xsl:otherwise>
+                <fo:inline color="#D40000">red</fo:inline>
+                <xsl:text> = ink the original has and the SVG does not, </xsl:text>
+                <fo:inline color="#0060D0">blue</fo:inline>
+                <xsl:text> = ink the SVG invented. Every pixel, text included, at
+                  the 2px radius - not the line-work measure the verdict uses</xsl:text>
+              </xsl:otherwise>
+            </xsl:choose></fo:inline>
           <fo:leader leader-pattern="space"/>
           <fo:inline>page <fo:page-number/></fo:inline>
         </fo:block>
