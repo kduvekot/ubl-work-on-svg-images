@@ -54,10 +54,11 @@ src, dst, px = sys.argv[1], sys.argv[2], int(sys.argv[3])
 for p in glob.glob(os.path.join(src, "*.json")):
     shutil.copy(p, dst)
 for p in glob.glob(os.path.join(src, "*-base.png")) + glob.glob(os.path.join(src, "*-new.png")):
-    im = Image.open(p).convert("RGB")
+    # the drawings are black on white, so grey loses nothing and is a third the size
+    im = Image.open(p).convert("L")
     if im.width > px:
         im = im.resize((px, round(im.height * px / im.width)), Image.LANCZOS)
-    im.save(os.path.join(dst, os.path.basename(p)))
+    im.save(os.path.join(dst, os.path.basename(p)), optimize=True)
 for p in glob.glob(os.path.join(src, "*-basediff.png")):
     a = np.asarray(Image.open(p).convert("RGB"))
     f = max(1, -(-a.shape[1] // px))                       # block size, rounded up
@@ -69,7 +70,9 @@ for p in glob.glob(os.path.join(src, "*-basediff.png")):
     out[col((0xED, 0xED, 0xED))] = (0xED, 0xED, 0xED)
     out[col((0x00, 0x60, 0xD0))] = (0x00, 0x60, 0xD0)
     out[col((0xD4, 0x00, 0x00))] = (0xD4, 0x00, 0x00)
-    Image.fromarray(out).save(os.path.join(dst, os.path.basename(p)))
+    # four colours exactly, as a palette image
+    Image.fromarray(out).quantize(colors=4, method=Image.Quantize.FASTOCTREE, dither=Image.Dither.NONE) \
+        .save(os.path.join(dst, os.path.basename(p)), optimize=True)
 PY
 
 java -cp "$SAXON_JAR" net.sf.saxon.Transform \
