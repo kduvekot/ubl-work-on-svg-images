@@ -314,6 +314,25 @@ def settle_readings(nodes, texts, grid, edges):
                                if (ln.get("text") or "").strip()]
 
 
+def mark_scale(ink, box):
+    """The longest connected mark in this band, in pixels.
+
+    The companion to line_like: that one asks whether a mark is too long to be a
+    letter, this one whether they are all too short to be one. Specks of a few
+    pixels are left out so that anti-aliasing and punctuation do not answer for
+    the band."""
+    sub = ink[box["y"]:box["y"] + box["h"], box["x"]:box["x"] + box["w"]]
+    if sub.size == 0 or not sub.any():
+        return 0
+    lbl, _ = ndi.label(sub, structure=np.ones((3, 3), bool))
+    big = 0
+    for sl in ndi.find_objects(lbl):
+        if sl is None or int((lbl[sl] > 0).sum()) < 6:
+            continue
+        big = max(big, sl[0].stop - sl[0].start, sl[1].stop - sl[1].start)
+    return big
+
+
 def line_like(ink, box, font_px):
     """Is this band a stroke of line-work rather than words.
 
@@ -3749,10 +3768,26 @@ def main(path, out_json=None):
         t = b[4] if len(b) > 4 else ocr(bg, b[0], b[1], w, h, -6)
         if not t:
             continue
+        box_b = dict(x=b[0], y=b[1], w=w, h=h)
+        # A row of marks is what a word looks like and it is also what a dashed
+        # line looks like, so neither shape nor confidence separates them: the
+        # corners of the dashed phase box on the five CPFR diagrams come back as
+        # "a 7", "N", "x XN XN" at confidences well over the floor, and were drawn
+        # as those letters on top of the very dashes they were read from. The size
+        # of the marks does separate them, and says the same thing line_like says
+        # about long ones: no letter of this type is a quarter of its height. Over
+        # the 78 the biggest mark in a block is 0.51 of the type height at the
+        # smallest for real text, and 0.24 to 0.28 for all nine of these; nine
+        # blocks in 352 fall below half, and they are exactly the nine.
+        if mark_scale(ink, box_b) < 0.5 * font_px:
+            print("   (dropped x=%-5d y=%-5d %4dx%-4d  %r - marks a quarter of the"
+                  " type's height: a dashed line, not words)"
+                  % (b[0], b[1], w, h, t))
+            strays.append((b[0] + w / 2.0, b[1] + h / 2.0))
+            continue
         # ...unless it reads as an actual word. Line-work comes back as one or
         # two characters of punctuation - "\\V/", "TZ", "DN" - and a run of four
         # letters is not something an arrowhead produces.
-        box_b = dict(x=b[0], y=b[1], w=w, h=h)
         if (not re.search(r"[A-Za-z]{4,}", t)
                 and (line_like(ink, box_b, font_px)
                      or ocr_best_conf(bg, b[0], b[1], w, h, -6) < TEXT_CONF)):
@@ -4590,6 +4625,73 @@ def main(path, out_json=None):
         rule_span = dict(
             v=[span_of(x, w, "v") for x, w in vr],
             h=[span_of(y, t, "h") for y, t in hr])
+
+        # A letter is not a flow leaving the page. The left stems of the "C", "I"
+        # and "U" of "Customer Initiated Update" on UpdateCataloguePricing were
+        # traced as two flows with arrowheads and drawn straight through the word;
+        # the "]" closing a guard on SelfBillingwithCreditNote became a third. The
+        # ink is a text block's, and a block accounts for it already. Over the 78,
+        # five open ends lie a fifth or more of their own extent inside one block -
+        # these five - and the only other one that touches a block at all is a
+        # route 1936px long brushing three guards at a thousandth of itself.
+        def in_a_word(o):
+            for t in texts:
+                ix = max(0, min(o["x"] + o["w"], t["x"] + t["w"]) - max(o["x"], t["x"]))
+                iy = max(0, min(o["y"] + o["h"], t["y"] + t["h"]) - max(o["y"], t["y"]))
+                if ix * iy >= 0.2 * max(1, o["w"] * o["h"]):
+                    return " ".join((t.get("text") or "").split())
+            return None
+        # A sliver left on the edge of a rule is that rule, not a flow. The band a
+        # partition rule is taken out over is the ink it was measured at, and where
+        # the drawing's own line is a pixel wider on one side, that pixel survives
+        # - one to four pixels across and hundreds long, lying against the divider.
+        # It is then traced as a flow running off the page and drawn beside the
+        # divider, which is the doubled lane line on the VMI, CRP and ROCD
+        # diagrams. The pixel test never saw it: it sits within three pixels of
+        # the divider's own ink, so it matches. Over the 78 this is ten open ends
+        # on eight diagrams, every one of them a vertical hair with no arrowhead,
+        # and it touches none of the other forty.
+        #
+        # ...but only where the rule is drawn over it already. The rule is drawn
+        # across its own measured span, and on four of these eight diagrams the
+        # artwork's divider runs on past where that span was measured - 473 to 487
+        # pixels past it on the two BaseArticleCatalogues and ArticleAvailability,
+        # and wholly outside it twice on ReturnsByProducer. There the sliver is the
+        # only thing drawing that stretch of line, and dropping it takes the line
+        # off the page: five elements absent, which is how this was caught. Where
+        # the span does cover it the overshoot is one or two pixels, less than the
+        # rule's own thickness, so the rule's thickness is the tolerance.
+        def along_a_rule(o):
+            for key, rules in (("v", vr), ("h", hr)):
+                spans = (rule_span or {}).get(key) or []
+                for i, (start, t) in enumerate(rules):
+                    if key == "v":
+                        lo, hi, span, thick = o["x"], o["x"] + o["w"], o["h"], o["w"]
+                        a, b = o["y"], o["y"] + o["h"]
+                    else:
+                        lo, hi, span, thick = o["y"], o["y"] + o["h"], o["w"], o["h"]
+                        a, b = o["x"], o["x"] + o["w"]
+                    if not (lo >= start - t and hi <= start + 2 * t
+                            and span > 4 * max(thick, 1)):
+                        continue
+                    sp = spans[i] if i < len(spans) else None
+                    if sp and sp[0] - t <= a and b <= sp[1] + t:
+                        return start
+            return None
+
+        for o in list(open_ends):
+            word = in_a_word(o)
+            if word:
+                print("   (dropped the open end at %d,%d - it is ink inside %r)"
+                      % (o["x"], o["y"], word[:40]))
+                open_ends.remove(o)
+                continue
+            at = along_a_rule(o)
+            if at is not None:
+                print("   (dropped the open end at %d,%d %dx%d - a sliver lying"
+                      " along the rule at %d)"
+                      % (o["x"], o["y"], o["w"], o["h"], at))
+                open_ends.remove(o)
 
         settle_readings(nodes, texts, grid, edges)
         classify_edges(nodes, edges)

@@ -163,9 +163,19 @@ def main(src, out, model_w=1480.0):
         # strip lands in its crop, so the partition read "Transportation Network
         # Manager |" where the block reader read "Transportation Network Manager",
         # the two did not match, and IMFM drew the title twice.
+        #
+        # Matching by name alone needs a name long enough to be evidence. A lane
+        # read as "No" - which happens where a guard sits up in the header strip,
+        # on CPFR-ExceptionMonitor and CPFR-CreateOrderForecast - otherwise deletes
+        # every other "No" on the page, and the two guards on the flows into the
+        # end event went missing from the drawing while the artwork showed them
+        # plainly. Over the 78 this branch suppresses eight blocks: the four
+        # "No"s, wrongly, and four real lane titles of eleven letters and more,
+        # rightly. The position test below still catches a short title in its own
+        # place, which is the only place a short one is evidence of anything.
         k = re.sub(r"[^a-z0-9]", "", " ".join(t["text"].split()).lower())
-        if k and any(k == o or (len(k) >= 6 and (k in o or o in k))
-                     for o in title_text):
+        if k and len(k) >= 6 and any(k == o or k in o or o in k
+                                     for o in title_text):
             return True
         return any(abs(t["x"] - b[0]) <= 2 and abs(t["y"] - b[1]) <= 2 and
                    abs(t["w"] - b[2]) <= 2 and abs(t["h"] - b[3]) <= 2 for b in titles)
