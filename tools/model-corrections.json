@@ -11,7 +11,334 @@
     "op": "attach-guard",
     "text": "text-no-2",
     "to": "offpage-decision-1",
-    "was": {"labels": "flow-decision-1-to-send-exception-in-1"}
+    "was": {
+     "labels": "flow-decision-1-to-send-exception-in-1"
+    }
+   },
+   {
+    "id": "q2a-fig10",
+    "decided": "2026-09-25",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Is the text at the top of a CPFR diagram's dashed box the name of a column, or of the phase?",
+    "answer": "The phase: it is the figure's own caption in UBL.xml, and Fig 6 shows it apart from its column names.",
+    "op": "phase-title-from-lane",
+    "lane": "lane-exception-handling",
+    "phase": "phase-1",
+    "was": {
+     "title": "Exception Handling"
+    }
+   },
+   {
+    "id": "q2b-fig10-left",
+    "decided": "2026-09-25",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "The CPFR phase diagrams other than Fig 6 do not name their two columns. Which parties are they?",
+    "answer": "Buyer Party on the left and Seller Party on the right, as on Fig 6. Stated by the text for Figs 7, 9 and 12 (the Seller creates the sales and order forecasts, the Buyer sends Retail Event and Product Activity); implied by convention for Figs 10, 13 and 14, whose two columns do the same things.",
+    "op": "name-lane",
+    "lane": "lane-1",
+    "title": "Buyer Party",
+    "source": "convention"
+   },
+   {
+    "id": "q2b-fig10-right",
+    "decided": "2026-09-25",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "The CPFR phase diagrams other than Fig 6 do not name their two columns. Which parties are they?",
+    "answer": "Buyer Party on the left and Seller Party on the right, as on Fig 6. Stated by the text for Figs 7, 9 and 12 (the Seller creates the sales and order forecasts, the Buyer sends Retail Event and Product Activity); implied by convention for Figs 10, 13 and 14, whose two columns do the same things.",
+    "op": "name-lane",
+    "lane": "lane-exception-handling",
+    "title": "Seller Party",
+    "source": "convention"
+   },
+   {
+    "id": "q2c-fig10-left",
+    "decided": "2026-09-25",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "On Figs 12 and 14, what does each 'No' beside the arrows coming in from the top of the page label?",
+    "answer": "The incoming arrow it sits beside: the 'No, no exception received' branches of the previous phase's decisions (Fig 10's into Fig 12, Fig 13's into Fig 14), continuing on this page.",
+    "op": "continues",
+    "offPage": "offpage-decision-1",
+    "figure": "UBL-2.2-CPFR-CreateOrderForecast"
+   },
+   {
+    "id": "q2c-fig10-right",
+    "decided": "2026-09-25",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "On Figs 12 and 14, what does each 'No' beside the arrows coming in from the top of the page label?",
+    "answer": "The incoming arrow it sits beside: the 'No, no exception received' branches of the previous phase's decisions (Fig 10's into Fig 12, Fig 13's into Fig 14), continuing on this page.",
+    "op": "continues",
+    "offPage": "offpage-decision-exception-handling",
+    "figure": "UBL-2.2-CPFR-CreateOrderForecast"
+   }
+  ],
+  "UBL-2.2-CPFR-EstablishingCollaborativeRelationships": [
+   {
+    "id": "q2a-fig6",
+    "decided": "2026-09-25",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Is the text at the top of a CPFR diagram's dashed box the name of a column, or of the phase?",
+    "answer": "The phase: it is the figure's own caption in UBL.xml, and Fig 6 shows it apart from its column names.",
+    "op": "phase-title-from-text",
+    "text": "text-establishing-collaborative-relationship",
+    "phase": "phase-1",
+    "was": {
+     "text": "Establishing Collaborative Relationship"
+    }
+   }
+  ],
+  "UBL-2.2-CPFR-CreateJointBusinessPlan": [
+   {
+    "id": "q2a-fig7",
+    "decided": "2026-09-25",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Is the text at the top of a CPFR diagram's dashed box the name of a column, or of the phase?",
+    "answer": "The phase: it is the figure's own caption in UBL.xml, and Fig 6 shows it apart from its column names.",
+    "op": "phase-title-from-lane",
+    "lane": "lane-creating-joint-business-plan",
+    "phase": "phase-1",
+    "was": {
+     "title": "Creating Joint Business Plan"
+    }
+   },
+   {
+    "id": "q2b-fig7-left",
+    "decided": "2026-09-25",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "The CPFR phase diagrams other than Fig 6 do not name their two columns. Which parties are they?",
+    "answer": "Buyer Party on the left and Seller Party on the right, as on Fig 6. Stated by the text for Figs 7, 9 and 12 (the Seller creates the sales and order forecasts, the Buyer sends Retail Event and Product Activity); implied by convention for Figs 10, 13 and 14, whose two columns do the same things.",
+    "op": "name-lane",
+    "lane": "lane-1",
+    "title": "Buyer Party",
+    "source": "text"
+   },
+   {
+    "id": "q2b-fig7-right",
+    "decided": "2026-09-25",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "The CPFR phase diagrams other than Fig 6 do not name their two columns. Which parties are they?",
+    "answer": "Buyer Party on the left and Seller Party on the right, as on Fig 6. Stated by the text for Figs 7, 9 and 12 (the Seller creates the sales and order forecasts, the Buyer sends Retail Event and Product Activity); implied by convention for Figs 10, 13 and 14, whose two columns do the same things.",
+    "op": "name-lane",
+    "lane": "lane-creating-joint-business-plan",
+    "title": "Seller Party",
+    "source": "text"
+   }
+  ],
+  "UBL-2.2-CPFR-CreatingSalesForecast": [
+   {
+    "id": "q2a-fig9",
+    "decided": "2026-09-25",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Is the text at the top of a CPFR diagram's dashed box the name of a column, or of the phase?",
+    "answer": "The phase: it is the figure's own caption in UBL.xml, and Fig 6 shows it apart from its column names.",
+    "op": "phase-title-from-lane",
+    "lane": "lane-creating-sales-forecast",
+    "phase": "phase-1",
+    "was": {
+     "title": "Creating Sales Forecast"
+    }
+   }
+  ],
+  "UBL-2.2-CPFR-CreateOrderForecast": [
+   {
+    "id": "q2a-fig12",
+    "decided": "2026-09-25",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Is the text at the top of a CPFR diagram's dashed box the name of a column, or of the phase?",
+    "answer": "The phase: it is the figure's own caption in UBL.xml, and Fig 6 shows it apart from its column names.",
+    "op": "phase-title-from-lane",
+    "lane": "lane-create-order-forecast",
+    "phase": "phase-1",
+    "was": {
+     "title": "Create Order Forecast"
+    }
+   },
+   {
+    "id": "q2c-fig12-left",
+    "decided": "2026-09-25",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "On Figs 12 and 14, what does each 'No' beside the arrows coming in from the top of the page label?",
+    "answer": "The incoming arrow it sits beside: the 'No, no exception received' branches of the previous phase's decisions (Fig 10's into Fig 12, Fig 13's into Fig 14), continuing on this page.",
+    "op": "guard-from-lane-title",
+    "lane": "lane-no",
+    "to": "offpage-fork-no",
+    "was": {
+     "title": "No"
+    }
+   },
+   {
+    "id": "q2c-fig12-right",
+    "decided": "2026-09-25",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "On Figs 12 and 14, what does each 'No' beside the arrows coming in from the top of the page label?",
+    "answer": "The incoming arrow it sits beside: the 'No, no exception received' branches of the previous phase's decisions (Fig 10's into Fig 12, Fig 13's into Fig 14), continuing on this page.",
+    "op": "attach-guard",
+    "text": "text-no",
+    "to": "offpage-fork-no-2",
+    "was": {
+     "labels": "flow-fork-no-to-send-retail-event"
+    }
+   },
+   {
+    "id": "q2c-fig12-from-left",
+    "decided": "2026-09-25",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "On Figs 12 and 14, what does each 'No' beside the arrows coming in from the top of the page label?",
+    "answer": "The incoming arrow it sits beside: the 'No, no exception received' branches of the previous phase's decisions (Fig 10's into Fig 12, Fig 13's into Fig 14), continuing on this page.",
+    "op": "continues",
+    "offPage": "offpage-fork-no",
+    "figure": "UBL-2.2-CPFR-ExceptionHandling"
+   },
+   {
+    "id": "q2c-fig12-from-right",
+    "decided": "2026-09-25",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "On Figs 12 and 14, what does each 'No' beside the arrows coming in from the top of the page label?",
+    "answer": "The incoming arrow it sits beside: the 'No, no exception received' branches of the previous phase's decisions (Fig 10's into Fig 12, Fig 13's into Fig 14), continuing on this page.",
+    "op": "continues",
+    "offPage": "offpage-fork-no-2",
+    "figure": "UBL-2.2-CPFR-ExceptionHandling"
+   },
+   {
+    "id": "q2b-fig12-left",
+    "decided": "2026-09-25",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "The CPFR phase diagrams other than Fig 6 do not name their two columns. Which parties are they?",
+    "answer": "Buyer Party on the left and Seller Party on the right, as on Fig 6. Stated by the text for Figs 7, 9 and 12 (the Seller creates the sales and order forecasts, the Buyer sends Retail Event and Product Activity); implied by convention for Figs 10, 13 and 14, whose two columns do the same things.",
+    "op": "name-lane",
+    "lane": "lane-no",
+    "title": "Buyer Party",
+    "source": "text"
+   },
+   {
+    "id": "q2b-fig12-right",
+    "decided": "2026-09-25",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "The CPFR phase diagrams other than Fig 6 do not name their two columns. Which parties are they?",
+    "answer": "Buyer Party on the left and Seller Party on the right, as on Fig 6. Stated by the text for Figs 7, 9 and 12 (the Seller creates the sales and order forecasts, the Buyer sends Retail Event and Product Activity); implied by convention for Figs 10, 13 and 14, whose two columns do the same things.",
+    "op": "name-lane",
+    "lane": "lane-create-order-forecast",
+    "title": "Seller Party",
+    "source": "text"
+   }
+  ],
+  "UBL-2.2-CPFR-IdentifyResolve": [
+   {
+    "id": "q2a-fig13",
+    "decided": "2026-09-25",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Is the text at the top of a CPFR diagram's dashed box the name of a column, or of the phase?",
+    "answer": "The phase: it is the figure's own caption in UBL.xml, and Fig 6 shows it apart from its column names.",
+    "op": "phase-title-from-lane",
+    "lane": "lane-identifying-and-resolving-exceptions-for",
+    "phase": "phase-1",
+    "was": {
+     "title": "Identifying and Resolving Exceptions for Order Forecast"
+    }
+   },
+   {
+    "id": "q2b-fig13-left",
+    "decided": "2026-09-25",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "The CPFR phase diagrams other than Fig 6 do not name their two columns. Which parties are they?",
+    "answer": "Buyer Party on the left and Seller Party on the right, as on Fig 6. Stated by the text for Figs 7, 9 and 12 (the Seller creates the sales and order forecasts, the Buyer sends Retail Event and Product Activity); implied by convention for Figs 10, 13 and 14, whose two columns do the same things.",
+    "op": "name-lane",
+    "lane": "lane-1",
+    "title": "Buyer Party",
+    "source": "convention"
+   },
+   {
+    "id": "q2b-fig13-right",
+    "decided": "2026-09-25",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "The CPFR phase diagrams other than Fig 6 do not name their two columns. Which parties are they?",
+    "answer": "Buyer Party on the left and Seller Party on the right, as on Fig 6. Stated by the text for Figs 7, 9 and 12 (the Seller creates the sales and order forecasts, the Buyer sends Retail Event and Product Activity); implied by convention for Figs 10, 13 and 14, whose two columns do the same things.",
+    "op": "name-lane",
+    "lane": "lane-identifying-and-resolving-exceptions-for",
+    "title": "Seller Party",
+    "source": "convention"
+   }
+  ],
+  "UBL-2.2-CPFR-ExceptionMonitor": [
+   {
+    "id": "q2a-fig14",
+    "decided": "2026-09-25",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Is the text at the top of a CPFR diagram's dashed box the name of a column, or of the phase?",
+    "answer": "The phase: it is the figure's own caption in UBL.xml, and Fig 6 shows it apart from its column names.",
+    "op": "phase-title-from-text",
+    "text": "text-exception-monitor-during-execution",
+    "phase": "phase-1",
+    "was": {
+     "text": "Exception Monitor During Execution"
+    }
+   },
+   {
+    "id": "q2c-fig14-left",
+    "decided": "2026-09-25",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "On Figs 12 and 14, what does each 'No' beside the arrows coming in from the top of the page label?",
+    "answer": "The incoming arrow it sits beside: the 'No, no exception received' branches of the previous phase's decisions (Fig 10's into Fig 12, Fig 13's into Fig 14), continuing on this page.",
+    "op": "guard-from-lane-title",
+    "lane": "lane-no",
+    "to": "offpage-action-ordering",
+    "was": {
+     "title": "No"
+    }
+   },
+   {
+    "id": "q2c-fig14-right",
+    "decided": "2026-09-25",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "On Figs 12 and 14, what does each 'No' beside the arrows coming in from the top of the page label?",
+    "answer": "The incoming arrow it sits beside: the 'No, no exception received' branches of the previous phase's decisions (Fig 10's into Fig 12, Fig 13's into Fig 14), continuing on this page.",
+    "op": "guard-from-lane-title",
+    "lane": "lane-no-2",
+    "to": "offpage-action-ordering-2",
+    "was": {
+     "title": "No"
+    }
+   },
+   {
+    "id": "q2c-fig14-from-left",
+    "decided": "2026-09-25",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "On Figs 12 and 14, what does each 'No' beside the arrows coming in from the top of the page label?",
+    "answer": "The incoming arrow it sits beside: the 'No, no exception received' branches of the previous phase's decisions (Fig 10's into Fig 12, Fig 13's into Fig 14), continuing on this page.",
+    "op": "continues",
+    "offPage": "offpage-action-ordering",
+    "figure": "UBL-2.2-CPFR-IdentifyResolve"
+   },
+   {
+    "id": "q2c-fig14-from-right",
+    "decided": "2026-09-25",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "On Figs 12 and 14, what does each 'No' beside the arrows coming in from the top of the page label?",
+    "answer": "The incoming arrow it sits beside: the 'No, no exception received' branches of the previous phase's decisions (Fig 10's into Fig 12, Fig 13's into Fig 14), continuing on this page.",
+    "op": "continues",
+    "offPage": "offpage-action-ordering-2",
+    "figure": "UBL-2.2-CPFR-IdentifyResolve"
+   },
+   {
+    "id": "q2b-fig14-left",
+    "decided": "2026-09-25",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "The CPFR phase diagrams other than Fig 6 do not name their two columns. Which parties are they?",
+    "answer": "Buyer Party on the left and Seller Party on the right, as on Fig 6. Stated by the text for Figs 7, 9 and 12 (the Seller creates the sales and order forecasts, the Buyer sends Retail Event and Product Activity); implied by convention for Figs 10, 13 and 14, whose two columns do the same things.",
+    "op": "name-lane",
+    "lane": "lane-no",
+    "title": "Buyer Party",
+    "source": "convention"
+   },
+   {
+    "id": "q2b-fig14-right",
+    "decided": "2026-09-25",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "The CPFR phase diagrams other than Fig 6 do not name their two columns. Which parties are they?",
+    "answer": "Buyer Party on the left and Seller Party on the right, as on Fig 6. Stated by the text for Figs 7, 9 and 12 (the Seller creates the sales and order forecasts, the Buyer sends Retail Event and Product Activity); implied by convention for Figs 10, 13 and 14, whose two columns do the same things.",
+    "op": "name-lane",
+    "lane": "lane-no-2",
+    "title": "Seller Party",
+    "source": "convention"
    }
   ]
  }

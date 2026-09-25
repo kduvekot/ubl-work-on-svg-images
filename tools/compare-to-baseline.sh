@@ -26,9 +26,11 @@
 # Writes, into <out-dir>, <name>-base.png, <name>-new.png, <name>-basediff.png and
 # <name>-compare.json per diagram, and summary.json over them all. Prints one line
 # per diagram and a tally - "same" for a byte-identical file, "ids" for one that is
-# identical once renamed back, "DIFF" for anything else - and exits non-zero unless
-# every diagram is identical: not a pixel different, and its SVG the baseline's,
-# byte for byte or once renamed back.
+# identical once renamed back, "DIFF" for anything else. A diagram is "identical"
+# when not a pixel differs and its SVG is the baseline's, byte for byte or once
+# renamed back; "same-drawing" when not a pixel differs but the SVG says something
+# else about what is drawn (a correction to the model); "differs" when any pixel
+# does. Exits non-zero if any diagram differs or could not be compared.
 #
 # JOBS diagrams run at a time (default: one per core).
 set -uo pipefail
@@ -123,14 +125,17 @@ if r["specIdentical"] is False:
     r["specIdenticalUpToIds"] = spec_renamed()
 # identical: not one pixel differs, and the SVG is the baseline's, byte for byte
 # or once its elements are renamed back
-r["verdict"] = ("identical" if differ == 0 and (r["svgIdentical"] is not False
-                                               or r.get("svgIdenticalUpToIds"))
-                else "differs")
+# same-drawing: not one pixel differs, but the SVG says something the baseline's
+# did not - a correction to the model shows up this way, as a changed title or
+# class on an element drawn exactly as before
+r["verdict"] = ("differs" if differ else
+                "identical" if (r["svgIdentical"] is not False or r.get("svgIdenticalUpToIds"))
+                else "same-drawing")
 json.dump(r, open(os.path.join(out, n + "-compare.json"), "w"), indent=1)
 yn = lambda v: "-" if v is None else ("same" if v else "DIFF")
 # "ids" where a file differs only by the renaming checked above
 ya = lambda v, up: "ids" if (v is False and up) else yn(v)
-line = "%-52s %-10s %9d %8d %8d   %-4s %-4s %-4s" % (
+line = "%-52s %-12s %7d %8d %8d   %-4s %-4s %-4s" % (
     n, r["verdict"], differ, r["onlyInBaseline"], r["onlyInNew"],
     ya(r["svgIdentical"], r.get("svgIdenticalUpToIds")),
     ya(r["drawioIdentical"], r.get("drawioIdenticalUpToIds")),
@@ -155,23 +160,25 @@ names=()
 while read -r n; do [ -n "$n" ] && names+=("$n"); done < "$LIST"
 for n in "${names[@]}"; do rm -f "$OUT/$n-compare.line" "$OUT/$n-compare.json"; done
 
-head='%-52s %-10s %9s %8s %8s   %-4s %-4s %-4s\n'
+head='%-52s %-12s %7s %8s %8s   %-4s %-4s %-4s\n'
 printf "$head" FIGURE RESULT PX-DIFFER BASE-ONLY NEW-ONLY SVG DRAW SPEC
 printf "$head" "" "" "" "(red)" "(blue)" "" "IO" ""
 printf '%s\n' "------------------------------------------------------------------------------------------------------"
 printf '%s\0' "${names[@]}" | xargs -0 -P "$JOBS" -I{} "$0" --one "$BASE" "$NEW" "$OUT" {} > /dev/null
 
-identical=0; differs=0; broken=0
+identical=0; same=0; differs=0; broken=0
 for n in "${names[@]}"; do
   cat "$OUT/$n-compare.line" 2>/dev/null || printf '%-52s %s\n' "$n" "NO RESULT"
   case $(awk '{print $2}' "$OUT/$n-compare.line" 2>/dev/null) in
     identical) identical=$((identical+1));;
+    same-drawing) same=$((same+1));;
     differs)   differs=$((differs+1));;
     *)         broken=$((broken+1));;
   esac
 done
 printf '%s\n' "------------------------------------------------------------------------------------------------------"
-printf 'identical %d   differs %d   not compared %d\n' "$identical" "$differs" "$broken"
+printf 'identical %d   same drawing %d   differs %d   not compared %d\n' \
+       "$identical" "$same" "$differs" "$broken"
 
 python3 - "$BASE" "$NEW" "$OUT" "${names[@]}" <<'PY'
 import json, os, sys
@@ -182,8 +189,10 @@ for n in names:
     figs.append(json.load(open(p)) if os.path.exists(p) else dict(name=n, verdict="not compared"))
 json.dump(dict(baseline=base, new=new, figures=figs,
                identical=sum(f["verdict"] == "identical" for f in figs),
+               sameDrawing=sum(f["verdict"] == "same-drawing" for f in figs),
                differs=sum(f["verdict"] == "differs" for f in figs),
-               notCompared=sum(f["verdict"] not in ("identical", "differs") for f in figs)),
+               notCompared=sum(f["verdict"] not in ("identical", "same-drawing", "differs")
+                               for f in figs)),
           open(os.path.join(out, "summary.json"), "w"), indent=1)
 PY
 [ "$differs" -eq 0 ] && [ "$broken" -eq 0 ]

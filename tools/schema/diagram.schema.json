@@ -24,7 +24,9 @@
      "id": {"$ref": "#/$defs/id"},
      "axis": {"enum": ["column", "band"]},
      "index": {"type": "integer", "minimum": 0, "description": "position along its axis, left to right or top to bottom"},
-     "title": {"type": "string"}
+     "title": {"type": "string"},
+     "titleShown": {"type": "boolean", "description": "false where the artwork does not draw the title: it was given by a correction"},
+     "titleSource": {"enum": ["text", "convention"], "description": "where a title the artwork does not draw comes from: stated by the specification's text, or implied by the convention of related figures"}
     }
    }
   },
@@ -88,7 +90,8 @@
      "node": {"$ref": "#/$defs/id"},
      "direction": {"enum": ["in", "out"]},
      "arrow": {"type": "boolean"},
-     "guard": {"$ref": "#/$defs/id", "description": "the text that is this flow's guard"}
+     "guard": {"$ref": "#/$defs/id", "description": "the text that is this flow's guard"},
+     "continues": {"type": "string", "description": "the figure (by basename) this flow continues from, or into"}
     }
    }
   },
@@ -109,7 +112,8 @@
    "type": "array",
    "items": {
     "type": "object", "required": ["id"], "additionalProperties": false,
-    "properties": {"id": {"$ref": "#/$defs/id"}}
+    "properties": {"id": {"$ref": "#/$defs/id"},
+                   "title": {"type": "string", "description": "the phase's name, written at the top of its box"}}
    }
   }
  },

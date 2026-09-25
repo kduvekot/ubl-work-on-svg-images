@@ -1039,3 +1039,31 @@ flow into *Send Exception*, "Yes" is its guard and "No" is the guard of the flow
 that leaves the page downwards. To say so, an off-page flow can now carry a
 guard. None of this changes the drawing: over all 78 the renders are still the
 baseline's, and the only files that changed are that diagram's model and report.
+
+The second, `q2`, settles the CPFR phase diagrams (Figs 6, 7, 9, 10, 12, 13, 14),
+from UBL.xml's CPFR text and the TC's review:
+
+- *The title in the dashed box is the phase's name* - it is each figure's own
+  caption in UBL.xml - not a column's. The reading had taken it for the title of
+  the right-hand lane, or left it as free text.
+- *The unnamed columns are Buyer Party (left) and Seller Party (right)*, as Fig 6
+  draws them: stated by the text for Figs 7, 9 and 12 (the Seller creates the
+  forecasts, the Buyer sends Retail Event and Product Activity), implied by
+  convention for Figs 10, 13 and 14. The artwork does not draw these names, so
+  the model marks them `titleShown: false` with their `titleSource`; the draw.io
+  model carries them, the SVG does not draw them.
+- *Each "No" at the top of Figs 12 and 14 labels the arrow beside it*: the
+  no-exception branches of Figs 10 and 13 continuing onto the page. The reading
+  had taken three of them for lane titles. Each incoming and outgoing flow of the
+  pair now says which figure it `continues`.
+
+Corrections are now applied before the final ids are assigned, so a corrected
+lane is `lane-buyer-party` rather than `lane-no`; the corrections themselves name
+elements as the uncorrected reading does, and the uncorrected model is kept in
+the extraction report. Words that move from lane title to phase title or guard
+are drawn exactly as before, so over all 78 every render is still the
+baseline's: 71 identical, and these 7 the same drawing with a corrected model
+(`compare-to-baseline.sh` now tells the two apart). Fig 9's split into two
+columns is still open: its divider is drawn in light grey and the reading took
+the page as one column.
+

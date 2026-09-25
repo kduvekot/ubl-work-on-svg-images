@@ -111,12 +111,17 @@
   <fo:block font-size="10pt" space-after="5mm">
     <fo:inline font-weight="bold" color="{if ($s?differs = 0 and $s?notCompared = 0)
                                           then '#177245' else '#a02020'}">
-      <xsl:value-of select="$s?identical || ' of ' || count($s?figures?*) || ' identical'"/>
+      <xsl:value-of select="($s?identical + ($s?sameDrawing, 0)[1]) || ' of ' || count($s?figures?*)
+                            || ' draw exactly the same'"/>
     </fo:inline>
-    <xsl:value-of select="'  -  ' || $s?differs || ' differ, ' || $s?notCompared
+    <xsl:value-of select="'  -  ' || $s?identical || ' identical, ' || ($s?sameDrawing, 0)[1]
+                          || ' the same drawing with a corrected model, ' || $s?differs
+                          || ' differ, ' || $s?notCompared
                           || ' could not be compared. Identical means every pixel of the two
                           renders is the same, and the SVG is the baseline''s byte for byte
-                          or once its elements'' ids are mapped back to the baseline''s.'"/>
+                          or once its elements'' ids are mapped back to the baseline''s; the
+                          same drawing means every pixel is the same but the SVG now says
+                          something else about an element (a lane''s name, what a title is).'"/>
   </fo:block>
   <fo:table table-layout="fixed" width="100%" font-size="8pt">
     <fo:table-column column-width="14mm"/>
@@ -145,7 +150,8 @@
           <fo:table-cell padding="0.5mm"><fo:block><xsl:value-of select="$base"/></fo:block></fo:table-cell>
           <fo:table-cell padding="0.5mm">
             <fo:block font-weight="bold"
-                color="{if ($c?verdict = 'identical') then '#177245' else '#a02020'}">
+                color="{if ($c?verdict = 'identical') then '#177245'
+                        else if ($c?verdict = 'same-drawing') then '#1f5fa0' else '#a02020'}">
               <xsl:value-of select="upper-case(string(($c?verdict, 'not compared')[1]))"/>
             </fo:block>
           </fo:table-cell>
@@ -188,7 +194,8 @@
           <xsl:variable name="c" select="json-doc(u:uri($base || '-compare.json'))"/>
           <xsl:text>  -  </xsl:text>
           <fo:inline font-weight="bold"
-              color="{if ($c?verdict = 'identical') then '#177245' else '#a02020'}">
+              color="{if ($c?verdict = 'identical') then '#177245'
+                        else if ($c?verdict = 'same-drawing') then '#1f5fa0' else '#a02020'}">
             <xsl:value-of select="upper-case(string($c?verdict))"/>
           </fo:inline>
           <xsl:value-of select="'  (' || $c?pixelsDiffer || ' pixels differ: '

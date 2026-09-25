@@ -139,14 +139,23 @@ def _unique(wanted, order_key):
 
 
 def assign_ids(model, layout, report):
-    """Replace the reading-order ids with ids that say what each element is.
+    """Replace the graph's ids with ids that say what each element is (see
+    names()), and keep the graph's in the report as formerIds."""
+    rename = names(model, layout)
+    _rename(model, layout, report, rename)
+    report["formerIds"] = {v: k for k, v in rename.items()}
+
+
+def names(model, layout):
+    """The id each element should have, as {current id: name}.
 
         lane-<title> / band-<title>            lane-accounting-supplier
         <kind>-<label>                         action-raise-invoice, object-invoice
         <kind>-<lane>                          initial-accounting-supplier
         flow-<from>-to-<to>                    flow-raise-invoice-to-invoice
         text-<words>                           text-accept-charges
-        offpage-<node>, mark, phase            offpage-action-download-business-card
+        offpage-<node>                         offpage-action-download-business-card
+        phase-<title>, mark-<n>                phase-create-order-forecast, mark-1
 
     Where two elements would get the same id, the one higher on the page (then
     further left) keeps it and the others are numbered -2, -3 in that order. A
@@ -163,6 +172,8 @@ def assign_ids(model, layout, report):
     def at(el):
         """where an element is, for ordering duplicates: top, then left"""
         g = lay_of[id(el)]
+        if "box" in g:                                   # drawn in a title's place
+            return (g["box"][1], g["box"][0])
         if "x" in g:
             return (g["y"], g["x"])
         if "fromPoint" in g:
@@ -217,11 +228,16 @@ def assign_ids(model, layout, report):
     want = [(o, "offpage-%s" % node_name.get(o["node"], o["node"])) for o in model["offPage"]]
     for el, v in _unique(want, at).items():
         new[el] = v
-    # marks and phases have no words of their own, so they are numbered from the
-    # top of the page; always numbered, so their ids are never a plain word
-    for sec, word in (("marks", "mark"), ("phases", "phase")):
-        for i, el in enumerate(sorted(model[sec], key=at)):
-            new[id(el)] = "%s-%d" % (word, i + 1)
+    # marks have no words of their own, so they are numbered from the top of the
+    # page, always, so their ids are never a plain word; so are phases, until a
+    # phase is given its title
+    for i, el in enumerate(sorted(model["marks"], key=at)):
+        new[id(el)] = "mark-%d" % (i + 1)
+    want = [(p, "phase-%s" % slug(p["title"])) for p in model["phases"] if slug(p.get("title"))]
+    for el, v in _unique(want, at).items():
+        new[el] = v
+    for i, el in enumerate(sorted((p for p in model["phases"] if id(p) not in new), key=at)):
+        new[id(el)] = "phase-%d" % (i + 1)
 
     rename = {}
     for sec in ("lanes", "nodes", "flows", "texts", "offPage", "marks", "phases"):
@@ -229,8 +245,7 @@ def assign_ids(model, layout, report):
             rename[el["id"]] = new[id(el)]
     if len(set(rename.values())) != len(rename):
         raise ValueError("%s: two elements were given the same id" % model["figure"]["name"])
-    _rename(model, layout, report, rename)
-    report["formerIds"] = {v: k for k, v in rename.items()}
+    return rename
 
 
 def _rename(model, layout, report, rename):
@@ -267,57 +282,127 @@ def corrections_for(name):
     return _CORRECTIONS.get(name, [])
 
 
-def apply_corrections(model, report, name, recorded=None):
+def apply_corrections(model, layout, report, name, recorded=None):
     """Apply what a person decided about this diagram's model.
 
-    One kind so far:
+    The corrections name elements as the uncorrected reading names them (the ids
+    names() gives before any correction), and are applied before the final ids
+    are assigned, so that a lane corrected to "Buyer Party" is called
+    lane-buyer-party. The kinds:
 
-      attach-guard   the text `text` is the guard of `to`, a flow or an off-page
-                     flow, and not of whatever it was attached to before
+      attach-guard           text `text` is the guard of `to` (a flow or an
+                             off-page flow), and of nothing else
+      guard-from-lane-title  what the reading took for lane `lane`'s title is a
+                             guard of `to`; it becomes a text, drawn where it was
+      phase-title-from-lane  lane `lane`'s title is phase `phase`'s title
+      phase-title-from-text  text `text` is phase `phase`'s title
+      name-lane              lane `lane` is called `title`, which the artwork
+                             does not show; `source` says where the name comes
+                             from ("text" of the specification, or "convention")
+      continues              off-page flow `offPage` continues from or into the
+                             figure `figure`
 
-    Each correction says what the reading held before (`was`), and is refused if
-    the reading no longer holds it: a correction is a decision about one reading,
-    and applied to another it would be a guess. What each touched element held
-    before is kept in the report, so the split still joins back exactly."""
+    Each may say what the reading held before (`was`), and is refused if the
+    reading no longer holds it: a correction is a decision about one reading,
+    and applied to another it would be a guess. The uncorrected model and layout
+    are kept in the report, so the split still joins back to the graph exactly;
+    none of this moves anything that is drawn."""
     todo = corrections_for(name) if recorded is None else recorded
     if not todo:
         return
-    els = {x["id"]: x for sec in ("flows", "texts", "offPage") for x in model[sec]}
-    applied = []
-    for c in todo:
-        if c["op"] != "attach-guard":
-            raise ValueError("%s: correction %s: unknown op %r" % (name, c["id"], c["op"]))
-        t, to = els.get(c["text"]), els.get(c["to"])
-        if t is None or to is None or "text" not in t or ("from" not in to and "node" not in to):
-            raise ValueError("%s: correction %s names %s and %s, which this reading does not "
-                             "have as a text and a flow" % (name, c["id"], c["text"], c["to"]))
+    report["uncorrected"] = json.loads(json.dumps(dict(model=model, layout=layout)))
+    named = names(model, layout)                     # graph id -> reading name
+    gid = {v: k for k, v in named.items()}           # reading name -> graph id
+    rn = lambda v: named.get(v, v)
+
+    def el(sec, ref, cid):
+        i = gid.get(ref)
+        for x in model[sec]:
+            if x["id"] == i:
+                return x
+        raise ValueError("%s: correction %s names %s %r, which this reading does not have"
+                         % (name, cid, sec, ref))
+
+    def check_was(c, x):
         for k, v in c.get("was", {}).items():
-            if t.get(k) != v:
-                raise ValueError("%s: correction %s was made for %s %s = %r, and this reading "
-                                 "has %r - check it again against the artwork"
-                                 % (name, c["id"], c["text"], k, v, t.get(k)))
-        touched = [t, to] + [x for x in els.values()
-                             if x.get("guard") == t["id"] or x["id"] == t.get("labels")]
-        before = {x["id"]: json.loads(json.dumps(x)) for x in touched}
-        for x in els.values():                  # it is no longer anyone else's guard
+            have = rn(x.get(k)) if isinstance(x.get(k), str) and x.get(k) in named else x.get(k)
+            if have != v:
+                raise ValueError("%s: correction %s was made for %s = %r, and this reading has "
+                                 "%r - check it again against the artwork" % (name, c["id"], k, v, have))
+
+    def target(ref, cid):
+        i = gid.get(ref)
+        for sec in ("flows", "offPage"):
+            for x in model[sec]:
+                if x["id"] == i:
+                    return x
+        raise ValueError("%s: correction %s names %r, which is not a flow of this reading"
+                         % (name, cid, ref))
+
+    def make_guard(t, to):
+        for x in model["flows"] + model["offPage"]:      # it is no one else's guard
             if x.get("guard") == t["id"]:
                 del x["guard"]
         t["labels"] = to["id"]
         to["guard"] = t["id"]
-        applied.append(dict(id=c["id"], before=before))
-        for f in report["findings"]:
-            if t["id"] in f.get("texts", []) or f.get("flow") in before:
-                f["resolvedBy"] = c["id"]
-    report["corrections"] = applied
 
-
-def undo_corrections(model, report):
-    """put back what apply_corrections() changed, from the report"""
-    for c in reversed(report.pop("corrections", [])):
-        for sec in ("flows", "texts", "offPage"):
-            model[sec] = [c["before"].get(x["id"], x) for x in model[sec]]
+    touched = set()
+    for c in todo:
+        op, cid = c["op"], c["id"]
+        if op == "attach-guard":
+            t = el("texts", c["text"], cid)
+            check_was(c, t)
+            to = target(c["to"], cid)
+            make_guard(t, to)
+            touched |= {t["id"], to["id"]}
+        elif op == "guard-from-lane-title":
+            l = el("lanes", c["lane"], cid)
+            check_was(c, l)
+            to = target(c["to"], cid)
+            box = layout["lanes"][l["id"]].pop("titleBox")
+            t = dict(id="corr-%s" % cid, text=l["title"])
+            model["texts"].append(t)
+            layout["texts"][t["id"]] = {"as": "lane-title", "box": box}
+            for x in model["flows"] + model["offPage"]:  # the title was no one's guard
+                if x.get("guard") == l["id"]:
+                    del x["guard"]
+                    touched.add(x["id"])
+            l["title"] = ""
+            make_guard(t, to)
+            touched |= {l["id"], to["id"]}
+        elif op == "phase-title-from-lane":
+            l, p = el("lanes", c["lane"], cid), el("phases", c["phase"], cid)
+            check_was(c, l)
+            p["title"] = l["title"]
+            layout["phases"][p["id"]]["title"] = {"as": "lane-title",
+                                                  "box": layout["lanes"][l["id"]].pop("titleBox")}
+            l["title"] = ""
+            touched |= {l["id"], p["id"]}
+        elif op == "phase-title-from-text":
+            t, p = el("texts", c["text"], cid), el("phases", c["phase"], cid)
+            check_was(c, t)
+            p["title"] = t["text"]
+            layout["phases"][p["id"]]["title"] = dict(layout["texts"].pop(t["id"]), **{"as": "text"})
+            model["texts"].remove(t)
+            touched |= {t["id"], p["id"]}
+        elif op == "name-lane":
+            l = el("lanes", c["lane"], cid)
+            check_was(c, l)
+            if "titleBox" in layout["lanes"][l["id"]]:
+                raise ValueError("%s: correction %s names %s, which still draws a title of its "
+                                 "own; move that first" % (name, cid, c["lane"]))
+            l["title"], l["titleShown"], l["titleSource"] = c["title"], False, c["source"]
+            touched.add(l["id"])
+        elif op == "continues":
+            o = el("offPage", c["offPage"], cid)
+            o["continues"] = c["figure"]
+            touched.add(o["id"])
+        else:
+            raise ValueError("%s: correction %s: unknown op %r" % (name, cid, op))
     for f in report["findings"]:
-        f.pop("resolvedBy", None)
+        if touched & ({f.get("flow"), f.get("lane")} | set(f.get("texts", []))):
+            f["resolvedBy"] = [c["id"] for c in todo]
+    report["corrections"] = [c["id"] for c in todo]
 
 
 def split(g, name):
@@ -492,16 +577,20 @@ def split(g, name):
     if extra:
         report["unmapped"] = extra
     report["present"] = [k for k in g]          # the graph's own key order
+    apply_corrections(model, layout, report, name)
     assign_ids(model, layout, report)
-    apply_corrections(model, report, name)
     return model, layout, report
 
 
 def join(model, layout, report):
     """The graph the three files were split from, exactly."""
     model, layout, report = (json.loads(json.dumps(x)) for x in (model, layout, report))
-    undo_corrections(model, report)
-    if "formerIds" in report:
+    if "uncorrected" in report:
+        # corrections were applied: the reading, before them, in the graph's ids.
+        # The report's own entries are keyed by the final ids, so they go back too.
+        _rename(model, layout, report, report.pop("formerIds"))
+        model, layout = report["uncorrected"]["model"], report["uncorrected"]["layout"]
+    elif "formerIds" in report:
         _rename(model, layout, report, report.pop("formerIds"))
     lanes = {l["id"]: l for l in model["lanes"]}
     g = {}

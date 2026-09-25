@@ -154,9 +154,29 @@ def main(src, out, model_w=1480.0):
     lanes = []
     for c in cols:
         b = c.get("titleBox")
-        lanes.append({"id": c["id"], "title": c["title"], "x": M(c["x0"]), "w": M(c["x1"] - c["x0"]),
-                      "cx": M(b[0] + b[2] / 2) if b else M((c["x0"] + c["x1"]) / 2),
-                      "cy": M(b[1] + b[3] / 2) if b else M(font_px)})
+        # A lane whose name the artwork does not draw (given by a correction) is
+        # drawn as it always was, with no words; the name goes to the draw.io
+        # model, where a lane is a lane, as "name".
+        shown = c.get("titleShown", True)
+        lane = {"id": c["id"], "title": c["title"] if shown else "",
+                "x": M(c["x0"]), "w": M(c["x1"] - c["x0"]),
+                "cx": M(b[0] + b[2] / 2) if b else M((c["x0"] + c["x1"]) / 2),
+                "cy": M(b[1] + b[3] / 2) if b else M(font_px)}
+        if not shown:
+            lane["name"] = c["title"]
+        lanes.append(lane)
+
+    # Words drawn where the reading had put a lane title, which a correction has
+    # found to be something else - a phase's title, or a guard. They are set as
+    # a lane title is set, in the same box, so the drawing does not move.
+    def caption(i, role, words, b):
+        return {"id": i, "role": role, "text": words,
+                "cx": M(b[0] + b[2] / 2), "cy": M(b[1] + b[3] / 2)}
+    captions = [caption(p["id"], "phase-title", p["title"], lay["phases"][p["id"]]["title"]["box"])
+                for p in model["phases"]
+                if lay["phases"][p["id"]].get("title", {}).get("as") == "lane-title"]
+    captions += [caption(t["id"], "guard", t["text"], lay["texts"][t["id"]]["box"])
+                 for t in model["texts"] if lay["texts"][t["id"]].get("as") == "lane-title"]
 
     # a narrow first column is the gutter the band titles run up
     gutter = rules["v"][1][0] if len(rules["v"]) > 2 and \
@@ -174,11 +194,18 @@ def main(src, out, model_w=1480.0):
     # content, it just carries less meaning in the graph. A lane title is not
     # among them: the model holds it once, as the lane's, and model_io.py moves
     # the extractor's second reading of it to the extraction report.
+    # A phase title the reading placed as text is set as the text it was.
+    placed = [(tm["id"], tm["text"], lay["texts"][tm["id"]], None) for tm in model["texts"]
+              if lay["texts"][tm["id"]].get("as") != "lane-title"]
+    placed += [(p["id"], p["title"], lay["phases"][p["id"]]["title"], "phase-title")
+               for p in model["phases"]
+               if lay["phases"][p["id"]].get("title", {}).get("as") == "text"]
     guards = []
-    for tm in model["texts"]:
-        t = dict(lay["texts"][tm["id"]], text=tm["text"])
-        g = {"id": tm["id"], "text": t["text"], "x": M(t["x"]), "y": M(t["y"]),
+    for i, words, t, role in placed:
+        g = {"id": i, "text": words, "x": M(t["x"]), "y": M(t["y"]),
              "w": M(t["w"]), "h": M(t["h"])}
+        if role:
+            g["role"] = role
         if t.get("lines"):
             g["labelLines"] = [{"text": l["text"], "cx": M(l["x"] + l["w"] / 2),
                                 "cy": M(l["y"] + l["h"] / 2), "w": M(l["w"])}
@@ -237,7 +264,7 @@ def main(src, out, model_w=1480.0):
         # position, weight and the span the artwork draws it over
         "dividers": [[M(x + w / 2), M(w)] + span(("v", x, w)) for x, w in inner_v],
         "bands": [[M(y + t / 2), M(t)] + span(("h", y, t)) for y, t in inner_h],
-        "lanes": lanes, "bandLabels": bandLabels,
+        "lanes": lanes, "bandLabels": bandLabels, "captions": captions,
         "nodes": nodes, "edges": edges, "guards": guards,
     }
     json.dump(spec, open(out, "w"), indent=1)

@@ -200,6 +200,12 @@ def svg_body(spec):
         o.append(group("lane-title", l.get("id") or "lane%d" % i, l["title"]))
         o.append(text(l["title"], l["cx"], l["cy"], F["lane"], F["family"]))
         o.append("</g>")
+    for c in spec.get("captions", []):
+        # words the reading took for a lane title and a correction found to be a
+        # phase's title or a guard: set exactly as a lane title is
+        o.append(group(c["role"], c["id"], " ".join(c["text"].split())))
+        o.append(text(c["text"], c["cx"], c["cy"], F["lane"], F["family"]))
+        o.append("</g>")
     for i, b in enumerate(spec.get("bandLabels", [])):   # band titles run up the gutter
         o.append(group("band-title", b.get("id") or "bandtitle%d" % i, b["title"]))
         o.append('<g transform="rotate(-90 %.1f %.1f)">%s</g>'
@@ -281,7 +287,8 @@ def svg_body(spec):
                     m.get("weight") or S["divider"]))
         o.append("</g>")
     for i, g in enumerate(spec.get("guards", [])):
-        o.append(group("guard", g.get("id") or "text%d" % i, " ".join(g.get("text", "").split())))
+        o.append(group(g.get("role", "guard"), g.get("id") or "text%d" % i,
+                       " ".join(g.get("text", "").split())))
         o.append(lines_of(g, g["x"] + g["w"] / 2, g["y"] + g["h"] / 2, F["guard"], F["family"]))
         o.append("</g>")
     return "".join(o)
@@ -308,7 +315,7 @@ def mxfile(spec):
     for i, l in enumerate(spec["lanes"]):
         c.append('<mxCell id="%s" value="%s" style="%s" vertex="1" parent="1">'
                  '<mxGeometry x="%.1f" y="0" width="%.1f" height="%.1f" as="geometry"/></mxCell>'
-                 % (l.get("id") or "lane%d" % i, su.escape(l["title"]), MXSTYLE["lane"] % round(F["lane"] * 2),
+                 % (l.get("id") or "lane%d" % i, su.escape(l.get("name", l["title"])), MXSTYLE["lane"] % round(F["lane"] * 2),
                     l["x"], l["w"], spec["canvas"]["h"]))
     for n in spec["nodes"]:
         c.append('<mxCell id="%s" value="%s" style="%sfontFamily=Helvetica;fontSize=%d;" vertex="1" parent="1">'
