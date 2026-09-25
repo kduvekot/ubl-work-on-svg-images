@@ -403,3 +403,125 @@ and both cost a later session real time:
 for generated SVGs — 0 red / 0 blue is achievable and meaningful. For a
 hand-redrawn diagram it is only a *triage aid*, because text glyph differences
 are irreducible. Do not set a percentage target for hand-drawn work.
+
+---
+
+## 11. Review with the TC, diagram by diagram (2026-09)
+
+All 78 UML activity diagrams were converted and swept. Two rounds of review with
+a person followed, both recorded here because the *verdicts* are evidence that
+cannot be re-derived from the artwork by the pipeline alone.
+
+### 11.1 Flow directions: 26 checked, 25 confirmed, 1 corrected
+
+Every flow whose direction the extractor could not settle - 26 across 10
+diagrams - was put beside the original PNG and judged by eye.
+
+**Twenty-five are drawn the way the model has them.** One was not:
+`CPFR-ExceptionMonitor`, where the artwork draws the head into the *Exception
+Notification (positive)* document and the model had `n6 -> n7`. Corrected to
+`n7 -> n6`.
+
+These 26 are a **fixture**: any change to how direction is read must leave all of
+them reading as recorded. The list lives in `review/direction-checks.txt` (not
+tracked - regenerate it from the sweep if lost) and the corrected one is in the
+graph itself.
+
+Why the other 25 could not be settled, now that all are known - **none was a
+failure to read the artwork**:
+
+| n | cause |
+|---|---|
+| 8 | the head probe overshoots the arrow's point and takes in what lies beyond: the next box's border, a diamond's upper edges, a document's border across a gap. Figs 17, 23, 31, 32. |
+| 4 | the head is a **solid triangle** and the measurement looks for a shaft widening into a V. Figs 66, 70; 10 of the 78 draw filled heads. |
+| 13 | the head is too small against the page for the ink at the two ends to separate. Fig C.1 draws 42px heads on a 3425px page, five flows through 29px diamonds. |
+
+None of the three has been fixed. Each would change how direction is read across
+all 78 to remove flags on flows that are already right - risk with no
+correctness gain. The fixture makes them safe to attempt later.
+
+### 11.2 Method note: verdicts validate, they do not determine
+
+A rule was drafted from the corpus (head width 0.7-1.1x the diagram's own, from
+953 readings) and **simulated over all 78 before shipping**. It would have turned
+round five flows - four of which were correct, verified against the PNGs. It was
+discarded and replaced by a narrower form that fires on exactly the three known
+-wrong flows.
+
+The trap it avoided: looking at head width *because* one case was wrong, then
+fitting to it. The protection is to run any candidate rule over the whole set and
+look at everything it touches, not only the case that motivated it.
+
+### 11.3 Defects in the conversion, confirmed with the TC
+
+Walked through one at a time with a crop of the original beside the render.
+
+1. **Lane title loses its multiplicity.** `BUSINESS PARTY 0..n` reads as
+   `BUSINESS PARTY O` plus a detached `N`. The `0` is taken for `O`; the `..n`
+   falls below the cap-height band the lane-title reader uses, so the run breaks
+   apart. Figs 86, 87. *Fix.*
+2. **Last letter of a line falls outside the text block.** `Change of` ->
+   `Change o`, `charges or` -> `charges o`. The glyph's pixels are present and
+   unclaimed; the block simply stops short of them. Figs 45, 79. *Fix.*
+3. **`Item` stored as `ltem`** (lowercase L for capital I). Invisible in the
+   render - identical glyphs in bold Helvetica - wrong only in the data. The
+   corpus settles it: `item` 41 times, `ltem` once. Fig 7. *Fix.*
+4. **`Is` stored as `ls`, plus an arrowhead read as `>` merged into the label,
+   plus the two lines collapsed into one** so the text now overlaps the diamond.
+   Root cause is the third: line-work admitted into a text block widens its box,
+   which breaks the line-breaking. Fig 42. *Fix.*
+5. **A guard swallowed by the question above it.** `[no]` never reaches the
+   model; it is absorbed into `Update Transport Execution Plan Request?` along
+   with an arrowhead, and a label can only be drawn once. Same root cause as 4.
+   Fig 74. *Fix.* (TC note: the original's own spacing invites this - the `[no]`
+   sits tight against the question with the arrowhead between them, where the
+   other diamond on the same diagram has clear space.)
+6. **The checker reads a solid arrowhead as `mM`.** No such text in the original.
+   The stroke version of this was fixed earlier (a note's fold reading `IN`); a
+   filled triangle is not a thin stroke so it slipped through. Narrow fix: a
+   reading sitting on a filled arrowhead the extractor has already measured is
+   not text - position, not shape. Figs 64, 65. *Fix the checker.*
+
+### 11.4 Faults in the original artwork - do NOT correct, record a remark
+
+The TC's instruction: keep the SVG faithful, note the discrepancy in the
+conceptual model.
+
+7. **Fig 28 Award Notification** - *Unawarded Notification* and *Awarded
+   Notification* have no connector at all; the one flow runs straight past them.
+   TC: the diagram is wrong and would need a decision diamond to choose which
+   notification to send, and arguably an extra lane for the awarded/unawarded
+   split. Out of scope. Remark only.
+8. **Fig 83 Utility Billing** - *Report usage* -> *Utility Statement* ->
+   *Receive Utility Statement* is a three-element limb with nothing feeding it.
+   Remark only.
+9. **Fig 55 Fulfilment with Despatch Advice** - the Despatch Party lane has a
+   start event labelled "From Order"; the Delivery Party lane has none, so
+   *Receive Order Item(s)* simply begins. TC: this diagram needs proper cleaning
+   up, outside this exercise. Remark only.
+10. **Figs 31/32 Tender Contract Pre/Post** - *Prior exchange of public keys*
+    appears in both lanes joined by a dashed line with **an arrowhead at each
+    end**: a mutual precondition, not a flow. Decision: **set `arrowBoth`** so
+    the model records it as bidirectional (the flag already exists and this pair
+    is what it was built for), accept the four model-sheet findings it raises,
+    and **note that this precondition needs additional work in the BPMN
+    conversion project**.
+11. **Fig 86 Business Card / Fig 87 Digital Capability** - the flow from the
+    document to *Download business card* carries two short parallel diagonals
+    across the lane divider. TC: this is a **"break" signal hijacked from BPMN**
+    into a UML diagram, because the right-hand lane is `0..n` parties and the
+    card may go to any of them - the original is drawn in a mixed notation on
+    purpose. Keep the drawing as it is; **add a note**. (The extractor already
+    records these as `crossMarks` and says their meaning is unread - that note
+    can now be answered.)
+
+    Note the two CPFR forecast documents (Figs 9, 12) that are written and never
+    read are *faithful* - the last thing the phase produces, handed off the page.
+
+### 11.5 Still to walk through
+
+- the 15 "work crossing between parties goes through a document" findings
+- the 11 dead-end actions and 7 unlabelled branches (sampled and faithful:
+  *Receive Bill of Lading*, *Receive application response*, *Endorse CoO* are
+  drawn with nothing leaving the box; 34 of 40 unlabelled branches have no word
+  anywhere near them in the artwork)
