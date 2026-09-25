@@ -20,13 +20,26 @@ set -uo pipefail
 HERE=$(cd "$(dirname "$0")" && pwd)
 
 # ---- one diagram, run as a child of the sweep below ------------------------
-if [ "${1:-}" = "--one" ]; then
+# A diagram is done in three steps, so that every SVG can be rendered in one
+# browser in between: --build (read, model, draw), then the sweep renders them
+# all, then --check (diff, model sheet, verify, mark).
+if [ "${1:-}" = "--build" ]; then
+  ART=$2; OUT=$3; n=$5
+  RENDER_LATER=1 "$HERE/run-pipeline.sh" "$ART" "$OUT" "$n" > "$OUT/$n-pipeline.log" 2>&1 \
+      || printf '%-52s %-12s\n' "$n" PIPELINE-FAIL | tee "$OUT/$n-verdict.line"
+  exit 0
+fi
+if [ "${1:-}" = "--check" ]; then
   ART=$2; OUT=$3; RADIUS=$4; n=$5
   line() { printf '%-52s %-12s %8s%% %8s%% %7s %6s\n' "$@"; }
   fail() { printf '%-52s %-12s\n' "$n" "$1" | tee "$OUT/$n-verdict.line"; exit 0; }
 
-  "$HERE/run-pipeline.sh" "$ART" "$OUT" "$n" > "$OUT/$n-pipeline.log" 2>&1 \
-      || fail PIPELINE-FAIL
+  [ -f "$OUT/$n-verdict.line" ] && { cat "$OUT/$n-verdict.line"; exit 0; }   # build failed
+  [ -f "$OUT/$n-render.png" ] || fail RENDER-FAIL
+  # radius 2 counts every displaced pixel (see run-pipeline.sh, which does the
+  # same when it is run on its own)
+  java -cp "$HERE" VisualDiff "$ART/$n.png" "$OUT/$n-render.png" "$OUT/$n-diff-r2.png" 2 \
+      2>/dev/null | grep -Ev '^Picked up' >> "$OUT/$n-pipeline.log"
   # the model read back as a sentence, and checked against the rules an activity
   # diagram obeys. The pixel test below cannot see a flow that runs the right way
   # on the page and the wrong way in the model, so this runs beside it.
@@ -79,7 +92,21 @@ printf '%-52s %-12s %9s %9s %7s %6s\n' FIGURE VERDICT MISSING INVENTED FINDINGS 
 printf '%s\n' "$rule"
 
 printf '%s\0' "${names[@]}" \
-  | xargs -0 -P "$JOBS" -I{} "$0" --one "$ART" "$OUT" "$RADIUS" {}
+  | xargs -0 -P "$JOBS" -I{} "$0" --build "$ART" "$OUT" "$RADIUS" {}
+# every SVG in one browser, JOBS pages at a time; an SVG rendered before comes
+# from the render cache (render-svg.js)
+jobs="$OUT/.render-jobs"; : > "$jobs"
+for n in "${names[@]}"; do
+  [ -f "$OUT/$n.svg" ] && [ ! -f "$OUT/$n-verdict.line" ] || continue
+  w=$(python3 -c "import struct,sys;d=open(sys.argv[1],'rb').read(24);print(struct.unpack('>I',d[16:20])[0])" "$ART/$n.png")
+  echo "$OUT/$n.svg $OUT/$n-render.png $w 600" >> "$jobs"
+done
+export NODE_PATH="${NODE_PATH:+$NODE_PATH:}$(npm root -g 2>/dev/null)"
+RENDER_PAGES=$JOBS node "$HERE/render-svg.js" --batch "$jobs" > "$OUT/.render.log" 2>&1 \
+  || sed 's/^/  /' "$OUT/.render.log" >&2
+rm -f "$jobs"
+printf '%s\0' "${names[@]}" \
+  | xargs -0 -P "$JOBS" -I{} "$0" --check "$ART" "$OUT" "$RADIUS" {}
 
 # The streamed lines above arrive in completion order; repeat them in list order so
 # a complex-to-simple sweep still reads as one, and tally the verdicts.

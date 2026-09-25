@@ -185,7 +185,7 @@ elsewhere can differ in the renders and the text reading for that reason alone.
 
 ## 6. The caches
 
-Two caches make a repeat run fast. Both live outside the working tree, both are
+Three caches make a repeat run fast. All live outside the working tree, all are
 keyed on everything their result depends on, and a cold one is only slower,
 never different.
 
@@ -203,14 +203,28 @@ any change to the extractor misses and reads again. It defaults to
 `~/.cache/ubl-graph`; set `UBL_GRAPH_CACHE` to move it, or `UBL_NO_GRAPH_CACHE=1`
 to bypass it.
 
+**`render-svg.js`** keeps each render, keyed on the SVG's bytes, the width, the dpi,
+the browser build and the renderer itself; a sweep and a baseline comparison
+render all their SVGs in one browser (`--batch`), `JOBS` pages at a time, where
+each render used to start Chromium of its own. The baseline's SVGs never change,
+so a comparison renders them once. It defaults to `~/.cache/ubl-render`; set
+`UBL_RENDER_CACHE` to move it, or `UBL_NO_RENDER_CACHE=1` to bypass it.
+
 Measured over all 78 on this container's 4 cores, every output byte-identical in
 each case:
 
-| sweep | time |
+| run | time |
 |---|---|
-| nothing cached | 332 s |
-| labels cached, reading everything again | 252 s |
-| reading reused | 167 s |
+| sweep, nothing cached, one browser per render | 332 s |
+| sweep, labels cached, reading everything again | 252 s |
+| sweep, reading reused, one browser per render | 167 s |
+| sweep after an extractor change (reading again, one browser, renders cold) | 240 s |
+| sweep, reading and renders reused | 102 s |
+| baseline comparison, first time | 70 s |
+| baseline comparison, renders reused | 41 s |
+
+What is left of the 102 s is mostly the verifier's whole-page image filters, the
+Java start of each `VisualDiff`, and writing the review images.
 
 ## 7. Data that is not derived from the PNGs
 

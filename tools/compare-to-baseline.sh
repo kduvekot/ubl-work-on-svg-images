@@ -5,10 +5,12 @@
 #
 # <baseline-dir> is a baseline's diagrams/ directory (baselines/<date>/diagrams),
 # <new-dir> a directory the pipeline has just written. For each basename, both
-# SVGs are rendered here, now, with the same renderer and at the original PNG's
+# SVGs are rendered by the same renderer, in one browser, at the original PNG's
 # own pixel width (read off the baseline's -render.png, which was made at that
 # width), so a difference in the environment cannot pass for a difference in the
-# drawing. Then:
+# drawing. A render is reused only for the same SVG bytes, width and browser
+# build (render-svg.js's cache), which is the same thing as rendering it again.
+# Then:
 #
 #   - the two renders are differenced at radius 0 with no alignment: red is ink
 #     only the baseline has, blue is ink only the new SVG has, and the ink both
@@ -40,11 +42,10 @@ HERE=$(cd "$(dirname "$0")" && pwd)
 # ---- one diagram ------------------------------------------------------------
 if [ "${1:-}" = "--one" ]; then
   BASE=$2; NEW=$3; OUT=$4; n=$5
-  w=$(python3 -c "import sys;from PIL import Image;Image.MAX_IMAGE_PIXELS=None;print(Image.open(sys.argv[1]).width)" \
-      "$BASE/$n-render.png" 2>/dev/null) || { printf '%-52s %s\n' "$n" "NO BASELINE RENDER" | tee "$OUT/$n-compare.line"; exit 0; }
+  [ -f "$BASE/$n-render.png" ] || { printf '%-52s %s\n' "$n" "NO BASELINE RENDER" | tee "$OUT/$n-compare.line"; exit 0; }
   [ -f "$NEW/$n.svg" ] || { printf '%-52s %s\n' "$n" "NO NEW SVG" | tee "$OUT/$n-compare.line"; exit 0; }
-  node "$HERE/render-svg.js" "$BASE/$n.svg" "$OUT/$n-base.png" "$w" 600 > /dev/null 2> "$OUT/$n-compare.err" &&
-  node "$HERE/render-svg.js" "$NEW/$n.svg"  "$OUT/$n-new.png"  "$w" 600 > /dev/null 2>> "$OUT/$n-compare.err" ||
+  # both were rendered by the batch below, in one browser
+  [ -f "$OUT/$n-base.png" ] && [ -f "$OUT/$n-new.png" ] ||
     { printf '%-52s %s\n' "$n" "RENDER FAILED" | tee "$OUT/$n-compare.line"; exit 0; }
   java -cp "$HERE" VisualDiff "$OUT/$n-base.png" "$OUT/$n-new.png" "$OUT/$n-basediff.png" \
       0 --no-align --ghost > "$OUT/$n-visualdiff.log" 2>&1
@@ -158,7 +159,24 @@ mkdir -p "$OUT"; OUT=$(cd "$OUT" && pwd)
 
 names=()
 while read -r n; do [ -n "$n" ] && names+=("$n"); done < "$LIST"
-for n in "${names[@]}"; do rm -f "$OUT/$n-compare.line" "$OUT/$n-compare.json"; done
+for n in "${names[@]}"; do
+  rm -f "$OUT/$n-compare.line" "$OUT/$n-compare.json" "$OUT/$n-base.png" "$OUT/$n-new.png"
+done
+
+# Every render in one browser, JOBS pages at a time. The baseline's SVGs never
+# change, so after the first comparison they come from the render cache
+# (render-svg.js), and so does any new SVG identical to one rendered before.
+jobs="$OUT/.render-jobs"; : > "$jobs"
+for n in "${names[@]}"; do
+  [ -f "$BASE/$n-render.png" ] && [ -f "$NEW/$n.svg" ] || continue
+  w=$(python3 -c "import struct,sys;d=open(sys.argv[1],'rb').read(24);print(struct.unpack('>I',d[16:20])[0])" \
+      "$BASE/$n-render.png")
+  echo "$BASE/$n.svg $OUT/$n-base.png $w 600" >> "$jobs"
+  echo "$NEW/$n.svg $OUT/$n-new.png $w 600" >> "$jobs"
+done
+RENDER_PAGES=$JOBS node "$HERE/render-svg.js" --batch "$jobs" > "$OUT/.render.log" 2>&1 \
+  || sed 's/^/  /' "$OUT/.render.log" >&2
+rm -f "$jobs"
 
 head='%-52s %-12s %7s %8s %8s   %-4s %-4s %-4s\n'
 printf "$head" FIGURE RESULT PX-DIFFER BASE-ONLY NEW-ONLY SVG DRAW SPEC

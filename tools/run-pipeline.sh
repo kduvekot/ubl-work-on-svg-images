@@ -32,6 +32,8 @@ for n in "$@"; do
       || { cat "$out/$n-validate.log"; exit 1; }
   python3 "$here/spec_from_model.py"   "$out/$n-diagram.json" "$out/$n-spec.json" 1480
   python3 "$here/build_diagram.py"     "$out/$n-spec.json"  "$out/$n"
+  # a sweep renders every SVG in one browser afterwards, and diffs them then
+  [ -n "${RENDER_LATER:-}" ] && continue
   w=$(python3 -c "from PIL import Image;Image.MAX_IMAGE_PIXELS=None;print(Image.open('$art/$n.png').width)")
   node "$here/render-svg.js" "$out/$n.svg" "$out/$n-render.png" "$w" 600
   # radius 2 counts every displaced pixel, which is the point. The radius-40 pass
