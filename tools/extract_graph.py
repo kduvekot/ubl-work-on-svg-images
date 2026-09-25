@@ -74,6 +74,135 @@ def ocr(bg, x, y, w, h, inset=0):
     return "\n".join(" ".join(l.split()) for l in t.splitlines() if l.strip())
 
 
+# The characters the reader swaps for one another on this artwork. Case is not
+# among them: the artwork really does write "Order" in one box and "order" in the
+# next, so folding case would rewrite what the drawing says.
+CONFUSABLE = str.maketrans({"l": "\x01", "I": "\x01", "1": "\x01", "|": "\x01",
+                            "!": "\x01", "O": "\x02", "0": "\x02",
+                            "S": "\x03", "5": "\x03"})
+
+
+# The marks the reader makes out of line-work. A connector stub entering a box
+# from below comes back as "|", the two halves of an arrowhead as "\/", a note's
+# folded corner as "~". Read off the 78: these appear 61 times as a token on their
+# own and not once as anything the artwork actually writes, while "&", "?" and the
+# hyphen - the only other non-word tokens in the set - are always real.
+STROKE_MARKS = set("|\\/~—–_><%¢^*`‘’“”")
+
+
+def strip_strokes(s):
+    """Drop the tokens that are line-work the reader named as a character."""
+    out = []
+    for line in (s or "").split("\n"):
+        out.append(" ".join(t for t in line.split()
+                            if not all(ch in STROKE_MARKS for ch in t)))
+    return "\n".join(out).strip("\n")
+
+
+_LEXICON = None
+
+
+def read_lexicon():
+    """How often the set writes each word, measured off the whole 78.
+
+    One diagram is not always enough evidence. "Trade Item" appears five times on
+    CPFR-CreateJointBusinessPlan against one "Trade ltem", so that diagram settles
+    itself; but "Is there a new item to be delivered?" is the only question of its
+    kind on VMI-PermanentReplenishment, and its "ls" has nothing on the page to
+    appeal to. The set does: "Is" twice, "ls" once. The counts are rebuilt from the
+    readings by tools/build_lexicon.py and are evidence, not a spell-checker - a
+    reading is only ever replaced by a variant of itself."""
+    global _LEXICON
+    if _LEXICON is None:
+        path = os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                            "reading-lexicon.json")
+        try:
+            _LEXICON = json.load(open(path))["words"]
+        except Exception:
+            _LEXICON = {}
+    return _LEXICON
+
+
+def settle_readings(nodes, texts, grid, edges):
+    """Let the set settle its own spelling, and read UML's multiplicity as UML.
+
+    A diagram writes the same word the same way every time. Where one reading
+    differs from the others only in characters the reader confuses, the others
+    are the evidence: "Revise Trade ltem" against "Trade Item" five times over on
+    CPFR-CreateJointBusinessPlan. Measured over the 78 this changes that one word
+    and nothing else - with case folded in as well it changes 99, nearly all of
+    them the artwork's own mixture of "Order" and "order", which is why case is
+    left alone.
+
+    The multiplicity on a lane title is the other way round: "0..n" has no second
+    opinion to appeal to, and comes back as "O..n" on BusinessCard and
+    DigitalCapability. UML writes a multiplicity with a digit, never a letter,
+    which settles those two and reaches nothing else in the set."""
+    import collections
+
+    # Every reading gets rewritten; only the whole ones are counted, or a label and
+    # its own lines would each vote and one word would weigh twice what it is.
+    fields, counted = [], []
+    for n in nodes:
+        fields.append((n, "label"))
+        counted.append((n, "label"))
+        for ln in (n.get("labelLines") or []):
+            fields.append((ln, "text"))
+    for t in texts:
+        fields.append((t, "text"))
+        counted.append((t, "text"))
+        for ln in (t.get("lines") or []):
+            fields.append((ln, "text"))
+    for p in grid:
+        fields.append((p, "title"))
+        counted.append((p, "title"))
+    for e in edges:
+        fields.append((e, "guard"))
+        counted.append((e, "guard"))
+
+    # The lexicon already counts this diagram along with the other 77, so it is the
+    # whole of the evidence wherever it has any. A word it does not carry is one the
+    # set writes once, and then this diagram's own reading is all there is.
+    lex = read_lexicon()
+    seen = collections.defaultdict(collections.Counter)
+    for w, n in lex.items():
+        seen[w.translate(CONFUSABLE)][w] += n
+    for owner, field in counted:
+        for w in re.findall(r"[A-Za-z0-9|!]+", strip_strokes(owner.get(field) or "")):
+            if w not in lex:
+                seen[w.translate(CONFUSABLE)][w] += 1
+
+    def settle(w):
+        c = seen.get(w.translate(CONFUSABLE))
+        if not c:
+            return w
+        top, ntop = c.most_common(1)[0]
+        return top if top != w and c[w] < ntop else w
+
+    for owner, field in fields:
+        s = owner.get(field)
+        if not s:
+            continue
+        out = re.sub(r"[A-Za-z0-9|!]+", lambda m: settle(m.group(0)), s)
+        out = re.sub(r"(?<![A-Za-z0-9])[Oo](?=\.\.)", "0", out)
+        out = strip_strokes(out)
+        if out != s:
+            print("   reading settled: %r -> %r" % (s[:40], out[:40]))
+            owner[field] = out
+
+    # A block with nothing left in it was never text: on CPFR-CreateOrderForecast
+    # and the two Exception diagrams the reader made whole blocks out of the
+    # dashed connectors, and the rebuild drew them as words.
+    texts[:] = [t for t in texts if (t.get("text") or "").strip()]
+    for t in texts:
+        if t.get("lines"):
+            t["lines"] = [ln for ln in t["lines"] if (ln.get("text") or "").strip()]
+    for n in nodes:
+        if n.get("labelLines"):
+            n["labelLines"] = [ln for ln in n["labelLines"]
+                               if (ln.get("text") or "").strip()]
+
+
 def line_like(ink, box, font_px):
     """Is this band a stroke of line-work rather than words.
 
@@ -2631,6 +2760,7 @@ def main(path, out_json=None):
             members.setdefault(root(i), []).append(i)
 
     edges, textbits, unexplained, open_ends = [], [], [], []
+    specks = []
     cross_stubs = []
 
     def touching(xs, ys, T=34):
@@ -2790,6 +2920,18 @@ def main(path, out_json=None):
     for ys, xs, grp in groups:
         n_px = int(ys.size)
         if n_px < text_floor(font_px):
+            # text_floor models a letter, and punctuation is not one. The two dots
+            # of the "0..n" in the BusinessCard and DigitalCapability lane titles
+            # are 69 and 74 pixels against a floor of 132, so both were dropped;
+            # that left a 52px hole between the "0" and the "n", the blocks were
+            # then too far apart to merge, and the title came out "BUSINESS PARTY
+            # O" with a stray "N" beside it. Keep the specks aside and let them
+            # rejoin a block whose own ink already reaches them, the same way the
+            # corners cut off by node erasure do below - a speck that starts no
+            # block of its own cannot be read as a word.
+            if (ys.max() - ys.min() + 1) <= 0.5 * font_px:
+                specks.append([int(xs.min()), int(ys.min()),
+                               int(xs.max()), int(ys.max())])
             continue
         touch = touching(xs, ys)
         if len(touch) > 2:
@@ -3333,6 +3475,33 @@ def main(path, out_json=None):
             else:
                 out.append(list(b))
         return out
+
+    def chain_in(bits):
+        """Let ink that starts no block of its own lengthen one that reaches it.
+
+        The reach is a quarter of the diagram's own em - less than the word gap the
+        blocks are merged on, so it takes in the rest of a word and not the next one
+        along. A cut word arrives as a row of separate letters, each near the next
+        and only the last of them near the block, so this runs until it stops
+        growing rather than once over the list."""
+        gap = max(6, int(font_px * 0.25))
+        for _ in range(8):
+            moved = False
+            for c in list(bits):
+                for b in textbits:
+                    if (c[0] <= b[2] + gap and c[2] >= b[0] - gap
+                            and c[1] <= b[3] + gap and c[3] >= b[1] - gap):
+                        b[0], b[1] = min(b[0], c[0]), min(b[1], c[1])
+                        b[2], b[3] = max(b[2], c[2]), max(b[3], c[3])
+                        bits.remove(c)
+                        moved = True
+                        break
+            if not moved:
+                break
+
+    if specks and textbits:
+        chain_in(specks)
+
     # Give back the characters the node erasure took. A guard written in the empty
     # corner of a diamond's bounding box is cut where the box ends, and what is
     # left reads short - "ary catalogue / tent]" for "[query catalogue /
@@ -3355,25 +3524,7 @@ def main(path, out_json=None):
             cx0, cx1 = sl[1].start, sl[1].stop - 1
             if (cy1 - cy0 + 1) <= font_px * 2.2 and (cx1 - cx0 + 1) <= font_px * 20:
                 bits.append([cx0, cy0, cx1, cy1])
-        # a cut word arrives as a row of separate letters, each near the next and
-        # only the last of them near the block, so this runs until it stops
-        # growing rather than once over the list. The reach is a quarter of the
-        # diagram's own em - less than the word gap the blocks are merged on, so
-        # it takes in the rest of a word and not the next one along.
-        gap = max(6, int(font_px * 0.25))
-        for _ in range(8):
-            moved = False
-            for c in list(bits):
-                for b in textbits:
-                    if (c[0] <= b[2] + gap and c[2] >= b[0] - gap
-                            and c[1] <= b[3] + gap and c[3] >= b[1] - gap):
-                        b[0], b[1] = min(b[0], c[0]), min(b[1], c[1])
-                        b[2], b[3] = max(b[2], c[2]), max(b[3], c[3])
-                        bits.remove(c)
-                        moved = True
-                        break
-            if not moved:
-                break
+        chain_in(bits)
 
     lines = textbits
     for _ in range(4):
@@ -4211,6 +4362,8 @@ def main(path, out_json=None):
         rule_span = dict(
             v=[span_of(x, w, "v") for x, w in vr],
             h=[span_of(y, t, "h") for y, t in hr])
+
+        settle_readings(nodes, texts, grid, edges)
 
         json.dump(dict(source=path, size=[W, H], fontPx=font_px, arrowPx=arrow_px,
                        arrowWidthPx=round(arrow_w, 1), arrowStyle=arrow_fill,

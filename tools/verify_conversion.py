@@ -221,6 +221,9 @@ def check_text_complete(bg_orig, graph, boxes, findings, glyph_h, orig_ink=None)
     same thing, in the same place. Read off the original, so the model cannot
     grade its own homework by simply not extracting a label."""
     import difflib
+    heads = [tuple(e["toPoint"]) for e in graph.get("edges", []) if e.get("toPoint")]
+    heads += [tuple(e["fromPoint"]) for e in graph.get("edges", [])
+              if e.get("fromPoint") and e.get("arrowBoth")]
     placed = []
     for n in graph.get("nodes", []):
         lines = n.get("labelLines") or []
@@ -272,6 +275,28 @@ def check_text_complete(bg_orig, graph, boxes, findings, glyph_h, orig_ink=None)
             if _E.line_like(orig_ink, dict(x=x, y=y, w=w, h=h),
                             graph.get("fontPx") or glyph_h):
                 continue
+        # line_like above catches a stroke read as letters, by its shape. It cannot
+        # catch a solid arrowhead, which is a blob and not a stroke: the head beside
+        # "Application response" on the Import and Transit declarations comes back
+        # as 'mM' at 75, the folded note corner on FulfilmentReceiptAdvice as 'ZT',
+        # the head on CPFR-ExceptionMonitor as 'Ft'. Four of the differences left in
+        # the set, every one against a drawing with nothing wrong with it.
+        #
+        # Shape will not separate those from words - measured over the 78, real text
+        # runs to 9.7 type heights in one connected component where the head is 2.0,
+        # and to 0.53 of a type height thick where the head is 0.18, because the
+        # reversed lane titles are heavier than any arrowhead. What does separate
+        # them is that the model already knows where it put each head. A reading
+        # whose box encloses one is that head read as letters.
+        #
+        # The head has to fall inside the box, not merely near it: these boxes reach
+        # along the shaft, so their centres sit well off the head, and a tolerance
+        # wide enough to reach from the centre also swallows the guard labels that
+        # sit at the same node boundaries - nine of them across the 78, "No" and
+        # "Resolve" among them. Enclosure needs no tolerance at all.
+        if any(x <= hx <= x + w and y <= hy <= y + h for hx, hy in heads):
+            continue
+
         cx, cy = x + w / 2.0, y + h / 2.0
         # every line whose box covers this word, not just the first: a label wraps,
         # and the word may be on its second line
