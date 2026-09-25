@@ -4679,7 +4679,38 @@ def main(path, out_json=None):
                         return start
             return None
 
+        # The same thing happens around a node. An object box on the two IMFM
+        # transport diagrams is stroked 15px wide, and the box is fitted to the
+        # inside of that stroke, so the outermost pixel of the border falls outside
+        # the band the node is erased over, survives, and is traced as a flow
+        # running off the page - twelve hairs over the 78, three to a box, each one
+        # running the length of a side of its own node and none of them anywhere
+        # else in the set. The test is the node's own stroke: a hair within one
+        # stroke width of a side is that side.
+        def on_its_node(o):
+            n = byid.get(o.get("node"))
+            if not n:
+                return False
+            s = float(n.get("stroke") or 0) or 0.0
+            if s <= 0:
+                return False
+            thin, long_ = min(o["w"], o["h"]), max(o["w"], o["h"])
+            if long_ < 4 * max(thin, 1) or thin > s:
+                return False
+            x0, y0, x1, y1 = n["x"], n["y"], n["x"] + n["w"], n["y"] + n["h"]
+            if o["w"] > o["h"]:
+                return (x0 - s <= o["x"] and o["x"] + o["w"] <= x1 + s
+                        and (abs(o["y"] - y0) <= s or abs(o["y"] - y1) <= s))
+            return (y0 - s <= o["y"] and o["y"] + o["h"] <= y1 + s
+                    and (abs(o["x"] - x0) <= s or abs(o["x"] - x1) <= s))
+
+        byid = {n["id"]: n for n in nodes}
         for o in list(open_ends):
+            if on_its_node(o):
+                print("   (dropped the open end at %d,%d %dx%d - the outer edge of"
+                      " %s's own border)" % (o["x"], o["y"], o["w"], o["h"], o["node"]))
+                open_ends.remove(o)
+                continue
             word = in_a_word(o)
             if word:
                 print("   (dropped the open end at %d,%d - it is ink inside %r)"
