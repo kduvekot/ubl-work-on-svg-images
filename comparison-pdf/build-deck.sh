@@ -28,7 +28,13 @@ FOP=${FOP:-fop}
 work=$(mktemp -d); trap 'rm -rf "$work"' EXIT
 
 # FOP will not read a 1-bit PNG and three of the 97 are 1-bit, so those three are
-# re-saved as RGB. The pixels are untouched: the deck shows the artwork as it is.
+# re-saved as RGB. So is any PNG carrying an ICC profile: most of the greyscale
+# originals embed Adobe's "Dot Gain 20%" grey profile, FOP passes it into the PDF
+# as an ICCBased colour space, and at least one PDF viewer (MuPDF) then painted
+# 45 of the 78 originals solid black. Transparency is flattened onto white on the
+# way, because 25 of the originals are RGBA on a transparent black ground, and
+# dropping the alpha alone turns that ground black too. The pixels of the drawing
+# itself are untouched: the deck shows the artwork as it is.
 mkdir -p "$work/art"
 python3 - "$UBL/art" "$work/art" <<'PY'
 import glob, os, sys
@@ -38,8 +44,11 @@ src, dst = sys.argv[1], sys.argv[2]
 for p in glob.glob(os.path.join(src, "*.png")):
     out = os.path.join(dst, os.path.basename(p))
     im = Image.open(p)
-    if im.mode in ("1", "L", "P"):
-        im.convert("RGB").save(out)
+    if im.mode in ("1", "L", "P") or "icc_profile" in im.info:
+        rgba = im.convert("RGBA")
+        rgb = Image.new("RGB", im.size, "white")
+        rgb.paste(rgba, mask=rgba.getchannel("A"))
+        rgb.save(out, icc_profile=None, dpi=im.info.get("dpi"))
     else:
         os.symlink(os.path.abspath(p), out)
 PY

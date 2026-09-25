@@ -4866,7 +4866,9 @@ def main(path, out_json=None):
         classify_edges(nodes, edges)
         apply_direction_verdicts(path, nodes, edges, uncertain)
 
-        json.dump(dict(source=path, size=[W, H], fontPx=font_px, arrowPx=arrow_px,
+        # the file name only: the art directory is wherever the caller keeps its
+        # clone, and an absolute path made every graph differ between machines
+        json.dump(dict(source=os.path.basename(path), size=[W, H], fontPx=font_px, arrowPx=arrow_px,
                        arrowWidthPx=round(arrow_w, 1), arrowStyle=arrow_fill,
                        rules=dict(v=vr, h=hr), ruleSpan=rule_span,
                        greyRules=greys, dashed=dboxes,
