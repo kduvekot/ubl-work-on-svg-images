@@ -47,6 +47,15 @@ def label(n):
     return t or "(unnamed %s)" % k
 
 
+def lane_of(n, parts):
+    """the party whose column the element sits in, ignoring the phase band"""
+    cx = n["x"] + n["w"] / 2
+    for p in parts:
+        if p["axis"] == "column" and p["x0"] <= cx <= p["x1"] and p.get("title"):
+            return " ".join(p["title"].split())
+    return ""
+
+
 def partition_of(n, parts):
     """the lane and band the element sits in, by its own centre"""
     cx, cy = n["x"] + n["w"] / 2, n["y"] + n["h"] / 2
@@ -131,8 +140,13 @@ def checks(g):
         ins.setdefault(e["to"], []).append(e)
     res = []
 
-    def rule(name, bad, note=""):
-        res.append(dict(rule=name, ok=not bad, bad=bad, note=note))
+    def rule(name, bad, note="", report=False):
+        """`report` is for a statement about the artwork that the artwork itself
+        does not keep. Those are still listed, with what breaks them, because a
+        person reading them against the drawing is how they were settled in the
+        first place; they just do not count as a reading error."""
+        res.append(dict(rule=name, ok=not bad or report, bad=bad, note=note,
+                        report=report))
 
     # 1 - every element takes part in the flow, except the ones whose whole job
     # is to stand beside it. A UML note is an annotation and is attached to
@@ -165,12 +179,20 @@ def checks(g):
          [label(n) for n in g["nodes"] if n["kind"] == "decision"
           and len(outs.get(n["id"], [])) + (1 if n["id"] in open_out else 0) < 2])
 
-    # 5 - the branches of a decision say which is which
+    # 5 - the branches of a decision say which is which. UML says they should;
+    # UBL often does not. Checked against the artwork over the seven diagrams this
+    # names: the three branches out of "Determine Action" on FulfilmentDespatchAdvice
+    # carry no word in the drawing either, and neither do the bare diamonds on
+    # ProcurementProcess and CertificationOfOrigin. So this is the artwork's gap,
+    # not the reading's, and it is reported rather than failed.
     rule("branches out of a decision are labelled",
          ["%s -> %s" % (label(byid[n["id"]]), label(byid.get(e["to"], n)))
           for n in g["nodes"] if n["kind"] == "decision"
           and len(outs.get(n["id"], [])) >= 2
-          for e in outs[n["id"]] if not (e.get("guard") or "").strip()])
+          for e in outs[n["id"]] if not (e.get("guard") or "").strip()],
+         "informational: several diagrams draw an unlabelled branch, so read"
+         " these against the artwork rather than treating them as errors",
+         report=True)
 
     # 6 - a document is produced by something and read by something
     rule("documents are both written and read",
@@ -186,6 +208,26 @@ def checks(g):
 
     # 8 - a document that passes between two parties sits on the line between
     # them; one that does not is a reading to look at, not necessarily an error
+    # Twenty-one flows over the 78 cross without one, in fifteen diagrams, and
+    # every one of them was read against the artwork: none is a missing document.
+    # Most are not a hand-over at all, and say so in the drawing - a start event
+    # reaching into the other lane, a phase change within one party, a guarded
+    # branch looping back out of a decision, the goods themselves moving beside
+    # their Despatch Advice. What is left is UBL's own looseness, and one case
+    # UBL.xml settles outright: the punch-out exchange "is considered outside the
+    # scope of UBL". So each crossing is named with what the drawing says it is,
+    # and the rule reports rather than fails.
+    def why(e, a, b):
+        if e.get("edgeKind") == "goods":
+            return "the goods, beside their Despatch Advice"
+        if a["kind"] in ("initial", "final") or b["kind"] in ("initial", "final"):
+            return "a start or end event, not work handed over"
+        if lane_of(a, parts) == lane_of(b, parts):
+            return "the same party, next phase band"
+        if a["kind"] == "decision" and (e.get("guard") or "").strip():
+            return "a guarded branch out of a decision"
+        return "no document drawn - read this one against the artwork"
+
     cross = []
     for e in g["edges"]:
         a, b = byid.get(e["from"]), byid.get(e["to"])
@@ -193,9 +235,12 @@ def checks(g):
             continue
         pa, pb = partition_of(a, parts), partition_of(b, parts)
         if pa and pb and pa != pb and "object" not in (a["kind"], b["kind"]):
-            cross.append("%s [%s] -> %s [%s]" % (label(a), pa, label(b), pb))
+            cross.append("%s [%s] -> %s [%s]   (%s)"
+                         % (label(a), pa, label(b), pb, why(e, a, b)))
     rule("work crossing between parties goes through a document", cross,
-         "informational: UBL draws the hand-over as a document on the divider")
+         "informational: UBL draws the hand-over as a document on the divider,"
+         " and each exception below is named",
+         report=True)
 
     # 9 - what is drawn dashed, stated rather than judged.
     #
@@ -243,7 +288,8 @@ def checks(g):
           and ins.get(n["id"]) and not outs.get(n["id"])
           and not any(o.get("node") == n["id"] for o in g.get("openEnds", []))],
          "informational: several diagrams do end on an action, so read these"
-         " against the artwork rather than treating them as errors")
+         " against the artwork rather than treating them as errors",
+         report=True)
 
     # 11 - every element is reachable by following arrows from a start event, or
     # from where the work arrives on the page. Half the CPFR diagrams are one
@@ -284,7 +330,9 @@ def main(src, out_json=None):
     print("CHECKS")
     res = checks(g)
     for r in res:
-        print("  %-4s %s%s" % ("ok" if r["ok"] else "FAIL", r["rule"],
+        mark = "note" if (r.get("report") and r["bad"]) else \
+               ("ok" if r["ok"] else "FAIL")
+        print("  %-4s %s%s" % (mark, r["rule"],
                                "   (%s)" % r["note"] if r["note"] else ""))
         for b in r["bad"][:8]:
             print("        - %s" % b)

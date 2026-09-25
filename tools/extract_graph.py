@@ -99,6 +99,45 @@ def strip_strokes(s):
     return "\n".join(out).strip("\n")
 
 
+def classify_edges(nodes, edges):
+    """Say what each flow carries, from the drawing alone.
+
+    UBL hands work from one party to another by drawing the document on the line
+    between them, so most flows are either a document being written or read
+    (`object`) or plain sequence (`control`). The exception is a physical
+    movement of goods, which has no UBL document because there is no document to
+    have: five flows across the 78, on the VMI, CRP and ROCD stocking diagrams.
+
+    They are not read off their wording. A verb list tried over the whole set
+    agreed 352 times against 17, but its disagreements included readings that were
+    right, so it decides nothing here. What picks these five out, and only these
+    five, is how they are drawn: the flow leaves the same action that sends the
+    Despatch Advice - the UBL document whose whole purpose is to accompany a
+    despatch - runs to the other party, and re-joins the document's own arm after
+    it is received. That is the drawing saying "the goods go with this advice",
+    and it selects exactly the five, with no false positives among the other
+    sixteen flows that cross a lane without a document on them."""
+    byid = {n["id"]: n for n in nodes}
+    out, inn = {}, {}
+    for e in edges:
+        out.setdefault(e["from"], []).append(e["to"])
+        inn.setdefault(e["to"], []).append(e["from"])
+
+    for e in edges:
+        a, b = byid.get(e["from"]), byid.get(e["to"])
+        if not a or not b:
+            continue
+        if "object" in (a.get("kind"), b.get("kind")):
+            e["edgeKind"] = "object"
+            continue
+        feeds_doc = any(byid[t].get("kind") == "object"
+                        for f in inn.get(a["id"], []) if f in byid
+                        for t in out.get(f, []) if t in byid)
+        rejoins = any(byid[t].get("kind") in ("fork", "join")
+                      for t in out.get(b["id"], []) if t in byid)
+        e["edgeKind"] = "goods" if (feeds_doc and rejoins) else "control"
+
+
 _LEXICON = None
 
 
@@ -3379,9 +3418,23 @@ def main(path, out_json=None):
                                      need_point=True, min_len=min_head)
         pb_h = point_b or arrow_size(cxs, cys, tip_of(pb, back_b), back_b, st, reach,
                                      need_point=True, min_len=min_head)
-        if (pa_h and pb_h and pa_h[2] >= 1.3 and pb_h[2] >= 1.3
-                and max(pa_h[2], pb_h[2]) < 1.4 * min(pa_h[2], pb_h[2])
-                and max(pa_h[1], pb_h[1]) < 1.4 * min(pa_h[1], pb_h[1])):
+        # Whether the point measures at all depends on where the walk down the
+        # centre of the connector stopped, and that is an artefact of the trace,
+        # not a fact about the drawing: on Tender-Contract-Pre the walk ran into
+        # the head at one end and stopped short of it at the other, so one end
+        # measured a point and the other returned nothing, and the pair with a
+        # head at each end came out one-way and "high". So: a point at one end
+        # says this is a head and not a junction, and the ordinary measurement -
+        # the same one the direction test reads - is enough at the other, as long
+        # as the two agree on their size. The heads that follow measure 58x61.8
+        # and 51x63.8 against each other; the gate below then still throws out
+        # anything that is not the size of this diagram's own arrowhead.
+        qa = pa_h or wide_a
+        qb = pb_h or wide_b
+        if (pa_h or pb_h) and qa and qb and qa[2] >= 1.3 and qb[2] >= 1.3 \
+                and max(qa[2], qb[2]) < 1.4 * min(qa[2], qb[2]) \
+                and max(qa[1], qb[1]) < 1.4 * min(qa[1], qb[1]) \
+                and max(qa[0], qb[0]) < 1.4 * min(qa[0], qb[0]):
             rec["arrowBoth"] = True
             rec["directionConfidence"] = "both-ends"
         dash = dash_run(ink, node_fill, p_from, p_to, st0,
@@ -4364,6 +4417,7 @@ def main(path, out_json=None):
             h=[span_of(y, t, "h") for y, t in hr])
 
         settle_readings(nodes, texts, grid, edges)
+        classify_edges(nodes, edges)
 
         json.dump(dict(source=path, size=[W, H], fontPx=font_px, arrowPx=arrow_px,
                        arrowWidthPx=round(arrow_w, 1), arrowStyle=arrow_fill,

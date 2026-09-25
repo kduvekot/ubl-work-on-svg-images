@@ -518,10 +518,163 @@ conceptual model.
     Note the two CPFR forecast documents (Figs 9, 12) that are written and never
     read are *faithful* - the last thing the phase produces, handed off the page.
 
-### 11.5 Still to walk through
+### 11.5 The last of the walkthrough
 
-- the 15 "work crossing between parties goes through a document" findings
-- the 11 dead-end actions and 7 unlabelled branches (sampled and faithful:
-  *Receive Bill of Lading*, *Receive application response*, *Endorse CoO* are
-  drawn with nothing leaving the box; 34 of 40 unlabelled branches have no word
-  anywhere near them in the artwork)
+**The 11 dead-end actions and the 7 diagrams with an unlabelled branch are
+faithful.** Checked against the artwork: the three branches out of *Determine
+Action* on Fig 55 carry no word in the drawing either, the bare diamonds on Figs
+1 and 62 have none anywhere near them, and Fig 13's two *Receive & Resolve
+Exception* boxes really do stop there. Both model-sheet rules now **report**
+rather than fail (§12.3).
+
+One real defect turned up while checking: Fig 13's left-hand *Receive & Resolve
+Exception* read as `Receive & Resolve | Exception`, a stray `|` picked up from
+the lane divider 110px to its right. No text check caught it, because the checker
+compares words and `|` is not one. *Fixed* (§12.1).
+
+### 11.6 Physical goods are a different kind of edge, and the drawing says so
+
+The TC asked whether a physical goods movement could be **recorded and fully
+validated**, and whether that could be **determined from the sources** rather
+than from this conversation. Nothing in the repo recorded an edge's kind at all.
+Two sources were tested; both work.
+
+**The drawing itself.** Of the 21 flows that cross a lane with no document on
+them (15 diagrams), one structural pattern picks out exactly the five physical
+goods movements - no false positives, no misses:
+
+> the flow forks from the action that sends the **Despatch Advice**, and re-joins
+> the document's arm after receipt.
+
+That is the drawing saying *the goods go with this advice*, and the Despatch
+Advice is the UBL document whose whole purpose is to accompany a despatch. Figs
+40, 42, 44, 47, 54. Three more kinds fall out of structure alone: **rework** (a
+guarded branch out of a decision, 4), **phase** (same party, next band, 2, both
+on Fig 72), **start** (an endpoint is a start event, 1, Fig 57). Twelve of the 21
+classified with no prose at all.
+
+Deliberately **not** used: a verb list. Tried over the whole set it agreed 352
+times against 17, but its disagreements included readings that were right.
+
+**UBL.xml's own prose**, which the conversion had never read - only
+`UBL-local.xml`, and only for figure numbering. The section enclosing each
+`<figure>` links every UBL document type the process uses as
+`<link linkend="S-...-SCHEMA">`; 64 of the 95 figures do, which is machine
+-readable per figure. It settles several of the nine left over outright:
+
+- Fig 37 Punch-out - *"the exchange transaction is tightly coupled to the
+  specific catalogue application and is **considered outside the scope of
+  UBL**; thus, the only UBL document type involved in this process is
+  Quotation."* The source states there is no document on that crossing.
+- Fig 57 - *"the Consignor **or** Consignee initiates the transportation
+  arrangements"*, which is why one start event reaches into the other lane: the
+  same `0..n` looseness as Figs 86/87.
+- Figs 31/32 - *"the exchange of electronic signatures depicted in the diagrams
+  above is provided for the general understanding of the business
+  choreography"*: context, not a step.
+
+The prose is not wired into the pipeline; it is recorded here as the source to
+use when the BPMN re-render needs to know which documents a process uses.
+
+## 12. The fixing pass (2026-09)
+
+Everything the walkthrough agreed, applied in one pass. Each change was measured
+over all 78 before it was kept, and nothing was widened to make a difference go
+away.
+
+### 12.1 Readings
+
+**Punctuation is not a letter.** `text_floor` models a letter's area, so the two
+dots of `0..n` (69 and 74 pixels against a floor of 132) were dropped, leaving a
+52px hole the blocks could not merge across. Ink below the floor is now kept
+aside and may lengthen a block whose own ink already reaches it - the same
+chain-back the corners cut off by node erasure already used, now shared as
+`chain_in()`. A speck that starts no block of its own still cannot become a word.
+Fixes the `0..n` titles and `charges of`.
+
+**Line-work read as a character.** A connector stub entering a box from below
+comes back as `|`, an arrowhead's two halves as `\/`, a note's folded corner as
+`~`. Over the 78 these appear 61 times as a token on their own and never as
+anything the artwork writes, while `&`, `?` and the hyphen - the only other
+non-word tokens in the set - are always real. Stroke-only tokens are dropped, and
+a text block left empty goes with them: **four diagrams were drawing whole
+phantom words made out of their dashed connectors**. Fixes Fig 13's stray `|` and
+the `>` glued to two questions.
+
+**Spelling settled against the set.** A reading is only ever replaced by a
+variant of *itself* that differs in characters the reader confuses (`l/I/1`,
+`O/0`, `S/5`) and that the set writes more often. Case is **not** folded in: with
+case included the rule changes 99 readings, nearly all of them the artwork's own
+mixture of `Order` and `order`; without it, one word. One diagram is not always
+enough evidence - `Is there a new item to be delivered?` on Fig 42 has no second
+`Is` on its own sheet - so the counts come from all 78, in
+`tools/reading-lexicon.json`, rebuilt by `tools/build_lexicon.py`. It is evidence,
+not a spell-checker: a word the set gets wrong everywhere stays wrong, and nothing
+outside the set's own vocabulary can enter a label. UML writes a multiplicity with
+a digit, which settles `O..n`.
+
+**A head at both ends, Figs 31/32.** Whether the point measures at all depended on
+where the walk down the centre of the connector stopped - an artefact of the
+trace, not a fact about the drawing. One end ran into the head, the other stopped
+short of it, so the pair came out one-way and "high". Now a measured point at one
+end says this is a head and not a junction, and the ordinary measurement is
+enough at the other, provided the two agree on length, width and taper within the
+same 1.4x already used. Over the 78 this sets `arrowBoth` on exactly those two
+edges and touches nothing else.
+
+### 12.2 The checker was naming arrowheads
+
+`line_like` catches a stroke by its shape and cannot catch a solid head, which is
+a blob: `mM` on Figs 64/65, `ZT` and `Ft` elsewhere. Shape will not separate
+those from words - measured over the 78, real text runs to **9.7 type heights**
+in one connected component where the head is 2.0, and to **0.53 of a type height
+thick** where the head is 0.18, because the reversed lane titles are heavier than
+any arrowhead. What does separate them is that the model already knows where it
+put each head. The head must fall **inside** the reading's box: these boxes reach
+along the shaft, so a tolerance wide enough to reach from the centre also
+swallows nine guard labels sitting at the same node boundaries.
+
+### 12.3 Edge kinds, and three rules that now report
+
+`edgeKind` is written on every flow: `object` (467), `control` (562), `goods` (5)
+- see §11.6 for how the five are picked out, and for the prose in UBL.xml that
+corroborates them. Three model-sheet rules state something UML asks for that this
+artwork does not always give, and all three were checked against the drawings, so
+they **report** rather than fail:
+
+- *work crossing between parties goes through a document* (15 diagrams) - each
+  crossing is now named with what the drawing says it is: the goods beside their
+  Despatch Advice, a start event, a phase change, a guarded branch, or "no
+  document drawn - read this one against the artwork".
+- *every action passes its work on* (11 diagrams) - the artwork does end on an
+  action.
+- *branches out of a decision are labelled* (7 diagrams) - the artwork leaves
+  them bare.
+
+### 12.4 Where the set stands after the pass
+
+| | before (r104) | after (r107) |
+|---|---|---|
+| elements absent / invented | 0 / 0 | 0 / 0 |
+| text differs | 8 | **1** |
+| text absent | 1 | 1 |
+| coherence | 2 | 2 |
+| mean ink in error | 1.206% | 1.212% |
+| model sheets passing every rule | 45 | **62** |
+
+The 0.006 of a point of ink is the four phantom words that are no longer drawn.
+They were covering strokes the model draws at its own arrowhead size; the measure
+now states that difference instead of hiding it behind a wrong glyph.
+
+### 12.5 Still open
+
+- **A guard swallowed by the question above it** (Fig 74, the one `text absent`).
+  `[no]` sits 26px under the question where the line pitch is 45, so the block
+  merge takes it in and a label can only be drawn once. The same diagram loses the
+  `[` of another `[no]`. Splitting a merged block back apart needs the word boxes
+  the merge throws away - real work, not a tolerance to nudge.
+- **9 flows still read LOW confidence**, all 26 of which a person has checked
+  (§11.1); the verdicts live in `review/direction-checks.txt` and are not yet
+  carried in the graph.
+- **The nine unclassified lane crossings** of §11.6, and the four artwork faults
+  of §11.4, which stay as drawn.
