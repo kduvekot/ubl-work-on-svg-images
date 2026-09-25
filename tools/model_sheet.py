@@ -23,6 +23,7 @@ right for the right reason. There is no third file to keep in step: the geometry
 in the spec is this model's own measurements, carried through.
 """
 import json
+import os
 import sys
 
 GLYPH = {"initial": "(start)", "final": "(end)", "decision": "<%s?>",
@@ -45,6 +46,27 @@ def label(n):
     if k == "note":
         return "note %r" % t
     return t or "(unnamed %s)" % k
+
+
+_FAULTS = None
+
+
+def artwork_faults(source):
+    """The rules this diagram breaks because the drawing does, not the reading.
+
+    Each one was put beside the original and judged; the list is
+    tools/artwork-faults.json, and it names the elements as well as the rule, so
+    a rule goes quiet only for exactly what was checked."""
+    global _FAULTS
+    if _FAULTS is None:
+        p = os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                         "artwork-faults.json")
+        try:
+            _FAULTS = json.load(open(p))["diagrams"]
+        except Exception:
+            _FAULTS = {}
+    name = os.path.splitext(os.path.basename(source or ""))[0]
+    return (_FAULTS.get(name) or {}).get("rules", {})
 
 
 def lane_of(n, parts):
@@ -134,6 +156,7 @@ def checks(g):
     is."""
     byid = {n["id"]: n for n in g["nodes"]}
     parts = g.get("partitions", [])
+    accepted = artwork_faults(g.get("source", ""))
     ins, outs = {}, {}
     for e in g["edges"]:
         outs.setdefault(e["from"], []).append(e)
@@ -145,6 +168,14 @@ def checks(g):
         does not keep. Those are still listed, with what breaks them, because a
         person reading them against the drawing is how they were settled in the
         first place; they just do not count as a reading error."""
+        # ...or every element it names is one a person has already read against
+        # the artwork and found to be the drawing's own gap. A new one anywhere
+        # else still fails, which is what keeps this a tripwire for a connector
+        # the model has lost rather than a way of turning the rule off.
+        known = accepted.get(name, [])
+        if bad and known and all(b in known for b in bad):
+            report, note = True, (note or "informational") + \
+                " - read against the artwork and found to be the drawing's own"
         res.append(dict(rule=name, ok=not bad or report, bad=bad, note=note,
                         report=report))
 
@@ -271,6 +302,9 @@ def checks(g):
             print("    %s" % d)
 
     # 10 - the direction of every flow was read with confidence
+    # A flow a person has already put beside the artwork is settled, however thin
+    # the pixels were; those read "checked" and are not listed here. What is left
+    # is a direction nobody has looked at and the reading is not sure of.
     rule("every flow's direction was read with confidence",
          ["%s -> %s" % (label(byid.get(e["from"], {"kind": "action", "label": e["from"]})),
                         label(byid.get(e["to"], {"kind": "action", "label": e["to"]})))

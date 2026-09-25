@@ -651,30 +651,95 @@ they **report** rather than fail:
 - *branches out of a decision are labelled* (7 diagrams) - the artwork leaves
   them bare.
 
-### 12.4 Where the set stands after the pass
+### 12.4 Closing out the rest
 
-| | before (r104) | after (r107) |
-|---|---|---|
-| elements absent / invented | 0 / 0 | 0 / 0 |
-| text differs | 8 | **1** |
-| text absent | 1 | 1 |
-| coherence | 2 | 2 |
-| mean ink in error | 1.206% | 1.212% |
-| model sheets passing every rule | 45 | **62** |
+**The last two text findings.** `text_floor` models a letter of average build, and
+an `f` is a stem and two strokes where an `o` is a ring: the `f` of `Change of` is
+258 pixels against a floor of 265. The speck rule of 12.1 now uses the same size
+test the text blocks themselves use, which also recovers the final `r` of
+`Importer` and of `Transport Service Provider`, and the `[` of a `[no]`.
 
-The 0.006 of a point of ink is the four phantom words that are no longer drawn.
-They were covering strokes the model draws at its own arrowhead size; the measure
-now states that difference instead of hiding it behind a wrong glyph.
+**Arrowheads read as words, at the source this time.** Six text lines over the 78
+enclose an arrowhead the extractor has already measured, and every one reads as
+rubbish - `WZ`, `L`, `VA`, `Y`, `74`, `VA`. The bit is dropped before the blocks
+are built rather than after, so the block is not stretched over the head either,
+and `[accept items] VA` comes back as `[accept items]`.
 
-### 12.5 Still open
+**The guard swallowed by the question above it** (Fig 74). Two things had to give.
+A band that the block reader already gave a line of its own is text: reading
+`[no]` on its own comes out `) no]` at 43 against a floor of 45, two points short,
+where reading it in its block comes out `[no]` - so the band was thrown away.
+And brackets are UBL's own notation for a guard, so a block holding a bracketed
+line and unbracketed ones is two things; over the 78 exactly one block is, this
+one. Split back apart, the question is the decision's and `[no]` is the guard on
+its branch, drawn where the artwork draws it.
 
-- **A guard swallowed by the question above it** (Fig 74, the one `text absent`).
-  `[no]` sits 26px under the question where the line pitch is 45, so the block
-  merge takes it in and a label can only be drawn once. The same diagram loses the
-  `[` of another `[no]`. Splitting a merged block back apart needs the word boxes
-  the merge throws away - real work, not a tolerance to nudge.
-- **9 flows still read LOW confidence**, all 26 of which a person has checked
-  (§11.1); the verdicts live in `review/direction-checks.txt` and are not yet
-  carried in the graph.
-- **The nine unclassified lane crossings** of §11.6, and the four artwork faults
-  of §11.4, which stay as drawn.
+**The 26 direction verdicts are now in the pipeline** as
+`tools/direction-verdicts.json`. It never sets a direction: it marks the one that
+was read as checked, and says so loudly if a flow it names is no longer read that
+way, which makes every future change to how direction is read run into it. Flows
+are keyed by where their elements sit, because node ids are handed out in reading
+order and move, and a label can be re-read.
+
+**Two isolated documents on Fig 28** were counted as incoherent. A node with
+nothing attached is usually a connector the model lost, and then the pixels say
+so - the line is missing from the rebuild right at its edge. Where nothing is
+missing within the diagram's own arrowhead length, nothing was lost, and the
+finding goes to a person instead.
+
+**The break marks on Figs 86/87 are drawn again.** `cross_stub` expected each
+stroke to arrive in two halves, one either side of the divider, because the
+divider's ink is taken out before the components are found. The line-break repair
+that runs earlier now puts those halves back together - "a 12px break at 146
+degrees" - so the marks arrived whole and stopped at nothing, and the test threw
+away the very strokes it was written for. A mark that straddles the rule is now
+taken, at up to twice the length of a half, and has to be drawn with the pen that
+drew the rule: the two stacked words of the `Customs Party` lane title lie at 70
+degrees across the top frame and are 3.5:1 as a blob, but they are 42 pixels
+thick against a rule drawn at 10, where these marks measure 7.6 against a rule of
+7. Figs 86 and 87 fall from 1.32% and 1.75% of ink in error to 0.12% and 0.59%.
+
+While chasing that: the flow out of the Business Card runs **down the lane
+divider itself**, which is why the document reads as written and never read. A
+route drawn as the divider cannot be recovered as a flow. The drawing stays as it
+is, per the TC; the model records the gap.
+
+### 12.5 What a failing rule means now
+
+Twelve rule failures over nine diagrams were each read against the original and
+found to be the drawing's own gap, not the reading's - the two notifications with
+no connector on Fig 28, the forecast documents handed off the page on Figs 9 and
+12, the limb with no start event on Figs 9 and 83, the lane with no start event
+on Fig 55, the standing precondition on Figs 31 and 32, the divider-as-flow on
+Figs 86 and 87. They are listed element by element in
+`tools/artwork-faults.json`, and `model_sheet` reports those instead of failing
+them **only where every element it names is on the list**. A new isolated
+element anywhere else still fails, so the rule stays what it was written to be: a
+tripwire for a connector the model has lost.
+
+### 12.6 Where the set stands
+
+| | r104 | r107 | r110 |
+|---|---|---|---|
+| elements absent / invented | 0 / 0 | 0 / 0 | 0 / 0 |
+| text differs | 8 | 1 | **0** |
+| text absent | 1 | 1 | **0** |
+| coherence | 2 | 2 | **0** |
+| mean ink in error | 1.206% | 1.212% | **1.189%** |
+| diagrams with no finding at all | - | - | **78** |
+| verdict CORRECT (nothing left for a person either) | - | - | 9 |
+| model sheets passing every rule | 45 | 62 | **78** |
+
+Every structural finding over the 78 is now zero. What is left is 291 notes for a
+person - the arrowheads too small to measure, the shapes the reading is unsure
+of - and the artwork's own faults, recorded rather than corrected.
+
+### 12.7 Still open
+
+- **The nine unclassified lane crossings** of 11.6: Figs 28, 37, 56, 72 (x3), 57
+  and 31/32. Each is named in its model sheet with what the drawing says it is.
+- **The four artwork faults** of 11.4 and the nine diagrams of 12.6, which stay as
+  drawn by instruction.
+- **UBL.xml's prose is still not wired into the pipeline.** It names, per figure,
+  the UBL document types each process uses; that is the source to use when the
+  BPMN re-render needs them.

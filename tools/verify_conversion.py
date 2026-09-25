@@ -528,7 +528,7 @@ def check_arrow_directions(a, b, graph, glyph_h, findings, tmask=None, ratio=2.0
                                            e.get("to") if ho == "to" else e.get("from"))))
 
 
-def check_coherent(graph, glyph_h, findings):
+def check_coherent(graph, glyph_h, findings, missing=None, human=None):
     """Internal consistency - cheap, and it catches nonsense the pixels cannot."""
     ids = {n["id"] for n in graph.get("nodes", [])}
     ok_for = {"rhombus": {"decision"}, "rounded": {"action"},
@@ -555,6 +555,33 @@ def check_coherent(graph, glyph_h, findings):
         if k == "note":
             continue
         if n["id"] not in touched:
+            # A node with nothing attached is usually a connector the model lost,
+            # and then the pixels say so: the line the artwork draws into it is
+            # missing from the rebuild, right there at its edge. Where nothing is
+            # missing, nothing was lost - the artwork itself draws the element with
+            # no connector on it, as UBL does with the Awarded and Unawarded
+            # Notification on Tender-AwardNotification, where the one flow runs
+            # straight past both documents. That is the drawing's fault and not the
+            # reading's, so it goes to a person rather than counting as incoherent.
+            # The reach is the diagram's own arrowhead length, the scale at which a
+            # connector meets a node, and not a number chosen here.
+            reach = int(max(4.0, float(graph.get("arrowPx") or 0) or glyph_h))
+            lost = None
+            if missing is not None:
+                y0, y1 = max(0, n["y"] - reach), n["y"] + n["h"] + reach
+                x0, x1 = max(0, n["x"] - reach), n["x"] + n["w"] + reach
+                lost = bool(missing[y0:y1, x0:x1].any())
+            if lost is False:
+                if human is not None:
+                    human.append(dict(
+                        kind="node-isolated-in-the-artwork", x=n["x"], y=n["y"],
+                        w=n["w"], h=n["h"],
+                        reason="%s (%s %r) has no flow on it, and no line-work is"
+                               " missing around it, so the original draws it that"
+                               " way too" % (n["id"], k, n.get("label", "")[:20]),
+                        check="confirm against the artwork that nothing connects"
+                              " to this element"))
+                continue
             findings.append(dict(kind="node-isolated", x=n["x"], y=n["y"],
                                  w=n["w"], h=n["h"],
                                  detail="%s (%s %r) has no edge" % (n["id"], k, n.get("label", "")[:20])))
@@ -608,7 +635,7 @@ def verify(orig_png, render_png, graph_path, radius=3, diff_out=None):
             for f in structural(extra, la, glyph_h)]                      # clause 2
     check_text_complete(bg_orig, graph, boxes, text_findings, glyph_h, a)  # clause 3
     coherence = []
-    check_coherent(graph, glyph_h, coherence)                             # clause 4
+    check_coherent(graph, glyph_h, coherence, missing, human)            # clause 4
     check_arrow_directions(a, b, graph, glyph_h, coherence, tmask)
     nodefill = np.zeros(a.shape, bool)
     for n in graph.get("nodes", []):

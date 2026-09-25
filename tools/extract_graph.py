@@ -99,6 +99,67 @@ def strip_strokes(s):
     return "\n".join(out).strip("\n")
 
 
+_VERDICTS = None
+
+
+def apply_direction_verdicts(path, nodes, edges, uncertain):
+    """Record which flows a person has already settled against the artwork.
+
+    All 26 flows the reading could not settle were put beside the PNG and judged;
+    25 were drawn the way the artwork draws them and one was corrected. That is
+    evidence the pixels do not carry, and without it nine diagrams keep reporting
+    a direction as unsettled that is not.
+
+    It never sets a direction. It marks the direction that was read as checked,
+    and where a flow in the table is no longer read that way it says so and leaves
+    it for a person - which is what makes the table a fixture rather than an
+    override, and what makes any future change to how direction is read run into
+    it. Flows are named by their endpoints' labels because node ids move between
+    runs and labels do not."""
+    global _VERDICTS
+    if _VERDICTS is None:
+        p = os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                         "direction-verdicts.json")
+        try:
+            _VERDICTS = json.load(open(p))["flows"]
+        except Exception:
+            _VERDICTS = {}
+    want = _VERDICTS.get(os.path.splitext(os.path.basename(path))[0])
+    if not want:
+        return
+    byid = {n["id"]: n for n in nodes}
+
+    def where(i):
+        n = byid.get(i)
+        return "%d,%d" % (n["x"], n["y"]) if n else None
+
+    drawn = {}
+    for e in edges:
+        a, b = where(e["from"]), where(e["to"])
+        if a and b:
+            drawn.setdefault("%s -> %s" % (a, b), []).append(e)
+    for key, rec in sorted(want.items()):
+        verdict, flow = rec["verdict"], rec["flow"]
+        hit = drawn.get(key)
+        if hit:
+            for e in hit:
+                e["directionChecked"] = verdict
+                if e.get("directionConfidence") == "LOW":
+                    e["directionConfidence"] = "checked"
+            continue
+        a, b = key.split(" -> ", 1)
+        why = ("it is now read the other way round"
+               if drawn.get("%s -> %s" % (b, a))
+               else "it is not in the reading at all")
+        print("   !! %s (%s) was checked against the artwork and %s"
+              % (key, flow, why))
+        uncertain.append(dict(
+            kind="direction-verdict-broken", x=0, y=0, w=0, h=0,
+            reason="the flow %r at %s was judged %s against the original"
+                   " artwork, and %s" % (flow, key, verdict, why),
+            check="compare this flow with the PNG before trusting the reading"))
+
+
 def classify_edges(nodes, edges):
     """Say what each flow carries, from the drawing alone.
 
@@ -1014,7 +1075,7 @@ def cross_stub(xs, ys, vr, hr, font_px):
     ux, uy = float(evec[0, 1]), float(evec[1, 1])
     t = (xs - cx) * ux + (ys - cy) * uy
     half = float(t.max() - t.min()) / 2.0
-    if not (0.5 * font_px <= 2.0 * half <= 3.0 * font_px):
+    if 2.0 * half < 0.5 * font_px:
         return None
     ang = math.degrees(math.atan2(uy, ux)) % 180.0
     # Slanted, and to both axes. A stub that runs along the rule is the rule; one
@@ -1027,13 +1088,34 @@ def cross_stub(xs, ys, vr, hr, font_px):
         for start, w in rules:
             mid = start + w / 2.0
             side = (xs - mid) if axis == "v" else (ys - mid)
-            near = min(abs(float(side.min())), abs(float(side.max())))
-            if near <= w + 3 and (side.min() >= -w - 3 or side.max() <= w + 3):
-                return dict(rule=axis, at=int(round(mid)), angle=round(ang, 1),
-                            cx=cx, cy=cy, ux=ux, uy=uy, half=half,
-                            x1=cx - ux * half, y1=cy - uy * half,
-                            x2=cx + ux * half, y2=cy + uy * half,
-                            weight=round(4.0 * math.sqrt(max(float(ev[0]), 0.05)), 1))
+            lo, hi = float(side.min()), float(side.max())
+            stops = min(abs(lo), abs(hi)) <= w + 3 and (lo >= -w - 3 or hi <= w + 3)
+            # ...or it arrives whole, straddling the rule. The line-break repair
+            # that runs before this puts the two halves back together where the
+            # gap is small enough - "a 12px break at 146 degrees" on BusinessCard
+            # and DigitalCapability - and a mark that has already been made whole
+            # stops at nothing, so the test above threw away the very strokes this
+            # is for. A whole mark is two halves, so it is allowed twice the
+            # length of one.
+            crosses = lo < -w - 3 and hi > w + 3
+            if not (stops or crosses):
+                continue
+            if 2.0 * half > (6.0 if crosses else 3.0) * font_px:
+                continue
+            # A mark is drawn with the pen that drew the rule it lies across, so it
+            # is that thick and no thicker. Elongation alone does not say so: the
+            # two stacked words of the "Customs Party" lane title on the Import and
+            # Transit declarations lie at 70 degrees across the top frame and are
+            # 3.5:1 as a blob, but they are 42 pixels thick against a rule drawn at
+            # 10, where the marks on BusinessCard measure 7.6 against a rule of 7.
+            weight = 4.0 * math.sqrt(max(float(ev[0]), 0.05))
+            if weight > 2.0 * w + 3:
+                continue
+            return dict(rule=axis, at=int(round(mid)), angle=round(ang, 1),
+                        cx=cx, cy=cy, ux=ux, uy=uy, half=half, crosses=crosses,
+                        x1=cx - ux * half, y1=cy - uy * half,
+                        x2=cx + ux * half, y2=cy + uy * half,
+                        weight=round(weight, 1))
     return None
 
 
@@ -1046,6 +1128,9 @@ def join_stubs(stubs):
             continue
         best = None
         for j, b in enumerate(stubs):
+            # a mark that already crosses the rule is not half of anything
+            if a.get("crosses") or b.get("crosses"):
+                continue
             if j <= i or j in used or b["rule"] != a["rule"]:
                 continue
             da = abs(a["angle"] - b["angle"])
@@ -1066,7 +1151,8 @@ def join_stubs(stubs):
         p0 = min(pts, key=lambda p: p[0] * a["ux"] + p[1] * a["uy"])
         p1 = max(pts, key=lambda p: p[0] * a["ux"] + p[1] * a["uy"])
         out.append(dict(rule=a["rule"], at=a["at"], angle=a["angle"],
-                        weight=a["weight"], whole=best is not None,
+                        weight=a["weight"],
+                        whole=best is not None or bool(a.get("crosses")),
                         x1=int(round(p0[0])), y1=int(round(p0[1])),
                         x2=int(round(p1[0])), y2=int(round(p1[1])),
                         length=round(math.hypot(p1[0] - p0[0], p1[1] - p0[1]), 1)))
@@ -2959,16 +3045,19 @@ def main(path, out_json=None):
     for ys, xs, grp in groups:
         n_px = int(ys.size)
         if n_px < text_floor(font_px):
-            # text_floor models a letter, and punctuation is not one. The two dots
-            # of the "0..n" in the BusinessCard and DigitalCapability lane titles
-            # are 69 and 74 pixels against a floor of 132, so both were dropped;
-            # that left a 52px hole between the "0" and the "n", the blocks were
-            # then too far apart to merge, and the title came out "BUSINESS PARTY
-            # O" with a stray "N" beside it. Keep the specks aside and let them
-            # rejoin a block whose own ink already reaches them, the same way the
-            # corners cut off by node erasure do below - a speck that starts no
-            # block of its own cannot be read as a word.
-            if (ys.max() - ys.min() + 1) <= 0.5 * font_px:
+            # text_floor models a letter of average build, and not every mark is
+            # one. The two dots of the "0..n" in the BusinessCard and
+            # DigitalCapability lane titles are 69 and 74 pixels against a floor of
+            # 132, and the "f" of "Change of" on VMI-PriceAdjustment is 258 against
+            # 265 because an "f" is a stem and two strokes where an "o" is a ring.
+            # All three were dropped, and each left a hole its block could not merge
+            # across: "BUSINESS PARTY O" with a stray "N" beside it, "Change o".
+            # Keep the specks aside and let them rejoin a block whose own ink
+            # already reaches them, the same way the corners cut off by node erasure
+            # do below - a speck that starts no block of its own cannot be read as a
+            # word, and nothing with enough ink to be a connector is a speck at all,
+            # so the size test is the one the text blocks themselves use.
+            if (ys.max() - ys.min() + 1) <= font_px * 2.2:
                 specks.append([int(xs.min()), int(ys.min()),
                                int(xs.max()), int(ys.max())])
             continue
@@ -3579,6 +3668,22 @@ def main(path, out_json=None):
                 bits.append([cx0, cy0, cx1, cy1])
         chain_in(bits)
 
+    # An arrowhead is not a word, and the reader is confident that it is: the head
+    # under "[accept items]" on FulfilmentReceiptAdvice comes back as "VA", the one
+    # on SelfBillingwithCreditNote as "WZ", and because the bit joins the guard's
+    # block the guard is drawn with the rubbish on the end of it. The heads are
+    # already measured, so a bit with one inside it is line-work and is dropped
+    # before the blocks are built - dropping it after only cleans the reading, and
+    # leaves the block stretched over the head. Across the 78 exactly six bits
+    # enclose a head, and every one of them reads as rubbish: WZ, L, VA, Y, 74, VA.
+    heads = [tuple(e["toPoint"]) for e in edges if e.get("toPoint")]
+    heads += [tuple(e["fromPoint"]) for e in edges
+              if e.get("fromPoint") and e.get("arrowBoth")]
+    if heads:
+        textbits[:] = [b for b in textbits
+                       if not any(b[0] <= hx <= b[2] and b[1] <= hy <= b[3]
+                                  for hx, hy in heads)]
+
     lines = textbits
     for _ in range(4):
         lines = merge(lines)
@@ -3602,7 +3707,8 @@ def main(path, out_json=None):
     print("\nTEXT (titles, guards, notes)")
     texts = []
     strays = []          # line-work that read as text: nearly always an arrowhead
-    for b in lines:
+    queue = list(lines)
+    for b in queue:
         w, h = b[2] - b[0] + 1, b[3] - b[1] + 1
         # ...and a block is too small to be text in this diagram's own type, not in
         # a flat number of pixels: 25x14 is a word at 40px type and a whole "No" at
@@ -3621,7 +3727,10 @@ def main(path, out_json=None):
                   " where the text is set sideways and is read there)"
                   % (b[0], b[1], w, h))
             continue
-        t = ocr(bg, b[0], b[1], w, h, -6)
+        # a piece put back on the queue by the split below already has its words,
+        # read in the block they came out of, which is the better reading: "[no]"
+        # there against ") Ino]" when the same four glyphs are read on their own
+        t = b[4] if len(b) > 4 else ocr(bg, b[0], b[1], w, h, -6)
         if not t:
             continue
         # ...unless it reads as an actual word. Line-work comes back as one or
@@ -3644,7 +3753,27 @@ def main(path, out_json=None):
         # "[accept credit] \ Ne" on SelfBillingwithCreditNote and the "\ Ne" was
         # drawn on the page. A band that does not read as text is not text, even
         # when the band above it is.
+        #
+        # Except where the block reader already gave this band a line of its own.
+        # It is the same reader with more of the page in front of it, and reading
+        # the band alone can come out a hair short of the floor where reading it in
+        # its block does not: the "[no]" under "Update Transport Execution Plan
+        # Request?" on IMFM-BasicTransportExecutionPlan reads as "[no]" in the block
+        # and as ") no]" at 43 out of 100 on its own, two below the floor, so the
+        # band was thrown away and the guard went missing from the page. The
+        # arrowheads this clause is for are not in that position: they form their
+        # own band, and the block reader gives them no line, which is what the
+        # count below tests.
+        # ...and only where the block is words to begin with. The blocks the reader
+        # makes out of a dashed connector on the CPFR diagrams have as many bands
+        # as lines too, by accident, and taking their word for it keeps every
+        # stroke in them as a line of its own. A run of four letters is the same
+        # test that let the block through in the first place.
+        block_lines = len(boxes) == len(got) and re.search(r"[A-Za-z]{4,}", t)
+
         def reads_as_text(bx):
+            if block_lines:
+                return True
             if re.search(r"[A-Za-z]{4,}",
                          ocr(bg, bx["x"], bx["y"], bx["w"], bx["h"], -4)):
                 return True
@@ -3718,6 +3847,36 @@ def main(path, out_json=None):
                 item["lines"] = [dict(bx, text=p) for bx, p in keep_l]
             elif not got:
                 continue                  # every band was line-work
+
+        # A guard in brackets is its own label, however close it stands to the
+        # question above it. UBL puts the "[no]" 26px under "Update Transport
+        # Execution Plan Request?" on IMFM-BasicTransportExecutionPlan, where that
+        # question's own lines are 45px apart, so the merge took it in and the
+        # decision's whole question came out as the guard on one of its branches.
+        # Brackets are UBL's own notation for a guard, and over the 78 exactly one
+        # block mixes a bracketed line with unbracketed ones - this one. Put each
+        # part back on its own and read them again.
+        lns = item.get("lines") or []
+        if len(lns) > 1:
+            def bracketed(s):
+                # the reader often puts the arrowhead beside the guard in front of
+                # it - "> [no]" - and that mark is line-work, not part of the word
+                s = strip_strokes(s or "").strip()
+                return s.startswith("[") and s.endswith("]")
+            grp = [l for l in lns if bracketed(l.get("text"))]
+            rest = [l for l in lns if not bracketed(l.get("text"))]
+            if grp and rest:
+                for part in (grp, rest):
+                    queue.append([min(l["x"] for l in part),
+                                  min(l["y"] for l in part),
+                                  max(l["x"] + l["w"] for l in part) - 1,
+                                  max(l["y"] + l["h"] for l in part) - 1,
+                                  "\n".join(strip_strokes(l.get("text") or "")
+                                             for l in part)])
+                print("   (split x=%-5d y=%-5d - a bracketed guard sharing a block"
+                      " with %d other line(s))" % (b[0], b[1], len(rest)))
+                continue
+
         # A guard is a short label standing beside the branch it belongs to. Half
         # of this artwork brackets them - "[accept charges]" - and half does not:
         # the transport diagrams write a plain "Yes" and "No", and requiring the
@@ -4418,6 +4577,7 @@ def main(path, out_json=None):
 
         settle_readings(nodes, texts, grid, edges)
         classify_edges(nodes, edges)
+        apply_direction_verdicts(path, nodes, edges, uncertain)
 
         json.dump(dict(source=path, size=[W, H], fontPx=font_px, arrowPx=arrow_px,
                        arrowWidthPx=round(arrow_w, 1), arrowStyle=arrow_fill,
