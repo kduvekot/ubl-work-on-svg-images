@@ -16,7 +16,13 @@
   "lane": 15.4,
   "guard": 15.4
  },
- "arrow": 30.2,
+ "arrow": 25.4,
+ "arrowWidth": 20.9,
+ "arrowStyle": "open",
+ "dashed": [],
+ "greyRules": [],
+ "crossMarks": [],
+ "openEnds": [],
  "frameBox": [
   2.2,
   2.2,
@@ -24,7 +30,12 @@
   950.2
  ],
  "dividers": [
-  744.1
+  [
+   744.1,
+   1.7,
+   5.6,
+   946.3
+  ]
  ],
  "bands": [],
  "lanes": [
@@ -68,19 +79,23 @@
     {
      "text": "Create/Update",
      "cx": 164.9,
-     "cy": 153.4
+     "cy": 153.4,
+     "w": 99.0
     },
     {
      "text": "Transport Execution",
      "cx": 164.2,
-     "cy": 171.3
+     "cy": 171.3,
+     "w": 142.6
     },
     {
      "text": "Plan Request",
      "cx": 166.4,
-     "cy": 189.1
+     "cy": 189.1,
+     "w": 92.5
     }
-   ]
+   ],
+   "bold": true
   },
   {
    "id": "n3",
@@ -96,19 +111,23 @@
     {
      "text": "EvaluateTransport",
      "cx": 1272.2,
-     "cy": 158.6
+     "cy": 158.6,
+     "w": 128.8
     },
     {
      "text": "Execution Plan",
      "cx": 1274.5,
-     "cy": 174.8
+     "cy": 174.8,
+     "w": 104.1
     },
     {
      "text": "Request",
      "cx": 1276.3,
-     "cy": 194.0
+     "cy": 194.0,
+     "w": 57.5
     }
-   ]
+   ],
+   "bold": true
   },
   {
    "id": "n4",
@@ -122,19 +141,23 @@
     {
      "text": "\u00abNotConfirmed\u00bb",
      "cx": 744.5,
-     "cy": 153.0
+     "cy": 153.0,
+     "w": 114.1
     },
     {
      "text": "Transport Execution",
      "cx": 742.6,
-     "cy": 173.1
+     "cy": 173.1,
+     "w": 141.3
     },
     {
      "text": "Plan Request",
      "cx": 745.6,
-     "cy": 189.3
+     "cy": 189.3,
+     "w": 93.8
     }
-   ]
+   ],
+   "bold": true
   },
   {
    "id": "n5",
@@ -150,14 +173,17 @@
     {
      "text": "Request Transport",
      "cx": 477.9,
-     "cy": 167.2
+     "cy": 167.2,
+     "w": 130.5
     },
     {
      "text": "Service",
      "cx": 476.4,
-     "cy": 183.4
+     "cy": 183.4,
+     "w": 51.4
     }
-   ]
+   ],
+   "bold": true
   },
   {
    "id": "n6",
@@ -173,14 +199,17 @@
     {
      "text": "Receive Transport",
      "cx": 1062.1,
-     "cy": 165.3
+     "cy": 165.3,
+     "w": 127.9
     },
     {
      "text": "Service Request",
      "cx": 1062.4,
-     "cy": 182.8
+     "cy": 182.8,
+     "w": 114.5
     }
-   ]
+   ],
+   "bold": true
   },
   {
    "id": "n7",
@@ -194,19 +223,23 @@
     {
      "text": "\u00abRejected\u00bb",
      "cx": 743.9,
-     "cy": 272.7
+     "cy": 272.7,
+     "w": 77.3
     },
     {
      "text": "Transport Execution",
      "cx": 742.6,
-     "cy": 291.2
+     "cy": 291.2,
+     "w": 141.3
     },
     {
      "text": "Plan",
      "cx": 745.0,
-     "cy": 306.2
+     "cy": 306.2,
+     "w": 30.2
     }
-   ]
+   ],
+   "bold": true
   },
   {
    "id": "n8",
@@ -222,14 +255,17 @@
     {
      "text": "Reject Transport",
      "cx": 1063.7,
-     "cy": 283.0
+     "cy": 283.0,
+     "w": 116.2
     },
     {
      "text": "Service Request",
      "cx": 1063.7,
-     "cy": 300.8
+     "cy": 300.8,
+     "w": 114.5
     }
-   ]
+   ],
+   "bold": true
   },
   {
    "id": "n9",
@@ -245,19 +281,23 @@
     {
      "text": "Receive Rejected",
      "cx": 476.0,
-     "cy": 280.4
+     "cy": 280.4,
+     "w": 119.7
     },
     {
      "text": "Transport Execution",
      "cx": 479.6,
-     "cy": 298.2
+     "cy": 298.2,
+     "w": 142.6
     },
     {
      "text": "Plan",
      "cx": 482.7,
-     "cy": 314.4
+     "cy": 314.4,
+     "w": 29.4
     }
-   ]
+   ],
+   "bold": true
   },
   {
    "id": "n10",
@@ -299,19 +339,23 @@
     {
      "text": "\u00abConfirmed\u00bb",
      "cx": 745.2,
-     "cy": 389.3
+     "cy": 389.3,
+     "w": 89.4
     },
     {
      "text": "Transport Execution",
      "cx": 742.6,
-     "cy": 409.4
+     "cy": 409.4,
+     "w": 141.3
     },
     {
      "text": "Plan",
      "cx": 745.0,
-     "cy": 424.6
+     "cy": 424.6,
+     "w": 30.2
     }
-   ]
+   ],
+   "bold": true
   },
   {
    "id": "n14",
@@ -327,19 +371,23 @@
     {
      "text": "Receive Proposed",
      "cx": 474.9,
-     "cy": 390.6
+     "cy": 390.6,
+     "w": 126.2
     },
     {
      "text": "Transport Execution",
      "cx": 476.6,
-     "cy": 408.4
+     "cy": 408.4,
+     "w": 142.6
     },
     {
      "text": "Plan",
      "cx": 479.6,
-     "cy": 424.6
+     "cy": 424.6,
+     "w": 29.4
     }
-   ]
+   ],
+   "bold": true
   },
   {
    "id": "n15",
@@ -355,14 +403,17 @@
     {
      "text": "Confirm Transport",
      "cx": 1065.4,
-     "cy": 398.0
+     "cy": 398.0,
+     "w": 129.2
     },
     {
      "text": "Service Request",
      "cx": 1063.7,
-     "cy": 415.7
+     "cy": 415.7,
+     "w": 114.5
     }
-   ]
+   ],
+   "bold": true
   },
   {
    "id": "n16",
@@ -378,14 +429,17 @@
     {
      "text": "EvaluateTransport",
      "cx": 477.7,
-     "cy": 515.7
+     "cy": 515.7,
+     "w": 129.2
     },
     {
      "text": "Execution Plan",
      "cx": 480.1,
-     "cy": 532.2
+     "cy": 532.2,
+     "w": 103.7
     }
-   ]
+   ],
+   "bold": true
   },
   {
    "id": "n17",
@@ -410,19 +464,23 @@
     {
      "text": "Receive Confirmed",
      "cx": 1074.2,
-     "cy": 722.7
+     "cy": 722.7,
+     "w": 132.2
     },
     {
      "text": "Transport Execution",
      "cx": 1076.0,
-     "cy": 741.9
+     "cy": 741.9,
+     "w": 142.6
     },
     {
      "text": "Plan",
      "cx": 1079.0,
-     "cy": 758.1
+     "cy": 758.1,
+     "w": 29.4
     }
-   ]
+   ],
+   "bold": true
   },
   {
    "id": "n19",
@@ -436,19 +494,23 @@
     {
      "text": "\u00abConfirmed\u00bb",
      "cx": 746.7,
-     "cy": 722.5
+     "cy": 722.5,
+     "w": 89.0
     },
     {
      "text": "Transport Execution",
      "cx": 744.1,
-     "cy": 742.6
+     "cy": 742.6,
+     "w": 141.7
     },
     {
      "text": "Plan",
      "cx": 746.3,
-     "cy": 757.5
+     "cy": 757.5,
+     "w": 30.2
     }
-   ]
+   ],
+   "bold": true
   },
   {
    "id": "n20",
@@ -464,14 +526,17 @@
     {
      "text": "Confirm Transport",
      "cx": 477.1,
-     "cy": 730.7
+     "cy": 730.7,
+     "w": 128.8
     },
     {
      "text": "Execution Plan",
      "cx": 476.6,
-     "cy": 747.3
+     "cy": 747.3,
+     "w": 103.7
     }
-   ]
+   ],
+   "bold": true
   },
   {
    "id": "n21",
@@ -504,19 +569,23 @@
     {
      "text": "\u00abRejected\u00bb",
      "cx": 742.4,
-     "cy": 854.7
+     "cy": 854.7,
+     "w": 76.9
     },
     {
      "text": "Transport Execution",
      "cx": 741.1,
-     "cy": 874.0
+     "cy": 874.0,
+     "w": 141.7
     },
     {
      "text": "Plan",
      "cx": 743.2,
-     "cy": 888.6
+     "cy": 888.6,
+     "w": 30.2
     }
-   ]
+   ],
+   "bold": true
   },
   {
    "id": "n24",
@@ -532,19 +601,23 @@
     {
      "text": "Receive Rejected",
      "cx": 1084.4,
-     "cy": 860.3
+     "cy": 860.3,
+     "w": 119.7
     },
     {
      "text": "Transport Execution",
      "cx": 1087.6,
-     "cy": 877.8
+     "cy": 877.8,
+     "w": 142.6
     },
     {
      "text": "Plan",
      "cx": 1090.7,
-     "cy": 894.3
+     "cy": 894.3,
+     "w": 29.4
     }
-   ]
+   ],
+   "bold": true
   },
   {
    "id": "n25",
@@ -560,14 +633,17 @@
     {
      "text": "Reject Transport",
      "cx": 169.4,
-     "cy": 863.8
+     "cy": 863.8,
+     "w": 116.7
     },
     {
      "text": "Execution Plan",
      "cx": 170.5,
-     "cy": 880.0
+     "cy": 880.0,
+     "w": 104.1
     }
-   ]
+   ],
+   "bold": true
   },
   {
    "id": "n26",
@@ -592,22 +668,32 @@
     0.4731,
     0.0
    ],
-   "straight": false,
-   "confidence": "medium"
+   "straight": true,
+   "confidence": "high"
   },
   {
    "from": "n22",
    "to": "n2",
    "exitXY": [
     0.0,
-    0.5
+    0.4897
    ],
    "entryXY": [
     0.0,
-    0.4495
+    0.4455
    ],
    "straight": false,
-   "confidence": "medium",
+   "confidence": "high",
+   "points": [
+    [
+     36.3,
+     757.9
+    ],
+    [
+     36.3,
+     170.3
+    ]
+   ],
    "label": "[yes]"
   },
   {
@@ -621,15 +707,15 @@
     0.0,
     0.4427
    ],
-   "straight": false,
-   "confidence": "medium"
+   "straight": true,
+   "confidence": "high"
   },
   {
    "from": "n2",
    "to": "n5",
    "exitXY": [
     1.0,
-    0.4929
+    0.4889
    ],
    "entryXY": [
     0.0,
@@ -643,11 +729,11 @@
    "to": "n4",
    "exitXY": [
     1.0,
-    0.4968
+    0.4887
    ],
    "entryXY": [
     0.0,
-    0.4977
+    0.4871
    ],
    "straight": true,
    "confidence": "high"
@@ -657,11 +743,11 @@
    "to": "n6",
    "exitXY": [
     1.0,
-    0.507
+    0.5129
    ],
    "entryXY": [
     0.0,
-    0.5032
+    0.5307
    ],
    "straight": true,
    "confidence": "high"
@@ -678,7 +764,8 @@
     1.0
    ],
    "straight": true,
-   "confidence": "LOW"
+   "confidence": "high",
+   "label": "[yes]"
   },
   {
    "from": "n3",
@@ -691,19 +778,19 @@
     0.501,
     0.0
    ],
-   "straight": false,
-   "confidence": "LOW"
+   "straight": true,
+   "confidence": "high"
   },
   {
    "from": "n9",
    "to": "n11",
    "exitXY": [
     0.0,
-    0.5
+    0.5069
    ],
    "entryXY": [
     1.0,
-    0.4959
+    0.4693
    ],
    "straight": true,
    "confidence": "high"
@@ -713,11 +800,11 @@
    "to": "n9",
    "exitXY": [
     0.0,
-    0.4994
+    0.5052
    ],
    "entryXY": [
     1.0,
-    0.5
+    0.5069
    ],
    "straight": true,
    "confidence": "high"
@@ -727,11 +814,11 @@
    "to": "n7",
    "exitXY": [
     0.0,
-    0.5179
+    0.5248
    ],
    "entryXY": [
     1.0,
-    0.4994
+    0.5052
    ],
    "straight": true,
    "confidence": "high"
@@ -745,7 +832,7 @@
    ],
    "entryXY": [
     1.0,
-    0.5
+    0.5179
    ],
    "straight": true,
    "confidence": "high",
@@ -762,9 +849,9 @@
     0.4947,
     0.0
    ],
-   "straight": false,
+   "straight": true,
    "confidence": "high",
-   "label": "no]"
+   "label": "[no]"
   },
   {
    "from": "n10",
@@ -775,10 +862,16 @@
    ],
    "entryXY": [
     1.0,
-    0.4972
+    0.4848
    ],
    "straight": false,
-   "confidence": "medium",
+   "confidence": "high",
+   "points": [
+    [
+     1272.2,
+     407.9
+    ]
+   ],
    "label": "[yes]"
   },
   {
@@ -786,11 +879,11 @@
    "to": "n14",
    "exitXY": [
     0.0,
-    0.4418
+    0.4356
    ],
    "entryXY": [
     1.0,
-    0.4971
+    0.4899
    ],
    "straight": true,
    "confidence": "high"
@@ -800,11 +893,11 @@
    "to": "n13",
    "exitXY": [
     0.0,
-    0.5208
+    0.5332
    ],
    "entryXY": [
     1.0,
-    0.5
+    0.5111
    ],
    "straight": true,
    "confidence": "high"
@@ -842,15 +935,21 @@
    "to": "n22",
    "exitXY": [
     0.0,
-    0.4959
+    0.4877
    ],
    "entryXY": [
-    0.4947,
+    0.4814,
     0.0
    ],
    "straight": false,
-   "confidence": "medium",
-   "label": "Update Transport Execution\nPlan Request?\n> [no]"
+   "confidence": "high",
+   "points": [
+    [
+     168.5,
+     635.2
+    ]
+   ],
+   "label": "[no]"
   },
   {
    "from": "n17",
@@ -864,7 +963,7 @@
     0.0
    ],
    "straight": true,
-   "confidence": "medium",
+   "confidence": "high",
    "label": "[yes]"
   },
   {
@@ -872,11 +971,11 @@
    "to": "n18",
    "exitXY": [
     1.0,
-    0.4711
+    0.4663
    ],
    "entryXY": [
     0.0,
-    0.5
+    0.4791
    ],
    "straight": true,
    "confidence": "high"
@@ -886,11 +985,11 @@
    "to": "n19",
    "exitXY": [
     1.0,
-    0.4969
+    0.4908
    ],
    "entryXY": [
     0.0,
-    0.4964
+    0.4916
    ],
    "straight": true,
    "confidence": "high"
@@ -904,7 +1003,7 @@
    ],
    "entryXY": [
     0.0,
-    0.4911
+    0.4591
    ],
    "straight": true,
    "confidence": "high"
@@ -917,22 +1016,23 @@
     1.0
    ],
    "entryXY": [
-    0.5,
+    0.4968,
     0.0
    ],
    "straight": true,
-   "confidence": "high"
+   "confidence": "high",
+   "label": "[no]"
   },
   {
    "from": "n25",
    "to": "n23",
    "exitXY": [
     1.0,
-    0.4972
+    0.5028
    ],
    "entryXY": [
     0.0,
-    0.4994
+    0.4891
    ],
    "straight": true,
    "confidence": "high"
@@ -942,11 +1042,11 @@
    "to": "n24",
    "exitXY": [
     1.0,
-    0.4994
+    0.504
    ],
    "entryXY": [
     0.0,
-    0.4969
+    0.492
    ],
    "straight": true,
    "confidence": "high"
@@ -968,25 +1068,40 @@
  ],
  "guards": [
   {
-   "text": "\u2014_",
-   "x": 61.8,
-   "y": 171.6,
-   "w": 16.4,
-   "h": 6.9,
+   "text": "Update Transport\nExecution Plan Request?",
+   "x": 185.4,
+   "y": 244.1,
+   "w": 163.8,
+   "h": 32.8,
    "labelLines": [
     {
-     "text": "\u2014_",
-     "cx": 70.0,
-     "cy": 174.1
+     "text": "Update Transport",
+     "cx": 242.2,
+     "cy": 250.8,
+     "w": 113.6
+    },
+    {
+     "text": "Execution Plan Request?",
+     "cx": 267.3,
+     "cy": 270.1,
+     "w": 163.8
     }
    ]
   },
   {
-   "text": "\u201c|\u201d Update Transport\nes) Execution Plan Request?",
+   "text": "[yes]",
    "x": 133.1,
-   "y": 244.1,
-   "w": 216.1,
-   "h": 32.8
+   "y": 256.2,
+   "w": 23.3,
+   "h": 11.2,
+   "labelLines": [
+    {
+     "text": "[yes]",
+     "cx": 144.8,
+     "cy": 261.9,
+     "w": 23.3
+    }
+   ]
   },
   {
    "text": "Transport Execution\nPlan Request\nAcceptable?",
@@ -998,17 +1113,20 @@
     {
      "text": "Transport Execution",
      "cx": 1379.3,
-     "cy": 275.9
+     "cy": 275.9,
+     "w": 130.5
     },
     {
      "text": "Plan Request",
      "cx": 1358.4,
-     "cy": 295.4
+     "cy": 295.4,
+     "w": 87.7
     },
     {
      "text": "Acceptable?",
      "cx": 1353.6,
-     "cy": 314.1
+     "cy": 314.1,
+     "w": 80.8
     }
    ]
   },
@@ -1022,21 +1140,23 @@
     {
      "text": "[no]",
      "cx": 1207.8,
-     "cy": 278.3
+     "cy": 278.3,
+     "w": 20.7
     }
    ]
   },
   {
-   "text": "no]",
-   "x": 190.6,
+   "text": "[no]",
+   "x": 186.2,
    "y": 324.1,
-   "w": 16.9,
+   "w": 21.2,
    "h": 11.2,
    "labelLines": [
     {
-     "text": "no]",
-     "cx": 199.0,
-     "cy": 329.7
+     "text": "[no]",
+     "cx": 196.8,
+     "cy": 329.7,
+     "w": 21.2
     }
    ]
   },
@@ -1050,7 +1170,8 @@
     {
      "text": "[yes]",
      "cx": 1244.5,
-     "cy": 337.1
+     "cy": 337.1,
+     "w": 23.3
     }
    ]
   },
@@ -1064,12 +1185,14 @@
     {
      "text": "Transport Execution Plan",
      "cx": 592.2,
-     "cy": 616.4
+     "cy": 616.4,
+     "w": 164.6
     },
     {
      "text": "Acceptable?",
      "cx": 549.9,
-     "cy": 635.6
+     "cy": 635.6,
+     "w": 80.8
     }
    ]
   },
@@ -1083,7 +1206,8 @@
     {
      "text": "[no]",
      "cx": 442.3,
-     "cy": 654.9
+     "cy": 654.9,
+     "w": 21.2
     }
    ]
   },
@@ -1097,31 +1221,8 @@
     {
      "text": "[yes]",
      "cx": 508.6,
-     "cy": 671.1
-    }
-   ]
-  },
-  {
-   "text": "Update Transport Execution\nPlan Request?\n> [no]",
-   "x": 186.7,
-   "y": 714.7,
-   "w": 181.9,
-   "h": 55.3,
-   "labelLines": [
-    {
-     "text": "Update Transport Execution",
-     "cx": 277.6,
-     "cy": 721.6
-    },
-    {
-     "text": "Plan Request?",
-     "cx": 234.0,
-     "cy": 740.9
-    },
-    {
-     "text": "> [no]",
-     "cx": 199.0,
-     "cy": 761.4
+     "cy": 671.1,
+     "w": 23.3
     }
    ]
   },
@@ -1135,7 +1236,8 @@
     {
      "text": "[yes]",
      "cx": 119.7,
-     "cy": 771.8
+     "cy": 771.8,
+     "w": 23.3
     }
    ]
   },
@@ -1149,12 +1251,50 @@
     {
      "text": "Transport Service Ready",
      "cx": 1324.2,
-     "cy": 775.2
+     "cy": 775.2,
+     "w": 162.9
     },
     {
      "text": "For Execution",
      "cx": 1288.1,
-     "cy": 793.2
+     "cy": 793.2,
+     "w": 89.0
+    }
+   ]
+  },
+  {
+   "text": "[no]",
+   "x": 184.9,
+   "y": 752.7,
+   "w": 28.1,
+   "h": 17.3,
+   "labelLines": [
+    {
+     "text": "[no]",
+     "cx": 198.1,
+     "cy": 760.5,
+     "w": 29.8
+    }
+   ]
+  },
+  {
+   "text": "Update Transport Execution\nPlan Request?",
+   "x": 186.7,
+   "y": 714.7,
+   "w": 181.9,
+   "h": 32.8,
+   "labelLines": [
+    {
+     "text": "Update Transport Execution",
+     "cx": 277.6,
+     "cy": 721.6,
+     "w": 181.9
+    },
+    {
+     "text": "Plan Request?",
+     "cx": 234.0,
+     "cy": 740.9,
+     "w": 94.6
     }
    ]
   }

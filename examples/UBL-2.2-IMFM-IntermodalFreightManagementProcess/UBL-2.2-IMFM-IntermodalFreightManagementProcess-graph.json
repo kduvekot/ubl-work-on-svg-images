@@ -1,10 +1,13 @@
 {
- "source": "ubl/art/UBL-2.2-IMFM-IntermodalFreightManagementProcess.png",
+ "source": "UBL-2.2-IMFM-IntermodalFreightManagementProcess.png",
  "size": [
   3425,
   3221
  ],
  "fontPx": 32.9,
+ "arrowPx": 46.5,
+ "arrowWidthPx": 35.5,
+ "arrowStyle": "open",
  "rules": {
   "v": [
    [
@@ -55,34 +58,112 @@
    ]
   ]
  },
+ "ruleSpan": {
+  "v": [
+   [
+    12,
+    3208
+   ],
+   [
+    12,
+    3208
+   ],
+   [
+    12,
+    3208
+   ],
+   [
+    12,
+    3208
+   ],
+   [
+    12,
+    3208
+   ],
+   [
+    12,
+    3208
+   ]
+  ],
+  "h": [
+   [
+    13,
+    3411
+   ],
+   [
+    13,
+    3411
+   ],
+   [
+    13,
+    3411
+   ],
+   [
+    13,
+    3411
+   ],
+   [
+    13,
+    3411
+   ]
+  ]
+ },
+ "greyRules": [],
+ "dashed": [],
+ "openEnds": [],
+ "crossMarks": [],
  "partitions": [
   {
    "axis": "column",
    "index": 0,
    "x0": 72,
    "x1": 955,
-   "title": "Transport User"
+   "title": "Transport User",
+   "titleBox": [
+    391,
+    21,
+    247,
+    29
+   ]
   },
   {
    "axis": "column",
    "index": 1,
    "x0": 955,
    "x1": 1851,
-   "title": "Transport Service Provider"
+   "title": "Transport Service Provider",
+   "titleBox": [
+    1177,
+    21,
+    458,
+    29
+   ]
   },
   {
    "axis": "column",
    "index": 2,
    "x0": 1851,
    "x1": 2512,
-   "title": "Transport Regulator"
+   "title": "Transport Regulator",
+   "titleBox": [
+    2021,
+    21,
+    327,
+    29
+   ]
   },
   {
    "axis": "column",
    "index": 3,
    "x0": 2512,
    "x1": 3425,
-   "title": "Transportation Network Manager |"
+   "title": "Transportation Network Manager",
+   "titleBox": [
+    2692,
+    13,
+    727,
+    46
+   ]
   },
   {
    "axis": "band",
@@ -103,7 +184,7 @@
    "index": 2,
    "y0": 2750,
    "y1": 3221,
-   "title": "| Completion"
+   "title": "Completion"
   }
  ],
  "nodes": [
@@ -131,6 +212,7 @@
    "rx": 0,
    "ry": 0,
    "shape": "rect",
+   "fold": 34,
    "stroke": 3,
    "kind": "note",
    "id": "n2",
@@ -151,6 +233,8 @@
      "text": "Information"
     }
    ],
+   "stem": 0.091,
+   "bold": false,
    "col": 2,
    "row": 0
   },
@@ -178,6 +262,8 @@
      "text": "Plan Transport Services"
     }
    ],
+   "stem": 0.152,
+   "bold": true,
    "col": 1,
    "row": 0
   },
@@ -226,6 +312,8 @@
      "text": "Information"
     }
    ],
+   "stem": 0.152,
+   "bold": true,
    "col": 3,
    "row": 0
   },
@@ -267,6 +355,8 @@
      "text": "Request"
     }
    ],
+   "stem": 0.152,
+   "bold": true,
    "col": 1,
    "row": 0
   },
@@ -301,6 +391,8 @@
      "text": "Service Demand"
     }
    ],
+   "stem": 0.152,
+   "bold": true,
    "col": 0,
    "row": 0
   },
@@ -335,6 +427,8 @@
      "text": "Services"
     }
    ],
+   "stem": 0.152,
+   "bold": true,
    "col": 1,
    "row": 0
   },
@@ -369,6 +463,8 @@
      "text": "Description"
     }
    ],
+   "stem": 0.152,
+   "bold": true,
    "col": 1,
    "row": 0
   },
@@ -410,6 +506,8 @@
      "text": "Plan Request"
     }
    ],
+   "stem": 0.152,
+   "bold": true,
    "col": 1,
    "row": 0
   },
@@ -444,6 +542,8 @@
      "text": "Management"
     }
    ],
+   "stem": 0.152,
+   "bold": true,
    "col": 0,
    "row": 0
   },
@@ -478,6 +578,8 @@
      "text": "Order Management"
     }
    ],
+   "stem": 0.152,
+   "bold": true,
    "col": 1,
    "row": 0
   },
@@ -492,6 +594,7 @@
    "rx": 0,
    "ry": 0,
    "shape": "rect",
+   "fold": 34,
    "stroke": 4,
    "kind": "note",
    "id": "n12",
@@ -512,6 +615,8 @@
      "text": "Information"
     }
    ],
+   "stem": 0.091,
+   "bold": false,
    "col": 2,
    "row": 0
   },
@@ -546,6 +651,8 @@
      "text": "Execution Plan"
     }
    ],
+   "stem": 0.152,
+   "bold": true,
    "col": 0,
    "row": 0
   },
@@ -580,6 +687,8 @@
      "text": "Itinerary"
     }
    ],
+   "stem": 0.152,
+   "bold": true,
    "col": 1,
    "row": 0
   },
@@ -591,8 +700,8 @@
    "area": 474982,
    "fill": 0.98,
    "solid": 0.993,
-   "rx": 52,
-   "ry": 46,
+   "rx": 46,
+   "ry": 41,
    "shape": "rect",
    "stroke": 3,
    "kind": "action",
@@ -614,6 +723,8 @@
      "text": "Transport Services"
     }
    ],
+   "stem": 0.152,
+   "bold": true,
    "col": 0,
    "row": 1
   },
@@ -625,7 +736,7 @@
    "area": 477109,
    "fill": 0.986,
    "solid": 0.995,
-   "rx": 51,
+   "rx": 45,
    "ry": 43,
    "shape": "rect",
    "stroke": 3,
@@ -648,6 +759,8 @@
      "text": "Transport Services"
     }
    ],
+   "stem": 0.152,
+   "bold": true,
    "col": 1,
    "row": 1
   },
@@ -689,6 +802,8 @@
      "text": "Request"
     }
    ],
+   "stem": 0.152,
+   "bold": true,
    "col": 2,
    "row": 1
   },
@@ -723,6 +838,8 @@
      "text": "Status Request"
     }
    ],
+   "stem": 0.152,
+   "bold": true,
    "col": 1,
    "row": 1
   },
@@ -757,6 +874,8 @@
      "text": "Progress Status"
     }
    ],
+   "stem": 0.152,
+   "bold": true,
    "col": 2,
    "row": 1
   },
@@ -791,6 +910,8 @@
      "text": "Status"
     }
    ],
+   "stem": 0.152,
+   "bold": true,
    "col": 1,
    "row": 1
   },
@@ -825,6 +946,8 @@
      "text": "Execution Plan"
     }
    ],
+   "stem": 0.152,
+   "bold": true,
    "col": 1,
    "row": 1
   },
@@ -839,6 +962,7 @@
    "rx": 0,
    "ry": 0,
    "shape": "rect",
+   "fold": 32,
    "stroke": 4,
    "kind": "note",
    "id": "n22",
@@ -859,6 +983,8 @@
      "text": "Information"
     }
    ],
+   "stem": 0.091,
+   "bold": false,
    "col": 2,
    "row": 1
   },
@@ -893,6 +1019,8 @@
      "text": "Management"
     }
    ],
+   "stem": 0.152,
+   "bold": true,
    "col": 2,
    "row": 1
   },
@@ -927,6 +1055,8 @@
      "text": "Execution Plan"
     }
    ],
+   "stem": 0.152,
+   "bold": true,
    "col": 1,
    "row": 1
   },
@@ -961,6 +1091,8 @@
      "text": "Transport Services"
     }
    ],
+   "stem": 0.152,
+   "bold": true,
    "col": 0,
    "row": 2
   },
@@ -988,6 +1120,8 @@
      "text": "Manage Completion"
     }
    ],
+   "stem": 0.152,
+   "bold": true,
    "col": 1,
    "row": 2
   },
@@ -1015,6 +1149,8 @@
      "text": "Freight Invoice"
     }
    ],
+   "stem": 0.152,
+   "bold": true,
    "col": 1,
    "row": 2
   },
@@ -1027,7 +1163,7 @@
    "fill": 0.59,
    "solid": 0.757,
    "rx": 33,
-   "ry": 32,
+   "ry": 27,
    "shape": "rounded",
    "stroke": 4,
    "kind": "final",
@@ -1040,22 +1176,29 @@
  ],
  "edges": [
   {
-   "from": "n3",
-   "to": "n1",
-   "routing": "orthogonal",
+   "from": "n1",
+   "to": "n3",
+   "routing": "straight",
    "fromPoint": [
-    1440,
-    182
-   ],
-   "toPoint": [
     1437,
     150
+   ],
+   "toPoint": [
+    1440,
+    182
    ],
    "arrowInk": [
     434,
     434
    ],
-   "directionConfidence": "LOW"
+   "directionConfidence": "notation",
+   "arrowPx": [
+    33,
+    36.0,
+    1.66
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "control"
   },
   {
    "from": "n4",
@@ -1063,22 +1206,30 @@
    "routing": "straight",
    "fromPoint": [
     2822,
-    284
+    283
    ],
    "toPoint": [
     1684,
-    279
+    283
    ],
    "arrowInk": [
     138,
     472
    ],
-   "directionConfidence": "high"
+   "directionConfidence": "high",
+   "arrowPx": [
+    42,
+    30.0,
+    2.1
+   ],
+   "arrowSaturated": true,
+   "arrowFill": 0.015,
+   "edgeKind": "control"
   },
   {
    "from": "n3",
    "to": "n7",
-   "routing": "orthogonal",
+   "routing": "straight",
    "fromPoint": [
     1447,
     336
@@ -1091,7 +1242,14 @@
     512,
     526
    ],
-   "directionConfidence": "LOW"
+   "directionConfidence": "high",
+   "arrowPx": [
+    34,
+    38.7,
+    1.65
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "control"
   },
   {
    "from": "n6",
@@ -1103,18 +1261,25 @@
    ],
    "toPoint": [
     763,
-    420
+    422
    ],
    "arrowInk": [
     180,
     526
    ],
-   "directionConfidence": "high"
+   "directionConfidence": "high",
+   "arrowPx": [
+    47,
+    33.9,
+    2.0
+   ],
+   "arrowFill": 0.106,
+   "edgeKind": "object"
   },
   {
    "from": "n5",
    "to": "n7",
-   "routing": "orthogonal",
+   "routing": "straight",
    "fromPoint": [
     1147,
     438
@@ -1127,7 +1292,14 @@
     289,
     448
    ],
-   "directionConfidence": "LOW"
+   "directionConfidence": "high",
+   "arrowPx": [
+    40,
+    36.4,
+    1.49
+   ],
+   "arrowFill": 0.029,
+   "edgeKind": "object"
   },
   {
    "from": "n8",
@@ -1135,22 +1307,29 @@
    "routing": "straight",
    "fromPoint": [
     769,
-    623
+    624
    ],
    "toPoint": [
     624,
-    619
+    621
    ],
    "arrowInk": [
     138,
     473
    ],
-   "directionConfidence": "high"
+   "directionConfidence": "high",
+   "arrowPx": [
+    49,
+    36.5,
+    1.97
+   ],
+   "arrowFill": 0.088,
+   "edgeKind": "object"
   },
   {
    "from": "n7",
    "to": "n8",
-   "routing": "orthogonal",
+   "routing": "straight",
    "fromPoint": [
     1210,
     622
@@ -1163,7 +1342,14 @@
     433,
     487
    ],
-   "directionConfidence": "LOW"
+   "directionConfidence": "high",
+   "arrowPx": [
+    46,
+    35.6,
+    2.68
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "object"
   },
   {
    "from": "n6",
@@ -1181,7 +1367,15 @@
     386,
     480
    ],
-   "directionConfidence": "LOW"
+   "directionConfidence": "high",
+   "arrowPx": [
+    35,
+    37.0,
+    1.74
+   ],
+   "arrowSaturated": true,
+   "arrowFill": 0.0,
+   "edgeKind": "control"
   },
   {
    "from": "n10",
@@ -1193,18 +1387,25 @@
    ],
    "toPoint": [
     763,
-    874
+    876
    ],
    "arrowInk": [
     180,
     525
    ],
-   "directionConfidence": "high"
+   "directionConfidence": "high",
+   "arrowPx": [
+    48,
+    34.3,
+    2.07
+   ],
+   "arrowFill": 0.009,
+   "edgeKind": "object"
   },
   {
    "from": "n9",
    "to": "n11",
-   "routing": "orthogonal",
+   "routing": "straight",
    "fromPoint": [
     1147,
     876
@@ -1217,7 +1418,15 @@
     273,
     488
    ],
-   "directionConfidence": "medium"
+   "directionConfidence": "high",
+   "arrowPx": [
+    41,
+    35.8,
+    1.39
+   ],
+   "arrowSaturated": true,
+   "arrowFill": 0.272,
+   "edgeKind": "object"
   },
   {
    "from": "n4",
@@ -1225,17 +1434,24 @@
    "routing": "straight",
    "fromPoint": [
     2822,
-    1078
+    1077
    ],
    "toPoint": [
     1701,
-    1081
+    1077
    ],
    "arrowInk": [
     184,
     511
    ],
-   "directionConfidence": "high"
+   "directionConfidence": "high",
+   "arrowPx": [
+    51,
+    34.0,
+    2.16
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "control"
   },
   {
    "from": "n13",
@@ -1247,13 +1463,21 @@
    ],
    "toPoint": [
     621,
-    1090
+    1087
    ],
    "arrowInk": [
     138,
     476
    ],
-   "directionConfidence": "high"
+   "directionConfidence": "high",
+   "arrowPx": [
+    43,
+    33.0,
+    1.95
+   ],
+   "arrowSaturated": true,
+   "arrowFill": 0.044,
+   "edgeKind": "object"
   },
   {
    "from": "n11",
@@ -1271,7 +1495,14 @@
     259,
     491
    ],
-   "directionConfidence": "medium"
+   "directionConfidence": "high",
+   "arrowPx": [
+    45,
+    34.4,
+    2.53
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "object"
   },
   {
    "from": "n11",
@@ -1289,7 +1520,14 @@
     360,
     522
    ],
-   "directionConfidence": "LOW"
+   "directionConfidence": "high",
+   "arrowPx": [
+    47,
+    33.1,
+    2.07
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "object"
   },
   {
    "from": "n14",
@@ -1301,13 +1539,20 @@
    ],
    "toPoint": [
     621,
-    1317
+    1320
    ],
    "arrowInk": [
     184,
     512
    ],
-   "directionConfidence": "high"
+   "directionConfidence": "high",
+   "arrowPx": [
+    50,
+    35.0,
+    1.99
+   ],
+   "arrowFill": 0.018,
+   "edgeKind": "object"
   },
   {
    "from": "n11",
@@ -1325,7 +1570,14 @@
     225,
     521
    ],
-   "directionConfidence": "medium"
+   "directionConfidence": "high",
+   "arrowPx": [
+    42,
+    38.0,
+    1.87
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "control"
   },
   {
    "from": "n16",
@@ -1333,7 +1585,7 @@
    "routing": "straight",
    "fromPoint": [
     1701,
-    1727
+    1726
    ],
    "toPoint": [
     2313,
@@ -1343,7 +1595,14 @@
     180,
     524
    ],
-   "directionConfidence": "high"
+   "directionConfidence": "high",
+   "arrowPx": [
+    49,
+    34.0,
+    2.44
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "object"
   },
   {
    "from": "n17",
@@ -1351,17 +1610,24 @@
    "routing": "straight",
    "fromPoint": [
     2697,
-    1726
+    1727
    ],
    "toPoint": [
     2819,
-    1719
+    1723
    ],
    "arrowInk": [
     180,
     503
    ],
-   "directionConfidence": "high"
+   "directionConfidence": "high",
+   "arrowPx": [
+    35,
+    36.0,
+    1.63
+   ],
+   "arrowFill": 0.107,
+   "edgeKind": "object"
   },
   {
    "from": "n15",
@@ -1369,22 +1635,29 @@
    "routing": "straight",
    "fromPoint": [
     628,
-    1749
+    1747
    ],
    "toPoint": [
     755,
-    1751
+    1748
    ],
    "arrowInk": [
     180,
     525
    ],
-   "directionConfidence": "high"
+   "directionConfidence": "high",
+   "arrowPx": [
+    48,
+    33.4,
+    2.18
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "object"
   },
   {
    "from": "n18",
    "to": "n16",
-   "routing": "orthogonal",
+   "routing": "straight",
    "fromPoint": [
     1161,
     1763
@@ -1397,7 +1670,14 @@
     389,
     491
    ],
-   "directionConfidence": "LOW"
+   "directionConfidence": "high",
+   "arrowPx": [
+    39,
+    38.0,
+    1.45
+   ],
+   "arrowFill": 0.077,
+   "edgeKind": "object"
   },
   {
    "from": "n4",
@@ -1409,13 +1689,20 @@
    ],
    "toPoint": [
     2697,
-    1937
+    1936
    ],
    "arrowInk": [
     184,
     520
    ],
-   "directionConfidence": "high"
+   "directionConfidence": "high",
+   "arrowPx": [
+    50,
+    35.9,
+    2.31
+   ],
+   "arrowFill": 0.02,
+   "edgeKind": "object"
   },
   {
    "from": "n19",
@@ -1423,17 +1710,24 @@
    "routing": "straight",
    "fromPoint": [
     2313,
-    1939
+    1940
    ],
    "toPoint": [
     1701,
-    1945
+    1942
    ],
    "arrowInk": [
     184,
     512
    ],
-   "directionConfidence": "high"
+   "directionConfidence": "high",
+   "arrowPx": [
+    50,
+    35.8,
+    2.03
+   ],
+   "arrowFill": 0.04,
+   "edgeKind": "object"
   },
   {
    "from": "n20",
@@ -1441,17 +1735,24 @@
    "routing": "straight",
    "fromPoint": [
     765,
-    2005
+    2004
    ],
    "toPoint": [
     628,
-    2009
+    2006
    ],
    "arrowInk": [
     184,
     511
    ],
-   "directionConfidence": "high"
+   "directionConfidence": "high",
+   "arrowPx": [
+    49,
+    34.9,
+    1.97
+   ],
+   "arrowFill": 0.014,
+   "edgeKind": "object"
   },
   {
    "from": "n16",
@@ -1469,7 +1770,14 @@
     389,
     525
    ],
-   "directionConfidence": "LOW"
+   "directionConfidence": "high",
+   "arrowPx": [
+    45,
+    35.4,
+    2.56
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "object"
   },
   {
    "from": "n15",
@@ -1477,7 +1785,7 @@
    "routing": "straight",
    "fromPoint": [
     628,
-    2242
+    2243
    ],
    "toPoint": [
     773,
@@ -1487,12 +1795,19 @@
     180,
     528
    ],
-   "directionConfidence": "high"
+   "directionConfidence": "high",
+   "arrowPx": [
+    49,
+    34.0,
+    2.22
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "object"
   },
   {
    "from": "n21",
    "to": "n16",
-   "routing": "orthogonal",
+   "routing": "straight",
    "fromPoint": [
     1158,
     2243
@@ -1505,7 +1820,14 @@
     368,
     490
    ],
-   "directionConfidence": "LOW"
+   "directionConfidence": "high",
+   "arrowPx": [
+    41,
+    38.3,
+    1.3
+   ],
+   "arrowFill": 0.087,
+   "edgeKind": "object"
   },
   {
    "from": "n16",
@@ -1513,17 +1835,24 @@
    "routing": "straight",
    "fromPoint": [
     1701,
-    2438
+    2440
    ],
    "toPoint": [
     1988,
-    2438
+    2440
    ],
    "arrowInk": [
     180,
     403
    ],
-   "directionConfidence": "medium"
+   "directionConfidence": "high",
+   "arrowPx": [
+    47,
+    54.0,
+    1.9
+   ],
+   "arrowFill": 0.275,
+   "edgeKind": "control"
   },
   {
    "from": "n24",
@@ -1531,42 +1860,57 @@
    "routing": "straight",
    "fromPoint": [
     776,
-    2494
+    2496
    ],
    "toPoint": [
     628,
-    2490
+    2493
    ],
    "arrowInk": [
     138,
     473
    ],
-   "directionConfidence": "high"
+   "directionConfidence": "high",
+   "arrowPx": [
+    48,
+    34.6,
+    1.91
+   ],
+   "arrowFill": 0.062,
+   "edgeKind": "object"
   },
   {
-   "from": "n24",
-   "to": "n16",
-   "routing": "orthogonal",
+   "from": "n16",
+   "to": "n24",
+   "routing": "straight",
    "fromPoint": [
-    1161,
-    2494
+    1206,
+    2495
    ],
    "toPoint": [
-    1206,
-    2478
+    1161,
+    2495
    ],
    "arrowInk": [
     488,
     536
    ],
-   "directionConfidence": "LOW"
+   "directionConfidence": "checked",
+   "arrowPx": [
+    46,
+    34.0,
+    2.69
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "object",
+   "directionChecked": "confirmed"
   },
   {
    "from": "n16",
    "to": "n26",
    "routing": "straight",
    "fromPoint": [
-    1457,
+    1456,
     2670
    ],
    "toPoint": [
@@ -1577,7 +1921,14 @@
     180,
     484
    ],
-   "directionConfidence": "high"
+   "directionConfidence": "high",
+   "arrowPx": [
+    42,
+    38.0,
+    1.9
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "control"
   },
   {
    "from": "n27",
@@ -1595,12 +1946,20 @@
     138,
     478
    ],
-   "directionConfidence": "high"
+   "directionConfidence": "high",
+   "arrowPx": [
+    42,
+    30.0,
+    2.12
+   ],
+   "arrowSaturated": true,
+   "arrowFill": 0.02,
+   "edgeKind": "object"
   },
   {
    "from": "n26",
    "to": "n27",
-   "routing": "orthogonal",
+   "routing": "straight",
    "fromPoint": [
     1213,
     2938
@@ -1613,7 +1972,14 @@
     401,
     485
    ],
-   "directionConfidence": "LOW"
+   "directionConfidence": "high",
+   "arrowPx": [
+    46,
+    35.5,
+    2.73
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "object"
   },
   {
    "from": "n25",
@@ -1631,7 +1997,14 @@
     180,
     475
    ],
-   "directionConfidence": "high"
+   "directionConfidence": "high",
+   "arrowPx": [
+    41,
+    39.4,
+    1.75
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "control"
   }
  ],
  "text": [
@@ -1698,43 +2071,6 @@
      "text": "Transportation Network Manager"
     }
    ]
-  },
-  {
-   "text": "oy)\n=\n=\n=\nSS\noO.",
-   "x": 19,
-   "y": 730,
-   "w": 32,
-   "h": 127
-  },
-  {
-   "text": "\\/",
-   "x": 360,
-   "y": 747,
-   "w": 38,
-   "h": 33,
-   "lines": [
-    {
-     "x": 360,
-     "y": 743,
-     "w": 38,
-     "h": 41,
-     "text": "\\/"
-    }
-   ]
-  },
-  {
-   "text": "=\n\u00b0)\na\n=)\n\u00a9\n\u00ae\nss\nLU",
-   "x": 19,
-   "y": 2063,
-   "w": 25,
-   "h": 145
-  },
-  {
-   "text": "<\nS)\n=\nx\noe\n\u20ac\n3\nO",
-   "x": 19,
-   "y": 2892,
-   "w": 32,
-   "h": 166
   }
  ],
  "uncertain": [
@@ -1759,7 +2095,7 @@
    "iou": 0.588,
    "border": 0.64,
    "kind": "dropped-region",
-   "reason": "outline matches no UML node shape (best rect 0.59)",
+   "reason": "outline matches no UML node shape (best rect 0.59, and 0.98 is the most this shape can reach at this size)",
    "check": "a shape here would be missing from the SVG"
   },
   {
@@ -1771,7 +2107,7 @@
    "iou": 0.706,
    "border": 0.374,
    "kind": "dropped-region",
-   "reason": "outline matches no UML node shape (best rhombus 0.71)",
+   "reason": "outline matches no UML node shape (best rhombus 0.71, and 0.98 is the most this shape can reach at this size)",
    "check": "a shape here would be missing from the SVG"
   },
   {
@@ -1783,7 +2119,7 @@
    "iou": 0.537,
    "border": 0.645,
    "kind": "dropped-region",
-   "reason": "outline matches no UML node shape (best rect 0.54)",
+   "reason": "outline matches no UML node shape (best rect 0.54, and 0.98 is the most this shape can reach at this size)",
    "check": "a shape here would be missing from the SVG"
   },
   {
@@ -1795,7 +2131,7 @@
    "iou": 0.532,
    "border": 0.666,
    "kind": "dropped-region",
-   "reason": "outline matches no UML node shape (best rect 0.53)",
+   "reason": "outline matches no UML node shape (best rect 0.53, and 0.99 is the most this shape can reach at this size)",
    "check": "a shape here would be missing from the SVG"
   },
   {
@@ -1819,7 +2155,7 @@
    "iou": 0.408,
    "border": 0.572,
    "kind": "dropped-region",
-   "reason": "outline matches no UML node shape (best rect 0.41)",
+   "reason": "outline matches no UML node shape (best rect 0.41, and 0.99 is the most this shape can reach at this size)",
    "check": "a shape here would be missing from the SVG"
   },
   {
@@ -1831,7 +2167,7 @@
    "iou": 0.572,
    "border": 0.67,
    "kind": "dropped-region",
-   "reason": "outline matches no UML node shape (best rect 0.57)",
+   "reason": "outline matches no UML node shape (best rect 0.57, and 0.99 is the most this shape can reach at this size)",
    "check": "a shape here would be missing from the SVG"
   },
   {
@@ -1843,7 +2179,7 @@
    "iou": 0.483,
    "border": 0.628,
    "kind": "dropped-region",
-   "reason": "outline matches no UML node shape (best rect 0.48)",
+   "reason": "outline matches no UML node shape (best rect 0.48, and 0.99 is the most this shape can reach at this size)",
    "check": "a shape here would be missing from the SVG"
   },
   {
@@ -1855,7 +2191,7 @@
    "iou": 0.574,
    "border": 0.691,
    "kind": "dropped-region",
-   "reason": "outline matches no UML node shape (best rect 0.57)",
+   "reason": "outline matches no UML node shape (best rect 0.57, and 0.98 is the most this shape can reach at this size)",
    "check": "a shape here would be missing from the SVG"
   },
   {
@@ -1879,7 +2215,7 @@
    "iou": 0.747,
    "border": 0.797,
    "kind": "dropped-region",
-   "reason": "outline matches no UML node shape (best rect 0.75)",
+   "reason": "outline matches no UML node shape (best rect 0.75, and 0.99 is the most this shape can reach at this size)",
    "check": "a shape here would be missing from the SVG"
   },
   {
@@ -1891,7 +2227,7 @@
    "iou": 0.567,
    "border": 0.593,
    "kind": "dropped-region",
-   "reason": "outline matches no UML node shape (best rect 0.57)",
+   "reason": "outline matches no UML node shape (best rect 0.57, and 0.99 is the most this shape can reach at this size)",
    "check": "a shape here would be missing from the SVG"
   },
   {
@@ -1903,7 +2239,7 @@
    "iou": 0.447,
    "border": 0.614,
    "kind": "dropped-region",
-   "reason": "outline matches no UML node shape (best rect 0.45)",
+   "reason": "outline matches no UML node shape (best rect 0.45, and 0.98 is the most this shape can reach at this size)",
    "check": "a shape here would be missing from the SVG"
   },
   {
@@ -1915,7 +2251,7 @@
    "iou": 0.75,
    "border": 0.908,
    "kind": "dropped-region",
-   "reason": "outline matches no UML node shape (best rect 0.75)",
+   "reason": "outline matches no UML node shape (best rect 0.75, and 0.98 is the most this shape can reach at this size)",
    "check": "a shape here would be missing from the SVG"
   },
   {
@@ -1927,7 +2263,7 @@
    "iou": 0.446,
    "border": 0.603,
    "kind": "dropped-region",
-   "reason": "outline matches no UML node shape (best rect 0.45)",
+   "reason": "outline matches no UML node shape (best rect 0.45, and 0.98 is the most this shape can reach at this size)",
    "check": "a shape here would be missing from the SVG"
   },
   {
@@ -1939,7 +2275,7 @@
    "iou": 0.589,
    "border": 0.711,
    "kind": "dropped-region",
-   "reason": "outline matches no UML node shape (best rect 0.59)",
+   "reason": "outline matches no UML node shape (best rect 0.59, and 0.99 is the most this shape can reach at this size)",
    "check": "a shape here would be missing from the SVG"
   },
   {
@@ -1951,7 +2287,7 @@
    "iou": 0.406,
    "border": 0.519,
    "kind": "dropped-region",
-   "reason": "outline matches no UML node shape (best rect 0.41)",
+   "reason": "outline matches no UML node shape (best rect 0.41, and 0.99 is the most this shape can reach at this size)",
    "check": "a shape here would be missing from the SVG"
   },
   {
@@ -1963,7 +2299,7 @@
    "iou": 0.622,
    "border": 0.741,
    "kind": "dropped-region",
-   "reason": "outline matches no UML node shape (best rect 0.62)",
+   "reason": "outline matches no UML node shape (best rect 0.62, and 0.99 is the most this shape can reach at this size)",
    "check": "a shape here would be missing from the SVG"
   },
   {
@@ -1975,105 +2311,15 @@
    "iou": 0.582,
    "border": 0.684,
    "kind": "dropped-region",
-   "reason": "outline matches no UML node shape (best rect 0.58)",
+   "reason": "outline matches no UML node shape (best rect 0.58, and 0.99 is the most this shape can reach at this size)",
    "check": "a shape here would be missing from the SVG"
   },
   {
    "kind": "edge-direction",
    "reason": "arrowhead ink is ambiguous where several connectors meet",
    "edge": [
-    "n3",
-    "n1"
-   ],
-   "check": "confirm which way this edge points"
-  },
-  {
-   "kind": "edge-direction",
-   "reason": "arrowhead ink is ambiguous where several connectors meet",
-   "edge": [
-    "n3",
-    "n7"
-   ],
-   "check": "confirm which way this edge points"
-  },
-  {
-   "kind": "edge-direction",
-   "reason": "arrowhead ink is ambiguous where several connectors meet",
-   "edge": [
-    "n5",
-    "n7"
-   ],
-   "check": "confirm which way this edge points"
-  },
-  {
-   "kind": "edge-direction",
-   "reason": "arrowhead ink is ambiguous where several connectors meet",
-   "edge": [
-    "n7",
-    "n8"
-   ],
-   "check": "confirm which way this edge points"
-  },
-  {
-   "kind": "edge-direction",
-   "reason": "arrowhead ink is ambiguous where several connectors meet",
-   "edge": [
-    "n6",
-    "n10"
-   ],
-   "check": "confirm which way this edge points"
-  },
-  {
-   "kind": "edge-direction",
-   "reason": "arrowhead ink is ambiguous where several connectors meet",
-   "edge": [
-    "n11",
-    "n14"
-   ],
-   "check": "confirm which way this edge points"
-  },
-  {
-   "kind": "edge-direction",
-   "reason": "arrowhead ink is ambiguous where several connectors meet",
-   "edge": [
-    "n18",
-    "n16"
-   ],
-   "check": "confirm which way this edge points"
-  },
-  {
-   "kind": "edge-direction",
-   "reason": "arrowhead ink is ambiguous where several connectors meet",
-   "edge": [
-    "n16",
-    "n20"
-   ],
-   "check": "confirm which way this edge points"
-  },
-  {
-   "kind": "edge-direction",
-   "reason": "arrowhead ink is ambiguous where several connectors meet",
-   "edge": [
-    "n21",
-    "n16"
-   ],
-   "check": "confirm which way this edge points"
-  },
-  {
-   "kind": "edge-direction",
-   "reason": "arrowhead ink is ambiguous where several connectors meet",
-   "edge": [
-    "n24",
-    "n16"
-   ],
-   "check": "confirm which way this edge points"
-  },
-  {
-   "kind": "edge-direction",
-   "reason": "arrowhead ink is ambiguous where several connectors meet",
-   "edge": [
-    "n26",
-    "n27"
+    "n1",
+    "n3"
    ],
    "check": "confirm which way this edge points"
   }

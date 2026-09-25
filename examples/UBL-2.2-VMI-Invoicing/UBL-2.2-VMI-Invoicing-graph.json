@@ -1,10 +1,13 @@
 {
- "source": "ubl/art/UBL-2.2-VMI-Invoicing.png",
+ "source": "UBL-2.2-VMI-Invoicing.png",
  "size": [
   3425,
   1525
  ],
  "fontPx": 70.7,
+ "arrowPx": 82.5,
+ "arrowWidthPx": 66.7,
+ "arrowStyle": "open",
  "rules": {
   "v": [
    [
@@ -31,6 +34,36 @@
    ]
   ]
  },
+ "ruleSpan": {
+  "v": [
+   [
+    13,
+    1511
+   ],
+   [
+    13,
+    1511
+   ],
+   [
+    13,
+    1511
+   ]
+  ],
+  "h": [
+   [
+    13,
+    3411
+   ],
+   [
+    13,
+    3411
+   ]
+  ]
+ },
+ "greyRules": [],
+ "dashed": [],
+ "openEnds": [],
+ "crossMarks": [],
  "partitions": [
   {
    "axis": "column",
@@ -91,6 +124,7 @@
    "rx": 0,
    "ry": 0,
    "shape": "rect",
+   "keptOnOutline": true,
    "stroke": 12,
    "kind": "object",
    "id": "n2",
@@ -104,6 +138,8 @@
      "text": "Invoice"
     }
    ],
+   "stem": 0.156,
+   "bold": true,
    "col": 0,
    "row": 0
   },
@@ -131,6 +167,8 @@
      "text": "Raise Invoice"
     }
    ],
+   "stem": 0.156,
+   "bold": true,
    "col": 0,
    "row": 0
   },
@@ -158,6 +196,8 @@
      "text": "Receive Invoice"
     }
    ],
+   "stem": 0.156,
+   "bold": true,
    "col": 1,
    "row": 0
   },
@@ -185,9 +225,9 @@
   {
    "from": "n1",
    "to": "n3",
-   "routing": "orthogonal",
+   "routing": "straight",
    "fromPoint": [
-    486,
+    484,
     350
    ],
    "toPoint": [
@@ -198,7 +238,14 @@
     270,
     898
    ],
-   "directionConfidence": "high"
+   "directionConfidence": "high",
+   "arrowPx": [
+    83,
+    66.0,
+    2.44
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "control"
   },
   {
    "from": "n3",
@@ -210,49 +257,70 @@
    ],
    "toPoint": [
     1388,
-    777
+    779
    ],
    "arrowInk": [
     270,
     820
    ],
-   "directionConfidence": "high"
+   "directionConfidence": "high",
+   "arrowPx": [
+    84,
+    65.7,
+    3.08
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "object"
   },
   {
    "from": "n2",
    "to": "n4",
-   "routing": "orthogonal",
+   "routing": "straight",
    "fromPoint": [
     1912,
     778
    ],
    "toPoint": [
     2530,
-    786
+    781
    ],
    "arrowInk": [
     268,
     903
    ],
-   "directionConfidence": "high"
+   "directionConfidence": "high",
+   "arrowPx": [
+    81,
+    67.3,
+    2.33
+   ],
+   "arrowFill": 0.047,
+   "edgeKind": "object"
   },
   {
    "from": "n4",
    "to": "n5",
-   "routing": "orthogonal",
+   "routing": "straight",
    "fromPoint": [
     2941,
     892
    ],
    "toPoint": [
-    2937,
+    2939,
     1335
    ],
    "arrowInk": [
     270,
     902
    ],
-   "directionConfidence": "high"
+   "directionConfidence": "high",
+   "arrowPx": [
+    82,
+    67.4,
+    2.35
+   ],
+   "arrowFill": 0.007,
+   "edgeKind": "control"
   }
  ],
  "text": [

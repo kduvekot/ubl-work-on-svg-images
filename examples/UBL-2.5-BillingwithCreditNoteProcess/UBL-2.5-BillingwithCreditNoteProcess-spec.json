@@ -16,7 +16,13 @@
   "lane": 16.7,
   "guard": 16.7
  },
- "arrow": 30.2,
+ "arrow": 27.8,
+ "arrowWidth": 21.9,
+ "arrowStyle": "open",
+ "dashed": [],
+ "greyRules": [],
+ "crossMarks": [],
+ "openEnds": [],
  "frameBox": [
   2.2,
   2.2,
@@ -24,7 +30,12 @@
   781.3
  ],
  "dividers": [
-  783.4
+  [
+   783.4,
+   1.7,
+   5.6,
+   777.4
+  ]
  ],
  "bands": [],
  "lanes": [
@@ -66,9 +77,11 @@
     {
      "text": "Invoice",
      "cx": 777.8,
-     "cy": 188.8
+     "cy": 188.8,
+     "w": 64.0
     }
-   ]
+   ],
+   "bold": true
   },
   {
    "id": "n3",
@@ -78,15 +91,17 @@
    "y": 167.7,
    "w": 213.9,
    "h": 42.3,
-   "rx": 23.3,
-   "ry": 22.9,
+   "rx": 21.6,
+   "ry": 19.0,
    "labelLines": [
     {
      "text": "Receive Invoice",
      "cx": 243.3,
-     "cy": 188.8
+     "cy": 188.8,
+     "w": 116.7
     }
-   ]
+   ],
+   "bold": true
   },
   {
    "id": "n4",
@@ -102,9 +117,11 @@
     {
      "text": "Raise Invoice",
      "cx": 1052.9,
-     "cy": 193.4
+     "cy": 193.4,
+     "w": 99.0
     }
-   ]
+   ],
+   "bold": true
   },
   {
    "id": "n5",
@@ -118,9 +135,11 @@
     {
      "text": "Credit Note",
      "cx": 775.6,
-     "cy": 342.9
+     "cy": 342.9,
+     "w": 100.3
     }
-   ]
+   ],
+   "bold": true
   },
   {
    "id": "n6",
@@ -129,7 +148,22 @@
    "x": 1255.7,
    "y": 311.1,
    "w": 159.9,
-   "h": 78.2
+   "h": 78.2,
+   "labelLines": [
+    {
+     "text": "Reconcile",
+     "cx": 1334.6,
+     "cy": 339.9,
+     "w": 67.0
+    },
+    {
+     "text": "Charges",
+     "cx": 1329.6,
+     "cy": 361.7,
+     "w": 57.9
+    }
+   ],
+   "bold": false
   },
   {
    "id": "n7",
@@ -145,9 +179,11 @@
     {
      "text": "Receive Credit Note",
      "cx": 519.8,
-     "cy": 342.9
+     "cy": 342.9,
+     "w": 146.9
     }
-   ]
+   ],
+   "bold": true
   },
   {
    "id": "n8",
@@ -157,15 +193,17 @@
    "y": 328.0,
    "w": 212.6,
    "h": 44.1,
-   "rx": 25.5,
-   "ry": 23.3,
+   "rx": 21.6,
+   "ry": 20.7,
    "labelLines": [
     {
      "text": "Raise Credit Note",
      "cx": 1011.4,
-     "cy": 349.4
+     "cy": 349.4,
+     "w": 129.2
     }
-   ]
+   ],
+   "bold": true
   },
   {
    "id": "n9",
@@ -183,16 +221,46 @@
    "x": 1272.2,
    "y": 513.8,
    "w": 128.8,
-   "h": 99.8
+   "h": 99.8,
+   "labelLines": [
+    {
+     "text": "Validate",
+     "cx": 1330.9,
+     "cy": 552.0,
+     "w": 56.2
+    },
+    {
+     "text": "Response",
+     "cx": 1338.5,
+     "cy": 574.1,
+     "w": 68.7
+    }
+   ],
+   "bold": false
   },
   {
    "id": "n11",
    "kind": "decision",
-   "label": "Reconcil\nCharges",
+   "label": "Reconcile\nCharges",
    "x": 145.6,
    "y": 514.2,
    "w": 127.5,
-   "h": 99.4
+   "h": 99.4,
+   "labelLines": [
+    {
+     "text": "Reconcile",
+     "cx": 212.8,
+     "cy": 556.8,
+     "w": 67.0
+    },
+    {
+     "text": "Charges",
+     "cx": 207.6,
+     "cy": 578.6,
+     "w": 58.3
+    }
+   ],
+   "bold": false
   },
   {
    "id": "n12",
@@ -206,14 +274,17 @@
     {
      "text": "Invoice Status",
      "cx": 791.6,
-     "cy": 551.2
+     "cy": 551.2,
+     "w": 119.3
     },
     {
      "text": "Response",
      "cx": 791.9,
-     "cy": 573.9
+     "cy": 573.9,
+     "w": 83.4
     }
-   ]
+   ],
+   "bold": true
   },
   {
    "id": "n13",
@@ -229,9 +300,11 @@
     {
      "text": "Receive Account Response",
      "cx": 1042.7,
-     "cy": 567.6
+     "cy": 567.6,
+     "w": 204.8
     }
-   ]
+   ],
+   "bold": true
   },
   {
    "id": "n14",
@@ -241,15 +314,17 @@
    "y": 541.9,
    "w": 213.9,
    "h": 44.1,
-   "rx": 23.8,
-   "ry": 24.2,
+   "rx": 21.6,
+   "ry": 20.7,
    "labelLines": [
     {
      "text": "Send Account Response",
      "cx": 517.5,
-     "cy": 564.3
+     "cy": 564.3,
+     "w": 184.5
     }
-   ]
+   ],
+   "bold": true
   },
   {
    "id": "n15",
@@ -287,7 +362,7 @@
    "from": "n1",
    "to": "n6",
    "exitXY": [
-    0.4939,
+    0.5158,
     1.0
    ],
    "entryXY": [
@@ -302,11 +377,11 @@
    "to": "n3",
    "exitXY": [
     0.0,
-    0.4785
+    0.472
    ],
    "entryXY": [
     1.0,
-    0.4988
+    0.5414
    ],
    "straight": true,
    "confidence": "high"
@@ -326,25 +401,25 @@
    "confidence": "high"
   },
   {
-   "from": "n4",
-   "to": "n6",
+   "from": "n6",
+   "to": "n4",
    "exitXY": [
-    1.0,
-    0.4571
-   ],
-   "entryXY": [
     0.4653,
     0.0
    ],
+   "entryXY": [
+    1.0,
+    0.4232
+   ],
    "straight": true,
-   "confidence": "LOW",
-   "label": "[over\ncharged"
+   "confidence": "high",
+   "label": "[initial charges or under charged]"
   },
   {
    "from": "n3",
    "to": "n11",
    "exitXY": [
-    0.3254,
+    0.323,
     1.0
    ],
    "entryXY": [
@@ -358,16 +433,30 @@
    "from": "n9",
    "to": "n4",
    "exitXY": [
-    0.6316,
+    0.6349,
     0.0
    ],
    "entryXY": [
     0.6885,
     1.0
    ],
-   "straight": false,
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n6",
+   "to": "n8",
+   "exitXY": [
+    0.0,
+    0.4974
+   ],
+   "entryXY": [
+    1.0,
+    0.4989
+   ],
+   "straight": true,
    "confidence": "high",
-   "label": "[incorrect information]"
+   "label": "[over charged]"
   },
   {
    "from": "n5",
@@ -409,7 +498,7 @@
     0.0
    ],
    "straight": true,
-   "confidence": "high"
+   "confidence": "notation"
   },
   {
    "from": "n9",
@@ -423,13 +512,13 @@
     1.0
    ],
    "straight": true,
-   "confidence": "medium"
+   "confidence": "high"
   },
   {
    "from": "n10",
    "to": "n6",
    "exitXY": [
-    0.4992,
+    0.493,
     0.0
    ],
    "entryXY": [
@@ -438,7 +527,22 @@
    ],
    "straight": true,
    "confidence": "high",
-   "label": "[incorrect\ncharges]"
+   "label": "[incorrect charges]"
+  },
+  {
+   "from": "n10",
+   "to": "n9",
+   "exitXY": [
+    0.0,
+    0.4549
+   ],
+   "entryXY": [
+    0.4144,
+    1.0
+   ],
+   "straight": true,
+   "confidence": "high",
+   "label": "[incorrect information]"
   },
   {
    "from": "n14",
@@ -459,11 +563,11 @@
    "to": "n14",
    "exitXY": [
     1.0,
-    0.5
+    0.496
    ],
    "entryXY": [
     0.0,
-    0.4989
+    0.4898
    ],
    "straight": true,
    "confidence": "high"
@@ -479,7 +583,7 @@
     0.0,
     0.4982
    ],
-   "straight": false,
+   "straight": true,
    "confidence": "high"
   },
   {
@@ -487,7 +591,7 @@
    "to": "n10",
    "exitXY": [
     1.0,
-    0.4751
+    0.468
    ],
    "entryXY": [
     0.0,
@@ -505,11 +609,11 @@
    ],
    "entryXY": [
     1.0,
-    0.4933
+    0.4765
    ],
    "straight": true,
    "confidence": "high",
-   "label": "[accept\ncredit]"
+   "label": "[accept credit]"
   },
   {
    "from": "n11",
@@ -519,7 +623,7 @@
     1.0
    ],
    "entryXY": [
-    0.4865,
+    0.4715,
     0.0
    ],
    "straight": true,
@@ -530,16 +634,16 @@
    "from": "n10",
    "to": "n16",
    "exitXY": [
-    0.4992,
+    0.4891,
     1.0
    ],
    "entryXY": [
-    0.4803,
+    0.4261,
     0.0
    ],
-   "straight": false,
+   "straight": true,
    "confidence": "high",
-   "label": "[no action\nrequired]"
+   "label": "[no action required]"
   }
  ],
  "guards": [
@@ -553,41 +657,47 @@
     {
      "text": "[initial",
      "cx": 1208.2,
-     "cy": 122.7
+     "cy": 122.7,
+     "w": 38.0
     },
     {
      "text": "charges or",
      "cx": 1225.7,
-     "cy": 143.2
+     "cy": 143.2,
+     "w": 73.9
     },
     {
      "text": "under",
      "cx": 1208.6,
-     "cy": 162.3
+     "cy": 162.3,
+     "w": 38.9
     },
     {
      "text": "charged]",
      "cx": 1218.4,
-     "cy": 184.1
+     "cy": 184.1,
+     "w": 59.2
     }
    ]
   },
   {
-   "text": "[over\ncharged",
+   "text": "[over\ncharged]",
    "x": 1196.5,
    "y": 310.7,
-   "w": 54.0,
+   "w": 59.6,
    "h": 34.6,
    "labelLines": [
     {
      "text": "[over",
      "cx": 1213.8,
-     "cy": 317.8
+     "cy": 317.8,
+     "w": 33.7
     },
     {
-     "text": "charged",
-     "cx": 1224.0,
-     "cy": 338.1
+     "text": "charged]",
+     "cx": 1226.3,
+     "cy": 338.1,
+     "w": 59.6
     }
    ]
   },
@@ -601,21 +711,31 @@
     {
      "text": "[incorrect",
      "cx": 1375.2,
-     "cy": 457.6
+     "cy": 457.6,
+     "w": 63.5
     },
     {
      "text": "charges]",
      "cx": 1372.4,
-     "cy": 478.1
+     "cy": 478.1,
+     "w": 58.8
     }
    ]
   },
   {
    "text": "[incorrect information]",
    "x": 1155.9,
-   "y": 473.6,
+   "y": 499.1,
    "w": 149.5,
-   "h": 39.8
+   "h": 14.3,
+   "labelLines": [
+    {
+     "text": "[incorrect information]",
+     "cx": 1230.7,
+     "cy": 506.2,
+     "w": 149.5
+    }
+   ]
   },
   {
    "text": "[accept\ncredit]",
@@ -627,12 +747,14 @@
     {
      "text": "[accept",
      "cx": 88.8,
-     "cy": 589.6
+     "cy": 589.6,
+     "w": 49.7
     },
     {
      "text": "credit]",
      "cx": 84.3,
-     "cy": 610.1
+     "cy": 610.1,
+     "w": 41.5
     }
    ]
   },
@@ -646,12 +768,14 @@
     {
      "text": "[no action",
      "cx": 1373.1,
-     "cy": 644.9
+     "cy": 644.9,
+     "w": 66.1
     },
     {
      "text": "required]",
      "cx": 1370.0,
-     "cy": 665.2
+     "cy": 665.2,
+     "w": 60.1
     }
    ]
   },
@@ -665,7 +789,8 @@
     {
      "text": "[accept charges]",
      "cx": 279.6,
-     "cy": 676.3
+     "cy": 676.3,
+     "w": 113.2
     }
    ]
   }

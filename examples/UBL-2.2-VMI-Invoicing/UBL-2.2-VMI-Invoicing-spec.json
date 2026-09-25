@@ -16,7 +16,13 @@
   "lane": 30.6,
   "guard": 30.6
  },
- "arrow": 30.2,
+ "arrow": 44.6,
+ "arrowWidth": 36.0,
+ "arrowStyle": "open",
+ "dashed": [],
+ "greyRules": [],
+ "crossMarks": [],
+ "openEnds": [],
  "frameBox": [
   2.2,
   2.2,
@@ -24,7 +30,12 @@
   656.8
  ],
  "dividers": [
-  714.7
+  [
+   714.7,
+   2.6,
+   5.6,
+   652.9
+  ]
  ],
  "bands": [],
  "lanes": [
@@ -66,9 +77,11 @@
     {
      "text": "Invoice",
      "cx": 716.7,
-     "cy": 332.9
+     "cy": 332.9,
+     "w": 113.6
     }
-   ]
+   ],
+   "bold": true
   },
   {
    "id": "n3",
@@ -84,9 +97,11 @@
     {
      "text": "Raise Invoice",
      "cx": 208.5,
-     "cy": 335.5
+     "cy": 335.5,
+     "w": 210.4
     }
-   ]
+   ],
+   "bold": true
   },
   {
    "id": "n4",
@@ -102,9 +117,11 @@
     {
      "text": "Receive Invoice",
      "cx": 1272.4,
-     "cy": 338.1
+     "cy": 338.1,
+     "w": 247.6
     }
-   ]
+   ],
+   "bold": true
   },
   {
    "id": "n5",
@@ -122,14 +139,14 @@
    "from": "n1",
    "to": "n3",
    "exitXY": [
-    0.4913,
+    0.474,
     1.0
    ],
    "entryXY": [
     0.5,
     0.0
    ],
-   "straight": false,
+   "straight": true,
    "confidence": "high"
   },
   {
@@ -141,7 +158,7 @@
    ],
    "entryXY": [
     0.0,
-    0.5006
+    0.5095
    ],
    "straight": true,
    "confidence": "high"
@@ -155,9 +172,9 @@
    ],
    "entryXY": [
     0.0,
-    0.4994
+    0.4738
    ],
-   "straight": false,
+   "straight": true,
    "confidence": "high"
   },
   {
@@ -168,10 +185,10 @@
     1.0
    ],
    "entryXY": [
-    0.4949,
+    0.5132,
     0.0
    ],
-   "straight": false,
+   "straight": true,
    "confidence": "high"
   }
  ],

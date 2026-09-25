@@ -379,6 +379,13 @@ and both cost a later session real time:
 
 **If you change the extractor, regenerate the examples in the same commit.**
 
+That rule had lapsed: the examples were last written at `80f72c4` and 41 commits
+to the extractor, spec and builder followed before anyone noticed. They are now
+copied from the saved baseline, `baselines/2026-09-25/diagrams/`, so each file in
+`examples/` is byte-identical to its namesake there. The two `-diff-r40.png`
+images went with the refresh, since that radius is void (§6) and nothing
+produces them any more.
+
 ---
 
 ## 10. Open items

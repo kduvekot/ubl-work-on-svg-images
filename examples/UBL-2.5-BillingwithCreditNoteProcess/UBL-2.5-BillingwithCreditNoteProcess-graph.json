@@ -1,10 +1,13 @@
 {
- "source": "ubl/art/UBL-2.5-BillingwithCreditNoteProcess.png",
+ "source": "UBL-2.5-BillingwithCreditNoteProcess.png",
  "size": [
   3425,
   1813
  ],
  "fontPx": 38.6,
+ "arrowPx": 51.5,
+ "arrowWidthPx": 40.6,
+ "arrowStyle": "open",
  "rules": {
   "v": [
    [
@@ -31,6 +34,36 @@
    ]
   ]
  },
+ "ruleSpan": {
+  "v": [
+   [
+    13,
+    1799
+   ],
+   [
+    13,
+    1799
+   ],
+   [
+    13,
+    1799
+   ]
+  ],
+  "h": [
+   [
+    13,
+    3411
+   ],
+   [
+    13,
+    3411
+   ]
+  ]
+ },
+ "greyRules": [],
+ "dashed": [],
+ "openEnds": [],
+ "crossMarks": [],
  "partitions": [
   {
    "axis": "column",
@@ -104,6 +137,8 @@
      "text": "Invoice"
     }
    ],
+   "stem": 0.155,
+   "bold": true,
    "col": 0,
    "row": 0
   },
@@ -115,8 +150,8 @@
    "area": 41006,
    "fill": 0.888,
    "solid": 0.953,
-   "rx": 52,
-   "ry": 51,
+   "rx": 48.0,
+   "ry": 42,
    "shape": "rounded",
    "stroke": 4,
    "kind": "action",
@@ -131,6 +166,8 @@
      "text": "Receive Invoice"
     }
    ],
+   "stem": 0.13,
+   "bold": true,
    "col": 0,
    "row": 0
   },
@@ -158,6 +195,8 @@
      "text": "Raise Invoice"
     }
    ],
+   "stem": 0.13,
+   "bold": true,
    "col": 1,
    "row": 0
   },
@@ -185,6 +224,8 @@
      "text": "Credit Note"
     }
    ],
+   "stem": 0.155,
+   "bold": true,
    "col": 0,
    "row": 0
   },
@@ -197,13 +238,30 @@
    "fill": 0.457,
    "solid": 0.503,
    "rx": 194,
-   "ry": 97,
+   "ry": 96,
    "shape": "rhombus",
-   "stroke": 60,
+   "stroke": 5,
    "kind": "decision",
    "id": "n6",
    "label": "Reconcile\nCharges",
-   "labelLines": [],
+   "labelLines": [
+    {
+     "x": 3011,
+     "y": 773,
+     "w": 155,
+     "h": 27,
+     "text": "Reconcile"
+    },
+    {
+     "x": 3010,
+     "y": 820,
+     "w": 134,
+     "h": 34,
+     "text": "Charges"
+    }
+   ],
+   "stem": 0.104,
+   "bold": false,
    "col": 1,
    "row": 0
   },
@@ -231,6 +289,8 @@
      "text": "Receive Credit Note"
     }
    ],
+   "stem": 0.13,
+   "bold": true,
    "col": 0,
    "row": 0
   },
@@ -242,8 +302,8 @@
    "area": 42006,
    "fill": 0.878,
    "solid": 0.951,
-   "rx": 57,
-   "ry": 52,
+   "rx": 48.0,
+   "ry": 46.0,
    "shape": "rounded",
    "stroke": 4,
    "kind": "action",
@@ -258,6 +318,8 @@
      "text": "Raise Credit Note"
     }
    ],
+   "stem": 0.13,
+   "bold": true,
    "col": 1,
    "row": 0
   },
@@ -269,6 +331,9 @@
    "area": 4599,
    "fill": 0.893,
    "kind": "fork",
+   "band": 23,
+   "box": 25,
+   "lumps": 1,
    "id": "n9",
    "label": "",
    "col": 1,
@@ -282,14 +347,31 @@
    "area": 30237,
    "fill": 0.453,
    "solid": 0.502,
-   "rx": 157,
-   "ry": 125,
+   "rx": 155,
+   "ry": 124,
    "shape": "rhombus",
-   "stroke": 60,
+   "stroke": 4,
    "kind": "decision",
    "id": "n10",
    "label": "Validate\nResponse",
-   "labelLines": [],
+   "labelLines": [
+    {
+     "x": 3015,
+     "y": 1264,
+     "w": 130,
+     "h": 27,
+     "text": "Validate"
+    },
+    {
+     "x": 3018,
+     "y": 1312,
+     "w": 159,
+     "h": 33,
+     "text": "Response"
+    }
+   ],
+   "stem": 0.104,
+   "bold": false,
    "col": 1,
    "row": 0
   },
@@ -304,11 +386,28 @@
    "rx": 156,
    "ry": 123,
    "shape": "rhombus",
-   "stroke": 60,
+   "stroke": 4,
    "kind": "decision",
    "id": "n11",
-   "label": "Reconcil\nCharges",
-   "labelLines": [],
+   "label": "Reconcile\nCharges",
+   "labelLines": [
+    {
+     "x": 415,
+     "y": 1275,
+     "w": 155,
+     "h": 27,
+     "text": "Reconcile"
+    },
+    {
+     "x": 413,
+     "y": 1322,
+     "w": 135,
+     "h": 34,
+     "text": "Charges"
+    }
+   ],
+   "stem": 0.078,
+   "bold": false,
    "col": 0,
    "row": 0
   },
@@ -343,6 +442,8 @@
      "text": "Response"
     }
    ],
+   "stem": 0.155,
+   "bold": true,
    "col": 1,
    "row": 0
   },
@@ -370,6 +471,8 @@
      "text": "Receive Account Response"
     }
    ],
+   "stem": 0.13,
+   "bold": true,
    "col": 1,
    "row": 0
   },
@@ -381,8 +484,8 @@
    "area": 40949,
    "fill": 0.851,
    "solid": 0.953,
-   "rx": 53,
-   "ry": 54,
+   "rx": 48.0,
+   "ry": 46.0,
    "shape": "rounded",
    "stroke": 4,
    "kind": "action",
@@ -397,6 +500,8 @@
      "text": "Send Account Response"
     }
    ],
+   "stem": 0.13,
+   "bold": true,
    "col": 0,
    "row": 0
   },
@@ -464,7 +569,7 @@
    "to": "n6",
    "routing": "straight",
    "fromPoint": [
-    3089,
+    3091,
     190
    ],
    "toPoint": [
@@ -475,7 +580,14 @@
     225,
     783
    ],
-   "directionConfidence": "high"
+   "directionConfidence": "high",
+   "arrowPx": [
+    43,
+    40.0,
+    2.06
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "control"
   },
   {
    "from": "n2",
@@ -483,17 +595,24 @@
    "routing": "straight",
    "fromPoint": [
     1624,
-    444
+    443
    ],
    "toPoint": [
     831,
-    437
+    441
    ],
    "arrowInk": [
     184,
     593
    ],
-   "directionConfidence": "high"
+   "directionConfidence": "high",
+   "arrowPx": [
+    53,
+    41.8,
+    2.17
+   ],
+   "arrowFill": 0.013,
+   "edgeKind": "object"
   },
   {
    "from": "n4",
@@ -511,33 +630,47 @@
     184,
     571
    ],
-   "directionConfidence": "high"
+   "directionConfidence": "high",
+   "arrowPx": [
+    53,
+    40.7,
+    2.5
+   ],
+   "arrowFill": 0.036,
+   "edgeKind": "object"
   },
   {
-   "from": "n4",
-   "to": "n6",
+   "from": "n6",
+   "to": "n4",
    "routing": "diagonal",
    "fromPoint": [
-    2699,
-    449
-   ],
-   "toPoint": [
     3078,
     707
+   ],
+   "toPoint": [
+    2702,
+    445
    ],
    "arrowInk": [
     642,
     856
    ],
-   "directionConfidence": "LOW",
-   "guard": "[over\ncharged"
+   "directionConfidence": "high",
+   "arrowPx": [
+    61,
+    99.7,
+    3.14
+   ],
+   "arrowFill": 0.169,
+   "guard": "[initial charges or under charged]",
+   "edgeKind": "control"
   },
   {
    "from": "n3",
    "to": "n11",
    "routing": "straight",
    "fromPoint": [
-    485,
+    484,
     498
    ],
    "toPoint": [
@@ -548,15 +681,22 @@
     180,
     945
    ],
-   "directionConfidence": "high"
+   "directionConfidence": "high",
+   "arrowPx": [
+    41,
+    68.0,
+    1.81
+   ],
+   "arrowFill": 0.185,
+   "edgeKind": "control"
   },
   {
    "from": "n9",
    "to": "n4",
-   "routing": "orthogonal",
+   "routing": "diagonal",
    "fromPoint": [
-    2842,
-    1044
+    2843,
+    1043
    ],
    "toPoint": [
     2534,
@@ -567,7 +707,40 @@
     623
    ],
    "directionConfidence": "high",
-   "guard": "[incorrect information]"
+   "arrowPx": [
+    79,
+    35.6,
+    0.43
+   ],
+   "arrowSaturated": true,
+   "arrowFill": 0.016,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n6",
+   "to": "n8",
+   "routing": "straight",
+   "fromPoint": [
+    2893,
+    810
+   ],
+   "toPoint": [
+    2601,
+    810
+   ],
+   "arrowInk": [
+    591,
+    616
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    54,
+    40.0,
+    2.23
+   ],
+   "arrowFill": 0.0,
+   "guard": "[over charged]",
+   "edgeKind": "control"
   },
   {
    "from": "n5",
@@ -585,7 +758,14 @@
     184,
     579
    ],
-   "directionConfidence": "high"
+   "directionConfidence": "high",
+   "arrowPx": [
+    52,
+    40.4,
+    2.07
+   ],
+   "arrowFill": 0.017,
+   "edgeKind": "object"
   },
   {
    "from": "n8",
@@ -603,7 +783,14 @@
     230,
     595
    ],
-   "directionConfidence": "high"
+   "directionConfidence": "high",
+   "arrowPx": [
+    54,
+    40.8,
+    2.39
+   ],
+   "arrowFill": 0.007,
+   "edgeKind": "object"
   },
   {
    "from": "n7",
@@ -618,10 +805,16 @@
     1177
    ],
    "arrowInk": [
-    232,
-    1057
+    1057,
+    232
    ],
-   "directionConfidence": "high"
+   "directionConfidence": "notation",
+   "arrowPx": [
+    65,
+    8.5,
+    0.94
+   ],
+   "edgeKind": "control"
   },
   {
    "from": "n9",
@@ -639,14 +832,21 @@
     222,
     426
    ],
-   "directionConfidence": "medium"
+   "directionConfidence": "high",
+   "arrowPx": [
+    98,
+    99.2,
+    2.31
+   ],
+   "arrowFill": 0.055,
+   "edgeKind": "control"
   },
   {
    "from": "n10",
    "to": "n6",
    "routing": "straight",
    "fromPoint": [
-    3093,
+    3091,
     1176
    ],
    "toPoint": [
@@ -658,7 +858,41 @@
     597
    ],
    "directionConfidence": "high",
-   "guard": "[incorrect\ncharges]"
+   "arrowPx": [
+    51,
+    40.0,
+    2.03
+   ],
+   "arrowFill": 0.0,
+   "guard": "[incorrect charges]",
+   "edgeKind": "control"
+  },
+  {
+   "from": "n10",
+   "to": "n9",
+   "routing": "diagonal",
+   "fromPoint": [
+    2931,
+    1294
+   ],
+   "toPoint": [
+    2782,
+    1097
+   ],
+   "arrowInk": [
+    592,
+    824
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    139,
+    100.0,
+    2.26
+   ],
+   "arrowSaturated": true,
+   "arrowFill": 0.132,
+   "guard": "[incorrect information]",
+   "edgeKind": "control"
   },
   {
    "from": "n14",
@@ -676,7 +910,14 @@
     180,
     608
    ],
-   "directionConfidence": "high"
+   "directionConfidence": "high",
+   "arrowPx": [
+    51,
+    40.5,
+    2.27
+   ],
+   "arrowFill": 0.014,
+   "edgeKind": "object"
   },
   {
    "from": "n11",
@@ -684,22 +925,29 @@
    "routing": "straight",
    "fromPoint": [
     644,
-    1305
+    1304
    ],
    "toPoint": [
     941,
-    1305
+    1304
    ],
    "arrowInk": [
     180,
     568
    ],
-   "directionConfidence": "high"
+   "directionConfidence": "high",
+   "arrowPx": [
+    50,
+    42.0,
+    1.96
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "control"
   },
   {
    "from": "n12",
    "to": "n13",
-   "routing": "orthogonal",
+   "routing": "diagonal",
    "fromPoint": [
     2031,
     1300
@@ -712,7 +960,15 @@
     183,
     580
    ],
-   "directionConfidence": "high"
+   "directionConfidence": "high",
+   "arrowPx": [
+    50,
+    40.0,
+    1.51
+   ],
+   "arrowSaturated": true,
+   "arrowFill": 0.089,
+   "edgeKind": "object"
   },
   {
    "from": "n13",
@@ -720,7 +976,7 @@
    "routing": "straight",
    "fromPoint": [
     2721,
-    1306
+    1305
    ],
    "toPoint": [
     2931,
@@ -730,7 +986,14 @@
     180,
     768
    ],
-   "directionConfidence": "high"
+   "directionConfidence": "high",
+   "arrowPx": [
+    43,
+    41.6,
+    2.08
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "control"
   },
   {
    "from": "n11",
@@ -742,14 +1005,21 @@
    ],
    "toPoint": [
     128,
-    1310
+    1309
    ],
    "arrowInk": [
     185,
     621
    ],
    "directionConfidence": "high",
-   "guard": "[accept\ncredit]"
+   "arrowPx": [
+    53,
+    99.8,
+    4.61
+   ],
+   "arrowFill": 0.259,
+   "guard": "[accept credit]",
+   "edgeKind": "control"
   },
   {
    "from": "n11",
@@ -760,7 +1030,7 @@
     1432
    ],
    "toPoint": [
-    485,
+    484,
     1663
    ],
    "arrowInk": [
@@ -768,18 +1038,25 @@
     555
    ],
    "directionConfidence": "high",
-   "guard": "[accept charges]"
+   "arrowPx": [
+    50,
+    40.0,
+    1.99
+   ],
+   "arrowFill": 0.0,
+   "guard": "[accept charges]",
+   "edgeKind": "control"
   },
   {
    "from": "n10",
    "to": "n16",
-   "routing": "orthogonal",
+   "routing": "straight",
    "fromPoint": [
-    3093,
+    3090,
     1432
    ],
    "toPoint": [
-    3097,
+    3092,
     1638
    ],
    "arrowInk": [
@@ -787,7 +1064,14 @@
     612
    ],
    "directionConfidence": "high",
-   "guard": "[no action\nrequired]"
+   "arrowPx": [
+    50,
+    41.3,
+    1.91
+   ],
+   "arrowFill": 0.0,
+   "guard": "[no action required]",
+   "edgeKind": "control"
   }
  ],
  "text": [
@@ -859,13 +1143,13 @@
      "text": "charged]"
     }
    ],
-   "attachedTo": "n4->n6"
+   "attachedTo": "n6->n4"
   },
   {
-   "text": "[over\ncharged",
+   "text": "[over\ncharged]",
    "x": 2769,
    "y": 719,
-   "w": 125,
+   "w": 138,
    "h": 80,
    "lines": [
     {
@@ -878,12 +1162,12 @@
     {
      "x": 2769,
      "y": 766,
-     "w": 127,
+     "w": 138,
      "h": 33,
-     "text": "charged"
+     "text": "charged]"
     }
    ],
-   "attachedTo": "n4->n6"
+   "attachedTo": "n6->n8"
   },
   {
    "text": "[incorrect\ncharges]",
@@ -912,10 +1196,19 @@
   {
    "text": "[incorrect information]",
    "x": 2675,
-   "y": 1096,
+   "y": 1155,
    "w": 346,
-   "h": 92,
-   "attachedTo": "n9->n4"
+   "h": 33,
+   "lines": [
+    {
+     "x": 2675,
+     "y": 1155,
+     "w": 346,
+     "h": 33,
+     "text": "[incorrect information]"
+    }
+   ],
+   "attachedTo": "n10->n9"
   },
   {
    "text": "[accept\ncredit]",
@@ -993,26 +1286,35 @@
    "iou": 0.538,
    "border": 0.382,
    "kind": "dropped-region",
-   "reason": "outline matches no UML node shape (best rhombus 0.54)",
+   "reason": "outline matches no UML node shape (best rhombus 0.54, and 0.98 is the most this shape can reach at this size)",
    "check": "a shape here would be missing from the SVG"
   },
   {
    "kind": "unexplained-line-work",
-   "x": 2853,
-   "y": 1193,
-   "w": 79,
-   "h": 102,
+   "x": 2565,
+   "y": 540,
+   "w": 153,
+   "h": 290,
+   "reason": "ink left over where several connectors cross, claimed by none of them",
+   "check": "decide what this is; the SVG does not draw it"
+  },
+  {
+   "kind": "unexplained-line-work",
+   "x": 2770,
+   "y": 315,
+   "w": 15,
+   "h": 120,
    "reason": "line-work that is neither a connector between two nodes nor the size of text",
    "check": "decide what this is; the SVG does not draw it"
   },
   {
-   "kind": "edge-direction",
-   "reason": "arrowhead ink is ambiguous where several connectors meet",
-   "edge": [
-    "n4",
-    "n6"
-   ],
-   "check": "confirm which way this edge points"
+   "kind": "unexplained-line-work",
+   "x": 3158,
+   "y": 1049,
+   "w": 74,
+   "h": 85,
+   "reason": "line-work that is neither a connector between two nodes nor the size of text",
+   "check": "decide what this is; the SVG does not draw it"
   }
  ]
 }
