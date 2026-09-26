@@ -223,8 +223,11 @@ each case:
 | baseline comparison, first time | 70 s |
 | baseline comparison, renders reused | 41 s |
 
-What is left of the 102 s is mostly the verifier's whole-page image filters, the
-Java start of each `VisualDiff`, and writing the review images.
+What is left of the 102 s is mostly the verifier's whole-page image filters and
+reading and writing the large PNGs. Starting Java is not among it (0.05 s);
+`VisualDiff` now reads and writes its pixel arrays directly rather than a pixel
+at a time, byte-identical over all 78 in both modes and about a fifth faster, but
+that took a sweep only from 102 s to 101 s.
 
 ## 7. Data that is not derived from the PNGs
 

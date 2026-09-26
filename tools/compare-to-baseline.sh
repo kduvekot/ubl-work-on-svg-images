@@ -155,7 +155,7 @@ LIST=${4:-$HERE/uml78-bycomplexity.txt}
 JOBS=${JOBS:-$(nproc 2>/dev/null || echo 4)}
 export NODE_PATH="${NODE_PATH:+$NODE_PATH:}$(npm root -g 2>/dev/null)"
 mkdir -p "$OUT"; OUT=$(cd "$OUT" && pwd)
-[ -f "$HERE/VisualDiff.class" ] || javac -d "$HERE" "$HERE/VisualDiff.java"
+[ "$HERE/VisualDiff.class" -nt "$HERE/VisualDiff.java" ] || javac -d "$HERE" "$HERE/VisualDiff.java"
 
 names=()
 while read -r n; do [ -n "$n" ] && names+=("$n"); done < "$LIST"

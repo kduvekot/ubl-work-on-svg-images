@@ -16,6 +16,7 @@
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.awt.image.DataBufferInt;
 import java.io.File;
 
 public class VisualDiff {
@@ -31,14 +32,17 @@ public class VisualDiff {
         return binarize(n, W, H);
     }
 
+    /** `n` is always a TYPE_INT_RGB image made here, so its pixels are read from
+     *  the raster's own int array: the same values getRGB returns, without a method
+     *  call and a colour-model lookup per pixel, which was most of this tool's time */
     static boolean[] binarize(BufferedImage n, int W, int H) {
+        int[] px = ((DataBufferInt) n.getRaster().getDataBuffer()).getData();
         boolean[] b = new boolean[W * H];
-        for (int y = 0; y < H; y++)
-            for (int x = 0; x < W; x++) {
-                int rgb = n.getRGB(x, y);
-                int lum = (((rgb >> 16) & 255) * 299 + ((rgb >> 8) & 255) * 587 + (rgb & 255) * 114) / 1000;
-                b[y * W + x] = lum < 128;
-            }
+        for (int i = 0; i < W * H; i++) {
+            int rgb = px[i];
+            int lum = (((rgb >> 16) & 255) * 299 + ((rgb >> 8) & 255) * 587 + (rgb & 255) * 114) / 1000;
+            b[i] = lum < 128;
+        }
         return b;
     }
 
@@ -255,6 +259,7 @@ public class VisualDiff {
         int[] sa = sat(ia, W, H), sb = sat(ib, W, H);
 
         BufferedImage out = new BufferedImage(W, H, BufferedImage.TYPE_INT_RGB);
+        int[] outPx = ((DataBufferInt) out.getRaster().getDataBuffer()).getData();
         int inkA = 0, inkB = 0, missing = 0, extra = 0;
         for (int y = 0; y < H; y++)
             for (int x = 0; x < W; x++) {
@@ -265,7 +270,7 @@ public class VisualDiff {
                 if (pa && !near(sb, W, H, x, y, radius))      { rgb = 0xD40000; missing++; }
                 else if (pb && !near(sa, W, H, x, y, radius)) { rgb = 0x0060D0; extra++; }
                 else if (ghost && (pa || pb))                  rgb = 0xEDEDED;
-                out.setRGB(x, y, rgb);
+                outPx[y * W + x] = rgb;          // the raster itself, as setRGB would
             }
         ImageIO.write(out, "png", new File(a[2]));
 

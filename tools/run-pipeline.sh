@@ -14,7 +14,7 @@ set -e
 here="$(cd "$(dirname "$0")" && pwd)"
 art="$1"; out="$2"; shift 2
 mkdir -p "$out"
-[ -f "$here/VisualDiff.class" ] || javac -d "$here" "$here/VisualDiff.java"
+[ "$here/VisualDiff.class" -nt "$here/VisualDiff.java" ] || javac -d "$here" "$here/VisualDiff.java"
 # playwright drives the headless render; a global install is fine
 export NODE_PATH="${NODE_PATH:+$NODE_PATH:}$(npm root -g 2>/dev/null)"
 

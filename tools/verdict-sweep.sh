@@ -80,7 +80,7 @@ RADIUS=${4:-3}
 JOBS=${JOBS:-$(nproc 2>/dev/null || echo 4)}
 
 mkdir -p "$OUT"
-[ -f "$HERE/VisualDiff.class" ] || javac -d "$HERE" "$HERE/VisualDiff.java"
+[ "$HERE/VisualDiff.class" -nt "$HERE/VisualDiff.java" ] || javac -d "$HERE" "$HERE/VisualDiff.java"
 
 names=()
 while read -r n; do [ -n "$n" ] && names+=("$n"); done < "$LIST"

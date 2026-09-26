@@ -23,7 +23,7 @@ HERE=$(cd "$(dirname "$0")" && pwd)
 # RENDER FAILED.
 export NODE_PATH="${NODE_PATH:+$NODE_PATH:}$(npm root -g 2>/dev/null)"
 mkdir -p "$OUT"
-[ -f "$HERE/VisualDiff.class" ] || javac -d "$HERE" "$HERE/VisualDiff.java"
+[ "$HERE/VisualDiff.class" -nt "$HERE/VisualDiff.java" ] || javac -d "$HERE" "$HERE/VisualDiff.java"
 
 pass=0; fail=0; skip=0
 printf '%-52s %10s %10s  %s\n' FIGURE MISSING EXTRA RESULT
