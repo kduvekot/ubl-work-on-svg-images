@@ -488,7 +488,7 @@
     }
    ]
   },
-  "object-transport-execution-plan-in-transport-user": {
+  "object-transport-execution-plan-between-transport-user-and-transport-service-provider": {
    "x": 770,
    "y": 1000,
    "w": 357,
@@ -711,7 +711,7 @@
     }
    ]
   },
-  "object-transport-execution-plan-in-transport-service-provider": {
+  "object-transport-execution-plan-between-transport-user-and-transport-service-provider-2": {
    "x": 788,
    "y": 2158,
    "w": 356,
@@ -793,7 +793,7 @@
     }
    ]
   },
-  "object-transport-execution-plan-in-transport-service-provider-2": {
+  "object-transport-execution-plan-between-transport-user-and-transport-service-provider-3": {
    "x": 791,
    "y": 2409,
    "w": 356,
@@ -1021,7 +1021,7 @@
    ],
    "routing": "straight"
   },
-  "flow-transport-execution-plan-in-transport-user-to-perform-booking-management": {
+  "flow-transport-execution-plan-between-transport-user-and-transport-service-provider-to-perform-booking-management": {
    "fromPoint": [
     755,
     1085
@@ -1032,7 +1032,7 @@
    ],
    "routing": "straight"
   },
-  "flow-perform-order-management-to-transport-execution-plan-in-transport-user": {
+  "flow-perform-order-management-to-transport-execution-plan-between-transport-user-and-transport-service-provider": {
    "fromPoint": [
     1217,
     1087
@@ -1164,7 +1164,7 @@
    ],
    "routing": "straight"
   },
-  "flow-monitor-and-control-transport-services-to-transport-execution-plan-in-transport-service-provider": {
+  "flow-monitor-and-control-transport-services-to-transport-execution-plan-between-transport-user-and-transport-service-provider-2": {
    "fromPoint": [
     628,
     2243
@@ -1175,7 +1175,7 @@
    ],
    "routing": "straight"
   },
-  "flow-transport-execution-plan-in-transport-service-provider-to-execute-transport-services": {
+  "flow-transport-execution-plan-between-transport-user-and-transport-service-provider-2-to-execute-transport-services": {
    "fromPoint": [
     1158,
     2243
@@ -1197,7 +1197,7 @@
    ],
    "routing": "straight"
   },
-  "flow-transport-execution-plan-in-transport-service-provider-2-to-monitor-and-control-transport-services": {
+  "flow-transport-execution-plan-between-transport-user-and-transport-service-provider-3-to-monitor-and-control-transport-services": {
    "fromPoint": [
     776,
     2496
@@ -1208,7 +1208,7 @@
    ],
    "routing": "straight"
   },
-  "flow-execute-transport-services-to-transport-execution-plan-in-transport-service-provider-2": {
+  "flow-execute-transport-services-to-transport-execution-plan-between-transport-user-and-transport-service-provider-3": {
    "fromPoint": [
     1206,
     2495

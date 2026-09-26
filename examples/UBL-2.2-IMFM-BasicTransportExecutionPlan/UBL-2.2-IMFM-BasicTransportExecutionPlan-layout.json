@@ -248,7 +248,7 @@
     }
    ]
   },
-  "object-rejected-transport-execution-plan-in-transport-user": {
+  "object-rejected-transport-execution-plan-between-transport-user-and-transport-service-provider": {
    "x": 1541,
    "y": 586,
    "w": 356,
@@ -374,7 +374,7 @@
    "ry": 37,
    "innerRatio": 0.426
   },
-  "object-confirmed-transport-execution-plan-in-transport-user": {
+  "object-confirmed-transport-execution-plan-between-transport-user-and-transport-service-provider": {
    "x": 1541,
    "y": 860,
    "w": 356,
@@ -540,7 +540,7 @@
     }
    ]
   },
-  "object-confirmed-transport-execution-plan-in-transport-service-provider": {
+  "object-confirmed-transport-execution-plan-between-transport-user-and-transport-service-provider-2": {
    "x": 1545,
    "y": 1625,
    "w": 355,
@@ -622,7 +622,7 @@
    "rx": 46,
    "ry": 59
   },
-  "object-rejected-transport-execution-plan-in-transport-user-2": {
+  "object-rejected-transport-execution-plan-between-transport-user-and-transport-service-provider-2": {
    "x": 1538,
    "y": 1930,
    "w": 355,
@@ -839,7 +839,7 @@
    ],
    "routing": "straight"
   },
-  "flow-rejected-transport-execution-plan-in-transport-user-to-receive-rejected-transport-execution-in-transport-user": {
+  "flow-rejected-transport-execution-plan-between-transport-user-and-transport-service-provider-to-receive-rejected-transport-execution-in-transport-user": {
    "fromPoint": [
     1526,
     684
@@ -850,7 +850,7 @@
    ],
    "routing": "straight"
   },
-  "flow-reject-transport-service-request-to-rejected-transport-execution-plan-in-transport-user": {
+  "flow-reject-transport-service-request-to-rejected-transport-execution-plan-between-transport-user-and-transport-service-provider": {
    "fromPoint": [
     2271,
     684
@@ -900,7 +900,7 @@
     ]
    ]
   },
-  "flow-confirmed-transport-execution-plan-in-transport-user-to-receive-proposed-transport-execution": {
+  "flow-confirmed-transport-execution-plan-between-transport-user-and-transport-service-provider-to-receive-proposed-transport-execution": {
    "fromPoint": [
     1526,
     938
@@ -911,7 +911,7 @@
    ],
    "routing": "straight"
   },
-  "flow-confirm-transport-service-request-to-confirmed-transport-execution-plan-in-transport-user": {
+  "flow-confirm-transport-service-request-to-confirmed-transport-execution-plan-between-transport-user-and-transport-service-provider": {
    "fromPoint": [
     2267,
     952
@@ -972,7 +972,7 @@
    ],
    "routing": "straight"
   },
-  "flow-confirmed-transport-execution-plan-in-transport-service-provider-to-receive-confirmed-transport-execution": {
+  "flow-confirmed-transport-execution-plan-between-transport-user-and-transport-service-provider-2-to-receive-confirmed-transport-execution": {
    "fromPoint": [
     1914,
     1711
@@ -983,7 +983,7 @@
    ],
    "routing": "straight"
   },
-  "flow-confirm-transport-execution-plan-to-confirmed-transport-execution-plan-in-transport-service-provider": {
+  "flow-confirm-transport-execution-plan-to-confirmed-transport-execution-plan-between-transport-user-and-transport-service-provider-2": {
    "fromPoint": [
     1310,
     1716
@@ -1016,7 +1016,7 @@
    ],
    "routing": "straight"
   },
-  "flow-reject-transport-execution-plan-to-rejected-transport-execution-plan-in-transport-user-2": {
+  "flow-reject-transport-execution-plan-to-rejected-transport-execution-plan-between-transport-user-and-transport-service-provider-2": {
    "fromPoint": [
     592,
     2024
@@ -1027,7 +1027,7 @@
    ],
    "routing": "straight"
   },
-  "flow-rejected-transport-execution-plan-in-transport-user-2-to-receive-rejected-transport-execution-in-transport-service-provider": {
+  "flow-rejected-transport-execution-plan-between-transport-user-and-transport-service-provider-2-to-receive-rejected-transport-execution-in-transport-service-provider": {
    "fromPoint": [
     1907,
     2028

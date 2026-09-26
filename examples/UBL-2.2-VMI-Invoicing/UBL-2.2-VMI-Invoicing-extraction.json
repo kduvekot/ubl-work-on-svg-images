@@ -155,6 +155,9 @@
   "text",
   "uncertain"
  ],
+ "documentLanes": {
+  "object-invoice": "lane-producer"
+ },
  "formerIds": {
   "lane-producer": "lane0",
   "lane-retailer": "lane1",

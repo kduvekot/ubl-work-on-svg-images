@@ -205,8 +205,14 @@ def names(model, layout):
             want.append((n, "%s-%s" % (n["kind"], ln[len("lane-"):]) if ln else n["kind"]))
     # the same label in different lanes: say which lane before resorting to numbers
     seen = Counter(w for _, w in want)
-    want = [(n, w if seen[w] == 1 or not n.get("lane") or not slug(n.get("label"))
-             else "%s-in-%s" % (w, lane_name[n["lane"]][len("lane-"):]))
+    def where(n):
+        if n.get("lane"):
+            return "in-" + lane_name[n["lane"]][len("lane-"):]
+        if n.get("between"):
+            return "between-" + "-and-".join(lane_name[x][len("lane-"):] for x in n["between"])
+        return None
+    want = [(n, w if seen[w] == 1 or not slug(n.get("label")) or not where(n)
+             else "%s-%s" % (w, where(n)))
             for n, w in want]
     for el, v in _unique(want, at).items():
         new[el] = v
@@ -260,6 +266,11 @@ def _rename(model, layout, report, rename):
         layout[sec] = {r(k): v for k, v in layout[sec].items()}
     for sec in ("nodes", "flows", "offPage", "marks", "phases"):
         report[sec] = {r(k): v for k, v in report[sec].items()}
+    if "documentLanes" in report:
+        report["documentLanes"] = {r(k): r(v) for k, v in report["documentLanes"].items()}
+    for n in model["nodes"]:
+        if "between" in n:
+            n["between"] = [r(x) for x in n["between"]]
     if "unresolvedAttachments" in report:
         report["unresolvedAttachments"] = {r(k): v for k, v in report["unresolvedAttachments"].items()}
     for f in report["findings"]:
@@ -316,7 +327,7 @@ def apply_corrections(model, layout, report, name, recorded=None):
     rn = lambda v: named.get(v, v)
 
     def el(sec, ref, cid):
-        i = gid.get(ref)
+        i = gid.get(ref, ref if ref.startswith("corr-") else None)
         for x in model[sec]:
             if x["id"] == i:
                 return x
@@ -393,6 +404,26 @@ def apply_corrections(model, layout, report, name, recorded=None):
                                  "own; move that first" % (name, cid, c["lane"]))
             l["title"], l["titleShown"], l["titleSource"] = c["title"], False, c["source"]
             touched.add(l["id"])
+        elif op == "split-lane":
+            # a column the reading took as one, divided at `at` (a rule it read
+            # but did not take for a divider); the new column is to the right
+            l = el("lanes", c["lane"], cid)
+            ll = layout["lanes"][l["id"]]
+            at = c["at"]
+            if not ll["x0"] < at < ll["x1"]:
+                raise ValueError("%s: correction %s splits %s at %s, outside it" % (name, cid, c["lane"], at))
+            for x in model["lanes"]:
+                if x["axis"] == "column" and x["index"] > l["index"]:
+                    x["index"] += 1
+            r = dict(id="corr-%s" % cid, axis="column", index=l["index"] + 1, title="")
+            model["lanes"].insert(model["lanes"].index(l) + 1, r)
+            layout["lanes"][r["id"]] = {"x0": at, "x1": ll["x1"]}
+            ll["x1"] = at
+            for n in model["nodes"]:
+                g = layout["nodes"][n["id"]]
+                if n.get("lane") == l["id"] and g["x"] + g["w"] / 2.0 > at:
+                    n["lane"] = r["id"]
+            touched |= {l["id"], r["id"]}
         elif op == "continues":
             o = el("offPage", c["offPage"], cid)
             o["continues"] = c["figure"]
@@ -403,6 +434,35 @@ def apply_corrections(model, layout, report, name, recorded=None):
         if touched & ({f.get("flow"), f.get("lane")} | set(f.get("texts", []))):
             f["resolvedBy"] = [c["id"] for c in todo]
     report["corrections"] = [c["id"] for c in todo]
+
+
+def place_documents(model, layout, report):
+    """A document drawn across the line between two columns stands between them.
+
+    UBL draws every document (object node) on the divider between the two parties
+    that exchange it - all 228 in the 78 diagrams - and the reading assigned each
+    to whichever column its centre fell in, sometimes by a pixel: on Fig 12
+    Retail Event came out the Buyer's and Product Activity, drawn the same way on
+    the same line, the Seller's. Decided with the TC (q4b): such a document has no
+    lane of its own; it is `between` the two columns either side of the line.
+    Who hands it over and who receives it are its flows, which already name them.
+
+    The lane it was given is kept in the report, so the split joins back."""
+    cols = sorted((l for l in model["lanes"] if l["axis"] == "column"), key=lambda l: l["index"])
+    bounds = [(a, b, layout["lanes"][a["id"]]["x1"]) for a, b in zip(cols, cols[1:])
+              if layout["lanes"][a["id"]].get("x1") == layout["lanes"][b["id"]].get("x0")]
+    moved = {}
+    for n in model["nodes"]:
+        if n["kind"] != "object":
+            continue
+        g = layout["nodes"][n["id"]]
+        across = [(a, b) for a, b, x in bounds if g["x"] < x < g["x"] + g["w"]]
+        if len(across) == 1:
+            a, b = across[0]
+            moved[n["id"]] = n.get("lane")
+            n["lane"] = None
+            n["between"] = [a["id"], b["id"]]
+    report["documentLanes"] = moved
 
 
 def split(g, name):
@@ -578,6 +638,7 @@ def split(g, name):
         report["unmapped"] = extra
     report["present"] = [k for k in g]          # the graph's own key order
     apply_corrections(model, layout, report, name)
+    place_documents(model, layout, report)
     assign_ids(model, layout, report)
     return model, layout, report
 
@@ -592,6 +653,11 @@ def join(model, layout, report):
         model, layout = report["uncorrected"]["model"], report["uncorrected"]["layout"]
     elif "formerIds" in report:
         _rename(model, layout, report, report.pop("formerIds"))
+        back = report.get("documentLanes", {})
+        for n in model["nodes"]:
+            if n["id"] in back:
+                n["lane"] = back[n["id"]]
+                n.pop("between", None)
     lanes = {l["id"]: l for l in model["lanes"]}
     g = {}
     g["source"] = model["figure"]["source"]
@@ -727,6 +793,8 @@ def validate(diagram_path):
     for n in m["nodes"]:
         ref("node %s's lane" % n["id"], n.get("lane"), "lanes")
         ref("node %s's band" % n["id"], n.get("band"), "lanes")
+        for x in n.get("between", []):
+            ref("node %s's between" % n["id"], x, "lanes")
     for f in m["flows"]:
         ref("flow %s's source" % f["id"], f["from"], "nodes")
         ref("flow %s's target" % f["id"], f["to"], "nodes")

@@ -129,6 +129,7 @@
    "cy": 1290.1
   }
  ],
+ "captions": [],
  "nodes": [
   {
    "id": "initial-transport-service-provider",
@@ -436,7 +437,7 @@
    "bold": false
   },
   {
-   "id": "object-transport-execution-plan-in-transport-user",
+   "id": "object-transport-execution-plan-between-transport-user-and-transport-service-provider",
    "kind": "object",
    "label": "Transport\nExecution Plan",
    "x": 331.2,
@@ -638,7 +639,7 @@
    "bold": true
   },
   {
-   "id": "object-transport-execution-plan-in-transport-service-provider",
+   "id": "object-transport-execution-plan-between-transport-user-and-transport-service-provider-2",
    "kind": "object",
    "label": "Transport\nExecution Plan",
    "x": 339.0,
@@ -713,7 +714,7 @@
    "bold": true
   },
   {
-   "id": "object-transport-execution-plan-in-transport-service-provider-2",
+   "id": "object-transport-execution-plan-between-transport-user-and-transport-service-provider-3",
    "kind": "object",
    "label": "Transport\nExecution Plan",
    "x": 340.3,
@@ -978,8 +979,8 @@
    "confidence": "high"
   },
   {
-   "id": "flow-transport-execution-plan-in-transport-user-to-perform-booking-management",
-   "from": "object-transport-execution-plan-in-transport-user",
+   "id": "flow-transport-execution-plan-between-transport-user-and-transport-service-provider-to-perform-booking-management",
+   "from": "object-transport-execution-plan-between-transport-user-and-transport-service-provider",
    "to": "action-perform-booking-management",
    "exitXY": [
     0.0,
@@ -993,9 +994,9 @@
    "confidence": "high"
   },
   {
-   "id": "flow-perform-order-management-to-transport-execution-plan-in-transport-user",
+   "id": "flow-perform-order-management-to-transport-execution-plan-between-transport-user-and-transport-service-provider",
    "from": "action-perform-order-management",
-   "to": "object-transport-execution-plan-in-transport-user",
+   "to": "object-transport-execution-plan-between-transport-user-and-transport-service-provider",
    "exitXY": [
     0.0,
     0.456
@@ -1173,9 +1174,9 @@
    "confidence": "high"
   },
   {
-   "id": "flow-monitor-and-control-transport-services-to-transport-execution-plan-in-transport-service-provider",
+   "id": "flow-monitor-and-control-transport-services-to-transport-execution-plan-between-transport-user-and-transport-service-provider-2",
    "from": "action-monitor-and-control-transport-services",
-   "to": "object-transport-execution-plan-in-transport-service-provider",
+   "to": "object-transport-execution-plan-between-transport-user-and-transport-service-provider-2",
    "exitXY": [
     1.0,
     0.6109
@@ -1188,8 +1189,8 @@
    "confidence": "high"
   },
   {
-   "id": "flow-transport-execution-plan-in-transport-service-provider-to-execute-transport-services",
-   "from": "object-transport-execution-plan-in-transport-service-provider",
+   "id": "flow-transport-execution-plan-between-transport-user-and-transport-service-provider-2-to-execute-transport-services",
+   "from": "object-transport-execution-plan-between-transport-user-and-transport-service-provider-2",
    "to": "action-execute-transport-services",
    "exitXY": [
     1.0,
@@ -1218,8 +1219,8 @@
    "confidence": "high"
   },
   {
-   "id": "flow-transport-execution-plan-in-transport-service-provider-2-to-monitor-and-control-transport-services",
-   "from": "object-transport-execution-plan-in-transport-service-provider-2",
+   "id": "flow-transport-execution-plan-between-transport-user-and-transport-service-provider-3-to-monitor-and-control-transport-services",
+   "from": "object-transport-execution-plan-between-transport-user-and-transport-service-provider-3",
    "to": "action-monitor-and-control-transport-services",
    "exitXY": [
     0.0,
@@ -1233,9 +1234,9 @@
    "confidence": "high"
   },
   {
-   "id": "flow-execute-transport-services-to-transport-execution-plan-in-transport-service-provider-2",
+   "id": "flow-execute-transport-services-to-transport-execution-plan-between-transport-user-and-transport-service-provider-3",
    "from": "action-execute-transport-services",
-   "to": "object-transport-execution-plan-in-transport-service-provider-2",
+   "to": "object-transport-execution-plan-between-transport-user-and-transport-service-provider-3",
    "exitXY": [
     0.0,
     0.8471

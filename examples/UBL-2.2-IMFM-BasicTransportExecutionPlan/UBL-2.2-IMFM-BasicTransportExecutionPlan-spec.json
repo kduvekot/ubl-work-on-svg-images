@@ -57,6 +57,7 @@
   }
  ],
  "bandLabels": [],
+ "captions": [],
  "nodes": [
   {
    "id": "initial-transport-user",
@@ -214,7 +215,7 @@
    "bold": true
   },
   {
-   "id": "object-rejected-transport-execution-plan-in-transport-user",
+   "id": "object-rejected-transport-execution-plan-between-transport-user-and-transport-service-provider",
    "kind": "object",
    "label": "\u00abRejected\u00bb\nTransport Execution\nPlan",
    "x": 664.4,
@@ -330,7 +331,7 @@
    "innerRatio": 0.426
   },
   {
-   "id": "object-confirmed-transport-execution-plan-in-transport-user",
+   "id": "object-confirmed-transport-execution-plan-between-transport-user-and-transport-service-provider",
    "kind": "object",
    "label": "\u00abConfirmed\u00bb\nTransport Execution\nPlan",
    "x": 664.4,
@@ -485,7 +486,7 @@
    "bold": true
   },
   {
-   "id": "object-confirmed-transport-execution-plan-in-transport-service-provider",
+   "id": "object-confirmed-transport-execution-plan-between-transport-user-and-transport-service-provider-2",
    "kind": "object",
    "label": "\u00abConfirmed\u00bb\nTransport Execution\nPlan",
    "x": 666.1,
@@ -560,7 +561,7 @@
    "h": 48.4
   },
   {
-   "id": "object-rejected-transport-execution-plan-in-transport-user-2",
+   "id": "object-rejected-transport-execution-plan-between-transport-user-and-transport-service-provider-2",
    "kind": "object",
    "label": "\u00abRejected\u00bb\nTransport Execution\nPlan",
    "x": 663.1,
@@ -807,8 +808,8 @@
    "confidence": "high"
   },
   {
-   "id": "flow-rejected-transport-execution-plan-in-transport-user-to-receive-rejected-transport-execution-in-transport-user",
-   "from": "object-rejected-transport-execution-plan-in-transport-user",
+   "id": "flow-rejected-transport-execution-plan-between-transport-user-and-transport-service-provider-to-receive-rejected-transport-execution-in-transport-user",
+   "from": "object-rejected-transport-execution-plan-between-transport-user-and-transport-service-provider",
    "to": "action-receive-rejected-transport-execution-in-transport-user",
    "exitXY": [
     0.0,
@@ -822,9 +823,9 @@
    "confidence": "high"
   },
   {
-   "id": "flow-reject-transport-service-request-to-rejected-transport-execution-plan-in-transport-user",
+   "id": "flow-reject-transport-service-request-to-rejected-transport-execution-plan-between-transport-user-and-transport-service-provider",
    "from": "action-reject-transport-service-request",
-   "to": "object-rejected-transport-execution-plan-in-transport-user",
+   "to": "object-rejected-transport-execution-plan-between-transport-user-and-transport-service-provider",
    "exitXY": [
     0.0,
     0.5248
@@ -891,8 +892,8 @@
    "label": "[yes]"
   },
   {
-   "id": "flow-confirmed-transport-execution-plan-in-transport-user-to-receive-proposed-transport-execution",
-   "from": "object-confirmed-transport-execution-plan-in-transport-user",
+   "id": "flow-confirmed-transport-execution-plan-between-transport-user-and-transport-service-provider-to-receive-proposed-transport-execution",
+   "from": "object-confirmed-transport-execution-plan-between-transport-user-and-transport-service-provider",
    "to": "action-receive-proposed-transport-execution",
    "exitXY": [
     0.0,
@@ -906,9 +907,9 @@
    "confidence": "high"
   },
   {
-   "id": "flow-confirm-transport-service-request-to-confirmed-transport-execution-plan-in-transport-user",
+   "id": "flow-confirm-transport-service-request-to-confirmed-transport-execution-plan-between-transport-user-and-transport-service-provider",
    "from": "action-confirm-transport-service-request",
-   "to": "object-confirmed-transport-execution-plan-in-transport-user",
+   "to": "object-confirmed-transport-execution-plan-between-transport-user-and-transport-service-provider",
    "exitXY": [
     0.0,
     0.5332
@@ -989,8 +990,8 @@
    "label": "[yes]"
   },
   {
-   "id": "flow-confirmed-transport-execution-plan-in-transport-service-provider-to-receive-confirmed-transport-execution",
-   "from": "object-confirmed-transport-execution-plan-in-transport-service-provider",
+   "id": "flow-confirmed-transport-execution-plan-between-transport-user-and-transport-service-provider-2-to-receive-confirmed-transport-execution",
+   "from": "object-confirmed-transport-execution-plan-between-transport-user-and-transport-service-provider-2",
    "to": "action-receive-confirmed-transport-execution",
    "exitXY": [
     1.0,
@@ -1004,9 +1005,9 @@
    "confidence": "high"
   },
   {
-   "id": "flow-confirm-transport-execution-plan-to-confirmed-transport-execution-plan-in-transport-service-provider",
+   "id": "flow-confirm-transport-execution-plan-to-confirmed-transport-execution-plan-between-transport-user-and-transport-service-provider-2",
    "from": "action-confirm-transport-execution-plan",
-   "to": "object-confirmed-transport-execution-plan-in-transport-service-provider",
+   "to": "object-confirmed-transport-execution-plan-between-transport-user-and-transport-service-provider-2",
    "exitXY": [
     1.0,
     0.4908
@@ -1050,9 +1051,9 @@
    "label": "[no]"
   },
   {
-   "id": "flow-reject-transport-execution-plan-to-rejected-transport-execution-plan-in-transport-user-2",
+   "id": "flow-reject-transport-execution-plan-to-rejected-transport-execution-plan-between-transport-user-and-transport-service-provider-2",
    "from": "action-reject-transport-execution-plan",
-   "to": "object-rejected-transport-execution-plan-in-transport-user-2",
+   "to": "object-rejected-transport-execution-plan-between-transport-user-and-transport-service-provider-2",
    "exitXY": [
     1.0,
     0.5028
@@ -1065,8 +1066,8 @@
    "confidence": "high"
   },
   {
-   "id": "flow-rejected-transport-execution-plan-in-transport-user-2-to-receive-rejected-transport-execution-in-transport-service-provider",
-   "from": "object-rejected-transport-execution-plan-in-transport-user-2",
+   "id": "flow-rejected-transport-execution-plan-between-transport-user-and-transport-service-provider-2-to-receive-rejected-transport-execution-in-transport-service-provider",
+   "from": "object-rejected-transport-execution-plan-between-transport-user-and-transport-service-provider-2",
    "to": "action-receive-rejected-transport-execution-in-transport-service-provider",
    "exitXY": [
     1.0,

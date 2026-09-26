@@ -446,6 +446,11 @@
   "text",
   "uncertain"
  ],
+ "documentLanes": {
+  "object-invoice": "lane-accounting-customer",
+  "object-credit-note": "lane-accounting-customer",
+  "object-invoice-status-response": "lane-accounting-supplier"
+ },
  "formerIds": {
   "lane-accounting-customer": "lane0",
   "lane-accounting-supplier": "lane1",

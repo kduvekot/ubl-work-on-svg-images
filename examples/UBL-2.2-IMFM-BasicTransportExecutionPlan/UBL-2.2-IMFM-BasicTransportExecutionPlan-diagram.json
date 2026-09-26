@@ -50,8 +50,12 @@
    "id": "object-notconfirmed-transport-execution-plan",
    "kind": "object",
    "label": "«NotConfirmed»\nTransport Execution\nPlan Request",
-   "lane": "lane-transport-user",
-   "band": "band-1"
+   "lane": null,
+   "band": "band-1",
+   "between": [
+    "lane-transport-user",
+    "lane-transport-service-provider"
+   ]
   },
   {
    "id": "action-request-transport-service",
@@ -68,11 +72,15 @@
    "band": "band-1"
   },
   {
-   "id": "object-rejected-transport-execution-plan-in-transport-user",
+   "id": "object-rejected-transport-execution-plan-between-transport-user-and-transport-service-provider",
    "kind": "object",
    "label": "«Rejected»\nTransport Execution\nPlan",
-   "lane": "lane-transport-user",
-   "band": "band-1"
+   "lane": null,
+   "band": "band-1",
+   "between": [
+    "lane-transport-user",
+    "lane-transport-service-provider"
+   ]
   },
   {
    "id": "action-reject-transport-service-request",
@@ -110,11 +118,15 @@
    "band": "band-1"
   },
   {
-   "id": "object-confirmed-transport-execution-plan-in-transport-user",
+   "id": "object-confirmed-transport-execution-plan-between-transport-user-and-transport-service-provider",
    "kind": "object",
    "label": "«Confirmed»\nTransport Execution\nPlan",
-   "lane": "lane-transport-user",
-   "band": "band-1"
+   "lane": null,
+   "band": "band-1",
+   "between": [
+    "lane-transport-user",
+    "lane-transport-service-provider"
+   ]
   },
   {
    "id": "action-receive-proposed-transport-execution",
@@ -152,11 +164,15 @@
    "band": "band-1"
   },
   {
-   "id": "object-confirmed-transport-execution-plan-in-transport-service-provider",
+   "id": "object-confirmed-transport-execution-plan-between-transport-user-and-transport-service-provider-2",
    "kind": "object",
    "label": "«Confirmed»\nTransport Execution\nPlan",
-   "lane": "lane-transport-service-provider",
-   "band": "band-1"
+   "lane": null,
+   "band": "band-1",
+   "between": [
+    "lane-transport-user",
+    "lane-transport-service-provider"
+   ]
   },
   {
    "id": "action-confirm-transport-execution-plan",
@@ -180,11 +196,15 @@
    "band": "band-1"
   },
   {
-   "id": "object-rejected-transport-execution-plan-in-transport-user-2",
+   "id": "object-rejected-transport-execution-plan-between-transport-user-and-transport-service-provider-2",
    "kind": "object",
    "label": "«Rejected»\nTransport Execution\nPlan",
-   "lane": "lane-transport-user",
-   "band": "band-1"
+   "lane": null,
+   "band": "band-1",
+   "between": [
+    "lane-transport-user",
+    "lane-transport-service-provider"
+   ]
   },
   {
    "id": "action-receive-rejected-transport-execution-in-transport-service-provider",
@@ -293,8 +313,8 @@
    }
   },
   {
-   "id": "flow-rejected-transport-execution-plan-in-transport-user-to-receive-rejected-transport-execution-in-transport-user",
-   "from": "object-rejected-transport-execution-plan-in-transport-user",
+   "id": "flow-rejected-transport-execution-plan-between-transport-user-and-transport-service-provider-to-receive-rejected-transport-execution-in-transport-user",
+   "from": "object-rejected-transport-execution-plan-between-transport-user-and-transport-service-provider",
    "to": "action-receive-rejected-transport-execution-in-transport-user",
    "kind": "object",
    "direction": {
@@ -302,9 +322,9 @@
    }
   },
   {
-   "id": "flow-reject-transport-service-request-to-rejected-transport-execution-plan-in-transport-user",
+   "id": "flow-reject-transport-service-request-to-rejected-transport-execution-plan-between-transport-user-and-transport-service-provider",
    "from": "action-reject-transport-service-request",
-   "to": "object-rejected-transport-execution-plan-in-transport-user",
+   "to": "object-rejected-transport-execution-plan-between-transport-user-and-transport-service-provider",
    "kind": "object",
    "direction": {
     "confidence": "high"
@@ -341,8 +361,8 @@
    "guard": "text-yes-2"
   },
   {
-   "id": "flow-confirmed-transport-execution-plan-in-transport-user-to-receive-proposed-transport-execution",
-   "from": "object-confirmed-transport-execution-plan-in-transport-user",
+   "id": "flow-confirmed-transport-execution-plan-between-transport-user-and-transport-service-provider-to-receive-proposed-transport-execution",
+   "from": "object-confirmed-transport-execution-plan-between-transport-user-and-transport-service-provider",
    "to": "action-receive-proposed-transport-execution",
    "kind": "object",
    "direction": {
@@ -350,9 +370,9 @@
    }
   },
   {
-   "id": "flow-confirm-transport-service-request-to-confirmed-transport-execution-plan-in-transport-user",
+   "id": "flow-confirm-transport-service-request-to-confirmed-transport-execution-plan-between-transport-user-and-transport-service-provider",
    "from": "action-confirm-transport-service-request",
-   "to": "object-confirmed-transport-execution-plan-in-transport-user",
+   "to": "object-confirmed-transport-execution-plan-between-transport-user-and-transport-service-provider",
    "kind": "object",
    "direction": {
     "confidence": "high"
@@ -397,8 +417,8 @@
    "guard": "text-yes-3"
   },
   {
-   "id": "flow-confirmed-transport-execution-plan-in-transport-service-provider-to-receive-confirmed-transport-execution",
-   "from": "object-confirmed-transport-execution-plan-in-transport-service-provider",
+   "id": "flow-confirmed-transport-execution-plan-between-transport-user-and-transport-service-provider-2-to-receive-confirmed-transport-execution",
+   "from": "object-confirmed-transport-execution-plan-between-transport-user-and-transport-service-provider-2",
    "to": "action-receive-confirmed-transport-execution",
    "kind": "object",
    "direction": {
@@ -406,9 +426,9 @@
    }
   },
   {
-   "id": "flow-confirm-transport-execution-plan-to-confirmed-transport-execution-plan-in-transport-service-provider",
+   "id": "flow-confirm-transport-execution-plan-to-confirmed-transport-execution-plan-between-transport-user-and-transport-service-provider-2",
    "from": "action-confirm-transport-execution-plan",
-   "to": "object-confirmed-transport-execution-plan-in-transport-service-provider",
+   "to": "object-confirmed-transport-execution-plan-between-transport-user-and-transport-service-provider-2",
    "kind": "object",
    "direction": {
     "confidence": "high"
@@ -434,17 +454,17 @@
    "guard": "text-no-4"
   },
   {
-   "id": "flow-reject-transport-execution-plan-to-rejected-transport-execution-plan-in-transport-user-2",
+   "id": "flow-reject-transport-execution-plan-to-rejected-transport-execution-plan-between-transport-user-and-transport-service-provider-2",
    "from": "action-reject-transport-execution-plan",
-   "to": "object-rejected-transport-execution-plan-in-transport-user-2",
+   "to": "object-rejected-transport-execution-plan-between-transport-user-and-transport-service-provider-2",
    "kind": "object",
    "direction": {
     "confidence": "high"
    }
   },
   {
-   "id": "flow-rejected-transport-execution-plan-in-transport-user-2-to-receive-rejected-transport-execution-in-transport-service-provider",
-   "from": "object-rejected-transport-execution-plan-in-transport-user-2",
+   "id": "flow-rejected-transport-execution-plan-between-transport-user-and-transport-service-provider-2-to-receive-rejected-transport-execution-in-transport-service-provider",
+   "from": "object-rejected-transport-execution-plan-between-transport-user-and-transport-service-provider-2",
    "to": "action-receive-rejected-transport-execution-in-transport-service-provider",
    "kind": "object",
    "direction": {

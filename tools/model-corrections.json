@@ -162,6 +162,38 @@
     "was": {
      "title": "Creating Sales Forecast"
     }
+   },
+   {
+    "id": "q4a-fig9",
+    "decided": "2026-09-26",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Fig 9 is divided by a light-grey line the reading drew as a grey rule but did not take for a lane divider, so the model had one column. Split it there, into the two parties?",
+    "answer": "Yes: Buyer Party left and Seller Party right, as the text states (the Seller creates the sales forecast; the Buyer sends Product Activity).",
+    "op": "split-lane",
+    "lane": "lane-creating-sales-forecast",
+    "at": 1712
+   },
+   {
+    "id": "q2b-fig9-left",
+    "decided": "2026-09-26",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "The CPFR phase diagrams other than Fig 6 do not name their two columns. Which parties are they?",
+    "answer": "Buyer Party on the left and Seller Party on the right, as on Fig 6. Stated by the text for Figs 7, 9 and 12 (the Seller creates the sales and order forecasts, the Buyer sends Retail Event and Product Activity); implied by convention for Figs 10, 13 and 14, whose two columns do the same things.",
+    "op": "name-lane",
+    "lane": "lane-creating-sales-forecast",
+    "title": "Buyer Party",
+    "source": "text"
+   },
+   {
+    "id": "q2b-fig9-right",
+    "decided": "2026-09-26",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "The CPFR phase diagrams other than Fig 6 do not name their two columns. Which parties are they?",
+    "answer": "Buyer Party on the left and Seller Party on the right, as on Fig 6. Stated by the text for Figs 7, 9 and 12 (the Seller creates the sales and order forecasts, the Buyer sends Retail Event and Product Activity); implied by convention for Figs 10, 13 and 14, whose two columns do the same things.",
+    "op": "name-lane",
+    "lane": "corr-q4a-fig9",
+    "title": "Seller Party",
+    "source": "text"
    }
   ],
   "UBL-2.2-CPFR-CreateOrderForecast": [

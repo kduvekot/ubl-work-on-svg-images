@@ -72,7 +72,7 @@
    "solid": 0.971,
    "stem": 0.091
   },
-  "object-transport-execution-plan-in-transport-user": {
+  "object-transport-execution-plan-between-transport-user-and-transport-service-provider": {
    "area": 56937,
    "fill": 0.933,
    "solid": 1.0,
@@ -120,7 +120,7 @@
    "solid": 1.0,
    "stem": 0.152
   },
-  "object-transport-execution-plan-in-transport-service-provider": {
+  "object-transport-execution-plan-between-transport-user-and-transport-service-provider-2": {
    "area": 56797,
    "fill": 0.933,
    "solid": 1.0,
@@ -138,7 +138,7 @@
    "solid": 0.981,
    "stem": 0.152
   },
-  "object-transport-execution-plan-in-transport-service-provider-2": {
+  "object-transport-execution-plan-between-transport-user-and-transport-service-provider-3": {
    "area": 56756,
    "fill": 0.932,
    "solid": 1.0,
@@ -304,7 +304,7 @@
    ],
    "arrowFill": 0.0
   },
-  "flow-transport-execution-plan-in-transport-user-to-perform-booking-management": {
+  "flow-transport-execution-plan-between-transport-user-and-transport-service-provider-to-perform-booking-management": {
    "arrowInk": [
     138,
     476
@@ -317,7 +317,7 @@
    "arrowFill": 0.044,
    "arrowSaturated": true
   },
-  "flow-perform-order-management-to-transport-execution-plan-in-transport-user": {
+  "flow-perform-order-management-to-transport-execution-plan-between-transport-user-and-transport-service-provider": {
    "arrowInk": [
     259,
     491
@@ -461,7 +461,7 @@
    ],
    "arrowFill": 0.0
   },
-  "flow-monitor-and-control-transport-services-to-transport-execution-plan-in-transport-service-provider": {
+  "flow-monitor-and-control-transport-services-to-transport-execution-plan-between-transport-user-and-transport-service-provider-2": {
    "arrowInk": [
     180,
     528
@@ -473,7 +473,7 @@
    ],
    "arrowFill": 0.0
   },
-  "flow-transport-execution-plan-in-transport-service-provider-to-execute-transport-services": {
+  "flow-transport-execution-plan-between-transport-user-and-transport-service-provider-2-to-execute-transport-services": {
    "arrowInk": [
     368,
     490
@@ -497,7 +497,7 @@
    ],
    "arrowFill": 0.275
   },
-  "flow-transport-execution-plan-in-transport-service-provider-2-to-monitor-and-control-transport-services": {
+  "flow-transport-execution-plan-between-transport-user-and-transport-service-provider-3-to-monitor-and-control-transport-services": {
    "arrowInk": [
     138,
     473
@@ -509,7 +509,7 @@
    ],
    "arrowFill": 0.062
   },
-  "flow-execute-transport-services-to-transport-execution-plan-in-transport-service-provider-2": {
+  "flow-execute-transport-services-to-transport-execution-plan-between-transport-user-and-transport-service-provider-3": {
    "arrowInk": [
     488,
     536
@@ -916,6 +916,20 @@
   "text",
   "uncertain"
  ],
+ "documentLanes": {
+  "object-transport-service-description-request": "lane-transport-service-provider",
+  "object-transport-service-description": "lane-transport-service-provider",
+  "object-transport-execution-plan-request": "lane-transport-service-provider",
+  "object-transport-execution-plan-between-transport-user-and-transport-service-provider": "lane-transport-user",
+  "object-goods-item-itinerary": "lane-transport-service-provider",
+  "object-transport-progress-status-request": "lane-transport-regulator",
+  "object-transportation-status-request": "lane-transport-service-provider",
+  "object-transport-progress-status": "lane-transport-regulator",
+  "object-transportation-status": "lane-transport-service-provider",
+  "object-transport-execution-plan-between-transport-user-and-transport-service-provider-2": "lane-transport-service-provider",
+  "object-transport-execution-plan-between-transport-user-and-transport-service-provider-3": "lane-transport-service-provider",
+  "object-freight-invoice": "lane-transport-service-provider"
+ },
  "formerIds": {
   "lane-transport-user": "lane0",
   "lane-transport-service-provider": "lane1",
@@ -936,7 +950,7 @@
   "action-perform-booking-management": "n10",
   "action-perform-order-management": "n11",
   "note-transportation-network-information-in-transport-regulator-2": "n12",
-  "object-transport-execution-plan-in-transport-user": "n13",
+  "object-transport-execution-plan-between-transport-user-and-transport-service-provider": "n13",
   "object-goods-item-itinerary": "n14",
   "action-monitor-and-control-transport-services": "n15",
   "action-execute-transport-services": "n16",
@@ -944,10 +958,10 @@
   "object-transportation-status-request": "n18",
   "object-transport-progress-status": "n19",
   "object-transportation-status": "n20",
-  "object-transport-execution-plan-in-transport-service-provider": "n21",
+  "object-transport-execution-plan-between-transport-user-and-transport-service-provider-2": "n21",
   "note-regulatory-information": "n22",
   "action-perform-compliance-management": "n23",
-  "object-transport-execution-plan-in-transport-service-provider-2": "n24",
+  "object-transport-execution-plan-between-transport-user-and-transport-service-provider-3": "n24",
   "action-finalize-transport-services": "n25",
   "action-manage-completion": "n26",
   "object-freight-invoice": "n27",
@@ -963,8 +977,8 @@
   "flow-perform-booking-management-to-transport-execution-plan-request": "f8",
   "flow-transport-execution-plan-request-to-perform-order-management": "f9",
   "flow-provide-transportation-network-to-perform-order-management": "f10",
-  "flow-transport-execution-plan-in-transport-user-to-perform-booking-management": "f11",
-  "flow-perform-order-management-to-transport-execution-plan-in-transport-user": "f12",
+  "flow-transport-execution-plan-between-transport-user-and-transport-service-provider-to-perform-booking-management": "f11",
+  "flow-perform-order-management-to-transport-execution-plan-between-transport-user-and-transport-service-provider": "f12",
   "flow-perform-order-management-to-goods-item-itinerary": "f13",
   "flow-goods-item-itinerary-to-perform-booking-management": "f14",
   "flow-perform-order-management-to-execute-transport-services": "f15",
@@ -976,11 +990,11 @@
   "flow-transport-progress-status-to-execute-transport-services": "f21",
   "flow-transportation-status-to-monitor-and-control-transport-services": "f22",
   "flow-execute-transport-services-to-transportation-status": "f23",
-  "flow-monitor-and-control-transport-services-to-transport-execution-plan-in-transport-service-provider": "f24",
-  "flow-transport-execution-plan-in-transport-service-provider-to-execute-transport-services": "f25",
+  "flow-monitor-and-control-transport-services-to-transport-execution-plan-between-transport-user-and-transport-service-provider-2": "f24",
+  "flow-transport-execution-plan-between-transport-user-and-transport-service-provider-2-to-execute-transport-services": "f25",
   "flow-execute-transport-services-to-perform-compliance-management": "f26",
-  "flow-transport-execution-plan-in-transport-service-provider-2-to-monitor-and-control-transport-services": "f27",
-  "flow-execute-transport-services-to-transport-execution-plan-in-transport-service-provider-2": "f28",
+  "flow-transport-execution-plan-between-transport-user-and-transport-service-provider-3-to-monitor-and-control-transport-services": "f27",
+  "flow-execute-transport-services-to-transport-execution-plan-between-transport-user-and-transport-service-provider-3": "f28",
   "flow-execute-transport-services-to-manage-completion": "f29",
   "flow-freight-invoice-to-finalize-transport-services": "f30",
   "flow-manage-completion-to-freight-invoice": "f31",

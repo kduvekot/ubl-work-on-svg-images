@@ -81,8 +81,12 @@
    "id": "object-transport-service-description-request",
    "kind": "object",
    "label": "Transport Service\nDescription\nRequest",
-   "lane": "lane-transport-service-provider",
-   "band": "band-planning"
+   "lane": null,
+   "band": "band-planning",
+   "between": [
+    "lane-transport-user",
+    "lane-transport-service-provider"
+   ]
   },
   {
    "id": "action-define-transport-service-demand",
@@ -102,15 +106,23 @@
    "id": "object-transport-service-description",
    "kind": "object",
    "label": "Transport Service\nDescription",
-   "lane": "lane-transport-service-provider",
-   "band": "band-planning"
+   "lane": null,
+   "band": "band-planning",
+   "between": [
+    "lane-transport-user",
+    "lane-transport-service-provider"
+   ]
   },
   {
    "id": "object-transport-execution-plan-request",
    "kind": "object",
    "label": "Transport\nExecution\nPlan Request",
-   "lane": "lane-transport-service-provider",
-   "band": "band-planning"
+   "lane": null,
+   "band": "band-planning",
+   "between": [
+    "lane-transport-user",
+    "lane-transport-service-provider"
+   ]
   },
   {
    "id": "action-perform-booking-management",
@@ -134,18 +146,26 @@
    "band": "band-planning"
   },
   {
-   "id": "object-transport-execution-plan-in-transport-user",
+   "id": "object-transport-execution-plan-between-transport-user-and-transport-service-provider",
    "kind": "object",
    "label": "Transport\nExecution Plan",
-   "lane": "lane-transport-user",
-   "band": "band-planning"
+   "lane": null,
+   "band": "band-planning",
+   "between": [
+    "lane-transport-user",
+    "lane-transport-service-provider"
+   ]
   },
   {
    "id": "object-goods-item-itinerary",
    "kind": "object",
    "label": "Goods Item\nItinerary",
-   "lane": "lane-transport-service-provider",
-   "band": "band-planning"
+   "lane": null,
+   "band": "band-planning",
+   "between": [
+    "lane-transport-user",
+    "lane-transport-service-provider"
+   ]
   },
   {
    "id": "action-monitor-and-control-transport-services",
@@ -165,36 +185,56 @@
    "id": "object-transport-progress-status-request",
    "kind": "object",
    "label": "Transport\nProgress Status\nRequest",
-   "lane": "lane-transport-regulator",
-   "band": "band-execution"
+   "lane": null,
+   "band": "band-execution",
+   "between": [
+    "lane-transport-regulator",
+    "lane-transportation-network-manager"
+   ]
   },
   {
    "id": "object-transportation-status-request",
    "kind": "object",
    "label": "Transportation\nStatus Request",
-   "lane": "lane-transport-service-provider",
-   "band": "band-execution"
+   "lane": null,
+   "band": "band-execution",
+   "between": [
+    "lane-transport-user",
+    "lane-transport-service-provider"
+   ]
   },
   {
    "id": "object-transport-progress-status",
    "kind": "object",
    "label": "Transport\nProgress Status",
-   "lane": "lane-transport-regulator",
-   "band": "band-execution"
+   "lane": null,
+   "band": "band-execution",
+   "between": [
+    "lane-transport-regulator",
+    "lane-transportation-network-manager"
+   ]
   },
   {
    "id": "object-transportation-status",
    "kind": "object",
    "label": "Transportation\nStatus",
-   "lane": "lane-transport-service-provider",
-   "band": "band-execution"
+   "lane": null,
+   "band": "band-execution",
+   "between": [
+    "lane-transport-user",
+    "lane-transport-service-provider"
+   ]
   },
   {
-   "id": "object-transport-execution-plan-in-transport-service-provider",
+   "id": "object-transport-execution-plan-between-transport-user-and-transport-service-provider-2",
    "kind": "object",
    "label": "Transport\nExecution Plan",
-   "lane": "lane-transport-service-provider",
-   "band": "band-execution"
+   "lane": null,
+   "band": "band-execution",
+   "between": [
+    "lane-transport-user",
+    "lane-transport-service-provider"
+   ]
   },
   {
    "id": "note-regulatory-information",
@@ -211,11 +251,15 @@
    "band": "band-execution"
   },
   {
-   "id": "object-transport-execution-plan-in-transport-service-provider-2",
+   "id": "object-transport-execution-plan-between-transport-user-and-transport-service-provider-3",
    "kind": "object",
    "label": "Transport\nExecution Plan",
-   "lane": "lane-transport-service-provider",
-   "band": "band-execution"
+   "lane": null,
+   "band": "band-execution",
+   "between": [
+    "lane-transport-user",
+    "lane-transport-service-provider"
+   ]
   },
   {
    "id": "action-finalize-transport-services",
@@ -235,8 +279,12 @@
    "id": "object-freight-invoice",
    "kind": "object",
    "label": "Freight Invoice",
-   "lane": "lane-transport-service-provider",
-   "band": "band-completion"
+   "lane": null,
+   "band": "band-completion",
+   "between": [
+    "lane-transport-user",
+    "lane-transport-service-provider"
+   ]
   },
   {
    "id": "final-transport-user",
@@ -347,8 +395,8 @@
    }
   },
   {
-   "id": "flow-transport-execution-plan-in-transport-user-to-perform-booking-management",
-   "from": "object-transport-execution-plan-in-transport-user",
+   "id": "flow-transport-execution-plan-between-transport-user-and-transport-service-provider-to-perform-booking-management",
+   "from": "object-transport-execution-plan-between-transport-user-and-transport-service-provider",
    "to": "action-perform-booking-management",
    "kind": "object",
    "direction": {
@@ -356,9 +404,9 @@
    }
   },
   {
-   "id": "flow-perform-order-management-to-transport-execution-plan-in-transport-user",
+   "id": "flow-perform-order-management-to-transport-execution-plan-between-transport-user-and-transport-service-provider",
    "from": "action-perform-order-management",
-   "to": "object-transport-execution-plan-in-transport-user",
+   "to": "object-transport-execution-plan-between-transport-user-and-transport-service-provider",
    "kind": "object",
    "direction": {
     "confidence": "high"
@@ -464,17 +512,17 @@
    }
   },
   {
-   "id": "flow-monitor-and-control-transport-services-to-transport-execution-plan-in-transport-service-provider",
+   "id": "flow-monitor-and-control-transport-services-to-transport-execution-plan-between-transport-user-and-transport-service-provider-2",
    "from": "action-monitor-and-control-transport-services",
-   "to": "object-transport-execution-plan-in-transport-service-provider",
+   "to": "object-transport-execution-plan-between-transport-user-and-transport-service-provider-2",
    "kind": "object",
    "direction": {
     "confidence": "high"
    }
   },
   {
-   "id": "flow-transport-execution-plan-in-transport-service-provider-to-execute-transport-services",
-   "from": "object-transport-execution-plan-in-transport-service-provider",
+   "id": "flow-transport-execution-plan-between-transport-user-and-transport-service-provider-2-to-execute-transport-services",
+   "from": "object-transport-execution-plan-between-transport-user-and-transport-service-provider-2",
    "to": "action-execute-transport-services",
    "kind": "object",
    "direction": {
@@ -491,8 +539,8 @@
    }
   },
   {
-   "id": "flow-transport-execution-plan-in-transport-service-provider-2-to-monitor-and-control-transport-services",
-   "from": "object-transport-execution-plan-in-transport-service-provider-2",
+   "id": "flow-transport-execution-plan-between-transport-user-and-transport-service-provider-3-to-monitor-and-control-transport-services",
+   "from": "object-transport-execution-plan-between-transport-user-and-transport-service-provider-3",
    "to": "action-monitor-and-control-transport-services",
    "kind": "object",
    "direction": {
@@ -500,9 +548,9 @@
    }
   },
   {
-   "id": "flow-execute-transport-services-to-transport-execution-plan-in-transport-service-provider-2",
+   "id": "flow-execute-transport-services-to-transport-execution-plan-between-transport-user-and-transport-service-provider-3",
    "from": "action-execute-transport-services",
-   "to": "object-transport-execution-plan-in-transport-service-provider-2",
+   "to": "object-transport-execution-plan-between-transport-user-and-transport-service-provider-3",
    "kind": "object",
    "direction": {
     "confidence": "checked",

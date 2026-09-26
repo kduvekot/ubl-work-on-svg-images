@@ -36,8 +36,12 @@
    "id": "object-invoice",
    "kind": "object",
    "label": "Invoice",
-   "lane": "lane-producer",
-   "band": "band-1"
+   "lane": null,
+   "band": "band-1",
+   "between": [
+    "lane-producer",
+    "lane-retailer"
+   ]
   },
   {
    "id": "action-raise-invoice",

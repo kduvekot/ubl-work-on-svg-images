@@ -57,6 +57,7 @@
   }
  ],
  "bandLabels": [],
+ "captions": [],
  "nodes": [
   {
    "id": "initial-producer",

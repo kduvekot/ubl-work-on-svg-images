@@ -1072,3 +1072,21 @@ reading had it the other way round: "No" was the guard of the flow into *Send
 Exception* and "Yes" labelled nothing. Now "Yes" is that flow's guard and "No"
 the guard of the flow that leaves the page, so both decisions read alike.
 
+The fourth, `q4`:
+
+- *Fig 9 is split at its grey line* into Buyer Party and Seller Party (a
+  `split-lane` correction). The reading drew the line as a grey rule but did not
+  take it for a divider, so the model had one column.
+- *A document drawn on the line between two columns stands between them.* UBL
+  draws all 228 documents in the 78 diagrams that way, and the reading had put
+  each into whichever column its centre fell in, sometimes by a pixel - on Fig 12
+  *Retail Event* came out the Buyer's and *Product Activity*, drawn the same way,
+  the Seller's. Every document now has no lane of its own and names the two it is
+  `between`. This is a rule, applied to every diagram (`place_documents()`), not
+  a per-diagram correction. Who hands a document over and who receives it are
+  its flows, which name both elements; 224 of the 228 have both, and the other
+  four are the artwork faults already recorded (Fig 28's two notifications,
+  and the flow drawn along the divider on Figs 86/87).
+
+The drawing is unchanged: over all 78 no pixel differs from the baseline.
+

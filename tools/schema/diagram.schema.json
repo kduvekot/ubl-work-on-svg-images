@@ -39,7 +39,9 @@
      "kind": {"enum": ["initial", "final", "action", "object", "decision", "fork", "note"],
               "description": "object is an object node (a document); fork is a fork or join bar"},
      "label": {"type": "string", "description": "the words in the node, a newline where the artwork breaks the line"},
-     "lane": {"$ref": "#/$defs/ref", "description": "the column lane it stands in"},
+     "lane": {"$ref": "#/$defs/ref", "description": "the column lane it stands in; null for a document drawn on the line between two"},
+     "between": {"type": "array", "items": {"$ref": "#/$defs/id"}, "minItems": 2, "maxItems": 2,
+                 "description": "a document drawn on the line between two columns: those two lanes, left then right. Who hands it over and who receives it are its flows."},
      "band": {"$ref": "#/$defs/ref", "description": "the band it stands in"}
     }
    }
