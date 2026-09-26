@@ -16,6 +16,32 @@
     }
    },
    {
+    "decided": "2026-09-26",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "The right-hand decision 'Exception Received ?' on Fig 10 has two ways out: left and down into Send Exception, and down and along the bottom off the page. The reading made 'No' the guard of the flow into Send Exception and attached 'Yes' to nothing. Which does each label?",
+    "answer": "As on the left-hand decision (q1): 'Yes' labels the flow into Send Exception; 'No' labels the flow that leaves the diagram.",
+    "op": "attach-guard",
+    "id": "q3-yes",
+    "text": "text-yes",
+    "to": "flow-decision-exception-handling-to-send-exception-in-exception-handling",
+    "was": {
+     "labels": null
+    }
+   },
+   {
+    "decided": "2026-09-26",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "The right-hand decision 'Exception Received ?' on Fig 10 has two ways out: left and down into Send Exception, and down and along the bottom off the page. The reading made 'No' the guard of the flow into Send Exception and attached 'Yes' to nothing. Which does each label?",
+    "answer": "As on the left-hand decision (q1): 'Yes' labels the flow into Send Exception; 'No' labels the flow that leaves the diagram.",
+    "op": "attach-guard",
+    "id": "q3-no",
+    "text": "text-no",
+    "to": "offpage-decision-exception-handling",
+    "was": {
+     "labels": "flow-decision-exception-handling-to-send-exception-in-exception-handling"
+    }
+   },
+   {
     "id": "q2a-fig10",
     "decided": "2026-09-25",
     "by": "Kees Duvekot, reviewing the artwork",

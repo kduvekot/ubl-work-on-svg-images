@@ -1067,3 +1067,8 @@ baseline's: 71 identical, and these 7 the same drawing with a corrected model
 columns is still open: its divider is drawn in light grey and the reading took
 the page as one column.
 
+The third, `q3`, is `q1` for the right-hand decision of the same figure, where the
+reading had it the other way round: "No" was the guard of the flow into *Send
+Exception* and "Yes" labelled nothing. Now "Yes" is that flow's guard and "No"
+the guard of the flow that leaves the page, so both decisions read alike.
+
