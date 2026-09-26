@@ -1090,3 +1090,23 @@ The fourth, `q4`:
 
 The drawing is unchanged: over all 78 no pixel differs from the baseline.
 
+The fifth, `q5`, introduces boxes that stand for a process outside the
+diagram's scope, which the diagram points at and does not describe - in BPMN
+terms a call activity. The model marks them `scope: "external"` with a
+`reference` saying what they stand for and where the specification says so:
+
+- *Ordering* on Figs 13 and 14 is CPFR step 9, Order Generation: a separate phase
+  outside CPFR ("This phase may be implemented using other UBL processes"), part
+  of none of the other phases. It is drawn across the line between the parties
+  and stands `between` them, and Fig 13's two lines out of it continue into
+  Fig 14.
+- *Prior exchange of public keys* on Figs 31 and 32 is a precondition of the
+  contract process, which UBL.xml says is depicted "for the general understanding
+  of the business choreography" and details under UBL Digital Signatures. Each
+  party's box is external, and the dashed two-headed line between them is a flow
+  of kind `precondition` - mutual, not a step in sequence (see 11.4 item 10).
+
+Nothing drawn changes. Other boxes of the same kind are to be looked for across
+the 78; Fig 37's punch-out exchange, "considered outside the scope of UBL", is the
+first candidate.
+

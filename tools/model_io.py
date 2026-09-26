@@ -312,6 +312,10 @@ def apply_corrections(model, layout, report, name, recorded=None):
                              from ("text" of the specification, or "convention")
       continues              off-page flow `offPage` continues from or into the
                              figure `figure`
+      external               node `node` stands for a process outside this
+                             diagram's scope; `reference` says which, and where
+      between                node `node` stands between the two `lanes`
+      flow-kind              flow `flow` is of kind `kind` (e.g. "precondition")
 
     Each may say what the reading held before (`was`), and is refused if the
     reading no longer holds it: a correction is a decision about one reading,
@@ -424,6 +428,25 @@ def apply_corrections(model, layout, report, name, recorded=None):
                 if n.get("lane") == l["id"] and g["x"] + g["w"] / 2.0 > at:
                     n["lane"] = r["id"]
             touched |= {l["id"], r["id"]}
+        elif op == "external":
+            # a box standing for a whole process this diagram points at and does
+            # not describe (a BPMN call activity): CPFR's Order Generation, the
+            # prior exchange of public keys
+            n = el("nodes", c["node"], cid)
+            check_was(c, n)
+            n["scope"] = "external"
+            n["reference"] = c["reference"]
+            touched.add(n["id"])
+        elif op == "between":
+            n = el("nodes", c["node"], cid)
+            n["lane"] = None
+            n["between"] = [el("lanes", x, cid)["id"] for x in c["lanes"]]
+            touched.add(n["id"])
+        elif op == "flow-kind":
+            f = el("flows", c["flow"], cid)
+            check_was(c, f)
+            f["kind"] = c["kind"]
+            touched.add(f["id"])
         elif op == "continues":
             o = el("offPage", c["offPage"], cid)
             o["continues"] = c["figure"]

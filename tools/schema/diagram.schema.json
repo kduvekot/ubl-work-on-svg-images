@@ -41,7 +41,11 @@
      "label": {"type": "string", "description": "the words in the node, a newline where the artwork breaks the line"},
      "lane": {"$ref": "#/$defs/ref", "description": "the column lane it stands in; null for a document drawn on the line between two"},
      "between": {"type": "array", "items": {"$ref": "#/$defs/id"}, "minItems": 2, "maxItems": 2,
-                 "description": "a document drawn on the line between two columns: those two lanes, left then right. Who hands it over and who receives it are its flows."},
+                 "description": "a document (or a joint step) drawn on the line between two columns: those two lanes, left then right. Who hands a document over and who receives it are its flows."},
+     "scope": {"const": "external", "description": "the box stands for a whole process outside this diagram's scope, which it points at and does not describe (a BPMN call activity)"},
+     "reference": {"type": "object", "required": ["what"], "additionalProperties": false,
+                   "properties": {"what": {"type": "string"}, "source": {"type": "string"}},
+                   "description": "for an external box: what process it stands for, and where the specification says so"},
      "band": {"$ref": "#/$defs/ref", "description": "the band it stands in"}
     }
    }
@@ -54,8 +58,8 @@
      "id": {"$ref": "#/$defs/id"},
      "from": {"$ref": "#/$defs/id"},
      "to": {"$ref": "#/$defs/id"},
-     "kind": {"enum": ["control", "object", "goods"],
-              "description": "control flow, object flow (a document passing), or a physical goods movement"},
+     "kind": {"enum": ["control", "object", "goods", "precondition"],
+              "description": "control flow, object flow (a document passing), a physical goods movement, or a mutual precondition between two parties (not a step in sequence)"},
      "guard": {"$ref": "#/$defs/id", "description": "the text that is this flow's guard; a lane id where the reading attached a lane title (see the extraction file's findings)"},
      "bothEnds": {"type": "boolean", "description": "an arrowhead at both ends: a standing relationship, not a flow from one to the other"},
      "direction": {

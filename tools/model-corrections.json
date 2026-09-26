@@ -314,6 +314,55 @@
     "lane": "lane-identifying-and-resolving-exceptions-for",
     "title": "Seller Party",
     "source": "convention"
+   },
+   {
+    "id": "q5-fig13-external",
+    "decided": "2026-09-26",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Ordering on Figs 13 and 14 is drawn outside the dashed phase boxes, across the line between the parties. What is it, and how should the model hold it?",
+    "answer": "A separate phase outside the scope of CPFR (step 9, Order Generation), part of none of the other phases and not described in detail: a box that stands for another process. It belongs to both parties, so it stands between them; Fig 13's two lines out of it continue into Fig 14.",
+    "op": "external",
+    "node": "action-ordering",
+    "reference": {
+     "what": "CPFR step 9, Order Generation: a separate process outside the scope of CPFR, not described here",
+     "source": "UBL.xml, CPFR introduction: 'This phase may be implemented using other UBL processes'"
+    },
+    "was": {
+     "label": "Ordering"
+    }
+   },
+   {
+    "id": "q5-fig13-between",
+    "decided": "2026-09-26",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Ordering on Figs 13 and 14 is drawn outside the dashed phase boxes, across the line between the parties. What is it, and how should the model hold it?",
+    "answer": "A separate phase outside the scope of CPFR (step 9, Order Generation), part of none of the other phases and not described in detail: a box that stands for another process. It belongs to both parties, so it stands between them; Fig 13's two lines out of it continue into Fig 14.",
+    "op": "between",
+    "node": "action-ordering",
+    "lanes": [
+     "lane-1",
+     "lane-identifying-and-resolving-exceptions-for"
+    ]
+   },
+   {
+    "id": "q5-fig13-into-left",
+    "decided": "2026-09-26",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Ordering on Figs 13 and 14 is drawn outside the dashed phase boxes, across the line between the parties. What is it, and how should the model hold it?",
+    "answer": "A separate phase outside the scope of CPFR (step 9, Order Generation), part of none of the other phases and not described in detail: a box that stands for another process. It belongs to both parties, so it stands between them; Fig 13's two lines out of it continue into Fig 14.",
+    "op": "continues",
+    "offPage": "offpage-action-ordering",
+    "figure": "UBL-2.2-CPFR-ExceptionMonitor"
+   },
+   {
+    "id": "q5-fig13-into-right",
+    "decided": "2026-09-26",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Ordering on Figs 13 and 14 is drawn outside the dashed phase boxes, across the line between the parties. What is it, and how should the model hold it?",
+    "answer": "A separate phase outside the scope of CPFR (step 9, Order Generation), part of none of the other phases and not described in detail: a box that stands for another process. It belongs to both parties, so it stands between them; Fig 13's two lines out of it continue into Fig 14.",
+    "op": "continues",
+    "offPage": "offpage-action-ordering-2",
+    "figure": "UBL-2.2-CPFR-ExceptionMonitor"
    }
   ],
   "UBL-2.2-CPFR-ExceptionMonitor": [
@@ -397,6 +446,129 @@
     "lane": "lane-no-2",
     "title": "Seller Party",
     "source": "convention"
+   },
+   {
+    "id": "q5-fig14-external",
+    "decided": "2026-09-26",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Ordering on Figs 13 and 14 is drawn outside the dashed phase boxes, across the line between the parties. What is it, and how should the model hold it?",
+    "answer": "A separate phase outside the scope of CPFR (step 9, Order Generation), part of none of the other phases and not described in detail: a box that stands for another process. It belongs to both parties, so it stands between them; Fig 13's two lines out of it continue into Fig 14.",
+    "op": "external",
+    "node": "action-ordering",
+    "reference": {
+     "what": "CPFR step 9, Order Generation: a separate process outside the scope of CPFR, not described here",
+     "source": "UBL.xml, CPFR introduction: 'This phase may be implemented using other UBL processes'"
+    },
+    "was": {
+     "label": "Ordering"
+    }
+   },
+   {
+    "id": "q5-fig14-between",
+    "decided": "2026-09-26",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Ordering on Figs 13 and 14 is drawn outside the dashed phase boxes, across the line between the parties. What is it, and how should the model hold it?",
+    "answer": "A separate phase outside the scope of CPFR (step 9, Order Generation), part of none of the other phases and not described in detail: a box that stands for another process. It belongs to both parties, so it stands between them; Fig 13's two lines out of it continue into Fig 14.",
+    "op": "between",
+    "node": "action-ordering",
+    "lanes": [
+     "lane-no",
+     "lane-no-2"
+    ]
+   }
+  ],
+  "UBL-2.3-Tender-Contract-Pre": [
+   {
+    "id": "q5-pre-keys-initiating",
+    "decided": "2026-09-26",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "The prior exchange of public keys on Figs 31 and 32 is drawn in both parties' columns, joined by a dashed line with a head at each end and connected to nothing else. How should the model hold it?",
+    "answer": "Like Ordering: a process outside the scope of the diagram, which it points at and does not describe; the dashed line is a mutual precondition between the parties, not a step in sequence.",
+    "op": "external",
+    "node": "action-prior-exchange-of-public-keys-in-initiating-party",
+    "reference": {
+     "what": "Prior exchange of public keys: a precondition of the contract process, outside its scope",
+     "source": "UBL.xml, after the Tender Contract figures: 'provided for the general understanding of the business choreography'; detailed under UBL Digital Signatures"
+    },
+    "was": {
+     "label": "Prior exchange of public keys"
+    }
+   },
+   {
+    "id": "q5-pre-keys-responding",
+    "decided": "2026-09-26",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "The prior exchange of public keys on Figs 31 and 32 is drawn in both parties' columns, joined by a dashed line with a head at each end and connected to nothing else. How should the model hold it?",
+    "answer": "Like Ordering: a process outside the scope of the diagram, which it points at and does not describe; the dashed line is a mutual precondition between the parties, not a step in sequence.",
+    "op": "external",
+    "node": "action-prior-exchange-of-public-keys-in-responding-party",
+    "reference": {
+     "what": "Prior exchange of public keys: a precondition of the contract process, outside its scope",
+     "source": "UBL.xml, after the Tender Contract figures: 'provided for the general understanding of the business choreography'; detailed under UBL Digital Signatures"
+    },
+    "was": {
+     "label": "Prior exchange of public keys"
+    }
+   },
+   {
+    "id": "q5-pre-keys-precondition",
+    "decided": "2026-09-26",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "The prior exchange of public keys on Figs 31 and 32 is drawn in both parties' columns, joined by a dashed line with a head at each end and connected to nothing else. How should the model hold it?",
+    "answer": "Like Ordering: a process outside the scope of the diagram, which it points at and does not describe; the dashed line is a mutual precondition between the parties, not a step in sequence.",
+    "op": "flow-kind",
+    "flow": "flow-prior-exchange-of-public-keys-in-responding-party-to-prior-exchange-of-public-keys-in-initiating-party",
+    "kind": "precondition",
+    "was": {
+     "kind": "control"
+    }
+   }
+  ],
+  "UBL-2.3-Tender-Contract-Post": [
+   {
+    "id": "q5-post-keys-initiating",
+    "decided": "2026-09-26",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "The prior exchange of public keys on Figs 31 and 32 is drawn in both parties' columns, joined by a dashed line with a head at each end and connected to nothing else. How should the model hold it?",
+    "answer": "Like Ordering: a process outside the scope of the diagram, which it points at and does not describe; the dashed line is a mutual precondition between the parties, not a step in sequence.",
+    "op": "external",
+    "node": "action-prior-exchange-of-public-keys-in-initiating-party",
+    "reference": {
+     "what": "Prior exchange of public keys: a precondition of the contract process, outside its scope",
+     "source": "UBL.xml, after the Tender Contract figures: 'provided for the general understanding of the business choreography'; detailed under UBL Digital Signatures"
+    },
+    "was": {
+     "label": "Prior exchange of public keys"
+    }
+   },
+   {
+    "id": "q5-post-keys-responding",
+    "decided": "2026-09-26",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "The prior exchange of public keys on Figs 31 and 32 is drawn in both parties' columns, joined by a dashed line with a head at each end and connected to nothing else. How should the model hold it?",
+    "answer": "Like Ordering: a process outside the scope of the diagram, which it points at and does not describe; the dashed line is a mutual precondition between the parties, not a step in sequence.",
+    "op": "external",
+    "node": "action-prior-exchange-of-public-keys-in-responding-party",
+    "reference": {
+     "what": "Prior exchange of public keys: a precondition of the contract process, outside its scope",
+     "source": "UBL.xml, after the Tender Contract figures: 'provided for the general understanding of the business choreography'; detailed under UBL Digital Signatures"
+    },
+    "was": {
+     "label": "Prior exchange of public keys"
+    }
+   },
+   {
+    "id": "q5-post-keys-precondition",
+    "decided": "2026-09-26",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "The prior exchange of public keys on Figs 31 and 32 is drawn in both parties' columns, joined by a dashed line with a head at each end and connected to nothing else. How should the model hold it?",
+    "answer": "Like Ordering: a process outside the scope of the diagram, which it points at and does not describe; the dashed line is a mutual precondition between the parties, not a step in sequence.",
+    "op": "flow-kind",
+    "flow": "flow-prior-exchange-of-public-keys-in-responding-party-to-prior-exchange-of-public-keys-in-initiating-party",
+    "kind": "precondition",
+    "was": {
+     "kind": "control"
+    }
    }
   ]
  }
