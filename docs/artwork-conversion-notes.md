@@ -1626,6 +1626,14 @@ differences shown.
   The originals stop most arrowheads a small gap short of their target; ours
   touch it. Standing rule (the TC, 2026-09-27): small arrowhead and line-end
   differences are not blocking, and are not raised figure by figure.
+- *Certification of Origin (9 of 78).* Model correct and complete, as drawn.
+  For a future release: *Receive Response* has two ways out with no
+  decision; the accepted outcomes (*Endorse CoO*) never reach the Exporter.
+- *IMFM Basic Transport Execution Plan (10 of 78).* Model correct and
+  complete. "EvaluateTransport" (twice) is the artwork's typo, put right in
+  model and drawing and recorded in artwork-faults.json (`text-31`,
+  `text-32`); the lower "[no]" was measured with the diamond's edge in its
+  box and drawn too large (`draw-10`, `draw-11`).
 
 **The notes for a person, all 266 settled by eye (2026-09-27).** The sweep
 leaves, per diagram, notes where the reading could not be sure; each was looked at

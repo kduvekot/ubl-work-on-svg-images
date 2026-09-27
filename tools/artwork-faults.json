@@ -87,6 +87,14 @@
    "text": {
     "action-announce-transport-services": "AnnounceTransport\nServices"
    }
+  },
+  "UBL-2.2-IMFM-BasicTransportExecutionPlan": {
+   "why": "IMFM Basic Transport Execution Plan (figure review 2026-09-27): two steps read 'EvaluateTransport ...', the space left out, as on IMFM Intermodal Freight Management. The model and the drawing read 'Evaluate Transport ...'.",
+   "rules": {},
+   "text": {
+    "action-evaluate-transport-execution-plan-request": "EvaluateTransport\nExecution Plan\nRequest",
+    "action-evaluate-transport-execution-plan": "EvaluateTransport\nExecution Plan"
+   }
   }
  }
 }

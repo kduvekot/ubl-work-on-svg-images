@@ -3086,6 +3086,75 @@
     "op": "decision-question",
     "text": "text-update-transport-execution-plan-request-2",
     "node": "decision-transport-user-3"
+   },
+   {
+    "id": "text-31",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, figure review (as agreed on IMFM)",
+    "question": "The artwork writes 'EvaluateTransport', the space between the words left out (as 'AnnounceTransport' on IMFM Intermodal Freight Management): a typo, recorded in artwork-faults.json; the model and the drawing put it right.",
+    "answer": "Evaluate Transport ...",
+    "op": "retext",
+    "section": "nodes",
+    "element": "action-evaluatetransport-execution-plan-request",
+    "text": "Evaluate Transport\nExecution Plan\nRequest",
+    "was": {
+     "label": "EvaluateTransport\nExecution Plan\nRequest"
+    }
+   },
+   {
+    "id": "text-32",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, figure review (as agreed on IMFM)",
+    "question": "The artwork writes 'EvaluateTransport', the space between the words left out (as 'AnnounceTransport' on IMFM Intermodal Freight Management): a typo, recorded in artwork-faults.json; the model and the drawing put it right.",
+    "answer": "Evaluate Transport ...",
+    "op": "retext",
+    "section": "nodes",
+    "element": "action-evaluatetransport-execution-plan",
+    "text": "Evaluate Transport\nExecution Plan",
+    "was": {
+     "label": "EvaluateTransport\nExecution Plan"
+    }
+   },
+   {
+    "id": "draw-10",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, figure review",
+    "question": "The lower [no] beside 'Update Transport Execution Plan Request?' was measured with the diamond's edge in its box (69x44 where the other guards are 49x26), and drawn too large.",
+    "answer": "Measured again on the original: '[no]' runs from x 445 to 493, y 1756 to 1781.",
+    "op": "layout",
+    "section": "texts",
+    "element": "text-no-4",
+    "was": {
+     "w": 65,
+     "h": 40
+    },
+    "set": {
+     "x": 445,
+     "y": 1756,
+     "w": 49,
+     "h": 26
+    }
+   },
+   {
+    "id": "draw-11",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, figure review",
+    "question": "The same text's one line, measured with the diamond's edge.",
+    "answer": "The line as measured again.",
+    "op": "layout",
+    "section": "texts",
+    "element": "text-no-4",
+    "line": 0,
+    "was": {
+     "w": 69,
+     "h": 44
+    },
+    "set": {
+     "x": 445,
+     "y": 1756,
+     "w": 49,
+     "h": 26
+    }
    }
   ],
   "UBL-2.2-IMFM-GoodsItemItinerary": [
