@@ -2024,6 +2024,34 @@
     "op": "remove-lane",
     "lane": "lane-3"
    }
+  ],
+  "UBL-2.5-WasteNotificationProcess": [
+   {
+    "id": "q15-14",
+    "decided": "2026-09-27",
+    "by": "settled by the q15 answer, mentioned to the TC",
+    "question": "Waste Notification writes its column titles 'Senderparty' and 'ReceiverParty', as Waste Movement does.",
+    "answer": "As q15 for Waste Movement: the lanes take UBL.xml's names (the notification 'is sent by a Sender Party'), the drawing keeps the artwork's words.",
+    "op": "lane-name",
+    "lane": "lane-senderparty",
+    "title": "Sender Party",
+    "was": {
+     "title": "Senderparty"
+    }
+   },
+   {
+    "id": "q15-15",
+    "decided": "2026-09-27",
+    "by": "settled by the q15 answer, mentioned to the TC",
+    "question": "Waste Notification writes its column titles 'Senderparty' and 'ReceiverParty', as Waste Movement does.",
+    "answer": "As q15 for Waste Movement: the lanes take UBL.xml's names (the notification 'is sent by a Sender Party'), the drawing keeps the artwork's words.",
+    "op": "lane-name",
+    "lane": "lane-receiverparty",
+    "title": "Receiver Party",
+    "was": {
+     "title": "ReceiverParty"
+    }
+   }
   ]
  },
  "appliedTextFixes": {

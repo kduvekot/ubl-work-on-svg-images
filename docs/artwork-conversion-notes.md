@@ -1313,7 +1313,18 @@ status report of its own, independent of any request - in BPMN a timer start.
 So `merge-lane` makes the column part of the Receiver Party (the divider stays
 in the layout's rules, and the render is byte-identical), and `start-trigger`
 records what sets the start off. "Model and layout are separate" is exactly
-what lets the model say one party while the drawing keeps the artwork's line. Settled from
+what lets the model say one party while the drawing keeps the artwork's line.
+Waste Notification draws the same "Senderparty"/"ReceiverParty" titles; by the
+same answer its lanes take UBL.xml's names too (`lane-name`: the model's name,
+with the drawn words kept as the layout's `titleWords`; render byte-identical).
+
+The element-by-element completeness sweep (started 2026-09-27) goes from the
+rarest kind of element up. The first three are complete: the segment (1: its
+members, scope, reference, and the note naming it), the marks (4: rule, the
+flow they are on, meaning) and the notes (4: what each annotates, no lane of
+its own). That there are only four notes in the 78 was checked on all 78
+originals by eye: one on Sourcing Punch-out, three on Intermodal Freight
+Management, none elsewhere. Settled from
 the original and mentioned: on seven figures (Enquiry, five Tender figures,
 both Tender Contract figures) the reading made a third column 7-10 px wide out
 of the strip between the last divider and the frame; removed.
@@ -1397,8 +1408,9 @@ when the diagrams themselves are next revised.
   name for a party that both receives a request and sends the status report;
   and the divider marking off the self-initiated start could go - in BPMN it
   would be a timer start inside the Receiver Party's lane.
-- *Waste Movement (with `q15`):* the column titles read "Senderparty" and
-  "ReceiverParty"; UBL.xml says "Sender Party" and "Receiver Party".
+- *Waste Movement and Waste Notification (with `q15`):* the column titles read
+  "Senderparty" and "ReceiverParty"; UBL.xml says "Sender Party" and "Receiver
+  Party".
 - *Tender Guarantee Deposit (with `q8`):* obtaining the guarantee from a
   financial institution is shown as one step with no document. Should UBL ever
   cover that exchange, the financial institution would become a party with its

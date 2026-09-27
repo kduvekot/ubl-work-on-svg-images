@@ -170,11 +170,12 @@ def main(src, out, model_w=1480.0):
         # a title the reading placed as text (q15) is set where it was, as text
         # (below, with the other placed words); the lane itself draws none
         as_text = isinstance(c.get("title_layout"), dict)
-        lane = {"id": c["id"], "title": c["title"] if shown and not as_text else "",
+        drawn = c.get("titleWords", c["title"])   # the artwork's own words (q15)
+        lane = {"id": c["id"], "title": drawn if shown and not as_text else "",
                 "x": M(c["x0"]), "w": M(c["x1"] - c["x0"]),
                 "cx": M(b[0] + b[2] / 2) if b else M((c["x0"] + c["x1"]) / 2),
                 "cy": M(b[1] + b[3] / 2) if b else M(font_px)}
-        if not shown or as_text:
+        if not shown or as_text or drawn != c["title"]:
             lane["name"] = c["title"]
         lanes.append(lane)
 

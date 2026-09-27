@@ -373,6 +373,9 @@ def apply_corrections(model, layout, report, name, recorded=None):
       start-trigger          start `node` is set off by `trigger` (a time or an
                              agreement, not a message): what BPMN would draw as
                              a timer or conditional start
+      lane-name              lane `lane` is called `title` (the specification's
+                             name); the words drawn in its title box stay the
+                             artwork's own (kept as the layout's titleWords)
       retext                 the words of `element` in `section` (texts, nodes or
                              lanes) are `text`, which the reading misread; line
                              breaks as in the artwork, one per measured line
@@ -724,6 +727,12 @@ def apply_corrections(model, layout, report, name, recorded=None):
                 raise ValueError("%s: correction %s: %s is not a start" % (name, cid, c["node"]))
             n["trigger"] = c["trigger"]
             touched.add(n["id"])
+        elif op == "lane-name":
+            l = el("lanes", c["lane"], cid)
+            check_was(c, l)
+            layout["lanes"][l["id"]]["titleWords"] = l["title"]
+            l["title"] = c["title"]
+            touched.add(l["id"])
         elif op == "retext":
             # words the reading got wrong, as the artwork writes them. The words
             # change, and so does what is drawn; where each line sits does not.

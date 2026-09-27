@@ -39,6 +39,7 @@
    "properties": {"x0": {"type": "number"}, "x1": {"type": "number"},
                   "y0": {"type": "number"}, "y1": {"type": "number"},
                   "titleBox": {"$ref": "#/$defs/box"},
+                  "titleWords": {"type": "string", "description": "the words drawn in the title box, where the model's name differs from the artwork's (q15)"},
                   "title": {"$ref": "#/$defs/placedText", "description": "where a title the reading placed as text is drawn (q15)"}}}},
   "nodes": {"type": "object", "additionalProperties": {
    "type": "object", "required": ["x", "y", "w", "h"], "additionalProperties": false,
