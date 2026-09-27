@@ -281,6 +281,30 @@ def main(src, out, model_w=1480.0):
                                for l in t["lines"]]
         guards.append(g)
 
+    # Words set on the page - guards, questions, notes - are fitted as the titles
+    # are: each line's size from the height of its letters, standing where they
+    # stand. Set at the labels' size instead, ROCD Initial Stocking's "False",
+    # "True" and "Changes are necessary?" came out a quarter too tall and
+    # squeezed into their width. A line whose box took in more than its words
+    # (a size more than 15% from the figure's usual) takes the usual size.
+    fitted = []
+    for g, (i, words, t, role) in zip(guards, placed):
+        rows = t.get("lines") or [{"text": words, "x": t["x"], "y": t["y"], "w": t["w"], "h": t["h"]}]
+        if len(rows) != len(g.get("labelLines", rows)) or "\n" in words and not t.get("lines"):
+            continue
+        g.setdefault("labelLines", [{"text": l["text"], "cx": M(l["x"] + l["w"] / 2),
+                                     "cy": M(l["y"] + l["h"] / 2), "w": M(l["w"])} for l in rows])
+        fitted += [(line, l, fit(l["text"], [l["x"], l["y"], l["w"], l["h"]]))
+                   for line, l in zip(g["labelLines"], rows)]
+    sizes = sorted(f for _, _, f in fitted)
+    usual = sizes[len(sizes) // 2] if sizes else None
+    for line, l, size in fitted:
+        if abs(size - usual) > 0.15 * usual:
+            line["size"] = M(usual)
+        else:
+            line["size"] = M(size)
+            line["cy"] = M(l["y"] + 0.716 * size) - line["size"] * 0.35
+
     spec = {
         "canvas": {"w": model_w, "h": round(H * s, 3)},
         "stroke": {"frame": M(frame), "divider": M(divider), "action": M(s_act),

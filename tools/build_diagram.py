@@ -98,7 +98,7 @@ def lines_of(n, cx, cy, size, font, weight="", style=""):
         # its <title>
         return text(n.get("label") or n.get("text") or "",
                     cx, cy, size, font, weight, style)
-    return "".join(text(l["text"], l["cx"], l["cy"], size, font, weight, style,
+    return "".join(text(l["text"], l["cx"], l["cy"], l.get("size", size), font, weight, style,
                         l.get("w")) for l in ll)
 
 

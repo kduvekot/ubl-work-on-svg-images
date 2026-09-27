@@ -1651,6 +1651,21 @@ differences shown.
   artwork draws grey (two on Fig C.1, one here) are drawn black at their own
   width; the layout keeps the artwork's tone, and the checker counts the grey
   line as the artwork's ink. The real SVGs now use black and white only.
+- *Tender Contract Post-award (13 of 78).* Model correct and complete; SVG
+  faithful.
+- *ROCD Initial Stocking (14 of 78).* Model correct and complete. Two drawing
+  points, fixed (the TC, 2026-09-27). The words set on the page - guards,
+  decision questions, notes - were drawn at the labels' size and squeezed
+  into their measured width; here "False", "True" and "Changes are
+  necessary?" came out a quarter too tall. They are now fitted as the titles
+  are, line by line: the size from the letters' height, the baseline where
+  they stand, a line more than 15% off the figure's usual size taking the
+  usual (spec_from_model.py; over the 78 most such texts were within 10-20%
+  of the labels' size, seven figures clearly smaller). And the divider
+  between *Despatch Advice* and *Receipt Advice* leans 7px where the
+  reading had it straight, and was drawn twice, a straight rule and beside it
+  the leaning part as a piece: now one line, straight to *Despatch Advice*
+  and leaning from there (`draw-12`, the new `divider-lean` correction).
 
 **The notes for a person, all 266 settled by eye (2026-09-27).** The sweep
 leaves, per diagram, notes where the reading could not be sure; each was looked at

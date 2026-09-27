@@ -401,6 +401,12 @@ def apply_corrections(model, layout, report, name, recorded=None):
                              touches a document on the line): it leaves the
                              model and stays in the layout's rules as a piece,
                              drawn where it was
+      divider-lean           the lane divider leans between two documents
+                             where the reading had it straight: the rule on
+                             `axis` at `at` (`was` its span) ends at `span`,
+                             and the divider piece `was` is drawn as `points`,
+                             the line the artwork draws (applied after the
+                             divider-piece that made the piece)
       unstated               the artwork does not give `attribute` of `element`
                              (a node or a flow): recorded with `reason`, so the
                              gap is a known one (a decision with no question, a
@@ -830,6 +836,17 @@ def apply_corrections(model, layout, report, name, recorded=None):
                 {"points": [g["at"]] + (g.get("points") or []) + [g["end"]]})
             patches.setdefault("dropOpenEnds", []).append(o["id"])
             touched.add(o["id"])
+        elif op == "divider-lean":
+            rule = [r for r in layout["rules"][c["axis"]] if r["at"] == c["at"]]
+            if len(rule) != 1 or rule[0].get("span") != c["was"]:
+                raise ValueError("%s: correction %s: no %s rule at %s with span %r"
+                                 % (name, cid, c["axis"], c["at"], c["was"]))
+            piece = [q for q in layout["rules"].get("pieces", []) if q["points"] == c["piece"]["was"]]
+            if len(piece) != 1:
+                raise ValueError("%s: correction %s: no divider piece %r"
+                                 % (name, cid, c["piece"]["was"]))
+            rule[0]["span"] = c["span"]
+            piece[0]["points"] = c["piece"]["points"]
         elif op == "unstated" and c.get("section") == "figure":
             model["figure"].setdefault("unstated", {})[c["attribute"]] = c["reason"]
         elif op == "unstated":
