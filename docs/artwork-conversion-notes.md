@@ -1173,3 +1173,24 @@ words and nothing else, and for the diagrams it touches `model_io.py` writes a
 `-graph-corrected.json` for the verifier, the model sheet and the review marks,
 which would otherwise report a correct render as a text error.
 
+
+**Points for a future UBL release, not for this conversion.** Some questions go
+beyond what a drawing says into whether it says the right thing. The model
+stays faithful to the artwork, and these are kept here for the TC to take up
+when the diagrams themselves are next revised.
+
+- *Fig 37, Punch-out Sourcing (raised 2026-09-27 with `q7`):*
+  - **Who builds the basket?** The artwork puts *Build shopping basket* in the
+    Seller Supplier Party's column. But in punch-out it is the Originator who
+    browses the catalogue and fills the basket, on the Seller's system. UBL.xml
+    says so itself: "The Originators leave ... their system and interact with the
+    Seller's catalogue to locate and order products". The column may be showing
+    whose system it is rather than who acts. A revised diagram could say this
+    plainly, for instance with the action in the Originator's column and the
+    Seller's catalogue application named as where it happens.
+  - **UBL.xml's text reads "Seller" where "Originator" seems meant.** It says
+    punch-out lets an Originator access a Seller's catalogue application "from
+    within the Seller's own procurement application", which by the rest of the
+    paragraph should be the Originator's own. Whose procurement application
+    "transparently gathers pertinent information" is unclear for the same
+    reason.
