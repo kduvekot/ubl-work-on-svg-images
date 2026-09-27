@@ -1622,6 +1622,10 @@ differences shown.
   frame (IMFM's Transportation Network Manager, three Goods Item Passport
   titles): the extractor now leaves a rule running through the title cell
   out of it. The two-line titles of three 2.3 figures keep the labels' size.
+- *CPFR Create Joint Business Plan (8 of 78).* Model correct and complete.
+  The originals stop most arrowheads a small gap short of their target; ours
+  touch it. Standing rule (the TC, 2026-09-27): small arrowhead and line-end
+  differences are not blocking, and are not raised figure by figure.
 
 **The notes for a person, all 266 settled by eye (2026-09-27).** The sweep
 leaves, per diagram, notes where the reading could not be sure; each was looked at
