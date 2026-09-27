@@ -388,6 +388,11 @@ def apply_corrections(model, layout, report, name, recorded=None):
                              the reading had it the other way
       same-step              node `node` is the step `other` of figure `figure`,
                              drawn on both (CPFR's Ordering on Figs 13 and 14)
+      divider-piece          off-page flow `offPage` is not a flow but a piece of
+                             the lane divider the reading took for one (it
+                             touches a document on the line): it leaves the
+                             model and stays in the layout's rules as a piece,
+                             drawn where it was
       retext                 the words of `element` in `section` (texts, nodes or
                              lanes) are `text`, which the reading misread; line
                              breaks as in the artwork, one per measured line
@@ -766,6 +771,14 @@ def apply_corrections(model, layout, report, name, recorded=None):
             n = el("nodes", c["node"], cid)
             n["sameAs"] = {"figure": c["figure"], "node": c["other"]}
             touched.add(n["id"])
+        elif op == "divider-piece":
+            o = el("offPage", c["offPage"], cid)
+            g = layout["offPage"].pop(o["id"])
+            model["offPage"].remove(o)
+            layout["rules"].setdefault("pieces", []).append(
+                {"points": [g["at"]] + (g.get("points") or []) + [g["end"]]})
+            patches.setdefault("dropOpenEnds", []).append(o["id"])
+            touched.add(o["id"])
         elif op == "retext":
             # words the reading got wrong, as the artwork writes them. The words
             # change, and so does what is drawn; where each line sits does not.
@@ -1184,6 +1197,11 @@ def corrected_graph(g, report):
                     e["guard"] = norm(f["text"])
         elif f["section"] == "lanes":
             g["partitions"][int(gid[4:])]["title"] = f["text"]
+    if patches and patches.get("dropOpenEnds"):
+        drop = {int(i[1:]) for i in patches["dropOpenEnds"]}
+        g["openEnds"] = [e for i, e in enumerate(g["openEnds"]) if i not in drop]
+        if patches.get("openEnds"):
+            raise ValueError("an off-page flow both dropped and turned: not supported")
     if patches and patches.get("openEnds"):
         for oid, inward in patches["openEnds"].items():
             e = g["openEnds"][int(oid[1:])]
@@ -1312,6 +1330,11 @@ def validate(diagram_path):
             if len(parties) >= 2 and set(parties) != set(n["between"]):
                 errs.append("document %s stands between %s, and its flows are with %s"
                             % (n["id"], ", ".join(n["between"]), ", ".join(parties)))
+    for o in m["offPage"]:
+        if not o.get("continues"):
+            errs.append("off-page flow %s says nothing of where it continues: a line leaving "
+                        "the figure goes to another figure (continues), or it is not a flow"
+                        % o["id"])
     # a line handed over to another figure: its counterpart there points back
     here = os.path.dirname(os.path.abspath(diagram_path))
     for o in m["offPage"]:

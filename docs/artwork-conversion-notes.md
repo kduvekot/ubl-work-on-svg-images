@@ -1357,7 +1357,21 @@ read the wrong way round (the head is drawn at the step), so the bar is a join
 of the two decisions' branches (`fork-01`, reverse-flow). The arrowhead moves to
 where the artwork draws it, and the figure's missing ink drops (0.609% to
 0.600%). CPFR Fig 12's bar takes both "No" lines from Fig 10 and starts two
-branches: a join and a fork in one, as UML allows. Settled from
+branches: a join and a fork in one, as UML allows.
+
+The off-page flows (31): the 20 on the CPFR figures are the hand-overs of
+`q16`. The other 11, on eight CRP, ROCD and VMI figures, were no flows at all:
+each lay exactly on the lane divider, which those figures draw in pieces that
+stop at every document on the line, and the reading took each piece touching a
+document for a line leaving it off the page. Invisible in the drawing, since
+the "flow" was drawn exactly where the divider is. New correction
+`divider-piece` takes them out of the model and keeps them in the layout as
+pieces of the divider (`rules.pieces`), drawn as before - all 78 renders
+byte-identical. `validate` now refuses an off-page flow that does not say which
+figure it continues into. They were not caught by any rule on documents: a
+document only had to be written once and read once, and 17 documents
+legitimately have a second line in or out (a revision loop in CPFR, three
+parties, two receivers), so "more than one" is not an error by itself. Settled from
 the original and mentioned: on seven figures (Enquiry, five Tender figures,
 both Tender Contract figures) the reading made a third column 7-10 px wide out
 of the strip between the last divider and the frame; removed.

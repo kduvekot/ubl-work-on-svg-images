@@ -2107,6 +2107,33 @@
     "op": "decision-question",
     "text": "text-changes-are-necessary",
     "node": "decision-producer"
+   },
+   {
+    "id": "div-07",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Eleven 'off-page flows' on eight CRP, ROCD and VMI figures: a line leaving a document on the divider up or down off the page.",
+    "answer": "None is a flow: each is a piece of the lane divider, drawn in segments that stop at every document on the line, lying exactly on the divider; the reading took the pieces touching a document for flows leaving it. Out of the model, kept in the layout, drawn as before.",
+    "op": "divider-piece",
+    "offPage": "offpage-object-order"
+   },
+   {
+    "id": "div-08",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Eleven 'off-page flows' on eight CRP, ROCD and VMI figures: a line leaving a document on the divider up or down off the page.",
+    "answer": "None is a flow: each is a piece of the lane divider, drawn in segments that stop at every document on the line, lying exactly on the divider; the reading took the pieces touching a document for flows leaving it. Out of the model, kept in the layout, drawn as before.",
+    "op": "divider-piece",
+    "offPage": "offpage-object-receipt-advice"
+   },
+   {
+    "id": "div-09",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Eleven 'off-page flows' on eight CRP, ROCD and VMI figures: a line leaving a document on the divider up or down off the page.",
+    "answer": "None is a flow: each is a piece of the lane divider, drawn in segments that stop at every document on the line, lying exactly on the divider; the reading took the pieces touching a document for flows leaving it. Out of the model, kept in the layout, drawn as before.",
+    "op": "divider-piece",
+    "offPage": "offpage-object-receipt-advice-2"
    }
   ],
   "UBL-2.2-Tender-ContractInfoPrep": [
@@ -2143,6 +2170,24 @@
     "op": "decision-question",
     "text": "text-wrong-despatching",
     "node": "decision-producer"
+   },
+   {
+    "id": "div-10",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Eleven 'off-page flows' on eight CRP, ROCD and VMI figures: a line leaving a document on the divider up or down off the page.",
+    "answer": "None is a flow: each is a piece of the lane divider, drawn in segments that stop at every document on the line, lying exactly on the divider; the reading took the pieces touching a document for flows leaving it. Out of the model, kept in the layout, drawn as before.",
+    "op": "divider-piece",
+    "offPage": "offpage-object-instruction-for-returns"
+   },
+   {
+    "id": "div-11",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Eleven 'off-page flows' on eight CRP, ROCD and VMI figures: a line leaving a document on the divider up or down off the page.",
+    "answer": "None is a flow: each is a piece of the lane divider, drawn in segments that stop at every document on the line, lying exactly on the divider; the reading took the pieces touching a document for flows leaving it. Out of the model, kept in the layout, drawn as before.",
+    "op": "divider-piece",
+    "offPage": "offpage-object-receipt-advice"
    }
   ],
   "UBL-2.2-VMI-PermanentReplenishment": [
@@ -2335,6 +2380,72 @@
     "was": {
      "title": "ReceiverParty"
     }
+   }
+  ],
+  "UBL-2.2-CRP-BaseArticleCatalogue": [
+   {
+    "id": "div-01",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Eleven 'off-page flows' on eight CRP, ROCD and VMI figures: a line leaving a document on the divider up or down off the page.",
+    "answer": "None is a flow: each is a piece of the lane divider, drawn in segments that stop at every document on the line, lying exactly on the divider; the reading took the pieces touching a document for flows leaving it. Out of the model, kept in the layout, drawn as before.",
+    "op": "divider-piece",
+    "offPage": "offpage-object-catalogue"
+   }
+  ],
+  "UBL-2.2-CRP-InitialStockingByRetailer": [
+   {
+    "id": "div-02",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Eleven 'off-page flows' on eight CRP, ROCD and VMI figures: a line leaving a document on the divider up or down off the page.",
+    "answer": "None is a flow: each is a piece of the lane divider, drawn in segments that stop at every document on the line, lying exactly on the divider; the reading took the pieces touching a document for flows leaving it. Out of the model, kept in the layout, drawn as before.",
+    "op": "divider-piece",
+    "offPage": "offpage-object-receipt-advice"
+   }
+  ],
+  "UBL-2.2-CRP-SalesAndInventoryMovement": [
+   {
+    "id": "div-03",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Eleven 'off-page flows' on eight CRP, ROCD and VMI figures: a line leaving a document on the divider up or down off the page.",
+    "answer": "None is a flow: each is a piece of the lane divider, drawn in segments that stop at every document on the line, lying exactly on the divider; the reading took the pieces touching a document for flows leaving it. Out of the model, kept in the layout, drawn as before.",
+    "op": "divider-piece",
+    "offPage": "offpage-object-product-activity-in-retailer"
+   }
+  ],
+  "UBL-2.2-CRP-Synchronizing": [
+   {
+    "id": "div-04",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Eleven 'off-page flows' on eight CRP, ROCD and VMI figures: a line leaving a document on the divider up or down off the page.",
+    "answer": "None is a flow: each is a piece of the lane divider, drawn in segments that stop at every document on the line, lying exactly on the divider; the reading took the pieces touching a document for flows leaving it. Out of the model, kept in the layout, drawn as before.",
+    "op": "divider-piece",
+    "offPage": "offpage-object-inventory-report"
+   }
+  ],
+  "UBL-2.2-ROCD-ArticleAvailability": [
+   {
+    "id": "div-05",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Eleven 'off-page flows' on eight CRP, ROCD and VMI figures: a line leaving a document on the divider up or down off the page.",
+    "answer": "None is a flow: each is a piece of the lane divider, drawn in segments that stop at every document on the line, lying exactly on the divider; the reading took the pieces touching a document for flows leaving it. Out of the model, kept in the layout, drawn as before.",
+    "op": "divider-piece",
+    "offPage": "offpage-object-stock-availability-report"
+   }
+  ],
+  "UBL-2.2-ROCD-BaseArticleCatalogue": [
+   {
+    "id": "div-06",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Eleven 'off-page flows' on eight CRP, ROCD and VMI figures: a line leaving a document on the divider up or down off the page.",
+    "answer": "None is a flow: each is a piece of the lane divider, drawn in segments that stop at every document on the line, lying exactly on the divider; the reading took the pieces touching a document for flows leaving it. Out of the model, kept in the layout, drawn as before.",
+    "op": "divider-piece",
+    "offPage": "offpage-object-catalogue"
    }
   ]
  },

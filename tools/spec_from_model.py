@@ -278,7 +278,12 @@ def main(src, out, model_w=1480.0):
                     # after the divider is its own line, drawn as it always was
                     [{"id": f["id"], "points": [[M(p[0]), M(p[1])] for p in
                                                 ed["points"] + [ed["toPoint"]]],
-                      "arrow": True} for f, ed in along],
+                      "arrow": True} for f, ed in along] +
+                    # pieces of a lane divider the reading took for flows: drawn
+                    # where and as they were (see model_io divider-piece)
+                    [{"id": "divider-piece-%d" % (i + 1), "role": "lane-divider",
+                      "points": [[M(p[0]), M(p[1])] for p in pc["points"]], "arrow": False}
+                     for i, pc in enumerate(lay["rules"].get("pieces", []))],
         # where the border rules actually are, rather than assuming the frame is
         # flush with the canvas: some diagrams inset it (Tender-Contract-Pre puts
         # it at x=6) and a flush frame then misses the original's by its own width

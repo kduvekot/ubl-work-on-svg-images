@@ -273,10 +273,13 @@ def svg_body(spec):
         o.append("</g>")
     for i, oe in enumerate(spec.get("openEnds", [])):
         # a flow that leaves the diagram, drawn along the route it actually takes
-        o.append(group("off-page-flow", oe.get("id") or "open%d" % i,
-                       "flow continuing outside this diagram",
-                       node=oe.get("node"),
-                       direction="into the diagram" if oe.get("inward") else "out of the diagram"))
+        if oe.get("role") == "lane-divider":
+            o.append(group("lane-divider", oe["id"], "lane divider", axis="v"))
+        else:
+            o.append(group("off-page-flow", oe.get("id") or "open%d" % i,
+                           "flow continuing outside this diagram",
+                           node=oe.get("node"),
+                           direction="into the diagram" if oe.get("inward") else "out of the diagram"))
         o.append('<polyline points="%s" fill="none" stroke="#000" stroke-width="%.2f"%s/>'
                  % (" ".join("%.1f,%.1f" % (p[0], p[1]) for p in oe["points"]),
                     S["edge"], ' marker-end="url(#arrow)"' if oe.get("arrow") else ""))
