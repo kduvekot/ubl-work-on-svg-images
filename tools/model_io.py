@@ -393,6 +393,10 @@ def apply_corrections(model, layout, report, name, recorded=None):
                              touches a document on the line): it leaves the
                              model and stays in the layout's rules as a piece,
                              drawn where it was
+      unstated               the artwork does not give `attribute` of `element`
+                             (a node or a flow): recorded with `reason`, so the
+                             gap is a known one (a decision with no question, a
+                             branch with no guard)
       retext                 the words of `element` in `section` (texts, nodes or
                              lanes) are `text`, which the reading misread; line
                              breaks as in the artwork, one per measured line
@@ -779,6 +783,14 @@ def apply_corrections(model, layout, report, name, recorded=None):
                 {"points": [g["at"]] + (g.get("points") or []) + [g["end"]]})
             patches.setdefault("dropOpenEnds", []).append(o["id"])
             touched.add(o["id"])
+        elif op == "unstated":
+            sec = c.get("section", "nodes")
+            x = el(sec, c["element"], cid)
+            if x.get(c["attribute"]):
+                raise ValueError("%s: correction %s: %s has a %s; it is not unstated"
+                                 % (name, cid, c["element"], c["attribute"]))
+            x.setdefault("unstated", {})[c["attribute"]] = c["reason"]
+            touched.add(x["id"])
         elif op == "retext":
             # words the reading got wrong, as the artwork writes them. The words
             # change, and so does what is drawn; where each line sits does not.
@@ -1355,6 +1367,22 @@ def validate(diagram_path):
             errs.append("%s and %s in %s do not hand over to each other (port %s/%s, direction %s/%s)"
                         % (o["id"], cp["id"], o["continues"], o.get("port"), cp.get("port"),
                            o["direction"], cp.get("direction")))
+    # a decision says what is decided, and each way out says when it is taken -
+    # or the model records that the artwork does not
+    outs_of = {}
+    for f in m["flows"]:
+        outs_of.setdefault(f["from"], []).append(f)
+    for n in m["nodes"]:
+        if n["kind"] != "decision":
+            continue
+        if not (n.get("question") or (n.get("label") or "").strip()
+                or "question" in n.get("unstated", {})):
+            errs.append("decision %s has no question, and the model does not record that the "
+                        "artwork gives none" % n["id"])
+        for f in outs_of.get(n["id"], []):
+            if not f.get("guard") and "guard" not in f.get("unstated", {}):
+                errs.append("flow %s out of decision %s has no guard, and the model does not "
+                            "record that the artwork gives none" % (f["id"], n["id"]))
     # a bar is a fork or a join (or both): a way in, a way out, and two on one side
     ends = {}
     for f in m["flows"]:

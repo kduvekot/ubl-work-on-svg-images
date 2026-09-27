@@ -1371,7 +1371,19 @@ byte-identical. `validate` now refuses an off-page flow that does not say which
 figure it continues into. They were not caught by any rule on documents: a
 document only had to be written once and read once, and 17 documents
 legitimately have a second line in or out (a revision loop in CPFR, three
-parties, two receivers), so "more than one" is not an error by itself. Settled from
+parties, two receivers), so "more than one" is not an error by itself.
+
+The decisions (73). Contract: a question (or a name, like "Reconcile
+Charges"), and a guard on every way out - or `unstated`, a new field recording
+that the artwork gives none and why (correction `unstated`); `validate` refuses
+anything else. 60 were complete. The other 13 are the artwork's own: Fig C.1's
+four plain diamonds (no question, no guards; the step each branch leads to says
+what it means), Certification of Origin's three (questions, unguarded
+branches), Create Catalogue's diamond after *Respond to Request* (no words,
+guarded branches), Fulfilment Despatch Advice's *Determine Action* (three
+unguarded branches) and the four *Reconcile Charges* on the 2.5 billing
+figures, which guard the accepting branch and leave the otherwise case
+unlabelled. 29 `unstated` entries; nothing invented, nothing drawn changes. Settled from
 the original and mentioned: on seven figures (Enquiry, five Tender figures,
 both Tender Contract figures) the reading made a third column 7-10 px wide out
 of the strip between the last divider and the frame; removed.

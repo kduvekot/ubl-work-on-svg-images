@@ -1180,6 +1180,90 @@
     "op": "decision-question",
     "text": "text-endorse-application",
     "node": "decision-endorser"
+   },
+   {
+    "id": "dec-15",
+    "decided": "2026-09-27",
+    "by": "completeness sweep, settled from the original",
+    "question": "A way out of a decision with no guard in the model.",
+    "answer": "The branches are drawn without guards; the step each leads to says which answer it is (Reject CoO, Endorse CoO, Query CoO; Apply for Endorsement, Send CoO).",
+    "op": "unstated",
+    "section": "flows",
+    "element": "flow-decision-issuer-to-reject-coo-in-issuer",
+    "attribute": "guard",
+    "reason": "The branches are drawn without guards; the step each leads to says which answer it is (Reject CoO, Endorse CoO, Query CoO; Apply for Endorsement, Send CoO)."
+   },
+   {
+    "id": "dec-16",
+    "decided": "2026-09-27",
+    "by": "completeness sweep, settled from the original",
+    "question": "A way out of a decision with no guard in the model.",
+    "answer": "The branches are drawn without guards; the step each leads to says which answer it is (Reject CoO, Endorse CoO, Query CoO; Apply for Endorsement, Send CoO).",
+    "op": "unstated",
+    "section": "flows",
+    "element": "flow-decision-issuer-to-endorse-coo-in-issuer",
+    "attribute": "guard",
+    "reason": "The branches are drawn without guards; the step each leads to says which answer it is (Reject CoO, Endorse CoO, Query CoO; Apply for Endorsement, Send CoO)."
+   },
+   {
+    "id": "dec-17",
+    "decided": "2026-09-27",
+    "by": "completeness sweep, settled from the original",
+    "question": "A way out of a decision with no guard in the model.",
+    "answer": "The branches are drawn without guards; the step each leads to says which answer it is (Reject CoO, Endorse CoO, Query CoO; Apply for Endorsement, Send CoO).",
+    "op": "unstated",
+    "section": "flows",
+    "element": "flow-decision-issuer-to-query-coo",
+    "attribute": "guard",
+    "reason": "The branches are drawn without guards; the step each leads to says which answer it is (Reject CoO, Endorse CoO, Query CoO; Apply for Endorsement, Send CoO)."
+   },
+   {
+    "id": "dec-18",
+    "decided": "2026-09-27",
+    "by": "completeness sweep, settled from the original",
+    "question": "A way out of a decision with no guard in the model.",
+    "answer": "The branches are drawn without guards; the step each leads to says which answer it is (Reject CoO, Endorse CoO, Query CoO; Apply for Endorsement, Send CoO).",
+    "op": "unstated",
+    "section": "flows",
+    "element": "flow-decision-exporter-to-apply-for-endorsement",
+    "attribute": "guard",
+    "reason": "The branches are drawn without guards; the step each leads to says which answer it is (Reject CoO, Endorse CoO, Query CoO; Apply for Endorsement, Send CoO)."
+   },
+   {
+    "id": "dec-19",
+    "decided": "2026-09-27",
+    "by": "completeness sweep, settled from the original",
+    "question": "A way out of a decision with no guard in the model.",
+    "answer": "The branches are drawn without guards; the step each leads to says which answer it is (Reject CoO, Endorse CoO, Query CoO; Apply for Endorsement, Send CoO).",
+    "op": "unstated",
+    "section": "flows",
+    "element": "flow-decision-exporter-to-send-coo",
+    "attribute": "guard",
+    "reason": "The branches are drawn without guards; the step each leads to says which answer it is (Reject CoO, Endorse CoO, Query CoO; Apply for Endorsement, Send CoO)."
+   },
+   {
+    "id": "dec-20",
+    "decided": "2026-09-27",
+    "by": "completeness sweep, settled from the original",
+    "question": "A way out of a decision with no guard in the model.",
+    "answer": "The branches are drawn without guards; the step each leads to says which answer it is (Reject CoO, Endorse CoO, Query CoO; Apply for Endorsement, Send CoO).",
+    "op": "unstated",
+    "section": "flows",
+    "element": "flow-decision-endorser-to-reject-coo-in-endorser",
+    "attribute": "guard",
+    "reason": "The branches are drawn without guards; the step each leads to says which answer it is (Reject CoO, Endorse CoO, Query CoO; Apply for Endorsement, Send CoO)."
+   },
+   {
+    "id": "dec-21",
+    "decided": "2026-09-27",
+    "by": "completeness sweep, settled from the original",
+    "question": "A way out of a decision with no guard in the model.",
+    "answer": "The branches are drawn without guards; the step each leads to says which answer it is (Reject CoO, Endorse CoO, Query CoO; Apply for Endorsement, Send CoO).",
+    "op": "unstated",
+    "section": "flows",
+    "element": "flow-decision-endorser-to-endorse-coo-in-endorser",
+    "attribute": "guard",
+    "reason": "The branches are drawn without guards; the step each leads to says which answer it is (Reject CoO, Endorse CoO, Query CoO; Apply for Endorsement, Send CoO)."
    }
   ],
   "UBL-2.0-SourcingPunchoutProcess": [
@@ -1476,6 +1560,30 @@
     "was": {
      "text": "(from Business Processes)"
     }
+   },
+   {
+    "id": "dec-28",
+    "decided": "2026-09-27",
+    "by": "completeness sweep, settled from the original",
+    "question": "A way out of a decision with no guard in the model.",
+    "answer": "The artwork guards one branch of each 'Reconcile Charges'; the other ('Send Account Response', 'Raise Invoice') is the otherwise case, unlabelled.",
+    "op": "unstated",
+    "section": "flows",
+    "element": "flow-reconcile-charges-in-accounting-supplier-to-raise-invoice",
+    "attribute": "guard",
+    "reason": "The artwork guards one branch of each 'Reconcile Charges'; the other ('Send Account Response', 'Raise Invoice') is the otherwise case, unlabelled."
+   },
+   {
+    "id": "dec-29",
+    "decided": "2026-09-27",
+    "by": "completeness sweep, settled from the original",
+    "question": "A way out of a decision with no guard in the model.",
+    "answer": "The artwork guards one branch of each 'Reconcile Charges'; the other ('Send Account Response', 'Raise Invoice') is the otherwise case, unlabelled.",
+    "op": "unstated",
+    "section": "flows",
+    "element": "flow-reconcile-charges-in-accounting-customer-to-send-account-response",
+    "attribute": "guard",
+    "reason": "The artwork guards one branch of each 'Reconcile Charges'; the other ('Send Account Response', 'Raise Invoice') is the otherwise case, unlabelled."
    }
   ],
   "UBL-1.0-ProcurementProcess": [
@@ -1597,6 +1705,174 @@
     "was": {
      "to": "fork-seller"
     }
+   },
+   {
+    "id": "dec-01",
+    "decided": "2026-09-27",
+    "by": "completeness sweep, settled from the original",
+    "question": "A decision with no question in the model.",
+    "answer": "Fig C.1 draws its four decisions as plain diamonds with no question and no guards; what each branch means is said by the step it leads to (reject order, accept order, add detail, change order; cancel order).",
+    "op": "unstated",
+    "section": "nodes",
+    "element": "decision-seller",
+    "attribute": "question",
+    "reason": "Fig C.1 draws its four decisions as plain diamonds with no question and no guards; what each branch means is said by the step it leads to (reject order, accept order, add detail, change order; cancel order)."
+   },
+   {
+    "id": "dec-02",
+    "decided": "2026-09-27",
+    "by": "completeness sweep, settled from the original",
+    "question": "A way out of a decision with no guard in the model.",
+    "answer": "Fig C.1 draws its four decisions as plain diamonds with no question and no guards; what each branch means is said by the step it leads to (reject order, accept order, add detail, change order; cancel order).",
+    "op": "unstated",
+    "section": "flows",
+    "element": "flow-decision-seller-to-reject-order",
+    "attribute": "guard",
+    "reason": "Fig C.1 draws its four decisions as plain diamonds with no question and no guards; what each branch means is said by the step it leads to (reject order, accept order, add detail, change order; cancel order)."
+   },
+   {
+    "id": "dec-03",
+    "decided": "2026-09-27",
+    "by": "completeness sweep, settled from the original",
+    "question": "A way out of a decision with no guard in the model.",
+    "answer": "Fig C.1 draws its four decisions as plain diamonds with no question and no guards; what each branch means is said by the step it leads to (reject order, accept order, add detail, change order; cancel order).",
+    "op": "unstated",
+    "section": "flows",
+    "element": "flow-decision-seller-to-acd-cetail",
+    "attribute": "guard",
+    "reason": "Fig C.1 draws its four decisions as plain diamonds with no question and no guards; what each branch means is said by the step it leads to (reject order, accept order, add detail, change order; cancel order)."
+   },
+   {
+    "id": "dec-04",
+    "decided": "2026-09-27",
+    "by": "completeness sweep, settled from the original",
+    "question": "A way out of a decision with no guard in the model.",
+    "answer": "Fig C.1 draws its four decisions as plain diamonds with no question and no guards; what each branch means is said by the step it leads to (reject order, accept order, add detail, change order; cancel order).",
+    "op": "unstated",
+    "section": "flows",
+    "element": "flow-decision-seller-to-change-order-in-seller",
+    "attribute": "guard",
+    "reason": "Fig C.1 draws its four decisions as plain diamonds with no question and no guards; what each branch means is said by the step it leads to (reject order, accept order, add detail, change order; cancel order)."
+   },
+   {
+    "id": "dec-05",
+    "decided": "2026-09-27",
+    "by": "completeness sweep, settled from the original",
+    "question": "A way out of a decision with no guard in the model.",
+    "answer": "Fig C.1 draws its four decisions as plain diamonds with no question and no guards; what each branch means is said by the step it leads to (reject order, accept order, add detail, change order; cancel order).",
+    "op": "unstated",
+    "section": "flows",
+    "element": "flow-decision-seller-to-accept-order",
+    "attribute": "guard",
+    "reason": "Fig C.1 draws its four decisions as plain diamonds with no question and no guards; what each branch means is said by the step it leads to (reject order, accept order, add detail, change order; cancel order)."
+   },
+   {
+    "id": "dec-06",
+    "decided": "2026-09-27",
+    "by": "completeness sweep, settled from the original",
+    "question": "A decision with no question in the model.",
+    "answer": "Fig C.1 draws its four decisions as plain diamonds with no question and no guards; what each branch means is said by the step it leads to (reject order, accept order, add detail, change order; cancel order).",
+    "op": "unstated",
+    "section": "nodes",
+    "element": "decision-buyer",
+    "attribute": "question",
+    "reason": "Fig C.1 draws its four decisions as plain diamonds with no question and no guards; what each branch means is said by the step it leads to (reject order, accept order, add detail, change order; cancel order)."
+   },
+   {
+    "id": "dec-07",
+    "decided": "2026-09-27",
+    "by": "completeness sweep, settled from the original",
+    "question": "A way out of a decision with no guard in the model.",
+    "answer": "Fig C.1 draws its four decisions as plain diamonds with no question and no guards; what each branch means is said by the step it leads to (reject order, accept order, add detail, change order; cancel order).",
+    "op": "unstated",
+    "section": "flows",
+    "element": "flow-decision-buyer-to-cancel-order-in-buyer",
+    "attribute": "guard",
+    "reason": "Fig C.1 draws its four decisions as plain diamonds with no question and no guards; what each branch means is said by the step it leads to (reject order, accept order, add detail, change order; cancel order)."
+   },
+   {
+    "id": "dec-08",
+    "decided": "2026-09-27",
+    "by": "completeness sweep, settled from the original",
+    "question": "A way out of a decision with no guard in the model.",
+    "answer": "Fig C.1 draws its four decisions as plain diamonds with no question and no guards; what each branch means is said by the step it leads to (reject order, accept order, add detail, change order; cancel order).",
+    "op": "unstated",
+    "section": "flows",
+    "element": "flow-decision-buyer-to-change-order-in-buyer",
+    "attribute": "guard",
+    "reason": "Fig C.1 draws its four decisions as plain diamonds with no question and no guards; what each branch means is said by the step it leads to (reject order, accept order, add detail, change order; cancel order)."
+   },
+   {
+    "id": "dec-09",
+    "decided": "2026-09-27",
+    "by": "completeness sweep, settled from the original",
+    "question": "A decision with no question in the model.",
+    "answer": "Fig C.1 draws its four decisions as plain diamonds with no question and no guards; what each branch means is said by the step it leads to (reject order, accept order, add detail, change order; cancel order).",
+    "op": "unstated",
+    "section": "nodes",
+    "element": "decision-seller-2",
+    "attribute": "question",
+    "reason": "Fig C.1 draws its four decisions as plain diamonds with no question and no guards; what each branch means is said by the step it leads to (reject order, accept order, add detail, change order; cancel order)."
+   },
+   {
+    "id": "dec-10",
+    "decided": "2026-09-27",
+    "by": "completeness sweep, settled from the original",
+    "question": "A way out of a decision with no guard in the model.",
+    "answer": "Fig C.1 draws its four decisions as plain diamonds with no question and no guards; what each branch means is said by the step it leads to (reject order, accept order, add detail, change order; cancel order).",
+    "op": "unstated",
+    "section": "flows",
+    "element": "flow-decision-seller-2-to-cancel-order-in-seller",
+    "attribute": "guard",
+    "reason": "Fig C.1 draws its four decisions as plain diamonds with no question and no guards; what each branch means is said by the step it leads to (reject order, accept order, add detail, change order; cancel order)."
+   },
+   {
+    "id": "dec-11",
+    "decided": "2026-09-27",
+    "by": "completeness sweep, settled from the original",
+    "question": "A way out of a decision with no guard in the model.",
+    "answer": "Fig C.1 draws its four decisions as plain diamonds with no question and no guards; what each branch means is said by the step it leads to (reject order, accept order, add detail, change order; cancel order).",
+    "op": "unstated",
+    "section": "flows",
+    "element": "flow-decision-seller-2-to-fork-seller",
+    "attribute": "guard",
+    "reason": "Fig C.1 draws its four decisions as plain diamonds with no question and no guards; what each branch means is said by the step it leads to (reject order, accept order, add detail, change order; cancel order)."
+   },
+   {
+    "id": "dec-12",
+    "decided": "2026-09-27",
+    "by": "completeness sweep, settled from the original",
+    "question": "A decision with no question in the model.",
+    "answer": "Fig C.1 draws its four decisions as plain diamonds with no question and no guards; what each branch means is said by the step it leads to (reject order, accept order, add detail, change order; cancel order).",
+    "op": "unstated",
+    "section": "nodes",
+    "element": "decision-seller-3",
+    "attribute": "question",
+    "reason": "Fig C.1 draws its four decisions as plain diamonds with no question and no guards; what each branch means is said by the step it leads to (reject order, accept order, add detail, change order; cancel order)."
+   },
+   {
+    "id": "dec-13",
+    "decided": "2026-09-27",
+    "by": "completeness sweep, settled from the original",
+    "question": "A way out of a decision with no guard in the model.",
+    "answer": "Fig C.1 draws its four decisions as plain diamonds with no question and no guards; what each branch means is said by the step it leads to (reject order, accept order, add detail, change order; cancel order).",
+    "op": "unstated",
+    "section": "flows",
+    "element": "flow-decision-seller-3-to-cancel-order-in-seller",
+    "attribute": "guard",
+    "reason": "Fig C.1 draws its four decisions as plain diamonds with no question and no guards; what each branch means is said by the step it leads to (reject order, accept order, add detail, change order; cancel order)."
+   },
+   {
+    "id": "dec-14",
+    "decided": "2026-09-27",
+    "by": "completeness sweep, settled from the original",
+    "question": "A way out of a decision with no guard in the model.",
+    "answer": "Fig C.1 draws its four decisions as plain diamonds with no question and no guards; what each branch means is said by the step it leads to (reject order, accept order, add detail, change order; cancel order).",
+    "op": "unstated",
+    "section": "flows",
+    "element": "flow-decision-seller-3-to-fork-seller",
+    "attribute": "guard",
+    "reason": "Fig C.1 draws its four decisions as plain diamonds with no question and no guards; what each branch means is said by the step it leads to (reject order, accept order, add detail, change order; cancel order)."
    }
   ],
   "UBL-2.0-SelfBillingwithCreditNoteProcess": [
@@ -1923,6 +2199,42 @@
     "node": "initial-despatch-party",
     "name": "Ordering",
     "how": "starts-from"
+   },
+   {
+    "id": "dec-23",
+    "decided": "2026-09-27",
+    "by": "completeness sweep, settled from the original",
+    "question": "A way out of a decision with no guard in the model.",
+    "answer": "'Determine Action' has three branches drawn without guards; the step each leads to says which (Adjust Order, Send Receipt Advice, Accept Items).",
+    "op": "unstated",
+    "section": "flows",
+    "element": "flow-determine-action-to-adjust-order",
+    "attribute": "guard",
+    "reason": "'Determine Action' has three branches drawn without guards; the step each leads to says which (Adjust Order, Send Receipt Advice, Accept Items)."
+   },
+   {
+    "id": "dec-24",
+    "decided": "2026-09-27",
+    "by": "completeness sweep, settled from the original",
+    "question": "A way out of a decision with no guard in the model.",
+    "answer": "'Determine Action' has three branches drawn without guards; the step each leads to says which (Adjust Order, Send Receipt Advice, Accept Items).",
+    "op": "unstated",
+    "section": "flows",
+    "element": "flow-determine-action-to-send-receipt-advice",
+    "attribute": "guard",
+    "reason": "'Determine Action' has three branches drawn without guards; the step each leads to says which (Adjust Order, Send Receipt Advice, Accept Items)."
+   },
+   {
+    "id": "dec-25",
+    "decided": "2026-09-27",
+    "by": "completeness sweep, settled from the original",
+    "question": "A way out of a decision with no guard in the model.",
+    "answer": "'Determine Action' has three branches drawn without guards; the step each leads to says which (Adjust Order, Send Receipt Advice, Accept Items).",
+    "op": "unstated",
+    "section": "flows",
+    "element": "flow-determine-action-to-accept-items",
+    "attribute": "guard",
+    "reason": "'Determine Action' has three branches drawn without guards; the step each leads to says which (Adjust Order, Send Receipt Advice, Accept Items)."
    }
   ],
   "UBL-2.0-PaymentNotificationProcess": [
@@ -2446,6 +2758,48 @@
     "answer": "None is a flow: each is a piece of the lane divider, drawn in segments that stop at every document on the line, lying exactly on the divider; the reading took the pieces touching a document for flows leaving it. Out of the model, kept in the layout, drawn as before.",
     "op": "divider-piece",
     "offPage": "offpage-object-catalogue"
+   }
+  ],
+  "UBL-2.0-CreateCatalogueProcess": [
+   {
+    "id": "dec-22",
+    "decided": "2026-09-27",
+    "by": "completeness sweep, settled from the original",
+    "question": "A decision with no question in the model.",
+    "answer": "The diamond after 'Respond to Request' carries no words; its question is the step before it, and both branches are guarded ([reject request], [accept request]).",
+    "op": "unstated",
+    "section": "nodes",
+    "element": "decision-provider-party",
+    "attribute": "question",
+    "reason": "The diamond after 'Respond to Request' carries no words; its question is the step before it, and both branches are guarded ([reject request], [accept request])."
+   }
+  ],
+  "UBL-2.5-BillingwithCreditNoteProcess": [
+   {
+    "id": "dec-26",
+    "decided": "2026-09-27",
+    "by": "completeness sweep, settled from the original",
+    "question": "A way out of a decision with no guard in the model.",
+    "answer": "The artwork guards the accepting branches only; the branch to 'Send Account Response' is the otherwise case, unlabelled.",
+    "op": "unstated",
+    "section": "flows",
+    "element": "flow-reconcile-charges-in-accounting-customer-to-send-account-response",
+    "attribute": "guard",
+    "reason": "The artwork guards the accepting branches only; the branch to 'Send Account Response' is the otherwise case, unlabelled."
+   }
+  ],
+  "UBL-2.5-BillingwithDebitNoteProcess": [
+   {
+    "id": "dec-27",
+    "decided": "2026-09-27",
+    "by": "completeness sweep, settled from the original",
+    "question": "A way out of a decision with no guard in the model.",
+    "answer": "The artwork guards the accepting branches only; the branch to 'Send Account Response' is the otherwise case, unlabelled.",
+    "op": "unstated",
+    "section": "flows",
+    "element": "flow-reconcile-charges-in-accounting-customer-to-send-account-response",
+    "attribute": "guard",
+    "reason": "The artwork guards the accepting branches only; the branch to 'Send Account Response' is the otherwise case, unlabelled."
    }
   ]
  },

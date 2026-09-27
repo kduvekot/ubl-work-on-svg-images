@@ -57,6 +57,7 @@
      "sameAs": {"type": "object", "required": ["figure", "node"], "additionalProperties": false,
                 "properties": {"figure": {"type": "string"}, "node": {"$ref": "#/$defs/id"}},
                 "description": "the same step drawn on another figure too (CPFR's Ordering on Figs 13 and 14)"},
+     "unstated": {"type": "object", "additionalProperties": {"type": "string"}, "description": "attributes the artwork does not give, each with the reason (a decision with no question, a branch with no guard)"},
      "trigger": {"type": "string", "description": "for a start: what sets it off where that is a time or an agreement rather than a message (in BPMN a timer or conditional start)"},
      "question": {"type": "string", "description": "for a decision: the question written beside it, which says what is decided"},
      "definedIn": {"type": "string", "description": "the package of the drawing tool's model the element was defined in, as UML-tool notation '(from <package>)' written under it says (Utility Billing)"},
@@ -75,6 +76,7 @@
      "kind": {"enum": ["control", "object", "goods", "precondition", "information"],
               "description": "control flow, object flow (a document passing), a physical goods movement, a mutual precondition between two parties (not a step in sequence), or information exchanged between two parties that no UBL document carries (drawn with a note naming it, in place of a document box)"},
      "guard": {"$ref": "#/$defs/id", "description": "the text that is this flow's guard; a lane id where the reading attached a lane title (see the extraction file's findings)"},
+     "unstated": {"type": "object", "additionalProperties": {"type": "string"}, "description": "attributes the artwork does not give, each with the reason (a decision with no question, a branch with no guard)"},
      "bothEnds": {"type": "boolean", "description": "an arrowhead at both ends: a standing relationship, not a flow from one to the other"},
      "direction": {
       "type": "object", "additionalProperties": false,
