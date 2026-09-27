@@ -1,5 +1,5 @@
 {
- "_note": "rules that UML asks for and these drawings do not give, each one read against the original artwork and found to be the artwork's and not the reading's. model_sheet reports those instead of failing them, and only where every element it names is listed here - a new one anywhere else still fails, which is what keeps the rule a tripwire for a connector the model has lost. Checked 2026-09 with the TC; see docs/artwork-conversion-notes.md 11.4.",
+ "_note": "rules that UML asks for and these drawings do not give, each one read against the original artwork and found to be the artwork's and not the reading's. model_sheet reports those instead of failing them, and only where every element it names is listed here - a new one anywhere else still fails, which is what keeps the rule a tripwire for a connector the model has lost. Checked 2026-09 with the TC; see docs/artwork-conversion-notes.md 11.4. An entry may also record a fault in how something is drawn that breaks no rule (`drawn`, with empty `rules`): the model has it right, and the layout keeps the artwork's drawing until a later session re-lays the diagram.",
  "diagrams": {
   "UBL-2.2-BusinessCard": {
    "why": "Fig 86: the flow out of the Business Card runs down the lane divider itself, with the pair of diagonal break marks across it - a BPMN break borrowed into a UML diagram because the right-hand lane is 0..n parties. A route drawn as the divider cannot be read as a flow; the marks are drawn, and the document reads as written and never read.",
@@ -28,6 +28,13 @@
      "Create Item Information Request"
     ]
    }
+  },
+  "UBL-2.2-CPFR-ExceptionMonitor": {
+   "why": "Fig 14 (q9, 2026-09-27): the connector from Send Exception (Buyer Party) to Exception Notification (positive) is drawn collapsed - a short hook off the top corner of the action, and its arrowhead standing off the document without touching it - where its mirror on the Seller's side is drawn whole. The model has the flow as it plainly is (flow-send-exception-in-buyer-party-to-exception-notification-positive, direction checked, notes 11.1); the SVG keeps the artwork's drawing.",
+   "drawn": [
+    "flow-send-exception-in-buyer-party-to-exception-notification-positive"
+   ],
+   "rules": {}
   },
   "UBL-2.2-DigitalCapability": {
    "why": "Fig 87: as Fig 86.",

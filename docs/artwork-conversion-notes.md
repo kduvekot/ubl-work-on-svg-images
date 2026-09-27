@@ -1056,6 +1056,7 @@ against the baseline and committed on its own (the procedure is in
 | q6 | words beside a start or an end | they name it; three name the process it starts from or leads into (`linkedProcess`) | Initiate Freight Management, Certification of Origin | unchanged |
 | q7 | the punch-out exchange, the only crossing without a document | the whole punch-out session is outside UBL's scope: a `segment` of the two actions and the flow between them, named by the note; the start stays outside it; the note stands between the parties | Fig 37 | unchanged |
 | q8 | *Get Guarantee from financial institution*, a step involving a party the diagram does not draw | an ordinary step of the Tenderer: what it takes to complete is not this diagram's concern. A rule for all such steps (goods sent, a bank, an authority not drawn), settled without the TC from now on | Tender Guarantee Deposit | unchanged, no correction |
+| q9 | the crumpled connector into *Exception Notification (positive)* | an artwork fault: the model has the flow right, the drawing is special drawing instructions to leave as they are until a later session re-lays the diagram; recorded in `artwork-faults.json` | Fig 14 | unchanged, no correction |
 | - | misread text | noted, fixed in one pass at the end (`pendingTextFixes`, 20 so far) | 11 | - |
 
 After q7: 54 corrections over 12 diagrams; over all 78 not a pixel differs from
@@ -1197,6 +1198,17 @@ that has no column - so these are settled by this rule and not brought to the
 TC. A `segment` with scope "external" is kept for what the specification itself
 puts outside its scope, as UBL.xml does for punch-out.
 
+The ninth, `q9`: on Fig 14 the connector from the Buyer's *Send Exception* to
+*Exception Notification (positive)* is drawn collapsed - a short hook off the
+action's corner and an arrowhead standing off the document - where its mirror on
+the Seller's side is whole. The model already has the flow as it plainly is, its
+direction checked (11.1). The answer: what is wrong is only how it is drawn,
+"special drawing instructions", and the underlying model is right; so it is
+recorded in `tools/artwork-faults.json` (a `drawn` entry, breaking no rule) and
+left for a later session that moves elements around for a better flow. Artwork
+faults as plain as this are from now on recorded without a question, and
+mentioned when found.
+
 **Misread text is noted, not yet fixed.** A text fix changes what is drawn, and
 so the verifier's findings; the TC's instruction is to make them all in one pass
 at the end. They are collected in `pendingTextFixes` in
@@ -1228,6 +1240,9 @@ when the diagrams themselves are next revised.
     paragraph should be the Originator's own. Whose procurement application
     "transparently gathers pertinent information" is unclear for the same
     reason.
+- *Fig 14, CPFR Exception Monitor (with `q9`):* redraw the connector from the
+  Buyer's *Send Exception* to *Exception Notification (positive)* like its mirror
+  on the Seller's side. A layout matter, for the session that re-lays diagrams.
 - *Tender Guarantee Deposit (with `q8`):* obtaining the guarantee from a
   financial institution is shown as one step with no document. Should UBL ever
   cover that exchange, the financial institution would become a party with its
