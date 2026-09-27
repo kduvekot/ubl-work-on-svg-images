@@ -1473,6 +1473,12 @@ when the diagrams themselves are next revised.
 - *CPFR phase boxes:* size each to its steps and the words that belong to it,
   with the same margin on every figure (Fig 9 is far too wide; Fig 7's "Retail
   Event Accepted ?" pokes out of its box).
+- *Decisions (completeness sweep):* guard every branch and give every diamond its
+  question. Fig C.1, Certification of Origin and Fulfilment Despatch Advice can
+  take their guards from the step each branch leads to; Create Catalogue's
+  diamond can say "Respond to Request" as its Update Catalogue siblings do; the
+  2.5 billing figures' unlabelled branch out of *Reconcile Charges* can read
+  [otherwise] or [dispute charges].
 - *Tender Guarantee Deposit (with `q8`):* obtaining the guarantee from a
   financial institution is shown as one step with no document. Should UBL ever
   cover that exchange, the financial institution would become a party with its
