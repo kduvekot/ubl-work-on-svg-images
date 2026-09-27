@@ -1054,7 +1054,7 @@ against the baseline and committed on its own (the procedure is in
 | q4 | Fig 9 as one column; documents on a divider | split Fig 9 at its grey line; every document drawn on a divider stands *between* the two lanes (all 228) | Fig 9; all 78 | unchanged |
 | q5 | *Ordering*, the prior key exchange | boxes that stand for a process outside the diagram (`external`); Ordering stands between the parties; the key exchange is a mutual `precondition` | Figs 13, 14, 31, 32 | unchanged |
 | q6 | words beside a start or an end | they name it; three name the process it starts from or leads into (`linkedProcess`) | Initiate Freight Management, Certification of Origin | unchanged |
-| - | misread text | noted, fixed in one pass at the end (`pendingTextFixes`, 18 so far) | 10 | - |
+| - | misread text | noted, fixed in one pass at the end (`pendingTextFixes`, 20 so far) | 10 | - |
 
 After q6: 52 corrections over 11 diagrams; over all 78 not a pixel differs from
 `baselines/2026-09-25` (71 identical, 7 the same drawing with a corrected model)
@@ -1166,7 +1166,7 @@ or an end instead of drawn as a box.
 **Misread text is noted, not yet fixed.** A text fix changes what is drawn, and
 so the verifier's findings; the TC's instruction is to make them all in one pass
 at the end. They are collected in `pendingTextFixes` in
-`tools/model-corrections.json` as they are found - 18 so far, seven of them the
+`tools/model-corrections.json` as they are found - 20 so far, seven of them the
 degraded labels of Fig C.1 - each ready to become a `retext` correction. The
 machinery is in place and was tried on all 17: every one changed exactly its
 words and nothing else, and for the diagrams it touches `model_io.py` writes a

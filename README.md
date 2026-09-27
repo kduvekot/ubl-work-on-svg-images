@@ -30,7 +30,7 @@ Scope so far: the **78 UML activity diagrams** of UBL 2.5 (of the 97 figures).
    are settled (q1-q6), recorded as corrections the pipeline applies. None of
    them has changed a pixel of any drawing.
 5. **Misread text is being noted, not fixed**, to be corrected in one pass at the
-   end (TC instruction): 18 so far.
+   end (TC instruction): 20 so far.
 
 The record of every decision is in
 [`docs/artwork-conversion-notes.md`](docs/artwork-conversion-notes.md) §16;

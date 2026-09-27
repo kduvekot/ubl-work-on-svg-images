@@ -807,6 +807,22 @@
     "reads": "Way bill",
     "should_read": "Waybill",
     "found": "2026-09-27"
+   },
+   {
+    "diagram": "UBL-2.0-SourcingBuyerInitiatedProcess",
+    "section": "lanes",
+    "element": "lane-seller-supplier-party",
+    "reads": "seller Supplier Party",
+    "should_read": "Seller Supplier Party",
+    "found": "2026-09-27"
+   },
+   {
+    "diagram": "UBL-2.0-SourcingPunchoutProcess",
+    "section": "lanes",
+    "element": "lane-seller-supplier-party",
+    "reads": "seller Supplier Party",
+    "should_read": "Seller Supplier Party",
+    "found": "2026-09-27"
    }
   ]
  }
