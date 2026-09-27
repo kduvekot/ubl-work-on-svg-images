@@ -1345,7 +1345,10 @@ phase's `members` - the nodes drawn wholly inside its dashed box - and
 `model_io.py validate` refuses a phase whose members disagree with its box, so
 a layout change can no longer move a step into or out of a phase unseen. On all
 seven figures no node straddles a border; on Figs 13 and 14 *Ordering* stands
-outside the box, as `q5` decided. Nothing drawn changes. Settled from
+outside the box, as `q5` decided. Nothing drawn changes. Checked by the TC on the pictures: no step inside
+a phase belongs to another phase. The boxes are drawn nearly frame-wide on every
+figure whatever their content (Fig 9 has some 11 letter heights empty each
+side): a layout matter, kept as drawn. Settled from
 the original and mentioned: on seven figures (Enquiry, five Tender figures,
 both Tender Contract figures) the reading made a third column 7-10 px wide out
 of the strip between the last divider and the frame; removed.
@@ -1432,6 +1435,9 @@ when the diagrams themselves are next revised.
 - *Waste Movement and Waste Notification (with `q15`):* the column titles read
   "Senderparty" and "ReceiverParty"; UBL.xml says "Sender Party" and "Receiver
   Party".
+- *CPFR phase boxes:* size each to its steps and the words that belong to it,
+  with the same margin on every figure (Fig 9 is far too wide; Fig 7's "Retail
+  Event Accepted ?" pokes out of its box).
 - *Tender Guarantee Deposit (with `q8`):* obtaining the guarantee from a
   financial institution is shown as one step with no document. Should UBL ever
   cover that exchange, the financial institution would become a party with its
