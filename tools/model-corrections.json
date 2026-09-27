@@ -2085,6 +2085,19 @@
     "section": "figure",
     "attribute": "start",
     "reason": "Fig C.1 draws no start node: the process begins with the Buyer's 'place order'."
+   },
+   {
+    "id": "model-05",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, completeness sweep, actions",
+    "question": "The Seller's 'change order' has a line in (the OrderChange) and none out; the solid line between it and the diamond under 'receive order' ran from the diamond into it. Which way does it run?",
+    "answer": "Into the diamond: the arrowhead is drawn at the diamond. After a change the Seller decides again - reject, accept or add detail. The reading turned it round by a rule (an unlabelled diamond takes one flow in and sends the rest out), which this diamond, merging two ways in, does not follow.",
+    "op": "reverse-flow",
+    "flow": "flow-decision-seller-to-change-order-in-seller",
+    "was": {
+     "from": "decision-seller",
+     "to": "action-change-order-in-seller"
+    }
    }
   ],
   "UBL-2.0-SelfBillingwithCreditNoteProcess": [

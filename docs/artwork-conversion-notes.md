@@ -1523,6 +1523,15 @@ Settled from the original and mentioned: four Goods Item Passport boxes read
 rounded box for a "1" ("Receive & Resolve 1 Exception"; `text-29`, with the
 line measured again, `draw-09`). Each changes those words in the render only.
 
+The actions (516). All have a name and a party. Looking at the ones with no
+way in or out on the original found one model error (TC, 2026-09-27): on Fig
+C.1 the line between the Seller's *change order* and the diamond under
+*receive order* runs into the diamond - its arrowhead is drawn there; after a
+change the Seller decides again. The reading had turned it round by the rule
+that an unlabelled diamond takes one flow in and sends the rest out, which a
+diamond merging two ways in does not follow (`model-05`; the render now
+matches the original there).
+
 **The notes for a person, all 266 settled by eye (2026-09-27).** The sweep
 leaves, per diagram, notes where the reading could not be sure; each was looked at
 beside the original and our render (side by side, crops of the place). Most are
