@@ -281,7 +281,9 @@ yet fixed:
   both pass, and it compares OCR with OCR, so a misreading made in both passes.
   The misreadings are being collected by eye instead (`pendingTextFixes`).
 - **The checkers read the extractor's graph, not the model**, so they know
-  nothing of the corrections except text fixes (through `-graph-corrected.json`).
+  nothing of the corrections except text fixes (through `-graph-corrected.json`)
+  and, in the model sheet, the model's out-of-scope `segments` (q7), which it
+  reads from the `-diagram.json` beside the graph.
 
 Found by a reproduction test run by an agent with no access to this repository,
 

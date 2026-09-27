@@ -125,6 +125,21 @@
     "properties": {"id": {"$ref": "#/$defs/id"},
                    "title": {"type": "string", "description": "the phase's name, written at the top of its box"}}
    }
+  },
+  "segments": {
+   "description": "a part of the process the diagram sets apart without drawing a box round it, such as an exchange the specification puts outside its scope; not drawn",
+   "type": "array",
+   "items": {
+    "type": "object", "required": ["id", "members"], "additionalProperties": false,
+    "properties": {"id": {"$ref": "#/$defs/id"},
+                   "members": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/id"},
+                               "description": "the nodes and flows it holds; a flow's two ends are members too"},
+                   "scope": {"const": "external", "description": "the part is outside the scope of the specification: the diagram shows it for context, and no UBL document passes in it"},
+                   "reference": {"type": "object", "required": ["what"], "additionalProperties": false,
+                                 "properties": {"what": {"type": "string"}, "source": {"type": "string"}},
+                                 "description": "what the part is, and where the specification says so"},
+                   "annotatedBy": {"$ref": "#/$defs/id", "description": "the note the diagram names it with"}}
+   }
   }
  },
  "$defs": {

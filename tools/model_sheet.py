@@ -24,6 +24,7 @@ in the spec is this model's own measurements, carried through.
 """
 import json
 import os
+import re
 import sys
 
 GLYPH = {"initial": "(start)", "final": "(end)", "decision": "<%s?>",
@@ -153,7 +154,30 @@ def flow_lines(g):
     return lines
 
 
-def checks(g):
+def outside_scope(src):
+    """The flows a person placed outside the specification's scope (a model
+    segment with scope "external", q7), as {(from, to): what}, in the graph's
+    ids. Read from the model split beside the graph, when there is one."""
+    base = re.sub(r"-graph(-corrected)?\.json$", "", src)
+    try:
+        m = json.load(open(base + "-diagram.json"))
+        former = json.load(open(base + "-extraction.json")).get("formerIds", {})
+    except (OSError, ValueError):
+        return {}
+    flows = {f["id"]: f for f in m["flows"]}
+    out = {}
+    for sg in m.get("segments", []):
+        if sg.get("scope") != "external":
+            continue
+        what = (sg.get("reference") or {}).get("what", sg["id"])
+        for x in sg["members"]:
+            if x in flows:
+                f = flows[x]
+                out[(former.get(f["from"], f["from"]), former.get(f["to"], f["to"]))] = what
+    return out
+
+
+def checks(g, outside=None):
     """What an activity diagram is allowed to say, one rule at a time.
 
     Each rule is a statement about the artwork that holds whatever the drawing
@@ -256,6 +280,8 @@ def checks(g):
     # scope of UBL". So each crossing is named with what the drawing says it is,
     # and the rule reports rather than fails.
     def why(e, a, b):
+        if (e["from"], e["to"]) in (outside or {}):
+            return "outside UBL's scope: " + outside[(e["from"], e["to"])]
         if e.get("edgeKind") == "goods":
             return "the goods, beside their Despatch Advice"
         if a["kind"] in ("initial", "final") or b["kind"] in ("initial", "final"):
@@ -369,7 +395,7 @@ def main(src, out_json=None):
     for l in lines:
         print("  " + l if l else "")
     print("CHECKS")
-    res = checks(g)
+    res = checks(g, outside_scope(src))
     for r in res:
         mark = "note" if (r.get("report") and r["bad"]) else \
                ("ok" if r["ok"] else "FAIL")

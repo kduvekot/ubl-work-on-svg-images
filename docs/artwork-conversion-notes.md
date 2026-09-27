@@ -1054,9 +1054,10 @@ against the baseline and committed on its own (the procedure is in
 | q4 | Fig 9 as one column; documents on a divider | split Fig 9 at its grey line; every document drawn on a divider stands *between* the two lanes (all 228) | Fig 9; all 78 | unchanged |
 | q5 | *Ordering*, the prior key exchange | boxes that stand for a process outside the diagram (`external`); Ordering stands between the parties; the key exchange is a mutual `precondition` | Figs 13, 14, 31, 32 | unchanged |
 | q6 | words beside a start or an end | they name it; three name the process it starts from or leads into (`linkedProcess`) | Initiate Freight Management, Certification of Origin | unchanged |
-| - | misread text | noted, fixed in one pass at the end (`pendingTextFixes`, 20 so far) | 10 | - |
+| q7 | the punch-out exchange, the only crossing without a document | the whole punch-out session is outside UBL's scope: a `segment` of the two actions and the flow between them, named by the note; the start stays outside it; the note stands between the parties | Fig 37 | unchanged |
+| - | misread text | noted, fixed in one pass at the end (`pendingTextFixes`, 20 so far) | 11 | - |
 
-After q6: 52 corrections over 11 diagrams; over all 78 not a pixel differs from
+After q7: 54 corrections over 12 diagrams; over all 78 not a pixel differs from
 `baselines/2026-09-25` (71 identical, 7 the same drawing with a corrected model)
 and the sweep table is the baseline's.
 
@@ -1162,6 +1163,27 @@ the end "End of CoO Process". Each text now `labels` its node, and the three tha
 name another process record it as the node's `linkedProcess` (`starts-from` or
 `leads-into`) - the same idea as the external boxes of `q5`, written on a start
 or an end instead of drawn as a box.
+
+The seventh, `q7`: on Fig 37, Punch-out Sourcing, *Initiate a punchout session*
+(Originator) runs to *Build shopping basket* (Seller) with no document between
+them - the one such crossing in the figure - and the note "Transaction accessing
+Seller's catalogue application" sits on that line, over the divider, joined to
+nothing. UBL.xml (section S-PUNCHOUT) says the exchange "is considered outside
+the scope of UBL; thus, the only UBL document type involved in this process is
+Quotation". The first suggestion was to mark the one flow `external`, as `q5`
+marks a box; the answer went further: the whole session is outside UBL, a
+prerequisite in sequence for sending the Quotation. So the model gains
+`segments`: a part of the process the diagram sets apart without drawing a box
+round it, here `segment-punch-out-session` with the two actions and the flow
+between them as `members`, `scope` "external", the UBL.xml reference, and the
+note as `annotatedBy`. The start stays outside the segment, as the start of the
+whole process; the flows keep their kinds (unlike the key exchange of `q5`, this
+one has an order: the basket before the Quotation); the note, drawn across the
+divider, stands `between` the parties. The model sheet now names the crossing
+"outside UBL's scope" instead of asking for it to be read against the artwork.
+A segment is not drawn, so Fig 37 stays identical to the baseline. (The one
+other note drawn across a divider, *Regulatory Information* on Intermodal Freight
+Management, is left for its own question.)
 
 **Misread text is noted, not yet fixed.** A text fix changes what is drawn, and
 so the verifier's findings; the TC's instruction is to make them all in one pass

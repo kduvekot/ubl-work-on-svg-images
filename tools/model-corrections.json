@@ -659,6 +659,41 @@
      "text": "End of CoO\nProcess"
     }
    }
+  ],
+  "UBL-2.0-SourcingPunchoutProcess": [
+   {
+    "id": "q7-punchout-segment",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Fig 37: the hand-over from 'Initiate a punchout session' (Originator) to 'Build shopping basket' (Seller) is the only crossing between the parties without a document, and the note 'Transaction accessing Seller's catalogue application' sits on it, over the divider, connected to nothing. UBL.xml says the punch-out exchange 'is considered outside the scope of UBL; thus, the only UBL document type involved in this process is Quotation'. How should the model hold it?",
+    "answer": "The whole punch-out session is outside UBL's scope, not only the line: opening the session and building the basket, a prerequisite in sequence for sending the Quotation. It is a segment of the process holding the two actions and the flow between them, named by the note; the start stays outside it, as the start of the whole process, and the flows keep their kinds. The note stands on the divider, between the parties. (Who builds the basket, and UBL.xml's 'Seller' where 'Originator' seems meant, are kept for a future release: notes section 16.)",
+    "op": "segment",
+    "segment": "segment-punch-out-session",
+    "members": [
+     "action-initiate-a-punchout-session",
+     "flow-initiate-a-punchout-session-to-build-shopping-basket",
+     "action-build-shopping-basket"
+    ],
+    "annotatedBy": "note-transaction-accessing-seller-s-catalogue",
+    "scope": "external",
+    "reference": {
+     "what": "the punch-out exchange, tightly coupled to the Seller's catalogue application",
+     "source": "UBL.xml section S-PUNCHOUT (Punchout)"
+    }
+   },
+   {
+    "id": "q7-punchout-note-between",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Fig 37: the hand-over from 'Initiate a punchout session' (Originator) to 'Build shopping basket' (Seller) is the only crossing between the parties without a document, and the note 'Transaction accessing Seller's catalogue application' sits on it, over the divider, connected to nothing. UBL.xml says the punch-out exchange 'is considered outside the scope of UBL; thus, the only UBL document type involved in this process is Quotation'. How should the model hold it?",
+    "answer": "The whole punch-out session is outside UBL's scope, not only the line: opening the session and building the basket, a prerequisite in sequence for sending the Quotation. It is a segment of the process holding the two actions and the flow between them, named by the note; the start stays outside it, as the start of the whole process, and the flows keep their kinds. The note stands on the divider, between the parties. (Who builds the basket, and UBL.xml's 'Seller' where 'Originator' seems meant, are kept for a future release: notes section 16.)",
+    "op": "between",
+    "node": "note-transaction-accessing-seller-s-catalogue",
+    "lanes": [
+     "lane-originator-customer-party",
+     "lane-seller-supplier-party"
+    ]
+   }
   ]
  },
  "pendingTextFixes": {

@@ -26,8 +26,8 @@ Scope so far: the **78 UML activity diagrams** of UBL 2.5 (of the 97 figures).
    diagram says), `-layout.json` (where it is drawn) and `-extraction.json` (how
    the reading went), each with a schema, stable ids, and a split that provably
    loses nothing.
-4. **Reviewing the model with the TC**, one question at a time. Six questions
-   are settled (q1-q6), recorded as corrections the pipeline applies. None of
+4. **Reviewing the model with the TC**, one question at a time. Seven questions
+   are settled (q1-q7), recorded as corrections the pipeline applies. None of
    them has changed a pixel of any drawing.
 5. **Misread text is being noted, not fixed**, to be corrected in one pass at the
    end (TC instruction): 20 so far.
@@ -98,12 +98,13 @@ out as stated, and every generated file was byte-identical to the working run's.
 
 1. **Review questions still queued** (candidates found by scanning all 78, each
    to be brought to the TC one at a time):
-   - Fig 37, *Sourcing Punch-out*: the exchange UBL.xml calls "outside the scope
-     of UBL" - mark it the way q5 marks an external process?
    - *Tender Guarantee Deposit*: is *Get Guarantee from financial institution* a
      step of this process or a process outside it?
    - Fig 14: the arrowhead into *Exception Notification (positive)* is drawn
      broken in the artwork - record as an artwork fault?
+   - *Intermodal Freight Management*: the note *Regulatory Information* is drawn
+     across a divider - what does it annotate, and does it stand between the
+     parties like Fig 37's note (q7)?
    - The remaining notes for a person (266, listed per diagram in each
      `-struct.json`): most can be settled by looking at the original; bring only
      those that need the TC.

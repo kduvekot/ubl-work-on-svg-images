@@ -271,6 +271,10 @@ def _rename(model, layout, report, rename):
     for n in model["nodes"]:
         if "between" in n:
             n["between"] = [r(x) for x in n["between"]]
+    for sg in model.get("segments", []):
+        sg["members"] = [r(x) for x in sg["members"]]
+        if "annotatedBy" in sg:
+            sg["annotatedBy"] = r(sg["annotatedBy"])
     if "unresolvedAttachments" in report:
         report["unresolvedAttachments"] = {r(k): v for k, v in report["unresolvedAttachments"].items()}
     for f in report["findings"]:
@@ -319,6 +323,12 @@ def apply_corrections(model, layout, report, name, recorded=None):
       label-node             text `text` names node `node` (a start or an end)
       linked-process         node `node` starts from, or leads into, the process
                              `name` (`how`: "starts-from" or "leads-into")
+      segment                the nodes and flows `members` are a part of the
+                             process the diagram sets apart without drawing a
+                             box round it, with the id `segment`; `scope`
+                             "external" says it is outside the scope of the
+                             specification, `reference` which and where, and
+                             `annotatedBy` the note that names it
       retext                 the words of `element` in `section` (texts, nodes or
                              lanes) are `text`, which the reading misread; line
                              breaks as in the artwork, one per measured line
@@ -465,6 +475,27 @@ def apply_corrections(model, layout, report, name, recorded=None):
             n = el("nodes", c["node"], cid)
             n["linkedProcess"] = {k: c[k] for k in ("name", "how", "source") if k in c}
             touched.add(n["id"])
+        elif op == "segment":
+            # a stretch of the process set apart without a box: the punch-out
+            # session, which UBL.xml puts outside UBL's scope. Its members keep
+            # their kinds and flows; what the segment adds is one statement
+            # about all of them together.
+            members = []
+            for ref in c["members"]:
+                sec = next((s for s in ("nodes", "flows") if gid.get(ref) in
+                            {x["id"] for x in model[s]}), None)
+                if sec is None:
+                    raise ValueError("%s: correction %s names %r, which is not a node or a "
+                                     "flow of this reading" % (name, cid, ref))
+                members.append(el(sec, ref, cid)["id"])
+            sg = dict(id=c["segment"], members=members)
+            for k in ("scope", "reference"):
+                if k in c:
+                    sg[k] = c[k]
+            if "annotatedBy" in c:
+                sg["annotatedBy"] = el("nodes", c["annotatedBy"], cid)["id"]
+            model.setdefault("segments", []).append(sg)
+            touched |= set(members)
         elif op == "retext":
             # words the reading got wrong, as the artwork writes them. The words
             # change, and so does what is drawn; where each line sits does not.
@@ -896,6 +927,21 @@ def validate(diagram_path):
         ref("flow %s's guard" % f["id"], f.get("guard"), "texts", "lanes")
     for t in m["texts"]:
         ref("text %s" % t["id"], t.get("labels"), "flows", "offPage", "nodes")
+    for sg in m.get("segments", []):
+        if sg["id"] in ids:
+            errs.append("id %s is used twice (%s and segments)" % (sg["id"], ids[sg["id"]]))
+        ids[sg["id"]] = "segments"
+        mem = set(sg["members"])
+        for x in sg["members"]:
+            ref("segment %s's member" % sg["id"], x, "nodes", "flows")
+        for f in m["flows"]:
+            if f["id"] in mem and not {f["from"], f["to"]} <= mem:
+                errs.append("segment %s holds flow %s but not both its ends"
+                            % (sg["id"], f["id"]))
+        a = sg.get("annotatedBy")
+        ref("segment %s's note" % sg["id"], a, "nodes")
+        if a and any(n["id"] == a and n["kind"] != "note" for n in m["nodes"]):
+            errs.append("segment %s is annotated by %s, which is not a note" % (sg["id"], a))
     for o in m["offPage"]:
         ref("off-page flow %s" % o["id"], o["node"], "nodes")
         ref("off-page flow %s's guard" % o["id"], o.get("guard"), "texts")
