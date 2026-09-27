@@ -54,7 +54,10 @@
    "id": "action-provide-transportation-network",
    "kind": "action",
    "label": "Provide\nTransportation\nNetwork\nInformation",
-   "lane": "lane-transportation-network-manager"
+   "lane": "lane-transportation-network-manager",
+   "alsoIn": [
+    "phase-execution"
+   ]
   },
   {
    "id": "object-transport-service-description-request",
@@ -592,7 +595,8 @@
     "object-transport-execution-plan-between-transport-user-and-transport-service-provider-2",
     "note-regulatory-information",
     "action-perform-compliance-management",
-    "object-transport-execution-plan-between-transport-user-and-transport-service-provider-3"
+    "object-transport-execution-plan-between-transport-user-and-transport-service-provider-3",
+    "action-provide-transportation-network"
    ]
   },
   {

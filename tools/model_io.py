@@ -276,6 +276,9 @@ def _rename(model, layout, report, rename):
     for p in model["phases"]:
         if "members" in p:
             p["members"] = [r(x) for x in p["members"]]
+    for n in model["nodes"]:
+        if "alsoIn" in n:
+            n["alsoIn"] = [r(x) for x in n["alsoIn"]]
     if "unresolvedAttachments" in report:
         report["unresolvedAttachments"] = {r(k): v for k, v in report["unresolvedAttachments"].items()}
     for f in report["findings"]:
@@ -397,6 +400,8 @@ def apply_corrections(model, layout, report, name, recorded=None):
                              (a node or a flow): recorded with `reason`, so the
                              gap is a known one (a decision with no question, a
                              branch with no guard)
+      also-in-band           node `node`, drawn across two rows, belongs to the
+                             phase shown as the band titled `band` as well
       retext                 the words of `element` in `section` (texts, nodes or
                              lanes) are `text`, which the reading misread; line
                              breaks as in the artwork, one per measured line
@@ -795,6 +800,11 @@ def apply_corrections(model, layout, report, name, recorded=None):
                                  % (name, cid, c["element"], c["attribute"]))
             x.setdefault("unstated", {})[c["attribute"]] = c["reason"]
             touched.add(x["id"])
+        elif op == "also-in-band":
+            # applied once bands are phases (bands_to_phases)
+            n = el("nodes", c["node"], cid)
+            n.setdefault("_alsoInBand", []).append(c["band"])
+            touched.add(n["id"])
         elif op == "retext":
             # words the reading got wrong, as the artwork writes them. The words
             # change, and so does what is drawn; where each line sits does not.
@@ -909,6 +919,13 @@ def bands_to_phases(model, layout):
         del layout["lanes"][b["id"]]
     for n in model["nodes"]:
         n.pop("band", None)
+    # a step drawn across two rows, recorded as belonging to both
+    for n in model["nodes"]:
+        for title in n.pop("_alsoInBand", []):
+            p = next(p for p in model["phases"] if p["title"] == title)
+            if n["id"] not in p["members"]:
+                p["members"].append(n["id"])
+            n.setdefault("alsoIn", []).append(p["id"])
 
 
 def place_documents(model, layout, report):
@@ -1457,7 +1474,9 @@ def validate(diagram_path):
             ref("phase %s's member" % p["id"], x, "nodes")
         if p["id"] in l.get("phases", {}) and "members" in p:
             drawn = phase_members(m, l, p["id"])
-            if set(drawn) != set(p["members"]):
+            # a step drawn across two rows may belong to both (alsoIn)
+            also = {n["id"] for n in m["nodes"] if p["id"] in n.get("alsoIn", [])}
+            if set(drawn) | also != set(p["members"]):
                 errs.append("phase %s holds %s, and its box in the layout holds %s"
                             % (p["id"], sorted(p["members"]), sorted(drawn)))
     for sg in m.get("segments", []):

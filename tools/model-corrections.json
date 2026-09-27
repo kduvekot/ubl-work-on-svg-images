@@ -1406,6 +1406,16 @@
      "lane-transport-service-provider",
      "lane-transport-regulator"
     ]
+   },
+   {
+    "id": "phase-01",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Provide Transportation Network Information is drawn across the Planning and Execution rows, serving both (network information in Planning, the Transport Progress Status in Execution). Which phase is it in?",
+    "answer": "Both: the model lists it in Planning and in Execution, faithful to the drawing. A redraw could split it into two steps, one per phase.",
+    "op": "also-in-band",
+    "node": "action-provide-transportation-network",
+    "band": "Execution"
    }
   ],
   "UBL-2.2-BusinessCard": [

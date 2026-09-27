@@ -1413,7 +1413,8 @@ on five figures, which holds nothing. The lines are the layout's rules, so all
 78 renders are byte-identical. The split now always keeps the reading as it
 was (`uncorrected`), so it joins back whatever the model makes of it.
 *Provide Transportation Network Information* on Intermodal Freight Management
-is drawn across Planning and Execution; by its centre it is Planning's. Settled from
+is drawn across Planning and Execution and serves both; the TC: it belongs
+to both (`also-in-band`, the node's `alsoIn`), and a redraw could split it. Settled from
 the original and mentioned: on seven figures (Enquiry, five Tender figures,
 both Tender Contract figures) the reading made a third column 7-10 px wide out
 of the strip between the last divider and the frame; removed.
@@ -1509,6 +1510,8 @@ when the diagrams themselves are next revised.
   diamond can say "Respond to Request" as its Update Catalogue siblings do; the
   2.5 billing figures' unlabelled branch out of *Reconcile Charges* can read
   [otherwise] or [dispute charges].
+- *Intermodal Freight Management:* split *Provide Transportation Network
+  Information* into one step per phase (Planning, Execution).
 - *Tender Guarantee Deposit (with `q8`):* obtaining the guarantee from a
   financial institution is shown as one step with no document. Should UBL ever
   cover that exchange, the financial institution would become a party with its
