@@ -1121,7 +1121,7 @@ or an end instead of drawn as a box.
 **Misread text is noted, not yet fixed.** A text fix changes what is drawn, and
 so the verifier's findings; the TC's instruction is to make them all in one pass
 at the end. They are collected in `pendingTextFixes` in
-`tools/model-corrections.json` as they are found - 17 so far, seven of them the
+`tools/model-corrections.json` as they are found - 18 so far, seven of them the
 degraded labels of Fig C.1 - each ready to become a `retext` correction. The
 machinery is in place and was tried on all 17: every one changed exactly its
 words and nothing else, and for the diagrams it touches `model_io.py` writes a

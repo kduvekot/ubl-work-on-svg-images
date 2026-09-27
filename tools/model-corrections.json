@@ -799,6 +799,14 @@
     "reads": "Goodsltem\nPassport\n(Reimported)",
     "should_read": "GoodsItem\nPassport\n(Reimported)",
     "found": "2026-09-27"
+   },
+   {
+    "diagram": "UBL-2.2-InitiateFreightMgmtProcess",
+    "section": "nodes",
+    "element": "object-way-bill",
+    "reads": "Way bill",
+    "should_read": "Waybill",
+    "found": "2026-09-27"
    }
   ]
  }
