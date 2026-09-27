@@ -2774,9 +2774,6 @@
   "lane-transport-service-provider": "lane1",
   "lane-transport-regulator": "lane2",
   "lane-transportation-network-manager": "lane3",
-  "band-planning": "lane4",
-  "band-execution": "lane5",
-  "band-completion": "lane6",
   "initial-transport-service-provider": "n1",
   "note-transportation-network-information": "n2",
   "action-plan-transport-services": "n3",
@@ -2837,6 +2834,9 @@
   "flow-execute-transport-services-to-manage-completion": "f29",
   "flow-freight-invoice-to-finalize-transport-services": "f30",
   "flow-manage-completion-to-freight-invoice": "f31",
-  "flow-finalize-transport-services-to-final-transport-user": "f32"
+  "flow-finalize-transport-services-to-final-transport-user": "f32",
+  "phase-planning": "p-lane4",
+  "phase-execution": "p-lane5",
+  "phase-completion": "p-lane6"
  }
 }

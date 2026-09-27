@@ -16,12 +16,6 @@
    "axis": "column",
    "index": 1,
    "title": "Retailer"
-  },
-  {
-   "id": "band-1",
-   "axis": "band",
-   "index": 0,
-   "title": ""
   }
  ],
  "nodes": [
@@ -29,15 +23,13 @@
    "id": "initial-producer",
    "kind": "initial",
    "label": "",
-   "lane": "lane-producer",
-   "band": "band-1"
+   "lane": "lane-producer"
   },
   {
    "id": "object-invoice",
    "kind": "object",
    "label": "Invoice",
    "lane": null,
-   "band": "band-1",
    "between": [
     "lane-producer",
     "lane-retailer"
@@ -47,22 +39,19 @@
    "id": "action-raise-invoice",
    "kind": "action",
    "label": "Raise Invoice",
-   "lane": "lane-producer",
-   "band": "band-1"
+   "lane": "lane-producer"
   },
   {
    "id": "action-receive-invoice",
    "kind": "action",
    "label": "Receive Invoice",
-   "lane": "lane-retailer",
-   "band": "band-1"
+   "lane": "lane-retailer"
   },
   {
    "id": "final-retailer",
    "kind": "final",
    "label": "",
-   "lane": "lane-retailer",
-   "band": "band-1"
+   "lane": "lane-retailer"
   }
  ],
  "flows": [

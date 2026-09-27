@@ -16,12 +16,6 @@
    "axis": "column",
    "index": 1,
    "title": "Transport Service Provider"
-  },
-  {
-   "id": "band-1",
-   "axis": "band",
-   "index": 0,
-   "title": ""
   }
  ],
  "nodes": [
@@ -29,29 +23,25 @@
    "id": "initial-transport-user",
    "kind": "initial",
    "label": "",
-   "lane": "lane-transport-user",
-   "band": "band-1"
+   "lane": "lane-transport-user"
   },
   {
    "id": "action-create-update-transport-execution-plan",
    "kind": "action",
    "label": "Create/Update\nTransport Execution\nPlan Request",
-   "lane": "lane-transport-user",
-   "band": "band-1"
+   "lane": "lane-transport-user"
   },
   {
    "id": "action-evaluatetransport-execution-plan-request",
    "kind": "action",
    "label": "EvaluateTransport\nExecution Plan\nRequest",
-   "lane": "lane-transport-service-provider",
-   "band": "band-1"
+   "lane": "lane-transport-service-provider"
   },
   {
    "id": "object-notconfirmed-transport-execution-plan",
    "kind": "object",
    "label": "«NotConfirmed»\nTransport Execution\nPlan Request",
    "lane": null,
-   "band": "band-1",
    "between": [
     "lane-transport-user",
     "lane-transport-service-provider"
@@ -61,22 +51,19 @@
    "id": "action-request-transport-service",
    "kind": "action",
    "label": "Request Transport\nService",
-   "lane": "lane-transport-user",
-   "band": "band-1"
+   "lane": "lane-transport-user"
   },
   {
    "id": "action-receive-transport-service-request",
    "kind": "action",
    "label": "Receive Transport\nService Request",
-   "lane": "lane-transport-service-provider",
-   "band": "band-1"
+   "lane": "lane-transport-service-provider"
   },
   {
    "id": "object-rejected-transport-execution-plan-between-transport-user-and-transport-service-provider",
    "kind": "object",
    "label": "«Rejected»\nTransport Execution\nPlan",
    "lane": null,
-   "band": "band-1",
    "between": [
     "lane-transport-user",
     "lane-transport-service-provider"
@@ -86,43 +73,39 @@
    "id": "action-reject-transport-service-request",
    "kind": "action",
    "label": "Reject Transport\nService Request",
-   "lane": "lane-transport-service-provider",
-   "band": "band-1"
+   "lane": "lane-transport-service-provider"
   },
   {
    "id": "action-receive-rejected-transport-execution-in-transport-user",
    "kind": "action",
    "label": "Receive Rejected\nTransport Execution\nPlan",
-   "lane": "lane-transport-user",
-   "band": "band-1"
+   "lane": "lane-transport-user"
   },
   {
    "id": "decision-transport-service-provider",
    "kind": "decision",
    "label": "",
    "lane": "lane-transport-service-provider",
-   "band": "band-1"
+   "question": "Transport Execution Plan Request Acceptable?"
   },
   {
    "id": "decision-transport-user",
    "kind": "decision",
    "label": "",
    "lane": "lane-transport-user",
-   "band": "band-1"
+   "question": "Update Transport Execution Plan Request?"
   },
   {
    "id": "final-transport-user",
    "kind": "final",
    "label": "",
-   "lane": "lane-transport-user",
-   "band": "band-1"
+   "lane": "lane-transport-user"
   },
   {
    "id": "object-confirmed-transport-execution-plan-between-transport-user-and-transport-service-provider",
    "kind": "object",
    "label": "«Confirmed»\nTransport Execution\nPlan",
    "lane": null,
-   "band": "band-1",
    "between": [
     "lane-transport-user",
     "lane-transport-service-provider"
@@ -132,43 +115,38 @@
    "id": "action-receive-proposed-transport-execution",
    "kind": "action",
    "label": "Receive Proposed\nTransport Execution\nPlan",
-   "lane": "lane-transport-user",
-   "band": "band-1"
+   "lane": "lane-transport-user"
   },
   {
    "id": "action-confirm-transport-service-request",
    "kind": "action",
    "label": "Confirm Transport\nService Request",
-   "lane": "lane-transport-service-provider",
-   "band": "band-1"
+   "lane": "lane-transport-service-provider"
   },
   {
    "id": "action-evaluatetransport-execution-plan",
    "kind": "action",
    "label": "EvaluateTransport\nExecution Plan",
-   "lane": "lane-transport-user",
-   "band": "band-1"
+   "lane": "lane-transport-user"
   },
   {
    "id": "decision-transport-user-2",
    "kind": "decision",
    "label": "",
    "lane": "lane-transport-user",
-   "band": "band-1"
+   "question": "Transport Execution Plan Acceptable?"
   },
   {
    "id": "action-receive-confirmed-transport-execution",
    "kind": "action",
    "label": "Receive Confirmed\nTransport Execution\nPlan",
-   "lane": "lane-transport-service-provider",
-   "band": "band-1"
+   "lane": "lane-transport-service-provider"
   },
   {
    "id": "object-confirmed-transport-execution-plan-between-transport-user-and-transport-service-provider-2",
    "kind": "object",
    "label": "«Confirmed»\nTransport Execution\nPlan",
    "lane": null,
-   "band": "band-1",
    "between": [
     "lane-transport-user",
     "lane-transport-service-provider"
@@ -178,29 +156,26 @@
    "id": "action-confirm-transport-execution-plan",
    "kind": "action",
    "label": "Confirm Transport\nExecution Plan",
-   "lane": "lane-transport-user",
-   "band": "band-1"
+   "lane": "lane-transport-user"
   },
   {
    "id": "final-transport-service-provider",
    "kind": "final",
    "label": "",
-   "lane": "lane-transport-service-provider",
-   "band": "band-1"
+   "lane": "lane-transport-service-provider"
   },
   {
    "id": "decision-transport-user-3",
    "kind": "decision",
    "label": "",
    "lane": "lane-transport-user",
-   "band": "band-1"
+   "question": "Update Transport Execution Plan Request?"
   },
   {
    "id": "object-rejected-transport-execution-plan-between-transport-user-and-transport-service-provider-2",
    "kind": "object",
    "label": "«Rejected»\nTransport Execution\nPlan",
    "lane": null,
-   "band": "band-1",
    "between": [
     "lane-transport-user",
     "lane-transport-service-provider"
@@ -210,22 +185,19 @@
    "id": "action-receive-rejected-transport-execution-in-transport-service-provider",
    "kind": "action",
    "label": "Receive Rejected\nTransport Execution\nPlan",
-   "lane": "lane-transport-service-provider",
-   "band": "band-1"
+   "lane": "lane-transport-service-provider"
   },
   {
    "id": "action-reject-transport-execution-plan",
    "kind": "action",
    "label": "Reject Transport\nExecution Plan",
-   "lane": "lane-transport-user",
-   "band": "band-1"
+   "lane": "lane-transport-user"
   },
   {
    "id": "final-transport-service-provider-2",
    "kind": "final",
    "label": "",
-   "lane": "lane-transport-service-provider",
-   "band": "band-1"
+   "lane": "lane-transport-service-provider"
   }
  ],
  "flows": [
@@ -484,7 +456,8 @@
  "texts": [
   {
    "id": "text-update-transport-execution-plan-request",
-   "text": "Update Transport\nExecution Plan Request?"
+   "text": "Update Transport\nExecution Plan Request?",
+   "labels": "decision-transport-user"
   },
   {
    "id": "text-yes",
@@ -493,7 +466,8 @@
   },
   {
    "id": "text-transport-execution-plan-request",
-   "text": "Transport Execution\nPlan Request\nAcceptable?"
+   "text": "Transport Execution\nPlan Request\nAcceptable?",
+   "labels": "decision-transport-service-provider"
   },
   {
    "id": "text-no",
@@ -512,7 +486,8 @@
   },
   {
    "id": "text-transport-execution-plan-acceptable",
-   "text": "Transport Execution Plan\nAcceptable?"
+   "text": "Transport Execution Plan\nAcceptable?",
+   "labels": "decision-transport-user-2"
   },
   {
    "id": "text-no-3",
@@ -531,7 +506,8 @@
   },
   {
    "id": "text-transport-service-ready-for-execution",
-   "text": "Transport Service Ready\nFor Execution"
+   "text": "Transport Service Ready\nFor Execution",
+   "labels": "final-transport-service-provider"
   },
   {
    "id": "text-no-4",
@@ -540,7 +516,8 @@
   },
   {
    "id": "text-update-transport-execution-plan-request-2",
-   "text": "Update Transport Execution\nPlan Request?"
+   "text": "Update Transport Execution\nPlan Request?",
+   "labels": "decision-transport-user-3"
   }
  ],
  "offPage": [],

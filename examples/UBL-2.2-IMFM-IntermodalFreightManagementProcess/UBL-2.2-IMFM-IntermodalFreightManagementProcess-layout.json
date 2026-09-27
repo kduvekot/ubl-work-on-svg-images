@@ -147,18 +147,6 @@
     727,
     46
    ]
-  },
-  "band-planning": {
-   "y0": 64,
-   "y1": 1536
-  },
-  "band-execution": {
-   "y0": 1536,
-   "y1": 2750
-  },
-  "band-completion": {
-   "y0": 2750,
-   "y1": 3221
   }
  },
  "nodes": {
@@ -1267,7 +1255,23 @@
  "texts": {},
  "offPage": {},
  "marks": {},
- "phases": {},
+ "phases": {
+  "phase-planning": {
+   "as": "band",
+   "y0": 64,
+   "y1": 1536
+  },
+  "phase-execution": {
+   "as": "band",
+   "y0": 1536,
+   "y1": 2750
+  },
+  "phase-completion": {
+   "as": "band",
+   "y0": 2750,
+   "y1": 3221
+  }
+ },
  "rulesHaveSpans": {
   "vertical": true,
   "horizontal": true

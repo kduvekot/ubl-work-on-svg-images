@@ -28,24 +28,6 @@
    "axis": "column",
    "index": 3,
    "title": "Transportation Network Manager"
-  },
-  {
-   "id": "band-planning",
-   "axis": "band",
-   "index": 0,
-   "title": "Planning"
-  },
-  {
-   "id": "band-execution",
-   "axis": "band",
-   "index": 1,
-   "title": "Execution"
-  },
-  {
-   "id": "band-completion",
-   "axis": "band",
-   "index": 2,
-   "title": "Completion"
   }
  ],
  "nodes": [
@@ -53,37 +35,32 @@
    "id": "initial-transport-service-provider",
    "kind": "initial",
    "label": "",
-   "lane": "lane-transport-service-provider",
-   "band": "band-planning"
+   "lane": "lane-transport-service-provider"
   },
   {
    "id": "note-transportation-network-information",
    "kind": "note",
    "label": "Transportation Network\nInformation",
    "lane": null,
-   "band": "band-planning",
    "annotates": "flow-provide-transportation-network-to-plan-transport-services"
   },
   {
    "id": "action-plan-transport-services",
    "kind": "action",
    "label": "Plan Transport Services",
-   "lane": "lane-transport-service-provider",
-   "band": "band-planning"
+   "lane": "lane-transport-service-provider"
   },
   {
    "id": "action-provide-transportation-network",
    "kind": "action",
    "label": "Provide\nTransportation\nNetwork\nInformation",
-   "lane": "lane-transportation-network-manager",
-   "band": "band-planning"
+   "lane": "lane-transportation-network-manager"
   },
   {
    "id": "object-transport-service-description-request",
    "kind": "object",
    "label": "Transport Service\nDescription\nRequest",
    "lane": null,
-   "band": "band-planning",
    "between": [
     "lane-transport-user",
     "lane-transport-service-provider"
@@ -93,22 +70,19 @@
    "id": "action-define-transport-service-demand",
    "kind": "action",
    "label": "Define Transport\nService Demand",
-   "lane": "lane-transport-user",
-   "band": "band-planning"
+   "lane": "lane-transport-user"
   },
   {
    "id": "action-announce-transport-services",
    "kind": "action",
    "label": "Announce Transport\nServices",
-   "lane": "lane-transport-service-provider",
-   "band": "band-planning"
+   "lane": "lane-transport-service-provider"
   },
   {
    "id": "object-transport-service-description",
    "kind": "object",
    "label": "Transport Service\nDescription",
    "lane": null,
-   "band": "band-planning",
    "between": [
     "lane-transport-user",
     "lane-transport-service-provider"
@@ -119,7 +93,6 @@
    "kind": "object",
    "label": "Transport\nExecution\nPlan Request",
    "lane": null,
-   "band": "band-planning",
    "between": [
     "lane-transport-user",
     "lane-transport-service-provider"
@@ -129,22 +102,19 @@
    "id": "action-perform-booking-management",
    "kind": "action",
    "label": "Perform Booking\nManagement",
-   "lane": "lane-transport-user",
-   "band": "band-planning"
+   "lane": "lane-transport-user"
   },
   {
    "id": "action-perform-order-management",
    "kind": "action",
    "label": "Perform\nOrder Management",
-   "lane": "lane-transport-service-provider",
-   "band": "band-planning"
+   "lane": "lane-transport-service-provider"
   },
   {
    "id": "note-transportation-network-information-2",
    "kind": "note",
    "label": "Transportation Network\nInformation",
    "lane": null,
-   "band": "band-planning",
    "annotates": "flow-provide-transportation-network-to-perform-order-management"
   },
   {
@@ -152,7 +122,6 @@
    "kind": "object",
    "label": "Transport\nExecution Plan",
    "lane": null,
-   "band": "band-planning",
    "between": [
     "lane-transport-user",
     "lane-transport-service-provider"
@@ -163,7 +132,6 @@
    "kind": "object",
    "label": "Goods Item\nItinerary",
    "lane": null,
-   "band": "band-planning",
    "between": [
     "lane-transport-user",
     "lane-transport-service-provider"
@@ -173,24 +141,21 @@
    "id": "action-monitor-and-control-transport-services",
    "kind": "action",
    "label": "Monitor and Control\nTransport Services",
-   "lane": "lane-transport-user",
-   "band": "band-execution"
+   "lane": "lane-transport-user"
   },
   {
    "id": "action-execute-transport-services",
    "kind": "action",
    "label": "Execute\nTransport Services",
-   "lane": "lane-transport-service-provider",
-   "band": "band-execution"
+   "lane": "lane-transport-service-provider"
   },
   {
    "id": "object-transport-progress-status-request",
    "kind": "object",
    "label": "Transport\nProgress Status\nRequest",
    "lane": null,
-   "band": "band-execution",
    "between": [
-    "lane-transport-regulator",
+    "lane-transport-service-provider",
     "lane-transportation-network-manager"
    ]
   },
@@ -199,7 +164,6 @@
    "kind": "object",
    "label": "Transportation\nStatus Request",
    "lane": null,
-   "band": "band-execution",
    "between": [
     "lane-transport-user",
     "lane-transport-service-provider"
@@ -210,9 +174,8 @@
    "kind": "object",
    "label": "Transport\nProgress Status",
    "lane": null,
-   "band": "band-execution",
    "between": [
-    "lane-transport-regulator",
+    "lane-transport-service-provider",
     "lane-transportation-network-manager"
    ]
   },
@@ -221,7 +184,6 @@
    "kind": "object",
    "label": "Transportation\nStatus",
    "lane": null,
-   "band": "band-execution",
    "between": [
     "lane-transport-user",
     "lane-transport-service-provider"
@@ -232,7 +194,6 @@
    "kind": "object",
    "label": "Transport\nExecution Plan",
    "lane": null,
-   "band": "band-execution",
    "between": [
     "lane-transport-user",
     "lane-transport-service-provider"
@@ -243,7 +204,6 @@
    "kind": "note",
    "label": "Regulatory\nInformation",
    "lane": null,
-   "band": "band-execution",
    "annotates": "flow-execute-transport-services-to-perform-compliance-management",
    "between": [
     "lane-transport-service-provider",
@@ -254,15 +214,13 @@
    "id": "action-perform-compliance-management",
    "kind": "action",
    "label": "Perform Compliance\nManagement",
-   "lane": "lane-transport-regulator",
-   "band": "band-execution"
+   "lane": "lane-transport-regulator"
   },
   {
    "id": "object-transport-execution-plan-between-transport-user-and-transport-service-provider-3",
    "kind": "object",
    "label": "Transport\nExecution Plan",
    "lane": null,
-   "band": "band-execution",
    "between": [
     "lane-transport-user",
     "lane-transport-service-provider"
@@ -272,22 +230,19 @@
    "id": "action-finalize-transport-services",
    "kind": "action",
    "label": "Finalize\nTransport Services",
-   "lane": "lane-transport-user",
-   "band": "band-completion"
+   "lane": "lane-transport-user"
   },
   {
    "id": "action-manage-completion",
    "kind": "action",
    "label": "Manage Completion",
-   "lane": "lane-transport-service-provider",
-   "band": "band-completion"
+   "lane": "lane-transport-service-provider"
   },
   {
    "id": "object-freight-invoice",
    "kind": "object",
    "label": "Freight Invoice",
    "lane": null,
-   "band": "band-completion",
    "between": [
     "lane-transport-user",
     "lane-transport-service-provider"
@@ -297,8 +252,7 @@
    "id": "final-transport-user",
    "kind": "final",
    "label": "",
-   "lane": "lane-transport-user",
-   "band": "band-completion"
+   "lane": "lane-transport-user"
   }
  ],
  "flows": [
@@ -604,5 +558,52 @@
  "texts": [],
  "offPage": [],
  "marks": [],
- "phases": []
+ "phases": [
+  {
+   "id": "phase-planning",
+   "title": "Planning",
+   "members": [
+    "initial-transport-service-provider",
+    "note-transportation-network-information",
+    "action-plan-transport-services",
+    "action-provide-transportation-network",
+    "object-transport-service-description-request",
+    "action-define-transport-service-demand",
+    "action-announce-transport-services",
+    "object-transport-service-description",
+    "object-transport-execution-plan-request",
+    "action-perform-booking-management",
+    "action-perform-order-management",
+    "note-transportation-network-information-2",
+    "object-transport-execution-plan-between-transport-user-and-transport-service-provider",
+    "object-goods-item-itinerary"
+   ]
+  },
+  {
+   "id": "phase-execution",
+   "title": "Execution",
+   "members": [
+    "action-monitor-and-control-transport-services",
+    "action-execute-transport-services",
+    "object-transport-progress-status-request",
+    "object-transportation-status-request",
+    "object-transport-progress-status",
+    "object-transportation-status",
+    "object-transport-execution-plan-between-transport-user-and-transport-service-provider-2",
+    "note-regulatory-information",
+    "action-perform-compliance-management",
+    "object-transport-execution-plan-between-transport-user-and-transport-service-provider-3"
+   ]
+  },
+  {
+   "id": "phase-completion",
+   "title": "Completion",
+   "members": [
+    "action-finalize-transport-services",
+    "action-manage-completion",
+    "object-freight-invoice",
+    "final-transport-user"
+   ]
+  }
+ ]
 }

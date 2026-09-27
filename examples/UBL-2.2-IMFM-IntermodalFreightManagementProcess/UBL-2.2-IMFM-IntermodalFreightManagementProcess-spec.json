@@ -111,19 +111,19 @@
  ],
  "bandLabels": [
   {
-   "id": "band-planning",
+   "id": "phase-planning",
    "title": "Planning",
    "cx": 15.1,
    "cy": 345.7
   },
   {
-   "id": "band-execution",
+   "id": "phase-execution",
    "title": "Execution",
    "cx": 15.1,
    "cy": 926.0
   },
   {
-   "id": "band-completion",
+   "id": "phase-completion",
    "title": "Completion",
    "cx": 15.1,
    "cy": 1290.1

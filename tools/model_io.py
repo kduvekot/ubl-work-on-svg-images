@@ -407,9 +407,11 @@ def apply_corrections(model, layout, report, name, recorded=None):
     are kept in the report, so the split still joins back to the graph exactly;
     none of this moves anything that is drawn."""
     todo = corrections_for(name) if recorded is None else recorded
+    # the reading before anything the model makes of it, so the split joins back
+    # whatever follows (corrections, documents placed, bands made phases)
+    report["uncorrected"] = json.loads(json.dumps(dict(model=model, layout=layout)))
     if not todo:
         return
-    report["uncorrected"] = json.loads(json.dumps(dict(model=model, layout=layout)))
     named = names(model, layout)                     # graph id -> reading name
     gid = {v: k for k, v in named.items()}           # reading name -> graph id
     rn = lambda v: named.get(v, v)
@@ -851,8 +853,12 @@ def exchanged_by(model, doc):
 
 
 def phase_members(model, layout, phase_id):
-    """the nodes drawn wholly inside a phase's dashed box, in model order"""
+    """the nodes that belong to a phase, in model order: drawn wholly inside its
+    dashed box, or, for a phase shown as a band, with their centre in its row"""
     b = layout["phases"][phase_id]
+    if b.get("as") == "band":
+        return [n["id"] for n in model["nodes"]
+                if b["y0"] <= layout["nodes"][n["id"]]["y"] + layout["nodes"][n["id"]]["h"] / 2 < b["y1"]]
     x0, y0, x1, y1 = b["x"], b["y"], b["x"] + b["w"], b["y"] + b["h"]
     out = []
     for n in model["nodes"]:
@@ -871,6 +877,38 @@ def place_phases(model, layout):
     outside (q5)."""
     for p in model["phases"]:
         p["members"] = phase_members(model, layout, p["id"])
+
+
+def bands_to_phases(model, layout):
+    """A stage of the process is one thing in the model, a phase, however it is
+    drawn (2026-09-27): a dashed box on the CPFR figures, a row across the page
+    on Intermodal Freight Management. So a band with a title becomes a phase
+    whose layout says it is shown as a band (`as` "band", its rows y0-y1), with
+    the nodes in its row as members, and nodes no longer carry a band.
+
+    A band without a title is no stage: the one covering a whole figure (69
+    figures draw no stages), the row under the frame holding the lane titles
+    (the three 2.3 customs figures: kept as the layout's titleRow, a display of
+    the lane names) and the margin between the frame and the edge of the PNG
+    (five figures). They go; the lines are the layout's rules and stay, so
+    nothing drawn changes."""
+    bands = [l for l in model["lanes"] if l["axis"] == "band"]
+    cols = [l for l in model["lanes"] if l["axis"] == "column"]
+    for b in bands:
+        g = layout["lanes"][b["id"]]
+        held = [n for n in model["nodes"] if n.get("band") == b["id"]]
+        if b["title"]:
+            pid = "p-%s" % b["id"]
+            model["phases"].append(dict(id=pid, title=b["title"], members=[n["id"] for n in held]))
+            layout["phases"][pid] = {"as": "band", "y0": g["y0"], "y1": g["y1"]}
+        elif not held:
+            boxes = [layout["lanes"][c["id"]].get("titleBox") for c in cols]
+            if boxes and all(bx and g["y0"] <= bx[1] and bx[1] + bx[3] <= g["y1"] for bx in boxes):
+                layout["titleRow"] = [g["y0"], g["y1"]]
+        model["lanes"].remove(b)
+        del layout["lanes"][b["id"]]
+    for n in model["nodes"]:
+        n.pop("band", None)
 
 
 def place_documents(model, layout, report):
@@ -1090,6 +1128,7 @@ def split(g, name):
     apply_corrections(model, layout, report, name)
     place_documents(model, layout, report)
     place_phases(model, layout)
+    bands_to_phases(model, layout)
     assign_ids(model, layout, report)
     return model, layout, report
 

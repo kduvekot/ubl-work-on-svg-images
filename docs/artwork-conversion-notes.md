@@ -1397,7 +1397,23 @@ Billing", "Ordering Process", "Initiate Transport Process") or a trigger
 events - the Transport Execution Plan confirmed, or updated - recorded as their
 `trigger` (TC, 2026-09-27); on the Update Catalogue pair "Supplier/Customer
 Initiated Update" says who starts it, which the lane already says, so a name is
-enough. Settled from
+enough.
+
+Bands and phases are one thing (TC, 2026-09-27). A stage of the process is a
+*phase* in the model - a title and its members - however it is drawn: a dashed
+box on the seven CPFR figures, a row across the page on Intermodal Freight
+Management (Planning, Execution, Completion), whose layout now says `as`
+"band". Nodes no longer carry a band. Figures that draw no stages have no
+phase: the figure itself is the grouping. The bands the reading made that were
+no stage are gone: the one untitled band covering a figure (69), the row under
+the frame on the three 2.3 customs figures, which holds exactly the lane titles
+(checked word for word) and is kept as the layout's `titleRow`, a display of
+the lane names, and the 10 px margin between the frame and the edge of the PNG
+on five figures, which holds nothing. The lines are the layout's rules, so all
+78 renders are byte-identical. The split now always keeps the reading as it
+was (`uncorrected`), so it joins back whatever the model makes of it.
+*Provide Transportation Network Information* on Intermodal Freight Management
+is drawn across Planning and Execution; by its centre it is Planning's. Settled from
 the original and mentioned: on seven figures (Enquiry, five Tender figures,
 both Tender Contract figures) the reading made a third column 7-10 px wide out
 of the strip between the last divider and the frame; removed.

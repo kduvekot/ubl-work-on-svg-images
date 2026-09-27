@@ -16,12 +16,6 @@
    "axis": "column",
    "index": 1,
    "title": "Accounting Supplier"
-  },
-  {
-   "id": "band-1",
-   "axis": "band",
-   "index": 0,
-   "title": ""
   }
  ],
  "nodes": [
@@ -29,15 +23,13 @@
    "id": "initial-accounting-supplier",
    "kind": "initial",
    "label": "",
-   "lane": "lane-accounting-supplier",
-   "band": "band-1"
+   "lane": "lane-accounting-supplier"
   },
   {
    "id": "object-invoice",
    "kind": "object",
    "label": "Invoice",
    "lane": null,
-   "band": "band-1",
    "between": [
     "lane-accounting-customer",
     "lane-accounting-supplier"
@@ -47,22 +39,19 @@
    "id": "action-receive-invoice",
    "kind": "action",
    "label": "Receive Invoice",
-   "lane": "lane-accounting-customer",
-   "band": "band-1"
+   "lane": "lane-accounting-customer"
   },
   {
    "id": "action-raise-invoice",
    "kind": "action",
    "label": "Raise Invoice",
-   "lane": "lane-accounting-supplier",
-   "band": "band-1"
+   "lane": "lane-accounting-supplier"
   },
   {
    "id": "object-credit-note",
    "kind": "object",
    "label": "Credit Note",
    "lane": null,
-   "band": "band-1",
    "between": [
     "lane-accounting-customer",
     "lane-accounting-supplier"
@@ -72,50 +61,43 @@
    "id": "decision-reconcile-charges-in-accounting-supplier",
    "kind": "decision",
    "label": "Reconcile\nCharges",
-   "lane": "lane-accounting-supplier",
-   "band": "band-1"
+   "lane": "lane-accounting-supplier"
   },
   {
    "id": "action-receive-credit-note",
    "kind": "action",
    "label": "Receive Credit Note",
-   "lane": "lane-accounting-customer",
-   "band": "band-1"
+   "lane": "lane-accounting-customer"
   },
   {
    "id": "action-raise-credit-note",
    "kind": "action",
    "label": "Raise Credit Note",
-   "lane": "lane-accounting-supplier",
-   "band": "band-1"
+   "lane": "lane-accounting-supplier"
   },
   {
    "id": "fork-accounting-supplier",
    "kind": "fork",
    "label": "",
-   "lane": "lane-accounting-supplier",
-   "band": "band-1"
+   "lane": "lane-accounting-supplier"
   },
   {
    "id": "decision-validate-response",
    "kind": "decision",
    "label": "Validate\nResponse",
-   "lane": "lane-accounting-supplier",
-   "band": "band-1"
+   "lane": "lane-accounting-supplier"
   },
   {
    "id": "decision-reconcile-charges-in-accounting-customer",
    "kind": "decision",
    "label": "Reconcile\nCharges",
-   "lane": "lane-accounting-customer",
-   "band": "band-1"
+   "lane": "lane-accounting-customer"
   },
   {
    "id": "object-invoice-status-response",
    "kind": "object",
    "label": "Invoice Status\nResponse",
    "lane": null,
-   "band": "band-1",
    "between": [
     "lane-accounting-customer",
     "lane-accounting-supplier"
@@ -125,36 +107,31 @@
    "id": "action-receive-account-response",
    "kind": "action",
    "label": "Receive Account Response",
-   "lane": "lane-accounting-supplier",
-   "band": "band-1"
+   "lane": "lane-accounting-supplier"
   },
   {
    "id": "action-send-account-response",
    "kind": "action",
    "label": "Send Account Response",
-   "lane": "lane-accounting-customer",
-   "band": "band-1"
+   "lane": "lane-accounting-customer"
   },
   {
    "id": "final-accounting-customer",
    "kind": "final",
    "label": "",
-   "lane": "lane-accounting-customer",
-   "band": "band-1"
+   "lane": "lane-accounting-customer"
   },
   {
    "id": "final-accounting-supplier",
    "kind": "final",
    "label": "",
-   "lane": "lane-accounting-supplier",
-   "band": "band-1"
+   "lane": "lane-accounting-supplier"
   },
   {
    "id": "final-accounting-customer-2",
    "kind": "final",
    "label": "",
-   "lane": "lane-accounting-customer",
-   "band": "band-1"
+   "lane": "lane-accounting-customer"
   }
  ],
  "flows": [
@@ -295,6 +272,9 @@
    "kind": "control",
    "direction": {
     "confidence": "high"
+   },
+   "unstated": {
+    "guard": "The artwork guards the accepting branches only; the branch to 'Send Account Response' is the otherwise case, unlabelled."
    }
   },
   {

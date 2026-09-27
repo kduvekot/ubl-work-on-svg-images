@@ -187,15 +187,18 @@ def main(src, out, model_w=1480.0):
                 "cx": M(b[0] + b[2] / 2), "cy": M(b[1] + b[3] / 2)}
     captions = [caption(p["id"], "phase-title", p["title"], lay["phases"][p["id"]]["title"]["box"])
                 for p in model["phases"]
-                if lay["phases"][p["id"]].get("title", {}).get("as") == "lane-title"]
+                if (lay["phases"][p["id"]].get("title") or {}).get("as") == "lane-title"]
     captions += [caption(t["id"], "guard", t["text"], lay["texts"][t["id"]]["box"])
                  for t in model["texts"] if lay["texts"][t["id"]].get("as") == "lane-title"]
 
     # a narrow first column is the gutter the band titles run up
     gutter = rules["v"][1][0] if len(rules["v"]) > 2 and \
         rules["v"][1][0] < W * 0.04 else 0
-    bandLabels = [{"id": b["id"], "title": b["title"], "cx": M(gutter / 2),
-                   "cy": M((b["y0"] + b["y1"]) / 2)} for b in bands if gutter and b["title"]]
+    # a phase shown as a band (IMFM) has its title run up the gutter
+    bandLabels = [{"id": p["id"], "title": p["title"], "cx": M(gutter / 2),
+                   "cy": M((d["y0"] + d["y1"]) / 2)}
+                  for p in model["phases"] for d in [lay["phases"][p["id"]]]
+                  if d.get("as") == "band" and gutter and p.get("title")]
 
     # Free text keeps the position it was measured at.
     #
@@ -212,7 +215,7 @@ def main(src, out, model_w=1480.0):
               if lay["texts"][tm["id"]].get("as") != "lane-title"]
     placed += [(p["id"], p["title"], lay["phases"][p["id"]]["title"], "phase-title")
                for p in model["phases"]
-               if lay["phases"][p["id"]].get("title", {}).get("as") == "text"]
+               if (lay["phases"][p["id"]].get("title") or {}).get("as") == "text"]
     placed += [(l["id"] + "-title", " ".join(t["text"] for t in lay["lanes"][l["id"]]["title"]["lines"]),
                 lay["lanes"][l["id"]]["title"], "lane-title")
                for l in model["lanes"]
@@ -256,7 +259,8 @@ def main(src, out, model_w=1480.0):
         "dashed": [{"id": p["id"], "x": M(d["x"]), "y": M(d["y"]), "w": M(d["w"]), "h": M(d["h"]),
                     "rx": M(d["rx"]), "dash": M(d["dash"]), "gap": M(d["gap"]),
                     "weight": M(d.get("weight") or 0)}
-                   for p in model["phases"] for d in [lay["phases"][p["id"]]]],
+                   for p in model["phases"] for d in [lay["phases"][p["id"]]]
+                   if d.get("as") != "band"],
         # dividers the artwork draws in grey rather than black, in their own tone
         "greyRules": [{"axis": r["axis"], "at": M(r["at"]), "w": M(r["w"]),
                        "colour": "#%02x%02x%02x" % ((r["level"],) * 3)}
@@ -301,7 +305,7 @@ def main(src, out, model_w=1480.0):
     print("  scale %.5f   frame %dpx  divider %dpx  action %dpx  object %dpx"
           % (s, frame, divider, s_act, s_obj))
     print("  font %.0fpx (%.1f model)   %d lanes, %d bands, %d nodes, %d edges -> %s"
-          % (font_px, M(font_px), len(lanes), len(bands), len(nodes), len(edges), out))
+          % (font_px, M(font_px), len(lanes), len(bandLabels), len(nodes), len(edges), out))
 
 
 if __name__ == "__main__":

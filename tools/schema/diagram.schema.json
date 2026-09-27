@@ -135,7 +135,7 @@
    }
   },
   "phases": {
-   "description": "the dashed box a CPFR phase is drawn inside",
+   "description": "a stage of the process and the steps that belong to it; how it is shown (a dashed box, a row) is the layout's",
    "type": "array",
    "items": {
     "type": "object", "required": ["id"], "additionalProperties": false,
