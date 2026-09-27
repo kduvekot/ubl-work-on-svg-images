@@ -1476,6 +1476,20 @@
     "element": "action-receive-status-report-in-consignee",
     "attribute": "wayOut",
     "reason": "The path ends at this step: the artwork draws no end after it."
+   },
+   {
+    "id": "text-30",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, figure review",
+    "question": "Words the reading got wrong: the first Forwarding Instructions box reads 'instructions' in the model, where the artwork writes a capital I (zoomed on the original).",
+    "answer": "It reads as the artwork writes it.",
+    "op": "retext",
+    "section": "nodes",
+    "element": "object-forwarding-instructions-in-consignor",
+    "text": "Forwarding\nInstructions",
+    "was": {
+     "label": "Forwarding\ninstructions"
+    }
    }
   ],
   "UBL-2.0-CertificationOfOriginOfGoodsProcess": [
