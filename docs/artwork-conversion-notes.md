@@ -1348,7 +1348,16 @@ seven figures no node straddles a border; on Figs 13 and 14 *Ordering* stands
 outside the box, as `q5` decided. Nothing drawn changes. Checked by the TC on the pictures: no step inside
 a phase belongs to another phase. The boxes are drawn nearly frame-wide on every
 figure whatever their content (Fig 9 has some 11 letter heights empty each
-side): a layout matter, kept as drawn. Settled from
+side): a layout matter, kept as drawn.
+
+The fork/join bars (21) must each have a way in, a way out and two on one
+side; `validate` now says so. Twenty did. The upper bar in Fig C.1's Seller
+column had three ways in and none out: the line to *despatch order item(s)* was
+read the wrong way round (the head is drawn at the step), so the bar is a join
+of the two decisions' branches (`fork-01`, reverse-flow). The arrowhead moves to
+where the artwork draws it, and the figure's missing ink drops (0.609% to
+0.600%). CPFR Fig 12's bar takes both "No" lines from Fig 10 and starts two
+branches: a join and a fork in one, as UML allows. Settled from
 the original and mentioned: on seven figures (Enquiry, five Tender figures,
 both Tender Contract figures) the reading made a third column 7-10 px wide out
 of the strip between the last divider and the frame; removed.

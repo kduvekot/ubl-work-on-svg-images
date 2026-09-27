@@ -1585,6 +1585,18 @@
     "answer": "A question beside a diamond is the decision's question; words beside a start or an end name it, and where they name another process ('From Order', 'From Billing') that is the process it starts from (as q6). Two texts the reading merged with the guard below them are split, and on those two decisions the guards go to the branches they are written on.",
     "op": "unguard",
     "flow": "flow-decision-seller-to-reject-order"
+   },
+   {
+    "id": "fork-01",
+    "decided": "2026-09-27",
+    "by": "settled from the original in the completeness sweep, mentioned to the TC",
+    "question": "Fig C.1: the upper bar in the Seller column has three lines in (from two decisions and from 'despatch order item(s)') and none out.",
+    "answer": "The line between the bar and 'despatch order item(s)' runs down into 'despatch order item(s)': the head is drawn there. The bar is a join of the two decisions' branches.",
+    "op": "reverse-flow",
+    "flow": "flow-gespatch-order-rens-to-fork-seller",
+    "was": {
+     "to": "fork-seller"
+    }
    }
   ],
   "UBL-2.0-SelfBillingwithCreditNoteProcess": [

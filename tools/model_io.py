@@ -1332,6 +1332,19 @@ def validate(diagram_path):
             errs.append("%s and %s in %s do not hand over to each other (port %s/%s, direction %s/%s)"
                         % (o["id"], cp["id"], o["continues"], o.get("port"), cp.get("port"),
                            o["direction"], cp.get("direction")))
+    # a bar is a fork or a join (or both): a way in, a way out, and two on one side
+    ends = {}
+    for f in m["flows"]:
+        ends.setdefault(f["from"], [0, 0])[1] += 1
+        ends.setdefault(f["to"], [0, 0])[0] += 1
+    for o in m["offPage"]:
+        ends.setdefault(o["node"], [0, 0])[0 if o["direction"] == "in" else 1] += 1
+    for n in m["nodes"]:
+        if n["kind"] == "fork":
+            i, o = ends.get(n["id"], [0, 0])
+            if not i or not o or max(i, o) < 2:
+                errs.append("bar %s has %d way(s) in and %d out: a fork or join needs a way in, "
+                            "a way out and two on one side" % (n["id"], i, o))
     for p in m.get("phases", []):
         for x in p.get("members", []):
             ref("phase %s's member" % p["id"], x, "nodes")
