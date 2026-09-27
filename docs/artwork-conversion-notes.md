@@ -4,6 +4,11 @@ Handover notes for the effort to recover **editable sources** for the UBL
 specification artwork. Written at the end of a working session so the next one
 does not have to rediscover any of it.
 
+**Where things stand now, and the open work, is in the README.** These notes grew
+in the order the work was done, so read them as a history: sections 1-14 are the
+conversion itself (to 2026-09-24), section 15 the model format and the baseline it
+is held against, section 16 the review of the model with the TC.
+
 These notes are the *why*: what each rule is for, what it was measured against,
 and what was tried and rejected. **`docs/running.md` is the *how*** - where to get
 the artwork, what has to be installed, the commands, and the numbers a new run
@@ -394,7 +399,10 @@ produces them any more.
 
 ---
 
-## 10. Open items
+## 10. Open items (as of 2026-09-16)
+
+*Partly overtaken since: all 78 have been run (sections 11-14), and the target
+and location questions are still open. The current list is in the README.*
 
 **Known gaps in the extractor**
 
@@ -1021,9 +1029,46 @@ requiring the pairing to be one-to-one, and comparing bytes after renaming. The
 verifier reports, model sheets and sweep table are unchanged.
 
 **Not yet done.** The verifier, the model sheet and the review marks still read
-the graph itself, not the model; the uncertain list still points at places by
-coordinates rather than at elements by id; and the model is still regenerated
-from the PNG on every run, so nothing yet keeps a correction made to it.
+the graph itself, not the model (text fixes aside, see 16); the uncertain list
+still points at places by coordinates rather than at elements by id; and the
+model is still regenerated from the PNG on every run - which is why a person's
+decisions are kept as corrections the pipeline applies (16), never as edits to
+the generated files.
+
+---
+
+## 16. The model review with the TC (2026-09-25 to 2026-09-27)
+
+The model is reviewed with the TC one question at a time: the question with its
+context and pictures (`docs/review-questions/`), UBL.xml's own text read first,
+a suggested answer, the TC's decision. Each decision is a correction in
+`tools/model-corrections.json`, applied by `model_io.py`, checked over all 78
+against the baseline and committed on its own (the procedure is in
+`docs/running.md` section 9).
+
+| | question | decided | diagrams | drawing |
+|---|---|---|---|---|
+| q1 | two guards attached to one flow | "Yes" labels the flow into Send Exception, "No" the flow leaving the page | Fig 10 | unchanged |
+| q2 | the CPFR columns and box titles | the box title is the phase's name; the columns are Buyer Party (left) and Seller Party (right), from the text or by convention; the "No"s at the top label the arrows arriving from the previous phase | Figs 6, 7, 9, 10, 12, 13, 14 | unchanged |
+| q3 | q1's mirror on the right-hand decision | the same answer | Fig 10 | unchanged |
+| q4 | Fig 9 as one column; documents on a divider | split Fig 9 at its grey line; every document drawn on a divider stands *between* the two lanes (all 228) | Fig 9; all 78 | unchanged |
+| q5 | *Ordering*, the prior key exchange | boxes that stand for a process outside the diagram (`external`); Ordering stands between the parties; the key exchange is a mutual `precondition` | Figs 13, 14, 31, 32 | unchanged |
+| q6 | words beside a start or an end | they name it; three name the process it starts from or leads into (`linkedProcess`) | Initiate Freight Management, Certification of Origin | unchanged |
+| - | misread text | noted, fixed in one pass at the end (`pendingTextFixes`, 18 so far) | 10 | - |
+
+After q6: 52 corrections over 11 diagrams; over all 78 not a pixel differs from
+`baselines/2026-09-25` (71 identical, 7 the same drawing with a corrected model)
+and the sweep table is the baseline's.
+
+Settled without the TC, by looking at the original: 24 of the 28 notes for a
+person on the CPFR figures - 16 arrowheads that are drawn and point the way the model says
+(a guard beside the head made them unmeasurable), whitespace between a line and
+the frame taken for an empty box, a dashed corner taken for line-work, documents
+found by shape where no stroke weight told them apart. 224 of the 228 documents
+have both a sender and a receiver among their flows; the other four are the
+artwork faults of 11.4.
+
+The detail of each decision follows.
 
 **Corrections to the model.** `tools/model-corrections.json` holds what a person
 decided about a model where the reading got it wrong, question and answer

@@ -27,14 +27,25 @@ against 51, and none of the readings in this pipeline survive it.
 
 ## 2. What has to be installed
 
-There is no dependency manifest. What the current result was produced with:
+There is no dependency manifest. On Debian/Ubuntu (what the current result was
+produced on):
+
+```sh
+apt-get install -y tesseract-ocr default-jdk-headless fop libsaxonhe-java
+pip install numpy scipy pillow pytesseract jsonschema
+npm install -g playwright          # then, if there is no Chromium yet:
+npx playwright install chromium    # and point CHROMIUM_PATH at what it installs
+```
+
+The versions it was produced with:
 
 | | |
 |---|---|
 | Python 3 | `numpy`, `scipy`, `pillow`, `pytesseract`, and `jsonschema` for the schema checks |
 | tesseract | 5.3.4, with the English data |
 | Node | 22, with `playwright` (a global install is fine) |
-| A JDK | `javac`/`java`, for `VisualDiff` |
+| A JDK | `javac`/`java` (OpenJDK 21), for `VisualDiff` |
+| Saxon-HE, Apache FOP | 9.9 and 2.8, only for the review PDFs |
 
 Two environment variables matter:
 
@@ -60,6 +71,7 @@ Reads `<art-dir>/<basename>.png` and writes, into `<out-dir>`:
 | `-diagram.json` | the model: lanes, nodes, flows, texts and what refers to what |
 | `-layout.json` | where each element of the model is drawn, keyed by its id |
 | `-extraction.json` | the extractor's own measurements and open questions, for review only |
+| `-graph-corrected.json` | only where a text correction applies: the graph with those words put right, for the checkers |
 | `-spec.json` | the model and layout turned into a drawing spec |
 | `.svg`, `.drawio` | the editable output |
 | `-classified.svg` | the same drawing coloured by what each element was classified as |
@@ -78,6 +90,10 @@ file holds, and why, is in section 15 of the notes.
 JOBS=4 tools/verdict-sweep.sh ubl/art out tools/uml78-bycomplexity.txt
 ```
 
+The sweep works in three steps: it builds every diagram in parallel (read, model,
+draw), renders all the SVGs in one browser, then checks every diagram in
+parallel (diff, model sheet, referee, numbered findings).
+
 `tools/uml78-bycomplexity.txt` lists the 78 basenames **hardest first**, which is
 the working method rather than a detail: the hard cases are met while there is
 still room to change the approach. `JOBS` defaults to one per core. The sweep
@@ -94,9 +110,12 @@ UBL-2.2-DigitalAgreement                  needs-human   0.645%    0.494%       1
 
 - **MISSING / INVENTED** are percentages of the diagram's own line-work ink, at
   radius 3, with text masked out and judged as text instead.
-- **FINDINGS** is the structural count: elements absent or invented, text absent
-  or misread, incoherence between the drawing and the model. **This is the number
-  that must stay at zero.**
+- **FINDINGS** counts every line-work cluster the referee reports plus every text
+  finding. Most line-work clusters are placement error - ink a few pixels off -
+  and do not block anything, which is why the example above shows 10. **What must
+  stay at zero is the structural count** in each `-struct.json` (`structural`:
+  elements absent or invented, text absent or differing, incoherence), which the
+  baseline table below sums.
 - **PERSON** is what is left for a human: an arrowhead too small to measure, a
   shape the reading is unsure of.
 - **VERDICT** is `correct` only when the line-work diff is blank at the honest
@@ -246,7 +265,26 @@ fixture by default, so pass it an output path if that is not what you want.
 
 ## 8. Rough edges, known and unfixed
 
+Found in the review of the pipeline at the start of the 2026-09-25 session, not
+yet fixed:
+
+- **The draw.io model is poorer than the SVG.** `build_diagram.py` draws both from
+  the spec, but the draw.io model has no bands, dividers, phase boxes, off-page
+  flows or cross-marks, draws every fork bar as `direction=north` (a stub, since
+  UBL's bars are horizontal), puts guards only on flows (free text is lost) and
+  fixes stroke weights and corner radii. Nothing checks it: the pixel tests read
+  only the SVG. A draw.io render of it can be diffed against the SVG with
+  draw.io's own viewer in the same Chromium; that was tried and works, and is not
+  yet part of the pipeline.
+- **The text check forgives one wrong letter.** `verify_conversion.py` accepts a
+  word at a similarity of 0.8, which "Jpdate" for "Update" and "end" for "Send"
+  both pass, and it compares OCR with OCR, so a misreading made in both passes.
+  The misreadings are being collected by eye instead (`pendingTextFixes`).
+- **The checkers read the extractor's graph, not the model**, so they know
+  nothing of the corrections except text fixes (through `-graph-corrected.json`).
+
 Found by a reproduction test run by an agent with no access to this repository,
+
 and still true:
 
 - The radius is 2 in `run-pipeline.sh` and `validate-artwork.sh` and 3 in
@@ -257,3 +295,34 @@ and still true:
 - §6 of the notes accepts a diagram whose open questions have been **signed off**,
   but `verify_conversion.py` has no notion of a sign-off, so any diagram carrying
   a note reads as `needs-human` however much has already been confirmed about it.
+
+## 9. Answering a review question
+
+How a question to the TC becomes part of the model:
+
+1. **Find what the model holds.** Run a sweep; the three model files of the
+   diagram are in the output directory. Note the ids of the elements concerned
+   *as the uncorrected reading names them* - a correction is matched to the
+   reading before any earlier correction, which `model_io.names()` gives.
+2. **Read the specification first.** UBL.xml's text around the figure often
+   settles the question (who does what, what is out of scope).
+3. **Ask with pictures and a suggested answer**: an overview of the original with
+   the area boxed, a close-up, what the model says now, and what you would record.
+   Keep the pictures in `docs/review-questions/`.
+4. **Record the answer** in `tools/model-corrections.json`: one entry per change,
+   with the question and answer in words, who decided and when, the operation
+   (`attach-guard`, `name-lane`, `phase-title-from-lane`, `external`, `between`,
+   `label-node`, ... - listed in `model_io.apply_corrections()`), and `was`, what
+   the reading held before, so a later reading that differs is refused rather
+   than silently corrected. A new kind of correction needs a new operation there,
+   and the schemas in `tools/schema/` updated with it.
+5. **Check it**: `model_io.py check` (all 78 still join back to their graphs),
+   a sweep, `compare-to-baseline.sh` (no pixel moves unless the answer is meant
+   to move one; a model-only answer shows as "same drawing" at most), and a look
+   at what changed in the model files.
+6. **Write it up** in section 16 of the notes, **commit and push** - one answer,
+   one commit.
+
+A misread word is not corrected yet: add it to `pendingTextFixes` in the same
+file, with what the reading says and what the artwork says.
+
