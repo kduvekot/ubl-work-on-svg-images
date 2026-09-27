@@ -1639,6 +1639,13 @@ differences shown.
   Plan*. A layout correction may now say it `departs` from the artwork on
   purpose: the checkers are told where the artwork's words are (`wasAt`), so
   a deliberate improvement is not reported as a missing text.
+- *CRP Initial Stocking by Retailer (11 of 78).* Model correct and complete.
+  Two drawing points, both left as they are (the TC, 2026-09-27): the steps'
+  corners come out rounder than the artwork's (its top edges slope a pixel or
+  two and the corner reading falls back to a median that is itself thrown -
+  also on ROCD Initial Stocking, the VMI figures, CRP Sales and Inventory
+  Movement): the SVG's corners are kept. And the drawing tool's "line jump"
+  where the goods line crosses the divider is not drawn.
 
 **The notes for a person, all 266 settled by eye (2026-09-27).** The sweep
 leaves, per diagram, notes where the reading could not be sure; each was looked at
