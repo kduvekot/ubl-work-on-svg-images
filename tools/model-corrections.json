@@ -2418,6 +2418,26 @@
     "op": "label-node",
     "text": "text-transport-execution-updates",
     "node": "initial-transport-service-provider-2"
+   },
+   {
+    "id": "start-02",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "IMFM Goods Item Itinerary has two starts, named 'Transport Execution Plan Confirmed' and 'Transport Execution Updates'. Names, or what sets each off?",
+    "answer": "What sets each off: an event (in BPMN a message or conditional start) - the confirmed Transport Execution Plan, or later updates to it, lead to sending a (new) Goods Item Itinerary. Recorded as each start's trigger. On the Update Catalogue pair, 'Supplier/Customer Initiated Update' says who starts it, which the lane already says: a name is enough.",
+    "op": "start-trigger",
+    "node": "initial-transport-service-provider",
+    "trigger": "the Transport Execution Plan is confirmed"
+   },
+   {
+    "id": "start-03",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "IMFM Goods Item Itinerary has two starts, named 'Transport Execution Plan Confirmed' and 'Transport Execution Updates'. Names, or what sets each off?",
+    "answer": "What sets each off: an event (in BPMN a message or conditional start) - the confirmed Transport Execution Plan, or later updates to it, lead to sending a (new) Goods Item Itinerary. Recorded as each start's trigger. On the Update Catalogue pair, 'Supplier/Customer Initiated Update' says who starts it, which the lane already says: a name is enough.",
+    "op": "start-trigger",
+    "node": "initial-transport-service-provider-2",
+    "trigger": "the Transport Execution Plan is updated"
    }
   ],
   "UBL-2.2-ROCD-InitialStocking": [

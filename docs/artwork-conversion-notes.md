@@ -1393,7 +1393,11 @@ entered from the previous one (`q16`); Fig C.1 draws none - the process begins
 with the Buyer's *place order* - recorded as unstated. Words beside a start
 are its name (`q6`, `q13`), with a linked process ("From Order", "From
 Billing", "Ordering Process", "Initiate Transport Process") or a trigger
-(Freight Status Reporting, `q15`) where they say one. Settled from
+(Freight Status Reporting, `q15`) where they say one. On IMFM Goods Item Itinerary the two starts are
+events - the Transport Execution Plan confirmed, or updated - recorded as their
+`trigger` (TC, 2026-09-27); on the Update Catalogue pair "Supplier/Customer
+Initiated Update" says who starts it, which the lane already says, so a name is
+enough. Settled from
 the original and mentioned: on seven figures (Enquiry, five Tender figures,
 both Tender Contract figures) the reading made a third column 7-10 px wide out
 of the strip between the last divider and the frame; removed.
