@@ -623,7 +623,8 @@ def apply_corrections(model, layout, report, name, recorded=None):
             og = layout["offPage"].pop(o["id"])
             model["offPage"].remove(o)
             ga = layout["nodes"][a["id"]]
-            f = dict(id="corr-%s" % cid, **{"from": a["id"], "to": b["id"]}, kind="object")
+            f = dict(id="corr-%s" % cid, **{"from": a["id"], "to": b["id"]}, kind="object",
+                     direction=dict(confidence="checked", checked="confirmed"))  # a person drew it
             model["flows"].append(f)
             patches["addEdges"].append({"from": a["id"], "to": b["id"], "edgeKind": "object",
                                         "replacesOpenEndInto": b["id"]})
@@ -890,6 +891,7 @@ def apply_corrections(model, layout, report, name, recorded=None):
                         dict(id="corr-%s-%d-out" % (cid, i), kind="object",
                              **{"from": doc["id"], "to": f["to"]}))
                 for x in pair:
+                    x["direction"] = dict(confidence="checked", checked="confirmed")  # a person read it
                     model["flows"].insert(at, x)
                     at += 1
                     layout["flows"][x["id"]] = dict(routing="shared", line=c["line"])
@@ -1561,6 +1563,10 @@ def validate(diagram_path):
                 (ins_of_doc.get(n["id"]) or any(o["node"] == n["id"] and o["direction"] == "in" for o in m["offPage"]))
                 and (outs_of.get(n["id"]) or any(o["node"] == n["id"] and o["direction"] == "out" for o in m["offPage"]))):
             errs.append("document %s needs a way in and a way out" % n["id"])
+    # every flow says how its direction was settled
+    for f in m["flows"]:
+        if not (f.get("direction") or {}).get("confidence"):
+            errs.append("flow %s does not say how its direction was settled" % f["id"])
     # an action has a way in and a way out in the sequence (a precondition
     # between parties is none), or records that the artwork draws none
     seq_in, seq_out = {}, {}

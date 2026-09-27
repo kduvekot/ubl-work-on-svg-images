@@ -1558,6 +1558,23 @@ the rest on the originals (2026-09-27), in three groups:
 
 Nothing is added to the model; the ends and starts are for a redraw.
 
+The flows (1,038: 555 control, 473 object, 5 goods, 3 information, 2
+precondition). Contract: both ends are nodes of the figure, and the flow says
+how its direction was settled; `validate` now checks the second. 951 were read
+with high confidence. The rest were put beside the original, both ends zoomed:
+the 45 read with medium confidence or settled by a notation rule away from a
+start or end are all drawn the way the model has them, and are recorded as
+confirmed in `tools/direction-verdicts.json` (now 71 checked, 3 corrected in
+all) - apart from the one the notation rule got wrong on Fig C.1 (`model-05`,
+above). The six flows a person added (the two down a divider on Business Card
+and Digital Capability, the four on Tender Award Notification) are marked as
+settled by a person. The receive steps with no document coming in are
+settled by rule: a document reaching them through a join (the catalogue
+figures, CPFR Create Order Forecast), a line handed over from another figure
+(CPFR), or goods arriving (Fig C.1's *receive goods*, the *Receive Order
+Item(s)* steps) - drawn as goods flows on five figures, and not drawn on
+Fig C.1 and Fulfilment Despatch Advice.
+
 **The notes for a person, all 266 settled by eye (2026-09-27).** The sweep
 leaves, per diagram, notes where the reading could not be sure; each was looked at
 beside the original and our render (side by side, crops of the place). Most are
@@ -1664,7 +1681,8 @@ when the diagrams themselves are next revised.
 - *Ends and starts (actions sweep):* an end after each of the 19 steps a path
   stops at, and a start before the 4 it begins at. On Fulfilment Despatch
   Advice a goods flow from *Despatch Order Item(s)* to *Receive Order
-  Item(s)* (as in 11.6); on Utility Billing connect *Report usage*, for
+  Item(s)* (as in 11.6), and on Fig C.1 one into *receive goods*; on Utility
+  Billing connect *Report usage*, for
   instance alongside *Raise Invoice*.
 - *Tender Award Notification (documents sweep):* draw the two notifications as
   two exchanges, or with a decision (won / not won), rather than two boxes on
