@@ -365,6 +365,14 @@ def apply_corrections(model, layout, report, name, recorded=None):
       remove-lane            column `lane` is not one: an empty sliver between
                              the last divider and the frame; its neighbour
                              takes its width
+      merge-lane             column `lane` is part of column `into`, which it
+                             stands beside: the artwork draws a divider between
+                             them, the model has one party. Its nodes move into
+                             `into`, which takes its width; the divider stays in
+                             the layout's rules, so the drawing does not change
+      start-trigger          start `node` is set off by `trigger` (a time or an
+                             agreement, not a message): what BPMN would draw as
+                             a timer or conditional start
       retext                 the words of `element` in `section` (texts, nodes or
                              lanes) are `text`, which the reading misread; line
                              breaks as in the artwork, one per measured line
@@ -691,6 +699,31 @@ def apply_corrections(model, layout, report, name, recorded=None):
             model["lanes"].remove(l)
             del layout["lanes"][l["id"]]
             touched.add(l["id"])
+        elif op == "merge-lane":
+            l, into = el("lanes", c["lane"], cid), el("lanes", c["into"], cid)
+            if l["axis"] != "column" or into["axis"] != "column" or abs(l["index"] - into["index"]) != 1:
+                raise ValueError("%s: correction %s: %s and %s are not neighbouring columns"
+                                 % (name, cid, c["lane"], c["into"]))
+            for n in model["nodes"]:
+                if n.get("lane") == l["id"]:
+                    n["lane"] = into["id"]
+                if l["id"] in (n.get("between") or []):
+                    raise ValueError("%s: correction %s: %s stands on the line being merged"
+                                     % (name, cid, n["id"]))
+            L, I = layout["lanes"][l["id"]], layout["lanes"][into["id"]]
+            I["x0"], I["x1"] = min(I["x0"], L["x0"]), max(I["x1"], L["x1"])
+            for x in model["lanes"]:
+                if x["axis"] == "column" and x["index"] > l["index"]:
+                    x["index"] -= 1
+            model["lanes"].remove(l)
+            del layout["lanes"][l["id"]]
+            touched |= {l["id"], into["id"]}
+        elif op == "start-trigger":
+            n = el("nodes", c["node"], cid)
+            if n["kind"] != "initial":
+                raise ValueError("%s: correction %s: %s is not a start" % (name, cid, c["node"]))
+            n["trigger"] = c["trigger"]
+            touched.add(n["id"])
         elif op == "retext":
             # words the reading got wrong, as the artwork writes them. The words
             # change, and so does what is drawn; where each line sits does not.

@@ -1062,7 +1062,7 @@ against the baseline and committed on its own (the procedure is in
 | q12 | "(from Business Processes)" under two documents | UML-tool notation: the document is defined in another package of the tool's model; each text labels its document, which records `definedIn` "Business Processes" | Utility Billing | unchanged |
 | q13 | 42 texts in 20 figures labelling nothing | a question beside a diamond is the decision's `question`; words beside a start or an end name it (`starts-from` where they name another process); two merged texts split, and their decisions' guards put on the branches they are written on; three lane titles taken for guards removed | 25 figures | unchanged |
 | q14 | 14 documents drawn on a divider that is not between the parties exchanging them | a document's `between` names the parties that exchange it, left to right, as its flows say (three where three take part); where it is drawn is the layout's; validation checks the two agree | 7 figures | unchanged |
-| q15 | column titles read as loose text; Freight Status Reporting's untitled third column; sliver "columns" | the texts are the columns' titles, drawn where they are (Waste Movement takes UBL.xml's "Sender Party"/"Receiver Party", the drawing keeps "Senderparty"); the third column is no party but the agreed status reporting procedure its start starts from (`scope` external); seven 7-10 px strips between the last divider and the frame removed | 9 figures | unchanged |
+| q15 | column titles read as loose text; Freight Status Reporting's untitled third column; sliver "columns" | the texts are the columns' titles, drawn where they are (Waste Movement takes UBL.xml's "Sender Party"/"Receiver Party", the drawing keeps "Senderparty"); Freight Status Reporting's third column is part of the Receiver Party (`merge-lane`): its start is the Receiver Party reporting on its own initiative, recorded as the start's `trigger` (in BPMN a timer start), drawn as the original draws it; seven 7-10 px strips between the last divider and the frame removed | 9 figures | unchanged |
 | - | misread text | noted, fixed in one pass at the end (`pendingTextFixes`, 22 so far; and `pendingDrawingFixes`, 9) | 25 | - |
 
 After q12: 66 corrections over 16 diagrams; over all 78 not a pixel differs from
@@ -1306,8 +1306,14 @@ takes the title, drawn as and where the text was, so nothing moves),
 "Senderparty"/"ReceiverParty". Freight Status Reporting's third column holds
 only the start "Trigger reporting procedure": UBL.xml says a Transportation
 Status is provided "either through a Transportation Status Request ... or
-through an agreed status reporting procedure", so the column is no party but
-that procedure (`scope` external), which the start `starts-from`. Settled from
+through an agreed status reporting procedure". First suggested as an area
+outside the parties; after looking at the original the TC's view is that it
+belongs to the Receiver Party: the start is the Receiver Party beginning a
+status report of its own, independent of any request - in BPMN a timer start.
+So `merge-lane` makes the column part of the Receiver Party (the divider stays
+in the layout's rules, and the render is byte-identical), and `start-trigger`
+records what sets the start off. "Model and layout are separate" is exactly
+what lets the model say one party while the drawing keeps the artwork's line. Settled from
 the original and mentioned: on seven figures (Enquiry, five Tender figures,
 both Tender Contract figures) the reading made a third column 7-10 px wide out
 of the strip between the last divider and the frame; removed.
@@ -1387,6 +1393,10 @@ when the diagrams themselves are next revised.
   box next to the receiver 5 times and next to the sender 4 times. A redraw
   could agree a convention - simplest, always on the divider next to the
   receiver.
+- *Freight Status Reporting (with `q15`):* "Receiver Party" is a questionable
+  name for a party that both receives a request and sends the status report;
+  and the divider marking off the self-initiated start could go - in BPMN it
+  would be a timer start inside the Receiver Party's lane.
 - *Waste Movement (with `q15`):* the column titles read "Senderparty" and
   "ReceiverParty"; UBL.xml says "Sender Party" and "Receiver Party".
 - *Tender Guarantee Deposit (with `q8`):* obtaining the guarantee from a
