@@ -12,7 +12,8 @@ font size, node rectangles (interior expanded by half a stroke), corner radii, t
 partition rules and titles, and the edges - including where each connector actually
 meets its nodes, so nothing about the routing is guessed.
 """
-import json, os, sys
+import json
+import re, os, sys
 from statistics import median
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -189,6 +190,8 @@ def main(src, out, model_w=1480.0):
             lane["name"] = c["title"]
         if c.get("titleBold"):
             lane["bold"] = True
+        if b and lane["title"]:
+            lane["_box"] = b
         lanes.append(lane)
 
     # Words drawn where the reading had put a lane title, which a correction has
@@ -200,12 +203,39 @@ def main(src, out, model_w=1480.0):
              "cx": M(b[0] + b[2] / 2), "cy": M(b[1] + b[3] / 2)}
         if t.get("bold"):
             d["bold"] = True
+        d["_box"] = b
         return d
     captions = [caption(p["id"], "phase-title", p["title"], lay["phases"][p["id"]]["title"])
                 for p in model["phases"]
                 if (lay["phases"][p["id"]].get("title") or {}).get("as") == "lane-title"]
     captions += [caption(t["id"], "guard", t["text"], lay["texts"][t["id"]])
                  for t in model["texts"] if lay["texts"][t["id"]].get("as") == "lane-title"]
+
+    # A title is set at the size and width the artwork gives it, as a node's
+    # label line is: its size from the height of its letters (the cap height,
+    # 0.716 of the type size in Helvetica, plus the descender where a letter
+    # drops below the line), its width from its own extent. Set at the labels'
+    # size instead, a third of the titles came out 10-28% narrower or wider than
+    # the original's (Digital Agreement's, the Fulfilment figures'). A box that
+    # took in more than the words - a mark below them - gives a size far from its
+    # neighbours'; such a title takes their size and its natural width.
+    def fit(words, b):
+        desc = re.search(r"[gjpqyQ(),;\[\]]", words)
+        size = b[3] / (0.716 + (0.21 if desc else 0))
+        return size
+    titled = [t for t in lanes + captions if t.get("_box") and "\n" not in t.get("title", t.get("text", ""))]
+    sizes = sorted(fit(t.get("title", t.get("text", "")), t["_box"]) for t in titled)
+    usual = sizes[len(sizes) // 2] if sizes else None
+    for t in titled:
+        b = t["_box"]
+        size = fit(t.get("title", t.get("text", "")), b)
+        if usual and abs(size - usual) > 0.15 * usual:
+            t["size"], t["baseline"] = M(usual), t["cy"] + M(usual) * 0.35
+        else:
+            t["size"], t["textWidth"] = M(size), M(b[2])
+            t["baseline"] = M(b[1] + 0.716 * size)
+    for t in lanes + captions:
+        t.pop("_box", None)
 
     # a narrow first column is the gutter the band titles run up
     gutter = rules["v"][1][0] if len(rules["v"]) > 2 and \

@@ -4165,7 +4165,13 @@ def main(path, out_json=None):
             cx0, cx1 = int(vb[c]) + 6, int(vb[c + 1]) - 6
             cy0 = int(hr[0][0] + hr[0][1] + 4) if hr else 2      # below the frame
             cy1 = max(int(hb[r0]) - 4, cy0 + 1)
-            cell = ink[cy0:cy1, cx0:cx1]
+            cell = ink[cy0:cy1, cx0:cx1].copy()
+            # the frame or a rule running through the cell (the last column's
+            # cell takes in the right-hand frame where it is thick) is no part of
+            # the title: on IMFM and three Goods Item Passport figures it
+            # stretched the title's box to the frame
+            cell[:, cell.mean(axis=0) > 0.8] = False
+            cell[cell.mean(axis=1) > 0.8, :] = False
             if cell.any():
                 yy, xx = np.nonzero(cell)
                 box = dict(x=cx0 + int(xx.min()), y=cy0 + int(yy.min()),

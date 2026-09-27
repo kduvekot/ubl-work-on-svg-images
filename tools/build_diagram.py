@@ -102,6 +102,16 @@ def lines_of(n, cx, cy, size, font, weight="", style=""):
                         l.get("w")) for l in ll)
 
 
+def title_text(t, words, F):
+    """A lane title (or words set as one): at the size, width and baseline the
+    artwork gives it where they were measured, at the labels' size otherwise."""
+    weight = "bold" if t.get("bold") else ""
+    if t.get("size"):
+        return text(words, t["cx"], t["baseline"] - t["size"] * 0.35, t["size"], F["family"],
+                    weight, width=t.get("textWidth"))
+    return text(words, t["cx"], t["cy"], F["lane"], F["family"], weight)
+
+
 def text(label, cx, cy, size, font, weight="", style="", width=None):
     """One label, at the size and weight measured, in the width measured.
 
@@ -200,15 +210,13 @@ def svg_body(spec):
         o.append("</g>")
     for i, l in enumerate(spec["lanes"]):
         o.append(group("lane-title", l.get("id") or "lane%d" % i, l["title"]))
-        o.append(text(l["title"], l["cx"], l["cy"], F["lane"], F["family"],
-                      weight="bold" if l.get("bold") else ""))
+        o.append(title_text(l, l["title"], F))
         o.append("</g>")
     for c in spec.get("captions", []):
         # words the reading took for a lane title and a correction found to be a
         # phase's title or a guard: set exactly as a lane title is
         o.append(group(c["role"], c["id"], " ".join(c["text"].split())))
-        o.append(text(c["text"], c["cx"], c["cy"], F["lane"], F["family"],
-                      weight="bold" if c.get("bold") else ""))
+        o.append(title_text(c, c["text"], F))
         o.append("</g>")
     for i, b in enumerate(spec.get("bandLabels", [])):   # band titles run up the gutter
         o.append(group("band-title", b.get("id") or "bandtitle%d" % i, b["title"]))

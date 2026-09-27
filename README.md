@@ -48,10 +48,11 @@ the corrections themselves, question and answer included, in
 > and notched filled arrowheads), listed in `appliedDrawingFixes`. Step 4 done:
 > the checkers see every correction that changes what they check (the
 > corrected graph now applies reversed, removed and added flows, removed and
-> re-measured texts). 31 diagrams differ from the baseline, each only where
-> fixed (red/blue PDF): misread words found in the completeness sweep, and
-> lane and phase titles the artwork sets bold, now measured and drawn bold
-> (14 figures, found in the figure-by-figure review). Next: the TC checks that PDF, then a new baseline.
+> re-measured texts). 77 diagrams differ from the baseline (red/blue PDF): misread words found in
+> the completeness sweep; lane and phase titles the artwork sets bold, drawn
+> bold (14 figures); and, since figure review 7, every lane title set at the
+> size and width the artwork gives it, which changes the titles of all but one
+> figure. Nothing else moves. A new baseline is due once the review is done. Next: the TC checks that PDF, then a new baseline.
 
 ## Working method
 

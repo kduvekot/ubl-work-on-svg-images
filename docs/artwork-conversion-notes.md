@@ -1607,6 +1607,21 @@ differences shown.
   where "either" is meant - in UML two ways into a step mean "both"; a merge
   diamond would say it. The fork and join bars stay black (the TC,
   2026-09-27), though the artwork fills most of them dark grey.
+- *Tender Contract Information Preparation (6 of 78).* Model correct and
+  complete (the kind 8 text and the "Above Thresholds?" question settled
+  before); SVG faithful.
+- *Digital Agreement (7 of 78).* Model correct and complete. The lane titles
+  were drawn at the labels' size, about 24% narrower than the artwork's; over
+  the 78 a third of the titles were 10-28% off, either way. Titles (and words
+  set as one, the CPFR phase titles) are now set at the size and width the
+  artwork gives them, as label lines are: the size from the height of the
+  letters (cap height 0.716 of the type size, plus the descender where one
+  drops), the width from the title's own extent, the baseline where the
+  letters stand (spec_from_model.py). A title whose box is far from its
+  neighbours' size takes theirs. Measuring showed four boxes stretched to the
+  frame (IMFM's Transportation Network Manager, three Goods Item Passport
+  titles): the extractor now leaves a rule running through the title cell
+  out of it. The two-line titles of three 2.3 figures keep the labels' size.
 
 **The notes for a person, all 266 settled by eye (2026-09-27).** The sweep
 leaves, per diagram, notes where the reading could not be sure; each was looked at
