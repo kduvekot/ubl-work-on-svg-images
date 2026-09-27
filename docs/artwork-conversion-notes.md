@@ -1323,8 +1323,9 @@ rarest kind of element up. The first three are complete: the segment (1: its
 members, scope, reference, and the note naming it), the marks (4: rule, the
 flow they are on, meaning) and the notes (4: what each annotates, no lane of
 its own). That there are only four notes in the 78 was checked on all 78
-originals by eye: one on Sourcing Punch-out, three on Intermodal Freight
-Management, none elsewhere. Settled from
+originals by eye, twice: on contact sheets, then each figure at 1400 px wide
+(about 1:2.4 of the PNG, where the smallest note is some 180 px across): one on
+Sourcing Punch-out, three on Intermodal Freight Management, none elsewhere. Settled from
 the original and mentioned: on seven figures (Enquiry, five Tender figures,
 both Tender Contract figures) the reading made a third column 7-10 px wide out
 of the strip between the last divider and the frame; removed.
