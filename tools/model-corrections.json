@@ -949,6 +949,32 @@
     "answer": "Not a column: the reading took the strip between the last divider and the frame for one. Settled from the original without the TC, and mentioned (q15).",
     "op": "remove-lane",
     "lane": "lane-3"
+   },
+   {
+    "id": "party-44",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Party names are written in several styles: capitals, line breaks inside a name, run together, a lower-case 'party'.",
+    "answer": "The model takes one clean form (Title Case, no line breaks, a space before 'Party'); the drawing keeps the artwork's words. Same role, different names (Buyer / Buyer Party) stay as each figure has them: a party vocabulary is a later decision.",
+    "op": "lane-name",
+    "lane": "lane-initiating-party",
+    "title": "Initiating Party",
+    "was": {
+     "title": "INITIATING PARTY"
+    }
+   },
+   {
+    "id": "party-45",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Party names are written in several styles: capitals, line breaks inside a name, run together, a lower-case 'party'.",
+    "answer": "The model takes one clean form (Title Case, no line breaks, a space before 'Party'); the drawing keeps the artwork's words. Same role, different names (Buyer / Buyer Party) stay as each figure has them: a party vocabulary is a later decision.",
+    "op": "lane-name",
+    "lane": "lane-responding-party",
+    "title": "Responding Party",
+    "was": {
+     "title": "RESPONDING PARTY"
+    }
    }
   ],
   "UBL-2.3-Tender-Contract-Post": [
@@ -1005,6 +1031,32 @@
     "answer": "Not a column: the reading took the strip between the last divider and the frame for one. Settled from the original without the TC, and mentioned (q15).",
     "op": "remove-lane",
     "lane": "lane-3"
+   },
+   {
+    "id": "party-42",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Party names are written in several styles: capitals, line breaks inside a name, run together, a lower-case 'party'.",
+    "answer": "The model takes one clean form (Title Case, no line breaks, a space before 'Party'); the drawing keeps the artwork's words. Same role, different names (Buyer / Buyer Party) stay as each figure has them: a party vocabulary is a later decision.",
+    "op": "lane-name",
+    "lane": "lane-initiating-party",
+    "title": "Initiating Party",
+    "was": {
+     "title": "INITIATING PARTY"
+    }
+   },
+   {
+    "id": "party-43",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Party names are written in several styles: capitals, line breaks inside a name, run together, a lower-case 'party'.",
+    "answer": "The model takes one clean form (Title Case, no line breaks, a space before 'Party'); the drawing keeps the artwork's words. Same role, different names (Buyer / Buyer Party) stay as each figure has them: a party vocabulary is a later decision.",
+    "op": "lane-name",
+    "lane": "lane-responding-party",
+    "title": "Responding Party",
+    "was": {
+     "title": "RESPONDING PARTY"
+    }
    }
   ],
   "UBL-2.2-InitiateFreightMgmtProcess": [
@@ -1434,6 +1486,32 @@
      "mark-2"
     ],
     "meaning": "break"
+   },
+   {
+    "id": "party-01",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Party names are written in several styles: capitals, line breaks inside a name, run together, a lower-case 'party'.",
+    "answer": "The model takes one clean form (Title Case, no line breaks, a space before 'Party'); the drawing keeps the artwork's words. Same role, different names (Buyer / Buyer Party) stay as each figure has them: a party vocabulary is a later decision.",
+    "op": "lane-name",
+    "lane": "lane-business-party-1",
+    "title": "Business Party 1",
+    "was": {
+     "title": "BUSINESS PARTY 1"
+    }
+   },
+   {
+    "id": "party-02",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Party names are written in several styles: capitals, line breaks inside a name, run together, a lower-case 'party'.",
+    "answer": "The model takes one clean form (Title Case, no line breaks, a space before 'Party'); the drawing keeps the artwork's words. Same role, different names (Buyer / Buyer Party) stay as each figure has them: a party vocabulary is a later decision.",
+    "op": "lane-name",
+    "lane": "lane-business-party-0-n",
+    "title": "Business Party 0..n",
+    "was": {
+     "title": "BUSINESS PARTY 0..n"
+    }
    }
   ],
   "UBL-2.2-DigitalCapability": [
@@ -1452,6 +1530,32 @@
      "mark-2"
     ],
     "meaning": "break"
+   },
+   {
+    "id": "party-05",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Party names are written in several styles: capitals, line breaks inside a name, run together, a lower-case 'party'.",
+    "answer": "The model takes one clean form (Title Case, no line breaks, a space before 'Party'); the drawing keeps the artwork's words. Same role, different names (Buyer / Buyer Party) stay as each figure has them: a party vocabulary is a later decision.",
+    "op": "lane-name",
+    "lane": "lane-business-party-1",
+    "title": "Business Party 1",
+    "was": {
+     "title": "BUSINESS PARTY 1"
+    }
+   },
+   {
+    "id": "party-06",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Party names are written in several styles: capitals, line breaks inside a name, run together, a lower-case 'party'.",
+    "answer": "The model takes one clean form (Title Case, no line breaks, a space before 'Party'); the drawing keeps the artwork's words. Same role, different names (Buyer / Buyer Party) stay as each figure has them: a party vocabulary is a later decision.",
+    "op": "lane-name",
+    "lane": "lane-business-party-0-n",
+    "title": "Business Party 0..n",
+    "was": {
+     "title": "BUSINESS PARTY 0..n"
+    }
    }
   ],
   "UBL-2.5-UtilityBillingProcess": [
@@ -2055,6 +2159,32 @@
     "answer": "Not a column: the reading took the strip between the last divider and the frame for one. Settled from the original without the TC, and mentioned (q15).",
     "op": "remove-lane",
     "lane": "lane-3"
+   },
+   {
+    "id": "party-31",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Party names are written in several styles: capitals, line breaks inside a name, run together, a lower-case 'party'.",
+    "answer": "The model takes one clean form (Title Case, no line breaks, a space before 'Party'); the drawing keeps the artwork's words. Same role, different names (Buyer / Buyer Party) stay as each figure has them: a party vocabulary is a later decision.",
+    "op": "lane-name",
+    "lane": "lane-economic-operator",
+    "title": "Economic Operator",
+    "was": {
+     "title": "ECONOMIC OPERATOR"
+    }
+   },
+   {
+    "id": "party-32",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Party names are written in several styles: capitals, line breaks inside a name, run together, a lower-case 'party'.",
+    "answer": "The model takes one clean form (Title Case, no line breaks, a space before 'Party'); the drawing keeps the artwork's words. Same role, different names (Buyer / Buyer Party) stay as each figure has them: a party vocabulary is a later decision.",
+    "op": "lane-name",
+    "lane": "lane-contracting-authority",
+    "title": "Contracting Authority",
+    "was": {
+     "title": "CONTRACTING AUTHORITY"
+    }
    }
   ],
   "UBL-2.3-GoodsCertificateExportProcess": [
@@ -2070,6 +2200,45 @@
     "text": "Draft Goods Certificate",
     "was": {
      "label": "raft Goods Certificat"
+    }
+   },
+   {
+    "id": "party-37",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Party names are written in several styles: capitals, line breaks inside a name, run together, a lower-case 'party'.",
+    "answer": "The model takes one clean form (Title Case, no line breaks, a space before 'Party'); the drawing keeps the artwork's words. Same role, different names (Buyer / Buyer Party) stay as each figure has them: a party vocabulary is a later decision.",
+    "op": "lane-name",
+    "lane": "lane-export-party",
+    "title": "Export Party",
+    "was": {
+     "title": "Export party"
+    }
+   },
+   {
+    "id": "party-38",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Party names are written in several styles: capitals, line breaks inside a name, run together, a lower-case 'party'.",
+    "answer": "The model takes one clean form (Title Case, no line breaks, a space before 'Party'); the drawing keeps the artwork's words. Same role, different names (Buyer / Buyer Party) stay as each figure has them: a party vocabulary is a later decision.",
+    "op": "lane-name",
+    "lane": "lane-preparation-party",
+    "title": "Preparation Party",
+    "was": {
+     "title": "Preparation party"
+    }
+   },
+   {
+    "id": "party-39",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Party names are written in several styles: capitals, line breaks inside a name, run together, a lower-case 'party'.",
+    "answer": "The model takes one clean form (Title Case, no line breaks, a space before 'Party'); the drawing keeps the artwork's words. Same role, different names (Buyer / Buyer Party) stay as each figure has them: a party vocabulary is a later decision.",
+    "op": "lane-name",
+    "lane": "lane-certification-party",
+    "title": "Certification Party",
+    "was": {
+     "title": "Certification party"
     }
    }
   ],
@@ -2160,6 +2329,32 @@
     "op": "decision-question",
     "text": "text-above-p-thresholds",
     "node": "decision-contracting-authority"
+   },
+   {
+    "id": "party-13",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Party names are written in several styles: capitals, line breaks inside a name, run together, a lower-case 'party'.",
+    "answer": "The model takes one clean form (Title Case, no line breaks, a space before 'Party'); the drawing keeps the artwork's words. Same role, different names (Buyer / Buyer Party) stay as each figure has them: a party vocabulary is a later decision.",
+    "op": "lane-name",
+    "lane": "lane-contracting-authority",
+    "title": "Contracting Authority",
+    "was": {
+     "title": "CONTRACTING AUTHORITY"
+    }
+   },
+   {
+    "id": "party-14",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Party names are written in several styles: capitals, line breaks inside a name, run together, a lower-case 'party'.",
+    "answer": "The model takes one clean form (Title Case, no line breaks, a space before 'Party'); the drawing keeps the artwork's words. Same role, different names (Buyer / Buyer Party) stay as each figure has them: a party vocabulary is a later decision.",
+    "op": "lane-name",
+    "lane": "lane-publication-office",
+    "title": "Publication Office",
+    "was": {
+     "title": "PUBLICATION OFFICE"
+    }
    }
   ],
   "UBL-2.2-FulfilmentDespatchAdviceProcess": [
@@ -2499,6 +2694,32 @@
     "op": "decision-question",
     "text": "text-above-thresholds",
     "node": "decision-contracting-authority"
+   },
+   {
+    "id": "party-15",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Party names are written in several styles: capitals, line breaks inside a name, run together, a lower-case 'party'.",
+    "answer": "The model takes one clean form (Title Case, no line breaks, a space before 'Party'); the drawing keeps the artwork's words. Same role, different names (Buyer / Buyer Party) stay as each figure has them: a party vocabulary is a later decision.",
+    "op": "lane-name",
+    "lane": "lane-contracting-authority",
+    "title": "Contracting Authority",
+    "was": {
+     "title": "CONTRACTING AUTHORITY"
+    }
+   },
+   {
+    "id": "party-16",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Party names are written in several styles: capitals, line breaks inside a name, run together, a lower-case 'party'.",
+    "answer": "The model takes one clean form (Title Case, no line breaks, a space before 'Party'); the drawing keeps the artwork's words. Same role, different names (Buyer / Buyer Party) stay as each figure has them: a party vocabulary is a later decision.",
+    "op": "lane-name",
+    "lane": "lane-publication-office",
+    "title": "Publication Office",
+    "was": {
+     "title": "PUBLICATION OFFICE"
+    }
    }
   ],
   "UBL-2.2-VMI-PriceAdjustment": [
@@ -2637,6 +2858,32 @@
     "op": "attach-guard",
     "text": "text-y",
     "to": "flow-match-digital-capabilities-to-send-digital-agreement-in-participant-party-2"
+   },
+   {
+    "id": "party-03",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Party names are written in several styles: capitals, line breaks inside a name, run together, a lower-case 'party'.",
+    "answer": "The model takes one clean form (Title Case, no line breaks, a space before 'Party'); the drawing keeps the artwork's words. Same role, different names (Buyer / Buyer Party) stay as each figure has them: a party vocabulary is a later decision.",
+    "op": "lane-name",
+    "lane": "lane-participant-party-1",
+    "title": "Participant Party 1",
+    "was": {
+     "title": "PARTICIPANT PARTY 1"
+    }
+   },
+   {
+    "id": "party-04",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Party names are written in several styles: capitals, line breaks inside a name, run together, a lower-case 'party'.",
+    "answer": "The model takes one clean form (Title Case, no line breaks, a space before 'Party'); the drawing keeps the artwork's words. Same role, different names (Buyer / Buyer Party) stay as each figure has them: a party vocabulary is a later decision.",
+    "op": "lane-name",
+    "lane": "lane-participant-party-2",
+    "title": "Participant Party 2",
+    "was": {
+     "title": "PARTICIPANT PARTY 2"
+    }
    }
   ],
   "UBL-2.5-WasteMovementProcess": [
@@ -2672,6 +2919,32 @@
     "answer": "Not a column: the reading took the strip between the last divider and the frame for one. Settled from the original without the TC, and mentioned (q15).",
     "op": "remove-lane",
     "lane": "lane-3"
+   },
+   {
+    "id": "party-07",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Party names are written in several styles: capitals, line breaks inside a name, run together, a lower-case 'party'.",
+    "answer": "The model takes one clean form (Title Case, no line breaks, a space before 'Party'); the drawing keeps the artwork's words. Same role, different names (Buyer / Buyer Party) stay as each figure has them: a party vocabulary is a later decision.",
+    "op": "lane-name",
+    "lane": "lane-requester",
+    "title": "Requester",
+    "was": {
+     "title": "REQUESTER"
+    }
+   },
+   {
+    "id": "party-08",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Party names are written in several styles: capitals, line breaks inside a name, run together, a lower-case 'party'.",
+    "answer": "The model takes one clean form (Title Case, no line breaks, a space before 'Party'); the drawing keeps the artwork's words. Same role, different names (Buyer / Buyer Party) stay as each figure has them: a party vocabulary is a later decision.",
+    "op": "lane-name",
+    "lane": "lane-responder",
+    "title": "Responder",
+    "was": {
+     "title": "RESPONDER"
+    }
    }
   ],
   "UBL-2.2-Tender-ExpressionOfInterest": [
@@ -2683,6 +2956,32 @@
     "answer": "Not a column: the reading took the strip between the last divider and the frame for one. Settled from the original without the TC, and mentioned (q15).",
     "op": "remove-lane",
     "lane": "lane-3"
+   },
+   {
+    "id": "party-17",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Party names are written in several styles: capitals, line breaks inside a name, run together, a lower-case 'party'.",
+    "answer": "The model takes one clean form (Title Case, no line breaks, a space before 'Party'); the drawing keeps the artwork's words. Same role, different names (Buyer / Buyer Party) stay as each figure has them: a party vocabulary is a later decision.",
+    "op": "lane-name",
+    "lane": "lane-economic-operator",
+    "title": "Economic Operator",
+    "was": {
+     "title": "ECONOMIC OPERATOR"
+    }
+   },
+   {
+    "id": "party-18",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Party names are written in several styles: capitals, line breaks inside a name, run together, a lower-case 'party'.",
+    "answer": "The model takes one clean form (Title Case, no line breaks, a space before 'Party'); the drawing keeps the artwork's words. Same role, different names (Buyer / Buyer Party) stay as each figure has them: a party vocabulary is a later decision.",
+    "op": "lane-name",
+    "lane": "lane-contracting-authority",
+    "title": "Contracting Authority",
+    "was": {
+     "title": "CONTRACTING AUTHORITY"
+    }
    }
   ],
   "UBL-2.2-Tender-QualificationApplication": [
@@ -2694,6 +2993,32 @@
     "answer": "Not a column: the reading took the strip between the last divider and the frame for one. Settled from the original without the TC, and mentioned (q15).",
     "op": "remove-lane",
     "lane": "lane-3"
+   },
+   {
+    "id": "party-23",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Party names are written in several styles: capitals, line breaks inside a name, run together, a lower-case 'party'.",
+    "answer": "The model takes one clean form (Title Case, no line breaks, a space before 'Party'); the drawing keeps the artwork's words. Same role, different names (Buyer / Buyer Party) stay as each figure has them: a party vocabulary is a later decision.",
+    "op": "lane-name",
+    "lane": "lane-contracting-authority",
+    "title": "Contracting Authority",
+    "was": {
+     "title": "CONTRACTING AUTHORITY"
+    }
+   },
+   {
+    "id": "party-24",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Party names are written in several styles: capitals, line breaks inside a name, run together, a lower-case 'party'.",
+    "answer": "The model takes one clean form (Title Case, no line breaks, a space before 'Party'); the drawing keeps the artwork's words. Same role, different names (Buyer / Buyer Party) stay as each figure has them: a party vocabulary is a later decision.",
+    "op": "lane-name",
+    "lane": "lane-economic-operator",
+    "title": "Economic Operator",
+    "was": {
+     "title": "ECONOMIC OPERATOR"
+    }
    }
   ],
   "UBL-2.2-Tender-Status": [
@@ -2705,6 +3030,32 @@
     "answer": "Not a column: the reading took the strip between the last divider and the frame for one. Settled from the original without the TC, and mentioned (q15).",
     "op": "remove-lane",
     "lane": "lane-3"
+   },
+   {
+    "id": "party-27",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Party names are written in several styles: capitals, line breaks inside a name, run together, a lower-case 'party'.",
+    "answer": "The model takes one clean form (Title Case, no line breaks, a space before 'Party'); the drawing keeps the artwork's words. Same role, different names (Buyer / Buyer Party) stay as each figure has them: a party vocabulary is a later decision.",
+    "op": "lane-name",
+    "lane": "lane-economic-operator",
+    "title": "Economic Operator",
+    "was": {
+     "title": "ECONOMIC OPERATOR"
+    }
+   },
+   {
+    "id": "party-28",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Party names are written in several styles: capitals, line breaks inside a name, run together, a lower-case 'party'.",
+    "answer": "The model takes one clean form (Title Case, no line breaks, a space before 'Party'); the drawing keeps the artwork's words. Same role, different names (Buyer / Buyer Party) stay as each figure has them: a party vocabulary is a later decision.",
+    "op": "lane-name",
+    "lane": "lane-contracting-authority",
+    "title": "Contracting Authority",
+    "was": {
+     "title": "CONTRACTING AUTHORITY"
+    }
    }
   ],
   "UBL-2.5-WasteNotificationProcess": [
@@ -2841,6 +3192,275 @@
     "element": "flow-reconcile-charges-in-accounting-customer-to-send-account-response",
     "attribute": "guard",
     "reason": "The artwork guards the accepting branches only; the branch to 'Send Account Response' is the otherwise case, unlabelled."
+   }
+  ],
+  "UBL-2.2-Tender-AwardNotification": [
+   {
+    "id": "party-09",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Party names are written in several styles: capitals, line breaks inside a name, run together, a lower-case 'party'.",
+    "answer": "The model takes one clean form (Title Case, no line breaks, a space before 'Party'); the drawing keeps the artwork's words. Same role, different names (Buyer / Buyer Party) stay as each figure has them: a party vocabulary is a later decision.",
+    "op": "lane-name",
+    "lane": "lane-tenderer",
+    "title": "Tenderer",
+    "was": {
+     "title": "TENDERER"
+    }
+   },
+   {
+    "id": "party-10",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Party names are written in several styles: capitals, line breaks inside a name, run together, a lower-case 'party'.",
+    "answer": "The model takes one clean form (Title Case, no line breaks, a space before 'Party'); the drawing keeps the artwork's words. Same role, different names (Buyer / Buyer Party) stay as each figure has them: a party vocabulary is a later decision.",
+    "op": "lane-name",
+    "lane": "lane-contracting-authority",
+    "title": "Contracting Authority",
+    "was": {
+     "title": "CONTRACTING AUTHORITY"
+    }
+   }
+  ],
+  "UBL-2.2-Tender-AwardPublication": [
+   {
+    "id": "party-11",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Party names are written in several styles: capitals, line breaks inside a name, run together, a lower-case 'party'.",
+    "answer": "The model takes one clean form (Title Case, no line breaks, a space before 'Party'); the drawing keeps the artwork's words. Same role, different names (Buyer / Buyer Party) stay as each figure has them: a party vocabulary is a later decision.",
+    "op": "lane-name",
+    "lane": "lane-contracting-authority",
+    "title": "Contracting Authority",
+    "was": {
+     "title": "CONTRACTING AUTHORITY"
+    }
+   },
+   {
+    "id": "party-12",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Party names are written in several styles: capitals, line breaks inside a name, run together, a lower-case 'party'.",
+    "answer": "The model takes one clean form (Title Case, no line breaks, a space before 'Party'); the drawing keeps the artwork's words. Same role, different names (Buyer / Buyer Party) stay as each figure has them: a party vocabulary is a later decision.",
+    "op": "lane-name",
+    "lane": "lane-publication-body",
+    "title": "Publication Body",
+    "was": {
+     "title": "PUBLICATION BODY"
+    }
+   }
+  ],
+  "UBL-2.2-Tender-GuaranteeDeposit": [
+   {
+    "id": "party-19",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Party names are written in several styles: capitals, line breaks inside a name, run together, a lower-case 'party'.",
+    "answer": "The model takes one clean form (Title Case, no line breaks, a space before 'Party'); the drawing keeps the artwork's words. Same role, different names (Buyer / Buyer Party) stay as each figure has them: a party vocabulary is a later decision.",
+    "op": "lane-name",
+    "lane": "lane-tenderer",
+    "title": "Tenderer",
+    "was": {
+     "title": "TENDERER"
+    }
+   },
+   {
+    "id": "party-20",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Party names are written in several styles: capitals, line breaks inside a name, run together, a lower-case 'party'.",
+    "answer": "The model takes one clean form (Title Case, no line breaks, a space before 'Party'); the drawing keeps the artwork's words. Same role, different names (Buyer / Buyer Party) stay as each figure has them: a party vocabulary is a later decision.",
+    "op": "lane-name",
+    "lane": "lane-contracting-authority",
+    "title": "Contracting Authority",
+    "was": {
+     "title": "CONTRACTING AUTHORITY"
+    }
+   }
+  ],
+  "UBL-2.2-Tender-Invitation": [
+   {
+    "id": "party-21",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Party names are written in several styles: capitals, line breaks inside a name, run together, a lower-case 'party'.",
+    "answer": "The model takes one clean form (Title Case, no line breaks, a space before 'Party'); the drawing keeps the artwork's words. Same role, different names (Buyer / Buyer Party) stay as each figure has them: a party vocabulary is a later decision.",
+    "op": "lane-name",
+    "lane": "lane-contracting-authority",
+    "title": "Contracting Authority",
+    "was": {
+     "title": "CONTRACTING AUTHORITY"
+    }
+   },
+   {
+    "id": "party-22",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Party names are written in several styles: capitals, line breaks inside a name, run together, a lower-case 'party'.",
+    "answer": "The model takes one clean form (Title Case, no line breaks, a space before 'Party'); the drawing keeps the artwork's words. Same role, different names (Buyer / Buyer Party) stay as each figure has them: a party vocabulary is a later decision.",
+    "op": "lane-name",
+    "lane": "lane-economic-operator",
+    "title": "Economic Operator",
+    "was": {
+     "title": "ECONOMIC OPERATOR"
+    }
+   }
+  ],
+  "UBL-2.2-Tender-QualificationInfo": [
+   {
+    "id": "party-25",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Party names are written in several styles: capitals, line breaks inside a name, run together, a lower-case 'party'.",
+    "answer": "The model takes one clean form (Title Case, no line breaks, a space before 'Party'); the drawing keeps the artwork's words. Same role, different names (Buyer / Buyer Party) stay as each figure has them: a party vocabulary is a later decision.",
+    "op": "lane-name",
+    "lane": "lane-tenderer",
+    "title": "Tenderer",
+    "was": {
+     "title": "TENDERER"
+    }
+   },
+   {
+    "id": "party-26",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Party names are written in several styles: capitals, line breaks inside a name, run together, a lower-case 'party'.",
+    "answer": "The model takes one clean form (Title Case, no line breaks, a space before 'Party'); the drawing keeps the artwork's words. Same role, different names (Buyer / Buyer Party) stay as each figure has them: a party vocabulary is a later decision.",
+    "op": "lane-name",
+    "lane": "lane-contracting-authority",
+    "title": "Contracting Authority",
+    "was": {
+     "title": "CONTRACTING AUTHORITY"
+    }
+   }
+  ],
+  "UBL-2.2-Tender-SubmissionOfTenders": [
+   {
+    "id": "party-29",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Party names are written in several styles: capitals, line breaks inside a name, run together, a lower-case 'party'.",
+    "answer": "The model takes one clean form (Title Case, no line breaks, a space before 'Party'); the drawing keeps the artwork's words. Same role, different names (Buyer / Buyer Party) stay as each figure has them: a party vocabulary is a later decision.",
+    "op": "lane-name",
+    "lane": "lane-tenderer",
+    "title": "Tenderer",
+    "was": {
+     "title": "TENDERER"
+    }
+   },
+   {
+    "id": "party-30",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Party names are written in several styles: capitals, line breaks inside a name, run together, a lower-case 'party'.",
+    "answer": "The model takes one clean form (Title Case, no line breaks, a space before 'Party'); the drawing keeps the artwork's words. Same role, different names (Buyer / Buyer Party) stay as each figure has them: a party vocabulary is a later decision.",
+    "op": "lane-name",
+    "lane": "lane-contracting-authority",
+    "title": "Contracting Authority",
+    "was": {
+     "title": "CONTRACTING AUTHORITY"
+    }
+   }
+  ],
+  "UBL-2.2-Tender-Withdrawal": [
+   {
+    "id": "party-33",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Party names are written in several styles: capitals, line breaks inside a name, run together, a lower-case 'party'.",
+    "answer": "The model takes one clean form (Title Case, no line breaks, a space before 'Party'); the drawing keeps the artwork's words. Same role, different names (Buyer / Buyer Party) stay as each figure has them: a party vocabulary is a later decision.",
+    "op": "lane-name",
+    "lane": "lane-economic-operator",
+    "title": "Economic Operator",
+    "was": {
+     "title": "ECONOMIC OPERATOR"
+    }
+   },
+   {
+    "id": "party-34",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Party names are written in several styles: capitals, line breaks inside a name, run together, a lower-case 'party'.",
+    "answer": "The model takes one clean form (Title Case, no line breaks, a space before 'Party'); the drawing keeps the artwork's words. Same role, different names (Buyer / Buyer Party) stay as each figure has them: a party vocabulary is a later decision.",
+    "op": "lane-name",
+    "lane": "lane-contracting-authority",
+    "title": "Contracting Authority",
+    "was": {
+     "title": "CONTRACTING AUTHORITY"
+    }
+   }
+  ],
+  "UBL-2.3-ExportCustomsDeclarationProcess": [
+   {
+    "id": "party-35",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Party names are written in several styles: capitals, line breaks inside a name, run together, a lower-case 'party'.",
+    "answer": "The model takes one clean form (Title Case, no line breaks, a space before 'Party'); the drawing keeps the artwork's words. Same role, different names (Buyer / Buyer Party) stay as each figure has them: a party vocabulary is a later decision.",
+    "op": "lane-name",
+    "lane": "lane-exporter-party",
+    "title": "Exporter Party",
+    "was": {
+     "title": "Exporter party"
+    }
+   },
+   {
+    "id": "party-36",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Party names are written in several styles: capitals, line breaks inside a name, run together, a lower-case 'party'.",
+    "answer": "The model takes one clean form (Title Case, no line breaks, a space before 'Party'); the drawing keeps the artwork's words. Same role, different names (Buyer / Buyer Party) stay as each figure has them: a party vocabulary is a later decision.",
+    "op": "lane-name",
+    "lane": "lane-customsparty",
+    "title": "Customs Party",
+    "was": {
+     "title": "CustomsParty"
+    }
+   }
+  ],
+  "UBL-2.3-ImportDeclarationProcess": [
+   {
+    "id": "party-40",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Party names are written in several styles: capitals, line breaks inside a name, run together, a lower-case 'party'.",
+    "answer": "The model takes one clean form (Title Case, no line breaks, a space before 'Party'); the drawing keeps the artwork's words. Same role, different names (Buyer / Buyer Party) stay as each figure has them: a party vocabulary is a later decision.",
+    "op": "lane-name",
+    "lane": "lane-customs-party",
+    "title": "Customs Party",
+    "was": {
+     "title": "Customs\nParty"
+    }
+   }
+  ],
+  "UBL-2.3-ManifestProcess": [
+   {
+    "id": "party-41",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Party names are written in several styles: capitals, line breaks inside a name, run together, a lower-case 'party'.",
+    "answer": "The model takes one clean form (Title Case, no line breaks, a space before 'Party'); the drawing keeps the artwork's words. Same role, different names (Buyer / Buyer Party) stay as each figure has them: a party vocabulary is a later decision.",
+    "op": "lane-name",
+    "lane": "lane-sending-logistics-operator-party",
+    "title": "Sending Logistics Operator Party",
+    "was": {
+     "title": "Sending Logistics\nOperator Party"
+    }
+   }
+  ],
+  "UBL-2.3-TransitDeclarationProcess": [
+   {
+    "id": "party-46",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Party names are written in several styles: capitals, line breaks inside a name, run together, a lower-case 'party'.",
+    "answer": "The model takes one clean form (Title Case, no line breaks, a space before 'Party'); the drawing keeps the artwork's words. Same role, different names (Buyer / Buyer Party) stay as each figure has them: a party vocabulary is a later decision.",
+    "op": "lane-name",
+    "lane": "lane-customs-party",
+    "title": "Customs Party",
+    "was": {
+     "title": "Customs\nParty"
+    }
    }
   ]
  },

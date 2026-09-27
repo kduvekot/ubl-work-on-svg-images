@@ -1422,7 +1422,20 @@ draws none; `validate` checks both. All 104 and all 78 figures pass. 52
 figures have one end, 26 have two to four (one per outcome: rejected,
 accepted, cancelled). Words beside an end name it ("End of CoO Process",
 "Transport Service Ready For Execution") or the process it leads into
-("Fulfillment Process", `q6`). Settled from
+("Fulfillment Process", `q6`). Not every figure has an end: the six CPFR figures before
+Fig 14 end by handing over to the next figure; and paths that stop at an action
+without an end are the actions' part of the sweep.
+
+The columns (170): every one has a name and something in it. The names were
+written five ways - capitals on the Tender, Business Card, Digital and Enquiry
+figures, line breaks inside a name, run together ("CustomsParty"), a
+lower-case "party". The model now takes one clean form (Title Case, no line
+breaks, a space before "Party"): 46 `lane-name` corrections, the drawing keeping
+the artwork's words, all 78 renders byte-identical. 59 distinct names remain.
+The same role under different names (Buyer / Buyer Party / Originator Customer
+Party; Seller / Seller Party / Seller Supplier Party; Issuer / Issuer Party;
+Exporter / Exporter Party / Export Party) is left as each figure has it: a
+party vocabulary checked against UBL.xml's roles is a later decision. Settled from
 the original and mentioned: on seven figures (Enquiry, five Tender figures,
 both Tender Contract figures) the reading made a third column 7-10 px wide out
 of the strip between the last divider and the frame; removed.
@@ -1520,6 +1533,9 @@ when the diagrams themselves are next revised.
   [otherwise] or [dispute charges].
 - *Intermodal Freight Management:* split *Provide Transportation Network
   Information* into one step per phase (Planning, Execution).
+- *Party names:* one style across the figures, and one name per role (Buyer /
+  Buyer Party / Originator Customer Party ...), checked against the party roles
+  UBL.xml gives for each document.
 - *Tender Guarantee Deposit (with `q8`):* obtaining the guarantee from a
   financial institution is shown as one step with no document. Should UBL ever
   cover that exchange, the financial institution would become a party with its
