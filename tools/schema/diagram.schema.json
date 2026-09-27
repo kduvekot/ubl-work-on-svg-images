@@ -51,6 +51,7 @@
      "reference": {"type": "object", "required": ["what"], "additionalProperties": false,
                    "properties": {"what": {"type": "string"}, "source": {"type": "string"}},
                    "description": "for an external box: what process it stands for, and where the specification says so"},
+     "definedIn": {"type": "string", "description": "the package of the drawing tool's model the element was defined in, as UML-tool notation '(from <package>)' written under it says (Utility Billing)"},
      "band": {"$ref": "#/$defs/ref", "description": "the band it stands in"}
     }
    }

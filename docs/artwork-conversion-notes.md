@@ -1059,9 +1059,10 @@ against the baseline and committed on its own (the procedure is in
 | q9 | the crumpled connector into *Exception Notification (positive)* | an artwork fault: the model has the flow right, the drawing is special drawing instructions to leave as they are until a later session re-lays the diagram; recorded in `artwork-faults.json` | Fig 14 | unchanged, no correction |
 | q10 | the three notes on Intermodal Freight Management, on crossings with no document | an information exchange that takes place, which no current UBL document carries: drawn as a note instead of a document box, to show that it happens and between whom. The flow is of kind `information`, the note `annotates` it and belongs to no party; Fig 37's note annotates its segment the same way | Intermodal Freight Management, Fig 37 | unchanged |
 | q11 | the flow Figs 86/87 draw down the lane divider, with the break marks | the model has the link: an object flow from the document to the download action, routed `along-divider`, with the two marks `on` it as a `break`; the drawing stays as it is. The two artwork-fault entries go | Figs 86, 87 | unchanged |
+| q12 | "(from Business Processes)" under two documents | UML-tool notation: the document is defined in another package of the tool's model; each text labels its document, which records `definedIn` "Business Processes" | Utility Billing | unchanged |
 | - | misread text | noted, fixed in one pass at the end (`pendingTextFixes`, 22 so far; and `pendingDrawingFixes`, 9) | 25 | - |
 
-After q11: 64 corrections over 15 diagrams; over all 78 not a pixel differs from
+After q12: 66 corrections over 16 diagrams; over all 78 not a pixel differs from
 `baselines/2026-09-25` (71 identical, 7 the same drawing with a corrected model)
 and the sweep table is the baseline's.
 
@@ -1251,6 +1252,15 @@ added flow, so both figures now pass every rule on their own, and their entries
 in `tools/artwork-faults.json` are gone. The draw.io file still lacks the link,
 as it lacks every off-page flow (running.md section 8).
 
+The twelfth, `q12`: Utility Billing writes "(from Business Processes)" in bold
+italic under *Invoice* and *Invoice Status Response*, not under *Utility
+Statement* - the only such words in the 78. They are Rational Rose notation: the
+element is defined in another package of the tool's model, here "Business
+Processes"; the invoice documents are borrowed from the billing processes, the
+Utility Statement belongs to this diagram. A new correction, `defined-in`, makes
+each text label its document and records the document's `definedIn`. Nothing
+drawn changes (the squashed line is in `pendingDrawingFixes`).
+
 **The notes for a person, all 266 settled by eye (2026-09-27).** The sweep
 leaves, per diagram, notes where the reading could not be sure; each was looked at
 beside the original and our render (side by side, crops of the place). Most are
@@ -1319,6 +1329,9 @@ when the diagrams themselves are next revised.
 - *Goods Item Passport figures (found 2026-09-27):* the artwork writes the name
   both "GoodsItem" and "Goodsitem". The model follows the artwork in each place;
   a revision could make them all "GoodsItem".
+- *Utility Billing (with `q12`):* drop "(from Business Processes)" in a redraw:
+  the package means nothing to a reader of the specification; if the link
+  matters, refer to the billing section instead.
 - *Tender Guarantee Deposit (with `q8`):* obtaining the guarantee from a
   financial institution is shown as one step with no document. Should UBL ever
   cover that exchange, the financial institution would become a party with its

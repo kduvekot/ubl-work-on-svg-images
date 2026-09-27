@@ -336,6 +336,10 @@ def apply_corrections(model, layout, report, name, recorded=None):
                              as a flow; it replaces the off-page flow `offPage`,
                              whose drawn line is the flow's last stretch, and
                              the marks `marks` on it get `meaning`
+      defined-in             text `text` under node `node` is UML-tool notation,
+                             "(from <package>)": the node is defined in the
+                             package `package` of the model the diagram was
+                             drawn from. The text labels the node
       retext                 the words of `element` in `section` (texts, nodes or
                              lanes) are `text`, which the reading misread; line
                              breaks as in the artwork, one per measured line
@@ -533,6 +537,14 @@ def apply_corrections(model, layout, report, name, recorded=None):
                 mk["on"], mk["meaning"] = f["id"], c["meaning"]
                 touched.add(mk["id"])
             touched |= {a["id"], b["id"], f["id"], o["id"]}
+        elif op == "defined-in":
+            # Rose's "(from Business Processes)" under a document on Utility
+            # Billing: where the tool's model kept the element, not a step
+            t, n = el("texts", c["text"], cid), el("nodes", c["node"], cid)
+            check_was(c, t)
+            t["labels"] = n["id"]
+            n["definedIn"] = c["package"]
+            touched |= {t["id"], n["id"]}
         elif op == "retext":
             # words the reading got wrong, as the artwork writes them. The words
             # change, and so does what is drawn; where each line sits does not.
