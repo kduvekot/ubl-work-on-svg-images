@@ -1599,6 +1599,14 @@ differences shown.
   artwork's "Forwarding Instructions" (`text-30`). Two lines sit a few pixels
   off the original (into the Consignor's *Receive Waybill*, and from its
   *Request Logistic Service*), invisible at normal size: accepted.
+- *Update Catalogue Pricing, Create Catalogue, Update Catalogue Item
+  Specification (3-5 of 78).* Models correct and complete; SVGs faithful, a
+  few line ends some pixels off (accepted). For a future release: on all
+  three a document runs straight into an end with no step that receives it,
+  and the preparing step has two ways in (a start or a loop, and the fork)
+  where "either" is meant - in UML two ways into a step mean "both"; a merge
+  diamond would say it. The fork and join bars stay black (the TC,
+  2026-09-27), though the artwork fills most of them dark grey.
 
 **The notes for a person, all 266 settled by eye (2026-09-27).** The sweep
 leaves, per diagram, notes where the reading could not be sure; each was looked at
