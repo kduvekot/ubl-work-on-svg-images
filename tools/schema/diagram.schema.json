@@ -82,6 +82,7 @@
      "alternative": {"type": "object", "required": ["group", "when"], "additionalProperties": false,
                      "properties": {"group": {"type": "string"}, "when": {"type": "string"}},
                      "description": "one of two or more ways out of a node, of which one is taken each time, and when (Tender Award Notification: the Awarded Notification to the tenderer who won, the Unawarded to the others). Unlike a guard, the artwork writes no words for it: it comes from the specification's text"},
+     "passesTo": {"$ref": "#/$defs/id", "description": "for a flow into a document that one box shows for two exchanges in opposite directions (CPFR): the flow out of it that the same exchange goes on by, into the other party"},
      "impliedChoice": {"type": "string", "description": "the flow leaves an ordinary step, not a decision, and is one of its alternatives, taken when its guard holds: a choice drawn without a diamond, with what the step waits on (Self Billing)"},
      "bothEnds": {"type": "boolean", "description": "an arrowhead at both ends: a standing relationship, not a flow from one to the other"},
      "direction": {

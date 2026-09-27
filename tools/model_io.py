@@ -260,7 +260,7 @@ def _rename(model, layout, report, rename):
     for sec in ("lanes", "nodes", "flows", "texts", "offPage", "marks", "phases"):
         for el in model[sec]:
             el["id"] = r(el["id"])
-            for k in ("lane", "band", "from", "to", "guard", "labels", "node", "annotates", "on"):
+            for k in ("lane", "band", "from", "to", "guard", "labels", "node", "annotates", "on", "passesTo"):
                 if k in el:
                     el[k] = r(el[k])
         layout[sec] = {r(k): v for k, v in layout[sec].items()}
@@ -424,6 +424,12 @@ def apply_corrections(model, layout, report, name, recorded=None):
                              of group `group`, taken `when`; the drawn line
                              stays in the layout as the shared line `line`,
                              which the new flows are drawn by
+
+      pair-exchanges         document `node` is one box for two exchanges in
+                             opposite directions (CPFR's revisions and exception
+                             notifications): each way in passes to the way out
+                             into the other party (the in-flow's `passesTo`).
+                             Refused unless that pairs them all, one to one
 
     Each may say what the reading held before (`was`), and is refused if the
     reading no longer holds it: a correction is a decision about one reading,
@@ -890,6 +896,23 @@ def apply_corrections(model, layout, report, name, recorded=None):
                     touched.add(x["id"])
                 touched.add(doc["id"])
             touched.add(f["id"])
+        elif op == "pair-exchanges":
+            doc = el("nodes", c["node"], cid)
+            lane = {n["id"]: n.get("lane") for n in model["nodes"]}
+            ins = [f for f in model["flows"] if f["to"] == doc["id"]]
+            outs = [f for f in model["flows"] if f["from"] == doc["id"]]
+            used = set()
+            for f in ins:
+                to = [o for o in outs if lane[o["to"]] != lane[f["from"]]]
+                if len(ins) < 2 or len(to) != 1 or to[0]["id"] in used:
+                    raise ValueError("%s: correction %s: the ways in and out of %s do not pair "
+                                     "one to one, each into the other party" % (name, cid, c["node"]))
+                f["passesTo"] = to[0]["id"]
+                used.add(to[0]["id"])
+                touched |= {f["id"], to[0]["id"]}
+            if len(used) != len(outs):
+                raise ValueError("%s: correction %s: a way out of %s is left unpaired" % (name, cid, c["node"]))
+            touched.add(doc["id"])
         elif op == "continues":
             o = el("offPage", c["offPage"], cid)
             o["continues"] = c["figure"]
@@ -1538,6 +1561,21 @@ def validate(diagram_path):
                 (ins_of_doc.get(n["id"]) or any(o["node"] == n["id"] and o["direction"] == "in" for o in m["offPage"]))
                 and (outs_of.get(n["id"]) or any(o["node"] == n["id"] and o["direction"] == "out" for o in m["offPage"]))):
             errs.append("document %s needs a way in and a way out" % n["id"])
+    # one box for two exchanges: each way in says which way out it passes to
+    fl = {f["id"]: f for f in m["flows"]}
+    for n in m["nodes"]:
+        if n["kind"] != "object":
+            continue
+        ins = [f for f in m["flows"] if f["to"] == n["id"]]
+        outs = [f for f in m["flows"] if f["from"] == n["id"]]
+        if len(ins) >= 2 and len(outs) >= 2:
+            to = [f.get("passesTo") for f in ins]
+            if None in to or sorted(to) != sorted(o["id"] for o in outs):
+                errs.append("document %s carries %d exchanges, and its ways in do not each say "
+                            "which way out they pass to" % (n["id"], len(ins)))
+    for f in m["flows"]:
+        if "passesTo" in f and (fl.get(f["passesTo"], {}).get("from") != f["to"]):
+            errs.append("flow %s passes to %s, which does not leave %s" % (f["id"], f["passesTo"], f["to"]))
     # alternatives: two or more ways out of one node, each saying when it is taken
     groups = {}
     for f in m["flows"]:

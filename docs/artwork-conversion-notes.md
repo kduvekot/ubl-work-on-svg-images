@@ -1489,6 +1489,16 @@ each. Of the rest:
   `alternative`s of one group, each saying `when` (`doc-01`); the one line
   stays in the layout as a `sharedLine` that draws them, so the render is
   byte-identical.
+- One box for two exchanges in opposite directions (6, CPFR: Exception
+  Notification (positive) on Exception Handling, Exception Monitor and Identify
+  & Resolve; Forecast Revision on Create Order Forecast and Creating Sales
+  Forecast; Exception Criteria (revision) on Establishing Collaborative
+  Relationships): two ways in, two ways out, and the model did not say which
+  goes with which - read literally, the Buyer's *Send Exception* could arrive at
+  the Buyer's own *Receive & Resolve Exception*. The TC (2026-09-27): each way
+  in passes to the way out into the other party (the in-flow's `passesTo`,
+  `doc-02` .. `doc-07`); `validate` requires it wherever a document has two ways
+  in and two out. The drawing keeps its one box.
 - One sender, two receivers (a copy to each: *DespatchAdvice* on Fig C.1,
   *Bill of Lading* and *Waybill* on Initiate Freight Management) and two
   senders, one receiver (*Certificate Of Origin*, *Application Response* on
@@ -1619,6 +1629,8 @@ when the diagrams themselves are next revised.
 - *Tender Award Notification (documents sweep):* draw the two notifications as
   two exchanges, or with a decision (won / not won), rather than two boxes on
   one line.
+- *CPFR two-way documents (documents sweep):* draw one box per direction, or
+  say plainly that either party may send it to the other.
 - *Document names (documents sweep):* use UBL's document type names as they
   are ("Import Customs Declaration", "Proof Of Reexportation Request",
   "Digital Capability", "Trade Item Location Profile"), one spelling of

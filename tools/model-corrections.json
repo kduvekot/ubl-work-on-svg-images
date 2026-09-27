@@ -163,6 +163,15 @@
     "figure": "UBL-2.2-CPFR-CreateOrderForecast",
     "port": 2,
     "counterpart": "offpage-fork-buyer-party-2"
+   },
+   {
+    "id": "doc-05",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, completeness sweep, documents",
+    "question": "One document box has two ways in and two ways out: the same document is sent by either party to the other, and the model did not say which way in goes on by which way out.",
+    "answer": "Two exchanges through one box, in opposite directions: each way in passes to the way out into the other party. The drawing keeps its one box.",
+    "op": "pair-exchanges",
+    "node": "object-exception-notification-positive"
    }
   ],
   "UBL-2.2-CPFR-EstablishingCollaborativeRelationships": [
@@ -200,6 +209,15 @@
     "figure": "UBL-2.2-CPFR-CreateJointBusinessPlan",
     "port": 1,
     "counterpart": "offpage-action-create-retail-event"
+   },
+   {
+    "id": "doc-04",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, completeness sweep, documents",
+    "question": "One document box has two ways in and two ways out: the same document is sent by either party to the other, and the model did not say which way in goes on by which way out.",
+    "answer": "Two exchanges through one box, in opposite directions: each way in passes to the way out into the other party. The drawing keeps its one box.",
+    "op": "pair-exchanges",
+    "node": "object-exception-criteria-revision"
    }
   ],
   "UBL-2.2-CPFR-CreateJointBusinessPlan": [
@@ -420,6 +438,15 @@
     "figure": "UBL-2.2-CPFR-ExceptionHandling",
     "port": 2,
     "counterpart": "offpage-action-receive-sales-forecast-wait-for-in-seller-party"
+   },
+   {
+    "id": "doc-03",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, completeness sweep, documents",
+    "question": "One document box has two ways in and two ways out: the same document is sent by either party to the other, and the model did not say which way in goes on by which way out.",
+    "answer": "Two exchanges through one box, in opposite directions: each way in passes to the way out into the other party. The drawing keeps its one box.",
+    "op": "pair-exchanges",
+    "node": "object-forecast-revision-sales"
    }
   ],
   "UBL-2.2-CPFR-CreateOrderForecast": [
@@ -561,6 +588,15 @@
     "figure": "UBL-2.2-CPFR-IdentifyResolve",
     "port": 2,
     "counterpart": "offpage-action-receive-wait-for-exception-notification-in-seller-party"
+   },
+   {
+    "id": "doc-02",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, completeness sweep, documents",
+    "question": "One document box has two ways in and two ways out: the same document is sent by either party to the other, and the model did not say which way in goes on by which way out.",
+    "answer": "Two exchanges through one box, in opposite directions: each way in passes to the way out into the other party. The drawing keeps its one box.",
+    "op": "pair-exchanges",
+    "node": "object-forecast-revision-order"
    }
   ],
   "UBL-2.2-CPFR-IdentifyResolve": [
@@ -759,6 +795,15 @@
      "x": 1188,
      "w": 201
     }
+   },
+   {
+    "id": "doc-07",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, completeness sweep, documents",
+    "question": "One document box has two ways in and two ways out: the same document is sent by either party to the other, and the model did not say which way in goes on by which way out.",
+    "answer": "Two exchanges through one box, in opposite directions: each way in passes to the way out into the other party. The drawing keeps its one box.",
+    "op": "pair-exchanges",
+    "node": "object-exception-notification-positive"
    }
   ],
   "UBL-2.2-CPFR-ExceptionMonitor": [
@@ -926,6 +971,15 @@
     "node": "action-ordering",
     "figure": "UBL-2.2-CPFR-IdentifyResolve",
     "other": "action-ordering"
+   },
+   {
+    "id": "doc-06",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, completeness sweep, documents",
+    "question": "One document box has two ways in and two ways out: the same document is sent by either party to the other, and the model did not say which way in goes on by which way out.",
+    "answer": "Two exchanges through one box, in opposite directions: each way in passes to the way out into the other party. The drawing keeps its one box.",
+    "op": "pair-exchanges",
+    "node": "object-exception-notification-positive"
    }
   ],
   "UBL-2.3-Tender-Contract-Pre": [
