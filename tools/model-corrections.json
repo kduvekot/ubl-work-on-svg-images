@@ -726,6 +726,39 @@
     "node": "action-ordering",
     "figure": "UBL-2.2-CPFR-ExceptionMonitor",
     "other": "action-ordering"
+   },
+   {
+    "id": "text-29",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, text sweep",
+    "question": "Words the reading got wrong: the \"1\" before \"Exception\" is the left end of the step's rounded box, which the reading took for a character and measured the line from.",
+    "answer": "It reads as the artwork writes it.",
+    "op": "retext",
+    "section": "nodes",
+    "element": "action-receive-resolve-1-exception",
+    "text": "Receive & Resolve\nException",
+    "was": {
+     "label": "Receive & Resolve\n1 Exception"
+    }
+   },
+   {
+    "id": "draw-09",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, text sweep",
+    "question": "Words the reading got wrong: the \"1\" before \"Exception\" is the left end of the step's rounded box, which the reading took for a character and measured the line from.",
+    "answer": "The second line measured again on the original: \"Exception\" runs from x 1188 to 1388.",
+    "op": "layout",
+    "section": "nodes",
+    "element": "action-receive-resolve-1-exception",
+    "line": 1,
+    "was": {
+     "x": 1034,
+     "w": 355
+    },
+    "set": {
+     "x": 1188,
+     "w": 201
+    }
    }
   ],
   "UBL-2.2-CPFR-ExceptionMonitor": [
@@ -3244,6 +3277,27 @@
     "was": {
      "title": "CONTRACTING AUTHORITY"
     }
+   },
+   {
+    "id": "doc-01",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, completeness sweep, documents",
+    "question": "Two documents, Awarded Notification and Unawarded Notification, stand either side of the one line from Send awarding notification to Receive notification, and no flow goes in or out of either. What does the line carry?",
+    "answer": "One of the two each time: the Contracting Authority notifies each tenderer, the winner with the Awarded Notification and every other tenderer with the Unawarded Notification (UBL.xml, Awarding of Tenders). Two exchanges from Send to Receive, one through each document, alternatives; the drawing keeps its one line.",
+    "op": "alternative-documents",
+    "flow": "flow-send-awarding-notification-to-receive-notification",
+    "line": "flow-send-awarding-notification-to-receive-notification",
+    "group": "award-outcome",
+    "documents": [
+     {
+      "node": "object-awarded-notification",
+      "when": "the tenderer won the contract"
+     },
+     {
+      "node": "object-unawarded-notification",
+      "when": "the contract went to another tenderer"
+     }
+    ]
    }
   ],
   "UBL-2.2-Tender-AwardPublication": [
@@ -3525,6 +3579,66 @@
     "op": "implied-choice",
     "flow": "flow-raise-self-billed-invoice-to-final-accounting-customer",
     "reason": "the step waits on the supplier: no dispute means the charges are accepted and the process ends; a reply leads to Reconcile Charges"
+   }
+  ],
+  "UBL-2.3-GoodsItemPassportApprovalProcess": [
+   {
+    "id": "text-25",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, text sweep",
+    "question": "Words the reading got wrong: the artwork writes the name two ways, \"Goodsitem\" and \"GoodsItem\", and the reading took the capital I for a small l, or for a small i. Zoomed in on the original, box by box.",
+    "answer": "Each reads as the artwork writes it.",
+    "op": "retext",
+    "section": "nodes",
+    "element": "object-goodsltem-passport-authorized",
+    "text": "GoodsItem\nPassport\n(Authorized)",
+    "was": {
+     "label": "Goodsltem\nPassport\n(Authorized)"
+    }
+   },
+   {
+    "id": "text-26",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, text sweep",
+    "question": "Words the reading got wrong: the artwork writes the name two ways, \"Goodsitem\" and \"GoodsItem\", and the reading took the capital I for a small l, or for a small i. Zoomed in on the original, box by box.",
+    "answer": "Each reads as the artwork writes it.",
+    "op": "retext",
+    "section": "nodes",
+    "element": "object-goodsitem-passport-approved",
+    "text": "GoodsItem\nPassport\n(Approved)",
+    "was": {
+     "label": "Goodsitem\nPassport\n(Approved)"
+    }
+   }
+  ],
+  "UBL-2.3-GoodsItemPassportPresentationProcess": [
+   {
+    "id": "text-27",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, text sweep",
+    "question": "Words the reading got wrong: the artwork writes the name two ways, \"Goodsitem\" and \"GoodsItem\", and the reading took the capital I for a small l, or for a small i. Zoomed in on the original, box by box.",
+    "answer": "Each reads as the artwork writes it.",
+    "op": "retext",
+    "section": "nodes",
+    "element": "object-goodsltem-passport-exported",
+    "text": "GoodsItem\nPassport\n(Exported)",
+    "was": {
+     "label": "Goodsltem\nPassport\n(Exported)"
+    }
+   },
+   {
+    "id": "text-28",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, text sweep",
+    "question": "Words the reading got wrong: the artwork writes the name two ways, \"Goodsitem\" and \"GoodsItem\", and the reading took the capital I for a small l, or for a small i. Zoomed in on the original, box by box.",
+    "answer": "Each reads as the artwork writes it.",
+    "op": "retext",
+    "section": "nodes",
+    "element": "object-goodsitem-passport-imported",
+    "text": "GoodsItem\nPassport\n(Imported)",
+    "was": {
+     "label": "Goodsitem\nPassport\n(Imported)"
+    }
    }
   ]
  },

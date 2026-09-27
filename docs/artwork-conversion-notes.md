@@ -1474,6 +1474,45 @@ Self Billing with Self Billed Credit Note both "[accept charges]" were misread
 as "[accept 1" - now `text-23`, `text-24`; that figure's render changes by
 those words only.
 
+The documents (228). Contract: a UBL document type's name, standing between
+the two or three parties that exchange it (all 228 do), with a way in and a
+way out; `validate` now checks the ways in and out. 211 have exactly one of
+each. Of the rest:
+
+- *Tender Award Notification* drew one line from *Send awarding
+  notification* to *Receive notification*, with *Awarded Notification* above
+  it and *Unawarded Notification* below, and the model had the two boxes
+  connected to nothing. The TC (2026-09-27): the line carries one of the two
+  each time - the winner gets the Awarded Notification, every other tenderer
+  the Unawarded one, as UBL.xml says under Awarding of Tenders. The model now
+  has two exchanges, one through each document, the flows into them
+  `alternative`s of one group, each saying `when` (`doc-01`); the one line
+  stays in the layout as a `sharedLine` that draws them, so the render is
+  byte-identical.
+- One sender, two receivers (a copy to each: *DespatchAdvice* on Fig C.1,
+  *Bill of Lading* and *Waybill* on Initiate Freight Management) and two
+  senders, one receiver (*Certificate Of Origin*, *Application Response* on
+  Certification of Origin; *Remittance Advice*; *Forwarding instructions*):
+  read as drawn, nothing to settle.
+- A box with a way in and none out on the page hands over to the next figure
+  (the CPFR positive responses, `q16`).
+
+Names: the artwork writes some names other than UBL's document type -
+"Import/Transit Customs Declarations" (plural), "Request For Proof Of
+Reexportation" (UBL: Proof Of Reexportation Request), "Digital Capabilities"
+(Digital Capability), "TILP (response positive)" (Trade Item Location
+Profile), "Goodsitem" and "GoodsItem". The model keeps the artwork's words.
+Roles: UBL.xml gives each document a submitter and a receiver; one figure
+sends a document the other way - Export Customs Declaration returns the
+stamped declaration from the Customs Party to the Exporter Party, which UBL
+lists as sent by the Exporter only. Faithful, and kept.
+
+Settled from the original and mentioned: four Goods Item Passport boxes read
+"Goodsltem" or "Goodsitem" where the artwork writes "GoodsItem" (`text-25` ..
+`text-28`), and on CPFR Identify & Resolve the reading took the left end of a
+rounded box for a "1" ("Receive & Resolve 1 Exception"; `text-29`, with the
+line measured again, `draw-09`). Each changes those words in the render only.
+
 **The notes for a person, all 266 settled by eye (2026-09-27).** The sweep
 leaves, per diagram, notes where the reading could not be sure; each was looked at
 beside the original and our render (side by side, crops of the place). Most are
@@ -1577,6 +1616,18 @@ when the diagrams themselves are next revised.
 - *Tender Contract Information Preparation (text sweep):* "Publish Official
   Journal" would read "Publish in Official Journal"; and the box says *Prior
   Information Notice* where both steps call it a *Simplified Notice*.
+- *Tender Award Notification (documents sweep):* draw the two notifications as
+  two exchanges, or with a decision (won / not won), rather than two boxes on
+  one line.
+- *Document names (documents sweep):* use UBL's document type names as they
+  are ("Import Customs Declaration", "Proof Of Reexportation Request",
+  "Digital Capability", "Trade Item Location Profile"), one spelling of
+  "GoodsItem"; and on Initiate Freight Management "Send Bill of Lading to
+  Consignor" and "Send Waybill to Consignor" send to the Consignee as well.
+- *Export Customs Declaration (documents sweep):* the stamped declaration is
+  returned from the Customs Party to the Exporter; UBL lists the document as
+  sent by the Exporter only. Either the roles in UBL.xml grow a second
+  direction, or the return is drawn as a different document.
 - *Tender Guarantee Deposit (with `q8`):* obtaining the guarantee from a
   financial institution is shown as one step with no document. Should UBL ever
   cover that exchange, the financial institution would become a party with its

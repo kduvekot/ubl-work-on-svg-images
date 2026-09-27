@@ -121,8 +121,18 @@ def main(src, out, model_w=1480.0):
     lanes_by_id = {l["id"]: l for l in model["lanes"]}
     edges = []
     along = []                     # flows whose first stretch a divider draws
+    # a line drawn once that carries several flows of the model (one of two
+    # documents each time, Tender Award Notification): drawn as the line it is
+    order = []
     for f in model["flows"]:
-        ed = dict(lay["flows"][f["id"]], **f)
+        lid = lay["flows"][f["id"]].get("line")
+        if lid is None:
+            order.append(f)
+        elif lid not in [x["id"] for x in order]:       # where its first flow stands
+            g = lay["sharedLines"][lid]
+            order.append(dict(g, id=lid, direction={"confidence": g.get("confidence", "")}))
+    for f in order:
+        ed = dict(lay["flows"].get(f["id"], {}), **f)
         a, b = byid.get(ed["from"]), byid.get(ed["to"])
         if not a or not b:
             continue

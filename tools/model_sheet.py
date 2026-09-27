@@ -187,7 +187,8 @@ def explained(src):
 def with_added_flows(g, src):
     """The graph with the flows a person added to the model (a correction the
     reading could not see, like the flow Figs 86/87 draw down a lane divider),
-    each replacing the off-page flow whose line it now ends in. Read from the
+    each replacing the off-page flow whose line it now ends in, or the line it
+    shares with others. Read from the
     model split beside the graph, when there is one."""
     base = re.sub(r"-graph(-corrected)?\.json$", "", src)
     try:
@@ -199,6 +200,15 @@ def with_added_flows(g, src):
     if not added:
         return g
     g = json.loads(json.dumps(g))
+    # a line drawn once that the model reads as several flows (one document of
+    # two each time, Tender Award Notification): the flows stand for it
+    try:
+        shared = json.load(open(base + "-layout.json")).get("sharedLines", {})
+    except (OSError, ValueError):
+        shared = {}
+    for ln in shared.values():
+        a, b = former.get(ln["from"], ln["from"]), former.get(ln["to"], ln["to"])
+        g["edges"] = [e for e in g["edges"] if not (e["from"] == a and e["to"] == b)]
     for f in added:
         a, b = former.get(f["from"], f["from"]), former.get(f["to"], f["to"])
         if any(e["from"] == a and e["to"] == b for e in g["edges"]):

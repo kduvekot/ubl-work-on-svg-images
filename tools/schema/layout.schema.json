@@ -52,14 +52,17 @@
     "rx": {"type": "number"}, "ry": {"type": "number"}, "fold": {"type": "number"},
     "innerRatio": {"type": "number"}, "bold": {"type": "boolean"},
     "labelLines": {"$ref": "#/$defs/lines"}}}},
-  "flows": {"type": "object", "additionalProperties": {
-   "type": "object", "required": ["fromPoint", "toPoint", "routing"], "additionalProperties": false,
-   "properties": {
-    "fromPoint": {"$ref": "#/$defs/pair"}, "toPoint": {"$ref": "#/$defs/pair"},
-    "routing": {"enum": ["straight", "diagonal", "orthogonal", "along-divider"],
-                "description": "along-divider: the route's first stretch runs down a lane divider, which draws it; only the rest, from the first of the points on, is drawn as the flow's own line (Figs 86/87)"},
-    "points": {"type": "array", "items": {"$ref": "#/$defs/pair"}},
-    "dash": {"type": "number"}, "gap": {"type": "number"}, "dashOffset": {"type": "number"}}}},
+  "flows": {"type": "object", "additionalProperties": {"oneOf": [
+   {"$ref": "#/$defs/line", "unevaluatedProperties": false},
+   {"type": "object", "required": ["routing", "line"], "additionalProperties": false,
+    "description": "a flow drawn by a line it shares with others (sharedLines)",
+    "properties": {"routing": {"const": "shared"}, "line": {"type": "string"}}}]}},
+  "sharedLines": {"type": "object", "description": "a line drawn once that carries several flows of the model: on Tender Award Notification the one line from Send to Receive, with a document box either side of it, carries one of the two documents each time", "additionalProperties": {
+   "allOf": [{"$ref": "#/$defs/line"}],
+   "unevaluatedProperties": false,
+   "required": ["from", "to"],
+   "properties": {"from": {"type": "string"}, "to": {"type": "string"},
+                  "confidence": {"type": "string", "description": "how the direction of the line was settled"}}}},
   "texts": {"type": "object", "additionalProperties": {"$ref": "#/$defs/placedText"}},
   "offPage": {"type": "object", "additionalProperties": {
    "type": "object", "required": ["at", "end"], "additionalProperties": false,
@@ -83,6 +86,14 @@
   "titleRow": {"$ref": "#/$defs/pair", "description": "the row under the frame the lane titles are set in, closed by a line (the 2.3 customs figures): how the lane names are shown"}
  },
  "$defs": {
+  "line": {
+   "type": "object", "required": ["fromPoint", "toPoint", "routing"],
+   "properties": {
+    "fromPoint": {"$ref": "#/$defs/pair"}, "toPoint": {"$ref": "#/$defs/pair"},
+    "routing": {"enum": ["straight", "diagonal", "orthogonal", "along-divider"],
+                "description": "along-divider: the route's first stretch runs down a lane divider, which draws it; only the rest, from the first of the points on, is drawn as the flow's own line (Figs 86/87)"},
+    "points": {"type": "array", "items": {"$ref": "#/$defs/pair"}},
+    "dash": {"type": "number"}, "gap": {"type": "number"}, "dashOffset": {"type": "number"}}},
   "pair": {"type": "array", "items": {"type": "number"}, "minItems": 2, "maxItems": 2},
   "box": {"type": "array", "items": {"type": "number"}, "minItems": 4, "maxItems": 4, "description": "x, y, width, height"},
   "rules": {"type": "array", "items": {

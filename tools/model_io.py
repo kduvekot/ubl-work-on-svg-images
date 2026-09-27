@@ -273,6 +273,8 @@ def _rename(model, layout, report, rename):
             n["between"] = [r(x) for x in n["between"]]
     for sg in model.get("segments", []):
         sg["members"] = [r(x) for x in sg["members"]]
+    for ln in layout.get("sharedLines", {}).values():
+        ln["from"], ln["to"] = r(ln["from"]), r(ln["to"])
     for p in model["phases"]:
         if "members" in p:
             p["members"] = [r(x) for x in p["members"]]
@@ -413,6 +415,15 @@ def apply_corrections(model, layout, report, name, recorded=None):
       label-flow             text `text` labels flow `flow` without being its
                              guard: it says the flow's `role` (e.g. "purpose",
                              what the exchange is for)
+
+      alternative-documents  the one line `flow` carries one of the `documents`
+                             each time (Tender Award Notification: Awarded or
+                             Unawarded Notification, per tenderer), the boxes
+                             drawn on it. The model gets an exchange through
+                             each document, the flow into each an alternative
+                             of group `group`, taken `when`; the drawn line
+                             stays in the layout as the shared line `line`,
+                             which the new flows are drawn by
 
     Each may say what the reading held before (`was`), and is refused if the
     reading no longer holds it: a correction is a decision about one reading,
@@ -851,6 +862,34 @@ def apply_corrections(model, layout, report, name, recorded=None):
                 raise ValueError("%s: correction %s: text %s is a guard" % (name, cid, c["text"]))
             t["labels"], t["role"] = f["id"], c["role"]
             touched |= {t["id"], f["id"]}
+        elif op == "alternative-documents":
+            f = el("flows", c["flow"], cid)
+            check_was(c, f)
+            if f.get("guard"):
+                raise ValueError("%s: correction %s: %s carries a guard" % (name, cid, c["flow"]))
+            at = model["flows"].index(f)             # the new flows take its place
+            model["flows"].remove(f)
+            g = layout["flows"].pop(f["id"])
+            line = dict(g, **{"from": f["from"], "to": f["to"]})
+            if (f.get("direction") or {}).get("confidence"):
+                line["confidence"] = f["direction"]["confidence"]
+            layout.setdefault("sharedLines", {})[c["line"]] = line
+            for i, d in enumerate(c["documents"]):
+                doc = el("nodes", d["node"], cid)
+                if doc["kind"] != "object":
+                    raise ValueError("%s: correction %s: %s is not a document" % (name, cid, d["node"]))
+                pair = (dict(id="corr-%s-%d-in" % (cid, i), kind="object",
+                             alternative=dict(group=c["group"], when=d["when"]),
+                             **{"from": f["from"], "to": doc["id"]}),
+                        dict(id="corr-%s-%d-out" % (cid, i), kind="object",
+                             **{"from": doc["id"], "to": f["to"]}))
+                for x in pair:
+                    model["flows"].insert(at, x)
+                    at += 1
+                    layout["flows"][x["id"]] = dict(routing="shared", line=c["line"])
+                    touched.add(x["id"])
+                touched.add(doc["id"])
+            touched.add(f["id"])
         elif op == "continues":
             o = el("offPage", c["offPage"], cid)
             o["continues"] = c["figure"]
@@ -1490,6 +1529,29 @@ def validate(diagram_path):
                               or any(f.get("guard") == t["id"] for f in m["flows"])):
             errs.append("text %s says a flow's %s: it labels a flow, and is not its guard"
                         % (t["id"], t["role"]))
+    ins_of_doc = {}
+    for f in m["flows"]:
+        ins_of_doc.setdefault(f["to"], []).append(f)
+    # a document passes from one party to another: a way in and a way out
+    for n in m["nodes"]:
+        if n["kind"] == "object" and not (
+                (ins_of_doc.get(n["id"]) or any(o["node"] == n["id"] and o["direction"] == "in" for o in m["offPage"]))
+                and (outs_of.get(n["id"]) or any(o["node"] == n["id"] and o["direction"] == "out" for o in m["offPage"]))):
+            errs.append("document %s needs a way in and a way out" % n["id"])
+    # alternatives: two or more ways out of one node, each saying when it is taken
+    groups = {}
+    for f in m["flows"]:
+        g = l["flows"].get(f["id"], {})
+        if g.get("routing") == "shared" and g.get("line") not in l.get("sharedLines", {}):
+            errs.append("flow %s is drawn by the shared line %s, which the layout does not have"
+                        % (f["id"], g.get("line")))
+    for f in m["flows"]:
+        if f.get("alternative"):
+            groups.setdefault(f["alternative"]["group"], []).append(f)
+    for gname, fs in groups.items():
+        if len(fs) < 2 or len({f["from"] for f in fs}) != 1:
+            errs.append("alternatives %s: %d flow(s), from %s - an alternative is one of two or "
+                        "more ways out of one node" % (gname, len(fs), ", ".join(sorted({f["from"] for f in fs}))))
     # a start has a way out and none in; a figure has a start, or is entered
     # from another figure, or records that the artwork draws none
     ins_of = {}

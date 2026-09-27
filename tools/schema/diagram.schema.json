@@ -79,6 +79,9 @@
               "description": "control flow, object flow (a document passing), a physical goods movement, a mutual precondition between two parties (not a step in sequence), or information exchanged between two parties that no UBL document carries (drawn with a note naming it, in place of a document box)"},
      "guard": {"$ref": "#/$defs/id", "description": "the text that is this flow's guard; a lane id where the reading attached a lane title (see the extraction file's findings)"},
      "unstated": {"type": "object", "additionalProperties": {"type": "string"}, "description": "attributes the artwork does not give, each with the reason (a decision with no question, a branch with no guard)"},
+     "alternative": {"type": "object", "required": ["group", "when"], "additionalProperties": false,
+                     "properties": {"group": {"type": "string"}, "when": {"type": "string"}},
+                     "description": "one of two or more ways out of a node, of which one is taken each time, and when (Tender Award Notification: the Awarded Notification to the tenderer who won, the Unawarded to the others). Unlike a guard, the artwork writes no words for it: it comes from the specification's text"},
      "impliedChoice": {"type": "string", "description": "the flow leaves an ordinary step, not a decision, and is one of its alternatives, taken when its guard holds: a choice drawn without a diamond, with what the step waits on (Self Billing)"},
      "bothEnds": {"type": "boolean", "description": "an arrowhead at both ends: a standing relationship, not a flow from one to the other"},
      "direction": {
