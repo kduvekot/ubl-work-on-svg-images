@@ -132,7 +132,8 @@
    "items": {
     "type": "object", "required": ["id"], "additionalProperties": false,
     "properties": {"id": {"$ref": "#/$defs/id"},
-                   "title": {"type": "string", "description": "the phase's name, written at the top of its box"}}
+                   "title": {"type": "string", "description": "the phase's name, written at the top of its box"},
+                   "members": {"type": "array", "items": {"$ref": "#/$defs/id"}, "description": "the nodes that belong to the phase: those drawn inside its box"}}
    }
   },
   "segments": {

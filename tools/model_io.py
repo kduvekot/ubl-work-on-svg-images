@@ -273,6 +273,9 @@ def _rename(model, layout, report, rename):
             n["between"] = [r(x) for x in n["between"]]
     for sg in model.get("segments", []):
         sg["members"] = [r(x) for x in sg["members"]]
+    for p in model["phases"]:
+        if "members" in p:
+            p["members"] = [r(x) for x in p["members"]]
     if "unresolvedAttachments" in report:
         report["unresolvedAttachments"] = {r(k): v for k, v in report["unresolvedAttachments"].items()}
     for f in report["findings"]:
@@ -790,6 +793,29 @@ def exchanged_by(model, doc):
     return sorted(got, key=lambda i: lanes[i]["index"])
 
 
+def phase_members(model, layout, phase_id):
+    """the nodes drawn wholly inside a phase's dashed box, in model order"""
+    b = layout["phases"][phase_id]
+    x0, y0, x1, y1 = b["x"], b["y"], b["x"] + b["w"], b["y"] + b["h"]
+    out = []
+    for n in model["nodes"]:
+        g = layout["nodes"][n["id"]]
+        if x0 <= g["x"] and g["x"] + g["w"] <= x1 and y0 <= g["y"] and g["y"] + g["h"] <= y1:
+            out.append(n["id"])
+    return out
+
+
+def place_phases(model, layout):
+    """A CPFR phase holds the steps drawn inside its dashed box (the
+    completeness sweep, 2026-09-27). The drawing said so only by position, so
+    moving a box in the layout would have moved a step into or out of a phase
+    unseen; the model now says it, and validate checks the two agree. On the 7
+    figures no node straddles a border; Ordering, on Figs 13 and 14, stands
+    outside (q5)."""
+    for p in model["phases"]:
+        p["members"] = phase_members(model, layout, p["id"])
+
+
 def place_documents(model, layout, report):
     """A document drawn across the line between two columns stands between them.
 
@@ -1006,6 +1032,7 @@ def split(g, name):
     report["present"] = [k for k in g]          # the graph's own key order
     apply_corrections(model, layout, report, name)
     place_documents(model, layout, report)
+    place_phases(model, layout)
     assign_ids(model, layout, report)
     return model, layout, report
 
@@ -1248,6 +1275,14 @@ def validate(diagram_path):
             if len(parties) >= 2 and set(parties) != set(n["between"]):
                 errs.append("document %s stands between %s, and its flows are with %s"
                             % (n["id"], ", ".join(n["between"]), ", ".join(parties)))
+    for p in m.get("phases", []):
+        for x in p.get("members", []):
+            ref("phase %s's member" % p["id"], x, "nodes")
+        if p["id"] in l.get("phases", {}) and "members" in p:
+            drawn = phase_members(m, l, p["id"])
+            if set(drawn) != set(p["members"]):
+                errs.append("phase %s holds %s, and its box in the layout holds %s"
+                            % (p["id"], sorted(p["members"]), sorted(drawn)))
     for sg in m.get("segments", []):
         mem = set(sg["members"])
         for x in sg["members"]:
