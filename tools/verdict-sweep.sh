@@ -83,7 +83,7 @@ RADIUS=${4:-3}
 JOBS=${JOBS:-$(nproc 2>/dev/null || echo 4)}
 
 mkdir -p "$OUT"
-[ "$HERE/VisualDiff.class" -nt "$HERE/VisualDiff.java" ] || javac -d "$HERE" "$HERE/VisualDiff.java"
+[ "$HERE/VisualDiff.class" -nt "$HERE/VisualDiff.java" ] || javac -d "$HERE" "$HERE/VisualDiff.java" 2>&1 | { grep -v "^Picked up" >&2 || true; }
 
 names=()
 while read -r n; do [ -n "$n" ] && names+=("$n"); done < "$LIST"

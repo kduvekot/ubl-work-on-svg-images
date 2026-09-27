@@ -86,9 +86,13 @@ once sorted; the comparison `identical 71, same drawing 7, differs 0`. The 7
 "same drawing" are the CPFR figures whose model was corrected (q2-q5): not a
 pixel differs, the SVG says something more accurate about what it draws.
 
-A first run takes about 5 minutes on 4 cores, later ones under 2: the reading
+A first run takes about 6 minutes on 4 cores, later ones under 2: the reading
 of each PNG and each render are cached outside the repository
 (`docs/running.md` section 6).
+
+Tested on 2026-09-27 as a recovery drill: a fresh clone of this branch from
+GitHub, empty caches, only the steps above - the sweep and the comparison came
+out as stated, and every generated file was byte-identical to the working run's.
 
 ## Open work, in order
 
