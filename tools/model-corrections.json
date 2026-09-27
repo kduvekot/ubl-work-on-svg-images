@@ -668,6 +668,15 @@
     "was": {
      "kind": "control"
     }
+   },
+   {
+    "id": "q15-13",
+    "decided": "2026-09-27",
+    "by": "settled from the original, mentioned to the TC",
+    "question": "A third 'column' 7 to 10 px wide between the last divider and the frame, holding nothing (Enquiry, five Tender figures, both Tender Contract figures).",
+    "answer": "Not a column: the reading took the strip between the last divider and the frame for one. Settled from the original without the TC, and mentioned (q15).",
+    "op": "remove-lane",
+    "lane": "lane-3"
    }
   ],
   "UBL-2.3-Tender-Contract-Post": [
@@ -715,6 +724,15 @@
     "was": {
      "kind": "control"
     }
+   },
+   {
+    "id": "q15-12",
+    "decided": "2026-09-27",
+    "by": "settled from the original, mentioned to the TC",
+    "question": "A third 'column' 7 to 10 px wide between the last divider and the frame, holding nothing (Enquiry, five Tender figures, both Tender Contract figures).",
+    "answer": "Not a column: the reading took the strip between the last divider and the frame for one. Settled from the original without the TC, and mentioned (q15).",
+    "op": "remove-lane",
+    "lane": "lane-3"
    }
   ],
   "UBL-2.2-InitiateFreightMgmtProcess": [
@@ -1447,6 +1465,15 @@
     "was": {
      "label": "Receive unsubscribe from procedur\n1 confirmation"
     }
+   },
+   {
+    "id": "q15-11",
+    "decided": "2026-09-27",
+    "by": "settled from the original, mentioned to the TC",
+    "question": "A third 'column' 7 to 10 px wide between the last divider and the frame, holding nothing (Enquiry, five Tender figures, both Tender Contract figures).",
+    "answer": "Not a column: the reading took the strip between the last divider and the frame for one. Settled from the original without the TC, and mentioned (q15).",
+    "op": "remove-lane",
+    "lane": "lane-3"
    }
   ],
   "UBL-2.3-GoodsCertificateExportProcess": [
@@ -1647,6 +1674,53 @@
     "op": "label-node",
     "text": "text-trigger-reporting-procedure",
     "node": "initial-3"
+   },
+   {
+    "id": "q15-01",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Freight Status Reporting and Waste Movement: the column titles ('Sender Party', 'Receiver Party'; 'Senderparty', 'ReceiverParty') are held as loose text and the columns are untitled; Freight Status Reporting's third column has no title and holds only the start 'Trigger reporting procedure'. What are they?",
+    "answer": "The texts are the columns' titles, drawn where they are. Waste Movement's lanes take UBL.xml's names, Sender Party and Receiver Party, while the drawing keeps the artwork's spelling. Freight Status Reporting's third column is no party: it holds the other way the report is started, the agreed status reporting procedure, which its start starts from.",
+    "op": "lane-title-from-text",
+    "lane": "lane-1",
+    "text": "text-sender-party"
+   },
+   {
+    "id": "q15-02",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Freight Status Reporting and Waste Movement: the column titles ('Sender Party', 'Receiver Party'; 'Senderparty', 'ReceiverParty') are held as loose text and the columns are untitled; Freight Status Reporting's third column has no title and holds only the start 'Trigger reporting procedure'. What are they?",
+    "answer": "The texts are the columns' titles, drawn where they are. Waste Movement's lanes take UBL.xml's names, Sender Party and Receiver Party, while the drawing keeps the artwork's spelling. Freight Status Reporting's third column is no party: it holds the other way the report is started, the agreed status reporting procedure, which its start starts from.",
+    "op": "lane-title-from-text",
+    "lane": "lane-2",
+    "text": "text-receiver-party"
+   },
+   {
+    "id": "q15-03",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Freight Status Reporting and Waste Movement: the column titles ('Sender Party', 'Receiver Party'; 'Senderparty', 'ReceiverParty') are held as loose text and the columns are untitled; Freight Status Reporting's third column has no title and holds only the start 'Trigger reporting procedure'. What are they?",
+    "answer": "The texts are the columns' titles, drawn where they are. Waste Movement's lanes take UBL.xml's names, Sender Party and Receiver Party, while the drawing keeps the artwork's spelling. Freight Status Reporting's third column is no party: it holds the other way the report is started, the agreed status reporting procedure, which its start starts from.",
+    "op": "lane-area",
+    "lane": "lane-3",
+    "name": "Agreed status reporting procedure",
+    "scope": "external",
+    "reference": {
+     "what": "the agreed status reporting procedure, by which a Transportation Status is provided without a request",
+     "source": "UBL.xml section S-FREIGHT-STATUS-REPORTING"
+    }
+   },
+   {
+    "id": "q15-04",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Freight Status Reporting and Waste Movement: the column titles ('Sender Party', 'Receiver Party'; 'Senderparty', 'ReceiverParty') are held as loose text and the columns are untitled; Freight Status Reporting's third column has no title and holds only the start 'Trigger reporting procedure'. What are they?",
+    "answer": "The texts are the columns' titles, drawn where they are. Waste Movement's lanes take UBL.xml's names, Sender Party and Receiver Party, while the drawing keeps the artwork's spelling. Freight Status Reporting's third column is no party: it holds the other way the report is started, the agreed status reporting procedure, which its start starts from.",
+    "op": "linked-process",
+    "node": "initial-3",
+    "name": "agreed status reporting procedure",
+    "how": "starts-from",
+    "source": "UBL.xml section S-FREIGHT-STATUS-REPORTING"
    }
   ],
   "UBL-2.2-FulfilmentReceiptAdviceProcess": [
@@ -1888,6 +1962,74 @@
     "op": "attach-guard",
     "text": "text-y",
     "to": "flow-match-digital-capabilities-to-send-digital-agreement-in-participant-party-2"
+   }
+  ],
+  "UBL-2.5-WasteMovementProcess": [
+   {
+    "id": "q15-05",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Freight Status Reporting and Waste Movement: the column titles ('Sender Party', 'Receiver Party'; 'Senderparty', 'ReceiverParty') are held as loose text and the columns are untitled; Freight Status Reporting's third column has no title and holds only the start 'Trigger reporting procedure'. What are they?",
+    "answer": "The texts are the columns' titles, drawn where they are. Waste Movement's lanes take UBL.xml's names, Sender Party and Receiver Party, while the drawing keeps the artwork's spelling. Freight Status Reporting's third column is no party: it holds the other way the report is started, the agreed status reporting procedure, which its start starts from.",
+    "op": "lane-title-from-text",
+    "lane": "lane-1",
+    "text": "text-senderparty",
+    "title": "Sender Party"
+   },
+   {
+    "id": "q15-06",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Freight Status Reporting and Waste Movement: the column titles ('Sender Party', 'Receiver Party'; 'Senderparty', 'ReceiverParty') are held as loose text and the columns are untitled; Freight Status Reporting's third column has no title and holds only the start 'Trigger reporting procedure'. What are they?",
+    "answer": "The texts are the columns' titles, drawn where they are. Waste Movement's lanes take UBL.xml's names, Sender Party and Receiver Party, while the drawing keeps the artwork's spelling. Freight Status Reporting's third column is no party: it holds the other way the report is started, the agreed status reporting procedure, which its start starts from.",
+    "op": "lane-title-from-text",
+    "lane": "lane-2",
+    "text": "text-receiverparty",
+    "title": "Receiver Party"
+   }
+  ],
+  "UBL-2.2-Enquiry": [
+   {
+    "id": "q15-07",
+    "decided": "2026-09-27",
+    "by": "settled from the original, mentioned to the TC",
+    "question": "A third 'column' 7 to 10 px wide between the last divider and the frame, holding nothing (Enquiry, five Tender figures, both Tender Contract figures).",
+    "answer": "Not a column: the reading took the strip between the last divider and the frame for one. Settled from the original without the TC, and mentioned (q15).",
+    "op": "remove-lane",
+    "lane": "lane-3"
+   }
+  ],
+  "UBL-2.2-Tender-ExpressionOfInterest": [
+   {
+    "id": "q15-08",
+    "decided": "2026-09-27",
+    "by": "settled from the original, mentioned to the TC",
+    "question": "A third 'column' 7 to 10 px wide between the last divider and the frame, holding nothing (Enquiry, five Tender figures, both Tender Contract figures).",
+    "answer": "Not a column: the reading took the strip between the last divider and the frame for one. Settled from the original without the TC, and mentioned (q15).",
+    "op": "remove-lane",
+    "lane": "lane-3"
+   }
+  ],
+  "UBL-2.2-Tender-QualificationApplication": [
+   {
+    "id": "q15-09",
+    "decided": "2026-09-27",
+    "by": "settled from the original, mentioned to the TC",
+    "question": "A third 'column' 7 to 10 px wide between the last divider and the frame, holding nothing (Enquiry, five Tender figures, both Tender Contract figures).",
+    "answer": "Not a column: the reading took the strip between the last divider and the frame for one. Settled from the original without the TC, and mentioned (q15).",
+    "op": "remove-lane",
+    "lane": "lane-3"
+   }
+  ],
+  "UBL-2.2-Tender-Status": [
+   {
+    "id": "q15-10",
+    "decided": "2026-09-27",
+    "by": "settled from the original, mentioned to the TC",
+    "question": "A third 'column' 7 to 10 px wide between the last divider and the frame, holding nothing (Enquiry, five Tender figures, both Tender Contract figures).",
+    "answer": "Not a column: the reading took the strip between the last divider and the frame for one. Settled from the original without the TC, and mentioned (q15).",
+    "op": "remove-lane",
+    "lane": "lane-3"
    }
   ]
  },

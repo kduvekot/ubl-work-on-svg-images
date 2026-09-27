@@ -38,7 +38,8 @@
    "type": "object", "additionalProperties": false,
    "properties": {"x0": {"type": "number"}, "x1": {"type": "number"},
                   "y0": {"type": "number"}, "y1": {"type": "number"},
-                  "titleBox": {"$ref": "#/$defs/box"}}}},
+                  "titleBox": {"$ref": "#/$defs/box"},
+                  "title": {"$ref": "#/$defs/placedText", "description": "where a title the reading placed as text is drawn (q15)"}}}},
   "nodes": {"type": "object", "additionalProperties": {
    "type": "object", "required": ["x", "y", "w", "h"], "additionalProperties": false,
    "properties": {

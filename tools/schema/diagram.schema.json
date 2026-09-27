@@ -26,7 +26,10 @@
      "index": {"type": "integer", "minimum": 0, "description": "position along its axis, left to right or top to bottom"},
      "title": {"type": "string"},
      "titleShown": {"type": "boolean", "description": "false where the artwork does not draw the title: it was given by a correction"},
-     "titleSource": {"enum": ["text", "convention"], "description": "where a title the artwork does not draw comes from: stated by the specification's text, or implied by the convention of related figures"}
+     "titleSource": {"enum": ["text", "convention"], "description": "where a title the artwork does not draw comes from: stated by the specification's text, or implied by the convention of related figures"},
+     "scope": {"const": "external", "description": "the column is not a party of this process: it holds what starts or ends it from outside (q15)"},
+     "reference": {"type": "object", "required": ["what"], "additionalProperties": false,
+                   "properties": {"what": {"type": "string"}, "source": {"type": "string"}}}
     }
    }
   },

@@ -357,6 +357,14 @@ def apply_corrections(model, layout, report, name, recorded=None):
                              from `at` on become a new one (id corr-<id>)
       unguard                flow `flow` carries no guard: what the reading
                              attached (a lane's title) is not one
+      lane-title-from-text   text `text` is lane `lane`'s title, drawn where it
+                             is; the model's title is `title` where given (the
+                             specification's spelling), else the text's words
+      lane-area              column `lane` is no party: it holds `name`, a way
+                             in from outside (`scope`, `reference`)
+      remove-lane            column `lane` is not one: an empty sliver between
+                             the last divider and the frame; its neighbour
+                             takes its width
       retext                 the words of `element` in `section` (texts, nodes or
                              lanes) are `text`, which the reading misread; line
                              breaks as in the artwork, one per measured line
@@ -652,6 +660,37 @@ def apply_corrections(model, layout, report, name, recorded=None):
             if c["section"] == "texts":
                 patches["texts"][x["id"]] = "final"
             touched.add(x["id"])
+        elif op == "lane-title-from-text":
+            l, t = el("lanes", c["lane"], cid), el("texts", c["text"], cid)
+            check_was(c, t)
+            ll = layout["lanes"][l["id"]]
+            ll.pop("titleBox", None)
+            ll["title"] = dict(layout["texts"].pop(t["id"]), **{"as": "text"})
+            model["texts"].remove(t)
+            l["title"] = c.get("title") or " ".join(t["text"].split())
+            touched |= {l["id"], t["id"]}
+        elif op == "lane-area":
+            l = el("lanes", c["lane"], cid)
+            layout["lanes"][l["id"]].pop("titleBox", None)
+            l["title"], l["titleShown"], l["titleSource"] = c["name"], False, "text"
+            l["scope"] = c["scope"]
+            l["reference"] = c["reference"]
+            touched.add(l["id"])
+        elif op == "remove-lane":
+            l = el("lanes", c["lane"], cid)
+            if l["axis"] != "column" or any(n.get("lane") == l["id"] for n in model["nodes"]) \
+                    or l.get("title"):
+                raise ValueError("%s: correction %s: %s is not an empty untitled column"
+                                 % (name, cid, c["lane"]))
+            left = [x for x in model["lanes"] if x["axis"] == "column" and x["index"] == l["index"] - 1]
+            if left:
+                layout["lanes"][left[0]["id"]]["x1"] = layout["lanes"][l["id"]]["x1"]
+            for x in model["lanes"]:
+                if x["axis"] == "column" and x["index"] > l["index"]:
+                    x["index"] -= 1
+            model["lanes"].remove(l)
+            del layout["lanes"][l["id"]]
+            touched.add(l["id"])
         elif op == "retext":
             # words the reading got wrong, as the artwork writes them. The words
             # change, and so does what is drawn; where each line sits does not.

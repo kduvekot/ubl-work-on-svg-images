@@ -156,7 +156,8 @@ def main(src, out, model_w=1480.0):
             d["arrowBoth"] = True
         edges.append(d)
 
-    parts = [dict(lay["lanes"][l["id"]], **l) for l in model["lanes"]]
+    parts = [dict({("title_layout" if k == "title" else k): v for k, v in lay["lanes"][l["id"]].items()}, **l)
+             for l in model["lanes"]]
     cols = [p for p in parts if p["axis"] == "column"]
     bands = [p for p in parts if p["axis"] == "band"]
     lanes = []
@@ -166,11 +167,14 @@ def main(src, out, model_w=1480.0):
         # drawn as it always was, with no words; the name goes to the draw.io
         # model, where a lane is a lane, as "name".
         shown = c.get("titleShown", True)
-        lane = {"id": c["id"], "title": c["title"] if shown else "",
+        # a title the reading placed as text (q15) is set where it was, as text
+        # (below, with the other placed words); the lane itself draws none
+        as_text = isinstance(c.get("title_layout"), dict)
+        lane = {"id": c["id"], "title": c["title"] if shown and not as_text else "",
                 "x": M(c["x0"]), "w": M(c["x1"] - c["x0"]),
                 "cx": M(b[0] + b[2] / 2) if b else M((c["x0"] + c["x1"]) / 2),
                 "cy": M(b[1] + b[3] / 2) if b else M(font_px)}
-        if not shown:
+        if not shown or as_text:
             lane["name"] = c["title"]
         lanes.append(lane)
 
@@ -208,6 +212,10 @@ def main(src, out, model_w=1480.0):
     placed += [(p["id"], p["title"], lay["phases"][p["id"]]["title"], "phase-title")
                for p in model["phases"]
                if lay["phases"][p["id"]].get("title", {}).get("as") == "text"]
+    placed += [(l["id"] + "-title", " ".join(t["text"] for t in lay["lanes"][l["id"]]["title"]["lines"]),
+                lay["lanes"][l["id"]]["title"], "lane-title")
+               for l in model["lanes"]
+               if isinstance(lay["lanes"][l["id"]].get("title"), dict)]
     guards = []
     for i, words, t, role in placed:
         g = {"id": i, "text": words, "x": M(t["x"]), "y": M(t["y"]),
