@@ -1564,8 +1564,8 @@ how its direction was settled; `validate` now checks the second. 951 were read
 with high confidence. The rest were put beside the original, both ends zoomed:
 the 45 read with medium confidence or settled by a notation rule away from a
 start or end are all drawn the way the model has them, and are recorded as
-confirmed in `tools/direction-verdicts.json` (now 71 checked, 3 corrected in
-all) - apart from the one the notation rule got wrong on Fig C.1 (`model-05`,
+confirmed in `tools/direction-verdicts.json` (now 71 entries: 70 as drawn,
+1 corrected) - apart from the one the notation rule got wrong on Fig C.1 (`model-05`,
 above). The six flows a person added (the two down a divider on Business Card
 and Digital Capability, the four on Tender Award Notification) are marked as
 settled by a person. The receive steps with no document coming in are
