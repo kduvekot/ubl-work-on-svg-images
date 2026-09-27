@@ -1633,7 +1633,12 @@ differences shown.
   complete. "EvaluateTransport" (twice) is the artwork's typo, put right in
   model and drawing and recorded in artwork-faults.json (`text-31`,
   `text-32`); the lower "[no]" was measured with the diamond's edge in its
-  box and drawn too large (`draw-10`, `draw-11`).
+  box and drawn too large (`draw-10`, `draw-11`). It also stood against the
+  diamond's corner, too high, in the artwork; the TC (2026-09-27): set it
+  beside the branch it labels, the line down to *Reject Transport Execution
+  Plan*. A layout correction may now say it `departs` from the artwork on
+  purpose: the checkers are told where the artwork's words are (`wasAt`), so
+  a deliberate improvement is not reported as a missing text.
 
 **The notes for a person, all 266 settled by eye (2026-09-27).** The sweep
 leaves, per diagram, notes where the reading could not be sure; each was looked at

@@ -3120,7 +3120,7 @@
     "decided": "2026-09-27",
     "by": "Kees Duvekot, figure review",
     "question": "The lower [no] beside 'Update Transport Execution Plan Request?' was measured with the diamond's edge in its box (69x44 where the other guards are 49x26), and drawn too large.",
-    "answer": "Measured again on the original: '[no]' runs from x 445 to 493, y 1756 to 1781.",
+    "answer": "Measured again on the original ('[no]' is 49 x 26, as the other guards), and set beside the branch it labels - the line down from the diamond to Reject Transport Execution Plan - rather than against the diamond's corner, where the artwork puts it (the TC, 2026-09-27).",
     "op": "layout",
     "section": "texts",
     "element": "text-no-4",
@@ -3129,11 +3129,12 @@
      "h": 40
     },
     "set": {
-     "x": 445,
-     "y": 1756,
+     "x": 410,
+     "y": 1840,
      "w": 49,
      "h": 26
-    }
+    },
+    "departs": true
    },
    {
     "id": "draw-11",
@@ -3150,8 +3151,8 @@
      "h": 44
     },
     "set": {
-     "x": 445,
-     "y": 1756,
+     "x": 410,
+     "y": 1840,
      "w": 49,
      "h": 26
     }

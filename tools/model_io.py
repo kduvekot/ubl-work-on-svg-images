@@ -358,7 +358,10 @@ def apply_corrections(model, layout, report, name, recorded=None):
                              measured by hand from the original: `set` merges
                              into its layout entry (or into line `line` of its
                              lines), `unset` drops keys; `was` checks the old
-                             values the same way. The model does not change
+                             values the same way. The model does not change.
+                             `departs` on a text: set elsewhere than the artwork
+                             has it, on purpose; the checkers are told where
+                             the artwork's words are (`wasAt`)
       decision-question      text `text` beside decision `node` is the question
                              it asks; the text labels the node, which records it
       split-text             text `text` is two texts the reading merged: lines
@@ -482,6 +485,7 @@ def apply_corrections(model, layout, report, name, recorded=None):
             patches["edges"].setdefault(to["id"], {})["guard"] = norm(guard_text(t))
 
     touched = set()
+    departed = {}
     # what the checkers must see changed in the graph they read: kept in the
     # graph's own ids (edges f<n>, texts t<n>), which these still are here
     patches = {"edges": {}, "texts": {}, "addEdges": []}
@@ -728,6 +732,12 @@ def apply_corrections(model, layout, report, name, recorded=None):
                 g.pop(k, None)
             if c["section"] == "texts":
                 patches["texts"][x["id"]] = "final"
+                if c.get("departs"):
+                    # set somewhere other than where the artwork has it, on
+                    # purpose (a guard moved beside its branch): the checkers
+                    # still find the artwork's words where the artwork put them
+                    was = report["uncorrected"]["layout"]["texts"][x["id"]]
+                    departed[x["id"]] = {k: was[k] for k in ("x", "y", "w", "h")}
             touched.add(x["id"])
         elif op == "lane-title-from-text":
             l, t = el("lanes", c["lane"], cid), el("texts", c["text"], cid)
@@ -931,6 +941,8 @@ def apply_corrections(model, layout, report, name, recorded=None):
             g = layout["texts"][tid]
             patches["texts"][tid] = dict({k: g[k] for k in ("x", "y", "w", "h", "lines", "bold", "italic")
                                           if k in g}, text=t["text"])
+            if tid in departed:
+                patches["texts"][tid]["wasAt"] = departed[tid]
     added = patches.pop("addTexts", [])
     if added:
         patches["addTexts"] = [dict({k: v for k, v in layout["texts"][i].items()},

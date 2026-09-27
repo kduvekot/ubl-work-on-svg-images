@@ -239,6 +239,11 @@ def check_text_complete(bg_orig, graph, boxes, findings, glyph_h, orig_ink=None)
     for t in graph.get("text", []):
         for ln in t.get("lines") or [t]:
             placed.append((ln, ln.get("text", ""), "text block"))
+        # words a correction set elsewhere on purpose (a guard moved beside its
+        # branch): the original's words, where the original has them, are the
+        # model's too
+        if t.get("wasAt"):
+            placed.append((t["wasAt"], t.get("text", ""), "text block (moved on purpose)"))
     for p in graph.get("partitions", []):
         b = p.get("titleBox")
         if b:
