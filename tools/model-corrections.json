@@ -621,6 +621,34 @@
     "name": "Fulfilment",
     "how": "leads-into",
     "source": "written beside the node in the artwork"
+   },
+   {
+    "id": "text-01",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, TC instruction: one text pass at the end",
+    "question": "Words the reading got wrong, collected as they were found (pendingTextFixes) and applied in one pass at the end, as the TC asked.",
+    "answer": "Each reads as the artwork writes it.",
+    "op": "retext",
+    "section": "nodes",
+    "element": "action-send-waypbill",
+    "text": "Send Waybill",
+    "was": {
+     "label": "Send Waypbill"
+    }
+   },
+   {
+    "id": "text-18",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, TC instruction: one text pass at the end",
+    "question": "Words the reading got wrong, collected as they were found (pendingTextFixes) and applied in one pass at the end, as the TC asked.",
+    "answer": "Each reads as the artwork writes it.",
+    "op": "retext",
+    "section": "nodes",
+    "element": "object-way-bill",
+    "text": "Waybill",
+    "was": {
+     "label": "Way bill"
+    }
    }
   ],
   "UBL-2.0-CertificationOfOriginOfGoodsProcess": [
@@ -657,6 +685,34 @@
     "node": "final-importer",
     "was": {
      "text": "End of CoO\nProcess"
+    }
+   },
+   {
+    "id": "text-02",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, TC instruction: one text pass at the end",
+    "question": "Words the reading got wrong, collected as they were found (pendingTextFixes) and applied in one pass at the end, as the TC asked.",
+    "answer": "Each reads as the artwork writes it.",
+    "op": "retext",
+    "section": "texts",
+    "element": "text-initiate-ransport-process",
+    "text": "Initiate\nTransport\nProcess",
+    "was": {
+     "text": "Initiate\nransport\nProcess"
+    }
+   },
+   {
+    "id": "text-03",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, TC instruction: one text pass at the end",
+    "question": "Words the reading got wrong, collected as they were found (pendingTextFixes) and applied in one pass at the end, as the TC asked.",
+    "answer": "Each reads as the artwork writes it.",
+    "op": "retext",
+    "section": "texts",
+    "element": "text-accept-pplication",
+    "text": "Accept\napplication?",
+    "was": {
+     "text": "Accept\npplication?"
     }
    }
   ],
@@ -702,6 +758,20 @@
     "op": "annotates",
     "note": "note-transaction-accessing-seller-s-catalogue",
     "target": "segment-punch-out-session"
+   },
+   {
+    "id": "text-20",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, TC instruction: one text pass at the end",
+    "question": "Words the reading got wrong, collected as they were found (pendingTextFixes) and applied in one pass at the end, as the TC asked.",
+    "answer": "Each reads as the artwork writes it.",
+    "op": "retext",
+    "section": "lanes",
+    "element": "lane-seller-supplier-party",
+    "text": "Seller Supplier Party",
+    "was": {
+     "title": "seller Supplier Party"
+    }
    }
   ],
   "UBL-2.2-IMFM-IntermodalFreightManagementProcess": [
@@ -853,10 +923,387 @@
      "text": "(from Business Processes)"
     }
    }
+  ],
+  "UBL-1.0-ProcurementProcess": [
+   {
+    "id": "text-04",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, TC instruction: one text pass at the end",
+    "question": "Words the reading got wrong, collected as they were found (pendingTextFixes) and applied in one pass at the end, as the TC asked.",
+    "answer": "Each reads as the artwork writes it.",
+    "op": "retext",
+    "section": "nodes",
+    "element": "action-acd-cetail",
+    "text": "add detail",
+    "was": {
+     "label": "acd Cetail"
+    }
+   },
+   {
+    "id": "text-05",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, TC instruction: one text pass at the end",
+    "question": "Words the reading got wrong, collected as they were found (pendingTextFixes) and applied in one pass at the end, as the TC asked.",
+    "answer": "Each reads as the artwork writes it.",
+    "op": "retext",
+    "section": "nodes",
+    "element": "action-gespatch-order-rens",
+    "text": "despatch order item(s)",
+    "was": {
+     "label": "Gespatch order Rens)"
+    }
+   },
+   {
+    "id": "text-06",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, TC instruction: one text pass at the end",
+    "question": "Words the reading got wrong, collected as they were found (pendingTextFixes) and applied in one pass at the end, as the TC asked.",
+    "answer": "Each reads as the artwork writes it.",
+    "op": "retext",
+    "section": "nodes",
+    "element": "action-recerve-dovvce",
+    "text": "receive advice",
+    "was": {
+     "label": "recerve dOvVCE"
+    }
+   },
+   {
+    "id": "text-07",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, TC instruction: one text pass at the end",
+    "question": "Words the reading got wrong, collected as they were found (pendingTextFixes) and applied in one pass at the end, as the TC asked.",
+    "answer": "Each reads as the artwork writes it.",
+    "op": "retext",
+    "section": "nodes",
+    "element": "action-deoson-if-rem-s-rejected",
+    "text": "decision if item(s) rejected",
+    "was": {
+     "label": "deoson if Rem(s) rejected"
+    }
+   },
+   {
+    "id": "text-08",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, TC instruction: one text pass at the end",
+    "question": "Words the reading got wrong, collected as they were found (pendingTextFixes) and applied in one pass at the end, as the TC asked.",
+    "answer": "Each reads as the artwork writes it.",
+    "op": "retext",
+    "section": "nodes",
+    "element": "action-recive-goods",
+    "text": "receive goods",
+    "was": {
+     "label": "recive goods"
+    }
+   },
+   {
+    "id": "text-09",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, TC instruction: one text pass at the end",
+    "question": "Words the reading got wrong, collected as they were found (pendingTextFixes) and applied in one pass at the end, as the TC asked.",
+    "answer": "Each reads as the artwork writes it.",
+    "op": "retext",
+    "section": "nodes",
+    "element": "action-sdvise-receipt",
+    "text": "advise receipt",
+    "was": {
+     "label": "Sdvise receipt"
+    }
+   },
+   {
+    "id": "text-10",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, TC instruction: one text pass at the end",
+    "question": "Words the reading got wrong, collected as they were found (pendingTextFixes) and applied in one pass at the end, as the TC asked.",
+    "answer": "Each reads as the artwork writes it.",
+    "op": "retext",
+    "section": "nodes",
+    "element": "action-fase-wwoce",
+    "text": "raise invoice",
+    "was": {
+     "label": "fase wwoce"
+    }
+   }
+  ],
+  "UBL-2.0-SelfBillingwithCreditNoteProcess": [
+   {
+    "id": "text-11",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, TC instruction: one text pass at the end",
+    "question": "Words the reading got wrong, collected as they were found (pendingTextFixes) and applied in one pass at the end, as the TC asked.",
+    "answer": "Each reads as the artwork writes it.",
+    "op": "retext",
+    "section": "nodes",
+    "element": "decision-econcile-charges",
+    "text": "Reconcile\nCharges",
+    "was": {
+     "label": "econcile\nCharges"
+    }
+   },
+   {
+    "id": "text-21",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, TC instruction: one text pass at the end",
+    "question": "Words the reading got wrong, collected as they were found (pendingTextFixes) and applied in one pass at the end, as the TC asked.",
+    "answer": "Each reads as the artwork writes it.",
+    "op": "retext",
+    "section": "texts",
+    "element": "text-under-charged-or-incorrect-information",
+    "text": "[under\ncharged or\nincorrect\ninformation]",
+    "was": {
+     "text": "[under\ncharged or\nincorrect\ninformation"
+    }
+   }
+  ],
+  "UBL-2.0-UpdateCatalogueItemSpecificationProcess": [
+   {
+    "id": "text-12",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, TC instruction: one text pass at the end",
+    "question": "Words the reading got wrong, collected as they were found (pendingTextFixes) and applied in one pass at the end, as the TC asked.",
+    "answer": "Each reads as the artwork writes it.",
+    "op": "retext",
+    "section": "texts",
+    "element": "text-oupplier-initiated-update",
+    "text": "Supplier Initiated\nUpdate",
+    "was": {
+     "text": "oupplier Initiated\nUpdate"
+    }
+   }
+  ],
+  "UBL-2.0-UpdateCataloguePricingProcess": [
+   {
+    "id": "text-13",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, TC instruction: one text pass at the end",
+    "question": "Words the reading got wrong, collected as they were found (pendingTextFixes) and applied in one pass at the end, as the TC asked.",
+    "answer": "Each reads as the artwork writes it.",
+    "op": "retext",
+    "section": "texts",
+    "element": "text-j-ustomer-nitiated-jpdate",
+    "text": "Customer\nInitiated\nUpdate",
+    "was": {
+     "text": "J,ustomer\nnitiated\nJpdate"
+    }
+   }
+  ],
+  "UBL-2.2-Tender-UnsubscribeFromProcedure": [
+   {
+    "id": "text-14",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, TC instruction: one text pass at the end",
+    "question": "Words the reading got wrong, collected as they were found (pendingTextFixes) and applied in one pass at the end, as the TC asked.",
+    "answer": "Each reads as the artwork writes it.",
+    "op": "retext",
+    "section": "nodes",
+    "element": "action-receive-unsubscribe-from-procedur-1",
+    "text": "Receive unsubscribe from procedure\nconfirmation",
+    "was": {
+     "label": "Receive unsubscribe from procedur\n1 confirmation"
+    }
+   }
+  ],
+  "UBL-2.3-GoodsCertificateExportProcess": [
+   {
+    "id": "text-15",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, TC instruction: one text pass at the end",
+    "question": "Words the reading got wrong, collected as they were found (pendingTextFixes) and applied in one pass at the end, as the TC asked.",
+    "answer": "Each reads as the artwork writes it.",
+    "op": "retext",
+    "section": "nodes",
+    "element": "action-raft-goods-certificat",
+    "text": "Draft Goods Certificate",
+    "was": {
+     "label": "raft Goods Certificat"
+    }
+   }
+  ],
+  "UBL-2.3-GoodsItemPassportReturnProcess": [
+   {
+    "id": "text-16",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, TC instruction: one text pass at the end",
+    "question": "Words the reading got wrong, collected as they were found (pendingTextFixes) and applied in one pass at the end, as the TC asked.",
+    "answer": "Each reads as the artwork writes it.",
+    "op": "retext",
+    "section": "nodes",
+    "element": "object-goodslitem-passport-reexported",
+    "text": "GoodsItem\nPassport\n(Reexported)",
+    "was": {
+     "label": "Goodslitem\nPassport\n(Reexported)"
+    }
+   },
+   {
+    "id": "text-17",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, TC instruction: one text pass at the end",
+    "question": "Words the reading got wrong, collected as they were found (pendingTextFixes) and applied in one pass at the end, as the TC asked.",
+    "answer": "Each reads as the artwork writes it.",
+    "op": "retext",
+    "section": "nodes",
+    "element": "object-goodsltem-passport-reimported",
+    "text": "GoodsItem\nPassport\n(Reimported)",
+    "was": {
+     "label": "Goodsltem\nPassport\n(Reimported)"
+    }
+   }
+  ],
+  "UBL-2.0-SourcingBuyerInitiatedProcess": [
+   {
+    "id": "text-19",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, TC instruction: one text pass at the end",
+    "question": "Words the reading got wrong, collected as they were found (pendingTextFixes) and applied in one pass at the end, as the TC asked.",
+    "answer": "Each reads as the artwork writes it.",
+    "op": "retext",
+    "section": "lanes",
+    "element": "lane-seller-supplier-party",
+    "text": "Seller Supplier Party",
+    "was": {
+     "title": "seller Supplier Party"
+    }
+   }
+  ],
+  "UBL-2.2-Tender-ContractInfoNotify": [
+   {
+    "id": "text-22",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, TC instruction: one text pass at the end",
+    "question": "Words the reading got wrong, collected as they were found (pendingTextFixes) and applied in one pass at the end, as the TC asked.",
+    "answer": "Each reads as the artwork writes it.",
+    "op": "retext",
+    "section": "texts",
+    "element": "text-above-p-thresholds",
+    "text": "Above\nThresholds?",
+    "was": {
+     "text": "Above P\nThresholds?"
+    }
+   }
   ]
  },
- "pendingTextFixes": {
-  "about": "Words the reading got wrong, noted as they are found and not yet applied: the TC's instruction (2026-09-27) is to make every text fix in one pass at the end, because each changes what is drawn and so the verifier's findings. Each entry is ready to become a 'retext' correction (op retext, section, element, text = should_read, was = reads). model_io.py does not read this list.",
+ "pendingDrawingFixes": {
+  "about": "Faults found while settling the notes for a person that change what is drawn when fixed: a text line measured too wide, a style the SVG gets wrong, and a few model errors the original settles plainly (a reversed flow, an invented flow, scraps read as text). Like the text fixes they wait for the one pass at the end, since each moves the baseline. model_io.py does not read this list.",
+  "fixes": [
+   {
+    "diagram": "UBL-2.2-Tender-ContractInfoNotify",
+    "section": "texts",
+    "element": "text-above-p-thresholds",
+    "line": 0,
+    "measured": {
+     "x": 82,
+     "w": 454
+    },
+    "should_be": {
+     "x": 82,
+     "w": 230
+    },
+    "why": "the line took in the decision's left corner (read as 'P'), so 'Above' is drawn stretched to twice its width",
+    "found": "2026-09-27",
+    "kind": "line-width"
+   },
+   {
+    "diagram": "UBL-2.0-UpdateCatalogueItemSpecificationProcess",
+    "section": "texts",
+    "element": "text-oupplier-initiated-update",
+    "line": 1,
+    "measured": {
+     "x": 2944,
+     "w": 256
+    },
+    "should_be": {
+     "x": 2944,
+     "w": 138
+    },
+    "why": "the line took in the start node below-right of it, so 'Update' is drawn stretched and overlapping the node",
+    "found": "2026-09-27",
+    "kind": "line-width"
+   },
+   {
+    "diagram": "UBL-2.0-UpdateCataloguePricingProcess",
+    "section": "texts",
+    "element": "text-supplier-initiated-update",
+    "line": 1,
+    "measured": {
+     "x": 2887,
+     "w": 262
+    },
+    "should_be": {
+     "x": 2887,
+     "w": 141
+    },
+    "why": "as on Update Catalogue Item Specification",
+    "found": "2026-09-27",
+    "kind": "line-width"
+   },
+   {
+    "kind": "upright-labels",
+    "diagrams": [
+     "UBL-2.3-CommonTransportationReportProcess",
+     "UBL-2.3-ImportDeclarationProcess",
+     "UBL-2.3-ManifestProcess",
+     "UBL-2.3-TransitDeclarationProcess",
+     "UBL-2.5-WasteMovementProcess",
+     "UBL-2.5-WasteNotificationProcess"
+    ],
+    "why": "these six draw their document labels upright and not bold; the SVG sets every document label in italic. The layout already says bold: false for exactly these documents, so italic can follow it",
+    "found": "2026-09-27"
+   },
+   {
+    "kind": "line-split",
+    "diagram": "UBL-2.5-UtilityBillingProcess",
+    "elements": [
+     "text-from-business-processes",
+     "text-from-business-processes-2"
+    ],
+    "why": "'(from Business Processes)' is drawn in the artwork on two lines, bold italic, under Invoice and Invoice Status Response; the reading took each as one line 92px high, so the SVG draws it as one squashed line",
+    "found": "2026-09-27"
+   },
+   {
+    "kind": "direction",
+    "diagram": "UBL-2.2-FulfilmentDespatchAdviceProcess",
+    "element": "flow-adjust-supply-status-to-send-despatch-advice",
+    "should_be": "from action-send-despatch-advice to action-adjust-supply-status",
+    "why": "the artwork's head is at Adjust supply status; it was read as the text 'AN', so the direction came out reversed and the head is drawn at Send Despatch Advice",
+    "found": "2026-09-27"
+   },
+   {
+    "kind": "remove-text",
+    "diagram": "UBL-2.2-FulfilmentDespatchAdviceProcess",
+    "elements": [
+     "text-an",
+     "text-a"
+    ],
+    "why": "'AN' is the arrowhead of the flow above, 'a' a scrap beside the flow from Cancel Despatch; neither is text in the artwork, and both are drawn as tiny words",
+    "found": "2026-09-27"
+   },
+   {
+    "kind": "remove-flow",
+    "diagram": "UBL-2.2-CPFR-CreateJointBusinessPlan",
+    "element": "flow-create-trade-item-location-profile-to-send-trade-item-location-profile-2",
+    "why": "invented: the artwork has one flow from Create to Send Trade Item Location Profile; this second one was made from the top of the 'No' arrow into Create, and draws a stray head beside it",
+    "found": "2026-09-27"
+   },
+   {
+    "kind": "arrowhead-shape",
+    "diagrams": [
+     "UBL-2.3-CommonTransportationReportProcess",
+     "UBL-2.3-ExportCustomsDeclarationProcess",
+     "UBL-2.3-GoodsCertificateExportProcess",
+     "UBL-2.3-GoodsItemPassportApprovalProcess",
+     "UBL-2.3-GoodsItemPassportPresentationProcess",
+     "UBL-2.3-GoodsItemPassportReturnProcess",
+     "UBL-2.3-ImportDeclarationProcess",
+     "UBL-2.3-ManifestProcess",
+     "UBL-2.3-RequestForProofOfReexportationProcess",
+     "UBL-2.3-TransitDeclarationProcess"
+    ],
+    "why": "these ten draw a filled arrowhead with a notched back (a barbed head); the SVG draws a plain filled triangle. Minor: the size and place are right",
+    "found": "2026-09-27"
+   }
+  ]
+ },
+ "appliedTextFixes": {
+  "about": "The text fixes once pending, applied on 2026-09-27 as the corrections text-01 .. text-22; kept here as found.",
   "fixes": [
    {
     "diagram": "UBL-2.2-InitiateFreightMgmtProcess",
@@ -1034,127 +1481,6 @@
     "should_read": "Above\nThresholds?",
     "found": "2026-09-27",
     "note": "the 'P' is the decision's left corner; its line width needs fixing too (pendingLayoutFixes)"
-   }
-  ]
- },
- "pendingDrawingFixes": {
-  "about": "Faults found while settling the notes for a person that change what is drawn when fixed: a text line measured too wide, a style the SVG gets wrong, and a few model errors the original settles plainly (a reversed flow, an invented flow, scraps read as text). Like the text fixes they wait for the one pass at the end, since each moves the baseline. model_io.py does not read this list.",
-  "fixes": [
-   {
-    "diagram": "UBL-2.2-Tender-ContractInfoNotify",
-    "section": "texts",
-    "element": "text-above-p-thresholds",
-    "line": 0,
-    "measured": {
-     "x": 82,
-     "w": 454
-    },
-    "should_be": {
-     "x": 82,
-     "w": 230
-    },
-    "why": "the line took in the decision's left corner (read as 'P'), so 'Above' is drawn stretched to twice its width",
-    "found": "2026-09-27",
-    "kind": "line-width"
-   },
-   {
-    "diagram": "UBL-2.0-UpdateCatalogueItemSpecificationProcess",
-    "section": "texts",
-    "element": "text-oupplier-initiated-update",
-    "line": 1,
-    "measured": {
-     "x": 2944,
-     "w": 256
-    },
-    "should_be": {
-     "x": 2944,
-     "w": 138
-    },
-    "why": "the line took in the start node below-right of it, so 'Update' is drawn stretched and overlapping the node",
-    "found": "2026-09-27",
-    "kind": "line-width"
-   },
-   {
-    "diagram": "UBL-2.0-UpdateCataloguePricingProcess",
-    "section": "texts",
-    "element": "text-supplier-initiated-update",
-    "line": 1,
-    "measured": {
-     "x": 2887,
-     "w": 262
-    },
-    "should_be": {
-     "x": 2887,
-     "w": 141
-    },
-    "why": "as on Update Catalogue Item Specification",
-    "found": "2026-09-27",
-    "kind": "line-width"
-   },
-   {
-    "kind": "upright-labels",
-    "diagrams": [
-     "UBL-2.3-CommonTransportationReportProcess",
-     "UBL-2.3-ImportDeclarationProcess",
-     "UBL-2.3-ManifestProcess",
-     "UBL-2.3-TransitDeclarationProcess",
-     "UBL-2.5-WasteMovementProcess",
-     "UBL-2.5-WasteNotificationProcess"
-    ],
-    "why": "these six draw their document labels upright and not bold; the SVG sets every document label in italic. The layout already says bold: false for exactly these documents, so italic can follow it",
-    "found": "2026-09-27"
-   },
-   {
-    "kind": "line-split",
-    "diagram": "UBL-2.5-UtilityBillingProcess",
-    "elements": [
-     "text-from-business-processes",
-     "text-from-business-processes-2"
-    ],
-    "why": "'(from Business Processes)' is drawn in the artwork on two lines, bold italic, under Invoice and Invoice Status Response; the reading took each as one line 92px high, so the SVG draws it as one squashed line",
-    "found": "2026-09-27"
-   },
-   {
-    "kind": "direction",
-    "diagram": "UBL-2.2-FulfilmentDespatchAdviceProcess",
-    "element": "flow-adjust-supply-status-to-send-despatch-advice",
-    "should_be": "from action-send-despatch-advice to action-adjust-supply-status",
-    "why": "the artwork's head is at Adjust supply status; it was read as the text 'AN', so the direction came out reversed and the head is drawn at Send Despatch Advice",
-    "found": "2026-09-27"
-   },
-   {
-    "kind": "remove-text",
-    "diagram": "UBL-2.2-FulfilmentDespatchAdviceProcess",
-    "elements": [
-     "text-an",
-     "text-a"
-    ],
-    "why": "'AN' is the arrowhead of the flow above, 'a' a scrap beside the flow from Cancel Despatch; neither is text in the artwork, and both are drawn as tiny words",
-    "found": "2026-09-27"
-   },
-   {
-    "kind": "remove-flow",
-    "diagram": "UBL-2.2-CPFR-CreateJointBusinessPlan",
-    "element": "flow-create-trade-item-location-profile-to-send-trade-item-location-profile-2",
-    "why": "invented: the artwork has one flow from Create to Send Trade Item Location Profile; this second one was made from the top of the 'No' arrow into Create, and draws a stray head beside it",
-    "found": "2026-09-27"
-   },
-   {
-    "kind": "arrowhead-shape",
-    "diagrams": [
-     "UBL-2.3-CommonTransportationReportProcess",
-     "UBL-2.3-ExportCustomsDeclarationProcess",
-     "UBL-2.3-GoodsCertificateExportProcess",
-     "UBL-2.3-GoodsItemPassportApprovalProcess",
-     "UBL-2.3-GoodsItemPassportPresentationProcess",
-     "UBL-2.3-GoodsItemPassportReturnProcess",
-     "UBL-2.3-ImportDeclarationProcess",
-     "UBL-2.3-ManifestProcess",
-     "UBL-2.3-RequestForProofOfReexportationProcess",
-     "UBL-2.3-TransitDeclarationProcess"
-    ],
-    "why": "these ten draw a filled arrowhead with a notched back (a barbed head); the SVG draws a plain filled triangle. Minor: the size and place are right",
-    "found": "2026-09-27"
    }
   ]
  }

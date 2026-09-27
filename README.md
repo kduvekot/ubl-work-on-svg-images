@@ -37,6 +37,13 @@ The record of every decision is in
 the corrections themselves, question and answer included, in
 [`tools/model-corrections.json`](tools/model-corrections.json).
 
+> **Fix pass in progress (2026-09-27).** Step 1 done: the 22 text fixes are
+> applied as corrections `text-01`..`text-22` (the list is kept as
+> `appliedTextFixes`); against the baseline exactly those 12 diagrams differ.
+> Next: the model errors, then the drawing fixes, in `pendingDrawingFixes`;
+> then a new baseline. Until then the comparison is expected to show `differs`
+> on the fixed diagrams only.
+
 ## Working method
 
 These were settled by correction along the way and are not to be relaxed:
