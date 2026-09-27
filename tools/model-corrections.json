@@ -674,7 +674,6 @@
      "flow-initiate-a-punchout-session-to-build-shopping-basket",
      "action-build-shopping-basket"
     ],
-    "annotatedBy": "note-transaction-accessing-seller-s-catalogue",
     "scope": "external",
     "reference": {
      "what": "the punch-out exchange, tightly coupled to the Seller's catalogue application",
@@ -692,6 +691,100 @@
     "lanes": [
      "lane-originator-customer-party",
      "lane-seller-supplier-party"
+    ]
+   },
+   {
+    "id": "q10-punchout-note",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Intermodal Freight Management has three notes - 'Transportation Network Information' twice and 'Regulatory Information' - each sitting on a line that crosses between parties with no document on it; the model had them as loose notes in the Transport Regulator's column. With Fig 37's, these are the only four notes in the 78. What are they?",
+    "answer": "An information exchange that does take place between those parties, which no current UBL document carries: drawn as a note instead of a document box, to show that it happens and between whom. The flow is of kind 'information' and the note annotates it; a note belongs to no party (the flow's ends say who exchanges it), and stands between two parties only where it is drawn on their divider. Fig 37's note works the same way: it annotates the punch-out segment.",
+    "op": "annotates",
+    "note": "note-transaction-accessing-seller-s-catalogue",
+    "target": "segment-punch-out-session"
+   }
+  ],
+  "UBL-2.2-IMFM-IntermodalFreightManagementProcess": [
+   {
+    "id": "q10-plan-kind",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Intermodal Freight Management has three notes - 'Transportation Network Information' twice and 'Regulatory Information' - each sitting on a line that crosses between parties with no document on it; the model had them as loose notes in the Transport Regulator's column. With Fig 37's, these are the only four notes in the 78. What are they?",
+    "answer": "An information exchange that does take place between those parties, which no current UBL document carries: drawn as a note instead of a document box, to show that it happens and between whom. The flow is of kind 'information' and the note annotates it; a note belongs to no party (the flow's ends say who exchanges it), and stands between two parties only where it is drawn on their divider. Fig 37's note works the same way: it annotates the punch-out segment.",
+    "op": "flow-kind",
+    "flow": "flow-provide-transportation-network-to-plan-transport-services",
+    "kind": "information",
+    "was": {
+     "kind": "control"
+    }
+   },
+   {
+    "id": "q10-order-kind",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Intermodal Freight Management has three notes - 'Transportation Network Information' twice and 'Regulatory Information' - each sitting on a line that crosses between parties with no document on it; the model had them as loose notes in the Transport Regulator's column. With Fig 37's, these are the only four notes in the 78. What are they?",
+    "answer": "An information exchange that does take place between those parties, which no current UBL document carries: drawn as a note instead of a document box, to show that it happens and between whom. The flow is of kind 'information' and the note annotates it; a note belongs to no party (the flow's ends say who exchanges it), and stands between two parties only where it is drawn on their divider. Fig 37's note works the same way: it annotates the punch-out segment.",
+    "op": "flow-kind",
+    "flow": "flow-provide-transportation-network-to-perform-order-management",
+    "kind": "information",
+    "was": {
+     "kind": "control"
+    }
+   },
+   {
+    "id": "q10-regulatory-kind",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Intermodal Freight Management has three notes - 'Transportation Network Information' twice and 'Regulatory Information' - each sitting on a line that crosses between parties with no document on it; the model had them as loose notes in the Transport Regulator's column. With Fig 37's, these are the only four notes in the 78. What are they?",
+    "answer": "An information exchange that does take place between those parties, which no current UBL document carries: drawn as a note instead of a document box, to show that it happens and between whom. The flow is of kind 'information' and the note annotates it; a note belongs to no party (the flow's ends say who exchanges it), and stands between two parties only where it is drawn on their divider. Fig 37's note works the same way: it annotates the punch-out segment.",
+    "op": "flow-kind",
+    "flow": "flow-execute-transport-services-to-perform-compliance-management",
+    "kind": "information",
+    "was": {
+     "kind": "control"
+    }
+   },
+   {
+    "id": "q10-plan-note",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Intermodal Freight Management has three notes - 'Transportation Network Information' twice and 'Regulatory Information' - each sitting on a line that crosses between parties with no document on it; the model had them as loose notes in the Transport Regulator's column. With Fig 37's, these are the only four notes in the 78. What are they?",
+    "answer": "An information exchange that does take place between those parties, which no current UBL document carries: drawn as a note instead of a document box, to show that it happens and between whom. The flow is of kind 'information' and the note annotates it; a note belongs to no party (the flow's ends say who exchanges it), and stands between two parties only where it is drawn on their divider. Fig 37's note works the same way: it annotates the punch-out segment.",
+    "op": "annotates",
+    "note": "note-transportation-network-information-in-transport-regulator",
+    "target": "flow-provide-transportation-network-to-plan-transport-services"
+   },
+   {
+    "id": "q10-order-note",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Intermodal Freight Management has three notes - 'Transportation Network Information' twice and 'Regulatory Information' - each sitting on a line that crosses between parties with no document on it; the model had them as loose notes in the Transport Regulator's column. With Fig 37's, these are the only four notes in the 78. What are they?",
+    "answer": "An information exchange that does take place between those parties, which no current UBL document carries: drawn as a note instead of a document box, to show that it happens and between whom. The flow is of kind 'information' and the note annotates it; a note belongs to no party (the flow's ends say who exchanges it), and stands between two parties only where it is drawn on their divider. Fig 37's note works the same way: it annotates the punch-out segment.",
+    "op": "annotates",
+    "note": "note-transportation-network-information-in-transport-regulator-2",
+    "target": "flow-provide-transportation-network-to-perform-order-management"
+   },
+   {
+    "id": "q10-regulatory-note",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Intermodal Freight Management has three notes - 'Transportation Network Information' twice and 'Regulatory Information' - each sitting on a line that crosses between parties with no document on it; the model had them as loose notes in the Transport Regulator's column. With Fig 37's, these are the only four notes in the 78. What are they?",
+    "answer": "An information exchange that does take place between those parties, which no current UBL document carries: drawn as a note instead of a document box, to show that it happens and between whom. The flow is of kind 'information' and the note annotates it; a note belongs to no party (the flow's ends say who exchanges it), and stands between two parties only where it is drawn on their divider. Fig 37's note works the same way: it annotates the punch-out segment.",
+    "op": "annotates",
+    "note": "note-regulatory-information",
+    "target": "flow-execute-transport-services-to-perform-compliance-management"
+   },
+   {
+    "id": "q10-regulatory-note-between",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Intermodal Freight Management has three notes - 'Transportation Network Information' twice and 'Regulatory Information' - each sitting on a line that crosses between parties with no document on it; the model had them as loose notes in the Transport Regulator's column. With Fig 37's, these are the only four notes in the 78. What are they?",
+    "answer": "An information exchange that does take place between those parties, which no current UBL document carries: drawn as a note instead of a document box, to show that it happens and between whom. The flow is of kind 'information' and the note annotates it; a note belongs to no party (the flow's ends say who exchanges it), and stands between two parties only where it is drawn on their divider. Fig 37's note works the same way: it annotates the punch-out segment.",
+    "op": "between",
+    "node": "note-regulatory-information",
+    "lanes": [
+     "lane-transport-service-provider",
+     "lane-transport-regulator"
     ]
    }
   ]

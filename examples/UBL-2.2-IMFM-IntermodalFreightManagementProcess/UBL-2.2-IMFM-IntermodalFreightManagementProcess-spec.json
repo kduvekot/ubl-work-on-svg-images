@@ -141,7 +141,7 @@
    "h": 26.8
   },
   {
-   "id": "note-transportation-network-information-in-transport-regulator",
+   "id": "note-transportation-network-information",
    "kind": "note",
    "label": "Transportation Network\nInformation",
    "x": 878.1,
@@ -412,7 +412,7 @@
    "bold": true
   },
   {
-   "id": "note-transportation-network-information-in-transport-regulator-2",
+   "id": "note-transportation-network-information-2",
    "kind": "note",
    "label": "Transportation Network\nInformation",
    "x": 861.6,

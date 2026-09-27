@@ -168,7 +168,7 @@
    "w": 69,
    "h": 62
   },
-  "note-transportation-network-information-in-transport-regulator": {
+  "note-transportation-network-information": {
    "x": 2034,
    "y": 117,
    "w": 431,
@@ -460,7 +460,7 @@
     }
    ]
   },
-  "note-transportation-network-information-in-transport-regulator-2": {
+  "note-transportation-network-information-2": {
    "x": 1996,
    "y": 886,
    "w": 422,

@@ -1057,9 +1057,10 @@ against the baseline and committed on its own (the procedure is in
 | q7 | the punch-out exchange, the only crossing without a document | the whole punch-out session is outside UBL's scope: a `segment` of the two actions and the flow between them, named by the note; the start stays outside it; the note stands between the parties | Fig 37 | unchanged |
 | q8 | *Get Guarantee from financial institution*, a step involving a party the diagram does not draw | an ordinary step of the Tenderer: what it takes to complete is not this diagram's concern. A rule for all such steps (goods sent, a bank, an authority not drawn), settled without the TC from now on | Tender Guarantee Deposit | unchanged, no correction |
 | q9 | the crumpled connector into *Exception Notification (positive)* | an artwork fault: the model has the flow right, the drawing is special drawing instructions to leave as they are until a later session re-lays the diagram; recorded in `artwork-faults.json` | Fig 14 | unchanged, no correction |
+| q10 | the three notes on Intermodal Freight Management, on crossings with no document | an information exchange that takes place, which no current UBL document carries: drawn as a note instead of a document box, to show that it happens and between whom. The flow is of kind `information`, the note `annotates` it and belongs to no party; Fig 37's note annotates its segment the same way | Intermodal Freight Management, Fig 37 | unchanged |
 | - | misread text | noted, fixed in one pass at the end (`pendingTextFixes`, 20 so far) | 11 | - |
 
-After q7: 54 corrections over 12 diagrams; over all 78 not a pixel differs from
+After q10: 62 corrections over 13 diagrams; over all 78 not a pixel differs from
 `baselines/2026-09-25` (71 identical, 7 the same drawing with a corrected model)
 and the sweep table is the baseline's.
 
@@ -1177,8 +1178,9 @@ marks a box; the answer went further: the whole session is outside UBL, a
 prerequisite in sequence for sending the Quotation. So the model gains
 `segments`: a part of the process the diagram sets apart without drawing a box
 round it, here `segment-punch-out-session` with the two actions and the flow
-between them as `members`, `scope` "external", the UBL.xml reference, and the
-note as `annotatedBy`. The start stays outside the segment, as the start of the
+between them as `members`, `scope` "external" and the UBL.xml reference; the
+note names it (first as the segment's `annotatedBy`, since `q10` as the note's
+own `annotates`). The start stays outside the segment, as the start of the
 whole process; the flows keep their kinds (unlike the key exchange of `q5`, this
 one has an order: the basket before the Quotation); the note, drawn across the
 divider, stands `between` the parties. The model sheet now names the crossing
@@ -1208,6 +1210,26 @@ recorded in `tools/artwork-faults.json` (a `drawn` entry, breaking no rule) and
 left for a later session that moves elements around for a better flow. Artwork
 faults as plain as this are from now on recorded without a question, and
 mentioned when found.
+
+The tenth, `q10`: Intermodal Freight Management has three notes -
+*Transportation Network Information* twice and *Regulatory Information* - each on
+a line that crosses between parties with no document on it; the model had them
+as loose notes in the Transport Regulator's column, where two of them are only
+drawn because the line runs through it. With Fig 37's they are the only four
+notes in the 78, and all four do the same thing. The answer: there is no current
+UBL document for these exchanges, but they are drawn to show that they take place
+and between whom - relevant to the diagram, not a UBL document, and that is why
+they are notes and not document boxes. So the flow gets a new kind,
+`information` (beside `goods` and `precondition`), and the note `annotates` it;
+a note belongs to no party - the flow's ends say who exchanges the information -
+and stands `between` two parties only where it is drawn on their divider
+(*Regulatory Information*, as Fig 37's). Not `external`: UBL.xml does not put
+these exchanges outside its scope. Fig 37's note was changed to work the same
+way, annotating its segment, so every note in the 78 points at what it names.
+The model sheet now says "information exchanged with no UBL document:
+Regulatory Information" where it asked for the line to be read against the
+artwork. The notes' ids lose their lane (`note-transportation-network-information`,
+`-2`); nothing drawn moves.
 
 **Misread text is noted, not yet fixed.** A text fix changes what is drawn, and
 so the verifier's findings; the TC's instruction is to make them all in one pass

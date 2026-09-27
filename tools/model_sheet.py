@@ -154,10 +154,11 @@ def flow_lines(g):
     return lines
 
 
-def outside_scope(src):
-    """The flows a person placed outside the specification's scope (a model
-    segment with scope "external", q7), as {(from, to): what}, in the graph's
-    ids. Read from the model split beside the graph, when there is one."""
+def explained(src):
+    """The crossings a person has explained in the model split beside the graph,
+    as {(from, to): why}, in the graph's ids: a flow in a segment outside the
+    specification's scope (q7), and information exchanged with no UBL document,
+    named by a note (q10)."""
     base = re.sub(r"-graph(-corrected)?\.json$", "", src)
     try:
         m = json.load(open(base + "-diagram.json"))
@@ -165,6 +166,7 @@ def outside_scope(src):
     except (OSError, ValueError):
         return {}
     flows = {f["id"]: f for f in m["flows"]}
+    key = lambda f: (former.get(f["from"], f["from"]), former.get(f["to"], f["to"]))
     out = {}
     for sg in m.get("segments", []):
         if sg.get("scope") != "external":
@@ -172,8 +174,13 @@ def outside_scope(src):
         what = (sg.get("reference") or {}).get("what", sg["id"])
         for x in sg["members"]:
             if x in flows:
-                f = flows[x]
-                out[(former.get(f["from"], f["from"]), former.get(f["to"], f["to"]))] = what
+                out[key(flows[x])] = "outside UBL's scope: " + what
+    notes = {n["annotates"]: n for n in m["nodes"] if n.get("annotates")}
+    for f in m["flows"]:
+        if f.get("kind") == "information":
+            n = notes.get(f["id"])
+            out[key(f)] = ("information exchanged with no UBL document"
+                           + (": " + " ".join(n["label"].split()) if n else ""))
     return out
 
 
@@ -281,7 +288,7 @@ def checks(g, outside=None):
     # and the rule reports rather than fails.
     def why(e, a, b):
         if (e["from"], e["to"]) in (outside or {}):
-            return "outside UBL's scope: " + outside[(e["from"], e["to"])]
+            return outside[(e["from"], e["to"])]
         if e.get("edgeKind") == "goods":
             return "the goods, beside their Despatch Advice"
         if a["kind"] in ("initial", "final") or b["kind"] in ("initial", "final"):
@@ -395,7 +402,7 @@ def main(src, out_json=None):
     for l in lines:
         print("  " + l if l else "")
     print("CHECKS")
-    res = checks(g, outside_scope(src))
+    res = checks(g, explained(src))
     for r in res:
         mark = "note" if (r.get("report") and r["bad"]) else \
                ("ok" if r["ok"] else "FAIL")

@@ -57,11 +57,12 @@
    "band": "band-planning"
   },
   {
-   "id": "note-transportation-network-information-in-transport-regulator",
+   "id": "note-transportation-network-information",
    "kind": "note",
    "label": "Transportation Network\nInformation",
-   "lane": "lane-transport-regulator",
-   "band": "band-planning"
+   "lane": null,
+   "band": "band-planning",
+   "annotates": "flow-provide-transportation-network-to-plan-transport-services"
   },
   {
    "id": "action-plan-transport-services",
@@ -139,11 +140,12 @@
    "band": "band-planning"
   },
   {
-   "id": "note-transportation-network-information-in-transport-regulator-2",
+   "id": "note-transportation-network-information-2",
    "kind": "note",
    "label": "Transportation Network\nInformation",
-   "lane": "lane-transport-regulator",
-   "band": "band-planning"
+   "lane": null,
+   "band": "band-planning",
+   "annotates": "flow-provide-transportation-network-to-perform-order-management"
   },
   {
    "id": "object-transport-execution-plan-between-transport-user-and-transport-service-provider",
@@ -240,8 +242,13 @@
    "id": "note-regulatory-information",
    "kind": "note",
    "label": "Regulatory\nInformation",
-   "lane": "lane-transport-regulator",
-   "band": "band-execution"
+   "lane": null,
+   "band": "band-execution",
+   "annotates": "flow-execute-transport-services-to-perform-compliance-management",
+   "between": [
+    "lane-transport-service-provider",
+    "lane-transport-regulator"
+   ]
   },
   {
    "id": "action-perform-compliance-management",
@@ -308,7 +315,7 @@
    "id": "flow-provide-transportation-network-to-plan-transport-services",
    "from": "action-provide-transportation-network",
    "to": "action-plan-transport-services",
-   "kind": "control",
+   "kind": "information",
    "direction": {
     "confidence": "high"
    }
@@ -389,7 +396,7 @@
    "id": "flow-provide-transportation-network-to-perform-order-management",
    "from": "action-provide-transportation-network",
    "to": "action-perform-order-management",
-   "kind": "control",
+   "kind": "information",
    "direction": {
     "confidence": "high"
    }
@@ -533,7 +540,7 @@
    "id": "flow-execute-transport-services-to-perform-compliance-management",
    "from": "action-execute-transport-services",
    "to": "action-perform-compliance-management",
-   "kind": "control",
+   "kind": "information",
    "direction": {
     "confidence": "high"
    }

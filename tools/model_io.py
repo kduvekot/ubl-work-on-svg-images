@@ -260,7 +260,7 @@ def _rename(model, layout, report, rename):
     for sec in ("lanes", "nodes", "flows", "texts", "offPage", "marks", "phases"):
         for el in model[sec]:
             el["id"] = r(el["id"])
-            for k in ("lane", "band", "from", "to", "guard", "labels", "node"):
+            for k in ("lane", "band", "from", "to", "guard", "labels", "node", "annotates"):
                 if k in el:
                     el[k] = r(el[k])
         layout[sec] = {r(k): v for k, v in layout[sec].items()}
@@ -273,8 +273,6 @@ def _rename(model, layout, report, rename):
             n["between"] = [r(x) for x in n["between"]]
     for sg in model.get("segments", []):
         sg["members"] = [r(x) for x in sg["members"]]
-        if "annotatedBy" in sg:
-            sg["annotatedBy"] = r(sg["annotatedBy"])
     if "unresolvedAttachments" in report:
         report["unresolvedAttachments"] = {r(k): v for k, v in report["unresolvedAttachments"].items()}
     for f in report["findings"]:
@@ -327,8 +325,12 @@ def apply_corrections(model, layout, report, name, recorded=None):
                              process the diagram sets apart without drawing a
                              box round it, with the id `segment`; `scope`
                              "external" says it is outside the scope of the
-                             specification, `reference` which and where, and
-                             `annotatedBy` the note that names it
+                             specification, and `reference` which and where
+      annotates              note `note` names flow or segment `target`: the
+                             information an exchange passes where no UBL
+                             document carries it, or the part it labels. The
+                             note belongs to no party (its lane goes); where it
+                             is drawn on a divider, a `between` says so
       retext                 the words of `element` in `section` (texts, nodes or
                              lanes) are `text`, which the reading misread; line
                              breaks as in the artwork, one per measured line
@@ -492,10 +494,17 @@ def apply_corrections(model, layout, report, name, recorded=None):
             for k in ("scope", "reference"):
                 if k in c:
                     sg[k] = c[k]
-            if "annotatedBy" in c:
-                sg["annotatedBy"] = el("nodes", c["annotatedBy"], cid)["id"]
             model.setdefault("segments", []).append(sg)
             touched |= set(members)
+        elif op == "annotates":
+            n = el("nodes", c["note"], cid)
+            if n["kind"] != "note":
+                raise ValueError("%s: correction %s: %s is not a note" % (name, cid, c["note"]))
+            seg = {s["id"] for s in model.get("segments", [])}
+            n["annotates"] = c["target"] if c["target"] in seg else el("flows", c["target"], cid)["id"]
+            if not n.get("between"):
+                n["lane"] = None
+            touched |= {n["id"], n["annotates"]}
         elif op == "retext":
             # words the reading got wrong, as the artwork writes them. The words
             # change, and so does what is drawn; where each line sits does not.
@@ -911,6 +920,10 @@ def validate(diagram_path):
             if x["id"] in ids:
                 errs.append("id %s is used twice (%s and %s)" % (x["id"], ids[x["id"]], sec))
             ids[x["id"]] = sec
+    for sg in m.get("segments", []):
+        if sg["id"] in ids:
+            errs.append("id %s is used twice (%s and segments)" % (sg["id"], ids[sg["id"]]))
+        ids[sg["id"]] = "segments"
 
     def ref(what, v, *secs):
         if v is not None and ids.get(v) not in secs:
@@ -921,6 +934,14 @@ def validate(diagram_path):
         ref("node %s's band" % n["id"], n.get("band"), "lanes")
         for x in n.get("between", []):
             ref("node %s's between" % n["id"], x, "lanes")
+    for n in m["nodes"]:
+        if "annotates" in n:
+            ref("note %s" % n["id"], n["annotates"], "flows", "segments")
+            if n["kind"] != "note":
+                errs.append("%s annotates %s, and only a note may" % (n["id"], n["annotates"]))
+            if n.get("lane"):
+                errs.append("%s annotates %s and still stands in lane %s"
+                            % (n["id"], n["annotates"], n["lane"]))
     for f in m["flows"]:
         ref("flow %s's source" % f["id"], f["from"], "nodes")
         ref("flow %s's target" % f["id"], f["to"], "nodes")
@@ -928,9 +949,6 @@ def validate(diagram_path):
     for t in m["texts"]:
         ref("text %s" % t["id"], t.get("labels"), "flows", "offPage", "nodes")
     for sg in m.get("segments", []):
-        if sg["id"] in ids:
-            errs.append("id %s is used twice (%s and segments)" % (sg["id"], ids[sg["id"]]))
-        ids[sg["id"]] = "segments"
         mem = set(sg["members"])
         for x in sg["members"]:
             ref("segment %s's member" % sg["id"], x, "nodes", "flows")
@@ -938,10 +956,6 @@ def validate(diagram_path):
             if f["id"] in mem and not {f["from"], f["to"]} <= mem:
                 errs.append("segment %s holds flow %s but not both its ends"
                             % (sg["id"], f["id"]))
-        a = sg.get("annotatedBy")
-        ref("segment %s's note" % sg["id"], a, "nodes")
-        if a and any(n["id"] == a and n["kind"] != "note" for n in m["nodes"]):
-            errs.append("segment %s is annotated by %s, which is not a note" % (sg["id"], a))
     for o in m["offPage"]:
         ref("off-page flow %s" % o["id"], o["node"], "nodes")
         ref("off-page flow %s's guard" % o["id"], o.get("guard"), "texts")

@@ -282,8 +282,9 @@ yet fixed:
   The misreadings are being collected by eye instead (`pendingTextFixes`).
 - **The checkers read the extractor's graph, not the model**, so they know
   nothing of the corrections except text fixes (through `-graph-corrected.json`)
-  and, in the model sheet, the model's out-of-scope `segments` (q7), which it
-  reads from the `-diagram.json` beside the graph.
+  and, in the model sheet, the crossings the model explains - out-of-scope
+  `segments` (q7) and `information` flows named by a note (q10) - which it reads
+  from the `-diagram.json` beside the graph.
 
 Found by a reproduction test run by an agent with no access to this repository,
 
