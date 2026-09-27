@@ -1055,6 +1055,7 @@ against the baseline and committed on its own (the procedure is in
 | q5 | *Ordering*, the prior key exchange | boxes that stand for a process outside the diagram (`external`); Ordering stands between the parties; the key exchange is a mutual `precondition` | Figs 13, 14, 31, 32 | unchanged |
 | q6 | words beside a start or an end | they name it; three name the process it starts from or leads into (`linkedProcess`) | Initiate Freight Management, Certification of Origin | unchanged |
 | q7 | the punch-out exchange, the only crossing without a document | the whole punch-out session is outside UBL's scope: a `segment` of the two actions and the flow between them, named by the note; the start stays outside it; the note stands between the parties | Fig 37 | unchanged |
+| q8 | *Get Guarantee from financial institution*, a step involving a party the diagram does not draw | an ordinary step of the Tenderer: what it takes to complete is not this diagram's concern. A rule for all such steps (goods sent, a bank, an authority not drawn), settled without the TC from now on | Tender Guarantee Deposit | unchanged, no correction |
 | - | misread text | noted, fixed in one pass at the end (`pendingTextFixes`, 20 so far) | 11 | - |
 
 After q7: 54 corrections over 12 diagrams; over all 78 not a pixel differs from
@@ -1185,6 +1186,17 @@ A segment is not drawn, so Fig 37 stays identical to the baseline. (The one
 other note drawn across a divider, *Regulatory Information* on Intermodal Freight
 Management, is left for its own question.)
 
+The eighth, `q8`, made a rule rather than a correction. On Tender Guarantee
+Deposit the Tenderer's first step, *Get Guarantee from financial institution*,
+involves a party the diagram does not draw, with no document passing. Unlike the
+punch-out session of `q7`, UBL.xml says nothing about its scope. The answer: it is
+a step whose detail is not given, and that detail is not relevant to this
+diagram. It stays an ordinary action in the Tenderer's column. The same holds for
+every step like it - sending physical goods, dealing with a bank or an authority
+that has no column - so these are settled by this rule and not brought to the
+TC. A `segment` with scope "external" is kept for what the specification itself
+puts outside its scope, as UBL.xml does for punch-out.
+
 **Misread text is noted, not yet fixed.** A text fix changes what is drawn, and
 so the verifier's findings; the TC's instruction is to make them all in one pass
 at the end. They are collected in `pendingTextFixes` in
@@ -1216,3 +1228,7 @@ when the diagrams themselves are next revised.
     paragraph should be the Originator's own. Whose procurement application
     "transparently gathers pertinent information" is unclear for the same
     reason.
+- *Tender Guarantee Deposit (with `q8`):* obtaining the guarantee from a
+  financial institution is shown as one step with no document. Should UBL ever
+  cover that exchange, the financial institution would become a party with its
+  own column.
