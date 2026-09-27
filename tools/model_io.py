@@ -260,7 +260,7 @@ def _rename(model, layout, report, rename):
     for sec in ("lanes", "nodes", "flows", "texts", "offPage", "marks", "phases"):
         for el in model[sec]:
             el["id"] = r(el["id"])
-            for k in ("lane", "band", "from", "to", "guard", "labels", "node", "annotates"):
+            for k in ("lane", "band", "from", "to", "guard", "labels", "node", "annotates", "on"):
                 if k in el:
                     el[k] = r(el[k])
         layout[sec] = {r(k): v for k, v in layout[sec].items()}
@@ -331,6 +331,11 @@ def apply_corrections(model, layout, report, name, recorded=None):
                              document carries it, or the part it labels. The
                              note belongs to no party (its lane goes); where it
                              is drawn on a divider, a `between` says so
+      divider-flow           the flow from `from` to `to` that the artwork draws
+                             down a lane divider, which the reading cannot see
+                             as a flow; it replaces the off-page flow `offPage`,
+                             whose drawn line is the flow's last stretch, and
+                             the marks `marks` on it get `meaning`
       retext                 the words of `element` in `section` (texts, nodes or
                              lanes) are `text`, which the reading misread; line
                              breaks as in the artwork, one per measured line
@@ -505,6 +510,29 @@ def apply_corrections(model, layout, report, name, recorded=None):
             if not n.get("between"):
                 n["lane"] = None
             touched |= {n["id"], n["annotates"]}
+        elif op == "divider-flow":
+            # Figs 86/87: the document's way out runs down the lane divider,
+            # carrying the break marks, then turns into the action. The model
+            # gets the flow; the drawing does not change - the divider draws the
+            # first stretch, the off-page flow's line the last.
+            a, b = el("nodes", c["from"], cid), el("nodes", c["to"], cid)
+            o = el("offPage", c["offPage"], cid)
+            if o["node"] != b["id"] or o["direction"] != "in":
+                raise ValueError("%s: correction %s: %s does not run into %s"
+                                 % (name, cid, c["offPage"], c["to"]))
+            og = layout["offPage"].pop(o["id"])
+            model["offPage"].remove(o)
+            ga = layout["nodes"][a["id"]]
+            f = dict(id="corr-%s" % cid, **{"from": a["id"], "to": b["id"]}, kind="object")
+            model["flows"].append(f)
+            layout["flows"][f["id"]] = dict(
+                fromPoint=[og["at"][0], ga["y"] + ga["h"]], toPoint=og["end"],
+                routing="along-divider", points=[og["at"]] + (og.get("points") or []))
+            for m in c.get("marks", []):
+                mk = el("marks", m, cid)
+                mk["on"], mk["meaning"] = f["id"], c["meaning"]
+                touched.add(mk["id"])
+            touched |= {a["id"], b["id"], f["id"], o["id"]}
         elif op == "retext":
             # words the reading got wrong, as the artwork writes them. The words
             # change, and so does what is drawn; where each line sits does not.
@@ -956,6 +984,8 @@ def validate(diagram_path):
             if f["id"] in mem and not {f["from"], f["to"]} <= mem:
                 errs.append("segment %s holds flow %s but not both its ends"
                             % (sg["id"], f["id"]))
+    for k in m["marks"]:
+        ref("mark %s" % k["id"], k.get("on"), "flows")
     for o in m["offPage"]:
         ref("off-page flow %s" % o["id"], o["node"], "nodes")
         ref("off-page flow %s's guard" % o["id"], o.get("guard"), "texts")

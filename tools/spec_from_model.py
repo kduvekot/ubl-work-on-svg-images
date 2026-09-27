@@ -116,10 +116,14 @@ def main(src, out, model_w=1480.0):
     texts = {t["id"]: t for t in model["texts"]}
     lanes_by_id = {l["id"]: l for l in model["lanes"]}
     edges = []
+    along = []                     # flows whose first stretch a divider draws
     for f in model["flows"]:
         ed = dict(lay["flows"][f["id"]], **f)
         a, b = byid.get(ed["from"]), byid.get(ed["to"])
         if not a or not b:
+            continue
+        if ed["routing"] == "along-divider":
+            along.append((f, ed))
             continue
         d = {"id": f["id"], "from": ed["from"], "to": ed["to"],
              "exitXY": frac(a, ed["fromPoint"]), "entryXY": frac(b, ed["toPoint"]),
@@ -253,7 +257,12 @@ def main(src, out, model_w=1480.0):
         "openEnds": [{"id": om["id"], "points": [[M(p[0]), M(p[1])] for p in
                                  [o["at"]] + (o.get("points") or []) + [o["end"]]],
                       "arrow": bool(om.get("arrow"))}
-                     for om in model["offPage"] for o in [lay["offPage"][om["id"]]]],
+                     for om in model["offPage"] for o in [lay["offPage"][om["id"]]]] +
+                    # a flow run down a divider (Figs 86/87): only the stretch
+                    # after the divider is its own line, drawn as it always was
+                    [{"id": f["id"], "points": [[M(p[0]), M(p[1])] for p in
+                                                ed["points"] + [ed["toPoint"]]],
+                      "arrow": True} for f, ed in along],
         # where the border rules actually are, rather than assuming the frame is
         # flush with the canvas: some diagrams inset it (Tender-Contract-Pre puts
         # it at x=6) and a flush frame then misses the original's by its own width

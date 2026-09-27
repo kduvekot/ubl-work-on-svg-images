@@ -114,7 +114,9 @@
     "properties": {
      "id": {"$ref": "#/$defs/id"},
      "kind": {"const": "cross-mark"},
-     "rule": {"enum": ["v", "h"], "description": "the axis of the rule it crosses"}
+     "rule": {"enum": ["v", "h"], "description": "the axis of the rule it crosses"},
+     "on": {"$ref": "#/$defs/id", "description": "the flow the mark is drawn on"},
+     "meaning": {"const": "break", "description": "a BPMN break borrowed into the UML drawing: the flow goes to any of the 0..n parties of the lane it enters"}
     }
    }
   },

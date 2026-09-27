@@ -184,6 +184,29 @@ def explained(src):
     return out
 
 
+def with_added_flows(g, src):
+    """The graph with the flows a person added to the model (a correction the
+    reading could not see, like the flow Figs 86/87 draw down a lane divider),
+    each replacing the off-page flow whose line it now ends in. Read from the
+    model split beside the graph, when there is one."""
+    base = re.sub(r"-graph(-corrected)?\.json$", "", src)
+    try:
+        m = json.load(open(base + "-diagram.json"))
+        former = json.load(open(base + "-extraction.json")).get("formerIds", {})
+    except (OSError, ValueError):
+        return g
+    added = [f for f in m["flows"] if former.get(f["id"], "").startswith("corr-")]
+    if not added:
+        return g
+    g = json.loads(json.dumps(g))
+    for f in added:
+        a, b = former.get(f["from"], f["from"]), former.get(f["to"], f["to"])
+        g["edges"].append({"from": a, "to": b, "edgeKind": f.get("kind")})
+        g["openEnds"] = [o for o in g.get("openEnds", [])
+                         if not (o.get("node") == b and o.get("inward"))]
+    return g
+
+
 def checks(g, outside=None):
     """What an activity diagram is allowed to say, one rule at a time.
 
@@ -389,7 +412,7 @@ def checks(g, outside=None):
 
 
 def main(src, out_json=None):
-    g = json.load(open(src))
+    g = with_added_flows(json.load(open(src)), src)
     name = (g.get("source") or src).split("/")[-1].rsplit(".", 1)[0]
     kinds = {}
     for n in g["nodes"]:

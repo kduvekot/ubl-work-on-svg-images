@@ -787,6 +787,42 @@
      "lane-transport-regulator"
     ]
    }
+  ],
+  "UBL-2.2-BusinessCard": [
+   {
+    "id": "q11-divider-flow",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Figs 86 and 87: the way out of the Business Card (Digital Capability) runs down the lane divider itself, carrying the two diagonal break marks, then turns into 'Download business card' ('Download digital capabilities'). A route drawn as the divider cannot be read as a flow, so the model had the document written and never read, the download entered from off the page, and the marks as unread line-work. Should the model have the flow?",
+    "answer": "Yes. The break character is a weird artifact in these two flows, but from the model's perspective there is a direct connection between the document and the download action: model the link, with the flow along the lane divider and the break symbol on it, so that a future redraw in BPMN 2.0 knows what is connected to what between the two lanes. The drawing stays as it is.",
+    "op": "divider-flow",
+    "from": "object-business-card",
+    "to": "action-download-business-card",
+    "offPage": "offpage-action-download-business-card",
+    "marks": [
+     "mark-1",
+     "mark-2"
+    ],
+    "meaning": "break"
+   }
+  ],
+  "UBL-2.2-DigitalCapability": [
+   {
+    "id": "q11-divider-flow",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Figs 86 and 87: the way out of the Business Card (Digital Capability) runs down the lane divider itself, carrying the two diagonal break marks, then turns into 'Download business card' ('Download digital capabilities'). A route drawn as the divider cannot be read as a flow, so the model had the document written and never read, the download entered from off the page, and the marks as unread line-work. Should the model have the flow?",
+    "answer": "Yes. The break character is a weird artifact in these two flows, but from the model's perspective there is a direct connection between the document and the download action: model the link, with the flow along the lane divider and the break symbol on it, so that a future redraw in BPMN 2.0 knows what is connected to what between the two lanes. The drawing stays as it is.",
+    "op": "divider-flow",
+    "from": "object-digital-capability",
+    "to": "action-download-digital-capabilities",
+    "offPage": "offpage-action-download-digital-capabilities",
+    "marks": [
+     "mark-1",
+     "mark-2"
+    ],
+    "meaning": "break"
+   }
   ]
  },
  "pendingTextFixes": {

@@ -1058,9 +1058,10 @@ against the baseline and committed on its own (the procedure is in
 | q8 | *Get Guarantee from financial institution*, a step involving a party the diagram does not draw | an ordinary step of the Tenderer: what it takes to complete is not this diagram's concern. A rule for all such steps (goods sent, a bank, an authority not drawn), settled without the TC from now on | Tender Guarantee Deposit | unchanged, no correction |
 | q9 | the crumpled connector into *Exception Notification (positive)* | an artwork fault: the model has the flow right, the drawing is special drawing instructions to leave as they are until a later session re-lays the diagram; recorded in `artwork-faults.json` | Fig 14 | unchanged, no correction |
 | q10 | the three notes on Intermodal Freight Management, on crossings with no document | an information exchange that takes place, which no current UBL document carries: drawn as a note instead of a document box, to show that it happens and between whom. The flow is of kind `information`, the note `annotates` it and belongs to no party; Fig 37's note annotates its segment the same way | Intermodal Freight Management, Fig 37 | unchanged |
+| q11 | the flow Figs 86/87 draw down the lane divider, with the break marks | the model has the link: an object flow from the document to the download action, routed `along-divider`, with the two marks `on` it as a `break`; the drawing stays as it is. The two artwork-fault entries go | Figs 86, 87 | unchanged |
 | - | misread text | noted, fixed in one pass at the end (`pendingTextFixes`, 20 so far) | 11 | - |
 
-After q10: 62 corrections over 13 diagrams; over all 78 not a pixel differs from
+After q11: 64 corrections over 15 diagrams; over all 78 not a pixel differs from
 `baselines/2026-09-25` (71 identical, 7 the same drawing with a corrected model)
 and the sweep table is the baseline's.
 
@@ -1230,6 +1231,25 @@ The model sheet now says "information exchanged with no UBL document:
 Regulatory Information" where it asked for the line to be read against the
 artwork. The notes' ids lose their lane (`note-transportation-network-information`,
 `-2`); nothing drawn moves.
+
+The eleventh, `q11`, closes a gap the model had recorded since 11 and 12.4. On
+Figs 86 and 87 the way out of the Business Card (Digital Capability) runs down the
+lane divider itself, carrying the pair of diagonal break marks - the BPMN break
+the TC named in 11 - and then turns into the download action. A route drawn as
+the divider cannot be read as a flow, so the model had the document written and
+never read (an artwork fault), the download entered from off the page, and the
+marks as unread line-work. The answer: the break character is a weird artifact,
+but from the model's perspective there is a direct connection between the
+document and the download action, and the model should have it - so that a
+future redraw in BPMN 2.0 knows what is connected to what between the two lanes.
+A new correction, `divider-flow`, adds the object flow
+`flow-business-card-to-download-business-card` in place of the off-page flow; its
+layout is routed `along-divider` (the divider draws the first stretch, the
+off-page flow's old line the last, so nothing drawn moves), and the two marks
+record that they are `on` it with the `meaning` "break". The model sheet reads the
+added flow, so both figures now pass every rule on their own, and their entries
+in `tools/artwork-faults.json` are gone. The draw.io file still lacks the link,
+as it lacks every off-page flow (running.md section 8).
 
 **Misread text is noted, not yet fixed.** A text fix changes what is drawn, and
 so the verifier's findings; the TC's instruction is to make them all in one pass

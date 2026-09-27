@@ -51,7 +51,8 @@
    "type": "object", "required": ["fromPoint", "toPoint", "routing"], "additionalProperties": false,
    "properties": {
     "fromPoint": {"$ref": "#/$defs/pair"}, "toPoint": {"$ref": "#/$defs/pair"},
-    "routing": {"enum": ["straight", "diagonal", "orthogonal"]},
+    "routing": {"enum": ["straight", "diagonal", "orthogonal", "along-divider"],
+                "description": "along-divider: the route's first stretch runs down a lane divider, which draws it; only the rest, from the first of the points on, is drawn as the flow's own line (Figs 86/87)"},
     "points": {"type": "array", "items": {"$ref": "#/$defs/pair"}},
     "dash": {"type": "number"}, "gap": {"type": "number"}, "dashOffset": {"type": "number"}}}},
   "texts": {"type": "object", "additionalProperties": {"$ref": "#/$defs/placedText"}},
