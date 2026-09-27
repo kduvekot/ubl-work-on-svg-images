@@ -60,7 +60,10 @@ These were settled by correction along the way and are not to be relaxed:
 - **A step that involves a party the diagram does not draw** (a bank, goods
   sent, an authority without a column) is an ordinary step of the party that
   takes it; only what the specification itself puts outside its scope becomes
-  an external segment (q7, q8).
+  an external segment (q7, q8). Each case settled this way is still mentioned
+  to the TC when found, so it is clear it was seen.
+- **The next question is prepared as soon as the previous answer is recorded**,
+  without waiting to be asked.
 - **Text fixes wait for the end** and go into `pendingTextFixes`.
 
 ## Resuming
