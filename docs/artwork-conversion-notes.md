@@ -1646,6 +1646,11 @@ differences shown.
   also on ROCD Initial Stocking, the VMI figures, CRP Sales and Inventory
   Movement): the SVG's corners are kept. And the drawing tool's "line jump"
   where the goods line crosses the divider is not drawn.
+- *CPFR Creating Sales Forecast (12 of 78).* Model correct and complete.
+  No grey in the diagrams (the TC, 2026-09-27): the three dividers the
+  artwork draws grey (two on Fig C.1, one here) are drawn black at their own
+  width; the layout keeps the artwork's tone, and the checker counts the grey
+  line as the artwork's ink. The real SVGs now use black and white only.
 
 **The notes for a person, all 266 settled by eye (2026-09-27).** The sweep
 leaves, per diagram, notes where the reading could not be sure; each was looked at

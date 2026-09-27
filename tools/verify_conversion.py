@@ -596,6 +596,16 @@ def verify(orig_png, render_png, graph_path, radius=3, diff_out=None):
     graph = json.load(open(graph_path))
     a, bg_orig = ink_of(orig_png)
     b, bg_render = ink_of(render_png)
+    # a divider the artwork draws in grey is drawn black (the TC, 2026-09-27:
+    # no grey in the diagrams), so the line is counted as the artwork's ink
+    if graph.get("greyRules"):
+        tone = np.asarray(bg_orig.convert("L"))
+        for gr in graph["greyRules"]:
+            lo, hi = int(gr["at"]), int(gr["at"] + max(1, gr["w"]))
+            if gr["axis"] == "v":
+                a[:, lo:hi] |= tone[:, lo:hi] < 245
+            else:
+                a[lo:hi, :] |= tone[lo:hi, :] < 245
     if a.shape != b.shape:
         return dict(verdict="improvable", name=graph_path,
                     findings=[dict(kind="size-mismatch", detail="original %s, render %s"

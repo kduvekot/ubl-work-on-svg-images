@@ -186,16 +186,17 @@ def svg_body(spec):
                  % (a, at, b, at, wt))
         o.append("</g>")
     for i, gr in enumerate(spec.get("greyRules", [])):
-        # a divider the artwork draws in grey; promoting it to black would be a
-        # louder line than the drawing has
-        o.append(group("lane-divider", "greyrule%d" % i, "lane divider (drawn in grey)",
+        # a divider the artwork draws in grey (Fig C.1, CPFR Creating Sales
+        # Forecast) is drawn black at its own width: the diagrams use no grey
+        # (the TC, 2026-09-27); the layout keeps the artwork's tone
+        o.append(group("lane-divider", "greyrule%d" % i, "lane divider (grey in the artwork)",
                        axis=gr["axis"], tone=gr["colour"]))
         if gr["axis"] == "v":
             o.append('<line x1="%.1f" y1="0" x2="%.1f" y2="%.1f" stroke="%s" stroke-width="%.2f"/>'
-                     % (gr["at"] + gr["w"] / 2, gr["at"] + gr["w"] / 2, H, gr["colour"], gr["w"]))
+                     % (gr["at"] + gr["w"] / 2, gr["at"] + gr["w"] / 2, H, "#000", gr["w"]))
         else:
             o.append('<line x1="0" y1="%.1f" x2="%.1f" y2="%.1f" stroke="%s" stroke-width="%.2f"/>'
-                     % (gr["at"] + gr["w"] / 2, W, gr["at"] + gr["w"] / 2, gr["colour"], gr["w"]))
+                     % (gr["at"] + gr["w"] / 2, W, gr["at"] + gr["w"] / 2, "#000", gr["w"]))
         o.append("</g>")
     for i, d in enumerate(spec.get("dashed", [])):
         # the dashed rounded box a CPFR phase is drawn inside, at the artwork's own
