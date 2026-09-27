@@ -1414,7 +1414,15 @@ on five figures, which holds nothing. The lines are the layout's rules, so all
 was (`uncorrected`), so it joins back whatever the model makes of it.
 *Provide Transportation Network Information* on Intermodal Freight Management
 is drawn across Planning and Execution and serves both; the TC: it belongs
-to both (`also-in-band`, the node's `alsoIn`), and a redraw could split it. Settled from
+to both (`also-in-band`, the node's `alsoIn`), and a redraw could split it.
+
+The ends (104). Contract: a way in and none out; every figure has an end, or
+hands over to another figure (six CPFR figures, `q16`), or records that it
+draws none; `validate` checks both. All 104 and all 78 figures pass. 52
+figures have one end, 26 have two to four (one per outcome: rejected,
+accepted, cancelled). Words beside an end name it ("End of CoO Process",
+"Transport Service Ready For Execution") or the process it leads into
+("Fulfillment Process", `q6`). Settled from
 the original and mentioned: on seven figures (Enquiry, five Tender figures,
 both Tender Contract figures) the reading made a third column 7-10 px wide out
 of the strip between the last divider and the frame; removed.

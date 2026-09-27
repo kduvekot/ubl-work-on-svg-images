@@ -1456,6 +1456,17 @@ def validate(diagram_path):
             and "start" not in m["figure"].get("unstated", {}):
         errs.append("the figure has no start, is entered from no other figure, and the model "
                     "does not record that the artwork draws none")
+    # an end has a way in and none out; a figure has an end, or hands over to
+    # another figure, or records that the artwork draws none
+    ends = [n for n in m["nodes"] if n["kind"] == "final"]
+    for n in ends:
+        if outs_of.get(n["id"]) or not (ins_of.get(n["id"]) or any(
+                o["node"] == n["id"] and o["direction"] == "in" for o in m["offPage"])):
+            errs.append("end %s needs a way in and no way out" % n["id"])
+    if not ends and not any(o["direction"] == "out" for o in m["offPage"]) \
+            and "end" not in m["figure"].get("unstated", {}):
+        errs.append("the figure has no end, hands over to no other figure, and the model "
+                    "does not record that the artwork draws none")
     # a bar is a fork or a join (or both): a way in, a way out, and two on one side
     ends = {}
     for f in m["flows"]:
