@@ -783,6 +783,8 @@ def apply_corrections(model, layout, report, name, recorded=None):
                 {"points": [g["at"]] + (g.get("points") or []) + [g["end"]]})
             patches.setdefault("dropOpenEnds", []).append(o["id"])
             touched.add(o["id"])
+        elif op == "unstated" and c.get("section") == "figure":
+            model["figure"].setdefault("unstated", {})[c["attribute"]] = c["reason"]
         elif op == "unstated":
             sec = c.get("section", "nodes")
             x = el(sec, c["element"], cid)
@@ -1383,6 +1385,21 @@ def validate(diagram_path):
             if not f.get("guard") and "guard" not in f.get("unstated", {}):
                 errs.append("flow %s out of decision %s has no guard, and the model does not "
                             "record that the artwork gives none" % (f["id"], n["id"]))
+    # a start has a way out and none in; a figure has a start, or is entered
+    # from another figure, or records that the artwork draws none
+    ins_of = {}
+    for f in m["flows"]:
+        ins_of.setdefault(f["to"], []).append(f)
+    starts = [n for n in m["nodes"] if n["kind"] == "initial"]
+    for n in starts:
+        out = len(outs_of.get(n["id"], [])) + sum(1 for o in m["offPage"]
+                                                  if o["node"] == n["id"] and o["direction"] == "out")
+        if not out or ins_of.get(n["id"]):
+            errs.append("start %s needs a way out and no way in" % n["id"])
+    if not starts and not any(o["direction"] == "in" for o in m["offPage"]) \
+            and "start" not in m["figure"].get("unstated", {}):
+        errs.append("the figure has no start, is entered from no other figure, and the model "
+                    "does not record that the artwork draws none")
     # a bar is a fork or a join (or both): a way in, a way out, and two on one side
     ends = {}
     for f in m["flows"]:

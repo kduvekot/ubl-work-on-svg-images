@@ -1383,7 +1383,17 @@ branches), Create Catalogue's diamond after *Respond to Request* (no words,
 guarded branches), Fulfilment Despatch Advice's *Determine Action* (three
 unguarded branches) and the four *Reconcile Charges* on the 2.5 billing
 figures, which guard the accepting branch and leave the otherwise case
-unlabelled. 29 `unstated` entries; nothing invented, nothing drawn changes. Settled from
+unlabelled. 29 `unstated` entries; nothing invented, nothing drawn changes.
+
+The starts (75). Contract: a way out and none in; and every figure has a
+start, or is entered from another figure, or records that the artwork draws
+none (`unstated` now also works for the figure as a whole). All 75 have a way
+out and none in. Of the 78 figures, 71 have a start; six CPFR figures are
+entered from the previous one (`q16`); Fig C.1 draws none - the process begins
+with the Buyer's *place order* - recorded as unstated. Words beside a start
+are its name (`q6`, `q13`), with a linked process ("From Order", "From
+Billing", "Ordering Process", "Initiate Transport Process") or a trigger
+(Freight Status Reporting, `q15`) where they say one. Settled from
 the original and mentioned: on seven figures (Enquiry, five Tender figures,
 both Tender Contract figures) the reading made a third column 7-10 px wide out
 of the strip between the last divider and the frame; removed.

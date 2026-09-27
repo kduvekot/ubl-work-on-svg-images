@@ -1873,6 +1873,17 @@
     "element": "flow-decision-seller-3-to-fork-seller",
     "attribute": "guard",
     "reason": "Fig C.1 draws its four decisions as plain diamonds with no question and no guards; what each branch means is said by the step it leads to (reject order, accept order, add detail, change order; cancel order)."
+   },
+   {
+    "id": "start-01",
+    "decided": "2026-09-27",
+    "by": "completeness sweep, settled from the original",
+    "question": "A figure with no start.",
+    "answer": "Fig C.1 draws no start node: the process begins with the Buyer's 'place order'.",
+    "op": "unstated",
+    "section": "figure",
+    "attribute": "start",
+    "reason": "Fig C.1 draws no start node: the process begins with the Buyer's 'place order'."
    }
   ],
   "UBL-2.0-SelfBillingwithCreditNoteProcess": [

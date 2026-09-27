@@ -12,7 +12,8 @@
    "type": "object", "required": ["name", "source"], "additionalProperties": false,
    "properties": {
     "name": {"type": "string", "description": "the figure's basename, as in art/"},
-    "source": {"type": ["string", "null"], "description": "the PNG it was read from, by file name"}
+    "source": {"type": ["string", "null"], "description": "the PNG it was read from, by file name"},
+    "unstated": {"type": "object", "additionalProperties": {"type": "string"}, "description": "what the artwork does not give for the figure as a whole (a start), with the reason"}
    }
   },
   "lanes": {
