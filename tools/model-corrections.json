@@ -1490,6 +1490,19 @@
     "was": {
      "label": "Forwarding\ninstructions"
     }
+   },
+   {
+    "id": "start-04",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, figure review",
+    "question": "The start is drawn on the line between Consignee and Consignor, with a line to each party's Request Logistic Service; the reading put it in the Consignee's column. Whose is it?",
+    "answer": "Both parties': the Ordering process sets off the Consignee and the Consignor alike, so the start stands between them. The drawing is unchanged.",
+    "op": "between",
+    "node": "initial-consignee",
+    "lanes": [
+     "lane-consignee",
+     "lane-consignor"
+    ]
    }
   ],
   "UBL-2.0-CertificationOfOriginOfGoodsProcess": [

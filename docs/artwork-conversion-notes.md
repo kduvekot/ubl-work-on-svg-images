@@ -1591,6 +1591,14 @@ differences shown.
   Notification). And "AnnounceTransport Services" is the artwork's typo: model
   and drawing read "Announce Transport Services", recorded in
   `tools/artwork-faults.json` (`text`).
+- *Initiate Freight Management (2 of 78).* Model correct and complete. The
+  start is drawn on the line between Consignee and Consignor, with a line to
+  each party's *Request Logistic Service*: the Ordering process sets off both,
+  so it stands between them (`start-04`; the reading had put it in the
+  Consignee's column). "Forwarding instructions" was misread for the
+  artwork's "Forwarding Instructions" (`text-30`). Two lines sit a few pixels
+  off the original (into the Consignor's *Receive Waybill*, and from its
+  *Request Logistic Service*), invisible at normal size: accepted.
 
 **The notes for a person, all 266 settled by eye (2026-09-27).** The sweep
 leaves, per diagram, notes where the reading could not be sure; each was looked at

@@ -45,7 +45,7 @@
      "label": {"type": "string", "description": "the words in the node, a newline where the artwork breaks the line"},
      "lane": {"$ref": "#/$defs/ref", "description": "the column lane it stands in; null for a document drawn on the line between two, and for a note that annotates something"},
      "between": {"type": "array", "items": {"$ref": "#/$defs/id"}, "minItems": 2, "maxItems": 3,
-                 "description": "a document (or a joint step, or a note) that belongs to no one column: for a document the parties that exchange it, left to right, as its flows say (two, or three where three take part); for a joint step or a note the two columns either side of the line it is drawn on. Where a document is drawn is the layout's."},
+                 "description": "a document (or a joint step, or a note) that belongs to no one column: for a document the parties that exchange it, left to right, as its flows say (two, or three where three take part); for a joint step, a start two parties begin from (Initiate Freight Management) or a note the two columns either side of the line it is drawn on. Where a document is drawn is the layout's."},
      "annotates": {"$ref": "#/$defs/id", "description": "for a note: the flow or segment it names - the information passing along an exchange no UBL document carries, or the part of the process it labels. The note belongs to no party; the flow's ends say who exchanges it"},
      "scope": {"const": "external", "description": "the box stands for a whole process outside this diagram's scope, which it points at and does not describe (a BPMN call activity)"},
      "linkedProcess": {"type": "object", "required": ["name", "how"], "additionalProperties": false,
