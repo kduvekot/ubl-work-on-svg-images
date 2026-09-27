@@ -379,6 +379,15 @@ def apply_corrections(model, layout, report, name, recorded=None):
       lane-name              lane `lane` is called `title` (the specification's
                              name); the words drawn in its title box stay the
                              artwork's own (kept as the layout's titleWords)
+      hand-over              off-page flow `offPage` continues into or from the
+                             figure `figure` as its line `port` (numbered left to
+                             right on the frame, the same number on both figures)
+                             and is there `counterpart` (an off-page flow, or a
+                             flow where the step it meets is drawn on both)
+      offpage-direction      off-page flow `offPage` runs `direction` (in/out):
+                             the reading had it the other way
+      same-step              node `node` is the step `other` of figure `figure`,
+                             drawn on both (CPFR's Ordering on Figs 13 and 14)
       retext                 the words of `element` in `section` (texts, nodes or
                              lanes) are `text`, which the reading misread; line
                              breaks as in the artwork, one per measured line
@@ -736,6 +745,27 @@ def apply_corrections(model, layout, report, name, recorded=None):
             layout["lanes"][l["id"]]["titleWords"] = l["title"]
             l["title"] = c["title"]
             touched.add(l["id"])
+        elif op == "hand-over":
+            o = el("offPage", c["offPage"], cid)
+            if o.get("continues") not in (None, c["figure"]):
+                raise ValueError("%s: correction %s: %s already continues into %s"
+                                 % (name, cid, c["offPage"], o["continues"]))
+            o["continues"], o["port"], o["counterpart"] = c["figure"], c["port"], c["counterpart"]
+            touched.add(o["id"])
+        elif op == "offpage-direction":
+            o = el("offPage", c["offPage"], cid)
+            if o["direction"] != c["direction"]:
+                o["direction"] = c["direction"]
+                g = layout["offPage"][o["id"]]
+                g["at"], g["end"] = g["end"], g["at"]
+                if g.get("points"):
+                    g["points"] = g["points"][::-1]
+                patches.setdefault("openEnds", {})[o["id"]] = c["direction"] == "in"
+            touched.add(o["id"])
+        elif op == "same-step":
+            n = el("nodes", c["node"], cid)
+            n["sameAs"] = {"figure": c["figure"], "node": c["other"]}
+            touched.add(n["id"])
         elif op == "retext":
             # words the reading got wrong, as the artwork writes them. The words
             # change, and so does what is drawn; where each line sits does not.
@@ -1154,6 +1184,13 @@ def corrected_graph(g, report):
                     e["guard"] = norm(f["text"])
         elif f["section"] == "lanes":
             g["partitions"][int(gid[4:])]["title"] = f["text"]
+    if patches and patches.get("openEnds"):
+        for oid, inward in patches["openEnds"].items():
+            e = g["openEnds"][int(oid[1:])]
+            e["inward"] = inward
+            e["at"], e["end"] = e["end"], e["at"]
+            if e.get("points"):
+                e["points"] = e["points"][::-1]
     if patches:
         # texts first by index, then drop the removed ones (indices are the
         # graph's own, so every change is made before any removal)
@@ -1275,6 +1312,26 @@ def validate(diagram_path):
             if len(parties) >= 2 and set(parties) != set(n["between"]):
                 errs.append("document %s stands between %s, and its flows are with %s"
                             % (n["id"], ", ".join(n["between"]), ", ".join(parties)))
+    # a line handed over to another figure: its counterpart there points back
+    here = os.path.dirname(os.path.abspath(diagram_path))
+    for o in m["offPage"]:
+        if "counterpart" not in o:
+            continue
+        other = os.path.join(here, "%s-diagram.json" % o["continues"])
+        if not os.path.exists(other):
+            continue
+        om = json.load(open(other, encoding="utf-8"))
+        cp = next((x for x in om["offPage"] if x["id"] == o["counterpart"]), None)
+        fl = next((x for x in om["flows"] if x["id"] == o["counterpart"]), None)
+        if cp is None and fl is None:
+            errs.append("%s hands over to %s in %s, which it does not have"
+                        % (o["id"], o["counterpart"], o["continues"]))
+        elif cp is not None and (cp.get("counterpart") != o["id"] or cp.get("port") != o.get("port")
+                                 or cp.get("direction") == o["direction"]
+                                 or cp.get("continues") != m["figure"]["name"]):
+            errs.append("%s and %s in %s do not hand over to each other (port %s/%s, direction %s/%s)"
+                        % (o["id"], cp["id"], o["continues"], o.get("port"), cp.get("port"),
+                           o["direction"], cp.get("direction")))
     for p in m.get("phases", []):
         for x in p.get("members", []):
             ref("phase %s's member" % p["id"], x, "nodes")

@@ -26,8 +26,8 @@ Scope so far: the **78 UML activity diagrams** of UBL 2.5 (of the 97 figures).
    diagram says), `-layout.json` (where it is drawn) and `-extraction.json` (how
    the reading went), each with a schema, stable ids, and a split that provably
    loses nothing.
-4. **Reviewing the model with the TC**, one question at a time. Fifteen questions
-   are settled (q1-q15), recorded as corrections the pipeline applies. None of
+4. **Reviewing the model with the TC**, one question at a time. Sixteen questions
+   are settled (q1-q16), recorded as corrections the pipeline applies. None of
    them has changed a pixel of any drawing.
 5. **Misread text is being noted, not fixed**, to be corrected in one pass at the
    end (TC instruction): 22 so far, with 9 drawing fixes found alongside.

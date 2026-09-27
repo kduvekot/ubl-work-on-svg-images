@@ -1063,6 +1063,7 @@ against the baseline and committed on its own (the procedure is in
 | q13 | 42 texts in 20 figures labelling nothing | a question beside a diamond is the decision's `question`; words beside a start or an end name it (`starts-from` where they name another process); two merged texts split, and their decisions' guards put on the branches they are written on; three lane titles taken for guards removed | 25 figures | unchanged |
 | q14 | 14 documents drawn on a divider that is not between the parties exchanging them | a document's `between` names the parties that exchange it, left to right, as its flows say (three where three take part); where it is drawn is the layout's; validation checks the two agree | 7 figures | unchanged |
 | q15 | column titles read as loose text; Freight Status Reporting's untitled third column; sliver "columns" | the texts are the columns' titles, drawn where they are (Waste Movement takes UBL.xml's "Sender Party"/"Receiver Party", the drawing keeps "Senderparty"); Freight Status Reporting's third column is part of the Receiver Party (`merge-lane`): its start is the Receiver Party reporting on its own initiative, recorded as the start's `trigger` (in BPMN a timer start), drawn as the original draws it; seven 7-10 px strips between the last divider and the frame removed | 9 figures | unchanged |
+| q16 | the lines between the CPFR figures | every line leaving one figure arrives at the next (Figs 6, 7, 9, 10, 12, 13, 14 in UBL.xml's order), same number, same left-to-right order: 1 the Buyer's side, 2 the Seller's. Each records `continues`, `port` and `counterpart`; validate checks both sides agree; Ordering is one step drawn on Figs 13 and 14 (`sameAs`); a Fig 9 line reversed to "out" | 7 CPFR figures | unchanged |
 | - | misread text | noted, fixed in one pass at the end (`pendingTextFixes`, 22 so far; and `pendingDrawingFixes`, 9) | 25 | - |
 
 After q12: 66 corrections over 16 diagrams; over all 78 not a pixel differs from
@@ -1326,6 +1327,17 @@ its own). That there are only four notes in the 78 was checked on all 78
 originals by eye, twice: on contact sheets, then each figure at 1400 px wide
 (about 1:2.4 of the PNG, where the smallest note is some 180 px across): one on
 Sourcing Punch-out, three on Intermodal Freight Management, none elsewhere.
+
+The sixteenth, `q16`, checked the lines between the CPFR figures on the
+originals, each figure's bottom laid over the next one's top. All of them
+match: the same count, the same left-to-right order, positions within about
+25 px, line 1 always the Buyer's side and line 2 the Seller's. New corrections
+`hand-over` (the figure, the port number and the counterpart on the other
+figure), `offpage-direction` (Fig 9's left line out of *Forecast (sales -
+positive response)* leaves the figure; the reading had it arriving) and
+`same-step` (*Ordering* on Figs 13 and 14 is one step; its lines are flows on
+one figure and off-page lines on the other). `validate` refuses a hand-over
+whose two sides disagree in port, direction or pointer.
 
 The phases (7) were complete in title but not in content: which steps belong
 to a phase was said only by where they are drawn. The model now lists each

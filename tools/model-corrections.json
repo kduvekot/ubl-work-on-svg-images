@@ -115,6 +115,54 @@
     "op": "decision-question",
     "text": "text-exception-received-2",
     "node": "decision-1"
+   },
+   {
+    "id": "q16-08",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "The lines leaving the bottom of one CPFR figure and arriving at the top of the next (Figs 6, 7, 9, 10, 12, 13, 14, in UBL.xml's order, which is CPFR's step order): do they appear on both, and in what order? Checked on the originals: every one does, the same number on both sides, in the same left-to-right order - line 1 the Buyer's side, line 2 the Seller's.",
+    "answer": "Yes. Each line records the figure it continues into or from, its number counted left to right on the frame (the same on both figures), and what it is on the other figure. Ordering is drawn on both Figs 13 and 14: the same step, whose lines are flows on one figure and off-page lines on the other. The left line out of Fig 9's Forecast (sales - positive response) leaves the figure; the reading had it arriving.",
+    "op": "hand-over",
+    "offPage": "offpage-action-receive-sales-forecast-wait-for-in-1",
+    "figure": "UBL-2.2-CPFR-CreatingSalesForecast",
+    "port": 1,
+    "counterpart": "offpage-object-forecast-sales-positive-response"
+   },
+   {
+    "id": "q16-09",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "The lines leaving the bottom of one CPFR figure and arriving at the top of the next (Figs 6, 7, 9, 10, 12, 13, 14, in UBL.xml's order, which is CPFR's step order): do they appear on both, and in what order? Checked on the originals: every one does, the same number on both sides, in the same left-to-right order - line 1 the Buyer's side, line 2 the Seller's.",
+    "answer": "Yes. Each line records the figure it continues into or from, its number counted left to right on the frame (the same on both figures), and what it is on the other figure. Ordering is drawn on both Figs 13 and 14: the same step, whose lines are flows on one figure and off-page lines on the other. The left line out of Fig 9's Forecast (sales - positive response) leaves the figure; the reading had it arriving.",
+    "op": "hand-over",
+    "offPage": "offpage-action-receive-sales-forecast-wait-for-in-exception-handling",
+    "figure": "UBL-2.2-CPFR-CreatingSalesForecast",
+    "port": 2,
+    "counterpart": "offpage-object-forecast-sales-positive-response-2"
+   },
+   {
+    "id": "q16-10",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "The lines leaving the bottom of one CPFR figure and arriving at the top of the next (Figs 6, 7, 9, 10, 12, 13, 14, in UBL.xml's order, which is CPFR's step order): do they appear on both, and in what order? Checked on the originals: every one does, the same number on both sides, in the same left-to-right order - line 1 the Buyer's side, line 2 the Seller's.",
+    "answer": "Yes. Each line records the figure it continues into or from, its number counted left to right on the frame (the same on both figures), and what it is on the other figure. Ordering is drawn on both Figs 13 and 14: the same step, whose lines are flows on one figure and off-page lines on the other. The left line out of Fig 9's Forecast (sales - positive response) leaves the figure; the reading had it arriving.",
+    "op": "hand-over",
+    "offPage": "offpage-decision-1",
+    "figure": "UBL-2.2-CPFR-CreateOrderForecast",
+    "port": 1,
+    "counterpart": "offpage-fork-buyer-party"
+   },
+   {
+    "id": "q16-11",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "The lines leaving the bottom of one CPFR figure and arriving at the top of the next (Figs 6, 7, 9, 10, 12, 13, 14, in UBL.xml's order, which is CPFR's step order): do they appear on both, and in what order? Checked on the originals: every one does, the same number on both sides, in the same left-to-right order - line 1 the Buyer's side, line 2 the Seller's.",
+    "answer": "Yes. Each line records the figure it continues into or from, its number counted left to right on the frame (the same on both figures), and what it is on the other figure. Ordering is drawn on both Figs 13 and 14: the same step, whose lines are flows on one figure and off-page lines on the other. The left line out of Fig 9's Forecast (sales - positive response) leaves the figure; the reading had it arriving.",
+    "op": "hand-over",
+    "offPage": "offpage-decision-exception-handling",
+    "figure": "UBL-2.2-CPFR-CreateOrderForecast",
+    "port": 2,
+    "counterpart": "offpage-fork-buyer-party-2"
    }
   ],
   "UBL-2.2-CPFR-EstablishingCollaborativeRelationships": [
@@ -140,6 +188,18 @@
     "op": "decision-question",
     "text": "text-exception-criteria-accepted",
     "node": "decision-buyer-party"
+   },
+   {
+    "id": "q16-02",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "The lines leaving the bottom of one CPFR figure and arriving at the top of the next (Figs 6, 7, 9, 10, 12, 13, 14, in UBL.xml's order, which is CPFR's step order): do they appear on both, and in what order? Checked on the originals: every one does, the same number on both sides, in the same left-to-right order - line 1 the Buyer's side, line 2 the Seller's.",
+    "answer": "Yes. Each line records the figure it continues into or from, its number counted left to right on the frame (the same on both figures), and what it is on the other figure. Ordering is drawn on both Figs 13 and 14: the same step, whose lines are flows on one figure and off-page lines on the other. The left line out of Fig 9's Forecast (sales - positive response) leaves the figure; the reading had it arriving.",
+    "op": "hand-over",
+    "offPage": "offpage-action-receive-exception-criteria-in-seller-party",
+    "figure": "UBL-2.2-CPFR-CreateJointBusinessPlan",
+    "port": 1,
+    "counterpart": "offpage-action-create-retail-event"
    }
   ],
   "UBL-2.2-CPFR-CreateJointBusinessPlan": [
@@ -233,6 +293,30 @@
     "op": "decision-question",
     "text": "text-tilp-accepted",
     "node": "decision-creating-joint-business-plan"
+   },
+   {
+    "id": "q16-03",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "The lines leaving the bottom of one CPFR figure and arriving at the top of the next (Figs 6, 7, 9, 10, 12, 13, 14, in UBL.xml's order, which is CPFR's step order): do they appear on both, and in what order? Checked on the originals: every one does, the same number on both sides, in the same left-to-right order - line 1 the Buyer's side, line 2 the Seller's.",
+    "answer": "Yes. Each line records the figure it continues into or from, its number counted left to right on the frame (the same on both figures), and what it is on the other figure. Ordering is drawn on both Figs 13 and 14: the same step, whose lines are flows on one figure and off-page lines on the other. The left line out of Fig 9's Forecast (sales - positive response) leaves the figure; the reading had it arriving.",
+    "op": "hand-over",
+    "offPage": "offpage-action-create-retail-event",
+    "figure": "UBL-2.2-CPFR-EstablishingCollaborativeRelationships",
+    "port": 1,
+    "counterpart": "offpage-action-receive-exception-criteria-in-seller-party"
+   },
+   {
+    "id": "q16-04",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "The lines leaving the bottom of one CPFR figure and arriving at the top of the next (Figs 6, 7, 9, 10, 12, 13, 14, in UBL.xml's order, which is CPFR's step order): do they appear on both, and in what order? Checked on the originals: every one does, the same number on both sides, in the same left-to-right order - line 1 the Buyer's side, line 2 the Seller's.",
+    "answer": "Yes. Each line records the figure it continues into or from, its number counted left to right on the frame (the same on both figures), and what it is on the other figure. Ordering is drawn on both Figs 13 and 14: the same step, whose lines are flows on one figure and off-page lines on the other. The left line out of Fig 9's Forecast (sales - positive response) leaves the figure; the reading had it arriving.",
+    "op": "hand-over",
+    "offPage": "offpage-action-receive-tilp-in-1",
+    "figure": "UBL-2.2-CPFR-CreatingSalesForecast",
+    "port": 1,
+    "counterpart": "offpage-action-create-product-activity-pos-data"
    }
   ],
   "UBL-2.2-CPFR-CreatingSalesForecast": [
@@ -290,6 +374,52 @@
     "op": "decision-question",
     "text": "text-sales-forecast-accepted",
     "node": "decision-creating-sales-forecast"
+   },
+   {
+    "id": "q16-01",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "The lines leaving the bottom of one CPFR figure and arriving at the top of the next (Figs 6, 7, 9, 10, 12, 13, 14, in UBL.xml's order, which is CPFR's step order): do they appear on both, and in what order? Checked on the originals: every one does, the same number on both sides, in the same left-to-right order - line 1 the Buyer's side, line 2 the Seller's.",
+    "answer": "Yes. Each line records the figure it continues into or from, its number counted left to right on the frame (the same on both figures), and what it is on the other figure. Ordering is drawn on both Figs 13 and 14: the same step, whose lines are flows on one figure and off-page lines on the other. The left line out of Fig 9's Forecast (sales - positive response) leaves the figure; the reading had it arriving.",
+    "op": "offpage-direction",
+    "offPage": "offpage-object-forecast-sales-positive-response",
+    "direction": "out"
+   },
+   {
+    "id": "q16-05",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "The lines leaving the bottom of one CPFR figure and arriving at the top of the next (Figs 6, 7, 9, 10, 12, 13, 14, in UBL.xml's order, which is CPFR's step order): do they appear on both, and in what order? Checked on the originals: every one does, the same number on both sides, in the same left-to-right order - line 1 the Buyer's side, line 2 the Seller's.",
+    "answer": "Yes. Each line records the figure it continues into or from, its number counted left to right on the frame (the same on both figures), and what it is on the other figure. Ordering is drawn on both Figs 13 and 14: the same step, whose lines are flows on one figure and off-page lines on the other. The left line out of Fig 9's Forecast (sales - positive response) leaves the figure; the reading had it arriving.",
+    "op": "hand-over",
+    "offPage": "offpage-action-create-product-activity-pos-data",
+    "figure": "UBL-2.2-CPFR-CreateJointBusinessPlan",
+    "port": 1,
+    "counterpart": "offpage-action-receive-tilp-in-buyer-party"
+   },
+   {
+    "id": "q16-06",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "The lines leaving the bottom of one CPFR figure and arriving at the top of the next (Figs 6, 7, 9, 10, 12, 13, 14, in UBL.xml's order, which is CPFR's step order): do they appear on both, and in what order? Checked on the originals: every one does, the same number on both sides, in the same left-to-right order - line 1 the Buyer's side, line 2 the Seller's.",
+    "answer": "Yes. Each line records the figure it continues into or from, its number counted left to right on the frame (the same on both figures), and what it is on the other figure. Ordering is drawn on both Figs 13 and 14: the same step, whose lines are flows on one figure and off-page lines on the other. The left line out of Fig 9's Forecast (sales - positive response) leaves the figure; the reading had it arriving.",
+    "op": "hand-over",
+    "offPage": "offpage-object-forecast-sales-positive-response",
+    "figure": "UBL-2.2-CPFR-ExceptionHandling",
+    "port": 1,
+    "counterpart": "offpage-action-receive-sales-forecast-wait-for-in-buyer-party"
+   },
+   {
+    "id": "q16-07",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "The lines leaving the bottom of one CPFR figure and arriving at the top of the next (Figs 6, 7, 9, 10, 12, 13, 14, in UBL.xml's order, which is CPFR's step order): do they appear on both, and in what order? Checked on the originals: every one does, the same number on both sides, in the same left-to-right order - line 1 the Buyer's side, line 2 the Seller's.",
+    "answer": "Yes. Each line records the figure it continues into or from, its number counted left to right on the frame (the same on both figures), and what it is on the other figure. Ordering is drawn on both Figs 13 and 14: the same step, whose lines are flows on one figure and off-page lines on the other. The left line out of Fig 9's Forecast (sales - positive response) leaves the figure; the reading had it arriving.",
+    "op": "hand-over",
+    "offPage": "offpage-object-forecast-sales-positive-response-2",
+    "figure": "UBL-2.2-CPFR-ExceptionHandling",
+    "port": 2,
+    "counterpart": "offpage-action-receive-sales-forecast-wait-for-in-seller-party"
    }
   ],
   "UBL-2.2-CPFR-CreateOrderForecast": [
@@ -383,6 +513,54 @@
     "op": "decision-question",
     "text": "text-order-forecast-accepted",
     "node": "decision-no"
+   },
+   {
+    "id": "q16-12",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "The lines leaving the bottom of one CPFR figure and arriving at the top of the next (Figs 6, 7, 9, 10, 12, 13, 14, in UBL.xml's order, which is CPFR's step order): do they appear on both, and in what order? Checked on the originals: every one does, the same number on both sides, in the same left-to-right order - line 1 the Buyer's side, line 2 the Seller's.",
+    "answer": "Yes. Each line records the figure it continues into or from, its number counted left to right on the frame (the same on both figures), and what it is on the other figure. Ordering is drawn on both Figs 13 and 14: the same step, whose lines are flows on one figure and off-page lines on the other. The left line out of Fig 9's Forecast (sales - positive response) leaves the figure; the reading had it arriving.",
+    "op": "hand-over",
+    "offPage": "offpage-fork-no",
+    "figure": "UBL-2.2-CPFR-ExceptionHandling",
+    "port": 1,
+    "counterpart": "offpage-decision-buyer-party"
+   },
+   {
+    "id": "q16-13",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "The lines leaving the bottom of one CPFR figure and arriving at the top of the next (Figs 6, 7, 9, 10, 12, 13, 14, in UBL.xml's order, which is CPFR's step order): do they appear on both, and in what order? Checked on the originals: every one does, the same number on both sides, in the same left-to-right order - line 1 the Buyer's side, line 2 the Seller's.",
+    "answer": "Yes. Each line records the figure it continues into or from, its number counted left to right on the frame (the same on both figures), and what it is on the other figure. Ordering is drawn on both Figs 13 and 14: the same step, whose lines are flows on one figure and off-page lines on the other. The left line out of Fig 9's Forecast (sales - positive response) leaves the figure; the reading had it arriving.",
+    "op": "hand-over",
+    "offPage": "offpage-fork-no-2",
+    "figure": "UBL-2.2-CPFR-ExceptionHandling",
+    "port": 2,
+    "counterpart": "offpage-decision-seller-party"
+   },
+   {
+    "id": "q16-14",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "The lines leaving the bottom of one CPFR figure and arriving at the top of the next (Figs 6, 7, 9, 10, 12, 13, 14, in UBL.xml's order, which is CPFR's step order): do they appear on both, and in what order? Checked on the originals: every one does, the same number on both sides, in the same left-to-right order - line 1 the Buyer's side, line 2 the Seller's.",
+    "answer": "Yes. Each line records the figure it continues into or from, its number counted left to right on the frame (the same on both figures), and what it is on the other figure. Ordering is drawn on both Figs 13 and 14: the same step, whose lines are flows on one figure and off-page lines on the other. The left line out of Fig 9's Forecast (sales - positive response) leaves the figure; the reading had it arriving.",
+    "op": "hand-over",
+    "offPage": "offpage-object-forecast-order-positive-response-2",
+    "figure": "UBL-2.2-CPFR-IdentifyResolve",
+    "port": 1,
+    "counterpart": "offpage-action-receive-wait-for-exception-notification-in-buyer-party"
+   },
+   {
+    "id": "q16-15",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "The lines leaving the bottom of one CPFR figure and arriving at the top of the next (Figs 6, 7, 9, 10, 12, 13, 14, in UBL.xml's order, which is CPFR's step order): do they appear on both, and in what order? Checked on the originals: every one does, the same number on both sides, in the same left-to-right order - line 1 the Buyer's side, line 2 the Seller's.",
+    "answer": "Yes. Each line records the figure it continues into or from, its number counted left to right on the frame (the same on both figures), and what it is on the other figure. Ordering is drawn on both Figs 13 and 14: the same step, whose lines are flows on one figure and off-page lines on the other. The left line out of Fig 9's Forecast (sales - positive response) leaves the figure; the reading had it arriving.",
+    "op": "hand-over",
+    "offPage": "offpage-object-forecast-order-positive-response",
+    "figure": "UBL-2.2-CPFR-IdentifyResolve",
+    "port": 2,
+    "counterpart": "offpage-action-receive-wait-for-exception-notification-in-seller-party"
    }
   ],
   "UBL-2.2-CPFR-IdentifyResolve": [
@@ -489,6 +667,65 @@
     "op": "decision-question",
     "text": "text-exception-received-2",
     "node": "decision-1"
+   },
+   {
+    "id": "q16-16",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "The lines leaving the bottom of one CPFR figure and arriving at the top of the next (Figs 6, 7, 9, 10, 12, 13, 14, in UBL.xml's order, which is CPFR's step order): do they appear on both, and in what order? Checked on the originals: every one does, the same number on both sides, in the same left-to-right order - line 1 the Buyer's side, line 2 the Seller's.",
+    "answer": "Yes. Each line records the figure it continues into or from, its number counted left to right on the frame (the same on both figures), and what it is on the other figure. Ordering is drawn on both Figs 13 and 14: the same step, whose lines are flows on one figure and off-page lines on the other. The left line out of Fig 9's Forecast (sales - positive response) leaves the figure; the reading had it arriving.",
+    "op": "hand-over",
+    "offPage": "offpage-action-receive-wait-for-exception-notification-in-1",
+    "figure": "UBL-2.2-CPFR-CreateOrderForecast",
+    "port": 1,
+    "counterpart": "offpage-object-forecast-order-positive-response-2"
+   },
+   {
+    "id": "q16-17",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "The lines leaving the bottom of one CPFR figure and arriving at the top of the next (Figs 6, 7, 9, 10, 12, 13, 14, in UBL.xml's order, which is CPFR's step order): do they appear on both, and in what order? Checked on the originals: every one does, the same number on both sides, in the same left-to-right order - line 1 the Buyer's side, line 2 the Seller's.",
+    "answer": "Yes. Each line records the figure it continues into or from, its number counted left to right on the frame (the same on both figures), and what it is on the other figure. Ordering is drawn on both Figs 13 and 14: the same step, whose lines are flows on one figure and off-page lines on the other. The left line out of Fig 9's Forecast (sales - positive response) leaves the figure; the reading had it arriving.",
+    "op": "hand-over",
+    "offPage": "offpage-action-receive-wait-for-exception-notification-in-identifying-and-resolving-exceptions-for",
+    "figure": "UBL-2.2-CPFR-CreateOrderForecast",
+    "port": 2,
+    "counterpart": "offpage-object-forecast-order-positive-response"
+   },
+   {
+    "id": "q16-18",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "The lines leaving the bottom of one CPFR figure and arriving at the top of the next (Figs 6, 7, 9, 10, 12, 13, 14, in UBL.xml's order, which is CPFR's step order): do they appear on both, and in what order? Checked on the originals: every one does, the same number on both sides, in the same left-to-right order - line 1 the Buyer's side, line 2 the Seller's.",
+    "answer": "Yes. Each line records the figure it continues into or from, its number counted left to right on the frame (the same on both figures), and what it is on the other figure. Ordering is drawn on both Figs 13 and 14: the same step, whose lines are flows on one figure and off-page lines on the other. The left line out of Fig 9's Forecast (sales - positive response) leaves the figure; the reading had it arriving.",
+    "op": "hand-over",
+    "offPage": "offpage-action-ordering",
+    "figure": "UBL-2.2-CPFR-ExceptionMonitor",
+    "port": 1,
+    "counterpart": "flow-ordering-to-wait-for-exception-notification-in-buyer-party"
+   },
+   {
+    "id": "q16-19",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "The lines leaving the bottom of one CPFR figure and arriving at the top of the next (Figs 6, 7, 9, 10, 12, 13, 14, in UBL.xml's order, which is CPFR's step order): do they appear on both, and in what order? Checked on the originals: every one does, the same number on both sides, in the same left-to-right order - line 1 the Buyer's side, line 2 the Seller's.",
+    "answer": "Yes. Each line records the figure it continues into or from, its number counted left to right on the frame (the same on both figures), and what it is on the other figure. Ordering is drawn on both Figs 13 and 14: the same step, whose lines are flows on one figure and off-page lines on the other. The left line out of Fig 9's Forecast (sales - positive response) leaves the figure; the reading had it arriving.",
+    "op": "hand-over",
+    "offPage": "offpage-action-ordering-2",
+    "figure": "UBL-2.2-CPFR-ExceptionMonitor",
+    "port": 2,
+    "counterpart": "flow-ordering-to-wait-for-exception-notification-in-seller-party"
+   },
+   {
+    "id": "q16-22",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "The lines leaving the bottom of one CPFR figure and arriving at the top of the next (Figs 6, 7, 9, 10, 12, 13, 14, in UBL.xml's order, which is CPFR's step order): do they appear on both, and in what order? Checked on the originals: every one does, the same number on both sides, in the same left-to-right order - line 1 the Buyer's side, line 2 the Seller's.",
+    "answer": "Yes. Each line records the figure it continues into or from, its number counted left to right on the frame (the same on both figures), and what it is on the other figure. Ordering is drawn on both Figs 13 and 14: the same step, whose lines are flows on one figure and off-page lines on the other. The left line out of Fig 9's Forecast (sales - positive response) leaves the figure; the reading had it arriving.",
+    "op": "same-step",
+    "node": "action-ordering",
+    "figure": "UBL-2.2-CPFR-ExceptionMonitor",
+    "other": "action-ordering"
    }
   ],
   "UBL-2.2-CPFR-ExceptionMonitor": [
@@ -621,6 +858,41 @@
     "op": "decision-question",
     "text": "text-exception-received-2",
     "node": "decision-no"
+   },
+   {
+    "id": "q16-20",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "The lines leaving the bottom of one CPFR figure and arriving at the top of the next (Figs 6, 7, 9, 10, 12, 13, 14, in UBL.xml's order, which is CPFR's step order): do they appear on both, and in what order? Checked on the originals: every one does, the same number on both sides, in the same left-to-right order - line 1 the Buyer's side, line 2 the Seller's.",
+    "answer": "Yes. Each line records the figure it continues into or from, its number counted left to right on the frame (the same on both figures), and what it is on the other figure. Ordering is drawn on both Figs 13 and 14: the same step, whose lines are flows on one figure and off-page lines on the other. The left line out of Fig 9's Forecast (sales - positive response) leaves the figure; the reading had it arriving.",
+    "op": "hand-over",
+    "offPage": "offpage-action-ordering",
+    "figure": "UBL-2.2-CPFR-IdentifyResolve",
+    "port": 1,
+    "counterpart": "flow-decision-buyer-party-to-ordering"
+   },
+   {
+    "id": "q16-21",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "The lines leaving the bottom of one CPFR figure and arriving at the top of the next (Figs 6, 7, 9, 10, 12, 13, 14, in UBL.xml's order, which is CPFR's step order): do they appear on both, and in what order? Checked on the originals: every one does, the same number on both sides, in the same left-to-right order - line 1 the Buyer's side, line 2 the Seller's.",
+    "answer": "Yes. Each line records the figure it continues into or from, its number counted left to right on the frame (the same on both figures), and what it is on the other figure. Ordering is drawn on both Figs 13 and 14: the same step, whose lines are flows on one figure and off-page lines on the other. The left line out of Fig 9's Forecast (sales - positive response) leaves the figure; the reading had it arriving.",
+    "op": "hand-over",
+    "offPage": "offpage-action-ordering-2",
+    "figure": "UBL-2.2-CPFR-IdentifyResolve",
+    "port": 2,
+    "counterpart": "flow-decision-seller-party-to-ordering"
+   },
+   {
+    "id": "q16-23",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "The lines leaving the bottom of one CPFR figure and arriving at the top of the next (Figs 6, 7, 9, 10, 12, 13, 14, in UBL.xml's order, which is CPFR's step order): do they appear on both, and in what order? Checked on the originals: every one does, the same number on both sides, in the same left-to-right order - line 1 the Buyer's side, line 2 the Seller's.",
+    "answer": "Yes. Each line records the figure it continues into or from, its number counted left to right on the frame (the same on both figures), and what it is on the other figure. Ordering is drawn on both Figs 13 and 14: the same step, whose lines are flows on one figure and off-page lines on the other. The left line out of Fig 9's Forecast (sales - positive response) leaves the figure; the reading had it arriving.",
+    "op": "same-step",
+    "node": "action-ordering",
+    "figure": "UBL-2.2-CPFR-IdentifyResolve",
+    "other": "action-ordering"
    }
   ],
   "UBL-2.3-Tender-Contract-Pre": [
