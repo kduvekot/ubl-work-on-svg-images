@@ -26,8 +26,8 @@ Scope so far: the **78 UML activity diagrams** of UBL 2.5 (of the 97 figures).
    diagram says), `-layout.json` (where it is drawn) and `-extraction.json` (how
    the reading went), each with a schema, stable ids, and a split that provably
    loses nothing.
-4. **Reviewing the model with the TC**, one question at a time. Thirteen questions
-   are settled (q1-q13), recorded as corrections the pipeline applies. None of
+4. **Reviewing the model with the TC**, one question at a time. Fourteen questions
+   are settled (q1-q14), recorded as corrections the pipeline applies. None of
    them has changed a pixel of any drawing.
 5. **Misread text is being noted, not fixed**, to be corrected in one pass at the
    end (TC instruction): 22 so far, with 9 drawing fixes found alongside.
@@ -124,8 +124,7 @@ out as stated, and every generated file was byte-identical to the working run's.
    to be brought to the TC one at a time):
    - From the model review (a checker reading the corrected model: document
      names and roles against UBL's own list, parties, verbs, guards, placement):
-     documents drawn on a divider that is not between the parties exchanging
-     them; lane titles read as text (Freight Status Reporting, Waste Movement);
+     lane titles read as text (Freight Status Reporting, Waste Movement);
      artwork document names that differ from UBL's; "Receive" steps with no
      document coming in; "Publish Official Journal" on Contract Information
      Preparation.

@@ -1061,6 +1061,7 @@ against the baseline and committed on its own (the procedure is in
 | q11 | the flow Figs 86/87 draw down the lane divider, with the break marks | the model has the link: an object flow from the document to the download action, routed `along-divider`, with the two marks `on` it as a `break`; the drawing stays as it is. The two artwork-fault entries go | Figs 86, 87 | unchanged |
 | q12 | "(from Business Processes)" under two documents | UML-tool notation: the document is defined in another package of the tool's model; each text labels its document, which records `definedIn` "Business Processes" | Utility Billing | unchanged |
 | q13 | 42 texts in 20 figures labelling nothing | a question beside a diamond is the decision's `question`; words beside a start or an end name it (`starts-from` where they name another process); two merged texts split, and their decisions' guards put on the branches they are written on; three lane titles taken for guards removed | 25 figures | unchanged |
+| q14 | 14 documents drawn on a divider that is not between the parties exchanging them | a document's `between` names the parties that exchange it, left to right, as its flows say (three where three take part); where it is drawn is the layout's; validation checks the two agree | 7 figures | unchanged |
 | - | misread text | noted, fixed in one pass at the end (`pendingTextFixes`, 22 so far; and `pendingDrawingFixes`, 9) | 25 | - |
 
 After q12: 66 corrections over 16 diagrams; over all 78 not a pixel differs from
@@ -1282,6 +1283,19 @@ Send Exception) instead of the reading's "No". Left for their own questions:
 "Senderparty"/"ReceiverParty" (Waste Movement), which are lane titles, and
 "Publish Official Journal" on Contract Information Preparation.
 
+The fourteenth, `q14`: after q4b a document's `between` was the divider it is
+drawn on, which for 214 of 228 documents is also the pair of parties that
+exchange it. For 14 it is not: a long arrow across an intermediate lane
+(Certification of Origin, Intermodal Freight Management, Fulfilment Receipt
+Advice, Fig C.1's Receipt Advice) or three parties (Fig C.1's Despatch Advice,
+Initiate Freight Management, Payment Notification). Asked whether such a box
+always stands next to the receiver: no - 5 of the 9 two-party cases do, 4 stand
+next to the sender; a request and its response stand together, and the artwork
+follows no rule. The answer: `between` says who exchanges the document, left to
+right, from its flows; the layout keeps where it is drawn; `model_io.py
+validate` refuses a document whose `between` disagrees with its flows. Nothing
+drawn changes; 8 ids that named the drawn divider now name the parties.
+
 **The notes for a person, all 266 settled by eye (2026-09-27).** The sweep
 leaves, per diagram, notes where the reading could not be sure; each was looked at
 beside the original and our render (side by side, crops of the place). Most are
@@ -1353,6 +1367,10 @@ when the diagrams themselves are next revised.
 - *Utility Billing (with `q12`):* drop "(from Business Processes)" in a redraw:
   the package means nothing to a reader of the specification; if the link
   matters, refer to the billing section instead.
+- *Documents across an intermediate lane (with `q14`):* the artwork puts such a
+  box next to the receiver 5 times and next to the sender 4 times. A redraw
+  could agree a convention - simplest, always on the divider next to the
+  receiver.
 - *Tender Guarantee Deposit (with `q8`):* obtaining the guarantee from a
   financial institution is shown as one step with no document. Should UBL ever
   cover that exchange, the financial institution would become a party with its

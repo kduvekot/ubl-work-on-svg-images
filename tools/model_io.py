@@ -699,6 +699,16 @@ def apply_corrections(model, layout, report, name, recorded=None):
     report["corrections"] = [c["id"] for c in todo]
 
 
+def exchanged_by(model, doc):
+    """the column lanes of the steps that write and read a document, left to right"""
+    lanes = {l["id"]: l for l in model["lanes"] if l["axis"] == "column"}
+    nodes = {n["id"]: n for n in model["nodes"]}
+    ends = [nodes[f["from"]] for f in model["flows"] if f["to"] == doc["id"] and f["from"] in nodes]
+    ends += [nodes[f["to"]] for f in model["flows"] if f["from"] == doc["id"] and f["to"] in nodes]
+    got = {e.get("lane") for e in ends if e["kind"] != "object"} & set(lanes)
+    return sorted(got, key=lambda i: lanes[i]["index"])
+
+
 def place_documents(model, layout, report):
     """A document drawn across the line between two columns stands between them.
 
@@ -709,6 +719,12 @@ def place_documents(model, layout, report):
     the same line, the Seller's. Decided with the TC (q4b): such a document has no
     lane of its own; it is `between` the two columns either side of the line.
     Who hands it over and who receives it are its flows, which already name them.
+
+    Where the parties that exchange it are not the two either side of that line
+    (14 documents: a long arrow across a lane, or three parties), `between`
+    names the parties that do, left to right, as its flows say (q14): the model
+    says who exchanges it, and the layout keeps where it is drawn - the artwork
+    follows no rule there.
 
     The lane it was given is kept in the report, so the split joins back."""
     cols = sorted((l for l in model["lanes"] if l["axis"] == "column"), key=lambda l: l["index"])
@@ -725,6 +741,9 @@ def place_documents(model, layout, report):
             moved[n["id"]] = n.get("lane")
             n["lane"] = None
             n["between"] = [a["id"], b["id"]]
+            parties = exchanged_by(model, n)
+            if len(parties) >= 2 and set(parties) != set(n["between"]):
+                n["between"] = parties
     report["documentLanes"] = moved
 
 
@@ -1142,6 +1161,12 @@ def validate(diagram_path):
         ref("flow %s's guard" % f["id"], f.get("guard"), "texts", "lanes")
     for t in m["texts"]:
         ref("text %s" % t["id"], t.get("labels"), "flows", "offPage", "nodes")
+    for n in m["nodes"]:
+        if n["kind"] == "object" and n.get("between"):
+            parties = exchanged_by(m, n)
+            if len(parties) >= 2 and set(parties) != set(n["between"]):
+                errs.append("document %s stands between %s, and its flows are with %s"
+                            % (n["id"], ", ".join(n["between"]), ", ".join(parties)))
     for sg in m.get("segments", []):
         mem = set(sg["members"])
         for x in sg["members"]:
