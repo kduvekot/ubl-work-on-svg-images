@@ -340,6 +340,12 @@ def apply_corrections(model, layout, report, name, recorded=None):
                              "(from <package>)": the node is defined in the
                              package `package` of the model the diagram was
                              drawn from. The text labels the node
+      reverse-flow           flow `flow` runs the other way: the reading put its
+                             head at the wrong end
+      remove-flow            flow `flow` is not in the artwork: the reading made
+                             it out of other line-work
+      remove-text            text `text` is not text in the artwork: a scrap of
+                             line-work the reading took for words
       retext                 the words of `element` in `section` (texts, nodes or
                              lanes) are `text`, which the reading misread; line
                              breaks as in the artwork, one per measured line
@@ -545,6 +551,34 @@ def apply_corrections(model, layout, report, name, recorded=None):
             t["labels"] = n["id"]
             n["definedIn"] = c["package"]
             touched |= {t["id"], n["id"]}
+        elif op == "reverse-flow":
+            f = el("flows", c["flow"], cid)
+            check_was(c, f)
+            f["from"], f["to"] = f["to"], f["from"]
+            f["direction"] = {"confidence": "high", "checked": "corrected"}
+            g = layout["flows"][f["id"]]
+            g["fromPoint"], g["toPoint"] = g["toPoint"], g["fromPoint"]
+            if g.get("points"):
+                g["points"] = g["points"][::-1]
+            touched.add(f["id"])
+        elif op == "remove-flow":
+            f = el("flows", c["flow"], cid)
+            check_was(c, f)
+            if any(t.get("labels") == f["id"] for t in model["texts"]) or f.get("guard"):
+                raise ValueError("%s: correction %s removes %s, which carries a guard"
+                                 % (name, cid, c["flow"]))
+            model["flows"].remove(f)
+            del layout["flows"][f["id"]]
+            touched.add(f["id"])
+        elif op == "remove-text":
+            t = el("texts", c["text"], cid)
+            check_was(c, t)
+            if any(x.get("guard") == t["id"] for x in model["flows"] + model["offPage"]):
+                raise ValueError("%s: correction %s removes %s, which is a guard"
+                                 % (name, cid, c["text"]))
+            model["texts"].remove(t)
+            del layout["texts"][t["id"]]
+            touched.add(t["id"])
         elif op == "retext":
             # words the reading got wrong, as the artwork writes them. The words
             # change, and so does what is drawn; where each line sits does not.

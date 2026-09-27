@@ -147,6 +147,15 @@
     "lane": "lane-creating-joint-business-plan",
     "title": "Seller Party",
     "source": "text"
+   },
+   {
+    "id": "model-04",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, TC instruction: one fix pass at the end",
+    "question": "Found while settling the notes for a person by eye (notes section 16): a model error the original settles plainly.",
+    "answer": "The artwork has one flow from Create to Send Trade Item Location Profile; the second was made from the top of the 'No' arrow into Create.",
+    "op": "remove-flow",
+    "flow": "flow-create-trade-item-location-profile-to-send-trade-item-location-profile-2"
    }
   ],
   "UBL-2.2-CPFR-CreatingSalesForecast": [
@@ -1179,6 +1188,45 @@
      "text": "Above P\nThresholds?"
     }
    }
+  ],
+  "UBL-2.2-FulfilmentDespatchAdviceProcess": [
+   {
+    "id": "model-01",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, TC instruction: one fix pass at the end",
+    "question": "Found while settling the notes for a person by eye (notes section 16): a model error the original settles plainly.",
+    "answer": "The flow runs from Send Despatch Advice to Adjust supply status: the artwork's head is at Adjust supply status, and the reading took it for the text 'AN'.",
+    "op": "reverse-flow",
+    "flow": "flow-adjust-supply-status-to-send-despatch-advice",
+    "was": {
+     "from": "action-adjust-supply-status",
+     "to": "action-send-despatch-advice"
+    }
+   },
+   {
+    "id": "model-02",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, TC instruction: one fix pass at the end",
+    "question": "Found while settling the notes for a person by eye (notes section 16): a model error the original settles plainly.",
+    "answer": "'AN' is the arrowhead of that flow, not text.",
+    "op": "remove-text",
+    "text": "text-an",
+    "was": {
+     "text": "AN"
+    }
+   },
+   {
+    "id": "model-03",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, TC instruction: one fix pass at the end",
+    "question": "Found while settling the notes for a person by eye (notes section 16): a model error the original settles plainly.",
+    "answer": "'a' is a scrap beside the flow from Cancel Despatch, not text.",
+    "op": "remove-text",
+    "text": "text-a",
+    "was": {
+     "text": "a"
+    }
+   }
   ]
  },
  "pendingDrawingFixes": {
@@ -1259,6 +1307,55 @@
     "found": "2026-09-27"
    },
    {
+    "kind": "arrowhead-shape",
+    "diagrams": [
+     "UBL-2.3-CommonTransportationReportProcess",
+     "UBL-2.3-ExportCustomsDeclarationProcess",
+     "UBL-2.3-GoodsCertificateExportProcess",
+     "UBL-2.3-GoodsItemPassportApprovalProcess",
+     "UBL-2.3-GoodsItemPassportPresentationProcess",
+     "UBL-2.3-GoodsItemPassportReturnProcess",
+     "UBL-2.3-ImportDeclarationProcess",
+     "UBL-2.3-ManifestProcess",
+     "UBL-2.3-RequestForProofOfReexportationProcess",
+     "UBL-2.3-TransitDeclarationProcess"
+    ],
+    "why": "these ten draw a filled arrowhead with a notched back (a barbed head); the SVG draws a plain filled triangle. Minor: the size and place are right",
+    "found": "2026-09-27"
+   },
+   {
+    "kind": "route",
+    "diagram": "UBL-2.2-CPFR-CreateJointBusinessPlan",
+    "section": "flows",
+    "element": "flow-create-trade-item-location-profile-to-send-trade-item-location-profile",
+    "measured": {
+     "fromPoint": [
+      2815,
+      1889
+     ],
+     "toPoint": [
+      2789,
+      1948
+     ],
+     "routing": "orthogonal"
+    },
+    "should_be": {
+     "fromPoint": [
+      2789,
+      1889
+     ],
+     "toPoint": [
+      2789,
+      1948
+     ],
+     "routing": "straight"
+    },
+    "why": "drawn with a small jog where the artwork has a straight vertical line; seen once the invented flow beside it was removed (model-04)",
+    "found": "2026-09-27"
+   }
+  ],
+  "applied": [
+   {
     "kind": "direction",
     "diagram": "UBL-2.2-FulfilmentDespatchAdviceProcess",
     "element": "flow-adjust-supply-status-to-send-despatch-advice",
@@ -1281,23 +1378,6 @@
     "diagram": "UBL-2.2-CPFR-CreateJointBusinessPlan",
     "element": "flow-create-trade-item-location-profile-to-send-trade-item-location-profile-2",
     "why": "invented: the artwork has one flow from Create to Send Trade Item Location Profile; this second one was made from the top of the 'No' arrow into Create, and draws a stray head beside it",
-    "found": "2026-09-27"
-   },
-   {
-    "kind": "arrowhead-shape",
-    "diagrams": [
-     "UBL-2.3-CommonTransportationReportProcess",
-     "UBL-2.3-ExportCustomsDeclarationProcess",
-     "UBL-2.3-GoodsCertificateExportProcess",
-     "UBL-2.3-GoodsItemPassportApprovalProcess",
-     "UBL-2.3-GoodsItemPassportPresentationProcess",
-     "UBL-2.3-GoodsItemPassportReturnProcess",
-     "UBL-2.3-ImportDeclarationProcess",
-     "UBL-2.3-ManifestProcess",
-     "UBL-2.3-RequestForProofOfReexportationProcess",
-     "UBL-2.3-TransitDeclarationProcess"
-    ],
-    "why": "these ten draw a filled arrowhead with a notched back (a barbed head); the SVG draws a plain filled triangle. Minor: the size and place are right",
     "found": "2026-09-27"
    }
   ]
