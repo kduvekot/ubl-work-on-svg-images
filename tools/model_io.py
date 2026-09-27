@@ -1561,6 +1561,22 @@ def validate(diagram_path):
                 (ins_of_doc.get(n["id"]) or any(o["node"] == n["id"] and o["direction"] == "in" for o in m["offPage"]))
                 and (outs_of.get(n["id"]) or any(o["node"] == n["id"] and o["direction"] == "out" for o in m["offPage"]))):
             errs.append("document %s needs a way in and a way out" % n["id"])
+    # an action has a way in and a way out in the sequence (a precondition
+    # between parties is none), or records that the artwork draws none
+    seq_in, seq_out = {}, {}
+    for f in m["flows"]:
+        if f.get("kind") != "precondition":
+            seq_out.setdefault(f["from"], []).append(f)
+            seq_in.setdefault(f["to"], []).append(f)
+    for o in m["offPage"]:
+        (seq_in if o["direction"] == "in" else seq_out).setdefault(o["node"], []).append(o)
+    for n in m["nodes"]:
+        if n["kind"] != "action":
+            continue
+        for have, what in ((seq_in, "wayIn"), (seq_out, "wayOut")):
+            if not have.get(n["id"]) and what not in n.get("unstated", {}):
+                errs.append("action %s has no %s, and the model does not record that the "
+                            "artwork draws none" % (n["id"], {"wayIn": "way in", "wayOut": "way out"}[what]))
     # one box for two exchanges: each way in says which way out it passes to
     fl = {f["id"]: f for f in m["flows"]}
     for n in m["nodes"]:

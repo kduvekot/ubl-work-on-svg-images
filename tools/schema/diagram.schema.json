@@ -58,7 +58,7 @@
      "sameAs": {"type": "object", "required": ["figure", "node"], "additionalProperties": false,
                 "properties": {"figure": {"type": "string"}, "node": {"$ref": "#/$defs/id"}},
                 "description": "the same step drawn on another figure too (CPFR's Ordering on Figs 13 and 14)"},
-     "unstated": {"type": "object", "additionalProperties": {"type": "string"}, "description": "attributes the artwork does not give, each with the reason (a decision with no question, a branch with no guard)"},
+     "unstated": {"type": "object", "additionalProperties": {"type": "string"}, "description": "attributes the artwork does not give, each with the reason (a decision with no question, a branch with no guard; for an action wayIn or wayOut, where a path begins or ends at it with no start or end drawn)"},
      "alsoIn": {"type": "array", "items": {"$ref": "#/$defs/id"}, "description": "a phase this node belongs to besides the one it is drawn in, being drawn across both"},
      "trigger": {"type": "string", "description": "for a start: what sets it off where that is a time or an agreement rather than a message (in BPMN a timer or conditional start)"},
      "question": {"type": "string", "description": "for a decision: the question written beside it, which says what is decided"},

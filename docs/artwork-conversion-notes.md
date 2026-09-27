@@ -1532,6 +1532,32 @@ that an unlabelled diamond takes one flow in and sends the rest out, which a
 diamond merging two ways in does not follow (`model-05`; the render now
 matches the original there).
 
+Contract: a way in and a way out in the sequence (a precondition between the
+parties is not one), or the model records that the artwork draws none (`unstated`
+`wayIn` / `wayOut`, `act-01` .. `act-31`); `validate` checks it. The TC settled
+the rest on the originals (2026-09-27), in three groups:
+
+- *A path ends at a step with no end drawn (19).* Mostly receiving is the end
+  of the story - *Receive & Resolve Exception* (6, CPFR), *Receive Bill of
+  Lading / Waybill / Status Report* (6, Initiate Freight Management), *Receive
+  application response* (2, Digital Agreement) - and four branches end in the
+  decision's outcome: *Endorse CoO* (2), the Seller's *cancel order* on Fig
+  C.1, *Adjust Order* on Fulfilment Despatch Advice; and *Perform Compliance
+  Management* on IMFM takes only the Regulatory Information.
+- *A path begins at a step with no start drawn (4).* *place order* (Fig C.1
+  draws no start); *Create Item Information Request* on CPFR Creating Sales
+  Forecast, a second beginning beside the path handed over from Create Joint
+  Business Plan; *Receive Order Item(s)* on Fulfilment Despatch Advice, which
+  starts when the goods arrive - the artwork draws their despatch, not their
+  movement; *Report usage* on Utility Billing, connected to none of the
+  supplier's other steps (the start leads into *Reconcile Charges*, as on the
+  other two 2.5 billing figures).
+- *Prior exchange of public keys (4, both Tender Contract figures)*: the
+  precondition between the parties settled before (`flow-kind`), not a step in
+  the sequence, so neither a way in nor a way out.
+
+Nothing is added to the model; the ends and starts are for a redraw.
+
 **The notes for a person, all 266 settled by eye (2026-09-27).** The sweep
 leaves, per diagram, notes where the reading could not be sure; each was looked at
 beside the original and our render (side by side, crops of the place). Most are
@@ -1635,6 +1661,11 @@ when the diagrams themselves are next revised.
 - *Tender Contract Information Preparation (text sweep):* "Publish Official
   Journal" would read "Publish in Official Journal"; and the box says *Prior
   Information Notice* where both steps call it a *Simplified Notice*.
+- *Ends and starts (actions sweep):* an end after each of the 19 steps a path
+  stops at, and a start before the 4 it begins at. On Fulfilment Despatch
+  Advice a goods flow from *Despatch Order Item(s)* to *Receive Order
+  Item(s)* (as in 11.6); on Utility Billing connect *Report usage*, for
+  instance alongside *Raise Invoice*.
 - *Tender Award Notification (documents sweep):* draw the two notifications as
   two exchanges, or with a decision (won / not won), rather than two boxes on
   one line.

@@ -172,6 +172,30 @@
     "answer": "Two exchanges through one box, in opposite directions: each way in passes to the way out into the other party. The drawing keeps its one box.",
     "op": "pair-exchanges",
     "node": "object-exception-notification-positive"
+   },
+   {
+    "id": "act-06",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, completeness sweep, actions",
+    "question": "An action with no way out in the model.",
+    "answer": "The path ends at this step: the artwork draws no end after it.",
+    "op": "unstated",
+    "section": "nodes",
+    "element": "action-receive-resolve-exception-in-exception-handling",
+    "attribute": "wayOut",
+    "reason": "The path ends at this step: the artwork draws no end after it."
+   },
+   {
+    "id": "act-07",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, completeness sweep, actions",
+    "question": "An action with no way out in the model.",
+    "answer": "The path ends at this step: the artwork draws no end after it.",
+    "op": "unstated",
+    "section": "nodes",
+    "element": "action-receive-resolve-exception-in-1",
+    "attribute": "wayOut",
+    "reason": "The path ends at this step: the artwork draws no end after it."
    }
   ],
   "UBL-2.2-CPFR-EstablishingCollaborativeRelationships": [
@@ -447,6 +471,18 @@
     "answer": "Two exchanges through one box, in opposite directions: each way in passes to the way out into the other party. The drawing keeps its one box.",
     "op": "pair-exchanges",
     "node": "object-forecast-revision-sales"
+   },
+   {
+    "id": "act-05",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, completeness sweep, actions",
+    "question": "An action with no way in in the model.",
+    "answer": "A second beginning, independent of the path handed over from Create Joint Business Plan: the artwork draws no start or step before it.",
+    "op": "unstated",
+    "section": "nodes",
+    "element": "action-create-item-information-request",
+    "attribute": "wayIn",
+    "reason": "A second beginning, independent of the path handed over from Create Joint Business Plan: the artwork draws no start or step before it."
    }
   ],
   "UBL-2.2-CPFR-CreateOrderForecast": [
@@ -804,6 +840,30 @@
     "answer": "Two exchanges through one box, in opposite directions: each way in passes to the way out into the other party. The drawing keeps its one box.",
     "op": "pair-exchanges",
     "node": "object-exception-notification-positive"
+   },
+   {
+    "id": "act-10",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, completeness sweep, actions",
+    "question": "An action with no way out in the model.",
+    "answer": "The path ends at this step: the artwork draws no end after it.",
+    "op": "unstated",
+    "section": "nodes",
+    "element": "action-receive-resolve-exception",
+    "attribute": "wayOut",
+    "reason": "The path ends at this step: the artwork draws no end after it."
+   },
+   {
+    "id": "act-11",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, completeness sweep, actions",
+    "question": "An action with no way out in the model.",
+    "answer": "The path ends at this step: the artwork draws no end after it.",
+    "op": "unstated",
+    "section": "nodes",
+    "element": "action-receive-resolve-1-exception",
+    "attribute": "wayOut",
+    "reason": "The path ends at this step: the artwork draws no end after it."
    }
   ],
   "UBL-2.2-CPFR-ExceptionMonitor": [
@@ -980,6 +1040,30 @@
     "answer": "Two exchanges through one box, in opposite directions: each way in passes to the way out into the other party. The drawing keeps its one box.",
     "op": "pair-exchanges",
     "node": "object-exception-notification-positive"
+   },
+   {
+    "id": "act-08",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, completeness sweep, actions",
+    "question": "An action with no way out in the model.",
+    "answer": "The path ends at this step: the artwork draws no end after it.",
+    "op": "unstated",
+    "section": "nodes",
+    "element": "action-receive-resolve-exception-in-no",
+    "attribute": "wayOut",
+    "reason": "The path ends at this step: the artwork draws no end after it."
+   },
+   {
+    "id": "act-09",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, completeness sweep, actions",
+    "question": "An action with no way out in the model.",
+    "answer": "The path ends at this step: the artwork draws no end after it.",
+    "op": "unstated",
+    "section": "nodes",
+    "element": "action-receive-resolve-exception-in-no-2",
+    "attribute": "wayOut",
+    "reason": "The path ends at this step: the artwork draws no end after it."
    }
   ],
   "UBL-2.3-Tender-Contract-Pre": [
@@ -1062,6 +1146,54 @@
     "was": {
      "title": "RESPONDING PARTY"
     }
+   },
+   {
+    "id": "act-27",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, completeness sweep, actions",
+    "question": "An action with no way in in the model.",
+    "answer": "A precondition between the parties (the exchange of public keys), not a step in the sequence: nothing leads into it or out of it.",
+    "op": "unstated",
+    "section": "nodes",
+    "element": "action-prior-exchange-of-public-keys-in-responding-party",
+    "attribute": "wayIn",
+    "reason": "A precondition between the parties (the exchange of public keys), not a step in the sequence: nothing leads into it or out of it."
+   },
+   {
+    "id": "act-28",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, completeness sweep, actions",
+    "question": "An action with no way out in the model.",
+    "answer": "A precondition between the parties (the exchange of public keys), not a step in the sequence: nothing leads into it or out of it.",
+    "op": "unstated",
+    "section": "nodes",
+    "element": "action-prior-exchange-of-public-keys-in-responding-party",
+    "attribute": "wayOut",
+    "reason": "A precondition between the parties (the exchange of public keys), not a step in the sequence: nothing leads into it or out of it."
+   },
+   {
+    "id": "act-29",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, completeness sweep, actions",
+    "question": "An action with no way in in the model.",
+    "answer": "A precondition between the parties (the exchange of public keys), not a step in the sequence: nothing leads into it or out of it.",
+    "op": "unstated",
+    "section": "nodes",
+    "element": "action-prior-exchange-of-public-keys-in-initiating-party",
+    "attribute": "wayIn",
+    "reason": "A precondition between the parties (the exchange of public keys), not a step in the sequence: nothing leads into it or out of it."
+   },
+   {
+    "id": "act-30",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, completeness sweep, actions",
+    "question": "An action with no way out in the model.",
+    "answer": "A precondition between the parties (the exchange of public keys), not a step in the sequence: nothing leads into it or out of it.",
+    "op": "unstated",
+    "section": "nodes",
+    "element": "action-prior-exchange-of-public-keys-in-initiating-party",
+    "attribute": "wayOut",
+    "reason": "A precondition between the parties (the exchange of public keys), not a step in the sequence: nothing leads into it or out of it."
    }
   ],
   "UBL-2.3-Tender-Contract-Post": [
@@ -1144,6 +1276,54 @@
     "was": {
      "title": "RESPONDING PARTY"
     }
+   },
+   {
+    "id": "act-23",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, completeness sweep, actions",
+    "question": "An action with no way in in the model.",
+    "answer": "A precondition between the parties (the exchange of public keys), not a step in the sequence: nothing leads into it or out of it.",
+    "op": "unstated",
+    "section": "nodes",
+    "element": "action-prior-exchange-of-public-keys-in-responding-party",
+    "attribute": "wayIn",
+    "reason": "A precondition between the parties (the exchange of public keys), not a step in the sequence: nothing leads into it or out of it."
+   },
+   {
+    "id": "act-24",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, completeness sweep, actions",
+    "question": "An action with no way out in the model.",
+    "answer": "A precondition between the parties (the exchange of public keys), not a step in the sequence: nothing leads into it or out of it.",
+    "op": "unstated",
+    "section": "nodes",
+    "element": "action-prior-exchange-of-public-keys-in-responding-party",
+    "attribute": "wayOut",
+    "reason": "A precondition between the parties (the exchange of public keys), not a step in the sequence: nothing leads into it or out of it."
+   },
+   {
+    "id": "act-25",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, completeness sweep, actions",
+    "question": "An action with no way in in the model.",
+    "answer": "A precondition between the parties (the exchange of public keys), not a step in the sequence: nothing leads into it or out of it.",
+    "op": "unstated",
+    "section": "nodes",
+    "element": "action-prior-exchange-of-public-keys-in-initiating-party",
+    "attribute": "wayIn",
+    "reason": "A precondition between the parties (the exchange of public keys), not a step in the sequence: nothing leads into it or out of it."
+   },
+   {
+    "id": "act-26",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, completeness sweep, actions",
+    "question": "An action with no way out in the model.",
+    "answer": "A precondition between the parties (the exchange of public keys), not a step in the sequence: nothing leads into it or out of it.",
+    "op": "unstated",
+    "section": "nodes",
+    "element": "action-prior-exchange-of-public-keys-in-initiating-party",
+    "attribute": "wayOut",
+    "reason": "A precondition between the parties (the exchange of public keys), not a step in the sequence: nothing leads into it or out of it."
    }
   ],
   "UBL-2.2-InitiateFreightMgmtProcess": [
@@ -1224,6 +1404,78 @@
     "was": {
      "label": "Way bill"
     }
+   },
+   {
+    "id": "act-17",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, completeness sweep, actions",
+    "question": "An action with no way out in the model.",
+    "answer": "The path ends at this step: the artwork draws no end after it.",
+    "op": "unstated",
+    "section": "nodes",
+    "element": "action-receive-bill-of-lading-in-consignee",
+    "attribute": "wayOut",
+    "reason": "The path ends at this step: the artwork draws no end after it."
+   },
+   {
+    "id": "act-18",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, completeness sweep, actions",
+    "question": "An action with no way out in the model.",
+    "answer": "The path ends at this step: the artwork draws no end after it.",
+    "op": "unstated",
+    "section": "nodes",
+    "element": "action-receive-bill-of-lading-in-consignor",
+    "attribute": "wayOut",
+    "reason": "The path ends at this step: the artwork draws no end after it."
+   },
+   {
+    "id": "act-19",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, completeness sweep, actions",
+    "question": "An action with no way out in the model.",
+    "answer": "The path ends at this step: the artwork draws no end after it.",
+    "op": "unstated",
+    "section": "nodes",
+    "element": "action-receive-waybill-in-consignor",
+    "attribute": "wayOut",
+    "reason": "The path ends at this step: the artwork draws no end after it."
+   },
+   {
+    "id": "act-20",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, completeness sweep, actions",
+    "question": "An action with no way out in the model.",
+    "answer": "The path ends at this step: the artwork draws no end after it.",
+    "op": "unstated",
+    "section": "nodes",
+    "element": "action-receive-waybill-in-consignee",
+    "attribute": "wayOut",
+    "reason": "The path ends at this step: the artwork draws no end after it."
+   },
+   {
+    "id": "act-21",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, completeness sweep, actions",
+    "question": "An action with no way out in the model.",
+    "answer": "The path ends at this step: the artwork draws no end after it.",
+    "op": "unstated",
+    "section": "nodes",
+    "element": "action-receive-status-report-in-consignor",
+    "attribute": "wayOut",
+    "reason": "The path ends at this step: the artwork draws no end after it."
+   },
+   {
+    "id": "act-22",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, completeness sweep, actions",
+    "question": "An action with no way out in the model.",
+    "answer": "The path ends at this step: the artwork draws no end after it.",
+    "op": "unstated",
+    "section": "nodes",
+    "element": "action-receive-status-report-in-consignee",
+    "attribute": "wayOut",
+    "reason": "The path ends at this step: the artwork draws no end after it."
    }
   ],
   "UBL-2.0-CertificationOfOriginOfGoodsProcess": [
@@ -1403,6 +1655,30 @@
     "element": "flow-decision-endorser-to-endorse-coo-in-endorser",
     "attribute": "guard",
     "reason": "The branches are drawn without guards; the step each leads to says which answer it is (Reject CoO, Endorse CoO, Query CoO; Apply for Endorsement, Send CoO)."
+   },
+   {
+    "id": "act-03",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, completeness sweep, actions",
+    "question": "An action with no way out in the model.",
+    "answer": "The path ends at this step: the artwork draws no end after it.",
+    "op": "unstated",
+    "section": "nodes",
+    "element": "action-endorse-coo-in-issuer",
+    "attribute": "wayOut",
+    "reason": "The path ends at this step: the artwork draws no end after it."
+   },
+   {
+    "id": "act-04",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, completeness sweep, actions",
+    "question": "An action with no way out in the model.",
+    "answer": "The path ends at this step: the artwork draws no end after it.",
+    "op": "unstated",
+    "section": "nodes",
+    "element": "action-endorse-coo-in-endorser",
+    "attribute": "wayOut",
+    "reason": "The path ends at this step: the artwork draws no end after it."
    }
   ],
   "UBL-2.0-SourcingPunchoutProcess": [
@@ -1555,6 +1831,18 @@
     "op": "also-in-band",
     "node": "action-provide-transportation-network",
     "band": "Execution"
+   },
+   {
+    "id": "act-16",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, completeness sweep, actions",
+    "question": "An action with no way out in the model.",
+    "answer": "The path ends at this step: the artwork draws no end after it.",
+    "op": "unstated",
+    "section": "nodes",
+    "element": "action-perform-compliance-management",
+    "attribute": "wayOut",
+    "reason": "The path ends at this step: the artwork draws no end after it."
    }
   ],
   "UBL-2.2-BusinessCard": [
@@ -1785,6 +2073,18 @@
     "element": "flow-reconcile-charges-in-accounting-customer-to-send-account-response",
     "attribute": "guard",
     "reason": "The artwork guards one branch of each 'Reconcile Charges'; the other ('Send Account Response', 'Raise Invoice') is the otherwise case, unlabelled."
+   },
+   {
+    "id": "act-31",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, completeness sweep, actions",
+    "question": "An action with no way in in the model.",
+    "answer": "Not connected to the supplier's other steps: the artwork draws no start or step before it, though its Utility Statement goes with the invoice.",
+    "op": "unstated",
+    "section": "nodes",
+    "element": "action-report-usage",
+    "attribute": "wayIn",
+    "reason": "Not connected to the supplier's other steps: the artwork draws no start or step before it, though its Utility Statement goes with the invoice."
    }
   ],
   "UBL-1.0-ProcurementProcess": [
@@ -2098,6 +2398,30 @@
      "from": "decision-seller",
      "to": "action-change-order-in-seller"
     }
+   },
+   {
+    "id": "act-01",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, completeness sweep, actions",
+    "question": "An action with no way in in the model.",
+    "answer": "The process begins at this step: Fig C.1 draws no start.",
+    "op": "unstated",
+    "section": "nodes",
+    "element": "action-place-order",
+    "attribute": "wayIn",
+    "reason": "The process begins at this step: Fig C.1 draws no start."
+   },
+   {
+    "id": "act-02",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, completeness sweep, actions",
+    "question": "An action with no way out in the model.",
+    "answer": "The path ends at this step: the artwork draws no end after it.",
+    "op": "unstated",
+    "section": "nodes",
+    "element": "action-cancel-order-in-seller",
+    "attribute": "wayOut",
+    "reason": "The path ends at this step: the artwork draws no end after it."
    }
   ],
   "UBL-2.0-SelfBillingwithCreditNoteProcess": [
@@ -2561,6 +2885,30 @@
     "element": "flow-determine-action-to-accept-items",
     "attribute": "guard",
     "reason": "'Determine Action' has three branches drawn without guards; the step each leads to says which (Adjust Order, Send Receipt Advice, Accept Items)."
+   },
+   {
+    "id": "act-14",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, completeness sweep, actions",
+    "question": "An action with no way in in the model.",
+    "answer": "Starts when the goods arrive: the artwork draws their despatch (Despatch Order Item(s)), not their movement to the Delivery Party.",
+    "op": "unstated",
+    "section": "nodes",
+    "element": "action-receive-order-item-s",
+    "attribute": "wayIn",
+    "reason": "Starts when the goods arrive: the artwork draws their despatch (Despatch Order Item(s)), not their movement to the Delivery Party."
+   },
+   {
+    "id": "act-15",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, completeness sweep, actions",
+    "question": "An action with no way out in the model.",
+    "answer": "The path ends at this step: the artwork draws no end after it.",
+    "op": "unstated",
+    "section": "nodes",
+    "element": "action-adjust-order",
+    "attribute": "wayOut",
+    "reason": "The path ends at this step: the artwork draws no end after it."
    }
   ],
   "UBL-2.0-PaymentNotificationProcess": [
@@ -3008,6 +3356,30 @@
     "was": {
      "title": "PARTICIPANT PARTY 2"
     }
+   },
+   {
+    "id": "act-12",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, completeness sweep, actions",
+    "question": "An action with no way out in the model.",
+    "answer": "The path ends at this step: the artwork draws no end after it.",
+    "op": "unstated",
+    "section": "nodes",
+    "element": "action-receive-application-response-in-participant-party-1",
+    "attribute": "wayOut",
+    "reason": "The path ends at this step: the artwork draws no end after it."
+   },
+   {
+    "id": "act-13",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, completeness sweep, actions",
+    "question": "An action with no way out in the model.",
+    "answer": "The path ends at this step: the artwork draws no end after it.",
+    "op": "unstated",
+    "section": "nodes",
+    "element": "action-receive-application-response-in-participant-party-2",
+    "attribute": "wayOut",
+    "reason": "The path ends at this step: the artwork draws no end after it."
    }
   ],
   "UBL-2.5-WasteMovementProcess": [
