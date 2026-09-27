@@ -30,7 +30,7 @@ Scope so far: the **78 UML activity diagrams** of UBL 2.5 (of the 97 figures).
    are settled (q1-q11), recorded as corrections the pipeline applies. None of
    them has changed a pixel of any drawing.
 5. **Misread text is being noted, not fixed**, to be corrected in one pass at the
-   end (TC instruction): 20 so far.
+   end (TC instruction): 22 so far, with 9 drawing fixes found alongside.
 
 The record of every decision is in
 [`docs/artwork-conversion-notes.md`](docs/artwork-conversion-notes.md) §16;
@@ -108,11 +108,15 @@ out as stated, and every generated file was byte-identical to the working run's.
 
 1. **Review questions still queued** (candidates found by scanning all 78, each
    to be brought to the TC one at a time):
-   - The remaining notes for a person (266, listed per diagram in each
-     `-struct.json`): most can be settled by looking at the original; bring only
-     those that need the TC.
-2. **The one text-fix pass** at the end: apply `pendingTextFixes` as `retext`
-   corrections (the machinery is built and was tried on all 18), and re-baseline.
+   - *Utility Billing*: what "(from Business Processes)" under two documents
+     means, and what it belongs to.
+   - The 266 notes for a person are settled (notes section 16); what they
+     turned up waits in `pendingTextFixes` and `pendingDrawingFixes`.
+2. **The one fix pass** at the end: apply `pendingTextFixes` as `retext`
+   corrections (the machinery is built and was tried on the first 18) and
+   `pendingDrawingFixes` (a reversed and an invented flow, stray texts, line
+   widths, label style, arrowhead shape - these need corrections or drawing
+   code not yet written), then re-baseline.
 3. **Known defects not yet fixed** (docs/running.md section 8): the draw.io model
    is poorer than the SVG (fork bars, bands, off-page flows, guards not on a
    flow); the text check accepts a one-letter misreading; the checkers still read

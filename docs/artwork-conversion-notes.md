@@ -1059,7 +1059,7 @@ against the baseline and committed on its own (the procedure is in
 | q9 | the crumpled connector into *Exception Notification (positive)* | an artwork fault: the model has the flow right, the drawing is special drawing instructions to leave as they are until a later session re-lays the diagram; recorded in `artwork-faults.json` | Fig 14 | unchanged, no correction |
 | q10 | the three notes on Intermodal Freight Management, on crossings with no document | an information exchange that takes place, which no current UBL document carries: drawn as a note instead of a document box, to show that it happens and between whom. The flow is of kind `information`, the note `annotates` it and belongs to no party; Fig 37's note annotates its segment the same way | Intermodal Freight Management, Fig 37 | unchanged |
 | q11 | the flow Figs 86/87 draw down the lane divider, with the break marks | the model has the link: an object flow from the document to the download action, routed `along-divider`, with the two marks `on` it as a `break`; the drawing stays as it is. The two artwork-fault entries go | Figs 86, 87 | unchanged |
-| - | misread text | noted, fixed in one pass at the end (`pendingTextFixes`, 20 so far) | 11 | - |
+| - | misread text | noted, fixed in one pass at the end (`pendingTextFixes`, 22 so far; and `pendingDrawingFixes`, 9) | 25 | - |
 
 After q11: 64 corrections over 15 diagrams; over all 78 not a pixel differs from
 `baselines/2026-09-25` (71 identical, 7 the same drawing with a corrected model)
@@ -1251,10 +1251,41 @@ added flow, so both figures now pass every rule on their own, and their entries
 in `tools/artwork-faults.json` are gone. The draw.io file still lacks the link,
 as it lacks every off-page flow (running.md section 8).
 
+**The notes for a person, all 266 settled by eye (2026-09-27).** The sweep
+leaves, per diagram, notes where the reading could not be sure; each was looked at
+beside the original and our render (side by side, crops of the place). Most are
+the reading being careful, not something wrong, so they are summarised by kind
+with one example, and only what is wrong is itemised - in `pendingTextFixes` and
+`pendingDrawingFixes` in `tools/model-corrections.json`, to be fixed in the one
+pass at the end.
+
+| kind | n | what it turned out to be | example |
+|---|---|---|---|
+| dropped region | 78 | blank space closed in by connectors, dividers and the frame; never a missing shape | Create Catalogue: the rectangle between *Application Response* and *Catalogue* formed by two flows |
+| arrowhead unmeasurable | 48 | the head is drawn and points the way the model says; it was unmeasurable because another line meets it. Two were not: see below | Billing with Credit Note: the four heads meeting on *Reconcile Charges* |
+| sub-character region | 35 | the inside of a letter (O, D, Q) in a lane title or decision | "OK?" on the Tender figures |
+| kept on outline | 31 | a real node with flows on every side | *Reminder* on Reminder for Payment |
+| unexplained line-work | 24 | strokes of letters, and a dashed corner of a phase box, all drawn | the "T" of "Transport" on Certification of Origin |
+| no weight split | 21 | the documents are found by shape instead of stroke weight, and all are there; the note's wording ("no object node could be identified") is out of date | Business Card |
+| ring stroke unreadable, arrowhead size | 10 | finals and heads drawn right | the finals on the 2.3 customs figures |
+| empty box, rule through shape | 8 | blank space closed in by lines; a connector arriving from the previous figure | Payment Notification; CPFR Exception Handling |
+| edge direction, isolated node, mark across rule | 11 | already settled: 11.1 (directions), 11.4 (Fig 28), `q11` (the break marks) | - |
+
+What was wrong, found this way and not by the checks: two model errors
+(Fulfilment Despatch Advice has the flow between *Send Despatch Advice* and
+*Adjust supply status* reversed, its head read as the text "AN"; CPFR Create Joint
+Business Plan has an invented second flow made from the top of a "No" arrow), two
+misread texts ("information" for "information]", "Above P" for "Above"), three
+text lines measured to take in a neighbouring shape and drawn stretched, the
+upright document labels of six 2.3/2.5 figures drawn italic, "(from Business
+Processes)" squashed onto one line, and the notched arrowheads of ten 2.3 figures
+drawn as plain triangles. The verifier missed them because each costs few pixels
+and the text check accepts a close reading; a side-by-side look found them.
+
 **Misread text is noted, not yet fixed.** A text fix changes what is drawn, and
 so the verifier's findings; the TC's instruction is to make them all in one pass
 at the end. They are collected in `pendingTextFixes` in
-`tools/model-corrections.json` as they are found - 20 so far, seven of them the
+`tools/model-corrections.json` as they are found - 22 so far, seven of them the
 degraded labels of Fig C.1 - each ready to become a `retext` correction. The
 machinery is in place and was tried on all 17: every one changed exactly its
 words and nothing else, and for the diagrams it touches `model_io.py` writes a
@@ -1285,6 +1316,9 @@ when the diagrams themselves are next revised.
 - *Fig 14, CPFR Exception Monitor (with `q9`):* redraw the connector from the
   Buyer's *Send Exception* to *Exception Notification (positive)* like its mirror
   on the Seller's side. A layout matter, for the session that re-lays diagrams.
+- *Goods Item Passport figures (found 2026-09-27):* the artwork writes the name
+  both "GoodsItem" and "Goodsitem". The model follows the artwork in each place;
+  a revision could make them all "GoodsItem".
 - *Tender Guarantee Deposit (with `q8`):* obtaining the guarantee from a
   financial institution is shown as one step with no document. Should UBL ever
   cover that exchange, the financial institution would become a party with its

@@ -987,6 +987,144 @@
     "reads": "seller Supplier Party",
     "should_read": "Seller Supplier Party",
     "found": "2026-09-27"
+   },
+   {
+    "diagram": "UBL-2.0-SelfBillingwithCreditNoteProcess",
+    "section": "texts",
+    "element": "text-under-charged-or-incorrect-information",
+    "reads": "[under\ncharged or\nincorrect\ninformation",
+    "should_read": "[under\ncharged or\nincorrect\ninformation]",
+    "found": "2026-09-27"
+   },
+   {
+    "diagram": "UBL-2.2-Tender-ContractInfoNotify",
+    "section": "texts",
+    "element": "text-above-p-thresholds",
+    "reads": "Above P\nThresholds?",
+    "should_read": "Above\nThresholds?",
+    "found": "2026-09-27",
+    "note": "the 'P' is the decision's left corner; its line width needs fixing too (pendingLayoutFixes)"
+   }
+  ]
+ },
+ "pendingDrawingFixes": {
+  "about": "Faults found while settling the notes for a person that change what is drawn when fixed: a text line measured too wide, a style the SVG gets wrong, and a few model errors the original settles plainly (a reversed flow, an invented flow, scraps read as text). Like the text fixes they wait for the one pass at the end, since each moves the baseline. model_io.py does not read this list.",
+  "fixes": [
+   {
+    "diagram": "UBL-2.2-Tender-ContractInfoNotify",
+    "section": "texts",
+    "element": "text-above-p-thresholds",
+    "line": 0,
+    "measured": {
+     "x": 82,
+     "w": 454
+    },
+    "should_be": {
+     "x": 82,
+     "w": 230
+    },
+    "why": "the line took in the decision's left corner (read as 'P'), so 'Above' is drawn stretched to twice its width",
+    "found": "2026-09-27",
+    "kind": "line-width"
+   },
+   {
+    "diagram": "UBL-2.0-UpdateCatalogueItemSpecificationProcess",
+    "section": "texts",
+    "element": "text-oupplier-initiated-update",
+    "line": 1,
+    "measured": {
+     "x": 2944,
+     "w": 256
+    },
+    "should_be": {
+     "x": 2944,
+     "w": 138
+    },
+    "why": "the line took in the start node below-right of it, so 'Update' is drawn stretched and overlapping the node",
+    "found": "2026-09-27",
+    "kind": "line-width"
+   },
+   {
+    "diagram": "UBL-2.0-UpdateCataloguePricingProcess",
+    "section": "texts",
+    "element": "text-supplier-initiated-update",
+    "line": 1,
+    "measured": {
+     "x": 2887,
+     "w": 262
+    },
+    "should_be": {
+     "x": 2887,
+     "w": 141
+    },
+    "why": "as on Update Catalogue Item Specification",
+    "found": "2026-09-27",
+    "kind": "line-width"
+   },
+   {
+    "kind": "upright-labels",
+    "diagrams": [
+     "UBL-2.3-CommonTransportationReportProcess",
+     "UBL-2.3-ImportDeclarationProcess",
+     "UBL-2.3-ManifestProcess",
+     "UBL-2.3-TransitDeclarationProcess",
+     "UBL-2.5-WasteMovementProcess",
+     "UBL-2.5-WasteNotificationProcess"
+    ],
+    "why": "these six draw their document labels upright and not bold; the SVG sets every document label in italic. The layout already says bold: false for exactly these documents, so italic can follow it",
+    "found": "2026-09-27"
+   },
+   {
+    "kind": "line-split",
+    "diagram": "UBL-2.5-UtilityBillingProcess",
+    "elements": [
+     "text-from-business-processes",
+     "text-from-business-processes-2"
+    ],
+    "why": "'(from Business Processes)' is drawn in the artwork on two lines, bold italic, under Invoice and Invoice Status Response; the reading took each as one line 92px high, so the SVG draws it as one squashed line",
+    "found": "2026-09-27"
+   },
+   {
+    "kind": "direction",
+    "diagram": "UBL-2.2-FulfilmentDespatchAdviceProcess",
+    "element": "flow-adjust-supply-status-to-send-despatch-advice",
+    "should_be": "from action-send-despatch-advice to action-adjust-supply-status",
+    "why": "the artwork's head is at Adjust supply status; it was read as the text 'AN', so the direction came out reversed and the head is drawn at Send Despatch Advice",
+    "found": "2026-09-27"
+   },
+   {
+    "kind": "remove-text",
+    "diagram": "UBL-2.2-FulfilmentDespatchAdviceProcess",
+    "elements": [
+     "text-an",
+     "text-a"
+    ],
+    "why": "'AN' is the arrowhead of the flow above, 'a' a scrap beside the flow from Cancel Despatch; neither is text in the artwork, and both are drawn as tiny words",
+    "found": "2026-09-27"
+   },
+   {
+    "kind": "remove-flow",
+    "diagram": "UBL-2.2-CPFR-CreateJointBusinessPlan",
+    "element": "flow-create-trade-item-location-profile-to-send-trade-item-location-profile-2",
+    "why": "invented: the artwork has one flow from Create to Send Trade Item Location Profile; this second one was made from the top of the 'No' arrow into Create, and draws a stray head beside it",
+    "found": "2026-09-27"
+   },
+   {
+    "kind": "arrowhead-shape",
+    "diagrams": [
+     "UBL-2.3-CommonTransportationReportProcess",
+     "UBL-2.3-ExportCustomsDeclarationProcess",
+     "UBL-2.3-GoodsCertificateExportProcess",
+     "UBL-2.3-GoodsItemPassportApprovalProcess",
+     "UBL-2.3-GoodsItemPassportPresentationProcess",
+     "UBL-2.3-GoodsItemPassportReturnProcess",
+     "UBL-2.3-ImportDeclarationProcess",
+     "UBL-2.3-ManifestProcess",
+     "UBL-2.3-RequestForProofOfReexportationProcess",
+     "UBL-2.3-TransitDeclarationProcess"
+    ],
+    "why": "these ten draw a filled arrowhead with a notched back (a barbed head); the SVG draws a plain filled triangle. Minor: the size and place are right",
+    "found": "2026-09-27"
    }
   ]
  }
