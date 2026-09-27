@@ -1060,6 +1060,7 @@ against the baseline and committed on its own (the procedure is in
 | q10 | the three notes on Intermodal Freight Management, on crossings with no document | an information exchange that takes place, which no current UBL document carries: drawn as a note instead of a document box, to show that it happens and between whom. The flow is of kind `information`, the note `annotates` it and belongs to no party; Fig 37's note annotates its segment the same way | Intermodal Freight Management, Fig 37 | unchanged |
 | q11 | the flow Figs 86/87 draw down the lane divider, with the break marks | the model has the link: an object flow from the document to the download action, routed `along-divider`, with the two marks `on` it as a `break`; the drawing stays as it is. The two artwork-fault entries go | Figs 86, 87 | unchanged |
 | q12 | "(from Business Processes)" under two documents | UML-tool notation: the document is defined in another package of the tool's model; each text labels its document, which records `definedIn` "Business Processes" | Utility Billing | unchanged |
+| q13 | 42 texts in 20 figures labelling nothing | a question beside a diamond is the decision's `question`; words beside a start or an end name it (`starts-from` where they name another process); two merged texts split, and their decisions' guards put on the branches they are written on; three lane titles taken for guards removed | 25 figures | unchanged |
 | - | misread text | noted, fixed in one pass at the end (`pendingTextFixes`, 22 so far; and `pendingDrawingFixes`, 9) | 25 | - |
 
 After q12: 66 corrections over 16 diagrams; over all 78 not a pixel differs from
@@ -1260,6 +1261,26 @@ Processes"; the invoice documents are borrowed from the billing processes, the
 Utility Statement belongs to this diagram. A new correction, `defined-in`, makes
 each text label its document and records the document's `definedIn`. Nothing
 drawn changes (the squashed line is in `pendingDrawingFixes`).
+
+The thirteenth, `q13`, came out of the model review (below): 42 texts in 20
+figures labelled nothing. About 25 are the question a decision asks, written
+beside its diamond ("Accept application?", "Exception Received ?", "Above
+Thresholds?"), in figures whose branches often carry no words, so the question
+is the only thing saying what is decided; about 10 name a start or an end ("From
+Order", "Supplier Initiated Update", "Transport Service Ready For Execution").
+Each was paired with its node by where it sits and checked by eye. New
+corrections `decision-question` (the text labels the diamond, which records
+its `question`), `split-text` and `unguard`. Two texts had a guard merged into
+the question ("Is there a new item to be delivered? True"); splitting them
+showed that on those two decisions (VMI Permanent Replenishment, CRP Change
+Article Catalogue) "False" was on the wrong branch and the lane title "Producer"
+was the other branch's guard - both put right. On Fig C.1 the lane title
+"Seller" was a branch's guard and is removed. The checkers now see guard changes
+too, so CPFR Exception Handling's model sheet shows the q1 decision ("Yes" into
+Send Exception) instead of the reading's "No". Left for their own questions:
+"Sender Party"/"Receiver Party" (Freight Status Reporting) and
+"Senderparty"/"ReceiverParty" (Waste Movement), which are lane titles, and
+"Publish Official Journal" on Contract Information Preparation.
 
 **The notes for a person, all 266 settled by eye (2026-09-27).** The sweep
 leaves, per diagram, notes where the reading could not be sure; each was looked at

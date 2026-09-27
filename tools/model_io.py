@@ -351,6 +351,12 @@ def apply_corrections(model, layout, report, name, recorded=None):
                              into its layout entry (or into line `line` of its
                              lines), `unset` drops keys; `was` checks the old
                              values the same way. The model does not change
+      decision-question      text `text` beside decision `node` is the question
+                             it asks; the text labels the node, which records it
+      split-text             text `text` is two texts the reading merged: lines
+                             from `at` on become a new one (id corr-<id>)
+      unguard                flow `flow` carries no guard: what the reading
+                             attached (a lane's title) is not one
       retext                 the words of `element` in `section` (texts, nodes or
                              lanes) are `text`, which the reading misread; line
                              breaks as in the artwork, one per measured line
@@ -396,8 +402,12 @@ def apply_corrections(model, layout, report, name, recorded=None):
         for x in model["flows"] + model["offPage"]:      # it is no one else's guard
             if x.get("guard") == t["id"]:
                 del x["guard"]
+                if re.fullmatch(r"f\d+", x["id"]):          # an edge of the graph
+                    patches["edges"].setdefault(x["id"], {})["guard"] = None
         t["labels"] = to["id"]
         to["guard"] = t["id"]
+        if re.fullmatch(r"f\d+", to["id"]):
+            patches["edges"].setdefault(to["id"], {})["guard"] = norm(guard_text(t))
 
     touched = set()
     # what the checkers must see changed in the graph they read: kept in the
@@ -566,7 +576,7 @@ def apply_corrections(model, layout, report, name, recorded=None):
             check_was(c, f)
             f["from"], f["to"] = f["to"], f["from"]
             f["direction"] = {"confidence": "high", "checked": "corrected"}
-            patches["edges"][f["id"]] = {"reverse": True}
+            patches["edges"].setdefault(f["id"], {})["reverse"] = True
             g = layout["flows"][f["id"]]
             g["fromPoint"], g["toPoint"] = g["toPoint"], g["fromPoint"]
             if g.get("points"):
@@ -580,7 +590,7 @@ def apply_corrections(model, layout, report, name, recorded=None):
                                  % (name, cid, c["flow"]))
             model["flows"].remove(f)
             del layout["flows"][f["id"]]
-            patches["edges"][f["id"]] = None
+            patches["edges"].setdefault(f["id"], {})["remove"] = True
             touched.add(f["id"])
         elif op == "remove-text":
             t = el("texts", c["text"], cid)
@@ -592,6 +602,41 @@ def apply_corrections(model, layout, report, name, recorded=None):
             del layout["texts"][t["id"]]
             patches["texts"][t["id"]] = None
             touched.add(t["id"])
+        elif op == "decision-question":
+            t, n = el("texts", c["text"], cid), el("nodes", c["node"], cid)
+            check_was(c, t)
+            if n["kind"] != "decision":
+                raise ValueError("%s: correction %s: %s is not a decision" % (name, cid, c["node"]))
+            t["labels"] = n["id"]
+            n["question"] = " ".join(t["text"].split())
+            touched |= {t["id"], n["id"]}
+        elif op == "split-text":
+            t = el("texts", c["text"], cid)
+            check_was(c, t)
+            g = layout["texts"][t["id"]]
+            at, words = c["at"], t["text"].split("\n")
+            lines = g["lines"]
+            if not 0 < at < len(lines) or len(words) != len(lines):
+                raise ValueError("%s: correction %s cannot split %s at line %s"
+                                 % (name, cid, c["text"], at))
+            def box(ls):
+                x0 = min(l["x"] for l in ls); y0 = min(l["y"] for l in ls)
+                return dict(x=x0, y=y0, w=max(l["x"] + l["w"] for l in ls) - x0,
+                            h=max(l["y"] + l["h"] for l in ls) - y0)
+            new = dict(id="corr-%s" % cid, text="\n".join(words[at:]))
+            model["texts"].insert(model["texts"].index(t) + 1, new)
+            layout["texts"][new["id"]] = dict(box(lines[at:]), lines=lines[at:])
+            t["text"] = "\n".join(words[:at])
+            g.update(box(lines[:at]), lines=lines[:at])
+            patches["texts"][t["id"]] = "final"
+            patches.setdefault("addTexts", []).append(new["id"])
+            touched |= {t["id"], new["id"]}
+        elif op == "unguard":
+            f = el("flows", c["flow"], cid)
+            check_was(c, f)
+            f.pop("guard", None)
+            patches["edges"].setdefault(f["id"], {})["guard"] = None
+            touched.add(f["id"])
         elif op == "layout":
             x = el(c["section"], c["element"], cid)
             g = layout[c["section"]][x["id"]]
@@ -641,6 +686,11 @@ def apply_corrections(model, layout, report, name, recorded=None):
             g = layout["texts"][tid]
             patches["texts"][tid] = dict({k: g[k] for k in ("x", "y", "w", "h", "lines", "bold", "italic")
                                           if k in g}, text=t["text"])
+    added = patches.pop("addTexts", [])
+    if added:
+        patches["addTexts"] = [dict({k: v for k, v in layout["texts"][i].items()},
+                                    text=next(t["text"] for t in model["texts"] if t["id"] == i))
+                               for i in added]
     if any(patches.values()):
         report["graphPatches"] = patches
     for f in report["findings"]:
@@ -985,6 +1035,12 @@ def corrected_graph(g, report):
                 g["text"][int(tid[1:])].update(v)
         edges = g["edges"]
         for fid, v in patches["edges"].items():
+            if v and "guard" in v:
+                e = edges[int(fid[1:])]
+                if v["guard"] is None:
+                    e.pop("guard", None)
+                else:
+                    e["guard"] = v["guard"]
             if v and v.get("reverse"):
                 e = edges[int(fid[1:])]
                 e["from"], e["to"] = e["to"], e["from"]
@@ -993,9 +1049,10 @@ def corrected_graph(g, report):
                 if e.get("points"):
                     e["points"] = e["points"][::-1]
         drop_t = {int(t[1:]) for t, v in patches["texts"].items() if v is None}
-        drop_e = {int(f[1:]) for f, v in patches["edges"].items() if v is None}
+        drop_e = {int(f[1:]) for f, v in patches["edges"].items() if v and v.get("remove")}
         g["text"] = [t for i, t in enumerate(g["text"]) if i not in drop_t]
         g["edges"] = [e for i, e in enumerate(edges) if i not in drop_e]
+        g["text"] += patches.get("addTexts", [])
         for a in patches["addEdges"]:
             g["edges"].append({"from": a["from"], "to": a["to"], "edgeKind": a["edgeKind"]})
             g["openEnds"] = [o for o in g.get("openEnds", [])

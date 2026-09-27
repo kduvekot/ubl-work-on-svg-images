@@ -95,6 +95,26 @@
     "op": "continues",
     "offPage": "offpage-decision-exception-handling",
     "figure": "UBL-2.2-CPFR-CreateOrderForecast"
+   },
+   {
+    "id": "q13-15",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Words beside a decision, a start or an end that the model had as loose text (42 in 20 figures): what do they label?",
+    "answer": "A question beside a diamond is the decision's question; words beside a start or an end name it, and where they name another process ('From Order', 'From Billing') that is the process it starts from (as q6). Two texts the reading merged with the guard below them are split, and on those two decisions the guards go to the branches they are written on.",
+    "op": "decision-question",
+    "text": "text-exception-received",
+    "node": "decision-exception-handling"
+   },
+   {
+    "id": "q13-16",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Words beside a decision, a start or an end that the model had as loose text (42 in 20 figures): what do they label?",
+    "answer": "A question beside a diamond is the decision's question; words beside a start or an end name it, and where they name another process ('From Order', 'From Billing') that is the process it starts from (as q6). Two texts the reading merged with the guard below them are split, and on those two decisions the guards go to the branches they are written on.",
+    "op": "decision-question",
+    "text": "text-exception-received-2",
+    "node": "decision-1"
    }
   ],
   "UBL-2.2-CPFR-EstablishingCollaborativeRelationships": [
@@ -110,6 +130,16 @@
     "was": {
      "text": "Establishing Collaborative Relationship"
     }
+   },
+   {
+    "id": "q13-14",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Words beside a decision, a start or an end that the model had as loose text (42 in 20 figures): what do they label?",
+    "answer": "A question beside a diamond is the decision's question; words beside a start or an end name it, and where they name another process ('From Order', 'From Billing') that is the process it starts from (as q6). Two texts the reading merged with the guard below them are split, and on those two decisions the guards go to the branches they are written on.",
+    "op": "decision-question",
+    "text": "text-exception-criteria-accepted",
+    "node": "decision-buyer-party"
    }
   ],
   "UBL-2.2-CPFR-CreateJointBusinessPlan": [
@@ -183,6 +213,26 @@
     "unset": [
      "points"
     ]
+   },
+   {
+    "id": "q13-10",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Words beside a decision, a start or an end that the model had as loose text (42 in 20 figures): what do they label?",
+    "answer": "A question beside a diamond is the decision's question; words beside a start or an end name it, and where they name another process ('From Order', 'From Billing') that is the process it starts from (as q6). Two texts the reading merged with the guard below them are split, and on those two decisions the guards go to the branches they are written on.",
+    "op": "decision-question",
+    "text": "text-retail-event-accepted",
+    "node": "decision-1"
+   },
+   {
+    "id": "q13-11",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Words beside a decision, a start or an end that the model had as loose text (42 in 20 figures): what do they label?",
+    "answer": "A question beside a diamond is the decision's question; words beside a start or an end name it, and where they name another process ('From Order', 'From Billing') that is the process it starts from (as q6). Two texts the reading merged with the guard below them are split, and on those two decisions the guards go to the branches they are written on.",
+    "op": "decision-question",
+    "text": "text-tilp-accepted",
+    "node": "decision-creating-joint-business-plan"
    }
   ],
   "UBL-2.2-CPFR-CreatingSalesForecast": [
@@ -230,6 +280,16 @@
     "lane": "corr-q4a-fig9",
     "title": "Seller Party",
     "source": "text"
+   },
+   {
+    "id": "q13-13",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Words beside a decision, a start or an end that the model had as loose text (42 in 20 figures): what do they label?",
+    "answer": "A question beside a diamond is the decision's question; words beside a start or an end name it, and where they name another process ('From Order', 'From Billing') that is the process it starts from (as q6). Two texts the reading merged with the guard below them are split, and on those two decisions the guards go to the branches they are written on.",
+    "op": "decision-question",
+    "text": "text-sales-forecast-accepted",
+    "node": "decision-creating-sales-forecast"
    }
   ],
   "UBL-2.2-CPFR-CreateOrderForecast": [
@@ -313,6 +373,16 @@
     "lane": "lane-create-order-forecast",
     "title": "Seller Party",
     "source": "text"
+   },
+   {
+    "id": "q13-12",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Words beside a decision, a start or an end that the model had as loose text (42 in 20 figures): what do they label?",
+    "answer": "A question beside a diamond is the decision's question; words beside a start or an end name it, and where they name another process ('From Order', 'From Billing') that is the process it starts from (as q6). Two texts the reading merged with the guard below them are split, and on those two decisions the guards go to the branches they are written on.",
+    "op": "decision-question",
+    "text": "text-order-forecast-accepted",
+    "node": "decision-no"
    }
   ],
   "UBL-2.2-CPFR-IdentifyResolve": [
@@ -399,6 +469,26 @@
     "op": "continues",
     "offPage": "offpage-action-ordering-2",
     "figure": "UBL-2.2-CPFR-ExceptionMonitor"
+   },
+   {
+    "id": "q13-19",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Words beside a decision, a start or an end that the model had as loose text (42 in 20 figures): what do they label?",
+    "answer": "A question beside a diamond is the decision's question; words beside a start or an end name it, and where they name another process ('From Order', 'From Billing') that is the process it starts from (as q6). Two texts the reading merged with the guard below them are split, and on those two decisions the guards go to the branches they are written on.",
+    "op": "decision-question",
+    "text": "text-exception-received",
+    "node": "decision-identifying-and-resolving-exceptions-for"
+   },
+   {
+    "id": "q13-20",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Words beside a decision, a start or an end that the model had as loose text (42 in 20 figures): what do they label?",
+    "answer": "A question beside a diamond is the decision's question; words beside a start or an end name it, and where they name another process ('From Order', 'From Billing') that is the process it starts from (as q6). Two texts the reading merged with the guard below them are split, and on those two decisions the guards go to the branches they are written on.",
+    "op": "decision-question",
+    "text": "text-exception-received-2",
+    "node": "decision-1"
    }
   ],
   "UBL-2.2-CPFR-ExceptionMonitor": [
@@ -511,6 +601,26 @@
      "lane-no",
      "lane-no-2"
     ]
+   },
+   {
+    "id": "q13-17",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Words beside a decision, a start or an end that the model had as loose text (42 in 20 figures): what do they label?",
+    "answer": "A question beside a diamond is the decision's question; words beside a start or an end name it, and where they name another process ('From Order', 'From Billing') that is the process it starts from (as q6). Two texts the reading merged with the guard below them are split, and on those two decisions the guards go to the branches they are written on.",
+    "op": "decision-question",
+    "text": "text-exception-received",
+    "node": "decision-no-2"
+   },
+   {
+    "id": "q13-18",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Words beside a decision, a start or an end that the model had as loose text (42 in 20 figures): what do they label?",
+    "answer": "A question beside a diamond is the decision's question; words beside a start or an end name it, and where they name another process ('From Order', 'From Billing') that is the process it starts from (as q6). Two texts the reading merged with the guard below them are split, and on those two decisions the guards go to the branches they are written on.",
+    "op": "decision-question",
+    "text": "text-exception-received-2",
+    "node": "decision-no"
    }
   ],
   "UBL-2.3-Tender-Contract-Pre": [
@@ -750,6 +860,36 @@
     "was": {
      "text": "Accept\npplication?"
     }
+   },
+   {
+    "id": "q13-01",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Words beside a decision, a start or an end that the model had as loose text (42 in 20 figures): what do they label?",
+    "answer": "A question beside a diamond is the decision's question; words beside a start or an end name it, and where they name another process ('From Order', 'From Billing') that is the process it starts from (as q6). Two texts the reading merged with the guard below them are split, and on those two decisions the guards go to the branches they are written on.",
+    "op": "decision-question",
+    "text": "text-accept-pplication",
+    "node": "decision-issuer"
+   },
+   {
+    "id": "q13-02",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Words beside a decision, a start or an end that the model had as loose text (42 in 20 figures): what do they label?",
+    "answer": "A question beside a diamond is the decision's question; words beside a start or an end name it, and where they name another process ('From Order', 'From Billing') that is the process it starts from (as q6). Two texts the reading merged with the guard below them are split, and on those two decisions the guards go to the branches they are written on.",
+    "op": "decision-question",
+    "text": "text-endorsement-required",
+    "node": "decision-exporter"
+   },
+   {
+    "id": "q13-03",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Words beside a decision, a start or an end that the model had as loose text (42 in 20 figures): what do they label?",
+    "answer": "A question beside a diamond is the decision's question; words beside a start or an end name it, and where they name another process ('From Order', 'From Billing') that is the process it starts from (as q6). Two texts the reading merged with the guard below them are split, and on those two decisions the guards go to the branches they are written on.",
+    "op": "decision-question",
+    "text": "text-endorse-application",
+    "node": "decision-endorser"
    }
   ],
   "UBL-2.0-SourcingPunchoutProcess": [
@@ -1146,6 +1286,15 @@
     "was": {
      "label": "fase wwoce"
     }
+   },
+   {
+    "id": "q13-47",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Words beside a decision, a start or an end that the model had as loose text (42 in 20 figures): what do they label?",
+    "answer": "A question beside a diamond is the decision's question; words beside a start or an end name it, and where they name another process ('From Order', 'From Billing') that is the process it starts from (as q6). Two texts the reading merged with the guard below them are split, and on those two decisions the guards go to the branches they are written on.",
+    "op": "unguard",
+    "flow": "flow-decision-seller-to-reject-order"
    }
   ],
   "UBL-2.0-SelfBillingwithCreditNoteProcess": [
@@ -1209,6 +1358,26 @@
     "set": {
      "w": 138
     }
+   },
+   {
+    "id": "q13-06",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Words beside a decision, a start or an end that the model had as loose text (42 in 20 figures): what do they label?",
+    "answer": "A question beside a diamond is the decision's question; words beside a start or an end name it, and where they name another process ('From Order', 'From Billing') that is the process it starts from (as q6). Two texts the reading merged with the guard below them are split, and on those two decisions the guards go to the branches they are written on.",
+    "op": "label-node",
+    "text": "text-oupplier-initiated-update",
+    "node": "initial-provider-party"
+   },
+   {
+    "id": "q13-07",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Words beside a decision, a start or an end that the model had as loose text (42 in 20 figures): what do they label?",
+    "answer": "A question beside a diamond is the decision's question; words beside a start or an end name it, and where they name another process ('From Order', 'From Billing') that is the process it starts from (as q6). Two texts the reading merged with the guard below them are split, and on those two decisions the guards go to the branches they are written on.",
+    "op": "label-node",
+    "text": "text-customer-initiated-update",
+    "node": "initial-receiver-party"
    }
   ],
   "UBL-2.0-UpdateCataloguePricingProcess": [
@@ -1242,6 +1411,26 @@
     "set": {
      "w": 141
     }
+   },
+   {
+    "id": "q13-08",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Words beside a decision, a start or an end that the model had as loose text (42 in 20 figures): what do they label?",
+    "answer": "A question beside a diamond is the decision's question; words beside a start or an end name it, and where they name another process ('From Order', 'From Billing') that is the process it starts from (as q6). Two texts the reading merged with the guard below them are split, and on those two decisions the guards go to the branches they are written on.",
+    "op": "label-node",
+    "text": "text-supplier-initiated-update",
+    "node": "initial-provider-party"
+   },
+   {
+    "id": "q13-09",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Words beside a decision, a start or an end that the model had as loose text (42 in 20 figures): what do they label?",
+    "answer": "A question beside a diamond is the decision's question; words beside a start or an end name it, and where they name another process ('From Order', 'From Billing') that is the process it starts from (as q6). Two texts the reading merged with the guard below them are split, and on those two decisions the guards go to the branches they are written on.",
+    "op": "label-node",
+    "text": "text-j-ustomer-nitiated-jpdate",
+    "node": "initial-receiver-party"
    }
   ],
   "UBL-2.2-Tender-UnsubscribeFromProcedure": [
@@ -1353,6 +1542,16 @@
     "set": {
      "w": 230
     }
+   },
+   {
+    "id": "q13-34",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Words beside a decision, a start or an end that the model had as loose text (42 in 20 figures): what do they label?",
+    "answer": "A question beside a diamond is the decision's question; words beside a start or an end name it, and where they name another process ('From Order', 'From Billing') that is the process it starts from (as q6). Two texts the reading merged with the guard below them are split, and on those two decisions the guards go to the branches they are written on.",
+    "op": "decision-question",
+    "text": "text-above-p-thresholds",
+    "node": "decision-contracting-authority"
    }
   ],
   "UBL-2.2-FulfilmentDespatchAdviceProcess": [
@@ -1392,6 +1591,303 @@
     "was": {
      "text": "a"
     }
+   },
+   {
+    "id": "q13-22",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Words beside a decision, a start or an end that the model had as loose text (42 in 20 figures): what do they label?",
+    "answer": "A question beside a diamond is the decision's question; words beside a start or an end name it, and where they name another process ('From Order', 'From Billing') that is the process it starts from (as q6). Two texts the reading merged with the guard below them are split, and on those two decisions the guards go to the branches they are written on.",
+    "op": "label-node",
+    "text": "text-from-order",
+    "node": "initial-despatch-party"
+   },
+   {
+    "id": "q13-23",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Words beside a decision, a start or an end that the model had as loose text (42 in 20 figures): what do they label?",
+    "answer": "A question beside a diamond is the decision's question; words beside a start or an end name it, and where they name another process ('From Order', 'From Billing') that is the process it starts from (as q6). Two texts the reading merged with the guard below them are split, and on those two decisions the guards go to the branches they are written on.",
+    "op": "linked-process",
+    "node": "initial-despatch-party",
+    "name": "Ordering",
+    "how": "starts-from"
+   }
+  ],
+  "UBL-2.0-PaymentNotificationProcess": [
+   {
+    "id": "q13-04",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Words beside a decision, a start or an end that the model had as loose text (42 in 20 figures): what do they label?",
+    "answer": "A question beside a diamond is the decision's question; words beside a start or an end name it, and where they name another process ('From Order', 'From Billing') that is the process it starts from (as q6). Two texts the reading merged with the guard below them are split, and on those two decisions the guards go to the branches they are written on.",
+    "op": "label-node",
+    "text": "text-from-billing",
+    "node": "initial-accounting-customer"
+   },
+   {
+    "id": "q13-05",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Words beside a decision, a start or an end that the model had as loose text (42 in 20 figures): what do they label?",
+    "answer": "A question beside a diamond is the decision's question; words beside a start or an end name it, and where they name another process ('From Order', 'From Billing') that is the process it starts from (as q6). Two texts the reading merged with the guard below them are split, and on those two decisions the guards go to the branches they are written on.",
+    "op": "linked-process",
+    "node": "initial-accounting-customer",
+    "name": "Billing",
+    "how": "starts-from"
+   }
+  ],
+  "UBL-2.2-FreightStatusReporting": [
+   {
+    "id": "q13-21",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Words beside a decision, a start or an end that the model had as loose text (42 in 20 figures): what do they label?",
+    "answer": "A question beside a diamond is the decision's question; words beside a start or an end name it, and where they name another process ('From Order', 'From Billing') that is the process it starts from (as q6). Two texts the reading merged with the guard below them are split, and on those two decisions the guards go to the branches they are written on.",
+    "op": "label-node",
+    "text": "text-trigger-reporting-procedure",
+    "node": "initial-3"
+   }
+  ],
+  "UBL-2.2-FulfilmentReceiptAdviceProcess": [
+   {
+    "id": "q13-24",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Words beside a decision, a start or an end that the model had as loose text (42 in 20 figures): what do they label?",
+    "answer": "A question beside a diamond is the decision's question; words beside a start or an end name it, and where they name another process ('From Order', 'From Billing') that is the process it starts from (as q6). Two texts the reading merged with the guard below them are split, and on those two decisions the guards go to the branches they are written on.",
+    "op": "label-node",
+    "text": "text-from-order",
+    "node": "initial-delivery-party"
+   },
+   {
+    "id": "q13-25",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Words beside a decision, a start or an end that the model had as loose text (42 in 20 figures): what do they label?",
+    "answer": "A question beside a diamond is the decision's question; words beside a start or an end name it, and where they name another process ('From Order', 'From Billing') that is the process it starts from (as q6). Two texts the reading merged with the guard below them are split, and on those two decisions the guards go to the branches they are written on.",
+    "op": "linked-process",
+    "node": "initial-delivery-party",
+    "name": "Ordering",
+    "how": "starts-from"
+   }
+  ],
+  "UBL-2.2-IMFM-BasicTransportExecutionPlan": [
+   {
+    "id": "q13-26",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Words beside a decision, a start or an end that the model had as loose text (42 in 20 figures): what do they label?",
+    "answer": "A question beside a diamond is the decision's question; words beside a start or an end name it, and where they name another process ('From Order', 'From Billing') that is the process it starts from (as q6). Two texts the reading merged with the guard below them are split, and on those two decisions the guards go to the branches they are written on.",
+    "op": "decision-question",
+    "text": "text-update-transport-execution-plan-request",
+    "node": "decision-transport-user"
+   },
+   {
+    "id": "q13-27",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Words beside a decision, a start or an end that the model had as loose text (42 in 20 figures): what do they label?",
+    "answer": "A question beside a diamond is the decision's question; words beside a start or an end name it, and where they name another process ('From Order', 'From Billing') that is the process it starts from (as q6). Two texts the reading merged with the guard below them are split, and on those two decisions the guards go to the branches they are written on.",
+    "op": "decision-question",
+    "text": "text-transport-execution-plan-request",
+    "node": "decision-transport-service-provider"
+   },
+   {
+    "id": "q13-28",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Words beside a decision, a start or an end that the model had as loose text (42 in 20 figures): what do they label?",
+    "answer": "A question beside a diamond is the decision's question; words beside a start or an end name it, and where they name another process ('From Order', 'From Billing') that is the process it starts from (as q6). Two texts the reading merged with the guard below them are split, and on those two decisions the guards go to the branches they are written on.",
+    "op": "decision-question",
+    "text": "text-transport-execution-plan-acceptable",
+    "node": "decision-transport-user-2"
+   },
+   {
+    "id": "q13-29",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Words beside a decision, a start or an end that the model had as loose text (42 in 20 figures): what do they label?",
+    "answer": "A question beside a diamond is the decision's question; words beside a start or an end name it, and where they name another process ('From Order', 'From Billing') that is the process it starts from (as q6). Two texts the reading merged with the guard below them are split, and on those two decisions the guards go to the branches they are written on.",
+    "op": "label-node",
+    "text": "text-transport-service-ready-for-execution",
+    "node": "final-transport-service-provider"
+   },
+   {
+    "id": "q13-30",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Words beside a decision, a start or an end that the model had as loose text (42 in 20 figures): what do they label?",
+    "answer": "A question beside a diamond is the decision's question; words beside a start or an end name it, and where they name another process ('From Order', 'From Billing') that is the process it starts from (as q6). Two texts the reading merged with the guard below them are split, and on those two decisions the guards go to the branches they are written on.",
+    "op": "decision-question",
+    "text": "text-update-transport-execution-plan-request-2",
+    "node": "decision-transport-user-3"
+   }
+  ],
+  "UBL-2.2-IMFM-GoodsItemItinerary": [
+   {
+    "id": "q13-31",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Words beside a decision, a start or an end that the model had as loose text (42 in 20 figures): what do they label?",
+    "answer": "A question beside a diamond is the decision's question; words beside a start or an end name it, and where they name another process ('From Order', 'From Billing') that is the process it starts from (as q6). Two texts the reading merged with the guard below them are split, and on those two decisions the guards go to the branches they are written on.",
+    "op": "label-node",
+    "text": "text-transport-execution-plan-confirmed",
+    "node": "initial-transport-service-provider"
+   },
+   {
+    "id": "q13-32",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Words beside a decision, a start or an end that the model had as loose text (42 in 20 figures): what do they label?",
+    "answer": "A question beside a diamond is the decision's question; words beside a start or an end name it, and where they name another process ('From Order', 'From Billing') that is the process it starts from (as q6). Two texts the reading merged with the guard below them are split, and on those two decisions the guards go to the branches they are written on.",
+    "op": "label-node",
+    "text": "text-transport-execution-updates",
+    "node": "initial-transport-service-provider-2"
+   }
+  ],
+  "UBL-2.2-ROCD-InitialStocking": [
+   {
+    "id": "q13-33",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Words beside a decision, a start or an end that the model had as loose text (42 in 20 figures): what do they label?",
+    "answer": "A question beside a diamond is the decision's question; words beside a start or an end name it, and where they name another process ('From Order', 'From Billing') that is the process it starts from (as q6). Two texts the reading merged with the guard below them are split, and on those two decisions the guards go to the branches they are written on.",
+    "op": "decision-question",
+    "text": "text-changes-are-necessary",
+    "node": "decision-producer"
+   }
+  ],
+  "UBL-2.2-Tender-ContractInfoPrep": [
+   {
+    "id": "q13-35",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Words beside a decision, a start or an end that the model had as loose text (42 in 20 figures): what do they label?",
+    "answer": "A question beside a diamond is the decision's question; words beside a start or an end name it, and where they name another process ('From Order', 'From Billing') that is the process it starts from (as q6). Two texts the reading merged with the guard below them are split, and on those two decisions the guards go to the branches they are written on.",
+    "op": "decision-question",
+    "text": "text-above-thresholds",
+    "node": "decision-contracting-authority"
+   }
+  ],
+  "UBL-2.2-VMI-PriceAdjustment": [
+   {
+    "id": "q13-36",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Words beside a decision, a start or an end that the model had as loose text (42 in 20 figures): what do they label?",
+    "answer": "A question beside a diamond is the decision's question; words beside a start or an end name it, and where they name another process ('From Order', 'From Billing') that is the process it starts from (as q6). Two texts the reading merged with the guard below them are split, and on those two decisions the guards go to the branches they are written on.",
+    "op": "decision-question",
+    "text": "text-change-of-prices",
+    "node": "decision-producer"
+   }
+  ],
+  "UBL-2.2-VMI-ReturnsByProducer": [
+   {
+    "id": "q13-37",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Words beside a decision, a start or an end that the model had as loose text (42 in 20 figures): what do they label?",
+    "answer": "A question beside a diamond is the decision's question; words beside a start or an end name it, and where they name another process ('From Order', 'From Billing') that is the process it starts from (as q6). Two texts the reading merged with the guard below them are split, and on those two decisions the guards go to the branches they are written on.",
+    "op": "decision-question",
+    "text": "text-wrong-despatching",
+    "node": "decision-producer"
+   }
+  ],
+  "UBL-2.2-VMI-PermanentReplenishment": [
+   {
+    "id": "q13-38",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Words beside a decision, a start or an end that the model had as loose text (42 in 20 figures): what do they label?",
+    "answer": "A question beside a diamond is the decision's question; words beside a start or an end name it, and where they name another process ('From Order', 'From Billing') that is the process it starts from (as q6). Two texts the reading merged with the guard below them are split, and on those two decisions the guards go to the branches they are written on.",
+    "op": "split-text",
+    "text": "text-is-there-a-new-item-to-be-delivered-true",
+    "at": 1
+   },
+   {
+    "id": "q13-39",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Words beside a decision, a start or an end that the model had as loose text (42 in 20 figures): what do they label?",
+    "answer": "A question beside a diamond is the decision's question; words beside a start or an end name it, and where they name another process ('From Order', 'From Billing') that is the process it starts from (as q6). Two texts the reading merged with the guard below them are split, and on those two decisions the guards go to the branches they are written on.",
+    "op": "decision-question",
+    "text": "text-is-there-a-new-item-to-be-delivered-true",
+    "node": "decision-producer"
+   },
+   {
+    "id": "q13-40",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Words beside a decision, a start or an end that the model had as loose text (42 in 20 figures): what do they label?",
+    "answer": "A question beside a diamond is the decision's question; words beside a start or an end name it, and where they name another process ('From Order', 'From Billing') that is the process it starts from (as q6). Two texts the reading merged with the guard below them are split, and on those two decisions the guards go to the branches they are written on.",
+    "op": "attach-guard",
+    "text": "corr-q13-38",
+    "to": "flow-decision-producer-to-send-catalogue"
+   },
+   {
+    "id": "q13-41",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Words beside a decision, a start or an end that the model had as loose text (42 in 20 figures): what do they label?",
+    "answer": "A question beside a diamond is the decision's question; words beside a start or an end name it, and where they name another process ('From Order', 'From Billing') that is the process it starts from (as q6). Two texts the reading merged with the guard below them are split, and on those two decisions the guards go to the branches they are written on.",
+    "op": "attach-guard",
+    "text": "text-false",
+    "to": "flow-decision-producer-to-send-despatch-advice"
+   }
+  ],
+  "UBL-2.2-CRP-ChangeArticleCatalogue": [
+   {
+    "id": "q13-42",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Words beside a decision, a start or an end that the model had as loose text (42 in 20 figures): what do they label?",
+    "answer": "A question beside a diamond is the decision's question; words beside a start or an end name it, and where they name another process ('From Order', 'From Billing') that is the process it starts from (as q6). Two texts the reading merged with the guard below them are split, and on those two decisions the guards go to the branches they are written on.",
+    "op": "split-text",
+    "text": "text-catalogue-update-is-needed-true",
+    "at": 1
+   },
+   {
+    "id": "q13-43",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Words beside a decision, a start or an end that the model had as loose text (42 in 20 figures): what do they label?",
+    "answer": "A question beside a diamond is the decision's question; words beside a start or an end name it, and where they name another process ('From Order', 'From Billing') that is the process it starts from (as q6). Two texts the reading merged with the guard below them are split, and on those two decisions the guards go to the branches they are written on.",
+    "op": "decision-question",
+    "text": "text-catalogue-update-is-needed-true",
+    "node": "decision-producer"
+   },
+   {
+    "id": "q13-44",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Words beside a decision, a start or an end that the model had as loose text (42 in 20 figures): what do they label?",
+    "answer": "A question beside a diamond is the decision's question; words beside a start or an end name it, and where they name another process ('From Order', 'From Billing') that is the process it starts from (as q6). Two texts the reading merged with the guard below them are split, and on those two decisions the guards go to the branches they are written on.",
+    "op": "attach-guard",
+    "text": "corr-q13-42",
+    "to": "flow-decision-producer-to-inform-about-changes-inside-the"
+   },
+   {
+    "id": "q13-45",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Words beside a decision, a start or an end that the model had as loose text (42 in 20 figures): what do they label?",
+    "answer": "A question beside a diamond is the decision's question; words beside a start or an end name it, and where they name another process ('From Order', 'From Billing') that is the process it starts from (as q6). Two texts the reading merged with the guard below them are split, and on those two decisions the guards go to the branches they are written on.",
+    "op": "attach-guard",
+    "text": "text-false",
+    "to": "flow-decision-producer-to-final-producer"
+   }
+  ],
+  "UBL-2.2-DigitalAgreement": [
+   {
+    "id": "q13-46",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Words beside a decision, a start or an end that the model had as loose text (42 in 20 figures): what do they label?",
+    "answer": "A question beside a diamond is the decision's question; words beside a start or an end name it, and where they name another process ('From Order', 'From Billing') that is the process it starts from (as q6). Two texts the reading merged with the guard below them are split, and on those two decisions the guards go to the branches they are written on.",
+    "op": "attach-guard",
+    "text": "text-y",
+    "to": "flow-match-digital-capabilities-to-send-digital-agreement-in-participant-party-2"
    }
   ]
  },
