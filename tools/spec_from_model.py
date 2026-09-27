@@ -187,26 +187,32 @@ def main(src, out, model_w=1480.0):
                 "cy": M(b[1] + b[3] / 2) if b else M(font_px)}
         if not shown or as_text or drawn != c["title"]:
             lane["name"] = c["title"]
+        if c.get("titleBold"):
+            lane["bold"] = True
         lanes.append(lane)
 
     # Words drawn where the reading had put a lane title, which a correction has
     # found to be something else - a phase's title, or a guard. They are set as
     # a lane title is set, in the same box, so the drawing does not move.
-    def caption(i, role, words, b):
-        return {"id": i, "role": role, "text": words,
-                "cx": M(b[0] + b[2] / 2), "cy": M(b[1] + b[3] / 2)}
-    captions = [caption(p["id"], "phase-title", p["title"], lay["phases"][p["id"]]["title"]["box"])
+    def caption(i, role, words, t):
+        b = t["box"]
+        d = {"id": i, "role": role, "text": words,
+             "cx": M(b[0] + b[2] / 2), "cy": M(b[1] + b[3] / 2)}
+        if t.get("bold"):
+            d["bold"] = True
+        return d
+    captions = [caption(p["id"], "phase-title", p["title"], lay["phases"][p["id"]]["title"])
                 for p in model["phases"]
                 if (lay["phases"][p["id"]].get("title") or {}).get("as") == "lane-title"]
-    captions += [caption(t["id"], "guard", t["text"], lay["texts"][t["id"]]["box"])
+    captions += [caption(t["id"], "guard", t["text"], lay["texts"][t["id"]])
                  for t in model["texts"] if lay["texts"][t["id"]].get("as") == "lane-title"]
 
     # a narrow first column is the gutter the band titles run up
     gutter = rules["v"][1][0] if len(rules["v"]) > 2 and \
         rules["v"][1][0] < W * 0.04 else 0
     # a phase shown as a band (IMFM) has its title run up the gutter
-    bandLabels = [{"id": p["id"], "title": p["title"], "cx": M(gutter / 2),
-                   "cy": M((d["y0"] + d["y1"]) / 2)}
+    bandLabels = [dict({"id": p["id"], "title": p["title"], "cx": M(gutter / 2),
+                        "cy": M((d["y0"] + d["y1"]) / 2)}, **({"bold": True} if d.get("titleBold") else {}))
                   for p in model["phases"] for d in [lay["phases"][p["id"]]]
                   if d.get("as") == "band" and gutter and p.get("title")]
 

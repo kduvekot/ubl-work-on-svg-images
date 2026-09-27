@@ -200,18 +200,21 @@ def svg_body(spec):
         o.append("</g>")
     for i, l in enumerate(spec["lanes"]):
         o.append(group("lane-title", l.get("id") or "lane%d" % i, l["title"]))
-        o.append(text(l["title"], l["cx"], l["cy"], F["lane"], F["family"]))
+        o.append(text(l["title"], l["cx"], l["cy"], F["lane"], F["family"],
+                      weight="bold" if l.get("bold") else ""))
         o.append("</g>")
     for c in spec.get("captions", []):
         # words the reading took for a lane title and a correction found to be a
         # phase's title or a guard: set exactly as a lane title is
         o.append(group(c["role"], c["id"], " ".join(c["text"].split())))
-        o.append(text(c["text"], c["cx"], c["cy"], F["lane"], F["family"]))
+        o.append(text(c["text"], c["cx"], c["cy"], F["lane"], F["family"],
+                      weight="bold" if c.get("bold") else ""))
         o.append("</g>")
     for i, b in enumerate(spec.get("bandLabels", [])):   # band titles run up the gutter
         o.append(group("band-title", b.get("id") or "bandtitle%d" % i, b["title"]))
         o.append('<g transform="rotate(-90 %.1f %.1f)">%s</g>'
-                 % (b["cx"], b["cy"], text(b["title"], b["cx"], b["cy"], F["lane"], F["family"])))
+                 % (b["cx"], b["cy"], text(b["title"], b["cx"], b["cy"], F["lane"], F["family"],
+                                            weight="bold" if b.get("bold") else "")))
         o.append("</g>")
     for n in spec["nodes"]:
         x, y, w, h = n["x"], n["y"], n["w"], n["h"]

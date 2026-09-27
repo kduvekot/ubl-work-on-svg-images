@@ -123,6 +123,33 @@ def strip_strokes(s):
 _VERDICTS = None
 
 
+def title_is_bold(ink, x, y, w, h, sideways=False):
+    """Whether a lane or band title is set bold, measured off its own ink.
+
+    Weight is stem width against letter height: the middle of the runs of ink
+    across the words (along the line; down it for a title set sideways), over
+    the height of a letter. Measured over the 78 it comes out at 0.11 to 0.18
+    for regular type and 0.20 to 0.28 for bold, whatever the face - the Tender
+    capitals and Calibri-like titles of Digital Agreement included - so it is
+    read against the letters' own height, not the labels' type size. Too little
+    ink to be sure says nothing (None)."""
+    sub = ink[max(0, y):y + h, max(0, x):x + w]
+    if sideways:
+        sub = sub.T
+    lab, n = ndi.label(sub)
+    if n < 2:
+        return None
+    hs = [s[0].stop - s[0].start for s in ndi.find_objects(lab)]
+    cap = float(np.percentile(hs, 75))
+    runs = []
+    for row in sub:
+        idx = np.flatnonzero(np.diff(np.r_[0, row.view(np.int8), 0]))
+        runs.extend(idx[1::2] - idx[0::2])
+    if len(runs) < 20 or cap < 5:
+        return None
+    return float(np.median(runs)) / cap >= 0.19
+
+
 def apply_direction_verdicts(path, nodes, edges, uncertain):
     """Record which flows a person has already settled against the artwork.
 
@@ -4156,6 +4183,8 @@ def main(path, out_json=None):
                  x0=round(vb[c]), x1=round(vb[c + 1]), title=t)
         if box:
             g["titleBox"] = [box["x"], box["y"], box["w"], box["h"]]
+            if title_is_bold(ink, box["x"], box["y"], box["w"], box["h"]):
+                g["titleBold"] = True
         grid.append(g)
     for r in range(r0, len(hb) - 1):
         t = ""
@@ -4165,7 +4194,19 @@ def main(path, out_json=None):
             t = ocr(bg.crop((x0 + 4, y0 + 4, x0 + w0 - 4, y0 + h0 - 4)).rotate(-90, expand=True),
                     0, 0, h0 - 8, w0 - 8)
         t = re.sub(r"^[^0-9A-Za-z]+|[^0-9A-Za-z)\]]+$", "", t).strip()
-        grid.append(dict(axis="band", index=r - r0, y0=round(hb[r]), y1=round(hb[r + 1]), title=t))
+        g = dict(axis="band", index=r - r0, y0=round(hb[r]), y1=round(hb[r + 1]), title=t)
+        if t and strip:
+            # the words up the gutter, clear of the rules either side
+            gx0, gx1 = round(vb[c0 - 1]) + 6, round(vb[c0]) - 6
+            cell = ink[round(hb[r]) + 6:round(hb[r + 1]) - 6, gx0:gx1].copy()
+            cell[:, cell.mean(0) > 0.8] = False       # a rule running down the gutter
+            if cell.any():
+                yy, xx = np.nonzero(cell)
+                if title_is_bold(cell, int(xx.min()), int(yy.min()),
+                                 int(xx.max() - xx.min()) + 1, int(yy.max() - yy.min()) + 1,
+                                 sideways=True):
+                    g["titleBold"] = True
+        grid.append(g)
     for n in nodes:
         cx, cy = n["x"] + n["w"] / 2, n["y"] + n["h"] / 2
         n["col"] = sum(1 for b in vb[1:-1] if cx > b) - c0

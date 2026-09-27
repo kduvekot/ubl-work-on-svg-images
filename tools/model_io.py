@@ -501,6 +501,8 @@ def apply_corrections(model, layout, report, name, recorded=None):
             t = dict(id="corr-%s" % cid, text=l["title"])
             model["texts"].append(t)
             layout["texts"][t["id"]] = {"as": "lane-title", "box": box}
+            if layout["lanes"][l["id"]].pop("titleBold", None):
+                layout["texts"][t["id"]]["bold"] = True
             for x in model["flows"] + model["offPage"]:  # the title was no one's guard
                 if x.get("guard") == l["id"]:
                     del x["guard"]
@@ -514,6 +516,8 @@ def apply_corrections(model, layout, report, name, recorded=None):
             p["title"] = l["title"]
             layout["phases"][p["id"]]["title"] = {"as": "lane-title",
                                                   "box": layout["lanes"][l["id"]].pop("titleBox")}
+            if layout["lanes"][l["id"]].pop("titleBold", None):
+                layout["phases"][p["id"]]["title"]["bold"] = True
             l["title"] = ""
             touched |= {l["id"], p["id"]}
         elif op == "phase-title-from-text":
@@ -999,6 +1003,8 @@ def bands_to_phases(model, layout):
             pid = "p-%s" % b["id"]
             model["phases"].append(dict(id=pid, title=b["title"], members=[n["id"] for n in held]))
             layout["phases"][pid] = {"as": "band", "y0": g["y0"], "y1": g["y1"]}
+            if g.get("titleBold"):
+                layout["phases"][pid]["titleBold"] = True
         elif not held:
             boxes = [layout["lanes"][c["id"]].get("titleBox") for c in cols]
             if boxes and all(bx and g["y0"] <= bx[1] and bx[1] + bx[3] <= g["y1"] for bx in boxes):

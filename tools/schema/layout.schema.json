@@ -42,6 +42,7 @@
    "properties": {"x0": {"type": "number"}, "x1": {"type": "number"},
                   "y0": {"type": "number"}, "y1": {"type": "number"},
                   "titleBox": {"$ref": "#/$defs/box"},
+                  "titleBold": {"const": true, "description": "the title is set bold in the artwork (measured: stem width against letter height)"},
                   "titleWords": {"type": "string", "description": "the words drawn in the title box, where the model's name differs from the artwork's (q15)"},
                   "title": {"$ref": "#/$defs/placedText", "description": "where a title the reading placed as text is drawn (q15)"}}}},
   "nodes": {"type": "object", "additionalProperties": {
@@ -82,7 +83,8 @@
                    "title": {"$ref": "#/$defs/placedText", "description": "where the phase's title is drawn"}}},
    {"type": "object", "required": ["as", "y0", "y1"], "additionalProperties": false,
     "description": "a phase shown as a row across the page, its title up the left gutter (Intermodal Freight Management)",
-    "properties": {"as": {"const": "band"}, "y0": {"type": "number"}, "y1": {"type": "number"}}}]}},
+    "properties": {"as": {"const": "band"}, "y0": {"type": "number"}, "y1": {"type": "number"},
+                   "titleBold": {"const": true, "description": "the title up the gutter is set bold in the artwork"}}}]}},
   "titleRow": {"$ref": "#/$defs/pair", "description": "the row under the frame the lane titles are set in, closed by a line (the 2.3 customs figures): how the lane names are shown"}
  },
  "$defs": {
@@ -109,7 +111,8 @@
                     "lines": {"$ref": "#/$defs/lines"}, "as": {"const": "text"},
                     "bold": {"type": "boolean"}, "italic": {"type": "boolean"}}},
     {"type": "object", "required": ["as", "box"], "additionalProperties": false,
-     "properties": {"as": {"const": "lane-title"}, "box": {"$ref": "#/$defs/box"}}}]},
+     "properties": {"as": {"const": "lane-title"}, "box": {"$ref": "#/$defs/box"},
+                    "bold": {"const": true, "description": "set bold in the artwork, as the lane title it was read as"}}}]},
   "lines": {"type": "array", "items": {
    "type": "object", "required": ["x", "y", "w", "h", "text"], "additionalProperties": false,
    "properties": {"x": {"type": "number"}, "y": {"type": "number"}, "w": {"type": "number"},

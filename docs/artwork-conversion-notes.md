@@ -1575,6 +1575,23 @@ figures, CPFR Create Order Forecast), a line handed over from another figure
 Item(s)* steps) - drawn as goods flows on five figures, and not drawn on
 Fig C.1 and Fulfilment Despatch Advice.
 
+**Figure by figure, most complex first (from 2026-09-27).** With every element
+kind under contract, each figure is gone over with the TC: the latest SVG
+coloured by element kind beside the original, the model read back, and the
+differences shown.
+
+- *Intermodal Freight Management (1 of 78).* Model correct and complete. Two
+  drawing points, settled: the lane titles and the phase titles up the gutter
+  are set bold in the artwork and were drawn regular. Title weight is now
+  measured (`title_is_bold` in extract_graph.py: stem width against the
+  letters' own height - 0.11 to 0.18 regular, 0.20 to 0.28 bold over the 78,
+  whatever the face) and drawn: the layout's `titleBold` on a lane or a band,
+  `bold` on a title moved to a phase. 14 figures have bold titles (Fig C.1,
+  IMFM, five CPFR phase titles, seven 2.3 customs figures, Waste
+  Notification). And "AnnounceTransport Services" is the artwork's typo: model
+  and drawing read "Announce Transport Services", recorded in
+  `tools/artwork-faults.json` (`text`).
+
 **The notes for a person, all 266 settled by eye (2026-09-27).** The sweep
 leaves, per diagram, notes where the reading could not be sure; each was looked at
 beside the original and our render (side by side, crops of the place). Most are
