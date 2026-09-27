@@ -86,6 +86,8 @@ def lines_of(n, cx, cy, size, font, weight="", style=""):
     usually set in."""
     if n.get("bold") is not None:
         weight = "bold" if n["bold"] else ""
+    if n.get("italic") is not None:
+        style = "italic" if n["italic"] else ""
     ll = n.get("labelLines")
     if not ll:
         # a node carries its words under "label" and a free block under "text",
@@ -453,7 +455,9 @@ def main(spec_path, out):
                    ("M %.2f %.2f L %.2f %.2f L %.2f %.2f"
                     % ((18, y0, 2, vh / 2.0, 18, y1) if back else
                        (2, y0, 18, vh / 2.0, 2, y1)))
-                   + (" Z" if filled else ""),
+                   # the filled head of the 2.3 figures has a notched back
+                   + (" L %.2f %.2f Z" % ((14, vh / 2.0) if back else (6, vh / 2.0))
+                      if filled else ""),
                    "#000" if filled else "none", bw))
     defs = "<defs>" + marker("arrow") + marker("arrowback", back=True) + "</defs>"
     model = mxfile(spec)

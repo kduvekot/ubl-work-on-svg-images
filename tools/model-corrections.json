@@ -156,6 +156,33 @@
     "answer": "The artwork has one flow from Create to Send Trade Item Location Profile; the second was made from the top of the 'No' arrow into Create.",
     "op": "remove-flow",
     "flow": "flow-create-trade-item-location-profile-to-send-trade-item-location-profile-2"
+   },
+   {
+    "id": "draw-08",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, TC instruction: one fix pass at the end",
+    "question": "Found while settling the notes for a person by eye (notes section 16): drawn visibly off although the model is right.",
+    "answer": "A straight vertical line, as in the artwork.",
+    "op": "layout",
+    "section": "flows",
+    "element": "flow-create-trade-item-location-profile-to-send-trade-item-location-profile",
+    "was": {
+     "routing": "orthogonal"
+    },
+    "set": {
+     "fromPoint": [
+      2789,
+      1889
+     ],
+     "toPoint": [
+      2789,
+      1948
+     ],
+     "routing": "straight"
+    },
+    "unset": [
+     "points"
+    ]
    }
   ],
   "UBL-2.2-CPFR-CreatingSalesForecast": [
@@ -931,6 +958,94 @@
     "was": {
      "text": "(from Business Processes)"
     }
+   },
+   {
+    "id": "draw-04",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, TC instruction: one fix pass at the end",
+    "question": "Found while settling the notes for a person by eye (notes section 16): drawn visibly off although the model is right.",
+    "answer": "Drawn on two lines, bold italic, in the artwork; the reading took it as one line 92px high.",
+    "op": "layout",
+    "section": "texts",
+    "element": "text-from-business-processes",
+    "set": {
+     "lines": [
+      {
+       "x": 1520,
+       "y": 500,
+       "w": 295,
+       "h": 38,
+       "text": "(from Business"
+      },
+      {
+       "x": 1565,
+       "y": 546,
+       "w": 216,
+       "h": 38,
+       "text": "Processes)"
+      }
+     ],
+     "bold": true,
+     "italic": true
+    }
+   },
+   {
+    "id": "draw-05",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, TC instruction: one fix pass at the end",
+    "question": "Found while settling the notes for a person by eye (notes section 16): drawn visibly off although the model is right.",
+    "answer": "The words break where the artwork breaks them.",
+    "op": "retext",
+    "section": "texts",
+    "element": "text-from-business-processes",
+    "text": "(from Business\nProcesses)",
+    "was": {
+     "text": "(from Business Processes)"
+    }
+   },
+   {
+    "id": "draw-06",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, TC instruction: one fix pass at the end",
+    "question": "Found while settling the notes for a person by eye (notes section 16): drawn visibly off although the model is right.",
+    "answer": "Drawn on two lines, bold italic, in the artwork; the reading took it as one line 92px high.",
+    "op": "layout",
+    "section": "texts",
+    "element": "text-from-business-processes-2",
+    "set": {
+     "lines": [
+      {
+       "x": 1536,
+       "y": 1218,
+       "w": 295,
+       "h": 38,
+       "text": "(from Business"
+      },
+      {
+       "x": 1581,
+       "y": 1263,
+       "w": 217,
+       "h": 38,
+       "text": "Processes)"
+      }
+     ],
+     "bold": true,
+     "italic": true
+    }
+   },
+   {
+    "id": "draw-07",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, TC instruction: one fix pass at the end",
+    "question": "Found while settling the notes for a person by eye (notes section 16): drawn visibly off although the model is right.",
+    "answer": "The words break where the artwork breaks them.",
+    "op": "retext",
+    "section": "texts",
+    "element": "text-from-business-processes-2",
+    "text": "(from Business\nProcesses)",
+    "was": {
+     "text": "(from Business Processes)"
+    }
    }
   ],
   "UBL-1.0-ProcurementProcess": [
@@ -1077,6 +1192,23 @@
     "was": {
      "text": "oupplier Initiated\nUpdate"
     }
+   },
+   {
+    "id": "draw-02",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, TC instruction: one fix pass at the end",
+    "question": "Found while settling the notes for a person by eye (notes section 16): drawn visibly off although the model is right.",
+    "answer": "'Update' is 138px wide; the reading's line took in the start node.",
+    "op": "layout",
+    "section": "texts",
+    "element": "text-oupplier-initiated-update",
+    "line": 1,
+    "was": {
+     "w": 256
+    },
+    "set": {
+     "w": 138
+    }
    }
   ],
   "UBL-2.0-UpdateCataloguePricingProcess": [
@@ -1092,6 +1224,23 @@
     "text": "Customer\nInitiated\nUpdate",
     "was": {
      "text": "J,ustomer\nnitiated\nJpdate"
+    }
+   },
+   {
+    "id": "draw-03",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, TC instruction: one fix pass at the end",
+    "question": "Found while settling the notes for a person by eye (notes section 16): drawn visibly off although the model is right.",
+    "answer": "'Update' is 141px wide; the reading's line took in the start node.",
+    "op": "layout",
+    "section": "texts",
+    "element": "text-supplier-initiated-update",
+    "line": 1,
+    "was": {
+     "w": 262
+    },
+    "set": {
+     "w": 141
     }
    }
   ],
@@ -1187,6 +1336,23 @@
     "was": {
      "text": "Above P\nThresholds?"
     }
+   },
+   {
+    "id": "draw-01",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, TC instruction: one fix pass at the end",
+    "question": "Found while settling the notes for a person by eye (notes section 16): drawn visibly off although the model is right.",
+    "answer": "'Above' is 230px wide; the reading's line took in the decision's left corner.",
+    "op": "layout",
+    "section": "texts",
+    "element": "text-above-p-thresholds",
+    "line": 0,
+    "was": {
+     "w": 454
+    },
+    "set": {
+     "w": 230
+    }
    }
   ],
   "UBL-2.2-FulfilmentDespatchAdviceProcess": [
@@ -1226,159 +1392,6 @@
     "was": {
      "text": "a"
     }
-   }
-  ]
- },
- "pendingDrawingFixes": {
-  "about": "Faults found while settling the notes for a person that change what is drawn when fixed: a text line measured too wide, a style the SVG gets wrong, and a few model errors the original settles plainly (a reversed flow, an invented flow, scraps read as text). Like the text fixes they wait for the one pass at the end, since each moves the baseline. model_io.py does not read this list.",
-  "fixes": [
-   {
-    "diagram": "UBL-2.2-Tender-ContractInfoNotify",
-    "section": "texts",
-    "element": "text-above-p-thresholds",
-    "line": 0,
-    "measured": {
-     "x": 82,
-     "w": 454
-    },
-    "should_be": {
-     "x": 82,
-     "w": 230
-    },
-    "why": "the line took in the decision's left corner (read as 'P'), so 'Above' is drawn stretched to twice its width",
-    "found": "2026-09-27",
-    "kind": "line-width"
-   },
-   {
-    "diagram": "UBL-2.0-UpdateCatalogueItemSpecificationProcess",
-    "section": "texts",
-    "element": "text-oupplier-initiated-update",
-    "line": 1,
-    "measured": {
-     "x": 2944,
-     "w": 256
-    },
-    "should_be": {
-     "x": 2944,
-     "w": 138
-    },
-    "why": "the line took in the start node below-right of it, so 'Update' is drawn stretched and overlapping the node",
-    "found": "2026-09-27",
-    "kind": "line-width"
-   },
-   {
-    "diagram": "UBL-2.0-UpdateCataloguePricingProcess",
-    "section": "texts",
-    "element": "text-supplier-initiated-update",
-    "line": 1,
-    "measured": {
-     "x": 2887,
-     "w": 262
-    },
-    "should_be": {
-     "x": 2887,
-     "w": 141
-    },
-    "why": "as on Update Catalogue Item Specification",
-    "found": "2026-09-27",
-    "kind": "line-width"
-   },
-   {
-    "kind": "upright-labels",
-    "diagrams": [
-     "UBL-2.3-CommonTransportationReportProcess",
-     "UBL-2.3-ImportDeclarationProcess",
-     "UBL-2.3-ManifestProcess",
-     "UBL-2.3-TransitDeclarationProcess",
-     "UBL-2.5-WasteMovementProcess",
-     "UBL-2.5-WasteNotificationProcess"
-    ],
-    "why": "these six draw their document labels upright and not bold; the SVG sets every document label in italic. The layout already says bold: false for exactly these documents, so italic can follow it",
-    "found": "2026-09-27"
-   },
-   {
-    "kind": "line-split",
-    "diagram": "UBL-2.5-UtilityBillingProcess",
-    "elements": [
-     "text-from-business-processes",
-     "text-from-business-processes-2"
-    ],
-    "why": "'(from Business Processes)' is drawn in the artwork on two lines, bold italic, under Invoice and Invoice Status Response; the reading took each as one line 92px high, so the SVG draws it as one squashed line",
-    "found": "2026-09-27"
-   },
-   {
-    "kind": "arrowhead-shape",
-    "diagrams": [
-     "UBL-2.3-CommonTransportationReportProcess",
-     "UBL-2.3-ExportCustomsDeclarationProcess",
-     "UBL-2.3-GoodsCertificateExportProcess",
-     "UBL-2.3-GoodsItemPassportApprovalProcess",
-     "UBL-2.3-GoodsItemPassportPresentationProcess",
-     "UBL-2.3-GoodsItemPassportReturnProcess",
-     "UBL-2.3-ImportDeclarationProcess",
-     "UBL-2.3-ManifestProcess",
-     "UBL-2.3-RequestForProofOfReexportationProcess",
-     "UBL-2.3-TransitDeclarationProcess"
-    ],
-    "why": "these ten draw a filled arrowhead with a notched back (a barbed head); the SVG draws a plain filled triangle. Minor: the size and place are right",
-    "found": "2026-09-27"
-   },
-   {
-    "kind": "route",
-    "diagram": "UBL-2.2-CPFR-CreateJointBusinessPlan",
-    "section": "flows",
-    "element": "flow-create-trade-item-location-profile-to-send-trade-item-location-profile",
-    "measured": {
-     "fromPoint": [
-      2815,
-      1889
-     ],
-     "toPoint": [
-      2789,
-      1948
-     ],
-     "routing": "orthogonal"
-    },
-    "should_be": {
-     "fromPoint": [
-      2789,
-      1889
-     ],
-     "toPoint": [
-      2789,
-      1948
-     ],
-     "routing": "straight"
-    },
-    "why": "drawn with a small jog where the artwork has a straight vertical line; seen once the invented flow beside it was removed (model-04)",
-    "found": "2026-09-27"
-   }
-  ],
-  "applied": [
-   {
-    "kind": "direction",
-    "diagram": "UBL-2.2-FulfilmentDespatchAdviceProcess",
-    "element": "flow-adjust-supply-status-to-send-despatch-advice",
-    "should_be": "from action-send-despatch-advice to action-adjust-supply-status",
-    "why": "the artwork's head is at Adjust supply status; it was read as the text 'AN', so the direction came out reversed and the head is drawn at Send Despatch Advice",
-    "found": "2026-09-27"
-   },
-   {
-    "kind": "remove-text",
-    "diagram": "UBL-2.2-FulfilmentDespatchAdviceProcess",
-    "elements": [
-     "text-an",
-     "text-a"
-    ],
-    "why": "'AN' is the arrowhead of the flow above, 'a' a scrap beside the flow from Cancel Despatch; neither is text in the artwork, and both are drawn as tiny words",
-    "found": "2026-09-27"
-   },
-   {
-    "kind": "remove-flow",
-    "diagram": "UBL-2.2-CPFR-CreateJointBusinessPlan",
-    "element": "flow-create-trade-item-location-profile-to-send-trade-item-location-profile-2",
-    "why": "invented: the artwork has one flow from Create to Send Trade Item Location Profile; this second one was made from the top of the 'No' arrow into Create, and draws a stray head beside it",
-    "found": "2026-09-27"
    }
   ]
  },
@@ -1561,6 +1574,164 @@
     "should_read": "Above\nThresholds?",
     "found": "2026-09-27",
     "note": "the 'P' is the decision's left corner; its line width needs fixing too (pendingLayoutFixes)"
+   }
+  ]
+ },
+ "appliedDrawingFixes": {
+  "about": "The drawing fixes once pending, applied in the fix pass of 2026-09-27; each says how.",
+  "fixes": [
+   {
+    "kind": "direction",
+    "diagram": "UBL-2.2-FulfilmentDespatchAdviceProcess",
+    "element": "flow-adjust-supply-status-to-send-despatch-advice",
+    "should_be": "from action-send-despatch-advice to action-adjust-supply-status",
+    "why": "the artwork's head is at Adjust supply status; it was read as the text 'AN', so the direction came out reversed and the head is drawn at Send Despatch Advice",
+    "found": "2026-09-27"
+   },
+   {
+    "kind": "remove-text",
+    "diagram": "UBL-2.2-FulfilmentDespatchAdviceProcess",
+    "elements": [
+     "text-an",
+     "text-a"
+    ],
+    "why": "'AN' is the arrowhead of the flow above, 'a' a scrap beside the flow from Cancel Despatch; neither is text in the artwork, and both are drawn as tiny words",
+    "found": "2026-09-27"
+   },
+   {
+    "kind": "remove-flow",
+    "diagram": "UBL-2.2-CPFR-CreateJointBusinessPlan",
+    "element": "flow-create-trade-item-location-profile-to-send-trade-item-location-profile-2",
+    "why": "invented: the artwork has one flow from Create to Send Trade Item Location Profile; this second one was made from the top of the 'No' arrow into Create, and draws a stray head beside it",
+    "found": "2026-09-27"
+   },
+   {
+    "diagram": "UBL-2.2-Tender-ContractInfoNotify",
+    "section": "texts",
+    "element": "text-above-p-thresholds",
+    "line": 0,
+    "measured": {
+     "x": 82,
+     "w": 454
+    },
+    "should_be": {
+     "x": 82,
+     "w": 230
+    },
+    "why": "the line took in the decision's left corner (read as 'P'), so 'Above' is drawn stretched to twice its width",
+    "found": "2026-09-27",
+    "kind": "line-width",
+    "applied": "corrections draw-01..03"
+   },
+   {
+    "diagram": "UBL-2.0-UpdateCatalogueItemSpecificationProcess",
+    "section": "texts",
+    "element": "text-oupplier-initiated-update",
+    "line": 1,
+    "measured": {
+     "x": 2944,
+     "w": 256
+    },
+    "should_be": {
+     "x": 2944,
+     "w": 138
+    },
+    "why": "the line took in the start node below-right of it, so 'Update' is drawn stretched and overlapping the node",
+    "found": "2026-09-27",
+    "kind": "line-width",
+    "applied": "corrections draw-01..03"
+   },
+   {
+    "diagram": "UBL-2.0-UpdateCataloguePricingProcess",
+    "section": "texts",
+    "element": "text-supplier-initiated-update",
+    "line": 1,
+    "measured": {
+     "x": 2887,
+     "w": 262
+    },
+    "should_be": {
+     "x": 2887,
+     "w": 141
+    },
+    "why": "as on Update Catalogue Item Specification",
+    "found": "2026-09-27",
+    "kind": "line-width",
+    "applied": "corrections draw-01..03"
+   },
+   {
+    "kind": "upright-labels",
+    "diagrams": [
+     "UBL-2.3-CommonTransportationReportProcess",
+     "UBL-2.3-ImportDeclarationProcess",
+     "UBL-2.3-ManifestProcess",
+     "UBL-2.3-TransitDeclarationProcess",
+     "UBL-2.5-WasteMovementProcess",
+     "UBL-2.5-WasteNotificationProcess"
+    ],
+    "why": "these six draw their document labels upright and not bold; the SVG sets every document label in italic. The layout already says bold: false for exactly these documents, so italic can follow it",
+    "found": "2026-09-27",
+    "applied": "drawing code: spec_from_model sets a document's label upright where the layout says bold false"
+   },
+   {
+    "kind": "line-split",
+    "diagram": "UBL-2.5-UtilityBillingProcess",
+    "elements": [
+     "text-from-business-processes",
+     "text-from-business-processes-2"
+    ],
+    "why": "'(from Business Processes)' is drawn in the artwork on two lines, bold italic, under Invoice and Invoice Status Response; the reading took each as one line 92px high, so the SVG draws it as one squashed line",
+    "found": "2026-09-27",
+    "applied": "corrections draw-04..07"
+   },
+   {
+    "kind": "arrowhead-shape",
+    "diagrams": [
+     "UBL-2.3-CommonTransportationReportProcess",
+     "UBL-2.3-ExportCustomsDeclarationProcess",
+     "UBL-2.3-GoodsCertificateExportProcess",
+     "UBL-2.3-GoodsItemPassportApprovalProcess",
+     "UBL-2.3-GoodsItemPassportPresentationProcess",
+     "UBL-2.3-GoodsItemPassportReturnProcess",
+     "UBL-2.3-ImportDeclarationProcess",
+     "UBL-2.3-ManifestProcess",
+     "UBL-2.3-RequestForProofOfReexportationProcess",
+     "UBL-2.3-TransitDeclarationProcess"
+    ],
+    "why": "these ten draw a filled arrowhead with a notched back (a barbed head); the SVG draws a plain filled triangle. Minor: the size and place are right",
+    "found": "2026-09-27",
+    "applied": "drawing code: build_diagram draws the filled head with a notched back"
+   },
+   {
+    "kind": "route",
+    "diagram": "UBL-2.2-CPFR-CreateJointBusinessPlan",
+    "section": "flows",
+    "element": "flow-create-trade-item-location-profile-to-send-trade-item-location-profile",
+    "measured": {
+     "fromPoint": [
+      2815,
+      1889
+     ],
+     "toPoint": [
+      2789,
+      1948
+     ],
+     "routing": "orthogonal"
+    },
+    "should_be": {
+     "fromPoint": [
+      2789,
+      1889
+     ],
+     "toPoint": [
+      2789,
+      1948
+     ],
+     "routing": "straight"
+    },
+    "why": "drawn with a small jog where the artwork has a straight vertical line; seen once the invented flow beside it was removed (model-04)",
+    "found": "2026-09-27",
+    "applied": "correction draw-08"
    }
   ]
  }

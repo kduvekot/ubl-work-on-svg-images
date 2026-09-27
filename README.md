@@ -43,9 +43,13 @@ the corrections themselves, question and answer included, in
 > Step 2 done: the model errors (corrections `model-01`..`model-04`: a reversed
 > flow and two text scraps on Fulfilment Despatch Advice, an invented flow on
 > CPFR Create Joint Business Plan); 14 diagrams differ.
-> Next: the drawing fixes in `pendingDrawingFixes`;
-> then a new baseline. Until then the comparison is expected to show `differs`
-> on the fixed diagrams only.
+> Step 3 done: the drawing fixes (corrections `draw-01`..`draw-08` for line
+> widths, a two-line text and a route; drawing code for upright document labels
+> and notched filled arrowheads), listed in `appliedDrawingFixes`. Step 4 done:
+> the checkers see every correction that changes what they check (the
+> corrected graph now applies reversed, removed and added flows, removed and
+> re-measured texts). 25 diagrams differ from the baseline, each only where
+> fixed (red/blue PDF). Next: the TC checks that PDF, then a new baseline.
 
 ## Working method
 

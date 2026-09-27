@@ -85,7 +85,8 @@
    "oneOf": [
     {"type": "object", "required": ["x", "y", "w", "h"], "additionalProperties": false,
      "properties": {"x": {"type": "number"}, "y": {"type": "number"}, "w": {"type": "number"}, "h": {"type": "number"},
-                    "lines": {"$ref": "#/$defs/lines"}, "as": {"const": "text"}}},
+                    "lines": {"$ref": "#/$defs/lines"}, "as": {"const": "text"},
+                    "bold": {"type": "boolean"}, "italic": {"type": "boolean"}}},
     {"type": "object", "required": ["as", "box"], "additionalProperties": false,
      "properties": {"as": {"const": "lane-title"}, "box": {"$ref": "#/$defs/box"}}}]},
   "lines": {"type": "array", "items": {

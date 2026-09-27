@@ -201,6 +201,8 @@ def with_added_flows(g, src):
     g = json.loads(json.dumps(g))
     for f in added:
         a, b = former.get(f["from"], f["from"]), former.get(f["to"], f["to"])
+        if any(e["from"] == a and e["to"] == b for e in g["edges"]):
+            continue                   # the corrected graph has it already
         g["edges"].append({"from": a, "to": b, "edgeKind": f.get("kind")})
         g["openEnds"] = [o for o in g.get("openEnds", [])
                          if not (o.get("node") == b and o.get("inward"))]

@@ -346,6 +346,11 @@ def apply_corrections(model, layout, report, name, recorded=None):
                              it out of other line-work
       remove-text            text `text` is not text in the artwork: a scrap of
                              line-work the reading took for words
+      layout                 where or how `element` of `section` is drawn, as
+                             measured by hand from the original: `set` merges
+                             into its layout entry (or into line `line` of its
+                             lines), `unset` drops keys; `was` checks the old
+                             values the same way. The model does not change
       retext                 the words of `element` in `section` (texts, nodes or
                              lanes) are `text`, which the reading misread; line
                              breaks as in the artwork, one per measured line
@@ -395,6 +400,9 @@ def apply_corrections(model, layout, report, name, recorded=None):
         to["guard"] = t["id"]
 
     touched = set()
+    # what the checkers must see changed in the graph they read: kept in the
+    # graph's own ids (edges f<n>, texts t<n>), which these still are here
+    patches = {"edges": {}, "texts": {}, "addEdges": []}
     for c in todo:
         op, cid = c["op"], c["id"]
         if op == "attach-guard":
@@ -535,6 +543,8 @@ def apply_corrections(model, layout, report, name, recorded=None):
             ga = layout["nodes"][a["id"]]
             f = dict(id="corr-%s" % cid, **{"from": a["id"], "to": b["id"]}, kind="object")
             model["flows"].append(f)
+            patches["addEdges"].append({"from": a["id"], "to": b["id"], "edgeKind": "object",
+                                        "replacesOpenEndInto": b["id"]})
             layout["flows"][f["id"]] = dict(
                 fromPoint=[og["at"][0], ga["y"] + ga["h"]], toPoint=og["end"],
                 routing="along-divider", points=[og["at"]] + (og.get("points") or []))
@@ -556,6 +566,7 @@ def apply_corrections(model, layout, report, name, recorded=None):
             check_was(c, f)
             f["from"], f["to"] = f["to"], f["from"]
             f["direction"] = {"confidence": "high", "checked": "corrected"}
+            patches["edges"][f["id"]] = {"reverse": True}
             g = layout["flows"][f["id"]]
             g["fromPoint"], g["toPoint"] = g["toPoint"], g["fromPoint"]
             if g.get("points"):
@@ -569,6 +580,7 @@ def apply_corrections(model, layout, report, name, recorded=None):
                                  % (name, cid, c["flow"]))
             model["flows"].remove(f)
             del layout["flows"][f["id"]]
+            patches["edges"][f["id"]] = None
             touched.add(f["id"])
         elif op == "remove-text":
             t = el("texts", c["text"], cid)
@@ -578,7 +590,23 @@ def apply_corrections(model, layout, report, name, recorded=None):
                                  % (name, cid, c["text"]))
             model["texts"].remove(t)
             del layout["texts"][t["id"]]
+            patches["texts"][t["id"]] = None
             touched.add(t["id"])
+        elif op == "layout":
+            x = el(c["section"], c["element"], cid)
+            g = layout[c["section"]][x["id"]]
+            if "line" in c:
+                g = g["lines" if c["section"] == "texts" else "labelLines"][c["line"]]
+            for k, v in c.get("was", {}).items():
+                if g.get(k) != v:
+                    raise ValueError("%s: correction %s was made for %s = %r, and the layout has %r"
+                                     % (name, cid, k, v, g.get(k)))
+            g.update(c.get("set", {}))
+            for k in c.get("unset", []):
+                g.pop(k, None)
+            if c["section"] == "texts":
+                patches["texts"][x["id"]] = "final"
+            touched.add(x["id"])
         elif op == "retext":
             # words the reading got wrong, as the artwork writes them. The words
             # change, and so does what is drawn; where each line sits does not.
@@ -607,6 +635,14 @@ def apply_corrections(model, layout, report, name, recorded=None):
             touched.add(o["id"])
         else:
             raise ValueError("%s: correction %s: unknown op %r" % (name, cid, op))
+    for tid, v in list(patches["texts"].items()):
+        if v == "final":
+            t = next(t for t in model["texts"] if t["id"] == tid)
+            g = layout["texts"][tid]
+            patches["texts"][tid] = dict({k: g[k] for k in ("x", "y", "w", "h", "lines", "bold", "italic")
+                                          if k in g}, text=t["text"])
+    if any(patches.values()):
+        report["graphPatches"] = patches
     for f in report["findings"]:
         if touched & ({f.get("flow"), f.get("lane")} | set(f.get("texts", []))):
             f["resolvedBy"] = [c["id"] for c in todo]
@@ -913,12 +949,16 @@ def join(model, layout, report):
 
 
 def corrected_graph(g, report):
-    """The graph with the words a person corrected (retext) put right, and
-    nothing else changed: what the verifier, the model sheet and the review marks
-    check the drawing against. They read the graph; given the reading's own
-    words they would report a correct render as a text error."""
-    fixes = report.get("retexted")
-    if not fixes:
+    """The graph with what a person corrected put right: the words (retext),
+    and the report's graphPatches - a flow reversed or removed, a text removed
+    or re-measured, a flow added where the reading could not see one. This is
+    what the verifier, the model sheet and the review marks check the drawing
+    against: they read the graph, and given the reading's own version they would
+    report a correct render as an error. Corrections that only say more about
+    what is drawn (a guard's flow, a phase's title) do not reach it."""
+    fixes = report.get("retexted") or {}
+    patches = report.get("graphPatches")
+    if not fixes and not patches:
         return None
     g = json.loads(json.dumps(g))
     for gid, f in fixes.items():
@@ -937,6 +977,29 @@ def corrected_graph(g, report):
                     e["guard"] = norm(f["text"])
         elif f["section"] == "lanes":
             g["partitions"][int(gid[4:])]["title"] = f["text"]
+    if patches:
+        # texts first by index, then drop the removed ones (indices are the
+        # graph's own, so every change is made before any removal)
+        for tid, v in patches["texts"].items():
+            if v is not None:
+                g["text"][int(tid[1:])].update(v)
+        edges = g["edges"]
+        for fid, v in patches["edges"].items():
+            if v and v.get("reverse"):
+                e = edges[int(fid[1:])]
+                e["from"], e["to"] = e["to"], e["from"]
+                if "fromPoint" in e and "toPoint" in e:
+                    e["fromPoint"], e["toPoint"] = e["toPoint"], e["fromPoint"]
+                if e.get("points"):
+                    e["points"] = e["points"][::-1]
+        drop_t = {int(t[1:]) for t, v in patches["texts"].items() if v is None}
+        drop_e = {int(f[1:]) for f, v in patches["edges"].items() if v is None}
+        g["text"] = [t for i, t in enumerate(g["text"]) if i not in drop_t]
+        g["edges"] = [e for i, e in enumerate(edges) if i not in drop_e]
+        for a in patches["addEdges"]:
+            g["edges"].append({"from": a["from"], "to": a["to"], "edgeKind": a["edgeKind"]})
+            g["openEnds"] = [o for o in g.get("openEnds", [])
+                             if not (o.get("node") == a["replacesOpenEndInto"] and o.get("inward"))]
     return g
 
 

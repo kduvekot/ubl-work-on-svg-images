@@ -104,6 +104,10 @@ def main(src, out, model_w=1480.0):
                                for l in n["labelLines"]]
         if n.get("bold") is not None:
             d["bold"] = bool(n["bold"])
+            # a document's label is bold italic in the artwork, or - on the six
+            # 2.3/2.5 figures that draw documents in plain type - upright
+            if k == "object" and not n["bold"]:
+                d["italic"] = False
         nodes.append(d)
     byid = {n["id"]: n for n in nodes}
 
@@ -210,6 +214,9 @@ def main(src, out, model_w=1480.0):
              "w": M(t["w"]), "h": M(t["h"])}
         if role:
             g["role"] = role
+        for k in ("bold", "italic"):             # words set other than plain
+            if t.get(k) is not None:
+                g[k] = bool(t[k])
         if t.get("lines"):
             g["labelLines"] = [{"text": l["text"], "cx": M(l["x"] + l["w"] / 2),
                                 "cy": M(l["y"] + l["h"] / 2), "w": M(l["w"])}

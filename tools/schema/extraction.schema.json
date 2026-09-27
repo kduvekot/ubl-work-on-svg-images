@@ -32,6 +32,7 @@
   "documentLanes": {"type": "object", "additionalProperties": {"type": ["string", "null"]},
    "description": "each document placed between two lanes, and the lane the reading had given it"},
   "retexted": {"type": "object", "description": "the words a correction put right, by the graph's id: what -graph-corrected.json applies"},
+  "graphPatches": {"type": "object", "description": "what else -graph-corrected.json applies, in the graph's ids: edges reversed or removed, texts removed or re-measured, flows added"},
   "unresolvedAttachments": {"type": "object", "additionalProperties": {"type": "string"}},
   "unmapped": {"type": "object", "description": "graph fields the split does not know, carried so nothing is lost"},
   "present": {"type": "array", "items": {"type": "string"}, "description": "the graph's own fields, in its order, so it can be put back together exactly"}
