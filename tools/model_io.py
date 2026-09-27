@@ -316,6 +316,12 @@ def apply_corrections(model, layout, report, name, recorded=None):
                              diagram's scope; `reference` says which, and where
       between                node `node` stands between the two `lanes`
       flow-kind              flow `flow` is of kind `kind` (e.g. "precondition")
+      label-node             text `text` names node `node` (a start or an end)
+      linked-process         node `node` starts from, or leads into, the process
+                             `name` (`how`: "starts-from" or "leads-into")
+      retext                 the words of `element` in `section` (texts, nodes or
+                             lanes) are `text`, which the reading misread; line
+                             breaks as in the artwork, one per measured line
 
     Each may say what the reading held before (`was`), and is refused if the
     reading no longer holds it: a correction is a decision about one reading,
@@ -447,6 +453,40 @@ def apply_corrections(model, layout, report, name, recorded=None):
             check_was(c, f)
             f["kind"] = c["kind"]
             touched.add(f["id"])
+        elif op == "label-node":
+            # words written beside a node that name it - a start or an end
+            t, n = el("texts", c["text"], cid), el("nodes", c["node"], cid)
+            check_was(c, t)
+            t["labels"] = n["id"]
+            touched |= {t["id"], n["id"]}
+        elif op == "linked-process":
+            # a start that another process sets off, or an end that hands over
+            # to one: the diagram names that process and does not describe it
+            n = el("nodes", c["node"], cid)
+            n["linkedProcess"] = {k: c[k] for k in ("name", "how", "source") if k in c}
+            touched.add(n["id"])
+        elif op == "retext":
+            # words the reading got wrong, as the artwork writes them. The words
+            # change, and so does what is drawn; where each line sits does not.
+            sec = c["section"]
+            x = el(sec, c["element"], cid)
+            key = {"texts": "text", "nodes": "label", "lanes": "title"}[sec]
+            check_was(c, x)
+            old = x[key]
+            x[key] = c["text"]
+            report.setdefault("retexted", {})[x["id"]] = {"section": sec, "text": c["text"]}
+            lines = (layout[sec][x["id"]].get("lines") if sec == "texts"
+                     else layout[sec][x["id"]].get("labelLines") if sec == "nodes" else None)
+            if lines:
+                new = c["text"].split("\n")
+                if len(new) != len(lines):
+                    raise ValueError("%s: correction %s gives %d lines where %s has %d"
+                                     % (name, cid, len(new), c["element"], len(lines)))
+                for ln, words in zip(lines, new):
+                    ln["text"] = words
+            elif "\n" in c["text"] and "\n" not in old:
+                raise ValueError("%s: correction %s breaks a line %s does not" % (name, cid, c["element"]))
+            touched.add(x["id"])
         elif op == "continues":
             o = el("offPage", c["offPage"], cid)
             o["continues"] = c["figure"]
@@ -489,6 +529,10 @@ def place_documents(model, layout, report):
 
 
 def split(g, name):
+    # on a copy: the model and layout take the graph's nested lists as they are,
+    # and a correction that edits one (a line's words) must not edit the graph
+    # it is then checked against
+    g = json.loads(json.dumps(g))
     parts = g.get("partitions", [])
     lane_id = {(p["axis"], p["index"]): "lane%d" % i for i, p in enumerate(parts)}
     has_cols = any(p["axis"] == "column" for p in parts)
@@ -754,6 +798,34 @@ def join(model, layout, report):
     return {k: g[k] for k in report["present"] if k in g}
 
 
+def corrected_graph(g, report):
+    """The graph with the words a person corrected (retext) put right, and
+    nothing else changed: what the verifier, the model sheet and the review marks
+    check the drawing against. They read the graph; given the reading's own
+    words they would report a correct render as a text error."""
+    fixes = report.get("retexted")
+    if not fixes:
+        return None
+    g = json.loads(json.dumps(g))
+    for gid, f in fixes.items():
+        if f["section"] == "nodes":
+            n = next(n for n in g["nodes"] if n["id"] == gid)
+            n["label"] = f["text"]
+            for ln, words in zip(n.get("labelLines") or [], f["text"].split("\n")):
+                ln["text"] = words
+        elif f["section"] == "texts":
+            t = g["text"][int(gid[1:])]
+            t["text"] = f["text"]
+            for ln, words in zip(t.get("lines") or [], f["text"].split("\n")):
+                ln["text"] = words
+            for e in g["edges"]:           # a guard is also copied onto its flow
+                if t.get("attachedTo") == "%s->%s" % (e["from"], e["to"]) and "guard" in e:
+                    e["guard"] = norm(f["text"])
+        elif f["section"] == "lanes":
+            g["partitions"][int(gid[4:])]["title"] = f["text"]
+    return g
+
+
 def write(obj, path):
     with open(path, "w", encoding="utf-8") as f:
         json.dump(obj, f, indent=1, ensure_ascii=False)
@@ -823,7 +895,7 @@ def validate(diagram_path):
         ref("flow %s's target" % f["id"], f["to"], "nodes")
         ref("flow %s's guard" % f["id"], f.get("guard"), "texts", "lanes")
     for t in m["texts"]:
-        ref("text %s" % t["id"], t.get("labels"), "flows", "offPage")
+        ref("text %s" % t["id"], t.get("labels"), "flows", "offPage", "nodes")
     for o in m["offPage"]:
         ref("off-page flow %s" % o["id"], o["node"], "nodes")
         ref("off-page flow %s's guard" % o["id"], o.get("guard"), "texts")
@@ -853,6 +925,12 @@ def main(argv):
             sys.exit("%s: the split does not join back to the graph it came from" % name)
         for obj, p in zip((model, layout, report), paths(argv[2], name)):
             write(obj, p)
+        cg = corrected_graph(g, report)
+        cp = os.path.join(argv[2], "%s-graph-corrected.json" % name)
+        if cg is not None:
+            write(cg, cp)
+        elif os.path.exists(cp):
+            os.remove(cp)
         print("  %s -> diagram, layout, extraction  (%d nodes, %d flows, %d texts)"
               % (name, len(model["nodes"]), len(model["flows"]), len(model["texts"])))
         return 0

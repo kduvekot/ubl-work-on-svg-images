@@ -1110,3 +1110,21 @@ Nothing drawn changes. Other boxes of the same kind are to be looked for across
 the 78; Fig 37's punch-out exchange, "considered outside the scope of UBL", is the
 first candidate.
 
+The sixth, `q6`: words beside a start or an end name it. On Initiate Freight
+Management the start is labelled "Ordering Process" and the end "Fulfillment
+Process"; on Certification of Origin the start "Initiate Transport Process" and
+the end "End of CoO Process". Each text now `labels` its node, and the three that
+name another process record it as the node's `linkedProcess` (`starts-from` or
+`leads-into`) - the same idea as the external boxes of `q5`, written on a start
+or an end instead of drawn as a box.
+
+**Misread text is noted, not yet fixed.** A text fix changes what is drawn, and
+so the verifier's findings; the TC's instruction is to make them all in one pass
+at the end. They are collected in `pendingTextFixes` in
+`tools/model-corrections.json` as they are found - 17 so far, seven of them the
+degraded labels of Fig C.1 - each ready to become a `retext` correction. The
+machinery is in place and was tried on all 17: every one changed exactly its
+words and nothing else, and for the diagrams it touches `model_io.py` writes a
+`-graph-corrected.json` for the verifier, the model sheet and the review marks,
+which would otherwise report a correct render as a text error.
+

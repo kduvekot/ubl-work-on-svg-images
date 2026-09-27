@@ -43,6 +43,10 @@
      "between": {"type": "array", "items": {"$ref": "#/$defs/id"}, "minItems": 2, "maxItems": 2,
                  "description": "a document (or a joint step) drawn on the line between two columns: those two lanes, left then right. Who hands a document over and who receives it are its flows."},
      "scope": {"const": "external", "description": "the box stands for a whole process outside this diagram's scope, which it points at and does not describe (a BPMN call activity)"},
+     "linkedProcess": {"type": "object", "required": ["name", "how"], "additionalProperties": false,
+                       "properties": {"name": {"type": "string"}, "how": {"enum": ["starts-from", "leads-into"]},
+                                      "source": {"type": "string"}},
+                       "description": "for a start or an end: the other process it starts from or leads into, which the diagram names and does not describe"},
      "reference": {"type": "object", "required": ["what"], "additionalProperties": false,
                    "properties": {"what": {"type": "string"}, "source": {"type": "string"}},
                    "description": "for an external box: what process it stands for, and where the specification says so"},
@@ -82,7 +86,7 @@
     "properties": {
      "id": {"$ref": "#/$defs/id"},
      "text": {"type": "string"},
-     "labels": {"$ref": "#/$defs/ref", "description": "the flow or off-page flow this text is attached to, if any"}
+     "labels": {"$ref": "#/$defs/ref", "description": "the flow or off-page flow this text is attached to, or the node (a start or an end) it names, if any"}
     }
    }
   },

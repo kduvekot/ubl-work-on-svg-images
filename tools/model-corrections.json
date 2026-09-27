@@ -570,6 +570,236 @@
      "kind": "control"
     }
    }
+  ],
+  "UBL-2.2-InitiateFreightMgmtProcess": [
+   {
+    "id": "q6-ifm-start",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Words are written beside the start and end nodes of Initiate Freight Management ('Ordering Process', 'Fulfillment Process') and Certification of Origin of Goods ('Initiate Transport Process', 'End of CoO Process'); the model had them as free text. What are they?",
+    "answer": "Each names the start or end it sits beside. Three name another process this one starts from or leads into, which the diagram does not describe; 'End of CoO Process' only names the end.",
+    "op": "label-node",
+    "text": "text-ordering-process",
+    "node": "initial-consignee",
+    "was": {
+     "text": "Ordering\nProcess"
+    }
+   },
+   {
+    "id": "q6-ifm-start-process",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Words are written beside the start and end nodes of Initiate Freight Management ('Ordering Process', 'Fulfillment Process') and Certification of Origin of Goods ('Initiate Transport Process', 'End of CoO Process'); the model had them as free text. What are they?",
+    "answer": "Each names the start or end it sits beside. Three name another process this one starts from or leads into, which the diagram does not describe; 'End of CoO Process' only names the end.",
+    "op": "linked-process",
+    "node": "initial-consignee",
+    "name": "Ordering",
+    "how": "starts-from",
+    "source": "written beside the node in the artwork"
+   },
+   {
+    "id": "q6-ifm-end",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Words are written beside the start and end nodes of Initiate Freight Management ('Ordering Process', 'Fulfillment Process') and Certification of Origin of Goods ('Initiate Transport Process', 'End of CoO Process'); the model had them as free text. What are they?",
+    "answer": "Each names the start or end it sits beside. Three name another process this one starts from or leads into, which the diagram does not describe; 'End of CoO Process' only names the end.",
+    "op": "label-node",
+    "text": "text-fulfillment-process",
+    "node": "final-carrier",
+    "was": {
+     "text": "Fulfillment\nProcess"
+    }
+   },
+   {
+    "id": "q6-ifm-end-process",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Words are written beside the start and end nodes of Initiate Freight Management ('Ordering Process', 'Fulfillment Process') and Certification of Origin of Goods ('Initiate Transport Process', 'End of CoO Process'); the model had them as free text. What are they?",
+    "answer": "Each names the start or end it sits beside. Three name another process this one starts from or leads into, which the diagram does not describe; 'End of CoO Process' only names the end.",
+    "op": "linked-process",
+    "node": "final-carrier",
+    "name": "Fulfilment",
+    "how": "leads-into",
+    "source": "written beside the node in the artwork"
+   }
+  ],
+  "UBL-2.0-CertificationOfOriginOfGoodsProcess": [
+   {
+    "id": "q6-coo-start",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Words are written beside the start and end nodes of Initiate Freight Management ('Ordering Process', 'Fulfillment Process') and Certification of Origin of Goods ('Initiate Transport Process', 'End of CoO Process'); the model had them as free text. What are they?",
+    "answer": "Each names the start or end it sits beside. Three name another process this one starts from or leads into, which the diagram does not describe; 'End of CoO Process' only names the end.",
+    "op": "label-node",
+    "text": "text-initiate-ransport-process",
+    "node": "initial-exporter"
+   },
+   {
+    "id": "q6-coo-start-process",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Words are written beside the start and end nodes of Initiate Freight Management ('Ordering Process', 'Fulfillment Process') and Certification of Origin of Goods ('Initiate Transport Process', 'End of CoO Process'); the model had them as free text. What are they?",
+    "answer": "Each names the start or end it sits beside. Three name another process this one starts from or leads into, which the diagram does not describe; 'End of CoO Process' only names the end.",
+    "op": "linked-process",
+    "node": "initial-exporter",
+    "name": "Initiate Transport",
+    "how": "starts-from",
+    "source": "written beside the node in the artwork"
+   },
+   {
+    "id": "q6-coo-end",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, reviewing the artwork",
+    "question": "Words are written beside the start and end nodes of Initiate Freight Management ('Ordering Process', 'Fulfillment Process') and Certification of Origin of Goods ('Initiate Transport Process', 'End of CoO Process'); the model had them as free text. What are they?",
+    "answer": "Each names the start or end it sits beside. Three name another process this one starts from or leads into, which the diagram does not describe; 'End of CoO Process' only names the end.",
+    "op": "label-node",
+    "text": "text-end-of-coo-process",
+    "node": "final-importer",
+    "was": {
+     "text": "End of CoO\nProcess"
+    }
+   }
+  ]
+ },
+ "pendingTextFixes": {
+  "about": "Words the reading got wrong, noted as they are found and not yet applied: the TC's instruction (2026-09-27) is to make every text fix in one pass at the end, because each changes what is drawn and so the verifier's findings. Each entry is ready to become a 'retext' correction (op retext, section, element, text = should_read, was = reads). model_io.py does not read this list.",
+  "fixes": [
+   {
+    "diagram": "UBL-2.2-InitiateFreightMgmtProcess",
+    "section": "nodes",
+    "element": "action-send-waypbill",
+    "reads": "Send Waypbill",
+    "should_read": "Send Waybill",
+    "found": "2026-09-27"
+   },
+   {
+    "diagram": "UBL-2.0-CertificationOfOriginOfGoodsProcess",
+    "section": "texts",
+    "element": "text-initiate-ransport-process",
+    "reads": "Initiate\nransport\nProcess",
+    "should_read": "Initiate\nTransport\nProcess",
+    "found": "2026-09-27"
+   },
+   {
+    "diagram": "UBL-2.0-CertificationOfOriginOfGoodsProcess",
+    "section": "texts",
+    "element": "text-accept-pplication",
+    "reads": "Accept\npplication?",
+    "should_read": "Accept\napplication?",
+    "found": "2026-09-27"
+   },
+   {
+    "diagram": "UBL-1.0-ProcurementProcess",
+    "section": "nodes",
+    "element": "action-acd-cetail",
+    "reads": "acd Cetail",
+    "should_read": "add detail",
+    "found": "2026-09-27"
+   },
+   {
+    "diagram": "UBL-1.0-ProcurementProcess",
+    "section": "nodes",
+    "element": "action-gespatch-order-rens",
+    "reads": "Gespatch order Rens)",
+    "should_read": "despatch order item(s)",
+    "found": "2026-09-27"
+   },
+   {
+    "diagram": "UBL-1.0-ProcurementProcess",
+    "section": "nodes",
+    "element": "action-recerve-dovvce",
+    "reads": "recerve dOvVCE",
+    "should_read": "receive advice",
+    "found": "2026-09-27"
+   },
+   {
+    "diagram": "UBL-1.0-ProcurementProcess",
+    "section": "nodes",
+    "element": "action-deoson-if-rem-s-rejected",
+    "reads": "deoson if Rem(s) rejected",
+    "should_read": "decision if item(s) rejected",
+    "found": "2026-09-27"
+   },
+   {
+    "diagram": "UBL-1.0-ProcurementProcess",
+    "section": "nodes",
+    "element": "action-recive-goods",
+    "reads": "recive goods",
+    "should_read": "receive goods",
+    "found": "2026-09-27"
+   },
+   {
+    "diagram": "UBL-1.0-ProcurementProcess",
+    "section": "nodes",
+    "element": "action-sdvise-receipt",
+    "reads": "Sdvise receipt",
+    "should_read": "advise receipt",
+    "found": "2026-09-27"
+   },
+   {
+    "diagram": "UBL-1.0-ProcurementProcess",
+    "section": "nodes",
+    "element": "action-fase-wwoce",
+    "reads": "fase wwoce",
+    "should_read": "raise invoice",
+    "found": "2026-09-27"
+   },
+   {
+    "diagram": "UBL-2.0-SelfBillingwithCreditNoteProcess",
+    "section": "nodes",
+    "element": "decision-econcile-charges",
+    "reads": "econcile\nCharges",
+    "should_read": "Reconcile\nCharges",
+    "found": "2026-09-27"
+   },
+   {
+    "diagram": "UBL-2.0-UpdateCatalogueItemSpecificationProcess",
+    "section": "texts",
+    "element": "text-oupplier-initiated-update",
+    "reads": "oupplier Initiated\nUpdate",
+    "should_read": "Supplier Initiated\nUpdate",
+    "found": "2026-09-27"
+   },
+   {
+    "diagram": "UBL-2.0-UpdateCataloguePricingProcess",
+    "section": "texts",
+    "element": "text-j-ustomer-nitiated-jpdate",
+    "reads": "J,ustomer\nnitiated\nJpdate",
+    "should_read": "Customer\nInitiated\nUpdate",
+    "found": "2026-09-27"
+   },
+   {
+    "diagram": "UBL-2.2-Tender-UnsubscribeFromProcedure",
+    "section": "nodes",
+    "element": "action-receive-unsubscribe-from-procedur-1",
+    "reads": "Receive unsubscribe from procedur\n1 confirmation",
+    "should_read": "Receive unsubscribe from procedure\nconfirmation",
+    "found": "2026-09-27"
+   },
+   {
+    "diagram": "UBL-2.3-GoodsCertificateExportProcess",
+    "section": "nodes",
+    "element": "action-raft-goods-certificat",
+    "reads": "raft Goods Certificat",
+    "should_read": "Draft Goods Certificate",
+    "found": "2026-09-27"
+   },
+   {
+    "diagram": "UBL-2.3-GoodsItemPassportReturnProcess",
+    "section": "nodes",
+    "element": "object-goodslitem-passport-reexported",
+    "reads": "Goodslitem\nPassport\n(Reexported)",
+    "should_read": "GoodsItem\nPassport\n(Reexported)",
+    "found": "2026-09-27"
+   },
+   {
+    "diagram": "UBL-2.3-GoodsItemPassportReturnProcess",
+    "section": "nodes",
+    "element": "object-goodsltem-passport-reimported",
+    "reads": "Goodsltem\nPassport\n(Reimported)",
+    "should_read": "GoodsItem\nPassport\n(Reimported)",
+    "found": "2026-09-27"
+   }
   ]
  }
 }
