@@ -48,8 +48,9 @@ the corrections themselves, question and answer included, in
 > and notched filled arrowheads), listed in `appliedDrawingFixes`. Step 4 done:
 > the checkers see every correction that changes what they check (the
 > corrected graph now applies reversed, removed and added flows, removed and
-> re-measured texts). 25 diagrams differ from the baseline, each only where
-> fixed (red/blue PDF). Next: the TC checks that PDF, then a new baseline.
+> re-measured texts). 26 diagrams differ from the baseline, each only where
+> fixed (red/blue PDF); the 26th is Self Billing with Self Billed Credit Note,
+> whose two "[accept charges]" were misread (texts sweep). Next: the TC checks that PDF, then a new baseline.
 
 ## Working method
 

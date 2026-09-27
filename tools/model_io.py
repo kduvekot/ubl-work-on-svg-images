@@ -406,6 +406,14 @@ def apply_corrections(model, layout, report, name, recorded=None):
                              lanes) are `text`, which the reading misread; line
                              breaks as in the artwork, one per measured line
 
+      implied-choice         flow `flow` leaves an ordinary step, not a decision,
+                             and is one of its alternatives, taken when its
+                             guard holds: a choice drawn without a diamond,
+                             recorded with `reason` (Self Billing)
+      label-flow             text `text` labels flow `flow` without being its
+                             guard: it says the flow's `role` (e.g. "purpose",
+                             what the exchange is for)
+
     Each may say what the reading held before (`was`), and is refused if the
     reading no longer holds it: a correction is a decision about one reading,
     and applied to another it would be a guess. The uncorrected model and layout
@@ -827,6 +835,22 @@ def apply_corrections(model, layout, report, name, recorded=None):
             elif "\n" in c["text"] and "\n" not in old:
                 raise ValueError("%s: correction %s breaks a line %s does not" % (name, cid, c["element"]))
             touched.add(x["id"])
+        elif op == "implied-choice":
+            f = el("flows", c["flow"], cid)
+            check_was(c, f)
+            if not f.get("guard"):
+                raise ValueError("%s: correction %s: flow %s carries no guard, so it is no "
+                                 "alternative" % (name, cid, c["flow"]))
+            f["impliedChoice"] = c["reason"]
+            touched.add(f["id"])
+        elif op == "label-flow":
+            t = el("texts", c["text"], cid)
+            check_was(c, t)
+            f = el("flows", c["flow"], cid)
+            if any(x.get("guard") == t["id"] for x in model["flows"] + model["offPage"]):
+                raise ValueError("%s: correction %s: text %s is a guard" % (name, cid, c["text"]))
+            t["labels"], t["role"] = f["id"], c["role"]
+            touched |= {t["id"], f["id"]}
         elif op == "continues":
             o = el("offPage", c["offPage"], cid)
             o["continues"] = c["figure"]
@@ -1425,6 +1449,16 @@ def validate(diagram_path):
             errs.append("%s and %s in %s do not hand over to each other (port %s/%s, direction %s/%s)"
                         % (o["id"], cp["id"], o["continues"], o.get("port"), cp.get("port"),
                            o["direction"], cp.get("direction")))
+        # a guard written where the line leaves its decision is repeated where
+        # it arrives on the other figure: both ends say the same
+        other_end = cp if cp is not None else fl
+        if other_end is not None:
+            words = lambda mm, x: " ".join(next((t["text"] for t in mm["texts"]
+                                                 if t["id"] == x.get("guard")), "").split())
+            if words(m, o) != words(om, other_end):
+                errs.append("%s carries the guard %r, and its other end %s in %s carries %r"
+                            % (o["id"], words(m, o), other_end["id"], o["continues"],
+                               words(om, other_end)))
     # a decision says what is decided, and each way out says when it is taken -
     # or the model records that the artwork does not
     outs_of = {}
@@ -1441,6 +1475,21 @@ def validate(diagram_path):
             if not f.get("guard") and "guard" not in f.get("unstated", {}):
                 errs.append("flow %s out of decision %s has no guard, and the model does not "
                             "record that the artwork gives none" % (f["id"], n["id"]))
+    # a guard belongs to a choice: a flow out of a decision (or a fork), or out
+    # of an ordinary step the model records as a choice drawn without a diamond
+    kind_of = {n["id"]: n["kind"] for n in m["nodes"]}
+    for f in m["flows"]:
+        if f.get("guard") and kind_of.get(f["from"]) not in ("decision", "fork") \
+                and not f.get("impliedChoice"):
+            errs.append("flow %s carries a guard out of %s, which is no decision, and the model "
+                        "does not record it as a choice drawn without one" % (f["id"], f["from"]))
+        if f.get("impliedChoice") and not f.get("guard"):
+            errs.append("flow %s is recorded as a choice, and carries no guard" % f["id"])
+    for t in m["texts"]:
+        if t.get("role") and (t.get("labels") not in {f["id"] for f in m["flows"]}
+                              or any(f.get("guard") == t["id"] for f in m["flows"])):
+            errs.append("text %s says a flow's %s: it labels a flow, and is not its guard"
+                        % (t["id"], t["role"]))
     # a start has a way out and none in; a figure has a start, or is entered
     # from another figure, or records that the artwork draws none
     ins_of = {}

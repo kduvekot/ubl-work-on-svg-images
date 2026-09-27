@@ -79,6 +79,7 @@
               "description": "control flow, object flow (a document passing), a physical goods movement, a mutual precondition between two parties (not a step in sequence), or information exchanged between two parties that no UBL document carries (drawn with a note naming it, in place of a document box)"},
      "guard": {"$ref": "#/$defs/id", "description": "the text that is this flow's guard; a lane id where the reading attached a lane title (see the extraction file's findings)"},
      "unstated": {"type": "object", "additionalProperties": {"type": "string"}, "description": "attributes the artwork does not give, each with the reason (a decision with no question, a branch with no guard)"},
+     "impliedChoice": {"type": "string", "description": "the flow leaves an ordinary step, not a decision, and is one of its alternatives, taken when its guard holds: a choice drawn without a diamond, with what the step waits on (Self Billing)"},
      "bothEnds": {"type": "boolean", "description": "an arrowhead at both ends: a standing relationship, not a flow from one to the other"},
      "direction": {
       "type": "object", "additionalProperties": false,
@@ -100,7 +101,8 @@
     "properties": {
      "id": {"$ref": "#/$defs/id"},
      "text": {"type": "string"},
-     "labels": {"$ref": "#/$defs/ref", "description": "the flow or off-page flow this text is attached to, or the node (a start or an end) it names, if any"}
+     "labels": {"$ref": "#/$defs/ref", "description": "the flow or off-page flow this text is attached to, or the node (a start or an end) it names, if any"},
+     "role": {"const": "purpose", "description": "for a text that labels a flow without being its guard: what it says of the flow - purpose, what the exchange is for (Tender Contract Information Preparation)"}
     }
    }
   },
@@ -114,7 +116,7 @@
      "node": {"$ref": "#/$defs/id"},
      "direction": {"enum": ["in", "out"]},
      "arrow": {"type": "boolean"},
-     "guard": {"$ref": "#/$defs/id", "description": "the text that is this flow's guard"},
+     "guard": {"$ref": "#/$defs/id", "description": "the text that is this flow's guard. On a line arriving from another figure it repeats the guard the line carries where it leaves its decision there (its counterpart), and says nothing of its own"},
      "continues": {"type": "string", "description": "the figure (by basename) this flow continues from, or into"},
      "port": {"type": "integer", "minimum": 1, "description": "the line's number where it crosses the frame, left to right; the same on both figures"},
      "counterpart": {"$ref": "#/$defs/id", "description": "what this line is on the other figure: an off-page flow, or a flow where the step it meets is drawn on both"}

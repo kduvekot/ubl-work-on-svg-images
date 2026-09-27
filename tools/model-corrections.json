@@ -2028,6 +2028,16 @@
     "was": {
      "text": "[under\ncharged or\nincorrect\ninformation"
     }
+   },
+   {
+    "id": "choice-01",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, text sweep kind 7",
+    "question": "A guard stands on a line out of Raise Self Billed Invoice, an ordinary step, not a decision. What is it?",
+    "answer": "A choice drawn without a diamond: once the invoice is raised, either the supplier accepts the charges and the customer's process ends here, or an Application Response or a Credit Note comes back and the customer reconciles. Kept as a guarded flow out of the step, recorded as such; a redraw would make it a branch (in BPMN an event-based gateway: a reply, or no reply meaning the charges are accepted).",
+    "op": "implied-choice",
+    "flow": "flow-raise-self-billed-invoice-to-final-accounting-customer-2",
+    "reason": "the step waits on the supplier: no dispute means the charges are accepted and the process ends; a reply leads to Reconcile Charges"
    }
   ],
   "UBL-2.0-UpdateCatalogueItemSpecificationProcess": [
@@ -2719,6 +2729,20 @@
     "title": "Publication Office",
     "was": {
      "title": "PUBLICATION OFFICE"
+    }
+   },
+   {
+    "id": "label-01",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, text sweep kind 8",
+    "question": "\"Publish Official Journal\" stands under the line from Prepare Simplified Notice to the Prior Information Notice, attached to nothing. What does it label?",
+    "answer": "That exchange, and what it is for: below the thresholds the notice is published in the buyer profile, and the simplified notice sent to the Publication Office announces it in the Official Journal of the EU (the specification's text beside the figure). No choice is made there, so it is no guard; the \"No\" loop below has its own.",
+    "op": "label-flow",
+    "text": "text-publish-official-journal",
+    "flow": "flow-prepare-simplified-notice-to-prior-information-notice-in-contracting-authority-2",
+    "role": "purpose",
+    "was": {
+     "text": "Publish Official\nJournal"
     }
    }
   ],
@@ -3461,6 +3485,46 @@
     "was": {
      "title": "Customs\nParty"
     }
+   }
+  ],
+  "UBL-2.0-SelfBillingwithSelfBilledCreditNoteProcess": [
+   {
+    "id": "text-23",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, text sweep",
+    "question": "Words the reading got wrong: the flow line the text stands against hides the closing bracket, or was read as a '1'. Zoomed in on the original, both read \"[accept charges]\".",
+    "answer": "Each reads as the artwork writes it.",
+    "op": "retext",
+    "section": "texts",
+    "element": "text-accept-charges",
+    "text": "[accept\ncharges]",
+    "was": {
+     "text": "[accept\ncharges"
+    }
+   },
+   {
+    "id": "text-24",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, text sweep",
+    "question": "Words the reading got wrong: the flow line the text stands against hides the closing bracket, or was read as a '1'. Zoomed in on the original, both read \"[accept charges]\".",
+    "answer": "Each reads as the artwork writes it.",
+    "op": "retext",
+    "section": "texts",
+    "element": "text-accept-1-charges",
+    "text": "[accept\ncharges]",
+    "was": {
+     "text": "[accept 1\ncharges"
+    }
+   },
+   {
+    "id": "choice-02",
+    "decided": "2026-09-27",
+    "by": "Kees Duvekot, text sweep kind 7",
+    "question": "A guard stands on a line out of Raise Self Billed Invoice, an ordinary step, not a decision. What is it?",
+    "answer": "A choice drawn without a diamond: once the invoice is raised, either the supplier accepts the charges and the customer's process ends here, or an Application Response or a Credit Note comes back and the customer reconciles. Kept as a guarded flow out of the step, recorded as such; a redraw would make it a branch (in BPMN an event-based gateway: a reply, or no reply meaning the charges are accepted).",
+    "op": "implied-choice",
+    "flow": "flow-raise-self-billed-invoice-to-final-accounting-customer",
+    "reason": "the step waits on the supplier: no dispute means the charges are accepted and the process ends; a reply leads to Reconcile Charges"
    }
   ]
  },

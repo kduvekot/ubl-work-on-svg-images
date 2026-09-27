@@ -1440,6 +1440,40 @@ the original and mentioned: on seven figures (Enquiry, five Tender figures,
 both Tender Contract figures) the reading made a third column 7-10 px wide out
 of the strip between the last divider and the frame; removed.
 
+The texts (183): every text says what it labels. By what it labels: a guard on
+a decision's branch (138: 132 on flows, 2 where the branch leaves for another
+figure, and 4 where it arrives on that figure, repeating the guard it carries
+where it leaves - the CPFR "No" lines, `q16`); a decision's question (25); a
+start's name (12) or an end's (3); "(from Business Processes)" under a
+document (2, `q12`); and three the TC settled (2026-09-27):
+
+- *A guard out of an ordinary step (2, both Self Billing figures).*
+  "[accept charges]" stands on a line from *Raise Self Billed Invoice* straight
+  to an end. The step is a choice drawn without a diamond: the customer waits
+  on the supplier, and either no dispute comes (the charges are accepted, the
+  process ends) or a reply comes and leads to *Reconcile Charges*. Kept as
+  drawn, a guarded flow out of the step, recorded as the flow's
+  `impliedChoice` (`choice-01`, `choice-02`).
+- *A text that labels nothing (1, Tender Contract Information Preparation).*
+  "Publish Official Journal" stands under the line from *Prepare Simplified
+  Notice* to the second *Prior Information Notice*. It is no guard - nothing is
+  chosen there, and the "No" loop below has its own - but what that exchange is
+  for: below the thresholds the notice goes in the buyer profile, and the
+  simplified notice sent to the Publication Office announces it in the Official
+  Journal of the EU, as UBL.xml says beside the figure. It now labels the flow
+  with `role` "purpose" (`label-01`).
+- *The repeated guards on hand-over lines* are the decision's guard, not a kind
+  of their own. `validate` now checks that both ends of a handed-over line
+  carry the same guard; all three pairs do.
+
+`validate` also checks that a guard stands on a flow out of a decision or a
+fork, or on one recorded as `impliedChoice`, and that a `role` text labels a
+flow without being its guard. Settled from the original and mentioned: on
+Self Billing with Self Billed Credit Note both "[accept charges]" were misread
+- the line each stands against hides the closing bracket, and in one was read
+as "[accept 1" - now `text-23`, `text-24`; that figure's render changes by
+those words only.
+
 **The notes for a person, all 266 settled by eye (2026-09-27).** The sweep
 leaves, per diagram, notes where the reading could not be sure; each was looked at
 beside the original and our render (side by side, crops of the place). Most are
@@ -1536,6 +1570,13 @@ when the diagrams themselves are next revised.
 - *Party names:* one style across the figures, and one name per role (Buyer /
   Buyer Party / Originator Customer Party ...), checked against the party roles
   UBL.xml gives for each document.
+- *Self Billing (text sweep):* the choice after *Raise Self Billed Invoice*
+  - accepted, or a reply comes - drawn as a branch, in BPMN an event-based
+  gateway: an Application Response, a Credit Note, or no reply meaning the
+  charges are accepted.
+- *Tender Contract Information Preparation (text sweep):* "Publish Official
+  Journal" would read "Publish in Official Journal"; and the box says *Prior
+  Information Notice* where both steps call it a *Simplified Notice*.
 - *Tender Guarantee Deposit (with `q8`):* obtaining the guarantee from a
   financial institution is shown as one step with no document. Should UBL ever
   cover that exchange, the financial institution would become a party with its
