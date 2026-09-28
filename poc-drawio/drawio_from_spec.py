@@ -177,6 +177,20 @@ def mxfile(spec):
                                                connectable=0),
                    d[0] - 5, d[2], 10, d[3] - d[2], kind="lane-divider")
 
+    for i, gr in enumerate(spec.get("greyRules", [])):
+        # a rule the artwork draws in grey beside a divider: black at its own
+        # width, the whole height or width, as the SVG draws it (the diagrams
+        # use no grey, the TC 2026-09-27); a line cell of its own
+        c = gr["at"] + gr["w"] / 2
+        if gr["axis"] == "v":
+            geo = (c - 5, 0, 10, H)
+        else:
+            geo = (0, c - 5, W, 10)
+        vertex("greyrule%d" % i, "", style(shape="line", direction="south" if gr["axis"] == "v" else "east",
+                                           html=1, strokeWidth=float(gr["w"]), strokeColor="#000000",
+                                           connectable=0),
+               *geo, kind="lane-divider", **{"ubl-artwork-tone": gr.get("colour")})
+
     grow = {n["id"]: min(4.0, (n["w"] + 8) / 5, (n["h"] + 8) / 5)
             for n in spec["nodes"] if n["kind"] == "initial"}
     for n in spec["nodes"]:
@@ -238,9 +252,12 @@ def mxfile(spec):
     r = bd.hop_radius(spec)
     mw = spec.get("arrow", 20)
     mh = spec.get("arrowWidth") or mw
-    # draw.io's open head is as wide as it is long (size + stroke each way);
-    # the measured head is longer than it is wide, so the mean is taken
-    end_size = (mw + mh) / 2 - S["edge"]
+    # The SVG's open head (build_diagram.py's marker) has barbs 0.8 of the
+    # measured length long and, each side, 0.4 of the measured width less half
+    # a stroke across, centre-line to centre-line. draw.io's open head has barbs
+    # size + stroke long and half that across: it cannot be longer than it is
+    # wide. The size that fits both best is taken.
+    end_size = 0.4 * (mw + mh) - 1.5 * S["edge"]
     guards = {g["onFlow"]: g for g in spec.get("guards", []) if g.get("onFlow")}
     order = [i for i in range(len(spec["edges"])) if i not in hops] + sorted(hops)
     for i in order:
@@ -303,7 +320,7 @@ def mxfile(spec):
                      verticalAlign="middle", spacing=0, **placed_label(g, tb)).replace("text=;", "text;"),
                g["x"], g["y"], g["w"], g["h"], kind=g.get("role", "text"))
     missing = [k for k in ("bands", "bandLabels", "dashed", "openEnds", "crossMarks",
-                           "greyRules", "captions") if spec.get(k)]
+                           "captions") if spec.get(k)]
     if missing:
         print("  not yet drawn by the proof of concept: %s" % ", ".join(missing), file=sys.stderr)
 
