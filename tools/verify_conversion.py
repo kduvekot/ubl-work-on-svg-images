@@ -637,6 +637,36 @@ def straight_dividers(a, b, graph):
                 a[lo:hi, :] |= sb & both[None, :]
 
 
+def divider_jumps(a, b, graph, radius):
+    """Where a flow crosses a lane divider, the artwork sometimes jumps it - a
+    curl on three figures, a half circle on two - and the SVG draws a plain
+    crossing (the TC, 2026-09-28: nothing jumps a divider). The crossing's
+    neighbourhood, a disc the size of the diagram's arrowhead, is not counted
+    on either side."""
+    H, W = a.shape
+    r = (graph.get("arrowPx") or 40) * 0.8 + radius
+    yy, xx = np.ogrid[:H, :W]
+    spans = (graph.get("ruleSpan") or {}).get("v") or []
+    for k, (at, wd) in enumerate((graph.get("rules") or {}).get("v", [])):
+        if not (max(3, W * 0.015) < at and at + wd < W - max(3, W * 0.015)):
+            continue
+        x = at + wd / 2.0
+        lo, hi = spans[k] if k < len(spans) else (0, H)
+        for e in graph.get("edges", []):
+            pts = [e.get("fromPoint")] + (e.get("points") or []) + [e.get("toPoint")]
+            pts = [p for p in pts if p]
+            for (x1, y1), (x2, y2) in zip(pts, pts[1:]):
+                if (x1 - x) * (x2 - x) >= 0 or x1 == x2:
+                    continue
+                y = y1 + (x - x1) * (y2 - y1) / (x2 - x1)
+                # a flow into a document on the divider meets it there, and
+                # the document's box is drawn: only a crossing in the open
+                if lo <= y <= hi and min(abs(x - x1), abs(x - x2)) > r:
+                    disc = (xx - x) ** 2 + (yy - y) ** 2 <= r * r
+                    a &= ~disc
+                    b &= ~disc
+
+
 def drawn_hops(a, b, svg_path, radius):
     """Where the SVG hops one flow over another (the TC, 2026-09-28: a half
     circle where two solid flows cross), the artwork mostly draws a plain
@@ -677,6 +707,7 @@ def verify(orig_png, render_png, graph_path, radius=3, diff_out=None, svg_path=N
     if a.shape == b.shape:
         straight_dividers(a, b, graph)
         drawn_hops(a, b, svg_path, radius)
+        divider_jumps(a, b, graph, radius)
     if a.shape != b.shape:
         return dict(verdict="improvable", name=graph_path,
                     findings=[dict(kind="size-mismatch", detail="original %s, render %s"

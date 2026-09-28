@@ -1725,6 +1725,15 @@ differences shown.
   (`data-hops`); the checker leaves the disc of each out on both sides
   (verify_conversion.py), since it is a deliberate difference. draw.io's own
   line jumps are not used: it jumps every crossing, dashed or not.
+  Where a flow crosses a lane divider, the checker does not count the
+  crossing's neighbourhood (a disc the size of the arrowhead), since the
+  artwork's curls and hops there are left out on purpose.
+- *VMI Permanent Replenishment (20 of 78).* Model correct and complete (21
+  flows). One drawing fault, fixed: the decision's question is set on two
+  lines in the artwork; the reading took it as one line with the diamond's
+  corner in its box, and it was drawn as one squeezed line over the diamond
+  (`draw-21`). Its goods line's hop over the divider is drawn as a plain
+  crossing (standing rule above).
 
 **The notes for a person, all 266 settled by eye (2026-09-27).** The sweep
 leaves, per diagram, notes where the reading could not be sure; each was looked at

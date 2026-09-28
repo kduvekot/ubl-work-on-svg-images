@@ -3556,6 +3556,38 @@
     "op": "attach-guard",
     "text": "text-false",
     "to": "flow-decision-producer-to-send-despatch-advice"
+   },
+   {
+    "id": "draw-21",
+    "decided": "2026-09-28",
+    "by": "Kees Duvekot, figure-by-figure review",
+    "question": "Figure 20: the decision's question is set on two lines in the artwork ('Is there a new item to' / 'be delivered?'); the reading took it as one line 80px high, with the diamond's corner in its box, and it was drawn as one squeezed line over the diamond.",
+    "answer": "Two lines, measured on the original.",
+    "op": "layout",
+    "section": "texts",
+    "element": "text-is-there-a-new-item-to-be-delivered-true",
+    "set": {
+     "x": 733,
+     "y": 378,
+     "w": 355,
+     "h": 77,
+     "lines": [
+      {
+       "x": 733,
+       "y": 378,
+       "w": 355,
+       "h": 28,
+       "text": "Is there a new item to"
+      },
+      {
+       "x": 732,
+       "y": 427,
+       "w": 222,
+       "h": 28,
+       "text": "be delivered?"
+      }
+     ]
+    }
    }
   ],
   "UBL-2.2-CRP-ChangeArticleCatalogue": [
