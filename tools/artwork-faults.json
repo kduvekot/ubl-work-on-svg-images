@@ -95,6 +95,14 @@
     "action-evaluate-transport-execution-plan-request": "EvaluateTransport\nExecution Plan\nRequest",
     "action-evaluate-transport-execution-plan": "EvaluateTransport\nExecution Plan"
    }
+  },
+  "UBL-2.5-BillingwithDebitNoteProcess": {
+   "why": "Billing with Debit Note (figure review 2026-09-28): the two debit-note steps, Raise Debit Note and Receive Debit Note, are set in regular type where every other step on the figure (and both credit-note steps on its twin, Billing with Credit Note) is bold. The model has the steps as they are; the SVG keeps the artwork's weights.",
+   "rules": {},
+   "drawn": [
+    "action-raise-debit-note",
+    "action-receive-debit-note"
+   ]
   }
  }
 }

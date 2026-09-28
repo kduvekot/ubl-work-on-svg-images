@@ -1763,6 +1763,18 @@ differences shown.
   pattern (`draw-28`); and "Reconcile" in the supplier's diamond was measured
   from its second letter, the "R" touching the diamond's edge, and drawn
   squeezed (`draw-29`; the reading's word was "econcile", put right before).
+- *Billing with Credit Note (28 of 78).* Model correct and complete (20
+  flows); SVG faithful. The branch from the customer's Reconcile Charges to
+  *Send Account Response* is the unguarded otherwise case, recorded.
+- *Billing with Debit Note (29 of 78).* Model correct and complete (20
+  flows); SVG faithful. The two debit-note steps are set in regular type
+  where every other step (and both credit-note steps on the twin figure) is
+  bold: the artwork's own inconsistency, kept, and recorded in
+  `tools/artwork-faults.json` (`drawn`). For a future release: the supplier's
+  Reconcile Charges sends [initial charges or under charged] to *Raise
+  Invoice* and [under charged] to *Raise Debit Note* - the two guards overlap,
+  so "under charged" does not say which way to go (on the credit-note twin
+  the second branch is [over charged]).
 
 **The notes for a person, all 266 settled by eye (2026-09-27).** The sweep
 leaves, per diagram, notes where the reading could not be sure; each was looked at
