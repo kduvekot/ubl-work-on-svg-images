@@ -1902,6 +1902,15 @@ differences shown.
   than in the artwork, at the same width - the per-kind sizing, not a fault.
   Freight Status Reporting's third column is the Receiver Party's own start
   ("Trigger reporting procedure"), as settled before.
+- *Figures 61-65, reviewed as a batch (the TC, 2026-09-28: "next set").* Export
+  Customs Declaration, Waste Notification, VMI Price Adjustment, IMFM Goods
+  Item Itinerary and Tender Withdrawal: models correct and complete, SVGs
+  faithful, nothing to fix. Waste Notification's documents are regular type
+  in the artwork (no bold, no italic) and stay so. The line-work the checker
+  could not place on Goods Item Itinerary is the flow from the first start
+  into Send Goods Item Itinerary, drawn a few pixels off the artwork's line.
+  Export Customs Declaration's stamped return of the declaration is among the
+  future-release points already.
 
 **The notes for a person, all 266 settled by eye (2026-09-27).** The sweep
 leaves, per diagram, notes where the reading could not be sure; each was looked at
