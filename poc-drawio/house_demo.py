@@ -95,16 +95,19 @@ What the TC has to choose is which of the two kinds of uniform it wants on paper
 <tr><td>labels</td><td>12 px Helvetica; actions bold, documents bold italic, decisions, guards and lane titles plain</td></tr>
 <tr><td>lines</td><td>flows and outlines 0.10 of the label size, documents 0.16, dividers 0.11, frame 0.18</td></tr>
 <tr><td>arrowheads</td><td>open, 1.35 label sizes long</td></tr>
-<tr><td>action</td><td>its words, plus 1 label size each side and 0.8 above and below; corners rounded to 0.45 of its height</td></tr>
-<tr><td>document</td><td>its words, plus 1 each side and 1.2 above and below</td></tr>
-<tr><td>decision</td><td>around its question, or 2 label sizes across when the question stands beside it</td></tr>
+<tr><td>arrowheads</td><td>the same head on every flow</td></tr>
+<tr><td>action</td><td>its measured size, grown only where its words would not fit; one corner radius in every action (16 px)</td></tr>
+<tr><td>document</td><td>its measured size, grown only where its words would not fit; centred exactly on the lane divider it sits on</td></tr>
+<tr><td>decision</td><td>its measured size, grown only around its question; 2 label sizes across when the question stands beside it</td></tr>
+<tr><td>lane titles</td><td>at the same place in every figure, plain, no rule under them</td></tr>
 <tr><td>start, end</td><td>draw.io's UML start and end states, 1.8 label sizes across</td></tr>
 <tr><td>fork bar</td><td>0.5 label sizes thick</td></tr>
 <tr><td>grey rules</td><td>none: one line per divider</td></tr>
 </table>
 <p class="note">Each figure keeps its layout: every element stays where its artwork puts it, scaled
-so its labels come out at the house size. Over all 78, 66 take the house style with nothing
-overlapping; 12 need a box or a guard moved (see census.md).</p>
+so its labels come out at the house size; boxes keep their size. Over all 78, 57 take the
+house style with nothing to adjust; 21 need a little room made, mostly for an arrowhead (see
+census.md). The routing of flows is not yet harmonised: a separate choice.</p>
 </div>""" % LABEL_PT)
     o.append('<div class="sec col"><h2>1. As published today: faithful, each at the column&#8217;s width</h2>')
     for it in items:

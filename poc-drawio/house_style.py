@@ -5,11 +5,13 @@
 
 A proposal, for the TC to see what a uniform set looks like; nothing of it is
 decided. The figure keeps its layout: it is scaled so its labels come out at
-the house label size, and every element keeps its measured centre. What the
-house style sets is each element's size, weights and type, the same in every
-figure, instead of what each artwork happens to draw. The values are the
-medians of the census over all 78 figures (census.md), taken relative to the
-label size:
+the house label size, and every element keeps its measured centre. A box
+keeps its measured size too - a figure that draws its actions as tall
+columns, with many flows along their sides (IMFM), keeps them so - and only
+grows where its words would not fit. What the house style sets is what makes
+the same element look the same: weights, type, corners, heads, discs, bars,
+lane titles. The values are the medians of the census over all 78 figures
+(census.md), taken relative to the label size:
 
     label                      12 px Helvetica (draw.io's own default)
     lines, action outline      0.10 of the label size
@@ -17,10 +19,17 @@ label size:
     lane divider               0.11
     frame                      0.18
     arrowhead                  1.35 long, 0.81 as wide as long, open
-    action                     text + 1 label size each side; 0.8 above and below
-    document                   text + 1 each side; 1.2 above and below
-    decision with a question   text + 1.5 each side; 1.2 above and below
+    action, document           its measured size, at least its words + 1
+                               label size each side and 0.8 (action) or 1.2
+                               (document) above and below
+    action corners             one radius, 1.3 label sizes, in every action
+                               (at most half its height)
+    document on a divider      centred on it, when it is less than 1.5 label
+                               sizes off
+    decision with a question   its measured size, at least around its words
     decision without           2 across
+    lane titles                centred 1.3 label sizes below the frame's
+                               top, plain, no rule under them
     start, end                 1.8 across (draw.io's UML start and end states)
     fork bar                   0.5 thick, its measured length
     grey rules                 none: one line per divider
@@ -41,8 +50,9 @@ import build_diagram as bd          # noqa: E402
 
 EM = 12.0
 HOUSE = dict(line=0.10, document=0.16, divider=0.11, frame=0.18, arrow=1.35, arrow_ratio=0.81,
-             pad_action=(1.0, 0.8), pad_document=(1.0, 1.2), pad_decision=(1.5, 1.2),
-             decision_bare=2.0, disc=1.8, fork=0.5, line_height=1.2)
+             pad_action=(0.5, 0.4), pad_document=(0.5, 0.6), pad_decision=(1.0, 0.8),
+             decision_bare=2.0, disc=1.8, fork=0.5, line_height=1.2, corner=1.3, snap=1.5,
+             title=1.3)
 BOLD = {"action": True, "object": True, "decision": False, "note": False}
 ITALIC = {"object": True}
 FONTS = "/usr/share/fonts/truetype/liberation/LiberationSans-%s.ttf"
@@ -158,11 +168,21 @@ def house(spec):
     s["house"] = True
     for d in s.get("dashed", []):
         d["weight"] = s["stroke"]["divider"]
+    top = (s.get("frameBox") or [0, 0])[1]
     for t in s["lanes"]:
-        if t.get("size"):
-            t["baseline"] = t["cy"] + 0.35 * EM
-            t["size"], t["bold"] = EM, False
-            t["textWidth"] = text_width(t.get("title") or "")
+        # every lane title at the same place: centred a fixed distance below
+        # the frame's top, plain, at the label size
+        t["cy"] = top + HOUSE["title"] * EM
+        t["baseline"] = t["cy"] + 0.35 * EM
+        t["size"], t["bold"] = EM, False
+        t["textWidth"] = text_width(t.get("title") or "")
+    # a rule under the lane titles is drawn by 7 figures (IMFM, the 2.3
+    # customs figures) and not by the other 71: the house style has none. A
+    # band that divides the figure further down (IMFM's planning, execution,
+    # completion) stays.
+    first = min(n["y"] for n in s["nodes"])
+    s["bands"] = [b for b in s["bands"]
+                  if not ((b[0] if isinstance(b, list) else b) < min(first, top + 4 * EM))]
     for t in s.get("captions", []):
         bold = t.get("role") == "phase-title"
         t["baseline"] = t["cy"] + 0.35 * EM
@@ -179,6 +199,8 @@ def house(spec):
             w, h = boxed(n, words, pad, bold, italic)
             if k_ == "decision":
                 w, h = w * 1.4, h * 1.4        # the words must fit inside the diamond
+            # the measured size, grown only where the words would not fit
+            w, h = max(w, n["w"]), max(h, n["h"])
         elif k_ == "decision":
             w = h = HOUSE["decision_bare"] * EM
         elif k_ in ("initial", "final"):
@@ -189,9 +211,16 @@ def house(spec):
             w, h = (n["w"], t) if n["w"] >= n["h"] else (t, n["h"])
         else:                                   # a note keeps its measured size
             w, h = n["w"], n["h"]
+        if k_ == "object":
+            # a document on a divider sits centred on it
+            for d in s["dividers"]:
+                at = d[0] if isinstance(d, list) else d
+                if cx - w / 2 < at < cx + w / 2 and abs(cx - at) <= HOUSE["snap"] * EM:
+                    cx = at
+                    break
         n["x"], n["y"], n["w"], n["h"] = cx - w / 2, cy - h / 2, w, h
         if k_ == "action":
-            n["rx"] = n["ry"] = 0.45 * h
+            n["rx"] = n["ry"] = min(HOUSE["corner"] * EM, h / 2)
         if words and k_ != "fork":
             n["labelLines"] = centred_lines(words, cx, cy, bold, italic)
             n["bold"], n["italic"] = bold, italic
@@ -226,6 +255,17 @@ def overlaps(s):
         box = dict(x=min(l["cx"] - l["w"] / 2 for l in ll), y=min(l["cy"] for l in ll) - EM * 0.5,
                    w=max(l["w"] for l in ll), h=(max(l["cy"] for l in ll) - min(l["cy"] for l in ll)) + EM)
         out += [(g["id"], b["id"]) for b in boxes if hit(box, b)]
+    for t in s["lanes"]:
+        if t.get("title"):
+            box = dict(x=t["cx"] - t["textWidth"] / 2, y=t["cy"] - EM * 0.6, w=t["textWidth"], h=EM * 1.2)
+            out += [(t.get("id"), b["id"]) for b in s["nodes"] if hit(box, b)]
+    # a flow too short to show its arrowhead: two boxes grown up against
+    # each other
+    sp = dict(s, byid={n["id"]: n for n in s["nodes"]})
+    for e in s["edges"]:
+        pts = bd.polyline(sp, e)
+        if sum(((b[0] - a[0]) ** 2 + (b[1] - a[1]) ** 2) ** 0.5 for a, b in zip(pts, pts[1:])) < 1.5 * s["arrow"]:
+            out.append((e["from"], e["to"]))
     return out
 
 
