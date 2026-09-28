@@ -1674,6 +1674,14 @@ differences shown.
   figure (`draw-13`, `draw-14`, the new `label-style` correction; the layout
   may now say a node's words are upright). The dashed lines' small heads
   come out as the usual open heads: not blocking.
+- *CPFR Create Order Forecast (16 of 78).* Model correct and complete: the
+  two "No" lines in from CPFR Exception Handling onto the fork, the join
+  before *Receive*, "Order Forecast Accepted ?" as the decision's question,
+  *Forecast Revision (order)* one box for the two revisions (paired), and
+  *Forecast (order - positive response)* out to Identify/Resolve. One drawing
+  fault, fixed: the reading ended the two "No" lines short and a few pixels
+  off at each end, so they were drawn slanting with a twisted head; now
+  straight down onto the bar as drawn (`draw-15`, `draw-16`).
 
 **The notes for a person, all 266 settled by eye (2026-09-27).** The sweep
 leaves, per diagram, notes where the reading could not be sure; each was looked at

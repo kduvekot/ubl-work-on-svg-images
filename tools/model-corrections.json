@@ -633,6 +633,66 @@
     "answer": "Two exchanges through one box, in opposite directions: each way in passes to the way out into the other party. The drawing keeps its one box.",
     "op": "pair-exchanges",
     "node": "object-forecast-revision-order"
+   },
+   {
+    "decided": "2026-09-28",
+    "by": "Kees Duvekot, figure-by-figure review",
+    "op": "layout",
+    "section": "offPage",
+    "question": "Figure 16: the two 'No' lines from CPFR Exception Handling come straight down onto the bar in the artwork; the reading ended them short, and one at each end a few pixels off, so they were drawn slanting with a twisted head.",
+    "answer": "Straight down, measured on the original: at x 657 and 851, the heads' tips at y 173.",
+    "id": "draw-15",
+    "element": "offpage-fork-no",
+    "was": {
+     "at": [
+      656,
+      12
+     ],
+     "end": [
+      661,
+      165
+     ]
+    },
+    "set": {
+     "at": [
+      657,
+      12
+     ],
+     "end": [
+      657,
+      173
+     ]
+    }
+   },
+   {
+    "decided": "2026-09-28",
+    "by": "Kees Duvekot, figure-by-figure review",
+    "op": "layout",
+    "section": "offPage",
+    "question": "Figure 16: the two 'No' lines from CPFR Exception Handling come straight down onto the bar in the artwork; the reading ended them short, and one at each end a few pixels off, so they were drawn slanting with a twisted head.",
+    "answer": "Straight down, measured on the original: at x 657 and 851, the heads' tips at y 173.",
+    "id": "draw-16",
+    "element": "offpage-fork-no-2",
+    "was": {
+     "at": [
+      852,
+      12
+     ],
+     "end": [
+      842,
+      152
+     ]
+    },
+    "set": {
+     "at": [
+      851,
+      12
+     ],
+     "end": [
+      851,
+      173
+     ]
+    }
    }
   ],
   "UBL-2.2-CPFR-IdentifyResolve": [
