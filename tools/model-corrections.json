@@ -3119,6 +3119,104 @@
     "node": "initial-delivery-party",
     "name": "Ordering",
     "how": "starts-from"
+   },
+   {
+    "decided": "2026-09-28",
+    "by": "Kees Duvekot, figure-by-figure review",
+    "op": "layout",
+    "section": "flows",
+    "id": "draw-17",
+    "question": "Figure 18: the two dashed flows were drawn with gaps four times too long (a dash of 22 and a gap of 33, starting in a gap); each line is too short for the reading to measure its own pattern, and it took one from elsewhere.",
+    "answer": "Measured on the original: dashes of 23 and gaps of 8, starting with a dash at the step it leaves; and straight down at x 1624, where the reading had its ends 7px apart.",
+    "element": "flow-check-status-of-item-s-to-send-receipt-advice",
+    "was": {
+     "dash": 22.2,
+     "gap": 32.8,
+     "fromPoint": [
+      1622,
+      630
+     ],
+     "toPoint": [
+      1629,
+      722
+     ]
+    },
+    "set": {
+     "dash": 23,
+     "gap": 8,
+     "dashOffset": 0,
+     "fromPoint": [
+      1624,
+      630
+     ],
+     "toPoint": [
+      1624,
+      722
+     ]
+    }
+   },
+   {
+    "decided": "2026-09-28",
+    "by": "Kees Duvekot, figure-by-figure review",
+    "op": "layout",
+    "section": "flows",
+    "id": "draw-18",
+    "question": "Figure 18: the two dashed flows were drawn with gaps four times too long (a dash of 22 and a gap of 33, starting in a gap); each line is too short for the reading to measure its own pattern, and it took one from elsewhere.",
+    "answer": "Measured on the original: dashes of 23 and gaps of 8, starting with a dash at the step it leaves.",
+    "element": "flow-send-receipt-advice-to-cancel-receipt-notification",
+    "was": {
+     "dash": 23.1,
+     "gap": 30.3
+    },
+    "set": {
+     "dash": 23,
+     "gap": 8,
+     "dashOffset": 0
+    }
+   },
+   {
+    "decided": "2026-09-28",
+    "by": "Kees Duvekot, figure-by-figure review",
+    "op": "layout",
+    "section": "flows",
+    "id": "draw-19",
+    "question": "Figure 18: all three branches leave Determine Action from its bottom corner in the artwork; two were drawn leaving from the diamond's edges beside it.",
+    "answer": "From the bottom corner (611, 1287), as drawn.",
+    "element": "flow-determine-action-to-accept-items",
+    "was": {
+     "fromPoint": [
+      601,
+      1301
+     ]
+    },
+    "set": {
+     "fromPoint": [
+      611,
+      1287
+     ]
+    }
+   },
+   {
+    "decided": "2026-09-28",
+    "by": "Kees Duvekot, figure-by-figure review",
+    "op": "layout",
+    "section": "flows",
+    "id": "draw-20",
+    "question": "Figure 18: all three branches leave Determine Action from its bottom corner in the artwork; two were drawn leaving from the diamond's edges beside it.",
+    "answer": "From the bottom corner (611, 1287), as drawn.",
+    "element": "flow-determine-action-to-send-order-cancellation",
+    "was": {
+     "fromPoint": [
+      627,
+      1301
+     ]
+    },
+    "set": {
+     "fromPoint": [
+      611,
+      1287
+     ]
+    }
    }
   ],
   "UBL-2.2-IMFM-BasicTransportExecutionPlan": [

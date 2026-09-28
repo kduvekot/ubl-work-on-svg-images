@@ -1694,6 +1694,15 @@ differences shown.
   counted and a missing divider still is (verify_conversion.py). Over the 78
   this took 2,500 px of line-work findings off, 2,900 on VMI Price
   Adjustment alone.
+- *Fulfilment Receipt Advice (18 of 78).* Model correct and complete (24
+  flows; the three guarded branches of Determine Action; *Cancel receipt
+  notification* and *Send Receipt Advice* in a loop). Two drawing faults,
+  fixed: the two dashed flows had gaps four times too long - each line is too
+  short for the reading to measure its own pattern, and it took one from
+  elsewhere - now dashes of 23 and gaps of 8 as on the original, starting
+  with a dash (`draw-17`, `draw-18`; the upper one also straight down, its
+  ends read 7px apart); and two of the three branches left the diamond from
+  its edges instead of from its bottom corner (`draw-19`, `draw-20`).
 
 **The notes for a person, all 266 settled by eye (2026-09-27).** The sweep
 leaves, per diagram, notes where the reading could not be sure; each was looked at
