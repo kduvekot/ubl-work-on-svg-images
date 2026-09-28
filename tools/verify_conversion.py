@@ -690,6 +690,27 @@ def drawn_hops(a, b, svg_path, radius):
             b &= ~disc
 
 
+def moved_guards(a, b, svg_path, radius):
+    """A guard the SVG moved off its own flow's line (the TC, 2026-09-28) stands
+    where the artwork has none, and the artwork's words stand where the SVG
+    draws the line whole. Both places are a deliberate difference, so neither
+    is counted on either side. The SVG says where they are (data-moved-from,
+    data-moved-to on the guard)."""
+    if not svg_path or not os.path.exists(svg_path):
+        return
+    svg = open(svg_path, encoding="utf-8").read()
+    m = re.search(r'viewBox="0 0 ([0-9.]+) ([0-9.]+)"', svg)
+    if not m:
+        return
+    k = a.shape[1] / float(m.group(1))
+    for box in re.findall(r'data-moved-(?:from|to)="([^"]+)"', svg):
+        x0, y0, x1, y1 = (float(v) * k for v in box.split(","))
+        r0, r1 = max(int(y0) - radius, 0), int(y1) + radius + 1
+        c0, c1 = max(int(x0) - radius, 0), int(x1) + radius + 1
+        a[r0:r1, c0:c1] = False
+        b[r0:r1, c0:c1] = False
+
+
 def verify(orig_png, render_png, graph_path, radius=3, diff_out=None, svg_path=None):
     graph = json.load(open(graph_path))
     a, bg_orig = ink_of(orig_png)
@@ -707,6 +728,7 @@ def verify(orig_png, render_png, graph_path, radius=3, diff_out=None, svg_path=N
     if a.shape == b.shape:
         straight_dividers(a, b, graph)
         drawn_hops(a, b, svg_path, radius)
+        moved_guards(a, b, svg_path, radius)
         divider_jumps(a, b, graph, radius)
     if a.shape != b.shape:
         return dict(verdict="improvable", name=graph_path,

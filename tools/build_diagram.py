@@ -184,6 +184,161 @@ def title_text(t, words, F):
     return text(words, t["cx"], t["cy"], F["lane"], F["family"], weight)
 
 
+def guard_extent(g):
+    """The box a guard's words cover, a little wider than the letters."""
+    ll = g.get("labelLines") or [{"cx": g["x"] + g["w"] / 2, "cy": g["y"] + g["h"] / 2,
+                                  "w": g["w"], "size": g["h"] / 1.25}]
+    size = max(l.get("size") or g["h"] for l in ll)
+    return (min(l["cx"] - (l.get("w") or g["w"]) / 2 for l in ll) - size * 0.2,
+            min(l["cy"] for l in ll) - size * 0.55,
+            max(l["cx"] + (l.get("w") or g["w"]) / 2 for l in ll) + size * 0.2,
+            max(l["cy"] for l in ll) + size * 0.55), size
+
+
+def _seg_box_dist(a, b, box):
+    """Shortest distance from segment a-b to a box (0 when it enters it)."""
+    x0, y0, x1, y1 = box
+    best = float("inf")
+    for k in range(41):
+        x = a[0] + (b[0] - a[0]) * k / 40
+        y = a[1] + (b[1] - a[1]) * k / 40
+        dx = max(x0 - x, 0, x - x1)
+        dy = max(y0 - y, 0, y - y1)
+        best = min(best, math.hypot(dx, dy))
+        if best == 0:
+            break
+    return best
+
+
+def _boxes_apart(a, b, pad):
+    return (a[2] + pad <= b[0] or b[2] + pad <= a[0] or
+            a[3] + pad <= b[1] or b[3] + pad <= a[1])
+
+
+def clear_guards(spec):
+    """Move a guard off the line of the flow it labels, where it can go clear.
+
+    UBL set some guards on their own flow's line, and the artwork breaks the
+    line behind the words (see guard_ground). The TC (2026-09-28) asked for
+    such a guard to be moved off the line wherever it can stand clear of
+    everything else, a deliberate departure from the artwork: the smallest
+    shift, sideways or up and down, that leaves the words a margin from every
+    line, arrowhead, box, title and other text, and keeps the flow they label
+    the nearest line to them, so they cannot be read as another flow's. A guard
+    with no such place stays where it is, on its white ground."""
+    W, H = spec["canvas"]["w"], spec["canvas"]["h"]
+    segs = []                                   # (edge id or None, a, b)
+    for e in spec["edges"]:
+        pts = polyline(spec, e)
+        segs += [(e.get("id"), a, b) for a, b in zip(pts, pts[1:])]
+    for oe in spec.get("openEnds", []):
+        pts = oe["points"]
+        segs += [(None, tuple(a), tuple(b)) for a, b in zip(pts, pts[1:])]
+    for d in spec.get("dividers", []):
+        at = d if not isinstance(d, (list, tuple)) else d[0]
+        a = d[2] if isinstance(d, (list, tuple)) and len(d) > 3 else 0
+        b = d[3] if isinstance(d, (list, tuple)) and len(d) > 3 else H
+        segs.append((None, (at, a), (at, b)))
+    for d in spec.get("bands", []):
+        at = d if not isinstance(d, (list, tuple)) else d[0]
+        a = d[2] if isinstance(d, (list, tuple)) and len(d) > 3 else 0
+        b = d[3] if isinstance(d, (list, tuple)) and len(d) > 3 else W
+        segs.append((None, (a, at), (b, at)))
+    for gr in spec.get("greyRules", []):
+        c = gr["at"] + gr["w"] / 2
+        segs.append((None, (c, 0), (c, H)) if gr["axis"] == "v" else (None, (0, c), (W, c)))
+    boxes = [(n["x"], n["y"], n["x"] + n["w"], n["y"] + n["h"]) for n in spec["nodes"]]
+    for d in spec.get("dashed", []):
+        x0, y0, x1, y1 = d["x"], d["y"], d["x"] + d["w"], d["y"] + d["h"]
+        segs += [(None, (x0, y0), (x1, y0)), (None, (x1, y0), (x1, y1)),
+                 (None, (x1, y1), (x0, y1)), (None, (x0, y1), (x0, y0))]
+    for t in spec.get("lanes", []) + spec.get("captions", []):
+        if t.get("cx") is not None and t.get("title", t.get("text")):
+            hw = (t.get("textWidth") or 0) / 2 or 60
+            sz = t.get("size") or spec["font"]["lane"]
+            boxes.append((t["cx"] - hw, t["cy"] - sz, t["cx"] + hw, t["cy"] + sz))
+    arrow = spec.get("arrowWidth") or spec.get("arrow") or 10
+    heads = [polyline(spec, e)[-1] for e in spec["edges"]]
+    guards = spec.get("guards", [])
+    for g in guards:
+        own = g.get("onFlow")
+        if not own:
+            continue
+        box, size = guard_extent(g)
+        mine = [(a, b) for i, a, b in segs if i == own]
+        if not any(_seg_box_dist(a, b, box) == 0 for a, b in mine):
+            continue
+        pad = size * 0.3
+        g0 = json.loads(json.dumps(g))
+        others = [guard_extent(o)[0] for o in guards if o is not g]
+
+        def clear(bx):
+            if bx[0] < pad or bx[1] < pad or bx[2] > W - pad or bx[3] > H - pad:
+                return False
+            near_own = min(_seg_box_dist(a, b, bx) for a, b in mine)
+            for i, a, b in segs:
+                d = _seg_box_dist(a, b, bx)
+                if d < pad or (i != own and d <= near_own):
+                    return False
+            if any(math.hypot(max(bx[0] - hx, 0, hx - bx[2]), max(bx[1] - hy, 0, hy - bx[3]))
+                   < arrow / 2 + pad for hx, hy in heads):
+                return False
+            return all(_boxes_apart(bx, o, pad) for o in boxes + others)
+
+        def place(bx, first):
+            """the smallest shift from `first` on that leaves bx clear"""
+            best = None
+            reach = (bx[2] - bx[0]) + (bx[3] - bx[1]) + 2 * size
+            for dx, dy in ((1, 0), (0, -1), (-1, 0), (0, 1)):   # right, up, left, down
+                d = first
+                while d <= reach:
+                    b2 = (bx[0] + dx * d, bx[1] + dy * d, bx[2] + dx * d, bx[3] + dy * d)
+                    if clear(b2):
+                        if best is None or d < best[0]:
+                            best = (d, dx * d, dy * d)
+                        break
+                    d += 1.0
+            return best
+
+        best = place(box, 1.0)
+        lines = g.get("labelLines") or []
+        if best is None and len(lines) == 1 and " " in lines[0]["text"].strip():
+            # no place on one line: the words set over two, split at the space
+            # nearest the middle, the way UBL sets its other long guards
+            # (Self Billing with Credit Note's [incorrect information])
+            l = lines[0]
+            words = l["text"]
+            cut = min((i for i, c in enumerate(words) if c == " "),
+                      key=lambda i: abs(i - len(words) / 2))
+            parts = [words[:cut], words[cut + 1:]]
+            lsize = l.get("size") or size
+            lh = lsize * 1.25
+            two = [dict(l, text=t, cy=l["cy"] + (k - 0.5) * lh,
+                        w=(l.get("w") or g["w"]) * len(t) / len(words))
+                   for k, t in enumerate(parts)]
+            trial = dict(g, labelLines=two)
+            tbox, _ = guard_extent(trial)
+            tb = place(tbox, 0.0)
+            if tb is not None:
+                g["labelLines"] = two
+                g["text"] = "\n".join(parts)
+                g["rewrapped"] = True
+                box, best = tbox, tb
+        if best:
+            _, mx, my = best
+            g["x"] += mx
+            g["y"] += my
+            for l in g.get("labelLines", []):
+                l["cx"] += mx
+                l["cy"] += my
+            g["moved"] = [round(mx, 1), round(my, 1)]
+        if best or g.get("rewrapped"):
+            # where the words stood and where they stand now, both left out of
+            # the line-work check (verify_conversion.py): a deliberate difference
+            g["movedFrom"] = [round(v, 1) for v in guard_extent(dict(g0))[0]]
+            g["movedTo"] = [round(v, 1) for v in guard_extent(g)[0]]
+
+
 def guard_ground(g, pts):
     """White behind a guard's words where its own flow runs through them.
 
@@ -195,13 +350,7 @@ def guard_ground(g, pts):
     question on the CPFR figures - keeps that line over it, as the artwork has
     it. The ground covers the words' own extent, a little wider, and nothing
     when the line does not reach them."""
-    ll = g.get("labelLines") or [{"cx": g["x"] + g["w"] / 2, "cy": g["y"] + g["h"] / 2,
-                                  "w": g["w"], "size": g["h"] / 1.25}]
-    size = max(l.get("size") or g["h"] for l in ll)
-    x0 = min(l["cx"] - (l.get("w") or g["w"]) / 2 for l in ll) - size * 0.2
-    x1 = max(l["cx"] + (l.get("w") or g["w"]) / 2 for l in ll) + size * 0.2
-    y0 = min(l["cy"] for l in ll) - size * 0.55
-    y1 = max(l["cy"] for l in ll) + size * 0.55
+    (x0, y0, x1, y1), _ = guard_extent(g)
     hit = any(x0 < a[0] + (b[0] - a[0]) * k / 50 < x1 and y0 < a[1] + (b[1] - a[1]) * k / 50 < y1
               for a, b in zip(pts, pts[1:]) for k in range(51))
     if not hit:
@@ -411,7 +560,10 @@ def svg_body(spec):
     edges = {e.get("id"): e for e in spec["edges"]}
     for i, g in enumerate(spec.get("guards", [])):
         o.append(group(g.get("role", "guard"), g.get("id") or "text%d" % i,
-                       " ".join(g.get("text", "").split())))
+                       " ".join(g.get("text", "").split()),
+                       moved=",".join("%.1f" % v for v in g["moved"]) if g.get("moved") else None,
+                       moved_from=",".join("%.1f" % v for v in g["movedFrom"]) if g.get("movedFrom") else None,
+                       moved_to=",".join("%.1f" % v for v in g["movedTo"]) if g.get("movedTo") else None))
         e = edges.get(g.get("onFlow"))
         if e is not None:
             o.append(guard_ground(g, polyline(spec, e)))
@@ -532,6 +684,7 @@ def classified(spec, defs, model):
 
 def main(spec_path, out):
     spec = load(spec_path)
+    clear_guards(spec)
     S = spec["stroke"]
     # the head the artwork draws: a solid triangle in the UBL 2.3 transport
     # diagrams, an open "V" in the CPFR and billing ones

@@ -1873,6 +1873,24 @@ differences shown.
   artwork has it - the decisions' questions on CPFR Create Joint Business Plan
   (two) and Establishing Collaborative Relationships. No other figure's SVG
   changed.
+  Then, standing rule (the TC, 2026-09-28): **a guard on its own flow's line
+  is moved off it wherever it can stand clear** - a deliberate departure from
+  the artwork. The smallest shift, sideways or up and down, that leaves the
+  words a margin (0.3 of their size) from every line, arrowhead, box, title
+  and other text, and keeps the flow they label the nearest line to them, so
+  they cannot be read as another flow's (`clear_guards` in build_diagram.py).
+  Where one line has no such place, the words are set over two, split at the
+  space nearest the middle, as UBL sets its other long guards, and placed the
+  same way. All eleven moved: Yes and No above their lines on Transit and
+  Import Declaration; [accept request] (both Update Catalogue figures) and
+  [accept charges] (Self Billed Credit Note) just beside theirs; [accept
+  catalogue deletion] right of its line (the lane edge is in the way on the
+  left); [incorrect information] on Billing with Credit and with Debit Note
+  into the free space left of the arrow; and on Self Billing with Credit Note
+  over two lines, left of the arrow. The white ground stays as the fallback
+  for a guard with no place. The SVG marks each moved guard (`data-moved`,
+  `data-moved-from`, `data-moved-to`), and the checker leaves both places out
+  on either side (verify_conversion.py).
 
 **The notes for a person, all 266 settled by eye (2026-09-27).** The sweep
 leaves, per diagram, notes where the reading could not be sure; each was looked at
