@@ -141,6 +141,38 @@ def main(src, out, model_w=1480.0):
         if n.get("italic") is not None:          # set by a correction (label-style)
             d["italic"] = bool(n["italic"])
         nodes.append(d)
+
+    # A node's words are set at the size the artwork gives that kind of node
+    # on this figure: steps at the steps' size, documents at the documents',
+    # decisions at theirs - each the median over the kind's label lines, from
+    # the height of their letters (cap height 0.716 of the type size, plus the
+    # descender where one drops). Set at one size for all, Tender Qualification
+    # Information's document names came out a fifth too tall and squeezed into
+    # their width; Tender Qualification Application and Unsubscribe set their
+    # documents larger than their steps. A line stands where its letters stand,
+    # unless its box is far (15%) from the kind's size - a box that took in
+    # more than the words - when it keeps its measured middle. The size is
+    # capped so every line stays inside its box.
+    def line_size(text, h):
+        return h / (0.716 + (0.21 if re.search(r"[gjpqyQ(),;\[\]]", text) else 0))
+    by_kind = {}
+    drawn = {d["id"]: d for d in nodes}
+    for n in nodes_in:
+        d = drawn.get(n["id"], {})
+        if d.get("labelLines") and n.get("labelLines") and len(d["labelLines"]) == len(n["labelLines"]):
+            by_kind.setdefault(n["kind"], []).append((n, d))
+    for kind, members in by_kind.items():
+        sizes = sorted(line_size(l["text"], l["h"]) for n, _ in members for l in n["labelLines"])
+        usual = sizes[len(sizes) // 2]
+        for n, d in members:
+            rows = n["labelLines"]
+            # inside the box: the lines' letters, at this size, fit its height
+            room = n["h"] / len(rows) / (0.716 + 0.21 + 0.25)
+            size = min(usual, room) if len(rows) > 1 else min(usual, n["h"] / 1.2)
+            for l, dl in zip(rows, d["labelLines"]):
+                dl["size"] = M(size)
+                if abs(line_size(l["text"], l["h"]) - usual) <= 0.15 * usual:
+                    dl["cy"] = M(l["y"] + 0.716 * size) - dl["size"] * 0.35
     byid = {n["id"]: n for n in nodes}
 
     # where the connector really meets each node, as a fraction of that node's box

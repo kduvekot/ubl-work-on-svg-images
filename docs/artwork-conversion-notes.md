@@ -1788,6 +1788,19 @@ differences shown.
   (2026-09-28): to be fixed in UBL 2.6. (Approved Errata, TC Process 2.9, are
   limited to corrections that are not a Material Change, which a changed
   guard in a process diagram arguably is.)
+- *Tender Qualification Information (30 of 78).* Model correct and complete
+  (8 flows). The document names came out a fifth too tall, squeezed into
+  their width: every node's words were set at one size, the steps', where
+  some figures set documents smaller or larger than steps (Tender
+  Qualification Application and Unsubscribe from Procedure 20-24% larger,
+  Self Billing with Self Billed Credit Note's steps 19% smaller). Node words
+  are now set per kind (the TC, 2026-09-28, "as long as the texts stay inside
+  the boxes"): steps, documents and decisions each at the median size of
+  their kind's label lines on the figure, from the letters' height, each line
+  where its letters stand, and capped so every line stays inside its box
+  (spec_from_model.py). Checked on all 78: no line outside its box, 14,000 px
+  of line-work findings fewer (Enquiry and Tender Status 4,500 each,
+  Procurement 2,800), no verdict changed.
 
 **The notes for a person, all 266 settled by eye (2026-09-27).** The sweep
 leaves, per diagram, notes where the reading could not be sure; each was looked at
