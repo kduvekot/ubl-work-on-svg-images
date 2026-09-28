@@ -213,6 +213,10 @@ def mxfile(spec, model=None):
             tb = caption_block(c, F)
             title = html_lines(tb["lines"])
             dx = tb["x"] - (d["x"] + d["w"] / 2)
+            if spec.get("house"):
+                # the house style: the title on a white ground, where a lane
+                # divider runs through it
+                kv.update(labelBackgroundColor="#ffffff")
             kv.update(fontFamily=fam, fontSize=float(tb["size"]), fontStyle=1 if c.get("bold") else 0,
                       align="center", verticalAlign="top", spacing=0,
                       spacingTop=tb["cy"] - 0.6 * tb["size"] - d["y"],

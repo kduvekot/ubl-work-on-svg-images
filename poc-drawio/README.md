@@ -22,6 +22,12 @@ The settings for this work (2026-09-28):
 - **Source of truth:** the JSONs, with the SVG drawn from them. Whether draw.io
   can become the source of truth is what this work is to find out.
 
+**Next stage, proposed: a house style.** [`census.md`](census.md) measures how
+differently the 78 artworks draw the same elements, proposes one house style,
+and explains what "uniform" can mean on paper. [`house-style-demo.pdf`](house-style-demo.pdf)
+shows five figures as published today, in the house style fitted to the
+column, and in the house style at one scale.
+
 ## Where it stands
 
 **All 78 figures are drawn completely**, with every kind of element the SVGs
