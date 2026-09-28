@@ -145,7 +145,9 @@ def mxfile(spec):
                               strokeWidth=float(S["frame"]), connectable=0, html=1),
            fb[0], fb[1], fb[2] - fb[0], fb[3] - fb[1], kind="frame")
 
-    # Lanes are draw.io swimlanes, so a node dropped in a lane belongs to it. A
+    # Lanes are draw.io swimlanes, so a node dropped in a lane belongs to it;
+    # expand=0 keeps a lane its size when something is dropped across its
+    # edge (draw.io widened the lane over its neighbour otherwise). A
     # measured divider that runs from frame to frame on a lane boundary is drawn
     # as the lanes' own border; any other divider is a line of its own and the
     # lanes' borders are hidden.
@@ -157,19 +159,26 @@ def mxfile(spec):
                  if round(d[0], 1) in bounds and d[2] <= fb[1] + reach and d[3] >= fb[3] - reach]
     lane_stroke = as_border[0][1] if as_border and len(as_border) == len(dividers) \
         and len(as_border) == len(bounds) else None
+    # A lane runs from the frame to the frame, not from the page's edge: its
+    # outer borders then lie under the frame's heavier line, and no stroke
+    # reaches past the page, which draw.io answers by adding a ring of pages
+    # round the drawing and opening it at a quarter of its size.
+    lane_box = {}
     for i, l in enumerate(spec["lanes"]):
+        x0, x1 = max(l["x"], fb[0]), min(l["x"] + l["w"], fb[2])
+        lane_box[l.get("id")] = (x0, fb[1])
         size = l.get("size") or F["lane"]
         # the title's middle where it was measured: its baseline less 0.35 of
-        # its size, as the SVG sets it; startSize is twice that
-        cy = l["baseline"] - size * 0.35 if l.get("baseline") else l.get("cy", size)
-        d = l.get("cx", l["x"] + l["w"] / 2) - (l["x"] + l["w"] / 2)
-        st = style(swimlane="", horizontal=1, startSize=2 * cy, swimlaneLine=0, collapsible=0, html=1,
+        # its size, as the SVG sets it; startSize is twice its depth in the lane
+        cy = (l["baseline"] - size * 0.35 if l.get("baseline") else l.get("cy", size)) - fb[1]
+        d = l.get("cx", (x0 + x1) / 2) - (x0 + x1) / 2
+        st = style(swimlane="", expand=0, horizontal=1, startSize=2 * cy, swimlaneLine=0, collapsible=0, html=1,
                    fillColor="none", strokeColor="#000000" if lane_stroke else "none",
                    strokeWidth=float(lane_stroke or S["divider"]), fontFamily=fam,
                    fontSize=float(size), fontStyle=1 if l.get("bold") else 0,
                    spacing=0, **{"spacingLeft" if d > 0 else "spacingRight": 2 * abs(d)})
         vertex(l.get("id") or "lane%d" % i, l["title"], st.replace("swimlane=;", "swimlane;"),
-               l["x"], 0, l["w"], H, kind="lane")
+               x0, fb[1], x1 - x0, fb[3] - fb[1], kind="lane")
     if not lane_stroke:
         for i, d in enumerate(dividers):
             vertex("divider%d" % i, "", style(shape="line", direction="south", html=1,
@@ -182,10 +191,12 @@ def mxfile(spec):
         # width, the whole height or width, as the SVG draws it (the diagrams
         # use no grey, the TC 2026-09-27); a line cell of its own
         c = gr["at"] + gr["w"] / 2
+        # (frame to frame: the frame's line covers the rest, and nothing
+        # reaches past the page)
         if gr["axis"] == "v":
-            geo = (c - 5, 0, 10, H)
+            geo = (c - 5, fb[1], 10, fb[3] - fb[1])
         else:
-            geo = (0, c - 5, W, 10)
+            geo = (fb[0], c - 5, fb[2] - fb[0], 10)
         vertex("greyrule%d" % i, "", style(shape="line", direction="south" if gr["axis"] == "v" else "east",
                                            html=1, strokeWidth=float(gr["w"]), strokeColor="#000000",
                                            connectable=0),
@@ -196,8 +207,8 @@ def mxfile(spec):
     for n in spec["nodes"]:
         k = n["kind"]
         lane = lane_of(spec, n)
-        parent, ox = (lane["id"], lane["x"]) if lane and lane.get("id") else ("1", 0.0)
-        x, y, w, h = n["x"] - ox, n["y"], n["w"], n["h"]
+        parent, (ox, oy) = (lane["id"], lane_box[lane["id"]]) if lane and lane.get("id") else ("1", (0.0, 0.0))
+        x, y, w, h = n["x"] - ox, n["y"] - oy, n["w"], n["h"]
         value, st = "", ""
         if k in ("action", "object", "decision", "note"):
             tb = text_block(n, F["node"])

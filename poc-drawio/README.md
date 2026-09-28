@@ -115,7 +115,7 @@ What is left:
 | element | in draw.io | difference from the SVG, and why |
 |---|---|---|
 | **frame** | a plain rectangle, measured weight (4.3 on Billing, 5.2 on C.1), `connectable=0` | none |
-| **lanes** | real `swimlane` containers with `collapsible=0`. An action inside a lane is its child, so moving it between lanes changes its party. Title at the measured size and weight (plain on Billing, bold on C.1), with its measured centre (`startSize`, `spacingLeft/Right`). | The shared border is drawn once by each lane. Same place and width, but its anti-aliased edge is a shade darker. |
+| **lanes** | real `swimlane` containers with `collapsible=0` and `expand=0`, from frame to frame. An action inside a lane is its child, so moving it between lanes changes its party. Title at the measured size and weight (plain on Billing, bold on C.1), with its measured centre (`startSize`, `spacingLeft/Right`). | The shared border is drawn once by each lane. Same place and width, but its anti-aliased edge is a shade darker. |
 | **lane divider** | the lanes' own border, when every measured divider runs frame to frame on a lane boundary (it does on both figures). Otherwise it would be a line of its own, with the lanes' borders hidden. | none measurable |
 | **documents on the divider** | top-level cells, above both lanes: a document passed between two parties belongs to neither. So the divider runs under the document, as in the SVG. | none. The first try made them children of the left lane, and the right lane's border then ran through them. |
 | **action** | rounded rectangle, measured weight, `absoluteArcSize` | draw.io's corners are circular; the artwork's are a little elliptical (e.g. rx 21.6, ry 19.0). The mean radius is used. |
@@ -132,6 +132,71 @@ What is left:
 | **guards** | the flow's own label, so it moves with the flow. Placed where the SVG has it: at the nearest point of the line (`x`) plus an `offset`. `[incorrect information]` stands where the TC's rule moved it. | White ground (`labelBackgroundColor`) only where the SVG draws one, i.e. where the flow's line runs through the words. Alignment is read from the measurements. These guards are set flush left in the artwork, and so they are here. |
 | **text (all labels)** | html labels, Helvetica, the measured size (the median of its lines), bold and italic as measured. The block is placed at the lines' measured left edge or centre, and at their middle. | draw.io cannot fit a line to a measured width, which the SVG does (`textLength`), so letters come out at their natural width. They are within about 1-3 px at the ends. draw.io also sets one size and one line spacing per label (1.2), where the SVG sets each line at its measured place (about 1.25 apart). Together, the red/blue fringes on the letters. |
 | **ids and kinds** | each cell is draw.io's `<object>` with the model's id, and the kind as a custom property (`ubl-kind`, shown in draw.io's Edit Data). A flow with a guard also carries the guard's id (`ubl-guard`). | none. The SVG carries the same data in its `data-` attributes. Needed to read a draw.io file back into the JSONs. |
+
+## Editing in draw.io: tested in the editor itself
+
+Both files were opened in the draw.io editor (embed.diagrams.net, 31.5.3, in
+Chromium), and elements were moved as a person would move them: by dragging
+with the mouse, or by selecting with a click and moving with Shift + the
+arrow keys. What draw.io saved was then compared with the file as written.
+
+**Standard elements only.** The files use nothing but draw.io's own shapes:
+
+- rectangles, rounded or not;
+- `rhombus`;
+- `startState` and `endState`;
+- the fork/join bar of the UML palette;
+- `swimlane`;
+- `line`;
+- plain edges with `open` arrowheads, `dashed` lines and `jumpStyle` hops.
+
+There are no custom stencils and no embedded images. The model's ids and
+kinds are draw.io custom properties (`<object>`, Edit Data).
+
+**Moving an element moves its flows.**
+
+- *Billing:* Raise Debit Note, the fork bar, the Validate Response decision
+  and the Debit Note document were dragged. Every one of the 20 flows kept
+  its `source` and `target`, and was redrawn to the element's new place.
+- *C.1:* the fork bar, DespatchAdvice, add detail and the Buyer decision
+  were moved. Afterwards the file held the same 86 cells, none added or
+  lost; only the four moved elements' positions differed.
+- No flow has waypoints, so no bend is left behind where the element was.
+- A flow keeps meeting the element at the same point of its outline (the
+  measured contact point, `exitX/Y`).
+
+**Guards move with their flow, but only as a fixed offset.** A guard is its
+flow's own label: it stays at the same fraction along the flow, at the same
+offset from it. When the flow changes a lot, the guard can land on something
+else. On Billing, after Validate Response was moved, `[incorrect information]`
+lay over *Receive Account Response*, and `[no action required]` over the end
+node. draw.io does not keep labels clear of other shapes; they are moved by
+hand.
+
+**Hops are redrawn where the hopping flow now crosses.** A moved fork bar
+took its hop to the new crossing. But draw.io hops only the flows the TC's
+rule marked when the file was written. A new crossing between two other solid
+flows gets no hop until `jumpStyle=arc` is set on one of them.
+
+**Two problems found and fixed in the writer:**
+
+1. *A document dropped over a lane widened the lane.* On Billing, dragging
+   Debit Note (a top-level cell on the divider) made it a child of the left
+   lane, and draw.io widened that lane from 783.4 to 844.8, over the right
+   lane. Every lane now has `expand=0`: a lane keeps its size whatever is
+   dropped across its edge. A document dropped inside a lane still becomes
+   that lane's child, which is draw.io's way.
+2. *C.1 opened at 25 % among nine pages.* The lanes ran from the page's edge,
+   so half their 3.5 px border stuck out past the page, and draw.io added a
+   ring of pages round the drawing. The lanes and grey rules now run from
+   frame to frame, under the frame's heavier line. Both figures open on one
+   page, at 80 %. The renders did not change.
+
+**One thing to know when editing.** C.1's decision diamonds are tiny
+(15.6 px, about 12 px on screen at 80 %). Pressing on one grabs a connection
+point, and dragging draws a new, unconnected arrow instead of moving the
+diamond. Zoom in first, or click the diamond and move it with the arrow keys.
+This is how draw.io treats small shapes, not a fault in the file.
 
 ## Open decisions
 
@@ -155,7 +220,6 @@ What is left:
 - The remaining kinds of element, on the candidates named above.
 - Orthogonal flows with bends: every flow in both figures is straight. The writer
   passes the routed corners as waypoints, which is untested.
-- Editing in the draw.io application itself. The renders use draw.io's
-  drawing code, but moving and reconnecting cells in the editor has not been
-  tried.
+- In the editor: reconnecting a flow to another element, resizing, and
+  adding a new action or lane. Only moving has been tried.
 - All 78 figures.
