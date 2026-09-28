@@ -329,12 +329,18 @@ def main(src, out, model_w=1480.0):
                 lay["lanes"][l["id"]]["title"], "lane-title")
                for l in model["lanes"]
                if isinstance(lay["lanes"][l["id"]].get("title"), dict)]
+    # what each text labels: a guard on a flow sits on that flow's line, and
+    # the drawing breaks the line behind its words (build_diagram.py)
+    flows = {f["id"] for f in model["flows"]}
+    labels = {tm["id"]: tm.get("labels") for tm in model["texts"]}
     guards = []
     for i, words, t, role in placed:
         g = {"id": i, "text": words, "x": M(t["x"]), "y": M(t["y"]),
              "w": M(t["w"]), "h": M(t["h"])}
         if role:
             g["role"] = role
+        if labels.get(i) in flows:
+            g["onFlow"] = labels[i]
         for k in ("bold", "italic"):             # words set other than plain
             if t.get(k) is not None:
                 g[k] = bool(t[k])

@@ -1857,6 +1857,22 @@ differences shown.
   Buyer's collapsed connector on Exception Monitor was recorded before (fig
   14, `q9`); Award Notification's two documents beside the one line likewise
   (notes 11).
+- *Figures 51-55, reviewed as a batch (the TC, 2026-09-28: "next 5").* Payment
+  Notification, Transit Declaration, Import Declaration, CPFR Exception
+  Handling and Sourcing Punch-out: models correct and complete. One drawing
+  fault, found on Transit and Import Declaration and then on seven more
+  figures: a guard placed on the line of the flow it labels was struck through
+  by that line, where the artwork breaks the line behind the words (draw.io
+  sets an edge's label on a white ground). Now drawn so: a guard on its own
+  flow gets a white ground over the words' extent when the line reaches them
+  (`guard_ground` in build_diagram.py; the spec carries the flow as `onFlow`).
+  Eleven guards in nine figures: Transit and Import Declaration (Yes, No),
+  Delete Catalogue, both Update Catalogue figures, Self Billing with Credit
+  Note, Self Billing with Self Billed Credit Note, Billing with Credit and with
+  Debit Note. A text crossed by some other line keeps the line over it, as the
+  artwork has it - the decisions' questions on CPFR Create Joint Business Plan
+  (two) and Establishing Collaborative Relationships. No other figure's SVG
+  changed.
 
 **The notes for a person, all 266 settled by eye (2026-09-27).** The sweep
 leaves, per diagram, notes where the reading could not be sure; each was looked at

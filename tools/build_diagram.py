@@ -184,6 +184,32 @@ def title_text(t, words, F):
     return text(words, t["cx"], t["cy"], F["lane"], F["family"], weight)
 
 
+def guard_ground(g, pts):
+    """White behind a guard's words where its own flow runs through them.
+
+    draw.io sets an edge's label on a white ground, so where UBL placed a guard
+    on the line it labels, the line stops either side of the words and resumes
+    after them (Transit and Import Declaration's Yes and No, Delete Catalogue's
+    [accept catalogue deletion], and five more). Drawn plainly, the line struck
+    the words through. A text only crossed by some other line - a decision's
+    question on the CPFR figures - keeps that line over it, as the artwork has
+    it. The ground covers the words' own extent, a little wider, and nothing
+    when the line does not reach them."""
+    ll = g.get("labelLines") or [{"cx": g["x"] + g["w"] / 2, "cy": g["y"] + g["h"] / 2,
+                                  "w": g["w"], "size": g["h"] / 1.25}]
+    size = max(l.get("size") or g["h"] for l in ll)
+    x0 = min(l["cx"] - (l.get("w") or g["w"]) / 2 for l in ll) - size * 0.2
+    x1 = max(l["cx"] + (l.get("w") or g["w"]) / 2 for l in ll) + size * 0.2
+    y0 = min(l["cy"] for l in ll) - size * 0.55
+    y1 = max(l["cy"] for l in ll) + size * 0.55
+    hit = any(x0 < a[0] + (b[0] - a[0]) * k / 50 < x1 and y0 < a[1] + (b[1] - a[1]) * k / 50 < y1
+              for a, b in zip(pts, pts[1:]) for k in range(51))
+    if not hit:
+        return ""
+    return ('<rect class="ubl-label-ground" x="%.1f" y="%.1f" width="%.1f" height="%.1f" fill="#fff"/>'
+            % (x0, y0, x1 - x0, y1 - y0))
+
+
 def text(label, cx, cy, size, font, weight="", style="", width=None):
     """One label, at the size and weight measured, in the width measured.
 
@@ -382,9 +408,13 @@ def svg_body(spec):
                  % (m["x1"], m["y1"], m["x2"], m["y2"],
                     m.get("weight") or S["divider"]))
         o.append("</g>")
+    edges = {e.get("id"): e for e in spec["edges"]}
     for i, g in enumerate(spec.get("guards", [])):
         o.append(group(g.get("role", "guard"), g.get("id") or "text%d" % i,
                        " ".join(g.get("text", "").split())))
+        e = edges.get(g.get("onFlow"))
+        if e is not None:
+            o.append(guard_ground(g, polyline(spec, e)))
         o.append(lines_of(g, g["x"] + g["w"] / 2, g["y"] + g["h"] / 2, F["guard"], F["family"]))
         o.append("</g>")
     return "".join(o)
