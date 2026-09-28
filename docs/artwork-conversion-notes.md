@@ -2077,7 +2077,8 @@ With the figure review finished, the result of the work is committed in
 | `<figure>-diagram.json` | what the diagram says: lanes, nodes, flows, guards, texts, each with a stable id |
 | `<figure>-layout.json` | where each element of the diagram is drawn, keyed by the same ids |
 | `<figure>-extraction.json` | how the reading went: measurements and open questions, for review only |
-| `<figure>.svg`, `<figure>.drawio` | drawn from the diagram and layout JSONs alone |
+| `<figure>.svg` | drawn from the diagram and layout JSONs alone - the drawing to use |
+| `<figure>.drawio` | drawn from the same JSONs, but incomplete and not to be trusted (below) |
 
 The chain is **original PNG → JSONs → SVG**. The PNGs stay where OASIS publishes
 them (`art/` in the UBL repository, `ubl-2.5` at `3d81e8a`) and are not copied
@@ -2091,7 +2092,16 @@ work can always be started over from the PNGs.
 
 What the committed set measures against the originals: every structural count
 zero, 1.099% of the line-work ink in error on average (1.212% at the 2026-09-25
-baseline), 9 figures `correct`, the 266 notes for a person settled. Against the
+baseline), 9 figures `correct`, the 266 notes for a person settled.
+
+**The draw.io files are incomplete and are not to be trusted** (the TC,
+2026-09-28) until proper draw.io drawings are built. They hold the same actions,
+documents, starts, ends, decisions, flows and notes, in the same places, but not
+the decision questions and loose texts (134 of 183 texts are there), band and
+phase boxes and titles, off-page flows, break marks, measured dividers, the black
+fork bars, line hops, moved guards, or the measured weights and sizes. The same
+model is embedded in each SVG, so a figure opened and saved in draw.io loses all
+of that. The list, as counted, is in `docs/running.md` section 8. Against the
 2026-09-25 baseline every figure differs, as the review meant it to, so this
 state is saved as a new baseline, `baselines/2026-09-28/` (the TC, 2026-09-28):
 the complete run `diagrams/` was taken from, its sweep table, and its review PDF,

@@ -19,7 +19,29 @@ draw.io file are drawn.
 |---|---|---|
 | **The originals** | `art/` in the [UBL repository](https://github.com/oasis-tcs/ubl), branch `ubl-2.5` at `3d81e8a` - not copied here | The 600-dpi PNGs as OASIS publishes them. Everything was read from them and checked back against them, pixel for pixel. |
 | **The JSONs** | `diagrams/<figure>/<figure>-diagram.json`, `-layout.json`, `-extraction.json` | **The basis of the SVGs.** What the diagram says (lanes, nodes, flows, texts), where each element is drawn, and how the reading went. Each has a schema in `tools/schema/`. |
-| **The SVG and draw.io** | `diagrams/<figure>/<figure>.svg`, `.drawio` | Drawn from the diagram and layout JSONs alone, by `tools/draw-from-json.sh`. Never edited by hand. |
+| **The SVG** | `diagrams/<figure>/<figure>.svg` | Drawn from the diagram and layout JSONs alone, by `tools/draw-from-json.sh`. Never edited by hand. **This is the drawing to use.** |
+| **The draw.io file** | `diagrams/<figure>/<figure>.drawio` | Drawn from the same JSONs - but **incomplete: not to be trusted** (below). |
+
+> **Warning - the draw.io files are incomplete and are not to be trusted** until
+> the work to build proper draw.io drawings is done (open work, item 2). They
+> have the same actions, documents, starts, ends, decisions, flows and notes, in
+> the same places, as the SVG, but not the rest:
+>
+> - decision questions and other texts not attached to a flow are missing (134
+>   of the 183 texts are there);
+> - band dividers and titles, the CPFR phase boxes and their titles, off-page
+>   flows and the break marks across a divider are missing;
+> - lane dividers are only the swimlane edges, not the lines as measured;
+> - fork bars are a stub shape, not the black bar;
+> - there are no line hops, and a guard moved off its line sits back on it;
+> - every action is bold, and sizes and line weights are fixed rather than
+>   measured.
+>
+> The same draw.io model is embedded in each SVG (its `content` attribute), so
+> **opening an SVG in draw.io also gives this incomplete drawing, and saving it
+> from draw.io loses what is missing.** Do not edit the figures in draw.io yet.
+> The SVGs themselves are complete and checked; the draw.io files are kept only
+> because they are generated alongside, and nothing checks them.
 
 That the committed SVG and draw.io files are exactly what their JSONs give is
 checked, without any PNG, by
@@ -147,9 +169,11 @@ of each PNG and each render are cached outside the repository
    from the PNG. Until it is, a change made by hand in `diagrams/` would be
    overwritten by copying in a new pipeline run - check with
    `tools/draw-from-json.sh --check` and the `cmp` loop above.
-2. **The draw.io file is poorer than the SVG** (`docs/running.md` section 8): no
-   bands, dividers, phase boxes or off-page flows; and every action is marked
-   bold, even where the artwork sets actions in regular type.
+2. **Proper draw.io drawings.** The draw.io files are incomplete and not to be
+   trusted (the warning above; `docs/running.md` section 8). Each missing kind of
+   element has to be written as a draw.io shape of its own, with measured
+   weights, sizes and label positions, and a render of the draw.io file checked
+   against the SVG over all 78. Until then, figures are not edited in draw.io.
 3. **Known limits of the checkers** (`docs/running.md` section 8): they read the
    extractor's reading rather than the JSONs, and the text check forgives one
    wrong letter (the misreadings were found by eye and corrected).

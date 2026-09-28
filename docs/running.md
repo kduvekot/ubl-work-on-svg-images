@@ -279,10 +279,24 @@ fixture by default, so pass it an output path if that is not what you want.
 Found in the review of the pipeline at the start of the 2026-09-25 session, not
 yet fixed:
 
-- **The draw.io model marks every action bold** (`MXSTYLE` in
-  `build_diagram.py`), even on the figures whose artwork sets actions in regular
-  type; the SVG has the measured weight.
-- **The draw.io model is poorer than the SVG.** `build_diagram.py` draws both from
+- **The draw.io files are incomplete and are not to be trusted** until proper
+  draw.io drawings are built (the TC, 2026-09-28). Counted over all 78 against
+  the SVGs: actions, documents, starts, ends, decisions, flows and notes are all
+  there, in the same places; but
+  - decision questions and other texts not attached to a flow are missing (134
+    of the 183 texts are there);
+  - band dividers and titles, the CPFR phase boxes and their titles, off-page
+    flows and the break marks across a divider are missing;
+  - lane dividers are only the swimlane edges, not the lines as measured;
+  - fork bars are a stub shape, not the black bar;
+  - there are no line hops, and a guard moved off its line sits back on it;
+  - every action is bold, and sizes and line weights are fixed rather than
+    measured.
+
+  The draw.io model is also embedded in each SVG (`content`), so opening an SVG
+  in draw.io gives the same incomplete drawing, and saving it from there loses
+  what is missing. Do not edit figures in draw.io until this is fixed.
+- **Why the draw.io model is poorer than the SVG.** `build_diagram.py` draws both from
   the spec, but the draw.io model has no bands, dividers, phase boxes, off-page
   flows or cross-marks, draws every fork bar as `direction=north` (a stub, since
   UBL's bars are horizontal), puts guards only on flows (free text is lost) and
@@ -354,7 +368,8 @@ words as the artwork writes them (the `text-NN` entries).
 | `-diagram.json` | what the diagram says - **the basis**, with the layout |
 | `-layout.json` | where each element is drawn |
 | `-extraction.json` | how the reading went, for review; not drawn from |
-| `.svg`, `.drawio` | drawn from the two JSONs above; never edited by hand |
+| `.svg` | drawn from the two JSONs above; never edited by hand - the drawing to use |
+| `.drawio` | drawn from the same JSONs, but **incomplete and not to be trusted** (section 8) |
 
 ```sh
 tools/draw-from-json.sh --check diagrams            # prove SVG + draw.io = what the JSONs give
