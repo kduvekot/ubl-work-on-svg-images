@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """A figure's spec in a house style: one look for the same element everywhere.
 
-    python3 house_style.py <spec.json> <out-spec.json>
+    python3 house_style.py <spec.json> <out-spec.json> [--no-space] [--right-angles | --drawio-routing]
 
 A proposal, for the TC to see what a uniform set looks like; nothing of it is
 decided. The figure keeps its layout: it is scaled so its labels come out at
@@ -30,6 +30,13 @@ lane titles. The values are the medians of the census over all 78 figures
     decision without           2 across
     lane titles                centred 1.3 label sizes below the frame's
                                top, plain, no rule under them
+    flows                      within 0.75 label sizes of level or upright:
+                               made exactly so; at an angle: kept (or, with
+                               --right-angles / --drawio-routing, routed
+                               across and down, as a trial)
+    room                       where boxes come too close, or out of their
+                               lane, the figure is opened up at a line
+                               between them (make_space; --no-space to skip)
     start, end                 1.8 across (draw.io's UML start and end states)
     fork bar                   0.5 thick, its measured length
     grey rules                 none: one line per divider
@@ -224,6 +231,26 @@ def house(spec):
         if words and k_ != "fork":
             n["labelLines"] = centred_lines(words, cx, cy, bold, italic)
             n["bold"], n["italic"] = bold, italic
+    # a flow leaving the page keeps meeting its node: the end that lay on the
+    # node's old outline moves to the same place on the new one
+    new = {n["id"]: n for n in s["nodes"]}
+    tol = s["arrow"]
+    for o in s.get("openEnds", []):
+        for k in (0, -1):
+            p = o["points"][k]
+            for nid, b in old.items():
+                if b["x"] - tol <= p[0] <= b["x"] + b["w"] + tol and b["y"] - tol <= p[1] <= b["y"] + b["h"] + tol:
+                    f = (min(1, max(0, (p[0] - b["x"]) / b["w"])), min(1, max(0, (p[1] - b["y"]) / b["h"])))
+                    q = refit(b, new[nid], f)
+                    nb = new[nid]
+                    o["points"][k] = [nb["x"] + nb["w"] * q[0], nb["y"] + nb["h"] * q[1]]
+                    # the next point along keeps the line straight across or down
+                    nxt = o["points"][1 if k == 0 else -2]
+                    if abs(nxt[0] - p[0]) < abs(nxt[1] - p[1]):
+                        nxt[0] = o["points"][k][0]
+                    else:
+                        nxt[1] = o["points"][k][1]
+                    break
     for e in s["edges"]:
         a, b = old[e["from"]], old[e["to"]]
         na = next(n for n in s["nodes"] if n["id"] == e["from"])
@@ -269,16 +296,255 @@ def overlaps(s):
     return out
 
 
-def main(src, out):
+def straighten(s, tol=0.75):
+    """A flow that runs almost level or almost upright - its ends within tol
+    label sizes of each other - made exactly so: 432 flows in 71 figures are
+    off by a few pixels in the artwork and print slightly slanted. One end
+    slides along the side of its box it meets (the target's first, else the
+    source's), as far as that side reaches."""
+    sp = dict(s, byid={n["id"]: n for n in s["nodes"]})
+    done = 0
+    for e in s["edges"]:
+        if not e.get("straight") or e.get("points"):
+            continue
+        A, B = sp["byid"][e["from"]], sp["byid"][e["to"]]
+        (x0, y0), (x1, y1) = bd.polyline(sp, e)[0], bd.polyline(sp, e)[-1]
+        dx, dy = abs(x1 - x0), abs(y1 - y0)
+        if min(dx, dy) < 0.05 or min(dx, dy) > tol * EM:
+            continue
+        level = dx > dy                          # align y (level) or x (upright)
+        fe, fx = list(e["entryXY"]), list(e["exitXY"])
+        def slide(n, f, want):
+            """f moved along n's side to `want`, if the side reaches it"""
+            if level and f[0] in (0.0, 1.0) and n["y"] + 1 <= want <= n["y"] + n["h"] - 1:
+                return [f[0], (want - n["y"]) / n["h"]]
+            if not level and f[1] in (0.0, 1.0) and n["x"] + 1 <= want <= n["x"] + n["w"] - 1:
+                return [(want - n["x"]) / n["w"], f[1]]
+            return None
+        g = slide(B, fe, y0 if level else x0)
+        if g:
+            e["entryXY"] = g
+        else:
+            g = slide(A, fx, y1 if level else x1)
+            if not g:
+                continue
+            e["exitXY"] = g
+        done += 1
+    return done
+
+
+def route_by_drawio(s):
+    """Every flow at an angle handed to draw.io's own router, across and down,
+    from the sides draw.io finds best (no fixed contact points)."""
+    sp = dict(s, byid={n["id"]: n for n in s["nodes"]})
+    n = 0
+    for e in s["edges"]:
+        pts = bd.polyline(sp, e)
+        if e.get("straight") and not all(abs(a[0] - b[0]) < 2 or abs(a[1] - b[1]) < 2
+                                          for a, b in zip(pts, pts[1:])):
+            e["autoRoute"] = True
+            n += 1
+    return n
+
+
+def route_right_angles(s):
+    """Every flow at an angle re-routed across and down: an L or a Z between
+    the same contact points, on the same sides (build_diagram.polyline routes
+    a flow that is not 'straight' so). A flow already straight across or
+    down stays as it is; a flow already bent keeps its bends."""
+    sp = dict(s, byid={n["id"]: n for n in s["nodes"]})
+    n = 0
+    for e in s["edges"]:
+        if not e.get("straight"):
+            continue
+        pts = bd.polyline(sp, e)
+        if all(abs(a[0] - b[0]) < 2 or abs(a[1] - b[1]) < 2 for a, b in zip(pts, pts[1:])):
+            continue
+        e["straight"] = False
+        e["points"] = []
+        n += 1
+    return n
+
+
+# ---- making space -------------------------------------------------------
+
+def _stretch(s, axis, cut, d):
+    """Open the figure by d at `cut` along one axis: everything beyond the cut
+    moves on by d. A box moves whole (by its centre); a lane, a band, the
+    frame, a phase box widens where it spans the cut; lines and points move
+    point by point. So rows and columns stay aligned, and lanes grow."""
+    X = axis == "x"
+    i0 = 0 if X else 1
+    mv = lambda v: v + d if v > cut else v                      # noqa: E731
+    def box(o, kx, kw):
+        c = o[kx] + o[kw] / 2
+        if c > cut:
+            o[kx] += d
+            for l in o.get("labelLines", []):
+                l["cx" if X else "cy"] += d
+            return True
+        return False
+    def span(o, kx, kw):
+        a, b = o[kx], o[kx] + o[kw]
+        o[kx], o[kw] = mv(a), mv(b) - mv(a)
+    s["canvas"]["w" if X else "h"] += d
+    if s.get("frameBox"):
+        fb = s["frameBox"]
+        fb[2 if X else 3] = mv(fb[2 if X else 3])
+    for n in s["nodes"] + s.get("guards", []):
+        box(n, "x" if X else "y", "w" if X else "h")
+    for l in s["lanes"]:
+        if X:
+            span(l, "x", "w")
+            l["cx"] = l["x"] + l["w"] / 2
+        else:
+            pass                                # titles stay under the top
+    for dv in s.get("dividers", []):            # vertical rules: at x, from y to y
+        if X:
+            dv[0] = mv(dv[0])
+        else:
+            dv[2], dv[3] = mv(dv[2]), mv(dv[3])
+    for b in s.get("bands", []):                # horizontal rules: at y, from x to x
+        if X:
+            b[2], b[3] = mv(b[2]), mv(b[3])
+        else:
+            b[0] = mv(b[0])
+    for p in s.get("dashed", []):
+        span(p, "x" if X else "y", "w" if X else "h")
+    for c in s.get("captions", []) + s.get("bandLabels", []):
+        k = "cx" if X else "cy"
+        c[k] = mv(c[k])
+        if not X and c.get("baseline") is not None:
+            c["baseline"] = mv(c["baseline"])
+    for e in s["edges"]:
+        e["points"] = [[mv(p[0]), p[1]] if X else [p[0], mv(p[1])] for p in e.get("points", [])]
+    for o in s.get("openEnds", []):
+        o["points"] = [[mv(p[0]), p[1]] if X else [p[0], mv(p[1])] for p in o["points"]]
+    for m in s.get("crossMarks", []):
+        for k in (("x1", "x2") if X else ("y1", "y2")):
+            m[k] = mv(m[k])
+
+
+def _items(s):
+    """what must keep its distance: boxes, discs, bars and notes; guards (as
+    the box of their words); lane titles, which stay at the top"""
+    out = [dict(id=n["id"], x=n["x"], y=n["y"], w=n["w"], h=n["h"], kind=n["kind"]) for n in s["nodes"]]
+    for g in s.get("guards", []):
+        ll = g.get("labelLines") or []
+        if ll:
+            x0 = min(l["cx"] - l["w"] / 2 for l in ll)
+            y0 = min(l["cy"] for l in ll) - EM * 0.6
+            out.append(dict(id=g["id"], x=x0, y=y0, w=max(l["cx"] + l["w"] / 2 for l in ll) - x0,
+                            h=max(l["cy"] for l in ll) + EM * 0.6 - y0, kind="guard", flow=g.get("onFlow")))
+    for t in s["lanes"]:
+        if t.get("title"):
+            out.append(dict(id=t.get("id"), x=t["cx"] - t["textWidth"] / 2, y=t["cy"] - EM * 0.7,
+                            w=t["textWidth"], h=EM * 1.4, kind="title"))
+    return out
+
+
+def conflicts(s):
+    """Where two things are too close, as (axis, cut, how much more room, what):
+    a flow too short for its arrowhead, boxes, guards or titles touching."""
+    it = _items(s)
+    sp = dict(s, byid={n["id"]: n for n in s["nodes"]})
+    flows = {}
+    for e in s["edges"]:
+        flows.setdefault(frozenset((e["from"], e["to"])), e)
+    need_flow = 1.5 * s["arrow"] + 0.5 * EM
+    gap = {"guard": 0.3 * EM, "title": 0.5 * EM}
+    out = []
+    for i, a in enumerate(it):
+        for b in it[i + 1:]:
+            if a["kind"] == "title" and b["kind"] == "title":
+                continue
+            if "guard" in (a["kind"], b["kind"]) and a["kind"] == b["kind"]:
+                continue
+            ov_x = min(a["x"] + a["w"], b["x"] + b["w"]) - max(a["x"], b["x"])
+            ov_y = min(a["y"] + a["h"], b["y"] + b["h"]) - max(a["y"], b["y"])
+            e = flows.get(frozenset((a["id"], b["id"])))
+            need = need_flow if e else max(gap.get(a["kind"], 0.5 * EM), gap.get(b["kind"], 0.5 * EM))
+            if not e and (ov_x <= 0 and ov_y <= 0):
+                continue                          # side by side at a slant: nothing between them
+            # the axis along which they face each other, or along which the
+            # flow between them mostly runs
+            if e:
+                # the way the flow between them runs, end to end
+                p0, p1 = bd.polyline(sp, e)[0], bd.polyline(sp, e)[-1]
+                ax = "x" if abs(p1[0] - p0[0]) >= abs(p1[1] - p0[1]) else "y"
+            elif ov_x > 0 and ov_y > 0:
+                ax = "x" if ov_x < ov_y else "y"
+            else:
+                ax = "x" if ov_y > 0 else "y"
+            if "title" in (a["kind"], b["kind"]):
+                ax = "y"                          # titles stay where they are; things below move down
+            if ax == "x":
+                l, r = (a, b) if a["x"] + a["w"] / 2 <= b["x"] + b["w"] / 2 else (b, a)
+                g = r["x"] - (l["x"] + l["w"])
+                if g < need - 0.5:
+                    cut = (l["x"] + l["w"] / 2 + r["x"] + r["w"] / 2) / 2 if g < 0 else l["x"] + l["w"] + g / 2
+                    out.append(("x", cut, need - g, a["id"], b["id"]))
+            else:
+                t, u = (a, b) if (a["kind"] == "title" or a["y"] + a["h"] / 2 <= b["y"] + b["h"] / 2) \
+                    and b["kind"] != "title" else (b, a)
+                g = u["y"] - (t["y"] + t["h"])
+                if g < need - 0.5:
+                    cut = (t["y"] + t["h"] / 2 + u["y"] + u["h"] / 2) / 2 if g < 0 else t["y"] + t["h"] + g / 2
+                    if t["kind"] == "title":
+                        cut = t["y"] + t["h"] / 2
+                    out.append(("y", cut, need - g, a["id"], b["id"]))
+    # every box inside its lane and the frame: a box grown past a divider or
+    # the frame pushes it outward (a document on a divider belongs to both
+    # lanes and is left alone)
+    fb = s.get("frameBox") or [0, 0, s["canvas"]["w"], s["canvas"]["h"]]
+    rules = [d[0] if isinstance(d, list) else d for d in s.get("dividers", [])]
+    m = 0.5 * EM
+    for n in s["nodes"]:
+        x0, x1, cx = n["x"], n["x"] + n["w"], n["x"] + n["w"] / 2
+        if n["kind"] == "object" and any(x0 < r < x1 for r in rules):
+            continue
+        left = max([r for r in rules if r <= cx] + [fb[0]])
+        right = min([r for r in rules if r > cx] + [fb[2]])
+        if x0 < left + m:
+            out.append(("x", (left + cx) / 2, left + m - x0, n["id"], "lane edge"))
+        if x1 > right - m:
+            out.append(("x", (cx + right) / 2, x1 - (right - m), n["id"], "lane edge"))
+        if n["y"] + n["h"] > fb[3] - m:
+            out.append(("y", (n["y"] + n["h"] / 2 + fb[3]) / 2, n["y"] + n["h"] - (fb[3] - m), n["id"], "frame"))
+    return out
+
+
+def make_space(s, limit=300):
+    """Open the figure where things are too close, one cut at a time, the
+    largest first, until nothing is: each cut only moves things apart, so it
+    ends. Returns the cuts made."""
+    made = []
+    for _ in range(limit):
+        c = conflicts(s)
+        if not c:
+            break
+        ax, cut, d, a, b = max(c, key=lambda t: t[2])
+        _stretch(s, ax, cut, d)
+        made.append((ax, round(cut), round(d, 1), a, b))
+    return made
+
+
+def main(src, out, *opts):
     spec = bd.load(src)
     bd.clear_guards(spec)
     s = house(spec)
+    straight = straighten(s)
+    routed = route_right_angles(s) if "--right-angles" in opts else \
+        route_by_drawio(s) if "--drawio-routing" in opts else 0
+    before = (s["canvas"]["w"], s["canvas"]["h"])
+    made = make_space(s) if "--no-space" not in opts else []
     json.dump(s, open(out, "w", encoding="utf-8"), indent=1)
-    ov = overlaps(s)
-    print("  %s: scale %.2f, %.0f x %.0f px, %d overlapping pairs%s"
-          % (os.path.basename(out), EM / label_em(spec), s["canvas"]["w"], s["canvas"]["h"], len(ov),
-             "".join("\n    %s / %s" % p for p in ov)))
+    left = conflicts(s)
+    print("  %s: scale %.2f, %.0f x %.0f px%s; %d flows re-routed; %d cuts made (+%.0f x +%.0f px); %d conflicts left%s"
+          % (os.path.basename(out), EM / label_em(spec), s["canvas"]["w"], s["canvas"]["h"], ", %d flows straightened" % straight,
+             routed, len(made), s["canvas"]["w"] - before[0], s["canvas"]["h"] - before[1], len(left),
+             "".join("\n    %s %s / %s" % (c[0], c[3], c[4]) for c in left)))
 
 
 if __name__ == "__main__":
-    main(sys.argv[1], sys.argv[2])
+    main(*sys.argv[1:])

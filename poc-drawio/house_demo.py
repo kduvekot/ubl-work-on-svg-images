@@ -104,10 +104,11 @@ What the TC has to choose is which of the two kinds of uniform it wants on paper
 <tr><td>fork bar</td><td>0.5 label sizes thick</td></tr>
 <tr><td>grey rules</td><td>none: one line per divider</td></tr>
 </table>
-<p class="note">Each figure keeps its layout: every element stays where its artwork puts it, scaled
-so its labels come out at the house size; boxes keep their size. Over all 78, 57 take the
-house style with nothing to adjust; 21 need a little room made, mostly for an arrowhead (see
-census.md). The routing of flows is not yet harmonised: a separate choice.</p>
+<p class="note">Flows almost level or upright are made exactly so. Each figure keeps its layout: every element stays where its artwork puts it, scaled
+so its labels come out at the house size; boxes keep their size. Where a box grown to its words
+comes too close to another, or out of its lane, the figure is opened up there (section 5): over all
+78, 19 need nothing, the median figure grows by 1 %%, the most by 19 %%. The routing of flows is left
+as drawn (section 4).</p>
 </div>""" % LABEL_PT)
     o.append('<div class="sec col"><h2>1. As published today: faithful, each at the column&#8217;s width</h2>')
     for it in items:
@@ -128,6 +129,36 @@ census.md). The routing of flows is not yet harmonised: a separate choice.</p>
                  % (cls, head, esc(it["png"]), it["w1"], esc(it["n"]), it["w1"], it["h1"],
                     {"a4": "A4, within the column" if it["w1"] <= COLUMN_MM else "A4, wider than the column",
                      "a4l": "an A4 landscape page", "a3l": "an A3 landscape page", "a3": "an A3 page"}[cls]))
+    routing = os.environ.get("ROUTING", "").split()
+    space = os.environ.get("SPACE", "").split()
+    rel = lambda f: esc(os.path.relpath(os.path.join(work, f), os.path.dirname(out)))    # noqa: E731
+    for n in routing:
+        o.append('<div class="sec col"><h2>4. The routing of flows: %s three ways</h2>'
+                 '<p>Half the figures mix flows at an angle with flows across and down. Could the house '
+                 'style make them all run at right angles? Here the angled flows of the densest figure, '
+                 'first as drawn, then re-routed.</p>' % esc(n))
+        for v, cap in (("house", "<b>As drawn</b> (house style): flows at an angle kept, the ones almost "
+                        "level or upright made exactly so."),
+                       ("right", "<b>Right angles, simple:</b> each angled flow as an L or a Z between the "
+                        "same points on the same sides."),
+                       ("auto", "<b>Right angles, draw.io&#8217;s own router:</b> draw.io chooses the sides "
+                        "and the route.")):
+            o.append('<div class="fig"><img src="%s" style="width:145mm"><p class="cap">%s</p></div>'
+                     % (rel(n + "-" + v + ".png"), cap))
+        o.append('<p class="note">Neither re-routing reads better than the flows as drawn: routes run '
+                 'through boxes and over each other. These figures were laid out for angled flows; right '
+                 'angles would need each of them laid out anew.</p></div>')
+    if space:
+        o.append('<div class="sec col"><h2>5. Making room</h2><p>In the house style some boxes grow to fit '
+                 'their words, and in tightly drawn figures a flow is then too short for its arrowhead, or '
+                 'a box runs out of its lane. The figure is opened up where that happens: widened or '
+                 'lengthened at a line between the two, everything beyond moving along, so rows, columns '
+                 'and lanes stay aligned. Before, and after.</p>')
+        for n in space:
+            for v, cap in (("nospace", "before"), ("house", "after")):
+                o.append('<div class="fig"><img src="%s" style="width:145mm"><p class="cap"><b>%s</b>: %s.</p></div>'
+                         % (rel(n + "-" + v + ".png"), esc(n), cap))
+        o.append('</div>')
     o.append("</body></html>")
     open(out, "w", encoding="utf-8").write("\n".join(o))
     for it in items:

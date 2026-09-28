@@ -399,6 +399,12 @@ def mxfile(spec, model=None):
                   html=1, endArrow=head, endFill=fill, endSize=end_size,
                   strokeColor="#000000", strokeWidth=float(S["edge"]),
                   exitX=fx, exitY=fy, exitPerimeter=0, entryX=tx, entryY=ty, entryPerimeter=0)
+        if e.get("autoRoute"):
+            # draw.io routes it itself, across and down, from the sides it
+            # finds best (house style, right angles: house_style.py)
+            for k in ("exitX", "exitY", "exitPerimeter", "entryX", "entryY", "entryPerimeter"):
+                kv.pop(k, None)
+            kv.update(edgeStyle="orthogonalEdgeStyle")
         if e.get("arrowBoth"):
             kv.update(startArrow=head, startFill=fill, startSize=end_size)
         if e.get("dash"):

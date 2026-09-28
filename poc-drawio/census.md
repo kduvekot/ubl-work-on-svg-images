@@ -87,20 +87,34 @@ and every element stays at its measured centre. `house_style.py` does this
 from the same JSONs; the draw.io writer draws the result like any other
 figure.
 
-**Over all 78, 57 take the house style with nothing to adjust.** In the other
-21 (checked by `house_style.py`):
+**Flows made exactly level or upright.** In the artwork, 432 flows in 71
+figures run *almost* level or upright: a few pixels off, so they print very
+slightly slanted. Only 437 are exactly so. The house style makes every flow
+within 0.75 label sizes of level or upright exactly so, by sliding one end
+along the side of its box. After that, 867 flows are exactly level or upright,
+2 could not be moved (their box's side is too short), and 99 run at an angle
+on purpose.
 
-| what | how many | figures |
-|---|---:|---:|
-| a flow made too short for its arrowhead: the house type is wider than the artwork's, and the box grew up against its neighbour | 41 | 16 |
-| a guard touches a box | 15 | 7 |
-| two boxes overlap | 1 | 1 |
-| a lane title touches a box | 1 | 1 |
+**Making room.** A box grown to fit the house type can come too close to
+another. Its flow may become too short to show its arrowhead, a guard or lane
+title may touch it, or it may run out of its lane (the Tender figures' long
+actions ran past the frame). Where that happens, the figure is opened up at a
+line between the two: widened or lengthened there, with everything beyond
+moving along. So rows, columns and lanes stay aligned, and a lane that needs
+room grows. The largest need is met first, until nothing is too close or out
+of its lane:
 
-Most are in the tightly drawn families: 7 Tender figures and 5 of the 2.3
-customs figures. They need a little more room between their boxes, which is
-layout work, one figure at a time. A further 51 flows are that short in the
-artwork itself.
+- the checks are: at least 1.5 arrowheads plus half a label size of flow
+  between two boxes; half a label size between boxes that face each other or
+  a box and its lane's edge; a little room around guards and lane titles;
+- **all 78 figures end with nothing too close and every box in its lane;**
+- 19 needed nothing;
+- the median figure needs 2 openings and grows by 0 % in width and 1 % in
+  height;
+- the most, Tender Qualification Application, grows 19 % wider, and the CPFR
+  figures up to 16 %.
+
+The demonstration shows two figures before and after (section 5 of the PDF).
 
 ### Asked of the house style
 
@@ -120,9 +134,10 @@ artwork itself.
   0.7 to 2.9 label sizes below the top, and 7 figures (IMFM and six 2.3
   customs figures) draw a rule under the titles that the other 71 do not. The
   house style puts every title at the same place, with no rule.
-- **Is the routing of flows consistent?** No, and the house style does not
-  change it yet: that is a change of layout, not of look, and needs a choice.
-  See section 2a.
+- **Is the routing of flows consistent?** No. The house style makes the flows
+  that are almost level or upright exactly so, and keeps the flows drawn at an
+  angle as they are. Making those run at right angles was tried, and does not
+  read better: see section 2a.
 
 ## 2a. The routing of flows: for the TC to choose
 
@@ -145,17 +160,36 @@ So half the figures mix routing styles. The families differ: Procurement (Fig
 C.1) and the billing figures use angled lines, the CPFR figures right-angled
 bends, and most of the Tender, VMI and CRP figures only straight lines.
 
+**Tried: right angles only.** After straightening, 99 flows in 25 figures run
+at an angle on purpose. Two ways of routing them across and down were tried
+on all 78, and shown on Procurement (Fig C.1, 24 angled flows) in section 4
+of the demonstration PDF:
+
+- **Simple:** each angled flow as an L or a Z between the same contact points,
+  on the same sides of its boxes (`house_style.py --right-angles`). 6 flows
+  then run through another element (one each in Utility Billing, both billing
+  figures, CPFR Exception Monitor, Certification of Origin, Procurement).
+  Parallel stretches crowd each other, and some guards no longer sit clearly
+  by their flow.
+- **draw.io's own router:** draw.io chooses the sides and the route
+  (`orthogonalEdgeStyle` without fixed contact points,
+  `house_style.py --drawio-routing`). It is worse: routes run through
+  actions, and lie on top of other flows.
+
+Neither reads better than the angled flows as drawn. These figures were laid
+out for their angled flows; right angles would need each of them laid out
+anew, by hand or with a layout engine that knows about lanes.
+
 The choices are:
 
-1. **Keep each figure's routing** (as the house style does now): a uniform
-   look, but not uniform routing.
-2. **Right angles only.** Every angled flow is routed across and down instead.
-   draw.io can route these itself (`edgeStyle=orthogonalEdgeStyle`), and keeps
-   them routed when an element is moved. The most regular look, but on dense
-   figures like Procurement, 43 flows re-routed at right angles need care to
-   stay readable.
+1. **Keep each figure's routing**, flows almost level or upright made exactly
+   so (as the house style does now): a uniform look, but not uniform routing.
+   Proposed.
+2. **Right angles only**, with the 25 figures that have angled flows laid out
+   anew. The most regular result, and the most work.
 3. **A rule for when a flow may run at an angle**, for instance only where a
-   right-angled route would cross other flows.
+   right-angled route would cross other flows or run through a box, applied
+   when a figure is next revised.
 
 ## 3. Is a draw.io page a fixed size?
 
@@ -204,7 +238,11 @@ ways, on A4, the column at 145 mm as in the specification:
 
 1. as published today;
 2. in the house style, fitted to the column;
-3. in the house style at one scale, each on the page it needs.
+3. in the house style at one scale, each on the page it needs;
+4. the routing of flows: Procurement as drawn, with simple right angles, and
+   with draw.io's own router;
+5. making room: Tender Qualification Application and Goods Certificate Export,
+   before and after.
 
 Rebuild it with:
 
@@ -217,8 +255,8 @@ poc-drawio/house-demo.sh poc-drawio/house-style-demo.pdf [<figure> ...]
 1. **A house style at all?** If yes: the values above, or others. It is one
    list, applied by the writer to every figure; changing it later changes
    one list, not 78 drawings.
-2. **The routing of flows:** kept per figure, right angles only, or a rule
-   (section 2a).
+2. **The routing of flows:** kept per figure (proposed), right angles only
+   with new layouts, or a rule (section 2a).
 3. **Which uniform:** the same look (1), or the same size on paper as well (2)?
    The second means new layouts for most figures, or larger pages.
 4. **The faithful drawings** stay as the record of the artwork (and the

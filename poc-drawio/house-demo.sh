@@ -14,13 +14,30 @@ pdf="$1"; shift || true
 [ $# -gt 0 ] || set -- UBL-2.2-Tender-GuaranteeDeposit UBL-2.5-BillingwithDebitNoteProcess \
   UBL-2.2-CPFR-CreateOrderForecast UBL-1.0-ProcurementProcess UBL-2.2-IMFM-IntermodalFreightManagementProcess
 work="$(mktemp -d)"; trap 'rm -rf "$work"' EXIT
-for n in "$@"; do
+# the figures shown three ways, and the extra pages: routing (Procurement
+# three ways) and making space (before and after)
+ROUTING=${ROUTING:-UBL-1.0-ProcurementProcess}
+SPACE=${SPACE:-"UBL-2.2-Tender-QualificationApplication UBL-2.3-GoodsCertificateExportProcess"}
+export ROUTING SPACE
+draw() {   # <figure> <variant> [house_style.py options]
+  n="$1"; v="$2"; shift 2
   src="$root/diagrams/$n"
-  python3 "$root/tools/spec_from_model.py" "$src/$n-diagram.json" "$work/$n-faithful-spec.json" 1480 > /dev/null
-  python3 "$here/house_style.py" "$work/$n-faithful-spec.json" "$work/$n-spec.json" > /dev/null
-  python3 "$here/drawio_from_spec.py" "$work/$n-spec.json" "$work/$n-house.drawio" "$src/$n-diagram.json" > /dev/null
-  read W H < <(python3 -c "import json,sys; c=json.load(open(sys.argv[1]))['canvas']; print(c['w'], c['h'])" "$work/$n-spec.json")
-  node "$here/render-drawio.js" "$work/$n-house.drawio" "$work/$n-house.png" "$W" "$H" 4 > /dev/null
+  [ -f "$work/$n-faithful-spec.json" ] || \
+    python3 "$root/tools/spec_from_model.py" "$src/$n-diagram.json" "$work/$n-faithful-spec.json" 1480 > /dev/null
+  python3 "$here/house_style.py" "$work/$n-faithful-spec.json" "$work/$n-$v-spec.json" "$@" > /dev/null
+  python3 "$here/drawio_from_spec.py" "$work/$n-$v-spec.json" "$work/$n-$v.drawio" "$src/$n-diagram.json" > /dev/null
+  read W H < <(python3 -c "import json,sys; c=json.load(open(sys.argv[1]))['canvas']; print(c['w'], c['h'])" "$work/$n-$v-spec.json")
+  node "$here/render-drawio.js" "$work/$n-$v.drawio" "$work/$n-$v.png" "$W" "$H" 4 > /dev/null
+}
+for n in "$@"; do
+  draw "$n" house
+  cp "$work/$n-house-spec.json" "$work/$n-spec.json"
+done
+for n in $ROUTING; do
+  draw "$n" house; draw "$n" right --right-angles; draw "$n" auto --drawio-routing
+done
+for n in $SPACE; do
+  draw "$n" house; draw "$n" nospace --no-space
 done
 python3 "$here/house_demo.py" "$work" "$work/demo.html" "$@"
 node -e '
