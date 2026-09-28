@@ -2574,6 +2574,52 @@
     "op": "implied-choice",
     "flow": "flow-raise-self-billed-invoice-to-final-accounting-customer-2",
     "reason": "the step waits on the supplier: no dispute means the charges are accepted and the process ends; a reply leads to Reconcile Charges"
+   },
+   {
+    "decided": "2026-09-28",
+    "by": "Kees Duvekot, figure-by-figure review",
+    "op": "layout",
+    "id": "draw-28",
+    "question": "Figure 27: the [incorrect information] branch from Validate Invoice to the bar is a solid straight line in the artwork; the reading, broken where the guard's words cross it, took it for dashed and routed it with a corner.",
+    "answer": "Solid and straight, from the diamond's bottom corner (3120, 1128) to the bar, as drawn.",
+    "section": "flows",
+    "element": "flow-validate-invoice-to-fork-accounting-supplier",
+    "was": {
+     "routing": "orthogonal",
+     "dash": 25.8
+    },
+    "set": {
+     "routing": "straight",
+     "fromPoint": [
+      3120,
+      1128
+     ]
+    },
+    "unset": [
+     "dash",
+     "gap",
+     "dashOffset",
+     "points"
+    ]
+   },
+   {
+    "decided": "2026-09-28",
+    "by": "Kees Duvekot, figure-by-figure review",
+    "op": "layout",
+    "id": "draw-29",
+    "question": "Figure 27: 'Reconcile' in the supplier's diamond was measured from its second letter (the 'R' touches the diamond's edge), so it was drawn squeezed.",
+    "answer": "Measured on the original: 'Reconcile' runs from x 2443 to 2599.",
+    "section": "nodes",
+    "element": "decision-econcile-charges",
+    "line": 0,
+    "was": {
+     "x": 2468,
+     "w": 132
+    },
+    "set": {
+     "x": 2443,
+     "w": 157
+    }
    }
   ],
   "UBL-2.0-UpdateCatalogueItemSpecificationProcess": [

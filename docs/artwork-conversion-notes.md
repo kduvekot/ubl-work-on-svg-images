@@ -1754,6 +1754,15 @@ differences shown.
   `draw-25`). "OK?" was read bold on two more figures, Export Customs
   Declaration and Goods Certificate Export, and is set regular there too
   (`draw-26`, `draw-27`); no other decision's words were read bold.
+- *Tender Contract pre-award (26 of 78).* Model correct and complete; SVG
+  faithful.
+- *Self Billing with Credit Note (27 of 78).* Model correct and complete (22
+  flows). Two drawing faults, fixed: the [incorrect information] branch from
+  Validate Invoice to the bar was drawn dashed and with a corner - the guard's
+  words cross the solid line, and the reading took the breaks for a dash
+  pattern (`draw-28`); and "Reconcile" in the supplier's diamond was measured
+  from its second letter, the "R" touching the diamond's edge, and drawn
+  squeezed (`draw-29`; the reading's word was "econcile", put right before).
 
 **The notes for a person, all 266 settled by eye (2026-09-27).** The sweep
 leaves, per diagram, notes where the reading could not be sure; each was looked at
