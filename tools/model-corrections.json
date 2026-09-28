@@ -2786,6 +2786,22 @@
     "was": {
      "title": "Certification party"
     }
+   },
+   {
+    "decided": "2026-09-28",
+    "by": "Kees Duvekot, figure-by-figure review",
+    "op": "layout",
+    "section": "nodes",
+    "was": {
+     "bold": true
+    },
+    "set": {
+     "bold": false
+    },
+    "id": "draw-27",
+    "question": "The 'OK?' in the diamond is set in regular type in the artwork, as on every decision; the weight reading, on three short letters, took it for bold (the same on Export Customs Declaration, Goods Certificate Export and Goods Item Passport Approval).",
+    "answer": "Regular, as drawn.",
+    "element": "decision-ok"
    }
   ],
   "UBL-2.3-GoodsItemPassportReturnProcess": [
@@ -4261,6 +4277,22 @@
     "was": {
      "title": "CustomsParty"
     }
+   },
+   {
+    "decided": "2026-09-28",
+    "by": "Kees Duvekot, figure-by-figure review",
+    "op": "layout",
+    "section": "nodes",
+    "was": {
+     "bold": true
+    },
+    "set": {
+     "bold": false
+    },
+    "id": "draw-26",
+    "question": "The 'OK?' in the diamond is set in regular type in the artwork, as on every decision; the weight reading, on three short letters, took it for bold (the same on Export Customs Declaration, Goods Certificate Export and Goods Item Passport Approval).",
+    "answer": "Regular, as drawn.",
+    "element": "decision-ok"
    }
   ],
   "UBL-2.3-ImportDeclarationProcess": [
@@ -4376,6 +4408,54 @@
     "was": {
      "label": "Goodsitem\nPassport\n(Approved)"
     }
+   },
+   {
+    "decided": "2026-09-28",
+    "by": "Kees Duvekot, figure-by-figure review",
+    "op": "layout",
+    "section": "nodes",
+    "was": {
+     "bold": true
+    },
+    "set": {
+     "bold": false
+    },
+    "id": "draw-23",
+    "question": "Figure 25: every step is set in regular type in the artwork; the weight reading took this one for bold.",
+    "answer": "Regular, as drawn.",
+    "element": "action-draft-goodsitem-passport"
+   },
+   {
+    "decided": "2026-09-28",
+    "by": "Kees Duvekot, figure-by-figure review",
+    "op": "layout",
+    "section": "nodes",
+    "was": {
+     "bold": true
+    },
+    "set": {
+     "bold": false
+    },
+    "id": "draw-24",
+    "question": "Figure 25: every step is set in regular type in the artwork; the weight reading took this one for bold.",
+    "answer": "Regular, as drawn.",
+    "element": "action-apply-stamps-and-signature-in-exporting-customs-party"
+   },
+   {
+    "decided": "2026-09-28",
+    "by": "Kees Duvekot, figure-by-figure review",
+    "op": "layout",
+    "section": "nodes",
+    "was": {
+     "bold": true
+    },
+    "set": {
+     "bold": false
+    },
+    "id": "draw-25",
+    "question": "The 'OK?' in the diamond is set in regular type in the artwork, as on every decision; the weight reading, on three short letters, took it for bold (the same on Export Customs Declaration, Goods Certificate Export and Goods Item Passport Approval).",
+    "answer": "Regular, as drawn.",
+    "element": "decision-ok"
    }
   ],
   "UBL-2.3-GoodsItemPassportPresentationProcess": [

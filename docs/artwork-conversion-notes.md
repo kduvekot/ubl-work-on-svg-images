@@ -1745,6 +1745,15 @@ differences shown.
   weight reading mixes bold and regular steps on only two other figures,
   Goods Item Passport Approval and Billing with Debit Note, to be looked at
   when they come up.
+- *Goods Item Passport Presentation (24 of 78).* Model correct and complete
+  (23 flows); SVG faithful.
+- *Goods Item Passport Approval (25 of 78).* Model correct and complete (23
+  flows). Weight misread three times: *Draft Goodsitem Passport*, the
+  Exporting Customs Party's *Apply Stamps And Signature* and the "OK?" in the
+  diamond were drawn bold where the artwork sets them regular (`draw-23` to
+  `draw-25`). "OK?" was read bold on two more figures, Export Customs
+  Declaration and Goods Certificate Export, and is set regular there too
+  (`draw-26`, `draw-27`); no other decision's words were read bold.
 
 **The notes for a person, all 266 settled by eye (2026-09-27).** The sweep
 leaves, per diagram, notes where the reading could not be sure; each was looked at
