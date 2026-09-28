@@ -3884,6 +3884,34 @@
     "lane": "lane-2",
     "text": "text-receiverparty",
     "title": "Receiver Party"
+   },
+   {
+    "id": "draw-36",
+    "decided": "2026-09-28",
+    "by": "Kees Duvekot, figure-by-figure review",
+    "question": "Figure 78: the lane title 'Senderparty' is bold in the artwork, as on Waste Notification; placed as text, its weight was never measured and it was drawn regular.",
+    "answer": "Bold, as the artwork has it.",
+    "op": "layout",
+    "section": "lanes",
+    "element": "lane-1",
+    "sub": "title",
+    "set": {
+     "bold": true
+    }
+   },
+   {
+    "id": "draw-37",
+    "decided": "2026-09-28",
+    "by": "Kees Duvekot, figure-by-figure review",
+    "question": "Figure 78: the lane title 'ReceiverParty' is bold in the artwork, as on Waste Notification; placed as text, its weight was never measured and it was drawn regular.",
+    "answer": "Bold, as the artwork has it.",
+    "op": "layout",
+    "section": "lanes",
+    "element": "lane-2",
+    "sub": "title",
+    "set": {
+     "bold": true
+    }
    }
   ],
   "UBL-2.2-Enquiry": [

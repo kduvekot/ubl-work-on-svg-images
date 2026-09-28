@@ -1916,6 +1916,19 @@ differences shown.
   Catalogue and CRP Synchronizing: each one document handed from one party to
   the other. Models correct and complete, SVGs faithful, nothing to fix. The
   checker's "kept on outline" on four of them is the document box itself.
+- *Figures 71-78, the last, reviewed as one batch (the TC, 2026-09-28: "do all
+  8 in one run").* CRP Base Article Catalogue, ROCD Article Availability,
+  Report State of Accounts, Digital Capability, Business Card, Common
+  Transportation Report, Manifest and Waste Movement: models correct and
+  complete. One fault, fixed: on Waste Movement the lane titles "Senderparty"
+  and "ReceiverParty", bold in the artwork as on Waste Notification, were
+  drawn regular - placed as text, their weight was never measured, as with
+  the CPFR phase titles (`draw-36`, `draw-37`). The only other titles placed
+  as text, on Freight Status Reporting, are regular in the artwork too. Digital
+  Capability and Business Card draw the document's flow down the divider
+  with a break mark across it; the SVG draws the same. CRP Base Article
+  Catalogue's "Send Catalogue" was put right with figure 49 (`text-35`).
+  **With this batch all 78 figures have been reviewed.**
 
 **The notes for a person, all 266 settled by eye (2026-09-27).** The sweep
 leaves, per diagram, notes where the reading could not be sure; each was looked at
