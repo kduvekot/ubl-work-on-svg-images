@@ -174,6 +174,13 @@ of each PNG and each render are cached outside the repository
    element has to be written as a draw.io shape of its own, with measured
    weights, sizes and label positions, and a render of the draw.io file checked
    against the SVG over all 78. Until then, figures are not edited in draw.io.
+   Where to start: the draw.io model is written by `mxfile()` and styled by
+   `MXSTYLE` in `tools/build_diagram.py`, from the same spec as the SVG
+   (`svg_body()`); the missing kinds are listed in `docs/running.md` section 8,
+   which also describes rendering a draw.io file with draw.io's own viewer in
+   the same Chromium - tried once, not yet part of the pipeline. Check the
+   result over all 78 with `tools/draw-from-json.sh --check diagrams` and hold
+   the SVGs against `baselines/2026-09-28/`, which must not change.
 3. **Known limits of the checkers** (`docs/running.md` section 8): they read the
    extractor's reading rather than the JSONs, and the text check forgives one
    wrong letter (the misreadings were found by eye and corrected).
