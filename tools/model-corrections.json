@@ -3755,6 +3755,49 @@
     "op": "attach-guard",
     "text": "text-false",
     "to": "flow-decision-producer-to-final-producer"
+   },
+   {
+    "id": "draw-35",
+    "decided": "2026-09-28",
+    "by": "Kees Duvekot, figure-by-figure review",
+    "question": "Figure 60: the decision's question 'Catalogue update is needed?' is set on two lines, left-aligned right of the diamond; the reading took it as one line 90px high starting inside the diamond, so the SVG set it small, on one line, over the diamond.",
+    "answer": "Drawn on two lines, where the artwork has them.",
+    "op": "layout",
+    "section": "texts",
+    "element": "text-catalogue-update-is-needed-true",
+    "set": {
+     "x": 713,
+     "y": 422,
+     "w": 377,
+     "h": 86,
+     "lines": [
+      {
+       "x": 713,
+       "y": 422,
+       "w": 377,
+       "h": 39,
+       "text": "Catalogue update is"
+      },
+      {
+       "x": 713,
+       "y": 478,
+       "w": 162,
+       "h": 30,
+       "text": "needed?"
+      }
+     ]
+    }
+   },
+   {
+    "id": "text-36",
+    "decided": "2026-09-28",
+    "by": "Kees Duvekot, figure-by-figure review",
+    "question": "Figure 60 (with draw-35): the question's words run over two lines in the artwork.",
+    "answer": "'Catalogue update is' / 'needed?'.",
+    "op": "retext",
+    "section": "texts",
+    "element": "text-catalogue-update-is-needed-true",
+    "text": "Catalogue update is\nneeded?"
    }
   ],
   "UBL-2.2-DigitalAgreement": [

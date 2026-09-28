@@ -1891,6 +1891,17 @@ differences shown.
   for a guard with no place. The SVG marks each moved guard (`data-moved`,
   `data-moved-from`, `data-moved-to`), and the checker leaves both places out
   on either side (verify_conversion.py).
+- *Figures 56-60, reviewed as a batch (the TC, 2026-09-28: "next set").* CRP
+  and VMI Sales and Inventory Movement, Sourcing Buyer Initiated, Freight
+  Status Reporting and CRP Change Article Catalogue: models correct and
+  complete, SVGs faithful. One fault, fixed: on Change Article Catalogue the
+  decision's question "Catalogue update is / needed?", two left-aligned lines
+  right of the diamond, was read as one line 90px high starting inside the
+  diamond, and set small on one line over it (`draw-35`, `text-36`). On
+  Sourcing Buyer Initiated the documents' names are a few percent smaller
+  than in the artwork, at the same width - the per-kind sizing, not a fault.
+  Freight Status Reporting's third column is the Receiver Party's own start
+  ("Trigger reporting procedure"), as settled before.
 
 **The notes for a person, all 266 settled by eye (2026-09-27).** The sweep
 leaves, per diagram, notes where the reading could not be sure; each was looked at
