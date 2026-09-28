@@ -1832,6 +1832,15 @@ differences shown.
   ends of its box; the SVG keeps it inside (the TC's condition for the node
   sizing). Utility Billing's *Report usage* has no way in and two unguarded
   branches, recorded before (and among the future-release points).
+- *Figures 41-45, reviewed as a batch (the TC, 2026-09-28: "next 5").* Tender
+  Unsubscribe From Procedure, Tender Expression Of Interest, IMFM Transport
+  Service Description, Tender Qualification Application and Tender Status:
+  each a straight two-party exchange (prepare, submit, request document,
+  receive, respond, response document, receive). Models correct and complete,
+  SVGs faithful, nothing to fix. Type weights follow the artwork (Transport
+  Service Description has its actions in bold, the others regular). On
+  Unsubscribe From Procedure the artwork's "Receive unsubscribe from procedure
+  confirmation" runs slightly over its box; the SVG keeps it inside.
 
 **The notes for a person, all 266 settled by eye (2026-09-27).** The sweep
 leaves, per diagram, notes where the reading could not be sure; each was looked at
