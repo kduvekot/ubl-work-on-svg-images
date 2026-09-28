@@ -1662,10 +1662,10 @@ differences shown.
   they stand, a line more than 15% off the figure's usual size taking the
   usual (spec_from_model.py; over the 78 most such texts were within 10-20%
   of the labels' size, seven figures clearly smaller). And the divider
-  between *Despatch Advice* and *Receipt Advice* leans 7px where the
-  reading had it straight, and was drawn twice, a straight rule and beside it
-  the leaning part as a piece: now one line, straight to *Despatch Advice*
-  and leaning from there (`draw-12`, the new `divider-lean` correction).
+  between *Despatch Advice* and *Receipt Advice* was drawn twice, a straight
+  rule and beside it the stretch where the artwork's line leans 7px, read as
+  a separate piece. Settled with figure 17 by a standing rule (below): one
+  straight line.
 - *UBL 1.0 Procurement Process (15 of 78).* Model correct and complete (43
   flows; "decision if item(s) rejected" is a step, as drawn; no start, as
   recorded). The scan is too blurred for the weight reading: the documents'
@@ -1682,6 +1682,18 @@ differences shown.
   fault, fixed: the reading ended the two "No" lines short and a few pixels
   off at each end, so they were drawn slanting with a twisted head; now
   straight down onto the bar as drawn (`draw-15`, `draw-16`).
+- *VMI Initial Stocking (17 of 78).* Model correct and complete (19 flows).
+  Standing rule (the TC, 2026-09-28): **a lane divider is always drawn as one
+  straight line**, not copying the artwork's small leans and offset
+  stretches. The layout keeps what was read (the rule and, beside it, the
+  pieces where the line leans, on nine CRP, ROCD and VMI figures); a piece
+  lying along a rule is drawn as part of it, the rule running over both at
+  its own position (spec_from_model.py). The checker takes the artwork's
+  divider strokes (runs of 40px or more along the rule, within 12px of it) to
+  lie where the SVG's are, row by row where both have one, so the lean is not
+  counted and a missing divider still is (verify_conversion.py). Over the 78
+  this took 2,500 px of line-work findings off, 2,900 on VMI Price
+  Adjustment alone.
 
 **The notes for a person, all 266 settled by eye (2026-09-27).** The sweep
 leaves, per diagram, notes where the reading could not be sure; each was looked at

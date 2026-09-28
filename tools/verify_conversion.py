@@ -592,6 +592,51 @@ def check_coherent(graph, glyph_h, findings, missing=None, human=None):
                                  detail="%s (%s %r) has no edge" % (n["id"], k, n.get("label", "")[:20])))
 
 
+def _long_runs(m, axis, length):
+    """the pixels of `m` that lie in a run of at least `length` along `axis`"""
+    c = np.cumsum(np.pad(m.astype(np.int32), [(1, 0) if k == axis else (0, 0)
+                                              for k in range(2)]), axis=axis)
+    n = m.shape[axis]
+    if n < length:
+        return np.zeros_like(m)
+    full = np.take(c, range(length, n + 1), axis=axis) - np.take(c, range(0, n - length + 1), axis=axis) == length
+    out = np.zeros(m.shape, dtype=np.int32)
+    for k in range(length):          # spread each full window back over its pixels
+        sl = [slice(None)] * 2
+        sl[axis] = slice(k, k + full.shape[axis])
+        out[tuple(sl)] += full
+    return out > 0
+
+
+def straight_dividers(a, b, graph):
+    """A lane divider is drawn straight (the TC, 2026-09-28), where the artwork's
+    leans a few pixels here and there and was sometimes drawn in offset pieces.
+    Along each inner rule, in a band 12px either side of it, the artwork's
+    divider strokes - runs at least 40px long along the rule - are taken to lie
+    where the SVG's are, row by row where both images have one: the lean is not
+    counted, a divider missing from either side still is, and anything crossing
+    the divider (a document's edge, a flow) is too short along the rule to be
+    touched, and is still matched against the divider beside it."""
+    H, W = a.shape
+    for axis, key in ((0, "v"), (1, "h")):
+        size = W if key == "v" else H
+        margin = max(3, size * 0.015)
+        for at, wd in (graph.get("rules") or {}).get(key, []):
+            if not (margin < at and at + wd < size - margin):
+                continue                               # the frame, not a divider
+            lo, hi = max(0, int(at - 12)), min(size, int(at + wd + 12))
+            if key == "v":
+                sa, sb = _long_runs(a[:, lo:hi], 0, 40), _long_runs(b[:, lo:hi], 0, 40)
+                both = sa.any(axis=1) & sb.any(axis=1)
+                a[:, lo:hi] &= ~(sa & both[:, None])
+                a[:, lo:hi] |= sb & both[:, None]
+            else:
+                sa, sb = _long_runs(a[lo:hi, :], 1, 40), _long_runs(b[lo:hi, :], 1, 40)
+                both = sa.any(axis=0) & sb.any(axis=0)
+                a[lo:hi, :] &= ~(sa & both[None, :])
+                a[lo:hi, :] |= sb & both[None, :]
+
+
 def verify(orig_png, render_png, graph_path, radius=3, diff_out=None):
     graph = json.load(open(graph_path))
     a, bg_orig = ink_of(orig_png)
@@ -606,6 +651,8 @@ def verify(orig_png, render_png, graph_path, radius=3, diff_out=None):
                 a[:, lo:hi] |= tone[:, lo:hi] < 245
             else:
                 a[lo:hi, :] |= tone[lo:hi, :] < 245
+    if a.shape == b.shape:
+        straight_dividers(a, b, graph)
     if a.shape != b.shape:
         return dict(verdict="improvable", name=graph_path,
                     findings=[dict(kind="size-mismatch", detail="original %s, render %s"

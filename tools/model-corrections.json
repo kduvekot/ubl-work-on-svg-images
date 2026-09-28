@@ -3322,46 +3322,6 @@
     "answer": "None is a flow: each is a piece of the lane divider, drawn in segments that stop at every document on the line, lying exactly on the divider; the reading took the pieces touching a document for flows leaving it. Out of the model, kept in the layout, drawn as before.",
     "op": "divider-piece",
     "offPage": "offpage-object-receipt-advice-2"
-   },
-   {
-    "id": "draw-12",
-    "decided": "2026-09-27",
-    "by": "Kees Duvekot, figure-by-figure review",
-    "question": "Figure 14: the divider between Despatch Advice and Receipt Advice was drawn twice, a straight rule and beside it the lower part of the same line as a separate piece.",
-    "answer": "One line, as in the artwork: the straight rule ends at Despatch Advice, and from there the divider leans 7px to the right down to Receipt Advice.",
-    "op": "divider-lean",
-    "axis": "vertical",
-    "at": 1667,
-    "was": [
-     419,
-     2628
-    ],
-    "span": [
-     419,
-     1460
-    ],
-    "piece": {
-     "was": [
-      [
-       1675,
-       2491
-      ],
-      [
-       1673,
-       2257
-      ]
-     ],
-     "points": [
-      [
-       1666,
-       1460
-      ],
-      [
-       1673,
-       2506
-      ]
-     ]
-    }
    }
   ],
   "UBL-2.2-Tender-ContractInfoPrep": [

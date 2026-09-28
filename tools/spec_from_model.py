@@ -53,12 +53,41 @@ def main(src, out, model_w=1480.0):
     # How far each rule runs, read off its own ink rather than assumed to be edge
     # to edge: eleven of the inner rules in the 78 stop short, seven of them
     # covering less than three quarters of the page.
+    #
+    # A lane divider is drawn straight (the TC, 2026-09-28). The artwork's
+    # dividers lean a few pixels here and there, and stop and start at the
+    # documents on them; the reading kept the stretches that lean as separate
+    # pieces beside the rule. A piece lying along an inner rule (parallel, its
+    # middle within 15px of the rule) is drawn as part of that rule - the rule
+    # runs over both, at the rule's own position - and not as a line of its own.
+    def along(pc):
+        (x0, y0), (x1, y1) = pc["points"][0], pc["points"][-1]
+        axis = "v" if abs(x0 - x1) < abs(y0 - y1) else "h"
+        mid = (x0 + x1) / 2 if axis == "v" else (y0 + y1) / 2
+        ext = sorted((y0, y1) if axis == "v" else (x0, x1))
+        for at, wd in (inner_v if axis == "v" else inner_h):
+            if abs(at + wd / 2 - mid) < 15:
+                return (axis, at, wd), ext
+        return None, None
+    absorbed = {}
+    loose = []
+    for pc in lay["rules"].get("pieces", []):
+        key, ext = along(pc)
+        if key:
+            absorbed.setdefault(key, []).append(ext)
+        else:
+            loose.append(pc)
+
     def span(key):
         axis, at, wd = key
         for r in lay["rules"]["vertical" if axis == "v" else "horizontal"]:
             if (r["at"], r["width"]) == (at, wd):
                 s = r["span"]
-                return [M(s[0]), M(s[1])] if s else []
+                if not s:
+                    return []
+                lo = min([s[0]] + [e[0] for e in absorbed.get(key, [])])
+                hi = max([s[1]] + [e[1] for e in absorbed.get(key, [])])
+                return [M(lo), M(hi)]
         return []
 
     # each node as the extractor measured it: what it is from the model, where
@@ -359,7 +388,7 @@ def main(src, out, model_w=1480.0):
                     # where and as they were (see model_io divider-piece)
                     [{"id": "divider-piece-%d" % (i + 1), "role": "lane-divider",
                       "points": [[M(p[0]), M(p[1])] for p in pc["points"]], "arrow": False}
-                     for i, pc in enumerate(lay["rules"].get("pieces", []))],
+                     for i, pc in enumerate(loose)],
         # where the border rules actually are, rather than assuming the frame is
         # flush with the canvas: some diagrams inset it (Tender-Contract-Pre puts
         # it at x=6) and a flush frame then misses the original's by its own width
