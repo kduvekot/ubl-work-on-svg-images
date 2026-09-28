@@ -2816,6 +2816,22 @@
     "was": {
      "label": "Goodsltem\nPassport\n(Reimported)"
     }
+   },
+   {
+    "id": "draw-22",
+    "decided": "2026-09-28",
+    "by": "Kees Duvekot, figure-by-figure review",
+    "question": "Figure 23: the last step, Receive Goodsitem Passport, is set in regular type like every other step in the artwork; the weight reading took it for bold.",
+    "answer": "Regular, as drawn.",
+    "op": "layout",
+    "section": "nodes",
+    "element": "action-receive-goodsitem-passport-in-representative-party-2",
+    "was": {
+     "bold": true
+    },
+    "set": {
+     "bold": false
+    }
    }
   ],
   "UBL-2.0-SourcingBuyerInitiatedProcess": [

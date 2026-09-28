@@ -1734,6 +1734,17 @@ differences shown.
   corner in its box, and it was drawn as one squeezed line over the diamond
   (`draw-21`). Its goods line's hop over the divider is drawn as a plain
   crossing (standing rule above).
+- *Tender Contract Information Notification (21 of 78), Fulfilment
+  Despatch Advice (22 of 78).* Models correct and complete; SVGs faithful.
+  On 22 the gaps the artwork leaves (no way into *Receive Order Item(s)*,
+  none out of *Adjust Order*, Determine Action's branches without guards)
+  are recorded as unstated.
+- *Goods Item Passport Return (23 of 78).* Model correct and complete (23
+  flows). One drawing fault, fixed: the last step, *Receive Goodsitem
+  Passport*, was drawn bold where every step is regular (`draw-22`). The
+  weight reading mixes bold and regular steps on only two other figures,
+  Goods Item Passport Approval and Billing with Debit Note, to be looked at
+  when they come up.
 
 **The notes for a person, all 266 settled by eye (2026-09-27).** The sweep
 leaves, per diagram, notes where the reading could not be sure; each was looked at
