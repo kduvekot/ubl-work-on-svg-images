@@ -1801,6 +1801,17 @@ differences shown.
   (spec_from_model.py). Checked on all 78: no line outside its box, 14,000 px
   of line-work findings fewer (Enquiry and Tender Status 4,500 each,
   Procurement 2,800), no verdict changed.
+- *Delete Catalogue (31 of 78).* Model correct and complete (14 flows); SVG
+  faithful.
+- *CPFR Establishing Collaborative Relationships (32 of 78).* Model correct
+  and complete (14 flows; *Exception Criteria (revision)* one box for the two
+  revisions, paired). Two drawing faults, fixed: the phase's title, bold in
+  the artwork as on every CPFR figure, was drawn regular - placed as text,
+  its weight was never measured; the same on CPFR Exception Monitor
+  (`draw-30`, `draw-31`; a layout correction may now reach a part of an
+  element, `sub`, here a phase's `title`). And the Buyer's *Send Exception
+  Criteria* to *Exception Criteria (response positive)*, one short straight
+  line, was drawn with a kink before its head (`draw-32`).
 
 **The notes for a person, all 266 settled by eye (2026-09-27).** The sweep
 leaves, per diagram, notes where the reading could not be sure; each was looked at

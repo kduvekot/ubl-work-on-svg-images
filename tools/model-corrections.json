@@ -242,6 +242,39 @@
     "answer": "Two exchanges through one box, in opposite directions: each way in passes to the way out into the other party. The drawing keeps its one box.",
     "op": "pair-exchanges",
     "node": "object-exception-criteria-revision"
+   },
+   {
+    "decided": "2026-09-28",
+    "by": "Kees Duvekot, figure-by-figure review",
+    "op": "layout",
+    "id": "draw-30",
+    "question": "The phase's title is set bold in the artwork, as on the other five CPFR figures; placed as text, its weight was not measured and it was drawn regular.",
+    "answer": "Bold, as drawn.",
+    "section": "phases",
+    "element": "phase-1",
+    "sub": "title",
+    "set": {
+     "bold": true
+    }
+   },
+   {
+    "decided": "2026-09-28",
+    "by": "Kees Duvekot, figure-by-figure review",
+    "op": "layout",
+    "id": "draw-32",
+    "question": "Figure 32: the Buyer's Send Exception Criteria to Exception Criteria (response positive) is one short straight line in the artwork; the reading routed it with two corners, a kink before the arrowhead.",
+    "answer": "Straight, as drawn.",
+    "section": "flows",
+    "element": "flow-send-exception-criteria-in-buyer-party-to-exception-criteria-response-positive",
+    "was": {
+     "routing": "orthogonal"
+    },
+    "set": {
+     "routing": "straight"
+    },
+    "unset": [
+     "points"
+    ]
    }
   ],
   "UBL-2.2-CPFR-CreateJointBusinessPlan": [
@@ -1124,6 +1157,20 @@
     "element": "action-receive-resolve-exception-in-no-2",
     "attribute": "wayOut",
     "reason": "The path ends at this step: the artwork draws no end after it."
+   },
+   {
+    "decided": "2026-09-28",
+    "by": "Kees Duvekot, figure-by-figure review",
+    "op": "layout",
+    "id": "draw-31",
+    "question": "The phase's title is set bold in the artwork, as on the other five CPFR figures; placed as text, its weight was not measured and it was drawn regular.",
+    "answer": "Bold, as drawn.",
+    "section": "phases",
+    "element": "phase-1",
+    "sub": "title",
+    "set": {
+     "bold": true
+    }
    }
   ],
   "UBL-2.3-Tender-Contract-Pre": [

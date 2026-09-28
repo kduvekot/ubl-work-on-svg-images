@@ -357,7 +357,8 @@ def apply_corrections(model, layout, report, name, recorded=None):
       layout                 where or how `element` of `section` is drawn, as
                              measured by hand from the original: `set` merges
                              into its layout entry (or into line `line` of its
-                             lines), `unset` drops keys; `was` checks the old
+                             lines, or into its part `sub`, as a phase's
+                             `title`), `unset` drops keys; `was` checks the old
                              values the same way. The model does not change.
                              `departs` on a text: set elsewhere than the artwork
                              has it, on purpose; the checkers are told where
@@ -724,6 +725,8 @@ def apply_corrections(model, layout, report, name, recorded=None):
         elif op == "layout":
             x = el(c["section"], c["element"], cid)
             g = layout[c["section"]][x["id"]]
+            if "sub" in c:                      # a part of it (a phase's title)
+                g = g[c["sub"]]
             if "line" in c:
                 g = g["lines" if c["section"] == "texts" else "labelLines"][c["line"]]
             for k, v in c.get("was", {}).items():
