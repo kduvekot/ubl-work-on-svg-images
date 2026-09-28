@@ -401,6 +401,9 @@ def apply_corrections(model, layout, report, name, recorded=None):
                              touches a document on the line): it leaves the
                              model and stays in the layout's rules as a piece,
                              drawn where it was
+      label-style            every `kind` node's words are set as `set` says
+                             (`bold`, `italic`): for a figure whose weight
+                             reading is unreliable, a scan too blurred for it
       divider-lean           the lane divider leans between two documents
                              where the reading had it straight: the rule on
                              `axis` at `at` (`was` its span) ends at `span`,
@@ -836,6 +839,13 @@ def apply_corrections(model, layout, report, name, recorded=None):
                 {"points": [g["at"]] + (g.get("points") or []) + [g["end"]]})
             patches.setdefault("dropOpenEnds", []).append(o["id"])
             touched.add(o["id"])
+        elif op == "label-style":
+            hit = [n for n in model["nodes"] if n["kind"] == c["kind"]]
+            if not hit:
+                raise ValueError("%s: correction %s: no %s nodes" % (name, cid, c["kind"]))
+            for n in hit:
+                layout["nodes"][n["id"]].update(c["set"])
+                touched.add(n["id"])
         elif op == "divider-lean":
             rule = [r for r in layout["rules"][c["axis"]] if r["at"] == c["at"]]
             if len(rule) != 1 or rule[0].get("span") != c["was"]:

@@ -2449,6 +2449,31 @@
     "element": "action-cancel-order-in-seller",
     "attribute": "wayOut",
     "reason": "The path ends at this step: the artwork draws no end after it."
+   },
+   {
+    "decided": "2026-09-28",
+    "by": "Kees Duvekot, figure-by-figure review",
+    "op": "label-style",
+    "id": "draw-13",
+    "question": "Figure 15: the documents' names are set bold and upright in the artwork, and were drawn bold italic.",
+    "answer": "Bold upright, as drawn.",
+    "kind": "object",
+    "set": {
+     "bold": true,
+     "italic": false
+    }
+   },
+   {
+    "decided": "2026-09-28",
+    "by": "Kees Duvekot, figure-by-figure review",
+    "op": "label-style",
+    "id": "draw-14",
+    "question": "Figure 15: every step's name is set in regular type in the artwork; the weight reading, unreliable on this blurred scan, drew about half of them bold.",
+    "answer": "All regular, as drawn.",
+    "kind": "action",
+    "set": {
+     "bold": false
+    }
    }
   ],
   "UBL-2.0-SelfBillingwithCreditNoteProcess": [

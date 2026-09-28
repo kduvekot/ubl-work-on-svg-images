@@ -1666,6 +1666,14 @@ differences shown.
   reading had it straight, and was drawn twice, a straight rule and beside it
   the leaning part as a piece: now one line, straight to *Despatch Advice*
   and leaning from there (`draw-12`, the new `divider-lean` correction).
+- *UBL 1.0 Procurement Process (15 of 78).* Model correct and complete (43
+  flows; "decision if item(s) rejected" is a step, as drawn; no start, as
+  recorded). The scan is too blurred for the weight reading: the documents'
+  names, bold upright in the artwork, were drawn bold italic, and about half
+  the steps' names bold where all are regular. Set as drawn for the whole
+  figure (`draw-13`, `draw-14`, the new `label-style` correction; the layout
+  may now say a node's words are upright). The dashed lines' small heads
+  come out as the usual open heads: not blocking.
 
 **The notes for a person, all 266 settled by eye (2026-09-27).** The sweep
 leaves, per diagram, notes where the reading could not be sure; each was looked at

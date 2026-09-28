@@ -109,6 +109,8 @@ def main(src, out, model_w=1480.0):
             # 2.3/2.5 figures that draw documents in plain type - upright
             if k == "object" and not n["bold"]:
                 d["italic"] = False
+        if n.get("italic") is not None:          # set by a correction (label-style)
+            d["italic"] = bool(n["italic"])
         nodes.append(d)
     byid = {n["id"]: n for n in nodes}
 

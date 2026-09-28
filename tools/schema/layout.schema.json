@@ -51,7 +51,7 @@
     "x": {"type": "number"}, "y": {"type": "number"}, "w": {"type": "number"}, "h": {"type": "number"},
     "shape": {"type": "string"}, "stroke": {"type": "number"},
     "rx": {"type": "number"}, "ry": {"type": "number"}, "fold": {"type": "number"},
-    "innerRatio": {"type": "number"}, "bold": {"type": "boolean"},
+    "innerRatio": {"type": "number"}, "bold": {"type": "boolean"}, "italic": {"type": "boolean", "description": "the words set upright (false) or italic (true) where the kind's usual does not hold, by a label-style correction"},
     "labelLines": {"$ref": "#/$defs/lines"}}}},
   "flows": {"type": "object", "additionalProperties": {"oneOf": [
    {"$ref": "#/$defs/line", "unevaluatedProperties": false},
