@@ -1911,6 +1911,11 @@ differences shown.
   into Send Goods Item Itinerary, drawn a few pixels off the artwork's line.
   Export Customs Declaration's stamped return of the declaration is among the
   future-release points already.
+- *Figures 66-70, reviewed as a batch (the TC, 2026-09-28: "almost there").*
+  Reminder for Payment, VMI Invoicing, CRP Invoicing, ROCD Base Article
+  Catalogue and CRP Synchronizing: each one document handed from one party to
+  the other. Models correct and complete, SVGs faithful, nothing to fix. The
+  checker's "kept on outline" on four of them is the document box itself.
 
 **The notes for a person, all 266 settled by eye (2026-09-27).** The sweep
 leaves, per diagram, notes where the reading could not be sure; each was looked at
