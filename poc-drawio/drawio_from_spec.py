@@ -157,8 +157,12 @@ def mxfile(spec):
     reach = S["frame"] + 3.0
     as_border = [d for d in dividers
                  if round(d[0], 1) in bounds and d[2] <= fb[1] + reach and d[3] >= fb[3] - reach]
+    # ... and only when the frame's line is at least as heavy: a lane's outer
+    # borders lie on the frame, and a heavier one would show beside it (the
+    # Tender figures draw 9.5px dividers inside a 4.3px frame)
     lane_stroke = as_border[0][1] if as_border and len(as_border) == len(dividers) \
-        and len(as_border) == len(bounds) else None
+        and len(as_border) == len(bounds) and max(d[1] for d in as_border) <= S["frame"] \
+        and len({d[1] for d in as_border}) == 1 else None
     # A lane runs from the frame to the frame, not from the page's edge: its
     # outer borders then lie under the frame's heavier line, and no stroke
     # reaches past the page, which draw.io answers by adding a ring of pages
@@ -215,7 +219,11 @@ def mxfile(spec):
             value = html_lines(tb["lines"])
             bold = n.get("bold") if n.get("bold") is not None else k in ("action", "object")
             italic = n.get("italic") if n.get("italic") is not None else k == "object"
-            text = dict(html=1, whiteSpace="wrap", fontFamily=fam, fontSize=float(tb["size"]),
+            # nowrap: the lines break where the artwork breaks them (the
+            # label's own <br>), never where draw.io finds the box too narrow
+            # - with wrap on, a line that nearly fills its box went onto two
+            # (CRP Synchronizing's "Synchronize stock information")
+            text = dict(html=1, whiteSpace="nowrap", fontFamily=fam, fontSize=float(tb["size"]),
                         fontStyle=font_style(bold, italic), align=tb["align"],
                         verticalAlign="middle", **placed_label(n, tb))
         if k == "action":
@@ -328,7 +336,7 @@ def mxfile(spec):
         tb = text_block(g, F["guard"])
         vertex(g.get("id"), html_lines(tb["lines"]),
                style(text="", html=1, fontFamily=fam, fontSize=float(tb["size"]), align=tb["align"],
-                     verticalAlign="middle", spacing=0, **placed_label(g, tb)).replace("text=;", "text;"),
+                     verticalAlign="middle", **placed_label(g, tb)).replace("text=;", "text;"),
                g["x"], g["y"], g["w"], g["h"], kind=g.get("role", "text"))
     missing = [k for k in ("bands", "bandLabels", "dashed", "openEnds", "crossMarks",
                            "captions") if spec.get(k)]

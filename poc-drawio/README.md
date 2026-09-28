@@ -62,6 +62,47 @@ bands and their titles, break marks, free captions and notes.
 candidates are CPFR Create Order Forecast (phase box, flows leaving the page),
 a 2.3 customs figure (bands) and Business Card (break marks).
 
+## All 78: the sweep
+
+`poc-drawio/sweep.sh <out-dir>` draws every figure and holds each against its
+SVG, as `run-poc.sh` does for one. Four at a time, it takes about 1.5
+minutes. The table it writes is kept as [`sweep.md`](sweep.md); the per-figure
+files stay in `<out-dir>` and are not committed.
+
+At this commit:
+
+- **62 of 78 figures are drawn completely.** Their red (the SVG's ink draw.io
+  lacks) has a median of 1.4 % and a maximum of 6.0 %. In every one of them
+  the largest difference is text (actions, lane titles, documents) or the end
+  state: open decisions 1 and 2 below.
+- **16 figures still have kinds of element not drawn:**
+  - phase boxes and flows leaving the page: the 7 CPFR figures;
+  - bands: the 2.3 customs figures and IMFM Intermodal;
+  - break marks: Business Card and Digital Capability;
+  - captions.
+
+  Their red has a median of 9 % and a maximum of 15 %.
+
+The first sweep found three faults in the writer, now fixed:
+
+1. *Free texts* (a decision's question beside its diamond) failed to be
+   written at all: a setting was given twice. 26 figures.
+2. *Labels wrapped where the artwork does not.* Placing an off-centre label
+   narrows the box draw.io wraps in, and a line that nearly fills its box
+   went onto two ("Synchronize stock information", CRP Synchronizing). Labels
+   are now `whiteSpace=nowrap`: they break only at their own line breaks, as
+   in the artwork.
+3. *Lane borders heavier than the frame showed beside it* (the Tender figures:
+   9.5 px dividers in a 4.3 px frame). A lane's border now stands in for the
+   divider only when it is no heavier than the frame. Otherwise the divider is
+   a line of its own, as measured, and the lanes' borders are hidden.
+
+Bent flows are drawn right: the 25 figures with them include IMFM Basic
+Transport Execution Plan, whose loop back to *Create/Update* matches the SVG.
+Natural text width is not the cause of the text differences: over all 1,526
+measured lines, draw.io's Helvetica (Liberation Sans in Chromium) comes out
+only 2.7 % wider than the artwork's (median).
+
 ## How to run
 
 ```sh

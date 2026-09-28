@@ -1,10 +1,10 @@
-SVG ink 54084 px, draw.io ink 55263 px (radius 2)
-  SVG ink draw.io lacks (red):      389 px  0.719% of the SVG's ink
-  draw.io ink the SVG lacks (blue):   1515 px  2.801%
+SVG ink 54084 px, draw.io ink 55247 px (radius 2)
+  SVG ink draw.io lacks (red):      386 px  0.714% of the SVG's ink
+  draw.io ink the SVG lacks (blue):   1523 px  2.816%
   by element kind (red / blue px):
     final                                 0 /    742
     guard                               168 /    379
-    object                               71 /    176
-    action                               45 /    110
+    object                               68 /    183
+    action                               45 /    111
     decision                             28 /     94
     lines (flows, frame, dividers)       77 /     14
