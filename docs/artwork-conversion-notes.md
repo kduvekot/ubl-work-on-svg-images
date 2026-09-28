@@ -1782,8 +1782,12 @@ differences shown.
   Invoice*. The 2.5 figure moves the Debit Note to the Supplier (the text
   after it now says the Supplier specifies the tax requirements) and was
   redrawn from the credit-note figure, keeping that guard; most likely the
-  invoice branch should read [initial charges]. For the TC to settle before
-  2.5 is final.
+  invoice branch should read [initial charges]. The figure is published
+  unchanged in the OASIS Standard (os-UBL-2.5, 12 August 2026, the same
+  guards; the file there is a different export of the same drawing). The TC
+  (2026-09-28): to be fixed in UBL 2.6. (Approved Errata, TC Process 2.9, are
+  limited to corrections that are not a Material Change, which a changed
+  guard in a process diagram arguably is.)
 
 **The notes for a person, all 266 settled by eye (2026-09-27).** The sweep
 leaves, per diagram, notes where the reading could not be sure; each was looked at
