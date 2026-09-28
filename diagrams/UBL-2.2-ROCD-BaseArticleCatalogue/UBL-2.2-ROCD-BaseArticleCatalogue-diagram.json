@@ -1,0 +1,99 @@
+{
+ "schema": "ubl-activity-diagram/1",
+ "figure": {
+  "name": "UBL-2.2-ROCD-BaseArticleCatalogue",
+  "source": "UBL-2.2-ROCD-BaseArticleCatalogue.png"
+ },
+ "lanes": [
+  {
+   "id": "lane-producer",
+   "axis": "column",
+   "index": 0,
+   "title": "Producer"
+  },
+  {
+   "id": "lane-retailer",
+   "axis": "column",
+   "index": 1,
+   "title": "Retailer"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "initial-producer",
+   "kind": "initial",
+   "label": "",
+   "lane": "lane-producer"
+  },
+  {
+   "id": "object-catalogue",
+   "kind": "object",
+   "label": "Catalogue",
+   "lane": null,
+   "between": [
+    "lane-producer",
+    "lane-retailer"
+   ]
+  },
+  {
+   "id": "action-receive-catalogue",
+   "kind": "action",
+   "label": "Receive Catalogue",
+   "lane": "lane-retailer"
+  },
+  {
+   "id": "action-send-catalogue",
+   "kind": "action",
+   "label": "Send Catalogue",
+   "lane": "lane-producer"
+  },
+  {
+   "id": "final-retailer",
+   "kind": "final",
+   "label": "",
+   "lane": "lane-retailer"
+  }
+ ],
+ "flows": [
+  {
+   "id": "flow-initial-producer-to-send-catalogue",
+   "from": "initial-producer",
+   "to": "action-send-catalogue",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-catalogue-to-receive-catalogue",
+   "from": "object-catalogue",
+   "to": "action-receive-catalogue",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-send-catalogue-to-catalogue",
+   "from": "action-send-catalogue",
+   "to": "object-catalogue",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-receive-catalogue-to-final-retailer",
+   "from": "action-receive-catalogue",
+   "to": "final-retailer",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  }
+ ],
+ "texts": [],
+ "offPage": [],
+ "marks": [],
+ "phases": []
+}

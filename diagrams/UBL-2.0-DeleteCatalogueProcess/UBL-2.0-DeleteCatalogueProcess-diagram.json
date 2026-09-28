@@ -1,0 +1,270 @@
+{
+ "schema": "ubl-activity-diagram/1",
+ "figure": {
+  "name": "UBL-2.0-DeleteCatalogueProcess",
+  "source": "UBL-2.0-DeleteCatalogueProcess.png"
+ },
+ "lanes": [
+  {
+   "id": "lane-receiver-party",
+   "axis": "column",
+   "index": 0,
+   "title": "Receiver Party"
+  },
+  {
+   "id": "lane-provider-party",
+   "axis": "column",
+   "index": 1,
+   "title": "Provider Party"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "initial-provider-party",
+   "kind": "initial",
+   "label": "",
+   "lane": "lane-provider-party"
+  },
+  {
+   "id": "object-catalogue-deletion",
+   "kind": "object",
+   "label": "Catalogue\nDeletion",
+   "lane": null,
+   "between": [
+    "lane-receiver-party",
+    "lane-provider-party"
+   ]
+  },
+  {
+   "id": "action-notify-of-catalogue-deletion",
+   "kind": "action",
+   "label": "Notify of Catalogue\nDeletion",
+   "lane": "lane-provider-party"
+  },
+  {
+   "id": "action-identify-catalogue",
+   "kind": "action",
+   "label": "Identify Catalogue",
+   "lane": "lane-receiver-party"
+  },
+  {
+   "id": "decision-decide-on-action",
+   "kind": "decision",
+   "label": "Decide on Action",
+   "lane": "lane-receiver-party"
+  },
+  {
+   "id": "decision-review-deletion-of-catalogue",
+   "kind": "decision",
+   "label": "Review Deletion\nof Catalogue",
+   "lane": "lane-provider-party"
+  },
+  {
+   "id": "object-application-response-negative",
+   "kind": "object",
+   "label": "Application\nResponse\n(negative)",
+   "lane": null,
+   "between": [
+    "lane-receiver-party",
+    "lane-provider-party"
+   ]
+  },
+  {
+   "id": "object-application-response-positive",
+   "kind": "object",
+   "label": "Application\nResponse\n(positive)",
+   "lane": null,
+   "between": [
+    "lane-receiver-party",
+    "lane-provider-party"
+   ]
+  },
+  {
+   "id": "action-acknowledge-cancelation",
+   "kind": "action",
+   "label": "Acknowledge\nCancelation",
+   "lane": "lane-receiver-party"
+  },
+  {
+   "id": "action-cancel-catalogue",
+   "kind": "action",
+   "label": "Cancel Catalogue",
+   "lane": "lane-provider-party"
+  },
+  {
+   "id": "final-provider-party",
+   "kind": "final",
+   "label": "",
+   "lane": "lane-provider-party"
+  },
+  {
+   "id": "action-delete-catalogue",
+   "kind": "action",
+   "label": "Delete Catalogue",
+   "lane": "lane-receiver-party"
+  },
+  {
+   "id": "final-receiver-party",
+   "kind": "final",
+   "label": "",
+   "lane": "lane-receiver-party"
+  }
+ ],
+ "flows": [
+  {
+   "id": "flow-initial-provider-party-to-notify-of-catalogue-deletion",
+   "from": "initial-provider-party",
+   "to": "action-notify-of-catalogue-deletion",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-notify-of-catalogue-deletion-to-catalogue-deletion",
+   "from": "action-notify-of-catalogue-deletion",
+   "to": "object-catalogue-deletion",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-catalogue-deletion-to-identify-catalogue",
+   "from": "object-catalogue-deletion",
+   "to": "action-identify-catalogue",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-identify-catalogue-to-decide-on-action",
+   "from": "action-identify-catalogue",
+   "to": "decision-decide-on-action",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-review-deletion-of-catalogue-to-notify-of-catalogue-deletion",
+   "from": "decision-review-deletion-of-catalogue",
+   "to": "action-notify-of-catalogue-deletion",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   },
+   "guard": "text-insist-on-deletion"
+  },
+  {
+   "id": "flow-application-response-negative-to-review-deletion-of-catalogue",
+   "from": "object-application-response-negative",
+   "to": "decision-review-deletion-of-catalogue",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-decide-on-action-to-application-response-negative",
+   "from": "decision-decide-on-action",
+   "to": "object-application-response-negative",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   },
+   "guard": "text-query-catalogue-deletion"
+  },
+  {
+   "id": "flow-review-deletion-of-catalogue-to-final-provider-party",
+   "from": "decision-review-deletion-of-catalogue",
+   "to": "final-provider-party",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   },
+   "guard": "text-cancel-deletion"
+  },
+  {
+   "id": "flow-decide-on-action-to-acknowledge-cancelation",
+   "from": "decision-decide-on-action",
+   "to": "action-acknowledge-cancelation",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   },
+   "guard": "text-accept-catalogue-deletion"
+  },
+  {
+   "id": "flow-acknowledge-cancelation-to-application-response-positive",
+   "from": "action-acknowledge-cancelation",
+   "to": "object-application-response-positive",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-application-response-positive-to-cancel-catalogue",
+   "from": "object-application-response-positive",
+   "to": "action-cancel-catalogue",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-cancel-catalogue-to-final-provider-party",
+   "from": "action-cancel-catalogue",
+   "to": "final-provider-party",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-acknowledge-cancelation-to-delete-catalogue",
+   "from": "action-acknowledge-cancelation",
+   "to": "action-delete-catalogue",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-delete-catalogue-to-final-receiver-party",
+   "from": "action-delete-catalogue",
+   "to": "final-receiver-party",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  }
+ ],
+ "texts": [
+  {
+   "id": "text-insist-on-deletion",
+   "text": "[insist on deletion]",
+   "labels": "flow-review-deletion-of-catalogue-to-notify-of-catalogue-deletion"
+  },
+  {
+   "id": "text-query-catalogue-deletion",
+   "text": "[query catalogue deletion]",
+   "labels": "flow-decide-on-action-to-application-response-negative"
+  },
+  {
+   "id": "text-cancel-deletion",
+   "text": "[cancel deletion]",
+   "labels": "flow-review-deletion-of-catalogue-to-final-provider-party"
+  },
+  {
+   "id": "text-accept-catalogue-deletion",
+   "text": "[accept catalogue deletion]",
+   "labels": "flow-decide-on-action-to-acknowledge-cancelation"
+  }
+ ],
+ "offPage": [],
+ "marks": [],
+ "phases": []
+}

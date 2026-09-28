@@ -1,0 +1,372 @@
+{
+ "schema": "ubl-activity-diagram-layout/1",
+ "figure": "UBL-2.2-CRP-SalesAndInventoryMovement",
+ "units": "px of the original PNG",
+ "size": [
+  3425,
+  1746
+ ],
+ "style": {
+  "fontPx": 51.4,
+  "arrowPx": 53.0,
+  "arrowWidthPx": 42.0,
+  "arrowStyle": "open"
+ },
+ "rules": {
+  "vertical": [
+   {
+    "at": 0,
+    "width": 10,
+    "span": [
+     13,
+     1732
+    ]
+   },
+   {
+    "at": 1777,
+    "width": 4,
+    "span": [
+     486,
+     1732
+    ]
+   },
+   {
+    "at": 3415,
+    "width": 10,
+    "span": [
+     13,
+     1732
+    ]
+   }
+  ],
+  "horizontal": [
+   {
+    "at": 0,
+    "width": 10,
+    "span": [
+     13,
+     3411
+    ]
+   },
+   {
+    "at": 1736,
+    "width": 10,
+    "span": [
+     13,
+     3411
+    ]
+   }
+  ],
+  "pieces": [
+   {
+    "points": [
+     [
+      1774,
+      479
+     ],
+     [
+      1771,
+      12
+     ]
+    ]
+   }
+  ]
+ },
+ "greyRules": [],
+ "lanes": {
+  "lane-producer": {
+   "x0": 0,
+   "x1": 1779,
+   "titleBox": [
+    792,
+    49,
+    198,
+    36
+   ]
+  },
+  "lane-retailer": {
+   "x0": 1779,
+   "x1": 3425,
+   "titleBox": [
+    2520,
+    49,
+    168,
+    36
+   ]
+  }
+ },
+ "nodes": {
+  "initial-retailer": {
+   "x": 2828,
+   "y": 171,
+   "w": 76,
+   "h": 76
+  },
+  "object-product-activity-between-producer-and-retailer": {
+   "x": 1562,
+   "y": 494,
+   "w": 435,
+   "h": 126,
+   "shape": "rect",
+   "stroke": 8,
+   "rx": 0,
+   "ry": 0,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 1596,
+     "y": 535,
+     "w": 380,
+     "h": 46,
+     "text": "Product Activity"
+    }
+   ]
+  },
+  "action-receive-a-report-about-sales": {
+   "x": 391,
+   "y": 500,
+   "w": 695,
+   "h": 118,
+   "shape": "rounded",
+   "stroke": 4,
+   "rx": 59,
+   "ry": 42,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 406,
+     "y": 538,
+     "w": 667,
+     "h": 46,
+     "text": "Receive a report about sales"
+    }
+   ]
+  },
+  "action-send-a-report-about-sales": {
+   "x": 2503,
+   "y": 507,
+   "w": 729,
+   "h": 99,
+   "shape": "rounded",
+   "stroke": 4,
+   "rx": 59.5,
+   "ry": 32,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 2565,
+     "y": 540,
+     "w": 603,
+     "h": 46,
+     "text": "Send a report about sales"
+    }
+   ]
+  },
+  "object-product-activity-between-producer-and-retailer-2": {
+   "x": 1558,
+   "y": 819,
+   "w": 447,
+   "h": 126,
+   "shape": "rect",
+   "stroke": 8,
+   "rx": 0,
+   "ry": 0,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 1596,
+     "y": 859,
+     "w": 381,
+     "h": 47,
+     "text": "Product Activity"
+    }
+   ]
+  },
+  "action-send-a-report-about-movement-of-goods": {
+   "x": 2392,
+   "y": 821,
+   "w": 947,
+   "h": 145,
+   "shape": "rounded",
+   "stroke": 5,
+   "rx": 60,
+   "ry": 57,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 2468,
+     "y": 848,
+     "w": 792,
+     "h": 46,
+     "text": "Send a report about movement of"
+    },
+    {
+     "x": 2797,
+     "y": 904,
+     "w": 145,
+     "h": 47,
+     "text": "goods"
+    }
+   ]
+  },
+  "action-receive-a-report-about-movement-of-goods": {
+   "x": 219,
+   "y": 824,
+   "w": 1027,
+   "h": 146,
+   "shape": "rounded",
+   "stroke": 4,
+   "rx": 59.5,
+   "ry": 56,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 295,
+     "y": 852,
+     "w": 857,
+     "h": 46,
+     "text": "Receive a report about movement of"
+    },
+    {
+     "x": 662,
+     "y": 908,
+     "w": 145,
+     "h": 47,
+     "text": "goods"
+    }
+   ]
+  },
+  "fork-producer": {
+   "x": 82,
+   "y": 1405,
+   "w": 355,
+   "h": 23
+  },
+  "final-producer": {
+   "x": 223,
+   "y": 1620,
+   "w": 69,
+   "h": 68,
+   "shape": "ellipse",
+   "stroke": 4,
+   "rx": 32,
+   "ry": 37,
+   "innerRatio": 0.435
+  }
+ },
+ "flows": {
+  "flow-initial-retailer-to-send-a-report-about-sales": {
+   "fromPoint": [
+    2867,
+    261
+   ],
+   "toPoint": [
+    2867,
+    492
+   ],
+   "routing": "straight"
+  },
+  "flow-product-activity-between-producer-and-retailer-to-receive-a-report-about-sales": {
+   "fromPoint": [
+    1547,
+    558
+   ],
+   "toPoint": [
+    1100,
+    559
+   ],
+   "routing": "straight"
+  },
+  "flow-send-a-report-about-sales-to-product-activity-between-producer-and-retailer": {
+   "fromPoint": [
+    2488,
+    558
+   ],
+   "toPoint": [
+    2011,
+    558
+   ],
+   "routing": "straight"
+  },
+  "flow-receive-a-report-about-sales-to-fork-producer": {
+   "fromPoint": [
+    376,
+    558
+   ],
+   "toPoint": [
+    144,
+    1390
+   ],
+   "routing": "orthogonal",
+   "points": [
+    [
+     144,
+     558
+    ]
+   ]
+  },
+  "flow-send-a-report-about-sales-to-send-a-report-about-movement-of-goods": {
+   "fromPoint": [
+    2867,
+    620
+   ],
+   "toPoint": [
+    2867,
+    806
+   ],
+   "routing": "straight"
+  },
+  "flow-send-a-report-about-movement-of-goods-to-product-activity-between-producer-and-retailer-2": {
+   "fromPoint": [
+    2377,
+    888
+   ],
+   "toPoint": [
+    2019,
+    882
+   ],
+   "routing": "straight"
+  },
+  "flow-product-activity-between-producer-and-retailer-2-to-receive-a-report-about-movement-of-goods": {
+   "fromPoint": [
+    1543,
+    882
+   ],
+   "toPoint": [
+    1260,
+    892
+   ],
+   "routing": "diagonal"
+  },
+  "flow-receive-a-report-about-movement-of-goods-to-fork-producer": {
+   "fromPoint": [
+    378,
+    984
+   ],
+   "toPoint": [
+    377,
+    1390
+   ],
+   "routing": "straight"
+  },
+  "flow-fork-producer-to-final-producer": {
+   "fromPoint": [
+    259,
+    1442
+   ],
+   "toPoint": [
+    258,
+    1605
+   ],
+   "routing": "straight"
+  }
+ },
+ "texts": {},
+ "offPage": {},
+ "marks": {},
+ "phases": {},
+ "rulesHaveSpans": {
+  "vertical": true,
+  "horizontal": true
+ }
+}

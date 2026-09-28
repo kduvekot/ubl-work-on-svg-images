@@ -1,0 +1,99 @@
+{
+ "schema": "ubl-activity-diagram/1",
+ "figure": {
+  "name": "UBL-2.2-ROCD-ArticleAvailability",
+  "source": "UBL-2.2-ROCD-ArticleAvailability.png"
+ },
+ "lanes": [
+  {
+   "id": "lane-producer",
+   "axis": "column",
+   "index": 0,
+   "title": "Producer"
+  },
+  {
+   "id": "lane-retailer",
+   "axis": "column",
+   "index": 1,
+   "title": "Retailer"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "initial-producer",
+   "kind": "initial",
+   "label": "",
+   "lane": "lane-producer"
+  },
+  {
+   "id": "object-stock-availability-report",
+   "kind": "object",
+   "label": "Stock Availability Report",
+   "lane": null,
+   "between": [
+    "lane-producer",
+    "lane-retailer"
+   ]
+  },
+  {
+   "id": "action-receive-stock-availability-report",
+   "kind": "action",
+   "label": "Receive stock availability\nreport",
+   "lane": "lane-retailer"
+  },
+  {
+   "id": "action-send-stock-availability-report",
+   "kind": "action",
+   "label": "Send stock availability report",
+   "lane": "lane-producer"
+  },
+  {
+   "id": "final-retailer",
+   "kind": "final",
+   "label": "",
+   "lane": "lane-retailer"
+  }
+ ],
+ "flows": [
+  {
+   "id": "flow-initial-producer-to-send-stock-availability-report",
+   "from": "initial-producer",
+   "to": "action-send-stock-availability-report",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-send-stock-availability-report-to-stock-availability-report",
+   "from": "action-send-stock-availability-report",
+   "to": "object-stock-availability-report",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-stock-availability-report-to-receive-stock-availability-report",
+   "from": "object-stock-availability-report",
+   "to": "action-receive-stock-availability-report",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-receive-stock-availability-report-to-final-retailer",
+   "from": "action-receive-stock-availability-report",
+   "to": "final-retailer",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  }
+ ],
+ "texts": [],
+ "offPage": [],
+ "marks": [],
+ "phases": []
+}

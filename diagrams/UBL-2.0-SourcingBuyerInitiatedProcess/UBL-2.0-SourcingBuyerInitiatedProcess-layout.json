@@ -1,0 +1,324 @@
+{
+ "schema": "ubl-activity-diagram-layout/1",
+ "figure": "UBL-2.0-SourcingBuyerInitiatedProcess",
+ "units": "px of the original PNG",
+ "size": [
+  3425,
+  2020
+ ],
+ "style": {
+  "fontPx": 62.9,
+  "arrowPx": 83.0,
+  "arrowWidthPx": 69.2,
+  "arrowStyle": "open"
+ },
+ "rules": {
+  "vertical": [
+   {
+    "at": 0,
+    "width": 10,
+    "span": [
+     13,
+     2006
+    ]
+   },
+   {
+    "at": 1755,
+    "width": 9,
+    "span": [
+     13,
+     2006
+    ]
+   },
+   {
+    "at": 3415,
+    "width": 10,
+    "span": [
+     13,
+     2006
+    ]
+   }
+  ],
+  "horizontal": [
+   {
+    "at": 0,
+    "width": 10,
+    "span": [
+     13,
+     3411
+    ]
+   },
+   {
+    "at": 2010,
+    "width": 10,
+    "span": [
+     13,
+     3411
+    ]
+   }
+  ]
+ },
+ "greyRules": [],
+ "lanes": {
+  "lane-originator-customer-party": {
+   "x0": 0,
+   "x1": 1760,
+   "titleBox": [
+    214,
+    56,
+    691,
+    56
+   ]
+  },
+  "lane-seller-supplier-party": {
+   "x0": 1760,
+   "x1": 3425,
+   "titleBox": [
+    2452,
+    56,
+    542,
+    56
+   ]
+  }
+ },
+ "nodes": {
+  "initial-originator-customer-party": {
+   "x": 471,
+   "y": 172,
+   "w": 122,
+   "h": 122
+  },
+  "object-request-for-quotation": {
+   "x": 1475,
+   "y": 630,
+   "w": 516,
+   "h": 277,
+   "shape": "rect",
+   "stroke": 17,
+   "rx": 0,
+   "ry": 0,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 1559,
+     "y": 700,
+     "w": 335,
+     "h": 57,
+     "text": "Request for"
+    },
+    {
+     "x": 1597,
+     "y": 766,
+     "w": 276,
+     "h": 50,
+     "text": "Quotation"
+    }
+   ]
+  },
+  "action-receive-request-for-quotation": {
+   "x": 2484,
+   "y": 632,
+   "w": 692,
+   "h": 321,
+   "shape": "rounded",
+   "stroke": 9,
+   "rx": 90,
+   "ry": 86,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 2553,
+     "y": 717,
+     "w": 554,
+     "h": 56,
+     "text": "Receive request for"
+    },
+    {
+     "x": 2714,
+     "y": 796,
+     "w": 267,
+     "h": 55,
+     "text": "quotation"
+    }
+   ]
+  },
+  "action-send-request-for-quotation": {
+   "x": 145,
+   "y": 650,
+   "w": 795,
+   "h": 243,
+   "shape": "rounded",
+   "stroke": 9,
+   "rx": 90,
+   "ry": 90,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 155,
+     "y": 738,
+     "w": 770,
+     "h": 56,
+     "text": "Send request for Quotation"
+    }
+   ]
+  },
+  "object-quotation": {
+   "x": 1511,
+   "y": 1200,
+   "w": 516,
+   "h": 277,
+   "shape": "rect",
+   "stroke": 17,
+   "rx": 0,
+   "ry": 0,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 1626,
+     "y": 1299,
+     "w": 276,
+     "h": 50,
+     "text": "Quotation"
+    }
+   ]
+  },
+  "action-receive-quotation": {
+   "x": 169,
+   "y": 1214,
+   "w": 723,
+   "h": 243,
+   "shape": "rounded",
+   "stroke": 9,
+   "rx": 88,
+   "ry": 90,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 271,
+     "y": 1309,
+     "w": 508,
+     "h": 55,
+     "text": "Receive quotation"
+    }
+   ]
+  },
+  "action-send-quotation": {
+   "x": 2514,
+   "y": 1238,
+   "w": 758,
+   "h": 207,
+   "shape": "rounded",
+   "stroke": 9,
+   "rx": 87,
+   "ry": 86,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 2679,
+     "y": 1291,
+     "w": 431,
+     "h": 56,
+     "text": "Send quotation"
+    }
+   ]
+  },
+  "final-originator-customer-party": {
+   "x": 475,
+   "y": 1826,
+   "w": 105,
+   "h": 105,
+   "shape": "ellipse",
+   "stroke": 9,
+   "rx": 48,
+   "ry": 50,
+   "innerRatio": 0.476
+  }
+ },
+ "flows": {
+  "flow-initial-originator-customer-party-to-send-request-for-quotation": {
+   "fromPoint": [
+    533,
+    308
+   ],
+   "toPoint": [
+    539,
+    635
+   ],
+   "routing": "straight"
+  },
+  "flow-send-request-for-quotation-to-request-for-quotation": {
+   "fromPoint": [
+    954,
+    771
+   ],
+   "toPoint": [
+    1457,
+    771
+   ],
+   "routing": "straight"
+  },
+  "flow-request-for-quotation-to-receive-request-for-quotation": {
+   "fromPoint": [
+    2009,
+    771
+   ],
+   "toPoint": [
+    2469,
+    771
+   ],
+   "routing": "straight"
+  },
+  "flow-receive-request-for-quotation-to-send-quotation": {
+   "fromPoint": [
+    2830,
+    967
+   ],
+   "toPoint": [
+    2836,
+    1223
+   ],
+   "routing": "straight"
+  },
+  "flow-send-quotation-to-quotation": {
+   "fromPoint": [
+    2499,
+    1341
+   ],
+   "toPoint": [
+    2045,
+    1339
+   ],
+   "routing": "straight"
+  },
+  "flow-quotation-to-receive-quotation": {
+   "fromPoint": [
+    1493,
+    1337
+   ],
+   "toPoint": [
+    906,
+    1335
+   ],
+   "routing": "straight"
+  },
+  "flow-receive-quotation-to-final-originator-customer-party": {
+   "fromPoint": [
+    531,
+    1471
+   ],
+   "toPoint": [
+    529,
+    1811
+   ],
+   "routing": "straight"
+  }
+ },
+ "texts": {},
+ "offPage": {},
+ "marks": {},
+ "phases": {},
+ "rulesHaveSpans": {
+  "vertical": true,
+  "horizontal": true
+ }
+}

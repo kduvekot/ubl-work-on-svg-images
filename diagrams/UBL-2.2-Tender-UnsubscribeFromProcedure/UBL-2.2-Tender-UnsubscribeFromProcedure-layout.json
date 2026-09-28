@@ -1,0 +1,399 @@
+{
+ "schema": "ubl-activity-diagram-layout/1",
+ "figure": "UBL-2.2-Tender-UnsubscribeFromProcedure",
+ "units": "px of the original PNG",
+ "size": [
+  3426,
+  1808
+ ],
+ "style": {
+  "fontPx": 61.4,
+  "arrowPx": 79.5,
+  "arrowWidthPx": 67.3,
+  "arrowStyle": "open"
+ },
+ "rules": {
+  "vertical": [
+   {
+    "at": 1,
+    "width": 8,
+    "span": [
+     12,
+     1790
+    ]
+   },
+   {
+    "at": 1702,
+    "width": 8,
+    "span": [
+     12,
+     1790
+    ]
+   },
+   {
+    "at": 3411,
+    "width": 14,
+    "span": [
+     12,
+     1790
+    ]
+   }
+  ],
+  "horizontal": [
+   {
+    "at": 1,
+    "width": 8,
+    "span": [
+     12,
+     3407
+    ]
+   },
+   {
+    "at": 1794,
+    "width": 8,
+    "span": [
+     12,
+     3407
+    ]
+   }
+  ]
+ },
+ "greyRules": [],
+ "lanes": {
+  "lane-economic-operator": {
+   "x0": 0,
+   "x1": 1706,
+   "titleBox": [
+    460,
+    45,
+    759,
+    54
+   ],
+   "titleWords": "ECONOMIC OPERATOR"
+  },
+  "lane-contracting-authority": {
+   "x0": 1706,
+   "x1": 3426,
+   "titleBox": [
+    2114,
+    45,
+    909,
+    54
+   ],
+   "titleWords": "CONTRACTING AUTHORITY"
+  }
+ },
+ "nodes": {
+  "initial-economic-operator": {
+   "x": 552,
+   "y": 158,
+   "w": 124,
+   "h": 124
+  },
+  "action-prepare-unsubscribe-from-procedure": {
+   "x": 112,
+   "y": 395,
+   "w": 1001,
+   "h": 167,
+   "shape": "rounded",
+   "stroke": 8,
+   "rx": 84,
+   "ry": 82,
+   "bold": false,
+   "labelLines": [
+    {
+     "x": 142,
+     "y": 455,
+     "w": 943,
+     "h": 54,
+     "text": "Prepare unsubscribe from procedure"
+    }
+   ]
+  },
+  "object-unsubscribe-from-procedure-request": {
+   "x": 1458,
+   "y": 567,
+   "w": 516,
+   "h": 411,
+   "shape": "rect",
+   "stroke": 9,
+   "rx": 0,
+   "ry": 0,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 1495,
+     "y": 597,
+     "w": 448,
+     "h": 55,
+     "text": "Unsubscribe"
+    },
+    {
+     "x": 1488,
+     "y": 697,
+     "w": 183,
+     "h": 55,
+     "text": "From"
+    },
+    {
+     "x": 1492,
+     "y": 789,
+     "w": 368,
+     "h": 54,
+     "text": "Procedure"
+    },
+    {
+     "x": 1488,
+     "y": 881,
+     "w": 297,
+     "h": 69,
+     "text": "Request"
+    }
+   ]
+  },
+  "action-submit-unsubscribe-from-procedure-in-economic-operator": {
+   "x": 106,
+   "y": 698,
+   "w": 1012,
+   "h": 173,
+   "shape": "rounded",
+   "stroke": 8,
+   "rx": 87,
+   "ry": 83,
+   "bold": false,
+   "labelLines": [
+    {
+     "x": 157,
+     "y": 759,
+     "w": 919,
+     "h": 54,
+     "text": "Submit unsubscribe from procedure"
+    }
+   ]
+  },
+  "action-receive-unsubscribe-from-procedure-in-contracting-authority": {
+   "x": 2264,
+   "y": 698,
+   "w": 1036,
+   "h": 179,
+   "shape": "rounded",
+   "stroke": 8,
+   "rx": 87,
+   "ry": 88,
+   "bold": false,
+   "labelLines": [
+    {
+     "x": 2314,
+     "y": 751,
+     "w": 947,
+     "h": 54,
+     "text": "Receive unsubscribe from procedure"
+    }
+   ]
+  },
+  "object-unsubscribe-from-procedure-response": {
+   "x": 1453,
+   "y": 1118,
+   "w": 517,
+   "h": 412,
+   "shape": "rect",
+   "stroke": 8,
+   "rx": 2,
+   "ry": 2,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 1491,
+     "y": 1149,
+     "w": 447,
+     "h": 55,
+     "text": "Unsubscribe"
+    },
+    {
+     "x": 1484,
+     "y": 1249,
+     "w": 183,
+     "h": 54,
+     "text": "From"
+    },
+    {
+     "x": 1488,
+     "y": 1340,
+     "w": 368,
+     "h": 55,
+     "text": "Procedure"
+    },
+    {
+     "x": 1483,
+     "y": 1433,
+     "w": 356,
+     "h": 68,
+     "text": "Response"
+    }
+   ]
+  },
+  "action-receive-unsubscribe-from-procedure-in-economic-operator": {
+   "x": 135,
+   "y": 1217,
+   "w": 954,
+   "h": 225,
+   "shape": "rounded",
+   "stroke": 8,
+   "rx": 88,
+   "ry": 85,
+   "bold": false,
+   "labelLines": [
+    {
+     "x": 146,
+     "y": 1274,
+     "w": 916,
+     "h": 54,
+     "text": "Receive unsubscribe from procedure"
+    },
+    {
+     "x": 412,
+     "y": 1349,
+     "w": 312,
+     "h": 44,
+     "text": "confirmation"
+    }
+   ]
+  },
+  "action-submit-unsubscribe-from-procedure-in-contracting-authority": {
+   "x": 2264,
+   "y": 1223,
+   "w": 1036,
+   "h": 213,
+   "shape": "rounded",
+   "stroke": 8,
+   "rx": 86,
+   "ry": 87,
+   "bold": false,
+   "labelLines": [
+    {
+     "x": 2344,
+     "y": 1275,
+     "w": 919,
+     "h": 55,
+     "text": "Submit unsubscribe from procedure"
+    },
+    {
+     "x": 2586,
+     "y": 1355,
+     "w": 312,
+     "h": 43,
+     "text": "confirmation"
+    }
+   ]
+  },
+  "final-economic-operator": {
+   "x": 561,
+   "y": 1596,
+   "w": 108,
+   "h": 109,
+   "shape": "rounded",
+   "stroke": 8,
+   "rx": 50,
+   "ry": 54,
+   "innerRatio": 0.5
+  }
+ },
+ "flows": {
+  "flow-initial-economic-operator-to-prepare-unsubscribe-from-procedure": {
+   "fromPoint": [
+    614,
+    296
+   ],
+   "toPoint": [
+    612,
+    380
+   ],
+   "routing": "straight"
+  },
+  "flow-prepare-unsubscribe-from-procedure-to-submit-unsubscribe-from-procedure-in-economic-operator": {
+   "fromPoint": [
+    612,
+    576
+   ],
+   "toPoint": [
+    612,
+    683
+   ],
+   "routing": "straight"
+  },
+  "flow-submit-unsubscribe-from-procedure-in-economic-operator-to-unsubscribe-from-procedure-request": {
+   "fromPoint": [
+    1132,
+    783
+   ],
+   "toPoint": [
+    1443,
+    779
+   ],
+   "routing": "straight"
+  },
+  "flow-unsubscribe-from-procedure-request-to-receive-unsubscribe-from-procedure-in-contracting-authority": {
+   "fromPoint": [
+    1988,
+    778
+   ],
+   "toPoint": [
+    2249,
+    784
+   ],
+   "routing": "straight"
+  },
+  "flow-receive-unsubscribe-from-procedure-in-contracting-authority-to-submit-unsubscribe-from-procedure-in-contracting-authority": {
+   "fromPoint": [
+    2784,
+    891
+   ],
+   "toPoint": [
+    2784,
+    1208
+   ],
+   "routing": "straight"
+  },
+  "flow-unsubscribe-from-procedure-response-to-receive-unsubscribe-from-procedure-in-economic-operator": {
+   "fromPoint": [
+    1438,
+    1323
+   ],
+   "toPoint": [
+    1103,
+    1325
+   ],
+   "routing": "straight"
+  },
+  "flow-submit-unsubscribe-from-procedure-in-contracting-authority-to-unsubscribe-from-procedure-response": {
+   "fromPoint": [
+    2249,
+    1325
+   ],
+   "toPoint": [
+    1984,
+    1323
+   ],
+   "routing": "straight"
+  },
+  "flow-receive-unsubscribe-from-procedure-in-economic-operator-to-final-economic-operator": {
+   "fromPoint": [
+    612,
+    1456
+   ],
+   "toPoint": [
+    615,
+    1581
+   ],
+   "routing": "straight"
+  }
+ },
+ "texts": {},
+ "offPage": {},
+ "marks": {},
+ "phases": {},
+ "rulesHaveSpans": {
+  "vertical": true,
+  "horizontal": true
+ }
+}

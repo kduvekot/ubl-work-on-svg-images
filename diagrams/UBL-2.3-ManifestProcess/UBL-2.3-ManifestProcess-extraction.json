@@ -1,0 +1,509 @@
+{
+ "schema": "ubl-activity-diagram-extraction/1",
+ "figure": "UBL-2.3-ManifestProcess",
+ "nodes": {
+  "initial-sending-logistics-operator-party": {
+   "area": 6632,
+   "fill": 0.767
+  },
+  "object-manifest": {
+   "area": 163914,
+   "fill": 0.982,
+   "solid": 1.0,
+   "stem": 0.085
+  },
+  "action-send-report": {
+   "area": 90585,
+   "fill": 0.947,
+   "solid": 0.994,
+   "stem": 0.085
+  },
+  "action-receive-manifest": {
+   "area": 88978,
+   "fill": 0.93,
+   "solid": 0.994,
+   "stem": 0.085
+  },
+  "final-authority-party": {
+   "area": 7073,
+   "fill": 0.374,
+   "solid": 0.786
+  }
+ },
+ "flows": {
+  "flow-initial-sending-logistics-operator-party-to-send-report": {
+   "arrowInk": [
+    225,
+    770
+   ],
+   "arrowPx": [
+    40,
+    42.0,
+    2.18
+   ],
+   "arrowFill": 0.644
+  },
+  "flow-send-report-to-manifest": {
+   "arrowInk": [
+    225,
+    782
+   ],
+   "arrowPx": [
+    38,
+    42.0,
+    2.48
+   ],
+   "arrowFill": 0.642
+  },
+  "flow-manifest-to-receive-manifest": {
+   "arrowInk": [
+    225,
+    779
+   ],
+   "arrowPx": [
+    40,
+    42.0,
+    2.18
+   ],
+   "arrowFill": 0.659
+  },
+  "flow-receive-manifest-to-final-authority-party": {
+   "arrowInk": [
+    225,
+    766
+   ],
+   "arrowPx": [
+    40,
+    42.0,
+    2.15
+   ],
+   "arrowFill": 0.674
+  }
+ },
+ "offPage": {},
+ "marks": {},
+ "phases": {},
+ "greyRules": [],
+ "titleReadings": [
+  {
+   "position": 0,
+   "text": "Sending Logistics\nOperator Party",
+   "x": 804,
+   "y": 48,
+   "w": 441,
+   "h": 120,
+   "lines": [
+    {
+     "x": 804,
+     "y": 48,
+     "w": 441,
+     "h": 53,
+     "text": "Sending Logistics"
+    },
+    {
+     "x": 841,
+     "y": 115,
+     "w": 370,
+     "h": 53,
+     "text": "Operator Party"
+    }
+   ]
+  },
+  {
+   "position": 1,
+   "text": "Authority Party",
+   "x": 2499,
+   "y": 82,
+   "w": 372,
+   "h": 52,
+   "lines": [
+    {
+     "x": 2499,
+     "y": 82,
+     "w": 372,
+     "h": 52,
+     "text": "Authority Party"
+    }
+   ]
+  }
+ ],
+ "findings": [],
+ "uncertain": [
+  {
+   "kind": "unexplained-line-work",
+   "x": 1071,
+   "y": -61,
+   "w": 135,
+   "h": 218,
+   "reason": "line-work that is neither a connector between two nodes nor the size of text",
+   "check": "decide what this is; the SVG does not draw it"
+  }
+ ],
+ "present": [
+  "source",
+  "size",
+  "fontPx",
+  "arrowPx",
+  "arrowWidthPx",
+  "arrowStyle",
+  "rules",
+  "ruleSpan",
+  "greyRules",
+  "dashed",
+  "openEnds",
+  "crossMarks",
+  "partitions",
+  "nodes",
+  "edges",
+  "text",
+  "uncertain"
+ ],
+ "uncorrected": {
+  "model": {
+   "schema": "ubl-activity-diagram/1",
+   "figure": {
+    "name": "UBL-2.3-ManifestProcess",
+    "source": "UBL-2.3-ManifestProcess.png"
+   },
+   "lanes": [
+    {
+     "id": "lane0",
+     "axis": "column",
+     "index": 0,
+     "title": "Sending Logistics\nOperator Party"
+    },
+    {
+     "id": "lane1",
+     "axis": "column",
+     "index": 1,
+     "title": "Authority Party"
+    },
+    {
+     "id": "lane2",
+     "axis": "band",
+     "index": 0,
+     "title": ""
+    }
+   ],
+   "nodes": [
+    {
+     "id": "n1",
+     "kind": "initial",
+     "label": "",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n2",
+     "kind": "object",
+     "label": "Manifest",
+     "lane": "lane1",
+     "band": "lane2"
+    },
+    {
+     "id": "n3",
+     "kind": "action",
+     "label": "Send report",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n4",
+     "kind": "action",
+     "label": "Receive Manifest",
+     "lane": "lane1",
+     "band": "lane2"
+    },
+    {
+     "id": "n5",
+     "kind": "final",
+     "label": "",
+     "lane": "lane1",
+     "band": "lane2"
+    }
+   ],
+   "flows": [
+    {
+     "id": "f0",
+     "from": "n1",
+     "to": "n3",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f1",
+     "from": "n3",
+     "to": "n2",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f2",
+     "from": "n2",
+     "to": "n4",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f3",
+     "from": "n4",
+     "to": "n5",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    }
+   ],
+   "texts": [],
+   "offPage": [],
+   "marks": [],
+   "phases": []
+  },
+  "layout": {
+   "schema": "ubl-activity-diagram-layout/1",
+   "figure": "UBL-2.3-ManifestProcess",
+   "units": "px of the original PNG",
+   "size": [
+    3426,
+    1291
+   ],
+   "style": {
+    "fontPx": 58.6,
+    "arrowPx": 40.0,
+    "arrowWidthPx": 42.0,
+    "arrowStyle": "filled"
+   },
+   "rules": {
+    "vertical": [
+     {
+      "at": 2,
+      "width": 10,
+      "span": [
+       15,
+       1279
+      ]
+     },
+     {
+      "at": 1710,
+      "width": 10,
+      "span": [
+       15,
+       1279
+      ]
+     },
+     {
+      "at": 3418,
+      "width": 7,
+      "span": [
+       15,
+       1279
+      ]
+     }
+    ],
+    "horizontal": [
+     {
+      "at": 2,
+      "width": 10,
+      "span": [
+       15,
+       3414
+      ]
+     },
+     {
+      "at": 1283,
+      "width": 7,
+      "span": [
+       15,
+       3414
+      ]
+     }
+    ]
+   },
+   "greyRules": [],
+   "lanes": {
+    "lane0": {
+     "x0": 0,
+     "x1": 1715,
+     "titleBox": [
+      804,
+      48,
+      441,
+      120
+     ]
+    },
+    "lane1": {
+     "x0": 1715,
+     "x1": 3426,
+     "titleBox": [
+      2499,
+      82,
+      372,
+      52
+     ]
+    },
+    "lane2": {
+     "y0": 0,
+     "y1": 1291
+    }
+   },
+   "nodes": {
+    "n1": {
+     "x": 788,
+     "y": 242,
+     "w": 99,
+     "h": 99
+    },
+    "n2": {
+     "x": 1435,
+     "y": 439,
+     "w": 607,
+     "h": 275,
+     "shape": "rect",
+     "stroke": 10,
+     "rx": 0,
+     "ry": 0,
+     "bold": false,
+     "labelLines": [
+      {
+       "x": 1633,
+       "y": 557,
+       "w": 210,
+       "h": 41,
+       "text": "Manifest"
+      }
+     ]
+    },
+    "n3": {
+     "x": 579,
+     "y": 484,
+     "w": 517,
+     "h": 185,
+     "shape": "rounded",
+     "stroke": 5,
+     "rx": 24,
+     "ry": 24,
+     "bold": false,
+     "labelLines": [
+      {
+       "x": 689,
+       "y": 556,
+       "w": 294,
+       "h": 53,
+       "text": "Send report"
+      }
+     ]
+    },
+    "n4": {
+     "x": 2429,
+     "y": 484,
+     "w": 517,
+     "h": 185,
+     "shape": "rounded",
+     "stroke": 5,
+     "rx": 24,
+     "ry": 24,
+     "bold": false,
+     "labelLines": [
+      {
+       "x": 2472,
+       "y": 557,
+       "w": 431,
+       "h": 41,
+       "text": "Receive Manifest"
+      }
+     ]
+    },
+    "n5": {
+     "x": 2619,
+     "y": 991,
+     "w": 137,
+     "h": 138,
+     "shape": "ellipse",
+     "stroke": 5,
+     "rx": 74,
+     "ry": 66,
+     "innerRatio": 0.715
+    }
+   },
+   "flows": {
+    "f0": {
+     "fromPoint": [
+      837,
+      355
+     ],
+     "toPoint": [
+      837,
+      469
+     ],
+     "routing": "straight"
+    },
+    "f1": {
+     "fromPoint": [
+      1110,
+      576
+     ],
+     "toPoint": [
+      1420,
+      576
+     ],
+     "routing": "straight"
+    },
+    "f2": {
+     "fromPoint": [
+      2056,
+      576
+     ],
+     "toPoint": [
+      2414,
+      576
+     ],
+     "routing": "straight"
+    },
+    "f3": {
+     "fromPoint": [
+      2687,
+      683
+     ],
+     "toPoint": [
+      2687,
+      976
+     ],
+     "routing": "straight"
+    }
+   },
+   "texts": {},
+   "offPage": {},
+   "marks": {},
+   "phases": {},
+   "rulesHaveSpans": {
+    "vertical": true,
+    "horizontal": true
+   }
+  }
+ },
+ "corrections": [
+  "party-41"
+ ],
+ "documentLanes": {
+  "object-manifest": "lane-authority-party"
+ },
+ "formerIds": {
+  "lane-sending-logistics-operator-party": "lane0",
+  "lane-authority-party": "lane1",
+  "initial-sending-logistics-operator-party": "n1",
+  "object-manifest": "n2",
+  "action-send-report": "n3",
+  "action-receive-manifest": "n4",
+  "final-authority-party": "n5",
+  "flow-initial-sending-logistics-operator-party-to-send-report": "f0",
+  "flow-send-report-to-manifest": "f1",
+  "flow-manifest-to-receive-manifest": "f2",
+  "flow-receive-manifest-to-final-authority-party": "f3"
+ }
+}

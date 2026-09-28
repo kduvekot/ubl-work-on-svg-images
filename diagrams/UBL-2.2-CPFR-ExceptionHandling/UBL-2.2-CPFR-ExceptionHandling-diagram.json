@@ -1,0 +1,261 @@
+{
+ "schema": "ubl-activity-diagram/1",
+ "figure": {
+  "name": "UBL-2.2-CPFR-ExceptionHandling",
+  "source": "UBL-2.2-CPFR-ExceptionHandling.png"
+ },
+ "lanes": [
+  {
+   "id": "lane-buyer-party",
+   "axis": "column",
+   "index": 0,
+   "title": "Buyer Party",
+   "titleShown": false,
+   "titleSource": "convention"
+  },
+  {
+   "id": "lane-seller-party",
+   "axis": "column",
+   "index": 1,
+   "title": "Seller Party",
+   "titleShown": false,
+   "titleSource": "convention"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "action-receive-sales-forecast-wait-for-in-seller-party",
+   "kind": "action",
+   "label": "Receive Sales Forecast &\nWait for Exception\nNotification",
+   "lane": "lane-seller-party"
+  },
+  {
+   "id": "action-receive-sales-forecast-wait-for-in-buyer-party",
+   "kind": "action",
+   "label": "Receive Sales Forecast &\nWait for Exception\nNotification",
+   "lane": "lane-buyer-party"
+  },
+  {
+   "id": "decision-seller-party",
+   "kind": "decision",
+   "label": "",
+   "lane": "lane-seller-party",
+   "question": "Exception Received ?"
+  },
+  {
+   "id": "decision-buyer-party",
+   "kind": "decision",
+   "label": "",
+   "lane": "lane-buyer-party",
+   "question": "Exception Received ?"
+  },
+  {
+   "id": "object-exception-notification-positive",
+   "kind": "object",
+   "label": "Exception Notification\n(positive)",
+   "lane": null,
+   "between": [
+    "lane-buyer-party",
+    "lane-seller-party"
+   ]
+  },
+  {
+   "id": "action-send-exception-in-seller-party",
+   "kind": "action",
+   "label": "Send Exception",
+   "lane": "lane-seller-party"
+  },
+  {
+   "id": "action-send-exception-in-buyer-party",
+   "kind": "action",
+   "label": "Send Exception",
+   "lane": "lane-buyer-party"
+  },
+  {
+   "id": "action-receive-resolve-exception-in-seller-party",
+   "kind": "action",
+   "label": "Receive & Resolve\nException",
+   "lane": "lane-seller-party",
+   "unstated": {
+    "wayOut": "The path ends at this step: the artwork draws no end after it."
+   }
+  },
+  {
+   "id": "action-receive-resolve-exception-in-buyer-party",
+   "kind": "action",
+   "label": "Receive & Resolve\nException",
+   "lane": "lane-buyer-party",
+   "unstated": {
+    "wayOut": "The path ends at this step: the artwork draws no end after it."
+   }
+  }
+ ],
+ "flows": [
+  {
+   "id": "flow-receive-sales-forecast-wait-for-in-buyer-party-to-decision-buyer-party",
+   "from": "action-receive-sales-forecast-wait-for-in-buyer-party",
+   "to": "decision-buyer-party",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-receive-sales-forecast-wait-for-in-seller-party-to-decision-seller-party",
+   "from": "action-receive-sales-forecast-wait-for-in-seller-party",
+   "to": "decision-seller-party",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-decision-seller-party-to-send-exception-in-seller-party",
+   "from": "decision-seller-party",
+   "to": "action-send-exception-in-seller-party",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   },
+   "guard": "text-yes"
+  },
+  {
+   "id": "flow-decision-buyer-party-to-send-exception-in-buyer-party",
+   "from": "decision-buyer-party",
+   "to": "action-send-exception-in-buyer-party",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   },
+   "guard": "text-yes-2"
+  },
+  {
+   "id": "flow-send-exception-in-seller-party-to-exception-notification-positive",
+   "from": "action-send-exception-in-seller-party",
+   "to": "object-exception-notification-positive",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   },
+   "passesTo": "flow-exception-notification-positive-to-receive-resolve-exception-in-buyer-party"
+  },
+  {
+   "id": "flow-send-exception-in-buyer-party-to-exception-notification-positive",
+   "from": "action-send-exception-in-buyer-party",
+   "to": "object-exception-notification-positive",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   },
+   "passesTo": "flow-exception-notification-positive-to-receive-resolve-exception-in-seller-party"
+  },
+  {
+   "id": "flow-exception-notification-positive-to-receive-resolve-exception-in-buyer-party",
+   "from": "object-exception-notification-positive",
+   "to": "action-receive-resolve-exception-in-buyer-party",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-exception-notification-positive-to-receive-resolve-exception-in-seller-party",
+   "from": "object-exception-notification-positive",
+   "to": "action-receive-resolve-exception-in-seller-party",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  }
+ ],
+ "texts": [
+  {
+   "id": "text-exception-received",
+   "text": "Exception Received ?",
+   "labels": "decision-seller-party"
+  },
+  {
+   "id": "text-exception-received-2",
+   "text": "Exception Received ?",
+   "labels": "decision-buyer-party"
+  },
+  {
+   "id": "text-no",
+   "text": "No",
+   "labels": "offpage-decision-seller-party"
+  },
+  {
+   "id": "text-yes",
+   "text": "Yes",
+   "labels": "flow-decision-seller-party-to-send-exception-in-seller-party"
+  },
+  {
+   "id": "text-no-2",
+   "text": "No",
+   "labels": "offpage-decision-buyer-party"
+  },
+  {
+   "id": "text-yes-2",
+   "text": "Yes",
+   "labels": "flow-decision-buyer-party-to-send-exception-in-buyer-party"
+  }
+ ],
+ "offPage": [
+  {
+   "id": "offpage-action-receive-sales-forecast-wait-for-in-buyer-party",
+   "node": "action-receive-sales-forecast-wait-for-in-buyer-party",
+   "direction": "in",
+   "arrow": true,
+   "continues": "UBL-2.2-CPFR-CreatingSalesForecast",
+   "port": 1,
+   "counterpart": "offpage-object-forecast-sales-positive-response"
+  },
+  {
+   "id": "offpage-action-receive-sales-forecast-wait-for-in-seller-party",
+   "node": "action-receive-sales-forecast-wait-for-in-seller-party",
+   "direction": "in",
+   "arrow": true,
+   "continues": "UBL-2.2-CPFR-CreatingSalesForecast",
+   "port": 2,
+   "counterpart": "offpage-object-forecast-sales-positive-response-2"
+  },
+  {
+   "id": "offpage-decision-seller-party",
+   "node": "decision-seller-party",
+   "direction": "out",
+   "arrow": false,
+   "guard": "text-no",
+   "continues": "UBL-2.2-CPFR-CreateOrderForecast",
+   "port": 2,
+   "counterpart": "offpage-fork-buyer-party-2"
+  },
+  {
+   "id": "offpage-decision-buyer-party",
+   "node": "decision-buyer-party",
+   "direction": "out",
+   "arrow": false,
+   "guard": "text-no-2",
+   "continues": "UBL-2.2-CPFR-CreateOrderForecast",
+   "port": 1,
+   "counterpart": "offpage-fork-buyer-party"
+  }
+ ],
+ "marks": [],
+ "phases": [
+  {
+   "id": "phase-exception-handling",
+   "title": "Exception Handling",
+   "members": [
+    "action-receive-sales-forecast-wait-for-in-seller-party",
+    "action-receive-sales-forecast-wait-for-in-buyer-party",
+    "decision-seller-party",
+    "decision-buyer-party",
+    "object-exception-notification-positive",
+    "action-send-exception-in-seller-party",
+    "action-send-exception-in-buyer-party",
+    "action-receive-resolve-exception-in-seller-party",
+    "action-receive-resolve-exception-in-buyer-party"
+   ]
+  }
+ ]
+}

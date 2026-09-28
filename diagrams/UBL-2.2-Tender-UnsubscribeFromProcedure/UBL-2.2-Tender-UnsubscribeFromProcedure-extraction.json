@@ -1,0 +1,859 @@
+{
+ "schema": "ubl-activity-diagram-extraction/1",
+ "figure": "UBL-2.2-Tender-UnsubscribeFromProcedure",
+ "nodes": {
+  "initial-economic-operator": {
+   "area": 12088,
+   "fill": 1.0
+  },
+  "action-prepare-unsubscribe-from-procedure": {
+   "area": 146434,
+   "fill": 0.876,
+   "solid": 0.964,
+   "stem": 0.098
+  },
+  "object-unsubscribe-from-procedure-request": {
+   "area": 180040,
+   "fill": 0.849,
+   "solid": 1.0,
+   "stem": 0.179
+  },
+  "action-submit-unsubscribe-from-procedure-in-economic-operator": {
+   "area": 155456,
+   "fill": 0.888,
+   "solid": 0.966,
+   "stem": 0.081
+  },
+  "action-receive-unsubscribe-from-procedure-in-contracting-authority": {
+   "area": 164926,
+   "fill": 0.889,
+   "solid": 0.967,
+   "stem": 0.081
+  },
+  "object-unsubscribe-from-procedure-response": {
+   "area": 179512,
+   "fill": 0.843,
+   "solid": 1.0,
+   "stem": 0.179
+  },
+  "action-receive-unsubscribe-from-procedure-in-economic-operator": {
+   "area": 189288,
+   "fill": 0.882,
+   "solid": 0.969,
+   "stem": 0.098
+  },
+  "action-submit-unsubscribe-from-procedure-in-contracting-authority": {
+   "area": 196112,
+   "fill": 0.889,
+   "solid": 0.973,
+   "stem": 0.081
+  },
+  "final-economic-operator": {
+   "area": 6836,
+   "fill": 0.581,
+   "solid": 0.782
+  }
+ },
+ "flows": {
+  "flow-initial-economic-operator-to-prepare-unsubscribe-from-procedure": {
+   "arrowInk": [
+    976,
+    1117
+   ],
+   "arrowPx": [
+    75,
+    66.7,
+    2.1
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-prepare-unsubscribe-from-procedure-to-submit-unsubscribe-from-procedure-in-economic-operator": {
+   "arrowInk": [
+    565,
+    1118
+   ],
+   "arrowPx": [
+    75,
+    70.0,
+    2.15
+   ],
+   "arrowFill": 0.006
+  },
+  "flow-submit-unsubscribe-from-procedure-in-economic-operator-to-unsubscribe-from-procedure-request": {
+   "arrowInk": [
+    405,
+    1092
+   ],
+   "arrowPx": [
+    83,
+    68.1,
+    2.37
+   ],
+   "arrowFill": 0.061
+  },
+  "flow-unsubscribe-from-procedure-request-to-receive-unsubscribe-from-procedure-in-contracting-authority": {
+   "arrowInk": [
+    405,
+    1155
+   ],
+   "arrowPx": [
+    80,
+    68.8,
+    2.07
+   ],
+   "arrowFill": 0.083
+  },
+  "flow-receive-unsubscribe-from-procedure-in-contracting-authority-to-submit-unsubscribe-from-procedure-in-contracting-authority": {
+   "arrowInk": [
+    360,
+    1115
+   ],
+   "arrowPx": [
+    81,
+    66.0,
+    2.34
+   ],
+   "arrowFill": 0.048
+  },
+  "flow-unsubscribe-from-procedure-response-to-receive-unsubscribe-from-procedure-in-economic-operator": {
+   "arrowInk": [
+    368,
+    1016
+   ],
+   "arrowPx": [
+    85,
+    67.1,
+    2.57
+   ],
+   "arrowFill": 0.054
+  },
+  "flow-submit-unsubscribe-from-procedure-in-contracting-authority-to-unsubscribe-from-procedure-response": {
+   "arrowInk": [
+    368,
+    1089
+   ],
+   "arrowPx": [
+    79,
+    65.1,
+    2.36
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-receive-unsubscribe-from-procedure-in-economic-operator-to-final-economic-operator": {
+   "arrowInk": [
+    360,
+    1118
+   ],
+   "arrowPx": [
+    74,
+    67.5,
+    2.43
+   ],
+   "arrowFill": 0.0
+  }
+ },
+ "offPage": {},
+ "marks": {},
+ "phases": {},
+ "greyRules": [],
+ "titleReadings": [
+  {
+   "position": 0,
+   "text": "ECONOMIC OPERATOR",
+   "x": 460,
+   "y": 45,
+   "w": 759,
+   "h": 54,
+   "lines": [
+    {
+     "x": 460,
+     "y": 45,
+     "w": 759,
+     "h": 54,
+     "text": "ECONOMIC OPERATOR"
+    }
+   ]
+  },
+  {
+   "position": 1,
+   "text": "CONTRACTING AUTHORITY",
+   "x": 2114,
+   "y": 45,
+   "w": 909,
+   "h": 54,
+   "lines": [
+    {
+     "x": 2114,
+     "y": 45,
+     "w": 909,
+     "h": 54,
+     "text": "CONTRACTING AUTHORITY"
+    }
+   ]
+  }
+ ],
+ "findings": [],
+ "uncertain": [
+  {
+   "x": 1710,
+   "y": 786,
+   "w": 1071,
+   "h": 534,
+   "shape": "ellipse",
+   "iou": 0.723,
+   "border": 0.538,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best ellipse 0.72, and 0.99 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  }
+ ],
+ "present": [
+  "source",
+  "size",
+  "fontPx",
+  "arrowPx",
+  "arrowWidthPx",
+  "arrowStyle",
+  "rules",
+  "ruleSpan",
+  "greyRules",
+  "dashed",
+  "openEnds",
+  "crossMarks",
+  "partitions",
+  "nodes",
+  "edges",
+  "text",
+  "uncertain"
+ ],
+ "uncorrected": {
+  "model": {
+   "schema": "ubl-activity-diagram/1",
+   "figure": {
+    "name": "UBL-2.2-Tender-UnsubscribeFromProcedure",
+    "source": "UBL-2.2-Tender-UnsubscribeFromProcedure.png"
+   },
+   "lanes": [
+    {
+     "id": "lane0",
+     "axis": "column",
+     "index": 0,
+     "title": "ECONOMIC OPERATOR"
+    },
+    {
+     "id": "lane1",
+     "axis": "column",
+     "index": 1,
+     "title": "CONTRACTING AUTHORITY"
+    },
+    {
+     "id": "lane2",
+     "axis": "column",
+     "index": 2,
+     "title": ""
+    },
+    {
+     "id": "lane3",
+     "axis": "band",
+     "index": 0,
+     "title": ""
+    },
+    {
+     "id": "lane4",
+     "axis": "band",
+     "index": 1,
+     "title": ""
+    }
+   ],
+   "nodes": [
+    {
+     "id": "n1",
+     "kind": "initial",
+     "label": "",
+     "lane": "lane0",
+     "band": "lane3"
+    },
+    {
+     "id": "n2",
+     "kind": "action",
+     "label": "Prepare unsubscribe from procedure",
+     "lane": "lane0",
+     "band": "lane3"
+    },
+    {
+     "id": "n3",
+     "kind": "object",
+     "label": "Unsubscribe\nFrom\nProcedure\nRequest",
+     "lane": "lane1",
+     "band": "lane3"
+    },
+    {
+     "id": "n4",
+     "kind": "action",
+     "label": "Submit unsubscribe from procedure",
+     "lane": "lane0",
+     "band": "lane3"
+    },
+    {
+     "id": "n5",
+     "kind": "action",
+     "label": "Receive unsubscribe from procedure",
+     "lane": "lane1",
+     "band": "lane3"
+    },
+    {
+     "id": "n6",
+     "kind": "object",
+     "label": "Unsubscribe\nFrom\nProcedure\nResponse",
+     "lane": "lane1",
+     "band": "lane3"
+    },
+    {
+     "id": "n7",
+     "kind": "action",
+     "label": "Receive unsubscribe from procedur\n1 confirmation",
+     "lane": "lane0",
+     "band": "lane3"
+    },
+    {
+     "id": "n8",
+     "kind": "action",
+     "label": "Submit unsubscribe from procedure\nconfirmation",
+     "lane": "lane1",
+     "band": "lane3"
+    },
+    {
+     "id": "n9",
+     "kind": "final",
+     "label": "",
+     "lane": "lane0",
+     "band": "lane3"
+    }
+   ],
+   "flows": [
+    {
+     "id": "f0",
+     "from": "n1",
+     "to": "n2",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f1",
+     "from": "n2",
+     "to": "n4",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f2",
+     "from": "n4",
+     "to": "n3",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f3",
+     "from": "n3",
+     "to": "n5",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f4",
+     "from": "n5",
+     "to": "n8",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f5",
+     "from": "n6",
+     "to": "n7",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f6",
+     "from": "n8",
+     "to": "n6",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f7",
+     "from": "n7",
+     "to": "n9",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    }
+   ],
+   "texts": [],
+   "offPage": [],
+   "marks": [],
+   "phases": []
+  },
+  "layout": {
+   "schema": "ubl-activity-diagram-layout/1",
+   "figure": "UBL-2.2-Tender-UnsubscribeFromProcedure",
+   "units": "px of the original PNG",
+   "size": [
+    3426,
+    1808
+   ],
+   "style": {
+    "fontPx": 61.4,
+    "arrowPx": 79.5,
+    "arrowWidthPx": 67.3,
+    "arrowStyle": "open"
+   },
+   "rules": {
+    "vertical": [
+     {
+      "at": 1,
+      "width": 8,
+      "span": [
+       12,
+       1790
+      ]
+     },
+     {
+      "at": 1702,
+      "width": 8,
+      "span": [
+       12,
+       1790
+      ]
+     },
+     {
+      "at": 3411,
+      "width": 14,
+      "span": [
+       12,
+       1790
+      ]
+     }
+    ],
+    "horizontal": [
+     {
+      "at": 1,
+      "width": 8,
+      "span": [
+       12,
+       3407
+      ]
+     },
+     {
+      "at": 1794,
+      "width": 8,
+      "span": [
+       12,
+       3407
+      ]
+     }
+    ]
+   },
+   "greyRules": [],
+   "lanes": {
+    "lane0": {
+     "x0": 0,
+     "x1": 1706,
+     "titleBox": [
+      460,
+      45,
+      759,
+      54
+     ]
+    },
+    "lane1": {
+     "x0": 1706,
+     "x1": 3418,
+     "titleBox": [
+      2114,
+      45,
+      909,
+      54
+     ]
+    },
+    "lane2": {
+     "x0": 3418,
+     "x1": 3426
+    },
+    "lane3": {
+     "y0": 0,
+     "y1": 1798
+    },
+    "lane4": {
+     "y0": 1798,
+     "y1": 1808
+    }
+   },
+   "nodes": {
+    "n1": {
+     "x": 552,
+     "y": 158,
+     "w": 124,
+     "h": 124
+    },
+    "n2": {
+     "x": 112,
+     "y": 395,
+     "w": 1001,
+     "h": 167,
+     "shape": "rounded",
+     "stroke": 8,
+     "rx": 84,
+     "ry": 82,
+     "bold": false,
+     "labelLines": [
+      {
+       "x": 142,
+       "y": 455,
+       "w": 943,
+       "h": 54,
+       "text": "Prepare unsubscribe from procedure"
+      }
+     ]
+    },
+    "n3": {
+     "x": 1458,
+     "y": 567,
+     "w": 516,
+     "h": 411,
+     "shape": "rect",
+     "stroke": 9,
+     "rx": 0,
+     "ry": 0,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 1495,
+       "y": 597,
+       "w": 448,
+       "h": 55,
+       "text": "Unsubscribe"
+      },
+      {
+       "x": 1488,
+       "y": 697,
+       "w": 183,
+       "h": 55,
+       "text": "From"
+      },
+      {
+       "x": 1492,
+       "y": 789,
+       "w": 368,
+       "h": 54,
+       "text": "Procedure"
+      },
+      {
+       "x": 1488,
+       "y": 881,
+       "w": 297,
+       "h": 69,
+       "text": "Request"
+      }
+     ]
+    },
+    "n4": {
+     "x": 106,
+     "y": 698,
+     "w": 1012,
+     "h": 173,
+     "shape": "rounded",
+     "stroke": 8,
+     "rx": 87,
+     "ry": 83,
+     "bold": false,
+     "labelLines": [
+      {
+       "x": 157,
+       "y": 759,
+       "w": 919,
+       "h": 54,
+       "text": "Submit unsubscribe from procedure"
+      }
+     ]
+    },
+    "n5": {
+     "x": 2264,
+     "y": 698,
+     "w": 1036,
+     "h": 179,
+     "shape": "rounded",
+     "stroke": 8,
+     "rx": 87,
+     "ry": 88,
+     "bold": false,
+     "labelLines": [
+      {
+       "x": 2314,
+       "y": 751,
+       "w": 947,
+       "h": 54,
+       "text": "Receive unsubscribe from procedure"
+      }
+     ]
+    },
+    "n6": {
+     "x": 1453,
+     "y": 1118,
+     "w": 517,
+     "h": 412,
+     "shape": "rect",
+     "stroke": 8,
+     "rx": 2,
+     "ry": 2,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 1491,
+       "y": 1149,
+       "w": 447,
+       "h": 55,
+       "text": "Unsubscribe"
+      },
+      {
+       "x": 1484,
+       "y": 1249,
+       "w": 183,
+       "h": 54,
+       "text": "From"
+      },
+      {
+       "x": 1488,
+       "y": 1340,
+       "w": 368,
+       "h": 55,
+       "text": "Procedure"
+      },
+      {
+       "x": 1483,
+       "y": 1433,
+       "w": 356,
+       "h": 68,
+       "text": "Response"
+      }
+     ]
+    },
+    "n7": {
+     "x": 135,
+     "y": 1217,
+     "w": 954,
+     "h": 225,
+     "shape": "rounded",
+     "stroke": 8,
+     "rx": 88,
+     "ry": 85,
+     "bold": false,
+     "labelLines": [
+      {
+       "x": 146,
+       "y": 1274,
+       "w": 916,
+       "h": 54,
+       "text": "Receive unsubscribe from procedur"
+      },
+      {
+       "x": 412,
+       "y": 1349,
+       "w": 312,
+       "h": 44,
+       "text": "1 confirmation"
+      }
+     ]
+    },
+    "n8": {
+     "x": 2264,
+     "y": 1223,
+     "w": 1036,
+     "h": 213,
+     "shape": "rounded",
+     "stroke": 8,
+     "rx": 86,
+     "ry": 87,
+     "bold": false,
+     "labelLines": [
+      {
+       "x": 2344,
+       "y": 1275,
+       "w": 919,
+       "h": 55,
+       "text": "Submit unsubscribe from procedure"
+      },
+      {
+       "x": 2586,
+       "y": 1355,
+       "w": 312,
+       "h": 43,
+       "text": "confirmation"
+      }
+     ]
+    },
+    "n9": {
+     "x": 561,
+     "y": 1596,
+     "w": 108,
+     "h": 109,
+     "shape": "rounded",
+     "stroke": 8,
+     "rx": 50,
+     "ry": 54,
+     "innerRatio": 0.5
+    }
+   },
+   "flows": {
+    "f0": {
+     "fromPoint": [
+      614,
+      296
+     ],
+     "toPoint": [
+      612,
+      380
+     ],
+     "routing": "straight"
+    },
+    "f1": {
+     "fromPoint": [
+      612,
+      576
+     ],
+     "toPoint": [
+      612,
+      683
+     ],
+     "routing": "straight"
+    },
+    "f2": {
+     "fromPoint": [
+      1132,
+      783
+     ],
+     "toPoint": [
+      1443,
+      779
+     ],
+     "routing": "straight"
+    },
+    "f3": {
+     "fromPoint": [
+      1988,
+      778
+     ],
+     "toPoint": [
+      2249,
+      784
+     ],
+     "routing": "straight"
+    },
+    "f4": {
+     "fromPoint": [
+      2784,
+      891
+     ],
+     "toPoint": [
+      2784,
+      1208
+     ],
+     "routing": "straight"
+    },
+    "f5": {
+     "fromPoint": [
+      1438,
+      1323
+     ],
+     "toPoint": [
+      1103,
+      1325
+     ],
+     "routing": "straight"
+    },
+    "f6": {
+     "fromPoint": [
+      2249,
+      1325
+     ],
+     "toPoint": [
+      1984,
+      1323
+     ],
+     "routing": "straight"
+    },
+    "f7": {
+     "fromPoint": [
+      612,
+      1456
+     ],
+     "toPoint": [
+      615,
+      1581
+     ],
+     "routing": "straight"
+    }
+   },
+   "texts": {},
+   "offPage": {},
+   "marks": {},
+   "phases": {},
+   "rulesHaveSpans": {
+    "vertical": true,
+    "horizontal": true
+   }
+  }
+ },
+ "retexted": {
+  "n7": {
+   "section": "nodes",
+   "text": "Receive unsubscribe from procedure\nconfirmation"
+  }
+ },
+ "corrections": [
+  "text-14",
+  "q15-11",
+  "party-31",
+  "party-32"
+ ],
+ "documentLanes": {
+  "object-unsubscribe-from-procedure-request": "lane-contracting-authority",
+  "object-unsubscribe-from-procedure-response": "lane-contracting-authority"
+ },
+ "formerIds": {
+  "lane-economic-operator": "lane0",
+  "lane-contracting-authority": "lane1",
+  "initial-economic-operator": "n1",
+  "action-prepare-unsubscribe-from-procedure": "n2",
+  "object-unsubscribe-from-procedure-request": "n3",
+  "action-submit-unsubscribe-from-procedure-in-economic-operator": "n4",
+  "action-receive-unsubscribe-from-procedure-in-contracting-authority": "n5",
+  "object-unsubscribe-from-procedure-response": "n6",
+  "action-receive-unsubscribe-from-procedure-in-economic-operator": "n7",
+  "action-submit-unsubscribe-from-procedure-in-contracting-authority": "n8",
+  "final-economic-operator": "n9",
+  "flow-initial-economic-operator-to-prepare-unsubscribe-from-procedure": "f0",
+  "flow-prepare-unsubscribe-from-procedure-to-submit-unsubscribe-from-procedure-in-economic-operator": "f1",
+  "flow-submit-unsubscribe-from-procedure-in-economic-operator-to-unsubscribe-from-procedure-request": "f2",
+  "flow-unsubscribe-from-procedure-request-to-receive-unsubscribe-from-procedure-in-contracting-authority": "f3",
+  "flow-receive-unsubscribe-from-procedure-in-contracting-authority-to-submit-unsubscribe-from-procedure-in-contracting-authority": "f4",
+  "flow-unsubscribe-from-procedure-response-to-receive-unsubscribe-from-procedure-in-economic-operator": "f5",
+  "flow-submit-unsubscribe-from-procedure-in-contracting-authority-to-unsubscribe-from-procedure-response": "f6",
+  "flow-receive-unsubscribe-from-procedure-in-economic-operator-to-final-economic-operator": "f7"
+ }
+}

@@ -1,0 +1,164 @@
+{
+ "schema": "ubl-activity-diagram/1",
+ "figure": {
+  "name": "UBL-2.2-Tender-QualificationApplication",
+  "source": "UBL-2.2-Tender-QualificationApplication.png"
+ },
+ "lanes": [
+  {
+   "id": "lane-contracting-authority",
+   "axis": "column",
+   "index": 0,
+   "title": "Contracting Authority"
+  },
+  {
+   "id": "lane-economic-operator",
+   "axis": "column",
+   "index": 1,
+   "title": "Economic Operator"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "initial-contracting-authority",
+   "kind": "initial",
+   "label": "",
+   "lane": "lane-contracting-authority"
+  },
+  {
+   "id": "action-prepare-qualification-application",
+   "kind": "action",
+   "label": "Prepare qualification application request",
+   "lane": "lane-contracting-authority"
+  },
+  {
+   "id": "object-qualification-application-request",
+   "kind": "object",
+   "label": "Qualification\nApplication\nRequest",
+   "lane": null,
+   "between": [
+    "lane-contracting-authority",
+    "lane-economic-operator"
+   ]
+  },
+  {
+   "id": "action-receive-qualification-application-in-economic-operator",
+   "kind": "action",
+   "label": "Receive qualification application request",
+   "lane": "lane-economic-operator"
+  },
+  {
+   "id": "action-submit-qualification-application-request",
+   "kind": "action",
+   "label": "Submit qualification application request",
+   "lane": "lane-contracting-authority"
+  },
+  {
+   "id": "object-qualification-application-response",
+   "kind": "object",
+   "label": "Qualification\nApplication\nResponse",
+   "lane": null,
+   "between": [
+    "lane-contracting-authority",
+    "lane-economic-operator"
+   ]
+  },
+  {
+   "id": "action-submit-qualification-application",
+   "kind": "action",
+   "label": "Submit qualification application response",
+   "lane": "lane-economic-operator"
+  },
+  {
+   "id": "action-receive-qualification-application-in-contracting-authority",
+   "kind": "action",
+   "label": "Receive qualification application response",
+   "lane": "lane-contracting-authority"
+  },
+  {
+   "id": "final-contracting-authority",
+   "kind": "final",
+   "label": "",
+   "lane": "lane-contracting-authority"
+  }
+ ],
+ "flows": [
+  {
+   "id": "flow-initial-contracting-authority-to-prepare-qualification-application",
+   "from": "initial-contracting-authority",
+   "to": "action-prepare-qualification-application",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-prepare-qualification-application-to-submit-qualification-application-request",
+   "from": "action-prepare-qualification-application",
+   "to": "action-submit-qualification-application-request",
+   "kind": "control",
+   "direction": {
+    "confidence": "checked",
+    "checked": "confirmed"
+   }
+  },
+  {
+   "id": "flow-submit-qualification-application-request-to-qualification-application-request",
+   "from": "action-submit-qualification-application-request",
+   "to": "object-qualification-application-request",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-qualification-application-request-to-receive-qualification-application-in-economic-operator",
+   "from": "object-qualification-application-request",
+   "to": "action-receive-qualification-application-in-economic-operator",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-receive-qualification-application-in-economic-operator-to-submit-qualification-application",
+   "from": "action-receive-qualification-application-in-economic-operator",
+   "to": "action-submit-qualification-application",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-qualification-application-response-to-receive-qualification-application-in-contracting-authority",
+   "from": "object-qualification-application-response",
+   "to": "action-receive-qualification-application-in-contracting-authority",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-submit-qualification-application-to-qualification-application-response",
+   "from": "action-submit-qualification-application",
+   "to": "object-qualification-application-response",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-receive-qualification-application-in-contracting-authority-to-final-contracting-authority",
+   "from": "action-receive-qualification-application-in-contracting-authority",
+   "to": "final-contracting-authority",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  }
+ ],
+ "texts": [],
+ "offPage": [],
+ "marks": [],
+ "phases": []
+}

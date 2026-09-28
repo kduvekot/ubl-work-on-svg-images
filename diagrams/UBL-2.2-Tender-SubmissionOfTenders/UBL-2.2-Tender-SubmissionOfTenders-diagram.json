@@ -1,0 +1,164 @@
+{
+ "schema": "ubl-activity-diagram/1",
+ "figure": {
+  "name": "UBL-2.2-Tender-SubmissionOfTenders",
+  "source": "UBL-2.2-Tender-SubmissionOfTenders.png"
+ },
+ "lanes": [
+  {
+   "id": "lane-tenderer",
+   "axis": "column",
+   "index": 0,
+   "title": "Tenderer"
+  },
+  {
+   "id": "lane-contracting-authority",
+   "axis": "column",
+   "index": 1,
+   "title": "Contracting Authority"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "initial-tenderer",
+   "kind": "initial",
+   "label": "",
+   "lane": "lane-tenderer"
+  },
+  {
+   "id": "action-prepare-tender-documents",
+   "kind": "action",
+   "label": "Prepare tender documents",
+   "lane": "lane-tenderer"
+  },
+  {
+   "id": "object-tender",
+   "kind": "object",
+   "label": "Tender",
+   "lane": null,
+   "between": [
+    "lane-tenderer",
+    "lane-contracting-authority"
+   ]
+  },
+  {
+   "id": "action-receive-tender-documents",
+   "kind": "action",
+   "label": "Receive tender documents",
+   "lane": "lane-contracting-authority"
+  },
+  {
+   "id": "action-submit-tender-documents",
+   "kind": "action",
+   "label": "Submit tender documents",
+   "lane": "lane-tenderer"
+  },
+  {
+   "id": "object-tender-receipt",
+   "kind": "object",
+   "label": "Tender\nReceipt",
+   "lane": null,
+   "between": [
+    "lane-tenderer",
+    "lane-contracting-authority"
+   ]
+  },
+  {
+   "id": "action-submit-tender-receipt",
+   "kind": "action",
+   "label": "Submit tender\nreceipt",
+   "lane": "lane-contracting-authority"
+  },
+  {
+   "id": "action-receive-receipt",
+   "kind": "action",
+   "label": "Receive receipt",
+   "lane": "lane-tenderer"
+  },
+  {
+   "id": "final-tenderer",
+   "kind": "final",
+   "label": "",
+   "lane": "lane-tenderer"
+  }
+ ],
+ "flows": [
+  {
+   "id": "flow-initial-tenderer-to-prepare-tender-documents",
+   "from": "initial-tenderer",
+   "to": "action-prepare-tender-documents",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-prepare-tender-documents-to-submit-tender-documents",
+   "from": "action-prepare-tender-documents",
+   "to": "action-submit-tender-documents",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-tender-to-receive-tender-documents",
+   "from": "object-tender",
+   "to": "action-receive-tender-documents",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-submit-tender-documents-to-tender",
+   "from": "action-submit-tender-documents",
+   "to": "object-tender",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-receive-tender-documents-to-submit-tender-receipt",
+   "from": "action-receive-tender-documents",
+   "to": "action-submit-tender-receipt",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-tender-receipt-to-receive-receipt",
+   "from": "object-tender-receipt",
+   "to": "action-receive-receipt",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-submit-tender-receipt-to-tender-receipt",
+   "from": "action-submit-tender-receipt",
+   "to": "object-tender-receipt",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-receive-receipt-to-final-tenderer",
+   "from": "action-receive-receipt",
+   "to": "final-tenderer",
+   "kind": "control",
+   "direction": {
+    "confidence": "medium",
+    "checked": "confirmed"
+   }
+  }
+ ],
+ "texts": [],
+ "offPage": [],
+ "marks": [],
+ "phases": []
+}

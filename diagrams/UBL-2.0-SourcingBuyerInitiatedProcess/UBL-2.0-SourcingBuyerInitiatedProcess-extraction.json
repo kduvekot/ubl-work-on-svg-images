@@ -1,0 +1,741 @@
+{
+ "schema": "ubl-activity-diagram-extraction/1",
+ "figure": "UBL-2.0-SourcingBuyerInitiatedProcess",
+ "nodes": {
+  "initial-originator-customer-party": {
+   "area": 11802,
+   "fill": 1.0
+  },
+  "object-request-for-quotation": {
+   "area": 130150,
+   "fill": 0.911,
+   "solid": 1.0,
+   "stem": 0.127,
+   "keptOnOutline": true
+  },
+  "action-receive-request-for-quotation": {
+   "area": 199799,
+   "fill": 0.899,
+   "solid": 0.97,
+   "stem": 0.127
+  },
+  "action-send-request-for-quotation": {
+   "area": 171350,
+   "fill": 0.887,
+   "solid": 0.965,
+   "stem": 0.127
+  },
+  "object-quotation": {
+   "area": 136744,
+   "fill": 0.957,
+   "solid": 1.0,
+   "stem": 0.127,
+   "keptOnOutline": true
+  },
+  "action-receive-quotation": {
+   "area": 158965,
+   "fill": 0.905,
+   "solid": 0.961,
+   "stem": 0.127
+  },
+  "action-send-quotation": {
+   "area": 141655,
+   "fill": 0.903,
+   "solid": 0.958,
+   "stem": 0.127
+  },
+  "final-originator-customer-party": {
+   "area": 6722,
+   "fill": 0.61,
+   "solid": 0.788
+  }
+ },
+ "flows": {
+  "flow-initial-originator-customer-party-to-send-request-for-quotation": {
+   "arrowInk": [
+    405,
+    1248
+   ],
+   "arrowPx": [
+    82,
+    71.4,
+    2.07
+   ],
+   "arrowFill": 0.102
+  },
+  "flow-send-request-for-quotation-to-request-for-quotation": {
+   "arrowPx": [
+    83,
+    68.0,
+    2.39
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-request-for-quotation-to-receive-request-for-quotation": {
+   "arrowPx": [
+    83,
+    68.0,
+    2.39
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-receive-request-for-quotation-to-send-quotation": {
+   "arrowInk": [
+    450,
+    1273
+   ],
+   "arrowPx": [
+    82,
+    72.5,
+    2.05
+   ],
+   "arrowFill": 0.123
+  },
+  "flow-send-quotation-to-quotation": {
+   "arrowPx": [
+    89,
+    68.0,
+    2.7
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-quotation-to-receive-quotation": {
+   "arrowPx": [
+    89,
+    68.0,
+    2.7
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-receive-quotation-to-final-originator-customer-party": {
+   "arrowInk": [
+    405,
+    1240
+   ],
+   "arrowPx": [
+    83,
+    69.2,
+    2.29
+   ],
+   "arrowFill": 0.0
+  }
+ },
+ "offPage": {},
+ "marks": {},
+ "phases": {},
+ "greyRules": [],
+ "titleReadings": [
+  {
+   "position": 0,
+   "text": "Originator Customer Party",
+   "x": 214,
+   "y": 56,
+   "w": 691,
+   "h": 56,
+   "lines": [
+    {
+     "x": 214,
+     "y": 56,
+     "w": 691,
+     "h": 56,
+     "text": "Originator Customer Party"
+    }
+   ]
+  },
+  {
+   "position": 1,
+   "text": "seller Supplier Party",
+   "x": 2452,
+   "y": 56,
+   "w": 542,
+   "h": 56,
+   "lines": [
+    {
+     "x": 2452,
+     "y": 56,
+     "w": 542,
+     "h": 56,
+     "text": "seller Supplier Party"
+    }
+   ]
+  }
+ ],
+ "findings": [],
+ "uncertain": [
+  {
+   "x": 1475,
+   "y": 630,
+   "w": 516,
+   "h": 277,
+   "shape": "rect",
+   "iou": 1.0,
+   "border": 1.0,
+   "kind": "kept-on-outline",
+   "reason": "every side has pass-through line-work, but the region carries a complete outline of its own",
+   "check": "confirm this is a node and not trapped whitespace"
+  },
+  {
+   "x": 1764,
+   "y": 775,
+   "w": 1065,
+   "h": 563,
+   "shape": "ellipse",
+   "iou": 0.817,
+   "border": 0.559,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best ellipse 0.82, and 0.99 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "x": 1511,
+   "y": 1200,
+   "w": 516,
+   "h": 277,
+   "shape": "rect",
+   "iou": 1.0,
+   "border": 1.0,
+   "kind": "kept-on-outline",
+   "reason": "every side has pass-through line-work, but the region carries a complete outline of its own",
+   "check": "confirm this is a node and not trapped whitespace"
+  }
+ ],
+ "present": [
+  "source",
+  "size",
+  "fontPx",
+  "arrowPx",
+  "arrowWidthPx",
+  "arrowStyle",
+  "rules",
+  "ruleSpan",
+  "greyRules",
+  "dashed",
+  "openEnds",
+  "crossMarks",
+  "partitions",
+  "nodes",
+  "edges",
+  "text",
+  "uncertain"
+ ],
+ "uncorrected": {
+  "model": {
+   "schema": "ubl-activity-diagram/1",
+   "figure": {
+    "name": "UBL-2.0-SourcingBuyerInitiatedProcess",
+    "source": "UBL-2.0-SourcingBuyerInitiatedProcess.png"
+   },
+   "lanes": [
+    {
+     "id": "lane0",
+     "axis": "column",
+     "index": 0,
+     "title": "Originator Customer Party"
+    },
+    {
+     "id": "lane1",
+     "axis": "column",
+     "index": 1,
+     "title": "seller Supplier Party"
+    },
+    {
+     "id": "lane2",
+     "axis": "band",
+     "index": 0,
+     "title": ""
+    }
+   ],
+   "nodes": [
+    {
+     "id": "n1",
+     "kind": "initial",
+     "label": "",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n2",
+     "kind": "object",
+     "label": "Request for\nQuotation",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n3",
+     "kind": "action",
+     "label": "Receive request for\nquotation",
+     "lane": "lane1",
+     "band": "lane2"
+    },
+    {
+     "id": "n4",
+     "kind": "action",
+     "label": "Send request for Quotation",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n5",
+     "kind": "object",
+     "label": "Quotation",
+     "lane": "lane1",
+     "band": "lane2"
+    },
+    {
+     "id": "n6",
+     "kind": "action",
+     "label": "Receive quotation",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n7",
+     "kind": "action",
+     "label": "Send quotation",
+     "lane": "lane1",
+     "band": "lane2"
+    },
+    {
+     "id": "n8",
+     "kind": "final",
+     "label": "",
+     "lane": "lane0",
+     "band": "lane2"
+    }
+   ],
+   "flows": [
+    {
+     "id": "f0",
+     "from": "n1",
+     "to": "n4",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f1",
+     "from": "n4",
+     "to": "n2",
+     "kind": "object",
+     "direction": {
+      "confidence": "notation",
+      "checked": "confirmed"
+     }
+    },
+    {
+     "id": "f2",
+     "from": "n2",
+     "to": "n3",
+     "kind": "object",
+     "direction": {
+      "confidence": "notation",
+      "checked": "confirmed"
+     }
+    },
+    {
+     "id": "f3",
+     "from": "n3",
+     "to": "n7",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f4",
+     "from": "n7",
+     "to": "n5",
+     "kind": "object",
+     "direction": {
+      "confidence": "notation",
+      "checked": "confirmed"
+     }
+    },
+    {
+     "id": "f5",
+     "from": "n5",
+     "to": "n6",
+     "kind": "object",
+     "direction": {
+      "confidence": "notation",
+      "checked": "confirmed"
+     }
+    },
+    {
+     "id": "f6",
+     "from": "n6",
+     "to": "n8",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    }
+   ],
+   "texts": [],
+   "offPage": [],
+   "marks": [],
+   "phases": []
+  },
+  "layout": {
+   "schema": "ubl-activity-diagram-layout/1",
+   "figure": "UBL-2.0-SourcingBuyerInitiatedProcess",
+   "units": "px of the original PNG",
+   "size": [
+    3425,
+    2020
+   ],
+   "style": {
+    "fontPx": 62.9,
+    "arrowPx": 83.0,
+    "arrowWidthPx": 69.2,
+    "arrowStyle": "open"
+   },
+   "rules": {
+    "vertical": [
+     {
+      "at": 0,
+      "width": 10,
+      "span": [
+       13,
+       2006
+      ]
+     },
+     {
+      "at": 1755,
+      "width": 9,
+      "span": [
+       13,
+       2006
+      ]
+     },
+     {
+      "at": 3415,
+      "width": 10,
+      "span": [
+       13,
+       2006
+      ]
+     }
+    ],
+    "horizontal": [
+     {
+      "at": 0,
+      "width": 10,
+      "span": [
+       13,
+       3411
+      ]
+     },
+     {
+      "at": 2010,
+      "width": 10,
+      "span": [
+       13,
+       3411
+      ]
+     }
+    ]
+   },
+   "greyRules": [],
+   "lanes": {
+    "lane0": {
+     "x0": 0,
+     "x1": 1760,
+     "titleBox": [
+      214,
+      56,
+      691,
+      56
+     ]
+    },
+    "lane1": {
+     "x0": 1760,
+     "x1": 3425,
+     "titleBox": [
+      2452,
+      56,
+      542,
+      56
+     ]
+    },
+    "lane2": {
+     "y0": 0,
+     "y1": 2020
+    }
+   },
+   "nodes": {
+    "n1": {
+     "x": 471,
+     "y": 172,
+     "w": 122,
+     "h": 122
+    },
+    "n2": {
+     "x": 1475,
+     "y": 630,
+     "w": 516,
+     "h": 277,
+     "shape": "rect",
+     "stroke": 17,
+     "rx": 0,
+     "ry": 0,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 1559,
+       "y": 700,
+       "w": 335,
+       "h": 57,
+       "text": "Request for"
+      },
+      {
+       "x": 1597,
+       "y": 766,
+       "w": 276,
+       "h": 50,
+       "text": "Quotation"
+      }
+     ]
+    },
+    "n3": {
+     "x": 2484,
+     "y": 632,
+     "w": 692,
+     "h": 321,
+     "shape": "rounded",
+     "stroke": 9,
+     "rx": 90,
+     "ry": 86,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 2553,
+       "y": 717,
+       "w": 554,
+       "h": 56,
+       "text": "Receive request for"
+      },
+      {
+       "x": 2714,
+       "y": 796,
+       "w": 267,
+       "h": 55,
+       "text": "quotation"
+      }
+     ]
+    },
+    "n4": {
+     "x": 145,
+     "y": 650,
+     "w": 795,
+     "h": 243,
+     "shape": "rounded",
+     "stroke": 9,
+     "rx": 90,
+     "ry": 90,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 155,
+       "y": 738,
+       "w": 770,
+       "h": 56,
+       "text": "Send request for Quotation"
+      }
+     ]
+    },
+    "n5": {
+     "x": 1511,
+     "y": 1200,
+     "w": 516,
+     "h": 277,
+     "shape": "rect",
+     "stroke": 17,
+     "rx": 0,
+     "ry": 0,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 1626,
+       "y": 1299,
+       "w": 276,
+       "h": 50,
+       "text": "Quotation"
+      }
+     ]
+    },
+    "n6": {
+     "x": 169,
+     "y": 1214,
+     "w": 723,
+     "h": 243,
+     "shape": "rounded",
+     "stroke": 9,
+     "rx": 88,
+     "ry": 90,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 271,
+       "y": 1309,
+       "w": 508,
+       "h": 55,
+       "text": "Receive quotation"
+      }
+     ]
+    },
+    "n7": {
+     "x": 2514,
+     "y": 1238,
+     "w": 758,
+     "h": 207,
+     "shape": "rounded",
+     "stroke": 9,
+     "rx": 87,
+     "ry": 86,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 2679,
+       "y": 1291,
+       "w": 431,
+       "h": 56,
+       "text": "Send quotation"
+      }
+     ]
+    },
+    "n8": {
+     "x": 475,
+     "y": 1826,
+     "w": 105,
+     "h": 105,
+     "shape": "ellipse",
+     "stroke": 9,
+     "rx": 48,
+     "ry": 50,
+     "innerRatio": 0.476
+    }
+   },
+   "flows": {
+    "f0": {
+     "fromPoint": [
+      533,
+      308
+     ],
+     "toPoint": [
+      539,
+      635
+     ],
+     "routing": "straight"
+    },
+    "f1": {
+     "fromPoint": [
+      954,
+      771
+     ],
+     "toPoint": [
+      1457,
+      771
+     ],
+     "routing": "straight"
+    },
+    "f2": {
+     "fromPoint": [
+      2009,
+      771
+     ],
+     "toPoint": [
+      2469,
+      771
+     ],
+     "routing": "straight"
+    },
+    "f3": {
+     "fromPoint": [
+      2830,
+      967
+     ],
+     "toPoint": [
+      2836,
+      1223
+     ],
+     "routing": "straight"
+    },
+    "f4": {
+     "fromPoint": [
+      2499,
+      1341
+     ],
+     "toPoint": [
+      2045,
+      1339
+     ],
+     "routing": "straight"
+    },
+    "f5": {
+     "fromPoint": [
+      1493,
+      1337
+     ],
+     "toPoint": [
+      906,
+      1335
+     ],
+     "routing": "straight"
+    },
+    "f6": {
+     "fromPoint": [
+      531,
+      1471
+     ],
+     "toPoint": [
+      529,
+      1811
+     ],
+     "routing": "straight"
+    }
+   },
+   "texts": {},
+   "offPage": {},
+   "marks": {},
+   "phases": {},
+   "rulesHaveSpans": {
+    "vertical": true,
+    "horizontal": true
+   }
+  }
+ },
+ "retexted": {
+  "lane1": {
+   "section": "lanes",
+   "text": "Seller Supplier Party"
+  }
+ },
+ "corrections": [
+  "text-19"
+ ],
+ "documentLanes": {
+  "object-request-for-quotation": "lane-originator-customer-party",
+  "object-quotation": "lane-seller-supplier-party"
+ },
+ "formerIds": {
+  "lane-originator-customer-party": "lane0",
+  "lane-seller-supplier-party": "lane1",
+  "initial-originator-customer-party": "n1",
+  "object-request-for-quotation": "n2",
+  "action-receive-request-for-quotation": "n3",
+  "action-send-request-for-quotation": "n4",
+  "object-quotation": "n5",
+  "action-receive-quotation": "n6",
+  "action-send-quotation": "n7",
+  "final-originator-customer-party": "n8",
+  "flow-initial-originator-customer-party-to-send-request-for-quotation": "f0",
+  "flow-send-request-for-quotation-to-request-for-quotation": "f1",
+  "flow-request-for-quotation-to-receive-request-for-quotation": "f2",
+  "flow-receive-request-for-quotation-to-send-quotation": "f3",
+  "flow-send-quotation-to-quotation": "f4",
+  "flow-quotation-to-receive-quotation": "f5",
+  "flow-receive-quotation-to-final-originator-customer-party": "f6"
+ }
+}

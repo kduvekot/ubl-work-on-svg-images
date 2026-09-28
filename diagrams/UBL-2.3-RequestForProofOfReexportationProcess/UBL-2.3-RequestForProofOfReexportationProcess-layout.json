@@ -1,0 +1,867 @@
+{
+ "schema": "ubl-activity-diagram-layout/1",
+ "figure": "UBL-2.3-RequestForProofOfReexportationProcess",
+ "units": "px of the original PNG",
+ "size": [
+  1712,
+  1279
+ ],
+ "style": {
+  "fontPx": 25.7,
+  "arrowPx": 23.0,
+  "arrowWidthPx": 18.0,
+  "arrowStyle": "filled"
+ },
+ "rules": {
+  "vertical": [
+   {
+    "at": 0,
+    "width": 5,
+    "span": [
+     8,
+     1270
+    ]
+   },
+   {
+    "at": 572,
+    "width": 2,
+    "span": [
+     8,
+     1270
+    ]
+   },
+   {
+    "at": 1138,
+    "width": 2,
+    "span": [
+     8,
+     1270
+    ]
+   },
+   {
+    "at": 1705,
+    "width": 7,
+    "span": [
+     8,
+     1270
+    ]
+   }
+  ],
+  "horizontal": [
+   {
+    "at": 0,
+    "width": 5,
+    "span": [
+     8,
+     1701
+    ]
+   },
+   {
+    "at": 62,
+    "width": 2,
+    "span": [
+     8,
+     1701
+    ]
+   },
+   {
+    "at": 1274,
+    "width": 5,
+    "span": [
+     8,
+     1701
+    ]
+   }
+  ]
+ },
+ "greyRules": [],
+ "lanes": {
+  "lane-importing-customs-party": {
+   "x0": 0,
+   "x1": 573,
+   "titleBox": [
+    146,
+    30,
+    287,
+    23
+   ],
+   "titleBold": true
+  },
+  "lane-importing-guarantor-party": {
+   "x0": 573,
+   "x1": 1139,
+   "titleBox": [
+    703,
+    29,
+    301,
+    24
+   ],
+   "titleBold": true
+  },
+  "lane-exporting-guarantor-party": {
+   "x0": 1139,
+   "x1": 1712,
+   "titleBox": [
+    1271,
+    29,
+    303,
+    24
+   ],
+   "titleBold": true
+  }
+ },
+ "nodes": {
+  "initial-importing-customs-party": {
+   "x": 248,
+   "y": 144,
+   "w": 46,
+   "h": 46
+  },
+  "action-query-if-goods-have-left-the-country": {
+   "x": 151,
+   "y": 279,
+   "w": 240,
+   "h": 119,
+   "shape": "rounded",
+   "stroke": 2,
+   "rx": 14,
+   "ry": 14,
+   "bold": false,
+   "labelLines": [
+    {
+     "x": 163,
+     "y": 311,
+     "w": 215,
+     "h": 24,
+     "text": "Query if goods have"
+    },
+    {
+     "x": 193,
+     "y": 342,
+     "w": 157,
+     "h": 23,
+     "text": "left the country"
+    }
+   ]
+  },
+  "object-request-for-proof-of-reexportation-between-importing-customs-party-and-importing-guarantor-party": {
+   "x": 454,
+   "y": 279,
+   "w": 239,
+   "h": 118,
+   "shape": "rect",
+   "stroke": 3,
+   "rx": 0,
+   "ry": 0,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 467,
+     "y": 315,
+     "w": 213,
+     "h": 22,
+     "text": "Request For Proof"
+    },
+    {
+     "x": 475,
+     "y": 339,
+     "w": 195,
+     "h": 23,
+     "text": "Of Reexportation"
+    }
+   ]
+  },
+  "object-request-for-proof-of-reexportation-between-importing-guarantor-party-and-exporting-guarantor-party": {
+   "x": 1018,
+   "y": 279,
+   "w": 239,
+   "h": 118,
+   "shape": "rect",
+   "stroke": 3,
+   "rx": 0,
+   "ry": 0,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 1031,
+     "y": 315,
+     "w": 213,
+     "h": 22,
+     "text": "Request For Proof"
+    },
+    {
+     "x": 1039,
+     "y": 339,
+     "w": 195,
+     "h": 23,
+     "text": "Of Reexportation"
+    }
+   ]
+  },
+  "action-issue-to-relevant-chamber-of-commerce": {
+   "x": 739,
+   "y": 291,
+   "w": 227,
+   "h": 95,
+   "shape": "rounded",
+   "stroke": 2,
+   "rx": 12,
+   "ry": 13,
+   "bold": false,
+   "labelLines": [
+    {
+     "x": 814,
+     "y": 299,
+     "w": 82,
+     "h": 17,
+     "text": "Issue to"
+    },
+    {
+     "x": 755,
+     "y": 329,
+     "w": 200,
+     "h": 18,
+     "text": "Relevant Chamber"
+    },
+    {
+     "x": 785,
+     "y": 360,
+     "w": 144,
+     "h": 18,
+     "text": "of Commerce"
+    }
+   ]
+  },
+  "action-create-case-number": {
+   "x": 1377,
+   "y": 291,
+   "w": 193,
+   "h": 95,
+   "shape": "rounded",
+   "stroke": 2,
+   "rx": 12,
+   "ry": 15,
+   "bold": false,
+   "labelLines": [
+    {
+     "x": 1439,
+     "y": 317,
+     "w": 71,
+     "h": 18,
+     "text": "Create"
+    },
+    {
+     "x": 1400,
+     "y": 341,
+     "w": 149,
+     "h": 18,
+     "text": "Case Number"
+    }
+   ]
+  },
+  "action-get-status-from-goods-item-passport": {
+   "x": 1377,
+   "y": 440,
+   "w": 193,
+   "h": 95,
+   "shape": "rounded",
+   "stroke": 2,
+   "rx": 14,
+   "ry": 17,
+   "bold": false,
+   "labelLines": [
+    {
+     "x": 1386,
+     "y": 452,
+     "w": 175,
+     "h": 18,
+     "text": "Get Status From"
+    },
+    {
+     "x": 1412,
+     "y": 476,
+     "w": 123,
+     "h": 19,
+     "text": "Goods Item"
+    },
+    {
+     "x": 1431,
+     "y": 501,
+     "w": 93,
+     "h": 22,
+     "text": "Passport"
+    }
+   ]
+  },
+  "decision-item-returned": {
+   "x": 1397,
+   "y": 584,
+   "w": 157,
+   "h": 113,
+   "shape": "rhombus",
+   "stroke": 2,
+   "rx": 84,
+   "ry": 61,
+   "bold": false,
+   "labelLines": [
+    {
+     "x": 1456,
+     "y": 610,
+     "w": 43,
+     "h": 17,
+     "text": "Item"
+    },
+    {
+     "x": 1422,
+     "y": 634,
+     "w": 111,
+     "h": 18,
+     "text": "Returned?"
+    }
+   ]
+  },
+  "object-proof-of-reexportation-between-importing-customs-party-and-importing-guarantor-party": {
+   "x": 454,
+   "y": 781,
+   "w": 239,
+   "h": 118,
+   "shape": "rect",
+   "stroke": 3,
+   "rx": 0,
+   "ry": 0,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 542,
+     "y": 817,
+     "w": 65,
+     "h": 18,
+     "text": "Proof"
+    },
+    {
+     "x": 476,
+     "y": 841,
+     "w": 195,
+     "h": 23,
+     "text": "Of Reexportation"
+    }
+   ]
+  },
+  "object-proof-of-reexportation-between-importing-guarantor-party-and-exporting-guarantor-party": {
+   "x": 1018,
+   "y": 781,
+   "w": 239,
+   "h": 118,
+   "shape": "rect",
+   "stroke": 3,
+   "rx": 0,
+   "ry": 0,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 1106,
+     "y": 817,
+     "w": 65,
+     "h": 18,
+     "text": "Proof"
+    },
+    {
+     "x": 1040,
+     "y": 841,
+     "w": 195,
+     "h": 23,
+     "text": "Of Reexportation"
+    }
+   ]
+  },
+  "action-receive-proof-of-reexportation": {
+   "x": 166,
+   "y": 789,
+   "w": 210,
+   "h": 103,
+   "shape": "rounded",
+   "stroke": 2,
+   "rx": 12,
+   "ry": 13,
+   "bold": false,
+   "labelLines": [
+    {
+     "x": 203,
+     "y": 819,
+     "w": 150,
+     "h": 18,
+     "text": "Receive Proof"
+    },
+    {
+     "x": 189,
+     "y": 843,
+     "w": 176,
+     "h": 23,
+     "text": "of Reexportation"
+    }
+   ]
+  },
+  "action-apply-stamps-and-signature": {
+   "x": 1379,
+   "y": 789,
+   "w": 191,
+   "h": 103,
+   "shape": "rounded",
+   "stroke": 2,
+   "rx": 13,
+   "ry": 17,
+   "bold": false,
+   "labelLines": [
+    {
+     "x": 1398,
+     "y": 816,
+     "w": 149,
+     "h": 23,
+     "text": "Apply Stamps"
+    },
+    {
+     "x": 1396,
+     "y": 840,
+     "w": 153,
+     "h": 24,
+     "text": "And Signature"
+    }
+   ]
+  },
+  "action-issue-to-customs-in-importing-guarantor-party": {
+   "x": 767,
+   "y": 793,
+   "w": 170,
+   "h": 95,
+   "shape": "rounded",
+   "stroke": 2,
+   "rx": 12,
+   "ry": 12,
+   "bold": false,
+   "labelLines": [
+    {
+     "x": 825,
+     "y": 807,
+     "w": 55,
+     "h": 18,
+     "text": "Issue"
+    },
+    {
+     "x": 842,
+     "y": 832,
+     "w": 19,
+     "h": 17,
+     "text": "to"
+    },
+    {
+     "x": 805,
+     "y": 855,
+     "w": 94,
+     "h": 18,
+     "text": "Customs"
+    }
+   ]
+  },
+  "object-application-response-between-importing-customs-party-and-importing-guarantor-party": {
+   "x": 454,
+   "y": 983,
+   "w": 239,
+   "h": 118,
+   "shape": "rect",
+   "stroke": 3,
+   "rx": 0,
+   "ry": 0,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 457,
+     "y": 1037,
+     "w": 233,
+     "h": 21,
+     "text": "Application response"
+    }
+   ]
+  },
+  "object-application-response-between-importing-guarantor-party-and-exporting-guarantor-party": {
+   "x": 1018,
+   "y": 983,
+   "w": 239,
+   "h": 118,
+   "shape": "rect",
+   "stroke": 3,
+   "rx": 0,
+   "ry": 0,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 1021,
+     "y": 1037,
+     "w": 233,
+     "h": 21,
+     "text": "Application response"
+    }
+   ]
+  },
+  "action-receive-declined": {
+   "x": 166,
+   "y": 991,
+   "w": 210,
+   "h": 103,
+   "shape": "rounded",
+   "stroke": 2,
+   "rx": 13,
+   "ry": 13,
+   "bold": false,
+   "labelLines": [
+    {
+     "x": 179,
+     "y": 1036,
+     "w": 185,
+     "h": 18,
+     "text": "Receive Declined"
+    }
+   ]
+  },
+  "action-issue-to-customs-in-importing-guarantor-party-2": {
+   "x": 764,
+   "y": 991,
+   "w": 175,
+   "h": 103,
+   "shape": "rounded",
+   "stroke": 2,
+   "rx": 13,
+   "ry": 18,
+   "bold": false,
+   "labelLines": [
+    {
+     "x": 825,
+     "y": 1009,
+     "w": 55,
+     "h": 18,
+     "text": "Issue"
+    },
+    {
+     "x": 842,
+     "y": 1035,
+     "w": 19,
+     "h": 16,
+     "text": "to"
+    },
+    {
+     "x": 805,
+     "y": 1057,
+     "w": 94,
+     "h": 19,
+     "text": "Customs"
+    }
+   ]
+  },
+  "action-send-declined": {
+   "x": 1381,
+   "y": 991,
+   "w": 191,
+   "h": 103,
+   "shape": "rounded",
+   "stroke": 2,
+   "rx": 14,
+   "ry": 17,
+   "bold": false,
+   "labelLines": [
+    {
+     "x": 1399,
+     "y": 1036,
+     "w": 155,
+     "h": 18,
+     "text": "Send Declined"
+    }
+   ]
+  },
+  "final-importing-customs-party": {
+   "x": 79,
+   "y": 1173,
+   "w": 58,
+   "h": 58,
+   "shape": "ellipse",
+   "stroke": 0,
+   "rx": 27,
+   "ry": 27,
+   "innerRatio": 0.776
+  }
+ },
+ "flows": {
+  "flow-initial-importing-customs-party-to-query-if-goods-have-left-the-country": {
+   "fromPoint": [
+    270,
+    204
+   ],
+   "toPoint": [
+    271,
+    264
+   ],
+   "routing": "straight"
+  },
+  "flow-query-if-goods-have-left-the-country-to-request-for-proof-of-reexportation-between-importing-customs-party-and-importing-guarantor-party": {
+   "fromPoint": [
+    405,
+    338
+   ],
+   "toPoint": [
+    439,
+    338
+   ],
+   "routing": "straight"
+  },
+  "flow-request-for-proof-of-reexportation-between-importing-customs-party-and-importing-guarantor-party-to-issue-to-relevant-chamber-of-commerce": {
+   "fromPoint": [
+    707,
+    338
+   ],
+   "toPoint": [
+    724,
+    338
+   ],
+   "routing": "straight"
+  },
+  "flow-issue-to-relevant-chamber-of-commerce-to-request-for-proof-of-reexportation-between-importing-guarantor-party-and-exporting-guarantor-party": {
+   "fromPoint": [
+    980,
+    338
+   ],
+   "toPoint": [
+    1003,
+    338
+   ],
+   "routing": "straight"
+  },
+  "flow-request-for-proof-of-reexportation-between-importing-guarantor-party-and-exporting-guarantor-party-to-create-case-number": {
+   "fromPoint": [
+    1271,
+    338
+   ],
+   "toPoint": [
+    1362,
+    338
+   ],
+   "routing": "straight"
+  },
+  "flow-create-case-number-to-get-status-from-goods-item-passport": {
+   "fromPoint": [
+    1475,
+    400
+   ],
+   "toPoint": [
+    1473,
+    425
+   ],
+   "routing": "straight"
+  },
+  "flow-get-status-from-goods-item-passport-to-item-returned": {
+   "fromPoint": [
+    1475,
+    549
+   ],
+   "toPoint": [
+    1475,
+    569
+   ],
+   "routing": "straight"
+  },
+  "flow-item-returned-to-send-declined": {
+   "fromPoint": [
+    1568,
+    640
+   ],
+   "toPoint": [
+    1586,
+    1042
+   ],
+   "routing": "orthogonal",
+   "points": [
+    [
+     1630,
+     640
+    ],
+    [
+     1630,
+     1042
+    ]
+   ]
+  },
+  "flow-item-returned-to-apply-stamps-and-signature": {
+   "fromPoint": [
+    1475,
+    711
+   ],
+   "toPoint": [
+    1475,
+    774
+   ],
+   "routing": "straight"
+  },
+  "flow-proof-of-reexportation-between-importing-customs-party-and-importing-guarantor-party-to-receive-proof-of-reexportation": {
+   "fromPoint": [
+    439,
+    840
+   ],
+   "toPoint": [
+    390,
+    840
+   ],
+   "routing": "straight"
+  },
+  "flow-issue-to-customs-in-importing-guarantor-party-to-proof-of-reexportation-between-importing-customs-party-and-importing-guarantor-party": {
+   "fromPoint": [
+    752,
+    840
+   ],
+   "toPoint": [
+    707,
+    840
+   ],
+   "routing": "straight"
+  },
+  "flow-proof-of-reexportation-between-importing-guarantor-party-and-exporting-guarantor-party-to-issue-to-customs-in-importing-guarantor-party": {
+   "fromPoint": [
+    1003,
+    840
+   ],
+   "toPoint": [
+    951,
+    840
+   ],
+   "routing": "straight"
+  },
+  "flow-apply-stamps-and-signature-to-proof-of-reexportation-between-importing-guarantor-party-and-exporting-guarantor-party": {
+   "fromPoint": [
+    1364,
+    840
+   ],
+   "toPoint": [
+    1271,
+    840
+   ],
+   "routing": "straight"
+  },
+  "flow-receive-proof-of-reexportation-to-final-importing-customs-party": {
+   "fromPoint": [
+    151,
+    840
+   ],
+   "toPoint": [
+    108,
+    1158
+   ],
+   "routing": "orthogonal",
+   "points": [
+    [
+     108,
+     840
+    ]
+   ]
+  },
+  "flow-application-response-between-importing-customs-party-and-importing-guarantor-party-to-receive-declined": {
+   "fromPoint": [
+    439,
+    1042
+   ],
+   "toPoint": [
+    390,
+    1042
+   ],
+   "routing": "straight"
+  },
+  "flow-issue-to-customs-in-importing-guarantor-party-2-to-application-response-between-importing-customs-party-and-importing-guarantor-party": {
+   "fromPoint": [
+    749,
+    1042
+   ],
+   "toPoint": [
+    707,
+    1042
+   ],
+   "routing": "straight"
+  },
+  "flow-send-declined-to-application-response-between-importing-guarantor-party-and-exporting-guarantor-party": {
+   "fromPoint": [
+    1366,
+    1044
+   ],
+   "toPoint": [
+    1271,
+    1044
+   ],
+   "routing": "straight"
+  },
+  "flow-application-response-between-importing-guarantor-party-and-exporting-guarantor-party-to-issue-to-customs-in-importing-guarantor-party-2": {
+   "fromPoint": [
+    1003,
+    1045
+   ],
+   "toPoint": [
+    953,
+    1044
+   ],
+   "routing": "straight"
+  },
+  "flow-receive-declined-to-final-importing-customs-party": {
+   "fromPoint": [
+    272,
+    1108
+   ],
+   "toPoint": [
+    153,
+    1202
+   ],
+   "routing": "orthogonal",
+   "points": [
+    [
+     272,
+     1202
+    ]
+   ]
+  }
+ },
+ "texts": {
+  "text-yes": {
+   "x": 1414,
+   "y": 726,
+   "w": 34,
+   "h": 16,
+   "lines": [
+    {
+     "x": 1414,
+     "y": 726,
+     "w": 34,
+     "h": 16,
+     "text": "Yes"
+    }
+   ]
+  },
+  "text-no": {
+   "x": 1640,
+   "y": 811,
+   "w": 26,
+   "h": 17,
+   "lines": [
+    {
+     "x": 1640,
+     "y": 811,
+     "w": 26,
+     "h": 17,
+     "text": "No"
+    }
+   ]
+  }
+ },
+ "offPage": {},
+ "marks": {},
+ "phases": {},
+ "rulesHaveSpans": {
+  "vertical": true,
+  "horizontal": true
+ },
+ "titleRow": [
+  0,
+  63
+ ]
+}

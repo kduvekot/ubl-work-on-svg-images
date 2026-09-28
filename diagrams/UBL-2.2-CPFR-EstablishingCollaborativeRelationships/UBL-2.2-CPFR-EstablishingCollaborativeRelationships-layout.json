@@ -1,0 +1,649 @@
+{
+ "schema": "ubl-activity-diagram-layout/1",
+ "figure": "UBL-2.2-CPFR-EstablishingCollaborativeRelationships",
+ "units": "px of the original PNG",
+ "size": [
+  3425,
+  2976
+ ],
+ "style": {
+  "fontPx": 47.1,
+  "arrowPx": 60.0,
+  "arrowWidthPx": 48.0,
+  "arrowStyle": "open"
+ },
+ "rules": {
+  "vertical": [
+   {
+    "at": 0,
+    "width": 10,
+    "span": [
+     13,
+     2962
+    ]
+   },
+   {
+    "at": 1705,
+    "width": 1,
+    "span": [
+     13,
+     2962
+    ]
+   },
+   {
+    "at": 3415,
+    "width": 10,
+    "span": [
+     13,
+     2962
+    ]
+   }
+  ],
+  "horizontal": [
+   {
+    "at": 0,
+    "width": 10,
+    "span": [
+     13,
+     3411
+    ]
+   },
+   {
+    "at": 2966,
+    "width": 10,
+    "span": [
+     13,
+     3411
+    ]
+   }
+  ]
+ },
+ "greyRules": [],
+ "lanes": {
+  "lane-buyer-party": {
+   "x0": 0,
+   "x1": 1706,
+   "titleBox": [
+    701,
+    53,
+    227,
+    41
+   ]
+  },
+  "lane-seller-party": {
+   "x0": 1706,
+   "x1": 3425,
+   "titleBox": [
+    2552,
+    53,
+    226,
+    41
+   ]
+  }
+ },
+ "nodes": {
+  "initial-seller-party": {
+   "x": 2778,
+   "y": 296,
+   "w": 147,
+   "h": 147
+  },
+  "object-exception-criteria": {
+   "x": 1443,
+   "y": 705,
+   "w": 520,
+   "h": 232,
+   "shape": "rect",
+   "stroke": 6,
+   "rx": 0,
+   "ry": 0,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 1505,
+     "y": 791,
+     "w": 376,
+     "h": 42,
+     "text": "Exception Criteria"
+    }
+   ]
+  },
+  "action-receive-exception-criteria-in-buyer-party": {
+   "x": 376,
+   "y": 708,
+   "w": 572,
+   "h": 221,
+   "shape": "rounded",
+   "stroke": 3,
+   "rx": 68,
+   "ry": 70,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 449,
+     "y": 764,
+     "w": 385,
+     "h": 42,
+     "text": "Receive Exception"
+    },
+    {
+     "x": 583,
+     "y": 823,
+     "w": 154,
+     "h": 32,
+     "text": "Criteria"
+    }
+   ]
+  },
+  "action-send-exception-criteria-in-seller-party": {
+   "x": 2547,
+   "y": 726,
+   "w": 608,
+   "h": 203,
+   "shape": "rounded",
+   "stroke": 3,
+   "rx": 68,
+   "ry": 70,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 2592,
+     "y": 796,
+     "w": 497,
+     "h": 41,
+     "text": "Send Exception Criteria"
+    }
+   ]
+  },
+  "action-revise-exception-criteria": {
+   "x": 381,
+   "y": 1059,
+   "w": 572,
+   "h": 235,
+   "shape": "rounded",
+   "stroke": 4,
+   "rx": 65,
+   "ry": 66,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 467,
+     "y": 1119,
+     "w": 360,
+     "h": 42,
+     "text": "Revise Exception"
+    },
+    {
+     "x": 588,
+     "y": 1178,
+     "w": 153,
+     "h": 32,
+     "text": "Criteria"
+    }
+   ]
+  },
+  "object-exception-criteria-revision": {
+   "x": 1488,
+   "y": 1446,
+   "w": 498,
+   "h": 238,
+   "shape": "rect",
+   "stroke": 5,
+   "rx": 0,
+   "ry": 0,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 1532,
+     "y": 1517,
+     "w": 376,
+     "h": 42,
+     "text": "Exception Criteria"
+    },
+    {
+     "x": 1635,
+     "y": 1567,
+     "w": 196,
+     "h": 41,
+     "text": "(revision)"
+    }
+   ]
+  },
+  "action-receive-revision": {
+   "x": 2332,
+   "y": 1450,
+   "w": 558,
+   "h": 221,
+   "shape": "rounded",
+   "stroke": 4,
+   "rx": 65,
+   "ry": 65,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 2414,
+     "y": 1531,
+     "w": 357,
+     "h": 32,
+     "text": "Receive Revision"
+    }
+   ]
+  },
+  "action-send-revision": {
+   "x": 583,
+   "y": 1477,
+   "w": 577,
+   "h": 185,
+   "shape": "rounded",
+   "stroke": 4,
+   "rx": 66,
+   "ry": 68,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 708,
+     "y": 1542,
+     "w": 300,
+     "h": 33,
+     "text": "Send Revision"
+    }
+   ]
+  },
+  "action-review-and-resend-revision": {
+   "x": 2305,
+   "y": 1872,
+   "w": 608,
+   "h": 213,
+   "shape": "rounded",
+   "stroke": 3,
+   "rx": 69,
+   "ry": 65,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 2382,
+     "y": 1922,
+     "w": 408,
+     "h": 32,
+     "text": "Review and Resend"
+    },
+    {
+     "x": 2513,
+     "y": 1980,
+     "w": 177,
+     "h": 33,
+     "text": "Revision"
+    }
+   ]
+  },
+  "decision-buyer-party": {
+   "x": 391,
+   "y": 1900,
+   "w": 188,
+   "h": 175,
+   "shape": "rhombus",
+   "stroke": 4,
+   "rx": 99,
+   "ry": 95
+  },
+  "action-send-exception-criteria-in-buyer-party": {
+   "x": 754,
+   "y": 2304,
+   "w": 603,
+   "h": 181,
+   "shape": "rounded",
+   "stroke": 3,
+   "rx": 67,
+   "ry": 67,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 794,
+     "y": 2369,
+     "w": 497,
+     "h": 42,
+     "text": "Send Exception Criteria"
+    }
+   ]
+  },
+  "action-receive-exception-criteria-in-seller-party": {
+   "x": 2309,
+   "y": 2385,
+   "w": 604,
+   "h": 208,
+   "shape": "rounded",
+   "stroke": 4,
+   "rx": 66,
+   "ry": 68,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 2393,
+     "y": 2434,
+     "w": 387,
+     "h": 42,
+     "text": "Receive Exception"
+    },
+    {
+     "x": 2529,
+     "y": 2493,
+     "w": 154,
+     "h": 32,
+     "text": "Criteria"
+    }
+   ]
+  },
+  "object-exception-criteria-response-positive": {
+   "x": 1456,
+   "y": 2404,
+   "w": 552,
+   "h": 246,
+   "shape": "rect",
+   "stroke": 6,
+   "rx": 0,
+   "ry": 0,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 1527,
+     "y": 2473,
+     "w": 377,
+     "h": 41,
+     "text": "Exception Criteria"
+    },
+    {
+     "x": 1523,
+     "y": 2522,
+     "w": 402,
+     "h": 42,
+     "text": "(response positive)"
+    }
+   ]
+  }
+ },
+ "flows": {
+  "flow-initial-seller-party-to-send-exception-criteria-in-seller-party": {
+   "fromPoint": [
+    2851,
+    457
+   ],
+   "toPoint": [
+    2851,
+    711
+   ],
+   "routing": "straight"
+  },
+  "flow-exception-criteria-to-receive-exception-criteria-in-buyer-party": {
+   "fromPoint": [
+    1423,
+    818
+   ],
+   "toPoint": [
+    962,
+    818
+   ],
+   "routing": "straight"
+  },
+  "flow-send-exception-criteria-in-seller-party-to-exception-criteria": {
+   "fromPoint": [
+    2532,
+    823
+   ],
+   "toPoint": [
+    1982,
+    818
+   ],
+   "routing": "straight"
+  },
+  "flow-receive-exception-criteria-in-buyer-party-to-revise-exception-criteria": {
+   "fromPoint": [
+    661,
+    943
+   ],
+   "toPoint": [
+    663,
+    1044
+   ],
+   "routing": "straight"
+  },
+  "flow-decision-buyer-party-to-revise-exception-criteria": {
+   "fromPoint": [
+    482,
+    1885
+   ],
+   "toPoint": [
+    482,
+    1308
+   ],
+   "routing": "straight"
+  },
+  "flow-revise-exception-criteria-to-send-revision": {
+   "fromPoint": [
+    818,
+    1308
+   ],
+   "toPoint": [
+    820,
+    1462
+   ],
+   "routing": "straight"
+  },
+  "flow-exception-criteria-revision-to-receive-revision": {
+   "fromPoint": [
+    2005,
+    1560
+   ],
+   "toPoint": [
+    2317,
+    1560
+   ],
+   "routing": "straight"
+  },
+  "flow-send-revision-to-exception-criteria-revision": {
+   "fromPoint": [
+    1174,
+    1565
+   ],
+   "toPoint": [
+    1468,
+    1565
+   ],
+   "routing": "straight"
+  },
+  "flow-receive-revision-to-review-and-resend-revision": {
+   "fromPoint": [
+    2608,
+    1685
+   ],
+   "toPoint": [
+    2608,
+    1857
+   ],
+   "routing": "straight"
+  },
+  "flow-exception-criteria-revision-to-decision-buyer-party": {
+   "fromPoint": [
+    1480,
+    1703
+   ],
+   "toPoint": [
+    593,
+    1987
+   ],
+   "routing": "orthogonal",
+   "points": [
+    [
+     1480,
+     1987
+    ]
+   ]
+  },
+  "flow-review-and-resend-revision-to-exception-criteria-revision": {
+   "fromPoint": [
+    2290,
+    1987
+   ],
+   "toPoint": [
+    1916,
+    1703
+   ],
+   "routing": "orthogonal",
+   "points": [
+    [
+     1916,
+     1987
+    ]
+   ]
+  },
+  "flow-decision-buyer-party-to-send-exception-criteria-in-buyer-party": {
+   "fromPoint": [
+    482,
+    2089
+   ],
+   "toPoint": [
+    909,
+    2289
+   ],
+   "routing": "orthogonal",
+   "points": [
+    [
+     482,
+     2162
+    ],
+    [
+     909,
+     2162
+    ]
+   ]
+  },
+  "flow-send-exception-criteria-in-buyer-party-to-exception-criteria-response-positive": {
+   "fromPoint": [
+    1371,
+    2413
+   ],
+   "toPoint": [
+    1436,
+    2438
+   ],
+   "routing": "straight"
+  },
+  "flow-exception-criteria-response-positive-to-receive-exception-criteria-in-seller-party": {
+   "fromPoint": [
+    2027,
+    2513
+   ],
+   "toPoint": [
+    2294,
+    2513
+   ],
+   "routing": "straight"
+  }
+ },
+ "texts": {
+  "text-no": {
+   "x": 391,
+   "y": 1334,
+   "w": 52,
+   "h": 33,
+   "lines": [
+    {
+     "x": 391,
+     "y": 1334,
+     "w": 52,
+     "h": 33,
+     "text": "No"
+    }
+   ]
+  },
+  "text-exception-criteria-accepted": {
+   "x": 162,
+   "y": 1829,
+   "w": 564,
+   "h": 41,
+   "lines": [
+    {
+     "x": 162,
+     "y": 1825,
+     "w": 564,
+     "h": 49,
+     "text": "Exception Criteria Accepted?"
+    }
+   ]
+  },
+  "text-yes": {
+   "x": 797,
+   "y": 2220,
+   "w": 74,
+   "h": 32,
+   "lines": [
+    {
+     "x": 797,
+     "y": 2220,
+     "w": 74,
+     "h": 32,
+     "text": "Yes"
+    }
+   ]
+  }
+ },
+ "offPage": {
+  "offpage-action-receive-exception-criteria-in-seller-party": {
+   "at": [
+    2371,
+    2607
+   ],
+   "end": [
+    715,
+    2963
+   ],
+   "points": [
+    [
+     2370,
+     2890
+    ],
+    [
+     716,
+     2890
+    ]
+   ],
+   "x": 715,
+   "y": 2607,
+   "w": 1658,
+   "h": 357
+  }
+ },
+ "marks": {},
+ "phases": {
+  "phase-establishing-collaborative-relationship": {
+   "x": 82,
+   "y": 142,
+   "w": 3260,
+   "h": 2668,
+   "rx": 126,
+   "dash": 13.0,
+   "gap": 9.0,
+   "weight": 3.0,
+   "title": {
+    "x": 1276,
+    "y": 162,
+    "w": 828,
+    "h": 41,
+    "lines": [
+     {
+      "x": 1276,
+      "y": 158,
+      "w": 828,
+      "h": 49,
+      "text": "Establishing Collaborative Relationship"
+     }
+    ],
+    "as": "text",
+    "bold": true
+   }
+  }
+ },
+ "rulesHaveSpans": {
+  "vertical": true,
+  "horizontal": true
+ }
+}

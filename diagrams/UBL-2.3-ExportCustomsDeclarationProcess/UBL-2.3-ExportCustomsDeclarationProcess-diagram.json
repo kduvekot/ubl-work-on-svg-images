@@ -1,0 +1,234 @@
+{
+ "schema": "ubl-activity-diagram/1",
+ "figure": {
+  "name": "UBL-2.3-ExportCustomsDeclarationProcess",
+  "source": "UBL-2.3-ExportCustomsDeclarationProcess.png"
+ },
+ "lanes": [
+  {
+   "id": "lane-exporter-party",
+   "axis": "column",
+   "index": 0,
+   "title": "Exporter Party"
+  },
+  {
+   "id": "lane-customs-party",
+   "axis": "column",
+   "index": 1,
+   "title": "Customs Party"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "initial-exporter-party",
+   "kind": "initial",
+   "label": "",
+   "lane": "lane-exporter-party"
+  },
+  {
+   "id": "object-export-customs-declaration-between-exporter-party-and-customs-party",
+   "kind": "object",
+   "label": "Export Customs\nDeclaration",
+   "lane": null,
+   "between": [
+    "lane-exporter-party",
+    "lane-customs-party"
+   ]
+  },
+  {
+   "id": "action-draft-export-customs-declaration",
+   "kind": "action",
+   "label": "Draft\nExport Customs\nDeclaration",
+   "lane": "lane-exporter-party"
+  },
+  {
+   "id": "action-validate-export-customs-declaration",
+   "kind": "action",
+   "label": "Validate\nExport Customs\nDeclaration",
+   "lane": "lane-customs-party"
+  },
+  {
+   "id": "decision-ok",
+   "kind": "decision",
+   "label": "OK?",
+   "lane": "lane-customs-party"
+  },
+  {
+   "id": "object-export-customs-declaration-between-exporter-party-and-customs-party-2",
+   "kind": "object",
+   "label": "Export Customs\nDeclaration",
+   "lane": null,
+   "between": [
+    "lane-exporter-party",
+    "lane-customs-party"
+   ]
+  },
+  {
+   "id": "action-receive-export-customs-declaration",
+   "kind": "action",
+   "label": "Receive\nExport Customs\nDeclaration",
+   "lane": "lane-exporter-party"
+  },
+  {
+   "id": "action-apply-stamps-and-signature",
+   "kind": "action",
+   "label": "Apply stamps\nand signature",
+   "lane": "lane-customs-party"
+  },
+  {
+   "id": "object-application-response",
+   "kind": "object",
+   "label": "Application response",
+   "lane": null,
+   "between": [
+    "lane-exporter-party",
+    "lane-customs-party"
+   ]
+  },
+  {
+   "id": "action-receive-reject",
+   "kind": "action",
+   "label": "Receive reject",
+   "lane": "lane-exporter-party"
+  },
+  {
+   "id": "action-send-reject",
+   "kind": "action",
+   "label": "Send reject",
+   "lane": "lane-customs-party"
+  },
+  {
+   "id": "final-exporter-party",
+   "kind": "final",
+   "label": "",
+   "lane": "lane-exporter-party"
+  }
+ ],
+ "flows": [
+  {
+   "id": "flow-initial-exporter-party-to-draft-export-customs-declaration",
+   "from": "initial-exporter-party",
+   "to": "action-draft-export-customs-declaration",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-draft-export-customs-declaration-to-export-customs-declaration-between-exporter-party-and-customs-party",
+   "from": "action-draft-export-customs-declaration",
+   "to": "object-export-customs-declaration-between-exporter-party-and-customs-party",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-export-customs-declaration-between-exporter-party-and-customs-party-to-validate-export-customs-declaration",
+   "from": "object-export-customs-declaration-between-exporter-party-and-customs-party",
+   "to": "action-validate-export-customs-declaration",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-validate-export-customs-declaration-to-ok",
+   "from": "action-validate-export-customs-declaration",
+   "to": "decision-ok",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-ok-to-send-reject",
+   "from": "decision-ok",
+   "to": "action-send-reject",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   },
+   "guard": "text-no"
+  },
+  {
+   "id": "flow-ok-to-apply-stamps-and-signature",
+   "from": "decision-ok",
+   "to": "action-apply-stamps-and-signature",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   },
+   "guard": "text-yes"
+  },
+  {
+   "id": "flow-export-customs-declaration-between-exporter-party-and-customs-party-2-to-receive-export-customs-declaration",
+   "from": "object-export-customs-declaration-between-exporter-party-and-customs-party-2",
+   "to": "action-receive-export-customs-declaration",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-apply-stamps-and-signature-to-export-customs-declaration-between-exporter-party-and-customs-party-2",
+   "from": "action-apply-stamps-and-signature",
+   "to": "object-export-customs-declaration-between-exporter-party-and-customs-party-2",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-receive-export-customs-declaration-to-final-exporter-party",
+   "from": "action-receive-export-customs-declaration",
+   "to": "final-exporter-party",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-application-response-to-receive-reject",
+   "from": "object-application-response",
+   "to": "action-receive-reject",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-send-reject-to-application-response",
+   "from": "action-send-reject",
+   "to": "object-application-response",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-receive-reject-to-final-exporter-party",
+   "from": "action-receive-reject",
+   "to": "final-exporter-party",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  }
+ ],
+ "texts": [
+  {
+   "id": "text-yes",
+   "text": "Yes",
+   "labels": "flow-ok-to-apply-stamps-and-signature"
+  },
+  {
+   "id": "text-no",
+   "text": "No",
+   "labels": "flow-ok-to-send-reject"
+  }
+ ],
+ "offPage": [],
+ "marks": [],
+ "phases": []
+}

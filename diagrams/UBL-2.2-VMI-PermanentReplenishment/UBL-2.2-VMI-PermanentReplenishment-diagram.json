@@ -1,0 +1,357 @@
+{
+ "schema": "ubl-activity-diagram/1",
+ "figure": {
+  "name": "UBL-2.2-VMI-PermanentReplenishment",
+  "source": "UBL-2.2-VMI-PermanentReplenishment.png"
+ },
+ "lanes": [
+  {
+   "id": "lane-producer",
+   "axis": "column",
+   "index": 0,
+   "title": "Producer"
+  },
+  {
+   "id": "lane-retailer",
+   "axis": "column",
+   "index": 1,
+   "title": "Retailer"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "initial-producer",
+   "kind": "initial",
+   "label": "",
+   "lane": "lane-producer"
+  },
+  {
+   "id": "decision-producer",
+   "kind": "decision",
+   "label": "",
+   "lane": "lane-producer",
+   "question": "Is there a new item to be delivered?"
+  },
+  {
+   "id": "object-catalogue",
+   "kind": "object",
+   "label": "Catalogue",
+   "lane": null,
+   "between": [
+    "lane-producer",
+    "lane-retailer"
+   ]
+  },
+  {
+   "id": "action-send-catalogue",
+   "kind": "action",
+   "label": "Send Catalogue",
+   "lane": "lane-producer"
+  },
+  {
+   "id": "action-update-products-database",
+   "kind": "action",
+   "label": "Update products database",
+   "lane": "lane-retailer"
+  },
+  {
+   "id": "action-receive-catalogue",
+   "kind": "action",
+   "label": "Receive Catalogue",
+   "lane": "lane-retailer"
+  },
+  {
+   "id": "object-despatch-advice",
+   "kind": "object",
+   "label": "Despatch Advice",
+   "lane": null,
+   "between": [
+    "lane-producer",
+    "lane-retailer"
+   ]
+  },
+  {
+   "id": "action-send-despatch-advice",
+   "kind": "action",
+   "label": "Send Despatch\nAdvice",
+   "lane": "lane-producer"
+  },
+  {
+   "id": "action-receive-despatch-advice",
+   "kind": "action",
+   "label": "Receive Despatch Advice",
+   "lane": "lane-retailer"
+  },
+  {
+   "id": "action-despatch-item-s",
+   "kind": "action",
+   "label": "Despatch item(s)",
+   "lane": "lane-producer"
+  },
+  {
+   "id": "action-receive-item-s",
+   "kind": "action",
+   "label": "Receive item(s)",
+   "lane": "lane-retailer"
+  },
+  {
+   "id": "fork-retailer",
+   "kind": "fork",
+   "label": "",
+   "lane": "lane-retailer"
+  },
+  {
+   "id": "action-check-status-of-item-s",
+   "kind": "action",
+   "label": "Check status of item(s)",
+   "lane": "lane-retailer"
+  },
+  {
+   "id": "object-receipt-advice",
+   "kind": "object",
+   "label": "Receipt Advice",
+   "lane": null,
+   "between": [
+    "lane-producer",
+    "lane-retailer"
+   ]
+  },
+  {
+   "id": "action-send-receipt-advice",
+   "kind": "action",
+   "label": "Send Receipt Advice",
+   "lane": "lane-retailer"
+  },
+  {
+   "id": "action-receive-receipt-advice",
+   "kind": "action",
+   "label": "Receive Receipt Advice",
+   "lane": "lane-producer"
+  },
+  {
+   "id": "action-adjust-supply-status",
+   "kind": "action",
+   "label": "Adjust supply status",
+   "lane": "lane-producer"
+  },
+  {
+   "id": "final-producer",
+   "kind": "final",
+   "label": "",
+   "lane": "lane-producer"
+  }
+ ],
+ "flows": [
+  {
+   "id": "flow-initial-producer-to-decision-producer",
+   "from": "initial-producer",
+   "to": "decision-producer",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-decision-producer-to-send-despatch-advice",
+   "from": "decision-producer",
+   "to": "action-send-despatch-advice",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   },
+   "guard": "text-false"
+  },
+  {
+   "id": "flow-decision-producer-to-send-catalogue",
+   "from": "decision-producer",
+   "to": "action-send-catalogue",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   },
+   "guard": "text-true"
+  },
+  {
+   "id": "flow-send-catalogue-to-catalogue",
+   "from": "action-send-catalogue",
+   "to": "object-catalogue",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-catalogue-to-receive-catalogue",
+   "from": "object-catalogue",
+   "to": "action-receive-catalogue",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-receive-catalogue-to-update-products-database",
+   "from": "action-receive-catalogue",
+   "to": "action-update-products-database",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-send-catalogue-to-send-despatch-advice",
+   "from": "action-send-catalogue",
+   "to": "action-send-despatch-advice",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-update-products-database-to-fork-retailer",
+   "from": "action-update-products-database",
+   "to": "fork-retailer",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-receive-catalogue-to-receive-despatch-advice",
+   "from": "action-receive-catalogue",
+   "to": "action-receive-despatch-advice",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-send-despatch-advice-to-despatch-advice",
+   "from": "action-send-despatch-advice",
+   "to": "object-despatch-advice",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-despatch-advice-to-receive-despatch-advice",
+   "from": "object-despatch-advice",
+   "to": "action-receive-despatch-advice",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-receive-despatch-advice-to-fork-retailer",
+   "from": "action-receive-despatch-advice",
+   "to": "fork-retailer",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-send-despatch-advice-to-despatch-item-s",
+   "from": "action-send-despatch-advice",
+   "to": "action-despatch-item-s",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-despatch-item-s-to-receive-item-s",
+   "from": "action-despatch-item-s",
+   "to": "action-receive-item-s",
+   "kind": "goods",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-receive-item-s-to-fork-retailer",
+   "from": "action-receive-item-s",
+   "to": "fork-retailer",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-fork-retailer-to-check-status-of-item-s",
+   "from": "fork-retailer",
+   "to": "action-check-status-of-item-s",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-check-status-of-item-s-to-send-receipt-advice",
+   "from": "action-check-status-of-item-s",
+   "to": "action-send-receipt-advice",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-send-receipt-advice-to-receipt-advice",
+   "from": "action-send-receipt-advice",
+   "to": "object-receipt-advice",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-receipt-advice-to-receive-receipt-advice",
+   "from": "object-receipt-advice",
+   "to": "action-receive-receipt-advice",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-receive-receipt-advice-to-adjust-supply-status",
+   "from": "action-receive-receipt-advice",
+   "to": "action-adjust-supply-status",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-adjust-supply-status-to-final-producer",
+   "from": "action-adjust-supply-status",
+   "to": "final-producer",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  }
+ ],
+ "texts": [
+  {
+   "id": "text-is-there-a-new-item-to-be-delivered",
+   "text": "Is there a new item to be delivered?",
+   "labels": "decision-producer"
+  },
+  {
+   "id": "text-true",
+   "text": "True",
+   "labels": "flow-decision-producer-to-send-catalogue"
+  },
+  {
+   "id": "text-false",
+   "text": "False",
+   "labels": "flow-decision-producer-to-send-despatch-advice"
+  }
+ ],
+ "offPage": [],
+ "marks": [],
+ "phases": []
+}

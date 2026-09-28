@@ -1,0 +1,405 @@
+{
+ "schema": "ubl-activity-diagram/1",
+ "figure": {
+  "name": "UBL-2.2-FulfilmentDespatchAdviceProcess",
+  "source": "UBL-2.2-FulfilmentDespatchAdviceProcess.png"
+ },
+ "lanes": [
+  {
+   "id": "lane-delivery-party",
+   "axis": "column",
+   "index": 0,
+   "title": "Delivery Party"
+  },
+  {
+   "id": "lane-despatch-party",
+   "axis": "column",
+   "index": 1,
+   "title": "Despatch Party"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "initial-despatch-party",
+   "kind": "initial",
+   "label": "",
+   "lane": "lane-despatch-party",
+   "linkedProcess": {
+    "name": "Ordering",
+    "how": "starts-from"
+   }
+  },
+  {
+   "id": "action-receive-order-item-s",
+   "kind": "action",
+   "label": "Receive Order Item(s)",
+   "lane": "lane-delivery-party",
+   "unstated": {
+    "wayIn": "Starts when the goods arrive: the artwork draws their despatch (Despatch Order Item(s)), not their movement to the Delivery Party."
+   }
+  },
+  {
+   "id": "action-despatch-order-item-s",
+   "kind": "action",
+   "label": "Despatch Order Item(s)",
+   "lane": "lane-despatch-party"
+  },
+  {
+   "id": "object-despatch-advice",
+   "kind": "object",
+   "label": "Despatch Advice",
+   "lane": null,
+   "between": [
+    "lane-delivery-party",
+    "lane-despatch-party"
+   ]
+  },
+  {
+   "id": "action-send-despatch-advice",
+   "kind": "action",
+   "label": "Send Despatch Advice",
+   "lane": "lane-despatch-party"
+  },
+  {
+   "id": "action-receive-despatch-advice",
+   "kind": "action",
+   "label": "Receive Despatch Advice",
+   "lane": "lane-delivery-party"
+  },
+  {
+   "id": "fork-delivery-party",
+   "kind": "fork",
+   "label": "",
+   "lane": "lane-delivery-party"
+  },
+  {
+   "id": "action-adjust-supply-status",
+   "kind": "action",
+   "label": "Adjust supply status",
+   "lane": "lane-despatch-party"
+  },
+  {
+   "id": "object-fulfilment-cancellation",
+   "kind": "object",
+   "label": "Fulfilment\nCancellation",
+   "lane": null,
+   "between": [
+    "lane-delivery-party",
+    "lane-despatch-party"
+   ]
+  },
+  {
+   "id": "action-receive-fulfilment-cancellation",
+   "kind": "action",
+   "label": "Receive Fulfilment\nCancellation",
+   "lane": "lane-delivery-party"
+  },
+  {
+   "id": "action-check-status-of-item-s",
+   "kind": "action",
+   "label": "Check status of Item(s)",
+   "lane": "lane-delivery-party"
+  },
+  {
+   "id": "action-cancel-despatch",
+   "kind": "action",
+   "label": "Cancel Despatch",
+   "lane": "lane-despatch-party"
+  },
+  {
+   "id": "final-despatch-party",
+   "kind": "final",
+   "label": "",
+   "lane": "lane-despatch-party"
+  },
+  {
+   "id": "action-receive-receipt-advice",
+   "kind": "action",
+   "label": "Receive Receipt Advice",
+   "lane": "lane-despatch-party"
+  },
+  {
+   "id": "object-receipt-advice",
+   "kind": "object",
+   "label": "Receipt Advice",
+   "lane": null,
+   "between": [
+    "lane-delivery-party",
+    "lane-despatch-party"
+   ]
+  },
+  {
+   "id": "decision-determine-action",
+   "kind": "decision",
+   "label": "Determine Action",
+   "lane": "lane-delivery-party"
+  },
+  {
+   "id": "action-adjust-order",
+   "kind": "action",
+   "label": "Adjust Order",
+   "lane": "lane-delivery-party",
+   "unstated": {
+    "wayOut": "The path ends at this step: the artwork draws no end after it."
+   }
+  },
+  {
+   "id": "action-send-receipt-advice",
+   "kind": "action",
+   "label": "Send Receipt Advice",
+   "lane": "lane-delivery-party"
+  },
+  {
+   "id": "action-accept-items",
+   "kind": "action",
+   "label": "Accept Items",
+   "lane": "lane-delivery-party"
+  },
+  {
+   "id": "final-delivery-party",
+   "kind": "final",
+   "label": "",
+   "lane": "lane-delivery-party"
+  }
+ ],
+ "flows": [
+  {
+   "id": "flow-initial-despatch-party-to-despatch-order-item-s",
+   "from": "initial-despatch-party",
+   "to": "action-despatch-order-item-s",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-receive-order-item-s-to-check-status-of-item-s",
+   "from": "action-receive-order-item-s",
+   "to": "action-check-status-of-item-s",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-receive-order-item-s-to-fork-delivery-party",
+   "from": "action-receive-order-item-s",
+   "to": "fork-delivery-party",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-despatch-order-item-s-to-send-despatch-advice",
+   "from": "action-despatch-order-item-s",
+   "to": "action-send-despatch-advice",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-despatch-advice-to-receive-despatch-advice",
+   "from": "object-despatch-advice",
+   "to": "action-receive-despatch-advice",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-send-despatch-advice-to-despatch-advice",
+   "from": "action-send-despatch-advice",
+   "to": "object-despatch-advice",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-receive-despatch-advice-to-fork-delivery-party",
+   "from": "action-receive-despatch-advice",
+   "to": "fork-delivery-party",
+   "kind": "control",
+   "direction": {
+    "confidence": "medium",
+    "checked": "confirmed"
+   }
+  },
+  {
+   "id": "flow-send-despatch-advice-to-cancel-despatch",
+   "from": "action-send-despatch-advice",
+   "to": "action-cancel-despatch",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-send-despatch-advice-to-adjust-supply-status",
+   "from": "action-send-despatch-advice",
+   "to": "action-adjust-supply-status",
+   "kind": "control",
+   "direction": {
+    "confidence": "high",
+    "checked": "corrected"
+   }
+  },
+  {
+   "id": "flow-fork-delivery-party-to-check-status-of-item-s",
+   "from": "fork-delivery-party",
+   "to": "action-check-status-of-item-s",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-cancel-despatch-to-adjust-supply-status",
+   "from": "action-cancel-despatch",
+   "to": "action-adjust-supply-status",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-cancel-despatch-to-fulfilment-cancellation",
+   "from": "action-cancel-despatch",
+   "to": "object-fulfilment-cancellation",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-fulfilment-cancellation-to-receive-fulfilment-cancellation",
+   "from": "object-fulfilment-cancellation",
+   "to": "action-receive-fulfilment-cancellation",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-receive-receipt-advice-to-adjust-supply-status",
+   "from": "action-receive-receipt-advice",
+   "to": "action-adjust-supply-status",
+   "kind": "control",
+   "direction": {
+    "confidence": "medium",
+    "checked": "confirmed"
+   }
+  },
+  {
+   "id": "flow-adjust-supply-status-to-final-despatch-party",
+   "from": "action-adjust-supply-status",
+   "to": "final-despatch-party",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-receive-fulfilment-cancellation-to-determine-action",
+   "from": "action-receive-fulfilment-cancellation",
+   "to": "decision-determine-action",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-check-status-of-item-s-to-determine-action",
+   "from": "action-check-status-of-item-s",
+   "to": "decision-determine-action",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-check-status-of-item-s-to-send-receipt-advice",
+   "from": "action-check-status-of-item-s",
+   "to": "action-send-receipt-advice",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-receipt-advice-to-receive-receipt-advice",
+   "from": "object-receipt-advice",
+   "to": "action-receive-receipt-advice",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-send-receipt-advice-to-receipt-advice",
+   "from": "action-send-receipt-advice",
+   "to": "object-receipt-advice",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-determine-action-to-adjust-order",
+   "from": "decision-determine-action",
+   "to": "action-adjust-order",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   },
+   "unstated": {
+    "guard": "'Determine Action' has three branches drawn without guards; the step each leads to says which (Adjust Order, Send Receipt Advice, Accept Items)."
+   }
+  },
+  {
+   "id": "flow-determine-action-to-send-receipt-advice",
+   "from": "decision-determine-action",
+   "to": "action-send-receipt-advice",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   },
+   "unstated": {
+    "guard": "'Determine Action' has three branches drawn without guards; the step each leads to says which (Adjust Order, Send Receipt Advice, Accept Items)."
+   }
+  },
+  {
+   "id": "flow-determine-action-to-accept-items",
+   "from": "decision-determine-action",
+   "to": "action-accept-items",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   },
+   "unstated": {
+    "guard": "'Determine Action' has three branches drawn without guards; the step each leads to says which (Adjust Order, Send Receipt Advice, Accept Items)."
+   }
+  },
+  {
+   "id": "flow-accept-items-to-final-delivery-party",
+   "from": "action-accept-items",
+   "to": "final-delivery-party",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  }
+ ],
+ "texts": [
+  {
+   "id": "text-from-order",
+   "text": "From Order",
+   "labels": "initial-despatch-party"
+  }
+ ],
+ "offPage": [],
+ "marks": [],
+ "phases": []
+}

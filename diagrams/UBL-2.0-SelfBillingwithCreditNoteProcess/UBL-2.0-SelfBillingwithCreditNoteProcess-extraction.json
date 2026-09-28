@@ -1,0 +1,1884 @@
+{
+ "schema": "ubl-activity-diagram-extraction/1",
+ "figure": "UBL-2.0-SelfBillingwithCreditNoteProcess",
+ "nodes": {
+  "initial-accounting-customer": {
+   "area": 3918,
+   "fill": 0.756
+  },
+  "object-self-billed-invoice": {
+   "area": 55453,
+   "fill": 0.937,
+   "solid": 1.0,
+   "stem": 0.13
+  },
+  "action-receive-self-billed-invoice": {
+   "area": 59146,
+   "fill": 0.879,
+   "solid": 0.96,
+   "stem": 0.13
+  },
+  "action-raise-self-billed-invoice": {
+   "area": 39425,
+   "fill": 0.845,
+   "solid": 0.953,
+   "stem": 0.13
+  },
+  "final-accounting-supplier": {
+   "area": 2771,
+   "fill": 0.636,
+   "solid": 0.794
+  },
+  "decision-reconcile-charges-in-accounting-supplier": {
+   "area": 31774,
+   "fill": 0.459,
+   "solid": 0.499,
+   "stem": 0.104
+  },
+  "action-receive-account-response": {
+   "area": 50487,
+   "fill": 0.863,
+   "solid": 0.957,
+   "stem": 0.13
+  },
+  "decision-validate-invoice": {
+   "area": 27726,
+   "fill": 0.462,
+   "solid": 0.505,
+   "stem": 0.104
+  },
+  "object-application-response": {
+   "area": 50524,
+   "fill": 0.913,
+   "solid": 1.0,
+   "stem": 0.13
+  },
+  "action-send-account-response": {
+   "area": 42902,
+   "fill": 0.851,
+   "solid": 0.95,
+   "stem": 0.13
+  },
+  "decision-reconcile-charges-in-accounting-customer": {
+   "area": 25493,
+   "fill": 0.447,
+   "solid": 0.502,
+   "stem": 0.104
+  },
+  "final-accounting-customer": {
+   "area": 2779,
+   "fill": 0.638,
+   "solid": 0.794
+  },
+  "fork-accounting-supplier": {
+   "area": 2442,
+   "fill": 0.569,
+   "lumps": 2,
+   "band": 23,
+   "box": 36
+  },
+  "action-receive-credit-note": {
+   "area": 44227,
+   "fill": 0.873,
+   "solid": 0.951,
+   "stem": 0.13
+  },
+  "object-credit-note": {
+   "area": 53184,
+   "fill": 0.958,
+   "solid": 1.0,
+   "stem": 0.13
+  },
+  "action-raise-credit-note": {
+   "area": 44421,
+   "fill": 0.877,
+   "solid": 0.948,
+   "stem": 0.13
+  },
+  "final-accounting-customer-2": {
+   "area": 2772,
+   "fill": 0.636,
+   "solid": 0.791
+  },
+  "final-accounting-customer-3": {
+   "area": 2770,
+   "fill": 0.636,
+   "solid": 0.793
+  }
+ },
+ "flows": {
+  "flow-initial-accounting-customer-to-raise-self-billed-invoice": {
+   "arrowInk": [
+    180,
+    582
+   ],
+   "arrowPx": [
+    49,
+    42.9,
+    1.88
+   ],
+   "arrowFill": 0.093
+  },
+  "flow-self-billed-invoice-to-receive-self-billed-invoice": {
+   "arrowInk": [
+    225,
+    625
+   ],
+   "arrowPx": [
+    50,
+    40.0,
+    2.08
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-raise-self-billed-invoice-to-self-billed-invoice": {
+   "arrowInk": [
+    180,
+    611
+   ],
+   "arrowPx": [
+    52,
+    41.8,
+    2.34
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-raise-self-billed-invoice-to-final-accounting-customer-2": {
+   "arrowInk": [
+    270,
+    625
+   ],
+   "arrowPx": [
+    50,
+    40.0,
+    2.08
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-raise-self-billed-invoice-to-reconcile-charges-in-accounting-customer": {
+   "arrowInk": [
+    225,
+    597
+   ],
+   "arrowPx": [
+    56,
+    42.0,
+    2.14
+   ],
+   "arrowFill": 0.003
+  },
+  "flow-reconcile-charges-in-accounting-customer-to-raise-self-billed-invoice": {
+   "arrowInk": [
+    499,
+    623
+   ],
+   "arrowPx": [
+    53,
+    43.8,
+    1.97
+   ],
+   "arrowFill": 0.016
+  },
+  "flow-receive-self-billed-invoice-to-validate-invoice": {
+   "arrowInk": [
+    180,
+    589
+   ],
+   "arrowPx": [
+    51,
+    40.2,
+    2.06
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-reconcile-charges-in-accounting-supplier-to-final-accounting-supplier": {
+   "arrowInk": [
+    184,
+    603
+   ],
+   "arrowPx": [
+    70,
+    98.9,
+    4.76
+   ],
+   "arrowFill": 0.159,
+   "arrowSaturated": true
+  },
+  "flow-validate-invoice-to-reconcile-charges-in-accounting-supplier": {
+   "arrowInk": [
+    277,
+    618
+   ],
+   "arrowPx": [
+    79,
+    45.5,
+    0.48
+   ],
+   "arrowFill": 0.021,
+   "arrowSaturated": true
+  },
+  "flow-reconcile-charges-in-accounting-supplier-to-send-account-response": {
+   "arrowInk": [
+    272,
+    615
+   ],
+   "arrowPx": [
+    53,
+    87.5,
+    2.07
+   ],
+   "arrowFill": 0.391
+  },
+  "flow-reconcile-charges-in-accounting-supplier-to-raise-credit-note": {
+   "arrowInk": [
+    180,
+    587
+   ],
+   "arrowPx": [
+    50,
+    43.8,
+    1.91
+   ],
+   "arrowFill": 0.017
+  },
+  "flow-fork-accounting-supplier-to-send-account-response": {
+   "arrowInk": [
+    210,
+    620
+   ],
+   "arrowPx": [
+    79,
+    36.0,
+    0.41
+   ],
+   "arrowFill": 0.105,
+   "arrowSaturated": true
+  },
+  "flow-application-response-to-receive-account-response": {
+   "arrowInk": [
+    216,
+    598
+   ],
+   "arrowPx": [
+    64,
+    44.1,
+    0.72
+   ],
+   "arrowFill": 0.101
+  },
+  "flow-receive-account-response-to-reconcile-charges-in-accounting-customer": {
+   "arrowInk": [
+    219,
+    587
+   ]
+  },
+  "flow-send-account-response-to-application-response": {
+   "arrowInk": [
+    230,
+    604
+   ],
+   "arrowPx": [
+    54,
+    41.1,
+    2.59
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-validate-invoice-to-fork-accounting-supplier": {
+   "arrowInk": [
+    203,
+    567
+   ],
+   "arrowPx": [
+    79,
+    42.6,
+    1.09
+   ],
+   "arrowFill": 0.051,
+   "arrowSaturated": true
+  },
+  "flow-reconcile-charges-in-accounting-customer-to-final-accounting-customer": {
+   "arrowInk": [
+    575,
+    753
+   ],
+   "arrowPx": [
+    51,
+    42.0,
+    2.01
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-receive-credit-note-to-reconcile-charges-in-accounting-customer": {
+   "arrowInk": [
+    301,
+    741
+   ],
+   "arrowPx": [
+    79,
+    27.2,
+    1.02
+   ],
+   "arrowFill": 0.414,
+   "arrowSaturated": true
+  },
+  "flow-reconcile-charges-in-accounting-customer-to-final-accounting-customer-3": {
+   "arrowInk": [
+    180,
+    586
+   ],
+   "arrowPx": [
+    51,
+    42.0,
+    2.03
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-fork-accounting-supplier-to-raise-credit-note": {
+   "arrowInk": [
+    263,
+    646
+   ],
+   "arrowPx": [
+    79,
+    50.0,
+    0.47
+   ],
+   "arrowFill": 0.051,
+   "arrowSaturated": true
+  },
+  "flow-credit-note-to-receive-credit-note": {
+   "arrowInk": [
+    216,
+    377
+   ],
+   "arrowPx": [
+    74,
+    45.0,
+    1.5
+   ],
+   "arrowFill": 0.153
+  },
+  "flow-raise-credit-note-to-credit-note": {
+   "arrowInk": [
+    230,
+    614
+   ],
+   "arrowPx": [
+    54,
+    41.4,
+    2.66
+   ],
+   "arrowFill": 0.0
+  }
+ },
+ "offPage": {},
+ "marks": {},
+ "phases": {},
+ "greyRules": [],
+ "titleReadings": [
+  {
+   "position": 0,
+   "text": "Accounting Customer",
+   "x": 650,
+   "y": 22,
+   "w": 354,
+   "h": 34,
+   "lines": [
+    {
+     "x": 650,
+     "y": 22,
+     "w": 354,
+     "h": 34,
+     "text": "Accounting Customer"
+    }
+   ]
+  },
+  {
+   "position": 1,
+   "text": "Accounting Supplier",
+   "x": 2369,
+   "y": 22,
+   "w": 330,
+   "h": 34,
+   "lines": [
+    {
+     "x": 2369,
+     "y": 22,
+     "w": 330,
+     "h": 34,
+     "text": "Accounting Supplier"
+    }
+   ]
+  }
+ ],
+ "findings": [],
+ "uncertain": [
+  {
+   "x": 335,
+   "y": 454,
+   "w": 321,
+   "h": 816,
+   "shape": "rect",
+   "iou": 0.97,
+   "border": 0.906,
+   "kind": "dropped-region",
+   "reason": "3 of 4 sides are pass-through line-work",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "x": 2167,
+   "y": 806,
+   "w": 374,
+   "h": 373,
+   "shape": "rounded",
+   "iou": 0.531,
+   "border": 0.331,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best rounded 0.53, and 0.99 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "kind": "unexplained-line-work",
+   "x": 2424,
+   "y": 1150,
+   "w": 140,
+   "h": 457,
+   "reason": "ink left over where several connectors cross, claimed by none of them",
+   "check": "decide what this is; the SVG does not draw it"
+  },
+  {
+   "kind": "unexplained-line-work",
+   "x": 679,
+   "y": 544,
+   "w": 7,
+   "h": 251,
+   "reason": "line-work that is neither a connector between two nodes nor the size of text",
+   "check": "decide what this is; the SVG does not draw it"
+  },
+  {
+   "kind": "unexplained-line-work",
+   "x": 735,
+   "y": 727,
+   "w": 58,
+   "h": 86,
+   "reason": "line-work that is neither a connector between two nodes nor the size of text",
+   "check": "decide what this is; the SVG does not draw it"
+  },
+  {
+   "kind": "unexplained-line-work",
+   "x": 2874,
+   "y": 823,
+   "w": 74,
+   "h": 87,
+   "reason": "line-work that is neither a connector between two nodes nor the size of text",
+   "check": "decide what this is; the SVG does not draw it"
+  }
+ ],
+ "present": [
+  "source",
+  "size",
+  "fontPx",
+  "arrowPx",
+  "arrowWidthPx",
+  "arrowStyle",
+  "rules",
+  "ruleSpan",
+  "greyRules",
+  "dashed",
+  "openEnds",
+  "crossMarks",
+  "partitions",
+  "nodes",
+  "edges",
+  "text",
+  "uncertain"
+ ],
+ "uncorrected": {
+  "model": {
+   "schema": "ubl-activity-diagram/1",
+   "figure": {
+    "name": "UBL-2.0-SelfBillingwithCreditNoteProcess",
+    "source": "UBL-2.0-SelfBillingwithCreditNoteProcess.png"
+   },
+   "lanes": [
+    {
+     "id": "lane0",
+     "axis": "column",
+     "index": 0,
+     "title": "Accounting Customer"
+    },
+    {
+     "id": "lane1",
+     "axis": "column",
+     "index": 1,
+     "title": "Accounting Supplier"
+    },
+    {
+     "id": "lane2",
+     "axis": "band",
+     "index": 0,
+     "title": ""
+    }
+   ],
+   "nodes": [
+    {
+     "id": "n1",
+     "kind": "initial",
+     "label": "",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n2",
+     "kind": "object",
+     "label": "Self Billed Invoice",
+     "lane": "lane1",
+     "band": "lane2"
+    },
+    {
+     "id": "n3",
+     "kind": "action",
+     "label": "Receive Self Billed\nInvoice",
+     "lane": "lane1",
+     "band": "lane2"
+    },
+    {
+     "id": "n4",
+     "kind": "action",
+     "label": "Raise Self Billed Invoice",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n5",
+     "kind": "final",
+     "label": "",
+     "lane": "lane1",
+     "band": "lane2"
+    },
+    {
+     "id": "n6",
+     "kind": "decision",
+     "label": "econcile\nCharges",
+     "lane": "lane1",
+     "band": "lane2"
+    },
+    {
+     "id": "n7",
+     "kind": "action",
+     "label": "Receive Account\nResponse",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n8",
+     "kind": "decision",
+     "label": "Validate\nInvoice",
+     "lane": "lane1",
+     "band": "lane2"
+    },
+    {
+     "id": "n9",
+     "kind": "object",
+     "label": "Application\nResponse",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n10",
+     "kind": "action",
+     "label": "Send Account\nResponse",
+     "lane": "lane1",
+     "band": "lane2"
+    },
+    {
+     "id": "n11",
+     "kind": "decision",
+     "label": "Reconcile\nCharges",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n12",
+     "kind": "final",
+     "label": "",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n13",
+     "kind": "fork",
+     "label": "",
+     "lane": "lane1",
+     "band": "lane2"
+    },
+    {
+     "id": "n14",
+     "kind": "action",
+     "label": "Receive Credit Note",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n15",
+     "kind": "object",
+     "label": "Credit Note",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n16",
+     "kind": "action",
+     "label": "Raise Credit Note",
+     "lane": "lane1",
+     "band": "lane2"
+    },
+    {
+     "id": "n17",
+     "kind": "final",
+     "label": "",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n18",
+     "kind": "final",
+     "label": "",
+     "lane": "lane0",
+     "band": "lane2"
+    }
+   ],
+   "flows": [
+    {
+     "id": "f0",
+     "from": "n1",
+     "to": "n4",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f1",
+     "from": "n2",
+     "to": "n3",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f2",
+     "from": "n4",
+     "to": "n2",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f3",
+     "from": "n4",
+     "to": "n17",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     },
+     "guard": "t9"
+    },
+    {
+     "id": "f4",
+     "from": "n4",
+     "to": "n11",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f5",
+     "from": "n11",
+     "to": "n4",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     },
+     "guard": "t3"
+    },
+    {
+     "id": "f6",
+     "from": "n3",
+     "to": "n8",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f7",
+     "from": "n6",
+     "to": "n5",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     },
+     "guard": "t2"
+    },
+    {
+     "id": "f8",
+     "from": "n8",
+     "to": "n6",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     },
+     "guard": "t5"
+    },
+    {
+     "id": "f9",
+     "from": "n6",
+     "to": "n10",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     },
+     "guard": "t4"
+    },
+    {
+     "id": "f10",
+     "from": "n6",
+     "to": "n16",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     },
+     "guard": "t8"
+    },
+    {
+     "id": "f11",
+     "from": "n13",
+     "to": "n10",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f12",
+     "from": "n9",
+     "to": "n7",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f13",
+     "from": "n7",
+     "to": "n11",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f14",
+     "from": "n10",
+     "to": "n9",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f15",
+     "from": "n8",
+     "to": "n13",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     },
+     "guard": "t7"
+    },
+    {
+     "id": "f16",
+     "from": "n11",
+     "to": "n12",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     },
+     "guard": "t6"
+    },
+    {
+     "id": "f17",
+     "from": "n14",
+     "to": "n11",
+     "kind": "control",
+     "direction": {
+      "confidence": "medium",
+      "checked": "confirmed"
+     }
+    },
+    {
+     "id": "f18",
+     "from": "n11",
+     "to": "n18",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     },
+     "guard": "t10"
+    },
+    {
+     "id": "f19",
+     "from": "n13",
+     "to": "n16",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f20",
+     "from": "n15",
+     "to": "n14",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f21",
+     "from": "n16",
+     "to": "n15",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    }
+   ],
+   "texts": [
+    {
+     "id": "t2",
+     "text": "[no action\nrequired]",
+     "labels": "f7"
+    },
+    {
+     "id": "t3",
+     "text": "[under\ncharged or\nincorrect\ninformation",
+     "labels": "f5"
+    },
+    {
+     "id": "t4",
+     "text": "[under\ncharged]",
+     "labels": "f9"
+    },
+    {
+     "id": "t5",
+     "text": "[incorrect\ncharges]",
+     "labels": "f8"
+    },
+    {
+     "id": "t6",
+     "text": "[accept credit]",
+     "labels": "f16"
+    },
+    {
+     "id": "t7",
+     "text": "[incorrect information]",
+     "labels": "f15"
+    },
+    {
+     "id": "t8",
+     "text": "[over\ncharged]",
+     "labels": "f10"
+    },
+    {
+     "id": "t9",
+     "text": "[accept\ncharges]",
+     "labels": "f3"
+    },
+    {
+     "id": "t10",
+     "text": "[accept\ncharges]",
+     "labels": "f18"
+    }
+   ],
+   "offPage": [],
+   "marks": [],
+   "phases": []
+  },
+  "layout": {
+   "schema": "ubl-activity-diagram-layout/1",
+   "figure": "UBL-2.0-SelfBillingwithCreditNoteProcess",
+   "units": "px of the original PNG",
+   "size": [
+    3425,
+    1844
+   ],
+   "style": {
+    "fontPx": 38.6,
+    "arrowPx": 51.5,
+    "arrowWidthPx": 42.0,
+    "arrowStyle": "open"
+   },
+   "rules": {
+    "vertical": [
+     {
+      "at": 0,
+      "width": 10,
+      "span": [
+       13,
+       1830
+      ]
+     },
+     {
+      "at": 1665,
+      "width": 4,
+      "span": [
+       13,
+       1830
+      ]
+     },
+     {
+      "at": 3415,
+      "width": 10,
+      "span": [
+       13,
+       1830
+      ]
+     }
+    ],
+    "horizontal": [
+     {
+      "at": 0,
+      "width": 10,
+      "span": [
+       13,
+       3411
+      ]
+     },
+     {
+      "at": 1834,
+      "width": 10,
+      "span": [
+       13,
+       3411
+      ]
+     }
+    ]
+   },
+   "greyRules": [],
+   "lanes": {
+    "lane0": {
+     "x0": 0,
+     "x1": 1667,
+     "titleBox": [
+      650,
+      22,
+      354,
+      34
+     ]
+    },
+    "lane1": {
+     "x0": 1667,
+     "x1": 3425,
+     "titleBox": [
+      2369,
+      22,
+      330,
+      34
+     ]
+    },
+    "lane2": {
+     "y0": 0,
+     "y1": 1844
+    }
+   },
+   "nodes": {
+    "n1": {
+     "x": 430,
+     "y": 46,
+     "w": 78,
+     "h": 78
+    },
+    "n2": {
+     "x": 1509,
+     "y": 300,
+     "w": 342,
+     "h": 173,
+     "shape": "rect",
+     "stroke": 8,
+     "rx": 0,
+     "ry": 0,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 1520,
+       "y": 362,
+       "w": 314,
+       "h": 28,
+       "text": "Self Billed Invoice"
+      }
+     ]
+    },
+    "n3": {
+     "x": 2764,
+     "y": 320,
+     "w": 491,
+     "h": 137,
+     "shape": "rounded",
+     "stroke": 4,
+     "rx": 55,
+     "ry": 51,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 2834,
+       "y": 354,
+       "w": 324,
+       "h": 28,
+       "text": "Receive Self Billed"
+      },
+      {
+       "x": 2945,
+       "y": 402,
+       "w": 124,
+       "h": 28,
+       "text": "Invoice"
+      }
+     ]
+    },
+    "n4": {
+     "x": 239,
+     "y": 354,
+     "w": 491,
+     "h": 95,
+     "shape": "rounded",
+     "stroke": 5,
+     "rx": 50,
+     "ry": 45,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 265,
+       "y": 387,
+       "w": 422,
+       "h": 28,
+       "text": "Raise Self Billed Invoice"
+      }
+     ]
+    },
+    "n5": {
+     "x": 2505,
+     "y": 468,
+     "w": 66,
+     "h": 66,
+     "shape": "ellipse",
+     "stroke": 4,
+     "rx": 31,
+     "ry": 29,
+     "innerRatio": 0.439
+    },
+    "n6": {
+     "x": 2385,
+     "y": 695,
+     "w": 316,
+     "h": 219,
+     "shape": "rhombus",
+     "stroke": 4,
+     "rx": 170,
+     "ry": 116,
+     "bold": false,
+     "labelLines": [
+      {
+       "x": 2468,
+       "y": 757,
+       "w": 132,
+       "h": 28,
+       "text": "econcile"
+      },
+      {
+       "x": 2442,
+       "y": 805,
+       "w": 136,
+       "h": 34,
+       "text": "Charges"
+      }
+     ]
+    },
+    "n7": {
+     "x": 893,
+     "y": 838,
+     "w": 421,
+     "h": 139,
+     "shape": "rounded",
+     "stroke": 5,
+     "rx": 53,
+     "ry": 54,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 945,
+       "y": 872,
+       "w": 296,
+       "h": 27,
+       "text": "Receive Account"
+      },
+      {
+       "x": 1015,
+       "y": 920,
+       "w": 173,
+       "h": 34,
+       "text": "Response"
+      }
+     ]
+    },
+    "n8": {
+     "x": 2955,
+     "y": 946,
+     "w": 330,
+     "h": 182,
+     "shape": "rhombus",
+     "stroke": 4,
+     "rx": 176,
+     "ry": 97,
+     "bold": false,
+     "labelLines": [
+      {
+       "x": 3058,
+       "y": 999,
+       "w": 133,
+       "h": 28,
+       "text": "Validate"
+      },
+      {
+       "x": 3061,
+       "y": 1048,
+       "w": 113,
+       "h": 27,
+       "text": "Invoice"
+      }
+     ]
+    },
+    "n9": {
+     "x": 1498,
+     "y": 1002,
+     "w": 320,
+     "h": 173,
+     "shape": "rect",
+     "stroke": 8,
+     "rx": 0,
+     "ry": 0,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 1551,
+       "y": 1043,
+       "w": 201,
+       "h": 34,
+       "text": "Application"
+      },
+      {
+       "x": 1568,
+       "y": 1084,
+       "w": 174,
+       "h": 34,
+       "text": "Response"
+      }
+     ]
+    },
+    "n10": {
+     "x": 2054,
+     "y": 1019,
+     "w": 343,
+     "h": 147,
+     "shape": "rounded",
+     "stroke": 5,
+     "rx": 53,
+     "ry": 52,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 2097,
+       "y": 1053,
+       "w": 248,
+       "h": 27,
+       "text": "Send Account"
+      },
+      {
+       "x": 2139,
+       "y": 1101,
+       "w": 173,
+       "h": 34,
+       "text": "Response"
+      }
+     ]
+    },
+    "n11": {
+     "x": 511,
+     "y": 1175,
+     "w": 294,
+     "h": 194,
+     "shape": "rhombus",
+     "stroke": 4,
+     "rx": 156,
+     "ry": 105,
+     "bold": false,
+     "labelLines": [
+      {
+       "x": 581,
+       "y": 1234,
+       "w": 158,
+       "h": 28,
+       "text": "Reconcile"
+      },
+      {
+       "x": 580,
+       "y": 1282,
+       "w": 136,
+       "h": 34,
+       "text": "Charges"
+      }
+     ]
+    },
+    "n12": {
+     "x": 1196,
+     "y": 1241,
+     "w": 66,
+     "h": 66,
+     "shape": "ellipse",
+     "stroke": 5,
+     "rx": 29,
+     "ry": 34,
+     "innerRatio": 0.439
+    },
+    "n13": {
+     "x": 2933,
+     "y": 1395,
+     "w": 149,
+     "h": 23
+    },
+    "n14": {
+     "x": 841,
+     "y": 1470,
+     "w": 492,
+     "h": 103,
+     "shape": "rounded",
+     "stroke": 4,
+     "rx": 53.0,
+     "ry": 52,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 908,
+       "y": 1503,
+       "w": 346,
+       "h": 28,
+       "text": "Receive Credit Note"
+      }
+     ]
+    },
+    "n15": {
+     "x": 1505,
+     "y": 1598,
+     "w": 321,
+     "h": 173,
+     "shape": "rect",
+     "stroke": 8,
+     "rx": 0,
+     "ry": 0,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 1566,
+       "y": 1665,
+       "w": 195,
+       "h": 28,
+       "text": "Credit Note"
+      }
+     ]
+    },
+    "n16": {
+     "x": 2179,
+     "y": 1637,
+     "w": 492,
+     "h": 103,
+     "shape": "rounded",
+     "stroke": 4,
+     "rx": 53.0,
+     "ry": 52.0,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 2272,
+       "y": 1670,
+       "w": 304,
+       "h": 28,
+       "text": "Raise Credit Note"
+      }
+     ]
+    },
+    "n17": {
+     "x": 253,
+     "y": 1700,
+     "w": 66,
+     "h": 66,
+     "shape": "ellipse",
+     "stroke": 4,
+     "rx": 29,
+     "ry": 34,
+     "innerRatio": 0.424
+    },
+    "n18": {
+     "x": 627,
+     "y": 1715,
+     "w": 66,
+     "h": 66,
+     "shape": "ellipse",
+     "stroke": 4,
+     "rx": 28,
+     "ry": 29,
+     "innerRatio": 0.439
+    }
+   },
+   "flows": {
+    "f0": {
+     "fromPoint": [
+      468,
+      138
+     ],
+     "toPoint": [
+      471,
+      339
+     ],
+     "routing": "straight"
+    },
+    "f1": {
+     "fromPoint": [
+      1865,
+      388
+     ],
+     "toPoint": [
+      2749,
+      388
+     ],
+     "routing": "straight"
+    },
+    "f2": {
+     "fromPoint": [
+      744,
+      400
+     ],
+     "toPoint": [
+      1494,
+      398
+     ],
+     "routing": "straight"
+    },
+    "f3": {
+     "fromPoint": [
+      284,
+      463
+     ],
+     "toPoint": [
+      284,
+      1685
+     ],
+     "routing": "straight"
+    },
+    "f4": {
+     "fromPoint": [
+      332,
+      463
+     ],
+     "toPoint": [
+      496,
+      1272
+     ],
+     "routing": "orthogonal",
+     "points": [
+      [
+       332,
+       1272
+      ]
+     ]
+    },
+    "f5": {
+     "fromPoint": [
+      658,
+      1160
+     ],
+     "toPoint": [
+      656,
+      466
+     ],
+     "routing": "straight"
+    },
+    "f6": {
+     "fromPoint": [
+      3119,
+      471
+     ],
+     "toPoint": [
+      3120,
+      931
+     ],
+     "routing": "straight"
+    },
+    "f7": {
+     "fromPoint": [
+      2543,
+      680
+     ],
+     "toPoint": [
+      2541,
+      548
+     ],
+     "routing": "straight"
+    },
+    "f8": {
+     "fromPoint": [
+      2940,
+      1028
+     ],
+     "toPoint": [
+      2715,
+      804
+     ],
+     "routing": "diagonal"
+    },
+    "f9": {
+     "fromPoint": [
+      2370,
+      809
+     ],
+     "toPoint": [
+      2169,
+      1003
+     ],
+     "routing": "diagonal"
+    },
+    "f10": {
+     "fromPoint": [
+      2543,
+      928
+     ],
+     "toPoint": [
+      2541,
+      1621
+     ],
+     "routing": "straight"
+    },
+    "f11": {
+     "fromPoint": [
+      2930,
+      1380
+     ],
+     "toPoint": [
+      2411,
+      1123
+     ],
+     "routing": "diagonal"
+    },
+    "f12": {
+     "fromPoint": [
+      1483,
+      1031
+     ],
+     "toPoint": [
+      1328,
+      974
+     ],
+     "routing": "diagonal"
+    },
+    "f13": {
+     "fromPoint": [
+      1002,
+      991
+     ],
+     "toPoint": [
+      675,
+      1160
+     ],
+     "routing": "diagonal"
+    },
+    "f14": {
+     "fromPoint": [
+      2039,
+      1091
+     ],
+     "toPoint": [
+      1832,
+      1089
+     ],
+     "routing": "straight"
+    },
+    "f15": {
+     "fromPoint": [
+      3118,
+      1142
+     ],
+     "toPoint": [
+      3067,
+      1380
+     ],
+     "routing": "orthogonal",
+     "dash": 25.8,
+     "gap": 26.1,
+     "dashOffset": 48.3
+    },
+    "f16": {
+     "fromPoint": [
+      819,
+      1272
+     ],
+     "toPoint": [
+      1181,
+      1272
+     ],
+     "routing": "straight"
+    },
+    "f17": {
+     "fromPoint": [
+      996,
+      1455
+     ],
+     "toPoint": [
+      819,
+      1271
+     ],
+     "routing": "diagonal"
+    },
+    "f18": {
+     "fromPoint": [
+      658,
+      1383
+     ],
+     "toPoint": [
+      658,
+      1700
+     ],
+     "routing": "straight"
+    },
+    "f19": {
+     "fromPoint": [
+      2953,
+      1432
+     ],
+     "toPoint": [
+      2685,
+      1673
+     ],
+     "routing": "diagonal"
+    },
+    "f20": {
+     "fromPoint": [
+      1490,
+      1638
+     ],
+     "toPoint": [
+      1304,
+      1587
+     ],
+     "routing": "diagonal"
+    },
+    "f21": {
+     "fromPoint": [
+      2164,
+      1687
+     ],
+     "toPoint": [
+      1840,
+      1685
+     ],
+     "routing": "straight"
+    }
+   },
+   "texts": {
+    "t2": {
+     "x": 2590,
+     "y": 576,
+     "w": 155,
+     "h": 82,
+     "lines": [
+      {
+       "x": 2590,
+       "y": 576,
+       "w": 155,
+       "h": 34,
+       "text": "[no action"
+      },
+      {
+       "x": 2590,
+       "y": 624,
+       "w": 141,
+       "h": 34,
+       "text": "required]"
+      }
+     ]
+    },
+    "t3": {
+     "x": 678,
+     "y": 624,
+     "w": 179,
+     "h": 172,
+     "lines": [
+      {
+       "x": 679,
+       "y": 624,
+       "w": 103,
+       "h": 34,
+       "text": "[under"
+      },
+      {
+       "x": 678,
+       "y": 672,
+       "w": 175,
+       "h": 34,
+       "text": "charged or"
+      },
+      {
+       "x": 679,
+       "y": 720,
+       "w": 139,
+       "h": 28,
+       "text": "incorrect"
+      },
+      {
+       "x": 679,
+       "y": 769,
+       "w": 182,
+       "h": 27,
+       "text": "information"
+      }
+     ]
+    },
+    "t4": {
+     "x": 2127,
+     "y": 798,
+     "w": 140,
+     "h": 82,
+     "lines": [
+      {
+       "x": 2128,
+       "y": 798,
+       "w": 103,
+       "h": 34,
+       "text": "[under"
+      },
+      {
+       "x": 2127,
+       "y": 846,
+       "w": 140,
+       "h": 34,
+       "text": "charged]"
+      }
+     ]
+    },
+    "t5": {
+     "x": 2822,
+     "y": 817,
+     "w": 150,
+     "h": 82,
+     "lines": [
+      {
+       "x": 2823,
+       "y": 817,
+       "w": 149,
+       "h": 34,
+       "text": "[incorrect"
+      },
+      {
+       "x": 2822,
+       "y": 865,
+       "w": 138,
+       "h": 34,
+       "text": "charges]"
+      }
+     ]
+    },
+    "t6": {
+     "x": 882,
+     "y": 1227,
+     "w": 226,
+     "h": 34,
+     "lines": [
+      {
+       "x": 882,
+       "y": 1227,
+       "w": 226,
+       "h": 34,
+       "text": "[accept credit]"
+      }
+     ]
+    },
+    "t7": {
+     "x": 2908,
+     "y": 1283,
+     "w": 351,
+     "h": 33,
+     "lines": [
+      {
+       "x": 2908,
+       "y": 1283,
+       "w": 351,
+       "h": 33,
+       "text": "[incorrect information]"
+      }
+     ]
+    },
+    "t8": {
+     "x": 2367,
+     "y": 1437,
+     "w": 140,
+     "h": 82,
+     "lines": [
+      {
+       "x": 2369,
+       "y": 1437,
+       "w": 79,
+       "h": 34,
+       "text": "[over"
+      },
+      {
+       "x": 2367,
+       "y": 1485,
+       "w": 140,
+       "h": 34,
+       "text": "charged]"
+      }
+     ]
+    },
+    "t9": {
+     "x": 112,
+     "y": 1485,
+     "w": 138,
+     "h": 83,
+     "lines": [
+      {
+       "x": 113,
+       "y": 1485,
+       "w": 117,
+       "h": 34,
+       "text": "[accept"
+      },
+      {
+       "x": 112,
+       "y": 1533,
+       "w": 138,
+       "h": 35,
+       "text": "charges]"
+      }
+     ]
+    },
+    "t10": {
+     "x": 471,
+     "y": 1559,
+     "w": 138,
+     "h": 83,
+     "lines": [
+      {
+       "x": 472,
+       "y": 1559,
+       "w": 116,
+       "h": 35,
+       "text": "[accept"
+      },
+      {
+       "x": 471,
+       "y": 1608,
+       "w": 138,
+       "h": 34,
+       "text": "charges]"
+      }
+     ]
+    }
+   },
+   "offPage": {},
+   "marks": {},
+   "phases": {},
+   "rulesHaveSpans": {
+    "vertical": true,
+    "horizontal": true
+   }
+  }
+ },
+ "retexted": {
+  "n6": {
+   "section": "nodes",
+   "text": "Reconcile\nCharges"
+  },
+  "t3": {
+   "section": "texts",
+   "text": "[under\ncharged or\nincorrect\ninformation]"
+  }
+ },
+ "corrections": [
+  "text-11",
+  "text-21",
+  "choice-01",
+  "draw-28",
+  "draw-29"
+ ],
+ "documentLanes": {
+  "object-self-billed-invoice": "lane-accounting-supplier",
+  "object-application-response": "lane-accounting-customer",
+  "object-credit-note": "lane-accounting-customer"
+ },
+ "formerIds": {
+  "lane-accounting-customer": "lane0",
+  "lane-accounting-supplier": "lane1",
+  "initial-accounting-customer": "n1",
+  "object-self-billed-invoice": "n2",
+  "action-receive-self-billed-invoice": "n3",
+  "action-raise-self-billed-invoice": "n4",
+  "final-accounting-supplier": "n5",
+  "decision-reconcile-charges-in-accounting-supplier": "n6",
+  "action-receive-account-response": "n7",
+  "decision-validate-invoice": "n8",
+  "object-application-response": "n9",
+  "action-send-account-response": "n10",
+  "decision-reconcile-charges-in-accounting-customer": "n11",
+  "final-accounting-customer": "n12",
+  "fork-accounting-supplier": "n13",
+  "action-receive-credit-note": "n14",
+  "object-credit-note": "n15",
+  "action-raise-credit-note": "n16",
+  "final-accounting-customer-2": "n17",
+  "final-accounting-customer-3": "n18",
+  "flow-initial-accounting-customer-to-raise-self-billed-invoice": "f0",
+  "flow-self-billed-invoice-to-receive-self-billed-invoice": "f1",
+  "flow-raise-self-billed-invoice-to-self-billed-invoice": "f2",
+  "flow-raise-self-billed-invoice-to-final-accounting-customer-2": "f3",
+  "flow-raise-self-billed-invoice-to-reconcile-charges-in-accounting-customer": "f4",
+  "flow-reconcile-charges-in-accounting-customer-to-raise-self-billed-invoice": "f5",
+  "flow-receive-self-billed-invoice-to-validate-invoice": "f6",
+  "flow-reconcile-charges-in-accounting-supplier-to-final-accounting-supplier": "f7",
+  "flow-validate-invoice-to-reconcile-charges-in-accounting-supplier": "f8",
+  "flow-reconcile-charges-in-accounting-supplier-to-send-account-response": "f9",
+  "flow-reconcile-charges-in-accounting-supplier-to-raise-credit-note": "f10",
+  "flow-fork-accounting-supplier-to-send-account-response": "f11",
+  "flow-application-response-to-receive-account-response": "f12",
+  "flow-receive-account-response-to-reconcile-charges-in-accounting-customer": "f13",
+  "flow-send-account-response-to-application-response": "f14",
+  "flow-validate-invoice-to-fork-accounting-supplier": "f15",
+  "flow-reconcile-charges-in-accounting-customer-to-final-accounting-customer": "f16",
+  "flow-receive-credit-note-to-reconcile-charges-in-accounting-customer": "f17",
+  "flow-reconcile-charges-in-accounting-customer-to-final-accounting-customer-3": "f18",
+  "flow-fork-accounting-supplier-to-raise-credit-note": "f19",
+  "flow-credit-note-to-receive-credit-note": "f20",
+  "flow-raise-credit-note-to-credit-note": "f21",
+  "text-no-action-required": "t2",
+  "text-under-charged-or-incorrect-information": "t3",
+  "text-under-charged": "t4",
+  "text-incorrect-charges": "t5",
+  "text-accept-credit": "t6",
+  "text-incorrect-information": "t7",
+  "text-over-charged": "t8",
+  "text-accept-charges": "t9",
+  "text-accept-charges-2": "t10"
+ }
+}

@@ -1,0 +1,392 @@
+{
+ "schema": "ubl-activity-diagram-layout/1",
+ "figure": "UBL-2.2-FreightStatusReporting",
+ "units": "px of the original PNG",
+ "size": [
+  3425,
+  1230
+ ],
+ "style": {
+  "fontPx": 60.0,
+  "arrowPx": 57.0,
+  "arrowWidthPx": 55.5,
+  "arrowStyle": "open"
+ },
+ "rules": {
+  "vertical": [
+   {
+    "at": 0,
+    "width": 8,
+    "span": [
+     21,
+     1212
+    ]
+   },
+   {
+    "at": 1174,
+    "width": 8,
+    "span": [
+     0,
+     1212
+    ]
+   },
+   {
+    "at": 2773,
+    "width": 8,
+    "span": [
+     21,
+     1229
+    ]
+   },
+   {
+    "at": 3417,
+    "width": 8,
+    "span": [
+     21,
+     1212
+    ]
+   }
+  ],
+  "horizontal": [
+   {
+    "at": 9,
+    "width": 9,
+    "span": [
+     11,
+     3413
+    ]
+   },
+   {
+    "at": 1216,
+    "width": 9,
+    "span": [
+     11,
+     3413
+    ]
+   }
+  ]
+ },
+ "greyRules": [],
+ "lanes": {
+  "lane-sender-party": {
+   "x0": 0,
+   "x1": 1178,
+   "title": {
+    "x": 334,
+    "y": 35,
+    "w": 349,
+    "h": 58,
+    "lines": [
+     {
+      "x": 334,
+      "y": 35,
+      "w": 349,
+      "h": 58,
+      "text": "Sender Party"
+     }
+    ],
+    "as": "text"
+   }
+  },
+  "lane-receiver-party": {
+   "x0": 1178,
+   "x1": 3425,
+   "title": {
+    "x": 1882,
+    "y": 45,
+    "w": 387,
+    "h": 57,
+    "lines": [
+     {
+      "x": 1882,
+      "y": 45,
+      "w": 387,
+      "h": 57,
+      "text": "Receiver Party"
+     }
+    ],
+    "as": "text"
+   }
+  }
+ },
+ "nodes": {
+  "initial-sender-party": {
+   "x": 448,
+   "y": 137,
+   "w": 100,
+   "h": 100
+  },
+  "object-transportation-status-request": {
+   "x": 981,
+   "y": 266,
+   "w": 496,
+   "h": 281,
+   "shape": "rect",
+   "stroke": 7,
+   "rx": 0,
+   "ry": 0,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 1038,
+     "y": 361,
+     "w": 399,
+     "h": 56,
+     "text": "Transportation"
+    },
+    {
+     "x": 1028,
+     "y": 437,
+     "w": 422,
+     "h": 56,
+     "text": "Status Request"
+    }
+   ]
+  },
+  "action-receive-status-request": {
+   "x": 1774,
+   "y": 315,
+   "w": 766,
+   "h": 146,
+   "shape": "rounded",
+   "stroke": 6,
+   "rx": 62,
+   "ry": 69,
+   "bold": false,
+   "labelLines": [
+    {
+     "x": 1855,
+     "y": 364,
+     "w": 577,
+     "h": 50,
+     "text": "Receive Status Request"
+    }
+   ]
+  },
+  "action-request-status": {
+   "x": 173,
+   "y": 338,
+   "w": 611,
+   "h": 138,
+   "shape": "rounded",
+   "stroke": 6,
+   "rx": 54,
+   "ry": 67,
+   "bold": false,
+   "labelLines": [
+    {
+     "x": 306,
+     "y": 377,
+     "w": 355,
+     "h": 49,
+     "text": "Request status"
+    }
+   ]
+  },
+  "object-transportation-status": {
+   "x": 978,
+   "y": 701,
+   "w": 495,
+   "h": 281,
+   "shape": "rect",
+   "stroke": 7,
+   "rx": 10,
+   "ry": 2,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 1023,
+     "y": 763,
+     "w": 399,
+     "h": 56,
+     "text": "Transportation"
+    },
+    {
+     "x": 1135,
+     "y": 839,
+     "w": 173,
+     "h": 44,
+     "text": "Status"
+    }
+   ]
+  },
+  "action-receive-status-report": {
+   "x": 173,
+   "y": 774,
+   "w": 612,
+   "h": 137,
+   "shape": "rounded",
+   "stroke": 6,
+   "rx": 56,
+   "ry": 69.0,
+   "bold": false,
+   "labelLines": [
+    {
+     "x": 211,
+     "y": 825,
+     "w": 539,
+     "h": 49,
+     "text": "Receive Status Report"
+    }
+   ]
+  },
+  "action-report-status": {
+   "x": 1888,
+   "y": 783,
+   "w": 531,
+   "h": 147,
+   "shape": "rounded",
+   "stroke": 5,
+   "rx": 43,
+   "ry": 69,
+   "bold": false,
+   "labelLines": [
+    {
+     "x": 2001,
+     "y": 832,
+     "w": 317,
+     "h": 50,
+     "text": "Report status"
+    }
+   ]
+  },
+  "initial-receiver-party": {
+   "x": 3051,
+   "y": 802,
+   "w": 93,
+   "h": 93
+  },
+  "final-sender-party": {
+   "x": 446,
+   "y": 1064,
+   "w": 88,
+   "h": 88,
+   "shape": "ellipse",
+   "stroke": 7,
+   "rx": 44,
+   "ry": 43,
+   "innerRatio": 0.489
+  }
+ },
+ "flows": {
+  "flow-initial-sender-party-to-request-status": {
+   "fromPoint": [
+    498,
+    251
+   ],
+   "toPoint": [
+    495,
+    323
+   ],
+   "routing": "straight"
+  },
+  "flow-transportation-status-request-to-receive-status-request": {
+   "fromPoint": [
+    1491,
+    398
+   ],
+   "toPoint": [
+    1759,
+    395
+   ],
+   "routing": "straight"
+  },
+  "flow-request-status-to-transportation-status-request": {
+   "fromPoint": [
+    798,
+    411
+   ],
+   "toPoint": [
+    966,
+    411
+   ],
+   "routing": "straight"
+  },
+  "flow-receive-status-request-to-report-status": {
+   "fromPoint": [
+    2135,
+    475
+   ],
+   "toPoint": [
+    2138,
+    768
+   ],
+   "routing": "straight"
+  },
+  "flow-transportation-status-to-receive-status-report": {
+   "fromPoint": [
+    963,
+    850
+   ],
+   "toPoint": [
+    799,
+    848
+   ],
+   "routing": "straight"
+  },
+  "flow-initial-receiver-party-to-report-status": {
+   "fromPoint": [
+    3036,
+    849
+   ],
+   "toPoint": [
+    2433,
+    852
+   ],
+   "routing": "straight"
+  },
+  "flow-report-status-to-transportation-status": {
+   "fromPoint": [
+    1873,
+    862
+   ],
+   "toPoint": [
+    1487,
+    859
+   ],
+   "routing": "straight"
+  },
+  "flow-receive-status-report-to-final-sender-party": {
+   "fromPoint": [
+    487,
+    925
+   ],
+   "toPoint": [
+    490,
+    1049
+   ],
+   "routing": "straight"
+  }
+ },
+ "texts": {
+  "text-trigger-reporting-procedure": {
+   "x": 2928,
+   "y": 596,
+   "w": 393,
+   "h": 132,
+   "lines": [
+    {
+     "x": 2928,
+     "y": 596,
+     "w": 393,
+     "h": 50,
+     "text": "Trigger reporting"
+    },
+    {
+     "x": 2930,
+     "y": 663,
+     "w": 238,
+     "h": 50,
+     "text": "procedure"
+    }
+   ]
+  }
+ },
+ "offPage": {},
+ "marks": {},
+ "phases": {},
+ "rulesHaveSpans": {
+  "vertical": true,
+  "horizontal": true
+ }
+}

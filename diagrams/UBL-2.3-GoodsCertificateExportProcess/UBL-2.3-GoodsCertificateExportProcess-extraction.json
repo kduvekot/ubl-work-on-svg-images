@@ -1,0 +1,1667 @@
+{
+ "schema": "ubl-activity-diagram-extraction/1",
+ "figure": "UBL-2.3-GoodsCertificateExportProcess",
+ "nodes": {
+  "initial-export-party": {
+   "area": 1174,
+   "fill": 0.753
+  },
+  "action-draft-goods-certificate": {
+   "area": 26653,
+   "fill": 0.933,
+   "solid": 0.982,
+   "stem": 0.078
+  },
+  "object-goods-certificate-between-export-party-and-preparation-party": {
+   "area": 26544,
+   "fill": 0.941,
+   "solid": 1.0,
+   "stem": 0.156
+  },
+  "action-prepare-for-export": {
+   "area": 22209,
+   "fill": 0.933,
+   "solid": 0.99,
+   "stem": 0.078
+  },
+  "object-goods-certificate-between-preparation-party-and-certification-party": {
+   "area": 26534,
+   "fill": 0.941,
+   "solid": 1.0,
+   "stem": 0.156
+  },
+  "action-issue-trade-certificates-for-export-as": {
+   "area": 18413,
+   "fill": 0.854,
+   "solid": 0.992,
+   "stem": 0.078
+  },
+  "action-validate-trade-certificate": {
+   "area": 16408,
+   "fill": 0.895,
+   "solid": 0.99,
+   "stem": 0.078
+  },
+  "decision-ok": {
+   "area": 8676,
+   "fill": 0.489,
+   "solid": 0.511,
+   "stem": 0.117
+  },
+  "object-goods-certificate-between-export-party-and-preparation-party-2": {
+   "area": 26563,
+   "fill": 0.942,
+   "solid": 1.0,
+   "stem": 0.156
+  },
+  "object-goods-certificate-between-preparation-party-and-certification-party-2": {
+   "area": 26530,
+   "fill": 0.941,
+   "solid": 1.0,
+   "stem": 0.156
+  },
+  "action-receive-goods-certificate": {
+   "area": 19599,
+   "fill": 0.906,
+   "solid": 0.992,
+   "stem": 0.078
+  },
+  "action-apply-stamps-and-signature": {
+   "area": 17471,
+   "fill": 0.888,
+   "solid": 0.989,
+   "stem": 0.078
+  },
+  "action-send-authorized-copy": {
+   "area": 14419,
+   "fill": 0.893,
+   "solid": 0.99,
+   "stem": 0.078
+  },
+  "object-application-response-between-export-party-and-preparation-party": {
+   "area": 26327,
+   "fill": 0.934,
+   "solid": 1.0,
+   "stem": 0.156
+  },
+  "object-application-response-between-preparation-party-and-certification-party": {
+   "area": 26326,
+   "fill": 0.933,
+   "solid": 1.0,
+   "stem": 0.156
+  },
+  "action-receive-reject": {
+   "area": 20486,
+   "fill": 0.947,
+   "solid": 0.992,
+   "stem": 0.078
+  },
+  "action-send-reject-in-preparation-party": {
+   "area": 18679,
+   "fill": 0.949,
+   "solid": 0.989,
+   "stem": 0.078
+  },
+  "action-send-reject-in-certification-party": {
+   "area": 18685,
+   "fill": 0.95,
+   "solid": 0.989,
+   "stem": 0.078
+  },
+  "final-export-party": {
+   "area": 1000,
+   "fill": 0.297,
+   "solid": 0.801
+  }
+ },
+ "flows": {
+  "flow-initial-export-party-to-draft-goods-certificate": {
+   "arrowInk": [
+    111,
+    224
+   ],
+   "arrowPx": [
+    23,
+    20.0,
+    1.8
+   ],
+   "arrowFill": 0.948
+  },
+  "flow-draft-goods-certificate-to-goods-certificate-between-export-party-and-preparation-party": {
+   "arrowInk": [
+    90,
+    263
+   ],
+   "arrowPx": [
+    24,
+    18.0,
+    1.73
+   ],
+   "arrowFill": 0.981
+  },
+  "flow-goods-certificate-between-export-party-and-preparation-party-to-prepare-for-export": {
+   "arrowInk": [
+    207,
+    207
+   ],
+   "arrowPx": [
+    22,
+    21.5,
+    1.25
+   ],
+   "arrowFill": 0.806,
+   "arrowSaturated": true
+  },
+  "flow-prepare-for-export-to-issue-trade-certificates-for-export-as": {
+   "arrowInk": [
+    130,
+    236
+   ],
+   "arrowPx": [
+    12,
+    21.2,
+    1.69
+   ],
+   "arrowFill": 0.733
+  },
+  "flow-issue-trade-certificates-for-export-as-to-goods-certificate-between-preparation-party-and-certification-party": {
+   "arrowInk": [
+    201,
+    201
+   ],
+   "arrowPx": [
+    20,
+    17.1,
+    1.29
+   ],
+   "arrowFill": 1.0,
+   "arrowSaturated": true
+  },
+  "flow-goods-certificate-between-preparation-party-and-certification-party-to-validate-trade-certificate": {
+   "arrowInk": [
+    90,
+    265
+   ],
+   "arrowPx": [
+    24,
+    18.4,
+    1.89
+   ],
+   "arrowFill": 0.93
+  },
+  "flow-validate-trade-certificate-to-ok": {
+   "arrowInk": [
+    143,
+    143
+   ]
+  },
+  "flow-ok-to-send-reject-in-certification-party": {
+   "arrowInk": [
+    90,
+    307
+   ],
+   "arrowPx": [
+    21,
+    20.0,
+    1.84
+   ],
+   "arrowFill": 1.0
+  },
+  "flow-ok-to-apply-stamps-and-signature": {
+   "arrowInk": [
+    228,
+    386
+   ],
+   "arrowPx": [
+    25,
+    18.0,
+    1.74
+   ],
+   "arrowFill": 0.926
+  },
+  "flow-goods-certificate-between-export-party-and-preparation-party-2-to-receive-goods-certificate": {
+   "arrowInk": [
+    188,
+    226
+   ],
+   "arrowPx": [
+    22,
+    18.0,
+    1.72
+   ],
+   "arrowFill": 1.0
+  },
+  "flow-send-authorized-copy-to-goods-certificate-between-export-party-and-preparation-party-2": {
+   "arrowInk": [
+    207,
+    207
+   ],
+   "arrowPx": [
+    20,
+    18.0,
+    1.75
+   ],
+   "arrowFill": 0.86
+  },
+  "flow-goods-certificate-between-preparation-party-and-certification-party-2-to-send-authorized-copy": {
+   "arrowInk": [
+    267,
+    277
+   ]
+  },
+  "flow-apply-stamps-and-signature-to-goods-certificate-between-preparation-party-and-certification-party-2": {
+   "arrowInk": [
+    92,
+    255
+   ],
+   "arrowPx": [
+    24,
+    18.0,
+    1.7
+   ],
+   "arrowFill": 1.0
+  },
+  "flow-receive-goods-certificate-to-final-export-party": {
+   "arrowInk": [
+    158,
+    178
+   ],
+   "arrowPx": [
+    31,
+    12.1,
+    0.69
+   ],
+   "arrowFill": 0.316,
+   "arrowSaturated": true
+  },
+  "flow-application-response-between-export-party-and-preparation-party-to-receive-reject": {
+   "arrowInk": [
+    188,
+    226
+   ],
+   "arrowPx": [
+    22,
+    20.0,
+    1.8
+   ],
+   "arrowFill": 1.0
+  },
+  "flow-send-reject-in-preparation-party-to-application-response-between-export-party-and-preparation-party": {
+   "arrowInk": [
+    203,
+    203
+   ],
+   "arrowPx": [
+    20,
+    20.0,
+    1.85
+   ],
+   "arrowFill": 0.883
+  },
+  "flow-send-reject-in-certification-party-to-application-response-between-preparation-party-and-certification-party": {
+   "arrowInk": [
+    92,
+    255
+   ],
+   "arrowPx": [
+    24,
+    18.0,
+    1.78
+   ],
+   "arrowFill": 1.0
+  },
+  "flow-application-response-between-preparation-party-and-certification-party-to-send-reject-in-preparation-party": {
+   "arrowInk": [
+    200,
+    200
+   ],
+   "arrowPx": [
+    22,
+    24.1,
+    1.24
+   ],
+   "arrowFill": 0.733
+  },
+  "flow-receive-reject-to-final-export-party": {
+   "arrowInk": [
+    90,
+    157
+   ],
+   "arrowPx": [
+    31,
+    10.1,
+    0.82
+   ],
+   "arrowFill": 0.714,
+   "arrowSaturated": true
+  }
+ },
+ "offPage": {},
+ "marks": {},
+ "phases": {},
+ "greyRules": [],
+ "titleReadings": [
+  {
+   "position": 0,
+   "text": "Export party",
+   "x": 220,
+   "y": 30,
+   "w": 140,
+   "h": 23,
+   "lines": [
+    {
+     "x": 220,
+     "y": 30,
+     "w": 140,
+     "h": 23,
+     "text": "Export party"
+    }
+   ]
+  },
+  {
+   "position": 1,
+   "text": "Preparation party",
+   "x": 755,
+   "y": 30,
+   "w": 198,
+   "h": 23,
+   "lines": [
+    {
+     "x": 755,
+     "y": 30,
+     "w": 198,
+     "h": 23,
+     "text": "Preparation party"
+    }
+   ]
+  },
+  {
+   "position": 2,
+   "text": "Certification party",
+   "x": 1319,
+   "y": 30,
+   "w": 206,
+   "h": 23,
+   "lines": [
+    {
+     "x": 1319,
+     "y": 30,
+     "w": 206,
+     "h": 23,
+     "text": "Certification party"
+    }
+   ]
+  }
+ ],
+ "findings": [],
+ "uncertain": [
+  {
+   "kind": "no-weight-split",
+   "reason": "all 16 box strokes are one weight ([2, 3, 4]), so no object node could be identified",
+   "check": "confirm the diagram really has no object nodes"
+  },
+  {
+   "kind": "ring-stroke-unreadable",
+   "x": 79,
+   "y": 1173,
+   "w": 58,
+   "h": 58,
+   "reason": "line-work runs off this activity final on more than one side, so its ring thickness could not be measured",
+   "check": "confirm this is an activity final and how thick its ring is"
+  }
+ ],
+ "present": [
+  "source",
+  "size",
+  "fontPx",
+  "arrowPx",
+  "arrowWidthPx",
+  "arrowStyle",
+  "rules",
+  "ruleSpan",
+  "greyRules",
+  "dashed",
+  "openEnds",
+  "crossMarks",
+  "partitions",
+  "nodes",
+  "edges",
+  "text",
+  "uncertain"
+ ],
+ "uncorrected": {
+  "model": {
+   "schema": "ubl-activity-diagram/1",
+   "figure": {
+    "name": "UBL-2.3-GoodsCertificateExportProcess",
+    "source": "UBL-2.3-GoodsCertificateExportProcess.png"
+   },
+   "lanes": [
+    {
+     "id": "lane0",
+     "axis": "column",
+     "index": 0,
+     "title": "Export party"
+    },
+    {
+     "id": "lane1",
+     "axis": "column",
+     "index": 1,
+     "title": "Preparation party"
+    },
+    {
+     "id": "lane2",
+     "axis": "column",
+     "index": 2,
+     "title": "Certification party"
+    },
+    {
+     "id": "lane3",
+     "axis": "band",
+     "index": 0,
+     "title": ""
+    },
+    {
+     "id": "lane4",
+     "axis": "band",
+     "index": 1,
+     "title": ""
+    }
+   ],
+   "nodes": [
+    {
+     "id": "n1",
+     "kind": "initial",
+     "label": "",
+     "lane": "lane0",
+     "band": "lane4"
+    },
+    {
+     "id": "n2",
+     "kind": "action",
+     "label": "raft Goods Certificat",
+     "lane": "lane0",
+     "band": "lane4"
+    },
+    {
+     "id": "n3",
+     "kind": "object",
+     "label": "Goods Certificate",
+     "lane": "lane1",
+     "band": "lane4"
+    },
+    {
+     "id": "n4",
+     "kind": "action",
+     "label": "Prepare for export",
+     "lane": "lane1",
+     "band": "lane4"
+    },
+    {
+     "id": "n5",
+     "kind": "object",
+     "label": "Goods Certificate",
+     "lane": "lane1",
+     "band": "lane4"
+    },
+    {
+     "id": "n6",
+     "kind": "action",
+     "label": "Issue Trade\nCertificates for\nexport as bundle",
+     "lane": "lane1",
+     "band": "lane4"
+    },
+    {
+     "id": "n7",
+     "kind": "action",
+     "label": "Validate Trade\nCertificate",
+     "lane": "lane2",
+     "band": "lane4"
+    },
+    {
+     "id": "n8",
+     "kind": "decision",
+     "label": "OK?",
+     "lane": "lane2",
+     "band": "lane4"
+    },
+    {
+     "id": "n9",
+     "kind": "object",
+     "label": "Goods Certificate",
+     "lane": "lane1",
+     "band": "lane4"
+    },
+    {
+     "id": "n10",
+     "kind": "object",
+     "label": "Goods Certificate",
+     "lane": "lane1",
+     "band": "lane4"
+    },
+    {
+     "id": "n11",
+     "kind": "action",
+     "label": "Receive\nGoods Certificate",
+     "lane": "lane0",
+     "band": "lane4"
+    },
+    {
+     "id": "n12",
+     "kind": "action",
+     "label": "Apply stamps\nand signature",
+     "lane": "lane2",
+     "band": "lane4"
+    },
+    {
+     "id": "n13",
+     "kind": "action",
+     "label": "Send\nauthorized\ncopy",
+     "lane": "lane1",
+     "band": "lane4"
+    },
+    {
+     "id": "n14",
+     "kind": "object",
+     "label": "Application response",
+     "lane": "lane1",
+     "band": "lane4"
+    },
+    {
+     "id": "n15",
+     "kind": "object",
+     "label": "Application response",
+     "lane": "lane1",
+     "band": "lane4"
+    },
+    {
+     "id": "n16",
+     "kind": "action",
+     "label": "Receive reject",
+     "lane": "lane0",
+     "band": "lane4"
+    },
+    {
+     "id": "n17",
+     "kind": "action",
+     "label": "Send reject",
+     "lane": "lane1",
+     "band": "lane4"
+    },
+    {
+     "id": "n18",
+     "kind": "action",
+     "label": "Send reject",
+     "lane": "lane2",
+     "band": "lane4"
+    },
+    {
+     "id": "n19",
+     "kind": "final",
+     "label": "",
+     "lane": "lane0",
+     "band": "lane4"
+    }
+   ],
+   "flows": [
+    {
+     "id": "f0",
+     "from": "n1",
+     "to": "n2",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f1",
+     "from": "n2",
+     "to": "n3",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f2",
+     "from": "n3",
+     "to": "n4",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f3",
+     "from": "n4",
+     "to": "n6",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f4",
+     "from": "n6",
+     "to": "n5",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f5",
+     "from": "n5",
+     "to": "n7",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f6",
+     "from": "n7",
+     "to": "n8",
+     "kind": "control",
+     "direction": {
+      "confidence": "checked",
+      "checked": "confirmed"
+     }
+    },
+    {
+     "id": "f7",
+     "from": "n8",
+     "to": "n18",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     },
+     "guard": "t4"
+    },
+    {
+     "id": "f8",
+     "from": "n8",
+     "to": "n12",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     },
+     "guard": "t3"
+    },
+    {
+     "id": "f9",
+     "from": "n9",
+     "to": "n11",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f10",
+     "from": "n13",
+     "to": "n9",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f11",
+     "from": "n10",
+     "to": "n13",
+     "kind": "object",
+     "direction": {
+      "confidence": "checked",
+      "checked": "confirmed"
+     }
+    },
+    {
+     "id": "f12",
+     "from": "n12",
+     "to": "n10",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f13",
+     "from": "n11",
+     "to": "n19",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f14",
+     "from": "n14",
+     "to": "n16",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f15",
+     "from": "n17",
+     "to": "n14",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f16",
+     "from": "n18",
+     "to": "n15",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f17",
+     "from": "n15",
+     "to": "n17",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f18",
+     "from": "n16",
+     "to": "n19",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    }
+   ],
+   "texts": [
+    {
+     "id": "t3",
+     "text": "Yes",
+     "labels": "f8"
+    },
+    {
+     "id": "t4",
+     "text": "No",
+     "labels": "f7"
+    }
+   ],
+   "offPage": [],
+   "marks": [],
+   "phases": []
+  },
+  "layout": {
+   "schema": "ubl-activity-diagram-layout/1",
+   "figure": "UBL-2.3-GoodsCertificateExportProcess",
+   "units": "px of the original PNG",
+   "size": [
+    1712,
+    1279
+   ],
+   "style": {
+    "fontPx": 25.7,
+    "arrowPx": 22.5,
+    "arrowWidthPx": 18.2,
+    "arrowStyle": "filled"
+   },
+   "rules": {
+    "vertical": [
+     {
+      "at": 0,
+      "width": 5,
+      "span": [
+       8,
+       1270
+      ]
+     },
+     {
+      "at": 572,
+      "width": 2,
+      "span": [
+       8,
+       1270
+      ]
+     },
+     {
+      "at": 1138,
+      "width": 2,
+      "span": [
+       8,
+       1270
+      ]
+     },
+     {
+      "at": 1705,
+      "width": 7,
+      "span": [
+       8,
+       1270
+      ]
+     }
+    ],
+    "horizontal": [
+     {
+      "at": 0,
+      "width": 5,
+      "span": [
+       8,
+       1701
+      ]
+     },
+     {
+      "at": 62,
+      "width": 2,
+      "span": [
+       8,
+       1701
+      ]
+     },
+     {
+      "at": 1274,
+      "width": 5,
+      "span": [
+       8,
+       1701
+      ]
+     }
+    ]
+   },
+   "greyRules": [],
+   "lanes": {
+    "lane0": {
+     "x0": 0,
+     "x1": 573,
+     "titleBox": [
+      220,
+      30,
+      140,
+      23
+     ],
+     "titleBold": true
+    },
+    "lane1": {
+     "x0": 573,
+     "x1": 1139,
+     "titleBox": [
+      755,
+      30,
+      198,
+      23
+     ],
+     "titleBold": true
+    },
+    "lane2": {
+     "x0": 1139,
+     "x1": 1712,
+     "titleBox": [
+      1319,
+      30,
+      206,
+      23
+     ],
+     "titleBold": true
+    },
+    "lane3": {
+     "y0": 0,
+     "y1": 63
+    },
+    "lane4": {
+     "y0": 63,
+     "y1": 1279
+    }
+   },
+   "nodes": {
+    "n1": {
+     "x": 176,
+     "y": 116,
+     "w": 46,
+     "h": 45
+    },
+    "n2": {
+     "x": 79,
+     "y": 243,
+     "w": 240,
+     "h": 119,
+     "shape": "rounded",
+     "stroke": 2,
+     "rx": 15,
+     "ry": 15,
+     "bold": false,
+     "labelLines": [
+      {
+       "x": 94,
+       "y": 296,
+       "w": 212,
+       "h": 18,
+       "text": "raft Goods Certificat"
+      }
+     ]
+    },
+    "n3": {
+     "x": 454,
+     "y": 243,
+     "w": 239,
+     "h": 118,
+     "shape": "rect",
+     "stroke": 3,
+     "rx": 0,
+     "ry": 0,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 472,
+       "y": 293,
+       "w": 201,
+       "h": 18,
+       "text": "Goods Certificate"
+      }
+     ]
+    },
+    "n4": {
+     "x": 748,
+     "y": 243,
+     "w": 207,
+     "h": 115,
+     "shape": "rounded",
+     "stroke": 2,
+     "rx": 15,
+     "ry": 18,
+     "bold": false,
+     "labelLines": [
+      {
+       "x": 756,
+       "y": 294,
+       "w": 193,
+       "h": 22,
+       "text": "Prepare for export"
+      }
+     ]
+    },
+    "n5": {
+     "x": 1018,
+     "y": 429,
+     "w": 239,
+     "h": 118,
+     "shape": "rect",
+     "stroke": 4,
+     "rx": 0,
+     "ry": 0,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 1037,
+       "y": 478,
+       "w": 201,
+       "h": 19,
+       "text": "Goods Certificate"
+      }
+     ]
+    },
+    "n6": {
+     "x": 739,
+     "y": 440,
+     "w": 227,
+     "h": 95,
+     "shape": "rounded",
+     "stroke": 2,
+     "rx": 14,
+     "ry": 14,
+     "bold": false,
+     "labelLines": [
+      {
+       "x": 793,
+       "y": 446,
+       "w": 123,
+       "h": 18,
+       "text": "Issue Trade"
+      },
+      {
+       "x": 777,
+       "y": 476,
+       "w": 155,
+       "h": 18,
+       "text": "Certificates for"
+      },
+      {
+       "x": 765,
+       "y": 507,
+       "w": 178,
+       "h": 23,
+       "text": "export as bundle"
+      }
+     ]
+    },
+    "n7": {
+     "x": 1377,
+     "y": 440,
+     "w": 193,
+     "h": 95,
+     "shape": "rounded",
+     "stroke": 2,
+     "rx": 14,
+     "ry": 17,
+     "bold": false,
+     "labelLines": [
+      {
+       "x": 1398,
+       "y": 467,
+       "w": 153,
+       "h": 18,
+       "text": "Validate Trade"
+      },
+      {
+       "x": 1421,
+       "y": 490,
+       "w": 107,
+       "h": 19,
+       "text": "Certificate"
+      }
+     ]
+    },
+    "n8": {
+     "x": 1397,
+     "y": 584,
+     "w": 157,
+     "h": 113,
+     "shape": "rhombus",
+     "stroke": 2,
+     "rx": 84,
+     "ry": 61,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 1451,
+       "y": 633,
+       "w": 47,
+       "h": 19,
+       "text": "OK?"
+      }
+     ]
+    },
+    "n9": {
+     "x": 454,
+     "y": 781,
+     "w": 239,
+     "h": 118,
+     "shape": "rect",
+     "stroke": 3,
+     "rx": 0,
+     "ry": 0,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 472,
+       "y": 829,
+       "w": 201,
+       "h": 18,
+       "text": "Goods Certificate"
+      }
+     ]
+    },
+    "n10": {
+     "x": 1018,
+     "y": 781,
+     "w": 239,
+     "h": 118,
+     "shape": "rect",
+     "stroke": 3,
+     "rx": 0,
+     "ry": 0,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 1037,
+       "y": 826,
+       "w": 201,
+       "h": 19,
+       "text": "Goods Certificate"
+      }
+     ]
+    },
+    "n11": {
+     "x": 166,
+     "y": 789,
+     "w": 210,
+     "h": 103,
+     "shape": "rounded",
+     "stroke": 2,
+     "rx": 12,
+     "ry": 13,
+     "bold": false,
+     "labelLines": [
+      {
+       "x": 235,
+       "y": 819,
+       "w": 85,
+       "h": 18,
+       "text": "Receive"
+      },
+      {
+       "x": 185,
+       "y": 843,
+       "w": 185,
+       "h": 18,
+       "text": "Goods Certificate"
+      }
+     ]
+    },
+    "n12": {
+     "x": 1379,
+     "y": 789,
+     "w": 191,
+     "h": 103,
+     "shape": "rounded",
+     "stroke": 2,
+     "rx": 13,
+     "ry": 17,
+     "bold": false,
+     "labelLines": [
+      {
+       "x": 1400,
+       "y": 817,
+       "w": 145,
+       "h": 22,
+       "text": "Apply stamps"
+      },
+      {
+       "x": 1400,
+       "y": 841,
+       "w": 145,
+       "h": 23,
+       "text": "and signature"
+      }
+     ]
+    },
+    "n13": {
+     "x": 766,
+     "y": 793,
+     "w": 170,
+     "h": 95,
+     "shape": "rounded",
+     "stroke": 2,
+     "rx": 12,
+     "ry": 17,
+     "bold": false,
+     "labelLines": [
+      {
+       "x": 821,
+       "y": 804,
+       "w": 54,
+       "h": 19,
+       "text": "Send"
+      },
+      {
+       "x": 793,
+       "y": 829,
+       "w": 111,
+       "h": 18,
+       "text": "authorized"
+      },
+      {
+       "x": 823,
+       "y": 858,
+       "w": 51,
+       "h": 18,
+       "text": "copy"
+      }
+     ]
+    },
+    "n14": {
+     "x": 454,
+     "y": 983,
+     "w": 239,
+     "h": 118,
+     "shape": "rect",
+     "stroke": 3,
+     "rx": 0,
+     "ry": 0,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 457,
+       "y": 1037,
+       "w": 233,
+       "h": 21,
+       "text": "Application response"
+      }
+     ]
+    },
+    "n15": {
+     "x": 1018,
+     "y": 983,
+     "w": 239,
+     "h": 118,
+     "shape": "rect",
+     "stroke": 3,
+     "rx": 0,
+     "ry": 0,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 1021,
+       "y": 1037,
+       "w": 233,
+       "h": 21,
+       "text": "Application response"
+      }
+     ]
+    },
+    "n16": {
+     "x": 166,
+     "y": 991,
+     "w": 210,
+     "h": 103,
+     "shape": "rounded",
+     "stroke": 2,
+     "rx": 13,
+     "ry": 13,
+     "bold": false,
+     "labelLines": [
+      {
+       "x": 196,
+       "y": 1036,
+       "w": 151,
+       "h": 23,
+       "text": "Receive reject"
+      }
+     ]
+    },
+    "n17": {
+     "x": 764,
+     "y": 991,
+     "w": 191,
+     "h": 103,
+     "shape": "rounded",
+     "stroke": 2,
+     "rx": 14,
+     "ry": 18,
+     "bold": false,
+     "labelLines": [
+      {
+       "x": 799,
+       "y": 1036,
+       "w": 121,
+       "h": 23,
+       "text": "Send reject"
+      }
+     ]
+    },
+    "n18": {
+     "x": 1381,
+     "y": 991,
+     "w": 191,
+     "h": 103,
+     "shape": "rounded",
+     "stroke": 2,
+     "rx": 14,
+     "ry": 17,
+     "bold": false,
+     "labelLines": [
+      {
+       "x": 1416,
+       "y": 1036,
+       "w": 121,
+       "h": 23,
+       "text": "Send reject"
+      }
+     ]
+    },
+    "n19": {
+     "x": 79,
+     "y": 1173,
+     "w": 58,
+     "h": 58,
+     "shape": "ellipse",
+     "stroke": 0,
+     "rx": 27,
+     "ry": 27,
+     "innerRatio": 0.776
+    }
+   },
+   "flows": {
+    "f0": {
+     "fromPoint": [
+      198,
+      175
+     ],
+     "toPoint": [
+      198,
+      228
+     ],
+     "routing": "straight"
+    },
+    "f1": {
+     "fromPoint": [
+      333,
+      302
+     ],
+     "toPoint": [
+      439,
+      302
+     ],
+     "routing": "straight"
+    },
+    "f2": {
+     "fromPoint": [
+      707,
+      303
+     ],
+     "toPoint": [
+      733,
+      300
+     ],
+     "routing": "straight"
+    },
+    "f3": {
+     "fromPoint": [
+      855,
+      372
+     ],
+     "toPoint": [
+      853,
+      425
+     ],
+     "routing": "straight"
+    },
+    "f4": {
+     "fromPoint": [
+      980,
+      487
+     ],
+     "toPoint": [
+      1003,
+      488
+     ],
+     "routing": "straight"
+    },
+    "f5": {
+     "fromPoint": [
+      1271,
+      488
+     ],
+     "toPoint": [
+      1362,
+      487
+     ],
+     "routing": "straight"
+    },
+    "f6": {
+     "fromPoint": [
+      1475,
+      549
+     ],
+     "toPoint": [
+      1475,
+      569
+     ],
+     "routing": "straight"
+    },
+    "f7": {
+     "fromPoint": [
+      1568,
+      640
+     ],
+     "toPoint": [
+      1586,
+      1042
+     ],
+     "routing": "orthogonal",
+     "points": [
+      [
+       1630,
+       640
+      ],
+      [
+       1630,
+       1042
+      ]
+     ]
+    },
+    "f8": {
+     "fromPoint": [
+      1475,
+      711
+     ],
+     "toPoint": [
+      1475,
+      774
+     ],
+     "routing": "straight"
+    },
+    "f9": {
+     "fromPoint": [
+      439,
+      840
+     ],
+     "toPoint": [
+      390,
+      840
+     ],
+     "routing": "straight"
+    },
+    "f10": {
+     "fromPoint": [
+      751,
+      840
+     ],
+     "toPoint": [
+      707,
+      840
+     ],
+     "routing": "straight"
+    },
+    "f11": {
+     "fromPoint": [
+      1003,
+      840
+     ],
+     "toPoint": [
+      951,
+      840
+     ],
+     "routing": "straight"
+    },
+    "f12": {
+     "fromPoint": [
+      1364,
+      840
+     ],
+     "toPoint": [
+      1271,
+      840
+     ],
+     "routing": "straight"
+    },
+    "f13": {
+     "fromPoint": [
+      151,
+      840
+     ],
+     "toPoint": [
+      108,
+      1158
+     ],
+     "routing": "orthogonal",
+     "points": [
+      [
+       108,
+       840
+      ]
+     ]
+    },
+    "f14": {
+     "fromPoint": [
+      439,
+      1042
+     ],
+     "toPoint": [
+      390,
+      1042
+     ],
+     "routing": "straight"
+    },
+    "f15": {
+     "fromPoint": [
+      749,
+      1042
+     ],
+     "toPoint": [
+      707,
+      1042
+     ],
+     "routing": "straight"
+    },
+    "f16": {
+     "fromPoint": [
+      1366,
+      1044
+     ],
+     "toPoint": [
+      1271,
+      1044
+     ],
+     "routing": "straight"
+    },
+    "f17": {
+     "fromPoint": [
+      1003,
+      1045
+     ],
+     "toPoint": [
+      969,
+      1042
+     ],
+     "routing": "straight"
+    },
+    "f18": {
+     "fromPoint": [
+      272,
+      1108
+     ],
+     "toPoint": [
+      153,
+      1202
+     ],
+     "routing": "orthogonal",
+     "points": [
+      [
+       272,
+       1202
+      ]
+     ]
+    }
+   },
+   "texts": {
+    "t3": {
+     "x": 1414,
+     "y": 726,
+     "w": 34,
+     "h": 16,
+     "lines": [
+      {
+       "x": 1414,
+       "y": 726,
+       "w": 34,
+       "h": 16,
+       "text": "Yes"
+      }
+     ]
+    },
+    "t4": {
+     "x": 1640,
+     "y": 811,
+     "w": 26,
+     "h": 17,
+     "lines": [
+      {
+       "x": 1640,
+       "y": 811,
+       "w": 26,
+       "h": 17,
+       "text": "No"
+      }
+     ]
+    }
+   },
+   "offPage": {},
+   "marks": {},
+   "phases": {},
+   "rulesHaveSpans": {
+    "vertical": true,
+    "horizontal": true
+   }
+  }
+ },
+ "retexted": {
+  "n2": {
+   "section": "nodes",
+   "text": "Draft Goods Certificate"
+  }
+ },
+ "corrections": [
+  "text-15",
+  "party-37",
+  "party-38",
+  "party-39",
+  "draw-27"
+ ],
+ "documentLanes": {
+  "object-goods-certificate-between-export-party-and-preparation-party": "lane-preparation-party",
+  "object-goods-certificate-between-preparation-party-and-certification-party": "lane-preparation-party",
+  "object-goods-certificate-between-export-party-and-preparation-party-2": "lane-preparation-party",
+  "object-goods-certificate-between-preparation-party-and-certification-party-2": "lane-preparation-party",
+  "object-application-response-between-export-party-and-preparation-party": "lane-preparation-party",
+  "object-application-response-between-preparation-party-and-certification-party": "lane-preparation-party"
+ },
+ "formerIds": {
+  "lane-export-party": "lane0",
+  "lane-preparation-party": "lane1",
+  "lane-certification-party": "lane2",
+  "initial-export-party": "n1",
+  "action-draft-goods-certificate": "n2",
+  "object-goods-certificate-between-export-party-and-preparation-party": "n3",
+  "action-prepare-for-export": "n4",
+  "object-goods-certificate-between-preparation-party-and-certification-party": "n5",
+  "action-issue-trade-certificates-for-export-as": "n6",
+  "action-validate-trade-certificate": "n7",
+  "decision-ok": "n8",
+  "object-goods-certificate-between-export-party-and-preparation-party-2": "n9",
+  "object-goods-certificate-between-preparation-party-and-certification-party-2": "n10",
+  "action-receive-goods-certificate": "n11",
+  "action-apply-stamps-and-signature": "n12",
+  "action-send-authorized-copy": "n13",
+  "object-application-response-between-export-party-and-preparation-party": "n14",
+  "object-application-response-between-preparation-party-and-certification-party": "n15",
+  "action-receive-reject": "n16",
+  "action-send-reject-in-preparation-party": "n17",
+  "action-send-reject-in-certification-party": "n18",
+  "final-export-party": "n19",
+  "flow-initial-export-party-to-draft-goods-certificate": "f0",
+  "flow-draft-goods-certificate-to-goods-certificate-between-export-party-and-preparation-party": "f1",
+  "flow-goods-certificate-between-export-party-and-preparation-party-to-prepare-for-export": "f2",
+  "flow-prepare-for-export-to-issue-trade-certificates-for-export-as": "f3",
+  "flow-issue-trade-certificates-for-export-as-to-goods-certificate-between-preparation-party-and-certification-party": "f4",
+  "flow-goods-certificate-between-preparation-party-and-certification-party-to-validate-trade-certificate": "f5",
+  "flow-validate-trade-certificate-to-ok": "f6",
+  "flow-ok-to-send-reject-in-certification-party": "f7",
+  "flow-ok-to-apply-stamps-and-signature": "f8",
+  "flow-goods-certificate-between-export-party-and-preparation-party-2-to-receive-goods-certificate": "f9",
+  "flow-send-authorized-copy-to-goods-certificate-between-export-party-and-preparation-party-2": "f10",
+  "flow-goods-certificate-between-preparation-party-and-certification-party-2-to-send-authorized-copy": "f11",
+  "flow-apply-stamps-and-signature-to-goods-certificate-between-preparation-party-and-certification-party-2": "f12",
+  "flow-receive-goods-certificate-to-final-export-party": "f13",
+  "flow-application-response-between-export-party-and-preparation-party-to-receive-reject": "f14",
+  "flow-send-reject-in-preparation-party-to-application-response-between-export-party-and-preparation-party": "f15",
+  "flow-send-reject-in-certification-party-to-application-response-between-preparation-party-and-certification-party": "f16",
+  "flow-application-response-between-preparation-party-and-certification-party-to-send-reject-in-preparation-party": "f17",
+  "flow-receive-reject-to-final-export-party": "f18",
+  "text-yes": "t3",
+  "text-no": "t4"
+ }
+}

@@ -1,0 +1,351 @@
+{
+ "schema": "ubl-activity-diagram-layout/1",
+ "figure": "UBL-2.2-CRP-ChangeArticleCatalogue",
+ "units": "px of the original PNG",
+ "size": [
+  3425,
+  1894
+ ],
+ "style": {
+  "fontPx": 58.6,
+  "arrowPx": 59.0,
+  "arrowWidthPx": 46.0,
+  "arrowStyle": "open"
+ },
+ "rules": {
+  "vertical": [
+   {
+    "at": 0,
+    "width": 10,
+    "span": [
+     13,
+     1880
+    ]
+   },
+   {
+    "at": 1888,
+    "width": 4,
+    "span": [
+     13,
+     1880
+    ]
+   },
+   {
+    "at": 3415,
+    "width": 10,
+    "span": [
+     13,
+     1880
+    ]
+   }
+  ],
+  "horizontal": [
+   {
+    "at": 0,
+    "width": 10,
+    "span": [
+     13,
+     3411
+    ]
+   },
+   {
+    "at": 1884,
+    "width": 10,
+    "span": [
+     13,
+     3411
+    ]
+   }
+  ]
+ },
+ "greyRules": [],
+ "lanes": {
+  "lane-producer": {
+   "x0": 0,
+   "x1": 1890,
+   "titleBox": [
+    544,
+    48,
+    222,
+    41
+   ]
+  },
+  "lane-retailer": {
+   "x0": 1890,
+   "x1": 3425,
+   "titleBox": [
+    2627,
+    50,
+    188,
+    41
+   ]
+  }
+ },
+ "nodes": {
+  "initial-producer": {
+   "x": 593,
+   "y": 164,
+   "w": 90,
+   "h": 90
+  },
+  "decision-producer": {
+   "x": 582,
+   "y": 410,
+   "w": 103,
+   "h": 87,
+   "shape": "rhombus",
+   "stroke": 5,
+   "rx": 57,
+   "ry": 48
+  },
+  "final-producer": {
+   "x": 133,
+   "y": 417,
+   "w": 77,
+   "h": 77,
+   "shape": "ellipse",
+   "stroke": 4,
+   "rx": 39,
+   "ry": 43,
+   "innerRatio": 0.442
+  },
+  "object-catalogue": {
+   "x": 1573,
+   "y": 896,
+   "w": 631,
+   "h": 141,
+   "shape": "rect",
+   "stroke": 9,
+   "rx": 0,
+   "ry": 0,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 1763,
+     "y": 941,
+     "w": 265,
+     "h": 53,
+     "text": "Catalogue"
+    }
+   ]
+  },
+  "action-inform-about-changes-inside-the": {
+   "x": 86,
+   "y": 898,
+   "w": 1099,
+   "h": 163,
+   "shape": "rounded",
+   "stroke": 5,
+   "rx": 79,
+   "ry": 68,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 195,
+     "y": 918,
+     "w": 853,
+     "h": 53,
+     "text": "Inform about changes inside the"
+    },
+    {
+     "x": 502,
+     "y": 987,
+     "w": 257,
+     "h": 52,
+     "text": "catalogue"
+    }
+   ]
+  },
+  "action-receive-information": {
+   "x": 2549,
+   "y": 907,
+   "w": 768,
+   "h": 128,
+   "shape": "rounded",
+   "stroke": 5,
+   "rx": 65,
+   "ry": 57,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 2663,
+     "y": 949,
+     "w": 525,
+     "h": 42,
+     "text": "Receive information"
+    }
+   ]
+  },
+  "action-update-product-database": {
+   "x": 2528,
+   "y": 1349,
+   "w": 811,
+   "h": 133,
+   "shape": "rounded",
+   "stroke": 5,
+   "rx": 61,
+   "ry": 44,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 2594,
+     "y": 1392,
+     "w": 667,
+     "h": 52,
+     "text": "Update Product database"
+    }
+   ]
+  },
+  "final-retailer": {
+   "x": 2893,
+   "y": 1757,
+   "w": 77,
+   "h": 77,
+   "shape": "ellipse",
+   "stroke": 5,
+   "rx": 37,
+   "ry": 38,
+   "innerRatio": 0.442
+  }
+ },
+ "flows": {
+  "flow-initial-producer-to-decision-producer": {
+   "fromPoint": [
+    633,
+    268
+   ],
+   "toPoint": [
+    633,
+    395
+   ],
+   "routing": "straight"
+  },
+  "flow-decision-producer-to-final-producer": {
+   "fromPoint": [
+    567,
+    453
+   ],
+   "toPoint": [
+    224,
+    453
+   ],
+   "routing": "straight"
+  },
+  "flow-decision-producer-to-inform-about-changes-inside-the": {
+   "fromPoint": [
+    633,
+    511
+   ],
+   "toPoint": [
+    633,
+    883
+   ],
+   "routing": "straight"
+  },
+  "flow-inform-about-changes-inside-the-to-catalogue": {
+   "fromPoint": [
+    1199,
+    973
+   ],
+   "toPoint": [
+    1558,
+    968
+   ],
+   "routing": "straight"
+  },
+  "flow-catalogue-to-receive-information": {
+   "fromPoint": [
+    2218,
+    967
+   ],
+   "toPoint": [
+    2534,
+    969
+   ],
+   "routing": "straight"
+  },
+  "flow-receive-information-to-update-product-database": {
+   "fromPoint": [
+    2933,
+    1049
+   ],
+   "toPoint": [
+    2933,
+    1334
+   ],
+   "routing": "straight"
+  },
+  "flow-update-product-database-to-final-retailer": {
+   "fromPoint": [
+    2933,
+    1496
+   ],
+   "toPoint": [
+    2933,
+    1742
+   ],
+   "routing": "straight"
+  }
+ },
+ "texts": {
+  "text-false": {
+   "x": 392,
+   "y": 410,
+   "w": 100,
+   "h": 31,
+   "lines": [
+    {
+     "x": 392,
+     "y": 410,
+     "w": 100,
+     "h": 31,
+     "text": "False"
+    }
+   ]
+  },
+  "text-catalogue-update-is-needed": {
+   "x": 713,
+   "y": 422,
+   "w": 377,
+   "h": 86,
+   "lines": [
+    {
+     "x": 713,
+     "y": 422,
+     "w": 377,
+     "h": 39,
+     "text": "Catalogue update is"
+    },
+    {
+     "x": 713,
+     "y": 478,
+     "w": 162,
+     "h": 30,
+     "text": "needed?"
+    }
+   ]
+  },
+  "text-true": {
+   "x": 656,
+   "y": 538,
+   "w": 86,
+   "h": 32,
+   "lines": [
+    {
+     "x": 656,
+     "y": 538,
+     "w": 86,
+     "h": 32,
+     "text": "True"
+    }
+   ]
+  }
+ },
+ "offPage": {},
+ "marks": {},
+ "phases": {},
+ "rulesHaveSpans": {
+  "vertical": true,
+  "horizontal": true
+ }
+}

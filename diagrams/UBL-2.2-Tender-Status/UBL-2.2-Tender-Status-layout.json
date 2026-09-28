@@ -1,0 +1,364 @@
+{
+ "schema": "ubl-activity-diagram-layout/1",
+ "figure": "UBL-2.2-Tender-Status",
+ "units": "px of the original PNG",
+ "size": [
+  3424,
+  1802
+ ],
+ "style": {
+  "fontPx": 70.0,
+  "arrowPx": 80.0,
+  "arrowWidthPx": 66.8,
+  "arrowStyle": "open"
+ },
+ "rules": {
+  "vertical": [
+   {
+    "at": 0,
+    "width": 8,
+    "span": [
+     11,
+     1790
+    ]
+   },
+   {
+    "at": 1701,
+    "width": 8,
+    "span": [
+     11,
+     1790
+    ]
+   },
+   {
+    "at": 3410,
+    "width": 14,
+    "span": [
+     11,
+     1790
+    ]
+   }
+  ],
+  "horizontal": [
+   {
+    "at": 0,
+    "width": 8,
+    "span": [
+     11,
+     3406
+    ]
+   },
+   {
+    "at": 1794,
+    "width": 8,
+    "span": [
+     11,
+     3406
+    ]
+   }
+  ]
+ },
+ "greyRules": [],
+ "lanes": {
+  "lane-economic-operator": {
+   "x0": 0,
+   "x1": 1705,
+   "titleBox": [
+    443,
+    48,
+    759,
+    54
+   ],
+   "titleWords": "ECONOMIC OPERATOR"
+  },
+  "lane-contracting-authority": {
+   "x0": 1705,
+   "x1": 3424,
+   "titleBox": [
+    2097,
+    48,
+    909,
+    54
+   ],
+   "titleWords": "CONTRACTING AUTHORITY"
+  }
+ },
+ "nodes": {
+  "initial-economic-operator": {
+   "x": 551,
+   "y": 157,
+   "w": 124,
+   "h": 124
+  },
+  "action-prepare-tender-status-request": {
+   "x": 111,
+   "y": 394,
+   "w": 1001,
+   "h": 167,
+   "shape": "rounded",
+   "stroke": 8,
+   "rx": 86,
+   "ry": 82,
+   "bold": false,
+   "labelLines": [
+    {
+     "x": 177,
+     "y": 445,
+     "w": 877,
+     "h": 61,
+     "text": "Prepare tender status request"
+    }
+   ]
+  },
+  "object-tender-status-request": {
+   "x": 1453,
+   "y": 610,
+   "w": 516,
+   "h": 348,
+   "shape": "rect",
+   "stroke": 8,
+   "rx": 0,
+   "ry": 0,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 1492,
+     "y": 645,
+     "w": 245,
+     "h": 55,
+     "text": "Tender"
+    },
+    {
+     "x": 1484,
+     "y": 756,
+     "w": 225,
+     "h": 55,
+     "text": "Status"
+    },
+    {
+     "x": 1487,
+     "y": 861,
+     "w": 297,
+     "h": 68,
+     "text": "Request"
+    }
+   ]
+  },
+  "action-submit-tender-status-request": {
+   "x": 105,
+   "y": 698,
+   "w": 1013,
+   "h": 172,
+   "shape": "rounded",
+   "stroke": 9,
+   "rx": 79,
+   "ry": 83,
+   "bold": false,
+   "labelLines": [
+    {
+     "x": 189,
+     "y": 756,
+     "w": 848,
+     "h": 62,
+     "text": "Submit tender status request"
+    }
+   ]
+  },
+  "action-receive-tender-status-request": {
+   "x": 2263,
+   "y": 698,
+   "w": 1036,
+   "h": 178,
+   "shape": "rounded",
+   "stroke": 9,
+   "rx": 80,
+   "ry": 87,
+   "bold": false,
+   "labelLines": [
+    {
+     "x": 2342,
+     "y": 761,
+     "w": 880,
+     "h": 61,
+     "text": "Receive tender status request"
+    }
+   ]
+  },
+  "object-tender-status": {
+   "x": 1453,
+   "y": 1118,
+   "w": 516,
+   "h": 411,
+   "shape": "rect",
+   "stroke": 9,
+   "rx": 0,
+   "ry": 0,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 1489,
+     "y": 1248,
+     "w": 244,
+     "h": 55,
+     "text": "Tender"
+    },
+    {
+     "x": 1488,
+     "y": 1339,
+     "w": 224,
+     "h": 55,
+     "text": "Status"
+    }
+   ]
+  },
+  "action-receive-tender-status": {
+   "x": 134,
+   "y": 1217,
+   "w": 954,
+   "h": 173,
+   "shape": "rounded",
+   "stroke": 8,
+   "rx": 80,
+   "ry": 66,
+   "bold": false,
+   "labelLines": [
+    {
+     "x": 274,
+     "y": 1276,
+     "w": 637,
+     "h": 48,
+     "text": "Receive tender status"
+    }
+   ]
+  },
+  "action-submit-tender-status": {
+   "x": 2263,
+   "y": 1221,
+   "w": 1036,
+   "h": 164,
+   "shape": "rounded",
+   "stroke": 8,
+   "rx": 80.0,
+   "ry": 68,
+   "bold": false,
+   "labelLines": [
+    {
+     "x": 2484,
+     "y": 1277,
+     "w": 605,
+     "h": 49,
+     "text": "Submit tender status"
+    }
+   ]
+  },
+  "final-economic-operator": {
+   "x": 560,
+   "y": 1596,
+   "w": 108,
+   "h": 108,
+   "shape": "ellipse",
+   "stroke": 9,
+   "rx": 54,
+   "ry": 54,
+   "innerRatio": 0.5
+  }
+ },
+ "flows": {
+  "flow-initial-economic-operator-to-prepare-tender-status-request": {
+   "fromPoint": [
+    613,
+    295
+   ],
+   "toPoint": [
+    611,
+    379
+   ],
+   "routing": "straight"
+  },
+  "flow-prepare-tender-status-request-to-submit-tender-status-request": {
+   "fromPoint": [
+    611,
+    575
+   ],
+   "toPoint": [
+    611,
+    683
+   ],
+   "routing": "straight"
+  },
+  "flow-submit-tender-status-request-to-tender-status-request": {
+   "fromPoint": [
+    1132,
+    780
+   ],
+   "toPoint": [
+    1438,
+    780
+   ],
+   "routing": "straight"
+  },
+  "flow-tender-status-request-to-receive-tender-status-request": {
+   "fromPoint": [
+    1983,
+    780
+   ],
+   "toPoint": [
+    2248,
+    782
+   ],
+   "routing": "straight"
+  },
+  "flow-receive-tender-status-request-to-submit-tender-status": {
+   "fromPoint": [
+    2784,
+    890
+   ],
+   "toPoint": [
+    2784,
+    1206
+   ],
+   "routing": "straight"
+  },
+  "flow-tender-status-to-receive-tender-status": {
+   "fromPoint": [
+    1438,
+    1324
+   ],
+   "toPoint": [
+    1102,
+    1322
+   ],
+   "routing": "straight"
+  },
+  "flow-submit-tender-status-to-tender-status": {
+   "fromPoint": [
+    2248,
+    1322
+   ],
+   "toPoint": [
+    1983,
+    1324
+   ],
+   "routing": "straight"
+  },
+  "flow-receive-tender-status-to-final-economic-operator": {
+   "fromPoint": [
+    611,
+    1404
+   ],
+   "toPoint": [
+    614,
+    1581
+   ],
+   "routing": "straight"
+  }
+ },
+ "texts": {},
+ "offPage": {},
+ "marks": {},
+ "phases": {},
+ "rulesHaveSpans": {
+  "vertical": true,
+  "horizontal": true
+ }
+}

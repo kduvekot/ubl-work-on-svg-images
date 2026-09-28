@@ -1,0 +1,313 @@
+{
+ "schema": "ubl-activity-diagram-layout/1",
+ "figure": "UBL-2.0-SourcingPunchoutProcess",
+ "units": "px of the original PNG",
+ "size": [
+  3425,
+  2060
+ ],
+ "style": {
+  "fontPx": 62.9,
+  "arrowPx": 83.0,
+  "arrowWidthPx": 66.0,
+  "arrowStyle": "open"
+ },
+ "rules": {
+  "vertical": [
+   {
+    "at": 0,
+    "width": 10,
+    "span": [
+     13,
+     2046
+    ]
+   },
+   {
+    "at": 1743,
+    "width": 7,
+    "span": [
+     13,
+     2046
+    ]
+   },
+   {
+    "at": 3415,
+    "width": 10,
+    "span": [
+     13,
+     2046
+    ]
+   }
+  ],
+  "horizontal": [
+   {
+    "at": 0,
+    "width": 10,
+    "span": [
+     13,
+     3411
+    ]
+   },
+   {
+    "at": 2050,
+    "width": 10,
+    "span": [
+     13,
+     3411
+    ]
+   }
+  ]
+ },
+ "greyRules": [],
+ "lanes": {
+  "lane-originator-customer-party": {
+   "x0": 0,
+   "x1": 1746,
+   "titleBox": [
+    245,
+    74,
+    691,
+    56
+   ]
+  },
+  "lane-seller-supplier-party": {
+   "x0": 1746,
+   "x1": 3425,
+   "titleBox": [
+    2313,
+    74,
+    542,
+    56
+   ]
+  }
+ },
+ "nodes": {
+  "initial-originator-customer-party": {
+   "x": 478,
+   "y": 190,
+   "w": 121,
+   "h": 121
+  },
+  "note-transaction-accessing-seller-s-catalogue": {
+   "x": 1456,
+   "y": 335,
+   "w": 533,
+   "h": 413,
+   "shape": "rect",
+   "stroke": 7,
+   "rx": 0,
+   "ry": 0,
+   "fold": 59,
+   "bold": false,
+   "labelLines": [
+    {
+     "x": 1485,
+     "y": 433,
+     "w": 307,
+     "h": 44,
+     "text": "Transaction"
+    },
+    {
+     "x": 1485,
+     "y": 510,
+     "w": 474,
+     "h": 56,
+     "text": "accessing Seller's"
+    },
+    {
+     "x": 1485,
+     "y": 589,
+     "w": 256,
+     "h": 55,
+     "text": "catalogue"
+    },
+    {
+     "x": 1485,
+     "y": 667,
+     "w": 280,
+     "h": 55,
+     "text": "application"
+    }
+   ]
+  },
+  "action-build-shopping-basket": {
+   "x": 2530,
+   "y": 683,
+   "w": 772,
+   "h": 257,
+   "shape": "rounded",
+   "stroke": 7,
+   "rx": 88,
+   "ry": 86,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 2596,
+     "y": 778,
+     "w": 639,
+     "h": 56,
+     "text": "Build shopping basket"
+    }
+   ]
+  },
+  "action-initiate-a-punchout-session": {
+   "x": 167,
+   "y": 689,
+   "w": 755,
+   "h": 245,
+   "shape": "rounded",
+   "stroke": 7,
+   "rx": 88,
+   "ry": 89,
+   "bold": true,
+   "labelLines": []
+  },
+  "object-quotation": {
+   "x": 1495,
+   "y": 1244,
+   "w": 521,
+   "h": 281,
+   "shape": "rect",
+   "stroke": 13,
+   "rx": 0,
+   "ry": 0,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 1586,
+     "y": 1343,
+     "w": 333,
+     "h": 58,
+     "text": "Quotation"
+    }
+   ]
+  },
+  "action-receive-quotation": {
+   "x": 149,
+   "y": 1265,
+   "w": 725,
+   "h": 245,
+   "shape": "rounded",
+   "stroke": 7,
+   "rx": 87,
+   "ry": 88,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 252,
+     "y": 1359,
+     "w": 508,
+     "h": 55,
+     "text": "Receive quotation"
+    }
+   ]
+  },
+  "action-send-shopping-basket": {
+   "x": 2548,
+   "y": 1271,
+   "w": 736,
+   "h": 227,
+   "shape": "rounded",
+   "stroke": 7,
+   "rx": 86,
+   "ry": 85,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 2594,
+     "y": 1352,
+     "w": 638,
+     "h": 57,
+     "text": "Send shopping basket"
+    }
+   ]
+  },
+  "final-originator-customer-party": {
+   "x": 455,
+   "y": 1865,
+   "w": 107,
+   "h": 107,
+   "shape": "ellipse",
+   "stroke": 7,
+   "rx": 48,
+   "ry": 50,
+   "innerRatio": 0.449
+  }
+ },
+ "flows": {
+  "flow-initial-originator-customer-party-to-initiate-a-punchout-session": {
+   "fromPoint": [
+    540,
+    325
+   ],
+   "toPoint": [
+    542,
+    674
+   ],
+   "routing": "straight"
+  },
+  "flow-initiate-a-punchout-session-to-build-shopping-basket": {
+   "fromPoint": [
+    936,
+    811
+   ],
+   "toPoint": [
+    2515,
+    811
+   ],
+   "routing": "straight"
+  },
+  "flow-build-shopping-basket-to-send-shopping-basket": {
+   "fromPoint": [
+    2916,
+    954
+   ],
+   "toPoint": [
+    2916,
+    1256
+   ],
+   "routing": "straight"
+  },
+  "flow-quotation-to-receive-quotation": {
+   "fromPoint": [
+    1480,
+    1387
+   ],
+   "toPoint": [
+    888,
+    1387
+   ],
+   "routing": "straight"
+  },
+  "flow-send-shopping-basket-to-quotation": {
+   "fromPoint": [
+    2533,
+    1387
+   ],
+   "toPoint": [
+    2031,
+    1387
+   ],
+   "routing": "straight"
+  },
+  "flow-receive-quotation-to-final-originator-customer-party": {
+   "fromPoint": [
+    512,
+    1524
+   ],
+   "toPoint": [
+    510,
+    1850
+   ],
+   "routing": "straight"
+  }
+ },
+ "texts": {},
+ "offPage": {},
+ "marks": {},
+ "phases": {},
+ "rulesHaveSpans": {
+  "vertical": true,
+  "horizontal": true
+ }
+}

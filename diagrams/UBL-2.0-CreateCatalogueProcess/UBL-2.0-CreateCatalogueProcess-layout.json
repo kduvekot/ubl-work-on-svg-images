@@ -1,0 +1,1003 @@
+{
+ "schema": "ubl-activity-diagram-layout/1",
+ "figure": "UBL-2.0-CreateCatalogueProcess",
+ "units": "px of the original PNG",
+ "size": [
+  3425,
+  4862
+ ],
+ "style": {
+  "fontPx": 50.0,
+  "arrowPx": 67.0,
+  "arrowWidthPx": 52.9,
+  "arrowStyle": "open"
+ },
+ "rules": {
+  "vertical": [
+   {
+    "at": 0,
+    "width": 10,
+    "span": [
+     13,
+     4848
+    ]
+   },
+   {
+    "at": 1282,
+    "width": 5,
+    "span": [
+     13,
+     4848
+    ]
+   },
+   {
+    "at": 3415,
+    "width": 10,
+    "span": [
+     13,
+     4848
+    ]
+   }
+  ],
+  "horizontal": [
+   {
+    "at": 0,
+    "width": 10,
+    "span": [
+     13,
+     3411
+    ]
+   },
+   {
+    "at": 4852,
+    "width": 10,
+    "span": [
+     13,
+     3411
+    ]
+   }
+  ]
+ },
+ "greyRules": [],
+ "lanes": {
+  "lane-receiver-party": {
+   "x0": 0,
+   "x1": 1284,
+   "titleBox": [
+    488,
+    31,
+    305,
+    43
+   ]
+  },
+  "lane-provider-party": {
+   "x0": 1284,
+   "x1": 3425,
+   "titleBox": [
+    2203,
+    31,
+    295,
+    43
+   ]
+  }
+ },
+ "nodes": {
+  "initial-receiver-party": {
+   "x": 168,
+   "y": 48,
+   "w": 95,
+   "h": 96
+  },
+  "object-catalogue-request": {
+   "x": 1058,
+   "y": 241,
+   "w": 411,
+   "h": 222,
+   "shape": "rect",
+   "stroke": 10,
+   "rx": 0,
+   "ry": 0,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 1124,
+     "y": 289,
+     "w": 271,
+     "h": 53,
+     "text": "Catalogue"
+    },
+    {
+     "x": 1151,
+     "y": 360,
+     "w": 225,
+     "h": 53,
+     "text": "Request"
+    }
+   ]
+  },
+  "action-request-catalogue": {
+   "x": 55,
+   "y": 277,
+   "w": 658,
+   "h": 151,
+   "shape": "rounded",
+   "stroke": 6,
+   "rx": 63,
+   "ry": 66,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 169,
+     "y": 331,
+     "w": 425,
+     "h": 45,
+     "text": "Request Catalogue"
+    }
+   ]
+  },
+  "action-respond-to-request": {
+   "x": 2591,
+   "y": 277,
+   "w": 639,
+   "h": 151,
+   "shape": "rounded",
+   "stroke": 6,
+   "rx": 63,
+   "ry": 71,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 2682,
+     "y": 329,
+     "w": 458,
+     "h": 44,
+     "text": "Respond to Request"
+    }
+   ]
+  },
+  "object-application-response-negative-between-receiver-party-and-provider-party": {
+   "x": 1034,
+   "y": 834,
+   "w": 411,
+   "h": 240,
+   "shape": "rect",
+   "stroke": 10,
+   "rx": 0,
+   "ry": 0,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 1104,
+     "y": 880,
+     "w": 259,
+     "h": 43,
+     "text": "Application"
+    },
+    {
+     "x": 1122,
+     "y": 932,
+     "w": 224,
+     "h": 44,
+     "text": "Response"
+    },
+    {
+     "x": 1132,
+     "y": 984,
+     "w": 221,
+     "h": 45,
+     "text": "(negative)"
+    }
+   ]
+  },
+  "action-send-rejection": {
+   "x": 1780,
+   "y": 855,
+   "w": 578,
+   "h": 170,
+   "shape": "rounded",
+   "stroke": 6,
+   "rx": 67,
+   "ry": 69,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 1893,
+     "y": 916,
+     "w": 338,
+     "h": 45,
+     "text": "Send Rejection"
+    }
+   ]
+  },
+  "decision-provider-party": {
+   "x": 2849,
+   "y": 862,
+   "w": 114,
+   "h": 151,
+   "shape": "rhombus",
+   "stroke": 6,
+   "rx": 62,
+   "ry": 82,
+   "bold": false
+  },
+  "final-receiver-party": {
+   "x": 216,
+   "y": 897,
+   "w": 84,
+   "h": 85,
+   "shape": "ellipse",
+   "stroke": 5,
+   "rx": 38,
+   "ry": 43,
+   "innerRatio": 0.44
+  },
+  "fork-provider-party": {
+   "x": 2751,
+   "y": 1257,
+   "w": 319,
+   "h": 29
+  },
+  "object-application-response-positive-between-receiver-party-and-provider-party": {
+   "x": 1039,
+   "y": 1507,
+   "w": 411,
+   "h": 241,
+   "shape": "rect",
+   "stroke": 10,
+   "rx": 0,
+   "ry": 0,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 1110,
+     "y": 1553,
+     "w": 258,
+     "h": 44,
+     "text": "Application"
+    },
+    {
+     "x": 1127,
+     "y": 1606,
+     "w": 223,
+     "h": 43,
+     "text": "Response"
+    },
+    {
+     "x": 1142,
+     "y": 1658,
+     "w": 208,
+     "h": 43,
+     "text": "(positive)"
+    }
+   ]
+  },
+  "action-prepare-catalogue-information": {
+   "x": 2705,
+   "y": 1519,
+   "w": 630,
+   "h": 198,
+   "shape": "rounded",
+   "stroke": 6,
+   "rx": 65,
+   "ry": 71,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 2800,
+     "y": 1562,
+     "w": 414,
+     "h": 45,
+     "text": "Prepare Catalogue"
+    },
+    {
+     "x": 2894,
+     "y": 1624,
+     "w": 256,
+     "h": 35,
+     "text": "Information"
+    }
+   ]
+  },
+  "action-send-acceptance-response": {
+   "x": 1923,
+   "y": 1533,
+   "w": 572,
+   "h": 198,
+   "shape": "rounded",
+   "stroke": 6,
+   "rx": 71,
+   "ry": 69,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 2002,
+     "y": 1576,
+     "w": 392,
+     "h": 45,
+     "text": "Send Acceptance"
+    },
+    {
+     "x": 2098,
+     "y": 1639,
+     "w": 222,
+     "h": 43,
+     "text": "Response"
+    }
+   ]
+  },
+  "action-produce-catalogue": {
+   "x": 1894,
+   "y": 1946,
+   "w": 625,
+   "h": 217,
+   "shape": "rounded",
+   "stroke": 6,
+   "rx": 65,
+   "ry": 68,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 1989,
+     "y": 2034,
+     "w": 427,
+     "h": 45,
+     "text": "Produce Catalogue"
+    }
+   ]
+  },
+  "action-distribute-catalogue": {
+   "x": 1890,
+   "y": 2372,
+   "w": 629,
+   "h": 189,
+   "shape": "rounded",
+   "stroke": 5,
+   "rx": 68,
+   "ry": 65,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 1975,
+     "y": 2448,
+     "w": 459,
+     "h": 45,
+     "text": "Distribute Catalogue"
+    }
+   ]
+  },
+  "object-catalogue": {
+   "x": 1053,
+   "y": 2375,
+   "w": 411,
+   "h": 222,
+   "shape": "rect",
+   "stroke": 10,
+   "rx": 0,
+   "ry": 0,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 1129,
+     "y": 2449,
+     "w": 270,
+     "h": 54,
+     "text": "Catalogue"
+    }
+   ]
+  },
+  "fork-receiver-party": {
+   "x": 315,
+   "y": 2467,
+   "w": 190,
+   "h": 29
+  },
+  "action-receive-catalogue": {
+   "x": 135,
+   "y": 2738,
+   "w": 645,
+   "h": 155,
+   "shape": "rounded",
+   "stroke": 6,
+   "rx": 69,
+   "ry": 73,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 240,
+     "y": 2795,
+     "w": 417,
+     "h": 45,
+     "text": "Receive Catalogue"
+    }
+   ]
+  },
+  "decision-decide-on-action": {
+   "x": 2683,
+   "y": 3157,
+   "w": 488,
+   "h": 455,
+   "shape": "rhombus",
+   "stroke": 6,
+   "rx": 254,
+   "ry": 241,
+   "bold": false,
+   "labelLines": [
+    {
+     "x": 2749,
+     "y": 3374,
+     "w": 350,
+     "h": 35,
+     "text": "Decide on Action"
+    }
+   ]
+  },
+  "decision-review-catalogue-content": {
+   "x": 138,
+   "y": 3170,
+   "w": 592,
+   "h": 462,
+   "shape": "rhombus",
+   "stroke": 5,
+   "rx": 308,
+   "ry": 242,
+   "bold": false,
+   "labelLines": [
+    {
+     "x": 246,
+     "y": 3364,
+     "w": 379,
+     "h": 44,
+     "text": "Review Catalogue"
+    },
+    {
+     "x": 244,
+     "y": 3426,
+     "w": 163,
+     "h": 35,
+     "text": "Content"
+    }
+   ]
+  },
+  "object-application-response-negative-between-receiver-party-and-provider-party-2": {
+   "x": 1077,
+   "y": 3290,
+   "w": 411,
+   "h": 241,
+   "shape": "rect",
+   "stroke": 10,
+   "rx": 0,
+   "ry": 0,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 1147,
+     "y": 3336,
+     "w": 259,
+     "h": 44,
+     "text": "Application"
+    },
+    {
+     "x": 1165,
+     "y": 3388,
+     "w": 223,
+     "h": 44,
+     "text": "Response"
+    },
+    {
+     "x": 1175,
+     "y": 3441,
+     "w": 220,
+     "h": 44,
+     "text": "(negative)"
+    }
+   ]
+  },
+  "object-application-response-positive-between-receiver-party-and-provider-party-2": {
+   "x": 1096,
+   "y": 3920,
+   "w": 411,
+   "h": 242,
+   "shape": "rect",
+   "stroke": 10,
+   "rx": 0,
+   "ry": 0,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 1166,
+     "y": 3967,
+     "w": 259,
+     "h": 44,
+     "text": "Application"
+    },
+    {
+     "x": 1184,
+     "y": 4019,
+     "w": 223,
+     "h": 44,
+     "text": "Response"
+    },
+    {
+     "x": 1199,
+     "y": 4071,
+     "w": 207,
+     "h": 44,
+     "text": "(positive)"
+    }
+   ]
+  },
+  "action-acknowledge-acceptance": {
+   "x": 102,
+   "y": 3951,
+   "w": 644,
+   "h": 156,
+   "shape": "rounded",
+   "stroke": 5,
+   "rx": 73,
+   "ry": 75,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 123,
+     "y": 4005,
+     "w": 583,
+     "h": 44,
+     "text": "Acknowledge Acceptance"
+    }
+   ]
+  },
+  "final-provider-party": {
+   "x": 2866,
+   "y": 4003,
+   "w": 108,
+   "h": 109,
+   "shape": "ellipse",
+   "stroke": 6,
+   "rx": 57,
+   "ry": 55,
+   "innerRatio": 0.574
+  },
+  "action-accept-catalogue": {
+   "x": 92,
+   "y": 4378,
+   "w": 688,
+   "h": 146,
+   "shape": "rounded",
+   "stroke": 5,
+   "rx": 72,
+   "ry": 75,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 233,
+     "y": 4431,
+     "w": 398,
+     "h": 45,
+     "text": "Accept Catalogue"
+    }
+   ]
+  },
+  "final-receiver-party-2": {
+   "x": 391,
+   "y": 4696,
+   "w": 85,
+   "h": 85,
+   "shape": "ellipse",
+   "stroke": 5,
+   "rx": 41,
+   "ry": 42,
+   "innerRatio": 0.447
+  }
+ },
+ "flows": {
+  "flow-initial-receiver-party-to-request-catalogue": {
+   "fromPoint": [
+    215,
+    158
+   ],
+   "toPoint": [
+    224,
+    262
+   ],
+   "routing": "diagonal"
+  },
+  "flow-request-catalogue-to-catalogue-request": {
+   "fromPoint": [
+    727,
+    354
+   ],
+   "toPoint": [
+    1043,
+    354
+   ],
+   "routing": "straight"
+  },
+  "flow-catalogue-request-to-respond-to-request": {
+   "fromPoint": [
+    1483,
+    354
+   ],
+   "toPoint": [
+    2576,
+    354
+   ],
+   "routing": "straight"
+  },
+  "flow-respond-to-request-to-decision-provider-party": {
+   "fromPoint": [
+    2906,
+    442
+   ],
+   "toPoint": [
+    2906,
+    847
+   ],
+   "routing": "straight"
+  },
+  "flow-decision-provider-party-to-send-rejection": {
+   "fromPoint": [
+    2834,
+    937
+   ],
+   "toPoint": [
+    2372,
+    937
+   ],
+   "routing": "straight"
+  },
+  "flow-application-response-negative-between-receiver-party-and-provider-party-to-final-receiver-party": {
+   "fromPoint": [
+    1019,
+    952
+   ],
+   "toPoint": [
+    314,
+    941
+   ],
+   "routing": "diagonal"
+  },
+  "flow-send-rejection-to-application-response-negative-between-receiver-party-and-provider-party": {
+   "fromPoint": [
+    1765,
+    945
+   ],
+   "toPoint": [
+    1459,
+    952
+   ],
+   "routing": "straight"
+  },
+  "flow-decision-provider-party-to-fork-provider-party": {
+   "fromPoint": [
+    2905,
+    1027
+   ],
+   "toPoint": [
+    2907,
+    1242
+   ],
+   "routing": "straight"
+  },
+  "flow-fork-provider-party-to-send-acceptance-response": {
+   "fromPoint": [
+    2825,
+    1300
+   ],
+   "toPoint": [
+    2475,
+    1518
+   ],
+   "routing": "diagonal"
+  },
+  "flow-fork-provider-party-to-prepare-catalogue-information": {
+   "fromPoint": [
+    2993,
+    1300
+   ],
+   "toPoint": [
+    2998,
+    1504
+   ],
+   "routing": "straight"
+  },
+  "flow-send-acceptance-response-to-application-response-positive-between-receiver-party-and-provider-party": {
+   "fromPoint": [
+    1908,
+    1620
+   ],
+   "toPoint": [
+    1464,
+    1620
+   ],
+   "routing": "straight"
+  },
+  "flow-application-response-positive-between-receiver-party-and-provider-party-to-fork-receiver-party": {
+   "fromPoint": [
+    1024,
+    1700
+   ],
+   "toPoint": [
+    384,
+    2443
+   ],
+   "routing": "orthogonal",
+   "points": [
+    [
+     384,
+     1700
+    ]
+   ]
+  },
+  "flow-prepare-catalogue-information-to-produce-catalogue": {
+   "fromPoint": [
+    2701,
+    1731
+   ],
+   "toPoint": [
+    2375,
+    1931
+   ],
+   "routing": "diagonal"
+  },
+  "flow-decide-on-action-to-prepare-catalogue-information": {
+   "fromPoint": [
+    2925,
+    3142
+   ],
+   "toPoint": [
+    2920,
+    1731
+   ],
+   "routing": "straight"
+  },
+  "flow-produce-catalogue-to-distribute-catalogue": {
+   "fromPoint": [
+    2204,
+    2177
+   ],
+   "toPoint": [
+    2204,
+    2357
+   ],
+   "routing": "straight"
+  },
+  "flow-catalogue-to-fork-receiver-party": {
+   "fromPoint": [
+    1038,
+    2478
+   ],
+   "toPoint": [
+    519,
+    2478
+   ],
+   "routing": "straight"
+  },
+  "flow-distribute-catalogue-to-catalogue": {
+   "fromPoint": [
+    1875,
+    2482
+   ],
+   "toPoint": [
+    1478,
+    2484
+   ],
+   "routing": "straight"
+  },
+  "flow-fork-receiver-party-to-receive-catalogue": {
+   "fromPoint": [
+    419,
+    2510
+   ],
+   "toPoint": [
+    424,
+    2723
+   ],
+   "routing": "straight"
+  },
+  "flow-receive-catalogue-to-review-catalogue-content": {
+   "fromPoint": [
+    431,
+    2907
+   ],
+   "toPoint": [
+    431,
+    3155
+   ],
+   "routing": "straight"
+  },
+  "flow-application-response-negative-between-receiver-party-and-provider-party-2-to-decide-on-action": {
+   "fromPoint": [
+    1502,
+    3384
+   ],
+   "toPoint": [
+    2668,
+    3384
+   ],
+   "routing": "straight"
+  },
+  "flow-review-catalogue-content-to-application-response-negative-between-receiver-party-and-provider-party-2": {
+   "fromPoint": [
+    744,
+    3398
+   ],
+   "toPoint": [
+    1062,
+    3403
+   ],
+   "routing": "straight"
+  },
+  "flow-decide-on-action-to-final-provider-party": {
+   "fromPoint": [
+    2925,
+    3626
+   ],
+   "toPoint": [
+    2920,
+    3988
+   ],
+   "routing": "straight"
+  },
+  "flow-review-catalogue-content-to-acknowledge-acceptance": {
+   "fromPoint": [
+    433,
+    3646
+   ],
+   "toPoint": [
+    428,
+    3936
+   ],
+   "routing": "straight"
+  },
+  "flow-acknowledge-acceptance-to-application-response-positive-between-receiver-party-and-provider-party-2": {
+   "fromPoint": [
+    760,
+    4032
+   ],
+   "toPoint": [
+    1081,
+    4040
+   ],
+   "routing": "straight"
+  },
+  "flow-application-response-positive-between-receiver-party-and-provider-party-2-to-final-provider-party": {
+   "fromPoint": [
+    1521,
+    4038
+   ],
+   "toPoint": [
+    2851,
+    4038
+   ],
+   "routing": "straight"
+  },
+  "flow-acknowledge-acceptance-to-accept-catalogue": {
+   "fromPoint": [
+    424,
+    4121
+   ],
+   "toPoint": [
+    429,
+    4363
+   ],
+   "routing": "straight"
+  },
+  "flow-accept-catalogue-to-final-receiver-party-2": {
+   "fromPoint": [
+    436,
+    4538
+   ],
+   "toPoint": [
+    433,
+    4681
+   ],
+   "routing": "straight"
+  }
+ },
+ "texts": {
+  "text-reject-request": {
+   "x": 2449,
+   "y": 961,
+   "w": 308,
+   "h": 43,
+   "lines": [
+    {
+     "x": 2449,
+     "y": 961,
+     "w": 308,
+     "h": 43,
+     "text": "[reject request]"
+    }
+   ]
+  },
+  "text-accept-request": {
+   "x": 2923,
+   "y": 1089,
+   "w": 331,
+   "h": 43,
+   "lines": [
+    {
+     "x": 2923,
+     "y": 1089,
+     "w": 331,
+     "h": 43,
+     "text": "[accept request]"
+    }
+   ]
+  },
+  "text-revise-content": {
+   "x": 2942,
+   "y": 2492,
+   "w": 315,
+   "h": 43,
+   "lines": [
+    {
+     "x": 2942,
+     "y": 2492,
+     "w": 315,
+     "h": 43,
+     "text": "[revise content]"
+    }
+   ]
+  },
+  "text-query-catalogue-content": {
+   "x": 665,
+   "y": 3222,
+   "w": 347,
+   "h": 105,
+   "lines": [
+    {
+     "x": 666,
+     "y": 3222,
+     "w": 346,
+     "h": 44,
+     "text": "[query catalogue"
+    },
+    {
+     "x": 665,
+     "y": 3284,
+     "w": 164,
+     "h": 43,
+     "text": "content]"
+    }
+   ]
+  },
+  "text-accept-content": {
+   "x": 487,
+   "y": 3678,
+   "w": 328,
+   "h": 43,
+   "lines": [
+    {
+     "x": 487,
+     "y": 3678,
+     "w": 328,
+     "h": 43,
+     "text": "[accept content]"
+    }
+   ]
+  },
+  "text-cancel-transaction": {
+   "x": 2440,
+   "y": 3744,
+   "w": 402,
+   "h": 44,
+   "lines": [
+    {
+     "x": 2440,
+     "y": 3744,
+     "w": 402,
+     "h": 44,
+     "text": "[cancel transaction]"
+    }
+   ]
+  }
+ },
+ "offPage": {},
+ "marks": {},
+ "phases": {},
+ "rulesHaveSpans": {
+  "vertical": true,
+  "horizontal": true
+ }
+}

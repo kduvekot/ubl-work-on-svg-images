@@ -1,0 +1,429 @@
+{
+ "schema": "ubl-activity-diagram/1",
+ "figure": {
+  "name": "UBL-2.2-CPFR-CreatingSalesForecast",
+  "source": "UBL-2.2-CPFR-CreatingSalesForecast.png"
+ },
+ "lanes": [
+  {
+   "id": "lane-buyer-party",
+   "axis": "column",
+   "index": 0,
+   "title": "Buyer Party",
+   "titleShown": false,
+   "titleSource": "text"
+  },
+  {
+   "id": "lane-seller-party",
+   "axis": "column",
+   "index": 1,
+   "title": "Seller Party",
+   "titleShown": false,
+   "titleSource": "text"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "object-item-information-request",
+   "kind": "object",
+   "label": "Item Information\nRequest",
+   "lane": null,
+   "between": [
+    "lane-buyer-party",
+    "lane-seller-party"
+   ]
+  },
+  {
+   "id": "action-create-product-activity-pos-data",
+   "kind": "action",
+   "label": "Create Product Activity\n(POS Data)",
+   "lane": "lane-buyer-party"
+  },
+  {
+   "id": "action-create-item-information-request",
+   "kind": "action",
+   "label": "Create Item\nInformation Request",
+   "lane": "lane-seller-party",
+   "unstated": {
+    "wayIn": "A second beginning, independent of the path handed over from Create Joint Business Plan: the artwork draws no start or step before it."
+   }
+  },
+  {
+   "id": "action-create-product-activity-dc-data",
+   "kind": "action",
+   "label": "Create Product Activity\n(DC Data)",
+   "lane": "lane-buyer-party"
+  },
+  {
+   "id": "object-product-activity",
+   "kind": "object",
+   "label": "Product Activity",
+   "lane": null,
+   "between": [
+    "lane-buyer-party",
+    "lane-seller-party"
+   ]
+  },
+  {
+   "id": "action-send-product-activity",
+   "kind": "action",
+   "label": "Send Product Activity",
+   "lane": "lane-buyer-party"
+  },
+  {
+   "id": "action-receive-product-activity",
+   "kind": "action",
+   "label": "Receive Product Activity",
+   "lane": "lane-seller-party"
+  },
+  {
+   "id": "action-create-sales-forecast",
+   "kind": "action",
+   "label": "Create Sales Forecast",
+   "lane": "lane-seller-party"
+  },
+  {
+   "id": "object-forecast-sales",
+   "kind": "object",
+   "label": "Forecast (sales)",
+   "lane": null,
+   "between": [
+    "lane-buyer-party",
+    "lane-seller-party"
+   ]
+  },
+  {
+   "id": "action-receive-sales-forecast",
+   "kind": "action",
+   "label": "Receive Sales Forecast",
+   "lane": "lane-buyer-party"
+  },
+  {
+   "id": "action-send-sales-forecast-in-seller-party",
+   "kind": "action",
+   "label": "Send Sales Forecast",
+   "lane": "lane-seller-party"
+  },
+  {
+   "id": "object-forecast-revision-sales",
+   "kind": "object",
+   "label": "Forecast Revision\n(sales)",
+   "lane": null,
+   "between": [
+    "lane-buyer-party",
+    "lane-seller-party"
+   ]
+  },
+  {
+   "id": "action-revise-sales-forecast-and-send-revision",
+   "kind": "action",
+   "label": "Revise Sales Forecast\nand Send Revision",
+   "lane": "lane-buyer-party"
+  },
+  {
+   "id": "action-receive-sales-forecast-revision",
+   "kind": "action",
+   "label": "Receive Sales Forecast\nRevision",
+   "lane": "lane-seller-party"
+  },
+  {
+   "id": "action-revise-and-resend-revision",
+   "kind": "action",
+   "label": "Revise and Resend\nRevision",
+   "lane": "lane-seller-party"
+  },
+  {
+   "id": "decision-buyer-party",
+   "kind": "decision",
+   "label": "",
+   "lane": "lane-buyer-party",
+   "question": "Sales Forecast Accepted?"
+  },
+  {
+   "id": "action-receive-revision",
+   "kind": "action",
+   "label": "Receive Revision",
+   "lane": "lane-buyer-party"
+  },
+  {
+   "id": "action-send-sales-forecast-in-buyer-party",
+   "kind": "action",
+   "label": "Send Sales Forecast",
+   "lane": "lane-buyer-party"
+  },
+  {
+   "id": "object-forecast-sales-positive-response",
+   "kind": "object",
+   "label": "Forecast (sales -\npositive response)",
+   "lane": null,
+   "between": [
+    "lane-buyer-party",
+    "lane-seller-party"
+   ]
+  }
+ ],
+ "flows": [
+  {
+   "id": "flow-item-information-request-to-create-product-activity-pos-data",
+   "from": "object-item-information-request",
+   "to": "action-create-product-activity-pos-data",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-create-item-information-request-to-item-information-request",
+   "from": "action-create-item-information-request",
+   "to": "object-item-information-request",
+   "kind": "object",
+   "direction": {
+    "confidence": "medium",
+    "checked": "confirmed"
+   }
+  },
+  {
+   "id": "flow-create-product-activity-pos-data-to-create-product-activity-dc-data",
+   "from": "action-create-product-activity-pos-data",
+   "to": "action-create-product-activity-dc-data",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-create-product-activity-dc-data-to-send-product-activity",
+   "from": "action-create-product-activity-dc-data",
+   "to": "action-send-product-activity",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-send-product-activity-to-product-activity",
+   "from": "action-send-product-activity",
+   "to": "object-product-activity",
+   "kind": "object",
+   "direction": {
+    "confidence": "medium",
+    "checked": "confirmed"
+   }
+  },
+  {
+   "id": "flow-product-activity-to-receive-product-activity",
+   "from": "object-product-activity",
+   "to": "action-receive-product-activity",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-receive-product-activity-to-create-sales-forecast",
+   "from": "action-receive-product-activity",
+   "to": "action-create-sales-forecast",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-create-sales-forecast-to-send-sales-forecast-in-seller-party",
+   "from": "action-create-sales-forecast",
+   "to": "action-send-sales-forecast-in-seller-party",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-forecast-sales-to-receive-sales-forecast",
+   "from": "object-forecast-sales",
+   "to": "action-receive-sales-forecast",
+   "kind": "object",
+   "direction": {
+    "confidence": "medium",
+    "checked": "confirmed"
+   }
+  },
+  {
+   "id": "flow-send-sales-forecast-in-seller-party-to-forecast-sales",
+   "from": "action-send-sales-forecast-in-seller-party",
+   "to": "object-forecast-sales",
+   "kind": "object",
+   "direction": {
+    "confidence": "medium",
+    "checked": "confirmed"
+   }
+  },
+  {
+   "id": "flow-receive-sales-forecast-to-revise-sales-forecast-and-send-revision",
+   "from": "action-receive-sales-forecast",
+   "to": "action-revise-sales-forecast-and-send-revision",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-revise-sales-forecast-and-send-revision-to-forecast-revision-sales",
+   "from": "action-revise-sales-forecast-and-send-revision",
+   "to": "object-forecast-revision-sales",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   },
+   "passesTo": "flow-forecast-revision-sales-to-receive-sales-forecast-revision"
+  },
+  {
+   "id": "flow-forecast-revision-sales-to-receive-sales-forecast-revision",
+   "from": "object-forecast-revision-sales",
+   "to": "action-receive-sales-forecast-revision",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-decision-buyer-party-to-revise-sales-forecast-and-send-revision",
+   "from": "decision-buyer-party",
+   "to": "action-revise-sales-forecast-and-send-revision",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   },
+   "guard": "text-no"
+  },
+  {
+   "id": "flow-receive-sales-forecast-revision-to-revise-and-resend-revision",
+   "from": "action-receive-sales-forecast-revision",
+   "to": "action-revise-and-resend-revision",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-forecast-revision-sales-to-receive-revision",
+   "from": "object-forecast-revision-sales",
+   "to": "action-receive-revision",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-revise-and-resend-revision-to-forecast-revision-sales",
+   "from": "action-revise-and-resend-revision",
+   "to": "object-forecast-revision-sales",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   },
+   "passesTo": "flow-forecast-revision-sales-to-receive-revision"
+  },
+  {
+   "id": "flow-receive-revision-to-decision-buyer-party",
+   "from": "action-receive-revision",
+   "to": "decision-buyer-party",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-decision-buyer-party-to-send-sales-forecast-in-buyer-party",
+   "from": "decision-buyer-party",
+   "to": "action-send-sales-forecast-in-buyer-party",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   },
+   "guard": "text-yes"
+  },
+  {
+   "id": "flow-send-sales-forecast-in-buyer-party-to-forecast-sales-positive-response",
+   "from": "action-send-sales-forecast-in-buyer-party",
+   "to": "object-forecast-sales-positive-response",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  }
+ ],
+ "texts": [
+  {
+   "id": "text-no",
+   "text": "No",
+   "labels": "flow-decision-buyer-party-to-revise-sales-forecast-and-send-revision"
+  },
+  {
+   "id": "text-sales-forecast-accepted",
+   "text": "Sales Forecast Accepted?",
+   "labels": "decision-buyer-party"
+  },
+  {
+   "id": "text-yes",
+   "text": "Yes",
+   "labels": "flow-decision-buyer-party-to-send-sales-forecast-in-buyer-party"
+  }
+ ],
+ "offPage": [
+  {
+   "id": "offpage-action-create-product-activity-pos-data",
+   "node": "action-create-product-activity-pos-data",
+   "direction": "in",
+   "arrow": true,
+   "continues": "UBL-2.2-CPFR-CreateJointBusinessPlan",
+   "port": 1,
+   "counterpart": "offpage-action-receive-tilp-in-buyer-party"
+  },
+  {
+   "id": "offpage-object-forecast-sales-positive-response",
+   "node": "object-forecast-sales-positive-response",
+   "direction": "out",
+   "arrow": false,
+   "continues": "UBL-2.2-CPFR-ExceptionHandling",
+   "port": 1,
+   "counterpart": "offpage-action-receive-sales-forecast-wait-for-in-buyer-party"
+  },
+  {
+   "id": "offpage-object-forecast-sales-positive-response-2",
+   "node": "object-forecast-sales-positive-response",
+   "direction": "out",
+   "arrow": false,
+   "continues": "UBL-2.2-CPFR-ExceptionHandling",
+   "port": 2,
+   "counterpart": "offpage-action-receive-sales-forecast-wait-for-in-seller-party"
+  }
+ ],
+ "marks": [],
+ "phases": [
+  {
+   "id": "phase-creating-sales-forecast",
+   "title": "Creating Sales Forecast",
+   "members": [
+    "object-item-information-request",
+    "action-create-product-activity-pos-data",
+    "action-create-item-information-request",
+    "action-create-product-activity-dc-data",
+    "object-product-activity",
+    "action-send-product-activity",
+    "action-receive-product-activity",
+    "action-create-sales-forecast",
+    "object-forecast-sales",
+    "action-receive-sales-forecast",
+    "action-send-sales-forecast-in-seller-party",
+    "object-forecast-revision-sales",
+    "action-revise-sales-forecast-and-send-revision",
+    "action-receive-sales-forecast-revision",
+    "action-revise-and-resend-revision",
+    "decision-buyer-party",
+    "action-receive-revision",
+    "action-send-sales-forecast-in-buyer-party",
+    "object-forecast-sales-positive-response"
+   ]
+  }
+ ]
+}

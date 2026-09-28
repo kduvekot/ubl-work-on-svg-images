@@ -7,11 +7,17 @@ order to reproduce the current result and carry on from it.
 `docs/artwork-conversion-notes.md` is the working record - why each rule exists
 and what it was measured against. This page is only how to run it.
 
+The result is committed in `diagrams/`: per figure the three JSONs and the SVG and
+draw.io file drawn from them. Drawing from those JSONs needs none of what follows
+but Python 3 and `jsonschema` - section 10. Sections 1-9 are the pipeline that made
+the JSONs from the PNGs, kept so the work can be run again or started over.
+
 ## 1. The artwork
 
 The 600-dpi PNGs under `art/` in the UBL repository are **the source of truth**
-throughout: every rule in the extractor was measured against them, and the
-acceptance test compares a render back to them pixel for pixel.
+for what each figure shows: every rule in the extractor was measured against them,
+and the acceptance test compares a render back to them pixel for pixel. They are
+not copied into this repository.
 
 ```sh
 git clone --branch ubl-2.5 https://github.com/oasis-tcs/ubl.git
@@ -124,17 +130,18 @@ UBL-2.2-DigitalAgreement                  needs-human   0.645%    0.494%       1
 
 ### The baseline to compare against
 
-The result at the head of this branch, over all 78:
+The result at the head of this branch, over all 78 (2026-09-28, after the figure
+review; the 2026-09-25 baseline had the same counts but 1.212% ink):
 
 | | |
 |---|---|
 | elements absent / invented | 0 / 0 |
 | text absent / text differs | 0 / 0 |
 | coherence findings | 0 |
-| mean ink in error | 1.212% |
+| mean ink in error | 1.099% |
 | model sheets passing every rule | 78 of 78 |
 | verdict `correct` | 9 |
-| notes for a person | 266 |
+| notes for a person | 266, all settled by eye |
 
 A change is kept only if it holds every structural count at zero and does not
 raise the ink. Measure it over the whole set, never on the diagram that prompted
@@ -178,8 +185,10 @@ writes `summary.json`, and exits non-zero unless every diagram is identical.
 
 The second makes the PDF: a summary page, then per figure the baseline render,
 the new render, and the difference, red for ink only the baseline has and blue for
-ink only the new SVG has. While the JSON is being restructured, **every figure
-must come out identical**: that is the fixed reference point.
+ink only the new SVG has. A change that is not meant to alter the drawing (a
+change to the JSON format, to the tools' structure) must leave **every figure
+identical**; one that is meant to must alter only the figures and places it names.
+That is what the baseline is for.
 
 ### Saved baselines
 
@@ -256,9 +265,9 @@ tools at run time:
 | file | what it holds |
 |---|---|
 | `tools/reading-lexicon.json` | 367 words, for settling an OCR reading against the rest of the set |
-| `tools/direction-verdicts.json` | 26 flow directions checked against the originals, keyed by position |
-| `tools/artwork-faults.json` | 9 diagrams, 12 rules: the artwork's own gaps, recorded rather than corrected |
-| `tools/model-corrections.json` | what a person decided about the model where the reading got it wrong, by stable id; applied by `model_io.py` |
+| `tools/direction-verdicts.json` | 71 flow directions in 30 diagrams checked against the originals, keyed by position |
+| `tools/artwork-faults.json` | 11 diagrams: the artwork's own gaps and faults (18 rule exceptions, 3 flows drawn as the artwork has them), recorded rather than corrected |
+| `tools/model-corrections.json` | 361 corrections in 68 diagrams: what the TC decided where the reading got the model, a word or the drawing wrong, each with its question and answer; applied by `model_io.py` |
 
 `build_lexicon.py` regenerates the first from a sweep. It overwrites the shipped
 fixture by default, so pass it an output path if that is not what you want.
@@ -268,6 +277,9 @@ fixture by default, so pass it an output path if that is not what you want.
 Found in the review of the pipeline at the start of the 2026-09-25 session, not
 yet fixed:
 
+- **The draw.io model marks every action bold** (`MXSTYLE` in
+  `build_diagram.py`), even on the figures whose artwork sets actions in regular
+  type; the SVG has the measured weight.
 - **The draw.io model is poorer than the SVG.** `build_diagram.py` draws both from
   the spec, but the draw.io model has no bands, dividers, phase boxes, off-page
   flows or cross-marks, draws every fork bar as `direction=north` (a stub, since
@@ -279,7 +291,9 @@ yet fixed:
 - **The text check forgives one wrong letter.** `verify_conversion.py` accepts a
   word at a similarity of 0.8, which "Jpdate" for "Update" and "end" for "Send"
   both pass, and it compares OCR with OCR, so a misreading made in both passes.
-  The misreadings are being collected by eye instead (`pendingTextFixes`).
+  The misreadings were found by eye in the figure review and corrected as
+  `retext` corrections (`text-01` to `text-36`); a capital read as a small
+  letter of the same shape (S/s, C/c, O/o ...) was searched for over all 78.
 - **The checkers read the extractor's graph, not the model**, so they know
   nothing of the corrections except text fixes (through `-graph-corrected.json`)
   and, in the model sheet, the crossings the model explains - out-of-scope
@@ -326,6 +340,41 @@ How a question to the TC becomes part of the model:
 6. **Write it up** in section 16 of the notes, **commit and push** - one answer,
    one commit.
 
-A misread word is not corrected yet: add it to `pendingTextFixes` in the same
-file, with what the reading says and what the artwork says.
+A misread word is corrected the same way, with a `retext` correction giving the
+words as the artwork writes them (the `text-NN` entries).
+
+## 10. The committed figures, and drawing from the JSONs
+
+`diagrams/<figure>/` holds the result for each of the 78:
+
+| file | what it is |
+|---|---|
+| `-diagram.json` | what the diagram says - **the basis**, with the layout |
+| `-layout.json` | where each element is drawn |
+| `-extraction.json` | how the reading went, for review; not drawn from |
+| `.svg`, `.drawio` | drawn from the two JSONs above; never edited by hand |
+
+```sh
+tools/draw-from-json.sh --check diagrams            # prove SVG + draw.io = what the JSONs give
+tools/draw-from-json.sh diagrams <figure> [...]     # redraw after a figure's JSONs change
+```
+
+The script validates each figure's JSONs against `tools/schema/`, then draws
+them with `spec_from_model.py` and `build_diagram.py`, which read nothing else -
+no PNG, no correction file. It needs Python 3 and `jsonschema` only, and takes
+about 20 seconds for all 78.
+
+To refresh `diagrams/` from a pipeline run (a new reading, a new correction, a
+drawing change), run the sweep (section 4) and copy the five files per figure:
+
+```sh
+for n in $(cat tools/uml78-bycomplexity.txt); do
+  for s in -diagram.json -layout.json -extraction.json .svg .drawio; do
+    cp out/$n$s diagrams/$n/; done; done
+tools/draw-from-json.sh --check diagrams
+```
+
+That overwrites anything edited by hand in `diagrams/`. Whether figures are to be
+changed in their JSONs directly from now on, or still only through the pipeline,
+is not yet decided (README, open work); until it is, compare before copying.
 

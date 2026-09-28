@@ -1,0 +1,359 @@
+{
+ "schema": "ubl-activity-diagram/1",
+ "figure": {
+  "name": "UBL-2.3-RequestForProofOfReexportationProcess",
+  "source": "UBL-2.3-RequestForProofOfReexportationProcess.png"
+ },
+ "lanes": [
+  {
+   "id": "lane-importing-customs-party",
+   "axis": "column",
+   "index": 0,
+   "title": "Importing Customs Party"
+  },
+  {
+   "id": "lane-importing-guarantor-party",
+   "axis": "column",
+   "index": 1,
+   "title": "Importing Guarantor Party"
+  },
+  {
+   "id": "lane-exporting-guarantor-party",
+   "axis": "column",
+   "index": 2,
+   "title": "Exporting Guarantor Party"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "initial-importing-customs-party",
+   "kind": "initial",
+   "label": "",
+   "lane": "lane-importing-customs-party"
+  },
+  {
+   "id": "action-query-if-goods-have-left-the-country",
+   "kind": "action",
+   "label": "Query if goods have\nleft the country",
+   "lane": "lane-importing-customs-party"
+  },
+  {
+   "id": "object-request-for-proof-of-reexportation-between-importing-customs-party-and-importing-guarantor-party",
+   "kind": "object",
+   "label": "Request For Proof\nOf Reexportation",
+   "lane": null,
+   "between": [
+    "lane-importing-customs-party",
+    "lane-importing-guarantor-party"
+   ]
+  },
+  {
+   "id": "object-request-for-proof-of-reexportation-between-importing-guarantor-party-and-exporting-guarantor-party",
+   "kind": "object",
+   "label": "Request For Proof\nOf Reexportation",
+   "lane": null,
+   "between": [
+    "lane-importing-guarantor-party",
+    "lane-exporting-guarantor-party"
+   ]
+  },
+  {
+   "id": "action-issue-to-relevant-chamber-of-commerce",
+   "kind": "action",
+   "label": "Issue to\nRelevant Chamber\nof Commerce",
+   "lane": "lane-importing-guarantor-party"
+  },
+  {
+   "id": "action-create-case-number",
+   "kind": "action",
+   "label": "Create\nCase Number",
+   "lane": "lane-exporting-guarantor-party"
+  },
+  {
+   "id": "action-get-status-from-goods-item-passport",
+   "kind": "action",
+   "label": "Get Status From\nGoods Item\nPassport",
+   "lane": "lane-exporting-guarantor-party"
+  },
+  {
+   "id": "decision-item-returned",
+   "kind": "decision",
+   "label": "Item\nReturned?",
+   "lane": "lane-exporting-guarantor-party"
+  },
+  {
+   "id": "object-proof-of-reexportation-between-importing-customs-party-and-importing-guarantor-party",
+   "kind": "object",
+   "label": "Proof\nOf Reexportation",
+   "lane": null,
+   "between": [
+    "lane-importing-customs-party",
+    "lane-importing-guarantor-party"
+   ]
+  },
+  {
+   "id": "object-proof-of-reexportation-between-importing-guarantor-party-and-exporting-guarantor-party",
+   "kind": "object",
+   "label": "Proof\nOf Reexportation",
+   "lane": null,
+   "between": [
+    "lane-importing-guarantor-party",
+    "lane-exporting-guarantor-party"
+   ]
+  },
+  {
+   "id": "action-receive-proof-of-reexportation",
+   "kind": "action",
+   "label": "Receive Proof\nof Reexportation",
+   "lane": "lane-importing-customs-party"
+  },
+  {
+   "id": "action-apply-stamps-and-signature",
+   "kind": "action",
+   "label": "Apply Stamps\nAnd Signature",
+   "lane": "lane-exporting-guarantor-party"
+  },
+  {
+   "id": "action-issue-to-customs-in-importing-guarantor-party",
+   "kind": "action",
+   "label": "Issue\nto\nCustoms",
+   "lane": "lane-importing-guarantor-party"
+  },
+  {
+   "id": "object-application-response-between-importing-customs-party-and-importing-guarantor-party",
+   "kind": "object",
+   "label": "Application response",
+   "lane": null,
+   "between": [
+    "lane-importing-customs-party",
+    "lane-importing-guarantor-party"
+   ]
+  },
+  {
+   "id": "object-application-response-between-importing-guarantor-party-and-exporting-guarantor-party",
+   "kind": "object",
+   "label": "Application response",
+   "lane": null,
+   "between": [
+    "lane-importing-guarantor-party",
+    "lane-exporting-guarantor-party"
+   ]
+  },
+  {
+   "id": "action-receive-declined",
+   "kind": "action",
+   "label": "Receive Declined",
+   "lane": "lane-importing-customs-party"
+  },
+  {
+   "id": "action-issue-to-customs-in-importing-guarantor-party-2",
+   "kind": "action",
+   "label": "Issue\nto\nCustoms",
+   "lane": "lane-importing-guarantor-party"
+  },
+  {
+   "id": "action-send-declined",
+   "kind": "action",
+   "label": "Send Declined",
+   "lane": "lane-exporting-guarantor-party"
+  },
+  {
+   "id": "final-importing-customs-party",
+   "kind": "final",
+   "label": "",
+   "lane": "lane-importing-customs-party"
+  }
+ ],
+ "flows": [
+  {
+   "id": "flow-initial-importing-customs-party-to-query-if-goods-have-left-the-country",
+   "from": "initial-importing-customs-party",
+   "to": "action-query-if-goods-have-left-the-country",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-query-if-goods-have-left-the-country-to-request-for-proof-of-reexportation-between-importing-customs-party-and-importing-guarantor-party",
+   "from": "action-query-if-goods-have-left-the-country",
+   "to": "object-request-for-proof-of-reexportation-between-importing-customs-party-and-importing-guarantor-party",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-request-for-proof-of-reexportation-between-importing-customs-party-and-importing-guarantor-party-to-issue-to-relevant-chamber-of-commerce",
+   "from": "object-request-for-proof-of-reexportation-between-importing-customs-party-and-importing-guarantor-party",
+   "to": "action-issue-to-relevant-chamber-of-commerce",
+   "kind": "object",
+   "direction": {
+    "confidence": "checked",
+    "checked": "confirmed"
+   }
+  },
+  {
+   "id": "flow-issue-to-relevant-chamber-of-commerce-to-request-for-proof-of-reexportation-between-importing-guarantor-party-and-exporting-guarantor-party",
+   "from": "action-issue-to-relevant-chamber-of-commerce",
+   "to": "object-request-for-proof-of-reexportation-between-importing-guarantor-party-and-exporting-guarantor-party",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-request-for-proof-of-reexportation-between-importing-guarantor-party-and-exporting-guarantor-party-to-create-case-number",
+   "from": "object-request-for-proof-of-reexportation-between-importing-guarantor-party-and-exporting-guarantor-party",
+   "to": "action-create-case-number",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-create-case-number-to-get-status-from-goods-item-passport",
+   "from": "action-create-case-number",
+   "to": "action-get-status-from-goods-item-passport",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-get-status-from-goods-item-passport-to-item-returned",
+   "from": "action-get-status-from-goods-item-passport",
+   "to": "decision-item-returned",
+   "kind": "control",
+   "direction": {
+    "confidence": "checked",
+    "checked": "confirmed"
+   }
+  },
+  {
+   "id": "flow-item-returned-to-send-declined",
+   "from": "decision-item-returned",
+   "to": "action-send-declined",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   },
+   "guard": "text-no"
+  },
+  {
+   "id": "flow-item-returned-to-apply-stamps-and-signature",
+   "from": "decision-item-returned",
+   "to": "action-apply-stamps-and-signature",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   },
+   "guard": "text-yes"
+  },
+  {
+   "id": "flow-proof-of-reexportation-between-importing-customs-party-and-importing-guarantor-party-to-receive-proof-of-reexportation",
+   "from": "object-proof-of-reexportation-between-importing-customs-party-and-importing-guarantor-party",
+   "to": "action-receive-proof-of-reexportation",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-issue-to-customs-in-importing-guarantor-party-to-proof-of-reexportation-between-importing-customs-party-and-importing-guarantor-party",
+   "from": "action-issue-to-customs-in-importing-guarantor-party",
+   "to": "object-proof-of-reexportation-between-importing-customs-party-and-importing-guarantor-party",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-proof-of-reexportation-between-importing-guarantor-party-and-exporting-guarantor-party-to-issue-to-customs-in-importing-guarantor-party",
+   "from": "object-proof-of-reexportation-between-importing-guarantor-party-and-exporting-guarantor-party",
+   "to": "action-issue-to-customs-in-importing-guarantor-party",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-apply-stamps-and-signature-to-proof-of-reexportation-between-importing-guarantor-party-and-exporting-guarantor-party",
+   "from": "action-apply-stamps-and-signature",
+   "to": "object-proof-of-reexportation-between-importing-guarantor-party-and-exporting-guarantor-party",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-receive-proof-of-reexportation-to-final-importing-customs-party",
+   "from": "action-receive-proof-of-reexportation",
+   "to": "final-importing-customs-party",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-application-response-between-importing-customs-party-and-importing-guarantor-party-to-receive-declined",
+   "from": "object-application-response-between-importing-customs-party-and-importing-guarantor-party",
+   "to": "action-receive-declined",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-issue-to-customs-in-importing-guarantor-party-2-to-application-response-between-importing-customs-party-and-importing-guarantor-party",
+   "from": "action-issue-to-customs-in-importing-guarantor-party-2",
+   "to": "object-application-response-between-importing-customs-party-and-importing-guarantor-party",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-send-declined-to-application-response-between-importing-guarantor-party-and-exporting-guarantor-party",
+   "from": "action-send-declined",
+   "to": "object-application-response-between-importing-guarantor-party-and-exporting-guarantor-party",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-application-response-between-importing-guarantor-party-and-exporting-guarantor-party-to-issue-to-customs-in-importing-guarantor-party-2",
+   "from": "object-application-response-between-importing-guarantor-party-and-exporting-guarantor-party",
+   "to": "action-issue-to-customs-in-importing-guarantor-party-2",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-receive-declined-to-final-importing-customs-party",
+   "from": "action-receive-declined",
+   "to": "final-importing-customs-party",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  }
+ ],
+ "texts": [
+  {
+   "id": "text-yes",
+   "text": "Yes",
+   "labels": "flow-item-returned-to-apply-stamps-and-signature"
+  },
+  {
+   "id": "text-no",
+   "text": "No",
+   "labels": "flow-item-returned-to-send-declined"
+  }
+ ],
+ "offPage": [],
+ "marks": [],
+ "phases": []
+}

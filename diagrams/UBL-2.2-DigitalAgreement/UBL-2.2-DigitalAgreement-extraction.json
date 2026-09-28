@@ -1,0 +1,2130 @@
+{
+ "schema": "ubl-activity-diagram-extraction/1",
+ "figure": "UBL-2.2-DigitalAgreement",
+ "nodes": {
+  "initial-participant-party-1": {
+   "area": 7531,
+   "fill": 0.753
+  },
+  "object-digital-capabilities": {
+   "area": 72731,
+   "fill": 0.901,
+   "solid": 1.0,
+   "stem": 0.136
+  },
+  "action-send-digital-capabilities": {
+   "area": 70113,
+   "fill": 0.836,
+   "solid": 0.951,
+   "stem": 0.136
+  },
+  "action-receive-digital-capabilities": {
+   "area": 86865,
+   "fill": 0.857,
+   "solid": 0.961,
+   "stem": 0.136
+  },
+  "object-application-response-between-participant-party-1-and-participant-party-2": {
+   "area": 71865,
+   "fill": 0.89,
+   "solid": 1.0,
+   "stem": 0.136
+  },
+  "action-receive-application-response-in-participant-party-1": {
+   "area": 100790,
+   "fill": 0.868,
+   "solid": 0.964,
+   "stem": 0.136
+  },
+  "action-send-application-response-in-participant-party-2": {
+   "area": 82258,
+   "fill": 0.853,
+   "solid": 0.959,
+   "stem": 0.136
+  },
+  "decision-match-digital-capabilities": {
+   "area": 65016,
+   "fill": 0.449,
+   "solid": 0.501,
+   "stem": 0.097,
+   "keptOnOutline": true
+  },
+  "object-digital-agreement-between-participant-party-1-and-participant-party-2": {
+   "area": 75477,
+   "fill": 0.91,
+   "solid": 1.0,
+   "stem": 0.136
+  },
+  "action-receive-digital-agreement-in-participant-party-1": {
+   "area": 97735,
+   "fill": 0.875,
+   "solid": 0.964,
+   "stem": 0.136
+  },
+  "action-send-digital-agreement-in-participant-party-2": {
+   "area": 73776,
+   "fill": 0.847,
+   "solid": 0.951,
+   "stem": 0.136
+  },
+  "object-application-response-between-participant-party-1-and-participant-party-2-2": {
+   "area": 74071,
+   "fill": 0.893,
+   "solid": 1.0,
+   "stem": 0.136
+  },
+  "action-receive-application-response-in-participant-party-2": {
+   "area": 100919,
+   "fill": 0.866,
+   "solid": 0.962,
+   "stem": 0.136
+  },
+  "action-send-application-response-in-participant-party-1": {
+   "area": 83502,
+   "fill": 0.853,
+   "solid": 0.957,
+   "stem": 0.136
+  },
+  "decision-reconcile-digital-agreement-with-own": {
+   "area": 129575,
+   "fill": 0.444,
+   "solid": 0.501,
+   "stem": 0.097,
+   "keptOnOutline": true
+  },
+  "object-digital-agreement-between-participant-party-1-and-participant-party-2-2": {
+   "area": 73273,
+   "fill": 0.908,
+   "solid": 1.0,
+   "stem": 0.136
+  },
+  "action-send-digital-agreement-in-participant-party-1": {
+   "area": 85869,
+   "fill": 0.864,
+   "solid": 0.955,
+   "stem": 0.136
+  },
+  "action-receive-digital-agreement-in-participant-party-2": {
+   "area": 86175,
+   "fill": 0.859,
+   "solid": 0.959,
+   "stem": 0.136
+  },
+  "decision-validate-digital-agreement": {
+   "area": 70538,
+   "fill": 0.45,
+   "solid": 0.502,
+   "stem": 0.097
+  },
+  "object-application-response-between-participant-party-1-and-participant-party-2-3": {
+   "area": 97904,
+   "fill": 0.917,
+   "solid": 1.0,
+   "stem": 0.136
+  },
+  "action-send-application-response-in-participant-party-2-2": {
+   "area": 96249,
+   "fill": 0.87,
+   "solid": 0.963,
+   "stem": 0.136
+  },
+  "action-receive-application-response-in-participant-party-1-2": {
+   "area": 98689,
+   "fill": 0.869,
+   "solid": 0.966,
+   "stem": 0.136
+  },
+  "final-participant-party-2": {
+   "area": 5143,
+   "fill": 0.588,
+   "solid": 0.779
+  },
+  "final-participant-party-1": {
+   "area": 5149,
+   "fill": 0.595,
+   "solid": 0.787
+  }
+ },
+ "flows": {
+  "flow-initial-participant-party-1-to-send-digital-capabilities": {
+   "arrowInk": [
+    270,
+    870
+   ],
+   "arrowPx": [
+    63,
+    55.2,
+    1.98
+   ],
+   "arrowFill": 0.014,
+   "arrowSaturated": true
+  },
+  "flow-send-digital-capabilities-to-digital-capabilities": {
+   "arrowInk": [
+    270,
+    874
+   ],
+   "arrowPx": [
+    68,
+    55.4,
+    2.3
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-digital-capabilities-to-receive-digital-capabilities": {
+   "arrowInk": [
+    270,
+    876
+   ],
+   "arrowPx": [
+    69,
+    56.0,
+    2.26
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-receive-digital-capabilities-to-match-digital-capabilities": {
+   "arrowInk": [
+    315,
+    891
+   ],
+   "arrowPx": [
+    95,
+    61.8,
+    0.53
+   ],
+   "arrowFill": 0.109,
+   "arrowSaturated": true
+  },
+  "flow-receive-digital-capabilities-to-send-application-response-in-participant-party-2": {
+   "arrowInk": [
+    270,
+    872
+   ],
+   "arrowPx": [
+    69,
+    56.0,
+    2.31
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-application-response-between-participant-party-1-and-participant-party-2-to-receive-application-response-in-participant-party-1": {
+   "arrowInk": [
+    666,
+    819
+   ],
+   "arrowPx": [
+    66,
+    56.0,
+    2.67
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-send-application-response-in-participant-party-2-to-application-response-between-participant-party-1-and-participant-party-2": {
+   "arrowInk": [
+    276,
+    854
+   ],
+   "arrowPx": [
+    69,
+    56.0,
+    2.22
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-match-digital-capabilities-to-send-digital-agreement-in-participant-party-2": {
+   "arrowInk": [
+    609,
+    337
+   ],
+   "arrowPx": [
+    95,
+    15.6,
+    1.28
+   ],
+   "arrowSaturated": true
+  },
+  "flow-digital-agreement-between-participant-party-1-and-participant-party-2-to-receive-digital-agreement-in-participant-party-1": {
+   "arrowInk": [
+    667,
+    819
+   ],
+   "arrowPx": [
+    67,
+    58.2,
+    2.5
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-send-digital-agreement-in-participant-party-2-to-digital-agreement-between-participant-party-1-and-participant-party-2": {
+   "arrowInk": [
+    276,
+    854
+   ],
+   "arrowPx": [
+    68,
+    56.9,
+    2.16
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-receive-digital-agreement-in-participant-party-1-to-reconcile-digital-agreement-with-own": {
+   "arrowInk": [
+    262,
+    908
+   ],
+   "arrowPx": [
+    95,
+    62.4,
+    0.44
+   ],
+   "arrowFill": 0.028,
+   "arrowSaturated": true
+  },
+  "flow-match-digital-capabilities-to-final-participant-party-2": {
+   "arrowInk": [
+    566,
+    1253
+   ],
+   "arrowPx": [
+    72,
+    103.8,
+    4.4
+   ],
+   "arrowFill": 0.279
+  },
+  "flow-receive-digital-agreement-in-participant-party-1-to-send-application-response-in-participant-party-1": {
+   "arrowInk": [
+    270,
+    871
+   ],
+   "arrowPx": [
+    68,
+    56.5,
+    2.14
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-send-application-response-in-participant-party-1-to-application-response-between-participant-party-1-and-participant-party-2-2": {
+   "arrowInk": [
+    315,
+    909
+   ],
+   "arrowPx": [
+    69,
+    57.7,
+    1.96
+   ],
+   "arrowFill": 0.006
+  },
+  "flow-application-response-between-participant-party-1-and-participant-party-2-2-to-receive-application-response-in-participant-party-2": {
+   "arrowInk": [
+    315,
+    917
+   ],
+   "arrowPx": [
+    67,
+    56.7,
+    2.07
+   ],
+   "arrowFill": 0.0,
+   "arrowSaturated": true
+  },
+  "flow-reconcile-digital-agreement-with-own-to-send-digital-agreement-in-participant-party-1": {
+   "arrowInk": [
+    260,
+    901
+   ],
+   "arrowPx": [
+    95,
+    61.7,
+    0.48
+   ],
+   "arrowFill": 0.073,
+   "arrowSaturated": true
+  },
+  "flow-send-digital-agreement-in-participant-party-1-to-digital-agreement-between-participant-party-1-and-participant-party-2-2": {
+   "arrowInk": [
+    270,
+    874
+   ],
+   "arrowPx": [
+    69,
+    56.0,
+    2.29
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-digital-agreement-between-participant-party-1-and-participant-party-2-2-to-receive-digital-agreement-in-participant-party-2": {
+   "arrowInk": [
+    270,
+    875
+   ],
+   "arrowPx": [
+    95,
+    63.8,
+    0.31
+   ],
+   "arrowFill": 0.021,
+   "arrowSaturated": true
+  },
+  "flow-reconcile-digital-agreement-with-own-to-final-participant-party-1": {
+   "arrowInk": [
+    466,
+    907
+   ],
+   "arrowPx": [
+    69,
+    54.0,
+    2.34
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-receive-digital-agreement-in-participant-party-2-to-validate-digital-agreement": {
+   "arrowInk": [
+    270,
+    863
+   ],
+   "arrowPx": [
+    70,
+    55.4,
+    2.3
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-validate-digital-agreement-to-final-participant-party-2": {
+   "arrowInk": [
+    280,
+    1522
+   ],
+   "arrowPx": [
+    105,
+    119.5,
+    0.33
+   ],
+   "arrowFill": 0.168
+  },
+  "flow-validate-digital-agreement-to-send-application-response-in-participant-party-2-2": {
+   "arrowInk": [
+    687,
+    879
+   ],
+   "arrowPx": [
+    67,
+    60.2,
+    2.13
+   ],
+   "arrowFill": 0.018
+  },
+  "flow-application-response-between-participant-party-1-and-participant-party-2-3-to-receive-application-response-in-participant-party-1-2": {
+   "arrowInk": [
+    709,
+    831
+   ],
+   "arrowPx": [
+    64,
+    56.0,
+    2.49
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-send-application-response-in-participant-party-2-2-to-application-response-between-participant-party-1-and-participant-party-2-3": {
+   "arrowInk": [
+    409,
+    851
+   ],
+   "arrowPx": [
+    61,
+    56.4,
+    2.29
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-receive-application-response-in-participant-party-1-2-to-final-participant-party-1": {
+   "arrowInk": [
+    330,
+    885
+   ],
+   "arrowPx": [
+    112,
+    65.7,
+    0.44
+   ],
+   "arrowFill": 0.176
+  }
+ },
+ "offPage": {},
+ "marks": {},
+ "phases": {},
+ "greyRules": [],
+ "titleReadings": [
+  {
+   "position": 0,
+   "text": "PARTICIPANT PARTY 1",
+   "x": 534,
+   "y": 42,
+   "w": 717,
+   "h": 54,
+   "lines": [
+    {
+     "x": 534,
+     "y": 42,
+     "w": 717,
+     "h": 54,
+     "text": "PARTICIPANT PARTY 1"
+    }
+   ]
+  },
+  {
+   "position": 1,
+   "text": "PARTICIPANT PARTY 2",
+   "x": 2263,
+   "y": 42,
+   "w": 717,
+   "h": 54,
+   "lines": [
+    {
+     "x": 2263,
+     "y": 42,
+     "w": 717,
+     "h": 54,
+     "text": "PARTICIPANT PARTY 2"
+    }
+   ]
+  }
+ ],
+ "findings": [],
+ "uncertain": [
+  {
+   "x": 1728,
+   "y": 488,
+   "w": 784,
+   "h": 312,
+   "shape": "ellipse",
+   "iou": 0.729,
+   "border": 0.532,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best ellipse 0.73, and 0.99 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "x": 2958,
+   "y": 817,
+   "w": 446,
+   "h": 325,
+   "shape": "rhombus",
+   "iou": 0.964,
+   "border": 0.067,
+   "kind": "kept-on-outline",
+   "reason": "every side has pass-through line-work, but the region carries a complete outline of its own",
+   "check": "confirm this is a node and not trapped whitespace"
+  },
+  {
+   "x": 967,
+   "y": 1149,
+   "w": 754,
+   "h": 303,
+   "shape": "rhombus",
+   "iou": 0.69,
+   "border": 0.489,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best rhombus 0.69, and 0.98 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "x": 26,
+   "y": 1493,
+   "w": 663,
+   "h": 440,
+   "shape": "rhombus",
+   "iou": 0.964,
+   "border": 0.068,
+   "kind": "kept-on-outline",
+   "reason": "every side has pass-through line-work, but the region carries a complete outline of its own",
+   "check": "confirm this is a node and not trapped whitespace"
+  },
+  {
+   "x": 1728,
+   "y": 1969,
+   "w": 784,
+   "h": 849,
+   "shape": "rounded",
+   "iou": 0.802,
+   "border": 0.581,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best rounded 0.80, and 0.99 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "kind": "no-weight-split",
+   "reason": "all 19 box strokes are one weight ([0, 6, 7]), so no object node could be identified",
+   "check": "confirm the diagram really has no object nodes"
+  }
+ ],
+ "present": [
+  "source",
+  "size",
+  "fontPx",
+  "arrowPx",
+  "arrowWidthPx",
+  "arrowStyle",
+  "rules",
+  "ruleSpan",
+  "greyRules",
+  "dashed",
+  "openEnds",
+  "crossMarks",
+  "partitions",
+  "nodes",
+  "edges",
+  "text",
+  "uncertain"
+ ],
+ "uncorrected": {
+  "model": {
+   "schema": "ubl-activity-diagram/1",
+   "figure": {
+    "name": "UBL-2.2-DigitalAgreement",
+    "source": "UBL-2.2-DigitalAgreement.png"
+   },
+   "lanes": [
+    {
+     "id": "lane0",
+     "axis": "column",
+     "index": 0,
+     "title": "PARTICIPANT PARTY 1"
+    },
+    {
+     "id": "lane1",
+     "axis": "column",
+     "index": 1,
+     "title": "PARTICIPANT PARTY 2"
+    },
+    {
+     "id": "lane2",
+     "axis": "band",
+     "index": 0,
+     "title": ""
+    }
+   ],
+   "nodes": [
+    {
+     "id": "n1",
+     "kind": "initial",
+     "label": "",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n2",
+     "kind": "object",
+     "label": "Digital\nCapabilities",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n3",
+     "kind": "action",
+     "label": "Send digital capabilities",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n4",
+     "kind": "action",
+     "label": "Receive digital capabilities",
+     "lane": "lane1",
+     "band": "lane2"
+    },
+    {
+     "id": "n5",
+     "kind": "object",
+     "label": "Application\nResponse",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n6",
+     "kind": "action",
+     "label": "Receive application response",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n7",
+     "kind": "action",
+     "label": "Send application response",
+     "lane": "lane1",
+     "band": "lane2"
+    },
+    {
+     "id": "n8",
+     "kind": "decision",
+     "label": "Match\ndigital\ncapabilities",
+     "lane": "lane1",
+     "band": "lane2"
+    },
+    {
+     "id": "n9",
+     "kind": "object",
+     "label": "Digital\nAgreement",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n10",
+     "kind": "action",
+     "label": "Receive digital agreement",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n11",
+     "kind": "action",
+     "label": "Send digital agreement",
+     "lane": "lane1",
+     "band": "lane2"
+    },
+    {
+     "id": "n12",
+     "kind": "object",
+     "label": "Application\nResponse",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n13",
+     "kind": "action",
+     "label": "Receive application response",
+     "lane": "lane1",
+     "band": "lane2"
+    },
+    {
+     "id": "n14",
+     "kind": "action",
+     "label": "Send application response",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n15",
+     "kind": "decision",
+     "label": "Reconcile digital\nagreement with own\ndigital capabilities",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n16",
+     "kind": "object",
+     "label": "Digital\nAgreement",
+     "lane": "lane1",
+     "band": "lane2"
+    },
+    {
+     "id": "n17",
+     "kind": "action",
+     "label": "Send digital agreement",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n18",
+     "kind": "action",
+     "label": "Receive digital agreement",
+     "lane": "lane1",
+     "band": "lane2"
+    },
+    {
+     "id": "n19",
+     "kind": "decision",
+     "label": "Validate\ndigital\nagreement",
+     "lane": "lane1",
+     "band": "lane2"
+    },
+    {
+     "id": "n20",
+     "kind": "object",
+     "label": "Application\nResponse",
+     "lane": "lane1",
+     "band": "lane2"
+    },
+    {
+     "id": "n21",
+     "kind": "action",
+     "label": "Send application response",
+     "lane": "lane1",
+     "band": "lane2"
+    },
+    {
+     "id": "n22",
+     "kind": "action",
+     "label": "Receive application response",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n23",
+     "kind": "final",
+     "label": "",
+     "lane": "lane1",
+     "band": "lane2"
+    },
+    {
+     "id": "n24",
+     "kind": "final",
+     "label": "",
+     "lane": "lane0",
+     "band": "lane2"
+    }
+   ],
+   "flows": [
+    {
+     "id": "f0",
+     "from": "n1",
+     "to": "n3",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f1",
+     "from": "n3",
+     "to": "n2",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f2",
+     "from": "n2",
+     "to": "n4",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f3",
+     "from": "n4",
+     "to": "n8",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f4",
+     "from": "n4",
+     "to": "n7",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f5",
+     "from": "n5",
+     "to": "n6",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f6",
+     "from": "n7",
+     "to": "n5",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f7",
+     "from": "n8",
+     "to": "n11",
+     "kind": "control",
+     "direction": {
+      "confidence": "notation",
+      "checked": "confirmed"
+     }
+    },
+    {
+     "id": "f8",
+     "from": "n9",
+     "to": "n10",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f9",
+     "from": "n11",
+     "to": "n9",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f10",
+     "from": "n10",
+     "to": "n15",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f11",
+     "from": "n8",
+     "to": "n23",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     },
+     "guard": "t3"
+    },
+    {
+     "id": "f12",
+     "from": "n10",
+     "to": "n14",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f13",
+     "from": "n14",
+     "to": "n12",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f14",
+     "from": "n12",
+     "to": "n13",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f15",
+     "from": "n15",
+     "to": "n17",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     },
+     "guard": "t4"
+    },
+    {
+     "id": "f16",
+     "from": "n17",
+     "to": "n16",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f17",
+     "from": "n16",
+     "to": "n18",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f18",
+     "from": "n15",
+     "to": "n24",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     },
+     "guard": "t5"
+    },
+    {
+     "id": "f19",
+     "from": "n18",
+     "to": "n19",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f20",
+     "from": "n19",
+     "to": "n23",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     },
+     "guard": "t6"
+    },
+    {
+     "id": "f21",
+     "from": "n19",
+     "to": "n21",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     },
+     "guard": "t7"
+    },
+    {
+     "id": "f22",
+     "from": "n20",
+     "to": "n22",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f23",
+     "from": "n21",
+     "to": "n20",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f24",
+     "from": "n22",
+     "to": "n24",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    }
+   ],
+   "texts": [
+    {
+     "id": "t2",
+     "text": "Y"
+    },
+    {
+     "id": "t3",
+     "text": "N",
+     "labels": "f11"
+    },
+    {
+     "id": "t4",
+     "text": "Y",
+     "labels": "f15"
+    },
+    {
+     "id": "t5",
+     "text": "N",
+     "labels": "f18"
+    },
+    {
+     "id": "t6",
+     "text": "Y",
+     "labels": "f20"
+    },
+    {
+     "id": "t7",
+     "text": "N",
+     "labels": "f21"
+    }
+   ],
+   "offPage": [],
+   "marks": [],
+   "phases": []
+  },
+  "layout": {
+   "schema": "ubl-activity-diagram-layout/1",
+   "figure": "UBL-2.2-DigitalAgreement",
+   "units": "px of the original PNG",
+   "size": [
+    3425,
+    3284
+   ],
+   "style": {
+    "fontPx": 51.4,
+    "arrowPx": 69.0,
+    "arrowWidthPx": 56.0,
+    "arrowStyle": "open"
+   },
+   "rules": {
+    "vertical": [
+     {
+      "at": 0,
+      "width": 10,
+      "span": [
+       13,
+       3270
+      ]
+     },
+     {
+      "at": 1721,
+      "width": 7,
+      "span": [
+       13,
+       3270
+      ]
+     },
+     {
+      "at": 3415,
+      "width": 10,
+      "span": [
+       13,
+       3270
+      ]
+     }
+    ],
+    "horizontal": [
+     {
+      "at": 0,
+      "width": 10,
+      "span": [
+       13,
+       3411
+      ]
+     },
+     {
+      "at": 3274,
+      "width": 10,
+      "span": [
+       13,
+       3411
+      ]
+     }
+    ]
+   },
+   "greyRules": [],
+   "lanes": {
+    "lane0": {
+     "x0": 0,
+     "x1": 1724,
+     "titleBox": [
+      534,
+      42,
+      717,
+      54
+     ]
+    },
+    "lane1": {
+     "x0": 1724,
+     "x1": 3425,
+     "titleBox": [
+      2263,
+      42,
+      717,
+      54
+     ]
+    },
+    "lane2": {
+     "y0": 0,
+     "y1": 3284
+    }
+   },
+   "nodes": {
+    "n1": {
+     "x": 901,
+     "y": 169,
+     "w": 106,
+     "h": 106
+    },
+    "n2": {
+     "x": 1494,
+     "y": 394,
+     "w": 441,
+     "h": 183,
+     "shape": "rect",
+     "stroke": 6,
+     "rx": 0,
+     "ry": 0,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 1641,
+       "y": 436,
+       "w": 152,
+       "h": 47,
+       "text": "Digital"
+      },
+      {
+       "x": 1580,
+       "y": 500,
+       "w": 274,
+       "h": 47,
+       "text": "Capabilities"
+      }
+     ]
+    },
+    "n3": {
+     "x": 624,
+     "y": 419,
+     "w": 655,
+     "h": 128,
+     "shape": "rounded",
+     "stroke": 6,
+     "rx": 70.0,
+     "ry": 67,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 677,
+       "y": 462,
+       "w": 562,
+       "h": 47,
+       "text": "Send digital capabilities"
+      }
+     ]
+    },
+    "n4": {
+     "x": 2100,
+     "y": 424,
+     "w": 824,
+     "h": 123,
+     "shape": "rounded",
+     "stroke": 6,
+     "rx": 70.0,
+     "ry": 59,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 2199,
+       "y": 468,
+       "w": 628,
+       "h": 46,
+       "text": "Receive digital capabilities"
+      }
+     ]
+    },
+    "n5": {
+     "x": 1499,
+     "y": 712,
+     "w": 441,
+     "h": 183,
+     "shape": "rect",
+     "stroke": 6,
+     "rx": 0,
+     "ry": 0,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 1582,
+       "y": 755,
+       "w": 271,
+       "h": 45,
+       "text": "Application"
+      },
+      {
+       "x": 1600,
+       "y": 819,
+       "w": 235,
+       "h": 46,
+       "text": "Response"
+      }
+     ]
+    },
+    "n6": {
+     "x": 515,
+     "y": 737,
+     "w": 873,
+     "h": 133,
+     "shape": "rounded",
+     "stroke": 6,
+     "rx": 70.0,
+     "ry": 67,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 604,
+       "y": 781,
+       "w": 694,
+       "h": 46,
+       "text": "Receive application response"
+      }
+     ]
+    },
+    "n7": {
+     "x": 2120,
+     "y": 742,
+     "w": 784,
+     "h": 123,
+     "shape": "rounded",
+     "stroke": 6,
+     "rx": 70.0,
+     "ry": 65.0,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 2203,
+       "y": 786,
+       "w": 629,
+       "h": 46,
+       "text": "Send application response"
+      }
+     ]
+    },
+    "n8": {
+     "x": 2958,
+     "y": 817,
+     "w": 446,
+     "h": 325,
+     "shape": "rhombus",
+     "stroke": 6,
+     "rx": 236,
+     "ry": 172,
+     "bold": false,
+     "labelLines": [
+      {
+       "x": 3122,
+       "y": 872,
+       "w": 129,
+       "h": 37,
+       "text": "Match"
+      },
+      {
+       "x": 3120,
+       "y": 937,
+       "w": 125,
+       "h": 46,
+       "text": "digital"
+      },
+      {
+       "x": 3061,
+       "y": 1002,
+       "w": 242,
+       "h": 45,
+       "text": "capabilities"
+      }
+     ]
+    },
+    "n9": {
+     "x": 1499,
+     "y": 1055,
+     "w": 441,
+     "h": 188,
+     "shape": "rect",
+     "stroke": 6,
+     "rx": 0,
+     "ry": 0,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 1641,
+       "y": 1097,
+       "w": 152,
+       "h": 47,
+       "text": "Digital"
+      },
+      {
+       "x": 1586,
+       "y": 1162,
+       "w": 263,
+       "h": 46,
+       "text": "Agreement"
+      }
+     ]
+    },
+    "n10": {
+     "x": 515,
+     "y": 1080,
+     "w": 873,
+     "h": 128,
+     "shape": "rounded",
+     "stroke": 6,
+     "rx": 70.0,
+     "ry": 65,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 649,
+       "y": 1124,
+       "w": 609,
+       "h": 46,
+       "text": "Receive digital agreement"
+      }
+     ]
+    },
+    "n11": {
+     "x": 2185,
+     "y": 1080,
+     "w": 655,
+     "h": 133,
+     "shape": "rounded",
+     "stroke": 6,
+     "rx": 69,
+     "ry": 67,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 2247,
+       "y": 1123,
+       "w": 545,
+       "h": 47,
+       "text": "Send digital agreement"
+      }
+     ]
+    },
+    "n12": {
+     "x": 1499,
+     "y": 1363,
+     "w": 441,
+     "h": 188,
+     "shape": "rect",
+     "stroke": 6,
+     "rx": 0,
+     "ry": 0,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 1582,
+       "y": 1406,
+       "w": 271,
+       "h": 45,
+       "text": "Application"
+      },
+      {
+       "x": 1600,
+       "y": 1470,
+       "w": 235,
+       "h": 46,
+       "text": "Response"
+      }
+     ]
+    },
+    "n13": {
+     "x": 2090,
+     "y": 1383,
+     "w": 844,
+     "h": 138,
+     "shape": "rounded",
+     "stroke": 6,
+     "rx": 71,
+     "ry": 65.0,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 2165,
+       "y": 1427,
+       "w": 694,
+       "h": 46,
+       "text": "Receive application response"
+      }
+     ]
+    },
+    "n14": {
+     "x": 569,
+     "y": 1388,
+     "w": 765,
+     "h": 128,
+     "shape": "rounded",
+     "stroke": 6,
+     "rx": 70.0,
+     "ry": 62,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 642,
+       "y": 1432,
+       "w": 629,
+       "h": 46,
+       "text": "Send application response"
+      }
+     ]
+    },
+    "n15": {
+     "x": 26,
+     "y": 1493,
+     "w": 663,
+     "h": 440,
+     "shape": "rhombus",
+     "stroke": 6,
+     "rx": 347,
+     "ry": 233,
+     "bold": false,
+     "labelLines": [
+      {
+       "x": 182,
+       "y": 1621,
+       "w": 355,
+       "h": 46,
+       "text": "Reconcile digital"
+      },
+      {
+       "x": 145,
+       "y": 1686,
+       "w": 440,
+       "h": 46,
+       "text": "agreement with own"
+      },
+      {
+       "x": 165,
+       "y": 1750,
+       "w": 386,
+       "h": 46,
+       "text": "digital capabilities"
+      }
+     ]
+    },
+    "n16": {
+     "x": 1519,
+     "y": 1875,
+     "w": 441,
+     "h": 183,
+     "shape": "rect",
+     "stroke": 6,
+     "rx": 0,
+     "ry": 0,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 1641,
+       "y": 1917,
+       "w": 152,
+       "h": 47,
+       "text": "Digital"
+      },
+      {
+       "x": 1586,
+       "y": 1982,
+       "w": 263,
+       "h": 46,
+       "text": "Agreement"
+      }
+     ]
+    },
+    "n17": {
+     "x": 604,
+     "y": 1895,
+     "w": 695,
+     "h": 143,
+     "shape": "rounded",
+     "stroke": 6,
+     "rx": 70,
+     "ry": 73,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 687,
+       "y": 1938,
+       "w": 545,
+       "h": 47,
+       "text": "Send digital agreement"
+      }
+     ]
+    },
+    "n18": {
+     "x": 2120,
+     "y": 1910,
+     "w": 784,
+     "h": 128,
+     "shape": "rounded",
+     "stroke": 6,
+     "rx": 70.0,
+     "ry": 65.0,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 2209,
+       "y": 1954,
+       "w": 610,
+       "h": 46,
+       "text": "Receive digital agreement"
+      }
+     ]
+    },
+    "n19": {
+     "x": 2277,
+     "y": 2234,
+     "w": 475,
+     "h": 330,
+     "shape": "rhombus",
+     "stroke": 6,
+     "rx": 251,
+     "ry": 176,
+     "bold": false,
+     "labelLines": [
+      {
+       "x": 2430,
+       "y": 2307,
+       "w": 173,
+       "h": 36,
+       "text": "Validate"
+      },
+      {
+       "x": 2456,
+       "y": 2371,
+       "w": 125,
+       "h": 47,
+       "text": "digital"
+      },
+      {
+       "x": 2406,
+       "y": 2437,
+       "w": 236,
+       "h": 45,
+       "text": "agreement"
+      }
+     ]
+    },
+    "n20": {
+     "x": 1514,
+     "y": 2700,
+     "w": 441,
+     "h": 242,
+     "shape": "rect",
+     "stroke": 6,
+     "rx": 0,
+     "ry": 0,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 1582,
+       "y": 2763,
+       "w": 271,
+       "h": 45,
+       "text": "Application"
+      },
+      {
+       "x": 1600,
+       "y": 2827,
+       "w": 235,
+       "h": 46,
+       "text": "Response"
+      }
+     ]
+    },
+    "n21": {
+     "x": 2080,
+     "y": 2755,
+     "w": 864,
+     "h": 128,
+     "shape": "rounded",
+     "stroke": 7,
+     "rx": 70.0,
+     "ry": 62,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 2203,
+       "y": 2798,
+       "w": 629,
+       "h": 46,
+       "text": "Send application response"
+      }
+     ]
+    },
+    "n22": {
+     "x": 485,
+     "y": 2760,
+     "w": 923,
+     "h": 123,
+     "shape": "rounded",
+     "stroke": 7,
+     "rx": 70.0,
+     "ry": 62,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 604,
+       "y": 2804,
+       "w": 694,
+       "h": 45,
+       "text": "Receive application response"
+      }
+     ]
+    },
+    "n23": {
+     "x": 3134,
+     "y": 3107,
+     "w": 93,
+     "h": 94,
+     "shape": "rounded",
+     "stroke": 6,
+     "rx": 43,
+     "ry": 48,
+     "innerRatio": 0.484
+    },
+    "n24": {
+     "x": 311,
+     "y": 3108,
+     "w": 93,
+     "h": 93,
+     "shape": "ellipse",
+     "stroke": 6,
+     "rx": 43,
+     "ry": 45,
+     "innerRatio": 0.484
+    }
+   },
+   "flows": {
+    "f0": {
+     "fromPoint": [
+      954,
+      289
+     ],
+     "toPoint": [
+      951,
+      404
+     ],
+     "routing": "straight"
+    },
+    "f1": {
+     "fromPoint": [
+      1293,
+      484
+     ],
+     "toPoint": [
+      1479,
+      485
+     ],
+     "routing": "straight"
+    },
+    "f2": {
+     "fromPoint": [
+      1949,
+      485
+     ],
+     "toPoint": [
+      2085,
+      485
+     ],
+     "routing": "straight"
+    },
+    "f3": {
+     "fromPoint": [
+      2938,
+      493
+     ],
+     "toPoint": [
+      3179,
+      802
+     ],
+     "routing": "diagonal"
+    },
+    "f4": {
+     "fromPoint": [
+      2514,
+      561
+     ],
+     "toPoint": [
+      2514,
+      727
+     ],
+     "routing": "straight"
+    },
+    "f5": {
+     "fromPoint": [
+      1484,
+      803
+     ],
+     "toPoint": [
+      1402,
+      803
+     ],
+     "routing": "straight"
+    },
+    "f6": {
+     "fromPoint": [
+      2105,
+      802
+     ],
+     "toPoint": [
+      1954,
+      802
+     ],
+     "routing": "straight"
+    },
+    "f7": {
+     "fromPoint": [
+      2943,
+      979
+     ],
+     "toPoint": [
+      2793,
+      1065
+     ],
+     "routing": "diagonal"
+    },
+    "f8": {
+     "fromPoint": [
+      1484,
+      1148
+     ],
+     "toPoint": [
+      1402,
+      1144
+     ],
+     "routing": "straight"
+    },
+    "f9": {
+     "fromPoint": [
+      2170,
+      1145
+     ],
+     "toPoint": [
+      1954,
+      1147
+     ],
+     "routing": "straight"
+    },
+    "f10": {
+     "fromPoint": [
+      500,
+      1145
+     ],
+     "toPoint": [
+      357,
+      1478
+     ],
+     "routing": "diagonal"
+    },
+    "f11": {
+     "fromPoint": [
+      3181,
+      1156
+     ],
+     "toPoint": [
+      3185,
+      3092
+     ],
+     "routing": "straight"
+    },
+    "f12": {
+     "fromPoint": [
+      964,
+      1222
+     ],
+     "toPoint": [
+      962,
+      1373
+     ],
+     "routing": "straight"
+    },
+    "f13": {
+     "fromPoint": [
+      1348,
+      1452
+     ],
+     "toPoint": [
+      1484,
+      1457
+     ],
+     "routing": "straight"
+    },
+    "f14": {
+     "fromPoint": [
+      1954,
+      1457
+     ],
+     "toPoint": [
+      2075,
+      1452
+     ],
+     "routing": "straight"
+    },
+    "f15": {
+     "fromPoint": [
+      703,
+      1723
+     ],
+     "toPoint": [
+      776,
+      1880
+     ],
+     "routing": "diagonal"
+    },
+    "f16": {
+     "fromPoint": [
+      1313,
+      1966
+     ],
+     "toPoint": [
+      1504,
+      1966
+     ],
+     "routing": "straight"
+    },
+    "f17": {
+     "fromPoint": [
+      1974,
+      1966
+     ],
+     "toPoint": [
+      2105,
+      1973
+     ],
+     "routing": "straight"
+    },
+    "f18": {
+     "fromPoint": [
+      357,
+      1947
+     ],
+     "toPoint": [
+      357,
+      3093
+     ],
+     "routing": "straight"
+    },
+    "f19": {
+     "fromPoint": [
+      2513,
+      2052
+     ],
+     "toPoint": [
+      2515,
+      2219
+     ],
+     "routing": "straight"
+    },
+    "f20": {
+     "fromPoint": [
+      2766,
+      2407
+     ],
+     "toPoint": [
+      3147,
+      3092
+     ],
+     "routing": "diagonal"
+    },
+    "f21": {
+     "fromPoint": [
+      2514,
+      2578
+     ],
+     "toPoint": [
+      2511,
+      2740
+     ],
+     "routing": "straight"
+    },
+    "f22": {
+     "fromPoint": [
+      1499,
+      2821
+     ],
+     "toPoint": [
+      1422,
+      2821
+     ],
+     "routing": "straight"
+    },
+    "f23": {
+     "fromPoint": [
+      2065,
+      2819
+     ],
+     "toPoint": [
+      1969,
+      2821
+     ],
+     "routing": "straight"
+    },
+    "f24": {
+     "fromPoint": [
+      946,
+      2897
+     ],
+     "toPoint": [
+      418,
+      3131
+     ],
+     "routing": "diagonal"
+    }
+   },
+   "texts": {
+    "t2": {
+     "x": 2918,
+     "y": 1026,
+     "w": 30,
+     "h": 36,
+     "lines": [
+      {
+       "x": 2918,
+       "y": 1026,
+       "w": 30,
+       "h": 36,
+       "text": "Y"
+      }
+     ]
+    },
+    "t3": {
+     "x": 3130,
+     "y": 1155,
+     "w": 27,
+     "h": 36,
+     "lines": [
+      {
+       "x": 3130,
+       "y": 1155,
+       "w": 27,
+       "h": 36,
+       "text": "N"
+      }
+     ]
+    },
+    "t4": {
+     "x": 661,
+     "y": 1758,
+     "w": 30,
+     "h": 37,
+     "lines": [
+      {
+       "x": 661,
+       "y": 1758,
+       "w": 30,
+       "h": 37,
+       "text": "Y"
+      }
+     ]
+    },
+    "t5": {
+     "x": 390,
+     "y": 1937,
+     "w": 28,
+     "h": 36,
+     "lines": [
+      {
+       "x": 390,
+       "y": 1937,
+       "w": 28,
+       "h": 36,
+       "text": "N"
+      }
+     ]
+    },
+    "t6": {
+     "x": 2729,
+     "y": 2445,
+     "w": 30,
+     "h": 36,
+     "lines": [
+      {
+       "x": 2729,
+       "y": 2445,
+       "w": 30,
+       "h": 36,
+       "text": "Y"
+      }
+     ]
+    },
+    "t7": {
+     "x": 2533,
+     "y": 2573,
+     "w": 28,
+     "h": 37,
+     "lines": [
+      {
+       "x": 2533,
+       "y": 2573,
+       "w": 28,
+       "h": 37,
+       "text": "N"
+      }
+     ]
+    }
+   },
+   "offPage": {},
+   "marks": {},
+   "phases": {},
+   "rulesHaveSpans": {
+    "vertical": true,
+    "horizontal": true
+   }
+  }
+ },
+ "graphPatches": {
+  "edges": {
+   "f7": {
+    "guard": "Y"
+   }
+  },
+  "texts": {},
+  "addEdges": []
+ },
+ "corrections": [
+  "q13-46",
+  "party-03",
+  "party-04",
+  "act-12",
+  "act-13"
+ ],
+ "documentLanes": {
+  "object-digital-capabilities": "lane-participant-party-1",
+  "object-application-response-between-participant-party-1-and-participant-party-2": "lane-participant-party-1",
+  "object-digital-agreement-between-participant-party-1-and-participant-party-2": "lane-participant-party-1",
+  "object-application-response-between-participant-party-1-and-participant-party-2-2": "lane-participant-party-1",
+  "object-digital-agreement-between-participant-party-1-and-participant-party-2-2": "lane-participant-party-2",
+  "object-application-response-between-participant-party-1-and-participant-party-2-3": "lane-participant-party-2"
+ },
+ "formerIds": {
+  "lane-participant-party-1": "lane0",
+  "lane-participant-party-2": "lane1",
+  "initial-participant-party-1": "n1",
+  "object-digital-capabilities": "n2",
+  "action-send-digital-capabilities": "n3",
+  "action-receive-digital-capabilities": "n4",
+  "object-application-response-between-participant-party-1-and-participant-party-2": "n5",
+  "action-receive-application-response-in-participant-party-1": "n6",
+  "action-send-application-response-in-participant-party-2": "n7",
+  "decision-match-digital-capabilities": "n8",
+  "object-digital-agreement-between-participant-party-1-and-participant-party-2": "n9",
+  "action-receive-digital-agreement-in-participant-party-1": "n10",
+  "action-send-digital-agreement-in-participant-party-2": "n11",
+  "object-application-response-between-participant-party-1-and-participant-party-2-2": "n12",
+  "action-receive-application-response-in-participant-party-2": "n13",
+  "action-send-application-response-in-participant-party-1": "n14",
+  "decision-reconcile-digital-agreement-with-own": "n15",
+  "object-digital-agreement-between-participant-party-1-and-participant-party-2-2": "n16",
+  "action-send-digital-agreement-in-participant-party-1": "n17",
+  "action-receive-digital-agreement-in-participant-party-2": "n18",
+  "decision-validate-digital-agreement": "n19",
+  "object-application-response-between-participant-party-1-and-participant-party-2-3": "n20",
+  "action-send-application-response-in-participant-party-2-2": "n21",
+  "action-receive-application-response-in-participant-party-1-2": "n22",
+  "final-participant-party-2": "n23",
+  "final-participant-party-1": "n24",
+  "flow-initial-participant-party-1-to-send-digital-capabilities": "f0",
+  "flow-send-digital-capabilities-to-digital-capabilities": "f1",
+  "flow-digital-capabilities-to-receive-digital-capabilities": "f2",
+  "flow-receive-digital-capabilities-to-match-digital-capabilities": "f3",
+  "flow-receive-digital-capabilities-to-send-application-response-in-participant-party-2": "f4",
+  "flow-application-response-between-participant-party-1-and-participant-party-2-to-receive-application-response-in-participant-party-1": "f5",
+  "flow-send-application-response-in-participant-party-2-to-application-response-between-participant-party-1-and-participant-party-2": "f6",
+  "flow-match-digital-capabilities-to-send-digital-agreement-in-participant-party-2": "f7",
+  "flow-digital-agreement-between-participant-party-1-and-participant-party-2-to-receive-digital-agreement-in-participant-party-1": "f8",
+  "flow-send-digital-agreement-in-participant-party-2-to-digital-agreement-between-participant-party-1-and-participant-party-2": "f9",
+  "flow-receive-digital-agreement-in-participant-party-1-to-reconcile-digital-agreement-with-own": "f10",
+  "flow-match-digital-capabilities-to-final-participant-party-2": "f11",
+  "flow-receive-digital-agreement-in-participant-party-1-to-send-application-response-in-participant-party-1": "f12",
+  "flow-send-application-response-in-participant-party-1-to-application-response-between-participant-party-1-and-participant-party-2-2": "f13",
+  "flow-application-response-between-participant-party-1-and-participant-party-2-2-to-receive-application-response-in-participant-party-2": "f14",
+  "flow-reconcile-digital-agreement-with-own-to-send-digital-agreement-in-participant-party-1": "f15",
+  "flow-send-digital-agreement-in-participant-party-1-to-digital-agreement-between-participant-party-1-and-participant-party-2-2": "f16",
+  "flow-digital-agreement-between-participant-party-1-and-participant-party-2-2-to-receive-digital-agreement-in-participant-party-2": "f17",
+  "flow-reconcile-digital-agreement-with-own-to-final-participant-party-1": "f18",
+  "flow-receive-digital-agreement-in-participant-party-2-to-validate-digital-agreement": "f19",
+  "flow-validate-digital-agreement-to-final-participant-party-2": "f20",
+  "flow-validate-digital-agreement-to-send-application-response-in-participant-party-2-2": "f21",
+  "flow-application-response-between-participant-party-1-and-participant-party-2-3-to-receive-application-response-in-participant-party-1-2": "f22",
+  "flow-send-application-response-in-participant-party-2-2-to-application-response-between-participant-party-1-and-participant-party-2-3": "f23",
+  "flow-receive-application-response-in-participant-party-1-2-to-final-participant-party-1": "f24",
+  "text-y": "t2",
+  "text-n": "t3",
+  "text-y-2": "t4",
+  "text-n-2": "t5",
+  "text-y-3": "t6",
+  "text-n-3": "t7"
+ }
+}

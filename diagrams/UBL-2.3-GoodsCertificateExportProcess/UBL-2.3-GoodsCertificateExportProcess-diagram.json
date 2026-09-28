@@ -1,0 +1,359 @@
+{
+ "schema": "ubl-activity-diagram/1",
+ "figure": {
+  "name": "UBL-2.3-GoodsCertificateExportProcess",
+  "source": "UBL-2.3-GoodsCertificateExportProcess.png"
+ },
+ "lanes": [
+  {
+   "id": "lane-export-party",
+   "axis": "column",
+   "index": 0,
+   "title": "Export Party"
+  },
+  {
+   "id": "lane-preparation-party",
+   "axis": "column",
+   "index": 1,
+   "title": "Preparation Party"
+  },
+  {
+   "id": "lane-certification-party",
+   "axis": "column",
+   "index": 2,
+   "title": "Certification Party"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "initial-export-party",
+   "kind": "initial",
+   "label": "",
+   "lane": "lane-export-party"
+  },
+  {
+   "id": "action-draft-goods-certificate",
+   "kind": "action",
+   "label": "Draft Goods Certificate",
+   "lane": "lane-export-party"
+  },
+  {
+   "id": "object-goods-certificate-between-export-party-and-preparation-party",
+   "kind": "object",
+   "label": "Goods Certificate",
+   "lane": null,
+   "between": [
+    "lane-export-party",
+    "lane-preparation-party"
+   ]
+  },
+  {
+   "id": "action-prepare-for-export",
+   "kind": "action",
+   "label": "Prepare for export",
+   "lane": "lane-preparation-party"
+  },
+  {
+   "id": "object-goods-certificate-between-preparation-party-and-certification-party",
+   "kind": "object",
+   "label": "Goods Certificate",
+   "lane": null,
+   "between": [
+    "lane-preparation-party",
+    "lane-certification-party"
+   ]
+  },
+  {
+   "id": "action-issue-trade-certificates-for-export-as",
+   "kind": "action",
+   "label": "Issue Trade\nCertificates for\nexport as bundle",
+   "lane": "lane-preparation-party"
+  },
+  {
+   "id": "action-validate-trade-certificate",
+   "kind": "action",
+   "label": "Validate Trade\nCertificate",
+   "lane": "lane-certification-party"
+  },
+  {
+   "id": "decision-ok",
+   "kind": "decision",
+   "label": "OK?",
+   "lane": "lane-certification-party"
+  },
+  {
+   "id": "object-goods-certificate-between-export-party-and-preparation-party-2",
+   "kind": "object",
+   "label": "Goods Certificate",
+   "lane": null,
+   "between": [
+    "lane-export-party",
+    "lane-preparation-party"
+   ]
+  },
+  {
+   "id": "object-goods-certificate-between-preparation-party-and-certification-party-2",
+   "kind": "object",
+   "label": "Goods Certificate",
+   "lane": null,
+   "between": [
+    "lane-preparation-party",
+    "lane-certification-party"
+   ]
+  },
+  {
+   "id": "action-receive-goods-certificate",
+   "kind": "action",
+   "label": "Receive\nGoods Certificate",
+   "lane": "lane-export-party"
+  },
+  {
+   "id": "action-apply-stamps-and-signature",
+   "kind": "action",
+   "label": "Apply stamps\nand signature",
+   "lane": "lane-certification-party"
+  },
+  {
+   "id": "action-send-authorized-copy",
+   "kind": "action",
+   "label": "Send\nauthorized\ncopy",
+   "lane": "lane-preparation-party"
+  },
+  {
+   "id": "object-application-response-between-export-party-and-preparation-party",
+   "kind": "object",
+   "label": "Application response",
+   "lane": null,
+   "between": [
+    "lane-export-party",
+    "lane-preparation-party"
+   ]
+  },
+  {
+   "id": "object-application-response-between-preparation-party-and-certification-party",
+   "kind": "object",
+   "label": "Application response",
+   "lane": null,
+   "between": [
+    "lane-preparation-party",
+    "lane-certification-party"
+   ]
+  },
+  {
+   "id": "action-receive-reject",
+   "kind": "action",
+   "label": "Receive reject",
+   "lane": "lane-export-party"
+  },
+  {
+   "id": "action-send-reject-in-preparation-party",
+   "kind": "action",
+   "label": "Send reject",
+   "lane": "lane-preparation-party"
+  },
+  {
+   "id": "action-send-reject-in-certification-party",
+   "kind": "action",
+   "label": "Send reject",
+   "lane": "lane-certification-party"
+  },
+  {
+   "id": "final-export-party",
+   "kind": "final",
+   "label": "",
+   "lane": "lane-export-party"
+  }
+ ],
+ "flows": [
+  {
+   "id": "flow-initial-export-party-to-draft-goods-certificate",
+   "from": "initial-export-party",
+   "to": "action-draft-goods-certificate",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-draft-goods-certificate-to-goods-certificate-between-export-party-and-preparation-party",
+   "from": "action-draft-goods-certificate",
+   "to": "object-goods-certificate-between-export-party-and-preparation-party",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-goods-certificate-between-export-party-and-preparation-party-to-prepare-for-export",
+   "from": "object-goods-certificate-between-export-party-and-preparation-party",
+   "to": "action-prepare-for-export",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-prepare-for-export-to-issue-trade-certificates-for-export-as",
+   "from": "action-prepare-for-export",
+   "to": "action-issue-trade-certificates-for-export-as",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-issue-trade-certificates-for-export-as-to-goods-certificate-between-preparation-party-and-certification-party",
+   "from": "action-issue-trade-certificates-for-export-as",
+   "to": "object-goods-certificate-between-preparation-party-and-certification-party",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-goods-certificate-between-preparation-party-and-certification-party-to-validate-trade-certificate",
+   "from": "object-goods-certificate-between-preparation-party-and-certification-party",
+   "to": "action-validate-trade-certificate",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-validate-trade-certificate-to-ok",
+   "from": "action-validate-trade-certificate",
+   "to": "decision-ok",
+   "kind": "control",
+   "direction": {
+    "confidence": "checked",
+    "checked": "confirmed"
+   }
+  },
+  {
+   "id": "flow-ok-to-send-reject-in-certification-party",
+   "from": "decision-ok",
+   "to": "action-send-reject-in-certification-party",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   },
+   "guard": "text-no"
+  },
+  {
+   "id": "flow-ok-to-apply-stamps-and-signature",
+   "from": "decision-ok",
+   "to": "action-apply-stamps-and-signature",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   },
+   "guard": "text-yes"
+  },
+  {
+   "id": "flow-goods-certificate-between-export-party-and-preparation-party-2-to-receive-goods-certificate",
+   "from": "object-goods-certificate-between-export-party-and-preparation-party-2",
+   "to": "action-receive-goods-certificate",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-send-authorized-copy-to-goods-certificate-between-export-party-and-preparation-party-2",
+   "from": "action-send-authorized-copy",
+   "to": "object-goods-certificate-between-export-party-and-preparation-party-2",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-goods-certificate-between-preparation-party-and-certification-party-2-to-send-authorized-copy",
+   "from": "object-goods-certificate-between-preparation-party-and-certification-party-2",
+   "to": "action-send-authorized-copy",
+   "kind": "object",
+   "direction": {
+    "confidence": "checked",
+    "checked": "confirmed"
+   }
+  },
+  {
+   "id": "flow-apply-stamps-and-signature-to-goods-certificate-between-preparation-party-and-certification-party-2",
+   "from": "action-apply-stamps-and-signature",
+   "to": "object-goods-certificate-between-preparation-party-and-certification-party-2",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-receive-goods-certificate-to-final-export-party",
+   "from": "action-receive-goods-certificate",
+   "to": "final-export-party",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-application-response-between-export-party-and-preparation-party-to-receive-reject",
+   "from": "object-application-response-between-export-party-and-preparation-party",
+   "to": "action-receive-reject",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-send-reject-in-preparation-party-to-application-response-between-export-party-and-preparation-party",
+   "from": "action-send-reject-in-preparation-party",
+   "to": "object-application-response-between-export-party-and-preparation-party",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-send-reject-in-certification-party-to-application-response-between-preparation-party-and-certification-party",
+   "from": "action-send-reject-in-certification-party",
+   "to": "object-application-response-between-preparation-party-and-certification-party",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-application-response-between-preparation-party-and-certification-party-to-send-reject-in-preparation-party",
+   "from": "object-application-response-between-preparation-party-and-certification-party",
+   "to": "action-send-reject-in-preparation-party",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-receive-reject-to-final-export-party",
+   "from": "action-receive-reject",
+   "to": "final-export-party",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  }
+ ],
+ "texts": [
+  {
+   "id": "text-yes",
+   "text": "Yes",
+   "labels": "flow-ok-to-apply-stamps-and-signature"
+  },
+  {
+   "id": "text-no",
+   "text": "No",
+   "labels": "flow-ok-to-send-reject-in-certification-party"
+  }
+ ],
+ "offPage": [],
+ "marks": [],
+ "phases": []
+}

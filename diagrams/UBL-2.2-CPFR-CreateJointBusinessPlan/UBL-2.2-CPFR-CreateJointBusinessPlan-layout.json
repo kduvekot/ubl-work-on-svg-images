@@ -1,0 +1,979 @@
+{
+ "schema": "ubl-activity-diagram-layout/1",
+ "figure": "UBL-2.2-CPFR-CreateJointBusinessPlan",
+ "units": "px of the original PNG",
+ "size": [
+  3425,
+  3289
+ ],
+ "style": {
+  "fontPx": 45.7,
+  "arrowPx": 60.0,
+  "arrowWidthPx": 48.0,
+  "arrowStyle": "open"
+ },
+ "rules": {
+  "vertical": [
+   {
+    "at": 0,
+    "width": 10,
+    "span": [
+     13,
+     3275
+    ]
+   },
+   {
+    "at": 1690,
+    "width": 1,
+    "span": [
+     13,
+     3275
+    ]
+   },
+   {
+    "at": 3415,
+    "width": 10,
+    "span": [
+     13,
+     3275
+    ]
+   }
+  ],
+  "horizontal": [
+   {
+    "at": 0,
+    "width": 10,
+    "span": [
+     13,
+     3411
+    ]
+   },
+   {
+    "at": 3279,
+    "width": 10,
+    "span": [
+     13,
+     3411
+    ]
+   }
+  ]
+ },
+ "greyRules": [],
+ "lanes": {
+  "lane-buyer-party": {
+   "x0": 0,
+   "x1": 1690
+  },
+  "lane-seller-party": {
+   "x0": 1690,
+   "x1": 3425
+  }
+ },
+ "nodes": {
+  "action-create-retail-event": {
+   "x": 215,
+   "y": 254,
+   "w": 595,
+   "h": 189,
+   "shape": "rounded",
+   "stroke": 3,
+   "rx": 65,
+   "ry": 65,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 296,
+     "y": 328,
+     "w": 399,
+     "h": 32,
+     "text": "Create Retail Event"
+    }
+   ]
+  },
+  "action-receive-retail-event-in-seller-party": {
+   "x": 2544,
+   "y": 504,
+   "w": 608,
+   "h": 233,
+   "shape": "rounded",
+   "stroke": 3,
+   "rx": 65,
+   "ry": 65,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 2616,
+     "y": 598,
+     "w": 426,
+     "h": 32,
+     "text": "Receive Retail Event"
+    }
+   ]
+  },
+  "object-retail-event": {
+   "x": 1510,
+   "y": 528,
+   "w": 423,
+   "h": 221,
+   "shape": "rect",
+   "stroke": 6,
+   "rx": 0,
+   "ry": 0,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 1589,
+     "y": 616,
+     "w": 252,
+     "h": 32,
+     "text": "Retail Event"
+    }
+   ]
+  },
+  "action-send-retail-event-in-buyer-party": {
+   "x": 380,
+   "y": 575,
+   "w": 595,
+   "h": 184,
+   "shape": "rounded",
+   "stroke": 3,
+   "rx": 65,
+   "ry": 65,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 482,
+     "y": 649,
+     "w": 369,
+     "h": 32,
+     "text": "Send Retail Event"
+    }
+   ]
+  },
+  "action-revise-retail-event-and-send-revision": {
+   "x": 2539,
+   "y": 879,
+   "w": 613,
+   "h": 224,
+   "shape": "rounded",
+   "stroke": 4,
+   "rx": 65,
+   "ry": 65,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 2576,
+     "y": 926,
+     "w": 488,
+     "h": 32,
+     "text": "Revise Retail Event and"
+    },
+    {
+     "x": 2686,
+     "y": 984,
+     "w": 297,
+     "h": 32,
+     "text": "Send Revision"
+    }
+   ]
+  },
+  "object-retail-event-revision": {
+   "x": 1492,
+   "y": 880,
+   "w": 432,
+   "h": 217,
+   "shape": "rect",
+   "stroke": 6,
+   "rx": 0,
+   "ry": 0,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 1571,
+     "y": 946,
+     "w": 252,
+     "h": 32,
+     "text": "Retail Event"
+    },
+    {
+     "x": 1607,
+     "y": 995,
+     "w": 194,
+     "h": 41,
+     "text": "(revision)"
+    }
+   ]
+  },
+  "action-receive-retail-event-revision": {
+   "x": 742,
+   "y": 923,
+   "w": 599,
+   "h": 171,
+   "shape": "rounded",
+   "stroke": 3,
+   "rx": 65,
+   "ry": 65,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 805,
+     "y": 966,
+     "w": 426,
+     "h": 32,
+     "text": "Receive Retail Event"
+    },
+    {
+     "x": 943,
+     "y": 1024,
+     "w": 177,
+     "h": 32,
+     "text": "Revision"
+    }
+   ]
+  },
+  "decision-buyer-party": {
+   "x": 194,
+   "y": 942,
+   "w": 168,
+   "h": 164,
+   "shape": "rhombus",
+   "stroke": 4,
+   "rx": 89,
+   "ry": 90
+  },
+  "object-retail-event-response-positive": {
+   "x": 1465,
+   "y": 1322,
+   "w": 548,
+   "h": 239,
+   "shape": "rect",
+   "stroke": 6,
+   "rx": 0,
+   "ry": 0,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 1487,
+     "y": 1385,
+     "w": 471,
+     "h": 41,
+     "text": "Retail Event (response"
+    },
+    {
+     "x": 1645,
+     "y": 1434,
+     "w": 178,
+     "h": 42,
+     "text": "positive)"
+    }
+   ]
+  },
+  "action-send-retail-event-in-buyer-party-2": {
+   "x": 496,
+   "y": 1361,
+   "w": 599,
+   "h": 161,
+   "shape": "rounded",
+   "stroke": 4,
+   "rx": 65,
+   "ry": 65,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 593,
+     "y": 1421,
+     "w": 369,
+     "h": 32,
+     "text": "Send Retail Event"
+    }
+   ]
+  },
+  "action-receive-retail-event-in-seller-party-2": {
+   "x": 2548,
+   "y": 1370,
+   "w": 577,
+   "h": 157,
+   "shape": "rounded",
+   "stroke": 4,
+   "rx": 65,
+   "ry": 63,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 2607,
+     "y": 1428,
+     "w": 427,
+     "h": 32,
+     "text": "Receive Retail Event"
+    }
+   ]
+  },
+  "action-create-trade-item-location-profile": {
+   "x": 2566,
+   "y": 1637,
+   "w": 590,
+   "h": 238,
+   "shape": "rounded",
+   "stroke": 3,
+   "rx": 65,
+   "ry": 65,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 2664,
+     "y": 1693,
+     "w": 370,
+     "h": 32,
+     "text": "Create Trade Item"
+    },
+    {
+     "x": 2692,
+     "y": 1751,
+     "w": 328,
+     "h": 32,
+     "text": "Location Profile"
+    }
+   ]
+  },
+  "object-trade-item-location-profile": {
+   "x": 1443,
+   "y": 1790,
+   "w": 525,
+   "h": 244,
+   "shape": "rect",
+   "stroke": 6,
+   "rx": 0,
+   "ry": 0,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 1486,
+     "y": 1851,
+     "w": 411,
+     "h": 33,
+     "text": "Trade Item Location"
+    },
+    {
+     "x": 1634,
+     "y": 1900,
+     "w": 134,
+     "h": 33,
+     "text": "Profile"
+    }
+   ]
+  },
+  "action-receive-trade-item-location-profile": {
+   "x": 474,
+   "y": 1793,
+   "w": 599,
+   "h": 233,
+   "shape": "rounded",
+   "stroke": 3,
+   "rx": 65,
+   "ry": 65,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 555,
+     "y": 1847,
+     "w": 396,
+     "h": 32,
+     "text": "Receive Trade Item"
+    },
+    {
+     "x": 604,
+     "y": 1905,
+     "w": 328,
+     "h": 32,
+     "text": "Location Profile"
+    }
+   ]
+  },
+  "action-send-trade-item-location-profile": {
+   "x": 2419,
+   "y": 1963,
+   "w": 599,
+   "h": 197,
+   "shape": "rounded",
+   "stroke": 3,
+   "rx": 65,
+   "ry": 65,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 2436,
+     "y": 2014,
+     "w": 533,
+     "h": 33,
+     "text": "Send Trade Item Location"
+    },
+    {
+     "x": 2648,
+     "y": 2072,
+     "w": 133,
+     "h": 33,
+     "text": "Profile"
+    }
+   ]
+  },
+  "action-revise-trade-item-location-profile-and": {
+   "x": 469,
+   "y": 2213,
+   "w": 599,
+   "h": 286,
+   "shape": "rounded",
+   "stroke": 4,
+   "rx": 65,
+   "ry": 65,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 564,
+     "y": 2255,
+     "w": 372,
+     "h": 32,
+     "text": "Revise Trade Item"
+    },
+    {
+     "x": 484,
+     "y": 2313,
+     "w": 534,
+     "h": 32,
+     "text": "Location Profile and Send"
+    },
+    {
+     "x": 671,
+     "y": 2371,
+     "w": 177,
+     "h": 32,
+     "text": "Revision"
+    }
+   ]
+  },
+  "object-trade-item-location-profile-revision": {
+   "x": 1465,
+   "y": 2245,
+   "w": 472,
+   "h": 218,
+   "shape": "rect",
+   "stroke": 6,
+   "rx": 0,
+   "ry": 0,
+   "bold": true,
+   "labelLines": []
+  },
+  "action-receive-tilp-in-seller-party": {
+   "x": 2290,
+   "y": 2436,
+   "w": 451,
+   "h": 148,
+   "shape": "rounded",
+   "stroke": 4,
+   "rx": 65,
+   "ry": 65,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 2371,
+     "y": 2492,
+     "w": 268,
+     "h": 32,
+     "text": "Receive TILP"
+    }
+   ]
+  },
+  "decision-seller-party": {
+   "x": 2982,
+   "y": 2486,
+   "w": 155,
+   "h": 159,
+   "shape": "rhombus",
+   "stroke": 4,
+   "rx": 85,
+   "ry": 85
+  },
+  "object-tilp-response-positive": {
+   "x": 1497,
+   "y": 2803,
+   "w": 396,
+   "h": 217,
+   "shape": "rect",
+   "stroke": 6,
+   "rx": 0,
+   "ry": 0,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 1535,
+     "y": 2864,
+     "w": 312,
+     "h": 41,
+     "text": "TILP (response"
+    },
+    {
+     "x": 1609,
+     "y": 2913,
+     "w": 179,
+     "h": 41,
+     "text": "positive)"
+    }
+   ]
+  },
+  "action-send-tilp": {
+   "x": 2705,
+   "y": 2819,
+   "w": 438,
+   "h": 131,
+   "shape": "rounded",
+   "stroke": 3,
+   "rx": 63,
+   "ry": 65,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 2815,
+     "y": 2862,
+     "w": 211,
+     "h": 32,
+     "text": "Send TILP"
+    }
+   ]
+  },
+  "action-receive-tilp-in-buyer-party": {
+   "x": 710,
+   "y": 2828,
+   "w": 523,
+   "h": 153,
+   "shape": "rounded",
+   "stroke": 3,
+   "rx": 65,
+   "ry": 65,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 828,
+     "y": 2871,
+     "w": 267,
+     "h": 32,
+     "text": "Receive TILP"
+    }
+   ]
+  }
+ },
+ "flows": {
+  "flow-decision-buyer-party-to-create-retail-event": {
+   "fromPoint": [
+    276,
+    927
+   ],
+   "toPoint": [
+    272,
+    461
+   ],
+   "routing": "straight"
+  },
+  "flow-create-retail-event-to-send-retail-event-in-buyer-party": {
+   "fromPoint": [
+    591,
+    457
+   ],
+   "toPoint": [
+    593,
+    560
+   ],
+   "routing": "straight"
+  },
+  "flow-retail-event-to-receive-retail-event-in-seller-party": {
+   "fromPoint": [
+    1952,
+    631
+   ],
+   "toPoint": [
+    2529,
+    622
+   ],
+   "routing": "diagonal"
+  },
+  "flow-send-retail-event-in-buyer-party-to-retail-event": {
+   "fromPoint": [
+    989,
+    663
+   ],
+   "toPoint": [
+    1490,
+    662
+   ],
+   "routing": "straight"
+  },
+  "flow-receive-retail-event-in-seller-party-to-revise-retail-event-and-send-revision": {
+   "fromPoint": [
+    2845,
+    751
+   ],
+   "toPoint": [
+    2845,
+    864
+   ],
+   "routing": "straight"
+  },
+  "flow-retail-event-revision-to-receive-retail-event-revision": {
+   "fromPoint": [
+    1472,
+    988
+   ],
+   "toPoint": [
+    1355,
+    989
+   ],
+   "routing": "straight"
+  },
+  "flow-revise-retail-event-and-send-revision-to-retail-event-revision": {
+   "fromPoint": [
+    2524,
+    988
+   ],
+   "toPoint": [
+    1943,
+    988
+   ],
+   "routing": "straight"
+  },
+  "flow-receive-retail-event-revision-to-decision-buyer-party": {
+   "fromPoint": [
+    727,
+    1024
+   ],
+   "toPoint": [
+    376,
+    1024
+   ],
+   "routing": "straight"
+  },
+  "flow-decision-buyer-party-to-send-retail-event-in-buyer-party-2": {
+   "fromPoint": [
+    276,
+    1120
+   ],
+   "toPoint": [
+    740,
+    1346
+   ],
+   "routing": "orthogonal",
+   "points": [
+    [
+     276,
+     1207
+    ],
+    [
+     740,
+     1207
+    ]
+   ]
+  },
+  "flow-retail-event-response-positive-to-receive-retail-event-in-seller-party-2": {
+   "fromPoint": [
+    2032,
+    1434
+   ],
+   "toPoint": [
+    2533,
+    1434
+   ],
+   "routing": "straight"
+  },
+  "flow-send-retail-event-in-buyer-party-2-to-retail-event-response-positive": {
+   "fromPoint": [
+    1109,
+    1443
+   ],
+   "toPoint": [
+    1445,
+    1443
+   ],
+   "routing": "straight"
+  },
+  "flow-receive-retail-event-in-seller-party-2-to-create-trade-item-location-profile": {
+   "fromPoint": [
+    2836,
+    1541
+   ],
+   "toPoint": [
+    2840,
+    1622
+   ],
+   "routing": "straight"
+  },
+  "flow-trade-item-location-profile-to-receive-trade-item-location-profile": {
+   "fromPoint": [
+    1423,
+    1907
+   ],
+   "toPoint": [
+    1087,
+    1907
+   ],
+   "routing": "straight"
+  },
+  "flow-create-trade-item-location-profile-to-send-trade-item-location-profile": {
+   "fromPoint": [
+    2789,
+    1889
+   ],
+   "toPoint": [
+    2789,
+    1948
+   ],
+   "routing": "straight"
+  },
+  "flow-decision-seller-party-to-create-trade-item-location-profile": {
+   "fromPoint": [
+    3059,
+    2471
+   ],
+   "toPoint": [
+    3054,
+    1890
+   ],
+   "routing": "straight"
+  },
+  "flow-send-trade-item-location-profile-to-trade-item-location-profile": {
+   "fromPoint": [
+    2404,
+    2010
+   ],
+   "toPoint": [
+    1987,
+    1951
+   ],
+   "routing": "diagonal"
+  },
+  "flow-receive-trade-item-location-profile-to-revise-trade-item-location-profile-and": {
+   "fromPoint": [
+    766,
+    2040
+   ],
+   "toPoint": [
+    766,
+    2198
+   ],
+   "routing": "straight"
+  },
+  "flow-revise-trade-item-location-profile-and-to-trade-item-location-profile-revision": {
+   "fromPoint": [
+    1082,
+    2353
+   ],
+   "toPoint": [
+    1445,
+    2353
+   ],
+   "routing": "straight"
+  },
+  "flow-trade-item-location-profile-revision-to-receive-tilp-in-seller-party": {
+   "fromPoint": [
+    1956,
+    2402
+   ],
+   "toPoint": [
+    2275,
+    2460
+   ],
+   "routing": "diagonal"
+  },
+  "flow-receive-tilp-in-seller-party-to-decision-seller-party": {
+   "fromPoint": [
+    2755,
+    2531
+   ],
+   "toPoint": [
+    2967,
+    2562
+   ],
+   "routing": "diagonal"
+  },
+  "flow-decision-seller-party-to-send-tilp": {
+   "fromPoint": [
+    3068,
+    2659
+   ],
+   "toPoint": [
+    3067,
+    2804
+   ],
+   "routing": "straight"
+  },
+  "flow-send-tilp-to-tilp-response-positive": {
+   "fromPoint": [
+    2690,
+    2884
+   ],
+   "toPoint": [
+    1912,
+    2884
+   ],
+   "routing": "straight"
+  },
+  "flow-tilp-response-positive-to-receive-tilp-in-buyer-party": {
+   "fromPoint": [
+    1477,
+    2893
+   ],
+   "toPoint": [
+    1247,
+    2893
+   ],
+   "routing": "straight"
+  }
+ },
+ "texts": {
+  "text-no": {
+   "x": 181,
+   "y": 483,
+   "w": 51,
+   "h": 32,
+   "lines": [
+    {
+     "x": 181,
+     "y": 483,
+     "w": 51,
+     "h": 32,
+     "text": "No"
+    }
+   ]
+  },
+  "text-retail-event-accepted": {
+   "x": 38,
+   "y": 864,
+   "w": 464,
+   "h": 48,
+   "lines": [
+    {
+     "x": 38,
+     "y": 860,
+     "w": 464,
+     "h": 56,
+     "text": "Retail Event Accepted ?"
+    }
+   ]
+  },
+  "text-yes": {
+   "x": 575,
+   "y": 1277,
+   "w": 73,
+   "h": 32,
+   "lines": [
+    {
+     "x": 575,
+     "y": 1277,
+     "w": 73,
+     "h": 32,
+     "text": "Yes"
+    }
+   ]
+  },
+  "text-no-2": {
+   "x": 2964,
+   "y": 1915,
+   "w": 52,
+   "h": 32,
+   "lines": [
+    {
+     "x": 2964,
+     "y": 1915,
+     "w": 52,
+     "h": 32,
+     "text": "No"
+    }
+   ]
+  },
+  "text-tilp-accepted": {
+   "x": 2877,
+   "y": 2401,
+   "w": 324,
+   "h": 41,
+   "lines": [
+    {
+     "x": 2877,
+     "y": 2397,
+     "w": 324,
+     "h": 49,
+     "text": "TILP Accepted ?"
+    }
+   ]
+  },
+  "text-yes-2": {
+   "x": 2958,
+   "y": 2736,
+   "w": 72,
+   "h": 32,
+   "lines": [
+    {
+     "x": 2958,
+     "y": 2736,
+     "w": 72,
+     "h": 32,
+     "text": "Yes"
+    }
+   ]
+  }
+ },
+ "offPage": {
+  "offpage-action-create-retail-event": {
+   "at": [
+    709,
+    12
+   ],
+   "end": [
+    705,
+    239
+   ],
+   "points": [],
+   "x": 685,
+   "y": 12,
+   "w": 48,
+   "h": 228
+  },
+  "offpage-action-receive-tilp-in-buyer-party": {
+   "at": [
+    971,
+    2995
+   ],
+   "end": [
+    970,
+    3276
+   ],
+   "points": [],
+   "x": 959,
+   "y": 2995,
+   "w": 15,
+   "h": 282
+  }
+ },
+ "marks": {},
+ "phases": {
+  "phase-creating-joint-business-plan": {
+   "x": 94,
+   "y": 94,
+   "w": 3248,
+   "h": 3096,
+   "rx": 131,
+   "dash": 12.0,
+   "gap": 9.0,
+   "weight": 4.0,
+   "title": {
+    "as": "lane-title",
+    "box": [
+     1402,
+     114,
+     601,
+     41
+    ],
+    "bold": true
+   }
+  }
+ },
+ "rulesHaveSpans": {
+  "vertical": true,
+  "horizontal": true
+ }
+}

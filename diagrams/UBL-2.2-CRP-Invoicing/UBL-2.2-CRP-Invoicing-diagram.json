@@ -1,0 +1,99 @@
+{
+ "schema": "ubl-activity-diagram/1",
+ "figure": {
+  "name": "UBL-2.2-CRP-Invoicing",
+  "source": "UBL-2.2-CRP-Invoicing.png"
+ },
+ "lanes": [
+  {
+   "id": "lane-producer",
+   "axis": "column",
+   "index": 0,
+   "title": "Producer"
+  },
+  {
+   "id": "lane-retailer",
+   "axis": "column",
+   "index": 1,
+   "title": "Retailer"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "initial-producer",
+   "kind": "initial",
+   "label": "",
+   "lane": "lane-producer"
+  },
+  {
+   "id": "object-invoice",
+   "kind": "object",
+   "label": "Invoice",
+   "lane": null,
+   "between": [
+    "lane-producer",
+    "lane-retailer"
+   ]
+  },
+  {
+   "id": "action-raise-invoice",
+   "kind": "action",
+   "label": "Raise Invoice",
+   "lane": "lane-producer"
+  },
+  {
+   "id": "action-receive-invoice",
+   "kind": "action",
+   "label": "Receive Invoice",
+   "lane": "lane-retailer"
+  },
+  {
+   "id": "final-retailer",
+   "kind": "final",
+   "label": "",
+   "lane": "lane-retailer"
+  }
+ ],
+ "flows": [
+  {
+   "id": "flow-initial-producer-to-raise-invoice",
+   "from": "initial-producer",
+   "to": "action-raise-invoice",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-raise-invoice-to-invoice",
+   "from": "action-raise-invoice",
+   "to": "object-invoice",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-invoice-to-receive-invoice",
+   "from": "object-invoice",
+   "to": "action-receive-invoice",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-receive-invoice-to-final-retailer",
+   "from": "action-receive-invoice",
+   "to": "final-retailer",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  }
+ ],
+ "texts": [],
+ "offPage": [],
+ "marks": [],
+ "phases": []
+}

@@ -1,0 +1,378 @@
+{
+ "schema": "ubl-activity-diagram-layout/1",
+ "figure": "UBL-2.2-Tender-QualificationInfo",
+ "units": "px of the original PNG",
+ "size": [
+  3425,
+  2282
+ ],
+ "style": {
+  "fontPx": 80.0,
+  "arrowPx": 69.0,
+  "arrowWidthPx": 71.3,
+  "arrowStyle": "open"
+ },
+ "rules": {
+  "vertical": [
+   {
+    "at": 0,
+    "width": 10,
+    "span": [
+     13,
+     2268
+    ]
+   },
+   {
+    "at": 1869,
+    "width": 12,
+    "span": [
+     13,
+     2268
+    ]
+   },
+   {
+    "at": 3415,
+    "width": 10,
+    "span": [
+     13,
+     2268
+    ]
+   }
+  ],
+  "horizontal": [
+   {
+    "at": 0,
+    "width": 10,
+    "span": [
+     13,
+     3411
+    ]
+   },
+   {
+    "at": 2272,
+    "width": 10,
+    "span": [
+     13,
+     3411
+    ]
+   }
+  ]
+ },
+ "greyRules": [],
+ "lanes": {
+  "lane-tenderer": {
+   "x0": 0,
+   "x1": 1875,
+   "titleBox": [
+    733,
+    72,
+    424,
+    56
+   ],
+   "titleWords": "TENDERER"
+  },
+  "lane-contracting-authority": {
+   "x0": 1875,
+   "x1": 3425,
+   "titleBox": [
+    2138,
+    71,
+    1039,
+    58
+   ],
+   "titleWords": "CONTRACTING AUTHORITY"
+  }
+ },
+ "nodes": {
+  "initial-tenderer": {
+   "x": 715,
+   "y": 273,
+   "w": 122,
+   "h": 122
+  },
+  "action-prepare-qualification-document": {
+   "x": 106,
+   "y": 558,
+   "w": 1340,
+   "h": 206,
+   "shape": "rounded",
+   "stroke": 13,
+   "rx": 101,
+   "ry": 99,
+   "bold": false,
+   "labelLines": [
+    {
+     "x": 237,
+     "y": 628,
+     "w": 1067,
+     "h": 72,
+     "text": "Prepare qualification document"
+    }
+   ]
+  },
+  "object-tenderer-qualification": {
+   "x": 1652,
+   "y": 862,
+   "w": 427,
+   "h": 442,
+   "shape": "rect",
+   "stroke": 12,
+   "rx": 0,
+   "ry": 0,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 1674,
+     "y": 996,
+     "w": 279,
+     "h": 49,
+     "text": "Tenderer"
+    },
+    {
+     "x": 1672,
+     "y": 1098,
+     "w": 391,
+     "h": 54,
+     "text": "Qualification"
+    }
+   ]
+  },
+  "action-evaluate-qualification-document": {
+   "x": 2318,
+   "y": 933,
+   "w": 1013,
+   "h": 304,
+   "shape": "rounded",
+   "stroke": 12,
+   "rx": 118,
+   "ry": 116,
+   "bold": false,
+   "labelLines": [
+    {
+     "x": 2444,
+     "y": 1003,
+     "w": 765,
+     "h": 61,
+     "text": "Evaluate Qualification"
+    },
+    {
+     "x": 2697,
+     "y": 1102,
+     "w": 339,
+     "h": 57,
+     "text": "document"
+    }
+   ]
+  },
+  "action-submit-qualification-document": {
+   "x": 94,
+   "y": 983,
+   "w": 1366,
+   "h": 207,
+   "shape": "rounded",
+   "stroke": 13,
+   "rx": 102,
+   "ry": 101,
+   "bold": false,
+   "labelLines": [
+    {
+     "x": 252,
+     "y": 1053,
+     "w": 1053,
+     "h": 61,
+     "text": "Submit Qualification document"
+    }
+   ]
+  },
+  "object-tenderer-qualification-response": {
+   "x": 1641,
+   "y": 1431,
+   "w": 411,
+   "h": 425,
+   "shape": "rect",
+   "stroke": 13,
+   "rx": 0,
+   "ry": 0,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 1654,
+     "y": 1503,
+     "w": 279,
+     "h": 48,
+     "text": "Tenderer"
+    },
+    {
+     "x": 1652,
+     "y": 1605,
+     "w": 391,
+     "h": 53,
+     "text": "Qualification"
+    },
+    {
+     "x": 1650,
+     "y": 1708,
+     "w": 310,
+     "h": 61,
+     "text": "Response"
+    }
+   ]
+  },
+  "action-submit-qualification-result": {
+   "x": 2362,
+   "y": 1491,
+   "w": 924,
+   "h": 304,
+   "shape": "rounded",
+   "stroke": 13,
+   "rx": 112,
+   "ry": 119,
+   "bold": false,
+   "labelLines": [
+    {
+     "x": 2479,
+     "y": 1561,
+     "w": 684,
+     "h": 61,
+     "text": "Submit Qualification"
+    },
+    {
+     "x": 2778,
+     "y": 1660,
+     "w": 184,
+     "h": 56,
+     "text": "result"
+    }
+   ]
+  },
+  "action-receive-result": {
+   "x": 446,
+   "y": 1535,
+   "w": 660,
+   "h": 207,
+   "shape": "rounded",
+   "stroke": 12,
+   "rx": 105,
+   "ry": 102,
+   "bold": false,
+   "labelLines": [
+    {
+     "x": 526,
+     "y": 1607,
+     "w": 486,
+     "h": 56,
+     "text": "Receive result"
+    }
+   ]
+  },
+  "final-tenderer": {
+   "x": 691,
+   "y": 2012,
+   "w": 170,
+   "h": 171,
+   "shape": "rounded",
+   "stroke": 12,
+   "rx": 92,
+   "ry": 85,
+   "innerRatio": 0.712
+  }
+ },
+ "flows": {
+  "flow-initial-tenderer-to-prepare-qualification-document": {
+   "fromPoint": [
+    776,
+    409
+   ],
+   "toPoint": [
+    776,
+    543
+   ],
+   "routing": "straight"
+  },
+  "flow-prepare-qualification-document-to-submit-qualification-document": {
+   "fromPoint": [
+    776,
+    778
+   ],
+   "toPoint": [
+    777,
+    968
+   ],
+   "routing": "straight"
+  },
+  "flow-submit-qualification-document-to-tenderer-qualification": {
+   "fromPoint": [
+    1474,
+    1086
+   ],
+   "toPoint": [
+    1637,
+    1083
+   ],
+   "routing": "straight"
+  },
+  "flow-tenderer-qualification-to-evaluate-qualification-document": {
+   "fromPoint": [
+    2093,
+    1083
+   ],
+   "toPoint": [
+    2303,
+    1085
+   ],
+   "routing": "straight"
+  },
+  "flow-evaluate-qualification-document-to-submit-qualification-result": {
+   "fromPoint": [
+    2824,
+    1251
+   ],
+   "toPoint": [
+    2824,
+    1476
+   ],
+   "routing": "straight"
+  },
+  "flow-tenderer-qualification-response-to-receive-result": {
+   "fromPoint": [
+    1626,
+    1643
+   ],
+   "toPoint": [
+    1120,
+    1638
+   ],
+   "routing": "straight"
+  },
+  "flow-submit-qualification-result-to-tenderer-qualification-response": {
+   "fromPoint": [
+    2347,
+    1643
+   ],
+   "toPoint": [
+    2066,
+    1643
+   ],
+   "routing": "straight"
+  },
+  "flow-receive-result-to-final-tenderer": {
+   "fromPoint": [
+    776,
+    1756
+   ],
+   "toPoint": [
+    776,
+    1997
+   ],
+   "routing": "straight"
+  }
+ },
+ "texts": {},
+ "offPage": {},
+ "marks": {},
+ "phases": {},
+ "rulesHaveSpans": {
+  "vertical": true,
+  "horizontal": true
+ }
+}

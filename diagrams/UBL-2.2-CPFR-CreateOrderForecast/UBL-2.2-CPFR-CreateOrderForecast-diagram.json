@@ -1,0 +1,436 @@
+{
+ "schema": "ubl-activity-diagram/1",
+ "figure": {
+  "name": "UBL-2.2-CPFR-CreateOrderForecast",
+  "source": "UBL-2.2-CPFR-CreateOrderForecast.png"
+ },
+ "lanes": [
+  {
+   "id": "lane-buyer-party",
+   "axis": "column",
+   "index": 0,
+   "title": "Buyer Party",
+   "titleShown": false,
+   "titleSource": "text"
+  },
+  {
+   "id": "lane-seller-party",
+   "axis": "column",
+   "index": 1,
+   "title": "Seller Party",
+   "titleShown": false,
+   "titleSource": "text"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "fork-buyer-party",
+   "kind": "fork",
+   "label": "",
+   "lane": "lane-buyer-party"
+  },
+  {
+   "id": "action-send-product-activity",
+   "kind": "action",
+   "label": "Send Product\nActivity",
+   "lane": "lane-buyer-party"
+  },
+  {
+   "id": "action-send-retail-event",
+   "kind": "action",
+   "label": "Send Retail\nEvent",
+   "lane": "lane-buyer-party"
+  },
+  {
+   "id": "object-retail-event",
+   "kind": "object",
+   "label": "Retail Event",
+   "lane": null,
+   "between": [
+    "lane-buyer-party",
+    "lane-seller-party"
+   ]
+  },
+  {
+   "id": "fork-seller-party",
+   "kind": "fork",
+   "label": "",
+   "lane": "lane-seller-party"
+  },
+  {
+   "id": "action-receive",
+   "kind": "action",
+   "label": "Receive",
+   "lane": "lane-seller-party"
+  },
+  {
+   "id": "object-product-activity",
+   "kind": "object",
+   "label": "Product Activity",
+   "lane": null,
+   "between": [
+    "lane-buyer-party",
+    "lane-seller-party"
+   ]
+  },
+  {
+   "id": "action-send-order-forecast-in-seller-party",
+   "kind": "action",
+   "label": "Send Order Forecast",
+   "lane": "lane-seller-party"
+  },
+  {
+   "id": "object-forecast-order",
+   "kind": "object",
+   "label": "Forecast (order)",
+   "lane": null,
+   "between": [
+    "lane-buyer-party",
+    "lane-seller-party"
+   ]
+  },
+  {
+   "id": "action-receive-order-forecast-in-buyer-party",
+   "kind": "action",
+   "label": "Receive Order Forecast",
+   "lane": "lane-buyer-party"
+  },
+  {
+   "id": "action-revise-order-forecast-and-send-revision",
+   "kind": "action",
+   "label": "Revise Order Forecast\nand Send Revision",
+   "lane": "lane-buyer-party"
+  },
+  {
+   "id": "object-forecast-revision-order",
+   "kind": "object",
+   "label": "Forecast Revision\n(order)",
+   "lane": null,
+   "between": [
+    "lane-buyer-party",
+    "lane-seller-party"
+   ]
+  },
+  {
+   "id": "action-receive-order-forecast-in-seller-party",
+   "kind": "action",
+   "label": "Receive Order Forecast",
+   "lane": "lane-seller-party"
+  },
+  {
+   "id": "action-revise-order-forecast-and-resend",
+   "kind": "action",
+   "label": "Revise Order Forecast\nand Resend Revision",
+   "lane": "lane-seller-party"
+  },
+  {
+   "id": "decision-buyer-party",
+   "kind": "decision",
+   "label": "",
+   "lane": "lane-buyer-party",
+   "question": "Order Forecast Accepted ?"
+  },
+  {
+   "id": "action-receive-revision",
+   "kind": "action",
+   "label": "Receive Revision",
+   "lane": "lane-buyer-party"
+  },
+  {
+   "id": "action-send-order-forecast-in-buyer-party",
+   "kind": "action",
+   "label": "Send Order Forecast",
+   "lane": "lane-buyer-party"
+  },
+  {
+   "id": "object-forecast-order-positive-response",
+   "kind": "object",
+   "label": "Forecast (order -\npositive response)",
+   "lane": null,
+   "between": [
+    "lane-buyer-party",
+    "lane-seller-party"
+   ]
+  }
+ ],
+ "flows": [
+  {
+   "id": "flow-fork-buyer-party-to-send-product-activity",
+   "from": "fork-buyer-party",
+   "to": "action-send-product-activity",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-fork-buyer-party-to-send-retail-event",
+   "from": "fork-buyer-party",
+   "to": "action-send-retail-event",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-send-retail-event-to-retail-event",
+   "from": "action-send-retail-event",
+   "to": "object-retail-event",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-send-product-activity-to-product-activity",
+   "from": "action-send-product-activity",
+   "to": "object-product-activity",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-retail-event-to-fork-seller-party",
+   "from": "object-retail-event",
+   "to": "fork-seller-party",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-fork-seller-party-to-receive",
+   "from": "fork-seller-party",
+   "to": "action-receive",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-product-activity-to-fork-seller-party",
+   "from": "object-product-activity",
+   "to": "fork-seller-party",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-receive-to-send-order-forecast-in-seller-party",
+   "from": "action-receive",
+   "to": "action-send-order-forecast-in-seller-party",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-send-order-forecast-in-seller-party-to-forecast-order",
+   "from": "action-send-order-forecast-in-seller-party",
+   "to": "object-forecast-order",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-forecast-order-to-receive-order-forecast-in-buyer-party",
+   "from": "object-forecast-order",
+   "to": "action-receive-order-forecast-in-buyer-party",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-receive-order-forecast-in-buyer-party-to-revise-order-forecast-and-send-revision",
+   "from": "action-receive-order-forecast-in-buyer-party",
+   "to": "action-revise-order-forecast-and-send-revision",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-revise-order-forecast-and-send-revision-to-forecast-revision-order",
+   "from": "action-revise-order-forecast-and-send-revision",
+   "to": "object-forecast-revision-order",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   },
+   "passesTo": "flow-forecast-revision-order-to-receive-order-forecast-in-seller-party"
+  },
+  {
+   "id": "flow-forecast-revision-order-to-receive-order-forecast-in-seller-party",
+   "from": "object-forecast-revision-order",
+   "to": "action-receive-order-forecast-in-seller-party",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-decision-buyer-party-to-revise-order-forecast-and-send-revision",
+   "from": "decision-buyer-party",
+   "to": "action-revise-order-forecast-and-send-revision",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   },
+   "guard": "text-no-3"
+  },
+  {
+   "id": "flow-receive-order-forecast-in-seller-party-to-revise-order-forecast-and-resend",
+   "from": "action-receive-order-forecast-in-seller-party",
+   "to": "action-revise-order-forecast-and-resend",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-forecast-revision-order-to-receive-revision",
+   "from": "object-forecast-revision-order",
+   "to": "action-receive-revision",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-revise-order-forecast-and-resend-to-forecast-revision-order",
+   "from": "action-revise-order-forecast-and-resend",
+   "to": "object-forecast-revision-order",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   },
+   "passesTo": "flow-forecast-revision-order-to-receive-revision"
+  },
+  {
+   "id": "flow-receive-revision-to-decision-buyer-party",
+   "from": "action-receive-revision",
+   "to": "decision-buyer-party",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-decision-buyer-party-to-send-order-forecast-in-buyer-party",
+   "from": "decision-buyer-party",
+   "to": "action-send-order-forecast-in-buyer-party",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   },
+   "guard": "text-yes"
+  },
+  {
+   "id": "flow-send-order-forecast-in-buyer-party-to-forecast-order-positive-response",
+   "from": "action-send-order-forecast-in-buyer-party",
+   "to": "object-forecast-order-positive-response",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  }
+ ],
+ "texts": [
+  {
+   "id": "text-no-2",
+   "text": "No",
+   "labels": "offpage-fork-buyer-party-2"
+  },
+  {
+   "id": "text-no-3",
+   "text": "No",
+   "labels": "flow-decision-buyer-party-to-revise-order-forecast-and-send-revision"
+  },
+  {
+   "id": "text-order-forecast-accepted",
+   "text": "Order Forecast Accepted ?",
+   "labels": "decision-buyer-party"
+  },
+  {
+   "id": "text-yes",
+   "text": "Yes",
+   "labels": "flow-decision-buyer-party-to-send-order-forecast-in-buyer-party"
+  },
+  {
+   "id": "text-no",
+   "text": "No",
+   "labels": "offpage-fork-buyer-party"
+  }
+ ],
+ "offPage": [
+  {
+   "id": "offpage-fork-buyer-party",
+   "node": "fork-buyer-party",
+   "direction": "in",
+   "arrow": true,
+   "guard": "text-no",
+   "continues": "UBL-2.2-CPFR-ExceptionHandling",
+   "port": 1,
+   "counterpart": "offpage-decision-buyer-party"
+  },
+  {
+   "id": "offpage-fork-buyer-party-2",
+   "node": "fork-buyer-party",
+   "direction": "in",
+   "arrow": true,
+   "guard": "text-no-2",
+   "continues": "UBL-2.2-CPFR-ExceptionHandling",
+   "port": 2,
+   "counterpart": "offpage-decision-seller-party"
+  },
+  {
+   "id": "offpage-object-forecast-order-positive-response",
+   "node": "object-forecast-order-positive-response",
+   "direction": "out",
+   "arrow": false,
+   "continues": "UBL-2.2-CPFR-IdentifyResolve",
+   "port": 2,
+   "counterpart": "offpage-action-receive-wait-for-exception-notification-in-seller-party"
+  },
+  {
+   "id": "offpage-object-forecast-order-positive-response-2",
+   "node": "object-forecast-order-positive-response",
+   "direction": "out",
+   "arrow": false,
+   "continues": "UBL-2.2-CPFR-IdentifyResolve",
+   "port": 1,
+   "counterpart": "offpage-action-receive-wait-for-exception-notification-in-buyer-party"
+  }
+ ],
+ "marks": [],
+ "phases": [
+  {
+   "id": "phase-create-order-forecast",
+   "title": "Create Order Forecast",
+   "members": [
+    "fork-buyer-party",
+    "action-send-product-activity",
+    "action-send-retail-event",
+    "object-retail-event",
+    "fork-seller-party",
+    "action-receive",
+    "object-product-activity",
+    "action-send-order-forecast-in-seller-party",
+    "object-forecast-order",
+    "action-receive-order-forecast-in-buyer-party",
+    "action-revise-order-forecast-and-send-revision",
+    "object-forecast-revision-order",
+    "action-receive-order-forecast-in-seller-party",
+    "action-revise-order-forecast-and-resend",
+    "decision-buyer-party",
+    "action-receive-revision",
+    "action-send-order-forecast-in-buyer-party",
+    "object-forecast-order-positive-response"
+   ]
+  }
+ ]
+}

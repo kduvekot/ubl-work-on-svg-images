@@ -1,0 +1,761 @@
+{
+ "schema": "ubl-activity-diagram-extraction/1",
+ "figure": "UBL-2.2-IMFM-TransportProgressStatus",
+ "nodes": {
+  "initial-transport-service-provider": {
+   "area": 15488,
+   "fill": 1.0
+  },
+  "object-transport-progress-status-request": {
+   "area": 206430,
+   "fill": 0.887,
+   "solid": 1.0,
+   "stem": 0.135,
+   "keptOnOutline": true
+  },
+  "action-request-transport-progress-status": {
+   "area": 260887,
+   "fill": 0.88,
+   "solid": 0.968,
+   "stem": 0.135
+  },
+  "action-receive-transport-progress-status-in-transportation-network-manager": {
+   "area": 254589,
+   "fill": 0.86,
+   "solid": 0.969,
+   "stem": 0.135
+  },
+  "action-receive-transport-progress-status-in-transport-service-provider": {
+   "area": 268952,
+   "fill": 0.885,
+   "solid": 0.968,
+   "stem": 0.135
+  },
+  "action-send-transport-progress-status": {
+   "area": 270372,
+   "fill": 0.891,
+   "solid": 0.969,
+   "stem": 0.135
+  },
+  "object-transport-progress-status": {
+   "area": 213185,
+   "fill": 0.916,
+   "solid": 1.0,
+   "stem": 0.135,
+   "keptOnOutline": true
+  },
+  "final-transport-service-provider": {
+   "area": 10080,
+   "fill": 0.635,
+   "solid": 0.791
+  }
+ },
+ "flows": {
+  "flow-initial-transport-service-provider-to-request-transport-progress-status": {
+   "arrowInk": [
+    360,
+    1131
+   ],
+   "arrowPx": [
+    96,
+    79.2,
+    2.38
+   ],
+   "arrowFill": 0.041
+  },
+  "flow-request-transport-progress-status-to-transport-progress-status-request": {
+   "arrowInk": [
+    360,
+    1076
+   ],
+   "arrowPx": [
+    102,
+    78.7,
+    3.02
+   ],
+   "arrowFill": 0.04
+  },
+  "flow-transport-progress-status-request-to-receive-transport-progress-status-in-transportation-network-manager": {
+   "arrowInk": [
+    441,
+    1131
+   ],
+   "arrowPx": [
+    97,
+    79.4,
+    2.54
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-receive-transport-progress-status-in-transportation-network-manager-to-send-transport-progress-status": {
+   "arrowInk": [
+    360,
+    1138
+   ],
+   "arrowPx": [
+    97,
+    79.3,
+    2.58
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-transport-progress-status-to-receive-transport-progress-status-in-transport-service-provider": {
+   "arrowInk": [
+    451,
+    1015
+   ],
+   "arrowPx": [
+    104,
+    78.8,
+    2.74
+   ],
+   "arrowFill": 0.041
+  },
+  "flow-send-transport-progress-status-to-transport-progress-status": {
+   "arrowInk": [
+    368,
+    972
+   ]
+  },
+  "flow-receive-transport-progress-status-in-transport-service-provider-to-final-transport-service-provider": {
+   "arrowInk": [
+    360,
+    1137
+   ],
+   "arrowPx": [
+    97,
+    78.8,
+    2.28
+   ],
+   "arrowFill": 0.038
+  }
+ },
+ "offPage": {},
+ "marks": {},
+ "phases": {},
+ "greyRules": [],
+ "titleReadings": [
+  {
+   "position": 0,
+   "text": "Transport Service Provider",
+   "x": 438,
+   "y": 65,
+   "w": 837,
+   "h": 66,
+   "lines": [
+    {
+     "x": 438,
+     "y": 65,
+     "w": 837,
+     "h": 66,
+     "text": "Transport Service Provider"
+    }
+   ]
+  },
+  {
+   "position": 1,
+   "text": "Transportation Network Manager",
+   "x": 2057,
+   "y": 66,
+   "w": 1030,
+   "h": 65,
+   "lines": [
+    {
+     "x": 2057,
+     "y": 66,
+     "w": 1030,
+     "h": 65,
+     "text": "Transportation Network Manager"
+    }
+   ]
+  }
+ ],
+ "findings": [],
+ "uncertain": [
+  {
+   "x": 1356,
+   "y": 655,
+   "w": 705,
+   "h": 330,
+   "shape": "rect",
+   "iou": 1.0,
+   "border": 1.0,
+   "kind": "kept-on-outline",
+   "reason": "every side has pass-through line-work, but the region carries a complete outline of its own",
+   "check": "confirm this is a node and not trapped whitespace"
+  },
+  {
+   "x": 1349,
+   "y": 1537,
+   "w": 705,
+   "h": 330,
+   "shape": "rect",
+   "iou": 1.0,
+   "border": 1.0,
+   "kind": "kept-on-outline",
+   "reason": "every side has pass-through line-work, but the region carries a complete outline of its own",
+   "check": "confirm this is a node and not trapped whitespace"
+  }
+ ],
+ "present": [
+  "source",
+  "size",
+  "fontPx",
+  "arrowPx",
+  "arrowWidthPx",
+  "arrowStyle",
+  "rules",
+  "ruleSpan",
+  "greyRules",
+  "dashed",
+  "openEnds",
+  "crossMarks",
+  "partitions",
+  "nodes",
+  "edges",
+  "text",
+  "uncertain"
+ ],
+ "uncorrected": {
+  "model": {
+   "schema": "ubl-activity-diagram/1",
+   "figure": {
+    "name": "UBL-2.2-IMFM-TransportProgressStatus",
+    "source": "UBL-2.2-IMFM-TransportProgressStatus.png"
+   },
+   "lanes": [
+    {
+     "id": "lane0",
+     "axis": "column",
+     "index": 0,
+     "title": "Transport Service Provider"
+    },
+    {
+     "id": "lane1",
+     "axis": "column",
+     "index": 1,
+     "title": "Transportation Network Manager"
+    },
+    {
+     "id": "lane2",
+     "axis": "band",
+     "index": 0,
+     "title": ""
+    }
+   ],
+   "nodes": [
+    {
+     "id": "n1",
+     "kind": "initial",
+     "label": "",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n2",
+     "kind": "object",
+     "label": "Transport\nProgress Status\nRequest",
+     "lane": "lane1",
+     "band": "lane2"
+    },
+    {
+     "id": "n3",
+     "kind": "action",
+     "label": "Request Transport\nProgress Status",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n4",
+     "kind": "action",
+     "label": "Receive Transport\nProgress Status Request",
+     "lane": "lane1",
+     "band": "lane2"
+    },
+    {
+     "id": "n5",
+     "kind": "action",
+     "label": "Receive Transport\nProgress Status",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n6",
+     "kind": "action",
+     "label": "Send Transport Progress\nStatus",
+     "lane": "lane1",
+     "band": "lane2"
+    },
+    {
+     "id": "n7",
+     "kind": "object",
+     "label": "Transport\nProgress Status",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n8",
+     "kind": "final",
+     "label": "",
+     "lane": "lane0",
+     "band": "lane2"
+    }
+   ],
+   "flows": [
+    {
+     "id": "f0",
+     "from": "n1",
+     "to": "n3",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f1",
+     "from": "n3",
+     "to": "n2",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f2",
+     "from": "n2",
+     "to": "n4",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f3",
+     "from": "n4",
+     "to": "n6",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f4",
+     "from": "n7",
+     "to": "n5",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f5",
+     "from": "n6",
+     "to": "n7",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f6",
+     "from": "n5",
+     "to": "n8",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    }
+   ],
+   "texts": [],
+   "offPage": [],
+   "marks": [],
+   "phases": []
+  },
+  "layout": {
+   "schema": "ubl-activity-diagram-layout/1",
+   "figure": "UBL-2.2-IMFM-TransportProgressStatus",
+   "units": "px of the original PNG",
+   "size": [
+    3425,
+    2366
+   ],
+   "style": {
+    "fontPx": 74.3,
+    "arrowPx": 97.0,
+    "arrowWidthPx": 79.0,
+    "arrowStyle": "open"
+   },
+   "rules": {
+    "vertical": [
+     {
+      "at": 0,
+      "width": 10,
+      "span": [
+       13,
+       2352
+      ]
+     },
+     {
+      "at": 1704,
+      "width": 8,
+      "span": [
+       13,
+       2352
+      ]
+     },
+     {
+      "at": 3415,
+      "width": 10,
+      "span": [
+       13,
+       2352
+      ]
+     }
+    ],
+    "horizontal": [
+     {
+      "at": 0,
+      "width": 10,
+      "span": [
+       13,
+       3411
+      ]
+     },
+     {
+      "at": 2356,
+      "width": 10,
+      "span": [
+       13,
+       3411
+      ]
+     }
+    ]
+   },
+   "greyRules": [],
+   "lanes": {
+    "lane0": {
+     "x0": 0,
+     "x1": 1708,
+     "titleBox": [
+      438,
+      65,
+      837,
+      66
+     ]
+    },
+    "lane1": {
+     "x0": 1708,
+     "x1": 3425,
+     "titleBox": [
+      2057,
+      66,
+      1030,
+      65
+     ]
+    },
+    "lane2": {
+     "y0": 0,
+     "y1": 2366
+    }
+   },
+   "nodes": {
+    "n1": {
+     "x": 477,
+     "y": 185,
+     "w": 140,
+     "h": 140
+    },
+    "n2": {
+     "x": 1356,
+     "y": 655,
+     "w": 705,
+     "h": 330,
+     "shape": "rect",
+     "stroke": 15,
+     "rx": 0,
+     "ry": 0,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 1567,
+       "y": 714,
+       "w": 324,
+       "h": 65,
+       "text": "Transport"
+      },
+      {
+       "x": 1434,
+       "y": 790,
+       "w": 536,
+       "h": 67,
+       "text": "Progress Status"
+      },
+      {
+       "x": 1582,
+       "y": 869,
+       "w": 280,
+       "h": 65,
+       "text": "Request"
+      }
+     ]
+    },
+    "n3": {
+     "x": 89,
+     "y": 666,
+     "w": 938,
+     "h": 316,
+     "shape": "rounded",
+     "stroke": 9,
+     "rx": 104,
+     "ry": 110,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 248,
+       "y": 741,
+       "w": 624,
+       "h": 65,
+       "text": "Request Transport"
+      },
+      {
+       "x": 298,
+       "y": 831,
+       "w": 532,
+       "h": 67,
+       "text": "Progress Status"
+      }
+     ]
+    },
+    "n4": {
+     "x": 2390,
+     "y": 666,
+     "w": 937,
+     "h": 316,
+     "shape": "rounded",
+     "stroke": 9,
+     "rx": 104,
+     "ry": 106,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 2549,
+       "y": 741,
+       "w": 611,
+       "h": 65,
+       "text": "Receive Transport"
+      },
+      {
+       "x": 2443,
+       "y": 831,
+       "w": 835,
+       "h": 67,
+       "text": "Progress Status Request"
+      }
+     ]
+    },
+    "n5": {
+     "x": 89,
+     "y": 1533,
+     "w": 938,
+     "h": 324,
+     "shape": "rounded",
+     "stroke": 8,
+     "rx": 101,
+     "ry": 110,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 248,
+       "y": 1618,
+       "w": 612,
+       "h": 65,
+       "text": "Receive Transport"
+      },
+      {
+       "x": 298,
+       "y": 1709,
+       "w": 532,
+       "h": 67,
+       "text": "Progress Status"
+      }
+     ]
+    },
+    "n6": {
+     "x": 2397,
+     "y": 1533,
+     "w": 937,
+     "h": 324,
+     "shape": "rounded",
+     "stroke": 8,
+     "rx": 101,
+     "ry": 107,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 2441,
+       "y": 1617,
+       "w": 841,
+       "h": 67,
+       "text": "Send Transport Progress"
+      },
+      {
+       "x": 2772,
+       "y": 1709,
+       "w": 210,
+       "h": 53,
+       "text": "Status"
+      }
+     ]
+    },
+    "n7": {
+     "x": 1349,
+     "y": 1537,
+     "w": 705,
+     "h": 330,
+     "shape": "rect",
+     "stroke": 15,
+     "rx": 0,
+     "ry": 0,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 1560,
+       "y": 1625,
+       "w": 324,
+       "h": 65,
+       "text": "Transport"
+      },
+      {
+       "x": 1441,
+       "y": 1702,
+       "w": 536,
+       "h": 67,
+       "text": "Progress Status"
+      }
+     ]
+    },
+    "n8": {
+     "x": 456,
+     "y": 2147,
+     "w": 126,
+     "h": 126,
+     "shape": "ellipse",
+     "stroke": 8,
+     "rx": 57,
+     "ry": 65,
+     "innerRatio": 0.444
+    }
+   },
+   "flows": {
+    "f0": {
+     "fromPoint": [
+      548,
+      339
+     ],
+     "toPoint": [
+      553,
+      651
+     ],
+     "routing": "straight"
+    },
+    "f1": {
+     "fromPoint": [
+      1041,
+      824
+     ],
+     "toPoint": [
+      1341,
+      822
+     ],
+     "routing": "straight"
+    },
+    "f2": {
+     "fromPoint": [
+      2078,
+      823
+     ],
+     "toPoint": [
+      2375,
+      824
+     ],
+     "routing": "straight"
+    },
+    "f3": {
+     "fromPoint": [
+      2864,
+      996
+     ],
+     "toPoint": [
+      2866,
+      1518
+     ],
+     "routing": "straight"
+    },
+    "f4": {
+     "fromPoint": [
+      1334,
+      1701
+     ],
+     "toPoint": [
+      1041,
+      1696
+     ],
+     "routing": "straight"
+    },
+    "f5": {
+     "fromPoint": [
+      2382,
+      1697
+     ],
+     "toPoint": [
+      2071,
+      1699
+     ],
+     "routing": "straight"
+    },
+    "f6": {
+     "fromPoint": [
+      525,
+      1871
+     ],
+     "toPoint": [
+      520,
+      2132
+     ],
+     "routing": "straight"
+    }
+   },
+   "texts": {},
+   "offPage": {},
+   "marks": {},
+   "phases": {},
+   "rulesHaveSpans": {
+    "vertical": true,
+    "horizontal": true
+   }
+  }
+ },
+ "documentLanes": {
+  "object-transport-progress-status-request": "lane-transportation-network-manager",
+  "object-transport-progress-status": "lane-transport-service-provider"
+ },
+ "formerIds": {
+  "lane-transport-service-provider": "lane0",
+  "lane-transportation-network-manager": "lane1",
+  "initial-transport-service-provider": "n1",
+  "object-transport-progress-status-request": "n2",
+  "action-request-transport-progress-status": "n3",
+  "action-receive-transport-progress-status-in-transportation-network-manager": "n4",
+  "action-receive-transport-progress-status-in-transport-service-provider": "n5",
+  "action-send-transport-progress-status": "n6",
+  "object-transport-progress-status": "n7",
+  "final-transport-service-provider": "n8",
+  "flow-initial-transport-service-provider-to-request-transport-progress-status": "f0",
+  "flow-request-transport-progress-status-to-transport-progress-status-request": "f1",
+  "flow-transport-progress-status-request-to-receive-transport-progress-status-in-transportation-network-manager": "f2",
+  "flow-receive-transport-progress-status-in-transportation-network-manager-to-send-transport-progress-status": "f3",
+  "flow-transport-progress-status-to-receive-transport-progress-status-in-transport-service-provider": "f4",
+  "flow-send-transport-progress-status-to-transport-progress-status": "f5",
+  "flow-receive-transport-progress-status-in-transport-service-provider-to-final-transport-service-provider": "f6"
+ }
+}
