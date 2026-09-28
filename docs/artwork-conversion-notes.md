@@ -1841,6 +1841,22 @@ differences shown.
   Service Description has its actions in bold, the others regular). On
   Unsubscribe From Procedure the artwork's "Receive unsubscribe from procedure
   confirmation" runs slightly over its box; the SVG keeps it inside.
+- *Figures 46-50, reviewed as a batch (the TC, 2026-09-28: "next 5").* CPFR
+  Exception Monitor, Tender Guarantee Deposit, Enquiry, Tender Award
+  Notification and CPFR Identify Resolve: models correct and complete, SVGs
+  faithful. One fault, fixed: on Award Notification the reading wrote "send
+  awarding notification" with a small s where the artwork has a capital S
+  (`text-34`). In this typeface S and s, C and c, O and o, V, W, X and Z differ
+  only in height, so the reading can take one for the other, and the check
+  compares the SVG with the reading, not with the artwork. All 78 were then
+  looked through for the same slip: every node box OCR'd again and compared
+  word by word, and every text starting with one of those letters listed. It
+  turned up one more, "send Catalogue" on CRP Base Article Catalogue (fig 71,
+  `text-35`); the other OCR differences were the OCR's own (the UBL 1.0 labels
+  are lowercase in the artwork, "GoodsItem" and "Charges" read right). The
+  Buyer's collapsed connector on Exception Monitor was recorded before (fig
+  14, `q9`); Award Notification's two documents beside the one line likewise
+  (notes 11).
 
 **The notes for a person, all 266 settled by eye (2026-09-27).** The sweep
 leaves, per diagram, notes where the reading could not be sure; each was looked at

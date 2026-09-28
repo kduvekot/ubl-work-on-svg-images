@@ -4028,6 +4028,20 @@
     "answer": "None is a flow: each is a piece of the lane divider, drawn in segments that stop at every document on the line, lying exactly on the divider; the reading took the pieces touching a document for flows leaving it. Out of the model, kept in the layout, drawn as before.",
     "op": "divider-piece",
     "offPage": "offpage-object-catalogue"
+   },
+   {
+    "id": "text-35",
+    "decided": "2026-09-28",
+    "by": "Kees Duvekot, figure-by-figure review",
+    "question": "Figure 71 (found with figure 49): the reading wrote 'send Catalogue' with a small s; the artwork has a capital S.",
+    "answer": "It reads as the artwork writes it: 'Send Catalogue'.",
+    "op": "retext",
+    "section": "nodes",
+    "element": "action-send-catalogue",
+    "text": "Send Catalogue",
+    "was": {
+     "label": "send Catalogue"
+    }
    }
   ],
   "UBL-2.2-CRP-InitialStockingByRetailer": [
@@ -4174,6 +4188,20 @@
       "when": "the contract went to another tenderer"
      }
     ]
+   },
+   {
+    "id": "text-34",
+    "decided": "2026-09-28",
+    "by": "Kees Duvekot, figure-by-figure review",
+    "question": "Figure 49: the reading wrote 'send awarding notification' with a small s; the artwork has a capital S.",
+    "answer": "It reads as the artwork writes it: 'Send awarding notification'.",
+    "op": "retext",
+    "section": "nodes",
+    "element": "action-send-awarding-notification",
+    "text": "Send awarding notification",
+    "was": {
+     "label": "send awarding notification"
+    }
    }
   ],
   "UBL-2.2-Tender-AwardPublication": [
