@@ -18,7 +18,7 @@ mkdir -p "$out"
 one() {
   n="$1"; d="$out/$n"; mkdir -p "$d"
   python3 "$root/tools/spec_from_model.py" "$root/diagrams/$n/$n-diagram.json" "$d/$n-spec.json" 1480 > /dev/null
-  python3 "$here/drawio_from_spec.py" "$d/$n-spec.json" "$d/$n.drawio" > /dev/null 2> "$d/$n-missing.txt"
+  python3 "$here/drawio_from_spec.py" "$d/$n-spec.json" "$d/$n.drawio" "$root/diagrams/$n/$n-diagram.json" > /dev/null 2> "$d/$n-missing.txt"
   read W H < <(python3 -c "import json,sys; c=json.load(open(sys.argv[1]))['canvas']; print(c['w'], c['h'])" "$d/$n-spec.json")
   node "$root/tools/render-svg.js" "$root/diagrams/$n/$n.svg" "$d/$n-svg.png" "$W" > /dev/null
   node "$here/render-drawio.js" "$d/$n.drawio" "$d/$n-drawio.png" "$W" "$H" > /dev/null

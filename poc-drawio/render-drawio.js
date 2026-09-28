@@ -5,7 +5,7 @@
 // from viewer.diagrams.net into DRAWIO_VIEWER_CACHE (default
 // ~/.cache/ubl-drawio-viewer) and loaded into the same Chromium that renders
 // the SVGs (tools/render-svg.js). The model is drawn at scale 1 with its
-// origin at the page's origin, so the PNG lines up with the SVG's render
+// frame where the SVG has it, so the PNG lines up with the SVG's render
 // pixel for pixel: the canvas is the figure's own width and height.
 const { chromium } = require('playwright');
 const fs = require('fs'), path = require('path'), os = require('os'), https = require('https');
@@ -49,7 +49,12 @@ async function viewer() {
     graph.gridEnabled = false;
     graph.pageVisible = false;
     new mxCodec(model.ownerDocument).decode(model, graph.getModel());
-    graph.view.scaleAndTranslate(1, 0, 0);
+    // the drawing sits one margin in from the page's corner (the frame's
+    // ubl-offset, drawio_from_spec.py): take it off, so the render lines up
+    // with the SVG's
+    const frame = doc.querySelector('object[ubl-kind="frame"]');
+    const m = frame ? +(frame.getAttribute('ubl-offset') || 0) : 0;
+    graph.view.scaleAndTranslate(1, -m, -m);
     return (typeof EditorUi !== 'undefined' && EditorUi.VERSION) || mxClient.VERSION;
   }, fs.readFileSync(inp, 'utf8'));
   await page.waitForTimeout(200);

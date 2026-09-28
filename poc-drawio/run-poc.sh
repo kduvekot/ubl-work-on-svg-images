@@ -17,7 +17,7 @@ for n in "$@"; do
   src="$root/diagrams/$n"
   out="$here/$n"; mkdir -p "$out"
   python3 "$root/tools/spec_from_model.py" "$src/$n-diagram.json" "$tmp/$n-spec.json" 1480 > /dev/null
-  python3 "$here/drawio_from_spec.py" "$tmp/$n-spec.json" "$out/$n.drawio"
+  python3 "$here/drawio_from_spec.py" "$tmp/$n-spec.json" "$out/$n.drawio" "$src/$n-diagram.json"
   read W H < <(python3 -c "import json,sys; c=json.load(open(sys.argv[1]))['canvas']; print(c['w'], c['h'])" "$tmp/$n-spec.json")
   node "$root/tools/render-svg.js" "$src/$n.svg" "$out/$n-svg.png" "$W" > /dev/null
   node "$here/render-drawio.js" "$out/$n.drawio" "$out/$n-drawio.png" "$W" "$H"

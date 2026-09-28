@@ -1,7 +1,10 @@
 #!/usr/bin/env python3
 """A native draw.io model of a figure, as close to its SVG as draw.io allows.
 
-    python3 drawio_from_spec.py <spec.json> <out.drawio>
+    python3 drawio_from_spec.py <spec.json> <out.drawio> [<figure>-diagram.json]
+
+The diagram JSON, when given, adds what the spec does not carry: where a flow
+leaving the page continues, and which guard labels it.
 
 Proof of concept, kept apart from the pipeline: it reads the same spec as
 tools/build_diagram.py (made by tools/spec_from_model.py from the JSONs) and
@@ -11,7 +14,7 @@ lines - without changing it. Where draw.io has a native way to say something
 measured sizes; where draw.io cannot say what the SVG says, the nearest native
 setting is taken and the difference is written up in poc-drawio/README.md.
 """
-import math, os, statistics, sys, xml.sax.saxutils as su
+import json, math, os, statistics, sys, xml.etree.ElementTree as ET, xml.sax.saxutils as su
 
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "tools"))
 import build_diagram as bd          # noqa: E402  (read only: geometry helpers)
@@ -127,8 +130,53 @@ def lane_of(spec, n):
     return None
 
 
-def mxfile(spec):
+def caption_block(c, F):
+    """a caption (a phase's title, a guard the reading took for a title) as a
+    text block: one line, centred where the SVG sets it"""
+    size = c.get("size") or F["lane"]
+    cy = c["baseline"] - size * 0.35 if c.get("baseline") else c["cy"]
+    return dict(lines=c["text"].split("\n"), size=size, align="center", x=c["cx"], cy=cy)
+
+
+def free_edge(cells, ident, kind, pts, kv, props=None, value="", src=None, dst=None):
+    """An edge that is not a flow between two nodes: a flow leaving the page
+    (one end on its node, one end free) or a plain stroke (both ends free). A
+    free end is a sourcePoint or targetPoint, the points between are
+    waypoints; `src`/`dst` is (node id, fraction of its box) for an attached
+    end."""
+    kv = dict(kv)
+    geo = ""
+    if src:
+        kv.update(exitX=src[1][0], exitY=src[1][1], exitPerimeter=0)
+    else:
+        geo += '<mxPoint x="%s" y="%s" as="sourcePoint"/>' % (num(pts[0][0]), num(pts[0][1]))
+    if dst:
+        kv.update(entryX=dst[1][0], entryY=dst[1][1], entryPerimeter=0)
+    else:
+        geo += '<mxPoint x="%s" y="%s" as="targetPoint"/>' % (num(pts[-1][0]), num(pts[-1][1]))
+    if len(pts) > 2:
+        geo += '<Array as="points">%s</Array>' % "".join(
+            '<mxPoint x="%s" y="%s"/>' % (num(p[0]), num(p[1])) for p in pts[1:-1])
+    ends = (' source="%s"' % esc(src[0]) if src else "") + (' target="%s"' % esc(dst[0]) if dst else "")
+    cells.append(cell(ident, value, kind, props or {},
+                      'style="%s" edge="1" parent="1"%s' % (style(**kv), ends),
+                      '<mxGeometry relative="1" as="geometry">%s</mxGeometry>' % geo))
+
+
+def touching(n, p, tol=4.0):
+    """the fraction of n's box at point p, when p lies on (or within tol of) its
+    outline; else None"""
+    x0, y0, x1, y1 = n["x"], n["y"], n["x"] + n["w"], n["y"] + n["h"]
+    if not (x0 - tol <= p[0] <= x1 + tol and y0 - tol <= p[1] <= y1 + tol):
+        return None
+    return (max(0.0, min(1.0, (p[0] - x0) / n["w"])), max(0.0, min(1.0, (p[1] - y0) / n["h"])))
+
+
+def mxfile(spec, model=None):
     S, F = spec["stroke"], spec["font"]
+    model = model or {}
+    offpage = {o["id"]: o for o in model.get("offPage", [])}
+    offpage_guard = {o["guard"]: o["id"] for o in offpage.values() if o.get("guard")}
     W, H = spec["canvas"]["w"], spec["canvas"]["h"]
     fam = F["family"].split(",")[0].strip()
     fb = spec.get("frameBox") or [S["frame"] / 2, S["frame"] / 2, W - S["frame"] / 2, H - S["frame"] / 2]
@@ -142,8 +190,34 @@ def mxfile(spec):
 
     # the activity's frame: a plain box at the measured weight, under everything
     vertex("frame", "", style(rounded=0, fillColor="none", strokeColor="#000000",
-                              strokeWidth=float(S["frame"]), connectable=0, html=1),
+                              strokeWidth=float(S["frame"]), connectable=0, pointerEvents=0, html=1),
            fb[0], fb[1], fb[2] - fb[0], fb[3] - fb[1], kind="frame")
+
+    phase_titles = {c["id"]: c for c in spec.get("captions", []) if c.get("role") == "phase-title"}
+    for i, d in enumerate(spec.get("dashed", [])):
+        # a CPFR phase: the dashed rounded box the diagram is drawn inside, at
+        # the artwork's dash, gap and corner; its title is the box's own label,
+        # at the top, where it was measured. Under the lanes, as in the SVG,
+        # and with pointerEvents=0: a click inside it reaches the action
+        # there, not the box (in the editor, a drag meant for an action moved
+        # the phase box into a lane)
+        ident = d.get("id") or "phase%d" % i
+        wt = d.get("weight") or S["divider"]
+        kv = dict(rounded=1, absoluteArcSize=1, arcSize=2 * d["rx"], fillColor="none",
+                  strokeColor="#000000", strokeWidth=float(wt), dashed=1,
+                  dashPattern="%s %s" % (num(max(d["dash"], 0.5) / wt), num(max(d["gap"], 0.5) / wt)),
+                  connectable=0, pointerEvents=0, html=1, whiteSpace="nowrap")
+        title = ""
+        c = phase_titles.get(ident)
+        if c:
+            tb = caption_block(c, F)
+            title = html_lines(tb["lines"])
+            dx = tb["x"] - (d["x"] + d["w"] / 2)
+            kv.update(fontFamily=fam, fontSize=float(tb["size"]), fontStyle=1 if c.get("bold") else 0,
+                      align="center", verticalAlign="top", spacing=0,
+                      spacingTop=tb["cy"] - 0.6 * tb["size"] - d["y"],
+                      **{"spacingLeft" if dx > 0 else "spacingRight": 2 * abs(dx)})
+        vertex(ident, title, style(**kv), d["x"], d["y"], d["w"], d["h"], kind="phase-boundary")
 
     # Lanes are draw.io swimlanes, so a node dropped in a lane belongs to it;
     # expand=0 keeps a lane its size when something is dropped across its
@@ -206,6 +280,26 @@ def mxfile(spec):
                                            connectable=0),
                *geo, kind="lane-divider", **{"ubl-artwork-tone": gr.get("colour")})
 
+    for i, b in enumerate(spec.get("bands", [])):
+        # a band's rule across the lanes (the 2.3 customs figures' rule under
+        # the lane titles; IMFM's planning, execution and completion): a line
+        # cell, where and as heavy as measured
+        at, wt, a, z = (b, S["divider"], 0.0, W) if not isinstance(b, (list, tuple)) else \
+            (b[0], b[1] if len(b) > 1 else S["divider"], b[2] if len(b) > 3 else 0.0, b[3] if len(b) > 3 else W)
+        vertex("band%d" % i, "", style(shape="line", html=1, strokeWidth=float(wt), strokeColor="#000000",
+                                       connectable=0),
+               a, at - 5, z - a, 10, kind="band-divider")
+    for i, b in enumerate(spec.get("bandLabels", [])):
+        # a band's title, running up the gutter: draw.io's vertical text
+        # (horizontal=0), which reads upwards as the SVG's rotate(-90) does
+        size = F["lane"]
+        long_ = 0.62 * size * len(b["title"]) + size
+        vertex(b.get("id") or "bandtitle%d" % i, su.escape(b["title"]),
+               style(text="", html=1, horizontal=0, whiteSpace="nowrap", fontFamily=fam,
+                     fontSize=float(size), fontStyle=1 if b.get("bold") else 0, align="center",
+                     verticalAlign="middle", spacing=0).replace("text=;", "text;"),
+               b["cx"] - size, b["cy"] - long_ / 2, 2 * size, long_, kind="band-title")
+
     grow = {n["id"]: min(4.0, (n["w"] + 8) / 5, (n["h"] + 8) / 5)
             for n in spec["nodes"] if n["kind"] == "initial"}
     for n in spec["nodes"]:
@@ -256,10 +350,13 @@ def mxfile(spec):
             st = style(ellipse="", shape="endState", fillColor="#000000", strokeColor="#000000",
                        strokeWidth=float(S["action"]), html=1).replace("ellipse=;", "ellipse;")
         elif k == "fork":
-            # the fork/join bar of draw.io's UML palette: a box filled with its
-            # own stroke colour, horizontal or upright as measured
+            # the fork/join bar of draw.io's UML palette, horizontal or upright
+            # as measured. The palette fills it with "strokeColor"; inside a
+            # lane whose own stroke is none (a divider drawn as a line of its
+            # own) draw.io resolved that to nothing and the bar vanished, so
+            # it is filled black outright
             st = style(html=1, points="[]", perimeter="orthogonalPerimeter",
-                       fillColor="strokeColor", strokeColor="#000000", strokeWidth=0.0)
+                       fillColor="#000000", strokeColor="none")
         vertex(n["id"], value, st, x, y, w, h, parent, kind=k)
 
     # Edges. A hop is draw.io's own line jump (jumpStyle=arc), set only on the
@@ -277,6 +374,9 @@ def mxfile(spec):
     # size + stroke long and half that across: it cannot be longer than it is
     # wide. The size that fits both best is taken.
     end_size = 0.4 * (mw + mh) - 1.5 * S["edge"]
+    # the 2.3 transport figures' filled head, notched at the back three
+    # quarters of the way, is draw.io's classic head, filled
+    head, fill = ("classic", 1) if spec.get("arrowStyle") == "filled" else ("open", 0)
     guards = {g["onFlow"]: g for g in spec.get("guards", []) if g.get("onFlow")}
     order = [i for i in range(len(spec["edges"])) if i not in hops] + sorted(hops)
     for i in order:
@@ -292,11 +392,11 @@ def mxfile(spec):
         fx, fy = regrown(e["from"], (fx, fy))
         tx, ty = regrown(e["to"], (tx, ty))
         kv = dict(edgeStyle="none" if e.get("straight") else "orthogonalEdgeStyle", rounded=0,
-                  html=1, endArrow="open", endFill=0, endSize=end_size,
+                  html=1, endArrow=head, endFill=fill, endSize=end_size,
                   strokeColor="#000000", strokeWidth=float(S["edge"]),
                   exitX=fx, exitY=fy, exitPerimeter=0, entryX=tx, entryY=ty, entryPerimeter=0)
         if e.get("arrowBoth"):
-            kv.update(startArrow="open", startFill=0, startSize=end_size)
+            kv.update(startArrow=head, startFill=fill, startSize=end_size)
         if e.get("dash"):
             kv.update(dashed=1, dashPattern="%s %s" % (num(e["dash"] / S["edge"]),
                                                        num(e["gap"] / S["edge"])), noJump=1)
@@ -328,8 +428,81 @@ def mxfile(spec):
                           'style="%s" edge="1" parent="1" source="%s" target="%s"'
                           % (style(**kv), esc(e["from"]), esc(e["to"])), geo + "</mxGeometry>"))
 
+    # Flows that leave the page. One end lies on its node and is attached
+    # there, so the flow moves with it; the other end is free, where the
+    # artwork runs it off the page. The model says where it continues (the
+    # figure and its counterpart flow there) and which guard labels it: the
+    # guard is the flow's own label, as on any other flow.
+    guard_text = {g["id"]: (g, text_block(g, F["guard"])) for g in spec.get("guards", [])}
+    guard_text.update({c["id"]: (c, caption_block(c, F)) for c in spec.get("captions", [])
+                       if c.get("role") != "phase-title"})
+    used = set()
+    ids = {e.get("id") for e in spec["edges"]}
+    for i, oe in enumerate(spec.get("openEnds", [])):
+        pts = [tuple(p) for p in oe["points"]]
+        base = dict(edgeStyle="none", rounded=0, html=1, strokeColor="#000000",
+                    strokeWidth=float(S["edge"]), endArrow=head if oe.get("arrow") else "none",
+                    endFill=fill, endSize=end_size)
+        ident = oe.get("id") or "open%d" % i
+        if oe.get("role") == "lane-divider" or ident not in offpage:
+            # a piece of a divider the reading took for a flow, or the stretch
+            # of a flow run down a divider after it leaves it: a plain stroke,
+            # both ends free
+            if ident in ids:
+                ident += "-continued"
+            free_edge(cells, ident, oe.get("role") or "line", pts, base)
+            continue
+        om = offpage[ident]
+        n = spec["byid"].get(om.get("node"))
+        src = dst = None
+        if n is not None:
+            # the artwork can stop an arrow's tip a few pixels short of the
+            # outline (CPFR Exception Handling: 5.9px); up to half an
+            # arrowhead off still counts as meeting the node
+            tol = max(4.0, mw / 2)
+            a, z = touching(n, pts[0], tol), touching(n, pts[-1], tol)
+            if a is not None and (z is None or math.dist(pts[0], (n["x"] + n["w"] / 2, n["y"] + n["h"] / 2))
+                                  <= math.dist(pts[-1], (n["x"] + n["w"] / 2, n["y"] + n["h"] / 2))):
+                src = (n["id"], a)
+            elif z is not None:
+                dst = (n["id"], z)
+        value = ""
+        if om.get("guard") in guard_text:
+            g, tb = guard_text[om["guard"]]
+            used.add(om["guard"])
+            value = html_lines(tb["lines"])
+            t, q = along(pts, (tb["x"], tb["cy"]))
+            base.update(fontFamily=fam, fontSize=float(tb["size"]), fontStyle=0, align=tb["align"],
+                        verticalAlign="middle", labelBackgroundColor="none")
+        props = {"ubl-continues": om.get("continues"), "ubl-counterpart": om.get("counterpart"),
+                 "ubl-port": str(om["port"]) if om.get("port") is not None else None,
+                 "ubl-direction": om.get("direction"), "ubl-guard": om.get("guard")}
+        free_edge(cells, ident, "off-page-flow", pts, base, props, value, src, dst)
+        if value:
+            # the label's place: as for a guard, a fraction along the flow and an offset
+            c = cells[-1]
+            cells[-1] = c.replace('<mxGeometry relative="1" as="geometry">',
+                                  '<mxGeometry x="%s" relative="1" as="geometry"><mxPoint x="%s" y="%s" as="offset"/>'
+                                  % (num(2 * t - 1), num(tb["x"] - q[0]), num(tb["cy"] - q[1])), 1)
+    for i, m in enumerate(spec.get("crossMarks", [])):
+        # a short stroke across a partition rule: a plain line, both ends free
+        free_edge(cells, m.get("id") or "mark%d" % i, "mark", [(m["x1"], m["y1"]), (m["x2"], m["y2"])],
+                  dict(edgeStyle="none", rounded=0, html=1, endArrow="none", strokeColor="#000000",
+                       strokeWidth=float(m.get("weight") or S["divider"])))
+
+    for c in spec.get("captions", []):
+        # a guard the reading took for a title, labelling no flow: a free text
+        if c.get("role") == "phase-title" or c["id"] in used:
+            continue
+        g, tb = guard_text[c["id"]]
+        box = dict(x=tb["x"] - (c.get("textWidth") or 40) / 2 - 4, y=tb["cy"] - tb["size"],
+                   w=(c.get("textWidth") or 40) + 8, h=2 * tb["size"])
+        vertex(c["id"], html_lines(tb["lines"]),
+               style(text="", html=1, whiteSpace="nowrap", fontFamily=fam, fontSize=float(tb["size"]),
+                     align="center", verticalAlign="middle", **placed_label(box, tb)).replace("text=;", "text;"),
+               box["x"], box["y"], box["w"], box["h"], kind=c.get("role", "text"))
     for g in spec.get("guards", []):
-        if g.get("onFlow"):
+        if g.get("onFlow") or g["id"] in used:
             continue
         # a text that labels no flow - a decision's question, a remark - is a
         # free text cell
@@ -338,27 +511,48 @@ def mxfile(spec):
                style(text="", html=1, fontFamily=fam, fontSize=float(tb["size"]), align=tb["align"],
                      verticalAlign="middle", **placed_label(g, tb)).replace("text=;", "text;"),
                g["x"], g["y"], g["w"], g["h"], kind=g.get("role", "text"))
-    missing = [k for k in ("bands", "bandLabels", "dashed", "openEnds", "crossMarks",
-                           "captions") if spec.get(k)]
-    if missing:
-        print("  not yet drawn by the proof of concept: %s" % ", ".join(missing), file=sys.stderr)
 
+    # A margin round the drawing. draw.io grows an edge's bounds by its
+    # arrowhead's size on every side, so a flow that runs off the page with a
+    # head on it (the CPFR figures) reached past the page, and draw.io opened
+    # the figure among a ring of extra pages. The page is one arrowhead wider
+    # on each side and the drawing moved in by as much; the frame records the
+    # offset (ubl-offset), and a reader of the file takes it off again.
+    M = math.ceil(end_size + 2 * S["edge"]) + 2
+    body = ET.fromstring('<root><mxCell id="0"/><mxCell id="1" parent="0"/>%s</root>' % "".join(cells))
+    for c in body.iter("mxCell"):
+        geo = c.find("mxGeometry")
+        if geo is None:
+            continue
+        if c.get("vertex") == "1" and c.get("parent") == "1":
+            geo.set("x", num(float(geo.get("x", 0)) + M))
+            geo.set("y", num(float(geo.get("y", 0)) + M))
+        if c.get("edge") == "1":
+            for p in geo.iter("mxPoint"):
+                if p.get("as") != "offset":
+                    p.set("x", num(float(p.get("x", 0)) + M))
+                    p.set("y", num(float(p.get("y", 0)) + M))
+    for o in body.iter("object"):
+        if o.get("ubl-kind") == "frame":
+            o.set("ubl-offset", str(M))
     model = ('<mxGraphModel dx="%d" dy="%d" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" '
              'arrows="1" fold="1" page="1" pageScale="1" pageWidth="%d" pageHeight="%d" math="0" shadow="0">'
-             '<root><mxCell id="0"/><mxCell id="1" parent="0"/>%s</root></mxGraphModel>'
-             % (round(W), round(H), math.ceil(W), math.ceil(H), "".join(cells)))
+             '%s</mxGraphModel>'
+             % (round(W), round(H), math.ceil(W) + 2 * M, math.ceil(H) + 2 * M,
+                ET.tostring(body, encoding="unicode")))
     return ('<mxfile host="UBL-TC" agent="UBL artwork pipeline, draw.io proof of concept" type="device">'
             '<diagram id="%s" name="%s">%s</diagram></mxfile>'
             % (esc(spec.get("name", "figure")), esc(spec.get("name", "figure")), model))
 
 
-def main(spec_path, out):
+def main(spec_path, out, model_path=None):
     spec = bd.load(spec_path)
+    model = json.load(open(model_path, encoding="utf-8")) if model_path else None
     bd.clear_guards(spec)              # the guards where the SVG draws them
     spec.setdefault("name", os.path.basename(out).rsplit(".", 1)[0])
-    open(out, "w", encoding="utf-8").write(mxfile(spec) + "\n")
+    open(out, "w", encoding="utf-8").write(mxfile(spec, model) + "\n")
     print("  %s   (%d nodes, %d edges)" % (out, len(spec["nodes"]), len(spec["edges"])))
 
 
 if __name__ == "__main__":
-    main(sys.argv[1], sys.argv[2])
+    main(*sys.argv[1:4])
