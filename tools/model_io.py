@@ -1,0 +1,1769 @@
+#!/usr/bin/env python3
+"""Split the extractor's graph into the three files the rest of the pipeline reads,
+and join them back.
+
+    python3 model_io.py split    <NAME-graph.json> <out-dir>
+    python3 model_io.py check    <NAME-graph.json> [...]     split and join, in memory
+    python3 model_io.py validate <NAME-diagram.json> [...]   schemas and references
+
+`extract_graph.py` writes one graph per diagram in which what the diagram *says*,
+where it is *drawn* and how the reading *went* are mixed in the same objects. This
+separates them:
+
+    NAME-diagram.json     the model: lanes, nodes, flows, texts and what refers to
+                          what. The part a person corrects and signs off, and what
+                          a BPMN rendering would be made from.
+    NAME-layout.json      where each element of the model is drawn, keyed by the
+                          model's ids, in pixels of the 600-dpi original.
+    NAME-extraction.json  the extractor's own measurements and the questions it
+                          left open, keyed the same way. For review only: nothing
+                          is drawn from it.
+
+`split` is lossless and `check` proves it: joining the three files gives back a
+graph equal to the one split, field for field, so no reading is lost on the way.
+
+Two things the graph holds twice are held once here:
+
+- a guard is a text block, and its flow points at it. The graph also copies the
+  words onto the flow as `guard`; the copy is always the block's words with the
+  line breaks taken out, which is what `guard_text()` gives back.
+- a lane title is the lane's own. The graph also reads it as a free text block;
+  those readings are moved to the extraction report (`titleReadings`), because
+  they are how the extractor read the title and not a second thing on the page.
+
+Every element gets an id that says what it is, not when it was read: the graph's
+ids (`n1`, `n2`, ...) are handed out in reading order and move whenever the
+extractor changes, so nothing could be pinned to one. See `assign_ids()`. The
+graph's own ids are kept in the extraction report as `formerIds`, which is also
+how the split joins back.
+"""
+import json, os, re, sys
+from collections import Counter
+
+MODEL_SCHEMA = "ubl-activity-diagram/1"
+LAYOUT_SCHEMA = "ubl-activity-diagram-layout/1"
+REPORT_SCHEMA = "ubl-activity-diagram-extraction/1"
+
+# fields of a graph element that are drawing, and fields that are the reading's own
+# diagnostics; whatever is in neither list is the model's
+NODE_LAYOUT = ("x", "y", "w", "h", "shape", "stroke", "rx", "ry", "fold",
+               "innerRatio", "bold", "labelLines")
+NODE_REPORT = ("area", "fill", "solid", "stem", "lumps", "keptOnOutline", "band", "box")
+EDGE_LAYOUT = ("fromPoint", "toPoint", "routing", "points", "dash", "gap", "dashOffset")
+EDGE_REPORT = ("arrowInk", "arrowPx", "arrowFill", "arrowSaturated")
+
+
+def name_of(path):
+    return re.sub(r"(-graph)?\.json$", "", os.path.basename(path))
+
+
+def norm(s):
+    return " ".join((s or "").split())
+
+
+def guard_text(text):
+    """what a flow's guard says, from the text block that is it"""
+    return norm(text["text"])
+
+
+def _title_key(s):
+    return re.sub(r"[^a-z0-9]", "", norm(s).lower())
+
+
+def title_readings(g):
+    """Which free text blocks are a lane title read a second time.
+
+    Exactly the test the spec used to skip them with when drawing, moved here so
+    the model holds each title once."""
+    parts = g.get("partitions", [])
+    boxes = [tuple(p["titleBox"]) for p in parts if p.get("titleBox")]
+    keys = {_title_key(p.get("title")) for p in parts if p.get("title")}
+    out = []
+    for i, t in enumerate(g.get("text", [])):
+        # Matched on letters alone, and either way round: the rule beside a title
+        # strip lands in its crop, so the partition read "Transportation Network
+        # Manager |" where the block reader read "Transportation Network Manager",
+        # the two did not match, and IMFM drew the title twice.
+        #
+        # Matching by name alone needs a name long enough to be evidence. A lane
+        # read as "No" - which happens where a guard sits up in the header strip,
+        # on CPFR-ExceptionMonitor and CPFR-CreateOrderForecast - otherwise deletes
+        # every other "No" on the page, and the two guards on the flows into the
+        # end event went missing from the drawing while the artwork showed them
+        # plainly. Over the 78 this branch suppresses eight blocks: the four
+        # "No"s, wrongly, and four real lane titles of eleven letters and more,
+        # rightly. The position test below still catches a short title in its own
+        # place, which is the only place a short one is evidence of anything.
+        k = _title_key(t["text"])
+        if k and len(k) >= 6 and any(k == o or k in o or o in k for o in keys):
+            out.append(i)
+        elif any(abs(t["x"] - b[0]) <= 2 and abs(t["y"] - b[1]) <= 2 and
+                 abs(t["w"] - b[2]) <= 2 and abs(t["h"] - b[3]) <= 2 for b in boxes):
+            out.append(i)
+    return out
+
+
+def _pick(d, keys):
+    return {k: d[k] for k in keys if k in d}
+
+
+def _rest(d, *exclude):
+    drop = set().union(*exclude)
+    return {k: v for k, v in d.items() if k not in drop}
+
+
+def slug(s, limit=40):
+    """lower case, words joined by hyphens, cut at a word boundary"""
+    words = re.findall(r"[a-z0-9]+", (s or "").lower())
+    out = ""
+    for w in words:
+        if out and len(out) + 1 + len(w) > limit:
+            break
+        out = (out + "-" + w) if out else w[:limit]
+    return out
+
+
+def _unique(wanted, order_key):
+    """Give each element the id it asks for, numbering the ones that ask for the
+    same thing - "-2", "-3" ... in the order of `order_key` (where they are on the
+    page), the first keeping the bare name."""
+    groups = {}
+    for el, want in wanted:
+        groups.setdefault(want, []).append(el)
+    out = {}
+    for want, els in groups.items():
+        els = sorted(els, key=order_key)
+        for i, el in enumerate(els):
+            out[id(el)] = want if i == 0 else "%s-%d" % (want, i + 1)
+    return out
+
+
+def assign_ids(model, layout, report):
+    """Replace the graph's ids with ids that say what each element is (see
+    names()), and keep the graph's in the report as formerIds."""
+    rename = names(model, layout)
+    _rename(model, layout, report, rename)
+    report["formerIds"] = {v: k for k, v in rename.items()}
+
+
+def names(model, layout):
+    """The id each element should have, as {current id: name}.
+
+        lane-<title> / band-<title>            lane-accounting-supplier
+        <kind>-<label>                         action-raise-invoice, object-invoice
+        <kind>-<lane>                          initial-accounting-supplier
+        flow-<from>-to-<to>                    flow-raise-invoice-to-invoice
+        text-<words>                           text-accept-charges
+        offpage-<node>                         offpage-action-download-business-card
+        phase-<title>, mark-<n>                phase-create-order-forecast, mark-1
+
+    Where two elements would get the same id, the one higher on the page (then
+    further left) keeps it and the others are numbered -2, -3 in that order. A
+    label shared by nodes in different lanes takes the lane's name first.
+
+    These are names, not a hash: once a model is kept and corrected by hand, its
+    ids are kept too, and a later correction to a label does not rename anything.
+    They are derived afresh only while the model is still made from a reading."""
+    lay_of = {}
+    for sec in ("lanes", "nodes", "flows", "texts", "offPage", "marks", "phases"):
+        for el in model[sec]:
+            lay_of[id(el)] = layout[sec].get(el["id"], {})
+
+    def at(el):
+        """where an element is, for ordering duplicates: top, then left"""
+        g = lay_of[id(el)]
+        if "box" in g:                                   # drawn in a title's place
+            return (g["box"][1], g["box"][0])
+        if "x" in g:
+            return (g["y"], g["x"])
+        if "fromPoint" in g:
+            return (g["fromPoint"][1], g["fromPoint"][0], g["toPoint"][1], g["toPoint"][0])
+        if "y2" in g:                                    # a cross-mark
+            return (min(g["y1"], g["y2"]), min(g["x1"], g["x2"]))
+        if "at" in g and isinstance(g["at"], list):
+            return (g["at"][1], g["at"][0])
+        return (g.get("y0", 0), g.get("x0", 0))
+
+    new = {}
+    # lanes: by title, or by position where the artwork gives none
+    want = []
+    for l in model["lanes"]:
+        kind = "lane" if l["axis"] == "column" else "band"
+        want.append((l, "%s-%s" % (kind, slug(l["title"]) or str(l["index"] + 1))))
+    for el, v in _unique(want, at).items():
+        new[el] = v
+    lane_name = {l["id"]: new[id(l)] for l in model["lanes"]}
+
+    # nodes: by kind and label; unlabelled ones by kind and lane
+    want = []
+    for n in model["nodes"]:
+        lab = slug(n.get("label"))
+        if lab:
+            want.append((n, "%s-%s" % (n["kind"], lab)))
+        else:
+            ln = lane_name.get(n.get("lane"))
+            want.append((n, "%s-%s" % (n["kind"], ln[len("lane-"):]) if ln else n["kind"]))
+    # the same label in different lanes: say which lane before resorting to numbers
+    seen = Counter(w for _, w in want)
+    def where(n):
+        if n.get("lane"):
+            return "in-" + lane_name[n["lane"]][len("lane-"):]
+        if n.get("between"):
+            return "between-" + "-and-".join(lane_name[x][len("lane-"):] for x in n["between"])
+        return None
+    want = [(n, w if seen[w] == 1 or not slug(n.get("label")) or not where(n)
+             else "%s-%s" % (w, where(n)))
+            for n, w in want]
+    for el, v in _unique(want, at).items():
+        new[el] = v
+    node_name = {n["id"]: new[id(n)] for n in model["nodes"]}
+
+    # a flow is named by its two ends, the labelled ones without their kinds:
+    # "flow-raise-invoice-to-invoice" says enough, and any two that come out the
+    # same are numbered. An unlabelled end keeps its kind - "initial-accounting-
+    # supplier" - since without it the name would be just a lane's.
+    labelled = {n["id"] for n in model["nodes"] if slug(n.get("label"))}
+    bare = lambda i: (re.sub(r"^[a-z]+-", "", node_name[i]) if i in labelled
+                      else node_name.get(i, i))
+    want = [(f, "flow-%s-to-%s" % (bare(f["from"]), bare(f["to"]))) for f in model["flows"]]
+    for el, v in _unique(want, at).items():
+        new[el] = v
+    want = [(t, "text-%s" % (slug(t["text"]) or "blank")) for t in model["texts"]]
+    for el, v in _unique(want, at).items():
+        new[el] = v
+    want = [(o, "offpage-%s" % node_name.get(o["node"], o["node"])) for o in model["offPage"]]
+    for el, v in _unique(want, at).items():
+        new[el] = v
+    # marks have no words of their own, so they are numbered from the top of the
+    # page, always, so their ids are never a plain word; so are phases, until a
+    # phase is given its title
+    for i, el in enumerate(sorted(model["marks"], key=at)):
+        new[id(el)] = "mark-%d" % (i + 1)
+    want = [(p, "phase-%s" % slug(p["title"])) for p in model["phases"] if slug(p.get("title"))]
+    for el, v in _unique(want, at).items():
+        new[el] = v
+    for i, el in enumerate(sorted((p for p in model["phases"] if id(p) not in new), key=at)):
+        new[id(el)] = "phase-%d" % (i + 1)
+
+    rename = {}
+    for sec in ("lanes", "nodes", "flows", "texts", "offPage", "marks", "phases"):
+        for el in model[sec]:
+            rename[el["id"]] = new[id(el)]
+    if len(set(rename.values())) != len(rename):
+        raise ValueError("%s: two elements were given the same id" % model["figure"]["name"])
+    return rename
+
+
+def _rename(model, layout, report, rename):
+    """apply an old-id -> new-id map to every place an id is held"""
+    r = lambda v: rename.get(v, v) if isinstance(v, str) else v
+    for sec in ("lanes", "nodes", "flows", "texts", "offPage", "marks", "phases"):
+        for el in model[sec]:
+            el["id"] = r(el["id"])
+            for k in ("lane", "band", "from", "to", "guard", "labels", "node", "annotates", "on", "passesTo"):
+                if k in el:
+                    el[k] = r(el[k])
+        layout[sec] = {r(k): v for k, v in layout[sec].items()}
+    for sec in ("nodes", "flows", "offPage", "marks", "phases"):
+        report[sec] = {r(k): v for k, v in report[sec].items()}
+    if "documentLanes" in report:
+        report["documentLanes"] = {r(k): r(v) for k, v in report["documentLanes"].items()}
+    for n in model["nodes"]:
+        if "between" in n:
+            n["between"] = [r(x) for x in n["between"]]
+    for sg in model.get("segments", []):
+        sg["members"] = [r(x) for x in sg["members"]]
+    for ln in layout.get("sharedLines", {}).values():
+        ln["from"], ln["to"] = r(ln["from"]), r(ln["to"])
+    for p in model["phases"]:
+        if "members" in p:
+            p["members"] = [r(x) for x in p["members"]]
+    for n in model["nodes"]:
+        if "alsoIn" in n:
+            n["alsoIn"] = [r(x) for x in n["alsoIn"]]
+    if "unresolvedAttachments" in report:
+        report["unresolvedAttachments"] = {r(k): v for k, v in report["unresolvedAttachments"].items()}
+    for f in report["findings"]:
+        for k in ("flow", "lane"):
+            if k in f:
+                f[k] = r(f[k])
+        if "texts" in f:
+            f["texts"] = [r(t) for t in f["texts"]]
+
+
+_CORRECTIONS = None
+
+
+def corrections_for(name):
+    """the corrections recorded for one diagram, from tools/model-corrections.json"""
+    global _CORRECTIONS
+    if _CORRECTIONS is None:
+        p = os.path.join(os.path.dirname(os.path.abspath(__file__)), "model-corrections.json")
+        _CORRECTIONS = json.load(open(p, encoding="utf-8"))["diagrams"] if os.path.exists(p) else {}
+    return _CORRECTIONS.get(name, [])
+
+
+def apply_corrections(model, layout, report, name, recorded=None):
+    """Apply what a person decided about this diagram's model.
+
+    The corrections name elements as the uncorrected reading names them (the ids
+    names() gives before any correction), and are applied before the final ids
+    are assigned, so that a lane corrected to "Buyer Party" is called
+    lane-buyer-party. The kinds:
+
+      attach-guard           text `text` is the guard of `to` (a flow or an
+                             off-page flow), and of nothing else
+      guard-from-lane-title  what the reading took for lane `lane`'s title is a
+                             guard of `to`; it becomes a text, drawn where it was
+      phase-title-from-lane  lane `lane`'s title is phase `phase`'s title
+      phase-title-from-text  text `text` is phase `phase`'s title
+      name-lane              lane `lane` is called `title`, which the artwork
+                             does not show; `source` says where the name comes
+                             from ("text" of the specification, or "convention")
+      continues              off-page flow `offPage` continues from or into the
+                             figure `figure`
+      external               node `node` stands for a process outside this
+                             diagram's scope; `reference` says which, and where
+      between                node `node` stands between the two `lanes`
+      flow-kind              flow `flow` is of kind `kind` (e.g. "precondition")
+      label-node             text `text` names node `node` (a start or an end)
+      linked-process         node `node` starts from, or leads into, the process
+                             `name` (`how`: "starts-from" or "leads-into")
+      segment                the nodes and flows `members` are a part of the
+                             process the diagram sets apart without drawing a
+                             box round it, with the id `segment`; `scope`
+                             "external" says it is outside the scope of the
+                             specification, and `reference` which and where
+      annotates              note `note` names flow or segment `target`: the
+                             information an exchange passes where no UBL
+                             document carries it, or the part it labels. The
+                             note belongs to no party (its lane goes); where it
+                             is drawn on a divider, a `between` says so
+      divider-flow           the flow from `from` to `to` that the artwork draws
+                             down a lane divider, which the reading cannot see
+                             as a flow; it replaces the off-page flow `offPage`,
+                             whose drawn line is the flow's last stretch, and
+                             the marks `marks` on it get `meaning`
+      defined-in             text `text` under node `node` is UML-tool notation,
+                             "(from <package>)": the node is defined in the
+                             package `package` of the model the diagram was
+                             drawn from. The text labels the node
+      reverse-flow           flow `flow` runs the other way: the reading put its
+                             head at the wrong end
+      remove-flow            flow `flow` is not in the artwork: the reading made
+                             it out of other line-work
+      remove-text            text `text` is not text in the artwork: a scrap of
+                             line-work the reading took for words
+      layout                 where or how `element` of `section` is drawn, as
+                             measured by hand from the original: `set` merges
+                             into its layout entry (or into line `line` of its
+                             lines, or into its part `sub`, as a phase's
+                             `title`), `unset` drops keys; `was` checks the old
+                             values the same way. The model does not change.
+                             `departs` on a text: set elsewhere than the artwork
+                             has it, on purpose; the checkers are told where
+                             the artwork's words are (`wasAt`)
+      decision-question      text `text` beside decision `node` is the question
+                             it asks; the text labels the node, which records it
+      split-text             text `text` is two texts the reading merged: lines
+                             from `at` on become a new one (id corr-<id>)
+      unguard                flow `flow` carries no guard: what the reading
+                             attached (a lane's title) is not one
+      lane-title-from-text   text `text` is lane `lane`'s title, drawn where it
+                             is; the model's title is `title` where given (the
+                             specification's spelling), else the text's words
+      lane-area              column `lane` is no party: it holds `name`, a way
+                             in from outside (`scope`, `reference`)
+      remove-lane            column `lane` is not one: an empty sliver between
+                             the last divider and the frame; its neighbour
+                             takes its width
+      merge-lane             column `lane` is part of column `into`, which it
+                             stands beside: the artwork draws a divider between
+                             them, the model has one party. Its nodes move into
+                             `into`, which takes its width; the divider stays in
+                             the layout's rules, so the drawing does not change
+      start-trigger          start `node` is set off by `trigger` (a time or an
+                             agreement, not a message): what BPMN would draw as
+                             a timer or conditional start
+      lane-name              lane `lane` is called `title` (the specification's
+                             name); the words drawn in its title box stay the
+                             artwork's own (kept as the layout's titleWords)
+      hand-over              off-page flow `offPage` continues into or from the
+                             figure `figure` as its line `port` (numbered left to
+                             right on the frame, the same number on both figures)
+                             and is there `counterpart` (an off-page flow, or a
+                             flow where the step it meets is drawn on both)
+      offpage-direction      off-page flow `offPage` runs `direction` (in/out):
+                             the reading had it the other way
+      same-step              node `node` is the step `other` of figure `figure`,
+                             drawn on both (CPFR's Ordering on Figs 13 and 14)
+      divider-piece          off-page flow `offPage` is not a flow but a piece of
+                             the lane divider the reading took for one (it
+                             touches a document on the line): it leaves the
+                             model and stays in the layout's rules as a piece,
+                             drawn where it was
+      label-style            every `kind` node's words are set as `set` says
+                             (`bold`, `italic`): for a figure whose weight
+                             reading is unreliable, a scan too blurred for it
+      unstated               the artwork does not give `attribute` of `element`
+                             (a node or a flow): recorded with `reason`, so the
+                             gap is a known one (a decision with no question, a
+                             branch with no guard)
+      also-in-band           node `node`, drawn across two rows, belongs to the
+                             phase shown as the band titled `band` as well
+      retext                 the words of `element` in `section` (texts, nodes or
+                             lanes) are `text`, which the reading misread; line
+                             breaks as in the artwork, one per measured line
+
+      implied-choice         flow `flow` leaves an ordinary step, not a decision,
+                             and is one of its alternatives, taken when its
+                             guard holds: a choice drawn without a diamond,
+                             recorded with `reason` (Self Billing)
+      label-flow             text `text` labels flow `flow` without being its
+                             guard: it says the flow's `role` (e.g. "purpose",
+                             what the exchange is for)
+
+      alternative-documents  the one line `flow` carries one of the `documents`
+                             each time (Tender Award Notification: Awarded or
+                             Unawarded Notification, per tenderer), the boxes
+                             drawn on it. The model gets an exchange through
+                             each document, the flow into each an alternative
+                             of group `group`, taken `when`; the drawn line
+                             stays in the layout as the shared line `line`,
+                             which the new flows are drawn by
+
+      pair-exchanges         document `node` is one box for two exchanges in
+                             opposite directions (CPFR's revisions and exception
+                             notifications): each way in passes to the way out
+                             into the other party (the in-flow's `passesTo`).
+                             Refused unless that pairs them all, one to one
+
+    Each may say what the reading held before (`was`), and is refused if the
+    reading no longer holds it: a correction is a decision about one reading,
+    and applied to another it would be a guess. The uncorrected model and layout
+    are kept in the report, so the split still joins back to the graph exactly;
+    none of this moves anything that is drawn."""
+    todo = corrections_for(name) if recorded is None else recorded
+    # the reading before anything the model makes of it, so the split joins back
+    # whatever follows (corrections, documents placed, bands made phases)
+    report["uncorrected"] = json.loads(json.dumps(dict(model=model, layout=layout)))
+    if not todo:
+        return
+    named = names(model, layout)                     # graph id -> reading name
+    gid = {v: k for k, v in named.items()}           # reading name -> graph id
+    rn = lambda v: named.get(v, v)
+
+    def el(sec, ref, cid):
+        i = gid.get(ref, ref if ref.startswith("corr-") else None)
+        for x in model[sec]:
+            if x["id"] == i:
+                return x
+        raise ValueError("%s: correction %s names %s %r, which this reading does not have"
+                         % (name, cid, sec, ref))
+
+    def check_was(c, x):
+        for k, v in c.get("was", {}).items():
+            have = rn(x.get(k)) if isinstance(x.get(k), str) and x.get(k) in named else x.get(k)
+            if have != v:
+                raise ValueError("%s: correction %s was made for %s = %r, and this reading has "
+                                 "%r - check it again against the artwork" % (name, c["id"], k, v, have))
+
+    def target(ref, cid):
+        i = gid.get(ref)
+        for sec in ("flows", "offPage"):
+            for x in model[sec]:
+                if x["id"] == i:
+                    return x
+        raise ValueError("%s: correction %s names %r, which is not a flow of this reading"
+                         % (name, cid, ref))
+
+    def make_guard(t, to):
+        for x in model["flows"] + model["offPage"]:      # it is no one else's guard
+            if x.get("guard") == t["id"]:
+                del x["guard"]
+                if re.fullmatch(r"f\d+", x["id"]):          # an edge of the graph
+                    patches["edges"].setdefault(x["id"], {})["guard"] = None
+        t["labels"] = to["id"]
+        to["guard"] = t["id"]
+        if re.fullmatch(r"f\d+", to["id"]):
+            patches["edges"].setdefault(to["id"], {})["guard"] = norm(guard_text(t))
+
+    touched = set()
+    departed = {}
+    # what the checkers must see changed in the graph they read: kept in the
+    # graph's own ids (edges f<n>, texts t<n>), which these still are here
+    patches = {"edges": {}, "texts": {}, "addEdges": []}
+    for c in todo:
+        op, cid = c["op"], c["id"]
+        if op == "attach-guard":
+            t = el("texts", c["text"], cid)
+            check_was(c, t)
+            to = target(c["to"], cid)
+            make_guard(t, to)
+            touched |= {t["id"], to["id"]}
+        elif op == "guard-from-lane-title":
+            l = el("lanes", c["lane"], cid)
+            check_was(c, l)
+            to = target(c["to"], cid)
+            box = layout["lanes"][l["id"]].pop("titleBox")
+            t = dict(id="corr-%s" % cid, text=l["title"])
+            model["texts"].append(t)
+            layout["texts"][t["id"]] = {"as": "lane-title", "box": box}
+            if layout["lanes"][l["id"]].pop("titleBold", None):
+                layout["texts"][t["id"]]["bold"] = True
+            for x in model["flows"] + model["offPage"]:  # the title was no one's guard
+                if x.get("guard") == l["id"]:
+                    del x["guard"]
+                    touched.add(x["id"])
+            l["title"] = ""
+            make_guard(t, to)
+            touched |= {l["id"], to["id"]}
+        elif op == "phase-title-from-lane":
+            l, p = el("lanes", c["lane"], cid), el("phases", c["phase"], cid)
+            check_was(c, l)
+            p["title"] = l["title"]
+            layout["phases"][p["id"]]["title"] = {"as": "lane-title",
+                                                  "box": layout["lanes"][l["id"]].pop("titleBox")}
+            if layout["lanes"][l["id"]].pop("titleBold", None):
+                layout["phases"][p["id"]]["title"]["bold"] = True
+            l["title"] = ""
+            touched |= {l["id"], p["id"]}
+        elif op == "phase-title-from-text":
+            t, p = el("texts", c["text"], cid), el("phases", c["phase"], cid)
+            check_was(c, t)
+            p["title"] = t["text"]
+            layout["phases"][p["id"]]["title"] = dict(layout["texts"].pop(t["id"]), **{"as": "text"})
+            model["texts"].remove(t)
+            touched |= {t["id"], p["id"]}
+        elif op == "name-lane":
+            l = el("lanes", c["lane"], cid)
+            check_was(c, l)
+            if "titleBox" in layout["lanes"][l["id"]]:
+                raise ValueError("%s: correction %s names %s, which still draws a title of its "
+                                 "own; move that first" % (name, cid, c["lane"]))
+            l["title"], l["titleShown"], l["titleSource"] = c["title"], False, c["source"]
+            touched.add(l["id"])
+        elif op == "split-lane":
+            # a column the reading took as one, divided at `at` (a rule it read
+            # but did not take for a divider); the new column is to the right
+            l = el("lanes", c["lane"], cid)
+            ll = layout["lanes"][l["id"]]
+            at = c["at"]
+            if not ll["x0"] < at < ll["x1"]:
+                raise ValueError("%s: correction %s splits %s at %s, outside it" % (name, cid, c["lane"], at))
+            for x in model["lanes"]:
+                if x["axis"] == "column" and x["index"] > l["index"]:
+                    x["index"] += 1
+            r = dict(id="corr-%s" % cid, axis="column", index=l["index"] + 1, title="")
+            model["lanes"].insert(model["lanes"].index(l) + 1, r)
+            layout["lanes"][r["id"]] = {"x0": at, "x1": ll["x1"]}
+            ll["x1"] = at
+            for n in model["nodes"]:
+                g = layout["nodes"][n["id"]]
+                if n.get("lane") == l["id"] and g["x"] + g["w"] / 2.0 > at:
+                    n["lane"] = r["id"]
+            touched |= {l["id"], r["id"]}
+        elif op == "external":
+            # a box standing for a whole process this diagram points at and does
+            # not describe (a BPMN call activity): CPFR's Order Generation, the
+            # prior exchange of public keys
+            n = el("nodes", c["node"], cid)
+            check_was(c, n)
+            n["scope"] = "external"
+            n["reference"] = c["reference"]
+            touched.add(n["id"])
+        elif op == "between":
+            n = el("nodes", c["node"], cid)
+            n["lane"] = None
+            n["between"] = [el("lanes", x, cid)["id"] for x in c["lanes"]]
+            touched.add(n["id"])
+        elif op == "flow-kind":
+            f = el("flows", c["flow"], cid)
+            check_was(c, f)
+            f["kind"] = c["kind"]
+            touched.add(f["id"])
+        elif op == "label-node":
+            # words written beside a node that name it - a start or an end
+            t, n = el("texts", c["text"], cid), el("nodes", c["node"], cid)
+            check_was(c, t)
+            t["labels"] = n["id"]
+            touched |= {t["id"], n["id"]}
+        elif op == "linked-process":
+            # a start that another process sets off, or an end that hands over
+            # to one: the diagram names that process and does not describe it
+            n = el("nodes", c["node"], cid)
+            n["linkedProcess"] = {k: c[k] for k in ("name", "how", "source") if k in c}
+            touched.add(n["id"])
+        elif op == "segment":
+            # a stretch of the process set apart without a box: the punch-out
+            # session, which UBL.xml puts outside UBL's scope. Its members keep
+            # their kinds and flows; what the segment adds is one statement
+            # about all of them together.
+            members = []
+            for ref in c["members"]:
+                sec = next((s for s in ("nodes", "flows") if gid.get(ref) in
+                            {x["id"] for x in model[s]}), None)
+                if sec is None:
+                    raise ValueError("%s: correction %s names %r, which is not a node or a "
+                                     "flow of this reading" % (name, cid, ref))
+                members.append(el(sec, ref, cid)["id"])
+            sg = dict(id=c["segment"], members=members)
+            for k in ("scope", "reference"):
+                if k in c:
+                    sg[k] = c[k]
+            model.setdefault("segments", []).append(sg)
+            touched |= set(members)
+        elif op == "annotates":
+            n = el("nodes", c["note"], cid)
+            if n["kind"] != "note":
+                raise ValueError("%s: correction %s: %s is not a note" % (name, cid, c["note"]))
+            seg = {s["id"] for s in model.get("segments", [])}
+            n["annotates"] = c["target"] if c["target"] in seg else el("flows", c["target"], cid)["id"]
+            if not n.get("between"):
+                n["lane"] = None
+            touched |= {n["id"], n["annotates"]}
+        elif op == "divider-flow":
+            # Figs 86/87: the document's way out runs down the lane divider,
+            # carrying the break marks, then turns into the action. The model
+            # gets the flow; the drawing does not change - the divider draws the
+            # first stretch, the off-page flow's line the last.
+            a, b = el("nodes", c["from"], cid), el("nodes", c["to"], cid)
+            o = el("offPage", c["offPage"], cid)
+            if o["node"] != b["id"] or o["direction"] != "in":
+                raise ValueError("%s: correction %s: %s does not run into %s"
+                                 % (name, cid, c["offPage"], c["to"]))
+            og = layout["offPage"].pop(o["id"])
+            model["offPage"].remove(o)
+            ga = layout["nodes"][a["id"]]
+            f = dict(id="corr-%s" % cid, **{"from": a["id"], "to": b["id"]}, kind="object",
+                     direction=dict(confidence="checked", checked="confirmed"))  # a person drew it
+            model["flows"].append(f)
+            patches["addEdges"].append({"from": a["id"], "to": b["id"], "edgeKind": "object",
+                                        "replacesOpenEndInto": b["id"]})
+            layout["flows"][f["id"]] = dict(
+                fromPoint=[og["at"][0], ga["y"] + ga["h"]], toPoint=og["end"],
+                routing="along-divider", points=[og["at"]] + (og.get("points") or []))
+            for m in c.get("marks", []):
+                mk = el("marks", m, cid)
+                mk["on"], mk["meaning"] = f["id"], c["meaning"]
+                touched.add(mk["id"])
+            touched |= {a["id"], b["id"], f["id"], o["id"]}
+        elif op == "defined-in":
+            # Rose's "(from Business Processes)" under a document on Utility
+            # Billing: where the tool's model kept the element, not a step
+            t, n = el("texts", c["text"], cid), el("nodes", c["node"], cid)
+            check_was(c, t)
+            t["labels"] = n["id"]
+            n["definedIn"] = c["package"]
+            touched |= {t["id"], n["id"]}
+        elif op == "reverse-flow":
+            f = el("flows", c["flow"], cid)
+            check_was(c, f)
+            f["from"], f["to"] = f["to"], f["from"]
+            f["direction"] = {"confidence": "high", "checked": "corrected"}
+            patches["edges"].setdefault(f["id"], {})["reverse"] = True
+            g = layout["flows"][f["id"]]
+            g["fromPoint"], g["toPoint"] = g["toPoint"], g["fromPoint"]
+            if g.get("points"):
+                g["points"] = g["points"][::-1]
+            touched.add(f["id"])
+        elif op == "remove-flow":
+            f = el("flows", c["flow"], cid)
+            check_was(c, f)
+            if any(t.get("labels") == f["id"] for t in model["texts"]) or f.get("guard"):
+                raise ValueError("%s: correction %s removes %s, which carries a guard"
+                                 % (name, cid, c["flow"]))
+            model["flows"].remove(f)
+            del layout["flows"][f["id"]]
+            patches["edges"].setdefault(f["id"], {})["remove"] = True
+            touched.add(f["id"])
+        elif op == "remove-text":
+            t = el("texts", c["text"], cid)
+            check_was(c, t)
+            if any(x.get("guard") == t["id"] for x in model["flows"] + model["offPage"]):
+                raise ValueError("%s: correction %s removes %s, which is a guard"
+                                 % (name, cid, c["text"]))
+            model["texts"].remove(t)
+            del layout["texts"][t["id"]]
+            patches["texts"][t["id"]] = None
+            touched.add(t["id"])
+        elif op == "decision-question":
+            t, n = el("texts", c["text"], cid), el("nodes", c["node"], cid)
+            check_was(c, t)
+            if n["kind"] != "decision":
+                raise ValueError("%s: correction %s: %s is not a decision" % (name, cid, c["node"]))
+            t["labels"] = n["id"]
+            n["question"] = " ".join(t["text"].split())
+            touched |= {t["id"], n["id"]}
+        elif op == "split-text":
+            t = el("texts", c["text"], cid)
+            check_was(c, t)
+            g = layout["texts"][t["id"]]
+            at, words = c["at"], t["text"].split("\n")
+            lines = g["lines"]
+            if not 0 < at < len(lines) or len(words) != len(lines):
+                raise ValueError("%s: correction %s cannot split %s at line %s"
+                                 % (name, cid, c["text"], at))
+            def box(ls):
+                x0 = min(l["x"] for l in ls); y0 = min(l["y"] for l in ls)
+                return dict(x=x0, y=y0, w=max(l["x"] + l["w"] for l in ls) - x0,
+                            h=max(l["y"] + l["h"] for l in ls) - y0)
+            new = dict(id="corr-%s" % cid, text="\n".join(words[at:]))
+            model["texts"].insert(model["texts"].index(t) + 1, new)
+            layout["texts"][new["id"]] = dict(box(lines[at:]), lines=lines[at:])
+            t["text"] = "\n".join(words[:at])
+            g.update(box(lines[:at]), lines=lines[:at])
+            patches["texts"][t["id"]] = "final"
+            patches.setdefault("addTexts", []).append(new["id"])
+            touched |= {t["id"], new["id"]}
+        elif op == "unguard":
+            f = el("flows", c["flow"], cid)
+            check_was(c, f)
+            f.pop("guard", None)
+            patches["edges"].setdefault(f["id"], {})["guard"] = None
+            touched.add(f["id"])
+        elif op == "layout":
+            x = el(c["section"], c["element"], cid)
+            g = layout[c["section"]][x["id"]]
+            if "sub" in c:                      # a part of it (a phase's title)
+                g = g[c["sub"]]
+            if "line" in c:
+                g = g["lines" if c["section"] == "texts" else "labelLines"][c["line"]]
+            for k, v in c.get("was", {}).items():
+                if g.get(k) != v:
+                    raise ValueError("%s: correction %s was made for %s = %r, and the layout has %r"
+                                     % (name, cid, k, v, g.get(k)))
+            g.update(c.get("set", {}))
+            for k in c.get("unset", []):
+                g.pop(k, None)
+            if c["section"] == "texts":
+                patches["texts"][x["id"]] = "final"
+                if c.get("departs"):
+                    # set somewhere other than where the artwork has it, on
+                    # purpose (a guard moved beside its branch): the checkers
+                    # still find the artwork's words where the artwork put them
+                    was = report["uncorrected"]["layout"]["texts"][x["id"]]
+                    departed[x["id"]] = {k: was[k] for k in ("x", "y", "w", "h")}
+            touched.add(x["id"])
+        elif op == "lane-title-from-text":
+            l, t = el("lanes", c["lane"], cid), el("texts", c["text"], cid)
+            check_was(c, t)
+            ll = layout["lanes"][l["id"]]
+            ll.pop("titleBox", None)
+            ll["title"] = dict(layout["texts"].pop(t["id"]), **{"as": "text"})
+            model["texts"].remove(t)
+            l["title"] = c.get("title") or " ".join(t["text"].split())
+            touched |= {l["id"], t["id"]}
+        elif op == "lane-area":
+            l = el("lanes", c["lane"], cid)
+            layout["lanes"][l["id"]].pop("titleBox", None)
+            l["title"], l["titleShown"], l["titleSource"] = c["name"], False, "text"
+            l["scope"] = c["scope"]
+            l["reference"] = c["reference"]
+            touched.add(l["id"])
+        elif op == "remove-lane":
+            l = el("lanes", c["lane"], cid)
+            if l["axis"] != "column" or any(n.get("lane") == l["id"] for n in model["nodes"]) \
+                    or l.get("title"):
+                raise ValueError("%s: correction %s: %s is not an empty untitled column"
+                                 % (name, cid, c["lane"]))
+            left = [x for x in model["lanes"] if x["axis"] == "column" and x["index"] == l["index"] - 1]
+            if left:
+                layout["lanes"][left[0]["id"]]["x1"] = layout["lanes"][l["id"]]["x1"]
+            for x in model["lanes"]:
+                if x["axis"] == "column" and x["index"] > l["index"]:
+                    x["index"] -= 1
+            model["lanes"].remove(l)
+            del layout["lanes"][l["id"]]
+            touched.add(l["id"])
+        elif op == "merge-lane":
+            l, into = el("lanes", c["lane"], cid), el("lanes", c["into"], cid)
+            if l["axis"] != "column" or into["axis"] != "column" or abs(l["index"] - into["index"]) != 1:
+                raise ValueError("%s: correction %s: %s and %s are not neighbouring columns"
+                                 % (name, cid, c["lane"], c["into"]))
+            for n in model["nodes"]:
+                if n.get("lane") == l["id"]:
+                    n["lane"] = into["id"]
+                if l["id"] in (n.get("between") or []):
+                    raise ValueError("%s: correction %s: %s stands on the line being merged"
+                                     % (name, cid, n["id"]))
+            L, I = layout["lanes"][l["id"]], layout["lanes"][into["id"]]
+            I["x0"], I["x1"] = min(I["x0"], L["x0"]), max(I["x1"], L["x1"])
+            for x in model["lanes"]:
+                if x["axis"] == "column" and x["index"] > l["index"]:
+                    x["index"] -= 1
+            model["lanes"].remove(l)
+            del layout["lanes"][l["id"]]
+            touched |= {l["id"], into["id"]}
+        elif op == "start-trigger":
+            n = el("nodes", c["node"], cid)
+            if n["kind"] != "initial":
+                raise ValueError("%s: correction %s: %s is not a start" % (name, cid, c["node"]))
+            n["trigger"] = c["trigger"]
+            touched.add(n["id"])
+        elif op == "lane-name":
+            l = el("lanes", c["lane"], cid)
+            check_was(c, l)
+            layout["lanes"][l["id"]]["titleWords"] = l["title"]
+            l["title"] = c["title"]
+            touched.add(l["id"])
+        elif op == "hand-over":
+            o = el("offPage", c["offPage"], cid)
+            if o.get("continues") not in (None, c["figure"]):
+                raise ValueError("%s: correction %s: %s already continues into %s"
+                                 % (name, cid, c["offPage"], o["continues"]))
+            o["continues"], o["port"], o["counterpart"] = c["figure"], c["port"], c["counterpart"]
+            touched.add(o["id"])
+        elif op == "offpage-direction":
+            o = el("offPage", c["offPage"], cid)
+            if o["direction"] != c["direction"]:
+                o["direction"] = c["direction"]
+                g = layout["offPage"][o["id"]]
+                g["at"], g["end"] = g["end"], g["at"]
+                if g.get("points"):
+                    g["points"] = g["points"][::-1]
+                patches.setdefault("openEnds", {})[o["id"]] = c["direction"] == "in"
+            touched.add(o["id"])
+        elif op == "same-step":
+            n = el("nodes", c["node"], cid)
+            n["sameAs"] = {"figure": c["figure"], "node": c["other"]}
+            touched.add(n["id"])
+        elif op == "divider-piece":
+            o = el("offPage", c["offPage"], cid)
+            g = layout["offPage"].pop(o["id"])
+            model["offPage"].remove(o)
+            layout["rules"].setdefault("pieces", []).append(
+                {"points": [g["at"]] + (g.get("points") or []) + [g["end"]]})
+            patches.setdefault("dropOpenEnds", []).append(o["id"])
+            touched.add(o["id"])
+        elif op == "label-style":
+            hit = [n for n in model["nodes"] if n["kind"] == c["kind"]]
+            if not hit:
+                raise ValueError("%s: correction %s: no %s nodes" % (name, cid, c["kind"]))
+            for n in hit:
+                layout["nodes"][n["id"]].update(c["set"])
+                touched.add(n["id"])
+        elif op == "unstated" and c.get("section") == "figure":
+            model["figure"].setdefault("unstated", {})[c["attribute"]] = c["reason"]
+        elif op == "unstated":
+            sec = c.get("section", "nodes")
+            x = el(sec, c["element"], cid)
+            if x.get(c["attribute"]):
+                raise ValueError("%s: correction %s: %s has a %s; it is not unstated"
+                                 % (name, cid, c["element"], c["attribute"]))
+            x.setdefault("unstated", {})[c["attribute"]] = c["reason"]
+            touched.add(x["id"])
+        elif op == "also-in-band":
+            # applied once bands are phases (bands_to_phases)
+            n = el("nodes", c["node"], cid)
+            n.setdefault("_alsoInBand", []).append(c["band"])
+            touched.add(n["id"])
+        elif op == "retext":
+            # words the reading got wrong, as the artwork writes them. The words
+            # change, and so does what is drawn; where each line sits does not.
+            sec = c["section"]
+            x = el(sec, c["element"], cid)
+            key = {"texts": "text", "nodes": "label", "lanes": "title"}[sec]
+            check_was(c, x)
+            old = x[key]
+            x[key] = c["text"]
+            report.setdefault("retexted", {})[x["id"]] = {"section": sec, "text": c["text"]}
+            lines = (layout[sec][x["id"]].get("lines") if sec == "texts"
+                     else layout[sec][x["id"]].get("labelLines") if sec == "nodes" else None)
+            if lines:
+                new = c["text"].split("\n")
+                if len(new) != len(lines):
+                    raise ValueError("%s: correction %s gives %d lines where %s has %d"
+                                     % (name, cid, len(new), c["element"], len(lines)))
+                for ln, words in zip(lines, new):
+                    ln["text"] = words
+            elif "\n" in c["text"] and "\n" not in old:
+                raise ValueError("%s: correction %s breaks a line %s does not" % (name, cid, c["element"]))
+            touched.add(x["id"])
+        elif op == "implied-choice":
+            f = el("flows", c["flow"], cid)
+            check_was(c, f)
+            if not f.get("guard"):
+                raise ValueError("%s: correction %s: flow %s carries no guard, so it is no "
+                                 "alternative" % (name, cid, c["flow"]))
+            f["impliedChoice"] = c["reason"]
+            touched.add(f["id"])
+        elif op == "label-flow":
+            t = el("texts", c["text"], cid)
+            check_was(c, t)
+            f = el("flows", c["flow"], cid)
+            if any(x.get("guard") == t["id"] for x in model["flows"] + model["offPage"]):
+                raise ValueError("%s: correction %s: text %s is a guard" % (name, cid, c["text"]))
+            t["labels"], t["role"] = f["id"], c["role"]
+            touched |= {t["id"], f["id"]}
+        elif op == "alternative-documents":
+            f = el("flows", c["flow"], cid)
+            check_was(c, f)
+            if f.get("guard"):
+                raise ValueError("%s: correction %s: %s carries a guard" % (name, cid, c["flow"]))
+            at = model["flows"].index(f)             # the new flows take its place
+            model["flows"].remove(f)
+            g = layout["flows"].pop(f["id"])
+            line = dict(g, **{"from": f["from"], "to": f["to"]})
+            if (f.get("direction") or {}).get("confidence"):
+                line["confidence"] = f["direction"]["confidence"]
+            layout.setdefault("sharedLines", {})[c["line"]] = line
+            for i, d in enumerate(c["documents"]):
+                doc = el("nodes", d["node"], cid)
+                if doc["kind"] != "object":
+                    raise ValueError("%s: correction %s: %s is not a document" % (name, cid, d["node"]))
+                pair = (dict(id="corr-%s-%d-in" % (cid, i), kind="object",
+                             alternative=dict(group=c["group"], when=d["when"]),
+                             **{"from": f["from"], "to": doc["id"]}),
+                        dict(id="corr-%s-%d-out" % (cid, i), kind="object",
+                             **{"from": doc["id"], "to": f["to"]}))
+                for x in pair:
+                    x["direction"] = dict(confidence="checked", checked="confirmed")  # a person read it
+                    model["flows"].insert(at, x)
+                    at += 1
+                    layout["flows"][x["id"]] = dict(routing="shared", line=c["line"])
+                    touched.add(x["id"])
+                touched.add(doc["id"])
+            touched.add(f["id"])
+        elif op == "pair-exchanges":
+            doc = el("nodes", c["node"], cid)
+            lane = {n["id"]: n.get("lane") for n in model["nodes"]}
+            ins = [f for f in model["flows"] if f["to"] == doc["id"]]
+            outs = [f for f in model["flows"] if f["from"] == doc["id"]]
+            used = set()
+            for f in ins:
+                to = [o for o in outs if lane[o["to"]] != lane[f["from"]]]
+                if len(ins) < 2 or len(to) != 1 or to[0]["id"] in used:
+                    raise ValueError("%s: correction %s: the ways in and out of %s do not pair "
+                                     "one to one, each into the other party" % (name, cid, c["node"]))
+                f["passesTo"] = to[0]["id"]
+                used.add(to[0]["id"])
+                touched |= {f["id"], to[0]["id"]}
+            if len(used) != len(outs):
+                raise ValueError("%s: correction %s: a way out of %s is left unpaired" % (name, cid, c["node"]))
+            touched.add(doc["id"])
+        elif op == "continues":
+            o = el("offPage", c["offPage"], cid)
+            o["continues"] = c["figure"]
+            touched.add(o["id"])
+        else:
+            raise ValueError("%s: correction %s: unknown op %r" % (name, cid, op))
+    for tid, v in list(patches["texts"].items()):
+        if v == "final":
+            t = next(t for t in model["texts"] if t["id"] == tid)
+            g = layout["texts"][tid]
+            patches["texts"][tid] = dict({k: g[k] for k in ("x", "y", "w", "h", "lines", "bold", "italic")
+                                          if k in g}, text=t["text"])
+            if tid in departed:
+                patches["texts"][tid]["wasAt"] = departed[tid]
+    added = patches.pop("addTexts", [])
+    if added:
+        patches["addTexts"] = [dict({k: v for k, v in layout["texts"][i].items()},
+                                    text=next(t["text"] for t in model["texts"] if t["id"] == i))
+                               for i in added]
+    if any(patches.values()):
+        report["graphPatches"] = patches
+    for f in report["findings"]:
+        if touched & ({f.get("flow"), f.get("lane")} | set(f.get("texts", []))):
+            f["resolvedBy"] = [c["id"] for c in todo]
+    report["corrections"] = [c["id"] for c in todo]
+
+
+def exchanged_by(model, doc):
+    """the column lanes of the steps that write and read a document, left to right"""
+    lanes = {l["id"]: l for l in model["lanes"] if l["axis"] == "column"}
+    nodes = {n["id"]: n for n in model["nodes"]}
+    ends = [nodes[f["from"]] for f in model["flows"] if f["to"] == doc["id"] and f["from"] in nodes]
+    ends += [nodes[f["to"]] for f in model["flows"] if f["from"] == doc["id"] and f["to"] in nodes]
+    got = {e.get("lane") for e in ends if e["kind"] != "object"} & set(lanes)
+    return sorted(got, key=lambda i: lanes[i]["index"])
+
+
+def phase_members(model, layout, phase_id):
+    """the nodes that belong to a phase, in model order: drawn wholly inside its
+    dashed box, or, for a phase shown as a band, with their centre in its row"""
+    b = layout["phases"][phase_id]
+    if b.get("as") == "band":
+        return [n["id"] for n in model["nodes"]
+                if b["y0"] <= layout["nodes"][n["id"]]["y"] + layout["nodes"][n["id"]]["h"] / 2 < b["y1"]]
+    x0, y0, x1, y1 = b["x"], b["y"], b["x"] + b["w"], b["y"] + b["h"]
+    out = []
+    for n in model["nodes"]:
+        g = layout["nodes"][n["id"]]
+        if x0 <= g["x"] and g["x"] + g["w"] <= x1 and y0 <= g["y"] and g["y"] + g["h"] <= y1:
+            out.append(n["id"])
+    return out
+
+
+def place_phases(model, layout):
+    """A CPFR phase holds the steps drawn inside its dashed box (the
+    completeness sweep, 2026-09-27). The drawing said so only by position, so
+    moving a box in the layout would have moved a step into or out of a phase
+    unseen; the model now says it, and validate checks the two agree. On the 7
+    figures no node straddles a border; Ordering, on Figs 13 and 14, stands
+    outside (q5)."""
+    for p in model["phases"]:
+        p["members"] = phase_members(model, layout, p["id"])
+
+
+def bands_to_phases(model, layout):
+    """A stage of the process is one thing in the model, a phase, however it is
+    drawn (2026-09-27): a dashed box on the CPFR figures, a row across the page
+    on Intermodal Freight Management. So a band with a title becomes a phase
+    whose layout says it is shown as a band (`as` "band", its rows y0-y1), with
+    the nodes in its row as members, and nodes no longer carry a band.
+
+    A band without a title is no stage: the one covering a whole figure (69
+    figures draw no stages), the row under the frame holding the lane titles
+    (the three 2.3 customs figures: kept as the layout's titleRow, a display of
+    the lane names) and the margin between the frame and the edge of the PNG
+    (five figures). They go; the lines are the layout's rules and stay, so
+    nothing drawn changes."""
+    bands = [l for l in model["lanes"] if l["axis"] == "band"]
+    cols = [l for l in model["lanes"] if l["axis"] == "column"]
+    for b in bands:
+        g = layout["lanes"][b["id"]]
+        held = [n for n in model["nodes"] if n.get("band") == b["id"]]
+        if b["title"]:
+            pid = "p-%s" % b["id"]
+            model["phases"].append(dict(id=pid, title=b["title"], members=[n["id"] for n in held]))
+            layout["phases"][pid] = {"as": "band", "y0": g["y0"], "y1": g["y1"]}
+            if g.get("titleBold"):
+                layout["phases"][pid]["titleBold"] = True
+        elif not held:
+            boxes = [layout["lanes"][c["id"]].get("titleBox") for c in cols]
+            if boxes and all(bx and g["y0"] <= bx[1] and bx[1] + bx[3] <= g["y1"] for bx in boxes):
+                layout["titleRow"] = [g["y0"], g["y1"]]
+        model["lanes"].remove(b)
+        del layout["lanes"][b["id"]]
+    for n in model["nodes"]:
+        n.pop("band", None)
+    # a step drawn across two rows, recorded as belonging to both
+    for n in model["nodes"]:
+        for title in n.pop("_alsoInBand", []):
+            p = next(p for p in model["phases"] if p["title"] == title)
+            if n["id"] not in p["members"]:
+                p["members"].append(n["id"])
+            n.setdefault("alsoIn", []).append(p["id"])
+
+
+def place_documents(model, layout, report):
+    """A document drawn across the line between two columns stands between them.
+
+    UBL draws every document (object node) on the divider between the two parties
+    that exchange it - all 228 in the 78 diagrams - and the reading assigned each
+    to whichever column its centre fell in, sometimes by a pixel: on Fig 12
+    Retail Event came out the Buyer's and Product Activity, drawn the same way on
+    the same line, the Seller's. Decided with the TC (q4b): such a document has no
+    lane of its own; it is `between` the two columns either side of the line.
+    Who hands it over and who receives it are its flows, which already name them.
+
+    Where the parties that exchange it are not the two either side of that line
+    (14 documents: a long arrow across a lane, or three parties), `between`
+    names the parties that do, left to right, as its flows say (q14): the model
+    says who exchanges it, and the layout keeps where it is drawn - the artwork
+    follows no rule there.
+
+    The lane it was given is kept in the report, so the split joins back."""
+    cols = sorted((l for l in model["lanes"] if l["axis"] == "column"), key=lambda l: l["index"])
+    bounds = [(a, b, layout["lanes"][a["id"]]["x1"]) for a, b in zip(cols, cols[1:])
+              if layout["lanes"][a["id"]].get("x1") == layout["lanes"][b["id"]].get("x0")]
+    moved = {}
+    for n in model["nodes"]:
+        if n["kind"] != "object":
+            continue
+        g = layout["nodes"][n["id"]]
+        across = [(a, b) for a, b, x in bounds if g["x"] < x < g["x"] + g["w"]]
+        if len(across) == 1:
+            a, b = across[0]
+            moved[n["id"]] = n.get("lane")
+            n["lane"] = None
+            n["between"] = [a["id"], b["id"]]
+            parties = exchanged_by(model, n)
+            if len(parties) >= 2 and set(parties) != set(n["between"]):
+                n["between"] = parties
+    report["documentLanes"] = moved
+
+
+def split(g, name):
+    # on a copy: the model and layout take the graph's nested lists as they are,
+    # and a correction that edits one (a line's words) must not edit the graph
+    # it is then checked against
+    g = json.loads(json.dumps(g))
+    parts = g.get("partitions", [])
+    lane_id = {(p["axis"], p["index"]): "lane%d" % i for i, p in enumerate(parts)}
+    has_cols = any(p["axis"] == "column" for p in parts)
+    has_bands = any(p["axis"] == "band" for p in parts)
+
+    model = dict(schema=MODEL_SCHEMA, figure=dict(name=name, source=g.get("source")),
+                 lanes=[], nodes=[], flows=[], texts=[], offPage=[], marks=[], phases=[])
+    layout = dict(schema=LAYOUT_SCHEMA, figure=name, units="px of the original PNG",
+                  size=g["size"],
+                  style=dict(fontPx=g.get("fontPx"), arrowPx=g.get("arrowPx"),
+                             arrowWidthPx=g.get("arrowWidthPx"),
+                             arrowStyle=g.get("arrowStyle")),
+                  rules={}, greyRules=[], lanes={}, nodes={}, flows={}, texts={},
+                  offPage={}, marks={}, phases={})
+    report = dict(schema=REPORT_SCHEMA, figure=name, nodes={}, flows={}, offPage={},
+                  marks={}, phases={}, greyRules=[], titleReadings=[], findings=[],
+                  uncertain=g.get("uncertain", []))
+
+    # the frame and partition rules, each with the span the artwork draws it over
+    spans = g.get("ruleSpan") or {}
+    for ax, key in (("v", "vertical"), ("h", "horizontal")):
+        sp = spans.get(ax)
+        layout["rules"][key] = [
+            dict(at=r[0], width=r[1], span=(sp[i] if sp is not None and i < len(sp) else None))
+            for i, r in enumerate(g["rules"][ax])]
+    layout["rulesHaveSpans"] = {k: (ax in spans) for ax, k in (("v", "vertical"), ("h", "horizontal"))}
+    if "ruleSpan" not in g:
+        layout["rulesHaveSpans"] = None
+    for r in g.get("greyRules", []):
+        layout["greyRules"].append(_pick(r, ("axis", "at", "w", "level")))
+        report["greyRules"].append(_rest(r, ("axis", "at", "w", "level")))
+
+    for i, p in enumerate(parts):
+        lid = "lane%d" % i
+        model["lanes"].append(dict(id=lid, axis=p["axis"], index=p["index"], title=p["title"]))
+        layout["lanes"][lid] = _rest(p, ("axis", "index", "title"))
+
+    for n in g["nodes"]:
+        m = dict(id=n["id"], kind=n["kind"])
+        m.update(_rest(n, NODE_LAYOUT, NODE_REPORT, ("col", "row")))
+        rep = _pick(n, NODE_REPORT)
+        # which lane and band the node stands in, as the lanes' own ids; an index
+        # that names no lane is kept, as read, in the report
+        if "col" in n:
+            m["lane"] = lane_id.get(("column", n["col"])) if has_cols else None
+            if m["lane"] is None:
+                rep["col"] = n["col"]
+        if "row" in n:
+            m["band"] = lane_id.get(("band", n["row"])) if has_bands else None
+            if m["band"] is None:
+                rep["row"] = n["row"]
+        model["nodes"].append(m)
+        layout["nodes"][n["id"]] = _pick(n, NODE_LAYOUT)
+        if rep:
+            report["nodes"][n["id"]] = rep
+
+    titles = set(title_readings(g))
+    text_id = {}
+    for i, t in enumerate(g.get("text", [])):
+        if i in titles:
+            report["titleReadings"].append(dict(position=i, **t))
+            continue
+        tid = "t%d" % i
+        text_id[i] = tid
+        m = dict(id=tid, text=t["text"])
+        if "attachedTo" in t:
+            m["labels"] = None          # filled in below, once flows have ids
+            m["_attached"] = t["attachedTo"]
+        model["texts"].append(m)
+        layout["texts"][tid] = _rest(t, ("text", "attachedTo"))
+
+    flow_of = {}
+    for i, e in enumerate(g["edges"]):
+        fid = "f%d" % i
+        m = dict(id=fid, **_rest(e, EDGE_LAYOUT, EDGE_REPORT,
+                                 ("guard", "directionConfidence", "directionChecked",
+                                  "edgeKind", "arrowBoth")))
+        if "edgeKind" in e:
+            m["kind"] = e["edgeKind"]
+        if "directionConfidence" in e or "directionChecked" in e:
+            m["direction"] = _pick(e, ("directionConfidence", "directionChecked"))
+            m["direction"] = {{"directionConfidence": "confidence",
+                               "directionChecked": "checked"}[k]: v
+                              for k, v in m["direction"].items()}
+        if "arrowBoth" in e:
+            m["bothEnds"] = e["arrowBoth"]
+        if "guard" in e:
+            # the text block that is this guard: attached to this flow and saying
+            # the same words
+            key = "%s->%s" % (e["from"], e["to"])
+            hits = [t for t in model["texts"]
+                    if t.get("_attached") == key and guard_text(t) == e["guard"]]
+            if not hits:
+                # The reading also attached a lane title to a flow as its guard -
+                # four times over the 78: "Seller" and "Producer" twice, and on
+                # CPFR-CreateOrderForecast a real "No" guard taken for the title
+                # of a lane. The block is the title's reading, so the guard is the
+                # lane's title, and the model says exactly that.
+                hits = [l for l in model["lanes"]
+                        if norm(l["title"]) == e["guard"] and any(
+                            r.get("attachedTo") == key and norm(r["text"]) == e["guard"]
+                            for r in report["titleReadings"])]
+                if len(hits) == 1:
+                    report["findings"].append(dict(
+                        kind="guard-is-lane-title", flow=fid, lane=hits[0]["id"],
+                        detail="the guard on %s is the title of %s, %r"
+                               % (key, hits[0]["id"], e["guard"]),
+                        check="a lane title does not label a flow: either the "
+                              "title was attached by mistake or the lane title is "
+                              "a misread guard"))
+            if len(hits) != 1:
+                raise ValueError("%s: guard %r on %s matches %d text blocks"
+                                 % (name, e["guard"], key, len(hits)))
+            m["guard"] = hits[0]["id"]
+        model["flows"].append(m)
+        layout["flows"][fid] = _pick(e, EDGE_LAYOUT)
+        rep = _pick(e, EDGE_REPORT)
+        if rep:
+            report["flows"][fid] = rep
+        flow_of.setdefault("%s->%s" % (e["from"], e["to"]), []).append(fid)
+
+    for t in model["texts"]:
+        if "_attached" in t:
+            # the flow a text block is attached to. Two flows between the same two
+            # nodes would make this ambiguous; the 78 have none, and if one ever
+            # appears the split refuses rather than guessing.
+            fs = flow_of.get(t["_attached"], [])
+            if len(fs) > 1:
+                raise ValueError("%s: %s is attached to %d flows" % (name, t["id"], len(fs)))
+            t["labels"] = fs[0] if fs else None
+            if fs and any(o is not t and o.get("labels") == fs[0] for o in model["texts"]) \
+                    and not any(f.get("kind") == "flow-with-two-texts" and f["flow"] == fs[0]
+                                for f in report["findings"]):
+                report["findings"].append(dict(
+                    kind="flow-with-two-texts", flow=fs[0],
+                    texts=[o["id"] for o in model["texts"] if o.get("labels") == fs[0]],
+                    detail="more than one text block is attached to %s" % t["_attached"],
+                    check="a flow has at most one guard: one of these belongs to "
+                          "another flow"))
+            if not fs:
+                report.setdefault("unresolvedAttachments", {})[t["id"]] = t["_attached"]
+            del t["_attached"]
+
+    for i, o in enumerate(g.get("openEnds", [])):
+        oid = "o%d" % i
+        model["offPage"].append(dict(id=oid, node=o["node"],
+                                     direction="in" if o["inward"] else "out",
+                                     arrow=o["arrow"]))
+        layout["offPage"][oid] = _pick(o, ("at", "end", "points", "x", "y", "w", "h"))
+        report["offPage"][oid] = _rest(o, ("node", "inward", "arrow", "at", "end",
+                                           "points", "x", "y", "w", "h"))
+    for i, c in enumerate(g.get("crossMarks", [])):
+        cid = "m%d" % i
+        model["marks"].append(dict(id=cid, kind="cross-mark", rule=c["rule"]))
+        layout["marks"][cid] = _pick(c, ("x1", "y1", "x2", "y2", "weight"))
+        report["marks"][cid] = _rest(c, ("rule", "x1", "y1", "x2", "y2", "weight"))
+    for i, d in enumerate(g.get("dashed", [])):
+        did = "p%d" % i
+        model["phases"].append(dict(id=did))
+        layout["phases"][did] = _pick(d, ("x", "y", "w", "h", "rx", "dash", "gap", "weight"))
+        report["phases"][did] = _rest(d, ("x", "y", "w", "h", "rx", "dash", "gap", "weight"))
+
+    # what the graph has at the top that is not handled above goes to the report,
+    # so a field the extractor adds later is carried rather than lost
+    known = {"source", "size", "fontPx", "arrowPx", "arrowWidthPx", "arrowStyle",
+             "rules", "ruleSpan", "greyRules", "dashed", "openEnds", "crossMarks",
+             "partitions", "nodes", "edges", "text", "uncertain"}
+    extra = {k: v for k, v in g.items() if k not in known}
+    if extra:
+        report["unmapped"] = extra
+    report["present"] = [k for k in g]          # the graph's own key order
+    apply_corrections(model, layout, report, name)
+    place_documents(model, layout, report)
+    place_phases(model, layout)
+    bands_to_phases(model, layout)
+    assign_ids(model, layout, report)
+    return model, layout, report
+
+
+def join(model, layout, report):
+    """The graph the three files were split from, exactly."""
+    model, layout, report = (json.loads(json.dumps(x)) for x in (model, layout, report))
+    if "uncorrected" in report:
+        # corrections were applied: the reading, before them, in the graph's ids.
+        # The report's own entries are keyed by the final ids, so they go back too.
+        _rename(model, layout, report, report.pop("formerIds"))
+        model, layout = report["uncorrected"]["model"], report["uncorrected"]["layout"]
+    elif "formerIds" in report:
+        _rename(model, layout, report, report.pop("formerIds"))
+        back = report.get("documentLanes", {})
+        for n in model["nodes"]:
+            if n["id"] in back:
+                n["lane"] = back[n["id"]]
+                n.pop("between", None)
+    lanes = {l["id"]: l for l in model["lanes"]}
+    g = {}
+    g["source"] = model["figure"]["source"]
+    g["size"] = layout["size"]
+    st = layout["style"]
+    g["fontPx"], g["arrowPx"] = st["fontPx"], st["arrowPx"]
+    g["arrowWidthPx"], g["arrowStyle"] = st["arrowWidthPx"], st["arrowStyle"]
+    g["rules"] = {ax: [[r["at"], r["width"]] for r in layout["rules"][k]]
+                  for ax, k in (("v", "vertical"), ("h", "horizontal"))}
+    hs = layout.get("rulesHaveSpans")
+    if hs is not None:
+        g["ruleSpan"] = {ax: [r["span"] for r in layout["rules"][k]]
+                         for ax, k in (("v", "vertical"), ("h", "horizontal")) if hs[k]}
+    g["greyRules"] = [dict(a, **b) for a, b in zip(layout["greyRules"], report["greyRules"])]
+    g["dashed"] = [dict(layout["phases"][p["id"]], **report["phases"][p["id"]])
+                   for p in model["phases"]]
+    g["openEnds"] = [dict(node=o["node"], inward=o["direction"] == "in", arrow=o["arrow"],
+                          **layout["offPage"][o["id"]], **report["offPage"][o["id"]])
+                     for o in model["offPage"]]
+    g["crossMarks"] = [dict(rule=c["rule"], **layout["marks"][c["id"]], **report["marks"][c["id"]])
+                       for c in model["marks"]]
+    g["partitions"] = [dict(axis=l["axis"], index=l["index"], title=l["title"],
+                            **layout["lanes"][l["id"]]) for l in model["lanes"]]
+    g["nodes"] = []
+    for n in model["nodes"]:
+        d = {k: v for k, v in n.items() if k not in ("lane", "band")}
+        d.update(layout["nodes"][n["id"]])
+        rep = dict(report["nodes"].get(n["id"], {}))
+        if "lane" in n:
+            d["col"] = lanes[n["lane"]]["index"] if n["lane"] else rep.pop("col")
+        if "band" in n:
+            d["row"] = lanes[n["band"]]["index"] if n["band"] else rep.pop("row")
+        rep.pop("col", None); rep.pop("row", None)
+        d.update(rep)
+        g["nodes"].append(d)
+    texts = {t["id"]: t for t in model["texts"]}
+    flows = {f["id"]: f for f in model["flows"]}
+    g["edges"] = []
+    for f in model["flows"]:
+        d = {k: v for k, v in f.items()
+             if k not in ("id", "kind", "direction", "bothEnds", "guard")}
+        d.update(layout["flows"][f["id"]])
+        d.update(report["flows"].get(f["id"], {}))
+        if "guard" in f:
+            d["guard"] = (guard_text(texts[f["guard"]]) if f["guard"] in texts
+                          else norm(lanes[f["guard"]]["title"]))
+        for k, v in (f.get("direction") or {}).items():
+            d[{"confidence": "directionConfidence", "checked": "directionChecked"}[k]] = v
+        if "bothEnds" in f:
+            d["arrowBoth"] = f["bothEnds"]
+        if "kind" in f:
+            d["edgeKind"] = f["kind"]
+        g["edges"].append(d)
+    unresolved = report.get("unresolvedAttachments", {})
+    blocks = []
+    for t in model["texts"]:
+        d = dict(text=t["text"], **layout["texts"][t["id"]])
+        if "labels" in t:
+            if t["labels"]:
+                fl = flows[t["labels"]]
+                d["attachedTo"] = "%s->%s" % (fl["from"], fl["to"])
+            else:
+                d["attachedTo"] = unresolved[t["id"]]
+        blocks.append((int(t["id"][1:]), d))
+    for r in report["titleReadings"]:
+        r = dict(r)
+        blocks.append((r.pop("position"), r))
+    g["text"] = [d for _, d in sorted(blocks, key=lambda b: b[0])]
+    g["uncertain"] = report["uncertain"]
+    g.update(report.get("unmapped", {}))
+    return {k: g[k] for k in report["present"] if k in g}
+
+
+def corrected_graph(g, report):
+    """The graph with what a person corrected put right: the words (retext),
+    and the report's graphPatches - a flow reversed or removed, a text removed
+    or re-measured, a flow added where the reading could not see one. This is
+    what the verifier, the model sheet and the review marks check the drawing
+    against: they read the graph, and given the reading's own version they would
+    report a correct render as an error. Corrections that only say more about
+    what is drawn (a guard's flow, a phase's title) do not reach it."""
+    fixes = report.get("retexted") or {}
+    patches = report.get("graphPatches")
+    if not fixes and not patches:
+        return None
+    g = json.loads(json.dumps(g))
+    for gid, f in fixes.items():
+        if f["section"] == "nodes":
+            n = next(n for n in g["nodes"] if n["id"] == gid)
+            n["label"] = f["text"]
+            for ln, words in zip(n.get("labelLines") or [], f["text"].split("\n")):
+                ln["text"] = words
+        elif f["section"] == "texts":
+            t = g["text"][int(gid[1:])]
+            t["text"] = f["text"]
+            for ln, words in zip(t.get("lines") or [], f["text"].split("\n")):
+                ln["text"] = words
+            for e in g["edges"]:           # a guard is also copied onto its flow
+                if t.get("attachedTo") == "%s->%s" % (e["from"], e["to"]) and "guard" in e:
+                    e["guard"] = norm(f["text"])
+        elif f["section"] == "lanes":
+            g["partitions"][int(gid[4:])]["title"] = f["text"]
+    if patches and patches.get("dropOpenEnds"):
+        drop = {int(i[1:]) for i in patches["dropOpenEnds"]}
+        g["openEnds"] = [e for i, e in enumerate(g["openEnds"]) if i not in drop]
+        if patches.get("openEnds"):
+            raise ValueError("an off-page flow both dropped and turned: not supported")
+    if patches and patches.get("openEnds"):
+        for oid, inward in patches["openEnds"].items():
+            e = g["openEnds"][int(oid[1:])]
+            e["inward"] = inward
+            e["at"], e["end"] = e["end"], e["at"]
+            if e.get("points"):
+                e["points"] = e["points"][::-1]
+    if patches:
+        # texts first by index, then drop the removed ones (indices are the
+        # graph's own, so every change is made before any removal)
+        for tid, v in patches["texts"].items():
+            if v is not None:
+                g["text"][int(tid[1:])].update(v)
+        edges = g["edges"]
+        for fid, v in patches["edges"].items():
+            if v and "guard" in v:
+                e = edges[int(fid[1:])]
+                if v["guard"] is None:
+                    e.pop("guard", None)
+                else:
+                    e["guard"] = v["guard"]
+            if v and v.get("reverse"):
+                e = edges[int(fid[1:])]
+                e["from"], e["to"] = e["to"], e["from"]
+                if "fromPoint" in e and "toPoint" in e:
+                    e["fromPoint"], e["toPoint"] = e["toPoint"], e["fromPoint"]
+                if e.get("points"):
+                    e["points"] = e["points"][::-1]
+        drop_t = {int(t[1:]) for t, v in patches["texts"].items() if v is None}
+        drop_e = {int(f[1:]) for f, v in patches["edges"].items() if v and v.get("remove")}
+        g["text"] = [t for i, t in enumerate(g["text"]) if i not in drop_t]
+        g["edges"] = [e for i, e in enumerate(edges) if i not in drop_e]
+        g["text"] += patches.get("addTexts", [])
+        for a in patches["addEdges"]:
+            g["edges"].append({"from": a["from"], "to": a["to"], "edgeKind": a["edgeKind"]})
+            g["openEnds"] = [o for o in g.get("openEnds", [])
+                             if not (o.get("node") == a["replacesOpenEndInto"] and o.get("inward"))]
+    return g
+
+
+def write(obj, path):
+    with open(path, "w", encoding="utf-8") as f:
+        json.dump(obj, f, indent=1, ensure_ascii=False)
+        f.write("\n")
+
+
+def paths(out_dir, name):
+    return tuple(os.path.join(out_dir, "%s-%s.json" % (name, k))
+                 for k in ("diagram", "layout", "extraction"))
+
+
+def load(diagram_path):
+    """the model and its layout, from the model's path"""
+    base = re.sub(r"-diagram\.json$", "", diagram_path)
+    return (json.load(open(diagram_path, encoding="utf-8")),
+            json.load(open(base + "-layout.json", encoding="utf-8")))
+
+
+def validate(diagram_path):
+    """What is wrong with a model and its layout and report, as a list of
+    sentences: each file against its schema, then the references between them -
+    every id a flow, guard, node or text names exists, and every element of the
+    model has a place in the layout and nothing else does. Empty means sound."""
+    base = re.sub(r"-diagram\.json$", "", diagram_path)
+    files = dict(diagram=diagram_path, layout=base + "-layout.json",
+                 extraction=base + "-extraction.json")
+    docs, errs = {}, []
+    here = os.path.join(os.path.dirname(os.path.abspath(__file__)), "schema")
+    try:
+        import jsonschema
+    except ImportError:
+        jsonschema = None
+        print("warning: jsonschema is not installed, so only the references were "
+              "checked, not the schemas", file=sys.stderr)
+    for k, p in files.items():
+        if not os.path.exists(p):
+            errs.append("%s: missing" % p)
+            continue
+        docs[k] = json.load(open(p, encoding="utf-8"))
+        if jsonschema:
+            schema = json.load(open(os.path.join(here, k + ".schema.json")))
+            for e in sorted(jsonschema.Draft202012Validator(schema).iter_errors(docs[k]),
+                            key=lambda e: list(e.path)):
+                errs.append("%s: %s: %s" % (os.path.basename(p),
+                                            "/".join(map(str, e.path)) or "(top)", e.message))
+    m, l = docs.get("diagram"), docs.get("layout")
+    if not m or not l:
+        return errs
+    ids = {}
+    for sec in ("lanes", "nodes", "flows", "texts", "offPage", "marks", "phases"):
+        for x in m.get(sec, []):
+            if x["id"] in ids:
+                errs.append("id %s is used twice (%s and %s)" % (x["id"], ids[x["id"]], sec))
+            ids[x["id"]] = sec
+    for sg in m.get("segments", []):
+        if sg["id"] in ids:
+            errs.append("id %s is used twice (%s and segments)" % (sg["id"], ids[sg["id"]]))
+        ids[sg["id"]] = "segments"
+
+    def ref(what, v, *secs):
+        if v is not None and ids.get(v) not in secs:
+            errs.append("%s names %r, which is not one of the diagram's %s"
+                        % (what, v, " or ".join(secs)))
+    for n in m["nodes"]:
+        ref("node %s's lane" % n["id"], n.get("lane"), "lanes")
+        ref("node %s's band" % n["id"], n.get("band"), "lanes")
+        for x in n.get("between", []):
+            ref("node %s's between" % n["id"], x, "lanes")
+    for n in m["nodes"]:
+        if "annotates" in n:
+            ref("note %s" % n["id"], n["annotates"], "flows", "segments")
+            if n["kind"] != "note":
+                errs.append("%s annotates %s, and only a note may" % (n["id"], n["annotates"]))
+            if n.get("lane"):
+                errs.append("%s annotates %s and still stands in lane %s"
+                            % (n["id"], n["annotates"], n["lane"]))
+    for f in m["flows"]:
+        ref("flow %s's source" % f["id"], f["from"], "nodes")
+        ref("flow %s's target" % f["id"], f["to"], "nodes")
+        ref("flow %s's guard" % f["id"], f.get("guard"), "texts", "lanes")
+    for t in m["texts"]:
+        ref("text %s" % t["id"], t.get("labels"), "flows", "offPage", "nodes")
+    for n in m["nodes"]:
+        if n["kind"] == "object" and n.get("between"):
+            parties = exchanged_by(m, n)
+            if len(parties) >= 2 and set(parties) != set(n["between"]):
+                errs.append("document %s stands between %s, and its flows are with %s"
+                            % (n["id"], ", ".join(n["between"]), ", ".join(parties)))
+    for o in m["offPage"]:
+        if not o.get("continues"):
+            errs.append("off-page flow %s says nothing of where it continues: a line leaving "
+                        "the figure goes to another figure (continues), or it is not a flow"
+                        % o["id"])
+    # a line handed over to another figure: its counterpart there points back
+    here = os.path.dirname(os.path.abspath(diagram_path))
+    for o in m["offPage"]:
+        if "counterpart" not in o:
+            continue
+        other = os.path.join(here, "%s-diagram.json" % o["continues"])
+        if not os.path.exists(other):
+            continue
+        om = json.load(open(other, encoding="utf-8"))
+        cp = next((x for x in om["offPage"] if x["id"] == o["counterpart"]), None)
+        fl = next((x for x in om["flows"] if x["id"] == o["counterpart"]), None)
+        if cp is None and fl is None:
+            errs.append("%s hands over to %s in %s, which it does not have"
+                        % (o["id"], o["counterpart"], o["continues"]))
+        elif cp is not None and (cp.get("counterpart") != o["id"] or cp.get("port") != o.get("port")
+                                 or cp.get("direction") == o["direction"]
+                                 or cp.get("continues") != m["figure"]["name"]):
+            errs.append("%s and %s in %s do not hand over to each other (port %s/%s, direction %s/%s)"
+                        % (o["id"], cp["id"], o["continues"], o.get("port"), cp.get("port"),
+                           o["direction"], cp.get("direction")))
+        # a guard written where the line leaves its decision is repeated where
+        # it arrives on the other figure: both ends say the same
+        other_end = cp if cp is not None else fl
+        if other_end is not None:
+            words = lambda mm, x: " ".join(next((t["text"] for t in mm["texts"]
+                                                 if t["id"] == x.get("guard")), "").split())
+            if words(m, o) != words(om, other_end):
+                errs.append("%s carries the guard %r, and its other end %s in %s carries %r"
+                            % (o["id"], words(m, o), other_end["id"], o["continues"],
+                               words(om, other_end)))
+    # a decision says what is decided, and each way out says when it is taken -
+    # or the model records that the artwork does not
+    outs_of = {}
+    for f in m["flows"]:
+        outs_of.setdefault(f["from"], []).append(f)
+    for n in m["nodes"]:
+        if n["kind"] != "decision":
+            continue
+        if not (n.get("question") or (n.get("label") or "").strip()
+                or "question" in n.get("unstated", {})):
+            errs.append("decision %s has no question, and the model does not record that the "
+                        "artwork gives none" % n["id"])
+        for f in outs_of.get(n["id"], []):
+            if not f.get("guard") and "guard" not in f.get("unstated", {}):
+                errs.append("flow %s out of decision %s has no guard, and the model does not "
+                            "record that the artwork gives none" % (f["id"], n["id"]))
+    # a guard belongs to a choice: a flow out of a decision (or a fork), or out
+    # of an ordinary step the model records as a choice drawn without a diamond
+    kind_of = {n["id"]: n["kind"] for n in m["nodes"]}
+    for f in m["flows"]:
+        if f.get("guard") and kind_of.get(f["from"]) not in ("decision", "fork") \
+                and not f.get("impliedChoice"):
+            errs.append("flow %s carries a guard out of %s, which is no decision, and the model "
+                        "does not record it as a choice drawn without one" % (f["id"], f["from"]))
+        if f.get("impliedChoice") and not f.get("guard"):
+            errs.append("flow %s is recorded as a choice, and carries no guard" % f["id"])
+    for t in m["texts"]:
+        if t.get("role") and (t.get("labels") not in {f["id"] for f in m["flows"]}
+                              or any(f.get("guard") == t["id"] for f in m["flows"])):
+            errs.append("text %s says a flow's %s: it labels a flow, and is not its guard"
+                        % (t["id"], t["role"]))
+    ins_of_doc = {}
+    for f in m["flows"]:
+        ins_of_doc.setdefault(f["to"], []).append(f)
+    # a document passes from one party to another: a way in and a way out
+    for n in m["nodes"]:
+        if n["kind"] == "object" and not (
+                (ins_of_doc.get(n["id"]) or any(o["node"] == n["id"] and o["direction"] == "in" for o in m["offPage"]))
+                and (outs_of.get(n["id"]) or any(o["node"] == n["id"] and o["direction"] == "out" for o in m["offPage"]))):
+            errs.append("document %s needs a way in and a way out" % n["id"])
+    # every flow says how its direction was settled
+    for f in m["flows"]:
+        if not (f.get("direction") or {}).get("confidence"):
+            errs.append("flow %s does not say how its direction was settled" % f["id"])
+    # an action has a way in and a way out in the sequence (a precondition
+    # between parties is none), or records that the artwork draws none
+    seq_in, seq_out = {}, {}
+    for f in m["flows"]:
+        if f.get("kind") != "precondition":
+            seq_out.setdefault(f["from"], []).append(f)
+            seq_in.setdefault(f["to"], []).append(f)
+    for o in m["offPage"]:
+        (seq_in if o["direction"] == "in" else seq_out).setdefault(o["node"], []).append(o)
+    for n in m["nodes"]:
+        if n["kind"] != "action":
+            continue
+        for have, what in ((seq_in, "wayIn"), (seq_out, "wayOut")):
+            if not have.get(n["id"]) and what not in n.get("unstated", {}):
+                errs.append("action %s has no %s, and the model does not record that the "
+                            "artwork draws none" % (n["id"], {"wayIn": "way in", "wayOut": "way out"}[what]))
+    # one box for two exchanges: each way in says which way out it passes to
+    fl = {f["id"]: f for f in m["flows"]}
+    for n in m["nodes"]:
+        if n["kind"] != "object":
+            continue
+        ins = [f for f in m["flows"] if f["to"] == n["id"]]
+        outs = [f for f in m["flows"] if f["from"] == n["id"]]
+        if len(ins) >= 2 and len(outs) >= 2:
+            to = [f.get("passesTo") for f in ins]
+            if None in to or sorted(to) != sorted(o["id"] for o in outs):
+                errs.append("document %s carries %d exchanges, and its ways in do not each say "
+                            "which way out they pass to" % (n["id"], len(ins)))
+    for f in m["flows"]:
+        if "passesTo" in f and (fl.get(f["passesTo"], {}).get("from") != f["to"]):
+            errs.append("flow %s passes to %s, which does not leave %s" % (f["id"], f["passesTo"], f["to"]))
+    # alternatives: two or more ways out of one node, each saying when it is taken
+    groups = {}
+    for f in m["flows"]:
+        g = l["flows"].get(f["id"], {})
+        if g.get("routing") == "shared" and g.get("line") not in l.get("sharedLines", {}):
+            errs.append("flow %s is drawn by the shared line %s, which the layout does not have"
+                        % (f["id"], g.get("line")))
+    for f in m["flows"]:
+        if f.get("alternative"):
+            groups.setdefault(f["alternative"]["group"], []).append(f)
+    for gname, fs in groups.items():
+        if len(fs) < 2 or len({f["from"] for f in fs}) != 1:
+            errs.append("alternatives %s: %d flow(s), from %s - an alternative is one of two or "
+                        "more ways out of one node" % (gname, len(fs), ", ".join(sorted({f["from"] for f in fs}))))
+    # a start has a way out and none in; a figure has a start, or is entered
+    # from another figure, or records that the artwork draws none
+    ins_of = {}
+    for f in m["flows"]:
+        ins_of.setdefault(f["to"], []).append(f)
+    starts = [n for n in m["nodes"] if n["kind"] == "initial"]
+    for n in starts:
+        out = len(outs_of.get(n["id"], [])) + sum(1 for o in m["offPage"]
+                                                  if o["node"] == n["id"] and o["direction"] == "out")
+        if not out or ins_of.get(n["id"]):
+            errs.append("start %s needs a way out and no way in" % n["id"])
+    if not starts and not any(o["direction"] == "in" for o in m["offPage"]) \
+            and "start" not in m["figure"].get("unstated", {}):
+        errs.append("the figure has no start, is entered from no other figure, and the model "
+                    "does not record that the artwork draws none")
+    # an end has a way in and none out; a figure has an end, or hands over to
+    # another figure, or records that the artwork draws none
+    ends = [n for n in m["nodes"] if n["kind"] == "final"]
+    for n in ends:
+        if outs_of.get(n["id"]) or not (ins_of.get(n["id"]) or any(
+                o["node"] == n["id"] and o["direction"] == "in" for o in m["offPage"])):
+            errs.append("end %s needs a way in and no way out" % n["id"])
+    if not ends and not any(o["direction"] == "out" for o in m["offPage"]) \
+            and "end" not in m["figure"].get("unstated", {}):
+        errs.append("the figure has no end, hands over to no other figure, and the model "
+                    "does not record that the artwork draws none")
+    # a bar is a fork or a join (or both): a way in, a way out, and two on one side
+    ends = {}
+    for f in m["flows"]:
+        ends.setdefault(f["from"], [0, 0])[1] += 1
+        ends.setdefault(f["to"], [0, 0])[0] += 1
+    for o in m["offPage"]:
+        ends.setdefault(o["node"], [0, 0])[0 if o["direction"] == "in" else 1] += 1
+    for n in m["nodes"]:
+        if n["kind"] == "fork":
+            i, o = ends.get(n["id"], [0, 0])
+            if not i or not o or max(i, o) < 2:
+                errs.append("bar %s has %d way(s) in and %d out: a fork or join needs a way in, "
+                            "a way out and two on one side" % (n["id"], i, o))
+    for p in m.get("phases", []):
+        for x in p.get("members", []):
+            ref("phase %s's member" % p["id"], x, "nodes")
+        if p["id"] in l.get("phases", {}) and "members" in p:
+            drawn = phase_members(m, l, p["id"])
+            # a step drawn across two rows may belong to both (alsoIn)
+            also = {n["id"] for n in m["nodes"] if p["id"] in n.get("alsoIn", [])}
+            if set(drawn) | also != set(p["members"]):
+                errs.append("phase %s holds %s, and its box in the layout holds %s"
+                            % (p["id"], sorted(p["members"]), sorted(drawn)))
+    for sg in m.get("segments", []):
+        mem = set(sg["members"])
+        for x in sg["members"]:
+            ref("segment %s's member" % sg["id"], x, "nodes", "flows")
+        for f in m["flows"]:
+            if f["id"] in mem and not {f["from"], f["to"]} <= mem:
+                errs.append("segment %s holds flow %s but not both its ends"
+                            % (sg["id"], f["id"]))
+    for k in m["marks"]:
+        ref("mark %s" % k["id"], k.get("on"), "flows")
+    for o in m["offPage"]:
+        ref("off-page flow %s" % o["id"], o["node"], "nodes")
+        ref("off-page flow %s's guard" % o["id"], o.get("guard"), "texts")
+    # a guard and its text agree about each other
+    for x in m["flows"] + m["offPage"]:
+        g = x.get("guard")
+        t = next((t for t in m["texts"] if t["id"] == g), None)
+        if t is not None and t.get("labels") != x["id"]:
+            errs.append("%s's guard is %s, which says it labels %r"
+                        % (x["id"], g, t.get("labels")))
+    for sec in ("lanes", "nodes", "flows", "texts", "offPage", "marks", "phases"):
+        want = {x["id"] for x in m.get(sec, [])}
+        have = set(l.get(sec, {}))
+        for i in sorted(want - have):
+            errs.append("%s %s has no place in the layout" % (sec, i))
+        for i in sorted(have - want):
+            errs.append("the layout places %s %s, which the model does not have" % (sec, i))
+    return errs
+
+
+def main(argv):
+    if len(argv) >= 3 and argv[0] == "split":
+        g = json.load(open(argv[1], encoding="utf-8"))
+        name = name_of(argv[1])
+        model, layout, report = split(g, name)
+        if join(model, layout, report) != g:
+            sys.exit("%s: the split does not join back to the graph it came from" % name)
+        for obj, p in zip((model, layout, report), paths(argv[2], name)):
+            write(obj, p)
+        cg = corrected_graph(g, report)
+        cp = os.path.join(argv[2], "%s-graph-corrected.json" % name)
+        if cg is not None:
+            write(cg, cp)
+        elif os.path.exists(cp):
+            os.remove(cp)
+        print("  %s -> diagram, layout, extraction  (%d nodes, %d flows, %d texts)"
+              % (name, len(model["nodes"]), len(model["flows"]), len(model["texts"])))
+        return 0
+    if len(argv) >= 2 and argv[0] == "check":
+        bad = 0
+        for p in argv[1:]:
+            g = json.load(open(p, encoding="utf-8"))
+            m, l, r = split(g, name_of(p))
+            # through text, so what is checked is what a file would hold
+            m, l, r = (json.loads(json.dumps(x)) for x in (m, l, r))
+            if join(m, l, r) != g:
+                bad += 1
+                print("DOES NOT ROUND-TRIP: %s" % p)
+        print("%d of %d graphs round-trip exactly" % (len(argv) - 1 - bad, len(argv) - 1))
+        return 1 if bad else 0
+    if len(argv) >= 2 and argv[0] == "validate":
+        bad = 0
+        for p in argv[1:]:
+            errs = validate(p)
+            for e in errs:
+                print("%s: %s" % (name_of(p).replace("-diagram", ""), e))
+            bad += bool(errs)
+        print("%d of %d diagrams valid" % (len(argv) - 1 - bad, len(argv) - 1))
+        return 1 if bad else 0
+    print(__doc__)
+    return 2
+
+
+if __name__ == "__main__":
+    sys.exit(main(sys.argv[1:]))

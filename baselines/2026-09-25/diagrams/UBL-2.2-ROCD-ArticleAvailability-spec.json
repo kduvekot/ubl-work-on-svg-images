@@ -1,0 +1,216 @@
+{
+ "canvas": {
+  "w": 1480.0,
+  "h": 571.691
+ },
+ "stroke": {
+  "frame": 4.3,
+  "divider": 2.2,
+  "action": 2.2,
+  "object": 4.3,
+  "edge": 2.2
+ },
+ "font": {
+  "family": "Helvetica, Arial, sans-serif",
+  "node": 28.4,
+  "lane": 28.4,
+  "guard": 28.4
+ },
+ "arrow": 36.2,
+ "arrowWidth": 29.5,
+ "arrowStyle": "open",
+ "dashed": [],
+ "greyRules": [],
+ "crossMarks": [],
+ "openEnds": [
+  {
+   "points": [
+    [
+     722.9,
+     363.0
+    ],
+    [
+     722.5,
+     566.1
+    ]
+   ],
+   "arrow": false
+  }
+ ],
+ "frameBox": [
+  2.2,
+  2.2,
+  1477.8,
+  569.5
+ ],
+ "dividers": [
+  [
+   720.6,
+   2.2,
+   5.6,
+   360.8
+  ]
+ ],
+ "bands": [],
+ "lanes": [
+  {
+   "title": "Producer",
+   "x": 0.0,
+   "w": 720.8,
+   "cx": 356.3,
+   "cy": 31.3
+  },
+  {
+   "title": "Retailer",
+   "x": 720.8,
+   "w": 759.2,
+   "cx": 1101.0,
+   "cy": 30.0
+  }
+ ],
+ "bandLabels": [],
+ "nodes": [
+  {
+   "id": "n1",
+   "kind": "initial",
+   "label": "",
+   "x": 213.9,
+   "y": 77.3,
+   "w": 42.3,
+   "h": 42.8
+  },
+  {
+   "id": "n2",
+   "kind": "object",
+   "label": "Stock Availability Report",
+   "x": 553.1,
+   "y": 284.8,
+   "w": 340.1,
+   "h": 74.3,
+   "labelLines": [
+    {
+     "text": "Stock Availability Report",
+     "cx": 722.1,
+     "cy": 323.4,
+     "w": 316.3
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n3",
+   "kind": "action",
+   "label": "Receive stock availability\nreport",
+   "x": 1020.4,
+   "y": 286.7,
+   "w": 423.0,
+   "h": 83.0,
+   "rx": 53.8,
+   "ry": 31.3,
+   "labelLines": [
+    {
+     "text": "Receive stock availability",
+     "cx": 1224.2,
+     "cy": 313.5,
+     "w": 331.0
+    },
+    {
+     "text": "report",
+     "cx": 1233.7,
+     "cy": 344.6,
+     "w": 77.8
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n4",
+   "kind": "action",
+   "label": "Send stock availability report",
+   "x": 36.5,
+   "y": 288.9,
+   "w": 403.6,
+   "h": 67.8,
+   "rx": 53.8,
+   "ry": 20.5,
+   "labelLines": [
+    {
+     "text": "Send stock availability report",
+     "cx": 235.3,
+     "cy": 324.3,
+     "w": 383.3
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n5",
+   "kind": "final",
+   "label": "",
+   "x": 1211.7,
+   "y": 503.4,
+   "w": 40.6,
+   "h": 40.6,
+   "innerRatio": 0.443
+  }
+ ],
+ "edges": [
+  {
+   "from": "n1",
+   "to": "n4",
+   "exitXY": [
+    0.5106,
+    1.0
+   ],
+   "entryXY": [
+    0.4953,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n4",
+   "to": "n2",
+   "exitXY": [
+    1.0,
+    0.5
+   ],
+   "entryXY": [
+    0.0,
+    0.5114
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n2",
+   "to": "n3",
+   "exitXY": [
+    1.0,
+    0.5289
+   ],
+   "entryXY": [
+    0.0,
+    0.4711
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n3",
+   "to": "n5",
+   "exitXY": [
+    0.5021,
+    1.0
+   ],
+   "entryXY": [
+    0.5197,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  }
+ ],
+ "guards": []
+}

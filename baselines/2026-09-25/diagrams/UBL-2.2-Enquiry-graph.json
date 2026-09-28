@@ -1,0 +1,617 @@
+{
+ "source": "UBL-2.2-Enquiry.png",
+ "size": [
+  3424,
+  1802
+ ],
+ "fontPx": 70.0,
+ "arrowPx": 80.0,
+ "arrowWidthPx": 66.5,
+ "arrowStyle": "open",
+ "rules": {
+  "v": [
+   [
+    0,
+    8
+   ],
+   [
+    1701,
+    8
+   ],
+   [
+    3410,
+    14
+   ]
+  ],
+  "h": [
+   [
+    0,
+    8
+   ],
+   [
+    1794,
+    8
+   ]
+  ]
+ },
+ "ruleSpan": {
+  "v": [
+   [
+    11,
+    1790
+   ],
+   [
+    11,
+    1790
+   ],
+   [
+    11,
+    1790
+   ]
+  ],
+  "h": [
+   [
+    11,
+    3406
+   ],
+   [
+    11,
+    3406
+   ]
+  ]
+ },
+ "greyRules": [],
+ "dashed": [],
+ "openEnds": [],
+ "crossMarks": [],
+ "partitions": [
+  {
+   "axis": "column",
+   "index": 0,
+   "x0": 0,
+   "x1": 1705,
+   "title": "REQUESTER",
+   "titleBox": [
+    608,
+    48,
+    388,
+    61
+   ]
+  },
+  {
+   "axis": "column",
+   "index": 1,
+   "x0": 1705,
+   "x1": 3417,
+   "title": "RESPONDER",
+   "titleBox": [
+    2385,
+    40,
+    403,
+    54
+   ]
+  },
+  {
+   "axis": "column",
+   "index": 2,
+   "x0": 3417,
+   "x1": 3424,
+   "title": ""
+  },
+  {
+   "axis": "band",
+   "index": 0,
+   "y0": 0,
+   "y1": 1802,
+   "title": ""
+  }
+ ],
+ "nodes": [
+  {
+   "x": 548,
+   "y": 157,
+   "w": 124,
+   "h": 124,
+   "area": 12088,
+   "fill": 1.0,
+   "kind": "initial",
+   "id": "n1",
+   "label": "",
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 111,
+   "y": 394,
+   "w": 1001,
+   "h": 167,
+   "area": 152527,
+   "fill": 0.912,
+   "solid": 0.964,
+   "rx": 86,
+   "ry": 82,
+   "shape": "rounded",
+   "stroke": 8,
+   "kind": "action",
+   "id": "n2",
+   "label": "Prepare enquiry",
+   "labelLines": [
+    {
+     "x": 377,
+     "y": 445,
+     "w": 468,
+     "h": 62,
+     "text": "Prepare enquiry"
+    }
+   ],
+   "stem": 0.086,
+   "bold": false,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 1453,
+   "y": 610,
+   "w": 516,
+   "h": 348,
+   "area": 172867,
+   "fill": 0.963,
+   "solid": 1.0,
+   "rx": 0,
+   "ry": 0,
+   "shape": "rect",
+   "stroke": 8,
+   "kind": "object",
+   "id": "n3",
+   "label": "Enquiry",
+   "labelLines": [
+    {
+     "x": 1483,
+     "y": 757,
+     "w": 280,
+     "h": 69,
+     "text": "Enquiry"
+    }
+   ],
+   "stem": 0.157,
+   "bold": true,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 105,
+   "y": 698,
+   "w": 1013,
+   "h": 172,
+   "area": 161121,
+   "fill": 0.925,
+   "solid": 0.966,
+   "rx": 79,
+   "ry": 83,
+   "shape": "rounded",
+   "stroke": 9,
+   "kind": "action",
+   "id": "n4",
+   "label": "Submit enquiry",
+   "labelLines": [
+    {
+     "x": 391,
+     "y": 756,
+     "w": 441,
+     "h": 62,
+     "text": "Submit enquiry"
+    }
+   ],
+   "stem": 0.086,
+   "bold": false,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 2263,
+   "y": 698,
+   "w": 1036,
+   "h": 178,
+   "area": 170302,
+   "fill": 0.924,
+   "solid": 0.968,
+   "rx": 80,
+   "ry": 87,
+   "shape": "rounded",
+   "stroke": 9,
+   "kind": "action",
+   "id": "n5",
+   "label": "Receive enquiry",
+   "labelLines": [
+    {
+     "x": 2522,
+     "y": 749,
+     "w": 472,
+     "h": 61,
+     "text": "Receive enquiry"
+    }
+   ],
+   "stem": 0.086,
+   "bold": false,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 1453,
+   "y": 1118,
+   "w": 516,
+   "h": 411,
+   "area": 196058,
+   "fill": 0.924,
+   "solid": 1.0,
+   "rx": 0,
+   "ry": 0,
+   "shape": "rect",
+   "stroke": 9,
+   "kind": "object",
+   "id": "n6",
+   "label": "Enquiry\nResponse",
+   "labelLines": [
+    {
+     "x": 1483,
+     "y": 1248,
+     "w": 280,
+     "h": 69,
+     "text": "Enquiry"
+    },
+    {
+     "x": 1487,
+     "y": 1340,
+     "w": 355,
+     "h": 68,
+     "text": "Response"
+    }
+   ],
+   "stem": 0.157,
+   "bold": true,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 134,
+   "y": 1217,
+   "w": 954,
+   "h": 181,
+   "area": 154639,
+   "fill": 0.896,
+   "solid": 0.972,
+   "rx": 80,
+   "ry": 69,
+   "shape": "rounded",
+   "stroke": 8,
+   "kind": "action",
+   "id": "n7",
+   "label": "Receive enquiry response",
+   "labelLines": [
+    {
+     "x": 232,
+     "y": 1288,
+     "w": 763,
+     "h": 62,
+     "text": "Receive enquiry response"
+    }
+   ],
+   "stem": 0.086,
+   "bold": false,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 2263,
+   "y": 1223,
+   "w": 1036,
+   "h": 189,
+   "area": 178070,
+   "fill": 0.909,
+   "solid": 0.973,
+   "rx": 79,
+   "ry": 77,
+   "shape": "rounded",
+   "stroke": 9,
+   "kind": "action",
+   "id": "n8",
+   "label": "Submit enquiry response",
+   "labelLines": [
+    {
+     "x": 2415,
+     "y": 1285,
+     "w": 732,
+     "h": 62,
+     "text": "Submit enquiry response"
+    }
+   ],
+   "stem": 0.086,
+   "bold": false,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 557,
+   "y": 1596,
+   "w": 108,
+   "h": 108,
+   "area": 6833,
+   "fill": 0.586,
+   "solid": 0.789,
+   "rx": 54,
+   "ry": 55,
+   "shape": "ellipse",
+   "stroke": 9,
+   "kind": "final",
+   "innerRatio": 0.5,
+   "id": "n9",
+   "label": "",
+   "col": 0,
+   "row": 0
+  }
+ ],
+ "edges": [
+  {
+   "from": "n1",
+   "to": "n2",
+   "routing": "straight",
+   "fromPoint": [
+    610,
+    295
+   ],
+   "toPoint": [
+    611,
+    379
+   ],
+   "arrowInk": [
+    974,
+    1119
+   ],
+   "directionConfidence": "notation",
+   "arrowPx": [
+    75,
+    67.7,
+    2.38
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n2",
+   "to": "n4",
+   "routing": "straight",
+   "fromPoint": [
+    611,
+    575
+   ],
+   "toPoint": [
+    611,
+    683
+   ],
+   "arrowInk": [
+    559,
+    1113
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    75,
+    66.0,
+    2.4
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n4",
+   "to": "n3",
+   "routing": "straight",
+   "fromPoint": [
+    1132,
+    780
+   ],
+   "toPoint": [
+    1438,
+    780
+   ],
+   "arrowInk": [
+    360,
+    1117
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    80,
+    66.0,
+    2.38
+   ],
+   "arrowFill": 0.048,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n3",
+   "to": "n5",
+   "routing": "straight",
+   "fromPoint": [
+    1983,
+    780
+   ],
+   "toPoint": [
+    2248,
+    782
+   ],
+   "arrowInk": [
+    360,
+    1123
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    80,
+    67.0,
+    2.21
+   ],
+   "arrowFill": 0.05,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n5",
+   "to": "n8",
+   "routing": "straight",
+   "fromPoint": [
+    2784,
+    890
+   ],
+   "toPoint": [
+    2784,
+    1208
+   ],
+   "arrowInk": [
+    360,
+    1113
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    80,
+    66.0,
+    2.39
+   ],
+   "arrowFill": 0.048,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n6",
+   "to": "n7",
+   "routing": "straight",
+   "fromPoint": [
+    1438,
+    1324
+   ],
+   "toPoint": [
+    1102,
+    1322
+   ],
+   "arrowInk": [
+    414,
+    1041
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    85,
+    67.1,
+    2.64
+   ],
+   "arrowFill": 0.003,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n8",
+   "to": "n6",
+   "routing": "straight",
+   "fromPoint": [
+    2248,
+    1322
+   ],
+   "toPoint": [
+    1983,
+    1324
+   ],
+   "arrowInk": [
+    414,
+    1119
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    80,
+    66.9,
+    2.31
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n7",
+   "to": "n9",
+   "routing": "straight",
+   "fromPoint": [
+    611,
+    1412
+   ],
+   "toPoint": [
+    611,
+    1581
+   ],
+   "arrowInk": [
+    360,
+    1116
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    81,
+    66.0,
+    2.39
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "control"
+  }
+ ],
+ "text": [
+  {
+   "text": "RESPONDER",
+   "x": 2385,
+   "y": 40,
+   "w": 403,
+   "h": 54,
+   "lines": [
+    {
+     "x": 2385,
+     "y": 40,
+     "w": 403,
+     "h": 54,
+     "text": "RESPONDER"
+    }
+   ]
+  },
+  {
+   "text": "REQUESTER",
+   "x": 608,
+   "y": 48,
+   "w": 388,
+   "h": 61,
+   "lines": [
+    {
+     "x": 608,
+     "y": 48,
+     "w": 388,
+     "h": 61,
+     "text": "REQUESTER"
+    }
+   ]
+  }
+ ],
+ "uncertain": [
+  {
+   "x": 1709,
+   "y": 785,
+   "w": 1071,
+   "h": 534,
+   "shape": "ellipse",
+   "iou": 0.735,
+   "border": 0.446,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best ellipse 0.73, and 0.99 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "kind": "no-weight-split",
+   "reason": "all 7 box strokes are one weight ([8, 9]), so no object node could be identified",
+   "check": "confirm the diagram really has no object nodes"
+  },
+  {
+   "kind": "edge-direction",
+   "reason": "arrowhead ink is ambiguous where several connectors meet",
+   "edge": [
+    "n1",
+    "n2"
+   ],
+   "check": "confirm which way this edge points"
+  }
+ ]
+}

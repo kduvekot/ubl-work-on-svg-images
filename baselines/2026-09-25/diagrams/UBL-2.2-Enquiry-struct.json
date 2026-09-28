@@ -1,0 +1,287 @@
+{
+ "name": "UBL-2.2-Enquiry.png",
+ "verdict": "needs-human",
+ "radius": 3,
+ "lineWorkInk": 278408,
+ "missingPx": 2254,
+ "inventedPx": 2579,
+ "structural": {
+  "absent": 0,
+  "invented": 0,
+  "coherence": 0,
+  "textAbsent": 0,
+  "textDiffers": 0
+ },
+ "blocking": [],
+ "findings": [
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n5 (action 'Receive enquiry')",
+   "x": 2522,
+   "y": 749,
+   "w": 34,
+   "h": 47,
+   "area": 183
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n5 (action 'Receive enquiry')",
+   "x": 2537,
+   "y": 766,
+   "w": 18,
+   "h": 10,
+   "area": 105
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n4 (action 'Submit enquiry')",
+   "x": 393,
+   "y": 756,
+   "w": 29,
+   "h": 13,
+   "area": 101
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n5 (action 'Receive enquiry')",
+   "x": 2568,
+   "y": 761,
+   "w": 24,
+   "h": 26,
+   "area": 92
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n4 (action 'Submit enquiry')",
+   "x": 404,
+   "y": 796,
+   "w": 18,
+   "h": 8,
+   "area": 72
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n5 (action 'Receive enquiry')",
+   "x": 2605,
+   "y": 761,
+   "w": 24,
+   "h": 15,
+   "area": 69
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n5 (action 'Receive enquiry')",
+   "x": 2620,
+   "y": 784,
+   "w": 15,
+   "h": 12,
+   "area": 64
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n5 (action 'Receive enquiry')",
+   "x": 2639,
+   "y": 761,
+   "w": 24,
+   "h": 12,
+   "area": 62
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n4 (action 'Submit enquiry')",
+   "x": 398,
+   "y": 796,
+   "w": 34,
+   "h": 16,
+   "area": 138
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n5 (action 'Receive enquiry')",
+   "x": 2527,
+   "y": 778,
+   "w": 16,
+   "h": 26,
+   "area": 132
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n5 (action 'Receive enquiry')",
+   "x": 2577,
+   "y": 795,
+   "w": 25,
+   "h": 9,
+   "area": 96
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n5 (action 'Receive enquiry')",
+   "x": 2647,
+   "y": 795,
+   "w": 24,
+   "h": 9,
+   "area": 93
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n5 (action 'Receive enquiry')",
+   "x": 2613,
+   "y": 793,
+   "w": 24,
+   "h": 11,
+   "area": 91
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n5 (action 'Receive enquiry')",
+   "x": 2731,
+   "y": 796,
+   "w": 25,
+   "h": 8,
+   "area": 88
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n5 (action 'Receive enquiry')",
+   "x": 2785,
+   "y": 796,
+   "w": 25,
+   "h": 8,
+   "area": 85
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n4 (action 'Submit enquiry')",
+   "x": 622,
+   "y": 804,
+   "w": 25,
+   "h": 8,
+   "area": 85
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n4 (action 'Submit enquiry')",
+   "x": 484,
+   "y": 800,
+   "w": 21,
+   "h": 12,
+   "area": 84
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n5 (action 'Receive enquiry')",
+   "x": 2531,
+   "y": 757,
+   "w": 18,
+   "h": 10,
+   "area": 68
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n5 (action 'Receive enquiry')",
+   "x": 2893,
+   "y": 798,
+   "w": 20,
+   "h": 6,
+   "area": 65
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n4 (action 'Submit enquiry')",
+   "x": 441,
+   "y": 807,
+   "w": 19,
+   "h": 5,
+   "area": 65
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n4 (action 'Submit enquiry')",
+   "x": 731,
+   "y": 807,
+   "w": 20,
+   "h": 5,
+   "area": 65
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n5 (action 'Receive enquiry')",
+   "x": 2856,
+   "y": 797,
+   "w": 18,
+   "h": 7,
+   "area": 63
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n5 (action 'Receive enquiry')",
+   "x": 2702,
+   "y": 785,
+   "w": 14,
+   "h": 19,
+   "area": 62
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n4 (action 'Submit enquiry')",
+   "x": 694,
+   "y": 806,
+   "w": 17,
+   "h": 6,
+   "area": 61
+  }
+ ],
+ "text": [],
+ "coherence": [],
+ "human": [
+  {
+   "x": 1709,
+   "y": 785,
+   "w": 1071,
+   "h": 534,
+   "shape": "ellipse",
+   "iou": 0.735,
+   "border": 0.446,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best ellipse 0.73, and 0.99 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "kind": "no-weight-split",
+   "reason": "all 7 box strokes are one weight ([8, 9]), so no object node could be identified",
+   "check": "confirm the diagram really has no object nodes"
+  },
+  {
+   "kind": "edge-direction",
+   "reason": "arrowhead ink is ambiguous where several connectors meet",
+   "edge": [
+    "n1",
+    "n2"
+   ],
+   "check": "confirm which way this edge points"
+  }
+ ],
+ "review": [
+  {
+   "n": 1,
+   "what": "check",
+   "where": "1709,785 1071x534",
+   "detail": "outline matches no UML node shape (best ellipse 0.73, and 0.99 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "n": 2,
+   "what": "check",
+   "where": "",
+   "detail": "all 7 box strokes are one weight ([8, 9]), so no object node could be identified",
+   "check": "confirm the diagram really has no object nodes"
+  },
+  {
+   "n": 3,
+   "what": "check",
+   "where": "",
+   "detail": "arrowhead ink is ambiguous where several connectors meet",
+   "check": "confirm which way this edge points"
+  }
+ ]
+}

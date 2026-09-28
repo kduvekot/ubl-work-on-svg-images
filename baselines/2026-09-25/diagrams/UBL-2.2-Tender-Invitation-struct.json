@@ -1,0 +1,129 @@
+{
+ "name": "UBL-2.2-Tender-Invitation.png",
+ "verdict": "needs-human",
+ "radius": 3,
+ "lineWorkInk": 294683,
+ "missingPx": 52,
+ "inventedPx": 293,
+ "structural": {
+  "absent": 0,
+  "invented": 0,
+  "coherence": 0,
+  "textAbsent": 0,
+  "textDiffers": 0
+ },
+ "blocking": [],
+ "findings": [
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n10 -> n9",
+   "x": 1397,
+   "y": 1023,
+   "w": 42,
+   "h": 20,
+   "area": 126
+  }
+ ],
+ "text": [],
+ "coherence": [],
+ "human": [
+  {
+   "kind": "sub-character-region",
+   "x": 388,
+   "y": 87,
+   "w": 36,
+   "h": 42,
+   "reason": "enclosed region smaller than one character of the diagram's type",
+   "check": "confirm this is glyph interior and not a node"
+  },
+  {
+   "kind": "sub-character-region",
+   "x": 1099,
+   "y": 87,
+   "w": 37,
+   "h": 42,
+   "reason": "enclosed region smaller than one character of the diagram's type",
+   "check": "confirm this is glyph interior and not a node"
+  },
+  {
+   "kind": "sub-character-region",
+   "x": 2225,
+   "y": 88,
+   "w": 36,
+   "h": 42,
+   "reason": "enclosed region smaller than one character of the diagram's type",
+   "check": "confirm this is glyph interior and not a node"
+  },
+  {
+   "kind": "sub-character-region",
+   "x": 2336,
+   "y": 88,
+   "w": 36,
+   "h": 42,
+   "reason": "enclosed region smaller than one character of the diagram's type",
+   "check": "confirm this is glyph interior and not a node"
+  },
+  {
+   "kind": "sub-character-region",
+   "x": 2550,
+   "y": 88,
+   "w": 36,
+   "h": 42,
+   "reason": "enclosed region smaller than one character of the diagram's type",
+   "check": "confirm this is glyph interior and not a node"
+  },
+  {
+   "kind": "sub-character-region",
+   "x": 2854,
+   "y": 88,
+   "w": 36,
+   "h": 42,
+   "reason": "enclosed region smaller than one character of the diagram's type",
+   "check": "confirm this is glyph interior and not a node"
+  }
+ ],
+ "review": [
+  {
+   "n": 1,
+   "what": "check",
+   "where": "388,87 36x42",
+   "detail": "enclosed region smaller than one character of the diagram's type",
+   "check": "confirm this is glyph interior and not a node"
+  },
+  {
+   "n": 2,
+   "what": "check",
+   "where": "1099,87 37x42",
+   "detail": "enclosed region smaller than one character of the diagram's type",
+   "check": "confirm this is glyph interior and not a node"
+  },
+  {
+   "n": 3,
+   "what": "check",
+   "where": "2225,88 36x42",
+   "detail": "enclosed region smaller than one character of the diagram's type",
+   "check": "confirm this is glyph interior and not a node"
+  },
+  {
+   "n": 4,
+   "what": "check",
+   "where": "2336,88 36x42",
+   "detail": "enclosed region smaller than one character of the diagram's type",
+   "check": "confirm this is glyph interior and not a node"
+  },
+  {
+   "n": 5,
+   "what": "check",
+   "where": "2550,88 36x42",
+   "detail": "enclosed region smaller than one character of the diagram's type",
+   "check": "confirm this is glyph interior and not a node"
+  },
+  {
+   "n": 6,
+   "what": "check",
+   "where": "2854,88 36x42",
+   "detail": "enclosed region smaller than one character of the diagram's type",
+   "check": "confirm this is glyph interior and not a node"
+  }
+ ]
+}

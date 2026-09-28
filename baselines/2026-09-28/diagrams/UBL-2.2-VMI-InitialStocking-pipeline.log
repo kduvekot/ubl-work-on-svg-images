@@ -1,0 +1,11 @@
+== UBL-2.2-VMI-InitialStocking
+  UBL-2.2-VMI-InitialStocking -> diagram, layout, extraction  (18 nodes, 19 flows, 0 texts)
+  scale 0.43212   frame 10px  divider 4px  action 5px  object 9px
+  font 56px (24.1 model)   2 lanes, 0 bands, 18 nodes, 19 edges -> /tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-2.2-VMI-InitialStocking-spec.json
+  /tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-2.2-VMI-InitialStocking.svg + .drawio + -classified.svg   (18 nodes, 19 edges)
+  aligned on ink bounds: scale x 1.0000, y 1.0000
+  size 3425x3499  radius 2
+  ink: original 453439   candidate 470475
+  MISSING (red)     6505  = 1.4346% of original ink
+  EXTRA   (blue)    6400  = 1.4114% of original ink
+  RESULT: DIFFERENCES - inspect /tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-2.2-VMI-InitialStocking-diff-r2.png

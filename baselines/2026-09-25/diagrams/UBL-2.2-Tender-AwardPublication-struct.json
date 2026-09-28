@@ -1,0 +1,73 @@
+{
+ "name": "UBL-2.2-Tender-AwardPublication.png",
+ "verdict": "needs-human",
+ "radius": 3,
+ "lineWorkInk": 350745,
+ "missingPx": 202,
+ "inventedPx": 336,
+ "structural": {
+  "absent": 0,
+  "invented": 0,
+  "coherence": 0,
+  "textAbsent": 0,
+  "textDiffers": 0
+ },
+ "blocking": [],
+ "findings": [
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n6 -> n2",
+   "x": 2901,
+   "y": 1176,
+   "w": 2,
+   "h": 50,
+   "area": 100
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n7 -> n8",
+   "x": 2728,
+   "y": 1923,
+   "w": 14,
+   "h": 29,
+   "area": 70
+  }
+ ],
+ "text": [],
+ "coherence": [],
+ "human": [
+  {
+   "x": 678,
+   "y": 572,
+   "w": 917,
+   "h": 367,
+   "shape": "ellipse",
+   "iou": 0.603,
+   "border": 0.571,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best ellipse 0.60, and 0.99 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "kind": "no-weight-split",
+   "reason": "all 5 box strokes are one weight ([11, 12]), so no object node could be identified",
+   "check": "confirm the diagram really has no object nodes"
+  }
+ ],
+ "review": [
+  {
+   "n": 1,
+   "what": "check",
+   "where": "678,572 917x367",
+   "detail": "outline matches no UML node shape (best ellipse 0.60, and 0.99 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "n": 2,
+   "what": "check",
+   "where": "",
+   "detail": "all 5 box strokes are one weight ([11, 12]), so no object node could be identified",
+   "check": "confirm the diagram really has no object nodes"
+  }
+ ]
+}

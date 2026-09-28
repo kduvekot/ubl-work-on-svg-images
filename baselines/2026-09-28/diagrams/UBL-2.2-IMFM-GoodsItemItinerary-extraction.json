@@ -1,0 +1,628 @@
+{
+ "schema": "ubl-activity-diagram-extraction/1",
+ "figure": "UBL-2.2-IMFM-GoodsItemItinerary",
+ "nodes": {
+  "initial-transport-service-provider": {
+   "area": 9510,
+   "fill": 0.772
+  },
+  "object-goods-item-itinerary": {
+   "area": 137157,
+   "fill": 0.934,
+   "solid": 1.0,
+   "stem": 0.13
+  },
+  "action-send-goods-item-itinerary": {
+   "area": 153769,
+   "fill": 0.89,
+   "solid": 0.963,
+   "stem": 0.13
+  },
+  "action-receive-goods-item-itinerary": {
+   "area": 147936,
+   "fill": 0.88,
+   "solid": 0.962,
+   "stem": 0.13
+  },
+  "initial-transport-service-provider-2": {
+   "area": 9478,
+   "fill": 0.776
+  },
+  "final-transport-user": {
+   "area": 6783,
+   "fill": 0.639,
+   "solid": 0.796
+  }
+ },
+ "flows": {
+  "flow-initial-transport-service-provider-to-send-goods-item-itinerary": {
+   "arrowInk": [
+    315,
+    968
+   ],
+   "arrowPx": [
+    79,
+    66.6,
+    2.15
+   ],
+   "arrowFill": 0.067
+  },
+  "flow-send-goods-item-itinerary-to-goods-item-itinerary": {
+   "arrowInk": [
+    322,
+    772
+   ]
+  },
+  "flow-goods-item-itinerary-to-receive-goods-item-itinerary": {
+   "arrowInk": [
+    322,
+    884
+   ],
+   "arrowPx": [
+    85,
+    65.1,
+    2.7
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-initial-transport-service-provider-2-to-send-goods-item-itinerary": {
+   "arrowInk": [
+    277,
+    892
+   ],
+   "arrowPx": [
+    85,
+    66.6,
+    2.86
+   ],
+   "arrowFill": 0.004
+  },
+  "flow-receive-goods-item-itinerary-to-final-transport-user": {
+   "arrowInk": [
+    315,
+    955
+   ],
+   "arrowPx": [
+    80,
+    65.8,
+    2.18
+   ],
+   "arrowFill": 0.044
+  }
+ },
+ "offPage": {},
+ "marks": {},
+ "phases": {},
+ "greyRules": [],
+ "titleReadings": [
+  {
+   "position": 0,
+   "text": "Transport Service Provider",
+   "x": 2092,
+   "y": 57,
+   "w": 687,
+   "h": 54,
+   "lines": [
+    {
+     "x": 2092,
+     "y": 57,
+     "w": 687,
+     "h": 54,
+     "text": "Transport Service Provider"
+    }
+   ]
+  },
+  {
+   "position": 1,
+   "text": "Transport User",
+   "x": 550,
+   "y": 58,
+   "w": 384,
+   "h": 53,
+   "lines": [
+    {
+     "x": 550,
+     "y": 58,
+     "w": 384,
+     "h": 53,
+     "text": "Transport User"
+    }
+   ]
+  }
+ ],
+ "findings": [],
+ "uncertain": [
+  {
+   "kind": "unexplained-line-work",
+   "x": 2521,
+   "y": 360,
+   "w": 83,
+   "h": 146,
+   "reason": "line-work that is neither a connector between two nodes nor the size of text",
+   "check": "decide what this is; the SVG does not draw it"
+  }
+ ],
+ "present": [
+  "source",
+  "size",
+  "fontPx",
+  "arrowPx",
+  "arrowWidthPx",
+  "arrowStyle",
+  "rules",
+  "ruleSpan",
+  "greyRules",
+  "dashed",
+  "openEnds",
+  "crossMarks",
+  "partitions",
+  "nodes",
+  "edges",
+  "text",
+  "uncertain"
+ ],
+ "uncorrected": {
+  "model": {
+   "schema": "ubl-activity-diagram/1",
+   "figure": {
+    "name": "UBL-2.2-IMFM-GoodsItemItinerary",
+    "source": "UBL-2.2-IMFM-GoodsItemItinerary.png"
+   },
+   "lanes": [
+    {
+     "id": "lane0",
+     "axis": "column",
+     "index": 0,
+     "title": "Transport User"
+    },
+    {
+     "id": "lane1",
+     "axis": "column",
+     "index": 1,
+     "title": "Transport Service Provider"
+    },
+    {
+     "id": "lane2",
+     "axis": "band",
+     "index": 0,
+     "title": ""
+    }
+   ],
+   "nodes": [
+    {
+     "id": "n1",
+     "kind": "initial",
+     "label": "",
+     "lane": "lane1",
+     "band": "lane2"
+    },
+    {
+     "id": "n2",
+     "kind": "object",
+     "label": "Goods Item\nItinerary",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n3",
+     "kind": "action",
+     "label": "Send Goods Item Itinerary",
+     "lane": "lane1",
+     "band": "lane2"
+    },
+    {
+     "id": "n4",
+     "kind": "action",
+     "label": "Receive Goods Item\nItinerary",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n5",
+     "kind": "initial",
+     "label": "",
+     "lane": "lane1",
+     "band": "lane2"
+    },
+    {
+     "id": "n6",
+     "kind": "final",
+     "label": "",
+     "lane": "lane0",
+     "band": "lane2"
+    }
+   ],
+   "flows": [
+    {
+     "id": "f0",
+     "from": "n1",
+     "to": "n3",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f1",
+     "from": "n3",
+     "to": "n2",
+     "kind": "object",
+     "direction": {
+      "confidence": "medium",
+      "checked": "confirmed"
+     }
+    },
+    {
+     "id": "f2",
+     "from": "n2",
+     "to": "n4",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f3",
+     "from": "n5",
+     "to": "n3",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f4",
+     "from": "n4",
+     "to": "n6",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    }
+   ],
+   "texts": [
+    {
+     "id": "t2",
+     "text": "Transport Execution\nPlan Confirmed"
+    },
+    {
+     "id": "t3",
+     "text": "Transport\nExecution\nUpdates"
+    }
+   ],
+   "offPage": [],
+   "marks": [],
+   "phases": []
+  },
+  "layout": {
+   "schema": "ubl-activity-diagram-layout/1",
+   "figure": "UBL-2.2-IMFM-GoodsItemItinerary",
+   "units": "px of the original PNG",
+   "size": [
+    3425,
+    1258
+   ],
+   "style": {
+    "fontPx": 61.4,
+    "arrowPx": 82.5,
+    "arrowWidthPx": 66.2,
+    "arrowStyle": "open"
+   },
+   "rules": {
+    "vertical": [
+     {
+      "at": 0,
+      "width": 10,
+      "span": [
+       13,
+       1244
+      ]
+     },
+     {
+      "at": 1504,
+      "width": 7,
+      "span": [
+       13,
+       1244
+      ]
+     },
+     {
+      "at": 3415,
+      "width": 10,
+      "span": [
+       13,
+       1244
+      ]
+     }
+    ],
+    "horizontal": [
+     {
+      "at": 0,
+      "width": 10,
+      "span": [
+       13,
+       3411
+      ]
+     },
+     {
+      "at": 1248,
+      "width": 10,
+      "span": [
+       13,
+       3411
+      ]
+     }
+    ]
+   },
+   "greyRules": [],
+   "lanes": {
+    "lane0": {
+     "x0": 0,
+     "x1": 1508,
+     "titleBox": [
+      550,
+      58,
+      384,
+      53
+     ]
+    },
+    "lane1": {
+     "x0": 1508,
+     "x1": 3425,
+     "titleBox": [
+      2092,
+      57,
+      687,
+      54
+     ]
+    },
+    "lane2": {
+     "y0": 0,
+     "y1": 1258
+    }
+   },
+   "nodes": {
+    "n1": {
+     "x": 2441,
+     "y": 184,
+     "w": 117,
+     "h": 117
+    },
+    "n2": {
+     "x": 1201,
+     "y": 575,
+     "w": 607,
+     "h": 242,
+     "shape": "rect",
+     "stroke": 12,
+     "rx": 2,
+     "ry": 2,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 1353,
+       "y": 631,
+       "w": 311,
+       "h": 44,
+       "text": "Goods Item"
+      },
+      {
+       "x": 1390,
+       "y": 696,
+       "w": 228,
+       "h": 54,
+       "text": "Itinerary"
+      }
+     ]
+    },
+    "n3": {
+     "x": 2136,
+     "y": 578,
+     "w": 768,
+     "h": 225,
+     "shape": "rounded",
+     "stroke": 6,
+     "rx": 85,
+     "ry": 88,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 2166,
+       "y": 663,
+       "w": 716,
+       "h": 55,
+       "text": "Send Goods Item Itinerary"
+      }
+     ]
+    },
+    "n4": {
+     "x": 88,
+     "y": 584,
+     "w": 768,
+     "h": 219,
+     "shape": "rounded",
+     "stroke": 7,
+     "rx": 85,
+     "ry": 91,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 181,
+       "y": 637,
+       "w": 545,
+       "h": 44,
+       "text": "Receive Goods Item"
+      },
+      {
+       "x": 361,
+       "y": 713,
+       "w": 221,
+       "h": 54,
+       "text": "Itinerary"
+      }
+     ]
+    },
+    "n5": {
+     "x": 3205,
+     "y": 653,
+     "w": 117,
+     "h": 116
+    },
+    "n6": {
+     "x": 377,
+     "y": 1082,
+     "w": 103,
+     "h": 103,
+     "shape": "ellipse",
+     "stroke": 6,
+     "rx": 47,
+     "ry": 53,
+     "innerRatio": 0.447
+    }
+   },
+   "flows": {
+    "f0": {
+     "fromPoint": [
+      2499,
+      315
+     ],
+     "toPoint": [
+      2505,
+      563
+     ],
+     "routing": "straight"
+    },
+    "f1": {
+     "fromPoint": [
+      2121,
+      690
+     ],
+     "toPoint": [
+      1822,
+      690
+     ],
+     "routing": "straight"
+    },
+    "f2": {
+     "fromPoint": [
+      1186,
+      697
+     ],
+     "toPoint": [
+      870,
+      695
+     ],
+     "routing": "straight"
+    },
+    "f3": {
+     "fromPoint": [
+      3190,
+      709
+     ],
+     "toPoint": [
+      2918,
+      701
+     ],
+     "routing": "straight"
+    },
+    "f4": {
+     "fromPoint": [
+      433,
+      817
+     ],
+     "toPoint": [
+      429,
+      1067
+     ],
+     "routing": "straight"
+    }
+   },
+   "texts": {
+    "t2": {
+     "x": 2554,
+     "y": 360,
+     "w": 508,
+     "h": 118,
+     "lines": [
+      {
+       "x": 2551,
+       "y": 360,
+       "w": 511,
+       "h": 54,
+       "text": "Transport Execution"
+      },
+      {
+       "x": 2554,
+       "y": 435,
+       "w": 390,
+       "h": 43,
+       "text": "Plan Confirmed"
+      }
+     ]
+    },
+    "t3": {
+     "x": 3095,
+     "y": 811,
+     "w": 248,
+     "h": 203,
+     "lines": [
+      {
+       "x": 3095,
+       "y": 811,
+       "w": 245,
+       "h": 53,
+       "text": "Transport"
+      },
+      {
+       "x": 3098,
+       "y": 886,
+       "w": 245,
+       "h": 42,
+       "text": "Execution"
+      },
+      {
+       "x": 3098,
+       "y": 961,
+       "w": 208,
+       "h": 53,
+       "text": "Updates"
+      }
+     ]
+    }
+   },
+   "offPage": {},
+   "marks": {},
+   "phases": {},
+   "rulesHaveSpans": {
+    "vertical": true,
+    "horizontal": true
+   }
+  }
+ },
+ "corrections": [
+  "q13-31",
+  "q13-32",
+  "start-02",
+  "start-03"
+ ],
+ "documentLanes": {
+  "object-goods-item-itinerary": "lane-transport-user"
+ },
+ "formerIds": {
+  "lane-transport-user": "lane0",
+  "lane-transport-service-provider": "lane1",
+  "initial-transport-service-provider": "n1",
+  "object-goods-item-itinerary": "n2",
+  "action-send-goods-item-itinerary": "n3",
+  "action-receive-goods-item-itinerary": "n4",
+  "initial-transport-service-provider-2": "n5",
+  "final-transport-user": "n6",
+  "flow-initial-transport-service-provider-to-send-goods-item-itinerary": "f0",
+  "flow-send-goods-item-itinerary-to-goods-item-itinerary": "f1",
+  "flow-goods-item-itinerary-to-receive-goods-item-itinerary": "f2",
+  "flow-initial-transport-service-provider-2-to-send-goods-item-itinerary": "f3",
+  "flow-receive-goods-item-itinerary-to-final-transport-user": "f4",
+  "text-transport-execution-plan-confirmed": "t2",
+  "text-transport-execution-updates": "t3"
+ }
+}

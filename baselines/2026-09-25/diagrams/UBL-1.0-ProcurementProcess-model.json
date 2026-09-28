@@ -1,0 +1,151 @@
+{
+ "name": "UBL-1.0-ProcurementProcess",
+ "counts": {
+  "action": 18,
+  "object": 9,
+  "decision": 4,
+  "fork": 2,
+  "final": 1
+ },
+ "flow": [
+  "place order   [Buyer]",
+  "[Order]   [Buyer / Seller]",
+  "receive order   [Seller]",
+  "<?>   [Seller]",
+  "  -Seller-> reject order   [Seller]",
+  "  -> [OrderResponseSimple]   [Seller]",
+  "  -> receive response   [Buyer]",
+  "    -> receive advice   [Buyer]",
+  "    -> reconcile invoice   [Buyer]",
+  "    -> (end)   [Buyer]",
+  "    -> <?>   [Buyer]",
+  "      -> cancel order   [Buyer]",
+  "      -> [OrderCancellation]   [Seller]",
+  "      -> cancel order   [Seller]",
+  "      -> change order   [Buyer]",
+  "        -> [OrderChange]   [Seller]",
+  "        -> change order   [Seller]",
+  "        -> receive advice   [Buyer]",
+  "  -> acd Cetail   [Seller]",
+  "    -> [OrderResponse (detailed)]   [Seller]",
+  "    -> receive response   [Buyer]",
+  "    -> <?>   [Seller]",
+  "      -> cancel order   [Seller]",
+  "      -> === bar ===   [Seller]",
+  "  -> change order   [Seller]",
+  "  -> accept order   [Seller]",
+  "    -> [OrderResponseSimple]   [Seller]",
+  "    -> receive response   [Buyer]",
+  "    -> <?>   [Seller]",
+  "      -> cancel order   [Seller]",
+  "      -> === bar ===   [Seller]",
+  "",
+  "Gespatch order Rens)   [Seller]",
+  "  -> === bar ===   [Seller]",
+  "  -> [DespatchAdvice]   [Seller]",
+  "    -> receive advice   [Buyer]",
+  "    -> recerve dOvVCE   [Delivery Recipient]",
+  "    -> recive goods   [Delivery Recipient]",
+  "    -> Sdvise receipt   [Delivery Recipient]",
+  "    -> [ReceiptAdvice]   [Buyer]",
+  "    -> deoson if Rem(s) rejected   [Seller]",
+  "    -> === bar ===   [Seller]",
+  "    -> fase wwoce   [Seller]",
+  "    -> [Invoice]   [Buyer]",
+  "    -> reconcile invoice   [Buyer]",
+  "  -> === bar ===   [Seller]",
+  ""
+ ],
+ "checks": [
+  {
+   "rule": "every element is connected",
+   "ok": true,
+   "bad": [],
+   "note": "",
+   "report": false
+  },
+  {
+   "rule": "start events have a way out and no way in",
+   "ok": true,
+   "bad": [],
+   "note": "",
+   "report": false
+  },
+  {
+   "rule": "end events have a way in and no way out",
+   "ok": true,
+   "bad": [],
+   "note": "",
+   "report": false
+  },
+  {
+   "rule": "decisions have at least two ways out",
+   "ok": true,
+   "bad": [],
+   "note": "",
+   "report": false
+  },
+  {
+   "rule": "branches out of a decision are labelled",
+   "ok": true,
+   "bad": [
+    "<?> -> acd Cetail",
+    "<?> -> change order",
+    "<?> -> accept order",
+    "<?> -> cancel order",
+    "<?> -> change order",
+    "<?> -> cancel order",
+    "<?> -> === bar ===",
+    "<?> -> cancel order",
+    "<?> -> === bar ==="
+   ],
+   "note": "informational: several diagrams draw an unlabelled branch, so read these against the artwork rather than treating them as errors",
+   "report": true
+  },
+  {
+   "rule": "documents are both written and read",
+   "ok": true,
+   "bad": [],
+   "note": "",
+   "report": false
+  },
+  {
+   "rule": "no flow runs straight from one document to another",
+   "ok": true,
+   "bad": [],
+   "note": "",
+   "report": false
+  },
+  {
+   "rule": "work crossing between parties goes through a document",
+   "ok": true,
+   "bad": [],
+   "note": "informational: UBL draws the hand-over as a document on the divider, and each exception below is named",
+   "report": true
+  },
+  {
+   "rule": "every flow's direction was read with confidence",
+   "ok": true,
+   "bad": [],
+   "note": "",
+   "report": false
+  },
+  {
+   "rule": "every action passes its work on",
+   "ok": true,
+   "bad": [
+    "change order",
+    "cancel order"
+   ],
+   "note": "informational: several diagrams do end on an action, so read these against the artwork rather than treating them as errors",
+   "report": true
+  },
+  {
+   "rule": "every element is reachable from a start event",
+   "ok": true,
+   "bad": [],
+   "note": "skipped: this diagram has no start event and no flow arriving from off the page",
+   "report": false
+  }
+ ]
+}

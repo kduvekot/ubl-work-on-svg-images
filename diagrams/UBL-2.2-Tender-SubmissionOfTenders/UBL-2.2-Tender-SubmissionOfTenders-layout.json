@@ -1,0 +1,357 @@
+{
+ "schema": "ubl-activity-diagram-layout/1",
+ "figure": "UBL-2.2-Tender-SubmissionOfTenders",
+ "units": "px of the original PNG",
+ "size": [
+  3425,
+  2135
+ ],
+ "style": {
+  "fontPx": 77.1,
+  "arrowPx": 66.0,
+  "arrowWidthPx": 68.6,
+  "arrowStyle": "open"
+ },
+ "rules": {
+  "vertical": [
+   {
+    "at": 0,
+    "width": 10,
+    "span": [
+     13,
+     2121
+    ]
+   },
+   {
+    "at": 1791,
+    "width": 12,
+    "span": [
+     13,
+     2121
+    ]
+   },
+   {
+    "at": 3415,
+    "width": 10,
+    "span": [
+     13,
+     2121
+    ]
+   }
+  ],
+  "horizontal": [
+   {
+    "at": 0,
+    "width": 10,
+    "span": [
+     13,
+     3411
+    ]
+   },
+   {
+    "at": 2125,
+    "width": 10,
+    "span": [
+     13,
+     3411
+    ]
+   }
+  ]
+ },
+ "greyRules": [],
+ "lanes": {
+  "lane-tenderer": {
+   "x0": 0,
+   "x1": 1797,
+   "titleBox": [
+    704,
+    75,
+    407,
+    53
+   ],
+   "titleWords": "TENDERER"
+  },
+  "lane-contracting-authority": {
+   "x0": 1797,
+   "x1": 3425,
+   "titleBox": [
+    2117,
+    77,
+    996,
+    55
+   ],
+   "titleWords": "CONTRACTING AUTHORITY"
+  }
+ },
+ "nodes": {
+  "initial-tenderer": {
+   "x": 586,
+   "y": 218,
+   "w": 117,
+   "h": 117
+  },
+  "action-prepare-tender-documents": {
+   "x": 93,
+   "y": 491,
+   "w": 1104,
+   "h": 198,
+   "shape": "rounded",
+   "stroke": 12,
+   "rx": 97,
+   "ry": 103,
+   "bold": false,
+   "labelLines": [
+    {
+     "x": 197,
+     "y": 559,
+     "w": 876,
+     "h": 68,
+     "text": "Prepare tender documents"
+    }
+   ]
+  },
+  "object-tender": {
+   "x": 1592,
+   "y": 792,
+   "w": 377,
+   "h": 390,
+   "shape": "rect",
+   "stroke": 12,
+   "rx": 0,
+   "ry": 0,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 1670,
+     "y": 945,
+     "w": 218,
+     "h": 48,
+     "text": "Tender"
+    }
+   ]
+  },
+  "action-receive-tender-documents": {
+   "x": 2222,
+   "y": 885,
+   "w": 1109,
+   "h": 199,
+   "shape": "rounded",
+   "stroke": 12,
+   "rx": 102,
+   "ry": 99,
+   "bold": false,
+   "labelLines": [
+    {
+     "x": 2335,
+     "y": 953,
+     "w": 881,
+     "h": 55,
+     "text": "Receive tender documents"
+    }
+   ]
+  },
+  "action-submit-tender-documents": {
+   "x": 105,
+   "y": 899,
+   "w": 1080,
+   "h": 198,
+   "shape": "rounded",
+   "stroke": 12,
+   "rx": 98,
+   "ry": 96,
+   "bold": false,
+   "labelLines": [
+    {
+     "x": 217,
+     "y": 966,
+     "w": 846,
+     "h": 56,
+     "text": "Submit tender documents"
+    }
+   ]
+  },
+  "object-tender-receipt": {
+   "x": 1596,
+   "y": 1329,
+   "w": 348,
+   "h": 360,
+   "shape": "rect",
+   "stroke": 12,
+   "rx": 0,
+   "ry": 0,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 1658,
+     "y": 1433,
+     "w": 217,
+     "h": 48,
+     "text": "Tender"
+    },
+    {
+     "x": 1653,
+     "y": 1531,
+     "w": 238,
+     "h": 60,
+     "text": "Receipt"
+    }
+   ]
+  },
+  "action-submit-tender-receipt": {
+   "x": 2445,
+   "y": 1357,
+   "w": 664,
+   "h": 292,
+   "shape": "rounded",
+   "stroke": 12,
+   "rx": 107,
+   "ry": 106,
+   "bold": false,
+   "labelLines": [
+    {
+     "x": 2547,
+     "y": 1424,
+     "w": 462,
+     "h": 56,
+     "text": "Submit tender"
+    },
+    {
+     "x": 2698,
+     "y": 1519,
+     "w": 218,
+     "h": 68,
+     "text": "receipt"
+    }
+   ]
+  },
+  "action-receive-receipt": {
+   "x": 304,
+   "y": 1406,
+   "w": 682,
+   "h": 198,
+   "shape": "rounded",
+   "stroke": 12,
+   "rx": 94,
+   "ry": 97,
+   "bold": false,
+   "labelLines": [
+    {
+     "x": 407,
+     "y": 1474,
+     "w": 508,
+     "h": 68,
+     "text": "Receive receipt"
+    }
+   ]
+  },
+  "final-tenderer": {
+   "x": 563,
+   "y": 1887,
+   "w": 164,
+   "h": 163,
+   "shape": "rounded",
+   "stroke": 12,
+   "rx": 79,
+   "ry": 86,
+   "innerRatio": 0.707
+  }
+ },
+ "flows": {
+  "flow-initial-tenderer-to-prepare-tender-documents": {
+   "fromPoint": [
+    644,
+    349
+   ],
+   "toPoint": [
+    645,
+    476
+   ],
+   "routing": "straight"
+  },
+  "flow-prepare-tender-documents-to-submit-tender-documents": {
+   "fromPoint": [
+    645,
+    703
+   ],
+   "toPoint": [
+    645,
+    884
+   ],
+   "routing": "straight"
+  },
+  "flow-tender-to-receive-tender-documents": {
+   "fromPoint": [
+    1983,
+    987
+   ],
+   "toPoint": [
+    2207,
+    984
+   ],
+   "routing": "straight"
+  },
+  "flow-submit-tender-documents-to-tender": {
+   "fromPoint": [
+    1199,
+    998
+   ],
+   "toPoint": [
+    1577,
+    989
+   ],
+   "routing": "diagonal"
+  },
+  "flow-receive-tender-documents-to-submit-tender-receipt": {
+   "fromPoint": [
+    2776,
+    1098
+   ],
+   "toPoint": [
+    2777,
+    1342
+   ],
+   "routing": "straight"
+  },
+  "flow-tender-receipt-to-receive-receipt": {
+   "fromPoint": [
+    1581,
+    1508
+   ],
+   "toPoint": [
+    1000,
+    1505
+   ],
+   "routing": "straight"
+  },
+  "flow-submit-tender-receipt-to-tender-receipt": {
+   "fromPoint": [
+    2430,
+    1503
+   ],
+   "toPoint": [
+    1958,
+    1509
+   ],
+   "routing": "straight"
+  },
+  "flow-receive-receipt-to-final-tenderer": {
+   "fromPoint": [
+    645,
+    1618
+   ],
+   "toPoint": [
+    645,
+    1872
+   ],
+   "routing": "straight"
+  }
+ },
+ "texts": {},
+ "offPage": {},
+ "marks": {},
+ "phases": {},
+ "rulesHaveSpans": {
+  "vertical": true,
+  "horizontal": true
+ }
+}

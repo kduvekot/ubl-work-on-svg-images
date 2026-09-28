@@ -1,0 +1,11 @@
+== UBL-2.5-UtilityBillingProcess
+  scale 0.43212   frame 10px  divider 5px  action 5px  object 9px
+  font 43px (18.5 model)   2 lanes, 1 bands, 14 nodes, 14 edges -> review/baseline/UBL-2.5-UtilityBillingProcess-spec.json
+  review/baseline/UBL-2.5-UtilityBillingProcess.svg + .drawio + -classified.svg   (14 nodes, 14 edges)
+  rendered UBL-2.5-UtilityBillingProcess.svg -> UBL-2.5-UtilityBillingProcess-render.png @ 3425pxx1832, 600 dpi
+  aligned on ink bounds: scale x 1.0000, y 1.0000
+  size 3425x1832  radius 2
+  ink: original 304994   candidate 304275
+  MISSING (red)    19319  = 6.3342% of original ink
+  EXTRA   (blue)   14211  = 4.6594% of original ink
+  RESULT: DIFFERENCES - inspect review/baseline/UBL-2.5-UtilityBillingProcess-diff-r2.png

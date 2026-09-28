@@ -68,7 +68,7 @@ def ocr(bg, x, y, w, h, inset=0):
         return ""
     crop = bg.crop((x0, y0, x1, y1)).convert("L")
     crop = crop.resize((crop.width * 2, crop.height * 2), Image.LANCZOS)
-    t = pytesseract.image_to_string(crop, config="--psm 6")
+    t = ocr_cache.image_to_string(crop, config="--psm 6")
     # keep the line breaks: the artwork wraps its labels deliberately and a
     # single-line re-render would not sit where the original does
     return "\n".join(" ".join(l.split()) for l in t.splitlines() if l.strip())
@@ -121,6 +121,33 @@ def strip_strokes(s):
 
 
 _VERDICTS = None
+
+
+def title_is_bold(ink, x, y, w, h, sideways=False):
+    """Whether a lane or band title is set bold, measured off its own ink.
+
+    Weight is stem width against letter height: the middle of the runs of ink
+    across the words (along the line; down it for a title set sideways), over
+    the height of a letter. Measured over the 78 it comes out at 0.11 to 0.18
+    for regular type and 0.20 to 0.28 for bold, whatever the face - the Tender
+    capitals and Calibri-like titles of Digital Agreement included - so it is
+    read against the letters' own height, not the labels' type size. Too little
+    ink to be sure says nothing (None)."""
+    sub = ink[max(0, y):y + h, max(0, x):x + w]
+    if sideways:
+        sub = sub.T
+    lab, n = ndi.label(sub)
+    if n < 2:
+        return None
+    hs = [s[0].stop - s[0].start for s in ndi.find_objects(lab)]
+    cap = float(np.percentile(hs, 75))
+    runs = []
+    for row in sub:
+        idx = np.flatnonzero(np.diff(np.r_[0, row.view(np.int8), 0]))
+        runs.extend(idx[1::2] - idx[0::2])
+    if len(runs) < 20 or cap < 5:
+        return None
+    return float(np.median(runs)) / cap >= 0.19
 
 
 def apply_direction_verdicts(path, nodes, edges, uncertain):
@@ -361,7 +388,7 @@ def read_one_glyph(ink, box, font_px):
     canvas = np.zeros((h * scale + 2 * margin, w * scale + 2 * margin), bool)
     canvas[margin:margin + h * scale, margin:margin + w * scale] = big
     im = Image.fromarray(np.where(canvas, 0, 255).astype(np.uint8))
-    t = pytesseract.image_to_string(im, config="--psm 10").strip()
+    t = ocr_cache.image_to_string(im, config="--psm 10").strip()
     return t if len(t) == 1 and t.isalnum() else ""
 
 
@@ -461,8 +488,7 @@ def ocr_best_conf(bg, x, y, w, h, inset=0):
         return 0
     crop = bg.crop((x0, y0, x1, y1)).convert("L")
     crop = crop.resize((crop.width * 2, crop.height * 2), Image.LANCZOS)
-    d = pytesseract.image_to_data(crop, config="--psm 6",
-                                  output_type=pytesseract.Output.DICT)
+    d = ocr_cache.image_to_data(crop, config="--psm 6")
     best = [int(float(c)) for t, c in zip(d["text"], d["conf"]) if t.strip()]
     return max(best) if best else 0
 
@@ -497,7 +523,7 @@ def ocr_inside(bg, ink, n, pad=6):
     crop = np.where(m[y0:y1, x0:x1], crop, 255).astype(np.uint8)
     im = Image.fromarray(crop)
     im = im.resize((im.width * 3, im.height * 3), Image.LANCZOS)
-    t = pytesseract.image_to_string(im, config="--psm 6")
+    t = ocr_cache.image_to_string(im, config="--psm 6")
     return "\n".join(" ".join(l.split()) for l in t.splitlines() if l.strip())
 
 
@@ -4139,7 +4165,13 @@ def main(path, out_json=None):
             cx0, cx1 = int(vb[c]) + 6, int(vb[c + 1]) - 6
             cy0 = int(hr[0][0] + hr[0][1] + 4) if hr else 2      # below the frame
             cy1 = max(int(hb[r0]) - 4, cy0 + 1)
-            cell = ink[cy0:cy1, cx0:cx1]
+            cell = ink[cy0:cy1, cx0:cx1].copy()
+            # the frame or a rule running through the cell (the last column's
+            # cell takes in the right-hand frame where it is thick) is no part of
+            # the title: on IMFM and three Goods Item Passport figures it
+            # stretched the title's box to the frame
+            cell[:, cell.mean(axis=0) > 0.8] = False
+            cell[cell.mean(axis=1) > 0.8, :] = False
             if cell.any():
                 yy, xx = np.nonzero(cell)
                 box = dict(x=cx0 + int(xx.min()), y=cy0 + int(yy.min()),
@@ -4157,6 +4189,8 @@ def main(path, out_json=None):
                  x0=round(vb[c]), x1=round(vb[c + 1]), title=t)
         if box:
             g["titleBox"] = [box["x"], box["y"], box["w"], box["h"]]
+            if title_is_bold(ink, box["x"], box["y"], box["w"], box["h"]):
+                g["titleBold"] = True
         grid.append(g)
     for r in range(r0, len(hb) - 1):
         t = ""
@@ -4166,7 +4200,19 @@ def main(path, out_json=None):
             t = ocr(bg.crop((x0 + 4, y0 + 4, x0 + w0 - 4, y0 + h0 - 4)).rotate(-90, expand=True),
                     0, 0, h0 - 8, w0 - 8)
         t = re.sub(r"^[^0-9A-Za-z]+|[^0-9A-Za-z)\]]+$", "", t).strip()
-        grid.append(dict(axis="band", index=r - r0, y0=round(hb[r]), y1=round(hb[r + 1]), title=t))
+        g = dict(axis="band", index=r - r0, y0=round(hb[r]), y1=round(hb[r + 1]), title=t)
+        if t and strip:
+            # the words up the gutter, clear of the rules either side
+            gx0, gx1 = round(vb[c0 - 1]) + 6, round(vb[c0]) - 6
+            cell = ink[round(hb[r]) + 6:round(hb[r + 1]) - 6, gx0:gx1].copy()
+            cell[:, cell.mean(0) > 0.8] = False       # a rule running down the gutter
+            if cell.any():
+                yy, xx = np.nonzero(cell)
+                if title_is_bold(cell, int(xx.min()), int(yy.min()),
+                                 int(xx.max() - xx.min()) + 1, int(yy.max() - yy.min()) + 1,
+                                 sideways=True):
+                    g["titleBold"] = True
+        grid.append(g)
     for n in nodes:
         cx, cy = n["x"] + n["w"] / 2, n["y"] + n["h"] / 2
         n["col"] = sum(1 for b in vb[1:-1] if cx > b) - c0
@@ -4866,7 +4912,9 @@ def main(path, out_json=None):
         classify_edges(nodes, edges)
         apply_direction_verdicts(path, nodes, edges, uncertain)
 
-        json.dump(dict(source=path, size=[W, H], fontPx=font_px, arrowPx=arrow_px,
+        # the file name only: the art directory is wherever the caller keeps its
+        # clone, and an absolute path made every graph differ between machines
+        json.dump(dict(source=os.path.basename(path), size=[W, H], fontPx=font_px, arrowPx=arrow_px,
                        arrowWidthPx=round(arrow_w, 1), arrowStyle=arrow_fill,
                        rules=dict(v=vr, h=hr), ruleSpan=rule_span,
                        greyRules=greys, dashed=dboxes,

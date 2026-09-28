@@ -1,0 +1,886 @@
+{
+ "schema": "ubl-activity-diagram-extraction/1",
+ "figure": "UBL-2.0-PaymentNotificationProcess",
+ "nodes": {
+  "initial-accounting-customer": {
+   "area": 5070,
+   "fill": 0.773
+  },
+  "action-authorize-payment": {
+   "area": 60817,
+   "fill": 0.874,
+   "solid": 0.949,
+   "stem": 0.117
+  },
+  "object-remittance-advice-between-accounting-customer-and-accounting-supplier": {
+   "area": 68406,
+   "fill": 0.899,
+   "solid": 1.0,
+   "stem": 0.156
+  },
+  "action-receive-advice-in-accounting-supplier": {
+   "area": 64115,
+   "fill": 0.892,
+   "solid": 0.95,
+   "stem": 0.117
+  },
+  "action-notify-payee": {
+   "area": 69886,
+   "fill": 0.932,
+   "solid": 0.982,
+   "stem": 0.117
+  },
+  "action-notify-of-payment": {
+   "area": 58620,
+   "fill": 0.879,
+   "solid": 0.952,
+   "stem": 0.117
+  },
+  "object-remittance-advice-between-accounting-customer-and-accounting-supplier-and-payee-party": {
+   "area": 68238,
+   "fill": 0.898,
+   "solid": 1.0,
+   "stem": 0.136
+  },
+  "action-receive-advice-in-payee-party": {
+   "area": 66455,
+   "fill": 0.899,
+   "solid": 0.954,
+   "stem": 0.117
+  },
+  "final-payee-party": {
+   "area": 3803,
+   "fill": 0.633,
+   "solid": 0.789
+  }
+ },
+ "flows": {
+  "flow-initial-accounting-customer-to-authorize-payment": {
+   "arrowInk": [
+    225,
+    744
+   ],
+   "arrowPx": [
+    58,
+    48.5,
+    2.15
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-authorize-payment-to-notify-of-payment": {
+   "arrowInk": [
+    225,
+    740
+   ],
+   "arrowPx": [
+    59,
+    48.0,
+    2.23
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-remittance-advice-between-accounting-customer-and-accounting-supplier-to-receive-advice-in-accounting-supplier": {
+   "arrowInk": [
+    225,
+    738
+   ],
+   "arrowPx": [
+    60,
+    49.9,
+    2.12
+   ],
+   "arrowFill": 0.0,
+   "arrowSaturated": true
+  },
+  "flow-receive-advice-in-accounting-supplier-to-notify-payee": {
+   "arrowInk": [
+    225,
+    741
+   ],
+   "arrowPx": [
+    59,
+    48.0,
+    2.17
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-notify-of-payment-to-remittance-advice-between-accounting-customer-and-accounting-supplier": {
+   "arrowInk": [
+    278,
+    714
+   ],
+   "arrowPx": [
+    78,
+    52.7,
+    1.56
+   ],
+   "arrowFill": 0.078
+  },
+  "flow-notify-payee-to-remittance-advice-between-accounting-customer-and-accounting-supplier-and-payee-party": {
+   "arrowInk": [
+    296,
+    756
+   ],
+   "arrowPx": [
+    79,
+    53.7,
+    0.82
+   ],
+   "arrowFill": 0.149,
+   "arrowSaturated": true
+  },
+  "flow-notify-of-payment-to-remittance-advice-between-accounting-customer-and-accounting-supplier-and-payee-party": {
+   "arrowInk": [
+    233,
+    724
+   ],
+   "arrowPx": [
+    114,
+    56.0,
+    0.38
+   ],
+   "arrowFill": 0.139,
+   "arrowSaturated": true
+  },
+  "flow-remittance-advice-between-accounting-customer-and-accounting-supplier-and-payee-party-to-receive-advice-in-payee-party": {
+   "arrowInk": [
+    225,
+    732
+   ],
+   "arrowPx": [
+    58,
+    49.2,
+    2.05
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-receive-advice-in-payee-party-to-final-payee-party": {
+   "arrowInk": [
+    225,
+    749
+   ],
+   "arrowPx": [
+    59,
+    48.0,
+    2.16
+   ],
+   "arrowFill": 0.0
+  }
+ },
+ "offPage": {},
+ "marks": {},
+ "phases": {},
+ "greyRules": [],
+ "titleReadings": [
+  {
+   "position": 0,
+   "text": "Accounting Customer",
+   "x": 406,
+   "y": 24,
+   "w": 415,
+   "h": 40,
+   "lines": [
+    {
+     "x": 406,
+     "y": 24,
+     "w": 415,
+     "h": 40,
+     "text": "Accounting Customer"
+    }
+   ]
+  },
+  {
+   "position": 1,
+   "text": "Accounting Supplier",
+   "x": 1605,
+   "y": 24,
+   "w": 386,
+   "h": 40,
+   "lines": [
+    {
+     "x": 1605,
+     "y": 24,
+     "w": 386,
+     "h": 40,
+     "text": "Accounting Supplier"
+    }
+   ]
+  },
+  {
+   "position": 2,
+   "text": "Payee Party",
+   "x": 2781,
+   "y": 25,
+   "w": 231,
+   "h": 39,
+   "lines": [
+    {
+     "x": 2781,
+     "y": 25,
+     "w": 231,
+     "h": 39,
+     "text": "Payee Party"
+    }
+   ]
+  }
+ ],
+ "findings": [],
+ "uncertain": [
+  {
+   "kind": "empty-box",
+   "x": 1245,
+   "y": 1553,
+   "w": 1132,
+   "h": 550,
+   "reason": "a note carrying no text, with line-work passing its sides",
+   "check": "confirm nothing is drawn here in the original"
+  }
+ ],
+ "present": [
+  "source",
+  "size",
+  "fontPx",
+  "arrowPx",
+  "arrowWidthPx",
+  "arrowStyle",
+  "rules",
+  "ruleSpan",
+  "greyRules",
+  "dashed",
+  "openEnds",
+  "crossMarks",
+  "partitions",
+  "nodes",
+  "edges",
+  "text",
+  "uncertain"
+ ],
+ "uncorrected": {
+  "model": {
+   "schema": "ubl-activity-diagram/1",
+   "figure": {
+    "name": "UBL-2.0-PaymentNotificationProcess",
+    "source": "UBL-2.0-PaymentNotificationProcess.png"
+   },
+   "lanes": [
+    {
+     "id": "lane0",
+     "axis": "column",
+     "index": 0,
+     "title": "Accounting Customer"
+    },
+    {
+     "id": "lane1",
+     "axis": "column",
+     "index": 1,
+     "title": "Accounting Supplier"
+    },
+    {
+     "id": "lane2",
+     "axis": "column",
+     "index": 2,
+     "title": "Payee Party"
+    },
+    {
+     "id": "lane3",
+     "axis": "band",
+     "index": 0,
+     "title": ""
+    }
+   ],
+   "nodes": [
+    {
+     "id": "n1",
+     "kind": "initial",
+     "label": "",
+     "lane": "lane0",
+     "band": "lane3"
+    },
+    {
+     "id": "n2",
+     "kind": "action",
+     "label": "Authorize Payment",
+     "lane": "lane0",
+     "band": "lane3"
+    },
+    {
+     "id": "n3",
+     "kind": "object",
+     "label": "Remittance\nAdvice",
+     "lane": "lane0",
+     "band": "lane3"
+    },
+    {
+     "id": "n4",
+     "kind": "action",
+     "label": "Receive Advice",
+     "lane": "lane1",
+     "band": "lane3"
+    },
+    {
+     "id": "n5",
+     "kind": "action",
+     "label": "Notify Payee",
+     "lane": "lane1",
+     "band": "lane3"
+    },
+    {
+     "id": "n6",
+     "kind": "action",
+     "label": "Notify of Payment",
+     "lane": "lane0",
+     "band": "lane3"
+    },
+    {
+     "id": "n8",
+     "kind": "object",
+     "label": "Remittance\nAdvice",
+     "lane": "lane1",
+     "band": "lane3"
+    },
+    {
+     "id": "n9",
+     "kind": "action",
+     "label": "Receive advice",
+     "lane": "lane2",
+     "band": "lane3"
+    },
+    {
+     "id": "n10",
+     "kind": "final",
+     "label": "",
+     "lane": "lane2",
+     "band": "lane3"
+    }
+   ],
+   "flows": [
+    {
+     "id": "f0",
+     "from": "n1",
+     "to": "n2",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f1",
+     "from": "n2",
+     "to": "n6",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f2",
+     "from": "n3",
+     "to": "n4",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f3",
+     "from": "n4",
+     "to": "n5",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f4",
+     "from": "n6",
+     "to": "n3",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f5",
+     "from": "n5",
+     "to": "n8",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f6",
+     "from": "n6",
+     "to": "n8",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f7",
+     "from": "n8",
+     "to": "n9",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f8",
+     "from": "n9",
+     "to": "n10",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    }
+   ],
+   "texts": [
+    {
+     "id": "t3",
+     "text": "From Billing"
+    }
+   ],
+   "offPage": [],
+   "marks": [],
+   "phases": []
+  },
+  "layout": {
+   "schema": "ubl-activity-diagram-layout/1",
+   "figure": "UBL-2.0-PaymentNotificationProcess",
+   "units": "px of the original PNG",
+   "size": [
+    3425,
+    2113
+   ],
+   "style": {
+    "fontPx": 51.4,
+    "arrowPx": 59.0,
+    "arrowWidthPx": 48.2,
+    "arrowStyle": "open"
+   },
+   "rules": {
+    "vertical": [
+     {
+      "at": 0,
+      "width": 10,
+      "span": [
+       13,
+       2099
+      ]
+     },
+     {
+      "at": 1240,
+      "width": 5,
+      "span": [
+       13,
+       2099
+      ]
+     },
+     {
+      "at": 2377,
+      "width": 5,
+      "span": [
+       13,
+       2099
+      ]
+     },
+     {
+      "at": 3415,
+      "width": 10,
+      "span": [
+       13,
+       2099
+      ]
+     }
+    ],
+    "horizontal": [
+     {
+      "at": 0,
+      "width": 10,
+      "span": [
+       13,
+       3411
+      ]
+     },
+     {
+      "at": 2103,
+      "width": 10,
+      "span": [
+       13,
+       3411
+      ]
+     }
+    ]
+   },
+   "greyRules": [],
+   "lanes": {
+    "lane0": {
+     "x0": 0,
+     "x1": 1242,
+     "titleBox": [
+      406,
+      24,
+      415,
+      40
+     ]
+    },
+    "lane1": {
+     "x0": 1242,
+     "x1": 2380,
+     "titleBox": [
+      1605,
+      24,
+      386,
+      40
+     ]
+    },
+    "lane2": {
+     "x0": 2380,
+     "x1": 3425,
+     "titleBox": [
+      2781,
+      25,
+      231,
+      39
+     ]
+    },
+    "lane3": {
+     "y0": 0,
+     "y1": 2113
+    }
+   },
+   "nodes": {
+    "n1": {
+     "x": 387,
+     "y": 157,
+     "w": 87,
+     "h": 87
+    },
+    "n2": {
+     "x": 145,
+     "y": 460,
+     "w": 575,
+     "h": 121,
+     "shape": "rounded",
+     "stroke": 5,
+     "rx": 57.5,
+     "ry": 61.0,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 238,
+       "y": 501,
+       "w": 392,
+       "h": 40,
+       "text": "Authorize Payment"
+      }
+     ]
+    },
+    "n3": {
+     "x": 1026,
+     "y": 778,
+     "w": 375,
+     "h": 203,
+     "shape": "rect",
+     "stroke": 9,
+     "rx": 0,
+     "ry": 0,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 1068,
+       "y": 822,
+       "w": 277,
+       "h": 39,
+       "text": "Remittance"
+      },
+      {
+       "x": 1129,
+       "y": 887,
+       "w": 171,
+       "h": 39,
+       "text": "Advice"
+      }
+     ]
+    },
+    "n4": {
+     "x": 1534,
+     "y": 819,
+     "w": 575,
+     "h": 125,
+     "shape": "rounded",
+     "stroke": 5,
+     "rx": 63,
+     "ry": 61.0,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 1656,
+       "y": 859,
+       "w": 312,
+       "h": 32,
+       "text": "Receive Advice"
+      }
+     ]
+    },
+    "n5": {
+     "x": 1564,
+     "y": 1105,
+     "w": 528,
+     "h": 142,
+     "shape": "rounded",
+     "stroke": 5,
+     "rx": 41,
+     "ry": 43,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 1703,
+       "y": 1161,
+       "w": 255,
+       "h": 42,
+       "text": "Notify Payee"
+      }
+     ]
+    },
+    "n6": {
+     "x": 171,
+     "y": 1387,
+     "w": 575,
+     "h": 116,
+     "shape": "rounded",
+     "stroke": 6,
+     "rx": 57,
+     "ry": 61,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 280,
+       "y": 1425,
+       "w": 365,
+       "h": 42,
+       "text": "Notify of Payment"
+      }
+     ]
+    },
+    "n8": {
+     "x": 2185,
+     "y": 1605,
+     "w": 376,
+     "h": 202,
+     "shape": "rect",
+     "stroke": 9,
+     "rx": 0,
+     "ry": 0,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 2227,
+       "y": 1649,
+       "w": 277,
+       "h": 38,
+       "text": "Remittance"
+      },
+      {
+       "x": 2289,
+       "y": 1714,
+       "w": 171,
+       "h": 38,
+       "text": "Advice"
+      }
+     ]
+    },
+    "n9": {
+     "x": 2810,
+     "y": 1638,
+     "w": 510,
+     "h": 145,
+     "shape": "rounded",
+     "stroke": 5,
+     "rx": 58,
+     "ry": 66,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 2902,
+       "y": 1689,
+       "w": 305,
+       "h": 32,
+       "text": "Receive advice"
+      }
+     ]
+    },
+    "n10": {
+     "x": 3027,
+     "y": 1961,
+     "w": 77,
+     "h": 78,
+     "shape": "ellipse",
+     "stroke": 5,
+     "rx": 40,
+     "ry": 34,
+     "innerRatio": 0.442
+    }
+   },
+   "flows": {
+    "f0": {
+     "fromPoint": [
+      431,
+      258
+     ],
+     "toPoint": [
+      432,
+      445
+     ],
+     "routing": "straight"
+    },
+    "f1": {
+     "fromPoint": [
+      458,
+      595
+     ],
+     "toPoint": [
+      458,
+      1372
+     ],
+     "routing": "straight"
+    },
+    "f2": {
+     "fromPoint": [
+      1415,
+      879
+     ],
+     "toPoint": [
+      1519,
+      881
+     ],
+     "routing": "straight"
+    },
+    "f3": {
+     "fromPoint": [
+      1830,
+      958
+     ],
+     "toPoint": [
+      1830,
+      1090
+     ],
+     "routing": "straight"
+    },
+    "f4": {
+     "fromPoint": [
+      548,
+      1372
+     ],
+     "toPoint": [
+      1066,
+      995
+     ],
+     "routing": "diagonal"
+    },
+    "f5": {
+     "fromPoint": [
+      2035,
+      1261
+     ],
+     "toPoint": [
+      2285,
+      1590
+     ],
+     "routing": "diagonal"
+    },
+    "f6": {
+     "fromPoint": [
+      760,
+      1483
+     ],
+     "toPoint": [
+      2170,
+      1681
+     ],
+     "routing": "diagonal"
+    },
+    "f7": {
+     "fromPoint": [
+      2575,
+      1707
+     ],
+     "toPoint": [
+      2795,
+      1709
+     ],
+     "routing": "straight"
+    },
+    "f8": {
+     "fromPoint": [
+      3067,
+      1797
+     ],
+     "toPoint": [
+      3067,
+      1946
+     ],
+     "routing": "straight"
+    }
+   },
+   "texts": {
+    "t3": {
+     "x": 523,
+     "y": 167,
+     "w": 222,
+     "h": 40,
+     "lines": [
+      {
+       "x": 523,
+       "y": 167,
+       "w": 222,
+       "h": 40,
+       "text": "From Billing"
+      }
+     ]
+    }
+   },
+   "offPage": {},
+   "marks": {},
+   "phases": {},
+   "rulesHaveSpans": {
+    "vertical": true,
+    "horizontal": true
+   }
+  }
+ },
+ "corrections": [
+  "q13-04",
+  "q13-05"
+ ],
+ "documentLanes": {
+  "object-remittance-advice-between-accounting-customer-and-accounting-supplier": "lane-accounting-customer",
+  "object-remittance-advice-between-accounting-customer-and-accounting-supplier-and-payee-party": "lane-accounting-supplier"
+ },
+ "formerIds": {
+  "lane-accounting-customer": "lane0",
+  "lane-accounting-supplier": "lane1",
+  "lane-payee-party": "lane2",
+  "initial-accounting-customer": "n1",
+  "action-authorize-payment": "n2",
+  "object-remittance-advice-between-accounting-customer-and-accounting-supplier": "n3",
+  "action-receive-advice-in-accounting-supplier": "n4",
+  "action-notify-payee": "n5",
+  "action-notify-of-payment": "n6",
+  "object-remittance-advice-between-accounting-customer-and-accounting-supplier-and-payee-party": "n8",
+  "action-receive-advice-in-payee-party": "n9",
+  "final-payee-party": "n10",
+  "flow-initial-accounting-customer-to-authorize-payment": "f0",
+  "flow-authorize-payment-to-notify-of-payment": "f1",
+  "flow-remittance-advice-between-accounting-customer-and-accounting-supplier-to-receive-advice-in-accounting-supplier": "f2",
+  "flow-receive-advice-in-accounting-supplier-to-notify-payee": "f3",
+  "flow-notify-of-payment-to-remittance-advice-between-accounting-customer-and-accounting-supplier": "f4",
+  "flow-notify-payee-to-remittance-advice-between-accounting-customer-and-accounting-supplier-and-payee-party": "f5",
+  "flow-notify-of-payment-to-remittance-advice-between-accounting-customer-and-accounting-supplier-and-payee-party": "f6",
+  "flow-remittance-advice-between-accounting-customer-and-accounting-supplier-and-payee-party-to-receive-advice-in-payee-party": "f7",
+  "flow-receive-advice-in-payee-party-to-final-payee-party": "f8",
+  "text-from-billing": "t3"
+ }
+}

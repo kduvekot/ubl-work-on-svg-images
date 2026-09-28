@@ -1,0 +1,11 @@
+== UBL-2.3-ExportCustomsDeclarationProcess
+  scale 1.29597   frame 5px  divider 2px  action 2px  object 3px
+  font 26px (33.3 model)   2 lanes, 2 bands, 12 nodes, 12 edges -> review/baseline/UBL-2.3-ExportCustomsDeclarationProcess-spec.json
+  review/baseline/UBL-2.3-ExportCustomsDeclarationProcess.svg + .drawio + -classified.svg   (12 nodes, 12 edges)
+  rendered UBL-2.3-ExportCustomsDeclarationProcess.svg -> UBL-2.3-ExportCustomsDeclarationProcess-render.png @ 1142pxx1057, 600 dpi
+  aligned on ink bounds: scale x 1.0000, y 1.0000
+  size 1142x1057  radius 2
+  ink: original 69098   candidate 67976
+  MISSING (red)      605  = 0.8756% of original ink
+  EXTRA   (blue)    1005  = 1.4545% of original ink
+  RESULT: DIFFERENCES - inspect review/baseline/UBL-2.3-ExportCustomsDeclarationProcess-diff-r2.png

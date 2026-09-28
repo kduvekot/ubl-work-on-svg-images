@@ -1,0 +1,723 @@
+{
+ "canvas": {
+  "w": 1480.0,
+  "h": 934.236
+ },
+ "stroke": {
+  "frame": 4.3,
+  "divider": 2.2,
+  "action": 1.7,
+  "object": 5.6,
+  "edge": 1.7
+ },
+ "font": {
+  "family": "Helvetica, Arial, sans-serif",
+  "node": 17.9,
+  "lane": 17.9,
+  "guard": 17.9
+ },
+ "arrow": 32.1,
+ "arrowWidth": 24.8,
+ "arrowStyle": "open",
+ "dashed": [],
+ "greyRules": [],
+ "crossMarks": [],
+ "openEnds": [],
+ "frameBox": [
+  2.2,
+  2.2,
+  1477.8,
+  932.1
+ ],
+ "dividers": [
+  [
+   683.8,
+   2.2,
+   5.6,
+   928.2
+  ]
+ ],
+ "bands": [],
+ "lanes": [
+  {
+   "title": "Accounting Customer",
+   "x": 0.0,
+   "w": 683.6,
+   "cx": 351.5,
+   "cy": 17.9
+  },
+  {
+   "title": "Accounting Supplier",
+   "x": 683.6,
+   "w": 796.4,
+   "cx": 1092.8,
+   "cy": 17.9
+  }
+ ],
+ "bandLabels": [],
+ "nodes": [
+  {
+   "id": "n1",
+   "kind": "initial",
+   "label": "",
+   "x": 133.5,
+   "y": 51.0,
+   "w": 37.2,
+   "h": 37.2
+  },
+  {
+   "id": "n2",
+   "kind": "object",
+   "label": "Self Billed Invoice",
+   "x": 609.5,
+   "y": 170.0,
+   "w": 168.1,
+   "h": 86.9,
+   "labelLines": [
+    {
+     "text": "Self Billed Invoice",
+     "cx": 692.5,
+     "cy": 211.7,
+     "w": 149.9
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n3",
+   "kind": "action",
+   "label": "Receive Self Billed\nInvoice",
+   "x": 1118.8,
+   "y": 182.8,
+   "w": 236.4,
+   "h": 66.5,
+   "rx": 25.5,
+   "ry": 25.9,
+   "labelLines": [
+    {
+     "text": "Receive Self Billed",
+     "cx": 1240.2,
+     "cy": 205.7,
+     "w": 135.7
+    },
+    {
+     "text": "Invoice",
+     "cx": 1237.4,
+     "cy": 223.4,
+     "w": 52.3
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n4",
+   "kind": "action",
+   "label": "Raise Self Billed Invoice",
+   "x": 33.7,
+   "y": 194.9,
+   "w": 236.4,
+   "h": 44.1,
+   "rx": 25.9,
+   "ry": 29.8,
+   "labelLines": [
+    {
+     "text": "Raise Self Billed Invoice",
+     "cx": 155.8,
+     "cy": 217.1,
+     "w": 175.9
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n5",
+   "kind": "decision",
+   "label": "Reconcile\nCharges",
+   "x": 1160.7,
+   "y": 421.3,
+   "w": 150.8,
+   "h": 98.1,
+   "labelLines": [
+    {
+     "text": "Reconcile",
+     "cx": 1234.8,
+     "cy": 462.8,
+     "w": 66.1
+    },
+    {
+     "text": "Charges",
+     "cx": 1228.9,
+     "cy": 481.8,
+     "w": 55.3
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "n6",
+   "kind": "action",
+   "label": "Receive Account\nResponse",
+   "x": 295.1,
+   "y": 433.4,
+   "w": 203.1,
+   "h": 68.7,
+   "rx": 26.8,
+   "ry": 29.8,
+   "labelLines": [
+    {
+     "text": "Receive Account",
+     "cx": 398.4,
+     "cy": 457.6,
+     "w": 123.6
+    },
+    {
+     "text": "Response",
+     "cx": 394.5,
+     "cy": 476.8,
+     "w": 70.0
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n7",
+   "kind": "object",
+   "label": "Application\nResponse",
+   "x": 609.5,
+   "y": 431.5,
+   "w": 157.3,
+   "h": 86.9,
+   "labelLines": [
+    {
+     "text": "Application",
+     "cx": 686.2,
+     "cy": 460.9,
+     "w": 95.9
+    },
+    {
+     "text": "Response",
+     "cx": 687.7,
+     "cy": 480.3,
+     "w": 83.4
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n8",
+   "kind": "action",
+   "label": "Send Account\nResponse",
+   "x": 825.3,
+   "y": 433.4,
+   "w": 165.9,
+   "h": 72.2,
+   "rx": 26.8,
+   "ry": 29.8,
+   "labelLines": [
+    {
+     "text": "Send Account",
+     "cx": 908.3,
+     "cy": 458.5,
+     "w": 94.2
+    },
+    {
+     "text": "Response",
+     "cx": 912.6,
+     "cy": 477.7,
+     "w": 70.0
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n9",
+   "kind": "final",
+   "label": "",
+   "x": 1408.5,
+   "y": 452.6,
+   "w": 33.3,
+   "h": 33.7,
+   "innerRatio": 0.444
+  },
+  {
+   "id": "n10",
+   "kind": "decision",
+   "label": "Reconcile\nCharges",
+   "x": 117.1,
+   "y": 566.1,
+   "w": 193.6,
+   "h": 89.4,
+   "labelLines": [
+    {
+     "text": "Reconcile",
+     "cx": 217.6,
+     "cy": 598.0,
+     "w": 66.1
+    },
+    {
+     "text": "Charges",
+     "cx": 211.3,
+     "cy": 617.1,
+     "w": 55.3
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "n11",
+   "kind": "object",
+   "label": "Self Billed Credit\nNote",
+   "x": 602.6,
+   "y": 737.0,
+   "w": 157.3,
+   "h": 86.9,
+   "labelLines": [
+    {
+     "text": "Self Billed Credit",
+     "cx": 678.6,
+     "cy": 768.3,
+     "w": 140.4
+    },
+    {
+     "text": "Note",
+     "cx": 683.0,
+     "cy": 787.7,
+     "w": 38.5
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n12",
+   "kind": "action",
+   "label": "Raise Self Billed Credit\nNote",
+   "x": 282.6,
+   "y": 745.8,
+   "w": 236.8,
+   "h": 68.7,
+   "rx": 25.9,
+   "ry": 30.2,
+   "labelLines": [
+    {
+     "text": "Raise Self Billed Credit",
+     "cx": 407.5,
+     "cy": 771.3,
+     "w": 165.9
+    },
+    {
+     "text": "Note",
+     "cx": 399.5,
+     "cy": 789.0,
+     "w": 29.8
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n13",
+   "kind": "action",
+   "label": "Receive Self Billed Credit\nNote",
+   "x": 1083.3,
+   "y": 745.8,
+   "w": 236.4,
+   "h": 65.2,
+   "rx": 25.5,
+   "ry": 30.2,
+   "labelLines": [
+    {
+     "text": "Receive Self Billed Credit",
+     "cx": 1212.3,
+     "cy": 769.2,
+     "w": 185.4
+    },
+    {
+     "text": "Note",
+     "cx": 1201.9,
+     "cy": 786.9,
+     "w": 29.8
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n14",
+   "kind": "final",
+   "label": "",
+   "x": 70.9,
+   "y": 855.6,
+   "w": 33.3,
+   "h": 33.3,
+   "innerRatio": 0.438
+  },
+  {
+   "id": "n15",
+   "kind": "final",
+   "label": "",
+   "x": 198.1,
+   "y": 871.4,
+   "w": 33.3,
+   "h": 33.7,
+   "innerRatio": 0.444
+  }
+ ],
+ "edges": [
+  {
+   "from": "n1",
+   "to": "n4",
+   "exitXY": [
+    0.4892,
+    1.0
+   ],
+   "entryXY": [
+    0.4992,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n2",
+   "to": "n3",
+   "exitXY": [
+    1.0,
+    0.5052
+   ],
+   "entryXY": [
+    0.0,
+    0.4677
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n4",
+   "to": "n2",
+   "exitXY": [
+    1.0,
+    0.5193
+   ],
+   "entryXY": [
+    0.0,
+    0.5501
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n4",
+   "to": "n14",
+   "exitXY": [
+    0.2305,
+    1.0
+   ],
+   "entryXY": [
+    0.5195,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high",
+   "label": "[accept charges"
+  },
+  {
+   "from": "n10",
+   "to": "n4",
+   "exitXY": [
+    0.4979,
+    0.0
+   ],
+   "entryXY": [
+    0.7585,
+    1.0
+   ],
+   "straight": true,
+   "confidence": "high",
+   "label": "[under charged]"
+  },
+  {
+   "from": "n3",
+   "to": "n5",
+   "exitXY": [
+    0.4915,
+    1.0
+   ],
+   "entryXY": [
+    0.4927,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n7",
+   "to": "n6",
+   "exitXY": [
+    0.0,
+    0.4051
+   ],
+   "entryXY": [
+    1.0,
+    0.4847
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n5",
+   "to": "n8",
+   "exitXY": [
+    0.0,
+    0.4975
+   ],
+   "entryXY": [
+    1.0,
+    0.5083
+   ],
+   "straight": true,
+   "confidence": "high",
+   "label": "[discrepancy in charges]"
+  },
+  {
+   "from": "n5",
+   "to": "n9",
+   "exitXY": [
+    1.0,
+    0.4975
+   ],
+   "entryXY": [
+    0.0,
+    0.5074
+   ],
+   "straight": true,
+   "confidence": "high",
+   "label": "[no action required]"
+  },
+  {
+   "from": "n8",
+   "to": "n7",
+   "exitXY": [
+    0.0,
+    0.5263
+   ],
+   "entryXY": [
+    1.0,
+    0.4741
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n6",
+   "to": "n10",
+   "exitXY": [
+    0.1748,
+    1.0
+   ],
+   "entryXY": [
+    0.5403,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n13",
+   "to": "n5",
+   "exitXY": [
+    0.6417,
+    0.0
+   ],
+   "entryXY": [
+    0.4927,
+    1.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n10",
+   "to": "n15",
+   "exitXY": [
+    0.4979,
+    1.0
+   ],
+   "entryXY": [
+    0.4625,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high",
+   "label": "[accept 1 charges"
+  },
+  {
+   "from": "n10",
+   "to": "n12",
+   "exitXY": [
+    0.531,
+    1.0
+   ],
+   "entryXY": [
+    0.3121,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "checked",
+   "label": "[over charged]"
+  },
+  {
+   "from": "n11",
+   "to": "n13",
+   "exitXY": [
+    1.0,
+    0.4845
+   ],
+   "entryXY": [
+    0.0,
+    0.5107
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n12",
+   "to": "n11",
+   "exitXY": [
+    1.0,
+    0.5167
+   ],
+   "entryXY": [
+    0.0,
+    0.5098
+   ],
+   "straight": true,
+   "confidence": "high"
+  }
+ ],
+ "guards": [
+  {
+   "text": "[under\ncharged]",
+   "x": 239.0,
+   "y": 324.1,
+   "w": 59.2,
+   "h": 31.1,
+   "labelLines": [
+    {
+     "text": "[under",
+     "cx": 261.9,
+     "cy": 330.8,
+     "w": 44.9
+    },
+    {
+     "text": "charged]",
+     "cx": 268.6,
+     "cy": 348.5,
+     "w": 59.2
+    }
+   ]
+  },
+  {
+   "text": "[discrepancy\nin charges]",
+   "x": 1047.0,
+   "y": 479.6,
+   "w": 83.4,
+   "h": 30.7,
+   "labelLines": [
+    {
+     "text": "[discrepancy",
+     "cx": 1088.7,
+     "cy": 486.1,
+     "w": 83.4
+    },
+    {
+     "text": "in charges]",
+     "cx": 1083.3,
+     "cy": 503.6,
+     "w": 72.6
+    }
+   ]
+  },
+  {
+   "text": "[no action\nrequired]",
+   "x": 1333.5,
+   "y": 479.6,
+   "w": 66.1,
+   "h": 30.7,
+   "labelLines": [
+    {
+     "text": "[no action",
+     "cx": 1366.6,
+     "cy": 486.1,
+     "w": 66.1
+    },
+    {
+     "text": "required]",
+     "cx": 1363.5,
+     "cy": 503.6,
+     "w": 60.1
+    }
+   ]
+  },
+  {
+   "text": "[accept\ncharges",
+   "x": 23.8,
+   "y": 557.4,
+   "w": 55.3,
+   "h": 30.7,
+   "labelLines": [
+    {
+     "text": "[accept",
+     "cx": 48.2,
+     "cy": 563.9,
+     "w": 48.8
+    },
+    {
+     "text": "charges",
+     "cx": 51.4,
+     "cy": 581.4,
+     "w": 55.3
+    }
+   ]
+  },
+  {
+   "text": "[over\ncharged]",
+   "x": 306.4,
+   "y": 659.8,
+   "w": 58.8,
+   "h": 30.7,
+   "labelLines": [
+    {
+     "text": "[over",
+     "cx": 322.1,
+     "cy": 666.3,
+     "w": 30.7
+    },
+    {
+     "text": "charged]",
+     "cx": 335.8,
+     "cy": 684.0,
+     "w": 58.8
+    }
+   ]
+  },
+  {
+   "text": "[accept 1\ncharges",
+   "x": 157.7,
+   "y": 770.9,
+   "w": 53.6,
+   "h": 31.1,
+   "labelLines": [
+    {
+     "text": "[accept 1",
+     "cx": 185.6,
+     "cy": 776.9,
+     "w": 54.9
+    },
+    {
+     "text": "charges",
+     "cx": 185.4,
+     "cy": 796.2,
+     "w": 55.3
+    }
+   ]
+  }
+ ]
+}

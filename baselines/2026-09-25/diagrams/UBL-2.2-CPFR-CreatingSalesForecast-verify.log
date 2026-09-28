@@ -1,0 +1,20 @@
+  verdict: NEEDS-HUMAN
+  structural: 0 element(s) absent, 0 invented, 0 text absent, 0 text differs, 0 incoherent
+  line-work  missing 2632 px (0.758%)   invented 5539 px (1.595%)   radius 3
+    line-work-missing      220 px at  1387,1237    41x14    near edge n6 -> n5
+    line-work-missing      203 px at  1389,1209    38x14    near edge n6 -> n5
+    line-work-missing      170 px at  1994,2026    34x14    near edge n11 -> n9
+    line-work-missing      164 px at  1993,1998    33x14    near edge n11 -> n9
+    line-work-missing      161 px at  1119,2026    33x14    near edge n9 -> n10
+    line-work-missing      153 px at  1118,1998    32x14    near edge n9 -> n10
+    line-work-missing      134 px at   214,88      21x15    unattributed
+    line-work-missing      134 px at  3308,3369    15x20    unattributed
+    line-work-missing      133 px at  3218,98      20x16    unattributed
+    line-work-missing      132 px at   181,108     19x17    unattributed
+    line-work-missing      129 px at  3183,82      20x12    unattributed
+    line-work-missing       96 px at   251,73      19x13    unattributed
+    ... and 26 more line-work findings
+  needs a person (2):
+    no-weight-split     confirm the diagram really has no object nodes
+    arrowhead-unmeasurable at 732,2964  confirm the arrowhead here is drawn and points the way the original does
+review/baseline/UBL-2.2-CPFR-CreatingSalesForecast-marked.png + review/baseline/UBL-2.2-CPFR-CreatingSalesForecast-marked-lost.png  (2 finding(s) numbered)

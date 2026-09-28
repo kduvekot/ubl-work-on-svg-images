@@ -1,0 +1,130 @@
+{
+ "schema": "ubl-activity-diagram/1",
+ "figure": {
+  "name": "UBL-2.2-Tender-Invitation",
+  "source": "UBL-2.2-Tender-Invitation.png"
+ },
+ "lanes": [
+  {
+   "id": "lane-contracting-authority",
+   "axis": "column",
+   "index": 0,
+   "title": "Contracting Authority"
+  },
+  {
+   "id": "lane-economic-operator",
+   "axis": "column",
+   "index": 1,
+   "title": "Economic Operator"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "initial-contracting-authority",
+   "kind": "initial",
+   "label": "",
+   "lane": "lane-contracting-authority"
+  },
+  {
+   "id": "action-prepare-call-for-tenders",
+   "kind": "action",
+   "label": "Prepare call for tenders",
+   "lane": "lane-contracting-authority"
+  },
+  {
+   "id": "object-call-for-tenders",
+   "kind": "object",
+   "label": "Call\nFor\nTenders",
+   "lane": null,
+   "between": [
+    "lane-contracting-authority",
+    "lane-economic-operator"
+   ]
+  },
+  {
+   "id": "action-submit-invitation-to-tender",
+   "kind": "action",
+   "label": "Submit Invitation to Tender",
+   "lane": "lane-contracting-authority"
+  },
+  {
+   "id": "action-receive-invitation-to-tender",
+   "kind": "action",
+   "label": "Receive Invitation to Tender",
+   "lane": "lane-economic-operator"
+  },
+  {
+   "id": "action-process-call-for-tenders",
+   "kind": "action",
+   "label": "Process Call For Tenders",
+   "lane": "lane-economic-operator"
+  },
+  {
+   "id": "final-economic-operator",
+   "kind": "final",
+   "label": "",
+   "lane": "lane-economic-operator"
+  }
+ ],
+ "flows": [
+  {
+   "id": "flow-initial-contracting-authority-to-prepare-call-for-tenders",
+   "from": "initial-contracting-authority",
+   "to": "action-prepare-call-for-tenders",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-prepare-call-for-tenders-to-submit-invitation-to-tender",
+   "from": "action-prepare-call-for-tenders",
+   "to": "action-submit-invitation-to-tender",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-submit-invitation-to-tender-to-call-for-tenders",
+   "from": "action-submit-invitation-to-tender",
+   "to": "object-call-for-tenders",
+   "kind": "object",
+   "direction": {
+    "confidence": "medium",
+    "checked": "confirmed"
+   }
+  },
+  {
+   "id": "flow-call-for-tenders-to-receive-invitation-to-tender",
+   "from": "object-call-for-tenders",
+   "to": "action-receive-invitation-to-tender",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-receive-invitation-to-tender-to-process-call-for-tenders",
+   "from": "action-receive-invitation-to-tender",
+   "to": "action-process-call-for-tenders",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-process-call-for-tenders-to-final-economic-operator",
+   "from": "action-process-call-for-tenders",
+   "to": "final-economic-operator",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  }
+ ],
+ "texts": [],
+ "offPage": [],
+ "marks": [],
+ "phases": []
+}

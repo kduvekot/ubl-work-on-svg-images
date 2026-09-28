@@ -1,0 +1,591 @@
+{
+ "canvas": {
+  "w": 1480.0,
+  "h": 1187.025
+ },
+ "stroke": {
+  "frame": 4.3,
+  "divider": 2.2,
+  "action": 2.2,
+  "object": 4.3,
+  "edge": 2.2
+ },
+ "font": {
+  "family": "Helvetica, Arial, sans-serif",
+  "node": 21.6,
+  "lane": 21.6,
+  "guard": 21.6
+ },
+ "arrow": 35.1,
+ "arrowWidth": 28.9,
+ "arrowStyle": "open",
+ "dashed": [],
+ "greyRules": [],
+ "crossMarks": [],
+ "openEnds": [],
+ "frameBox": [
+  2.2,
+  2.2,
+  1477.8,
+  1184.9
+ ],
+ "dividers": [
+  [
+   705.0,
+   2.2,
+   5.6,
+   1181.0
+  ]
+ ],
+ "bands": [],
+ "lanes": [
+  {
+   "title": "Receiver Party",
+   "x": 0.0,
+   "w": 705.2,
+   "cx": 320.8,
+   "cy": 21.6
+  },
+  {
+   "title": "Provider Party",
+   "x": 705.2,
+   "w": 774.8,
+   "cx": 1115.3,
+   "cy": 21.6
+  }
+ ],
+ "bandLabels": [],
+ "nodes": [
+  {
+   "id": "n1",
+   "kind": "initial",
+   "label": "",
+   "x": 1294.2,
+   "y": 40.2,
+   "w": 41.5,
+   "h": 41.1
+  },
+  {
+   "id": "n2",
+   "kind": "object",
+   "label": "Catalogue\nDeletion",
+   "x": 611.0,
+   "y": 165.9,
+   "w": 181.9,
+   "h": 100.3,
+   "labelLines": [
+    {
+     "text": "Catalogue",
+     "cx": 700.2,
+     "cy": 200.3,
+     "w": 116.2
+    },
+    {
+     "text": "Deletion",
+     "cx": 703.1,
+     "cy": 228.6,
+     "w": 95.1
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n3",
+   "kind": "action",
+   "label": "Notify of Catalogue\nDeletion",
+   "x": 1177.3,
+   "y": 170.0,
+   "w": 273.5,
+   "h": 87.7,
+   "rx": 30.5,
+   "ry": 30.5,
+   "labelLines": [
+    {
+     "text": "Notify of Catalogue",
+     "cx": 1311.7,
+     "cy": 199.4,
+     "w": 185.4
+    },
+    {
+     "text": "Deletion",
+     "cx": 1313.2,
+     "cy": 224.1,
+     "w": 77.8
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n4",
+   "kind": "action",
+   "label": "Identify Catalogue",
+   "x": 33.1,
+   "y": 188.6,
+   "w": 290.0,
+   "h": 60.9,
+   "rx": 30.5,
+   "ry": 29.6,
+   "labelLines": [
+    {
+     "text": "Identify Catalogue",
+     "cx": 178.7,
+     "cy": 217.6,
+     "w": 175.0
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n5",
+   "kind": "decision",
+   "label": "Decide on Action",
+   "x": 84.9,
+   "y": 504.1,
+   "w": 185.8,
+   "h": 185.8,
+   "labelLines": [
+    {
+     "text": "Decide on Action",
+     "cx": 177.6,
+     "cy": 593.9,
+     "w": 151.2
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "n6",
+   "kind": "decision",
+   "label": "Review Deletion\nof Catalogue",
+   "x": 1207.1,
+   "y": 511.4,
+   "w": 239.8,
+   "h": 156.4,
+   "labelLines": [
+    {
+     "text": "Review Deletion",
+     "cx": 1330.5,
+     "cy": 575.4,
+     "w": 144.3
+    },
+    {
+     "text": "of Catalogue",
+     "cx": 1314.5,
+     "cy": 603.7,
+     "w": 114.1
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "n7",
+   "kind": "object",
+   "label": "Application\nResponse\n(negative)",
+   "x": 623.5,
+   "y": 539.7,
+   "w": 181.5,
+   "h": 99.8,
+   "labelLines": [
+    {
+     "text": "Application",
+     "cx": 711.7,
+     "cy": 568.7,
+     "w": 111.5
+    },
+    {
+     "text": "Response",
+     "cx": 711.7,
+     "cy": 591.1,
+     "w": 96.8
+    },
+    {
+     "text": "(negative)",
+     "cx": 715.4,
+     "cy": 613.6,
+     "w": 95.5
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n8",
+   "kind": "object",
+   "label": "Application\nResponse\n(positive)",
+   "x": 607.1,
+   "y": 903.1,
+   "w": 181.5,
+   "h": 100.3,
+   "labelLines": [
+    {
+     "text": "Application",
+     "cx": 695.3,
+     "cy": 931.9,
+     "w": 111.5
+    },
+    {
+     "text": "Response",
+     "cx": 695.3,
+     "cy": 954.3,
+     "w": 96.8
+    },
+    {
+     "text": "(positive)",
+     "cx": 698.3,
+     "cy": 976.8,
+     "w": 89.9
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n9",
+   "kind": "action",
+   "label": "Acknowledge\nCancelation",
+   "x": 71.9,
+   "y": 913.7,
+   "w": 216.1,
+   "h": 73.0,
+   "rx": 28.3,
+   "ry": 27.4,
+   "labelLines": [
+    {
+     "text": "Acknowledge",
+     "cx": 173.7,
+     "cy": 939.0,
+     "w": 130.5
+    },
+    {
+     "text": "Cancelation",
+     "cx": 178.2,
+     "cy": 963.4,
+     "w": 113.6
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n10",
+   "kind": "action",
+   "label": "Cancel Catalogue",
+   "x": 915.4,
+   "y": 917.6,
+   "w": 286.1,
+   "h": 79.5,
+   "rx": 31.3,
+   "ry": 30.5,
+   "labelLines": [
+    {
+     "text": "Cancel Catalogue",
+     "cx": 1056.3,
+     "cy": 955.8,
+     "w": 169.8
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n11",
+   "kind": "final",
+   "label": "",
+   "x": 1306.1,
+   "y": 940.5,
+   "w": 42.3,
+   "h": 41.9,
+   "innerRatio": 0.447
+  },
+  {
+   "id": "n12",
+   "kind": "action",
+   "label": "Delete Catalogue",
+   "x": 75.8,
+   "y": 1089.2,
+   "w": 216.5,
+   "h": 73.5,
+   "rx": 30.5,
+   "ry": 29.6,
+   "labelLines": [
+    {
+     "text": "Delete Catalogue",
+     "cx": 183.2,
+     "cy": 1126.3,
+     "w": 163.3
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n13",
+   "kind": "final",
+   "label": "",
+   "x": 484.4,
+   "y": 1113.6,
+   "w": 38.9,
+   "h": 38.9,
+   "innerRatio": 0.44
+  }
+ ],
+ "edges": [
+  {
+   "from": "n1",
+   "to": "n3",
+   "exitXY": [
+    0.4795,
+    1.0
+   ],
+   "entryXY": [
+    0.5002,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n3",
+   "to": "n2",
+   "exitXY": [
+    0.0,
+    0.5108
+   ],
+   "entryXY": [
+    1.0,
+    0.4875
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n2",
+   "to": "n4",
+   "exitXY": [
+    0.0,
+    0.5045
+   ],
+   "entryXY": [
+    1.0,
+    0.4729
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n4",
+   "to": "n5",
+   "exitXY": [
+    0.4997,
+    1.0
+   ],
+   "entryXY": [
+    0.4989,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n6",
+   "to": "n3",
+   "exitXY": [
+    0.4983,
+    0.0
+   ],
+   "entryXY": [
+    0.5411,
+    1.0
+   ],
+   "straight": true,
+   "confidence": "high",
+   "label": "[insist on deletion]"
+  },
+  {
+   "from": "n7",
+   "to": "n6",
+   "exitXY": [
+    1.0,
+    0.489
+   ],
+   "entryXY": [
+    0.0,
+    0.493
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n5",
+   "to": "n7",
+   "exitXY": [
+    1.0,
+    0.4989
+   ],
+   "entryXY": [
+    0.0,
+    0.5671
+   ],
+   "straight": true,
+   "confidence": "high",
+   "label": "[query catalogue deletion]"
+  },
+  {
+   "from": "n6",
+   "to": "n11",
+   "exitXY": [
+    0.4946,
+    1.0
+   ],
+   "entryXY": [
+    0.4634,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high",
+   "label": "[cancel deletion]"
+  },
+  {
+   "from": "n5",
+   "to": "n9",
+   "exitXY": [
+    0.4989,
+    1.0
+   ],
+   "entryXY": [
+    0.4933,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high",
+   "label": "[accept catalogue deletion]"
+  },
+  {
+   "from": "n9",
+   "to": "n8",
+   "exitXY": [
+    1.0,
+    0.5247
+   ],
+   "entryXY": [
+    0.0,
+    0.4875
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n8",
+   "to": "n10",
+   "exitXY": [
+    1.0,
+    0.5513
+   ],
+   "entryXY": [
+    0.0,
+    0.5132
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n10",
+   "to": "n11",
+   "exitXY": [
+    1.0,
+    0.5296
+   ],
+   "entryXY": [
+    0.0,
+    0.4797
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n9",
+   "to": "n12",
+   "exitXY": [
+    0.515,
+    1.0
+   ],
+   "entryXY": [
+    0.5002,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n12",
+   "to": "n13",
+   "exitXY": [
+    1.0,
+    0.5728
+   ],
+   "entryXY": [
+    0.0,
+    0.4756
+   ],
+   "straight": true,
+   "confidence": "high"
+  }
+ ],
+ "guards": [
+  {
+   "text": "[insist on deletion]",
+   "x": 1131.3,
+   "y": 426.9,
+   "w": 161.2,
+   "h": 18.6,
+   "labelLines": [
+    {
+     "text": "[insist on deletion]",
+     "cx": 1211.9,
+     "cy": 436.2,
+     "w": 161.2
+    }
+   ]
+  },
+  {
+   "text": "[query catalogue deletion]",
+   "x": 322.4,
+   "y": 606.7,
+   "w": 231.2,
+   "h": 19.0,
+   "labelLines": [
+    {
+     "text": "[query catalogue deletion]",
+     "cx": 438.0,
+     "cy": 616.2,
+     "w": 231.2
+    }
+   ]
+  },
+  {
+   "text": "[cancel deletion]",
+   "x": 1141.7,
+   "y": 696.6,
+   "w": 144.8,
+   "h": 19.0,
+   "labelLines": [
+    {
+     "text": "[cancel deletion]",
+     "cx": 1214.0,
+     "cy": 706.1,
+     "w": 144.8
+    }
+   ]
+  },
+  {
+   "text": "[accept catalogue deletion]",
+   "x": 48.4,
+   "y": 813.2,
+   "w": 240.3,
+   "h": 18.6,
+   "labelLines": [
+    {
+     "text": "[accept catalogue deletion]",
+     "cx": 168.5,
+     "cy": 822.5,
+     "w": 240.3
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,660 @@
+{
+ "schema": "ubl-activity-diagram-layout/1",
+ "figure": "UBL-2.2-CPFR-ExceptionMonitor",
+ "units": "px of the original PNG",
+ "size": [
+  3425,
+  2410
+ ],
+ "style": {
+  "fontPx": 45.7,
+  "arrowPx": 62.0,
+  "arrowWidthPx": 50.0,
+  "arrowStyle": "open"
+ },
+ "rules": {
+  "vertical": [
+   {
+    "at": 0,
+    "width": 10,
+    "span": [
+     13,
+     2396
+    ]
+   },
+   {
+    "at": 1701,
+    "width": 1,
+    "span": [
+     13,
+     2335
+    ]
+   },
+   {
+    "at": 3415,
+    "width": 10,
+    "span": [
+     13,
+     2396
+    ]
+   }
+  ],
+  "horizontal": [
+   {
+    "at": 0,
+    "width": 10,
+    "span": [
+     13,
+     3411
+    ]
+   },
+   {
+    "at": 2400,
+    "width": 10,
+    "span": [
+     13,
+     3411
+    ]
+   }
+  ]
+ },
+ "greyRules": [],
+ "lanes": {
+  "lane-buyer-party": {
+   "x0": 0,
+   "x1": 1702
+  },
+  "lane-seller-party": {
+   "x0": 1702,
+   "x1": 3425
+  }
+ },
+ "nodes": {
+  "action-ordering": {
+   "x": 1338,
+   "y": 161,
+   "w": 727,
+   "h": 221,
+   "shape": "rounded",
+   "stroke": 4,
+   "rx": 61,
+   "ry": 65,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 1600,
+     "y": 242,
+     "w": 178,
+     "h": 41,
+     "text": "Ordering"
+    }
+   ]
+  },
+  "action-wait-for-exception-notification-in-buyer-party": {
+   "x": 410,
+   "y": 685,
+   "w": 591,
+   "h": 208,
+   "shape": "rounded",
+   "stroke": 3,
+   "rx": 65,
+   "ry": 66,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 501,
+     "y": 740,
+     "w": 379,
+     "h": 41,
+     "text": "Wait for Exception"
+    },
+    {
+     "x": 587,
+     "y": 797,
+     "w": 232,
+     "h": 32,
+     "text": "Notification"
+    }
+   ]
+  },
+  "action-wait-for-exception-notification-in-seller-party": {
+   "x": 2433,
+   "y": 703,
+   "w": 591,
+   "h": 207,
+   "shape": "rounded",
+   "stroke": 4,
+   "rx": 61,
+   "ry": 66,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 2531,
+     "y": 754,
+     "w": 378,
+     "h": 41,
+     "text": "Wait for Exception"
+    },
+    {
+     "x": 2617,
+     "y": 811,
+     "w": 232,
+     "h": 32,
+     "text": "Notification"
+    }
+   ]
+  },
+  "decision-seller-party": {
+   "x": 2663,
+   "y": 1038,
+   "w": 166,
+   "h": 162,
+   "shape": "rhombus",
+   "stroke": 3,
+   "rx": 88,
+   "ry": 88
+  },
+  "decision-buyer-party": {
+   "x": 644,
+   "y": 1051,
+   "w": 162,
+   "h": 157,
+   "shape": "rhombus",
+   "stroke": 3,
+   "rx": 88,
+   "ry": 84
+  },
+  "object-exception-notification-positive": {
+   "x": 1436,
+   "y": 1064,
+   "w": 500,
+   "h": 285,
+   "shape": "rect",
+   "stroke": 5,
+   "rx": 0,
+   "ry": 0,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 1456,
+     "y": 1153,
+     "w": 452,
+     "h": 41,
+     "text": "Exception Notification"
+    },
+    {
+     "x": 1601,
+     "y": 1202,
+     "w": 188,
+     "h": 40,
+     "text": "(positive)"
+    }
+   ]
+  },
+  "action-send-exception-in-buyer-party": {
+   "x": 890,
+   "y": 1358,
+   "w": 462,
+   "h": 137,
+   "shape": "rounded",
+   "stroke": 3,
+   "rx": 62,
+   "ry": 61,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 954,
+     "y": 1406,
+     "w": 319,
+     "h": 41,
+     "text": "Send Exception"
+    }
+   ]
+  },
+  "action-send-exception-in-seller-party": {
+   "x": 2139,
+   "y": 1428,
+   "w": 423,
+   "h": 129,
+   "shape": "rounded",
+   "stroke": 3,
+   "rx": 66,
+   "ry": 61,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 2185,
+     "y": 1473,
+     "w": 320,
+     "h": 41,
+     "text": "Send Exception"
+    }
+   ]
+  },
+  "action-receive-resolve-exception-in-buyer-party": {
+   "x": 1013,
+   "y": 1732,
+   "w": 590,
+   "h": 159,
+   "shape": "rounded",
+   "stroke": 4,
+   "rx": 61,
+   "ry": 61,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 1100,
+     "y": 1763,
+     "w": 381,
+     "h": 32,
+     "text": "Receive & Resolve"
+    },
+    {
+     "x": 1209,
+     "y": 1821,
+     "w": 201,
+     "h": 40,
+     "text": "Exception"
+    }
+   ]
+  },
+  "action-receive-resolve-exception-in-seller-party": {
+   "x": 1945,
+   "y": 1740,
+   "w": 590,
+   "h": 160,
+   "shape": "rounded",
+   "stroke": 3,
+   "rx": 69,
+   "ry": 66,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 2042,
+     "y": 1772,
+     "w": 381,
+     "h": 32,
+     "text": "Receive & Resolve"
+    },
+    {
+     "x": 2152,
+     "y": 1829,
+     "w": 200,
+     "h": 41,
+     "text": "Exception"
+    }
+   ]
+  },
+  "final-seller-party": {
+   "x": 1637,
+   "y": 2103,
+   "w": 155,
+   "h": 155,
+   "shape": "ellipse",
+   "stroke": 3,
+   "rx": 79,
+   "ry": 79,
+   "innerRatio": 0.697
+  }
+ },
+ "flows": {
+  "flow-ordering-to-wait-for-exception-notification-in-buyer-party": {
+   "fromPoint": [
+    1323,
+    277
+   ],
+   "toPoint": [
+    694,
+    670
+   ],
+   "routing": "orthogonal",
+   "points": [
+    [
+     694,
+     277
+    ]
+   ]
+  },
+  "flow-ordering-to-wait-for-exception-notification-in-seller-party": {
+   "fromPoint": [
+    2079,
+    330
+   ],
+   "toPoint": [
+    2717,
+    688
+   ],
+   "routing": "orthogonal",
+   "points": [
+    [
+     2717,
+     330
+    ]
+   ]
+  },
+  "flow-wait-for-exception-notification-in-buyer-party-to-decision-buyer-party": {
+   "fromPoint": [
+    724,
+    907
+   ],
+   "toPoint": [
+    725,
+    1036
+   ],
+   "routing": "straight"
+  },
+  "flow-wait-for-exception-notification-in-seller-party-to-decision-seller-party": {
+   "fromPoint": [
+    2742,
+    924
+   ],
+   "toPoint": [
+    2744,
+    1023
+   ],
+   "routing": "straight"
+  },
+  "flow-decision-seller-party-to-send-exception-in-seller-party": {
+   "fromPoint": [
+    2648,
+    1118
+   ],
+   "toPoint": [
+    2427,
+    1413
+   ],
+   "routing": "orthogonal",
+   "points": [
+    [
+     2427,
+     1118
+    ]
+   ]
+  },
+  "flow-decision-buyer-party-to-send-exception-in-buyer-party": {
+   "fromPoint": [
+    820,
+    1127
+   ],
+   "toPoint": [
+    1010,
+    1342
+   ],
+   "routing": "orthogonal",
+   "points": [
+    [
+     1010,
+     1127
+    ]
+   ]
+  },
+  "flow-send-exception-in-seller-party-to-exception-notification-positive": {
+   "fromPoint": [
+    2229,
+    1413
+   ],
+   "toPoint": [
+    1955,
+    1237
+   ],
+   "routing": "orthogonal",
+   "points": [
+    [
+     2229,
+     1237
+    ]
+   ]
+  },
+  "flow-decision-seller-party-to-final-seller-party": {
+   "fromPoint": [
+    2743,
+    1214
+   ],
+   "toPoint": [
+    1767,
+    2088
+   ],
+   "routing": "orthogonal",
+   "points": [
+    [
+     2743,
+     1918
+    ],
+    [
+     1767,
+     1918
+    ]
+   ]
+  },
+  "flow-decision-buyer-party-to-final-seller-party": {
+   "fromPoint": [
+    724,
+    1222
+   ],
+   "toPoint": [
+    1648,
+    2088
+   ],
+   "routing": "orthogonal",
+   "points": [
+    [
+     724,
+     1923
+    ],
+    [
+     1648,
+     1923
+    ]
+   ]
+  },
+  "flow-send-exception-in-buyer-party-to-exception-notification-positive": {
+   "fromPoint": [
+    1366,
+    1357
+   ],
+   "toPoint": [
+    1416,
+    1289
+   ],
+   "routing": "orthogonal"
+  },
+  "flow-exception-notification-positive-to-receive-resolve-exception-in-buyer-party": {
+   "fromPoint": [
+    1579,
+    1368
+   ],
+   "toPoint": [
+    1358,
+    1717
+   ],
+   "routing": "diagonal"
+  },
+  "flow-exception-notification-positive-to-receive-resolve-exception-in-seller-party": {
+   "fromPoint": [
+    1828,
+    1368
+   ],
+   "toPoint": [
+    2153,
+    1725
+   ],
+   "routing": "diagonal"
+  }
+ },
+ "texts": {
+  "text-exception-received": {
+   "x": 2861,
+   "y": 1095,
+   "w": 411,
+   "h": 41,
+   "lines": [
+    {
+     "x": 2861,
+     "y": 1095,
+     "w": 411,
+     "h": 41,
+     "text": "Exception Received ?"
+    }
+   ]
+  },
+  "text-exception-received-2": {
+   "x": 139,
+   "y": 1108,
+   "w": 411,
+   "h": 41,
+   "lines": [
+    {
+     "x": 139,
+     "y": 1108,
+     "w": 411,
+     "h": 41,
+     "text": "Exception Received ?"
+    }
+   ]
+  },
+  "text-yes": {
+   "x": 901,
+   "y": 1275,
+   "w": 72,
+   "h": 32,
+   "lines": [
+    {
+     "x": 901,
+     "y": 1275,
+     "w": 72,
+     "h": 32,
+     "text": "Yes"
+    }
+   ]
+  },
+  "text-yes-2": {
+   "x": 2317,
+   "y": 1346,
+   "w": 72,
+   "h": 32,
+   "lines": [
+    {
+     "x": 2317,
+     "y": 1346,
+     "w": 72,
+     "h": 32,
+     "text": "Yes"
+    }
+   ]
+  },
+  "text-no-3": {
+   "x": 1559,
+   "y": 2021,
+   "w": 51,
+   "h": 32,
+   "lines": [
+    {
+     "x": 1559,
+     "y": 2021,
+     "w": 51,
+     "h": 32,
+     "text": "No"
+    }
+   ]
+  },
+  "text-no-4": {
+   "x": 1678,
+   "y": 2021,
+   "w": 50,
+   "h": 32,
+   "lines": [
+    {
+     "x": 1678,
+     "y": 2021,
+     "w": 50,
+     "h": 32,
+     "text": "No"
+    }
+   ]
+  },
+  "text-no": {
+   "as": "lane-title",
+   "box": [
+    1533,
+    78,
+    50,
+    32
+   ]
+  },
+  "text-no-2": {
+   "as": "lane-title",
+   "box": [
+    1687,
+    78,
+    50,
+    32
+   ]
+  }
+ },
+ "offPage": {
+  "offpage-action-ordering": {
+   "at": [
+    1621,
+    12
+   ],
+   "end": [
+    1624,
+    146
+   ],
+   "points": [],
+   "x": 1599,
+   "y": 12,
+   "w": 47,
+   "h": 135
+  },
+  "offpage-action-ordering-2": {
+   "at": [
+    1777,
+    12
+   ],
+   "end": [
+    1773,
+    146
+   ],
+   "points": [],
+   "x": 1753,
+   "y": 12,
+   "w": 47,
+   "h": 135
+  }
+ },
+ "marks": {},
+ "phases": {
+  "phase-exception-monitor-during-execution": {
+   "x": 82,
+   "y": 458,
+   "w": 3260,
+   "h": 1876,
+   "rx": 122,
+   "dash": 12.0,
+   "gap": 9.0,
+   "weight": 4.0,
+   "title": {
+    "x": 1326,
+    "y": 478,
+    "w": 738,
+    "h": 41,
+    "lines": [
+     {
+      "x": 1326,
+      "y": 474,
+      "w": 738,
+      "h": 49,
+      "text": "Exception Monitor During Execution"
+     }
+    ],
+    "as": "text",
+    "bold": true
+   }
+  }
+ },
+ "rulesHaveSpans": {
+  "vertical": true,
+  "horizontal": true
+ }
+}

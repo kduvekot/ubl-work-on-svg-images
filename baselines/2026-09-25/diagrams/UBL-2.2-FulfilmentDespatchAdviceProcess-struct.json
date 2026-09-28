@@ -1,0 +1,230 @@
+{
+ "name": "UBL-2.2-FulfilmentDespatchAdviceProcess.png",
+ "verdict": "needs-human",
+ "radius": 3,
+ "lineWorkInk": 215411,
+ "missingPx": 3378,
+ "inventedPx": 2233,
+ "structural": {
+  "absent": 0,
+  "invented": 0,
+  "coherence": 0,
+  "textAbsent": 0,
+  "textDiffers": 0
+ },
+ "blocking": [],
+ "findings": [
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n7 -> n11",
+   "x": 1070,
+   "y": 787,
+   "w": 147,
+   "h": 230,
+   "area": 640
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n10 -> n16",
+   "x": 1243,
+   "y": 1167,
+   "w": 108,
+   "h": 99,
+   "area": 384
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n18 -> n15",
+   "x": 1560,
+   "y": 1629,
+   "w": 110,
+   "h": 47,
+   "area": 378
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n14 -> n8",
+   "x": 2570,
+   "y": 1272,
+   "w": 105,
+   "h": 54,
+   "area": 357
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n8 -> n5",
+   "x": 2922,
+   "y": 892,
+   "w": 77,
+   "h": 53,
+   "area": 268
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n14 -> n8",
+   "x": 2950,
+   "y": 1114,
+   "w": 33,
+   "h": 35,
+   "area": 260
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n10 -> n16",
+   "x": 873,
+   "y": 1540,
+   "w": 69,
+   "h": 67,
+   "area": 196
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n14 -> n8",
+   "x": 2870,
+   "y": 1137,
+   "w": 66,
+   "h": 37,
+   "area": 194
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n8 -> n5",
+   "x": 2603,
+   "y": 684,
+   "w": 64,
+   "h": 45,
+   "area": 186
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n7 -> n11",
+   "x": 1047,
+   "y": 1021,
+   "w": 40,
+   "h": 31,
+   "area": 162
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n7 -> n11",
+   "x": 1100,
+   "y": 787,
+   "w": 107,
+   "h": 169,
+   "area": 353
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n10 -> n16",
+   "x": 1267,
+   "y": 1168,
+   "w": 70,
+   "h": 65,
+   "area": 224
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n18 -> n15",
+   "x": 1586,
+   "y": 1639,
+   "w": 80,
+   "h": 37,
+   "area": 222
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n8 -> n5",
+   "x": 2925,
+   "y": 903,
+   "w": 74,
+   "h": 52,
+   "area": 215
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n14 -> n8",
+   "x": 2594,
+   "y": 1282,
+   "w": 78,
+   "h": 43,
+   "area": 212
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n8 -> n5",
+   "x": 2580,
+   "y": 663,
+   "w": 71,
+   "h": 46,
+   "area": 204
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n14 -> n8",
+   "x": 2882,
+   "y": 1124,
+   "w": 64,
+   "h": 35,
+   "area": 172
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n10 -> n16",
+   "x": 873,
+   "y": 1573,
+   "w": 45,
+   "h": 41,
+   "area": 118
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n8 -> n5",
+   "x": 2591,
+   "y": 663,
+   "w": 31,
+   "h": 9,
+   "area": 87
+  }
+ ],
+ "text": [],
+ "coherence": [],
+ "human": [
+  {
+   "x": 847,
+   "y": 1098,
+   "w": 1043,
+   "h": 623,
+   "shape": "rounded",
+   "iou": 0.658,
+   "border": 0.391,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best rounded 0.66, and 0.99 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "kind": "arrowhead-unmeasurable",
+   "x": 2518,
+   "y": 612,
+   "w": 116,
+   "h": 116,
+   "reason": "the ink at the head end of n8->n5 measures 58x79px, too wide for this diagram's own 34px arrowhead - a junction, not a head",
+   "check": "confirm the arrowhead here is drawn and points the way the original does"
+  }
+ ],
+ "review": [
+  {
+   "n": 1,
+   "what": "check",
+   "where": "847,1098 1043x623",
+   "detail": "outline matches no UML node shape (best rounded 0.66, and 0.99 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "n": 2,
+   "what": "check",
+   "where": "2518,612 116x116",
+   "detail": "the ink at the head end of n8->n5 measures 58x79px, too wide for this diagram's own 34px arrowhead - a junction, not a head",
+   "check": "confirm the arrowhead here is drawn and points the way the original does"
+  }
+ ]
+}

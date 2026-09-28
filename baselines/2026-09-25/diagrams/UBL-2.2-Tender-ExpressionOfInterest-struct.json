@@ -1,0 +1,42 @@
+{
+ "name": "UBL-2.2-Tender-ExpressionOfInterest.png",
+ "verdict": "needs-human",
+ "radius": 3,
+ "lineWorkInk": 259417,
+ "missingPx": 112,
+ "inventedPx": 0,
+ "structural": {
+  "absent": 0,
+  "invented": 0,
+  "coherence": 0,
+  "textAbsent": 0,
+  "textDiffers": 0
+ },
+ "blocking": [],
+ "findings": [],
+ "text": [],
+ "coherence": [],
+ "human": [
+  {
+   "x": 1710,
+   "y": 786,
+   "w": 1071,
+   "h": 534,
+   "shape": "ellipse",
+   "iou": 0.751,
+   "border": 0.584,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best ellipse 0.75, and 0.99 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  }
+ ],
+ "review": [
+  {
+   "n": 1,
+   "what": "check",
+   "where": "1710,786 1071x534",
+   "detail": "outline matches no UML node shape (best ellipse 0.75, and 0.99 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  }
+ ]
+}

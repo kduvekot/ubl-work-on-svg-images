@@ -1,0 +1,344 @@
+{
+ "canvas": {
+  "w": 1480.0,
+  "h": 869.851
+ },
+ "stroke": {
+  "frame": 4.3,
+  "divider": 3.5,
+  "action": 3.5,
+  "object": 6.9,
+  "edge": 3.5
+ },
+ "font": {
+  "family": "Helvetica, Arial, sans-serif",
+  "node": 32.1,
+  "lane": 32.1,
+  "guard": 32.1
+ },
+ "arrow": 52.9,
+ "arrowWidth": 42.5,
+ "arrowStyle": "open",
+ "dashed": [],
+ "greyRules": [],
+ "crossMarks": [],
+ "openEnds": [],
+ "frameBox": [
+  2.2,
+  2.2,
+  1477.8,
+  867.7
+ ],
+ "dividers": [
+  [
+   741.5,
+   3.5,
+   5.6,
+   863.8
+  ]
+ ],
+ "bands": [],
+ "lanes": [
+  {
+   "title": "Transport User",
+   "x": 0.0,
+   "w": 741.5,
+   "cx": 363.6,
+   "cy": 46.9
+  },
+  {
+   "title": "Transport Service Provider",
+   "x": 741.5,
+   "w": 738.5,
+   "cx": 1110.3,
+   "cy": 46.5
+  }
+ ],
+ "bandLabels": [],
+ "nodes": [
+  {
+   "id": "n1",
+   "kind": "initial",
+   "label": "",
+   "x": 210.0,
+   "y": 92.9,
+   "w": 60.9,
+   "h": 60.9
+  },
+  {
+   "id": "n2",
+   "kind": "object",
+   "label": "Transport Service\nDescription\nRequest",
+   "x": 588.1,
+   "y": 240.3,
+   "w": 306.8,
+   "h": 171.6,
+   "labelLines": [
+    {
+     "text": "Transport Service",
+     "cx": 736.5,
+     "cy": 287.4,
+     "w": 256.2
+    },
+    {
+     "text": "Description",
+     "cx": 741.3,
+     "cy": 321.3,
+     "w": 166.4
+    },
+    {
+     "text": "Request",
+     "cx": 743.5,
+     "cy": 355.0,
+     "w": 121.4
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n3",
+   "kind": "action",
+   "label": "Receive Transport\nService Description\nRequest",
+   "x": 1029.3,
+   "y": 246.3,
+   "w": 410.5,
+   "h": 159.5,
+   "rx": 47.1,
+   "ry": 48.0,
+   "labelLines": [
+    {
+     "text": "Receive Transport",
+     "cx": 1232.8,
+     "cy": 286.3,
+     "w": 265.3
+    },
+    {
+     "text": "Service Description",
+     "cx": 1228.5,
+     "cy": 325.8,
+     "w": 283.5
+    },
+    {
+     "text": "Request",
+     "cx": 1239.3,
+     "cy": 365.8,
+     "w": 119.3
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n4",
+   "kind": "action",
+   "label": "Request Transport\nService Description",
+   "x": 37.2,
+   "y": 249.3,
+   "w": 410.1,
+   "h": 156.4,
+   "rx": 47.1,
+   "ry": 49.7,
+   "labelLines": [
+    {
+     "text": "Request Transport",
+     "cx": 249.1,
+     "cy": 306.6,
+     "w": 270.9
+    },
+    {
+     "text": "Service Description",
+     "cx": 239.2,
+     "cy": 346.1,
+     "w": 283.0
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n5",
+   "kind": "object",
+   "label": "Transport Service\nDescription",
+   "x": 588.1,
+   "y": 503.0,
+   "w": 306.8,
+   "h": 171.6,
+   "labelLines": [
+    {
+     "text": "Transport Service",
+     "cx": 736.5,
+     "cy": 566.9,
+     "w": 256.2
+    },
+    {
+     "text": "Description",
+     "cx": 741.3,
+     "cy": 600.9,
+     "w": 166.4
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n6",
+   "kind": "action",
+   "label": "Receive Transport\nService Description",
+   "x": 40.2,
+   "y": 509.0,
+   "w": 410.5,
+   "h": 153.4,
+   "rx": 45.4,
+   "ry": 49.3,
+   "labelLines": [
+    {
+     "text": "Receive Transport",
+     "cx": 243.5,
+     "cy": 565.9,
+     "w": 265.8
+    },
+    {
+     "text": "Service Description",
+     "cx": 242.2,
+     "cy": 605.4,
+     "w": 283.0
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n7",
+   "kind": "action",
+   "label": "Send Transport Service\nDescription",
+   "x": 1032.8,
+   "y": 509.0,
+   "w": 410.1,
+   "h": 153.4,
+   "rx": 45.4,
+   "ry": 48.0,
+   "labelLines": [
+    {
+     "text": "Send Transport Service",
+     "cx": 1233.3,
+     "cy": 561.3,
+     "w": 341.4
+    },
+    {
+     "text": "Description",
+     "cx": 1240.6,
+     "cy": 601.7,
+     "w": 164.2
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n8",
+   "kind": "final",
+   "label": "",
+   "x": 199.2,
+   "y": 769.6,
+   "w": 58.3,
+   "h": 57.9,
+   "innerRatio": 0.441
+  }
+ ],
+ "edges": [
+  {
+   "from": "n1",
+   "to": "n4",
+   "exitXY": [
+    0.5189,
+    1.0
+   ],
+   "entryXY": [
+    0.5004,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n4",
+   "to": "n2",
+   "exitXY": [
+    1.0,
+    0.5115
+   ],
+   "entryXY": [
+    0.0,
+    0.5134
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n2",
+   "to": "n3",
+   "exitXY": [
+    1.0,
+    0.4959
+   ],
+   "entryXY": [
+    0.0,
+    0.4984
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n3",
+   "to": "n7",
+   "exitXY": [
+    0.5065,
+    1.0
+   ],
+   "entryXY": [
+    0.5004,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n5",
+   "to": "n6",
+   "exitXY": [
+    0.0,
+    0.486
+   ],
+   "entryXY": [
+    1.0,
+    0.4961
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n7",
+   "to": "n5",
+   "exitXY": [
+    0.0,
+    0.4987
+   ],
+   "entryXY": [
+    1.0,
+    0.4837
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n6",
+   "to": "n8",
+   "exitXY": [
+    0.4643,
+    1.0
+   ],
+   "entryXY": [
+    0.5043,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  }
+ ],
+ "guards": []
+}

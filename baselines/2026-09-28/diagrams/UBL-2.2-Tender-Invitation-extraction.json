@@ -1,0 +1,691 @@
+{
+ "schema": "ubl-activity-diagram-extraction/1",
+ "figure": "UBL-2.2-Tender-Invitation",
+ "nodes": {
+  "initial-contracting-authority": {
+   "area": 9205,
+   "fill": 0.768
+  },
+  "action-prepare-call-for-tenders": {
+   "area": 166921,
+   "fill": 0.877,
+   "solid": 0.956,
+   "stem": 0.091
+  },
+  "object-call-for-tenders": {
+   "area": 182690,
+   "fill": 0.917,
+   "solid": 1.0,
+   "stem": 0.156
+  },
+  "action-submit-invitation-to-tender": {
+   "area": 193438,
+   "fill": 0.887,
+   "solid": 0.961,
+   "stem": 0.091
+  },
+  "action-receive-invitation-to-tender": {
+   "area": 196955,
+   "fill": 0.886,
+   "solid": 0.964,
+   "stem": 0.091
+  },
+  "action-process-call-for-tenders": {
+   "area": 171597,
+   "fill": 0.879,
+   "solid": 0.958,
+   "stem": 0.091
+  },
+  "final-economic-operator": {
+   "area": 9895,
+   "fill": 0.379,
+   "solid": 0.785
+  }
+ },
+ "flows": {
+  "flow-initial-contracting-authority-to-prepare-call-for-tenders": {
+   "arrowInk": [
+    495,
+    1300
+   ],
+   "arrowPx": [
+    65,
+    68.0,
+    3.16
+   ],
+   "arrowFill": 0.081
+  },
+  "flow-prepare-call-for-tenders-to-submit-invitation-to-tender": {
+   "arrowInk": [
+    495,
+    1329
+   ],
+   "arrowPx": [
+    67,
+    68.0,
+    2.99
+   ],
+   "arrowFill": 0.163
+  },
+  "flow-submit-invitation-to-tender-to-call-for-tenders": {
+   "arrowInk": [
+    540,
+    1156
+   ]
+  },
+  "flow-call-for-tenders-to-receive-invitation-to-tender": {
+   "arrowInk": [
+    539,
+    1310
+   ],
+   "arrowPx": [
+    65,
+    67.8,
+    2.89
+   ],
+   "arrowFill": 0.173
+  },
+  "flow-receive-invitation-to-tender-to-process-call-for-tenders": {
+   "arrowInk": [
+    540,
+    1299
+   ],
+   "arrowPx": [
+    66,
+    68.0,
+    3.03
+   ],
+   "arrowFill": 0.212
+  },
+  "flow-process-call-for-tenders-to-final-economic-operator": {
+   "arrowInk": [
+    540,
+    1306
+   ],
+   "arrowPx": [
+    67,
+    68.0,
+    3.05
+   ],
+   "arrowFill": 0.199
+  }
+ },
+ "offPage": {},
+ "marks": {},
+ "phases": {},
+ "greyRules": [],
+ "titleReadings": [
+  {
+   "position": 0,
+   "text": "CONTRACTING AUTHORITY",
+   "x": 327,
+   "y": 81,
+   "w": 987,
+   "h": 55,
+   "lines": [
+    {
+     "x": 327,
+     "y": 81,
+     "w": 987,
+     "h": 55,
+     "text": "CONTRACTING AUTHORITY"
+    }
+   ]
+  },
+  {
+   "position": 1,
+   "text": "ECONOMIC OPERATOR",
+   "x": 2117,
+   "y": 81,
+   "w": 836,
+   "h": 55,
+   "lines": [
+    {
+     "x": 2117,
+     "y": 81,
+     "w": 836,
+     "h": 55,
+     "text": "ECONOMIC OPERATOR"
+    }
+   ]
+  }
+ ],
+ "findings": [],
+ "uncertain": [
+  {
+   "kind": "sub-character-region",
+   "x": 388,
+   "y": 87,
+   "w": 36,
+   "h": 42,
+   "reason": "enclosed region smaller than one character of the diagram's type",
+   "check": "confirm this is glyph interior and not a node"
+  },
+  {
+   "kind": "sub-character-region",
+   "x": 1099,
+   "y": 87,
+   "w": 37,
+   "h": 42,
+   "reason": "enclosed region smaller than one character of the diagram's type",
+   "check": "confirm this is glyph interior and not a node"
+  },
+  {
+   "kind": "sub-character-region",
+   "x": 2225,
+   "y": 88,
+   "w": 36,
+   "h": 42,
+   "reason": "enclosed region smaller than one character of the diagram's type",
+   "check": "confirm this is glyph interior and not a node"
+  },
+  {
+   "kind": "sub-character-region",
+   "x": 2336,
+   "y": 88,
+   "w": 36,
+   "h": 42,
+   "reason": "enclosed region smaller than one character of the diagram's type",
+   "check": "confirm this is glyph interior and not a node"
+  },
+  {
+   "kind": "sub-character-region",
+   "x": 2550,
+   "y": 88,
+   "w": 36,
+   "h": 42,
+   "reason": "enclosed region smaller than one character of the diagram's type",
+   "check": "confirm this is glyph interior and not a node"
+  },
+  {
+   "kind": "sub-character-region",
+   "x": 2854,
+   "y": 88,
+   "w": 36,
+   "h": 42,
+   "reason": "enclosed region smaller than one character of the diagram's type",
+   "check": "confirm this is glyph interior and not a node"
+  }
+ ],
+ "present": [
+  "source",
+  "size",
+  "fontPx",
+  "arrowPx",
+  "arrowWidthPx",
+  "arrowStyle",
+  "rules",
+  "ruleSpan",
+  "greyRules",
+  "dashed",
+  "openEnds",
+  "crossMarks",
+  "partitions",
+  "nodes",
+  "edges",
+  "text",
+  "uncertain"
+ ],
+ "uncorrected": {
+  "model": {
+   "schema": "ubl-activity-diagram/1",
+   "figure": {
+    "name": "UBL-2.2-Tender-Invitation",
+    "source": "UBL-2.2-Tender-Invitation.png"
+   },
+   "lanes": [
+    {
+     "id": "lane0",
+     "axis": "column",
+     "index": 0,
+     "title": "CONTRACTING AUTHORITY"
+    },
+    {
+     "id": "lane1",
+     "axis": "column",
+     "index": 1,
+     "title": "ECONOMIC OPERATOR"
+    },
+    {
+     "id": "lane2",
+     "axis": "band",
+     "index": 0,
+     "title": ""
+    }
+   ],
+   "nodes": [
+    {
+     "id": "n7",
+     "kind": "initial",
+     "label": "",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n8",
+     "kind": "action",
+     "label": "Prepare call for tenders",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n9",
+     "kind": "object",
+     "label": "Call\nFor\nTenders",
+     "lane": "lane1",
+     "band": "lane2"
+    },
+    {
+     "id": "n10",
+     "kind": "action",
+     "label": "Submit Invitation to Tender",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n11",
+     "kind": "action",
+     "label": "Receive Invitation to Tender",
+     "lane": "lane1",
+     "band": "lane2"
+    },
+    {
+     "id": "n12",
+     "kind": "action",
+     "label": "Process Call For Tenders",
+     "lane": "lane1",
+     "band": "lane2"
+    },
+    {
+     "id": "n13",
+     "kind": "final",
+     "label": "",
+     "lane": "lane1",
+     "band": "lane2"
+    }
+   ],
+   "flows": [
+    {
+     "id": "f0",
+     "from": "n7",
+     "to": "n8",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f1",
+     "from": "n8",
+     "to": "n10",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f2",
+     "from": "n10",
+     "to": "n9",
+     "kind": "object",
+     "direction": {
+      "confidence": "medium",
+      "checked": "confirmed"
+     }
+    },
+    {
+     "id": "f3",
+     "from": "n9",
+     "to": "n11",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f4",
+     "from": "n11",
+     "to": "n12",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f5",
+     "from": "n12",
+     "to": "n13",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    }
+   ],
+   "texts": [],
+   "offPage": [],
+   "marks": [],
+   "phases": []
+  },
+  "layout": {
+   "schema": "ubl-activity-diagram-layout/1",
+   "figure": "UBL-2.2-Tender-Invitation",
+   "units": "px of the original PNG",
+   "size": [
+    3425,
+    2056
+   ],
+   "style": {
+    "fontPx": 77.1,
+    "arrowPx": 66.0,
+    "arrowWidthPx": 68.0,
+    "arrowStyle": "open"
+   },
+   "rules": {
+    "vertical": [
+     {
+      "at": 0,
+      "width": 10,
+      "span": [
+       13,
+       2042
+      ]
+     },
+     {
+      "at": 1648,
+      "width": 12,
+      "span": [
+       13,
+       2042
+      ]
+     },
+     {
+      "at": 3415,
+      "width": 10,
+      "span": [
+       13,
+       2042
+      ]
+     }
+    ],
+    "horizontal": [
+     {
+      "at": 0,
+      "width": 10,
+      "span": [
+       13,
+       3411
+      ]
+     },
+     {
+      "at": 2046,
+      "width": 10,
+      "span": [
+       13,
+       3411
+      ]
+     }
+    ]
+   },
+   "greyRules": [],
+   "lanes": {
+    "lane0": {
+     "x0": 0,
+     "x1": 1654,
+     "titleBox": [
+      327,
+      81,
+      987,
+      55
+     ]
+    },
+    "lane1": {
+     "x0": 1654,
+     "x1": 3425,
+     "titleBox": [
+      2117,
+      81,
+      836,
+      55
+     ]
+    },
+    "lane2": {
+     "y0": 0,
+     "y1": 2056
+    }
+   },
+   "nodes": {
+    "n7": {
+     "x": 589,
+     "y": 239,
+     "w": 115,
+     "h": 116
+    },
+    "n8": {
+     "x": 161,
+     "y": 533,
+     "w": 971,
+     "h": 196,
+     "shape": "rounded",
+     "stroke": 12,
+     "rx": 95,
+     "ry": 102,
+     "bold": false,
+     "labelLines": [
+      {
+       "x": 273,
+       "y": 600,
+       "w": 761,
+       "h": 68,
+       "text": "Prepare call for tenders"
+      }
+     ]
+    },
+    "n9": {
+     "x": 1454,
+     "y": 794,
+     "w": 439,
+     "h": 454,
+     "shape": "rect",
+     "stroke": 12,
+     "rx": 0,
+     "ry": 0,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 1528,
+       "y": 862,
+       "w": 152,
+       "h": 63,
+       "text": "Call"
+      },
+      {
+       "x": 1524,
+       "y": 987,
+       "w": 140,
+       "h": 62,
+       "text": "For"
+      },
+      {
+       "x": 1531,
+       "y": 1112,
+       "w": 319,
+       "h": 62,
+       "text": "Tenders"
+      }
+     ]
+    },
+    "n10": {
+     "x": 93,
+     "y": 912,
+     "w": 1107,
+     "h": 197,
+     "shape": "rounded",
+     "stroke": 11,
+     "rx": 95.0,
+     "ry": 101,
+     "bold": false,
+     "labelLines": [
+      {
+       "x": 188,
+       "y": 979,
+       "w": 883,
+       "h": 55,
+       "text": "Submit Invitation to Tender"
+      }
+     ]
+    },
+    "n11": {
+     "x": 2197,
+     "y": 919,
+     "w": 1134,
+     "h": 196,
+     "shape": "rounded",
+     "stroke": 12,
+     "rx": 94,
+     "ry": 94,
+     "bold": false,
+     "labelLines": [
+      {
+       "x": 2246,
+       "y": 986,
+       "w": 917,
+       "h": 54,
+       "text": "Receive Invitation to Tender"
+      }
+     ]
+    },
+    "n12": {
+     "x": 2266,
+     "y": 1354,
+     "w": 996,
+     "h": 196,
+     "shape": "rounded",
+     "stroke": 12,
+     "rx": 96,
+     "ry": 101,
+     "bold": false,
+     "labelLines": [
+      {
+       "x": 2315,
+       "y": 1421,
+       "w": 831,
+       "h": 54,
+       "text": "Process Call For Tenders"
+      }
+     ]
+    },
+    "n13": {
+     "x": 2683,
+     "y": 1785,
+     "w": 162,
+     "h": 161,
+     "shape": "rounded",
+     "stroke": 12,
+     "rx": 76,
+     "ry": 84,
+     "innerRatio": 0.71
+    }
+   },
+   "flows": {
+    "f0": {
+     "fromPoint": [
+      646,
+      369
+     ],
+     "toPoint": [
+      646,
+      518
+     ],
+     "routing": "straight"
+    },
+    "f1": {
+     "fromPoint": [
+      646,
+      743
+     ],
+     "toPoint": [
+      646,
+      897
+     ],
+     "routing": "straight"
+    },
+    "f2": {
+     "fromPoint": [
+      1214,
+      1010
+     ],
+     "toPoint": [
+      1439,
+      1017
+     ],
+     "routing": "straight"
+    },
+    "f3": {
+     "fromPoint": [
+      1907,
+      1021
+     ],
+     "toPoint": [
+      2182,
+      1017
+     ],
+     "routing": "straight"
+    },
+    "f4": {
+     "fromPoint": [
+      2764,
+      1129
+     ],
+     "toPoint": [
+      2764,
+      1339
+     ],
+     "routing": "straight"
+    },
+    "f5": {
+     "fromPoint": [
+      2764,
+      1564
+     ],
+     "toPoint": [
+      2764,
+      1770
+     ],
+     "routing": "straight"
+    }
+   },
+   "texts": {},
+   "offPage": {},
+   "marks": {},
+   "phases": {},
+   "rulesHaveSpans": {
+    "vertical": true,
+    "horizontal": true
+   }
+  }
+ },
+ "corrections": [
+  "party-21",
+  "party-22"
+ ],
+ "documentLanes": {
+  "object-call-for-tenders": "lane-economic-operator"
+ },
+ "formerIds": {
+  "lane-contracting-authority": "lane0",
+  "lane-economic-operator": "lane1",
+  "initial-contracting-authority": "n7",
+  "action-prepare-call-for-tenders": "n8",
+  "object-call-for-tenders": "n9",
+  "action-submit-invitation-to-tender": "n10",
+  "action-receive-invitation-to-tender": "n11",
+  "action-process-call-for-tenders": "n12",
+  "final-economic-operator": "n13",
+  "flow-initial-contracting-authority-to-prepare-call-for-tenders": "f0",
+  "flow-prepare-call-for-tenders-to-submit-invitation-to-tender": "f1",
+  "flow-submit-invitation-to-tender-to-call-for-tenders": "f2",
+  "flow-call-for-tenders-to-receive-invitation-to-tender": "f3",
+  "flow-receive-invitation-to-tender-to-process-call-for-tenders": "f4",
+  "flow-process-call-for-tenders-to-final-economic-operator": "f5"
+ }
+}

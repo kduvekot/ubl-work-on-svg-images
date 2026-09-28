@@ -1,0 +1,614 @@
+{
+ "schema": "ubl-activity-diagram-extraction/1",
+ "figure": "UBL-2.2-Tender-AwardNotification",
+ "nodes": {
+  "initial-contracting-authority": {
+   "area": 9477,
+   "fill": 0.783
+  },
+  "action-prepare-awarding-notification": {
+   "area": 207139,
+   "fill": 0.881,
+   "solid": 0.965,
+   "stem": 0.092
+  },
+  "object-unawarded-notification": {
+   "area": 90989,
+   "fill": 0.819,
+   "solid": 1.0,
+   "stem": 0.145
+  },
+  "action-send-awarding-notification": {
+   "area": 189065,
+   "fill": 0.88,
+   "solid": 0.961,
+   "stem": 0.092
+  },
+  "action-receive-notification": {
+   "area": 142868,
+   "fill": 0.873,
+   "solid": 0.949,
+   "stem": 0.092
+  },
+  "object-awarded-notification": {
+   "area": 92585,
+   "fill": 0.834,
+   "solid": 1.0,
+   "stem": 0.145,
+   "keptOnOutline": true
+  },
+  "final-tenderer": {
+   "area": 9652,
+   "fill": 0.368,
+   "solid": 0.781
+  }
+ },
+ "flows": {
+  "flow-initial-contracting-authority-to-prepare-awarding-notification": {
+   "arrowInk": [
+    540,
+    1346
+   ],
+   "arrowPx": [
+    65,
+    68.0,
+    3.01
+   ],
+   "arrowFill": 0.095
+  },
+  "flow-prepare-awarding-notification-to-send-awarding-notification": {
+   "arrowInk": [
+    540,
+    1321
+   ],
+   "arrowPx": [
+    65,
+    68.0,
+    3.06
+   ],
+   "arrowFill": 0.095
+  },
+  "f2": {
+   "arrowInk": [
+    552,
+    1328
+   ],
+   "arrowPx": [
+    64,
+    68.1,
+    2.8
+   ],
+   "arrowFill": 0.087
+  },
+  "flow-receive-notification-to-final-tenderer": {
+   "arrowInk": [
+    549,
+    1154
+   ]
+  }
+ },
+ "offPage": {},
+ "marks": {},
+ "phases": {},
+ "greyRules": [],
+ "titleReadings": [
+  {
+   "position": 0,
+   "text": "TENDERER",
+   "x": 548,
+   "y": 78,
+   "w": 405,
+   "h": 53,
+   "lines": [
+    {
+     "x": 548,
+     "y": 78,
+     "w": 405,
+     "h": 53,
+     "text": "TENDERER"
+    }
+   ]
+  },
+  {
+   "position": 1,
+   "text": "CONTRACTING AUTHORITY",
+   "x": 2011,
+   "y": 79,
+   "w": 988,
+   "h": 54,
+   "lines": [
+    {
+     "x": 2011,
+     "y": 79,
+     "w": 988,
+     "h": 54,
+     "text": "CONTRACTING AUTHORITY"
+    }
+   ]
+  }
+ ],
+ "findings": [],
+ "uncertain": [
+  {
+   "x": 1316,
+   "y": 978,
+   "w": 572,
+   "h": 194,
+   "shape": "rect",
+   "iou": 1.0,
+   "border": 1.0,
+   "kind": "kept-on-outline",
+   "reason": "every side has pass-through line-work, but the region carries a complete outline of its own",
+   "check": "confirm this is a node and not trapped whitespace"
+  },
+  {
+   "kind": "sub-character-region",
+   "x": 2072,
+   "y": 85,
+   "w": 36,
+   "h": 42,
+   "reason": "enclosed region smaller than one character of the diagram's type",
+   "check": "confirm this is glyph interior and not a node"
+  },
+  {
+   "kind": "sub-character-region",
+   "x": 2785,
+   "y": 85,
+   "w": 36,
+   "h": 42,
+   "reason": "enclosed region smaller than one character of the diagram's type",
+   "check": "confirm this is glyph interior and not a node"
+  }
+ ],
+ "present": [
+  "source",
+  "size",
+  "fontPx",
+  "arrowPx",
+  "arrowWidthPx",
+  "arrowStyle",
+  "rules",
+  "ruleSpan",
+  "greyRules",
+  "dashed",
+  "openEnds",
+  "crossMarks",
+  "partitions",
+  "nodes",
+  "edges",
+  "text",
+  "uncertain"
+ ],
+ "uncorrected": {
+  "model": {
+   "schema": "ubl-activity-diagram/1",
+   "figure": {
+    "name": "UBL-2.2-Tender-AwardNotification",
+    "source": "UBL-2.2-Tender-AwardNotification.png"
+   },
+   "lanes": [
+    {
+     "id": "lane0",
+     "axis": "column",
+     "index": 0,
+     "title": "TENDERER"
+    },
+    {
+     "id": "lane1",
+     "axis": "column",
+     "index": 1,
+     "title": "CONTRACTING AUTHORITY"
+    },
+    {
+     "id": "lane2",
+     "axis": "band",
+     "index": 0,
+     "title": ""
+    }
+   ],
+   "nodes": [
+    {
+     "id": "n3",
+     "kind": "initial",
+     "label": "",
+     "lane": "lane1",
+     "band": "lane2"
+    },
+    {
+     "id": "n4",
+     "kind": "action",
+     "label": "Prepare awarding notification",
+     "lane": "lane1",
+     "band": "lane2"
+    },
+    {
+     "id": "n5",
+     "kind": "object",
+     "label": "Unawarded\nNotification",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n6",
+     "kind": "action",
+     "label": "send awarding notification",
+     "lane": "lane1",
+     "band": "lane2"
+    },
+    {
+     "id": "n7",
+     "kind": "action",
+     "label": "Receive notification",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n8",
+     "kind": "object",
+     "label": "Awarded\nNotification",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n9",
+     "kind": "final",
+     "label": "",
+     "lane": "lane0",
+     "band": "lane2"
+    }
+   ],
+   "flows": [
+    {
+     "id": "f0",
+     "from": "n3",
+     "to": "n4",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f1",
+     "from": "n4",
+     "to": "n6",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f2",
+     "from": "n6",
+     "to": "n7",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f3",
+     "from": "n7",
+     "to": "n9",
+     "kind": "control",
+     "direction": {
+      "confidence": "medium",
+      "checked": "confirmed"
+     }
+    }
+   ],
+   "texts": [],
+   "offPage": [],
+   "marks": [],
+   "phases": []
+  },
+  "layout": {
+   "schema": "ubl-activity-diagram-layout/1",
+   "figure": "UBL-2.2-Tender-AwardNotification",
+   "units": "px of the original PNG",
+   "size": [
+    3425,
+    1438
+   ],
+   "style": {
+    "fontPx": 75.7,
+    "arrowPx": 65.0,
+    "arrowWidthPx": 68.0,
+    "arrowStyle": "open"
+   },
+   "rules": {
+    "vertical": [
+     {
+      "at": 0,
+      "width": 10,
+      "span": [
+       13,
+       1424
+      ]
+     },
+     {
+      "at": 1609,
+      "width": 14,
+      "span": [
+       13,
+       1424
+      ]
+     },
+     {
+      "at": 3415,
+      "width": 10,
+      "span": [
+       13,
+       1424
+      ]
+     }
+    ],
+    "horizontal": [
+     {
+      "at": 0,
+      "width": 10,
+      "span": [
+       13,
+       3411
+      ]
+     },
+     {
+      "at": 1428,
+      "width": 10,
+      "span": [
+       13,
+       3411
+      ]
+     }
+    ]
+   },
+   "greyRules": [],
+   "lanes": {
+    "lane0": {
+     "x0": 0,
+     "x1": 1616,
+     "titleBox": [
+      548,
+      78,
+      405,
+      53
+     ]
+    },
+    "lane1": {
+     "x0": 1616,
+     "x1": 3425,
+     "titleBox": [
+      2011,
+      79,
+      988,
+      54
+     ]
+    },
+    "lane2": {
+     "y0": 0,
+     "y1": 1438
+    }
+   },
+   "nodes": {
+    "n3": {
+     "x": 2676,
+     "y": 192,
+     "w": 116,
+     "h": 116
+    },
+    "n4": {
+     "x": 2137,
+     "y": 468,
+     "w": 1194,
+     "h": 197,
+     "shape": "rounded",
+     "stroke": 13,
+     "rx": 96,
+     "ry": 95,
+     "bold": false,
+     "labelLines": [
+      {
+       "x": 2251,
+       "y": 535,
+       "w": 950,
+       "h": 69,
+       "text": "Prepare awarding notification"
+      }
+     ]
+    },
+    "n5": {
+     "x": 1317,
+     "y": 693,
+     "w": 573,
+     "h": 194,
+     "shape": "rect",
+     "stroke": 12,
+     "rx": 0,
+     "ry": 0,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 1412,
+       "y": 715,
+       "w": 398,
+       "h": 53,
+       "text": "Unawarded"
+      },
+      {
+       "x": 1409,
+       "y": 806,
+       "w": 403,
+       "h": 55,
+       "text": "Notification"
+      }
+     ]
+    },
+    "n6": {
+     "x": 2186,
+     "y": 831,
+     "w": 1096,
+     "h": 196,
+     "shape": "rounded",
+     "stroke": 13,
+     "rx": 95,
+     "ry": 104,
+     "bold": false,
+     "labelLines": [
+      {
+       "x": 2300,
+       "y": 898,
+       "w": 862,
+       "h": 69,
+       "text": "send awarding notification"
+      }
+     ]
+    },
+    "n7": {
+     "x": 94,
+     "y": 833,
+     "w": 835,
+     "h": 196,
+     "shape": "rounded",
+     "stroke": 12,
+     "rx": 94,
+     "ry": 96,
+     "bold": false,
+     "labelLines": [
+      {
+       "x": 197,
+       "y": 900,
+       "w": 632,
+       "h": 54,
+       "text": "Receive notification"
+      }
+     ]
+    },
+    "n8": {
+     "x": 1316,
+     "y": 978,
+     "w": 572,
+     "h": 194,
+     "shape": "rect",
+     "stroke": 12,
+     "rx": 0,
+     "ry": 0,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 1403,
+       "y": 1000,
+       "w": 319,
+       "h": 54,
+       "text": "Awarded"
+      },
+      {
+       "x": 1408,
+       "y": 1091,
+       "w": 403,
+       "h": 55,
+       "text": "Notification"
+      }
+     ]
+    },
+    "n9": {
+     "x": 434,
+     "y": 1199,
+     "w": 162,
+     "h": 162,
+     "shape": "rounded",
+     "stroke": 12,
+     "rx": 83,
+     "ry": 79,
+     "innerRatio": 0.71
+    }
+   },
+   "flows": {
+    "f0": {
+     "fromPoint": [
+      2734,
+      322
+     ],
+     "toPoint": [
+      2734,
+      453
+     ],
+     "routing": "straight"
+    },
+    "f1": {
+     "fromPoint": [
+      2734,
+      679
+     ],
+     "toPoint": [
+      2734,
+      816
+     ],
+     "routing": "straight"
+    },
+    "f2": {
+     "fromPoint": [
+      2171,
+      929
+     ],
+     "toPoint": [
+      943,
+      930
+     ],
+     "routing": "straight"
+    },
+    "f3": {
+     "fromPoint": [
+      511,
+      1043
+     ],
+     "toPoint": [
+      514,
+      1184
+     ],
+     "routing": "straight"
+    }
+   },
+   "texts": {},
+   "offPage": {},
+   "marks": {},
+   "phases": {},
+   "rulesHaveSpans": {
+    "vertical": true,
+    "horizontal": true
+   }
+  }
+ },
+ "retexted": {
+  "n6": {
+   "section": "nodes",
+   "text": "Send awarding notification"
+  }
+ },
+ "corrections": [
+  "party-09",
+  "party-10",
+  "doc-01",
+  "text-34"
+ ],
+ "documentLanes": {
+  "object-unawarded-notification": "lane-tenderer",
+  "object-awarded-notification": "lane-tenderer"
+ },
+ "formerIds": {
+  "lane-tenderer": "lane0",
+  "lane-contracting-authority": "lane1",
+  "initial-contracting-authority": "n3",
+  "action-prepare-awarding-notification": "n4",
+  "object-unawarded-notification": "n5",
+  "action-send-awarding-notification": "n6",
+  "action-receive-notification": "n7",
+  "object-awarded-notification": "n8",
+  "final-tenderer": "n9",
+  "flow-initial-contracting-authority-to-prepare-awarding-notification": "f0",
+  "flow-prepare-awarding-notification-to-send-awarding-notification": "f1",
+  "flow-send-awarding-notification-to-awarded-notification": "corr-doc-01-0-in",
+  "flow-awarded-notification-to-receive-notification": "corr-doc-01-0-out",
+  "flow-send-awarding-notification-to-unawarded-notification": "corr-doc-01-1-in",
+  "flow-unawarded-notification-to-receive-notification": "corr-doc-01-1-out",
+  "flow-receive-notification-to-final-tenderer": "f3"
+ }
+}

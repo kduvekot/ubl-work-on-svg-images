@@ -1,0 +1,468 @@
+{
+ "schema": "ubl-activity-diagram-layout/1",
+ "figure": "UBL-2.3-ImportDeclarationProcess",
+ "units": "px of the original PNG",
+ "size": [
+  3426,
+  2050
+ ],
+ "style": {
+  "fontPx": 58.6,
+  "arrowPx": 40.0,
+  "arrowWidthPx": 42.0,
+  "arrowStyle": "filled"
+ },
+ "rules": {
+  "vertical": [
+   {
+    "at": 2,
+    "width": 10,
+    "span": [
+     15,
+     2038
+    ]
+   },
+   {
+    "at": 1710,
+    "width": 10,
+    "span": [
+     15,
+     2038
+    ]
+   },
+   {
+    "at": 3418,
+    "width": 7,
+    "span": [
+     15,
+     2038
+    ]
+   }
+  ],
+  "horizontal": [
+   {
+    "at": 2,
+    "width": 10,
+    "span": [
+     15,
+     3414
+    ]
+   },
+   {
+    "at": 2042,
+    "width": 7,
+    "span": [
+     15,
+     3414
+    ]
+   }
+  ]
+ },
+ "greyRules": [],
+ "lanes": {
+  "lane-importer-party": {
+   "x0": 0,
+   "x1": 1715,
+   "titleBox": [
+    731,
+    82,
+    355,
+    52
+   ]
+  },
+  "lane-customs-party": {
+   "x0": 1715,
+   "x1": 3426,
+   "titleBox": [
+    2505,
+    48,
+    219,
+    120
+   ],
+   "titleWords": "Customs\nParty"
+  }
+ },
+ "nodes": {
+  "initial-importer-party": {
+   "x": 788,
+   "y": 242,
+   "w": 99,
+   "h": 99
+  },
+  "object-import-customs-declarations": {
+   "x": 1435,
+   "y": 439,
+   "w": 560,
+   "h": 275,
+   "shape": "rect",
+   "stroke": 10,
+   "rx": 0,
+   "ry": 0,
+   "bold": false,
+   "labelLines": [
+    {
+     "x": 1517,
+     "y": 523,
+     "w": 394,
+     "h": 53,
+     "text": "Import Customs"
+    },
+    {
+     "x": 1559,
+     "y": 590,
+     "w": 309,
+     "h": 41,
+     "text": "Declarations"
+    }
+   ]
+  },
+  "action-issue-import-declaration": {
+   "x": 579,
+   "y": 484,
+   "w": 517,
+   "h": 185,
+   "shape": "rounded",
+   "stroke": 5,
+   "rx": 24,
+   "ry": 24,
+   "bold": false,
+   "labelLines": [
+    {
+     "x": 684,
+     "y": 524,
+     "w": 307,
+     "h": 52,
+     "text": "Issue Import"
+    },
+    {
+     "x": 696,
+     "y": 590,
+     "w": 279,
+     "h": 41,
+     "text": "Declaration"
+    }
+   ]
+  },
+  "action-receive-import-declaration": {
+   "x": 2429,
+   "y": 484,
+   "w": 517,
+   "h": 185,
+   "shape": "rounded",
+   "stroke": 5,
+   "rx": 24,
+   "ry": 24,
+   "bold": false,
+   "labelLines": [
+    {
+     "x": 2498,
+     "y": 524,
+     "w": 378,
+     "h": 52,
+     "text": "Receive Import"
+    },
+    {
+     "x": 2546,
+     "y": 590,
+     "w": 279,
+     "h": 41,
+     "text": "Declaration"
+    }
+   ]
+  },
+  "object-application-response-approved": {
+   "x": 1435,
+   "y": 961,
+   "w": 560,
+   "h": 275,
+   "shape": "rect",
+   "stroke": 10,
+   "rx": 0,
+   "ry": 0,
+   "bold": false,
+   "labelLines": [
+    {
+     "x": 1449,
+     "y": 1045,
+     "w": 525,
+     "h": 52,
+     "text": "Application response"
+    },
+    {
+     "x": 1579,
+     "y": 1112,
+     "w": 269,
+     "h": 52,
+     "text": "(approved)"
+    }
+   ]
+  },
+  "decision-is-valid": {
+   "x": 2456,
+   "y": 982,
+   "w": 463,
+   "h": 232,
+   "shape": "rhombus",
+   "stroke": 5,
+   "rx": 244,
+   "ry": 126,
+   "bold": false,
+   "labelLines": [
+    {
+     "x": 2586,
+     "y": 1079,
+     "w": 200,
+     "h": 41,
+     "text": "Is valid?"
+    }
+   ]
+  },
+  "action-receive-accept": {
+   "x": 579,
+   "y": 1006,
+   "w": 517,
+   "h": 185,
+   "shape": "rounded",
+   "stroke": 5,
+   "rx": 23,
+   "ry": 24,
+   "bold": false,
+   "labelLines": [
+    {
+     "x": 645,
+     "y": 1079,
+     "w": 384,
+     "h": 52,
+     "text": "Receive accept"
+    }
+   ]
+  },
+  "object-application-response-rejected": {
+   "x": 1435,
+   "y": 1435,
+   "w": 560,
+   "h": 275,
+   "shape": "rect",
+   "stroke": 9,
+   "rx": 0,
+   "ry": 0,
+   "bold": false,
+   "labelLines": [
+    {
+     "x": 1449,
+     "y": 1520,
+     "w": 525,
+     "h": 52,
+     "text": "Application response"
+    },
+    {
+     "x": 1596,
+     "y": 1586,
+     "w": 235,
+     "h": 52,
+     "text": "(rejected)"
+    }
+   ]
+  },
+  "action-receive-reject": {
+   "x": 579,
+   "y": 1480,
+   "w": 517,
+   "h": 185,
+   "shape": "rounded",
+   "stroke": 5,
+   "rx": 26,
+   "ry": 24,
+   "bold": false,
+   "labelLines": [
+    {
+     "x": 659,
+     "y": 1553,
+     "w": 356,
+     "h": 52,
+     "text": "Receive reject"
+    }
+   ]
+  },
+  "final-importer-party": {
+   "x": 199,
+   "y": 1812,
+   "w": 138,
+   "h": 138,
+   "shape": "rounded",
+   "stroke": 0,
+   "rx": 70,
+   "ry": 71,
+   "innerRatio": 0.717
+  }
+ },
+ "flows": {
+  "flow-initial-importer-party-to-issue-import-declaration": {
+   "fromPoint": [
+    837,
+    355
+   ],
+   "toPoint": [
+    837,
+    469
+   ],
+   "routing": "straight"
+  },
+  "flow-issue-import-declaration-to-import-customs-declarations": {
+   "fromPoint": [
+    1110,
+    576
+   ],
+   "toPoint": [
+    1420,
+    576
+   ],
+   "routing": "straight"
+  },
+  "flow-import-customs-declarations-to-receive-import-declaration": {
+   "fromPoint": [
+    2009,
+    576
+   ],
+   "toPoint": [
+    2414,
+    576
+   ],
+   "routing": "straight"
+  },
+  "flow-receive-import-declaration-to-is-valid": {
+   "fromPoint": [
+    2687,
+    683
+   ],
+   "toPoint": [
+    2687,
+    967
+   ],
+   "routing": "straight"
+  },
+  "flow-application-response-approved-to-receive-accept": {
+   "fromPoint": [
+    1420,
+    1098
+   ],
+   "toPoint": [
+    1110,
+    1098
+   ],
+   "routing": "straight"
+  },
+  "flow-is-valid-to-application-response-approved": {
+   "fromPoint": [
+    2441,
+    1098
+   ],
+   "toPoint": [
+    2009,
+    1098
+   ],
+   "routing": "straight"
+  },
+  "flow-receive-accept-to-final-importer-party": {
+   "fromPoint": [
+    564,
+    1098
+   ],
+   "toPoint": [
+    268,
+    1797
+   ],
+   "routing": "orthogonal",
+   "points": [
+    [
+     268,
+     1098
+    ]
+   ]
+  },
+  "flow-is-valid-to-application-response-rejected": {
+   "fromPoint": [
+    2687,
+    1228
+   ],
+   "toPoint": [
+    2033,
+    1582
+   ],
+   "routing": "orthogonal",
+   "points": [
+    [
+     2687,
+     1582
+    ]
+   ]
+  },
+  "flow-application-response-rejected-to-receive-reject": {
+   "fromPoint": [
+    1420,
+    1572
+   ],
+   "toPoint": [
+    1110,
+    1572
+   ],
+   "routing": "straight"
+  },
+  "flow-receive-reject-to-final-importer-party": {
+   "fromPoint": [
+    837,
+    1679
+   ],
+   "toPoint": [
+    351,
+    1880
+   ],
+   "routing": "orthogonal",
+   "points": [
+    [
+     837,
+     1880
+    ]
+   ]
+  }
+ },
+ "texts": {
+  "text-yes": {
+   "x": 2181,
+   "y": 1078,
+   "w": 82,
+   "h": 37,
+   "lines": [
+    {
+     "x": 2177,
+     "y": 1078,
+     "w": 90,
+     "h": 37,
+     "text": "Yes"
+    }
+   ]
+  },
+  "text-no": {
+   "x": 2511,
+   "y": 1562,
+   "w": 61,
+   "h": 37,
+   "lines": [
+    {
+     "x": 2511,
+     "y": 1562,
+     "w": 61,
+     "h": 37,
+     "text": "No"
+    }
+   ]
+  }
+ },
+ "offPage": {},
+ "marks": {},
+ "phases": {},
+ "rulesHaveSpans": {
+  "vertical": true,
+  "horizontal": true
+ }
+}

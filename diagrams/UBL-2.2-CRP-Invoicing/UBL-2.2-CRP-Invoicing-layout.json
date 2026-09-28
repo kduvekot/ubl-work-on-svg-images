@@ -1,0 +1,217 @@
+{
+ "schema": "ubl-activity-diagram-layout/1",
+ "figure": "UBL-2.2-CRP-Invoicing",
+ "units": "px of the original PNG",
+ "size": [
+  3425,
+  1507
+ ],
+ "style": {
+  "fontPx": 70.0,
+  "arrowPx": 82.0,
+  "arrowWidthPx": 66.7,
+  "arrowStyle": "open"
+ },
+ "rules": {
+  "vertical": [
+   {
+    "at": 0,
+    "width": 10,
+    "span": [
+     13,
+     1493
+    ]
+   },
+   {
+    "at": 1650,
+    "width": 7,
+    "span": [
+     13,
+     1493
+    ]
+   },
+   {
+    "at": 3415,
+    "width": 10,
+    "span": [
+     13,
+     1493
+    ]
+   }
+  ],
+  "horizontal": [
+   {
+    "at": 0,
+    "width": 10,
+    "span": [
+     13,
+     3411
+    ]
+   },
+   {
+    "at": 1497,
+    "width": 10,
+    "span": [
+     13,
+     3411
+    ]
+   }
+  ]
+ },
+ "greyRules": [],
+ "lanes": {
+  "lane-producer": {
+   "x0": 0,
+   "x1": 1654,
+   "titleBox": [
+    574,
+    46,
+    309,
+    56
+   ]
+  },
+  "lane-retailer": {
+   "x0": 1654,
+   "x1": 3425,
+   "titleBox": [
+    2459,
+    46,
+    261,
+    56
+   ]
+  }
+ },
+ "nodes": {
+  "initial-producer": {
+   "x": 427,
+   "y": 211,
+   "w": 120,
+   "h": 120
+  },
+  "object-invoice": {
+   "x": 1403,
+   "y": 674,
+   "w": 494,
+   "h": 196,
+   "shape": "rect",
+   "stroke": 13,
+   "rx": 0,
+   "ry": 0,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 1527,
+     "y": 737,
+     "w": 263,
+     "h": 57,
+     "text": "Invoice"
+    }
+   ]
+  },
+  "action-raise-invoice": {
+   "x": 88,
+   "y": 683,
+   "w": 792,
+   "h": 184,
+   "shape": "rounded",
+   "stroke": 7,
+   "rx": 94,
+   "ry": 55,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 239,
+     "y": 743,
+     "w": 487,
+     "h": 56,
+     "text": "Raise Invoice"
+    }
+   ]
+  },
+  "action-receive-invoice": {
+   "x": 2545,
+   "y": 689,
+   "w": 792,
+   "h": 184,
+   "shape": "rounded",
+   "stroke": 7,
+   "rx": 94,
+   "ry": 56,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 2666,
+     "y": 749,
+     "w": 573,
+     "h": 56,
+     "text": "Receive Invoice"
+    }
+   ]
+  },
+  "final-retailer": {
+   "x": 2884,
+   "y": 1344,
+   "w": 107,
+   "h": 107,
+   "shape": "rounded",
+   "stroke": 7,
+   "rx": 53,
+   "ry": 56,
+   "innerRatio": 0.439
+  }
+ },
+ "flows": {
+  "flow-initial-producer-to-raise-invoice": {
+   "fromPoint": [
+    484,
+    345
+   ],
+   "toPoint": [
+    484,
+    668
+   ],
+   "routing": "straight"
+  },
+  "flow-raise-invoice-to-invoice": {
+   "fromPoint": [
+    894,
+    775
+   ],
+   "toPoint": [
+    1388,
+    774
+   ],
+   "routing": "straight"
+  },
+  "flow-invoice-to-receive-invoice": {
+   "fromPoint": [
+    1912,
+    773
+   ],
+   "toPoint": [
+    2530,
+    776
+   ],
+   "routing": "straight"
+  },
+  "flow-receive-invoice-to-final-retailer": {
+   "fromPoint": [
+    2941,
+    887
+   ],
+   "toPoint": [
+    2939,
+    1329
+   ],
+   "routing": "straight"
+  }
+ },
+ "texts": {},
+ "offPage": {},
+ "marks": {},
+ "phases": {},
+ "rulesHaveSpans": {
+  "vertical": true,
+  "horizontal": true
+ }
+}

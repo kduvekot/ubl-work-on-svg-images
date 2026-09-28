@@ -1,0 +1,11 @@
+== UBL-2.2-Tender-ContractInfoNotify
+  scale 0.43212   frame 10px  divider 14px  action 13px  object 14px
+  font 84px (36.4 model)   2 lanes, 1 bands, 9 nodes, 10 edges -> review/baseline/UBL-2.2-Tender-ContractInfoNotify-spec.json
+  review/baseline/UBL-2.2-Tender-ContractInfoNotify.svg + .drawio + -classified.svg   (9 nodes, 10 edges)
+  rendered UBL-2.2-Tender-ContractInfoNotify.svg -> UBL-2.2-Tender-ContractInfoNotify-render.png @ 3425pxx2672, 600 dpi
+  aligned on ink bounds: scale x 1.0000, y 1.0000
+  size 3425x2672  radius 2
+  ink: original 605658   candidate 599975
+  MISSING (red)    24564  = 4.0558% of original ink
+  EXTRA   (blue)   26624  = 4.3959% of original ink
+  RESULT: DIFFERENCES - inspect review/baseline/UBL-2.2-Tender-ContractInfoNotify-diff-r2.png

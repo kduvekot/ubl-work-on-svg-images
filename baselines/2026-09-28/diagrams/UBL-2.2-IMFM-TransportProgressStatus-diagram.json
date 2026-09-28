@@ -1,0 +1,148 @@
+{
+ "schema": "ubl-activity-diagram/1",
+ "figure": {
+  "name": "UBL-2.2-IMFM-TransportProgressStatus",
+  "source": "UBL-2.2-IMFM-TransportProgressStatus.png"
+ },
+ "lanes": [
+  {
+   "id": "lane-transport-service-provider",
+   "axis": "column",
+   "index": 0,
+   "title": "Transport Service Provider"
+  },
+  {
+   "id": "lane-transportation-network-manager",
+   "axis": "column",
+   "index": 1,
+   "title": "Transportation Network Manager"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "initial-transport-service-provider",
+   "kind": "initial",
+   "label": "",
+   "lane": "lane-transport-service-provider"
+  },
+  {
+   "id": "object-transport-progress-status-request",
+   "kind": "object",
+   "label": "Transport\nProgress Status\nRequest",
+   "lane": null,
+   "between": [
+    "lane-transport-service-provider",
+    "lane-transportation-network-manager"
+   ]
+  },
+  {
+   "id": "action-request-transport-progress-status",
+   "kind": "action",
+   "label": "Request Transport\nProgress Status",
+   "lane": "lane-transport-service-provider"
+  },
+  {
+   "id": "action-receive-transport-progress-status-in-transportation-network-manager",
+   "kind": "action",
+   "label": "Receive Transport\nProgress Status Request",
+   "lane": "lane-transportation-network-manager"
+  },
+  {
+   "id": "action-receive-transport-progress-status-in-transport-service-provider",
+   "kind": "action",
+   "label": "Receive Transport\nProgress Status",
+   "lane": "lane-transport-service-provider"
+  },
+  {
+   "id": "action-send-transport-progress-status",
+   "kind": "action",
+   "label": "Send Transport Progress\nStatus",
+   "lane": "lane-transportation-network-manager"
+  },
+  {
+   "id": "object-transport-progress-status",
+   "kind": "object",
+   "label": "Transport\nProgress Status",
+   "lane": null,
+   "between": [
+    "lane-transport-service-provider",
+    "lane-transportation-network-manager"
+   ]
+  },
+  {
+   "id": "final-transport-service-provider",
+   "kind": "final",
+   "label": "",
+   "lane": "lane-transport-service-provider"
+  }
+ ],
+ "flows": [
+  {
+   "id": "flow-initial-transport-service-provider-to-request-transport-progress-status",
+   "from": "initial-transport-service-provider",
+   "to": "action-request-transport-progress-status",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-request-transport-progress-status-to-transport-progress-status-request",
+   "from": "action-request-transport-progress-status",
+   "to": "object-transport-progress-status-request",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-transport-progress-status-request-to-receive-transport-progress-status-in-transportation-network-manager",
+   "from": "object-transport-progress-status-request",
+   "to": "action-receive-transport-progress-status-in-transportation-network-manager",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-receive-transport-progress-status-in-transportation-network-manager-to-send-transport-progress-status",
+   "from": "action-receive-transport-progress-status-in-transportation-network-manager",
+   "to": "action-send-transport-progress-status",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-transport-progress-status-to-receive-transport-progress-status-in-transport-service-provider",
+   "from": "object-transport-progress-status",
+   "to": "action-receive-transport-progress-status-in-transport-service-provider",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-send-transport-progress-status-to-transport-progress-status",
+   "from": "action-send-transport-progress-status",
+   "to": "object-transport-progress-status",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-receive-transport-progress-status-in-transport-service-provider-to-final-transport-service-provider",
+   "from": "action-receive-transport-progress-status-in-transport-service-provider",
+   "to": "final-transport-service-provider",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  }
+ ],
+ "texts": [],
+ "offPage": [],
+ "marks": [],
+ "phases": []
+}

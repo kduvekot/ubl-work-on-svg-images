@@ -1,0 +1,726 @@
+{
+ "schema": "ubl-activity-diagram-layout/1",
+ "figure": "UBL-2.2-Tender-ContractInfoPrep",
+ "units": "px of the original PNG",
+ "size": [
+  3425,
+  4268
+ ],
+ "style": {
+  "fontPx": 80.0,
+  "arrowPx": 68.0,
+  "arrowWidthPx": 70.0,
+  "arrowStyle": "open"
+ },
+ "rules": {
+  "vertical": [
+   {
+    "at": 0,
+    "width": 10,
+    "span": [
+     13,
+     4254
+    ]
+   },
+   {
+    "at": 1854,
+    "width": 12,
+    "span": [
+     13,
+     4254
+    ]
+   },
+   {
+    "at": 3415,
+    "width": 10,
+    "span": [
+     13,
+     4254
+    ]
+   }
+  ],
+  "horizontal": [
+   {
+    "at": 0,
+    "width": 10,
+    "span": [
+     13,
+     3411
+    ]
+   },
+   {
+    "at": 4258,
+    "width": 10,
+    "span": [
+     13,
+     3411
+    ]
+   }
+  ]
+ },
+ "greyRules": [],
+ "lanes": {
+  "lane-contracting-authority": {
+   "x0": 0,
+   "x1": 1860,
+   "titleBox": [
+    443,
+    91,
+    1028,
+    57
+   ],
+   "titleWords": "CONTRACTING AUTHORITY"
+  },
+  "lane-publication-office": {
+   "x0": 1860,
+   "x1": 3425,
+   "titleBox": [
+    2236,
+    90,
+    807,
+    57
+   ],
+   "titleWords": "PUBLICATION OFFICE"
+  }
+ },
+ "nodes": {
+  "initial-contracting-authority": {
+   "x": 626,
+   "y": 208,
+   "w": 120,
+   "h": 120
+  },
+  "action-prepare-prior-notice": {
+   "x": 248,
+   "y": 545,
+   "w": 877,
+   "h": 205,
+   "shape": "rounded",
+   "stroke": 12,
+   "rx": 96,
+   "ry": 103,
+   "bold": false,
+   "labelLines": [
+    {
+     "x": 349,
+     "y": 616,
+     "w": 689,
+     "h": 70,
+     "text": "Prepare Prior Notice"
+    }
+   ]
+  },
+  "object-prior-information-notice-between-contracting-authority-and-publication-office": {
+   "x": 1595,
+   "y": 853,
+   "w": 481,
+   "h": 498,
+   "shape": "rect",
+   "stroke": 12,
+   "rx": 2,
+   "ry": 2,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 1626,
+     "y": 962,
+     "w": 183,
+     "h": 56,
+     "text": "Prior"
+    },
+    {
+     "x": 1625,
+     "y": 1058,
+     "w": 420,
+     "h": 57,
+     "text": "Information"
+    },
+    {
+     "x": 1626,
+     "y": 1155,
+     "w": 232,
+     "h": 56,
+     "text": "Notice"
+    }
+   ]
+  },
+  "action-validate-prior-information-notice": {
+   "x": 2188,
+   "y": 946,
+   "w": 823,
+   "h": 301,
+   "shape": "rounded",
+   "stroke": 12,
+   "rx": 112,
+   "ry": 109,
+   "bold": false,
+   "labelLines": [
+    {
+     "x": 2370,
+     "y": 1014,
+     "w": 462,
+     "h": 56,
+     "text": "Validate Prior"
+    },
+    {
+     "x": 2289,
+     "y": 1109,
+     "w": 615,
+     "h": 57,
+     "text": "Information Notice"
+    }
+   ]
+  },
+  "decision-contracting-authority": {
+   "x": 575,
+   "y": 982,
+   "w": 222,
+   "h": 222,
+   "shape": "rhombus",
+   "stroke": 12,
+   "rx": 119,
+   "ry": 120,
+   "bold": false
+  },
+  "decision-ok-in-publication-office": {
+   "x": 2482,
+   "y": 1365,
+   "w": 223,
+   "h": 223,
+   "shape": "rhombus",
+   "stroke": 12,
+   "rx": 120,
+   "ry": 120,
+   "bold": false,
+   "labelLines": [
+    {
+     "x": 2521,
+     "y": 1454,
+     "w": 147,
+     "h": 57,
+     "text": "OK?"
+    }
+   ]
+  },
+  "action-publish-prior-information-notice": {
+   "x": 2175,
+   "y": 1781,
+   "w": 824,
+   "h": 301,
+   "shape": "rounded",
+   "stroke": 12,
+   "rx": 122,
+   "ry": 119,
+   "bold": false,
+   "labelLines": [
+    {
+     "x": 2370,
+     "y": 1852,
+     "w": 431,
+     "h": 56,
+     "text": "Publish Prior"
+    },
+    {
+     "x": 2264,
+     "y": 1947,
+     "w": 615,
+     "h": 57,
+     "text": "Information Notice"
+    }
+   ]
+  },
+  "final-publication-office": {
+   "x": 2497,
+   "y": 2189,
+   "w": 168,
+   "h": 168,
+   "shape": "ellipse",
+   "stroke": 13,
+   "rx": 86,
+   "ry": 86,
+   "innerRatio": 0.714
+  },
+  "action-publish-in-buyer-profile": {
+   "x": 190,
+   "y": 2414,
+   "w": 993,
+   "h": 204,
+   "shape": "rounded",
+   "stroke": 13,
+   "rx": 98,
+   "ry": 99,
+   "bold": false,
+   "labelLines": [
+    {
+     "x": 286,
+     "y": 2483,
+     "w": 788,
+     "h": 72,
+     "text": "Publish in Buyer Profile"
+    }
+   ]
+  },
+  "object-prior-information-notice-between-contracting-authority-and-publication-office-2": {
+   "x": 1602,
+   "y": 2638,
+   "w": 481,
+   "h": 497,
+   "shape": "rect",
+   "stroke": 12,
+   "rx": 0,
+   "ry": 0,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 1640,
+     "y": 2748,
+     "w": 183,
+     "h": 56,
+     "text": "Prior"
+    },
+    {
+     "x": 1639,
+     "y": 2844,
+     "w": 420,
+     "h": 57,
+     "text": "Information"
+    },
+    {
+     "x": 1640,
+     "y": 2941,
+     "w": 231,
+     "h": 56,
+     "text": "Notice"
+    }
+   ]
+  },
+  "action-validate-simplified-notice": {
+   "x": 2237,
+   "y": 2788,
+   "w": 1094,
+   "h": 205,
+   "shape": "rounded",
+   "stroke": 12,
+   "rx": 98.5,
+   "ry": 103,
+   "bold": false,
+   "labelLines": [
+    {
+     "x": 2326,
+     "y": 2858,
+     "w": 870,
+     "h": 71,
+     "text": "Validate Simplified Notice"
+    }
+   ]
+  },
+  "action-prepare-simplified-notice": {
+   "x": 146,
+   "y": 2795,
+   "w": 1081,
+   "h": 204,
+   "shape": "rounded",
+   "stroke": 13,
+   "rx": 99,
+   "ry": 102,
+   "bold": false,
+   "labelLines": [
+    {
+     "x": 232,
+     "y": 2864,
+     "w": 861,
+     "h": 72,
+     "text": "Prepare Simplified Notice"
+    }
+   ]
+  },
+  "decision-ok-in-publication-office-2": {
+   "x": 2673,
+   "y": 3134,
+   "w": 222,
+   "h": 222,
+   "shape": "rhombus",
+   "stroke": 12,
+   "rx": 119,
+   "ry": 119,
+   "bold": false,
+   "labelLines": [
+    {
+     "x": 2712,
+     "y": 3222,
+     "w": 146,
+     "h": 57,
+     "text": "OK?"
+    }
+   ]
+  },
+  "action-publish-simplified-notice": {
+   "x": 2261,
+   "y": 3580,
+   "w": 1059,
+   "h": 204,
+   "shape": "rounded",
+   "stroke": 13,
+   "rx": 97,
+   "ry": 97,
+   "bold": false,
+   "labelLines": [
+    {
+     "x": 2358,
+     "y": 3649,
+     "w": 839,
+     "h": 72,
+     "text": "Publish Simplified Notice"
+    }
+   ]
+  },
+  "final-publication-office-2": {
+   "x": 2706,
+   "y": 3993,
+   "w": 168,
+   "h": 169,
+   "shape": "rounded",
+   "stroke": 12,
+   "rx": 89,
+   "ry": 84,
+   "innerRatio": 0.714
+  }
+ },
+ "flows": {
+  "flow-initial-contracting-authority-to-prepare-prior-notice": {
+   "fromPoint": [
+    686,
+    342
+   ],
+   "toPoint": [
+    686,
+    530
+   ],
+   "routing": "straight"
+  },
+  "flow-ok-in-publication-office-to-prepare-prior-notice": {
+   "fromPoint": [
+    2719,
+    1476
+   ],
+   "toPoint": [
+    1139,
+    647
+   ],
+   "routing": "orthogonal",
+   "points": [
+    [
+     3284,
+     1476
+    ],
+    [
+     3284,
+     647
+    ]
+   ]
+  },
+  "flow-prepare-prior-notice-to-decision-contracting-authority": {
+   "fromPoint": [
+    686,
+    764
+   ],
+   "toPoint": [
+    686,
+    967
+   ],
+   "routing": "straight"
+  },
+  "flow-prior-information-notice-between-contracting-authority-and-publication-office-to-validate-prior-information-notice": {
+   "fromPoint": [
+    2090,
+    1102
+   ],
+   "toPoint": [
+    2173,
+    1096
+   ],
+   "routing": "straight"
+  },
+  "flow-decision-contracting-authority-to-prior-information-notice-between-contracting-authority-and-publication-office": {
+   "fromPoint": [
+    811,
+    1093
+   ],
+   "toPoint": [
+    1580,
+    1102
+   ],
+   "routing": "diagonal"
+  },
+  "flow-decision-contracting-authority-to-publish-in-buyer-profile": {
+   "fromPoint": [
+    686,
+    1218
+   ],
+   "toPoint": [
+    686,
+    2399
+   ],
+   "routing": "straight"
+  },
+  "flow-validate-prior-information-notice-to-ok-in-publication-office": {
+   "fromPoint": [
+    2599,
+    1261
+   ],
+   "toPoint": [
+    2593,
+    1350
+   ],
+   "routing": "straight"
+  },
+  "flow-ok-in-publication-office-to-publish-prior-information-notice": {
+   "fromPoint": [
+    2593,
+    1602
+   ],
+   "toPoint": [
+    2587,
+    1766
+   ],
+   "routing": "straight"
+  },
+  "flow-publish-prior-information-notice-to-final-publication-office": {
+   "fromPoint": [
+    2587,
+    2096
+   ],
+   "toPoint": [
+    2581,
+    2174
+   ],
+   "routing": "straight"
+  },
+  "flow-publish-in-buyer-profile-to-prepare-simplified-notice": {
+   "fromPoint": [
+    686,
+    2632
+   ],
+   "toPoint": [
+    686,
+    2780
+   ],
+   "routing": "straight"
+  },
+  "flow-prior-information-notice-between-contracting-authority-and-publication-office-2-to-validate-simplified-notice": {
+   "fromPoint": [
+    2097,
+    2886
+   ],
+   "toPoint": [
+    2222,
+    2890
+   ],
+   "routing": "straight"
+  },
+  "flow-prepare-simplified-notice-to-prior-information-notice-between-contracting-authority-and-publication-office-2": {
+   "fromPoint": [
+    1241,
+    2897
+   ],
+   "toPoint": [
+    1587,
+    2890
+   ],
+   "routing": "straight"
+  },
+  "flow-validate-simplified-notice-to-ok-in-publication-office-2": {
+   "fromPoint": [
+    2784,
+    3007
+   ],
+   "toPoint": [
+    2784,
+    3119
+   ],
+   "routing": "straight"
+  },
+  "flow-ok-in-publication-office-2-to-prepare-simplified-notice": {
+   "fromPoint": [
+    2658,
+    3258
+   ],
+   "toPoint": [
+    686,
+    3013
+   ],
+   "routing": "orthogonal",
+   "points": [
+    [
+     686,
+     3258
+    ]
+   ]
+  },
+  "flow-ok-in-publication-office-2-to-publish-simplified-notice": {
+   "fromPoint": [
+    2784,
+    3370
+   ],
+   "toPoint": [
+    2790,
+    3565
+   ],
+   "routing": "straight"
+  },
+  "flow-publish-simplified-notice-to-final-publication-office-2": {
+   "fromPoint": [
+    2790,
+    3798
+   ],
+   "toPoint": [
+    2790,
+    3978
+   ],
+   "routing": "straight"
+  }
+ },
+ "texts": {
+  "text-yes": {
+   "x": 956,
+   "y": 1001,
+   "w": 129,
+   "h": 57,
+   "lines": [
+    {
+     "x": 956,
+     "y": 1001,
+     "w": 129,
+     "h": 57,
+     "text": "Yes"
+    }
+   ]
+  },
+  "text-above-thresholds": {
+   "x": 82,
+   "y": 1051,
+   "w": 419,
+   "h": 152,
+   "lines": [
+    {
+     "x": 82,
+     "y": 1051,
+     "w": 215,
+     "h": 56,
+     "text": "Above"
+    },
+    {
+     "x": 83,
+     "y": 1147,
+     "w": 418,
+     "h": 56,
+     "text": "Thresholds?"
+    }
+   ]
+  },
+  "text-no": {
+   "x": 735,
+   "y": 1366,
+   "w": 89,
+   "h": 56,
+   "lines": [
+    {
+     "x": 735,
+     "y": 1366,
+     "w": 89,
+     "h": 56,
+     "text": "No"
+    }
+   ]
+  },
+  "text-no-2": {
+   "x": 2771,
+   "y": 1374,
+   "w": 89,
+   "h": 57,
+   "lines": [
+    {
+     "x": 2771,
+     "y": 1374,
+     "w": 89,
+     "h": 57,
+     "text": "No"
+    }
+   ]
+  },
+  "text-yes-2": {
+   "x": 2644,
+   "y": 1636,
+   "w": 130,
+   "h": 57,
+   "lines": [
+    {
+     "x": 2644,
+     "y": 1636,
+     "w": 130,
+     "h": 57,
+     "text": "Yes"
+    }
+   ]
+  },
+  "text-publish-official-journal": {
+   "x": 1014,
+   "y": 3027,
+   "w": 488,
+   "h": 146,
+   "lines": [
+    {
+     "x": 1018,
+     "y": 3027,
+     "w": 484,
+     "h": 56,
+     "text": "Publish Official"
+    },
+    {
+     "x": 1014,
+     "y": 3118,
+     "w": 239,
+     "h": 55,
+     "text": "Journal"
+    }
+   ]
+  },
+  "text-no-3": {
+   "x": 2528,
+   "y": 3140,
+   "w": 92,
+   "h": 57,
+   "lines": [
+    {
+     "x": 2528,
+     "y": 3140,
+     "w": 92,
+     "h": 57,
+     "text": "No"
+    }
+   ]
+  },
+  "text-yes-3": {
+   "x": 2823,
+   "y": 3417,
+   "w": 130,
+   "h": 58,
+   "lines": [
+    {
+     "x": 2823,
+     "y": 3417,
+     "w": 130,
+     "h": 58,
+     "text": "Yes"
+    }
+   ]
+  }
+ },
+ "offPage": {},
+ "marks": {},
+ "phases": {},
+ "rulesHaveSpans": {
+  "vertical": true,
+  "horizontal": true
+ }
+}

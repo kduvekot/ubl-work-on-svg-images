@@ -1,0 +1,450 @@
+{
+ "canvas": {
+  "w": 1480.0,
+  "h": 1154.616
+ },
+ "stroke": {
+  "frame": 4.3,
+  "divider": 6.0,
+  "action": 5.6,
+  "object": 6.0,
+  "edge": 5.6
+ },
+ "font": {
+  "family": "Helvetica, Arial, sans-serif",
+  "node": 36.4,
+  "lane": 36.4,
+  "guard": 36.4
+ },
+ "arrow": 40.0,
+ "arrowWidth": 41.4,
+ "arrowStyle": "open",
+ "dashed": [],
+ "greyRules": [],
+ "crossMarks": [],
+ "openEnds": [],
+ "frameBox": [
+  2.2,
+  2.2,
+  1477.8,
+  1152.5
+ ],
+ "dividers": [
+  [
+   780.8,
+   6.0,
+   5.6,
+   1148.6
+  ]
+ ],
+ "bands": [],
+ "lanes": [
+  {
+   "title": "CONTRACTING AUTHORITY",
+   "x": 0.0,
+   "w": 780.8,
+   "cx": 390.6,
+   "cy": 41.3
+  },
+  {
+   "title": "PUBLICATION OFFICE",
+   "x": 780.8,
+   "w": 699.2,
+   "cx": 1124.4,
+   "cy": 42.1
+  }
+ ],
+ "bandLabels": [],
+ "nodes": [
+  {
+   "id": "n5",
+   "kind": "initial",
+   "label": "",
+   "x": 256.7,
+   "y": 82.5,
+   "w": 56.2,
+   "h": 55.7
+  },
+  {
+   "id": "n6",
+   "kind": "action",
+   "label": "Prepare Contract Notice",
+   "x": 40.8,
+   "y": 236.2,
+   "w": 483.1,
+   "h": 100.7,
+   "rx": 49.5,
+   "ry": 48.2,
+   "labelLines": [
+    {
+     "text": "Prepare Contract Notice",
+     "cx": 275.9,
+     "cy": 288.0,
+     "w": 379.0
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "n7",
+   "kind": "object",
+   "label": "Contract\nNotice",
+   "x": 694.8,
+   "y": 407.5,
+   "w": 170.3,
+   "h": 175.4,
+   "labelLines": [
+    {
+     "text": "Contract",
+     "cx": 779.8,
+     "cy": 468.2,
+     "w": 145.6
+    },
+    {
+     "text": "Notice",
+     "cx": 758.8,
+     "cy": 521.6,
+     "w": 107.2
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n8",
+   "kind": "decision",
+   "label": "",
+   "x": 230.1,
+   "y": 438.8,
+   "w": 108.9,
+   "h": 108.9,
+   "bold": false
+  },
+  {
+   "id": "n9",
+   "kind": "action",
+   "label": "Validate Contract Notice",
+   "x": 924.1,
+   "y": 442.7,
+   "w": 489.6,
+   "h": 100.3,
+   "rx": 50.3,
+   "ry": 49.0,
+   "labelLines": [
+    {
+     "text": "Validate Contract Notice",
+     "cx": 1164.1,
+     "cy": 491.1,
+     "w": 383.7
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "n10",
+   "kind": "decision",
+   "label": "OK?",
+   "x": 1111.6,
+   "y": 602.6,
+   "w": 108.9,
+   "h": 109.3,
+   "labelLines": [
+    {
+     "text": "OK?",
+     "cx": 1166.3,
+     "cy": 659.8,
+     "w": 68.3
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "n12",
+   "kind": "action",
+   "label": "Publish Contract Notice",
+   "x": 926.7,
+   "y": 810.0,
+   "w": 473.2,
+   "h": 100.3,
+   "rx": 50.3,
+   "ry": 48.2,
+   "labelLines": [
+    {
+     "text": "Publish Contract Notice",
+     "cx": 1163.0,
+     "cy": 858.2,
+     "w": 369.5
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "n13",
+   "kind": "action",
+   "label": "Publish in Buyer Profile",
+   "x": 54.2,
+   "y": 813.0,
+   "w": 466.3,
+   "h": 100.3,
+   "rx": 48.2,
+   "ry": 49.9,
+   "labelLines": [
+    {
+     "text": "Publish in Buyer Profile",
+     "cx": 283.3,
+     "cy": 864.4,
+     "w": 365.1
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "n14",
+   "kind": "final",
+   "label": "",
+   "x": 243.1,
+   "y": 1031.7,
+   "w": 83.4,
+   "h": 83.8,
+   "innerRatio": 0.711
+  }
+ ],
+ "edges": [
+  {
+   "from": "n5",
+   "to": "n6",
+   "exitXY": [
+    0.5,
+    1.0
+   ],
+   "entryXY": [
+    0.4997,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n10",
+   "to": "n6",
+   "exitXY": [
+    1.0,
+    0.4959
+   ],
+   "entryXY": [
+    1.0,
+    0.4955
+   ],
+   "straight": false,
+   "confidence": "high",
+   "points": [
+    [
+     1441.5,
+     656.8
+    ],
+    [
+     1441.5,
+     286.1
+    ]
+   ],
+   "label": "No"
+  },
+  {
+   "from": "n6",
+   "to": "n8",
+   "exitXY": [
+    0.4997,
+    1.0
+   ],
+   "entryXY": [
+    0.4977,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "medium"
+  },
+  {
+   "from": "n7",
+   "to": "n9",
+   "exitXY": [
+    1.0,
+    0.5
+   ],
+   "entryXY": [
+    0.0,
+    0.4975
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n8",
+   "to": "n7",
+   "exitXY": [
+    1.0,
+    0.4977
+   ],
+   "entryXY": [
+    0.0,
+    0.4977
+   ],
+   "straight": true,
+   "confidence": "high",
+   "label": "Yes"
+  },
+  {
+   "from": "n9",
+   "to": "n10",
+   "exitXY": [
+    0.5,
+    1.0
+   ],
+   "entryXY": [
+    0.4986,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "medium"
+  },
+  {
+   "from": "n8",
+   "to": "n13",
+   "exitXY": [
+    0.4977,
+    1.0
+   ],
+   "entryXY": [
+    0.5001,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high",
+   "label": "No"
+  },
+  {
+   "from": "n10",
+   "to": "n12",
+   "exitXY": [
+    0.4986,
+    1.0
+   ],
+   "entryXY": [
+    0.5,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high",
+   "label": "Yes"
+  },
+  {
+   "from": "n12",
+   "to": "n13",
+   "exitXY": [
+    0.0,
+    0.4975
+   ],
+   "entryXY": [
+    1.0,
+    0.4975
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n13",
+   "to": "n14",
+   "exitXY": [
+    0.5001,
+    1.0
+   ],
+   "entryXY": [
+    0.5,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  }
+ ],
+ "guards": [
+  {
+   "text": "Yes",
+   "x": 404.0,
+   "y": 455.9,
+   "w": 60.1,
+   "h": 25.9,
+   "labelLines": [
+    {
+     "text": "Yes",
+     "cx": 434.1,
+     "cy": 468.8,
+     "w": 60.1
+    }
+   ]
+  },
+  {
+   "text": "Above P\nThresholds?",
+   "x": 35.4,
+   "y": 473.2,
+   "w": 194.5,
+   "h": 78.6,
+   "labelLines": [
+    {
+     "text": "Above P",
+     "cx": 133.5,
+     "cy": 486.6,
+     "w": 196.2
+    },
+    {
+     "text": "Thresholds?",
+     "cx": 132.9,
+     "cy": 538.8,
+     "w": 194.0
+    }
+   ]
+  },
+  {
+   "text": "No",
+   "x": 310.3,
+   "y": 590.7,
+   "w": 41.1,
+   "h": 25.9,
+   "labelLines": [
+    {
+     "text": "No",
+     "cx": 330.8,
+     "cy": 603.7,
+     "w": 41.1
+    }
+   ]
+  },
+  {
+   "text": "No",
+   "x": 1244.5,
+   "y": 621.4,
+   "w": 41.5,
+   "h": 25.9,
+   "labelLines": [
+    {
+     "text": "No",
+     "cx": 1265.2,
+     "cy": 634.3,
+     "w": 41.5
+    }
+   ]
+  },
+  {
+   "text": "Yes",
+   "x": 1184.9,
+   "y": 749.3,
+   "w": 59.6,
+   "h": 25.9,
+   "labelLines": [
+    {
+     "text": "Yes",
+     "cx": 1214.7,
+     "cy": 762.3,
+     "w": 59.6
+    }
+   ]
+  }
+ ]
+}

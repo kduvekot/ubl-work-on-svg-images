@@ -1,0 +1,26 @@
+  verdict: NEEDS-HUMAN
+  structural: 0 element(s) absent, 0 invented, 0 text absent, 0 text differs, 0 incoherent
+  line-work  missing 2408 px (0.628%)   invented 15101 px (3.940%)   radius 3
+    line-work-missing      623 px at  2772,1169   107x95    near edge n23 -> n29
+    line-work-missing       60 px at  2719,255     42x5     near edge n4 -> n5
+    line-work-invented     582 px at  2759,1169   103x92    near edge n23 -> n29
+    line-work-invented     382 px at  2683,265     80x21    near edge n4 -> n5
+    line-work-invented     306 px at  2646,806     72x29    near edge n17 -> n19
+    line-work-invented     242 px at  2894,273     26x33    near edge n13 -> n4
+    line-work-invented     237 px at  2631,748     28x34    near edge n14 -> n19
+    line-work-invented     232 px at  1125,656     29x29    near edge n12 -> n18
+    line-work-invented     209 px at  1319,512     10x31    near edge n8 -> n12
+    line-work-invented     206 px at  1366,604     13x30    near edge n12 -> n15
+    line-work-invented     205 px at  2568,1356    30x17    near edge n26 -> n29
+    line-work-invented     202 px at  3164,609     13x29    near edge n10 -> n17
+    ... and 59 more line-work findings
+  needs a person (17):
+    kept-on-outline    at 2926,234  confirm this is a node and not trapped whitespace
+    dropped-region     at 2859,260  a shape here would be missing from the SVG
+    dropped-region     at 2775,265  a shape here would be missing from the SVG
+    dropped-region     at 1172,468  a shape here would be missing from the SVG
+    kept-on-outline    at 1316,564  confirm this is a node and not trapped whitespace
+    dropped-region     at 1236,593  a shape here would be missing from the SVG
+    kept-on-outline    at 2835,616  confirm this is a node and not trapped whitespace
+    dropped-region     at 2626,647  a shape here would be missing from the SVG
+/tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-1.0-ProcurementProcess-marked.png + /tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-1.0-ProcurementProcess-marked-lost.png  (17 finding(s) numbered)

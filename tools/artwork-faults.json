@@ -1,14 +1,6 @@
 {
- "_note": "rules that UML asks for and these drawings do not give, each one read against the original artwork and found to be the artwork's and not the reading's. model_sheet reports those instead of failing them, and only where every element it names is listed here - a new one anywhere else still fails, which is what keeps the rule a tripwire for a connector the model has lost. Checked 2026-09 with the TC; see docs/artwork-conversion-notes.md 11.4.",
+ "_note": "rules that UML asks for and these drawings do not give, each one read against the original artwork and found to be the artwork's and not the reading's. model_sheet reports those instead of failing them, and only where every element it names is listed here - a new one anywhere else still fails, which is what keeps the rule a tripwire for a connector the model has lost. Checked 2026-09 with the TC; see docs/artwork-conversion-notes.md 11.4. An entry may also record a fault in how something is drawn that breaks no rule (`drawn`, with empty `rules`): the model has it right, and the layout keeps the artwork's drawing until a later session re-lays the diagram. An entry may also record a typo in the artwork's words (`text`: the element and the words as the artwork writes them) that the model and the drawing both put right, since it is plainly a slip and not a difference in meaning.",
  "diagrams": {
-  "UBL-2.2-BusinessCard": {
-   "why": "Fig 86: the flow out of the Business Card runs down the lane divider itself, with the pair of diagonal break marks across it - a BPMN break borrowed into a UML diagram because the right-hand lane is 0..n parties. A route drawn as the divider cannot be read as a flow; the marks are drawn, and the document reads as written and never read.",
-   "rules": {
-    "documents are both written and read": [
-     "[Business Card]"
-    ]
-   }
-  },
   "UBL-2.2-CPFR-CreateOrderForecast": {
    "why": "Fig 12: the forecast is the last thing the phase produces and is handed off the page, so nothing on this sheet reads it. Faithful.",
    "rules": {
@@ -29,13 +21,12 @@
     ]
    }
   },
-  "UBL-2.2-DigitalCapability": {
-   "why": "Fig 87: as Fig 86.",
-   "rules": {
-    "documents are both written and read": [
-     "[Digital Capability]"
-    ]
-   }
+  "UBL-2.2-CPFR-ExceptionMonitor": {
+   "why": "Fig 14 (q9, 2026-09-27): the connector from Send Exception (Buyer Party) to Exception Notification (positive) is drawn collapsed - a short hook off the top corner of the action, and its arrowhead standing off the document without touching it - where its mirror on the Seller's side is drawn whole. The model has the flow as it plainly is (flow-send-exception-in-buyer-party-to-exception-notification-positive, direction checked, notes 11.1); the SVG keeps the artwork's drawing.",
+   "drawn": [
+    "flow-send-exception-in-buyer-party-to-exception-notification-positive"
+   ],
+   "rules": {}
   },
   "UBL-2.2-FulfilmentDespatchAdviceProcess": {
    "why": "Fig 55: the Despatch Party lane has a start event labelled 'From Order' and the Delivery Party lane has none, so Receive Order Item(s) simply begins. The TC: this diagram needs proper cleaning up, outside this exercise.",
@@ -89,6 +80,29 @@
      "Report usage"
     ]
    }
+  },
+  "UBL-2.2-IMFM-IntermodalFreightManagementProcess": {
+   "why": "Fig (IMFM Intermodal Freight Management, figure review 2026-09-27): the step is written 'AnnounceTransport Services', the space between the words left out. The model and the drawing read 'Announce Transport Services'.",
+   "rules": {},
+   "text": {
+    "action-announce-transport-services": "AnnounceTransport\nServices"
+   }
+  },
+  "UBL-2.2-IMFM-BasicTransportExecutionPlan": {
+   "why": "IMFM Basic Transport Execution Plan (figure review 2026-09-27): two steps read 'EvaluateTransport ...', the space left out, as on IMFM Intermodal Freight Management. The model and the drawing read 'Evaluate Transport ...'.",
+   "rules": {},
+   "text": {
+    "action-evaluate-transport-execution-plan-request": "EvaluateTransport\nExecution Plan\nRequest",
+    "action-evaluate-transport-execution-plan": "EvaluateTransport\nExecution Plan"
+   }
+  },
+  "UBL-2.5-BillingwithDebitNoteProcess": {
+   "why": "Billing with Debit Note (figure review 2026-09-28): the two debit-note steps, Raise Debit Note and Receive Debit Note, are set in regular type where every other step on the figure (and both credit-note steps on its twin, Billing with Credit Note) is bold. The model has the steps as they are; the SVG keeps the artwork's weights.",
+   "rules": {},
+   "drawn": [
+    "action-raise-debit-note",
+    "action-receive-debit-note"
+   ]
   }
  }
 }

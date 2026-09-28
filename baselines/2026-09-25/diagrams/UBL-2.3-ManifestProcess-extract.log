@@ -1,0 +1,40 @@
+image 3426x1291
+
+PARTITION RULES
+   vertical  : [(2, 10), (1710, 10), (3418, 7)]
+   horizontal: [(2, 10), (1283, 7)]
+   -> 2 column(s) x 1 band(s)
+   type measured off the page: a word is 52px tall
+   (dropped x=12    y=12    1698x1271  encloses another region)
+   (dropped x=1720  y=12    1698x1271  encloses another region)
+   object nodes are those stroked heavier than 7.5px
+
+NODES
+   n1   initial   x=788   y=242   w=99    h=99    stroke=0   fill=0.77  ''
+   n2   object    x=1435  y=439   w=607   h=275   stroke=10  fill=0.98  'Manifest'
+   n3   action    x=579   y=484   w=517   h=185   stroke=5   fill=0.95  'Send report'
+   n4   action    x=2429  y=484   w=517   h=185   stroke=5   fill=0.93  'Receive Manifest'
+   n5   final     x=2619  y=991   w=137   h=138   stroke=5   fill=0.37  ''
+
+TYPE  cap height 41px over 33 glyphs -> font 58.6px
+   rejoined 2 line break(s) of up to 105px, where a label sits on the line
+   chained 5 dashes into one dashed flow
+
+EDGES
+   n1   -> n3    straight    arrowhead   770 vs 225    ratio 4.0  high
+   n3   -> n2    straight    arrowhead   782 vs 225    ratio 4.0  high
+   n2   -> n4    straight    arrowhead   779 vs 225    ratio 4.0  high
+   n4   -> n5    straight    arrowhead   766 vs 225    ratio 4.0  high
+
+TEXT (titles, guards, notes)
+   'Sending Logistics\nOperator Party'      x=804   y=48    
+   'Authority Party'                        x=2499  y=82    
+
+PARTITIONS
+   column 0  'Sending Logistics\nOperator Party'
+   column 1  'Authority Party'
+   band   0  ''
+
+ARROWHEAD  40 x 42px, filled, measured on 4 connector(s)
+
+wrote review/baseline/UBL-2.3-ManifestProcess-graph.json   (5 nodes, 4 edges, 1 flagged for a human)

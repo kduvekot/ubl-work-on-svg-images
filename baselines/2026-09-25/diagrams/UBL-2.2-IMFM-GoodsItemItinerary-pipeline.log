@@ -1,0 +1,11 @@
+== UBL-2.2-IMFM-GoodsItemItinerary
+  scale 0.43212   frame 10px  divider 7px  action 6px  object 12px
+  font 61px (26.5 model)   2 lanes, 1 bands, 6 nodes, 5 edges -> review/baseline/UBL-2.2-IMFM-GoodsItemItinerary-spec.json
+  review/baseline/UBL-2.2-IMFM-GoodsItemItinerary.svg + .drawio + -classified.svg   (6 nodes, 5 edges)
+  rendered UBL-2.2-IMFM-GoodsItemItinerary.svg -> UBL-2.2-IMFM-GoodsItemItinerary-render.png @ 3425pxx1258, 600 dpi
+  aligned on ink bounds: scale x 1.0000, y 1.0000
+  size 3425x1258  radius 2
+  ink: original 255073   candidate 249455
+  MISSING (red)    14928  = 5.8524% of original ink
+  EXTRA   (blue)   14812  = 5.8070% of original ink
+  RESULT: DIFFERENCES - inspect review/baseline/UBL-2.2-IMFM-GoodsItemItinerary-diff-r2.png

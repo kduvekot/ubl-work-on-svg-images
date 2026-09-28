@@ -1,0 +1,62 @@
+image 3425x2747
+
+PARTITION RULES
+   vertical  : [(0, 10), (1629, 5), (3415, 10)]
+   horizontal: [(0, 10), (2737, 10)]
+   -> 2 column(s) x 1 band(s)
+   type measured off the page: a word is 43px tall
+   (dropped x=10    y=10    1619x2727  is a partition cell)
+   (dropped x=1634  y=10    1781x2727  is a partition cell)
+   (dropped x=414   y=504   1215x874   4 of 4 sides are pass-through line-work)
+   object nodes are those stroked heavier than 8.0px
+
+NODES
+   n1   initial   x=2995  y=93    w=96    h=95    stroke=0   fill=0.77  ''
+   n2   object    x=1419  y=389   w=411   h=222   stroke=10  fill=0.89  'Catalogue\nDeletion'
+   n3   action    x=2727  y=396   w=628   h=198   stroke=5   fill=0.89  'Notify of Catalogue\nDeletion'
+   n4   action    x=79    y=439   w=666   h=136   stroke=6   fill=0.88  'Identify Catalogue'
+   n5   decision  x=199   y=1169  w=425   h=425   stroke=5   fill=0.48  'Decide on Action'
+   n6   decision  x=2796  y=1186  w=550   h=357   stroke=5   fill=0.46  'Review Deletion\nof Catalogue'
+   n7   object    x=1448  y=1254  w=410   h=221   stroke=11  fill=0.88  'Application\nResponse\n(negative)'
+   n8   object    x=1410  y=2095  w=410   h=222   stroke=10  fill=0.88  'Application\nResponse\n(positive)'
+   n9   action    x=169   y=2117  w=495   h=164   stroke=6   fill=0.84  'Acknowledge\nCancelation'
+   n10  action    x=2121  y=2126  w=657   h=179   stroke=5   fill=0.91  'Cancel Catalogue'
+   n11  final     x=3029  y=2183  w=85    h=84    stroke=13  fill=0.64  ''
+   n12  action    x=178   y=2523  w=496   h=165   stroke=5   fill=0.87  'Delete Catalogue'
+   n13  final     x=1124  y=2580  w=84    h=84    stroke=6   fill=0.64  ''
+
+TYPE  cap height 35px over 190 glyphs -> font 50.0px
+   rejoined 1 line break(s) of up to 90px, where a label sits on the line
+
+EDGES
+   n1   -> n3    straight    arrowhead   818 vs 270    ratio 4.0  high
+   n3   -> n2    straight    arrowhead   690 vs 230    ratio 4.0  high
+   n2   -> n4    straight    arrowhead   740 vs 230    ratio 4.0  high
+   n4   -> n5    straight    arrowhead   809 vs 270    ratio 4.0  high
+   n6   -> n3    straight    arrowhead   778 vs 276    ratio 4.0  high
+   n7   -> n6    straight    arrowhead   807 vs 270    ratio 4.0  high
+   n5   -> n7    straight    arrowhead   768 vs 270    ratio 4.0  high
+   n6   -> n11   straight    arrowhead   823 vs 270    ratio 4.0  high
+   n5   -> n9    straight    arrowhead   818 vs 270    ratio 4.0  high
+   n9   -> n8    straight    arrowhead   745 vs 225    ratio 4.0  high
+   n8   -> n10   straight    arrowhead   826 vs 270    ratio 4.0  high
+   n10  -> n11   straight    arrowhead   791 vs 225    ratio 4.0  high
+   n9   -> n12   straight    arrowhead   822 vs 270    ratio 4.0  high
+   n12  -> n13   straight    arrowhead   782 vs 225    ratio 4.0  high
+
+TEXT (titles, guards, notes)
+   'Receiver Party'                         x=590   y=28    
+   'Provider Party'                         x=2434  y=28    
+   '[insist on deletion]'                   x=2618  y=988   n6->n3
+   '[query catalogue deletion]'             x=746   y=1404  n5->n7
+   '[cancel deletion]'                      x=2642  y=1612  n6->n11
+   '[accept catalogue deletion]'            x=112   y=1882  n5->n9
+
+PARTITIONS
+   column 0  'Receiver Party'
+   column 1  'Provider Party'
+   band   0  ''
+
+ARROWHEAD  65 x 54px, open, measured on 13 connector(s)
+
+wrote review/baseline/UBL-2.0-DeleteCatalogueProcess-graph.json   (13 nodes, 14 edges, 1 flagged for a human)

@@ -1,0 +1,11 @@
+== UBL-2.3-ManifestProcess
+  scale 0.43199   frame 8px  divider 10px  action 5px  object 10px
+  font 59px (25.3 model)   2 lanes, 1 bands, 5 nodes, 4 edges -> review/baseline/UBL-2.3-ManifestProcess-spec.json
+  review/baseline/UBL-2.3-ManifestProcess.svg + .drawio + -classified.svg   (5 nodes, 4 edges)
+  rendered UBL-2.3-ManifestProcess.svg -> UBL-2.3-ManifestProcess-render.png @ 3426pxx1291, 600 dpi
+  aligned on ink bounds: scale x 1.0000, y 1.0008
+  size 3426x1291  radius 2
+  ink: original 171259   candidate 175411
+  MISSING (red)     4388  = 2.5622% of original ink
+  EXTRA   (blue)    5528  = 3.2279% of original ink
+  RESULT: DIFFERENCES - inspect review/baseline/UBL-2.3-ManifestProcess-diff-r2.png

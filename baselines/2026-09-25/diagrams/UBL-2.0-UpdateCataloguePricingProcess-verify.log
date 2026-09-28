@@ -1,0 +1,20 @@
+  verdict: NEEDS-HUMAN
+  structural: 0 element(s) absent, 0 invented, 0 text absent, 0 text differs, 0 incoherent
+  line-work  missing 1959 px (0.431%)   invented 1023 px (0.225%)   radius 3
+    line-work-missing      477 px at  2644,1218   108x109   near edge n9 -> n11
+    line-work-missing      390 px at   964,2086    35x56    near edge n10 -> n15
+    line-work-missing      222 px at  2676,627     68x55    near edge n2 -> n7
+    line-work-missing      201 px at  1007,2058    61x54    near edge n10 -> n15
+    line-work-invented     320 px at  2652,1218    87x87    near edge n9 -> n11
+    line-work-invented     189 px at  1000,2074    64x54    near edge n10 -> n15
+    line-work-invented     132 px at   997,2084    18x27    near edge n10 -> n15
+    line-work-invented     118 px at  2694,622     44x34    near edge n2 -> n7
+    line-work-invented      62 px at  1034,2118    12x9     near edge n13 -> n15
+  needs a person (6):
+    dropped-region     at 587,2164  a shape here would be missing from the SVG
+    dropped-region     at 588,3064  a shape here would be missing from the SVG
+    ring-stroke-unreadable at 3023,3772  confirm this is an activity final and how thick its ring is
+    unexplained-line-work at 2989,102  decide what this is; the SVG does not draw it
+    arrowhead-unmeasurable at 2309,818  confirm the arrowhead here is drawn and points the way the original does
+    arrowhead-unmeasurable at 2320,1489  confirm the arrowhead here is drawn and points the way the original does
+review/baseline/UBL-2.0-UpdateCataloguePricingProcess-marked.png + review/baseline/UBL-2.0-UpdateCataloguePricingProcess-marked-lost.png  (6 finding(s) numbered)

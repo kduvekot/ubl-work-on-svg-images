@@ -1,0 +1,139 @@
+image 3425x3221
+
+PARTITION RULES
+   vertical  : [(0, 10), (70, 4), (953, 4), (1849, 4), (2510, 4), (3415, 10)]
+   horizontal: [(0, 9), (62, 3), (1534, 4), (2748, 3), (3212, 9)]
+   -> 4 column(s) x 3 band(s), sideways title gutter, column-title header
+   type measured off the page: a word is 24px tall
+   (dropped x=10    y=9       60x53    is a partition cell)
+   (dropped x=74    y=9      879x53    is a partition cell)
+   (dropped x=957   y=9     1553x53    lies in the column-title header)
+   (dropped x=2514  y=9      901x53    is a partition cell)
+   (dropped x=10    y=65      60x1469  is a partition cell)
+   (dropped x=74    y=65     879x1469  is a partition cell)
+   (dropped x=957   y=65    1553x1020  encloses another region)
+   (dropped x=2514  y=65     901x1469  is a partition cell)
+   (dropped x=2428  y=120     34x30    outline matches no UML node shape (best rect 0.51, and 0.88 is the most this shape can reach at this size))
+   (dropped x=1853  y=285    657x790   encloses another region)
+   (dropped x=2514  y=285    318x790   4 of 4 sides are pass-through line-work)
+   (dropped x=615   y=427    338x195   outline matches no UML node shape (best rect 0.59, and 0.98 is the most this shape can reach at this size))
+   (dropped x=381   y=625    572x252   outline matches no UML node shape (best rhombus 0.71, and 0.98 is the most this shape can reach at this size))
+   (dropped x=611   y=880    342x205   outline matches no UML node shape (best rect 0.54, and 0.98 is the most this shape can reach at this size))
+   (dropped x=2380  y=889     34x30    outline matches no UML node shape (best rect 0.53, and 0.88 is the most this shape can reach at this size))
+   (dropped x=1462  y=1079   387x455   outline matches no UML node shape (best rect 0.53, and 0.99 is the most this shape can reach at this size))
+   (dropped x=1853  y=1079   979x455   4 of 4 sides are pass-through line-work)
+   (dropped x=957   y=1085   501x449   outline matches no UML node shape (best rect 0.41, and 0.99 is the most this shape can reach at this size))
+   (dropped x=611   y=1088   342x232   outline matches no UML node shape (best rect 0.57, and 0.99 is the most this shape can reach at this size))
+   (dropped x=10    y=1538    60x1210  is a partition cell)
+   (dropped x=74    y=1538   879x1210  is a partition cell)
+   (dropped x=957   y=1538   500x226   outline matches no UML node shape (best rect 0.48, and 0.99 is the most this shape can reach at this size))
+   (dropped x=1461  y=1538   388x187   outline matches no UML node shape (best rect 0.57, and 0.98 is the most this shape can reach at this size))
+   (dropped x=1853  y=1538  1562x1210  encloses another region)
+   (dropped x=1691  y=1728   158x211   4 of 4 sides are pass-through line-work)
+   (dropped x=1853  y=1728   657x211   outline matches no UML node shape (best rect 0.75, and 0.99 is the most this shape can reach at this size))
+   (dropped x=618   y=1750   335x253   outline matches no UML node shape (best rect 0.57, and 0.99 is the most this shape can reach at this size))
+   (dropped x=957   y=1764   270x240   outline matches no UML node shape (best rect 0.45, and 0.98 is the most this shape can reach at this size))
+   (dropped x=1691  y=1943   158x495   outline matches no UML node shape (best rect 0.75, and 0.98 is the most this shape can reach at this size))
+   (dropped x=1853  y=1943   657x805   encloses another region)
+   (dropped x=957   y=2006   270x238   outline matches no UML node shape (best rect 0.45, and 0.98 is the most this shape can reach at this size))
+   (dropped x=618   y=2007   335x236   outline matches no UML node shape (best rect 0.59, and 0.99 is the most this shape can reach at this size))
+   (dropped x=957   y=2245   497x503   outline matches no UML node shape (best rect 0.41, and 0.99 is the most this shape can reach at this size))
+   (dropped x=618   y=2246   335x248   outline matches no UML node shape (best rect 0.62, and 0.99 is the most this shape can reach at this size))
+   (dropped x=1935  y=2268    32x29    outline matches no UML node shape (best rect 0.53, and 0.87 is the most this shape can reach at this size))
+   (dropped x=1458  y=2442   391x306   outline matches no UML node shape (best rect 0.58, and 0.99 is the most this shape can reach at this size))
+   (dropped x=10    y=2751    60x461   is a partition cell)
+   (dropped x=74    y=2751   879x461   is a partition cell)
+   (dropped x=957   y=2751   892x461   is a partition cell)
+   (dropped x=1853  y=2751   657x461   is a partition cell)
+   (dropped x=2514  y=2751   901x461   is a partition cell)
+   object nodes are those stroked heavier than 5.0px
+
+NODES
+   n1   initial   x=1403  y=74    w=69    h=62    stroke=0   fill=0.75  ''
+   n2   note      x=2034  y=117   w=431   h=147   stroke=3   fill=0.90  'Transportation Network\nInformation'
+   n3   action    x=1214  y=197   w=456   h=125   stroke=4   fill=0.90  'Plan Transport Services'
+   n4   action    x=2837  y=224   w=455   h=1844  stroke=4   fill=0.99  'Provide\nTransportation\nNetwork\nInformation'
+   n5   object    x=778   y=308   w=355   h=171   stroke=6   fill=0.89  'Transport Service\nDescription\nRequest'
+   n6   action    x=155   y=365   w=455   h=346   stroke=3   fill=0.95  'Define Transport\nService Demand'
+   n7   action    x=1225  y=396   w=455   h=346   stroke=4   fill=0.96  'Announce Transport\nServices'
+   n8   object    x=784   y=538   w=356   h=171   stroke=7   fill=0.92  'Transport Service\nDescription'
+   n9   object    x=778   y=783   w=355   h=171   stroke=6   fill=0.91  'Transport\nExecution\nPlan Request'
+   n10  action    x=151   y=794   w=456   h=649   stroke=4   fill=0.97  'Perform Booking\nManagement'
+   n11  action    x=1232  y=794   w=455   h=643   stroke=4   fill=0.98  'Perform\nOrder Management'
+   n12  note      x=1996  y=886   w=422   h=156   stroke=4   fill=0.90  'Transportation Network\nInformation'
+   n13  object    x=770   y=1000  w=357   h=171   stroke=6   fill=0.93  'Transport\nExecution Plan'
+   n14  object    x=778   y=1237  w=355   h=171   stroke=7   fill=0.94  'Goods Item\nItinerary'
+   n15  action    x=158   y=1593  w=456   h=1063  stroke=3   fill=0.98  'Monitor and Control\nTransport Services'
+   n16  action    x=1232  y=1593  w=455   h=1063  stroke=3   fill=0.99  'Execute\nTransport Services'
+   n17  object    x=2328  y=1641  w=355   h=171   stroke=7   fill=0.90  'Transport\nProgress Status\nRequest'
+   n18  object    x=770   y=1678  w=377   h=171   stroke=7   fill=0.92  'Transportation\nStatus Request'
+   n19  object    x=2328  y=1852  w=355   h=171   stroke=7   fill=0.93  'Transport\nProgress Status'
+   n20  object    x=780   y=1920  w=357   h=171   stroke=7   fill=0.94  'Transportation\nStatus'
+   n21  object    x=788   y=2158  w=356   h=171   stroke=6   fill=0.93  'Transport\nExecution Plan'
+   n22  note      x=1732  y=2264  w=240   h=153   stroke=4   fill=0.88  'Regulatory\nInformation'
+   n23  action    x=2003  y=2319  w=456   h=239   stroke=3   fill=0.93  'Perform Compliance\nManagement'
+   n24  object    x=791   y=2409  w=356   h=171   stroke=6   fill=0.93  'Transport\nExecution Plan'
+   n25  action    x=178   y=2850  w=456   h=179   stroke=4   fill=0.93  'Finalize\nTransport Services'
+   n26  action    x=1228  y=2850  w=456   h=176   stroke=4   fill=0.93  'Manage Completion'
+   n27  object    x=784   y=2854  w=356   h=171   stroke=7   fill=0.96  'Freight Invoice'
+   n28  final     x=374   y=3146  w=62    h=56    stroke=4   fill=0.59  ''
+
+TYPE  cap height 23px over 658 glyphs -> font 32.9px
+
+EDGES
+   n1   -> n3    straight    arrowhead   434 vs 434    ratio 1.2  <-- CHECK DIRECTION
+   n4   -> n3    straight    arrowhead   472 vs 138    ratio 4.0  high
+   n3   -> n7    straight    arrowhead   526 vs 512    ratio 4.0  high
+   n6   -> n5    straight    arrowhead   526 vs 180    ratio 4.0  high
+   n5   -> n7    straight    arrowhead   448 vs 289    ratio 4.0  high
+   n8   -> n6    straight    arrowhead   473 vs 138    ratio 4.0  high
+   n7   -> n8    straight    arrowhead   487 vs 433    ratio 4.0  high
+   n6   -> n10   straight    arrowhead   480 vs 386    ratio 4.0  high
+   n10  -> n9    straight    arrowhead   525 vs 180    ratio 4.0  high
+   n9   -> n11   straight    arrowhead   488 vs 273    ratio 4.0  high
+   n4   -> n11   straight    arrowhead   511 vs 184    ratio 4.0  high
+   n13  -> n10   straight    arrowhead   476 vs 138    ratio 4.0  high
+   n11  -> n13   straight    arrowhead   491 vs 259    ratio 4.0  high
+   n11  -> n14   straight    arrowhead   522 vs 360    ratio 4.0  high
+   n14  -> n10   straight    arrowhead   512 vs 184    ratio 4.0  high
+   n11  -> n16   straight    arrowhead   521 vs 225    ratio 4.0  high
+   n16  -> n17   straight    arrowhead   524 vs 180    ratio 4.0  high
+   n17  -> n4    straight    arrowhead   503 vs 180    ratio 4.0  high
+   n15  -> n18   straight    arrowhead   525 vs 180    ratio 4.0  high
+   n18  -> n16   straight    arrowhead   491 vs 389    ratio 4.0  high
+   n4   -> n19   straight    arrowhead   520 vs 184    ratio 4.0  high
+   n19  -> n16   straight    arrowhead   512 vs 184    ratio 4.0  high
+   n20  -> n15   straight    arrowhead   511 vs 184    ratio 4.0  high
+   n16  -> n20   straight    arrowhead   525 vs 389    ratio 4.0  high
+   n15  -> n21   straight    arrowhead   528 vs 180    ratio 4.0  high
+   n21  -> n16   straight    arrowhead   490 vs 368    ratio 4.0  high
+   n16  -> n23   straight    arrowhead   403 vs 180    ratio 4.0  high
+   n24  -> n15   straight    arrowhead   473 vs 138    ratio 4.0  high
+   n16  -> n24   straight    arrowhead   536 vs 488    ratio 1.1  <-- CHECK DIRECTION
+   n16  -> n26   straight    arrowhead   484 vs 180    ratio 4.0  high
+   n27  -> n25   straight    arrowhead   478 vs 138    ratio 4.0  high
+   n26  -> n27   straight    arrowhead   485 vs 401    ratio 4.0  high
+   n25  -> n28   straight    arrowhead   475 vs 180    ratio 4.0  high
+
+TEXT (titles, guards, notes)
+   'Transport User'                         x=391   y=21    
+   'Transport Service Provider'             x=1177  y=21    
+   'Transport Regulator'                    x=2021  y=21    
+   'Transportation Network Manager'         x=2692  y=21    
+   (dropped x=19    y=730     32x127  - in the band-title gutter, where the text is set sideways and is read there)
+   (dropped x=360   y=747     38x33    '\\/' - line-work, not text)
+   (dropped x=19    y=2063    25x145  - in the band-title gutter, where the text is set sideways and is read there)
+   (dropped x=19    y=2892    32x166  - in the band-title gutter, where the text is set sideways and is read there)
+
+PARTITIONS
+   column 0  'Transport User'
+   column 1  'Transport Service Provider'
+   column 2  'Transport Regulator'
+   column 3  'Transportation Network Manager'
+   band   0  'Planning'
+   band   1  'Execution'
+   band   2  'Completion'
+
+ARROWHEAD  46 x 35px, open, measured on 28 connector(s)
+
+wrote review/baseline/UBL-2.2-IMFM-IntermodalFreightManagementProcess-graph.json   (28 nodes, 33 edges, 21 flagged for a human)

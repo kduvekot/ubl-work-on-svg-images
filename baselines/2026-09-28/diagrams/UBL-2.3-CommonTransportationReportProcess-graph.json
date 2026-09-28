@@ -1,0 +1,367 @@
+{
+ "source": "UBL-2.3-CommonTransportationReportProcess.png",
+ "size": [
+  3426,
+  1291
+ ],
+ "fontPx": 58.6,
+ "arrowPx": 40.0,
+ "arrowWidthPx": 42.0,
+ "arrowStyle": "filled",
+ "rules": {
+  "v": [
+   [
+    2,
+    10
+   ],
+   [
+    1710,
+    10
+   ],
+   [
+    3418,
+    7
+   ]
+  ],
+  "h": [
+   [
+    2,
+    10
+   ],
+   [
+    1283,
+    7
+   ]
+  ]
+ },
+ "ruleSpan": {
+  "v": [
+   [
+    15,
+    1279
+   ],
+   [
+    15,
+    1279
+   ],
+   [
+    15,
+    1279
+   ]
+  ],
+  "h": [
+   [
+    15,
+    3414
+   ],
+   [
+    15,
+    3414
+   ]
+  ]
+ },
+ "greyRules": [],
+ "dashed": [],
+ "openEnds": [],
+ "crossMarks": [],
+ "partitions": [
+  {
+   "axis": "column",
+   "index": 0,
+   "x0": 0,
+   "x1": 1715,
+   "title": "Reporter Party",
+   "titleBox": [
+    844,
+    82,
+    365,
+    52
+   ]
+  },
+  {
+   "axis": "column",
+   "index": 1,
+   "x0": 1715,
+   "x1": 3426,
+   "title": "Authority Party",
+   "titleBox": [
+    2499,
+    82,
+    372,
+    52
+   ]
+  },
+  {
+   "axis": "band",
+   "index": 0,
+   "y0": 0,
+   "y1": 1291,
+   "title": ""
+  }
+ ],
+ "nodes": [
+  {
+   "x": 788,
+   "y": 242,
+   "w": 99,
+   "h": 99,
+   "area": 6632,
+   "fill": 0.767,
+   "kind": "initial",
+   "id": "n1",
+   "label": "",
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 1435,
+   "y": 439,
+   "w": 607,
+   "h": 275,
+   "area": 155345,
+   "fill": 0.931,
+   "solid": 1.0,
+   "rx": 0,
+   "ry": 0,
+   "shape": "rect",
+   "stroke": 10,
+   "kind": "object",
+   "id": "n2",
+   "label": "Common\nTransportation Report",
+   "labelLines": [
+    {
+     "x": 1624,
+     "y": 523,
+     "w": 224,
+     "h": 43,
+     "text": "Common"
+    },
+    {
+     "x": 1462,
+     "y": 590,
+     "w": 549,
+     "h": 52,
+     "text": "Transportation Report"
+    }
+   ],
+   "stem": 0.085,
+   "bold": false,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 579,
+   "y": 484,
+   "w": 517,
+   "h": 185,
+   "area": 90585,
+   "fill": 0.947,
+   "solid": 0.994,
+   "rx": 24,
+   "ry": 24,
+   "shape": "rounded",
+   "stroke": 5,
+   "kind": "action",
+   "id": "n3",
+   "label": "Send report",
+   "labelLines": [
+    {
+     "x": 689,
+     "y": 556,
+     "w": 294,
+     "h": 53,
+     "text": "Send report"
+    }
+   ],
+   "stem": 0.085,
+   "bold": false,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 2429,
+   "y": 484,
+   "w": 517,
+   "h": 185,
+   "area": 88863,
+   "fill": 0.929,
+   "solid": 0.994,
+   "rx": 24,
+   "ry": 24,
+   "shape": "rounded",
+   "stroke": 5,
+   "kind": "action",
+   "id": "n4",
+   "label": "Receive Report",
+   "labelLines": [
+    {
+     "x": 2494,
+     "y": 557,
+     "w": 386,
+     "h": 52,
+     "text": "Receive Report"
+    }
+   ],
+   "stem": 0.085,
+   "bold": false,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 2619,
+   "y": 991,
+   "w": 137,
+   "h": 138,
+   "area": 7073,
+   "fill": 0.374,
+   "solid": 0.786,
+   "rx": 74,
+   "ry": 66,
+   "shape": "ellipse",
+   "stroke": 5,
+   "kind": "final",
+   "innerRatio": 0.715,
+   "id": "n5",
+   "label": "",
+   "col": 1,
+   "row": 0
+  }
+ ],
+ "edges": [
+  {
+   "from": "n1",
+   "to": "n3",
+   "routing": "straight",
+   "fromPoint": [
+    837,
+    355
+   ],
+   "toPoint": [
+    837,
+    469
+   ],
+   "arrowInk": [
+    225,
+    770
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    40,
+    42.0,
+    2.18
+   ],
+   "arrowFill": 0.644,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n3",
+   "to": "n2",
+   "routing": "straight",
+   "fromPoint": [
+    1110,
+    576
+   ],
+   "toPoint": [
+    1420,
+    576
+   ],
+   "arrowInk": [
+    225,
+    782
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    38,
+    42.0,
+    2.48
+   ],
+   "arrowFill": 0.642,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n2",
+   "to": "n4",
+   "routing": "straight",
+   "fromPoint": [
+    2056,
+    576
+   ],
+   "toPoint": [
+    2414,
+    576
+   ],
+   "arrowInk": [
+    225,
+    779
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    40,
+    42.0,
+    2.18
+   ],
+   "arrowFill": 0.659,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n4",
+   "to": "n5",
+   "routing": "straight",
+   "fromPoint": [
+    2687,
+    683
+   ],
+   "toPoint": [
+    2687,
+    976
+   ],
+   "arrowInk": [
+    225,
+    766
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    40,
+    42.0,
+    2.15
+   ],
+   "arrowFill": 0.674,
+   "edgeKind": "control"
+  }
+ ],
+ "text": [
+  {
+   "text": "Reporter Party",
+   "x": 844,
+   "y": 82,
+   "w": 365,
+   "h": 52,
+   "lines": [
+    {
+     "x": 844,
+     "y": 82,
+     "w": 365,
+     "h": 52,
+     "text": "Reporter Party"
+    }
+   ]
+  },
+  {
+   "text": "Authority Party",
+   "x": 2499,
+   "y": 82,
+   "w": 372,
+   "h": 52,
+   "lines": [
+    {
+     "x": 2499,
+     "y": 82,
+     "w": 372,
+     "h": 52,
+     "text": "Authority Party"
+    }
+   ]
+  }
+ ],
+ "uncertain": []
+}

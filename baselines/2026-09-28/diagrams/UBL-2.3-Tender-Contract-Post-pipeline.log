@@ -1,0 +1,11 @@
+== UBL-2.3-Tender-Contract-Post
+  UBL-2.3-Tender-Contract-Post -> diagram, layout, extraction  (16 nodes, 14 flows, 0 texts)
+  scale 0.45920   frame 8px  divider 8px  action 8px  object 8px
+  font 73px (33.5 model)   2 lanes, 0 bands, 16 nodes, 14 edges -> /tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-2.3-Tender-Contract-Post-spec.json
+  /tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-2.3-Tender-Contract-Post.svg + .drawio + -classified.svg   (16 nodes, 14 edges)
+  aligned on ink bounds: scale x 1.0000, y 1.0000
+  size 3223x2668  radius 2
+  ink: original 576770   candidate 575596
+  MISSING (red)    25296  = 4.3858% of original ink
+  EXTRA   (blue)   23167  = 4.0167% of original ink
+  RESULT: DIFFERENCES - inspect /tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-2.3-Tender-Contract-Post-diff-r2.png

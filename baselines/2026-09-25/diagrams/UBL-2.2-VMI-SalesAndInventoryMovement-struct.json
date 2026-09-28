@@ -1,0 +1,401 @@
+{
+ "name": "UBL-2.2-VMI-SalesAndInventoryMovement.png",
+ "verdict": "needs-human",
+ "radius": 3,
+ "lineWorkInk": 210671,
+ "missingPx": 3656,
+ "inventedPx": 2583,
+ "structural": {
+  "absent": 0,
+  "invented": 0,
+  "coherence": 0,
+  "textAbsent": 0,
+  "textDiffers": 0
+ },
+ "blocking": [],
+ "findings": [
+  {
+   "kind": "line-work-missing",
+   "detail": "unattributed",
+   "x": 1606,
+   "y": 13,
+   "w": 1,
+   "h": 532,
+   "area": 532
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n7 (action 'Receive a report abo')",
+   "x": 2058,
+   "y": 907,
+   "w": 44,
+   "h": 40,
+   "area": 258
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n7 (action 'Receive a report abo')",
+   "x": 3177,
+   "y": 907,
+   "w": 45,
+   "h": 43,
+   "area": 258
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n7 (action 'Receive a report abo')",
+   "x": 3177,
+   "y": 1027,
+   "w": 45,
+   "h": 43,
+   "area": 254
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n7 (action 'Receive a report abo')",
+   "x": 2058,
+   "y": 1030,
+   "w": 44,
+   "h": 40,
+   "area": 243
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "unattributed",
+   "x": 1606,
+   "y": 704,
+   "w": 1,
+   "h": 192,
+   "area": 192
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n3 -> n8",
+   "x": 2972,
+   "y": 630,
+   "w": 99,
+   "h": 3,
+   "area": 189
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n6 (action 'Send a report about ')",
+   "x": 1136,
+   "y": 1018,
+   "w": 42,
+   "h": 27,
+   "area": 186
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n6 (action 'Send a report about ')",
+   "x": 84,
+   "y": 1018,
+   "w": 42,
+   "h": 27,
+   "area": 180
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n6 (action 'Send a report about ')",
+   "x": 1140,
+   "y": 907,
+   "w": 38,
+   "h": 26,
+   "area": 161
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n6 (action 'Send a report about ')",
+   "x": 84,
+   "y": 907,
+   "w": 38,
+   "h": 26,
+   "area": 160
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n3 (action 'Receive a report abo')",
+   "x": 2933,
+   "y": 698,
+   "w": 35,
+   "h": 24,
+   "area": 130
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n3 (action 'Receive a report abo')",
+   "x": 2934,
+   "y": 561,
+   "w": 34,
+   "h": 24,
+   "area": 125
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n4 (action 'Send a report about ')",
+   "x": 226,
+   "y": 568,
+   "w": 37,
+   "h": 21,
+   "area": 125
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n3 (action 'Receive a report abo')",
+   "x": 2207,
+   "y": 698,
+   "w": 35,
+   "h": 24,
+   "area": 124
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n3 (action 'Receive a report abo')",
+   "x": 2207,
+   "y": 561,
+   "w": 34,
+   "h": 24,
+   "area": 119
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n4 (action 'Send a report about ')",
+   "x": 995,
+   "y": 569,
+   "w": 32,
+   "h": 18,
+   "area": 105
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n4 (action 'Send a report about ')",
+   "x": 227,
+   "y": 663,
+   "w": 33,
+   "h": 18,
+   "area": 104
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n4 (action 'Send a report about ')",
+   "x": 995,
+   "y": 664,
+   "w": 31,
+   "h": 17,
+   "area": 89
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "unattributed",
+   "x": 1614,
+   "y": 13,
+   "w": 1,
+   "h": 532,
+   "area": 532
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n2 -> n3",
+   "x": 1614,
+   "y": 705,
+   "w": 1,
+   "h": 190,
+   "area": 190
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n7 (action 'Receive a report abo')",
+   "x": 3176,
+   "y": 1026,
+   "w": 38,
+   "h": 36,
+   "area": 174
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n7 (action 'Receive a report abo')",
+   "x": 2066,
+   "y": 1029,
+   "w": 37,
+   "h": 33,
+   "area": 166
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n7 (action 'Receive a report abo')",
+   "x": 3174,
+   "y": 914,
+   "w": 36,
+   "h": 24,
+   "area": 148
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n7 (action 'Receive a report abo')",
+   "x": 2068,
+   "y": 915,
+   "w": 35,
+   "h": 23,
+   "area": 148
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n3 -> n8",
+   "x": 2972,
+   "y": 623,
+   "w": 83,
+   "h": 3,
+   "area": 141
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n6 (action 'Send a report about ')",
+   "x": 91,
+   "y": 1014,
+   "w": 34,
+   "h": 23,
+   "area": 126
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n6 (action 'Send a report about ')",
+   "x": 1139,
+   "y": 915,
+   "w": 30,
+   "h": 17,
+   "area": 105
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n6 (action 'Send a report about ')",
+   "x": 93,
+   "y": 915,
+   "w": 30,
+   "h": 17,
+   "area": 104
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n3 (action 'Receive a report abo')",
+   "x": 2932,
+   "y": 695,
+   "w": 28,
+   "h": 19,
+   "area": 89
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n3 (action 'Receive a report abo')",
+   "x": 2215,
+   "y": 695,
+   "w": 27,
+   "h": 19,
+   "area": 86
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n3 (action 'Receive a report abo')",
+   "x": 2933,
+   "y": 569,
+   "w": 27,
+   "h": 19,
+   "area": 85
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n4 (action 'Send a report about ')",
+   "x": 234,
+   "y": 577,
+   "w": 26,
+   "h": 15,
+   "area": 79
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n3 (action 'Receive a report abo')",
+   "x": 2216,
+   "y": 569,
+   "w": 26,
+   "h": 17,
+   "area": 78
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n4 (action 'Send a report about ')",
+   "x": 994,
+   "y": 577,
+   "w": 25,
+   "h": 14,
+   "area": 72
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n4 (action 'Send a report about ')",
+   "x": 234,
+   "y": 658,
+   "w": 26,
+   "h": 15,
+   "area": 71
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n6 (action 'Send a report about ')",
+   "x": 1136,
+   "y": 1028,
+   "w": 25,
+   "h": 9,
+   "area": 70
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n4 (action 'Send a report about ')",
+   "x": 994,
+   "y": 659,
+   "w": 25,
+   "h": 14,
+   "area": 61
+  }
+ ],
+ "text": [],
+ "coherence": [],
+ "human": [
+  {
+   "x": 629,
+   "y": 629,
+   "w": 977,
+   "h": 347,
+   "shape": "ellipse",
+   "iou": 0.797,
+   "border": 0.639,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best ellipse 0.80, and 0.99 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "kind": "edge-direction",
+   "reason": "arrowhead ink is ambiguous where several connectors meet",
+   "edge": [
+    "n2",
+    "n5"
+   ],
+   "check": "confirm which way this edge points"
+  }
+ ],
+ "review": [
+  {
+   "n": 1,
+   "what": "check",
+   "where": "629,629 977x347",
+   "detail": "outline matches no UML node shape (best ellipse 0.80, and 0.99 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "n": 2,
+   "what": "check",
+   "where": "",
+   "detail": "arrowhead ink is ambiguous where several connectors meet",
+   "check": "confirm which way this edge points"
+  }
+ ]
+}

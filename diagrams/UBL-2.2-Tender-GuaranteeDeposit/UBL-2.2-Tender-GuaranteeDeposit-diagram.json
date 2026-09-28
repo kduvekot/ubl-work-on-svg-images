@@ -1,0 +1,115 @@
+{
+ "schema": "ubl-activity-diagram/1",
+ "figure": {
+  "name": "UBL-2.2-Tender-GuaranteeDeposit",
+  "source": "UBL-2.2-Tender-GuaranteeDeposit.png"
+ },
+ "lanes": [
+  {
+   "id": "lane-tenderer",
+   "axis": "column",
+   "index": 0,
+   "title": "Tenderer"
+  },
+  {
+   "id": "lane-contracting-authority",
+   "axis": "column",
+   "index": 1,
+   "title": "Contracting Authority"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "initial-tenderer",
+   "kind": "initial",
+   "label": "",
+   "lane": "lane-tenderer"
+  },
+  {
+   "id": "action-get-guarantee-from-financial-institution",
+   "kind": "action",
+   "label": "Get Guarantee from\nfinancial institution",
+   "lane": "lane-tenderer"
+  },
+  {
+   "id": "object-guarantee-certificate",
+   "kind": "object",
+   "label": "Guarantee\nCertificate",
+   "lane": null,
+   "between": [
+    "lane-tenderer",
+    "lane-contracting-authority"
+   ]
+  },
+  {
+   "id": "action-submit-certificate",
+   "kind": "action",
+   "label": "Submit Certificate",
+   "lane": "lane-tenderer"
+  },
+  {
+   "id": "action-receive-guarantee-certificate",
+   "kind": "action",
+   "label": "Receive guarantee certificate",
+   "lane": "lane-contracting-authority"
+  },
+  {
+   "id": "final-contracting-authority",
+   "kind": "final",
+   "label": "",
+   "lane": "lane-contracting-authority"
+  }
+ ],
+ "flows": [
+  {
+   "id": "flow-initial-tenderer-to-get-guarantee-from-financial-institution",
+   "from": "initial-tenderer",
+   "to": "action-get-guarantee-from-financial-institution",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-get-guarantee-from-financial-institution-to-submit-certificate",
+   "from": "action-get-guarantee-from-financial-institution",
+   "to": "action-submit-certificate",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-submit-certificate-to-guarantee-certificate",
+   "from": "action-submit-certificate",
+   "to": "object-guarantee-certificate",
+   "kind": "object",
+   "direction": {
+    "confidence": "medium",
+    "checked": "confirmed"
+   }
+  },
+  {
+   "id": "flow-guarantee-certificate-to-receive-guarantee-certificate",
+   "from": "object-guarantee-certificate",
+   "to": "action-receive-guarantee-certificate",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-receive-guarantee-certificate-to-final-contracting-authority",
+   "from": "action-receive-guarantee-certificate",
+   "to": "final-contracting-authority",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  }
+ ],
+ "texts": [],
+ "offPage": [],
+ "marks": [],
+ "phases": []
+}

@@ -1,0 +1,392 @@
+{
+ "name": "UBL-2.2-Tender-ContractInfoPrep.png",
+ "verdict": "needs-human",
+ "radius": 3,
+ "lineWorkInk": 619440,
+ "missingPx": 1070,
+ "inventedPx": 807,
+ "structural": {
+  "absent": 0,
+  "invented": 0,
+  "coherence": 0,
+  "textAbsent": 0,
+  "textDiffers": 0
+ },
+ "blocking": [],
+ "findings": [
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n6 -> n9",
+   "x": 710,
+   "y": 884,
+   "w": 18,
+   "h": 17,
+   "area": 174
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n19 -> n17",
+   "x": 2528,
+   "y": 3140,
+   "w": 3,
+   "h": 56,
+   "area": 168
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n6 -> n9",
+   "x": 645,
+   "y": 884,
+   "w": 18,
+   "h": 16,
+   "area": 165
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n9 -> n14",
+   "x": 735,
+   "y": 1366,
+   "w": 3,
+   "h": 55,
+   "area": 165
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n10 -> n6",
+   "x": 2771,
+   "y": 1374,
+   "w": 2,
+   "h": 56,
+   "area": 111
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n19 -> n17",
+   "x": 2563,
+   "y": 3140,
+   "w": 2,
+   "h": 34,
+   "area": 66
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n17 -> n15",
+   "x": 1554,
+   "y": 2867,
+   "w": 33,
+   "h": 16,
+   "area": 87
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n6 -> n9",
+   "x": 663,
+   "y": 936,
+   "w": 15,
+   "h": 31,
+   "area": 68
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n19 -> n17",
+   "x": 2538,
+   "y": 3164,
+   "w": 2,
+   "h": 33,
+   "area": 64
+  }
+ ],
+ "text": [
+  {
+   "kind": "label-mismatch",
+   "node": "n19",
+   "x": 2712,
+   "y": 3222,
+   "w": 146,
+   "h": 57,
+   "expected": "OK?",
+   "got": "OK?.",
+   "ratio": 0.857,
+   "detail": "n19 renders as 'OK?.', model says 'OK?'"
+  }
+ ],
+ "coherence": [],
+ "human": [
+  {
+   "x": 690,
+   "y": 651,
+   "w": 1164,
+   "h": 448,
+   "shape": "rounded",
+   "iou": 0.761,
+   "border": 0.699,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best rounded 0.76, and 0.99 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "x": 690,
+   "y": 1099,
+   "w": 1164,
+   "h": 1792,
+   "shape": "rounded",
+   "iou": 0.865,
+   "border": 0.741,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best rounded 0.86, and 1.00 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "x": 2528,
+   "y": 1460,
+   "w": 38,
+   "h": 44,
+   "shape": "ellipse",
+   "iou": 0.982,
+   "border": 0.927,
+   "kind": "kept-on-outline",
+   "reason": "every side has pass-through line-work, but the region carries a complete outline of its own",
+   "check": "confirm this is a node and not trapped whitespace"
+  },
+  {
+   "x": 690,
+   "y": 2893,
+   "w": 1164,
+   "h": 360,
+   "shape": "rect",
+   "iou": 0.68,
+   "border": 0.734,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best rect 0.68, and 0.99 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "x": 1866,
+   "y": 2893,
+   "w": 915,
+   "h": 360,
+   "shape": "rounded",
+   "iou": 0.628,
+   "border": 0.657,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best rounded 0.63, and 0.99 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "x": 2719,
+   "y": 3228,
+   "w": 38,
+   "h": 44,
+   "shape": "ellipse",
+   "iou": 0.986,
+   "border": 0.932,
+   "kind": "kept-on-outline",
+   "reason": "every side has pass-through line-work, but the region carries a complete outline of its own",
+   "check": "confirm this is a node and not trapped whitespace"
+  },
+  {
+   "kind": "sub-character-region",
+   "x": 2639,
+   "y": 96,
+   "w": 38,
+   "h": 44,
+   "reason": "enclosed region smaller than one character of the diagram's type",
+   "check": "confirm this is glyph interior and not a node"
+  },
+  {
+   "kind": "sub-character-region",
+   "x": 2776,
+   "y": 96,
+   "w": 37,
+   "h": 44,
+   "reason": "enclosed region smaller than one character of the diagram's type",
+   "check": "confirm this is glyph interior and not a node"
+  },
+  {
+   "kind": "sub-character-region",
+   "x": 506,
+   "y": 98,
+   "w": 38,
+   "h": 44,
+   "reason": "enclosed region smaller than one character of the diagram's type",
+   "check": "confirm this is glyph interior and not a node"
+  },
+  {
+   "kind": "sub-character-region",
+   "x": 1247,
+   "y": 98,
+   "w": 38,
+   "h": 44,
+   "reason": "enclosed region smaller than one character of the diagram's type",
+   "check": "confirm this is glyph interior and not a node"
+  },
+  {
+   "kind": "sub-character-region",
+   "x": 2528,
+   "y": 1460,
+   "w": 38,
+   "h": 44,
+   "reason": "enclosed region smaller than one character of the diagram's type",
+   "check": "confirm this is glyph interior and not a node"
+  },
+  {
+   "kind": "sub-character-region",
+   "x": 1290,
+   "y": 3034,
+   "w": 37,
+   "h": 42,
+   "reason": "enclosed region smaller than one character of the diagram's type",
+   "check": "confirm this is glyph interior and not a node"
+  },
+  {
+   "kind": "sub-character-region",
+   "x": 2719,
+   "y": 3228,
+   "w": 38,
+   "h": 44,
+   "reason": "enclosed region smaller than one character of the diagram's type",
+   "check": "confirm this is glyph interior and not a node"
+  },
+  {
+   "kind": "unexplained-line-work",
+   "x": 1138,
+   "y": 3028,
+   "w": 85,
+   "h": 177,
+   "reason": "line-work that is neither a connector between two nodes nor the size of text",
+   "check": "decide what this is; the SVG does not draw it"
+  },
+  {
+   "kind": "edge-direction",
+   "reason": "arrowhead ink is ambiguous where several connectors meet",
+   "edge": [
+    "n12",
+    "n13"
+   ],
+   "check": "confirm which way this edge points"
+  },
+  {
+   "kind": "arrowhead-unmeasurable",
+   "x": 2694,
+   "y": 3469,
+   "w": 192,
+   "h": 192,
+   "reason": "the ink at the head end of n19->n21 measures 96x124px, too wide for this diagram's own 70px arrowhead - a junction, not a head",
+   "check": "confirm the arrowhead here is drawn and points the way the original does"
+  }
+ ],
+ "review": [
+  {
+   "n": 1,
+   "what": "check",
+   "where": "690,651 1164x448",
+   "detail": "outline matches no UML node shape (best rounded 0.76, and 0.99 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "n": 2,
+   "what": "check",
+   "where": "690,1099 1164x1792",
+   "detail": "outline matches no UML node shape (best rounded 0.86, and 1.00 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "n": 3,
+   "what": "check",
+   "where": "2528,1460 38x44",
+   "detail": "every side has pass-through line-work, but the region carries a complete outline of its own",
+   "check": "confirm this is a node and not trapped whitespace"
+  },
+  {
+   "n": 4,
+   "what": "check",
+   "where": "690,2893 1164x360",
+   "detail": "outline matches no UML node shape (best rect 0.68, and 0.99 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "n": 5,
+   "what": "check",
+   "where": "1866,2893 915x360",
+   "detail": "outline matches no UML node shape (best rounded 0.63, and 0.99 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "n": 6,
+   "what": "check",
+   "where": "2719,3228 38x44",
+   "detail": "every side has pass-through line-work, but the region carries a complete outline of its own",
+   "check": "confirm this is a node and not trapped whitespace"
+  },
+  {
+   "n": 7,
+   "what": "check",
+   "where": "2639,96 38x44",
+   "detail": "enclosed region smaller than one character of the diagram's type",
+   "check": "confirm this is glyph interior and not a node"
+  },
+  {
+   "n": 8,
+   "what": "check",
+   "where": "2776,96 37x44",
+   "detail": "enclosed region smaller than one character of the diagram's type",
+   "check": "confirm this is glyph interior and not a node"
+  },
+  {
+   "n": 9,
+   "what": "check",
+   "where": "506,98 38x44",
+   "detail": "enclosed region smaller than one character of the diagram's type",
+   "check": "confirm this is glyph interior and not a node"
+  },
+  {
+   "n": 10,
+   "what": "check",
+   "where": "1247,98 38x44",
+   "detail": "enclosed region smaller than one character of the diagram's type",
+   "check": "confirm this is glyph interior and not a node"
+  },
+  {
+   "n": 11,
+   "what": "check",
+   "where": "2528,1460 38x44",
+   "detail": "enclosed region smaller than one character of the diagram's type",
+   "check": "confirm this is glyph interior and not a node"
+  },
+  {
+   "n": 12,
+   "what": "check",
+   "where": "1290,3034 37x42",
+   "detail": "enclosed region smaller than one character of the diagram's type",
+   "check": "confirm this is glyph interior and not a node"
+  },
+  {
+   "n": 13,
+   "what": "check",
+   "where": "2719,3228 38x44",
+   "detail": "enclosed region smaller than one character of the diagram's type",
+   "check": "confirm this is glyph interior and not a node"
+  },
+  {
+   "n": 14,
+   "what": "check",
+   "where": "1138,3028 85x177",
+   "detail": "line-work that is neither a connector between two nodes nor the size of text",
+   "check": "decide what this is; the SVG does not draw it"
+  },
+  {
+   "n": 15,
+   "what": "check",
+   "where": "",
+   "detail": "arrowhead ink is ambiguous where several connectors meet",
+   "check": "confirm which way this edge points"
+  },
+  {
+   "n": 16,
+   "what": "check",
+   "where": "2694,3469 192x192",
+   "detail": "the ink at the head end of n19->n21 measures 96x124px, too wide for this diagram's own 70px arrowhead - a junction, not a head",
+   "check": "confirm the arrowhead here is drawn and points the way the original does"
+  }
+ ]
+}

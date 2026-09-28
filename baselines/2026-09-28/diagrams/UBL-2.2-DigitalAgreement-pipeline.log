@@ -1,0 +1,11 @@
+== UBL-2.2-DigitalAgreement
+  UBL-2.2-DigitalAgreement -> diagram, layout, extraction  (24 nodes, 25 flows, 6 texts)
+  scale 0.43212   frame 10px  divider 7px  action 6px  object 6px
+  font 51px (22.2 model)   2 lanes, 0 bands, 24 nodes, 25 edges -> /tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-2.2-DigitalAgreement-spec.json
+  /tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-2.2-DigitalAgreement.svg + .drawio + -classified.svg   (24 nodes, 25 edges)
+  aligned on ink bounds: scale x 1.0000, y 1.0000
+  size 3425x3284  radius 2
+  ink: original 642274   candidate 626656
+  MISSING (red)    12812  = 1.9948% of original ink
+  EXTRA   (blue)   10447  = 1.6266% of original ink
+  RESULT: DIFFERENCES - inspect /tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-2.2-DigitalAgreement-diff-r2.png

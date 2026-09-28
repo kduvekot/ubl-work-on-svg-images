@@ -1,0 +1,50 @@
+image 3425x2238
+
+PARTITION RULES
+   vertical  : [(0, 10), (1595, 12), (3415, 10)]
+   horizontal: [(0, 10), (2228, 10)]
+   -> 2 column(s) x 1 band(s)
+   type measured off the page: a word is 52px tall
+   (dropped x=10    y=10    1585x2218  is a partition cell)
+   (dropped x=1607  y=10    1808x2218  is a partition cell)
+   (dropped x=678   y=572    917x367   outline matches no UML node shape (best ellipse 0.60, and 0.99 is the most this shape can reach at this size))
+   (dropped x=1607  y=574   1725x702   encloses another region)
+   one line weight only - no object nodes
+
+NODES
+   n1   initial   x=619   y=212   w=111   h=111   stroke=0   fill=0.77  ''
+   n2   action    x=93    y=475   w=1163  h=187   stroke=12  fill=0.89  'Prepare contract award notice'
+   n3   object    x=1429  y=808   w=494   h=270   stroke=11  fill=0.88  'Contract\nAward\nNotice'
+   n4   action    x=2118  y=842   w=1175  h=187   stroke=11  fill=0.88  'Validate contract award notice'
+   n5   action    x=104   y=847   w=1142  h=187   stroke=12  fill=0.89  'Submit contract award notice'
+   n6   decision  x=2609  y=1180  w=203   h=204   stroke=12  fill=0.42  'OK?'
+   n7   action    x=2139  y=1575  w=1143  h=187   stroke=12  fill=0.89  'Publish contract award notice'
+   n8   final     x=2643  y=1977  w=153   h=154   stroke=12  fill=0.37  ''
+
+TYPE  cap height 51px over 147 glyphs -> font 72.9px
+   rejoined 2 line break(s) of up to 131px, where a label sits on the line
+
+EDGES
+   n1   -> n2    straight    arrowhead  1314 vs 540    ratio 4.0  high
+   n6   -> n2    orthogonal  arrowhead  1284 vs 495    ratio 4.0  high
+   n2   -> n5    straight    arrowhead  1331 vs 540    ratio 4.0  high
+   n3   -> n4    straight    arrowhead  1310 vs 514    ratio 4.0  high
+   n5   -> n3    straight    arrowhead  1314 vs 525    ratio 4.0  high
+   n4   -> n6    straight    arrowhead  1244 vs 530    ratio 2.3  medium
+   n6   -> n7    straight    arrowhead  1319 vs 572    ratio 4.0  high
+   n7   -> n8    straight    arrowhead  1144 vs 527    ratio 2.2  medium
+
+TEXT (titles, guards, notes)
+   'PUBLICATION BODY'                       x=2137  y=85    
+   'CONTRACTING AUTHORITY'                  x=264   y=86    
+   'No'                                     x=2901  y=1176  n6->n2
+   'Yes'                                    x=2745  y=1421  n6->n7
+
+PARTITIONS
+   column 0  'CONTRACTING AUTHORITY'
+   column 1  'PUBLICATION BODY'
+   band   0  ''
+
+ARROWHEAD  62 x 64px, open, measured on 6 connector(s)
+
+wrote review/baseline/UBL-2.2-Tender-AwardPublication-graph.json   (8 nodes, 8 edges, 2 flagged for a human)

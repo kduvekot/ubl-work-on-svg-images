@@ -1,0 +1,56 @@
+image 3425x2113
+
+PARTITION RULES
+   vertical  : [(0, 10), (1240, 5), (2377, 5), (3415, 10)]
+   horizontal: [(0, 10), (2103, 10)]
+   -> 3 column(s) x 1 band(s)
+   type measured off the page: a word is 39px tall
+   (dropped x=10    y=10    1230x2093  is a partition cell)
+   (dropped x=1245  y=10    1132x1664  encloses another region)
+   (dropped x=2382  y=10    1033x2093  is a partition cell)
+   object nodes are those stroked heavier than 7.5px
+
+NODES
+   n1   initial   x=387   y=157   w=87    h=87    stroke=0   fill=0.77  ''
+   n2   action    x=145   y=460   w=575   h=121   stroke=5   fill=0.87  'Authorize Payment'
+   n3   object    x=1026  y=778   w=375   h=203   stroke=9   fill=0.90  'Remittance\nAdvice'
+   n4   action    x=1534  y=819   w=575   h=125   stroke=5   fill=0.89  'Receive Advice'
+   n5   action    x=1564  y=1105  w=528   h=142   stroke=5   fill=0.93  'Notify Payee'
+   n6   action    x=171   y=1387  w=575   h=116   stroke=6   fill=0.88  'Notify of Payment'
+   n7   note      x=1245  y=1553  w=1132  h=550   stroke=0   fill=0.82  ''
+   n8   object    x=2185  y=1605  w=376   h=202   stroke=9   fill=0.90  'Remittance\nAdvice'
+   n9   action    x=2810  y=1638  w=510   h=145   stroke=5   fill=0.90  'Receive advice'
+   n10  final     x=3027  y=1961  w=77    h=78    stroke=5   fill=0.63  ''
+
+TYPE  cap height 36px over 128 glyphs -> font 51.4px
+   corner radius rx on 'Authorize Payment' could not be read (it came back larger than the box) - taking the 58 the rest of its kind measures
+   corner radius ry on 'Authorize Payment' could not be read (it came back larger than the box) - taking the 61 the rest of its kind measures
+   corner radius ry on 'Receive Advice' could not be read (it came back larger than the box) - taking the 61 the rest of its kind measures
+   (dropped x=1245  y=1553  1132x550   no text, and line-work runs past 4 of its sides - whitespace between shapes, not a note)
+
+EDGES
+   n1   -> n2    straight    arrowhead   744 vs 225    ratio 4.0  high
+   n2   -> n6    straight    arrowhead   740 vs 225    ratio 4.0  high
+   n3   -> n4    straight    arrowhead   738 vs 225    ratio 4.0  high
+   n4   -> n5    straight    arrowhead   741 vs 225    ratio 4.0  high
+   n6   -> n3    diagonal    arrowhead   714 vs 278    ratio 4.0  high
+   n5   -> n8    diagonal    arrowhead   756 vs 296    ratio 4.0  high
+   n6   -> n8    diagonal    arrowhead   724 vs 233    ratio 4.0  high
+   n8   -> n9    straight    arrowhead   732 vs 225    ratio 4.0  high
+   n9   -> n10   straight    arrowhead   749 vs 225    ratio 4.0  high
+
+TEXT (titles, guards, notes)
+   'Accounting Customer'                    x=406   y=24    
+   'Accounting Supplier'                    x=1605  y=24    
+   'Payee Party'                            x=2781  y=25    
+   'From Billing'                           x=523   y=167   
+
+PARTITIONS
+   column 0  'Accounting Customer'
+   column 1  'Accounting Supplier'
+   column 2  'Payee Party'
+   band   0  ''
+
+ARROWHEAD  59 x 48px, open, measured on 6 connector(s)
+
+wrote review/baseline/UBL-2.0-PaymentNotificationProcess-graph.json   (9 nodes, 9 edges, 1 flagged for a human)

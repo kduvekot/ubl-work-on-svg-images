@@ -1,0 +1,11 @@
+  verdict: NEEDS-HUMAN
+  structural: 0 element(s) absent, 0 invented, 0 text absent, 0 text differs, 0 incoherent
+  line-work  missing 198 px (0.077%)   invented 23 px (0.009%)   radius 3
+  needs a person (6):
+    kept-on-outline    at 1417,400  confirm this is a node and not trapped whitespace
+    kept-on-outline    at 1417,1005  confirm this is a node and not trapped whitespace
+    dropped-region     at 501,1083  a shape here would be missing from the SVG
+    kept-on-outline    at 1401,1712  confirm this is a node and not trapped whitespace
+    arrowhead-unmeasurable at 3188,1028  confirm the arrowhead here is drawn and points the way the original does
+    arrowhead-unmeasurable at 762,1650  confirm the arrowhead here is drawn and points the way the original does
+/tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-2.0-SelfBillingwithSelfBilledCreditNoteProcess-marked.png + /tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-2.0-SelfBillingwithSelfBilledCreditNoteProcess-marked-lost.png  (6 finding(s) numbered)

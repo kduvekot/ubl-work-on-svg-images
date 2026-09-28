@@ -1,0 +1,52 @@
+image 3424x1802
+
+PARTITION RULES
+   vertical  : [(0, 8), (1701, 8), (3410, 14)]
+   horizontal: [(0, 8), (1794, 8)]
+   -> 3 column(s) x 1 band(s)
+   type measured off the page: a word is 55px tall
+   (dropped x=8     y=8     1693x1786  is a partition cell)
+   (dropped x=1709  y=8     1701x1786  is a partition cell)
+   (dropped x=1709  y=785   1071x534   outline matches no UML node shape (best ellipse 0.73, and 0.99 is the most this shape can reach at this size))
+   one line weight only - no object nodes
+   (dropped x=2323  y=689    920x9     only 9px across against a 8px line - a stroke, not a fork bar)
+   (dropped x=184   y=1209   851x8     only 8px across against a 8px line - a stroke, not a fork bar)
+   (dropped x=2313  y=1385   933x9     only 9px across against a 8px line - a stroke, not a fork bar)
+
+NODES
+   n1   initial   x=551   y=157   w=124   h=124   stroke=0   fill=1.00  ''
+   n2   action    x=111   y=394   w=1001  h=167   stroke=8   fill=0.87  'Prepare tender status request'
+   n3   object    x=1453  y=610   w=516   h=348   stroke=8   fill=0.89  'Tender\nStatus\nRequest'
+   n4   action    x=105   y=698   w=1013  h=172   stroke=9   fill=0.89  'Submit tender status request'
+   n5   action    x=2263  y=698   w=1036  h=178   stroke=9   fill=0.89  'Receive tender status request'
+   n6   object    x=1453  y=1118  w=516   h=411   stroke=9   fill=0.95  'Tender\nStatus'
+   n7   action    x=134   y=1217  w=954   h=173   stroke=8   fill=0.91  'Receive tender status'
+   n8   action    x=2263  y=1221  w=1036  h=164   stroke=8   fill=0.91  'Submit tender status'
+   n9   final     x=560   y=1596  w=108   h=108   stroke=9   fill=0.59  ''
+
+TYPE  cap height 49px over 166 glyphs -> font 70.0px
+   corner radius rx on 'Submit tender status' could not be read (it came back larger than the box) - taking the 80 the rest of its kind measures
+
+EDGES
+   n1   -> n2    straight    arrowhead  1117 vs 973    ratio 4.0  high
+   n2   -> n4    straight    arrowhead  1114 vs 554    ratio 4.0  high
+   n4   -> n3    straight    arrowhead  1117 vs 360    ratio 4.0  high
+   n3   -> n5    straight    arrowhead  1123 vs 360    ratio 4.0  high
+   n5   -> n8    straight    arrowhead  1133 vs 360    ratio 4.0  high
+   n6   -> n7    straight    arrowhead  1041 vs 414    ratio 4.0  high
+   n8   -> n6    straight    arrowhead  1119 vs 414    ratio 4.0  high
+   n7   -> n9    straight    arrowhead  1116 vs 360    ratio 4.0  high
+
+TEXT (titles, guards, notes)
+   'ECONOMIC OPERATOR'                      x=443   y=48    
+   'CONTRACTING AUTHORITY'                  x=2097  y=48    
+
+PARTITIONS
+   column 0  'ECONOMIC OPERATOR'
+   column 1  'CONTRACTING AUTHORITY'
+   column 2  ''
+   band   0  ''
+
+ARROWHEAD  80 x 67px, open, measured on 8 connector(s)
+
+wrote review/baseline/UBL-2.2-Tender-Status-graph.json   (9 nodes, 8 edges, 2 flagged for a human)

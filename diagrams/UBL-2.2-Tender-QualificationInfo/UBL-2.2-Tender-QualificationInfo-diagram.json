@@ -1,0 +1,164 @@
+{
+ "schema": "ubl-activity-diagram/1",
+ "figure": {
+  "name": "UBL-2.2-Tender-QualificationInfo",
+  "source": "UBL-2.2-Tender-QualificationInfo.png"
+ },
+ "lanes": [
+  {
+   "id": "lane-tenderer",
+   "axis": "column",
+   "index": 0,
+   "title": "Tenderer"
+  },
+  {
+   "id": "lane-contracting-authority",
+   "axis": "column",
+   "index": 1,
+   "title": "Contracting Authority"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "initial-tenderer",
+   "kind": "initial",
+   "label": "",
+   "lane": "lane-tenderer"
+  },
+  {
+   "id": "action-prepare-qualification-document",
+   "kind": "action",
+   "label": "Prepare qualification document",
+   "lane": "lane-tenderer"
+  },
+  {
+   "id": "object-tenderer-qualification",
+   "kind": "object",
+   "label": "Tenderer\nQualification",
+   "lane": null,
+   "between": [
+    "lane-tenderer",
+    "lane-contracting-authority"
+   ]
+  },
+  {
+   "id": "action-evaluate-qualification-document",
+   "kind": "action",
+   "label": "Evaluate Qualification\ndocument",
+   "lane": "lane-contracting-authority"
+  },
+  {
+   "id": "action-submit-qualification-document",
+   "kind": "action",
+   "label": "Submit Qualification document",
+   "lane": "lane-tenderer"
+  },
+  {
+   "id": "object-tenderer-qualification-response",
+   "kind": "object",
+   "label": "Tenderer\nQualification\nResponse",
+   "lane": null,
+   "between": [
+    "lane-tenderer",
+    "lane-contracting-authority"
+   ]
+  },
+  {
+   "id": "action-submit-qualification-result",
+   "kind": "action",
+   "label": "Submit Qualification\nresult",
+   "lane": "lane-contracting-authority"
+  },
+  {
+   "id": "action-receive-result",
+   "kind": "action",
+   "label": "Receive result",
+   "lane": "lane-tenderer"
+  },
+  {
+   "id": "final-tenderer",
+   "kind": "final",
+   "label": "",
+   "lane": "lane-tenderer"
+  }
+ ],
+ "flows": [
+  {
+   "id": "flow-initial-tenderer-to-prepare-qualification-document",
+   "from": "initial-tenderer",
+   "to": "action-prepare-qualification-document",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-prepare-qualification-document-to-submit-qualification-document",
+   "from": "action-prepare-qualification-document",
+   "to": "action-submit-qualification-document",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-submit-qualification-document-to-tenderer-qualification",
+   "from": "action-submit-qualification-document",
+   "to": "object-tenderer-qualification",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-tenderer-qualification-to-evaluate-qualification-document",
+   "from": "object-tenderer-qualification",
+   "to": "action-evaluate-qualification-document",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-evaluate-qualification-document-to-submit-qualification-result",
+   "from": "action-evaluate-qualification-document",
+   "to": "action-submit-qualification-result",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-tenderer-qualification-response-to-receive-result",
+   "from": "object-tenderer-qualification-response",
+   "to": "action-receive-result",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-submit-qualification-result-to-tenderer-qualification-response",
+   "from": "action-submit-qualification-result",
+   "to": "object-tenderer-qualification-response",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-receive-result-to-final-tenderer",
+   "from": "action-receive-result",
+   "to": "final-tenderer",
+   "kind": "control",
+   "direction": {
+    "confidence": "medium",
+    "checked": "confirmed"
+   }
+  }
+ ],
+ "texts": [],
+ "offPage": [],
+ "marks": [],
+ "phases": []
+}

@@ -1,0 +1,131 @@
+{
+ "name": "UBL-2.2-InitiateFreightMgmtProcess",
+ "counts": {
+  "object": 10,
+  "action": 17,
+  "initial": 1,
+  "final": 1
+ },
+ "flow": [
+  "(start)   [Consignee]",
+  "  -> Request Logistic Service   [Consignee]",
+  "  -> [Forwarding instructions]   [Consignor]",
+  "  -> Request Transport Service   [Freight Forwarder]",
+  "  -> [Forwarding Instructions]   [Carrier]",
+  "  -> Receive Transport Service Request   [Carrier]",
+  "  -> Send Bill of Lading   [Carrier]",
+  "    -> [Bill of Lading]   [Carrier]",
+  "    -> Send Bill of Lading to Consignor   [Freight Forwarder]",
+  "    -> [Bill of Lading]   [Consignor]",
+  "      -> Receive Bill of Lading   [Consignee]",
+  "      -> Receive Bill of Lading   [Consignor]",
+  "    -> Send Waypbill   [Carrier]",
+  "      -> [Way bill]   [Carrier]",
+  "      -> Send Waybill to Consignor   [Freight Forwarder]",
+  "      -> [Waybill]   [Consignor]",
+  "        -> Receive Waybill   [Consignor]",
+  "        -> Receive Waybill   [Consignee]",
+  "      -> Transport Goods Items to Delivery Party   [Carrier]",
+  "        -> Report Status   [Carrier]",
+  "        -> [Transportation Status]   [Freight Forwarder]",
+  "        -> Report Status   [Freight Forwarder]",
+  "          -> [Transportation Status]   [Freight Forwarder]",
+  "          -> Receive Status Report   [Consignor]",
+  "          -> [Transportation Status]   [Consignor]",
+  "          -> Receive Status Report   [Consignee]",
+  "        -> (end)   [Carrier]",
+  "  -> Request Logistic Service   [Consignor]",
+  "    -> [Forwarding instructions]   [Consignor]",
+  "    -> [Packing List]   [Freight Forwarder]",
+  "    -> Request Transport Service   [Freight Forwarder]",
+  ""
+ ],
+ "checks": [
+  {
+   "rule": "every element is connected",
+   "ok": true,
+   "bad": [],
+   "note": "",
+   "report": false
+  },
+  {
+   "rule": "start events have a way out and no way in",
+   "ok": true,
+   "bad": [],
+   "note": "",
+   "report": false
+  },
+  {
+   "rule": "end events have a way in and no way out",
+   "ok": true,
+   "bad": [],
+   "note": "",
+   "report": false
+  },
+  {
+   "rule": "decisions have at least two ways out",
+   "ok": true,
+   "bad": [],
+   "note": "",
+   "report": false
+  },
+  {
+   "rule": "branches out of a decision are labelled",
+   "ok": true,
+   "bad": [],
+   "note": "informational: several diagrams draw an unlabelled branch, so read these against the artwork rather than treating them as errors",
+   "report": true
+  },
+  {
+   "rule": "documents are both written and read",
+   "ok": true,
+   "bad": [],
+   "note": "",
+   "report": false
+  },
+  {
+   "rule": "no flow runs straight from one document to another",
+   "ok": true,
+   "bad": [],
+   "note": "",
+   "report": false
+  },
+  {
+   "rule": "work crossing between parties goes through a document",
+   "ok": true,
+   "bad": [
+    "(start) [Consignee] -> Request Logistic Service [Consignor]   (a start or end event, not work handed over)"
+   ],
+   "note": "informational: UBL draws the hand-over as a document on the divider, and each exception below is named",
+   "report": true
+  },
+  {
+   "rule": "every flow's direction was read with confidence",
+   "ok": true,
+   "bad": [],
+   "note": "",
+   "report": false
+  },
+  {
+   "rule": "every action passes its work on",
+   "ok": true,
+   "bad": [
+    "Receive Bill of Lading",
+    "Receive Bill of Lading",
+    "Receive Waybill",
+    "Receive Waybill",
+    "Receive Status Report",
+    "Receive Status Report"
+   ],
+   "note": "informational: several diagrams do end on an action, so read these against the artwork rather than treating them as errors",
+   "report": true
+  },
+  {
+   "rule": "every element is reachable from a start event",
+   "ok": true,
+   "bad": [],
+   "note": "",
+   "report": false
+  }
+ ]
+}

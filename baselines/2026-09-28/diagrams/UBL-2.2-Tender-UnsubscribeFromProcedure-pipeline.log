@@ -1,0 +1,11 @@
+== UBL-2.2-Tender-UnsubscribeFromProcedure
+  UBL-2.2-Tender-UnsubscribeFromProcedure -> diagram, layout, extraction  (9 nodes, 8 flows, 0 texts)
+  scale 0.43199   frame 8px  divider 8px  action 8px  object 8px
+  font 61px (26.5 model)   2 lanes, 0 bands, 9 nodes, 8 edges -> /tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-2.2-Tender-UnsubscribeFromProcedure-spec.json
+  /tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-2.2-Tender-UnsubscribeFromProcedure.svg + .drawio + -classified.svg   (9 nodes, 8 edges)
+  aligned on ink bounds: scale x 1.0009, y 1.0000
+  size 3426x1808  radius 2
+  ink: original 423193   candidate 402558
+  MISSING (red)    29105  = 6.8775% of original ink
+  EXTRA   (blue)   18517  = 4.3755% of original ink
+  RESULT: DIFFERENCES - inspect /tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-2.2-Tender-UnsubscribeFromProcedure-diff-r2.png

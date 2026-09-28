@@ -1,0 +1,962 @@
+{
+ "canvas": {
+  "w": 1480.0,
+  "h": 872.444
+ },
+ "stroke": {
+  "frame": 4.3,
+  "divider": 1.3,
+  "action": 1.3,
+  "object": 2.6,
+  "edge": 1.3
+ },
+ "font": {
+  "family": "Helvetica, Arial, sans-serif",
+  "node": 13.0,
+  "lane": 13.0,
+  "guard": 13.0
+ },
+ "arrow": 21.1,
+ "arrowWidth": 16.7,
+ "arrowStyle": "open",
+ "dashed": [],
+ "greyRules": [],
+ "crossMarks": [],
+ "openEnds": [],
+ "frameBox": [
+  2.2,
+  2.2,
+  1477.8,
+  870.3
+ ],
+ "dividers": [
+  [
+   480.7,
+   1.3,
+   5.6,
+   866.4
+  ],
+  [
+   889.9,
+   1.3,
+   5.6,
+   866.4
+  ]
+ ],
+ "bands": [],
+ "lanes": [
+  {
+   "id": "lane-buyer-party",
+   "title": "Buyer Party",
+   "x": 0.0,
+   "w": 480.5,
+   "cx": 248.0,
+   "cy": 27.7,
+   "size": 10.3,
+   "textWidth": 53.6,
+   "baseline": 30.3
+  },
+  {
+   "id": "lane-delivery-party",
+   "title": "Delivery Party",
+   "x": 480.5,
+   "w": 409.6,
+   "cx": 690.7,
+   "cy": 27.7,
+   "size": 10.3,
+   "textWidth": 64.4,
+   "baseline": 30.3
+  },
+  {
+   "id": "lane-seller-party",
+   "title": "Seller Party",
+   "x": 890.2,
+   "w": 589.8,
+   "cx": 1191.1,
+   "cy": 27.7,
+   "size": 10.3,
+   "textWidth": 54.9,
+   "baseline": 30.3
+  }
+ ],
+ "bandLabels": [],
+ "captions": [],
+ "nodes": [
+  {
+   "id": "initial-delivery-party",
+   "kind": "initial",
+   "label": "",
+   "x": 637.8,
+   "y": 50.1,
+   "w": 30.2,
+   "h": 30.2
+  },
+  {
+   "id": "action-receive-order-item-s",
+   "kind": "action",
+   "label": "Receive Order Item(s)",
+   "x": 568.0,
+   "y": 131.1,
+   "w": 164.2,
+   "h": 47.1,
+   "rx": 17.5,
+   "ry": 18.4,
+   "labelLines": [
+    {
+     "text": "Receive Order Item(s)",
+     "cx": 648.0,
+     "cy": 152.39000000000001,
+     "w": 124.0,
+     "size": 12.6
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-check-status-of-item-s",
+   "kind": "action",
+   "label": "Check status of Item(s)",
+   "x": 571.9,
+   "y": 218.4,
+   "w": 162.5,
+   "h": 48.4,
+   "rx": 11.0,
+   "ry": 10.6,
+   "labelLines": [
+    {
+     "text": "Check status of Item(s)",
+     "cx": 651.8,
+     "cy": 240.99,
+     "w": 132.7,
+     "size": 12.6
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "object-receipt-advice",
+   "kind": "object",
+   "label": "Receipt Advice",
+   "x": 836.6,
+   "y": 307.2,
+   "w": 106.7,
+   "h": 59.2,
+   "labelLines": [
+    {
+     "text": "Receipt Advice",
+     "cx": 888.9,
+     "cy": 336.455,
+     "w": 86.4,
+     "size": 12.7
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-receive-receipt-advice",
+   "kind": "action",
+   "label": "Receive Receipt Advice",
+   "x": 997.1,
+   "y": 314.4,
+   "w": 160.3,
+   "h": 42.3,
+   "rx": 18.4,
+   "ry": 17.5,
+   "labelLines": [
+    {
+     "text": "Receive Receipt Advice",
+     "cx": 1073.6,
+     "cy": 336.09,
+     "w": 135.3,
+     "size": 12.6
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-send-receipt-advice",
+   "kind": "action",
+   "label": "Send Receipt Advice",
+   "x": 620.3,
+   "y": 317.8,
+   "w": 171.1,
+   "h": 38.9,
+   "rx": 17.1,
+   "ry": 18.8,
+   "labelLines": [
+    {
+     "text": "Send Receipt Advice",
+     "cx": 703.5,
+     "cy": 336.09,
+     "w": 119.3,
+     "size": 12.6
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-adjust-supply-status",
+   "kind": "action",
+   "label": "Adjust supply status",
+   "x": 1198.9,
+   "y": 360.6,
+   "w": 173.3,
+   "h": 45.8,
+   "rx": 17.5,
+   "ry": 16.6,
+   "labelLines": [
+    {
+     "text": "Adjust supply status",
+     "cx": 1284.9,
+     "cy": 381.89,
+     "w": 118.8,
+     "size": 12.6
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "final-seller-party",
+   "kind": "final",
+   "label": "",
+   "x": 1422.3,
+   "y": 374.0,
+   "w": 21.6,
+   "h": 21.6,
+   "innerRatio": 0.426
+  },
+  {
+   "id": "object-fulfilment-cancellation",
+   "kind": "object",
+   "label": "Fulfilment\nCancellation",
+   "x": 835.3,
+   "y": 409.2,
+   "w": 108.0,
+   "h": 59.2,
+   "labelLines": [
+    {
+     "text": "Fulfilment",
+     "cx": 888.2,
+     "cy": 431.555,
+     "w": 58.3,
+     "size": 12.7
+    },
+    {
+     "text": "Cancellation",
+     "cx": 889.3,
+     "cy": 444.955,
+     "w": 70.9,
+     "size": 12.7
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-receive-fulfilment-cancellation",
+   "kind": "action",
+   "label": "Receive Fulfilment\nCancellation",
+   "x": 994.5,
+   "y": 416.3,
+   "w": 162.9,
+   "h": 43.6,
+   "rx": 18.4,
+   "ry": 18.8,
+   "labelLines": [
+    {
+     "text": "Receive Fulfilment",
+     "cx": 1072.7,
+     "cy": 431.09,
+     "w": 106.7,
+     "size": 12.6
+    },
+    {
+     "text": "Cancellation",
+     "cx": 1075.5,
+     "cy": 445.39,
+     "w": 70.9,
+     "size": 12.6
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-cancel-receipt-notification",
+   "kind": "action",
+   "label": "Cancel receipt notification",
+   "x": 619.0,
+   "y": 418.9,
+   "w": 169.0,
+   "h": 38.5,
+   "rx": 17.5,
+   "ry": 18.4,
+   "labelLines": [
+    {
+     "text": "Cancel receipt notification",
+     "cx": 703.9,
+     "cy": 436.69,
+     "w": 150.4,
+     "size": 12.6
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "decision-determine-action",
+   "kind": "decision",
+   "label": "Determine Action",
+   "x": 202.0,
+   "y": 478.6,
+   "w": 124.4,
+   "h": 78.2,
+   "labelLines": [
+    {
+     "text": "Determine Action",
+     "cx": 263.8,
+     "cy": 517.155,
+     "w": 91.2,
+     "size": 12.7
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "action-advise-buyer-of-status",
+   "kind": "action",
+   "label": "Advise Buyer of status",
+   "x": 524.4,
+   "y": 501.5,
+   "w": 160.3,
+   "h": 39.8,
+   "rx": 10.6,
+   "ry": 11.9,
+   "labelLines": [
+    {
+     "text": "Advise Buyer of status",
+     "cx": 603.0,
+     "cy": 519.2900000000001,
+     "w": 130.9,
+     "size": 12.6
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "object-order-cancellation",
+   "kind": "object",
+   "label": "Order Cancellation",
+   "x": 830.5,
+   "y": 604.5,
+   "w": 118.0,
+   "h": 59.6,
+   "labelLines": [
+    {
+     "text": "Order Cancellation",
+     "cx": 889.1,
+     "cy": 632.055,
+     "w": 107.6,
+     "size": 12.7
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-send-order-cancellation",
+   "kind": "action",
+   "label": "Send Order Cancellation",
+   "x": 298.4,
+   "y": 609.5,
+   "w": 160.3,
+   "h": 43.6,
+   "rx": 17.5,
+   "ry": 18.4,
+   "labelLines": [
+    {
+     "text": "Send Order Cancellation",
+     "cx": 377.9,
+     "cy": 630.7900000000001,
+     "w": 140.4,
+     "size": 12.6
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-cancel-order",
+   "kind": "action",
+   "label": "Cancel order",
+   "x": 1141.4,
+   "y": 613.0,
+   "w": 160.3,
+   "h": 43.6,
+   "rx": 19.2,
+   "ry": 18.8,
+   "labelLines": [
+    {
+     "text": "Cancel order",
+     "cx": 1221.4,
+     "cy": 634.19,
+     "w": 73.9,
+     "size": 12.6
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "object-order-change",
+   "kind": "object",
+   "label": "Order Change",
+   "x": 835.3,
+   "y": 712.6,
+   "w": 108.0,
+   "h": 58.3,
+   "labelLines": [
+    {
+     "text": "Order Change",
+     "cx": 889.9,
+     "cy": 740.055,
+     "w": 79.9,
+     "size": 12.7
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-adjust-order",
+   "kind": "action",
+   "label": "Adjust Order",
+   "x": 199.9,
+   "y": 718.8,
+   "w": 143.5,
+   "h": 45.8,
+   "rx": 17.5,
+   "ry": 18.4,
+   "labelLines": [
+    {
+     "text": "Adjust Order",
+     "cx": 271.2,
+     "cy": 741.7900000000001,
+     "w": 73.9,
+     "size": 12.6
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-change-order",
+   "kind": "action",
+   "label": "Change Order",
+   "x": 1255.9,
+   "y": 718.8,
+   "w": 153.8,
+   "h": 47.1,
+   "rx": 17.1,
+   "ry": 17.1,
+   "labelLines": [
+    {
+     "text": "Change Order",
+     "cx": 1333.1,
+     "cy": 740.09,
+     "w": 80.4,
+     "size": 12.6
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-accept-items",
+   "kind": "action",
+   "label": "Accept Items",
+   "x": 36.1,
+   "y": 723.6,
+   "w": 83.8,
+   "h": 41.1,
+   "rx": 11.9,
+   "ry": 10.6,
+   "labelLines": [
+    {
+     "text": "Accept Items",
+     "cx": 77.1,
+     "cy": 744.39,
+     "w": 74.8,
+     "size": 12.6
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "final-buyer-party",
+   "kind": "final",
+   "label": "",
+   "x": 61.6,
+   "y": 809.6,
+   "w": 30.2,
+   "h": 30.2,
+   "innerRatio": 0.582
+  }
+ ],
+ "edges": [
+  {
+   "id": "flow-initial-delivery-party-to-receive-order-item-s",
+   "from": "initial-delivery-party",
+   "to": "action-receive-order-item-s",
+   "exitXY": [
+    0.5,
+    1.0
+   ],
+   "entryXY": [
+    0.5171,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-receive-order-item-s-to-check-status-of-item-s",
+   "from": "action-receive-order-item-s",
+   "to": "action-check-status-of-item-s",
+   "exitXY": [
+    0.4988,
+    1.0
+   ],
+   "entryXY": [
+    0.4935,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-check-status-of-item-s-to-advise-buyer-of-status",
+   "from": "action-check-status-of-item-s",
+   "to": "action-advise-buyer-of-status",
+   "exitXY": [
+    0.1926,
+    1.0
+   ],
+   "entryXY": [
+    0.4916,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-check-status-of-item-s-to-send-receipt-advice",
+   "from": "action-check-status-of-item-s",
+   "to": "action-send-receipt-advice",
+   "exitXY": [
+    0.7994,
+    1.0
+   ],
+   "entryXY": [
+    0.4763,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high",
+   "dash": 9.9,
+   "gap": 3.5,
+   "dashOffset": 0.0
+  },
+  {
+   "id": "flow-send-receipt-advice-to-receipt-advice",
+   "from": "action-send-receipt-advice",
+   "to": "object-receipt-advice",
+   "exitXY": [
+    1.0,
+    0.4961
+   ],
+   "entryXY": [
+    0.0,
+    0.5051
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-receipt-advice-to-receive-receipt-advice",
+   "from": "object-receipt-advice",
+   "to": "action-receive-receipt-advice",
+   "exitXY": [
+    1.0,
+    0.5051
+   ],
+   "entryXY": [
+    0.0,
+    0.5366
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-receive-receipt-advice-to-adjust-supply-status",
+   "from": "action-receive-receipt-advice",
+   "to": "action-adjust-supply-status",
+   "exitXY": [
+    1.0,
+    0.7612
+   ],
+   "entryXY": [
+    0.0,
+    0.0415
+   ],
+   "straight": true,
+   "confidence": "medium"
+  },
+  {
+   "id": "flow-send-receipt-advice-to-cancel-receipt-notification",
+   "from": "action-send-receipt-advice",
+   "to": "action-cancel-receipt-notification",
+   "exitXY": [
+    0.3425,
+    1.0
+   ],
+   "entryXY": [
+    0.3645,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high",
+   "dash": 9.9,
+   "gap": 3.5,
+   "dashOffset": 0.0
+  },
+  {
+   "id": "flow-cancel-receipt-notification-to-send-receipt-advice",
+   "from": "action-cancel-receipt-notification",
+   "to": "action-send-receipt-advice",
+   "exitXY": [
+    0.6556,
+    0.0
+   ],
+   "entryXY": [
+    0.6353,
+    1.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-adjust-supply-status-to-final-seller-party",
+   "from": "action-adjust-supply-status",
+   "to": "final-seller-party",
+   "exitXY": [
+    1.0,
+    0.4956
+   ],
+   "entryXY": [
+    0.0,
+    0.4306
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-receive-fulfilment-cancellation-to-adjust-supply-status",
+   "from": "action-receive-fulfilment-cancellation",
+   "to": "action-adjust-supply-status",
+   "exitXY": [
+    1.0,
+    0.0849
+   ],
+   "entryXY": [
+    0.0,
+    0.845
+   ],
+   "straight": true,
+   "confidence": "medium"
+  },
+  {
+   "id": "flow-cancel-order-to-adjust-supply-status",
+   "from": "action-cancel-order",
+   "to": "action-adjust-supply-status",
+   "exitXY": [
+    0.6725,
+    0.0
+   ],
+   "entryXY": [
+    0.2954,
+    1.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-change-order-to-adjust-supply-status",
+   "from": "action-change-order",
+   "to": "action-adjust-supply-status",
+   "exitXY": [
+    0.502,
+    0.0
+   ],
+   "entryXY": [
+    0.7744,
+    1.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-cancel-receipt-notification-to-fulfilment-cancellation",
+   "from": "action-cancel-receipt-notification",
+   "to": "object-fulfilment-cancellation",
+   "exitXY": [
+    1.0,
+    0.5221
+   ],
+   "entryXY": [
+    0.0,
+    0.5034
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-fulfilment-cancellation-to-receive-fulfilment-cancellation",
+   "from": "object-fulfilment-cancellation",
+   "to": "action-receive-fulfilment-cancellation",
+   "exitXY": [
+    1.0,
+    0.4899
+   ],
+   "entryXY": [
+    0.0,
+    0.5023
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-advise-buyer-of-status-to-determine-action",
+   "from": "action-advise-buyer-of-status",
+   "to": "decision-determine-action",
+   "exitXY": [
+    0.0,
+    0.3844
+   ],
+   "entryXY": [
+    1.0,
+    0.4885
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-determine-action-to-accept-items",
+   "from": "decision-determine-action",
+   "to": "action-accept-items",
+   "exitXY": [
+    0.4984,
+    0.991
+   ],
+   "entryXY": [
+    0.7446,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high",
+   "label": "[accept items]"
+  },
+  {
+   "id": "flow-determine-action-to-adjust-order",
+   "from": "decision-determine-action",
+   "to": "action-adjust-order",
+   "exitXY": [
+    0.4984,
+    1.0
+   ],
+   "entryXY": [
+    0.4557,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high",
+   "label": "[change order]"
+  },
+  {
+   "id": "flow-determine-action-to-send-order-cancellation",
+   "from": "decision-determine-action",
+   "to": "action-send-order-cancellation",
+   "exitXY": [
+    0.4984,
+    0.991
+   ],
+   "entryXY": [
+    0.2277,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high",
+   "label": "[cancel order]"
+  },
+  {
+   "id": "flow-send-order-cancellation-to-order-cancellation",
+   "from": "action-send-order-cancellation",
+   "to": "object-order-cancellation",
+   "exitXY": [
+    1.0,
+    0.5206
+   ],
+   "entryXY": [
+    0.0,
+    0.4866
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-order-cancellation-to-cancel-order",
+   "from": "object-order-cancellation",
+   "to": "action-cancel-order",
+   "exitXY": [
+    1.0,
+    0.5084
+   ],
+   "entryXY": [
+    0.0,
+    0.5
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-adjust-order-to-order-change",
+   "from": "action-adjust-order",
+   "to": "object-order-change",
+   "exitXY": [
+    1.0,
+    0.4956
+   ],
+   "entryXY": [
+    0.0,
+    0.4957
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-order-change-to-change-order",
+   "from": "object-order-change",
+   "to": "action-change-order",
+   "exitXY": [
+    1.0,
+    0.4957
+   ],
+   "entryXY": [
+    0.0,
+    0.482
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-accept-items-to-final-buyer-party",
+   "from": "action-accept-items",
+   "to": "final-buyer-party",
+   "exitXY": [
+    0.4916,
+    1.0
+   ],
+   "entryXY": [
+    0.4934,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  }
+ ],
+ "guards": [
+  {
+   "id": "text-from-order",
+   "text": "From Order",
+   "x": 565.2,
+   "y": 60.1,
+   "w": 61.8,
+   "h": 9.1,
+   "labelLines": [
+    {
+     "text": "From Order",
+     "cx": 596.1,
+     "cy": 64.6,
+     "w": 61.8,
+     "size": 9.8
+    }
+   ]
+  },
+  {
+   "id": "text-cancel-order",
+   "text": "[cancel\norder]",
+   "x": 306.8,
+   "y": 560.9,
+   "w": 32.8,
+   "h": 21.2,
+   "onFlow": "flow-determine-action-to-send-order-cancellation",
+   "labelLines": [
+    {
+     "text": "[cancel",
+     "cx": 323.4,
+     "cy": 564.47,
+     "w": 32.4,
+     "size": 9.8
+    },
+    {
+     "text": "order]",
+     "cx": 319.8,
+     "cy": 576.57,
+     "w": 25.9,
+     "size": 9.8
+    }
+   ]
+  },
+  {
+   "id": "text-accept-items",
+   "text": "[accept\nitems]",
+   "x": 78.6,
+   "y": 670.6,
+   "w": 33.7,
+   "h": 28.5,
+   "onFlow": "flow-determine-action-to-accept-items",
+   "labelLines": [
+    {
+     "text": "[accept",
+     "cx": 95.5,
+     "cy": 674.2700000000001,
+     "w": 33.7,
+     "size": 9.8
+    },
+    {
+     "text": "items]",
+     "cx": 91.0,
+     "cy": 686.37,
+     "w": 24.6,
+     "size": 9.8
+    }
+   ]
+  },
+  {
+   "id": "text-change-order",
+   "text": "[change\norder]",
+   "x": 216.1,
+   "y": 673.7,
+   "w": 37.6,
+   "h": 21.6,
+   "onFlow": "flow-determine-action-to-adjust-order",
+   "labelLines": [
+    {
+     "text": "[change",
+     "cx": 234.9,
+     "cy": 677.2700000000001,
+     "w": 37.6,
+     "size": 9.8
+    },
+    {
+     "text": "order]",
+     "cx": 229.0,
+     "cy": 689.495,
+     "w": 25.9,
+     "size": 10.3
+    }
+   ]
+  }
+ ]
+}

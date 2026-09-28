@@ -1,0 +1,142 @@
+{
+ "name": "UBL-2.2-ROCD-InitialStocking.png",
+ "verdict": "needs-human",
+ "radius": 3,
+ "lineWorkInk": 314549,
+ "missingPx": 1401,
+ "inventedPx": 1265,
+ "structural": {
+  "absent": 0,
+  "invented": 0,
+  "coherence": 0,
+  "textAbsent": 0,
+  "textDiffers": 0
+ },
+ "blocking": [],
+ "findings": [
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n14 -> n15",
+   "x": 2817,
+   "y": 2108,
+   "w": 3,
+   "h": 74,
+   "area": 121
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n14 -> n15",
+   "x": 2819,
+   "y": 2163,
+   "w": 19,
+   "h": 46,
+   "area": 105
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n11 (action 'Receive Despatch Adv')",
+   "x": 2558,
+   "y": 1436,
+   "w": 22,
+   "h": 21,
+   "area": 89
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n11 (action 'Receive Despatch Adv')",
+   "x": 3151,
+   "y": 1436,
+   "w": 22,
+   "h": 21,
+   "area": 89
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n11 (action 'Receive Despatch Adv')",
+   "x": 2559,
+   "y": 1349,
+   "w": 19,
+   "h": 18,
+   "area": 66
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n11 (action 'Receive Despatch Adv')",
+   "x": 3155,
+   "y": 1350,
+   "w": 18,
+   "h": 19,
+   "area": 62
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n16 -> n18",
+   "x": 1667,
+   "y": 2356,
+   "w": 2,
+   "h": 140,
+   "area": 182
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n14 -> n15",
+   "x": 2810,
+   "y": 2106,
+   "w": 3,
+   "h": 75,
+   "area": 123
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n14 -> n15",
+   "x": 2793,
+   "y": 2163,
+   "w": 17,
+   "h": 46,
+   "area": 96
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n11 (action 'Receive Despatch Adv')",
+   "x": 3145,
+   "y": 1431,
+   "w": 22,
+   "h": 20,
+   "area": 80
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n11 (action 'Receive Despatch Adv')",
+   "x": 2565,
+   "y": 1432,
+   "w": 21,
+   "h": 19,
+   "area": 78
+  }
+ ],
+ "text": [],
+ "coherence": [],
+ "human": [
+  {
+   "x": 85,
+   "y": 814,
+   "w": 534,
+   "h": 573,
+   "shape": "rect",
+   "iou": 0.75,
+   "border": 0.825,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best rect 0.75, and 0.99 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  }
+ ],
+ "review": [
+  {
+   "n": 1,
+   "what": "check",
+   "where": "85,814 534x573",
+   "detail": "outline matches no UML node shape (best rect 0.75, and 0.99 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  }
+ ]
+}

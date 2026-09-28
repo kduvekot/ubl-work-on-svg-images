@@ -1,0 +1,394 @@
+{
+ "name": "UBL-2.2-CPFR-CreatingSalesForecast.png",
+ "verdict": "needs-human",
+ "radius": 3,
+ "lineWorkInk": 347203,
+ "missingPx": 2632,
+ "inventedPx": 5539,
+ "structural": {
+  "absent": 0,
+  "invented": 0,
+  "coherence": 0,
+  "textAbsent": 0,
+  "textDiffers": 0
+ },
+ "blocking": [],
+ "findings": [
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n6 -> n5",
+   "x": 1387,
+   "y": 1237,
+   "w": 41,
+   "h": 14,
+   "area": 220
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n6 -> n5",
+   "x": 1389,
+   "y": 1209,
+   "w": 38,
+   "h": 14,
+   "area": 203
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n11 -> n9",
+   "x": 1994,
+   "y": 2026,
+   "w": 34,
+   "h": 14,
+   "area": 170
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n11 -> n9",
+   "x": 1993,
+   "y": 1998,
+   "w": 33,
+   "h": 14,
+   "area": 164
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n9 -> n10",
+   "x": 1119,
+   "y": 2026,
+   "w": 33,
+   "h": 14,
+   "area": 161
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n9 -> n10",
+   "x": 1118,
+   "y": 1998,
+   "w": 32,
+   "h": 14,
+   "area": 153
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "unattributed",
+   "x": 214,
+   "y": 88,
+   "w": 21,
+   "h": 15,
+   "area": 134
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "unattributed",
+   "x": 3308,
+   "y": 3369,
+   "w": 15,
+   "h": 20,
+   "area": 134
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "unattributed",
+   "x": 3218,
+   "y": 98,
+   "w": 20,
+   "h": 16,
+   "area": 133
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "unattributed",
+   "x": 181,
+   "y": 108,
+   "w": 19,
+   "h": 17,
+   "area": 132
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "unattributed",
+   "x": 3183,
+   "y": 82,
+   "w": 20,
+   "h": 12,
+   "area": 129
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "unattributed",
+   "x": 251,
+   "y": 73,
+   "w": 19,
+   "h": 13,
+   "area": 96
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "unattributed",
+   "x": 111,
+   "y": 198,
+   "w": 10,
+   "h": 19,
+   "area": 85
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n15 -> n12",
+   "x": 1869,
+   "y": 2561,
+   "w": 14,
+   "h": 25,
+   "area": 69
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "unattributed",
+   "x": 83,
+   "y": 3113,
+   "w": 7,
+   "h": 10,
+   "area": 69
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "unattributed",
+   "x": 3251,
+   "y": 122,
+   "w": 9,
+   "h": 12,
+   "area": 64
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n6 -> n5",
+   "x": 1415,
+   "y": 1209,
+   "w": 52,
+   "h": 42,
+   "area": 760
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n13 -> n12",
+   "x": 1431,
+   "y": 2386,
+   "w": 36,
+   "h": 35,
+   "area": 582
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n11 -> n9",
+   "x": 1953,
+   "y": 1998,
+   "w": 52,
+   "h": 42,
+   "area": 575
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n9 -> n10",
+   "x": 1078,
+   "y": 1998,
+   "w": 52,
+   "h": 42,
+   "area": 532
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n3 -> n1",
+   "x": 1953,
+   "y": 402,
+   "w": 40,
+   "h": 36,
+   "area": 388
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n1 -> n2",
+   "x": 1446,
+   "y": 416,
+   "w": 21,
+   "h": 8,
+   "area": 161
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n3 -> n1",
+   "x": 2304,
+   "y": 416,
+   "w": 21,
+   "h": 8,
+   "area": 161
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n15 -> n12",
+   "x": 1868,
+   "y": 2523,
+   "w": 28,
+   "h": 51,
+   "area": 140
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "unattributed",
+   "x": 3209,
+   "y": 79,
+   "w": 20,
+   "h": 15,
+   "area": 139
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "unattributed",
+   "x": 3213,
+   "y": 3484,
+   "w": 20,
+   "h": 15,
+   "area": 138
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "unattributed",
+   "x": 207,
+   "y": 78,
+   "w": 21,
+   "h": 14,
+   "area": 137
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "unattributed",
+   "x": 3323,
+   "y": 3367,
+   "w": 13,
+   "h": 21,
+   "area": 137
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "unattributed",
+   "x": 3171,
+   "y": 68,
+   "w": 21,
+   "h": 10,
+   "area": 136
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n15 -> n12",
+   "x": 2308,
+   "y": 2798,
+   "w": 17,
+   "h": 8,
+   "area": 136
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "unattributed",
+   "x": 99,
+   "y": 184,
+   "w": 14,
+   "h": 20,
+   "area": 135
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "unattributed",
+   "x": 174,
+   "y": 96,
+   "w": 19,
+   "h": 16,
+   "area": 134
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "unattributed",
+   "x": 3243,
+   "y": 98,
+   "w": 19,
+   "h": 17,
+   "area": 129
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "unattributed",
+   "x": 3139,
+   "y": 3509,
+   "w": 18,
+   "h": 8,
+   "area": 112
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "unattributed",
+   "x": 245,
+   "y": 67,
+   "w": 20,
+   "h": 11,
+   "area": 105
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n9 -> n10",
+   "x": 1455,
+   "y": 2015,
+   "w": 12,
+   "h": 8,
+   "area": 89
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "unattributed",
+   "x": 83,
+   "y": 3096,
+   "w": 7,
+   "h": 11,
+   "area": 76
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n8 -> n11",
+   "x": 2588,
+   "y": 1743,
+   "w": 7,
+   "h": 11,
+   "area": 71
+  }
+ ],
+ "text": [],
+ "coherence": [],
+ "human": [
+  {
+   "kind": "no-weight-split",
+   "reason": "all 18 box strokes are one weight ([6, 7]), so no object node could be identified",
+   "check": "confirm the diagram really has no object nodes"
+  },
+  {
+   "kind": "arrowhead-unmeasurable",
+   "x": 732,
+   "y": 2964,
+   "w": 130,
+   "h": 130,
+   "reason": "the ink at the head end of n16->n18 measures 65x81px, too wide for this diagram's own 43px arrowhead - a junction, not a head",
+   "check": "confirm the arrowhead here is drawn and points the way the original does"
+  }
+ ],
+ "review": [
+  {
+   "n": 1,
+   "what": "check",
+   "where": "",
+   "detail": "all 18 box strokes are one weight ([6, 7]), so no object node could be identified",
+   "check": "confirm the diagram really has no object nodes"
+  },
+  {
+   "n": 2,
+   "what": "check",
+   "where": "732,2964 130x130",
+   "detail": "the ink at the head end of n16->n18 measures 65x81px, too wide for this diagram's own 43px arrowhead - a junction, not a head",
+   "check": "confirm the arrowhead here is drawn and points the way the original does"
+  }
+ ]
+}

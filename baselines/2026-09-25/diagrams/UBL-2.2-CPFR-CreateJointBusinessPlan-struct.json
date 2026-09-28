@@ -1,0 +1,198 @@
+{
+ "name": "UBL-2.2-CPFR-CreateJointBusinessPlan.png",
+ "verdict": "needs-human",
+ "radius": 3,
+ "lineWorkInk": 295315,
+ "missingPx": 5945,
+ "inventedPx": 5990,
+ "structural": {
+  "absent": 0,
+  "invented": 0,
+  "coherence": 0,
+  "textAbsent": 0,
+  "textDiffers": 0
+ },
+ "blocking": [],
+ "findings": [
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n15 -> n13",
+   "x": 2000,
+   "y": 1937,
+   "w": 58,
+   "h": 14,
+   "area": 173
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n15 -> n13",
+   "x": 2000,
+   "y": 1960,
+   "w": 49,
+   "h": 25,
+   "area": 168
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n5 -> n6",
+   "x": 1958,
+   "y": 965,
+   "w": 51,
+   "h": 18,
+   "area": 164
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n21 -> n20",
+   "x": 1927,
+   "y": 2861,
+   "w": 50,
+   "h": 18,
+   "area": 164
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n5 -> n6",
+   "x": 1957,
+   "y": 993,
+   "w": 52,
+   "h": 20,
+   "area": 137
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n21 -> n20",
+   "x": 1926,
+   "y": 2889,
+   "w": 51,
+   "h": 20,
+   "area": 133
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n17 -> n18",
+   "x": 2219,
+   "y": 2428,
+   "w": 40,
+   "h": 22,
+   "area": 124
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n15 -> n13",
+   "x": 1977,
+   "y": 1935,
+   "w": 57,
+   "h": 47,
+   "area": 319
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n5 -> n6",
+   "x": 1932,
+   "y": 964,
+   "w": 56,
+   "h": 32,
+   "area": 240
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n21 -> n20",
+   "x": 1901,
+   "y": 2860,
+   "w": 56,
+   "h": 32,
+   "area": 230
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n17 -> n18",
+   "x": 2232,
+   "y": 2427,
+   "w": 52,
+   "h": 29,
+   "area": 119
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n5 -> n6",
+   "x": 1946,
+   "y": 996,
+   "w": 42,
+   "h": 16,
+   "area": 75
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n21 -> n20",
+   "x": 1917,
+   "y": 2893,
+   "w": 40,
+   "h": 15,
+   "area": 69
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n11 -> n12",
+   "x": 2841,
+   "y": 1597,
+   "w": 13,
+   "h": 34,
+   "area": 64
+  }
+ ],
+ "text": [],
+ "coherence": [],
+ "human": [
+  {
+   "kind": "arrowhead-unmeasurable",
+   "x": 208,
+   "y": 397,
+   "w": 128,
+   "h": 128,
+   "reason": "the ink at the head end of n8->n1 measures 64x89px, too wide for this diagram's own 48px arrowhead - a junction, not a head",
+   "check": "confirm the arrowhead here is drawn and points the way the original does"
+  },
+  {
+   "kind": "arrowhead-unmeasurable",
+   "x": 2990,
+   "y": 1826,
+   "w": 128,
+   "h": 128,
+   "reason": "the ink at the head end of n19->n12 measures 64x89px, too wide for this diagram's own 48px arrowhead - a junction, not a head",
+   "check": "confirm the arrowhead here is drawn and points the way the original does"
+  },
+  {
+   "kind": "arrowhead-unmeasurable",
+   "x": 3003,
+   "y": 2740,
+   "w": 128,
+   "h": 128,
+   "reason": "the ink at the head end of n19->n21 measures 64x89px, too wide for this diagram's own 48px arrowhead - a junction, not a head",
+   "check": "confirm the arrowhead here is drawn and points the way the original does"
+  }
+ ],
+ "review": [
+  {
+   "n": 1,
+   "what": "check",
+   "where": "208,397 128x128",
+   "detail": "the ink at the head end of n8->n1 measures 64x89px, too wide for this diagram's own 48px arrowhead - a junction, not a head",
+   "check": "confirm the arrowhead here is drawn and points the way the original does"
+  },
+  {
+   "n": 2,
+   "what": "check",
+   "where": "2990,1826 128x128",
+   "detail": "the ink at the head end of n19->n12 measures 64x89px, too wide for this diagram's own 48px arrowhead - a junction, not a head",
+   "check": "confirm the arrowhead here is drawn and points the way the original does"
+  },
+  {
+   "n": 3,
+   "what": "check",
+   "where": "3003,2740 128x128",
+   "detail": "the ink at the head end of n19->n21 measures 64x89px, too wide for this diagram's own 48px arrowhead - a junction, not a head",
+   "check": "confirm the arrowhead here is drawn and points the way the original does"
+  }
+ ]
+}

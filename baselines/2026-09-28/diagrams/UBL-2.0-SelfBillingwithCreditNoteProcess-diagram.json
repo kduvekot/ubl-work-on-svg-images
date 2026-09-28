@@ -1,0 +1,404 @@
+{
+ "schema": "ubl-activity-diagram/1",
+ "figure": {
+  "name": "UBL-2.0-SelfBillingwithCreditNoteProcess",
+  "source": "UBL-2.0-SelfBillingwithCreditNoteProcess.png"
+ },
+ "lanes": [
+  {
+   "id": "lane-accounting-customer",
+   "axis": "column",
+   "index": 0,
+   "title": "Accounting Customer"
+  },
+  {
+   "id": "lane-accounting-supplier",
+   "axis": "column",
+   "index": 1,
+   "title": "Accounting Supplier"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "initial-accounting-customer",
+   "kind": "initial",
+   "label": "",
+   "lane": "lane-accounting-customer"
+  },
+  {
+   "id": "object-self-billed-invoice",
+   "kind": "object",
+   "label": "Self Billed Invoice",
+   "lane": null,
+   "between": [
+    "lane-accounting-customer",
+    "lane-accounting-supplier"
+   ]
+  },
+  {
+   "id": "action-receive-self-billed-invoice",
+   "kind": "action",
+   "label": "Receive Self Billed\nInvoice",
+   "lane": "lane-accounting-supplier"
+  },
+  {
+   "id": "action-raise-self-billed-invoice",
+   "kind": "action",
+   "label": "Raise Self Billed Invoice",
+   "lane": "lane-accounting-customer"
+  },
+  {
+   "id": "final-accounting-supplier",
+   "kind": "final",
+   "label": "",
+   "lane": "lane-accounting-supplier"
+  },
+  {
+   "id": "decision-reconcile-charges-in-accounting-supplier",
+   "kind": "decision",
+   "label": "Reconcile\nCharges",
+   "lane": "lane-accounting-supplier"
+  },
+  {
+   "id": "action-receive-account-response",
+   "kind": "action",
+   "label": "Receive Account\nResponse",
+   "lane": "lane-accounting-customer"
+  },
+  {
+   "id": "decision-validate-invoice",
+   "kind": "decision",
+   "label": "Validate\nInvoice",
+   "lane": "lane-accounting-supplier"
+  },
+  {
+   "id": "object-application-response",
+   "kind": "object",
+   "label": "Application\nResponse",
+   "lane": null,
+   "between": [
+    "lane-accounting-customer",
+    "lane-accounting-supplier"
+   ]
+  },
+  {
+   "id": "action-send-account-response",
+   "kind": "action",
+   "label": "Send Account\nResponse",
+   "lane": "lane-accounting-supplier"
+  },
+  {
+   "id": "decision-reconcile-charges-in-accounting-customer",
+   "kind": "decision",
+   "label": "Reconcile\nCharges",
+   "lane": "lane-accounting-customer"
+  },
+  {
+   "id": "final-accounting-customer",
+   "kind": "final",
+   "label": "",
+   "lane": "lane-accounting-customer"
+  },
+  {
+   "id": "fork-accounting-supplier",
+   "kind": "fork",
+   "label": "",
+   "lane": "lane-accounting-supplier"
+  },
+  {
+   "id": "action-receive-credit-note",
+   "kind": "action",
+   "label": "Receive Credit Note",
+   "lane": "lane-accounting-customer"
+  },
+  {
+   "id": "object-credit-note",
+   "kind": "object",
+   "label": "Credit Note",
+   "lane": null,
+   "between": [
+    "lane-accounting-customer",
+    "lane-accounting-supplier"
+   ]
+  },
+  {
+   "id": "action-raise-credit-note",
+   "kind": "action",
+   "label": "Raise Credit Note",
+   "lane": "lane-accounting-supplier"
+  },
+  {
+   "id": "final-accounting-customer-2",
+   "kind": "final",
+   "label": "",
+   "lane": "lane-accounting-customer"
+  },
+  {
+   "id": "final-accounting-customer-3",
+   "kind": "final",
+   "label": "",
+   "lane": "lane-accounting-customer"
+  }
+ ],
+ "flows": [
+  {
+   "id": "flow-initial-accounting-customer-to-raise-self-billed-invoice",
+   "from": "initial-accounting-customer",
+   "to": "action-raise-self-billed-invoice",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-self-billed-invoice-to-receive-self-billed-invoice",
+   "from": "object-self-billed-invoice",
+   "to": "action-receive-self-billed-invoice",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-raise-self-billed-invoice-to-self-billed-invoice",
+   "from": "action-raise-self-billed-invoice",
+   "to": "object-self-billed-invoice",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-raise-self-billed-invoice-to-final-accounting-customer-2",
+   "from": "action-raise-self-billed-invoice",
+   "to": "final-accounting-customer-2",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   },
+   "guard": "text-accept-charges",
+   "impliedChoice": "the step waits on the supplier: no dispute means the charges are accepted and the process ends; a reply leads to Reconcile Charges"
+  },
+  {
+   "id": "flow-raise-self-billed-invoice-to-reconcile-charges-in-accounting-customer",
+   "from": "action-raise-self-billed-invoice",
+   "to": "decision-reconcile-charges-in-accounting-customer",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-reconcile-charges-in-accounting-customer-to-raise-self-billed-invoice",
+   "from": "decision-reconcile-charges-in-accounting-customer",
+   "to": "action-raise-self-billed-invoice",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   },
+   "guard": "text-under-charged-or-incorrect-information"
+  },
+  {
+   "id": "flow-receive-self-billed-invoice-to-validate-invoice",
+   "from": "action-receive-self-billed-invoice",
+   "to": "decision-validate-invoice",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-reconcile-charges-in-accounting-supplier-to-final-accounting-supplier",
+   "from": "decision-reconcile-charges-in-accounting-supplier",
+   "to": "final-accounting-supplier",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   },
+   "guard": "text-no-action-required"
+  },
+  {
+   "id": "flow-validate-invoice-to-reconcile-charges-in-accounting-supplier",
+   "from": "decision-validate-invoice",
+   "to": "decision-reconcile-charges-in-accounting-supplier",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   },
+   "guard": "text-incorrect-charges"
+  },
+  {
+   "id": "flow-reconcile-charges-in-accounting-supplier-to-send-account-response",
+   "from": "decision-reconcile-charges-in-accounting-supplier",
+   "to": "action-send-account-response",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   },
+   "guard": "text-under-charged"
+  },
+  {
+   "id": "flow-reconcile-charges-in-accounting-supplier-to-raise-credit-note",
+   "from": "decision-reconcile-charges-in-accounting-supplier",
+   "to": "action-raise-credit-note",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   },
+   "guard": "text-over-charged"
+  },
+  {
+   "id": "flow-fork-accounting-supplier-to-send-account-response",
+   "from": "fork-accounting-supplier",
+   "to": "action-send-account-response",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-application-response-to-receive-account-response",
+   "from": "object-application-response",
+   "to": "action-receive-account-response",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-receive-account-response-to-reconcile-charges-in-accounting-customer",
+   "from": "action-receive-account-response",
+   "to": "decision-reconcile-charges-in-accounting-customer",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-send-account-response-to-application-response",
+   "from": "action-send-account-response",
+   "to": "object-application-response",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-validate-invoice-to-fork-accounting-supplier",
+   "from": "decision-validate-invoice",
+   "to": "fork-accounting-supplier",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   },
+   "guard": "text-incorrect-information"
+  },
+  {
+   "id": "flow-reconcile-charges-in-accounting-customer-to-final-accounting-customer",
+   "from": "decision-reconcile-charges-in-accounting-customer",
+   "to": "final-accounting-customer",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   },
+   "guard": "text-accept-credit"
+  },
+  {
+   "id": "flow-receive-credit-note-to-reconcile-charges-in-accounting-customer",
+   "from": "action-receive-credit-note",
+   "to": "decision-reconcile-charges-in-accounting-customer",
+   "kind": "control",
+   "direction": {
+    "confidence": "medium",
+    "checked": "confirmed"
+   }
+  },
+  {
+   "id": "flow-reconcile-charges-in-accounting-customer-to-final-accounting-customer-3",
+   "from": "decision-reconcile-charges-in-accounting-customer",
+   "to": "final-accounting-customer-3",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   },
+   "guard": "text-accept-charges-2"
+  },
+  {
+   "id": "flow-fork-accounting-supplier-to-raise-credit-note",
+   "from": "fork-accounting-supplier",
+   "to": "action-raise-credit-note",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-credit-note-to-receive-credit-note",
+   "from": "object-credit-note",
+   "to": "action-receive-credit-note",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-raise-credit-note-to-credit-note",
+   "from": "action-raise-credit-note",
+   "to": "object-credit-note",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  }
+ ],
+ "texts": [
+  {
+   "id": "text-no-action-required",
+   "text": "[no action\nrequired]",
+   "labels": "flow-reconcile-charges-in-accounting-supplier-to-final-accounting-supplier"
+  },
+  {
+   "id": "text-under-charged-or-incorrect-information",
+   "text": "[under\ncharged or\nincorrect\ninformation]",
+   "labels": "flow-reconcile-charges-in-accounting-customer-to-raise-self-billed-invoice"
+  },
+  {
+   "id": "text-under-charged",
+   "text": "[under\ncharged]",
+   "labels": "flow-reconcile-charges-in-accounting-supplier-to-send-account-response"
+  },
+  {
+   "id": "text-incorrect-charges",
+   "text": "[incorrect\ncharges]",
+   "labels": "flow-validate-invoice-to-reconcile-charges-in-accounting-supplier"
+  },
+  {
+   "id": "text-accept-credit",
+   "text": "[accept credit]",
+   "labels": "flow-reconcile-charges-in-accounting-customer-to-final-accounting-customer"
+  },
+  {
+   "id": "text-incorrect-information",
+   "text": "[incorrect information]",
+   "labels": "flow-validate-invoice-to-fork-accounting-supplier"
+  },
+  {
+   "id": "text-over-charged",
+   "text": "[over\ncharged]",
+   "labels": "flow-reconcile-charges-in-accounting-supplier-to-raise-credit-note"
+  },
+  {
+   "id": "text-accept-charges",
+   "text": "[accept\ncharges]",
+   "labels": "flow-raise-self-billed-invoice-to-final-accounting-customer-2"
+  },
+  {
+   "id": "text-accept-charges-2",
+   "text": "[accept\ncharges]",
+   "labels": "flow-reconcile-charges-in-accounting-customer-to-final-accounting-customer-3"
+  }
+ ],
+ "offPage": [],
+ "marks": [],
+ "phases": []
+}

@@ -1,0 +1,17 @@
+  verdict: CORRECT
+  structural: 0 element(s) absent, 0 invented, 0 text absent, 0 text differs, 0 incoherent
+  line-work  missing 6870 px (1.554%)   invented 4774 px (1.080%)   radius 3
+    line-work-missing      292 px at  3276,1265    45x42    on node n5 (action 'Receive Despatch Adv')
+    line-work-missing      270 px at  2385,1268    44x39    on node n5 (action 'Receive Despatch Adv')
+    line-work-missing      262 px at  3278,1139    43x41    on node n5 (action 'Receive Despatch Adv')
+    line-work-missing      254 px at  2417,800     43x38    on node n3 (action 'Send Order')
+    line-work-missing      250 px at  3091,800     43x38    on node n3 (action 'Send Order')
+    line-work-missing      244 px at  2204,1803    43x37    on node n9 (action 'Receive order item(s')
+    line-work-missing      242 px at   980,1287    43x36    on node n7 (action 'Send Despatch Advice')
+    line-work-missing      238 px at  3092,670     42x38    on node n3 (action 'Send Order')
+    line-work-missing      236 px at  2417,670     42x38    on node n3 (action 'Send Order')
+    line-work-missing      236 px at  2385,1139    42x38    on node n5 (action 'Receive Despatch Adv')
+    line-work-missing      230 px at   169,1289    42x34    on node n7 (action 'Send Despatch Advice')
+    line-work-missing      227 px at  2205,1672    40x34    on node n9 (action 'Receive order item(s')
+    ... and 56 more line-work findings
+review/baseline/UBL-2.2-CRP-InitialStockingByRetailer-marked.png + review/baseline/UBL-2.2-CRP-InitialStockingByRetailer-marked-lost.png  (0 finding(s) numbered)

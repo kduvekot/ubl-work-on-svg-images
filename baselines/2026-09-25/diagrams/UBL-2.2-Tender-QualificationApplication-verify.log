@@ -1,0 +1,10 @@
+  verdict: NEEDS-HUMAN
+  structural: 0 element(s) absent, 0 invented, 0 text absent, 0 text differs, 0 incoherent
+  line-work  missing 421 px (0.156%)   invented 301 px (0.111%)   radius 3
+    line-work-missing       93 px at   610,586      2x64    near edge n2 -> n5
+    line-work-missing       67 px at   627,609     14x41    near edge n2 -> n5
+    line-work-invented     147 px at   625,612     27x75    near edge n2 -> n5
+    line-work-invented     104 px at   621,579      2x70    near edge n2 -> n5
+  needs a person (1):
+    no-weight-split     confirm the diagram really has no object nodes
+review/baseline/UBL-2.2-Tender-QualificationApplication-marked.png + review/baseline/UBL-2.2-Tender-QualificationApplication-marked-lost.png  (1 finding(s) numbered)

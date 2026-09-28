@@ -1,0 +1,1952 @@
+{
+ "source": "UBL-2.2-InitiateFreightMgmtProcess.png",
+ "size": [
+  3425,
+  2543
+ ],
+ "fontPx": 37.1,
+ "arrowPx": 52.5,
+ "arrowWidthPx": 40.7,
+ "arrowStyle": "open",
+ "rules": {
+  "v": [
+   [
+    0,
+    10
+   ],
+   [
+    641,
+    4
+   ],
+   [
+    1578,
+    5
+   ],
+   [
+    2541,
+    4
+   ],
+   [
+    3415,
+    10
+   ]
+  ],
+  "h": [
+   [
+    0,
+    10
+   ],
+   [
+    2533,
+    10
+   ]
+  ]
+ },
+ "ruleSpan": {
+  "v": [
+   [
+    13,
+    2529
+   ],
+   [
+    13,
+    2529
+   ],
+   [
+    13,
+    2529
+   ],
+   [
+    13,
+    2529
+   ],
+   [
+    13,
+    2529
+   ]
+  ],
+  "h": [
+   [
+    13,
+    3411
+   ],
+   [
+    13,
+    3411
+   ]
+  ]
+ },
+ "greyRules": [],
+ "dashed": [],
+ "openEnds": [],
+ "crossMarks": [],
+ "partitions": [
+  {
+   "axis": "column",
+   "index": 0,
+   "x0": 0,
+   "x1": 643,
+   "title": "Consignee",
+   "titleBox": [
+    235,
+    20,
+    169,
+    33
+   ]
+  },
+  {
+   "axis": "column",
+   "index": 1,
+   "x0": 643,
+   "x1": 1580,
+   "title": "Consignor",
+   "titleBox": [
+    1033,
+    20,
+    162,
+    33
+   ]
+  },
+  {
+   "axis": "column",
+   "index": 2,
+   "x0": 1580,
+   "x1": 2543,
+   "title": "Freight Forwarder",
+   "titleBox": [
+    1921,
+    20,
+    283,
+    33
+   ]
+  },
+  {
+   "axis": "column",
+   "index": 3,
+   "x0": 2543,
+   "x1": 3425,
+   "title": "Carrier",
+   "titleBox": [
+    2929,
+    20,
+    108,
+    27
+   ]
+  },
+  {
+   "axis": "band",
+   "index": 0,
+   "y0": 0,
+   "y1": 2543,
+   "title": ""
+  }
+ ],
+ "nodes": [
+  {
+   "x": 1448,
+   "y": 165,
+   "w": 254,
+   "h": 146,
+   "area": 32606,
+   "fill": 0.879,
+   "solid": 1.0,
+   "rx": 0,
+   "ry": 0,
+   "shape": "rect",
+   "stroke": 8,
+   "kind": "object",
+   "id": "n1",
+   "label": "Forwarding\ninstructions",
+   "labelLines": [
+    {
+     "x": 1475,
+     "y": 200,
+     "w": 194,
+     "h": 34,
+     "text": "Forwarding"
+    },
+    {
+     "x": 1475,
+     "y": 240,
+     "w": 203,
+     "h": 26,
+     "text": "instructions"
+    }
+   ],
+   "stem": 0.135,
+   "bold": true,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 56,
+   "y": 184,
+   "w": 445,
+   "h": 126,
+   "area": 48786,
+   "fill": 0.87,
+   "solid": 0.955,
+   "rx": 56,
+   "ry": 52,
+   "shape": "rounded",
+   "stroke": 4,
+   "kind": "action",
+   "id": "n2",
+   "label": "Request Logistic\nService",
+   "labelLines": [
+    {
+     "x": 128,
+     "y": 211,
+     "w": 286,
+     "h": 34,
+     "text": "Request Logistic"
+    },
+    {
+     "x": 210,
+     "y": 257,
+     "w": 125,
+     "h": 27,
+     "text": "Service"
+    }
+   ],
+   "stem": 0.135,
+   "bold": true,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 1913,
+   "y": 271,
+   "w": 437,
+   "h": 129,
+   "area": 48959,
+   "fill": 0.868,
+   "solid": 0.957,
+   "rx": 51,
+   "ry": 52,
+   "shape": "rounded",
+   "stroke": 4,
+   "kind": "action",
+   "id": "n3",
+   "label": "Request Transport\nService",
+   "labelLines": [
+    {
+     "x": 1974,
+     "y": 297,
+     "w": 317,
+     "h": 33,
+     "text": "Request Transport"
+    },
+    {
+     "x": 2066,
+     "y": 343,
+     "w": 125,
+     "h": 27,
+     "text": "Service"
+    }
+   ],
+   "stem": 0.135,
+   "bold": true,
+   "col": 2,
+   "row": 0
+  },
+  {
+   "x": 2443,
+   "y": 273,
+   "w": 254,
+   "h": 146,
+   "area": 32589,
+   "fill": 0.879,
+   "solid": 1.0,
+   "rx": 0,
+   "ry": 0,
+   "shape": "rect",
+   "stroke": 8,
+   "kind": "object",
+   "id": "n4",
+   "label": "Forwarding\nInstructions",
+   "labelLines": [
+    {
+     "x": 2470,
+     "y": 308,
+     "w": 195,
+     "h": 33,
+     "text": "Forwarding"
+    },
+    {
+     "x": 2470,
+     "y": 347,
+     "w": 203,
+     "h": 27,
+     "text": "Instructions"
+    }
+   ],
+   "stem": 0.135,
+   "bold": true,
+   "col": 3,
+   "row": 0
+  },
+  {
+   "x": 2829,
+   "y": 274,
+   "w": 437,
+   "h": 126,
+   "area": 45980,
+   "fill": 0.835,
+   "solid": 0.955,
+   "rx": 56,
+   "ry": 53,
+   "shape": "rounded",
+   "stroke": 4,
+   "kind": "action",
+   "id": "n5",
+   "label": "Receive Transport\nService Request",
+   "labelLines": [
+    {
+     "x": 2893,
+     "y": 298,
+     "w": 311,
+     "h": 33,
+     "text": "Receive Transport"
+    },
+    {
+     "x": 2913,
+     "y": 344,
+     "w": 279,
+     "h": 34,
+     "text": "Service Request"
+    }
+   ],
+   "stem": 0.135,
+   "bold": true,
+   "col": 3,
+   "row": 0
+  },
+  {
+   "x": 897,
+   "y": 479,
+   "w": 437,
+   "h": 125,
+   "area": 47522,
+   "fill": 0.87,
+   "solid": 0.957,
+   "rx": 54,
+   "ry": 48,
+   "shape": "rounded",
+   "stroke": 4,
+   "kind": "action",
+   "id": "n6",
+   "label": "Request Logistic\nService",
+   "labelLines": [
+    {
+     "x": 965,
+     "y": 503,
+     "w": 286,
+     "h": 33,
+     "text": "Request Logistic"
+    },
+    {
+     "x": 1046,
+     "y": 549,
+     "w": 126,
+     "h": 27,
+     "text": "Service"
+    }
+   ],
+   "stem": 0.135,
+   "bold": true,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 598,
+   "y": 500,
+   "w": 79,
+   "h": 80,
+   "area": 4003,
+   "fill": 0.741,
+   "kind": "initial",
+   "id": "n7",
+   "label": "",
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 1469,
+   "y": 574,
+   "w": 262,
+   "h": 144,
+   "area": 35365,
+   "fill": 0.937,
+   "solid": 1.0,
+   "rx": 0,
+   "ry": 0,
+   "shape": "rect",
+   "stroke": 7,
+   "kind": "object",
+   "id": "n8",
+   "label": "Packing List",
+   "labelLines": [
+    {
+     "x": 1493,
+     "y": 626,
+     "w": 212,
+     "h": 33,
+     "text": "Packing List"
+    }
+   ],
+   "stem": 0.135,
+   "bold": true,
+   "col": 2,
+   "row": 0
+  },
+  {
+   "x": 106,
+   "y": 864,
+   "w": 434,
+   "h": 125,
+   "area": 47390,
+   "fill": 0.874,
+   "solid": 0.955,
+   "rx": 50,
+   "ry": 57,
+   "shape": "rounded",
+   "stroke": 4,
+   "kind": "action",
+   "id": "n9",
+   "label": "Receive Bill of Lading",
+   "labelLines": [
+    {
+     "x": 138,
+     "y": 911,
+     "w": 368,
+     "h": 34,
+     "text": "Receive Bill of Lading"
+    }
+   ],
+   "stem": 0.135,
+   "bold": true,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 1448,
+   "y": 912,
+   "w": 254,
+   "h": 147,
+   "area": 34535,
+   "fill": 0.925,
+   "solid": 1.0,
+   "rx": 0,
+   "ry": 0,
+   "shape": "rect",
+   "stroke": 7,
+   "kind": "object",
+   "id": "n10",
+   "label": "Bill of Lading",
+   "labelLines": [
+    {
+     "x": 1465,
+     "y": 967,
+     "w": 226,
+     "h": 35,
+     "text": "Bill of Lading"
+    }
+   ],
+   "stem": 0.135,
+   "bold": true,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 2443,
+   "y": 920,
+   "w": 254,
+   "h": 146,
+   "area": 34289,
+   "fill": 0.925,
+   "solid": 1.0,
+   "rx": 0,
+   "ry": 0,
+   "shape": "rect",
+   "stroke": 8,
+   "kind": "object",
+   "id": "n11",
+   "label": "Bill of Lading",
+   "labelLines": [
+    {
+     "x": 2456,
+     "y": 973,
+     "w": 227,
+     "h": 34,
+     "text": "Bill of Lading"
+    }
+   ],
+   "stem": 0.135,
+   "bold": true,
+   "col": 3,
+   "row": 0
+  },
+  {
+   "x": 1874,
+   "y": 929,
+   "w": 437,
+   "h": 125,
+   "area": 45826,
+   "fill": 0.839,
+   "solid": 0.957,
+   "rx": 48,
+   "ry": 47,
+   "shape": "rounded",
+   "stroke": 5,
+   "kind": "action",
+   "id": "n12",
+   "label": "Send Bill of Lading to\nConsignor",
+   "labelLines": [],
+   "stem": 0.135,
+   "bold": true,
+   "col": 2,
+   "row": 0
+  },
+  {
+   "x": 2919,
+   "y": 936,
+   "w": 441,
+   "h": 121,
+   "area": 47238,
+   "fill": 0.885,
+   "solid": 0.956,
+   "rx": 48,
+   "ry": 48,
+   "shape": "rounded",
+   "stroke": 4,
+   "kind": "action",
+   "id": "n13",
+   "label": "Send Bill of Lading",
+   "labelLines": [
+    {
+     "x": 2975,
+     "y": 978,
+     "w": 322,
+     "h": 34,
+     "text": "Send Bill of Lading"
+    }
+   ],
+   "stem": 0.135,
+   "bold": true,
+   "col": 3,
+   "row": 0
+  },
+  {
+   "x": 800,
+   "y": 1008,
+   "w": 433,
+   "h": 125,
+   "area": 47530,
+   "fill": 0.878,
+   "solid": 0.957,
+   "rx": 48,
+   "ry": 48,
+   "shape": "rounded",
+   "stroke": 5,
+   "kind": "action",
+   "id": "n14",
+   "label": "Receive Bill of Lading",
+   "labelLines": [
+    {
+     "x": 831,
+     "y": 1050,
+     "w": 369,
+     "h": 34,
+     "text": "Receive Bill of Lading"
+    }
+   ],
+   "stem": 0.135,
+   "bold": true,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 796,
+   "y": 1220,
+   "w": 434,
+   "h": 125,
+   "area": 48702,
+   "fill": 0.898,
+   "solid": 0.956,
+   "rx": 48,
+   "ry": 52,
+   "shape": "rounded",
+   "stroke": 5,
+   "kind": "action",
+   "id": "n15",
+   "label": "Receive Waybill",
+   "labelLines": [
+    {
+     "x": 875,
+     "y": 1267,
+     "w": 267,
+     "h": 33,
+     "text": "Receive Waybill"
+    }
+   ],
+   "stem": 0.135,
+   "bold": true,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 2443,
+   "y": 1394,
+   "w": 254,
+   "h": 146,
+   "area": 35492,
+   "fill": 0.957,
+   "solid": 1.0,
+   "rx": 0,
+   "ry": 0,
+   "shape": "rect",
+   "stroke": 8,
+   "kind": "object",
+   "id": "n16",
+   "label": "Way bill",
+   "labelLines": [
+    {
+     "x": 2505,
+     "y": 1445,
+     "w": 124,
+     "h": 33,
+     "text": "Way bill"
+    }
+   ],
+   "stem": 0.135,
+   "bold": true,
+   "col": 3,
+   "row": 0
+  },
+  {
+   "x": 1444,
+   "y": 1398,
+   "w": 255,
+   "h": 146,
+   "area": 35598,
+   "fill": 0.956,
+   "solid": 1.0,
+   "rx": 0,
+   "ry": 0,
+   "shape": "rect",
+   "stroke": 8,
+   "kind": "object",
+   "id": "n17",
+   "label": "Waybill",
+   "labelLines": [
+    {
+     "x": 1512,
+     "y": 1450,
+     "w": 123,
+     "h": 34,
+     "text": "Waybill"
+    }
+   ],
+   "stem": 0.135,
+   "bold": true,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 95,
+   "y": 1407,
+   "w": 434,
+   "h": 124,
+   "area": 48383,
+   "fill": 0.899,
+   "solid": 0.957,
+   "rx": 48,
+   "ry": 56,
+   "shape": "rounded",
+   "stroke": 5,
+   "kind": "action",
+   "id": "n18",
+   "label": "Receive Waybill",
+   "labelLines": [
+    {
+     "x": 175,
+     "y": 1449,
+     "w": 266,
+     "h": 33,
+     "text": "Receive Waybill"
+    }
+   ],
+   "stem": 0.135,
+   "bold": true,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 1863,
+   "y": 1407,
+   "w": 437,
+   "h": 124,
+   "area": 46701,
+   "fill": 0.862,
+   "solid": 0.958,
+   "rx": 47,
+   "ry": 48,
+   "shape": "rounded",
+   "stroke": 5,
+   "kind": "action",
+   "id": "n19",
+   "label": "Send Waybill to\nConsignor",
+   "labelLines": [
+    {
+     "x": 1947,
+     "y": 1430,
+     "w": 266,
+     "h": 34,
+     "text": "Send Waybill to"
+    },
+    {
+     "x": 1998,
+     "y": 1477,
+     "w": 179,
+     "h": 34,
+     "text": "Consignor"
+    }
+   ],
+   "stem": 0.135,
+   "bold": true,
+   "col": 2,
+   "row": 0
+  },
+  {
+   "x": 2919,
+   "y": 1414,
+   "w": 437,
+   "h": 124,
+   "area": 49225,
+   "fill": 0.908,
+   "solid": 0.958,
+   "rx": 47,
+   "ry": 48,
+   "shape": "rounded",
+   "stroke": 4,
+   "kind": "action",
+   "id": "n20",
+   "label": "Send Waypbill",
+   "labelLines": [
+    {
+     "x": 3025,
+     "y": 1456,
+     "w": 221,
+     "h": 34,
+     "text": "Send Waypbill"
+    }
+   ],
+   "stem": 0.135,
+   "bold": true,
+   "col": 3,
+   "row": 0
+  },
+  {
+   "x": 2922,
+   "y": 1665,
+   "w": 434,
+   "h": 125,
+   "area": 44300,
+   "fill": 0.817,
+   "solid": 0.956,
+   "rx": 52,
+   "ry": 52,
+   "shape": "rounded",
+   "stroke": 4,
+   "kind": "action",
+   "id": "n21",
+   "label": "Transport Goods Items\nto Delivery Party",
+   "labelLines": [
+    {
+     "x": 2944,
+     "y": 1690,
+     "w": 392,
+     "h": 33,
+     "text": "Transport Goods Items"
+    },
+    {
+     "x": 3004,
+     "y": 1737,
+     "w": 282,
+     "h": 34,
+     "text": "to Delivery Party"
+    }
+   ],
+   "stem": 0.135,
+   "bold": true,
+   "col": 3,
+   "row": 0
+  },
+  {
+   "x": 1437,
+   "y": 1753,
+   "w": 312,
+   "h": 168,
+   "area": 48261,
+   "fill": 0.921,
+   "solid": 1.0,
+   "rx": 0,
+   "ry": 0,
+   "shape": "rect",
+   "stroke": 8,
+   "kind": "object",
+   "id": "n22",
+   "label": "Transportation\nStatus",
+   "labelLines": [
+    {
+     "x": 1467,
+     "y": 1797,
+     "w": 248,
+     "h": 33,
+     "text": "Transportation"
+    },
+    {
+     "x": 1540,
+     "y": 1836,
+     "w": 107,
+     "h": 27,
+     "text": "Status"
+    }
+   ],
+   "stem": 0.135,
+   "bold": true,
+   "col": 2,
+   "row": 0
+  },
+  {
+   "x": 825,
+   "y": 1773,
+   "w": 365,
+   "h": 118,
+   "area": 36326,
+   "fill": 0.843,
+   "solid": 0.945,
+   "rx": 51,
+   "ry": 48,
+   "shape": "rounded",
+   "stroke": 5,
+   "kind": "action",
+   "id": "n23",
+   "label": "Receive Status\nReport",
+   "labelLines": [
+    {
+     "x": 872,
+     "y": 1793,
+     "w": 250,
+     "h": 27,
+     "text": "Receive Status"
+    },
+    {
+     "x": 954,
+     "y": 1840,
+     "w": 113,
+     "h": 33,
+     "text": "Report"
+    }
+   ],
+   "stem": 0.135,
+   "bold": true,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 2374,
+   "y": 1954,
+   "w": 312,
+   "h": 168,
+   "area": 48295,
+   "fill": 0.921,
+   "solid": 1.0,
+   "rx": 0,
+   "ry": 0,
+   "shape": "rect",
+   "stroke": 8,
+   "kind": "object",
+   "id": "n24",
+   "label": "Transportation\nStatus",
+   "labelLines": [
+    {
+     "x": 2405,
+     "y": 2001,
+     "w": 248,
+     "h": 33,
+     "text": "Transportation"
+    },
+    {
+     "x": 2477,
+     "y": 2040,
+     "w": 108,
+     "h": 27,
+     "text": "Status"
+    }
+   ],
+   "stem": 0.135,
+   "bold": true,
+   "col": 2,
+   "row": 0
+  },
+  {
+   "x": 1805,
+   "y": 1988,
+   "w": 351,
+   "h": 118,
+   "area": 36188,
+   "fill": 0.874,
+   "solid": 0.942,
+   "rx": 55,
+   "ry": 53,
+   "shape": "rounded",
+   "stroke": 4,
+   "kind": "action",
+   "id": "n25",
+   "label": "Report Status",
+   "labelLines": [
+    {
+     "x": 1866,
+     "y": 2030,
+     "w": 232,
+     "h": 34,
+     "text": "Report Status"
+    }
+   ],
+   "stem": 0.135,
+   "bold": true,
+   "col": 2,
+   "row": 0
+  },
+  {
+   "x": 2833,
+   "y": 1988,
+   "w": 351,
+   "h": 122,
+   "area": 37535,
+   "fill": 0.877,
+   "solid": 0.943,
+   "rx": 55,
+   "ry": 50,
+   "shape": "rounded",
+   "stroke": 4,
+   "kind": "action",
+   "id": "n26",
+   "label": "Report Status",
+   "labelLines": [
+    {
+     "x": 2894,
+     "y": 2027,
+     "w": 231,
+     "h": 34,
+     "text": "Report Status"
+    }
+   ],
+   "stem": 0.135,
+   "bold": true,
+   "col": 3,
+   "row": 0
+  },
+  {
+   "x": 1408,
+   "y": 2257,
+   "w": 312,
+   "h": 168,
+   "area": 48280,
+   "fill": 0.921,
+   "solid": 1.0,
+   "rx": 0,
+   "ry": 0,
+   "shape": "rect",
+   "stroke": 8,
+   "kind": "object",
+   "id": "n27",
+   "label": "Transportation\nStatus",
+   "labelLines": [
+    {
+     "x": 1439,
+     "y": 2300,
+     "w": 248,
+     "h": 33,
+     "text": "Transportation"
+    },
+    {
+     "x": 1511,
+     "y": 2339,
+     "w": 107,
+     "h": 27,
+     "text": "Status"
+    }
+   ],
+   "stem": 0.135,
+   "bold": true,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 95,
+   "y": 2302,
+   "w": 363,
+   "h": 114,
+   "area": 34541,
+   "fill": 0.835,
+   "solid": 0.94,
+   "rx": 50,
+   "ry": 56,
+   "shape": "rounded",
+   "stroke": 5,
+   "kind": "action",
+   "id": "n28",
+   "label": "Receive Status\nReport",
+   "labelLines": [
+    {
+     "x": 149,
+     "y": 2320,
+     "w": 251,
+     "h": 27,
+     "text": "Receive Status"
+    },
+    {
+     "x": 232,
+     "y": 2367,
+     "w": 113,
+     "h": 33,
+     "text": "Report"
+    }
+   ],
+   "stem": 0.135,
+   "bold": true,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 3188,
+   "y": 2417,
+   "w": 64,
+   "h": 64,
+   "area": 2601,
+   "fill": 0.635,
+   "solid": 0.793,
+   "rx": 30,
+   "ry": 29,
+   "shape": "ellipse",
+   "stroke": 4,
+   "kind": "final",
+   "innerRatio": 0.453,
+   "id": "n30",
+   "label": "",
+   "col": 3,
+   "row": 0
+  }
+ ],
+ "edges": [
+  {
+   "from": "n2",
+   "to": "n1",
+   "routing": "straight",
+   "fromPoint": [
+    515,
+    243
+   ],
+   "toPoint": [
+    1433,
+    239
+   ],
+   "arrowInk": [
+    225,
+    615
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    50,
+    39.6,
+    2.33
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n1",
+   "to": "n3",
+   "routing": "diagonal",
+   "fromPoint": [
+    1716,
+    260
+   ],
+   "toPoint": [
+    1898,
+    300
+   ],
+   "arrowInk": [
+    197,
+    572
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    78,
+    44.0,
+    0.3
+   ],
+   "arrowFill": 0.106,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n3",
+   "to": "n4",
+   "routing": "straight",
+   "fromPoint": [
+    2364,
+    339
+   ],
+   "toPoint": [
+    2428,
+    346
+   ],
+   "arrowInk": [
+    426,
+    614
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    47,
+    42.3,
+    2.02
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n7",
+   "to": "n2",
+   "routing": "diagonal",
+   "fromPoint": [
+    583,
+    495
+   ],
+   "toPoint": [
+    365,
+    324
+   ],
+   "arrowInk": [
+    261,
+    521
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    79,
+    31.7,
+    0.97
+   ],
+   "arrowSaturated": true,
+   "arrowFill": 0.214,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n6",
+   "to": "n1",
+   "routing": "diagonal",
+   "fromPoint": [
+    1229,
+    464
+   ],
+   "toPoint": [
+    1447,
+    325
+   ],
+   "arrowInk": [
+    219,
+    592
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    53,
+    38.0,
+    2.11
+   ],
+   "arrowFill": 0.109,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n4",
+   "to": "n5",
+   "routing": "straight",
+   "fromPoint": [
+    2711,
+    346
+   ],
+   "toPoint": [
+    2814,
+    341
+   ],
+   "arrowInk": [
+    180,
+    559
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    79,
+    48.4,
+    0.3
+   ],
+   "arrowSaturated": true,
+   "arrowFill": 0.018,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n8",
+   "to": "n3",
+   "routing": "diagonal",
+   "fromPoint": [
+    1745,
+    562
+   ],
+   "toPoint": [
+    2009,
+    414
+   ],
+   "arrowInk": [
+    231,
+    412
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    69,
+    69.1,
+    1.65
+   ],
+   "arrowFill": 0.235,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n5",
+   "to": "n13",
+   "routing": "straight",
+   "fromPoint": [
+    3091,
+    414
+   ],
+   "toPoint": [
+    3094,
+    921
+   ],
+   "arrowInk": [
+    180,
+    557
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    49,
+    41.6,
+    1.94
+   ],
+   "arrowFill": 0.086,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n7",
+   "to": "n6",
+   "routing": "straight",
+   "fromPoint": [
+    691,
+    541
+   ],
+   "toPoint": [
+    882,
+    541
+   ],
+   "arrowInk": [
+    180,
+    558
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    49,
+    40.0,
+    2.03
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n6",
+   "to": "n8",
+   "routing": "diagonal",
+   "fromPoint": [
+    1348,
+    588
+   ],
+   "toPoint": [
+    1454,
+    616
+   ],
+   "arrowInk": [
+    196,
+    607
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    51,
+    44.4,
+    1.82
+   ],
+   "arrowFill": 0.051,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n10",
+   "to": "n9",
+   "routing": "straight",
+   "fromPoint": [
+    1433,
+    926
+   ],
+   "toPoint": [
+    554,
+    926
+   ],
+   "arrowInk": [
+    230,
+    614
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    53,
+    40.0,
+    2.31
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n12",
+   "to": "n10",
+   "routing": "straight",
+   "fromPoint": [
+    1859,
+    988
+   ],
+   "toPoint": [
+    1716,
+    986
+   ],
+   "arrowInk": [
+    230,
+    598
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    53,
+    40.7,
+    2.63
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n11",
+   "to": "n12",
+   "routing": "straight",
+   "fromPoint": [
+    2428,
+    992
+   ],
+   "toPoint": [
+    2325,
+    991
+   ],
+   "arrowInk": [
+    184,
+    576
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    52,
+    40.8,
+    2.17
+   ],
+   "arrowFill": 0.004,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n13",
+   "to": "n11",
+   "routing": "straight",
+   "fromPoint": [
+    2904,
+    996
+   ],
+   "toPoint": [
+    2711,
+    993
+   ],
+   "arrowInk": [
+    184,
+    567
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    53,
+    40.5,
+    2.57
+   ],
+   "arrowFill": 0.016,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n10",
+   "to": "n14",
+   "routing": "diagonal",
+   "fromPoint": [
+    1433,
+    1004
+   ],
+   "toPoint": [
+    1247,
+    1037
+   ],
+   "arrowInk": [
+    196,
+    585
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    68,
+    46.2,
+    0.36
+   ],
+   "arrowFill": 0.1,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n13",
+   "to": "n20",
+   "routing": "straight",
+   "fromPoint": [
+    3139,
+    1071
+   ],
+   "toPoint": [
+    3139,
+    1399
+   ],
+   "arrowInk": [
+    225,
+    603
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    50,
+    38.0,
+    2.0
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n17",
+   "to": "n15",
+   "routing": "diagonal",
+   "fromPoint": [
+    1429,
+    1425
+   ],
+   "toPoint": [
+    1231,
+    1359
+   ],
+   "arrowInk": [
+    348,
+    471
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    53,
+    42.4,
+    1.47
+   ],
+   "arrowFill": 0.146,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n17",
+   "to": "n18",
+   "routing": "straight",
+   "fromPoint": [
+    1429,
+    1469
+   ],
+   "toPoint": [
+    543,
+    1469
+   ],
+   "arrowInk": [
+    185,
+    579
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    53,
+    40.0,
+    2.23
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n19",
+   "to": "n17",
+   "routing": "straight",
+   "fromPoint": [
+    1848,
+    1468
+   ],
+   "toPoint": [
+    1713,
+    1470
+   ],
+   "arrowInk": [
+    184,
+    565
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    52,
+    40.7,
+    2.34
+   ],
+   "arrowFill": 0.007,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n16",
+   "to": "n19",
+   "routing": "straight",
+   "fromPoint": [
+    2428,
+    1467
+   ],
+   "toPoint": [
+    2314,
+    1469
+   ],
+   "arrowInk": [
+    184,
+    578
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    52,
+    39.5,
+    2.17
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n20",
+   "to": "n16",
+   "routing": "straight",
+   "fromPoint": [
+    2904,
+    1473
+   ],
+   "toPoint": [
+    2711,
+    1467
+   ],
+   "arrowInk": [
+    207,
+    560
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    53,
+    39.1,
+    2.51
+   ],
+   "arrowFill": 0.039,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n20",
+   "to": "n21",
+   "routing": "straight",
+   "fromPoint": [
+    3137,
+    1552
+   ],
+   "toPoint": [
+    3139,
+    1650
+   ],
+   "arrowInk": [
+    193,
+    562
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    48,
+    47.6,
+    1.73
+   ],
+   "arrowFill": 0.268,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n21",
+   "to": "n26",
+   "routing": "straight",
+   "fromPoint": [
+    3011,
+    1804
+   ],
+   "toPoint": [
+    3008,
+    1973
+   ],
+   "arrowInk": [
+    180,
+    550
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    48,
+    40.8,
+    1.93
+   ],
+   "arrowFill": 0.032,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n21",
+   "to": "n30",
+   "routing": "straight",
+   "fromPoint": [
+    3235,
+    1804
+   ],
+   "toPoint": [
+    3235,
+    2402
+   ],
+   "arrowInk": [
+    180,
+    555
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    49,
+    40.0,
+    1.99
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n22",
+   "to": "n23",
+   "routing": "straight",
+   "fromPoint": [
+    1422,
+    1832
+   ],
+   "toPoint": [
+    1204,
+    1832
+   ],
+   "arrowInk": [
+    184,
+    578
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    53,
+    40.0,
+    2.21
+   ],
+   "arrowFill": 0.006,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n25",
+   "to": "n22",
+   "routing": "diagonal",
+   "fromPoint": [
+    1849,
+    1973
+   ],
+   "toPoint": [
+    1763,
+    1924
+   ],
+   "arrowInk": [
+    260,
+    618
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    79,
+    41.3,
+    0.4
+   ],
+   "arrowSaturated": true,
+   "arrowFill": 0.0,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n24",
+   "to": "n25",
+   "routing": "straight",
+   "fromPoint": [
+    2359,
+    2042
+   ],
+   "toPoint": [
+    2170,
+    2045
+   ],
+   "arrowInk": [
+    184,
+    576
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    51,
+    40.7,
+    2.05
+   ],
+   "arrowFill": 0.037,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n26",
+   "to": "n24",
+   "routing": "straight",
+   "fromPoint": [
+    2818,
+    2045
+   ],
+   "toPoint": [
+    2700,
+    2040
+   ],
+   "arrowInk": [
+    184,
+    566
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    53,
+    42.1,
+    2.12
+   ],
+   "arrowFill": 0.054,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n25",
+   "to": "n27",
+   "routing": "diagonal",
+   "fromPoint": [
+    1869,
+    2120
+   ],
+   "toPoint": [
+    1672,
+    2242
+   ],
+   "arrowInk": [
+    223,
+    486
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    79,
+    34.1,
+    0.74
+   ],
+   "arrowSaturated": true,
+   "arrowFill": 0.169,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n27",
+   "to": "n28",
+   "routing": "straight",
+   "fromPoint": [
+    1393,
+    2360
+   ],
+   "toPoint": [
+    472,
+    2360
+   ],
+   "arrowInk": [
+    230,
+    619
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    53,
+    40.0,
+    2.3
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "object"
+  }
+ ],
+ "text": [
+  {
+   "text": "Consignee",
+   "x": 235,
+   "y": 20,
+   "w": 169,
+   "h": 33,
+   "lines": [
+    {
+     "x": 235,
+     "y": 20,
+     "w": 169,
+     "h": 33,
+     "text": "Consignee"
+    }
+   ]
+  },
+  {
+   "text": "Consignor",
+   "x": 1033,
+   "y": 20,
+   "w": 162,
+   "h": 33,
+   "lines": [
+    {
+     "x": 1033,
+     "y": 20,
+     "w": 162,
+     "h": 33,
+     "text": "Consignor"
+    }
+   ]
+  },
+  {
+   "text": "Freight Forwarder",
+   "x": 1921,
+   "y": 20,
+   "w": 283,
+   "h": 33,
+   "lines": [
+    {
+     "x": 1921,
+     "y": 20,
+     "w": 283,
+     "h": 33,
+     "text": "Freight Forwarder"
+    }
+   ]
+  },
+  {
+   "text": "Carrier",
+   "x": 2929,
+   "y": 20,
+   "w": 108,
+   "h": 27,
+   "lines": [
+    {
+     "x": 2929,
+     "y": 20,
+     "w": 108,
+     "h": 27,
+     "text": "Carrier"
+    }
+   ]
+  },
+  {
+   "text": "Ordering\nProcess",
+   "x": 437,
+   "y": 584,
+   "w": 137,
+   "h": 74,
+   "lines": [
+    {
+     "x": 437,
+     "y": 584,
+     "w": 135,
+     "h": 34,
+     "text": "Ordering"
+    },
+    {
+     "x": 449,
+     "y": 631,
+     "w": 125,
+     "h": 27,
+     "text": "Process"
+    }
+   ]
+  },
+  {
+   "text": "Fulfillment\nProcess",
+   "x": 2973,
+   "y": 2396,
+   "w": 161,
+   "h": 73,
+   "lines": [
+    {
+     "x": 2973,
+     "y": 2396,
+     "w": 161,
+     "h": 26,
+     "text": "Fulfillment"
+    },
+    {
+     "x": 3002,
+     "y": 2442,
+     "w": 126,
+     "h": 27,
+     "text": "Process"
+    }
+   ]
+  }
+ ],
+ "uncertain": [
+  {
+   "x": 645,
+   "y": 10,
+   "w": 933,
+   "h": 231,
+   "shape": "rect",
+   "iou": 0.94,
+   "border": 0.922,
+   "kind": "dropped-region",
+   "reason": "4 of 4 sides are pass-through line-work",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "x": 1583,
+   "y": 2046,
+   "w": 958,
+   "h": 487,
+   "shape": "rect",
+   "iou": 0.774,
+   "border": 0.749,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best rect 0.77, and 0.99 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "kind": "no-weight-split",
+   "reason": "all 28 box strokes are one weight ([4, 5, 7, 8]), so no object node could be identified",
+   "check": "confirm the diagram really has no object nodes"
+  },
+  {
+   "kind": "empty-box",
+   "x": 645,
+   "y": 2363,
+   "w": 933,
+   "h": 170,
+   "reason": "a note carrying no text, with line-work passing its sides",
+   "check": "confirm nothing is drawn here in the original"
+  }
+ ]
+}

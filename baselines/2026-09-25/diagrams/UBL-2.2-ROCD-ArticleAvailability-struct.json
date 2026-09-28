@@ -1,0 +1,166 @@
+{
+ "name": "UBL-2.2-ROCD-ArticleAvailability.png",
+ "verdict": "correct",
+ "radius": 3,
+ "lineWorkInk": 161946,
+ "missingPx": 3488,
+ "inventedPx": 2650,
+ "structural": {
+  "absent": 0,
+  "invented": 0,
+  "coherence": 0,
+  "textAbsent": 0,
+  "textDiffers": 0
+ },
+ "blocking": [],
+ "findings": [
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n3 (action 'Receive stock availa')",
+   "x": 3259,
+   "y": 803,
+   "w": 84,
+   "h": 55,
+   "area": 508
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n3 (action 'Receive stock availa')",
+   "x": 3263,
+   "y": 662,
+   "w": 80,
+   "h": 54,
+   "area": 496
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n3 (action 'Receive stock availa')",
+   "x": 2360,
+   "y": 806,
+   "w": 78,
+   "h": 51,
+   "area": 488
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n3 (action 'Receive stock availa')",
+   "x": 2360,
+   "y": 662,
+   "w": 79,
+   "h": 51,
+   "area": 484
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n4 (action 'Send stock availabil')",
+   "x": 84,
+   "y": 795,
+   "w": 74,
+   "h": 33,
+   "area": 366
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n4 (action 'Send stock availabil')",
+   "x": 945,
+   "y": 796,
+   "w": 74,
+   "h": 32,
+   "area": 359
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n4 (action 'Send stock availabil')",
+   "x": 84,
+   "y": 667,
+   "w": 68,
+   "h": 31,
+   "area": 329
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n4 (action 'Send stock availabil')",
+   "x": 951,
+   "y": 667,
+   "w": 67,
+   "h": 30,
+   "area": 320
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n3 (action 'Receive stock availa')",
+   "x": 3260,
+   "y": 801,
+   "w": 74,
+   "h": 48,
+   "area": 408
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n3 (action 'Receive stock availa')",
+   "x": 3259,
+   "y": 670,
+   "w": 75,
+   "h": 48,
+   "area": 403
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n3 (action 'Receive stock availa')",
+   "x": 2369,
+   "y": 804,
+   "w": 73,
+   "h": 45,
+   "area": 390
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n3 (action 'Receive stock availa')",
+   "x": 2369,
+   "y": 670,
+   "w": 73,
+   "h": 45,
+   "area": 385
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n4 (action 'Send stock availabil')",
+   "x": 93,
+   "y": 795,
+   "w": 69,
+   "h": 25,
+   "area": 292
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n4 (action 'Send stock availabil')",
+   "x": 953,
+   "y": 676,
+   "w": 57,
+   "h": 25,
+   "area": 256
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n4 (action 'Send stock availabil')",
+   "x": 94,
+   "y": 676,
+   "w": 56,
+   "h": 22,
+   "area": 252
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n4 (action 'Send stock availabil')",
+   "x": 941,
+   "y": 808,
+   "w": 54,
+   "h": 12,
+   "area": 186
+  }
+ ],
+ "text": [],
+ "coherence": [],
+ "human": [],
+ "review": []
+}

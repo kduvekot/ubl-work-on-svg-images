@@ -1,0 +1,1184 @@
+{
+ "source": "UBL-2.0-SelfBillingwithSelfBilledCreditNoteProcess.png",
+ "size": [
+  3425,
+  2162
+ ],
+ "fontPx": 41.4,
+ "arrowPx": 59.5,
+ "arrowWidthPx": 46.0,
+ "arrowStyle": "open",
+ "rules": {
+  "v": [
+   [
+    0,
+    10
+   ],
+   [
+    1580,
+    5
+   ],
+   [
+    3415,
+    10
+   ]
+  ],
+  "h": [
+   [
+    0,
+    10
+   ],
+   [
+    2152,
+    10
+   ]
+  ]
+ },
+ "ruleSpan": {
+  "v": [
+   [
+    13,
+    2148
+   ],
+   [
+    13,
+    2148
+   ],
+   [
+    13,
+    2148
+   ]
+  ],
+  "h": [
+   [
+    13,
+    3411
+   ],
+   [
+    13,
+    3411
+   ]
+  ]
+ },
+ "greyRules": [],
+ "dashed": [],
+ "openEnds": [],
+ "crossMarks": [],
+ "partitions": [
+  {
+   "axis": "column",
+   "index": 0,
+   "x0": 0,
+   "x1": 1582,
+   "title": "Accounting Customer",
+   "titleBox": [
+    642,
+    26,
+    343,
+    31
+   ]
+  },
+  {
+   "axis": "column",
+   "index": 1,
+   "x0": 1582,
+   "x1": 3425,
+   "title": "Accounting Supplier",
+   "titleBox": [
+    2364,
+    26,
+    330,
+    31
+   ]
+  },
+  {
+   "axis": "band",
+   "index": 0,
+   "y0": 0,
+   "y1": 2162,
+   "title": ""
+  }
+ ],
+ "nodes": [
+  {
+   "x": 309,
+   "y": 118,
+   "w": 86,
+   "h": 86,
+   "area": 4967,
+   "fill": 0.776,
+   "kind": "initial",
+   "id": "n1",
+   "label": "",
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 1417,
+   "y": 400,
+   "w": 376,
+   "h": 188,
+   "area": 66017,
+   "fill": 0.934,
+   "solid": 1.0,
+   "rx": 0,
+   "ry": 0,
+   "shape": "rect",
+   "keptOnOutline": true,
+   "stroke": 13,
+   "kind": "object",
+   "id": "n2",
+   "label": "Self Billed Invoice",
+   "labelLines": [
+    {
+     "x": 1429,
+     "y": 475,
+     "w": 347,
+     "h": 30,
+     "text": "Self Billed Invoice"
+    }
+   ],
+   "stem": 0.145,
+   "bold": true,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 2591,
+   "y": 425,
+   "w": 543,
+   "h": 150,
+   "area": 73878,
+   "fill": 0.907,
+   "solid": 0.963,
+   "rx": 57,
+   "ry": 58,
+   "shape": "rounded",
+   "stroke": 5,
+   "kind": "action",
+   "id": "n3",
+   "label": "Receive Self Billed\nInvoice",
+   "labelLines": [
+    {
+     "x": 2713,
+     "y": 463,
+     "w": 314,
+     "h": 26,
+     "text": "Receive Self Billed"
+    },
+    {
+     "x": 2803,
+     "y": 505,
+     "w": 121,
+     "h": 24,
+     "text": "Invoice"
+    }
+   ],
+   "stem": 0.121,
+   "bold": true,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 80,
+   "y": 453,
+   "w": 543,
+   "h": 98,
+   "area": 46303,
+   "fill": 0.87,
+   "solid": 0.949,
+   "rx": 58.0,
+   "ry": 67.0,
+   "shape": "rounded",
+   "stroke": 5,
+   "kind": "action",
+   "id": "n4",
+   "label": "Raise Self Billed Invoice",
+   "labelLines": [
+    {
+     "x": 157,
+     "y": 490,
+     "w": 407,
+     "h": 25,
+     "text": "Raise Self Billed Invoice"
+    }
+   ],
+   "stem": 0.121,
+   "bold": true,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 2688,
+   "y": 977,
+   "w": 345,
+   "h": 223,
+   "area": 36137,
+   "fill": 0.47,
+   "solid": 0.502,
+   "rx": 181,
+   "ry": 120,
+   "shape": "rhombus",
+   "stroke": 5,
+   "kind": "decision",
+   "id": "n5",
+   "label": "Reconcile\nCharges",
+   "labelLines": [
+    {
+     "x": 2781,
+     "y": 1059,
+     "w": 153,
+     "h": 24,
+     "text": "Reconcile"
+    },
+    {
+     "x": 2780,
+     "y": 1099,
+     "w": 128,
+     "h": 32,
+     "text": "Charges"
+    }
+   ],
+   "stem": 0.072,
+   "bold": false,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 685,
+   "y": 1005,
+   "w": 466,
+   "h": 155,
+   "area": 64429,
+   "fill": 0.892,
+   "solid": 0.955,
+   "rx": 60,
+   "ry": 67,
+   "shape": "rounded",
+   "stroke": 4,
+   "kind": "action",
+   "id": "n6",
+   "label": "Receive Account\nResponse",
+   "labelLines": [
+    {
+     "x": 779,
+     "y": 1047,
+     "w": 286,
+     "h": 24,
+     "text": "Receive Account"
+    },
+    {
+     "x": 832,
+     "y": 1088,
+     "w": 162,
+     "h": 31,
+     "text": "Response"
+    }
+   ],
+   "stem": 0.121,
+   "bold": true,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 1417,
+   "y": 1005,
+   "w": 351,
+   "h": 188,
+   "area": 60122,
+   "fill": 0.911,
+   "solid": 1.0,
+   "rx": 0,
+   "ry": 0,
+   "shape": "rect",
+   "keptOnOutline": true,
+   "stroke": 13,
+   "kind": "object",
+   "id": "n7",
+   "label": "Application\nResponse",
+   "labelLines": [
+    {
+     "x": 1477,
+     "y": 1048,
+     "w": 222,
+     "h": 37,
+     "text": "Application"
+    },
+    {
+     "x": 1495,
+     "y": 1093,
+     "w": 193,
+     "h": 37,
+     "text": "Response"
+    }
+   ],
+   "stem": 0.145,
+   "bold": true,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 1912,
+   "y": 1005,
+   "w": 380,
+   "h": 163,
+   "area": 54583,
+   "fill": 0.881,
+   "solid": 0.948,
+   "rx": 60,
+   "ry": 67,
+   "shape": "rounded",
+   "stroke": 4,
+   "kind": "action",
+   "id": "n8",
+   "label": "Send Account\nResponse",
+   "labelLines": [
+    {
+     "x": 1993,
+     "y": 1048,
+     "w": 218,
+     "h": 26,
+     "text": "Send Account"
+    },
+    {
+     "x": 2031,
+     "y": 1090,
+     "w": 162,
+     "h": 31,
+     "text": "Response"
+    }
+   ],
+   "stem": 0.121,
+   "bold": true,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 3262,
+   "y": 1050,
+   "w": 72,
+   "h": 73,
+   "area": 3384,
+   "fill": 0.644,
+   "solid": 0.803,
+   "rx": 34,
+   "ry": 33,
+   "shape": "ellipse",
+   "stroke": 5,
+   "kind": "final",
+   "innerRatio": 0.444,
+   "id": "n9",
+   "label": "",
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 273,
+   "y": 1312,
+   "w": 444,
+   "h": 203,
+   "area": 42743,
+   "fill": 0.474,
+   "solid": 0.502,
+   "rx": 234,
+   "ry": 108,
+   "shape": "rhombus",
+   "stroke": 5,
+   "kind": "decision",
+   "id": "n10",
+   "label": "Reconcile\nCharges",
+   "labelLines": [
+    {
+     "x": 427,
+     "y": 1372,
+     "w": 153,
+     "h": 24,
+     "text": "Reconcile"
+    },
+    {
+     "x": 425,
+     "y": 1412,
+     "w": 128,
+     "h": 32,
+     "text": "Charges"
+    }
+   ],
+   "stem": 0.072,
+   "bold": false,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 1401,
+   "y": 1712,
+   "w": 351,
+   "h": 188,
+   "area": 60111,
+   "fill": 0.911,
+   "solid": 1.0,
+   "rx": 0,
+   "ry": 0,
+   "shape": "rect",
+   "keptOnOutline": true,
+   "stroke": 13,
+   "kind": "object",
+   "id": "n11",
+   "label": "Self Billed Credit\nNote",
+   "labelLines": [
+    {
+     "x": 1408,
+     "y": 1763,
+     "w": 325,
+     "h": 30,
+     "text": "Self Billed Credit"
+    },
+    {
+     "x": 1536,
+     "y": 1808,
+     "w": 89,
+     "h": 30,
+     "text": "Note"
+    }
+   ],
+   "stem": 0.145,
+   "bold": true,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 656,
+   "y": 1728,
+   "w": 544,
+   "h": 155,
+   "area": 75515,
+   "fill": 0.896,
+   "solid": 0.956,
+   "rx": 58,
+   "ry": 68,
+   "shape": "rounded",
+   "stroke": 4,
+   "kind": "action",
+   "id": "n12",
+   "label": "Raise Self Billed Credit\nNote",
+   "labelLines": [
+    {
+     "x": 751,
+     "y": 1772,
+     "w": 384,
+     "h": 26,
+     "text": "Raise Self Billed Credit"
+    },
+    {
+     "x": 890,
+     "y": 1814,
+     "w": 69,
+     "h": 24,
+     "text": "Note"
+    }
+   ],
+   "stem": 0.121,
+   "bold": true,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 2509,
+   "y": 1728,
+   "w": 543,
+   "h": 147,
+   "area": 70876,
+   "fill": 0.888,
+   "solid": 0.955,
+   "rx": 57,
+   "ry": 68,
+   "shape": "rounded",
+   "stroke": 4,
+   "kind": "action",
+   "id": "n13",
+   "label": "Receive Self Billed Credit\nNote",
+   "labelLines": [
+    {
+     "x": 2591,
+     "y": 1767,
+     "w": 429,
+     "h": 26,
+     "text": "Receive Self Billed Credit"
+    },
+    {
+     "x": 2747,
+     "y": 1809,
+     "w": 69,
+     "h": 24,
+     "text": "Note"
+    }
+   ],
+   "stem": 0.121,
+   "bold": true,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 166,
+   "y": 1982,
+   "w": 73,
+   "h": 73,
+   "area": 3396,
+   "fill": 0.637,
+   "solid": 0.793,
+   "rx": 35,
+   "ry": 37,
+   "shape": "ellipse",
+   "stroke": 4,
+   "kind": "final",
+   "innerRatio": 0.438,
+   "id": "n14",
+   "label": "",
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 461,
+   "y": 2019,
+   "w": 72,
+   "h": 73,
+   "area": 3378,
+   "fill": 0.643,
+   "solid": 0.801,
+   "rx": 34,
+   "ry": 30,
+   "shape": "ellipse",
+   "stroke": 5,
+   "kind": "final",
+   "innerRatio": 0.444,
+   "id": "n15",
+   "label": "",
+   "col": 0,
+   "row": 0
+  }
+ ],
+ "edges": [
+  {
+   "from": "n1",
+   "to": "n4",
+   "routing": "straight",
+   "fromPoint": [
+    351,
+    218
+   ],
+   "toPoint": [
+    351,
+    438
+   ],
+   "arrowInk": [
+    225,
+    713
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    56,
+    44.0,
+    2.13
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n2",
+   "to": "n3",
+   "routing": "straight",
+   "fromPoint": [
+    1809,
+    495
+   ],
+   "toPoint": [
+    2576,
+    495
+   ],
+   "arrowInk": [
+    221,
+    711
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    56,
+    46.0,
+    2.11
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n4",
+   "to": "n2",
+   "routing": "straight",
+   "fromPoint": [
+    637,
+    504
+   ],
+   "toPoint": [
+    1402,
+    504
+   ],
+   "arrowInk": [
+    180,
+    606
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    60,
+    46.0,
+    3.31
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n4",
+   "to": "n14",
+   "routing": "straight",
+   "fromPoint": [
+    204,
+    565
+   ],
+   "toPoint": [
+    204,
+    1967
+   ],
+   "arrowInk": [
+    225,
+    708
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    56,
+    44.0,
+    2.16
+   ],
+   "arrowFill": 0.0,
+   "guard": "[accept charges",
+   "edgeKind": "control"
+  },
+  {
+   "from": "n10",
+   "to": "n4",
+   "routing": "straight",
+   "fromPoint": [
+    494,
+    1297
+   ],
+   "toPoint": [
+    493,
+    565
+   ],
+   "arrowInk": [
+    599,
+    683
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    60,
+    45.9,
+    2.24
+   ],
+   "arrowFill": 0.008,
+   "guard": "[under charged]",
+   "edgeKind": "control"
+  },
+  {
+   "from": "n3",
+   "to": "n5",
+   "routing": "straight",
+   "fromPoint": [
+    2858,
+    589
+   ],
+   "toPoint": [
+    2858,
+    962
+   ],
+   "arrowInk": [
+    225,
+    708
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    58,
+    44.0,
+    2.18
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n7",
+   "to": "n6",
+   "routing": "straight",
+   "fromPoint": [
+    1402,
+    1080
+   ],
+   "toPoint": [
+    1165,
+    1080
+   ],
+   "arrowInk": [
+    230,
+    683
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    61,
+    46.0,
+    2.43
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n5",
+   "to": "n8",
+   "routing": "straight",
+   "fromPoint": [
+    2673,
+    1088
+   ],
+   "toPoint": [
+    2306,
+    1088
+   ],
+   "arrowInk": [
+    230,
+    683
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    61,
+    46.0,
+    2.42
+   ],
+   "arrowFill": 0.0,
+   "guard": "[discrepancy in charges]",
+   "edgeKind": "control"
+  },
+  {
+   "from": "n5",
+   "to": "n9",
+   "routing": "straight",
+   "fromPoint": [
+    3047,
+    1088
+   ],
+   "toPoint": [
+    3247,
+    1087
+   ],
+   "arrowInk": [
+    280,
+    795
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    88,
+    91.6,
+    2.43
+   ],
+   "arrowFill": 0.002,
+   "guard": "[no action required]",
+   "edgeKind": "control"
+  },
+  {
+   "from": "n8",
+   "to": "n7",
+   "routing": "straight",
+   "fromPoint": [
+    1897,
+    1091
+   ],
+   "toPoint": [
+    1785,
+    1094
+   ],
+   "arrowInk": [
+    184,
+    571
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    60,
+    45.2,
+    2.95
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n6",
+   "to": "n10",
+   "routing": "diagonal",
+   "fromPoint": [
+    765,
+    1174
+   ],
+   "toPoint": [
+    513,
+    1297
+   ],
+   "arrowInk": [
+    229,
+    699
+   ],
+   "directionConfidence": "high",
+   "edgeKind": "control"
+  },
+  {
+   "from": "n13",
+   "to": "n5",
+   "routing": "straight",
+   "fromPoint": [
+    2858,
+    1713
+   ],
+   "toPoint": [
+    2858,
+    1214
+   ],
+   "arrowInk": [
+    230,
+    694
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    59,
+    44.0,
+    2.2
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n10",
+   "to": "n15",
+   "routing": "straight",
+   "fromPoint": [
+    494,
+    1529
+   ],
+   "toPoint": [
+    494,
+    2004
+   ],
+   "arrowInk": [
+    382,
+    708
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    56,
+    44.0,
+    2.13
+   ],
+   "arrowFill": 0.0,
+   "guard": "[accept 1 charges",
+   "edgeKind": "control"
+  },
+  {
+   "from": "n10",
+   "to": "n12",
+   "routing": "diagonal",
+   "fromPoint": [
+    509,
+    1529
+   ],
+   "toPoint": [
+    825,
+    1713
+   ],
+   "arrowInk": [
+    466,
+    487
+   ],
+   "directionConfidence": "checked",
+   "guard": "[over charged]",
+   "edgeKind": "control",
+   "directionChecked": "confirmed"
+  },
+  {
+   "from": "n11",
+   "to": "n13",
+   "routing": "straight",
+   "fromPoint": [
+    1768,
+    1803
+   ],
+   "toPoint": [
+    2494,
+    1803
+   ],
+   "arrowInk": [
+    220,
+    713
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    55,
+    46.0,
+    2.08
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n12",
+   "to": "n11",
+   "routing": "straight",
+   "fromPoint": [
+    1214,
+    1808
+   ],
+   "toPoint": [
+    1386,
+    1808
+   ],
+   "arrowInk": [
+    180,
+    604
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    60,
+    46.0,
+    3.26
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "object"
+  }
+ ],
+ "text": [
+  {
+   "text": "Accounting Customer",
+   "x": 642,
+   "y": 26,
+   "w": 343,
+   "h": 31,
+   "lines": [
+    {
+     "x": 642,
+     "y": 26,
+     "w": 343,
+     "h": 31,
+     "text": "Accounting Customer"
+    }
+   ]
+  },
+  {
+   "text": "Accounting Supplier",
+   "x": 2364,
+   "y": 26,
+   "w": 330,
+   "h": 31,
+   "lines": [
+    {
+     "x": 2364,
+     "y": 26,
+     "w": 330,
+     "h": 31,
+     "text": "Accounting Supplier"
+    }
+   ]
+  },
+  {
+   "text": "[under\ncharged]",
+   "x": 553,
+   "y": 750,
+   "w": 137,
+   "h": 72,
+   "lines": [
+    {
+     "x": 554,
+     "y": 750,
+     "w": 104,
+     "h": 31,
+     "text": "[under"
+    },
+    {
+     "x": 553,
+     "y": 791,
+     "w": 137,
+     "h": 31,
+     "text": "charged]"
+    }
+   ],
+   "attachedTo": "n10->n4"
+  },
+  {
+   "text": "[discrepancy\nin charges]",
+   "x": 2423,
+   "y": 1110,
+   "w": 193,
+   "h": 71,
+   "lines": [
+    {
+     "x": 2423,
+     "y": 1110,
+     "w": 193,
+     "h": 30,
+     "text": "[discrepancy"
+    },
+    {
+     "x": 2423,
+     "y": 1150,
+     "w": 168,
+     "h": 31,
+     "text": "in charges]"
+    }
+   ],
+   "attachedTo": "n5->n8"
+  },
+  {
+   "text": "[no action\nrequired]",
+   "x": 3086,
+   "y": 1110,
+   "w": 153,
+   "h": 71,
+   "lines": [
+    {
+     "x": 3086,
+     "y": 1110,
+     "w": 153,
+     "h": 30,
+     "text": "[no action"
+    },
+    {
+     "x": 3086,
+     "y": 1150,
+     "w": 139,
+     "h": 31,
+     "text": "required]"
+    }
+   ],
+   "attachedTo": "n5->n9"
+  },
+  {
+   "text": "[accept\ncharges",
+   "x": 55,
+   "y": 1290,
+   "w": 128,
+   "h": 71,
+   "lines": [
+    {
+     "x": 55,
+     "y": 1290,
+     "w": 113,
+     "h": 30,
+     "text": "[accept"
+    },
+    {
+     "x": 55,
+     "y": 1330,
+     "w": 128,
+     "h": 31,
+     "text": "charges"
+    }
+   ],
+   "attachedTo": "n4->n14"
+  },
+  {
+   "text": "[over\ncharged]",
+   "x": 709,
+   "y": 1527,
+   "w": 136,
+   "h": 71,
+   "lines": [
+    {
+     "x": 710,
+     "y": 1527,
+     "w": 71,
+     "h": 30,
+     "text": "[over"
+    },
+    {
+     "x": 709,
+     "y": 1568,
+     "w": 136,
+     "h": 30,
+     "text": "charged]"
+    }
+   ],
+   "attachedTo": "n10->n12"
+  },
+  {
+   "text": "[accept 1\ncharges",
+   "x": 365,
+   "y": 1784,
+   "w": 124,
+   "h": 72,
+   "lines": [
+    {
+     "x": 366,
+     "y": 1780,
+     "w": 127,
+     "h": 36,
+     "text": "[accept 1"
+    },
+    {
+     "x": 365,
+     "y": 1825,
+     "w": 128,
+     "h": 35,
+     "text": "charges"
+    }
+   ],
+   "attachedTo": "n10->n15"
+  }
+ ],
+ "uncertain": [
+  {
+   "x": 1417,
+   "y": 400,
+   "w": 376,
+   "h": 188,
+   "shape": "rect",
+   "iou": 1.0,
+   "border": 1.0,
+   "kind": "kept-on-outline",
+   "reason": "every side has pass-through line-work, but the region carries a complete outline of its own",
+   "check": "confirm this is a node and not trapped whitespace"
+  },
+  {
+   "x": 1417,
+   "y": 1005,
+   "w": 351,
+   "h": 188,
+   "shape": "rect",
+   "iou": 1.0,
+   "border": 1.0,
+   "kind": "kept-on-outline",
+   "reason": "every side has pass-through line-work, but the region carries a complete outline of its own",
+   "check": "confirm this is a node and not trapped whitespace"
+  },
+  {
+   "x": 501,
+   "y": 1083,
+   "w": 1079,
+   "h": 723,
+   "shape": "ellipse",
+   "iou": 0.773,
+   "border": 0.314,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best ellipse 0.77, and 0.99 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "x": 1401,
+   "y": 1712,
+   "w": 351,
+   "h": 188,
+   "shape": "rect",
+   "iou": 1.0,
+   "border": 1.0,
+   "kind": "kept-on-outline",
+   "reason": "every side has pass-through line-work, but the region carries a complete outline of its own",
+   "check": "confirm this is a node and not trapped whitespace"
+  }
+ ]
+}

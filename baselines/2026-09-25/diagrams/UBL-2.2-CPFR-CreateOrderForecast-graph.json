@@ -1,0 +1,1453 @@
+{
+ "source": "UBL-2.2-CPFR-CreateOrderForecast.png",
+ "size": [
+  3425,
+  4004
+ ],
+ "fontPx": 45.7,
+ "arrowPx": 63.0,
+ "arrowWidthPx": 50.3,
+ "arrowStyle": "open",
+ "rules": {
+  "v": [
+   [
+    0,
+    10
+   ],
+   [
+    1690,
+    1
+   ],
+   [
+    3415,
+    10
+   ]
+  ],
+  "h": [
+   [
+    0,
+    10
+   ],
+   [
+    3994,
+    10
+   ]
+  ]
+ },
+ "ruleSpan": {
+  "v": [
+   [
+    13,
+    3990
+   ],
+   [
+    13,
+    3990
+   ],
+   [
+    13,
+    3990
+   ]
+  ],
+  "h": [
+   [
+    13,
+    3411
+   ],
+   [
+    13,
+    3411
+   ]
+  ]
+ },
+ "greyRules": [],
+ "dashed": [
+  {
+   "x": 82,
+   "y": 102,
+   "w": 3260,
+   "h": 3788,
+   "rx": 144,
+   "dash": 12.0,
+   "gap": 9.0,
+   "weight": 3.0,
+   "dashes": 601
+  }
+ ],
+ "openEnds": [
+  {
+   "node": "n1",
+   "at": [
+    656,
+    12
+   ],
+   "end": [
+    661,
+    165
+   ],
+   "points": [],
+   "arrow": true,
+   "inward": true,
+   "headPx": [
+    47,
+    46.9,
+    2.03,
+    0,
+    true
+   ],
+   "x": 634,
+   "y": 12,
+   "w": 47,
+   "h": 155
+  },
+  {
+   "node": "n1",
+   "at": [
+    852,
+    12
+   ],
+   "end": [
+    842,
+    152
+   ],
+   "points": [],
+   "arrow": true,
+   "inward": true,
+   "headPx": [
+    47,
+    58.1,
+    1.99,
+    0,
+    true
+   ],
+   "x": 828,
+   "y": 12,
+   "w": 47,
+   "h": 155
+  },
+  {
+   "node": "n18",
+   "at": [
+    1980,
+    3721
+   ],
+   "end": [
+    2733,
+    3991
+   ],
+   "points": [
+    [
+     2732,
+     3722
+    ]
+   ],
+   "arrow": false,
+   "inward": false,
+   "headPx": null,
+   "x": 1980,
+   "y": 3720,
+   "w": 754,
+   "h": 272
+  },
+  {
+   "node": "n18",
+   "at": [
+    1453,
+    3752
+   ],
+   "end": [
+    664,
+    3991
+   ],
+   "points": [
+    [
+     666,
+     3752
+    ]
+   ],
+   "arrow": false,
+   "inward": false,
+   "headPx": null,
+   "x": 660,
+   "y": 3751,
+   "w": 794,
+   "h": 241
+  }
+ ],
+ "crossMarks": [],
+ "partitions": [
+  {
+   "axis": "column",
+   "index": 0,
+   "x0": 0,
+   "x1": 1690,
+   "title": "No",
+   "titleBox": [
+    567,
+    100,
+    51,
+    32
+   ]
+  },
+  {
+   "axis": "column",
+   "index": 1,
+   "x0": 1690,
+   "x1": 3425,
+   "title": "Create Order Forecast",
+   "titleBox": [
+    1471,
+    124,
+    462,
+    32
+   ]
+  },
+  {
+   "axis": "band",
+   "index": 0,
+   "y0": 0,
+   "y1": 4004,
+   "title": ""
+  }
+ ],
+ "nodes": [
+  {
+   "x": 622,
+   "y": 181,
+   "w": 230,
+   "h": 27,
+   "area": 4685,
+   "fill": 0.996,
+   "kind": "fork",
+   "band": 27,
+   "box": 27,
+   "lumps": 0,
+   "id": "n1",
+   "label": "",
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 151,
+   "y": 488,
+   "w": 377,
+   "h": 279,
+   "area": 95319,
+   "fill": 0.906,
+   "solid": 0.964,
+   "rx": 63,
+   "ry": 67,
+   "shape": "rounded",
+   "stroke": 3,
+   "kind": "action",
+   "id": "n2",
+   "label": "Send Product\nActivity",
+   "labelLines": [
+    {
+     "x": 195,
+     "y": 578,
+     "w": 281,
+     "h": 32,
+     "text": "Send Product"
+    },
+    {
+     "x": 264,
+     "y": 636,
+     "w": 154,
+     "h": 41,
+     "text": "Activity"
+    }
+   ],
+   "stem": 0.131,
+   "bold": true,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 1061,
+   "y": 492,
+   "w": 350,
+   "h": 266,
+   "area": 84166,
+   "fill": 0.904,
+   "solid": 0.96,
+   "rx": 67,
+   "ry": 63,
+   "shape": "rounded",
+   "stroke": 3,
+   "kind": "action",
+   "id": "n3",
+   "label": "Send Retail\nEvent",
+   "labelLines": [
+    {
+     "x": 1115,
+     "y": 572,
+     "w": 234,
+     "h": 32,
+     "text": "Send Retail"
+    },
+    {
+     "x": 1183,
+     "y": 629,
+     "w": 114,
+     "h": 32,
+     "text": "Event"
+    }
+   ],
+   "stem": 0.153,
+   "bold": true,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 1495,
+   "y": 846,
+   "w": 391,
+   "h": 216,
+   "area": 81037,
+   "fill": 0.96,
+   "solid": 1.0,
+   "rx": 0,
+   "ry": 0,
+   "shape": "rect",
+   "stroke": 5,
+   "kind": "object",
+   "id": "n4",
+   "label": "Retail Event",
+   "labelLines": [
+    {
+     "x": 1560,
+     "y": 927,
+     "w": 249,
+     "h": 32,
+     "text": "Retail Event"
+    }
+   ],
+   "stem": 0.131,
+   "bold": true,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 2286,
+   "y": 1223,
+   "w": 27,
+   "h": 177,
+   "area": 3572,
+   "fill": 0.995,
+   "kind": "fork",
+   "band": 27,
+   "box": 27,
+   "lumps": 0,
+   "id": "n5",
+   "label": "",
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 2619,
+   "y": 1229,
+   "w": 593,
+   "h": 169,
+   "area": 94184,
+   "fill": 0.94,
+   "solid": 0.962,
+   "rx": 70,
+   "ry": 67,
+   "shape": "rounded",
+   "stroke": 3,
+   "kind": "action",
+   "id": "n6",
+   "label": "Receive",
+   "labelLines": [
+    {
+     "x": 2828,
+     "y": 1293,
+     "w": 160,
+     "h": 33,
+     "text": "Receive"
+    }
+   ],
+   "stem": 0.131,
+   "bold": true,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 1499,
+   "y": 1381,
+   "w": 392,
+   "h": 215,
+   "area": 79763,
+   "fill": 0.946,
+   "solid": 1.0,
+   "rx": 0,
+   "ry": 0,
+   "shape": "rect",
+   "stroke": 6,
+   "kind": "object",
+   "id": "n7",
+   "label": "Product Activity",
+   "labelLines": [
+    {
+     "x": 1525,
+     "y": 1463,
+     "w": 334,
+     "h": 41,
+     "text": "Product Activity"
+    }
+   ],
+   "stem": 0.131,
+   "bold": true,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 2641,
+   "y": 1715,
+   "w": 593,
+   "h": 178,
+   "area": 95728,
+   "fill": 0.907,
+   "solid": 0.964,
+   "rx": 66,
+   "ry": 68,
+   "shape": "rounded",
+   "stroke": 3,
+   "kind": "action",
+   "id": "n8",
+   "label": "Send Order Forecast",
+   "labelLines": [
+    {
+     "x": 2711,
+     "y": 1783,
+     "w": 431,
+     "h": 33,
+     "text": "Send Order Forecast"
+    }
+   ],
+   "stem": 0.153,
+   "bold": true,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 1495,
+   "y": 1954,
+   "w": 391,
+   "h": 216,
+   "area": 79634,
+   "fill": 0.943,
+   "solid": 0.995,
+   "rx": 0,
+   "ry": 0,
+   "shape": "rect",
+   "stroke": 5,
+   "kind": "object",
+   "id": "n9",
+   "label": "Forecast (order)",
+   "labelLines": [
+    {
+     "x": 1520,
+     "y": 2033,
+     "w": 333,
+     "h": 41,
+     "text": "Forecast (order)"
+    }
+   ],
+   "stem": 0.131,
+   "bold": true,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 306,
+   "y": 1976,
+   "w": 592,
+   "h": 186,
+   "area": 99979,
+   "fill": 0.908,
+   "solid": 0.968,
+   "rx": 61,
+   "ry": 62,
+   "shape": "rounded",
+   "stroke": 4,
+   "kind": "action",
+   "id": "n10",
+   "label": "Receive Order Forecast",
+   "labelLines": [
+    {
+     "x": 349,
+     "y": 2044,
+     "w": 488,
+     "h": 32,
+     "text": "Receive Order Forecast"
+    }
+   ],
+   "stem": 0.131,
+   "bold": true,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 310,
+   "y": 2377,
+   "w": 593,
+   "h": 209,
+   "area": 108408,
+   "fill": 0.875,
+   "solid": 0.969,
+   "rx": 67,
+   "ry": 67,
+   "shape": "rounded",
+   "stroke": 3,
+   "kind": "action",
+   "id": "n11",
+   "label": "Revise Order Forecast\nand Send Revision",
+   "labelLines": [
+    {
+     "x": 369,
+     "y": 2430,
+     "w": 463,
+     "h": 32,
+     "text": "Revise Order Forecast"
+    },
+    {
+     "x": 415,
+     "y": 2488,
+     "w": 383,
+     "h": 32,
+     "text": "and Send Revision"
+    }
+   ],
+   "stem": 0.153,
+   "bold": true,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 1464,
+   "y": 2383,
+   "w": 431,
+   "h": 215,
+   "area": 85700,
+   "fill": 0.925,
+   "solid": 1.0,
+   "rx": 0,
+   "ry": 0,
+   "shape": "rect",
+   "stroke": 6,
+   "kind": "object",
+   "id": "n12",
+   "label": "Forecast Revision\n(order)",
+   "labelLines": [
+    {
+     "x": 1483,
+     "y": 2441,
+     "w": 371,
+     "h": 32,
+     "text": "Forecast Revision"
+    },
+    {
+     "x": 1615,
+     "y": 2490,
+     "w": 139,
+     "h": 41,
+     "text": "(order)"
+    }
+   ],
+   "stem": 0.131,
+   "bold": true,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 2602,
+   "y": 2408,
+   "w": 592,
+   "h": 178,
+   "area": 95022,
+   "fill": 0.902,
+   "solid": 0.965,
+   "rx": 66,
+   "ry": 62,
+   "shape": "rounded",
+   "stroke": 3,
+   "kind": "action",
+   "id": "n13",
+   "label": "Receive Order Forecast",
+   "labelLines": [
+    {
+     "x": 2649,
+     "y": 2472,
+     "w": 490,
+     "h": 32,
+     "text": "Receive Order Forecast"
+    }
+   ],
+   "stem": 0.153,
+   "bold": true,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 2602,
+   "y": 2735,
+   "w": 592,
+   "h": 200,
+   "area": 102293,
+   "fill": 0.864,
+   "solid": 0.969,
+   "rx": 62,
+   "ry": 61,
+   "shape": "rounded",
+   "stroke": 3,
+   "kind": "action",
+   "id": "n14",
+   "label": "Revise Order Forecast\nand Resend Revision",
+   "labelLines": [
+    {
+     "x": 2651,
+     "y": 2781,
+     "w": 464,
+     "h": 32,
+     "text": "Revise Order Forecast"
+    },
+    {
+     "x": 2671,
+     "y": 2839,
+     "w": 434,
+     "h": 32,
+     "text": "and Resend Revision"
+    }
+   ],
+   "stem": 0.153,
+   "bold": true,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 664,
+   "y": 2992,
+   "w": 145,
+   "h": 145,
+   "area": 10585,
+   "fill": 0.503,
+   "solid": 0.503,
+   "rx": 79,
+   "ry": 79,
+   "shape": "rhombus",
+   "stroke": 2,
+   "kind": "decision",
+   "id": "n15",
+   "label": "",
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 1025,
+   "y": 3004,
+   "w": 487,
+   "h": 142,
+   "area": 60555,
+   "fill": 0.876,
+   "solid": 0.946,
+   "rx": 66,
+   "ry": 69,
+   "shape": "rounded",
+   "stroke": 3,
+   "kind": "action",
+   "id": "n16",
+   "label": "Receive Revision",
+   "labelLines": [
+    {
+     "x": 1086,
+     "y": 3053,
+     "w": 351,
+     "h": 32,
+     "text": "Receive Revision"
+    }
+   ],
+   "stem": 0.153,
+   "bold": true,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 509,
+   "y": 3313,
+   "w": 593,
+   "h": 125,
+   "area": 64535,
+   "fill": 0.871,
+   "solid": 0.951,
+   "rx": 66.0,
+   "ry": 59,
+   "shape": "rounded",
+   "stroke": 3,
+   "kind": "action",
+   "id": "n17",
+   "label": "Send Order Forecast",
+   "labelLines": [
+    {
+     "x": 579,
+     "y": 3355,
+     "w": 431,
+     "h": 32,
+     "text": "Send Order Forecast"
+    }
+   ],
+   "stem": 0.153,
+   "bold": true,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 1472,
+   "y": 3548,
+   "w": 489,
+   "h": 260,
+   "area": 117741,
+   "fill": 0.926,
+   "solid": 1.0,
+   "rx": 2,
+   "ry": 2,
+   "shape": "rect",
+   "stroke": 5,
+   "kind": "object",
+   "id": "n18",
+   "label": "Forecast (order -\npositive response)",
+   "labelLines": [
+    {
+     "x": 1525,
+     "y": 3624,
+     "w": 345,
+     "h": 41,
+     "text": "Forecast (order -"
+    },
+    {
+     "x": 1514,
+     "y": 3673,
+     "w": 382,
+     "h": 41,
+     "text": "positive response)"
+    }
+   ],
+   "stem": 0.131,
+   "bold": true,
+   "col": 1,
+   "row": 0
+  }
+ ],
+ "edges": [
+  {
+   "from": "n1",
+   "to": "n2",
+   "routing": "orthogonal",
+   "fromPoint": [
+    701,
+    222
+   ],
+   "toPoint": [
+    317,
+    473
+   ],
+   "arrowInk": [
+    135,
+    451
+   ],
+   "directionConfidence": "high",
+   "points": [
+    [
+     701,
+     344
+    ],
+    [
+     317,
+     344
+    ]
+   ],
+   "arrowPx": [
+    62,
+    43.8,
+    2.26
+   ],
+   "arrowFill": 0.0,
+   "guard": "No",
+   "edgeKind": "control"
+  },
+  {
+   "from": "n1",
+   "to": "n3",
+   "routing": "orthogonal",
+   "fromPoint": [
+    776,
+    222
+   ],
+   "toPoint": [
+    1218,
+    477
+   ],
+   "arrowInk": [
+    135,
+    490
+   ],
+   "directionConfidence": "high",
+   "points": [
+    [
+     776,
+     349
+    ],
+    [
+     1218,
+     349
+    ]
+   ],
+   "arrowPx": [
+    63,
+    50.2,
+    2.55
+   ],
+   "arrowFill": 0.0,
+   "guard": "No",
+   "edgeKind": "control"
+  },
+  {
+   "from": "n3",
+   "to": "n4",
+   "routing": "orthogonal",
+   "fromPoint": [
+    1314,
+    772
+   ],
+   "toPoint": [
+    1475,
+    1006
+   ],
+   "arrowInk": [
+    180,
+    453
+   ],
+   "directionConfidence": "high",
+   "points": [
+    [
+     1314,
+     1006
+    ]
+   ],
+   "arrowPx": [
+    48,
+    36.0,
+    3.53
+   ],
+   "arrowSaturated": true,
+   "arrowFill": 0.0,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n2",
+   "to": "n7",
+   "routing": "orthogonal",
+   "fromPoint": [
+    334,
+    781
+   ],
+   "toPoint": [
+    1479,
+    1550
+   ],
+   "arrowInk": [
+    180,
+    457
+   ],
+   "directionConfidence": "high",
+   "points": [
+    [
+     334,
+     1550
+    ]
+   ],
+   "arrowPx": [
+    47,
+    37.8,
+    3.06
+   ],
+   "arrowSaturated": true,
+   "arrowFill": 0.116,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n4",
+   "to": "n5",
+   "routing": "orthogonal",
+   "fromPoint": [
+    1905,
+    984
+   ],
+   "toPoint": [
+    2269,
+    1240
+   ],
+   "arrowInk": [
+    178,
+    521
+   ],
+   "directionConfidence": "high",
+   "points": [
+    [
+     2092,
+     984
+    ],
+    [
+     2092,
+     1240
+    ]
+   ],
+   "arrowPx": [
+    63,
+    53.0,
+    2.01
+   ],
+   "arrowFill": 0.157,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n5",
+   "to": "n6",
+   "routing": "straight",
+   "fromPoint": [
+    2327,
+    1311
+   ],
+   "toPoint": [
+    2604,
+    1311
+   ],
+   "arrowInk": [
+    135,
+    456
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    48,
+    40.0,
+    2.85
+   ],
+   "arrowSaturated": true,
+   "arrowFill": 0.0,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n7",
+   "to": "n5",
+   "routing": "orthogonal",
+   "fromPoint": [
+    1910,
+    1488
+   ],
+   "toPoint": [
+    2269,
+    1400
+   ],
+   "arrowInk": [
+    135,
+    521
+   ],
+   "directionConfidence": "high",
+   "points": [
+    [
+     2096,
+     1488
+    ],
+    [
+     2096,
+     1400
+    ]
+   ],
+   "arrowPx": [
+    63,
+    52.9,
+    2.01
+   ],
+   "arrowFill": 0.152,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n6",
+   "to": "n8",
+   "routing": "straight",
+   "fromPoint": [
+    2926,
+    1412
+   ],
+   "toPoint": [
+    2927,
+    1700
+   ],
+   "arrowInk": [
+    135,
+    456
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    51,
+    39.7,
+    2.69
+   ],
+   "arrowSaturated": true,
+   "arrowFill": 0.0,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n8",
+   "to": "n9",
+   "routing": "orthogonal",
+   "fromPoint": [
+    2692,
+    1907
+   ],
+   "toPoint": [
+    1905,
+    2070
+   ],
+   "arrowInk": [
+    135,
+    445
+   ],
+   "directionConfidence": "high",
+   "points": [
+    [
+     2692,
+     2070
+    ]
+   ],
+   "arrowPx": [
+    47,
+    37.9,
+    3.08
+   ],
+   "arrowSaturated": true,
+   "arrowFill": 0.119,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n9",
+   "to": "n10",
+   "routing": "straight",
+   "fromPoint": [
+    1475,
+    2062
+   ],
+   "toPoint": [
+    912,
+    2062
+   ],
+   "arrowInk": [
+    180,
+    472
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    64,
+    48.0,
+    3.15
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n10",
+   "to": "n11",
+   "routing": "straight",
+   "fromPoint": [
+    600,
+    2176
+   ],
+   "toPoint": [
+    600,
+    2362
+   ],
+   "arrowInk": [
+    180,
+    487
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    64,
+    48.0,
+    3.0
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n11",
+   "to": "n12",
+   "routing": "straight",
+   "fromPoint": [
+    917,
+    2481
+   ],
+   "toPoint": [
+    1444,
+    2485
+   ],
+   "arrowInk": [
+    139,
+    426
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    47,
+    36.7,
+    3.5
+   ],
+   "arrowSaturated": true,
+   "arrowFill": 0.0,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n12",
+   "to": "n13",
+   "routing": "straight",
+   "fromPoint": [
+    1914,
+    2490
+   ],
+   "toPoint": [
+    2587,
+    2490
+   ],
+   "arrowInk": [
+    134,
+    452
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    48,
+    40.0,
+    2.96
+   ],
+   "arrowSaturated": true,
+   "arrowFill": 0.0,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n15",
+   "to": "n11",
+   "routing": "straight",
+   "fromPoint": [
+    736,
+    2977
+   ],
+   "toPoint": [
+    736,
+    2601
+   ],
+   "arrowInk": [
+    138,
+    506
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    48,
+    40.0,
+    2.71
+   ],
+   "arrowSaturated": true,
+   "arrowFill": 0.0,
+   "guard": "No",
+   "edgeKind": "control"
+  },
+  {
+   "from": "n13",
+   "to": "n14",
+   "routing": "straight",
+   "fromPoint": [
+    2895,
+    2600
+   ],
+   "toPoint": [
+    2896,
+    2720
+   ],
+   "arrowInk": [
+    135,
+    451
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    52,
+    41.2,
+    2.76
+   ],
+   "arrowSaturated": true,
+   "arrowFill": 0.0,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n12",
+   "to": "n16",
+   "routing": "orthogonal",
+   "fromPoint": [
+    1460,
+    2617
+   ],
+   "toPoint": [
+    1314,
+    2989
+   ],
+   "arrowInk": [
+    134,
+    486
+   ],
+   "directionConfidence": "high",
+   "points": [
+    [
+     1460,
+     2803
+    ],
+    [
+     1314,
+     2803
+    ]
+   ],
+   "arrowPx": [
+    63,
+    50.8,
+    2.54
+   ],
+   "arrowFill": 0.005,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n14",
+   "to": "n12",
+   "routing": "orthogonal",
+   "fromPoint": [
+    2587,
+    2838
+   ],
+   "toPoint": [
+    1822,
+    2617
+   ],
+   "arrowInk": [
+    184,
+    445
+   ],
+   "directionConfidence": "high",
+   "points": [
+    [
+     1822,
+     2838
+    ]
+   ],
+   "arrowPx": [
+    47,
+    37.6,
+    3.08
+   ],
+   "arrowSaturated": true,
+   "arrowFill": 0.104,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n16",
+   "to": "n15",
+   "routing": "straight",
+   "fromPoint": [
+    1010,
+    3068
+   ],
+   "toPoint": [
+    823,
+    3064
+   ],
+   "arrowInk": [
+    149,
+    465
+   ],
+   "directionConfidence": "high",
+   "edgeKind": "control"
+  },
+  {
+   "from": "n15",
+   "to": "n17",
+   "routing": "straight",
+   "fromPoint": [
+    736,
+    3151
+   ],
+   "toPoint": [
+    733,
+    3298
+   ],
+   "arrowInk": [
+    150,
+    490
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    64,
+    50.4,
+    2.74
+   ],
+   "arrowFill": 0.0,
+   "guard": "Yes",
+   "edgeKind": "control"
+  },
+  {
+   "from": "n17",
+   "to": "n18",
+   "routing": "orthogonal",
+   "fromPoint": [
+    988,
+    3452
+   ],
+   "toPoint": [
+    1453,
+    3580
+   ],
+   "arrowInk": [
+    135,
+    422
+   ],
+   "directionConfidence": "high",
+   "points": [
+    [
+     988,
+     3580
+    ]
+   ],
+   "edgeKind": "object"
+  }
+ ],
+ "text": [
+  {
+   "text": "No",
+   "x": 567,
+   "y": 100,
+   "w": 51,
+   "h": 32,
+   "lines": [
+    {
+     "x": 567,
+     "y": 100,
+     "w": 51,
+     "h": 32,
+     "text": "No"
+    }
+   ],
+   "attachedTo": "n1->n2"
+  },
+  {
+   "text": "No",
+   "x": 762,
+   "y": 100,
+   "w": 50,
+   "h": 32,
+   "lines": [
+    {
+     "x": 762,
+     "y": 100,
+     "w": 50,
+     "h": 32,
+     "text": "No"
+    }
+   ],
+   "attachedTo": "n1->n3"
+  },
+  {
+   "text": "Create Order Forecast",
+   "x": 1471,
+   "y": 124,
+   "w": 462,
+   "h": 32,
+   "lines": [
+    {
+     "x": 1471,
+     "y": 120,
+     "w": 462,
+     "h": 40,
+     "text": "Create Order Forecast"
+    }
+   ]
+  },
+  {
+   "text": "No",
+   "x": 647,
+   "y": 2626,
+   "w": 51,
+   "h": 32,
+   "lines": [
+    {
+     "x": 647,
+     "y": 2626,
+     "w": 51,
+     "h": 32,
+     "text": "No"
+    }
+   ],
+   "attachedTo": "n15->n11"
+  },
+  {
+   "text": "Order Forecast Accepted ?",
+   "x": 98,
+   "y": 3045,
+   "w": 520,
+   "h": 41,
+   "lines": [
+    {
+     "x": 98,
+     "y": 3045,
+     "w": 520,
+     "h": 41,
+     "text": "Order Forecast Accepted ?"
+    }
+   ]
+  },
+  {
+   "text": "Yes",
+   "x": 622,
+   "y": 3230,
+   "w": 72,
+   "h": 32,
+   "lines": [
+    {
+     "x": 622,
+     "y": 3230,
+     "w": 72,
+     "h": 32,
+     "text": "Yes"
+    }
+   ],
+   "attachedTo": "n15->n17"
+  }
+ ],
+ "uncertain": [
+  {
+   "kind": "no-weight-split",
+   "reason": "all 15 box strokes are one weight ([3, 4, 5, 6]), so no object node could be identified",
+   "check": "confirm the diagram really has no object nodes"
+  },
+  {
+   "kind": "unexplained-line-work",
+   "x": 3224,
+   "y": 3779,
+   "w": 101,
+   "h": 106,
+   "reason": "line-work that is neither a connector between two nodes nor the size of text",
+   "check": "decide what this is; the SVG does not draw it"
+  },
+  {
+   "kind": "unexplained-line-work",
+   "x": 102,
+   "y": 3785,
+   "w": 102,
+   "h": 102,
+   "reason": "line-work that is neither a connector between two nodes nor the size of text",
+   "check": "decide what this is; the SVG does not draw it"
+  }
+ ]
+}

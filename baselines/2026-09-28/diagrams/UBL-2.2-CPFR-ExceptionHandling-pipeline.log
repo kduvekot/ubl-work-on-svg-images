@@ -1,0 +1,11 @@
+== UBL-2.2-CPFR-ExceptionHandling
+  UBL-2.2-CPFR-ExceptionHandling -> diagram, layout, extraction  (9 nodes, 8 flows, 6 texts)
+  scale 0.43212   frame 10px  divider 1px  action 3px  object 6px
+  font 46px (19.7 model)   2 lanes, 0 bands, 9 nodes, 8 edges -> /tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-2.2-CPFR-ExceptionHandling-spec.json
+  /tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-2.2-CPFR-ExceptionHandling.svg + .drawio + -classified.svg   (9 nodes, 8 edges)
+  aligned on ink bounds: scale x 1.0000, y 1.0000
+  size 3425x1786  radius 2
+  ink: original 263154   candidate 260710
+  MISSING (red)     9007  = 3.4227% of original ink
+  EXTRA   (blue)    6460  = 2.4548% of original ink
+  RESULT: DIFFERENCES - inspect /tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-2.2-CPFR-ExceptionHandling-diff-r2.png

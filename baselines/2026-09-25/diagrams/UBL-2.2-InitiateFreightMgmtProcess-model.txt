@@ -1,0 +1,55 @@
+MODEL  UBL-2.2-InitiateFreightMgmtProcess
+  17 action, 1 final, 1 initial, 10 object, 30 flows, 5 partitions
+
+FLOW
+  (start)   [Consignee]
+    -> Request Logistic Service   [Consignee]
+    -> [Forwarding instructions]   [Consignor]
+    -> Request Transport Service   [Freight Forwarder]
+    -> [Forwarding Instructions]   [Carrier]
+    -> Receive Transport Service Request   [Carrier]
+    -> Send Bill of Lading   [Carrier]
+      -> [Bill of Lading]   [Carrier]
+      -> Send Bill of Lading to Consignor   [Freight Forwarder]
+      -> [Bill of Lading]   [Consignor]
+        -> Receive Bill of Lading   [Consignee]
+        -> Receive Bill of Lading   [Consignor]
+      -> Send Waypbill   [Carrier]
+        -> [Way bill]   [Carrier]
+        -> Send Waybill to Consignor   [Freight Forwarder]
+        -> [Waybill]   [Consignor]
+          -> Receive Waybill   [Consignor]
+          -> Receive Waybill   [Consignee]
+        -> Transport Goods Items to Delivery Party   [Carrier]
+          -> Report Status   [Carrier]
+          -> [Transportation Status]   [Freight Forwarder]
+          -> Report Status   [Freight Forwarder]
+            -> [Transportation Status]   [Freight Forwarder]
+            -> Receive Status Report   [Consignor]
+            -> [Transportation Status]   [Consignor]
+            -> Receive Status Report   [Consignee]
+          -> (end)   [Carrier]
+    -> Request Logistic Service   [Consignor]
+      -> [Forwarding instructions]   [Consignor]
+      -> [Packing List]   [Freight Forwarder]
+      -> Request Transport Service   [Freight Forwarder]
+
+CHECKS
+  ok   every element is connected
+  ok   start events have a way out and no way in
+  ok   end events have a way in and no way out
+  ok   decisions have at least two ways out
+  ok   branches out of a decision are labelled   (informational: several diagrams draw an unlabelled branch, so read these against the artwork rather than treating them as errors)
+  ok   documents are both written and read
+  ok   no flow runs straight from one document to another
+  note work crossing between parties goes through a document   (informational: UBL draws the hand-over as a document on the divider, and each exception below is named)
+        - (start) [Consignee] -> Request Logistic Service [Consignor]   (a start or end event, not work handed over)
+  ok   every flow's direction was read with confidence
+  note every action passes its work on   (informational: several diagrams do end on an action, so read these against the artwork rather than treating them as errors)
+        - Receive Bill of Lading
+        - Receive Bill of Lading
+        - Receive Waybill
+        - Receive Waybill
+        - Receive Status Report
+        - Receive Status Report
+  ok   every element is reachable from a start event

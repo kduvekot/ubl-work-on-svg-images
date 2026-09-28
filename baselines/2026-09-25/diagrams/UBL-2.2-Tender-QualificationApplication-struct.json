@@ -1,0 +1,72 @@
+{
+ "name": "UBL-2.2-Tender-QualificationApplication.png",
+ "verdict": "needs-human",
+ "radius": 3,
+ "lineWorkInk": 270582,
+ "missingPx": 421,
+ "inventedPx": 301,
+ "structural": {
+  "absent": 0,
+  "invented": 0,
+  "coherence": 0,
+  "textAbsent": 0,
+  "textDiffers": 0
+ },
+ "blocking": [],
+ "findings": [
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n2 -> n5",
+   "x": 610,
+   "y": 586,
+   "w": 2,
+   "h": 64,
+   "area": 93
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n2 -> n5",
+   "x": 627,
+   "y": 609,
+   "w": 14,
+   "h": 41,
+   "area": 67
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n2 -> n5",
+   "x": 625,
+   "y": 612,
+   "w": 27,
+   "h": 75,
+   "area": 147
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n2 -> n5",
+   "x": 621,
+   "y": 579,
+   "w": 2,
+   "h": 70,
+   "area": 104
+  }
+ ],
+ "text": [],
+ "coherence": [],
+ "human": [
+  {
+   "kind": "no-weight-split",
+   "reason": "all 7 box strokes are one weight ([8, 9]), so no object node could be identified",
+   "check": "confirm the diagram really has no object nodes"
+  }
+ ],
+ "review": [
+  {
+   "n": 1,
+   "what": "check",
+   "where": "",
+   "detail": "all 7 box strokes are one weight ([8, 9]), so no object node could be identified",
+   "check": "confirm the diagram really has no object nodes"
+  }
+ ]
+}

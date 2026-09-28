@@ -1,0 +1,847 @@
+{
+ "canvas": {
+  "w": 1480.0,
+  "h": 1400.491
+ },
+ "stroke": {
+  "frame": 4.3,
+  "divider": 1.7,
+  "action": 1.7,
+  "object": 3.0,
+  "edge": 1.7
+ },
+ "font": {
+  "family": "Helvetica, Arial, sans-serif",
+  "node": 21.0,
+  "lane": 21.0,
+  "guard": 21.0
+ },
+ "arrow": 26.5,
+ "arrowWidth": 21.1,
+ "arrowStyle": "open",
+ "dashed": [],
+ "greyRules": [],
+ "crossMarks": [],
+ "openEnds": [],
+ "frameBox": [
+  2.2,
+  2.2,
+  1477.8,
+  1398.3
+ ],
+ "dividers": [
+  [
+   721.2,
+   1.7,
+   5.2,
+   1394.9
+  ]
+ ],
+ "bands": [],
+ "lanes": [
+  {
+   "id": "lane-producer",
+   "title": "Producer",
+   "x": 0.0,
+   "w": 721.2,
+   "cx": 272.7,
+   "cy": 31.3,
+   "size": 19.9,
+   "textWidth": 78.6,
+   "baseline": 38.5
+  },
+  {
+   "id": "lane-retailer",
+   "title": "Retailer",
+   "x": 721.2,
+   "w": 758.8,
+   "cx": 1158.5,
+   "cy": 32.8,
+   "size": 20.5,
+   "textWidth": 66.5,
+   "baseline": 40.2
+  }
+ ],
+ "bandLabels": [],
+ "captions": [],
+ "nodes": [
+  {
+   "id": "initial-retailer",
+   "kind": "initial",
+   "label": "",
+   "x": 1142.9,
+   "y": 63.5,
+   "w": 30.2,
+   "h": 30.2
+  },
+  {
+   "id": "object-order",
+   "kind": "object",
+   "label": "Order",
+   "x": 654.9,
+   "y": 182.6,
+   "w": 129.2,
+   "h": 53.2,
+   "labelLines": [
+    {
+     "text": "Order",
+     "cx": 717.5,
+     "cy": 207.23999999999998,
+     "w": 54.0,
+     "size": 19.6
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-send-order",
+   "kind": "action",
+   "label": "Send Order",
+   "x": 1058.7,
+   "y": 187.1,
+   "w": 203.1,
+   "h": 48.8,
+   "rx": 24.0,
+   "ry": 13.8,
+   "labelLines": [
+    {
+     "text": "Send Order",
+     "cx": 1159.6,
+     "cy": 210.465,
+     "w": 106.7,
+     "size": 20.1
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-receive-order",
+   "kind": "action",
+   "label": "Receive Order",
+   "x": 122.3,
+   "y": 188.4,
+   "w": 290.0,
+   "h": 42.8,
+   "rx": 24.0,
+   "ry": 15.6,
+   "labelLines": [
+    {
+     "text": "Receive Order",
+     "cx": 266.0,
+     "cy": 209.965,
+     "w": 132.7,
+     "size": 20.1
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "decision-producer",
+   "kind": "decision",
+   "label": "",
+   "x": 236.8,
+   "y": 325.8,
+   "w": 59.6,
+   "h": 51.0
+  },
+  {
+   "id": "object-order-response",
+   "kind": "object",
+   "label": "Order Response",
+   "x": 579.3,
+   "y": 436.2,
+   "w": 283.5,
+   "h": 53.2,
+   "labelLines": [
+    {
+     "text": "Order Response",
+     "cx": 723.6,
+     "cy": 461.74,
+     "w": 151.7,
+     "size": 19.6
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-send-information-about-changes-in-order",
+   "kind": "action",
+   "label": "Send information about changes in\nOrder",
+   "x": 81.7,
+   "y": 437.7,
+   "w": 371.6,
+   "h": 59.2,
+   "rx": 23.8,
+   "ry": 16.0,
+   "labelLines": [
+    {
+     "text": "Send information about changes in",
+     "cx": 259.7,
+     "cy": 456.765,
+     "w": 327.5,
+     "size": 20.1
+    },
+    {
+     "text": "Order",
+     "cx": 268.1,
+     "cy": 480.965,
+     "w": 53.2,
+     "size": 20.1
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-receive-information-about-changes-in",
+   "kind": "action",
+   "label": "Receive information about changes in\nOrder",
+   "x": 1009.9,
+   "y": 439.0,
+   "w": 409.6,
+   "h": 59.6,
+   "rx": 24.0,
+   "ry": 21.2,
+   "labelLines": [
+    {
+     "text": "Receive information about changes in",
+     "cx": 1207.8,
+     "cy": 458.465,
+     "w": 353.5,
+     "size": 20.1
+    },
+    {
+     "text": "Order",
+     "cx": 1214.9,
+     "cy": 482.66499999999996,
+     "w": 53.2,
+     "size": 20.1
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "object-despatch-advice",
+   "kind": "object",
+   "label": "Despatch Advice",
+   "x": 614.3,
+   "y": 577.1,
+   "w": 213.5,
+   "h": 53.2,
+   "labelLines": [
+    {
+     "text": "Despatch Advice",
+     "cx": 723.1,
+     "cy": 602.24,
+     "w": 157.7,
+     "size": 19.6
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-send-despatch-advice",
+   "kind": "action",
+   "label": "Send Despatch Advice",
+   "x": 148.2,
+   "y": 580.3,
+   "w": 242.8,
+   "h": 48.8,
+   "rx": 24.2,
+   "ry": 15.1,
+   "labelLines": [
+    {
+     "text": "Send Despatch Advice",
+     "cx": 268.1,
+     "cy": 603.6650000000001,
+     "w": 211.3,
+     "size": 20.1
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-receive-despatch-advice",
+   "kind": "action",
+   "label": "Receive Despatch Advice",
+   "x": 1105.4,
+   "y": 581.6,
+   "w": 265.8,
+   "h": 48.8,
+   "rx": 24.0,
+   "ry": 20.3,
+   "labelLines": [
+    {
+     "text": "Receive Despatch Advice",
+     "cx": 1237.6,
+     "cy": 605.365,
+     "w": 236.8,
+     "size": 20.1
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-despatch-order-item-s",
+   "kind": "action",
+   "label": "Despatch order item(s)",
+   "x": 153.0,
+   "y": 716.9,
+   "w": 242.8,
+   "h": 48.8,
+   "rx": 24.0,
+   "ry": 13.8,
+   "labelLines": [
+    {
+     "text": "Despatch order item(s)",
+     "cx": 274.0,
+     "cy": 740.1650000000001,
+     "w": 212.6,
+     "size": 20.1
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-receive-order-item-s",
+   "kind": "action",
+   "label": "Receive order item(s)",
+   "x": 1014.6,
+   "y": 718.6,
+   "w": 242.8,
+   "h": 48.4,
+   "rx": 22.5,
+   "ry": 13.8,
+   "labelLines": [
+    {
+     "text": "Receive order item(s)",
+     "cx": 1135.0,
+     "cy": 741.965,
+     "w": 198.3,
+     "size": 20.1
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "fork-retailer",
+   "kind": "fork",
+   "label": "",
+   "x": 1112.3,
+   "y": 840.9,
+   "w": 332.3,
+   "h": 9.1
+  },
+  {
+   "id": "action-check-status-of-item-s",
+   "kind": "action",
+   "label": "Check status of item(s)",
+   "x": 1022.0,
+   "y": 956.7,
+   "w": 242.8,
+   "h": 48.8,
+   "rx": 24.0,
+   "ry": 17.7,
+   "labelLines": [
+    {
+     "text": "Check status of item(s)",
+     "cx": 1145.8,
+     "cy": 980.065,
+     "w": 215.6,
+     "size": 20.1
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "object-receipt-advice",
+   "kind": "object",
+   "label": "Receipt Advice",
+   "x": 616.8,
+   "y": 1081.4,
+   "w": 213.9,
+   "h": 53.2,
+   "labelLines": [
+    {
+     "text": "Receipt Advice",
+     "cx": 725.1,
+     "cy": 1106.0400000000002,
+     "w": 140.0,
+     "size": 19.6
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-send-receipt-advice",
+   "kind": "action",
+   "label": "Send Receipt Advice",
+   "x": 1020.7,
+   "y": 1082.9,
+   "w": 242.8,
+   "h": 48.8,
+   "rx": 24.0,
+   "ry": 14.3,
+   "labelLines": [
+    {
+     "text": "Send Receipt Advice",
+     "cx": 1139.5,
+     "cy": 1106.165,
+     "w": 193.6,
+     "size": 20.1
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-receive-receipt-advice",
+   "kind": "action",
+   "label": "Receive Receipt Advice",
+   "x": 168.1,
+   "y": 1085.9,
+   "w": 242.4,
+   "h": 48.8,
+   "rx": 24.0,
+   "ry": 13.8,
+   "labelLines": [
+    {
+     "text": "Receive Receipt Advice",
+     "cx": 286.7,
+     "cy": 1109.2649999999999,
+     "w": 219.1,
+     "size": 20.1
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-adjust-supply-status",
+   "kind": "action",
+   "label": "Adjust supply status",
+   "x": 169.4,
+   "y": 1219.4,
+   "w": 242.8,
+   "h": 48.8,
+   "rx": 24.6,
+   "ry": 17.3,
+   "labelLines": [
+    {
+     "text": "Adjust supply status",
+     "cx": 293.4,
+     "cy": 1243.165,
+     "w": 192.7,
+     "size": 20.1
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "final-producer",
+   "kind": "final",
+   "label": "",
+   "x": 276.1,
+   "y": 1345.6,
+   "w": 29.0,
+   "h": 29.0,
+   "innerRatio": 0.444
+  }
+ ],
+ "edges": [
+  {
+   "id": "flow-initial-retailer-to-send-order",
+   "from": "initial-retailer",
+   "to": "action-send-order",
+   "exitXY": [
+    0.5033,
+    1.0
+   ],
+   "entryXY": [
+    0.4914,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-order-to-receive-order",
+   "from": "object-order",
+   "to": "action-receive-order",
+   "exitXY": [
+    0.0,
+    0.5075
+   ],
+   "entryXY": [
+    1.0,
+    0.4953
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-send-order-to-order",
+   "from": "action-send-order",
+   "to": "object-order",
+   "exitXY": [
+    0.0,
+    0.4693
+   ],
+   "entryXY": [
+    1.0,
+    0.5075
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-receive-order-to-decision-producer",
+   "from": "action-receive-order",
+   "to": "decision-producer",
+   "exitXY": [
+    0.4976,
+    1.0
+   ],
+   "entryXY": [
+    0.5,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-decision-producer-to-send-despatch-advice",
+   "from": "decision-producer",
+   "to": "action-send-despatch-advice",
+   "exitXY": [
+    0.0,
+    0.4922
+   ],
+   "entryXY": [
+    0.0,
+    0.3811
+   ],
+   "straight": false,
+   "confidence": "high",
+   "points": [
+    [
+     35.4,
+     350.9
+    ],
+    [
+     35.4,
+     598.9
+    ]
+   ],
+   "label": "False"
+  },
+  {
+   "id": "flow-decision-producer-to-send-information-about-changes-in-order",
+   "from": "decision-producer",
+   "to": "action-send-information-about-changes-in-order",
+   "exitXY": [
+    0.5,
+    1.0
+   ],
+   "entryXY": [
+    0.4976,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high",
+   "label": "True"
+  },
+  {
+   "id": "flow-send-information-about-changes-in-order-to-order-response",
+   "from": "action-send-information-about-changes-in-order",
+   "to": "object-order-response",
+   "exitXY": [
+    1.0,
+    0.4679
+   ],
+   "entryXY": [
+    0.0,
+    0.5
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-order-response-to-receive-information-about-changes-in",
+   "from": "object-order-response",
+   "to": "action-receive-information-about-changes-in",
+   "exitXY": [
+    1.0,
+    0.532
+   ],
+   "entryXY": [
+    0.0,
+    0.4648
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-send-information-about-changes-in-order-to-send-despatch-advice",
+   "from": "action-send-information-about-changes-in-order",
+   "to": "action-send-despatch-advice",
+   "exitXY": [
+    0.5,
+    1.0
+   ],
+   "entryXY": [
+    0.4946,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-receive-information-about-changes-in-to-fork-retailer",
+   "from": "action-receive-information-about-changes-in",
+   "to": "fork-retailer",
+   "exitXY": [
+    0.9441,
+    1.0
+   ],
+   "entryXY": [
+    0.8556,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-send-despatch-advice-to-despatch-advice",
+   "from": "action-send-despatch-advice",
+   "to": "object-despatch-advice",
+   "exitXY": [
+    1.0,
+    0.4959
+   ],
+   "entryXY": [
+    0.0,
+    0.5075
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-despatch-advice-to-receive-despatch-advice",
+   "from": "object-despatch-advice",
+   "to": "action-receive-despatch-advice",
+   "exitXY": [
+    1.0,
+    0.5075
+   ],
+   "entryXY": [
+    0.0,
+    0.4693
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-send-despatch-advice-to-despatch-order-item-s",
+   "from": "action-send-despatch-advice",
+   "to": "action-despatch-order-item-s",
+   "exitXY": [
+    0.5,
+    1.0
+   ],
+   "entryXY": [
+    0.493,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-receive-despatch-advice-to-fork-retailer",
+   "from": "action-receive-despatch-advice",
+   "to": "fork-retailer",
+   "exitXY": [
+    0.7573,
+    1.0
+   ],
+   "entryXY": [
+    0.585,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-despatch-order-item-s-to-receive-order-item-s",
+   "from": "action-despatch-order-item-s",
+   "to": "action-receive-order-item-s",
+   "exitXY": [
+    1.0,
+    0.4959
+   ],
+   "entryXY": [
+    0.0,
+    0.4649
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-receive-order-item-s-to-fork-retailer",
+   "from": "action-receive-order-item-s",
+   "to": "fork-retailer",
+   "exitXY": [
+    0.6462,
+    1.0
+   ],
+   "entryXY": [
+    0.1821,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-fork-retailer-to-check-status-of-item-s",
+   "from": "fork-retailer",
+   "to": "action-check-status-of-item-s",
+   "exitXY": [
+    0.3184,
+    1.0
+   ],
+   "entryXY": [
+    0.7937,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-check-status-of-item-s-to-send-receipt-advice",
+   "from": "action-check-status-of-item-s",
+   "to": "action-send-receipt-advice",
+   "exitXY": [
+    0.4946,
+    1.0
+   ],
+   "entryXY": [
+    0.5,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-send-receipt-advice-to-receipt-advice",
+   "from": "action-send-receipt-advice",
+   "to": "object-receipt-advice",
+   "exitXY": [
+    0.0,
+    0.4959
+   ],
+   "entryXY": [
+    1.0,
+    0.4831
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-receipt-advice-to-receive-receipt-advice",
+   "from": "object-receipt-advice",
+   "to": "action-receive-receipt-advice",
+   "exitXY": [
+    0.0,
+    0.5075
+   ],
+   "entryXY": [
+    1.0,
+    0.4693
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-receive-receipt-advice-to-adjust-supply-status",
+   "from": "action-receive-receipt-advice",
+   "to": "action-adjust-supply-status",
+   "exitXY": [
+    0.4992,
+    1.0
+   ],
+   "entryXY": [
+    0.4967,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-adjust-supply-status-to-final-producer",
+   "from": "action-adjust-supply-status",
+   "to": "final-producer",
+   "exitXY": [
+    0.5,
+    1.0
+   ],
+   "entryXY": [
+    0.4931,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  }
+ ],
+ "guards": [
+  {
+   "id": "text-false",
+   "text": "False",
+   "x": 175.4,
+   "y": 331.0,
+   "w": 35.4,
+   "h": 11.2,
+   "onFlow": "flow-decision-producer-to-send-despatch-advice",
+   "labelLines": [
+    {
+     "text": "False",
+     "cx": 193.2,
+     "cy": 336.705,
+     "w": 35.4,
+     "size": 15.7
+    }
+   ]
+  },
+  {
+   "id": "text-changes-are-necessary",
+   "text": "Changes are necessary?",
+   "x": 314.1,
+   "y": 352.2,
+   "w": 167.7,
+   "h": 14.3,
+   "labelLines": [
+    {
+     "text": "Changes are necessary?",
+     "cx": 398.0,
+     "cy": 357.81,
+     "w": 167.7,
+     "size": 15.4
+    }
+   ]
+  },
+  {
+   "id": "text-true",
+   "text": "True",
+   "x": 276.1,
+   "y": 396.3,
+   "w": 30.2,
+   "h": 11.2,
+   "onFlow": "flow-decision-producer-to-send-information-about-changes-in-order",
+   "labelLines": [
+    {
+     "text": "True",
+     "cx": 291.2,
+     "cy": 402.005,
+     "w": 30.2,
+     "size": 15.7
+    }
+   ]
+  }
+ ]
+}

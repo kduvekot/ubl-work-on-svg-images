@@ -1,0 +1,11 @@
+== UBL-2.2-BusinessCard
+  UBL-2.2-BusinessCard -> diagram, layout, extraction  (5 nodes, 4 flows, 0 texts)
+  scale 0.43212   frame 10px  divider 7px  action 6px  object 6px
+  font 51px (22.2 model)   2 lanes, 0 bands, 5 nodes, 3 edges -> /tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-2.2-BusinessCard-spec.json
+  /tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-2.2-BusinessCard.svg + .drawio + -classified.svg   (5 nodes, 3 edges)
+  aligned on ink bounds: scale x 1.0000, y 1.0000
+  size 3425x1234  radius 2
+  ink: original 192994   candidate 190565
+  MISSING (red)     5896  = 3.0550% of original ink
+  EXTRA   (blue)    5244  = 2.7172% of original ink
+  RESULT: DIFFERENCES - inspect /tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-2.2-BusinessCard-diff-r2.png

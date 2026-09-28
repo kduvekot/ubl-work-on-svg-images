@@ -1,0 +1,20 @@
+  verdict: NEEDS-HUMAN
+  structural: 0 element(s) absent, 0 invented, 0 text absent, 0 text differs, 0 incoherent
+  line-work  missing 1509 px (0.476%)   invented 2446 px (0.772%)   radius 3
+    line-work-missing      274 px at  2597,1507    23x55    near edge n9 -> n11
+    line-work-missing      178 px at  1984,1296    47x19    near edge n8 -> n9
+    line-work-missing      143 px at  2599,1807    21x46    near edge n11 -> n13
+    line-work-missing      140 px at  2558,1507    19x37    near edge n9 -> n11
+    line-work-missing      105 px at  1485,299     14x8     unattributed
+    line-work-missing       87 px at   595,1165    14x38    near edge n7 -> n10
+    line-work-missing       82 px at   578,1146     2x57    near edge n7 -> n10
+    line-work-missing       78 px at  1978,1994    78x1     near edge n13 -> n12
+    line-work-missing       63 px at   578,872      2x46    near edge n6 -> n7
+    line-work-invented     379 px at  1993,1291    73x39    near edge n8 -> n9
+    line-work-invented     319 px at  2582,1525    42x71    near edge n9 -> n11
+    line-work-invented     204 px at   593,1167    26x72    near edge n7 -> n10
+    ... and 12 more line-work findings
+  needs a person (2):
+    sub-character-region at 2410,82  confirm this is glyph interior and not a node
+    sub-character-region at 2532,83  confirm this is glyph interior and not a node
+review/baseline/UBL-2.3-Tender-Contract-Pre-marked.png + review/baseline/UBL-2.3-Tender-Contract-Pre-marked-lost.png  (2 finding(s) numbered)

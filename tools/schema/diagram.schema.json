@@ -1,0 +1,173 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "$id": "ubl-activity-diagram/1",
+ "title": "UBL activity diagram: the model",
+ "description": "What one UBL UML activity diagram says: its lanes, nodes, flows and texts, and what refers to what. Where each element is drawn is in the diagram's layout file, keyed by these ids; how the extractor read it is in its extraction file. Written by tools/model_io.py.",
+ "type": "object",
+ "required": ["schema", "figure", "lanes", "nodes", "flows", "texts", "offPage", "marks", "phases"],
+ "additionalProperties": false,
+ "properties": {
+  "schema": {"const": "ubl-activity-diagram/1"},
+  "figure": {
+   "type": "object", "required": ["name", "source"], "additionalProperties": false,
+   "properties": {
+    "name": {"type": "string", "description": "the figure's basename, as in art/"},
+    "source": {"type": ["string", "null"], "description": "the PNG it was read from, by file name"},
+    "unstated": {"type": "object", "additionalProperties": {"type": "string"}, "description": "what the artwork does not give for the figure as a whole (a start), with the reason"}
+   }
+  },
+  "lanes": {
+   "description": "partitions: a column is a swimlane (a party), a band a horizontal division (a phase). Every diagram has at least one band, with an empty title where the artwork draws none.",
+   "type": "array",
+   "items": {
+    "type": "object", "required": ["id", "axis", "index", "title"], "additionalProperties": false,
+    "properties": {
+     "id": {"$ref": "#/$defs/id"},
+     "axis": {"enum": ["column", "band"]},
+     "index": {"type": "integer", "minimum": 0, "description": "position along its axis, left to right or top to bottom"},
+     "title": {"type": "string"},
+     "titleShown": {"type": "boolean", "description": "false where the artwork does not draw the title: it was given by a correction"},
+     "titleSource": {"enum": ["text", "convention"], "description": "where a title the artwork does not draw comes from: stated by the specification's text, or implied by the convention of related figures"},
+     "scope": {"const": "external", "description": "the column is not a party of this process: it holds what starts or ends it from outside (q15)"},
+     "reference": {"type": "object", "required": ["what"], "additionalProperties": false,
+                   "properties": {"what": {"type": "string"}, "source": {"type": "string"}}}
+    }
+   }
+  },
+  "nodes": {
+   "type": "array",
+   "items": {
+    "type": "object", "required": ["id", "kind", "label"], "additionalProperties": false,
+    "properties": {
+     "id": {"$ref": "#/$defs/id"},
+     "kind": {"enum": ["initial", "final", "action", "object", "decision", "fork", "note"],
+              "description": "object is an object node (a document); fork is a fork or join bar"},
+     "label": {"type": "string", "description": "the words in the node, a newline where the artwork breaks the line"},
+     "lane": {"$ref": "#/$defs/ref", "description": "the column lane it stands in; null for a document drawn on the line between two, and for a note that annotates something"},
+     "between": {"type": "array", "items": {"$ref": "#/$defs/id"}, "minItems": 2, "maxItems": 3,
+                 "description": "a document (or a joint step, or a note) that belongs to no one column: for a document the parties that exchange it, left to right, as its flows say (two, or three where three take part); for a joint step, a start two parties begin from (Initiate Freight Management) or a note the two columns either side of the line it is drawn on. Where a document is drawn is the layout's."},
+     "annotates": {"$ref": "#/$defs/id", "description": "for a note: the flow or segment it names - the information passing along an exchange no UBL document carries, or the part of the process it labels. The note belongs to no party; the flow's ends say who exchanges it"},
+     "scope": {"const": "external", "description": "the box stands for a whole process outside this diagram's scope, which it points at and does not describe (a BPMN call activity)"},
+     "linkedProcess": {"type": "object", "required": ["name", "how"], "additionalProperties": false,
+                       "properties": {"name": {"type": "string"}, "how": {"enum": ["starts-from", "leads-into"]},
+                                      "source": {"type": "string"}},
+                       "description": "for a start or an end: the other process it starts from or leads into, which the diagram names and does not describe"},
+     "reference": {"type": "object", "required": ["what"], "additionalProperties": false,
+                   "properties": {"what": {"type": "string"}, "source": {"type": "string"}},
+                   "description": "for an external box: what process it stands for, and where the specification says so"},
+     "sameAs": {"type": "object", "required": ["figure", "node"], "additionalProperties": false,
+                "properties": {"figure": {"type": "string"}, "node": {"$ref": "#/$defs/id"}},
+                "description": "the same step drawn on another figure too (CPFR's Ordering on Figs 13 and 14)"},
+     "unstated": {"type": "object", "additionalProperties": {"type": "string"}, "description": "attributes the artwork does not give, each with the reason (a decision with no question, a branch with no guard; for an action wayIn or wayOut, where a path begins or ends at it with no start or end drawn)"},
+     "alsoIn": {"type": "array", "items": {"$ref": "#/$defs/id"}, "description": "a phase this node belongs to besides the one it is drawn in, being drawn across both"},
+     "trigger": {"type": "string", "description": "for a start: what sets it off where that is a time or an agreement rather than a message (in BPMN a timer or conditional start)"},
+     "question": {"type": "string", "description": "for a decision: the question written beside it, which says what is decided"},
+     "definedIn": {"type": "string", "description": "the package of the drawing tool's model the element was defined in, as UML-tool notation '(from <package>)' written under it says (Utility Billing)"},
+     "band": {"$ref": "#/$defs/ref", "description": "the band it stands in"}
+    }
+   }
+  },
+  "flows": {
+   "type": "array",
+   "items": {
+    "type": "object", "required": ["id", "from", "to"], "additionalProperties": false,
+    "properties": {
+     "id": {"$ref": "#/$defs/id"},
+     "from": {"$ref": "#/$defs/id"},
+     "to": {"$ref": "#/$defs/id"},
+     "kind": {"enum": ["control", "object", "goods", "precondition", "information"],
+              "description": "control flow, object flow (a document passing), a physical goods movement, a mutual precondition between two parties (not a step in sequence), or information exchanged between two parties that no UBL document carries (drawn with a note naming it, in place of a document box)"},
+     "guard": {"$ref": "#/$defs/id", "description": "the text that is this flow's guard; a lane id where the reading attached a lane title (see the extraction file's findings)"},
+     "unstated": {"type": "object", "additionalProperties": {"type": "string"}, "description": "attributes the artwork does not give, each with the reason (a decision with no question, a branch with no guard)"},
+     "alternative": {"type": "object", "required": ["group", "when"], "additionalProperties": false,
+                     "properties": {"group": {"type": "string"}, "when": {"type": "string"}},
+                     "description": "one of two or more ways out of a node, of which one is taken each time, and when (Tender Award Notification: the Awarded Notification to the tenderer who won, the Unawarded to the others). Unlike a guard, the artwork writes no words for it: it comes from the specification's text"},
+     "passesTo": {"$ref": "#/$defs/id", "description": "for a flow into a document that one box shows for two exchanges in opposite directions (CPFR): the flow out of it that the same exchange goes on by, into the other party"},
+     "impliedChoice": {"type": "string", "description": "the flow leaves an ordinary step, not a decision, and is one of its alternatives, taken when its guard holds: a choice drawn without a diamond, with what the step waits on (Self Billing)"},
+     "bothEnds": {"type": "boolean", "description": "an arrowhead at both ends: a standing relationship, not a flow from one to the other"},
+     "direction": {
+      "type": "object", "additionalProperties": false,
+      "properties": {
+       "confidence": {"enum": ["high", "medium", "LOW", "notation", "checked", "both-ends", "mark-at-head"],
+                      "description": "how the direction was settled"},
+       "checked": {"enum": ["confirmed", "corrected"],
+                   "description": "a person compared it with the artwork (tools/direction-verdicts.json)"}
+      }
+     }
+    }
+   }
+  },
+  "texts": {
+   "description": "words on the page that are not a node's label or a lane's title: guards, and free labels",
+   "type": "array",
+   "items": {
+    "type": "object", "required": ["id", "text"], "additionalProperties": false,
+    "properties": {
+     "id": {"$ref": "#/$defs/id"},
+     "text": {"type": "string"},
+     "labels": {"$ref": "#/$defs/ref", "description": "the flow or off-page flow this text is attached to, or the node (a start or an end) it names, if any"},
+     "role": {"const": "purpose", "description": "for a text that labels a flow without being its guard: what it says of the flow - purpose, what the exchange is for (Tender Contract Information Preparation)"}
+    }
+   }
+  },
+  "offPage": {
+   "description": "a flow with only one end on this diagram",
+   "type": "array",
+   "items": {
+    "type": "object", "required": ["id", "node", "direction", "arrow"], "additionalProperties": false,
+    "properties": {
+     "id": {"$ref": "#/$defs/id"},
+     "node": {"$ref": "#/$defs/id"},
+     "direction": {"enum": ["in", "out"]},
+     "arrow": {"type": "boolean"},
+     "guard": {"$ref": "#/$defs/id", "description": "the text that is this flow's guard. On a line arriving from another figure it repeats the guard the line carries where it leaves its decision there (its counterpart), and says nothing of its own"},
+     "continues": {"type": "string", "description": "the figure (by basename) this flow continues from, or into"},
+     "port": {"type": "integer", "minimum": 1, "description": "the line's number where it crosses the frame, left to right; the same on both figures"},
+     "counterpart": {"$ref": "#/$defs/id", "description": "what this line is on the other figure: an off-page flow, or a flow where the step it meets is drawn on both"}
+    }
+   }
+  },
+  "marks": {
+   "description": "a stroke across a partition rule (a BPMN-style break, on Figs 86/87)",
+   "type": "array",
+   "items": {
+    "type": "object", "required": ["id", "kind"], "additionalProperties": false,
+    "properties": {
+     "id": {"$ref": "#/$defs/id"},
+     "kind": {"const": "cross-mark"},
+     "rule": {"enum": ["v", "h"], "description": "the axis of the rule it crosses"},
+     "on": {"$ref": "#/$defs/id", "description": "the flow the mark is drawn on"},
+     "meaning": {"const": "break", "description": "a BPMN break borrowed into the UML drawing: the flow goes to any of the 0..n parties of the lane it enters"}
+    }
+   }
+  },
+  "phases": {
+   "description": "a stage of the process and the steps that belong to it; how it is shown (a dashed box, a row) is the layout's",
+   "type": "array",
+   "items": {
+    "type": "object", "required": ["id"], "additionalProperties": false,
+    "properties": {"id": {"$ref": "#/$defs/id"},
+                   "title": {"type": "string", "description": "the phase's name, written at the top of its box"},
+                   "members": {"type": "array", "items": {"$ref": "#/$defs/id"}, "description": "the nodes that belong to the phase: those drawn inside its box"}}
+   }
+  },
+  "segments": {
+   "description": "a part of the process the diagram sets apart without drawing a box round it, such as an exchange the specification puts outside its scope; not drawn",
+   "type": "array",
+   "items": {
+    "type": "object", "required": ["id", "members"], "additionalProperties": false,
+    "properties": {"id": {"$ref": "#/$defs/id"},
+                   "members": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/id"},
+                               "description": "the nodes and flows it holds; a flow's two ends are members too"},
+                   "scope": {"const": "external", "description": "the part is outside the scope of the specification: the diagram shows it for context, and no UBL document passes in it"},
+                   "reference": {"type": "object", "required": ["what"], "additionalProperties": false,
+                                 "properties": {"what": {"type": "string"}, "source": {"type": "string"}},
+                                 "description": "what the part is, and where the specification says so"}}
+   }
+  }
+ },
+ "$defs": {
+  "id": {"type": "string", "pattern": "^[A-Za-z][A-Za-z0-9_.:-]*$"},
+  "ref": {"oneOf": [{"$ref": "#/$defs/id"}, {"type": "null"}]}
+ }
+}

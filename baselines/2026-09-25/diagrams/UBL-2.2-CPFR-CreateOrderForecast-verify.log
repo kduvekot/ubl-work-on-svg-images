@@ -1,0 +1,23 @@
+  verdict: NEEDS-HUMAN
+  structural: 0 element(s) absent, 0 invented, 0 text absent, 0 text differs, 0 incoherent
+  line-work  missing 4673 px (1.544%)   invented 4069 px (1.345%)   radius 3
+    line-work-missing      305 px at   844,120     28x54    near edge n1 -> n3
+    line-work-missing      171 px at  1415,1555    52x19    near edge n2 -> n7
+    line-work-missing      167 px at  1389,3557    50x18    near edge n17 -> n18
+    line-work-missing      165 px at  1415,1526    51x19    near edge n2 -> n7
+    line-work-missing      165 px at  1799,2632    18x50    near edge n14 -> n12
+    line-work-missing      162 px at  1411,983     50x18    near edge n3 -> n4
+    line-work-missing      162 px at  1920,2047    50x18    near edge n8 -> n9
+    line-work-missing      149 px at  1918,2075    52x20    near edge n8 -> n9
+    line-work-missing      138 px at  1826,2628    21x54    near edge n14 -> n12
+    line-work-missing      138 px at  1389,3585    51x19    near edge n17 -> n18
+    line-work-missing      136 px at  1411,1011    51x20    near edge n3 -> n4
+    line-work-missing       71 px at   741,3239    15x36    near edge n15 -> n17
+    ... and 6 more line-work findings
+  needs a person (5):
+    no-weight-split     confirm the diagram really has no object nodes
+    unexplained-line-work at 3224,3779  decide what this is; the SVG does not draw it
+    unexplained-line-work at 102,3785  decide what this is; the SVG does not draw it
+    arrowhead-unmeasurable at 672,2537  confirm the arrowhead here is drawn and points the way the original does
+    arrowhead-unmeasurable at 669,3234  confirm the arrowhead here is drawn and points the way the original does
+review/baseline/UBL-2.2-CPFR-CreateOrderForecast-marked.png + review/baseline/UBL-2.2-CPFR-CreateOrderForecast-marked-lost.png  (5 finding(s) numbered)

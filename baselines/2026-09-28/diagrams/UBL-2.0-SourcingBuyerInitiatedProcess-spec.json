@@ -1,0 +1,332 @@
+{
+ "canvas": {
+  "w": 1480.0,
+  "h": 872.876
+ },
+ "stroke": {
+  "frame": 4.3,
+  "divider": 3.9,
+  "action": 3.9,
+  "object": 7.3,
+  "edge": 3.9
+ },
+ "font": {
+  "family": "Helvetica, Arial, sans-serif",
+  "node": 27.2,
+  "lane": 27.2,
+  "guard": 27.2
+ },
+ "arrow": 44.8,
+ "arrowWidth": 37.4,
+ "arrowStyle": "open",
+ "dashed": [],
+ "greyRules": [],
+ "crossMarks": [],
+ "openEnds": [],
+ "frameBox": [
+  2.2,
+  2.2,
+  1477.8,
+  870.7
+ ],
+ "dividers": [
+  [
+   760.3,
+   3.9,
+   5.6,
+   866.8
+  ]
+ ],
+ "bands": [],
+ "lanes": [
+  {
+   "id": "lane-originator-customer-party",
+   "title": "Originator Customer Party",
+   "x": 0.0,
+   "w": 760.5,
+   "cx": 241.8,
+   "cy": 36.3,
+   "size": 26.1,
+   "textWidth": 298.6,
+   "baseline": 42.9
+  },
+  {
+   "id": "lane-seller-supplier-party",
+   "title": "Seller Supplier Party",
+   "x": 760.5,
+   "w": 719.5,
+   "cx": 1176.7,
+   "cy": 36.3,
+   "size": 26.1,
+   "textWidth": 234.2,
+   "baseline": 42.9
+  }
+ ],
+ "bandLabels": [],
+ "captions": [],
+ "nodes": [
+  {
+   "id": "initial-originator-customer-party",
+   "kind": "initial",
+   "label": "",
+   "x": 203.5,
+   "y": 74.3,
+   "w": 52.7,
+   "h": 52.7
+  },
+  {
+   "id": "object-request-for-quotation",
+   "kind": "object",
+   "label": "Request for\nQuotation",
+   "x": 633.7,
+   "y": 268.6,
+   "w": 230.3,
+   "h": 127.0,
+   "labelLines": [
+    {
+     "text": "Request for",
+     "cx": 746.0,
+     "cy": 311.045,
+     "w": 144.8,
+     "size": 23.3
+    },
+    {
+     "text": "Quotation",
+     "cx": 749.7,
+     "cy": 339.545,
+     "w": 119.3,
+     "size": 23.3
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-receive-request-for-quotation",
+   "kind": "action",
+   "label": "Receive request for\nquotation",
+   "x": 1071.4,
+   "y": 271.2,
+   "w": 302.9,
+   "h": 142.6,
+   "rx": 40.8,
+   "ry": 39.1,
+   "labelLines": [
+    {
+     "text": "Receive request for",
+     "cx": 1222.9,
+     "cy": 319.365,
+     "w": 239.4,
+     "size": 26.1
+    },
+    {
+     "text": "quotation",
+     "cx": 1230.5,
+     "cy": 353.565,
+     "w": 115.4,
+     "size": 26.1
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-send-request-for-quotation",
+   "kind": "action",
+   "label": "Send request for Quotation",
+   "x": 60.7,
+   "y": 278.9,
+   "w": 347.4,
+   "h": 108.9,
+   "rx": 40.8,
+   "ry": 40.8,
+   "labelLines": [
+    {
+     "text": "Send request for Quotation",
+     "cx": 233.3,
+     "cy": 328.46500000000003,
+     "w": 332.7,
+     "size": 26.1
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "object-quotation",
+   "kind": "object",
+   "label": "Quotation",
+   "x": 649.3,
+   "y": 514.9,
+   "w": 230.3,
+   "h": 127.0,
+   "labelLines": [
+    {
+     "text": "Quotation",
+     "cx": 762.3,
+     "cy": 569.845,
+     "w": 119.3,
+     "size": 23.3
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-receive-quotation",
+   "kind": "action",
+   "label": "Receive quotation",
+   "x": 71.1,
+   "y": 522.6,
+   "w": 316.3,
+   "h": 108.9,
+   "rx": 40.0,
+   "ry": 40.8,
+   "labelLines": [
+    {
+     "text": "Receive quotation",
+     "cx": 226.9,
+     "cy": 575.265,
+     "w": 219.5,
+     "size": 26.1
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-send-quotation",
+   "kind": "action",
+   "label": "Send quotation",
+   "x": 1084.4,
+   "y": 533.0,
+   "w": 331.4,
+   "h": 93.3,
+   "rx": 39.5,
+   "ry": 39.1,
+   "labelLines": [
+    {
+     "text": "Send quotation",
+     "cx": 1250.8,
+     "cy": 567.465,
+     "w": 186.2,
+     "size": 26.1
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "final-originator-customer-party",
+   "kind": "final",
+   "label": "",
+   "x": 203.3,
+   "y": 787.1,
+   "w": 49.3,
+   "h": 49.3,
+   "innerRatio": 0.476
+  }
+ ],
+ "edges": [
+  {
+   "id": "flow-initial-originator-customer-party-to-send-request-for-quotation",
+   "from": "initial-originator-customer-party",
+   "to": "action-send-request-for-quotation",
+   "exitXY": [
+    0.5085,
+    1.0
+   ],
+   "entryXY": [
+    0.4957,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-send-request-for-quotation-to-request-for-quotation",
+   "from": "action-send-request-for-quotation",
+   "to": "object-request-for-quotation",
+   "exitXY": [
+    1.0,
+    0.4986
+   ],
+   "entryXY": [
+    0.0,
+    0.5087
+   ],
+   "straight": true,
+   "confidence": "notation"
+  },
+  {
+   "id": "flow-request-for-quotation-to-receive-request-for-quotation",
+   "from": "object-request-for-quotation",
+   "to": "action-receive-request-for-quotation",
+   "exitXY": [
+    1.0,
+    0.5087
+   ],
+   "entryXY": [
+    0.0,
+    0.4348
+   ],
+   "straight": true,
+   "confidence": "notation"
+  },
+  {
+   "id": "flow-receive-request-for-quotation-to-send-quotation",
+   "from": "action-receive-request-for-quotation",
+   "to": "action-send-quotation",
+   "exitXY": [
+    0.5002,
+    1.0
+   ],
+   "entryXY": [
+    0.4258,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-send-quotation-to-quotation",
+   "from": "action-send-quotation",
+   "to": "object-quotation",
+   "exitXY": [
+    0.0,
+    0.4984
+   ],
+   "entryXY": [
+    1.0,
+    0.5016
+   ],
+   "straight": true,
+   "confidence": "notation"
+  },
+  {
+   "id": "flow-quotation-to-receive-quotation",
+   "from": "object-quotation",
+   "to": "action-receive-quotation",
+   "exitXY": [
+    0.0,
+    0.4945
+   ],
+   "entryXY": [
+    1.0,
+    0.4986
+   ],
+   "straight": true,
+   "confidence": "notation"
+  },
+  {
+   "id": "flow-receive-quotation-to-final-originator-customer-party",
+   "from": "action-receive-quotation",
+   "to": "final-originator-customer-party",
+   "exitXY": [
+    0.5008,
+    1.0
+   ],
+   "entryXY": [
+    0.5132,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  }
+ ],
+ "guards": []
+}

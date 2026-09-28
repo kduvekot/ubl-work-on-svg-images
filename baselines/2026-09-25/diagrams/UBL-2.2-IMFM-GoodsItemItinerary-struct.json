@@ -1,0 +1,49 @@
+{
+ "name": "UBL-2.2-IMFM-GoodsItemItinerary.png",
+ "verdict": "needs-human",
+ "radius": 3,
+ "lineWorkInk": 188522,
+ "missingPx": 310,
+ "inventedPx": 48,
+ "structural": {
+  "absent": 0,
+  "invented": 0,
+  "coherence": 0,
+  "textAbsent": 0,
+  "textDiffers": 0
+ },
+ "blocking": [],
+ "findings": [
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n3 -> n2",
+   "x": 1852,
+   "y": 658,
+   "w": 58,
+   "h": 26,
+   "area": 141
+  }
+ ],
+ "text": [],
+ "coherence": [],
+ "human": [
+  {
+   "kind": "unexplained-line-work",
+   "x": 2521,
+   "y": 360,
+   "w": 83,
+   "h": 146,
+   "reason": "line-work that is neither a connector between two nodes nor the size of text",
+   "check": "decide what this is; the SVG does not draw it"
+  }
+ ],
+ "review": [
+  {
+   "n": 1,
+   "what": "check",
+   "where": "2521,360 83x146",
+   "detail": "line-work that is neither a connector between two nodes nor the size of text",
+   "check": "decide what this is; the SVG does not draw it"
+  }
+ ]
+}

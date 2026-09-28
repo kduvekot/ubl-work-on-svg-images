@@ -1,0 +1,385 @@
+{
+ "canvas": {
+  "w": 1480.0,
+  "h": 781.039
+ },
+ "stroke": {
+  "frame": 3.5,
+  "divider": 3.5,
+  "action": 3.5,
+  "object": 3.5,
+  "edge": 3.5
+ },
+ "font": {
+  "family": "Helvetica, Arial, sans-serif",
+  "node": 26.5,
+  "lane": 26.5,
+  "guard": 26.5
+ },
+ "arrow": 42.9,
+ "arrowWidth": 36.3,
+ "arrowStyle": "open",
+ "dashed": [],
+ "greyRules": [],
+ "crossMarks": [],
+ "openEnds": [],
+ "frameBox": [
+  2.2,
+  2.2,
+  1476.5,
+  776.7
+ ],
+ "dividers": [
+  [
+   737.0,
+   3.5,
+   5.2,
+   773.3
+  ]
+ ],
+ "bands": [],
+ "lanes": [
+  {
+   "title": "ECONOMIC OPERATOR",
+   "x": 0.0,
+   "w": 737.0,
+   "cx": 362.7,
+   "cy": 31.1
+  },
+  {
+   "title": "CONTRACTING AUTHORITY",
+   "x": 737.0,
+   "w": 739.6,
+   "cx": 1109.6,
+   "cy": 31.1
+  },
+  {
+   "title": "",
+   "x": 1476.5,
+   "w": 3.5,
+   "cx": 1478.3,
+   "cy": 26.5
+  }
+ ],
+ "bandLabels": [],
+ "nodes": [
+  {
+   "id": "n1",
+   "kind": "initial",
+   "label": "",
+   "x": 238.5,
+   "y": 68.3,
+   "w": 53.6,
+   "h": 53.6
+  },
+  {
+   "id": "n2",
+   "kind": "action",
+   "label": "Prepare unsubscribe from procedure",
+   "x": 46.7,
+   "y": 168.9,
+   "w": 435.9,
+   "h": 75.6,
+   "rx": 38.0,
+   "ry": 37.2,
+   "labelLines": [
+    {
+     "text": "Prepare unsubscribe from procedure",
+     "cx": 265.0,
+     "cy": 208.2,
+     "w": 407.4
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "n3",
+   "kind": "object",
+   "label": "Unsubscribe\nFrom\nProcedure\nRequest",
+   "x": 628.1,
+   "y": 243.2,
+   "w": 226.4,
+   "h": 181.0,
+   "labelLines": [
+    {
+     "text": "Unsubscribe",
+     "cx": 742.6,
+     "cy": 269.8,
+     "w": 193.5
+    },
+    {
+     "text": "From",
+     "cx": 682.3,
+     "cy": 313.0,
+     "w": 79.1
+    },
+    {
+     "text": "Procedure",
+     "cx": 724.0,
+     "cy": 352.5,
+     "w": 159.0
+    },
+    {
+     "text": "Request",
+     "cx": 707.0,
+     "cy": 395.5,
+     "w": 128.3
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n4",
+   "kind": "action",
+   "label": "Submit unsubscribe from procedure",
+   "x": 44.1,
+   "y": 299.8,
+   "w": 440.6,
+   "h": 78.2,
+   "rx": 39.3,
+   "ry": 37.6,
+   "labelLines": [
+    {
+     "text": "Submit unsubscribe from procedure",
+     "cx": 266.3,
+     "cy": 339.5,
+     "w": 397.0
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "n5",
+   "kind": "action",
+   "label": "Receive unsubscribe from procedure",
+   "x": 976.3,
+   "y": 299.8,
+   "w": 451.0,
+   "h": 80.8,
+   "rx": 39.3,
+   "ry": 39.7,
+   "labelLines": [
+    {
+     "text": "Receive unsubscribe from procedure",
+     "cx": 1204.2,
+     "cy": 336.1,
+     "w": 409.1
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "n6",
+   "kind": "object",
+   "label": "Unsubscribe\nFrom\nProcedure\nResponse",
+   "x": 626.0,
+   "y": 481.2,
+   "w": 226.8,
+   "h": 181.4,
+   "labelLines": [
+    {
+     "text": "Unsubscribe",
+     "cx": 740.6,
+     "cy": 508.2,
+     "w": 193.1
+    },
+    {
+     "text": "From",
+     "cx": 680.6,
+     "cy": 551.2,
+     "w": 79.1
+    },
+    {
+     "text": "Procedure",
+     "cx": 722.3,
+     "cy": 590.7,
+     "w": 159.0
+    },
+    {
+     "text": "Response",
+     "cx": 717.5,
+     "cy": 633.7,
+     "w": 153.8
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n7",
+   "kind": "action",
+   "label": "Receive unsubscribe from procedur\n1 confirmation",
+   "x": 56.6,
+   "y": 524.0,
+   "w": 415.6,
+   "h": 100.7,
+   "rx": 39.7,
+   "ry": 38.4,
+   "labelLines": [
+    {
+     "text": "Receive unsubscribe from procedur",
+     "cx": 260.9,
+     "cy": 562.0,
+     "w": 395.7
+    },
+    {
+     "text": "1 confirmation",
+     "cx": 245.4,
+     "cy": 592.3,
+     "w": 134.8
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "n8",
+   "kind": "action",
+   "label": "Submit unsubscribe from procedure\nconfirmation",
+   "x": 976.3,
+   "y": 526.6,
+   "w": 451.0,
+   "h": 95.5,
+   "rx": 38.9,
+   "ry": 39.3,
+   "labelLines": [
+    {
+     "text": "Submit unsubscribe from procedure",
+     "cx": 1211.1,
+     "cy": 562.7,
+     "w": 397.0
+    },
+    {
+     "text": "confirmation",
+     "cx": 1184.5,
+     "cy": 594.6,
+     "w": 134.8
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "n9",
+   "kind": "final",
+   "label": "",
+   "x": 240.6,
+   "y": 687.7,
+   "w": 50.1,
+   "h": 50.5,
+   "innerRatio": 0.5
+  }
+ ],
+ "edges": [
+  {
+   "from": "n1",
+   "to": "n2",
+   "exitXY": [
+    0.4981,
+    1.0
+   ],
+   "entryXY": [
+    0.4994,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n2",
+   "to": "n4",
+   "exitXY": [
+    0.4994,
+    1.0
+   ],
+   "entryXY": [
+    0.5,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n4",
+   "to": "n3",
+   "exitXY": [
+    1.0,
+    0.491
+   ],
+   "entryXY": [
+    0.0,
+    0.5155
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n3",
+   "to": "n5",
+   "exitXY": [
+    1.0,
+    0.5133
+   ],
+   "entryXY": [
+    0.0,
+    0.4814
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n5",
+   "to": "n8",
+   "exitXY": [
+    0.502,
+    1.0
+   ],
+   "entryXY": [
+    0.502,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n6",
+   "to": "n7",
+   "exitXY": [
+    0.0,
+    0.4978
+   ],
+   "entryXY": [
+    1.0,
+    0.4806
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n8",
+   "to": "n6",
+   "exitXY": [
+    0.0,
+    0.4796
+   ],
+   "entryXY": [
+    1.0,
+    0.4978
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n7",
+   "to": "n9",
+   "exitXY": [
+    0.5,
+    1.0
+   ],
+   "entryXY": [
+    0.501,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  }
+ ],
+ "guards": []
+}

@@ -1,0 +1,22 @@
+  verdict: NEEDS-HUMAN
+  structural: 0 element(s) absent, 0 invented, 0 text absent, 0 text differs, 0 incoherent
+  line-work  missing 1337 px (0.417%)   invented 884 px (0.276%)   radius 3
+    line-work-missing      378 px at  1208,1348    47x37    near edge n17 -> n15
+    line-work-missing      263 px at  1264,1366    88x33    near edge n17 -> n15
+    line-work-missing      152 px at  1218,441     48x31    near edge n6 -> n1
+    line-work-missing       73 px at  2742,348     50x2     near edge n4 -> n5
+    line-work-missing       64 px at  2786,350     36x14    near edge n4 -> n5
+    line-work-invented     286 px at  1251,1356   100x34    near edge n17 -> n15
+    line-work-invented     131 px at  1393,316     44x16    near edge n6 -> n1
+    line-work-invented      87 px at  1234,449     35x23    near edge n6 -> n1
+    line-work-invented      83 px at  2739,341     55x2     near edge n4 -> n5
+    line-work-invented      74 px at  1269,1346    19x4     near edge n17 -> n15
+  needs a person (7):
+    dropped-region     at 645,10  a shape here would be missing from the SVG
+    dropped-region     at 1583,2046  a shape here would be missing from the SVG
+    no-weight-split     confirm the diagram really has no object nodes
+    empty-box          at 645,2363  confirm nothing is drawn here in the original
+    arrowhead-unmeasurable at 307,266  confirm the arrowhead here is drawn and points the way the original does
+    arrowhead-unmeasurable at 1951,356  confirm the arrowhead here is drawn and points the way the original does
+    arrowhead-unmeasurable at 1614,2184  confirm the arrowhead here is drawn and points the way the original does
+review/baseline/UBL-2.2-InitiateFreightMgmtProcess-marked.png + review/baseline/UBL-2.2-InitiateFreightMgmtProcess-marked-lost.png  (7 finding(s) numbered)

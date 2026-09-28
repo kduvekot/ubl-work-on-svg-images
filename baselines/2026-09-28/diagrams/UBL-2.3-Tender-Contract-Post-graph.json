@@ -1,0 +1,1012 @@
+{
+ "source": "UBL-2.3-Tender-Contract-Post.png",
+ "size": [
+  3223,
+  2668
+ ],
+ "fontPx": 72.9,
+ "arrowPx": 74.0,
+ "arrowWidthPx": 66.1,
+ "arrowStyle": "open",
+ "rules": {
+  "v": [
+   [
+    6,
+    8
+   ],
+   [
+    1601,
+    8
+   ],
+   [
+    3209,
+    8
+   ]
+  ],
+  "h": [
+   [
+    6,
+    8
+   ],
+   [
+    2654,
+    8
+   ]
+  ]
+ },
+ "ruleSpan": {
+  "v": [
+   [
+    17,
+    2650
+   ],
+   [
+    17,
+    2462
+   ],
+   [
+    17,
+    2650
+   ]
+  ],
+  "h": [
+   [
+    17,
+    3205
+   ],
+   [
+    17,
+    3205
+   ]
+  ]
+ },
+ "greyRules": [],
+ "dashed": [],
+ "openEnds": [],
+ "crossMarks": [],
+ "partitions": [
+  {
+   "axis": "column",
+   "index": 0,
+   "x0": 0,
+   "x1": 1605,
+   "title": "INITIATING PARTY",
+   "titleBox": [
+    279,
+    71,
+    670,
+    59
+   ]
+  },
+  {
+   "axis": "column",
+   "index": 1,
+   "x0": 1605,
+   "x1": 3213,
+   "title": "RESPONDING PARTY",
+   "titleBox": [
+    2204,
+    76,
+    780,
+    59
+   ]
+  },
+  {
+   "axis": "column",
+   "index": 2,
+   "x0": 3213,
+   "x1": 3223,
+   "title": ""
+  },
+  {
+   "axis": "band",
+   "index": 0,
+   "y0": 0,
+   "y1": 2658,
+   "title": ""
+  },
+  {
+   "axis": "band",
+   "index": 1,
+   "y0": 2658,
+   "y1": 2668,
+   "title": ""
+  }
+ ],
+ "nodes": [
+  {
+   "x": 2076,
+   "y": 222,
+   "w": 1036,
+   "h": 168,
+   "area": 151485,
+   "fill": 0.87,
+   "solid": 0.967,
+   "rx": 83.5,
+   "ry": 82,
+   "shape": "rounded",
+   "stroke": 7,
+   "kind": "action",
+   "id": "n3",
+   "label": "Prior exchange of public keys",
+   "labelLines": [
+    {
+     "x": 2139,
+     "y": 280,
+     "w": 911,
+     "h": 66,
+     "text": "Prior exchange of public keys"
+    }
+   ],
+   "stem": 0.096,
+   "bold": false,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 105,
+   "y": 226,
+   "w": 1019,
+   "h": 175,
+   "area": 155325,
+   "fill": 0.871,
+   "solid": 0.965,
+   "rx": 84,
+   "ry": 82,
+   "shape": "rounded",
+   "stroke": 8,
+   "kind": "action",
+   "id": "n4",
+   "label": "Prior exchange of public keys",
+   "labelLines": [
+    {
+     "x": 159,
+     "y": 280,
+     "w": 911,
+     "h": 66,
+     "text": "Prior exchange of public keys"
+    }
+   ],
+   "stem": 0.096,
+   "bold": false,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 523,
+   "y": 471,
+   "w": 116,
+   "h": 116,
+   "area": 10637,
+   "fill": 1.0,
+   "kind": "initial",
+   "id": "n5",
+   "label": "",
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 110,
+   "y": 693,
+   "w": 1028,
+   "h": 156,
+   "area": 140826,
+   "fill": 0.878,
+   "solid": 0.964,
+   "rx": 83.5,
+   "ry": 80,
+   "shape": "rounded",
+   "stroke": 8,
+   "kind": "action",
+   "id": "n6",
+   "label": "Prepare tender contract",
+   "labelLines": [
+    {
+     "x": 247,
+     "y": 744,
+     "w": 733,
+     "h": 65,
+     "text": "Prepare tender contract"
+    }
+   ],
+   "stem": 0.096,
+   "bold": false,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 1368,
+   "y": 901,
+   "w": 485,
+   "h": 326,
+   "area": 146703,
+   "fill": 0.928,
+   "solid": 1.0,
+   "rx": 0,
+   "ry": 0,
+   "shape": "rect",
+   "stroke": 8,
+   "kind": "object",
+   "id": "n7",
+   "label": "Tender\nContract",
+   "labelLines": [
+    {
+     "x": 1411,
+     "y": 974,
+     "w": 229,
+     "h": 51,
+     "text": "Tender"
+    },
+    {
+     "x": 1406,
+     "y": 1078,
+     "w": 286,
+     "h": 52,
+     "text": "Contract"
+    }
+   ],
+   "stem": 0.137,
+   "bold": true,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 2076,
+   "y": 975,
+   "w": 1036,
+   "h": 167,
+   "area": 154077,
+   "fill": 0.891,
+   "solid": 0.968,
+   "rx": 83,
+   "ry": 80,
+   "shape": "rounded",
+   "stroke": 8,
+   "kind": "action",
+   "id": "n8",
+   "label": "Receive tender contract",
+   "labelLines": [
+    {
+     "x": 2236,
+     "y": 1029,
+     "w": 737,
+     "h": 51,
+     "text": "Receive tender contract"
+    }
+   ],
+   "stem": 0.096,
+   "bold": false,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 105,
+   "y": 978,
+   "w": 1019,
+   "h": 175,
+   "area": 159822,
+   "fill": 0.896,
+   "solid": 0.965,
+   "rx": 83.5,
+   "ry": 83,
+   "shape": "rounded",
+   "stroke": 7,
+   "kind": "action",
+   "id": "n9",
+   "label": "Submit tender contract",
+   "labelLines": [
+    {
+     "x": 269,
+     "y": 1033,
+     "w": 704,
+     "h": 52,
+     "text": "Submit tender contract"
+    }
+   ],
+   "stem": 0.082,
+   "bold": false,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 2076,
+   "y": 1335,
+   "w": 1028,
+   "h": 156,
+   "area": 137919,
+   "fill": 0.86,
+   "solid": 0.964,
+   "rx": 83.5,
+   "ry": 82,
+   "shape": "rounded",
+   "stroke": 8,
+   "kind": "action",
+   "id": "n10",
+   "label": "Add W3C Digital Signature",
+   "labelLines": [
+    {
+     "x": 2173,
+     "y": 1386,
+     "w": 834,
+     "h": 66,
+     "text": "Add W3C Digital Signature"
+    }
+   ],
+   "stem": 0.096,
+   "bold": false,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 1368,
+   "y": 1554,
+   "w": 485,
+   "h": 325,
+   "area": 146191,
+   "fill": 0.927,
+   "solid": 1.0,
+   "rx": 0,
+   "ry": 0,
+   "shape": "rect",
+   "stroke": 8,
+   "kind": "object",
+   "id": "n11",
+   "label": "Tender\nContract",
+   "labelLines": [
+    {
+     "x": 1411,
+     "y": 1627,
+     "w": 229,
+     "h": 51,
+     "text": "Tender"
+    },
+    {
+     "x": 1406,
+     "y": 1731,
+     "w": 286,
+     "h": 52,
+     "text": "Contract"
+    }
+   ],
+   "stem": 0.137,
+   "bold": true,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 2076,
+   "y": 1628,
+   "w": 1036,
+   "h": 167,
+   "area": 155197,
+   "fill": 0.897,
+   "solid": 0.968,
+   "rx": 82,
+   "ry": 80,
+   "shape": "rounded",
+   "stroke": 8,
+   "kind": "action",
+   "id": "n12",
+   "label": "Return tender contract",
+   "labelLines": [
+    {
+     "x": 2236,
+     "y": 1682,
+     "w": 694,
+     "h": 51,
+     "text": "Return tender contract"
+    }
+   ],
+   "stem": 0.096,
+   "bold": false,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 105,
+   "y": 1631,
+   "w": 1019,
+   "h": 175,
+   "area": 158666,
+   "fill": 0.89,
+   "solid": 0.965,
+   "rx": 88,
+   "ry": 82,
+   "shape": "rounded",
+   "stroke": 7,
+   "kind": "action",
+   "id": "n13",
+   "label": "Receive tender contract",
+   "labelLines": [
+    {
+     "x": 271,
+     "y": 1686,
+     "w": 738,
+     "h": 52,
+     "text": "Receive tender contract"
+    }
+   ],
+   "stem": 0.096,
+   "bold": false,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 110,
+   "y": 1922,
+   "w": 1028,
+   "h": 156,
+   "area": 137855,
+   "fill": 0.86,
+   "solid": 0.964,
+   "rx": 83.5,
+   "ry": 80,
+   "shape": "rounded",
+   "stroke": 8,
+   "kind": "action",
+   "id": "n14",
+   "label": "Add W3C Digital Signature",
+   "labelLines": [
+    {
+     "x": 207,
+     "y": 1972,
+     "w": 834,
+     "h": 66,
+     "text": "Add W3C Digital Signature"
+    }
+   ],
+   "stem": 0.096,
+   "bold": false,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 1368,
+   "y": 2130,
+   "w": 485,
+   "h": 325,
+   "area": 146148,
+   "fill": 0.927,
+   "solid": 1.0,
+   "rx": 0,
+   "ry": 0,
+   "shape": "rect",
+   "stroke": 8,
+   "kind": "object",
+   "id": "n15",
+   "label": "Tender\nContract",
+   "labelLines": [
+    {
+     "x": 1411,
+     "y": 2202,
+     "w": 229,
+     "h": 52,
+     "text": "Tender"
+    },
+    {
+     "x": 1406,
+     "y": 2306,
+     "w": 286,
+     "h": 53,
+     "text": "Contract"
+    }
+   ],
+   "stem": 0.137,
+   "bold": true,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 2076,
+   "y": 2204,
+   "w": 1036,
+   "h": 167,
+   "area": 154224,
+   "fill": 0.891,
+   "solid": 0.968,
+   "rx": 80,
+   "ry": 80,
+   "shape": "rounded",
+   "stroke": 8,
+   "kind": "action",
+   "id": "n16",
+   "label": "Receive tender contract",
+   "labelLines": [
+    {
+     "x": 2236,
+     "y": 2258,
+     "w": 737,
+     "h": 51,
+     "text": "Receive tender contract"
+    }
+   ],
+   "stem": 0.096,
+   "bold": false,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 105,
+   "y": 2207,
+   "w": 1019,
+   "h": 175,
+   "area": 159669,
+   "fill": 0.895,
+   "solid": 0.965,
+   "rx": 86,
+   "ry": 82,
+   "shape": "rounded",
+   "stroke": 8,
+   "kind": "action",
+   "id": "n17",
+   "label": "Return tender contract",
+   "labelLines": [
+    {
+     "x": 271,
+     "y": 2262,
+     "w": 695,
+     "h": 51,
+     "text": "Return tender contract"
+    }
+   ],
+   "stem": 0.096,
+   "bold": false,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 2538,
+   "y": 2514,
+   "w": 102,
+   "h": 101,
+   "area": 6011,
+   "fill": 0.583,
+   "solid": 0.786,
+   "rx": 50,
+   "ry": 53,
+   "shape": "ellipse",
+   "stroke": 8,
+   "kind": "final",
+   "innerRatio": 0.49,
+   "id": "n18",
+   "label": "",
+   "col": 1,
+   "row": 0
+  }
+ ],
+ "edges": [
+  {
+   "from": "n3",
+   "to": "n4",
+   "routing": "straight",
+   "fromPoint": [
+    2061,
+    302
+   ],
+   "toPoint": [
+    1138,
+    304
+   ],
+   "arrowInk": [
+    1083,
+    1091
+   ],
+   "directionConfidence": "both-ends",
+   "arrowBoth": true,
+   "dash": 70.0,
+   "gap": 55.0,
+   "arrowPx": [
+    58,
+    63.8,
+    1.95
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n5",
+   "to": "n6",
+   "routing": "straight",
+   "fromPoint": [
+    581,
+    601
+   ],
+   "toPoint": [
+    589,
+    678
+   ],
+   "arrowInk": [
+    969,
+    1077
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    73,
+    62.4,
+    1.66
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n6",
+   "to": "n9",
+   "routing": "straight",
+   "fromPoint": [
+    585,
+    863
+   ],
+   "toPoint": [
+    589,
+    963
+   ],
+   "arrowInk": [
+    589,
+    1070
+   ],
+   "directionConfidence": "checked",
+   "arrowPx": [
+    100,
+    70.7,
+    0.61
+   ],
+   "arrowFill": 0.009,
+   "edgeKind": "control",
+   "directionChecked": "confirmed"
+  },
+  {
+   "from": "n9",
+   "to": "n7",
+   "routing": "straight",
+   "fromPoint": [
+    1138,
+    1054
+   ],
+   "toPoint": [
+    1353,
+    1056
+   ],
+   "arrowInk": [
+    315,
+    1046
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    74,
+    62.8,
+    2.23
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n7",
+   "to": "n8",
+   "routing": "straight",
+   "fromPoint": [
+    1867,
+    1058
+   ],
+   "toPoint": [
+    2055,
+    1058
+   ],
+   "arrowInk": [
+    315,
+    1037
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    71,
+    68.0,
+    2.14
+   ],
+   "arrowFill": 0.084,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n8",
+   "to": "n10",
+   "routing": "straight",
+   "fromPoint": [
+    2592,
+    1156
+   ],
+   "toPoint": [
+    2590,
+    1319
+   ],
+   "arrowInk": [
+    360,
+    875
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    83,
+    66.0,
+    3.1
+   ],
+   "arrowFill": 0.069,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n10",
+   "to": "n12",
+   "routing": "straight",
+   "fromPoint": [
+    2590,
+    1505
+   ],
+   "toPoint": [
+    2593,
+    1613
+   ],
+   "arrowInk": [
+    591,
+    973
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    78,
+    66.0,
+    2.25
+   ],
+   "arrowFill": 0.071,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n11",
+   "to": "n13",
+   "routing": "straight",
+   "fromPoint": [
+    1353,
+    1706
+   ],
+   "toPoint": [
+    1138,
+    1710
+   ],
+   "arrowInk": [
+    414,
+    1220
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    58,
+    64.3,
+    1.86
+   ],
+   "arrowFill": 0.059,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n12",
+   "to": "n11",
+   "routing": "straight",
+   "fromPoint": [
+    2055,
+    1716
+   ],
+   "toPoint": [
+    1867,
+    1716
+   ],
+   "arrowInk": [
+    322,
+    1037
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    73,
+    68.0,
+    2.02
+   ],
+   "arrowFill": 0.112,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n13",
+   "to": "n14",
+   "routing": "straight",
+   "fromPoint": [
+    585,
+    1820
+   ],
+   "toPoint": [
+    589,
+    1907
+   ],
+   "arrowInk": [
+    800,
+    1074
+   ],
+   "directionConfidence": "checked",
+   "arrowPx": [
+    87,
+    70.0,
+    1.02
+   ],
+   "arrowFill": 0.018,
+   "edgeKind": "control",
+   "directionChecked": "confirmed"
+  },
+  {
+   "from": "n14",
+   "to": "n17",
+   "routing": "straight",
+   "fromPoint": [
+    585,
+    2092
+   ],
+   "toPoint": [
+    589,
+    2192
+   ],
+   "arrowInk": [
+    595,
+    1064
+   ],
+   "directionConfidence": "checked",
+   "arrowPx": [
+    100,
+    70.7,
+    0.62
+   ],
+   "arrowFill": 0.009,
+   "edgeKind": "control",
+   "directionChecked": "confirmed"
+  },
+  {
+   "from": "n17",
+   "to": "n15",
+   "routing": "straight",
+   "fromPoint": [
+    1138,
+    2283
+   ],
+   "toPoint": [
+    1353,
+    2285
+   ],
+   "arrowInk": [
+    360,
+    1078
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    74,
+    62.8,
+    2.2
+   ],
+   "arrowFill": 0.054,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n15",
+   "to": "n16",
+   "routing": "straight",
+   "fromPoint": [
+    1867,
+    2287
+   ],
+   "toPoint": [
+    2055,
+    2287
+   ],
+   "arrowInk": [
+    360,
+    1064
+   ],
+   "directionConfidence": "checked",
+   "arrowPx": [
+    128,
+    68.0,
+    0.39
+   ],
+   "arrowSaturated": true,
+   "arrowFill": 0.064,
+   "edgeKind": "object",
+   "directionChecked": "confirmed"
+  },
+  {
+   "from": "n16",
+   "to": "n18",
+   "routing": "straight",
+   "fromPoint": [
+    2592,
+    2385
+   ],
+   "toPoint": [
+    2589,
+    2499
+   ],
+   "arrowInk": [
+    551,
+    910
+   ],
+   "directionConfidence": "notation",
+   "arrowPx": [
+    113,
+    66.2,
+    1.05
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "control"
+  }
+ ],
+ "text": [
+  {
+   "text": "INITIATING PARTY",
+   "x": 279,
+   "y": 71,
+   "w": 670,
+   "h": 59,
+   "lines": [
+    {
+     "x": 279,
+     "y": 71,
+     "w": 670,
+     "h": 59,
+     "text": "INITIATING PARTY"
+    }
+   ]
+  },
+  {
+   "text": "RESPONDING PARTY",
+   "x": 2204,
+   "y": 76,
+   "w": 780,
+   "h": 59,
+   "lines": [
+    {
+     "x": 2204,
+     "y": 76,
+     "w": 780,
+     "h": 59,
+     "text": "RESPONDING PARTY"
+    }
+   ]
+  }
+ ],
+ "uncertain": [
+  {
+   "x": 586,
+   "y": 1713,
+   "w": 1015,
+   "h": 567,
+   "shape": "ellipse",
+   "iou": 0.591,
+   "border": 0.5,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best ellipse 0.59, and 0.99 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "kind": "sub-character-region",
+   "x": 2410,
+   "y": 82,
+   "w": 36,
+   "h": 47,
+   "reason": "enclosed region smaller than one character of the diagram's type",
+   "check": "confirm this is glyph interior and not a node"
+  },
+  {
+   "kind": "sub-character-region",
+   "x": 2532,
+   "y": 83,
+   "w": 33,
+   "h": 45,
+   "reason": "enclosed region smaller than one character of the diagram's type",
+   "check": "confirm this is glyph interior and not a node"
+  },
+  {
+   "kind": "edge-direction",
+   "reason": "arrowhead ink is ambiguous where several connectors meet",
+   "edge": [
+    "n16",
+    "n18"
+   ],
+   "check": "confirm which way this edge points"
+  }
+ ]
+}

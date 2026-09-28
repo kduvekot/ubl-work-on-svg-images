@@ -1,0 +1,365 @@
+{
+ "canvas": {
+  "w": 1480.0,
+  "h": 754.476
+ },
+ "stroke": {
+  "frame": 4.3,
+  "divider": 1.7,
+  "action": 1.7,
+  "object": 3.5,
+  "edge": 1.7
+ },
+ "font": {
+  "family": "Helvetica, Arial, sans-serif",
+  "node": 22.2,
+  "lane": 22.2,
+  "guard": 22.2
+ },
+ "arrow": 28.6,
+ "arrowWidth": 22.7,
+ "arrowStyle": "open",
+ "dashed": [],
+ "greyRules": [],
+ "crossMarks": [],
+ "openEnds": [
+  {
+   "points": [
+    [
+     766.6,
+     207.0
+    ],
+    [
+     765.3,
+     5.2
+    ]
+   ],
+   "arrow": false
+  }
+ ],
+ "frameBox": [
+  2.2,
+  2.2,
+  1477.8,
+  752.3
+ ],
+ "dividers": [
+  [
+   768.7,
+   1.7,
+   210.0,
+   748.4
+  ]
+ ],
+ "bands": [],
+ "lanes": [
+  {
+   "title": "Producer",
+   "x": 0.0,
+   "w": 768.7,
+   "cx": 385.0,
+   "cy": 29.0
+  },
+  {
+   "title": "Retailer",
+   "x": 768.7,
+   "w": 711.3,
+   "cx": 1125.2,
+   "cy": 29.0
+  }
+ ],
+ "bandLabels": [],
+ "nodes": [
+  {
+   "id": "n1",
+   "kind": "initial",
+   "label": "",
+   "x": 1222.0,
+   "y": 73.9,
+   "w": 32.8,
+   "h": 32.8
+  },
+  {
+   "id": "n2",
+   "kind": "object",
+   "label": "Product Activity",
+   "x": 673.2,
+   "y": 211.7,
+   "w": 191.4,
+   "h": 57.9,
+   "labelLines": [
+    {
+     "text": "Product Activity",
+     "cx": 771.8,
+     "cy": 241.1,
+     "w": 164.2
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n3",
+   "kind": "action",
+   "label": "Receive a report about sales",
+   "x": 168.1,
+   "y": 215.2,
+   "w": 302.0,
+   "h": 52.7,
+   "rx": 26.4,
+   "ry": 19.0,
+   "labelLines": [
+    {
+     "text": "Receive a report about sales",
+     "cx": 319.6,
+     "cy": 242.4,
+     "w": 288.2
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n4",
+   "kind": "action",
+   "label": "Send a report about sales",
+   "x": 1080.7,
+   "y": 218.2,
+   "w": 316.7,
+   "h": 44.5,
+   "rx": 26.6,
+   "ry": 14.7,
+   "labelLines": [
+    {
+     "text": "Send a report about sales",
+     "cx": 1238.7,
+     "cy": 243.3,
+     "w": 260.6
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n5",
+   "kind": "object",
+   "label": "Product Activity",
+   "x": 671.5,
+   "y": 352.2,
+   "w": 196.6,
+   "h": 57.9,
+   "labelLines": [
+    {
+     "text": "Product Activity",
+     "cx": 772.0,
+     "cy": 381.3,
+     "w": 164.6
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n6",
+   "kind": "action",
+   "label": "Send a report about movement of\ngoods",
+   "x": 1032.8,
+   "y": 353.9,
+   "w": 410.9,
+   "h": 64.4,
+   "rx": 26.8,
+   "ry": 25.5,
+   "labelLines": [
+    {
+     "text": "Send a report about movement of",
+     "cx": 1237.6,
+     "cy": 376.4,
+     "w": 342.2
+    },
+    {
+     "text": "goods",
+     "cx": 1240.0,
+     "cy": 400.8,
+     "w": 62.7
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n7",
+   "kind": "action",
+   "label": "Receive a report about movement of\ngoods",
+   "x": 93.8,
+   "y": 355.2,
+   "w": 445.5,
+   "h": 64.8,
+   "rx": 26.6,
+   "ry": 25.1,
+   "labelLines": [
+    {
+     "text": "Receive a report about movement of",
+     "cx": 312.6,
+     "cy": 378.1,
+     "w": 370.3
+    },
+    {
+     "text": "goods",
+     "cx": 317.4,
+     "cy": 402.5,
+     "w": 62.7
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n8",
+   "kind": "fork",
+   "label": "",
+   "x": 35.4,
+   "y": 607.1,
+   "w": 153.4,
+   "h": 9.9
+  },
+  {
+   "id": "n9",
+   "kind": "final",
+   "label": "",
+   "x": 95.5,
+   "y": 699.2,
+   "w": 31.5,
+   "h": 31.1,
+   "innerRatio": 0.435
+  }
+ ],
+ "edges": [
+  {
+   "from": "n1",
+   "to": "n4",
+   "exitXY": [
+    0.5152,
+    1.0
+   ],
+   "entryXY": [
+    0.4995,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n2",
+   "to": "n3",
+   "exitXY": [
+    0.0,
+    0.5078
+   ],
+   "entryXY": [
+    1.0,
+    0.5009
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n4",
+   "to": "n2",
+   "exitXY": [
+    0.0,
+    0.5146
+   ],
+   "entryXY": [
+    1.0,
+    0.5078
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n3",
+   "to": "n8",
+   "exitXY": [
+    0.0,
+    0.4915
+   ],
+   "entryXY": [
+    0.1747,
+    0.0
+   ],
+   "straight": false,
+   "confidence": "high",
+   "points": [
+    [
+     62.2,
+     241.1
+    ]
+   ]
+  },
+  {
+   "from": "n4",
+   "to": "n6",
+   "exitXY": [
+    0.4995,
+    1.0
+   ],
+   "entryXY": [
+    0.5016,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n6",
+   "to": "n5",
+   "exitXY": [
+    0.0,
+    0.4627
+   ],
+   "entryXY": [
+    1.0,
+    0.4991
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n5",
+   "to": "n7",
+   "exitXY": [
+    0.0,
+    0.4991
+   ],
+   "entryXY": [
+    1.0,
+    0.466
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n7",
+   "to": "n8",
+   "exitXY": [
+    0.156,
+    1.0
+   ],
+   "entryXY": [
+    0.8312,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n8",
+   "to": "n9",
+   "exitXY": [
+    0.4987,
+    1.0
+   ],
+   "entryXY": [
+    0.5079,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  }
+ ],
+ "guards": []
+}

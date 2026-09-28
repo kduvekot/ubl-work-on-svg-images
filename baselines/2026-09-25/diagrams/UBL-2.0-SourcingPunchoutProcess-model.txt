@@ -1,0 +1,25 @@
+MODEL  UBL-2.0-SourcingPunchoutProcess
+  4 action, 1 final, 1 initial, 1 note, 1 object, 6 flows, 3 partitions
+
+FLOW
+  (start)   [Originator Customer Party]
+  Initiate a punchout session   [Originator Customer Party]
+  Build shopping basket   [seller Supplier Party]
+  Send shopping basket   [seller Supplier Party]
+  [Quotation]   [seller Supplier Party]
+  Receive quotation   [Originator Customer Party]
+  (end)   [Originator Customer Party]
+
+CHECKS
+  ok   every element is connected
+  ok   start events have a way out and no way in
+  ok   end events have a way in and no way out
+  ok   decisions have at least two ways out
+  ok   branches out of a decision are labelled   (informational: several diagrams draw an unlabelled branch, so read these against the artwork rather than treating them as errors)
+  ok   documents are both written and read
+  ok   no flow runs straight from one document to another
+  note work crossing between parties goes through a document   (informational: UBL draws the hand-over as a document on the divider, and each exception below is named)
+        - Initiate a punchout session [Originator Customer Party] -> Build shopping basket [seller Supplier Party]   (no document drawn - read this one against the artwork)
+  ok   every flow's direction was read with confidence
+  ok   every action passes its work on   (informational: several diagrams do end on an action, so read these against the artwork rather than treating them as errors)
+  ok   every element is reachable from a start event

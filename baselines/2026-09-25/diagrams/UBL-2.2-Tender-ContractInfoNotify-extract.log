@@ -1,0 +1,70 @@
+image 3425x2672
+
+PARTITION RULES
+   vertical  : [(0, 10), (1800, 14), (3415, 10)]
+   horizontal: [(0, 10), (2662, 10)]
+   -> 2 column(s) x 1 band(s)
+   type measured off the page: a word is 61px tall
+   (dropped x=10    y=10    1790x2652  is a partition cell)
+   (dropped x=1814  y=10    1601x2652  is a partition cell)
+   (dropped x=660   y=667   1140x475   outline matches no UML node shape (best rounded 0.80, and 0.99 is the most this shape can reach at this size))
+   (dropped x=1814  y=669   1516x845   encloses another region)
+   (kept    x=1615  y=950    380x392   own outline, iou 1.00 border 1.00, despite pass-through line-work)
+   (dropped x=1814  y=1145   884x841   outline matches no UML node shape (best rounded 0.76, and 0.99 is the most this shape can reach at this size))
+   (dropped x=665   y=1148  1135x845   3 of 4 sides are pass-through line-work)
+   (kept    x=2628  y=1503    41x47    own outline, iou 0.98 border 0.93, despite pass-through line-work)
+   object nodes are those stroked heavier than 7.5px
+
+NODES
+   n1   action    x=421   y=72    w=40    h=47    stroke=7   fill=0.82  ''
+   n2   action    x=1215  y=72    w=41    h=47    stroke=7   fill=0.81  ''
+   n3   action    x=2601  y=74    w=41    h=47    stroke=7   fill=0.81  ''
+   n4   action    x=2748  y=74    w=41    h=47    stroke=7   fill=0.81  ''
+   n5   initial   x=594   y=191   w=130   h=129   stroke=0   fill=0.78  ''
+   n6   action    x=101   y=553   w=1105  h=220   stroke=13  fill=0.88  'Prepare Contract Notice'
+   n7   object    x=1615  y=950   w=380   h=392   stroke=14  fill=0.90  'Contract\nNotice'
+   n8   decision  x=539   y=1022  w=239   h=239   stroke=14  fill=0.50  ''
+   n9   action    x=2145  y=1031  w=1120  h=219   stroke=13  fill=0.88  'Validate Contract Notice'
+   n10  decision  x=2579  y=1401  w=239   h=240   stroke=13  fill=0.42  'OK?'
+   n11  action    x=2628  y=1503  w=41    h=47    stroke=7   fill=0.81  ''
+   n12  action    x=2151  y=1881  w=1082  h=219   stroke=13  fill=0.88  'Publish Contract Notice'
+   n13  action    x=132   y=1888  w=1066  h=219   stroke=14  fill=0.88  'Publish in Buyer Profile'
+   n14  final     x=569   y=2394  w=180   h=181   stroke=13  fill=0.37  ''
+
+TYPE  cap height 59px over 124 glyphs -> font 84.3px
+   (dropped x=421   y=72      40x47    smaller than one character of 84px type - a letter counter, not a node)
+   (dropped x=1215  y=72      41x47    smaller than one character of 84px type - a letter counter, not a node)
+   (dropped x=2601  y=74      41x47    smaller than one character of 84px type - a letter counter, not a node)
+   (dropped x=2748  y=74      41x47    smaller than one character of 84px type - a letter counter, not a node)
+   (dropped x=2628  y=1503    41x47    smaller than one character of 84px type - a letter counter, not a node)
+   rejoined 3 line break(s) of up to 152px, where a label sits on the line
+
+EDGES
+   n5   -> n6    straight    arrowhead  1369 vs 614    ratio 4.0  high
+   n10  -> n6    orthogonal  arrowhead  1306 vs 630    ratio 4.0  high
+   n6   -> n8    straight    arrowhead  1254 vs 606    ratio 2.1  medium
+   n7   -> n9    straight    arrowhead  1359 vs 595    ratio 4.0  high
+   n8   -> n7    straight    arrowhead  1384 vs 585    ratio 4.0  high
+   n9   -> n10   straight    arrowhead  1277 vs 602    ratio 2.1  medium
+   n8   -> n13   straight    arrowhead  1344 vs 603    ratio 4.0  high
+   n10  -> n12   straight    arrowhead  1362 vs 604    ratio 4.0  high
+   n12  -> n13   straight    arrowhead  1318 vs 603    ratio 4.0  high
+   n13  -> n14   straight    arrowhead  1376 vs 591    ratio 4.0  high
+
+TEXT (titles, guards, notes)
+   'CONTRACTING AUTHORITY'                  x=353   y=65    
+   'PUBLICATION OFFICE'                     x=2169  y=67    
+   'Yes'                                    x=935   y=1055  n8->n7
+   'Above P\nThresholds?'                   x=82    y=1095  
+   'No'                                     x=718   y=1367  n8->n13
+   'No'                                     x=2880  y=1438  n10->n6
+   'Yes'                                    x=2742  y=1734  n10->n12
+
+PARTITIONS
+   column 0  'CONTRACTING AUTHORITY'
+   column 1  'PUBLICATION OFFICE'
+   band   0  ''
+
+ARROWHEAD  74 x 77px, open, measured on 8 connector(s)
+
+wrote review/baseline/UBL-2.2-Tender-ContractInfoNotify-graph.json   (9 nodes, 10 edges, 10 flagged for a human)

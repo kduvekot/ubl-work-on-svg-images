@@ -1,0 +1,11 @@
+  verdict: NEEDS-HUMAN
+  structural: 0 element(s) absent, 0 invented, 0 text absent, 0 text differs, 0 incoherent
+  line-work  missing 1629 px (0.869%)   invented 1452 px (0.775%)   radius 3
+    line-work-missing      148 px at  1968,837     50x18    near edge n7 -> n3
+    line-work-missing      126 px at  1325,855     49x18    near edge n6 -> n3
+    line-work-invented     213 px at  1942,836     60x31    near edge n7 -> n3
+    line-work-invented     207 px at  1341,854     60x34    near edge n6 -> n3
+  needs a person (2):
+    arrowhead-unmeasurable at 847,969  confirm the arrowhead here is drawn and points the way the original does
+    arrowhead-unmeasurable at 1525,1848  confirm the arrowhead here is drawn and points the way the original does
+review/baseline/UBL-2.2-CPFR-IdentifyResolve-marked.png + review/baseline/UBL-2.2-CPFR-IdentifyResolve-marked-lost.png  (2 finding(s) numbered)

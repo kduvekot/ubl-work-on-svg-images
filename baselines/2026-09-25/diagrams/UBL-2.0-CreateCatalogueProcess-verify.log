@@ -1,0 +1,13 @@
+  verdict: NEEDS-HUMAN
+  structural: 0 element(s) absent, 0 invented, 0 text absent, 0 text differs, 0 incoherent
+  line-work  missing 1034 px (0.212%)   invented 805 px (0.165%)   radius 3
+    line-work-missing      605 px at  2702,1289   140x92    near edge n9 -> n12
+    line-work-missing       90 px at  2672,1722    37x28    near edge n11 -> n13
+    line-work-invented     542 px at  2696,1289   129x84    near edge n9 -> n12
+    line-work-invented      97 px at  2658,1718    44x29    near edge n11 -> n13
+  needs a person (4):
+    dropped-region     at 387,1704  a shape here would be missing from the SVG
+    dropped-region     at 425,2481  a shape here would be missing from the SVG
+    dropped-region     at 434,3402  a shape here would be missing from the SVG
+    arrowhead-unmeasurable at 2295,1851  confirm the arrowhead here is drawn and points the way the original does
+review/baseline/UBL-2.0-CreateCatalogueProcess-marked.png + review/baseline/UBL-2.0-CreateCatalogueProcess-marked-lost.png  (4 finding(s) numbered)

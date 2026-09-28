@@ -1,0 +1,35 @@
+{
+ "name": "UBL-2.5-WasteMovementProcess.png",
+ "verdict": "needs-human",
+ "radius": 3,
+ "lineWorkInk": 89342,
+ "missingPx": 76,
+ "inventedPx": 0,
+ "structural": {
+  "absent": 0,
+  "invented": 0,
+  "coherence": 0,
+  "textAbsent": 0,
+  "textDiffers": 0
+ },
+ "blocking": [],
+ "findings": [],
+ "text": [],
+ "coherence": [],
+ "human": [
+  {
+   "kind": "no-weight-split",
+   "reason": "all 4 box strokes are one weight ([4, 5]), so no object node could be identified",
+   "check": "confirm the diagram really has no object nodes"
+  }
+ ],
+ "review": [
+  {
+   "n": 1,
+   "what": "check",
+   "where": "",
+   "detail": "all 4 box strokes are one weight ([4, 5]), so no object node could be identified",
+   "check": "confirm the diagram really has no object nodes"
+  }
+ ]
+}

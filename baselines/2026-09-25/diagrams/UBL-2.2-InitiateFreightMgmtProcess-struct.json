@@ -1,0 +1,228 @@
+{
+ "name": "UBL-2.2-InitiateFreightMgmtProcess.png",
+ "verdict": "needs-human",
+ "radius": 3,
+ "lineWorkInk": 320868,
+ "missingPx": 1337,
+ "inventedPx": 884,
+ "structural": {
+  "absent": 0,
+  "invented": 0,
+  "coherence": 0,
+  "textAbsent": 0,
+  "textDiffers": 0
+ },
+ "blocking": [],
+ "findings": [
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n17 -> n15",
+   "x": 1208,
+   "y": 1348,
+   "w": 47,
+   "h": 37,
+   "area": 378
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n17 -> n15",
+   "x": 1264,
+   "y": 1366,
+   "w": 88,
+   "h": 33,
+   "area": 263
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n6 -> n1",
+   "x": 1218,
+   "y": 441,
+   "w": 48,
+   "h": 31,
+   "area": 152
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n4 -> n5",
+   "x": 2742,
+   "y": 348,
+   "w": 50,
+   "h": 2,
+   "area": 73
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n4 -> n5",
+   "x": 2786,
+   "y": 350,
+   "w": 36,
+   "h": 14,
+   "area": 64
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n17 -> n15",
+   "x": 1251,
+   "y": 1356,
+   "w": 100,
+   "h": 34,
+   "area": 286
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n6 -> n1",
+   "x": 1393,
+   "y": 316,
+   "w": 44,
+   "h": 16,
+   "area": 131
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n6 -> n1",
+   "x": 1234,
+   "y": 449,
+   "w": 35,
+   "h": 23,
+   "area": 87
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n4 -> n5",
+   "x": 2739,
+   "y": 341,
+   "w": 55,
+   "h": 2,
+   "area": 83
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n17 -> n15",
+   "x": 1269,
+   "y": 1346,
+   "w": 19,
+   "h": 4,
+   "area": 74
+  }
+ ],
+ "text": [],
+ "coherence": [],
+ "human": [
+  {
+   "x": 645,
+   "y": 10,
+   "w": 933,
+   "h": 231,
+   "shape": "rect",
+   "iou": 0.94,
+   "border": 0.922,
+   "kind": "dropped-region",
+   "reason": "4 of 4 sides are pass-through line-work",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "x": 1583,
+   "y": 2046,
+   "w": 958,
+   "h": 487,
+   "shape": "rect",
+   "iou": 0.774,
+   "border": 0.749,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best rect 0.77, and 0.99 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "kind": "no-weight-split",
+   "reason": "all 28 box strokes are one weight ([4, 5, 7, 8]), so no object node could be identified",
+   "check": "confirm the diagram really has no object nodes"
+  },
+  {
+   "kind": "empty-box",
+   "x": 645,
+   "y": 2363,
+   "w": 933,
+   "h": 170,
+   "reason": "a note carrying no text, with line-work passing its sides",
+   "check": "confirm nothing is drawn here in the original"
+  },
+  {
+   "kind": "arrowhead-unmeasurable",
+   "x": 307,
+   "y": 266,
+   "w": 116,
+   "h": 116,
+   "reason": "the ink at the head end of n7->n2 measures 58x79px, too wide for this diagram's own 41px arrowhead - a junction, not a head",
+   "check": "confirm the arrowhead here is drawn and points the way the original does"
+  },
+  {
+   "kind": "arrowhead-unmeasurable",
+   "x": 1951,
+   "y": 356,
+   "w": 116,
+   "h": 116,
+   "reason": "the ink at the head end of n8->n3 measures 58x69px, too wide for this diagram's own 41px arrowhead - a junction, not a head",
+   "check": "confirm the arrowhead here is drawn and points the way the original does"
+  },
+  {
+   "kind": "arrowhead-unmeasurable",
+   "x": 1614,
+   "y": 2184,
+   "w": 116,
+   "h": 116,
+   "reason": "the ink at the head end of n25->n27 measures 58x80px, too wide for this diagram's own 41px arrowhead - a junction, not a head",
+   "check": "confirm the arrowhead here is drawn and points the way the original does"
+  }
+ ],
+ "review": [
+  {
+   "n": 1,
+   "what": "check",
+   "where": "645,10 933x231",
+   "detail": "4 of 4 sides are pass-through line-work",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "n": 2,
+   "what": "check",
+   "where": "1583,2046 958x487",
+   "detail": "outline matches no UML node shape (best rect 0.77, and 0.99 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "n": 3,
+   "what": "check",
+   "where": "",
+   "detail": "all 28 box strokes are one weight ([4, 5, 7, 8]), so no object node could be identified",
+   "check": "confirm the diagram really has no object nodes"
+  },
+  {
+   "n": 4,
+   "what": "check",
+   "where": "645,2363 933x170",
+   "detail": "a note carrying no text, with line-work passing its sides",
+   "check": "confirm nothing is drawn here in the original"
+  },
+  {
+   "n": 5,
+   "what": "check",
+   "where": "307,266 116x116",
+   "detail": "the ink at the head end of n7->n2 measures 58x79px, too wide for this diagram's own 41px arrowhead - a junction, not a head",
+   "check": "confirm the arrowhead here is drawn and points the way the original does"
+  },
+  {
+   "n": 6,
+   "what": "check",
+   "where": "1951,356 116x116",
+   "detail": "the ink at the head end of n8->n3 measures 58x69px, too wide for this diagram's own 41px arrowhead - a junction, not a head",
+   "check": "confirm the arrowhead here is drawn and points the way the original does"
+  },
+  {
+   "n": 7,
+   "what": "check",
+   "where": "1614,2184 116x116",
+   "detail": "the ink at the head end of n25->n27 measures 58x80px, too wide for this diagram's own 41px arrowhead - a junction, not a head",
+   "check": "confirm the arrowhead here is drawn and points the way the original does"
+  }
+ ]
+}

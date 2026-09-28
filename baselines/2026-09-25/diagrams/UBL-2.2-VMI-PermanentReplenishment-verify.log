@@ -1,0 +1,14 @@
+  verdict: NEEDS-HUMAN
+  structural: 0 element(s) absent, 0 invented, 0 text absent, 0 text differs, 0 incoherent
+  line-work  missing 651 px (0.269%)   invented 395 px (0.163%)   radius 3
+    line-work-missing       85 px at   399,1261    25x19    on node n9 (action 'Send Despatch\nAdvice')
+    line-work-missing       84 px at   399,1137    26x20    on node n9 (action 'Send Despatch\nAdvice')
+    line-work-missing       80 px at   891,1261    25x19    on node n9 (action 'Send Despatch\nAdvice')
+    line-work-missing       79 px at   890,1137    26x19    on node n9 (action 'Send Despatch\nAdvice')
+    line-work-invented      66 px at   406,1257    22x16    on node n9 (action 'Send Despatch\nAdvice')
+    line-work-invented      63 px at   406,1144    22x17    on node n9 (action 'Send Despatch\nAdvice')
+    line-work-invented      63 px at   887,1257    22x16    on node n9 (action 'Send Despatch\nAdvice')
+  needs a person (2):
+    dropped-region     at 2207,865  a shape here would be missing from the SVG
+    empty-box          at 86,408  confirm nothing is drawn here in the original
+review/baseline/UBL-2.2-VMI-PermanentReplenishment-marked.png + review/baseline/UBL-2.2-VMI-PermanentReplenishment-marked-lost.png  (2 finding(s) numbered)

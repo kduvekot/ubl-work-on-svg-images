@@ -1,0 +1,90 @@
+image 3425x4862
+
+PARTITION RULES
+   vertical  : [(0, 10), (1282, 5), (3415, 10)]
+   horizontal: [(0, 10), (4852, 10)]
+   -> 2 column(s) x 1 band(s)
+   type measured off the page: a word is 43px tall
+   (dropped x=10    y=10    1272x4842  is a partition cell)
+   (dropped x=1287  y=10    2128x4842  is a partition cell)
+   (dropped x=387   y=1704   895x772   4 of 4 sides are pass-through line-work)
+   (dropped x=425   y=2481   857x919   outline matches no UML node shape (best rounded 0.82, and 1.00 is the most this shape can reach at this size))
+   (dropped x=434   y=3402   848x634   4 of 4 sides are pass-through line-work)
+   object nodes are those stroked heavier than 8.0px
+
+NODES
+   n1   initial   x=168   y=48    w=95    h=96    stroke=0   fill=0.77  ''
+   n2   object    x=1058  y=241   w=411   h=222   stroke=10  fill=0.89  'Catalogue\nRequest'
+   n3   action    x=55    y=277   w=658   h=151   stroke=6   fill=0.89  'Request Catalogue'
+   n4   action    x=2591  y=277   w=639   h=151   stroke=6   fill=0.88  'Respond to Request'
+   n5   object    x=1034  y=834   w=411   h=240   stroke=10  fill=0.89  'Application\nResponse\n(negative)'
+   n6   action    x=1780  y=855   w=578   h=170   stroke=6   fill=0.90  'Send Rejection'
+   n7   decision  x=2849  y=862   w=114   h=151   stroke=6   fill=0.51  ''
+   n8   final     x=216   y=897   w=84    h=85    stroke=5   fill=0.64  ''
+   n9   fork      x=2751  y=1257  w=319   h=29    stroke=0   fill=0.58  ''
+   n10  object    x=1039  y=1507  w=411   h=241   stroke=10  fill=0.89  'Application\nResponse\n(positive)'
+   n11  action    x=2705  y=1519  w=630   h=198   stroke=6   fill=0.88  'Prepare Catalogue\nInformation'
+   n12  action    x=1923  y=1533  w=572   h=198   stroke=6   fill=0.88  'Send Acceptance\nResponse'
+   n13  action    x=1894  y=1946  w=625   h=217   stroke=6   fill=0.92  'Produce Catalogue'
+   n14  action    x=1890  y=2372  w=629   h=189   stroke=5   fill=0.90  'Distribute Catalogue'
+   n15  object    x=1053  y=2375  w=411   h=222   stroke=10  fill=0.94  'Catalogue'
+   n16  fork      x=315   y=2467  w=190   h=29    stroke=0   fill=0.58  ''
+   n17  action    x=135   y=2738  w=645   h=155   stroke=6   fill=0.89  'Receive Catalogue'
+   n18  decision  x=2683  y=3157  w=488   h=455   stroke=6   fill=0.48  'Decide on Action'
+   n19  decision  x=138   y=3170  w=592   h=462   stroke=5   fill=0.47  'Review Catalogue\nContent'
+   n20  object    x=1077  y=3290  w=411   h=241   stroke=10  fill=0.89  'Application\nResponse\n(negative)'
+   n21  object    x=1096  y=3920  w=411   h=242   stroke=10  fill=0.89  'Application\nResponse\n(positive)'
+   n22  action    x=102   y=3951  w=644   h=156   stroke=5   fill=0.87  'Acknowledge Acceptance'
+   n23  final     x=2866  y=4003  w=108   h=109   stroke=6   fill=0.54  ''
+   n24  action    x=92    y=4378  w=688   h=146   stroke=5   fill=0.90  'Accept Catalogue'
+   n25  final     x=391   y=4696  w=85    h=85    stroke=5   fill=0.63  ''
+
+TYPE  cap height 35px over 362 glyphs -> font 50.0px
+
+EDGES
+   n1   -> n3    diagonal    arrowhead   826 vs 270    ratio 4.0  high
+   n3   -> n2    straight    arrowhead   748 vs 225    ratio 4.0  high
+   n2   -> n4    straight    arrowhead   783 vs 225    ratio 4.0  high
+   n4   -> n7    straight    arrowhead   819 vs 270    ratio 4.0  high
+   n7   -> n6    straight    arrowhead   781 vs 276    ratio 4.0  high
+   n5   -> n8    diagonal    arrowhead   743 vs 230    ratio 4.0  high
+   n6   -> n5    straight    arrowhead   676 vs 233    ratio 4.0  high
+   n7   -> n9    straight    arrowhead   841 vs 270    ratio 4.0  high
+   n9   -> n12   diagonal    arrowhead   625 vs 293    ratio 4.0  high
+   n9   -> n11   straight    arrowhead   832 vs 270    ratio 4.0  high
+   n12  -> n10   straight    arrowhead   709 vs 276    ratio 4.0  high
+   n10  -> n16   orthogonal  arrowhead   840 vs 276    ratio 4.0  high
+   n11  -> n13   diagonal    arrowhead   581 vs 289    ratio 4.0  high
+   n18  -> n11   straight    arrowhead   778 vs 276    ratio 4.0  high
+   n13  -> n14   straight    arrowhead   790 vs 225    ratio 4.0  high
+   n15  -> n16   straight    arrowhead   806 vs 276    ratio 4.0  high
+   n14  -> n15   straight    arrowhead   677 vs 230    ratio 4.0  high
+   n16  -> n17   straight    arrowhead   821 vs 270    ratio 4.0  high
+   n17  -> n19   straight    arrowhead   822 vs 270    ratio 4.0  high
+   n20  -> n18   straight    arrowhead   815 vs 270    ratio 4.0  high
+   n19  -> n20   straight    arrowhead   773 vs 270    ratio 4.0  high
+   n18  -> n23   straight    arrowhead   830 vs 270    ratio 4.0  high
+   n19  -> n22   straight    arrowhead   829 vs 270    ratio 4.0  high
+   n22  -> n21   straight    arrowhead   752 vs 233    ratio 4.0  high
+   n21  -> n23   straight    arrowhead   785 vs 225    ratio 4.0  high
+   n22  -> n24   straight    arrowhead   786 vs 225    ratio 4.0  high
+   n24  -> n25   straight    arrowhead   831 vs 270    ratio 4.0  high
+
+TEXT (titles, guards, notes)
+   'Receiver Party'                         x=488   y=31    
+   'Provider Party'                         x=2203  y=31    
+   '[reject request]'                       x=2449  y=961   n7->n6
+   '[accept request]'                       x=2923  y=1089  n7->n9
+   '[revise content]'                       x=2942  y=2492  n18->n11
+   '[query catalogue\ncontent]'             x=665   y=3222  n19->n20
+   '[accept content]'                       x=487   y=3678  n19->n22
+   '[cancel transaction]'                   x=2440  y=3744  n18->n23
+
+PARTITIONS
+   column 0  'Receiver Party'
+   column 1  'Provider Party'
+   band   0  ''
+
+ARROWHEAD  67 x 53px, open, measured on 26 connector(s)
+
+wrote review/baseline/UBL-2.0-CreateCatalogueProcess-graph.json   (25 nodes, 27 edges, 3 flagged for a human)

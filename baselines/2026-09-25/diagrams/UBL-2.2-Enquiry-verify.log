@@ -1,0 +1,21 @@
+  verdict: NEEDS-HUMAN
+  structural: 0 element(s) absent, 0 invented, 0 text absent, 0 text differs, 0 incoherent
+  line-work  missing 2254 px (0.810%)   invented 2579 px (0.926%)   radius 3
+    line-work-missing      183 px at  2522,749     34x47    on node n5 (action 'Receive enquiry')
+    line-work-missing      105 px at  2537,766     18x10    on node n5 (action 'Receive enquiry')
+    line-work-missing      101 px at   393,756     29x13    on node n4 (action 'Submit enquiry')
+    line-work-missing       92 px at  2568,761     24x26    on node n5 (action 'Receive enquiry')
+    line-work-missing       72 px at   404,796     18x8     on node n4 (action 'Submit enquiry')
+    line-work-missing       69 px at  2605,761     24x15    on node n5 (action 'Receive enquiry')
+    line-work-missing       64 px at  2620,784     15x12    on node n5 (action 'Receive enquiry')
+    line-work-missing       62 px at  2639,761     24x12    on node n5 (action 'Receive enquiry')
+    line-work-invented     138 px at   398,796     34x16    on node n4 (action 'Submit enquiry')
+    line-work-invented     132 px at  2527,778     16x26    on node n5 (action 'Receive enquiry')
+    line-work-invented      96 px at  2577,795     25x9     on node n5 (action 'Receive enquiry')
+    line-work-invented      93 px at  2647,795     24x9     on node n5 (action 'Receive enquiry')
+    ... and 12 more line-work findings
+  needs a person (3):
+    dropped-region     at 1709,785  a shape here would be missing from the SVG
+    no-weight-split     confirm the diagram really has no object nodes
+    edge-direction      confirm which way this edge points
+review/baseline/UBL-2.2-Enquiry-marked.png + review/baseline/UBL-2.2-Enquiry-marked-lost.png  (3 finding(s) numbered)

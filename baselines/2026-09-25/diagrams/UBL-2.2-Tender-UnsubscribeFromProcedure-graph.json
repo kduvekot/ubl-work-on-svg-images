@@ -1,0 +1,659 @@
+{
+ "source": "UBL-2.2-Tender-UnsubscribeFromProcedure.png",
+ "size": [
+  3426,
+  1808
+ ],
+ "fontPx": 61.4,
+ "arrowPx": 79.5,
+ "arrowWidthPx": 67.3,
+ "arrowStyle": "open",
+ "rules": {
+  "v": [
+   [
+    1,
+    8
+   ],
+   [
+    1702,
+    8
+   ],
+   [
+    3411,
+    14
+   ]
+  ],
+  "h": [
+   [
+    1,
+    8
+   ],
+   [
+    1794,
+    8
+   ]
+  ]
+ },
+ "ruleSpan": {
+  "v": [
+   [
+    12,
+    1790
+   ],
+   [
+    12,
+    1790
+   ],
+   [
+    12,
+    1790
+   ]
+  ],
+  "h": [
+   [
+    12,
+    3407
+   ],
+   [
+    12,
+    3407
+   ]
+  ]
+ },
+ "greyRules": [],
+ "dashed": [],
+ "openEnds": [],
+ "crossMarks": [],
+ "partitions": [
+  {
+   "axis": "column",
+   "index": 0,
+   "x0": 0,
+   "x1": 1706,
+   "title": "ECONOMIC OPERATOR",
+   "titleBox": [
+    460,
+    45,
+    759,
+    54
+   ]
+  },
+  {
+   "axis": "column",
+   "index": 1,
+   "x0": 1706,
+   "x1": 3418,
+   "title": "CONTRACTING AUTHORITY",
+   "titleBox": [
+    2114,
+    45,
+    909,
+    54
+   ]
+  },
+  {
+   "axis": "column",
+   "index": 2,
+   "x0": 3418,
+   "x1": 3426,
+   "title": ""
+  },
+  {
+   "axis": "band",
+   "index": 0,
+   "y0": 0,
+   "y1": 1798,
+   "title": ""
+  },
+  {
+   "axis": "band",
+   "index": 1,
+   "y0": 1798,
+   "y1": 1808,
+   "title": ""
+  }
+ ],
+ "nodes": [
+  {
+   "x": 552,
+   "y": 158,
+   "w": 124,
+   "h": 124,
+   "area": 12088,
+   "fill": 1.0,
+   "kind": "initial",
+   "id": "n1",
+   "label": "",
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 112,
+   "y": 395,
+   "w": 1001,
+   "h": 167,
+   "area": 146434,
+   "fill": 0.876,
+   "solid": 0.964,
+   "rx": 84,
+   "ry": 82,
+   "shape": "rounded",
+   "stroke": 8,
+   "kind": "action",
+   "id": "n2",
+   "label": "Prepare unsubscribe from procedure",
+   "labelLines": [
+    {
+     "x": 142,
+     "y": 455,
+     "w": 943,
+     "h": 54,
+     "text": "Prepare unsubscribe from procedure"
+    }
+   ],
+   "stem": 0.098,
+   "bold": false,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 1458,
+   "y": 567,
+   "w": 516,
+   "h": 411,
+   "area": 180040,
+   "fill": 0.849,
+   "solid": 1.0,
+   "rx": 0,
+   "ry": 0,
+   "shape": "rect",
+   "stroke": 9,
+   "kind": "object",
+   "id": "n3",
+   "label": "Unsubscribe\nFrom\nProcedure\nRequest",
+   "labelLines": [
+    {
+     "x": 1495,
+     "y": 597,
+     "w": 448,
+     "h": 55,
+     "text": "Unsubscribe"
+    },
+    {
+     "x": 1488,
+     "y": 697,
+     "w": 183,
+     "h": 55,
+     "text": "From"
+    },
+    {
+     "x": 1492,
+     "y": 789,
+     "w": 368,
+     "h": 54,
+     "text": "Procedure"
+    },
+    {
+     "x": 1488,
+     "y": 881,
+     "w": 297,
+     "h": 69,
+     "text": "Request"
+    }
+   ],
+   "stem": 0.179,
+   "bold": true,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 106,
+   "y": 698,
+   "w": 1012,
+   "h": 173,
+   "area": 155456,
+   "fill": 0.888,
+   "solid": 0.966,
+   "rx": 87,
+   "ry": 83,
+   "shape": "rounded",
+   "stroke": 8,
+   "kind": "action",
+   "id": "n4",
+   "label": "Submit unsubscribe from procedure",
+   "labelLines": [
+    {
+     "x": 157,
+     "y": 759,
+     "w": 919,
+     "h": 54,
+     "text": "Submit unsubscribe from procedure"
+    }
+   ],
+   "stem": 0.081,
+   "bold": false,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 2264,
+   "y": 698,
+   "w": 1036,
+   "h": 179,
+   "area": 164926,
+   "fill": 0.889,
+   "solid": 0.967,
+   "rx": 87,
+   "ry": 88,
+   "shape": "rounded",
+   "stroke": 8,
+   "kind": "action",
+   "id": "n5",
+   "label": "Receive unsubscribe from procedure",
+   "labelLines": [
+    {
+     "x": 2314,
+     "y": 751,
+     "w": 947,
+     "h": 54,
+     "text": "Receive unsubscribe from procedure"
+    }
+   ],
+   "stem": 0.081,
+   "bold": false,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 1453,
+   "y": 1118,
+   "w": 517,
+   "h": 412,
+   "area": 179512,
+   "fill": 0.843,
+   "solid": 1.0,
+   "rx": 2,
+   "ry": 2,
+   "shape": "rect",
+   "stroke": 8,
+   "kind": "object",
+   "id": "n6",
+   "label": "Unsubscribe\nFrom\nProcedure\nResponse",
+   "labelLines": [
+    {
+     "x": 1491,
+     "y": 1149,
+     "w": 447,
+     "h": 55,
+     "text": "Unsubscribe"
+    },
+    {
+     "x": 1484,
+     "y": 1249,
+     "w": 183,
+     "h": 54,
+     "text": "From"
+    },
+    {
+     "x": 1488,
+     "y": 1340,
+     "w": 368,
+     "h": 55,
+     "text": "Procedure"
+    },
+    {
+     "x": 1483,
+     "y": 1433,
+     "w": 356,
+     "h": 68,
+     "text": "Response"
+    }
+   ],
+   "stem": 0.179,
+   "bold": true,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 135,
+   "y": 1217,
+   "w": 954,
+   "h": 225,
+   "area": 189288,
+   "fill": 0.882,
+   "solid": 0.969,
+   "rx": 88,
+   "ry": 85,
+   "shape": "rounded",
+   "stroke": 8,
+   "kind": "action",
+   "id": "n7",
+   "label": "Receive unsubscribe from procedur\n1 confirmation",
+   "labelLines": [
+    {
+     "x": 146,
+     "y": 1274,
+     "w": 916,
+     "h": 54,
+     "text": "Receive unsubscribe from procedur"
+    },
+    {
+     "x": 412,
+     "y": 1349,
+     "w": 312,
+     "h": 44,
+     "text": "1 confirmation"
+    }
+   ],
+   "stem": 0.098,
+   "bold": false,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 2264,
+   "y": 1223,
+   "w": 1036,
+   "h": 213,
+   "area": 196112,
+   "fill": 0.889,
+   "solid": 0.973,
+   "rx": 86,
+   "ry": 87,
+   "shape": "rounded",
+   "stroke": 8,
+   "kind": "action",
+   "id": "n8",
+   "label": "Submit unsubscribe from procedure\nconfirmation",
+   "labelLines": [
+    {
+     "x": 2344,
+     "y": 1275,
+     "w": 919,
+     "h": 55,
+     "text": "Submit unsubscribe from procedure"
+    },
+    {
+     "x": 2586,
+     "y": 1355,
+     "w": 312,
+     "h": 43,
+     "text": "confirmation"
+    }
+   ],
+   "stem": 0.081,
+   "bold": false,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 561,
+   "y": 1596,
+   "w": 108,
+   "h": 109,
+   "area": 6836,
+   "fill": 0.581,
+   "solid": 0.782,
+   "rx": 50,
+   "ry": 54,
+   "shape": "rounded",
+   "stroke": 8,
+   "kind": "final",
+   "innerRatio": 0.5,
+   "id": "n9",
+   "label": "",
+   "col": 0,
+   "row": 0
+  }
+ ],
+ "edges": [
+  {
+   "from": "n1",
+   "to": "n2",
+   "routing": "straight",
+   "fromPoint": [
+    614,
+    296
+   ],
+   "toPoint": [
+    612,
+    380
+   ],
+   "arrowInk": [
+    976,
+    1117
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    75,
+    66.7,
+    2.1
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n2",
+   "to": "n4",
+   "routing": "straight",
+   "fromPoint": [
+    612,
+    576
+   ],
+   "toPoint": [
+    612,
+    683
+   ],
+   "arrowInk": [
+    565,
+    1118
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    75,
+    70.0,
+    2.15
+   ],
+   "arrowFill": 0.006,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n4",
+   "to": "n3",
+   "routing": "straight",
+   "fromPoint": [
+    1132,
+    783
+   ],
+   "toPoint": [
+    1443,
+    779
+   ],
+   "arrowInk": [
+    405,
+    1092
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    83,
+    68.1,
+    2.37
+   ],
+   "arrowFill": 0.061,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n3",
+   "to": "n5",
+   "routing": "straight",
+   "fromPoint": [
+    1988,
+    778
+   ],
+   "toPoint": [
+    2249,
+    784
+   ],
+   "arrowInk": [
+    405,
+    1155
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    80,
+    68.8,
+    2.07
+   ],
+   "arrowFill": 0.083,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n5",
+   "to": "n8",
+   "routing": "straight",
+   "fromPoint": [
+    2784,
+    891
+   ],
+   "toPoint": [
+    2784,
+    1208
+   ],
+   "arrowInk": [
+    360,
+    1115
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    81,
+    66.0,
+    2.34
+   ],
+   "arrowFill": 0.048,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n6",
+   "to": "n7",
+   "routing": "straight",
+   "fromPoint": [
+    1438,
+    1323
+   ],
+   "toPoint": [
+    1103,
+    1325
+   ],
+   "arrowInk": [
+    368,
+    1016
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    85,
+    67.1,
+    2.57
+   ],
+   "arrowFill": 0.054,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n8",
+   "to": "n6",
+   "routing": "straight",
+   "fromPoint": [
+    2249,
+    1325
+   ],
+   "toPoint": [
+    1984,
+    1323
+   ],
+   "arrowInk": [
+    368,
+    1089
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    79,
+    65.1,
+    2.36
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n7",
+   "to": "n9",
+   "routing": "straight",
+   "fromPoint": [
+    612,
+    1456
+   ],
+   "toPoint": [
+    615,
+    1581
+   ],
+   "arrowInk": [
+    360,
+    1118
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    74,
+    67.5,
+    2.43
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "control"
+  }
+ ],
+ "text": [
+  {
+   "text": "ECONOMIC OPERATOR",
+   "x": 460,
+   "y": 45,
+   "w": 759,
+   "h": 54,
+   "lines": [
+    {
+     "x": 460,
+     "y": 45,
+     "w": 759,
+     "h": 54,
+     "text": "ECONOMIC OPERATOR"
+    }
+   ]
+  },
+  {
+   "text": "CONTRACTING AUTHORITY",
+   "x": 2114,
+   "y": 45,
+   "w": 909,
+   "h": 54,
+   "lines": [
+    {
+     "x": 2114,
+     "y": 45,
+     "w": 909,
+     "h": 54,
+     "text": "CONTRACTING AUTHORITY"
+    }
+   ]
+  }
+ ],
+ "uncertain": [
+  {
+   "x": 1710,
+   "y": 786,
+   "w": 1071,
+   "h": 534,
+   "shape": "ellipse",
+   "iou": 0.723,
+   "border": 0.538,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best ellipse 0.72, and 0.99 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  }
+ ]
+}

@@ -1,0 +1,1241 @@
+{
+ "schema": "ubl-activity-diagram-layout/1",
+ "figure": "UBL-1.0-ProcurementProcess",
+ "units": "px of the original PNG",
+ "size": [
+  3425,
+  1609
+ ],
+ "style": {
+  "fontPx": 38.6,
+  "arrowPx": 42.5,
+  "arrowWidthPx": 38.2,
+  "arrowStyle": "open"
+ },
+ "rules": {
+  "vertical": [
+   {
+    "at": 0,
+    "width": 12,
+    "span": [
+     15,
+     1593
+    ]
+   },
+   {
+    "at": 710,
+    "width": 8,
+    "span": [
+     15,
+     1593
+    ]
+   },
+   {
+    "at": 1976,
+    "width": 8,
+    "span": [
+     15,
+     1593
+    ]
+   },
+   {
+    "at": 3413,
+    "width": 12,
+    "span": [
+     15,
+     1593
+    ]
+   }
+  ],
+  "horizontal": [
+   {
+    "at": 0,
+    "width": 12,
+    "span": [
+     15,
+     3409
+    ]
+   },
+   {
+    "at": 1597,
+    "width": 12,
+    "span": [
+     15,
+     3409
+    ]
+   }
+  ]
+ },
+ "greyRules": [
+  {
+   "axis": "v",
+   "at": 706,
+   "w": 4,
+   "level": 182
+  },
+  {
+   "axis": "v",
+   "at": 719,
+   "w": 3,
+   "level": 211
+  }
+ ],
+ "lanes": {
+  "lane-delivery-recipient": {
+   "x0": 0,
+   "x1": 714,
+   "titleBox": [
+    123,
+    19,
+    458,
+    49
+   ],
+   "titleBold": true
+  },
+  "lane-buyer": {
+   "x0": 714,
+   "x1": 1980,
+   "titleBox": [
+    1293,
+    21,
+    145,
+    47
+   ],
+   "titleBold": true
+  },
+  "lane-seller": {
+   "x0": 1980,
+   "x1": 3425,
+   "titleBox": [
+    2632,
+    20,
+    143,
+    39
+   ],
+   "titleBold": true
+  }
+ },
+ "nodes": {
+  "action-place-order": {
+   "x": 1363,
+   "y": 111,
+   "w": 283,
+   "h": 74,
+   "shape": "rounded",
+   "stroke": 7,
+   "rx": 29,
+   "ry": 39,
+   "bold": false,
+   "labelLines": [
+    {
+     "x": 1424,
+     "y": 135,
+     "w": 170,
+     "h": 28,
+     "text": "place order"
+    }
+   ]
+  },
+  "object-order": {
+   "x": 1889,
+   "y": 111,
+   "w": 182,
+   "h": 70,
+   "shape": "rect",
+   "stroke": 11,
+   "rx": 5,
+   "ry": 3,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 1933,
+     "y": 130,
+     "w": 100,
+     "h": 28,
+     "text": "Order"
+    }
+   ],
+   "italic": false
+  },
+  "action-receive-order": {
+   "x": 2768,
+   "y": 111,
+   "w": 316,
+   "h": 74,
+   "shape": "rounded",
+   "stroke": 7,
+   "rx": 28,
+   "ry": 40,
+   "bold": false,
+   "labelLines": [
+    {
+     "x": 2829,
+     "y": 137,
+     "w": 199,
+     "h": 23,
+     "text": "receive order"
+    }
+   ]
+  },
+  "decision-seller": {
+   "x": 2926,
+   "y": 234,
+   "w": 29,
+   "h": 29,
+   "shape": "rhombus",
+   "stroke": 7,
+   "rx": 17,
+   "ry": 15
+  },
+  "action-reject-order": {
+   "x": 2382,
+   "y": 241,
+   "w": 292,
+   "h": 75,
+   "shape": "rounded",
+   "stroke": 6,
+   "rx": 32,
+   "ry": 39.5,
+   "bold": false,
+   "labelLines": [
+    {
+     "x": 2443,
+     "y": 267,
+     "w": 175,
+     "h": 31,
+     "text": "reject order"
+    }
+   ]
+  },
+  "object-orderresponsesimple-between-buyer-and-seller": {
+   "x": 1742,
+   "y": 246,
+   "w": 484,
+   "h": 70,
+   "shape": "rect",
+   "stroke": 11,
+   "rx": 6,
+   "ry": 7,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 1782,
+     "y": 266,
+     "w": 391,
+     "h": 33,
+     "text": "OrderResponseSimple"
+    }
+   ],
+   "italic": false
+  },
+  "action-accept-order": {
+   "x": 2754,
+   "y": 382,
+   "w": 326,
+   "h": 75,
+   "shape": "rounded",
+   "stroke": 6,
+   "rx": 29.0,
+   "ry": 39.5,
+   "bold": false,
+   "labelLines": [
+    {
+     "x": 2823,
+     "y": 408,
+     "w": 193,
+     "h": 28,
+     "text": "accept order"
+    }
+   ]
+  },
+  "action-receive-response": {
+   "x": 1011,
+   "y": 387,
+   "w": 382,
+   "h": 74,
+   "shape": "rounded",
+   "stroke": 7,
+   "rx": 28,
+   "ry": 39.5,
+   "bold": false,
+   "labelLines": [
+    {
+     "x": 1072,
+     "y": 417,
+     "w": 256,
+     "h": 22,
+     "text": "receive response"
+    }
+   ]
+  },
+  "object-orderresponsesimple-between-buyer-and-seller-2": {
+   "x": 1744,
+   "y": 387,
+   "w": 474,
+   "h": 70,
+   "shape": "rect",
+   "stroke": 11,
+   "rx": 6,
+   "ry": 6,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 1782,
+     "y": 407,
+     "w": 391,
+     "h": 34,
+     "text": "OrderResponseSimple"
+    }
+   ],
+   "italic": false
+  },
+  "action-add-detail": {
+   "x": 3110,
+   "y": 524,
+   "w": 260,
+   "h": 74,
+   "shape": "rounded",
+   "stroke": 7,
+   "rx": 29.0,
+   "ry": 40,
+   "bold": false,
+   "labelLines": [
+    {
+     "x": 3169,
+     "y": 549,
+     "w": 150,
+     "h": 24,
+     "text": "add detail"
+    }
+   ]
+  },
+  "object-orderresponse-detailed": {
+   "x": 1728,
+   "y": 526,
+   "w": 507,
+   "h": 70,
+   "shape": "rect",
+   "stroke": 11,
+   "rx": 5,
+   "ry": 3,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 1755,
+     "y": 546,
+     "w": 455,
+     "h": 34,
+     "text": "OrderResponse (detailed)"
+    }
+   ],
+   "italic": false
+  },
+  "decision-buyer": {
+   "x": 1316,
+   "y": 564,
+   "w": 29,
+   "h": 29,
+   "shape": "rhombus",
+   "stroke": 7,
+   "rx": 15,
+   "ry": 17
+  },
+  "action-change-order-in-seller": {
+   "x": 2300,
+   "y": 613,
+   "w": 318,
+   "h": 75,
+   "shape": "rounded",
+   "stroke": 7,
+   "rx": 29,
+   "ry": 41,
+   "bold": false,
+   "labelLines": []
+  },
+  "decision-seller-2": {
+   "x": 2835,
+   "y": 616,
+   "w": 29,
+   "h": 29,
+   "shape": "rhombus",
+   "stroke": 16,
+   "rx": 17,
+   "ry": 17
+  },
+  "action-change-order-in-buyer": {
+   "x": 1359,
+   "y": 655,
+   "w": 318,
+   "h": 74,
+   "shape": "rounded",
+   "stroke": 7,
+   "rx": 30,
+   "ry": 39.5,
+   "bold": false,
+   "labelLines": []
+  },
+  "object-orderchange": {
+   "x": 1825,
+   "y": 659,
+   "w": 312,
+   "h": 70,
+   "shape": "rect",
+   "stroke": 11,
+   "rx": 5,
+   "ry": 6,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 1867,
+     "y": 679,
+     "w": 232,
+     "h": 34,
+     "text": "OrderChange"
+    }
+   ],
+   "italic": false
+  },
+  "decision-seller-3": {
+   "x": 3146,
+   "y": 660,
+   "w": 29,
+   "h": 29,
+   "shape": "rhombus",
+   "stroke": 7,
+   "rx": 15,
+   "ry": 17
+  },
+  "action-cancel-order-in-buyer": {
+   "x": 814,
+   "y": 688,
+   "w": 302,
+   "h": 74,
+   "shape": "rounded",
+   "stroke": 7,
+   "rx": 28,
+   "ry": 39.5,
+   "bold": false,
+   "labelLines": [
+    {
+     "x": 872,
+     "y": 712,
+     "w": 189,
+     "h": 25,
+     "text": "cancel order"
+    }
+   ]
+  },
+  "action-cancel-order-in-seller": {
+   "x": 2325,
+   "y": 792,
+   "w": 301,
+   "h": 74,
+   "shape": "rounded",
+   "stroke": 7,
+   "rx": 28,
+   "ry": 39,
+   "bold": false,
+   "labelLines": [
+    {
+     "x": 2384,
+     "y": 815,
+     "w": 188,
+     "h": 26,
+     "text": "cancel order"
+    }
+   ]
+  },
+  "object-ordercancellation": {
+   "x": 1788,
+   "y": 798,
+   "w": 385,
+   "h": 70,
+   "shape": "rect",
+   "stroke": 11,
+   "rx": 5,
+   "ry": 5,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 1824,
+     "y": 818,
+     "w": 318,
+     "h": 28,
+     "text": "OrderCancellation"
+    }
+   ],
+   "italic": false
+  },
+  "fork-seller": {
+   "x": 3018,
+   "y": 832,
+   "w": 73,
+   "h": 8
+  },
+  "action-receive-advice-in-buyer": {
+   "x": 1226,
+   "y": 837,
+   "w": 335,
+   "h": 75,
+   "shape": "rounded",
+   "stroke": 6,
+   "rx": 31,
+   "ry": 40,
+   "bold": false,
+   "labelLines": [
+    {
+     "x": 1288,
+     "y": 862,
+     "w": 214,
+     "h": 23,
+     "text": "receive advice"
+    }
+   ]
+  },
+  "action-despatch-order-item-s": {
+   "x": 2569,
+   "y": 1085,
+   "w": 492,
+   "h": 74,
+   "shape": "rounded",
+   "stroke": 7,
+   "rx": 28,
+   "ry": 39.5,
+   "bold": false,
+   "labelLines": [
+    {
+     "x": 2628,
+     "y": 1109,
+     "w": 350,
+     "h": 29,
+     "text": "despatch order item(s)"
+    }
+   ]
+  },
+  "object-despatchadvice": {
+   "x": 1817,
+   "y": 1093,
+   "w": 335,
+   "h": 69,
+   "shape": "rect",
+   "stroke": 11,
+   "rx": 3,
+   "ry": 5,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 1845,
+     "y": 1113,
+     "w": 278,
+     "h": 33,
+     "text": "DespatchAdvice"
+    }
+   ],
+   "italic": false
+  },
+  "action-receive-advice-in-delivery-recipient": {
+   "x": 153,
+   "y": 1107,
+   "w": 335,
+   "h": 75,
+   "shape": "rounded",
+   "stroke": 7,
+   "rx": 29,
+   "ry": 39.5,
+   "bold": false,
+   "labelLines": [
+    {
+     "x": 214,
+     "y": 1135,
+     "w": 215,
+     "h": 22,
+     "text": "receive advice"
+    }
+   ]
+  },
+  "action-decision-if-item-s-rejected": {
+   "x": 2063,
+   "y": 1246,
+   "w": 561,
+   "h": 75,
+   "shape": "rounded",
+   "stroke": 7,
+   "rx": 27,
+   "ry": 34,
+   "bold": false,
+   "labelLines": [
+    {
+     "x": 2119,
+     "y": 1269,
+     "w": 413,
+     "h": 32,
+     "text": "decision if item(s) rejected"
+    }
+   ]
+  },
+  "object-receiptadvice": {
+   "x": 559,
+   "y": 1257,
+   "w": 317,
+   "h": 70,
+   "shape": "rect",
+   "stroke": 11,
+   "rx": 5,
+   "ry": 6,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 594,
+     "y": 1276,
+     "w": 248,
+     "h": 33,
+     "text": "ReceiptAdvice"
+    }
+   ],
+   "italic": false
+  },
+  "action-receive-goods": {
+   "x": 151,
+   "y": 1258,
+   "w": 330,
+   "h": 75,
+   "shape": "rounded",
+   "stroke": 6,
+   "rx": 29.0,
+   "ry": 39.5,
+   "bold": false,
+   "labelLines": [
+    {
+     "x": 211,
+     "y": 1283,
+     "w": 212,
+     "h": 31,
+     "text": "receive goods"
+    }
+   ]
+  },
+  "fork-seller-2": {
+   "x": 2602,
+   "y": 1376,
+   "w": 77,
+   "h": 9
+  },
+  "action-advise-receipt": {
+   "x": 149,
+   "y": 1397,
+   "w": 330,
+   "h": 75,
+   "shape": "rounded",
+   "stroke": 6,
+   "rx": 28,
+   "ry": 39.5,
+   "bold": false,
+   "labelLines": [
+    {
+     "x": 207,
+     "y": 1422,
+     "w": 212,
+     "h": 29,
+     "text": "advise receipt"
+    }
+   ]
+  },
+  "action-reconcile-invoice": {
+   "x": 1168,
+   "y": 1470,
+   "w": 381,
+   "h": 75,
+   "shape": "rounded",
+   "stroke": 6,
+   "rx": 30,
+   "ry": 39.5,
+   "bold": false,
+   "labelLines": [
+    {
+     "x": 1229,
+     "y": 1494,
+     "w": 250,
+     "h": 25,
+     "text": "reconcile invoice"
+    }
+   ]
+  },
+  "action-raise-invoice": {
+   "x": 2574,
+   "y": 1470,
+   "w": 305,
+   "h": 75,
+   "shape": "rounded",
+   "stroke": 6,
+   "rx": 29,
+   "ry": 39,
+   "bold": false,
+   "labelLines": [
+    {
+     "x": 2633,
+     "y": 1500,
+     "w": 189,
+     "h": 19,
+     "text": "raise invoice"
+    }
+   ]
+  },
+  "object-invoice": {
+   "x": 1887,
+   "y": 1474,
+   "w": 182,
+   "h": 71,
+   "shape": "rect",
+   "stroke": 11,
+   "rx": 7,
+   "ry": 6,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 1918,
+     "y": 1494,
+     "w": 128,
+     "h": 28,
+     "text": "Invoice"
+    }
+   ],
+   "italic": false
+  },
+  "final-buyer": {
+   "x": 822,
+   "y": 1499,
+   "w": 23,
+   "h": 23,
+   "shape": "rounded",
+   "stroke": 0,
+   "rx": 11,
+   "ry": 11,
+   "innerRatio": 0.435
+  }
+ },
+ "flows": {
+  "flow-order-to-receive-order": {
+   "fromPoint": [
+    2087,
+    144
+   ],
+   "toPoint": [
+    2760,
+    144
+   ],
+   "routing": "straight",
+   "dash": 16.0,
+   "gap": 17.0
+  },
+  "flow-place-order-to-order": {
+   "fromPoint": [
+    1656,
+    146
+   ],
+   "toPoint": [
+    1857,
+    146
+   ],
+   "routing": "straight",
+   "dash": 16.0,
+   "gap": 18.0
+  },
+  "flow-receive-order-to-decision-seller": {
+   "fromPoint": [
+    2938,
+    199
+   ],
+   "toPoint": [
+    2940,
+    219
+   ],
+   "routing": "straight"
+  },
+  "flow-decision-seller-to-reject-order": {
+   "fromPoint": [
+    2911,
+    244
+   ],
+   "toPoint": [
+    2688,
+    272
+   ],
+   "routing": "diagonal"
+  },
+  "flow-decision-seller-to-add-detail": {
+   "fromPoint": [
+    2969,
+    262
+   ],
+   "toPoint": [
+    3220,
+    509
+   ],
+   "routing": "diagonal"
+  },
+  "flow-change-order-in-seller-to-decision-seller": {
+   "fromPoint": [
+    2461,
+    598
+   ],
+   "toPoint": [
+    2911,
+    265
+   ],
+   "routing": "diagonal"
+  },
+  "flow-reject-order-to-orderresponsesimple-between-buyer-and-seller": {
+   "fromPoint": [
+    2372,
+    279
+   ],
+   "toPoint": [
+    2237,
+    279
+   ],
+   "routing": "straight",
+   "dash": 16.0,
+   "gap": 17.0
+  },
+  "flow-decision-seller-to-accept-order": {
+   "fromPoint": [
+    2940,
+    277
+   ],
+   "toPoint": [
+    2917,
+    367
+   ],
+   "routing": "diagonal"
+  },
+  "flow-orderresponsesimple-between-buyer-and-seller-to-receive-response": {
+   "fromPoint": [
+    1726,
+    284
+   ],
+   "toPoint": [
+    1407,
+    393
+   ],
+   "routing": "diagonal",
+   "dash": 17.0,
+   "gap": 16.0
+  },
+  "flow-orderresponsesimple-between-buyer-and-seller-2-to-receive-response": {
+   "fromPoint": [
+    1728,
+    418
+   ],
+   "toPoint": [
+    1417,
+    419
+   ],
+   "routing": "straight",
+   "dash": 16.0,
+   "gap": 17.0
+  },
+  "flow-accept-order-to-orderresponsesimple-between-buyer-and-seller-2": {
+   "fromPoint": [
+    2712,
+    420
+   ],
+   "toPoint": [
+    2240,
+    420
+   ],
+   "routing": "straight",
+   "dash": 16.0,
+   "gap": 18.0
+  },
+  "flow-orderresponse-detailed-to-receive-response": {
+   "fromPoint": [
+    1712,
+    561
+   ],
+   "toPoint": [
+    1421,
+    449
+   ],
+   "routing": "diagonal",
+   "dash": 17.0,
+   "gap": 16.0
+  },
+  "flow-accept-order-to-decision-seller-2": {
+   "fromPoint": [
+    2917,
+    471
+   ],
+   "toPoint": [
+    2849,
+    601
+   ],
+   "routing": "diagonal"
+  },
+  "flow-receive-response-to-receive-advice-in-buyer": {
+   "fromPoint": [
+    1169,
+    476
+   ],
+   "toPoint": [
+    1309,
+    822
+   ],
+   "routing": "diagonal"
+  },
+  "flow-decision-buyer-to-cancel-order-in-buyer": {
+   "fromPoint": [
+    1301,
+    593
+   ],
+   "toPoint": [
+    1130,
+    693
+   ],
+   "routing": "diagonal"
+  },
+  "flow-receive-response-to-decision-buyer": {
+   "fromPoint": [
+    1278,
+    475
+   ],
+   "toPoint": [
+    1328,
+    549
+   ],
+   "routing": "diagonal"
+  },
+  "flow-add-detail-to-orderresponse-detailed": {
+   "fromPoint": [
+    3100,
+    559
+   ],
+   "toPoint": [
+    2257,
+    559
+   ],
+   "routing": "straight",
+   "dash": 14.8,
+   "gap": 18.9,
+   "dashOffset": 7.0
+  },
+  "flow-decision-buyer-to-change-order-in-buyer": {
+   "fromPoint": [
+    1344,
+    607
+   ],
+   "toPoint": [
+    1379,
+    640
+   ],
+   "routing": "diagonal"
+  },
+  "flow-add-detail-to-decision-seller-3": {
+   "fromPoint": [
+    3199,
+    612
+   ],
+   "toPoint": [
+    3163,
+    645
+   ],
+   "routing": "diagonal"
+  },
+  "flow-decision-seller-2-to-cancel-order-in-seller": {
+   "fromPoint": [
+    2820,
+    652
+   ],
+   "toPoint": [
+    2640,
+    787
+   ],
+   "routing": "diagonal"
+  },
+  "flow-decision-seller-2-to-fork-seller": {
+   "fromPoint": [
+    2871,
+    659
+   ],
+   "toPoint": [
+    3033,
+    817
+   ],
+   "routing": "diagonal"
+  },
+  "flow-decision-seller-3-to-cancel-order-in-seller": {
+   "fromPoint": [
+    3131,
+    678
+   ],
+   "toPoint": [
+    2640,
+    829
+   ],
+   "routing": "diagonal"
+  },
+  "flow-orderchange-to-change-order-in-seller": {
+   "fromPoint": [
+    2153,
+    693
+   ],
+   "toPoint": [
+    2284,
+    662
+   ],
+   "routing": "diagonal",
+   "dash": 17.0,
+   "gap": 16.5
+  },
+  "flow-change-order-in-buyer-to-orderchange": {
+   "fromPoint": [
+    1689,
+    692
+   ],
+   "toPoint": [
+    1797,
+    694
+   ],
+   "routing": "straight",
+   "dash": 16.0,
+   "gap": 18.0
+  },
+  "flow-decision-seller-3-to-fork-seller": {
+   "fromPoint": [
+    3147,
+    703
+   ],
+   "toPoint": [
+    3070,
+    817
+   ],
+   "routing": "diagonal"
+  },
+  "flow-cancel-order-in-buyer-to-ordercancellation": {
+   "fromPoint": [
+    1125,
+    735
+   ],
+   "toPoint": [
+    1761,
+    812
+   ],
+   "routing": "diagonal",
+   "dash": 15.2,
+   "gap": 18.5,
+   "dashOffset": 7.7
+  },
+  "flow-change-order-in-buyer-to-receive-advice-in-buyer": {
+   "fromPoint": [
+    1513,
+    743
+   ],
+   "toPoint": [
+    1446,
+    822
+   ],
+   "routing": "diagonal"
+  },
+  "flow-ordercancellation-to-cancel-order-in-seller": {
+   "fromPoint": [
+    2188,
+    829
+   ],
+   "toPoint": [
+    2297,
+    829
+   ],
+   "routing": "straight",
+   "dash": 16.0,
+   "gap": 18.0
+  },
+  "flow-fork-seller-to-despatch-order-item-s": {
+   "fromPoint": [
+    3047,
+    854
+   ],
+   "toPoint": [
+    2977,
+    1070
+   ],
+   "routing": "diagonal"
+  },
+  "flow-despatchadvice-to-receive-advice-in-buyer": {
+   "fromPoint": [
+    1802,
+    1102
+   ],
+   "toPoint": [
+    1569,
+    908
+   ],
+   "routing": "diagonal",
+   "dash": 18.0,
+   "gap": 16.0
+  },
+  "flow-receive-advice-in-buyer-to-reconcile-invoice": {
+   "fromPoint": [
+    1375,
+    926
+   ],
+   "toPoint": [
+    1372,
+    1455
+   ],
+   "routing": "straight"
+  },
+  "flow-despatch-order-item-s-to-despatchadvice": {
+   "fromPoint": [
+    2561,
+    1126
+   ],
+   "toPoint": [
+    2156,
+    1126
+   ],
+   "routing": "straight",
+   "dash": 15.4,
+   "gap": 18.3,
+   "dashOffset": 7.6
+  },
+  "flow-despatchadvice-to-receive-advice-in-delivery-recipient": {
+   "fromPoint": [
+    1800,
+    1138
+   ],
+   "toPoint": [
+    512,
+    1141
+   ],
+   "routing": "straight",
+   "dash": 17.0,
+   "gap": 17.0
+  },
+  "flow-despatch-order-item-s-to-fork-seller-2": {
+   "fromPoint": [
+    2864,
+    1179
+   ],
+   "toPoint": [
+    2646,
+    1361
+   ],
+   "routing": "diagonal"
+  },
+  "flow-receive-advice-in-delivery-recipient-to-receive-goods": {
+   "fromPoint": [
+    319,
+    1196
+   ],
+   "toPoint": [
+    316,
+    1243
+   ],
+   "routing": "straight"
+  },
+  "flow-receiptadvice-to-decision-if-item-s-rejected": {
+   "fromPoint": [
+    891,
+    1284
+   ],
+   "toPoint": [
+    2003,
+    1284
+   ],
+   "routing": "straight",
+   "dash": 16.0,
+   "gap": 18.0
+  },
+  "flow-decision-if-item-s-rejected-to-fork-seller-2": {
+   "fromPoint": [
+    2557,
+    1335
+   ],
+   "toPoint": [
+    2614,
+    1361
+   ],
+   "routing": "diagonal"
+  },
+  "flow-receive-goods-to-advise-receipt": {
+   "fromPoint": [
+    316,
+    1347
+   ],
+   "toPoint": [
+    314,
+    1382
+   ],
+   "routing": "straight"
+  },
+  "flow-advise-receipt-to-receiptadvice": {
+   "fromPoint": [
+    490,
+    1377
+   ],
+   "toPoint": [
+    550,
+    1332
+   ],
+   "routing": "diagonal",
+   "dash": 16.6,
+   "gap": 17.0,
+   "dashOffset": 0.8
+  },
+  "flow-fork-seller-2-to-raise-invoice": {
+   "fromPoint": [
+    2655,
+    1399
+   ],
+   "toPoint": [
+    2687,
+    1455
+   ],
+   "routing": "diagonal"
+  },
+  "flow-reconcile-invoice-to-final-buyer": {
+   "fromPoint": [
+    1153,
+    1509
+   ],
+   "toPoint": [
+    859,
+    1511
+   ],
+   "routing": "straight"
+  },
+  "flow-raise-invoice-to-invoice": {
+   "fromPoint": [
+    2565,
+    1504
+   ],
+   "toPoint": [
+    2093,
+    1504
+   ],
+   "routing": "straight",
+   "dash": 16.0,
+   "gap": 17.0
+  },
+  "flow-invoice-to-reconcile-invoice": {
+   "fromPoint": [
+    1871,
+    1508
+   ],
+   "toPoint": [
+    1567,
+    1508
+   ],
+   "routing": "straight",
+   "dash": 16.5,
+   "gap": 17.0
+  }
+ },
+ "texts": {},
+ "offPage": {},
+ "marks": {},
+ "phases": {},
+ "rulesHaveSpans": {
+  "vertical": true,
+  "horizontal": true
+ }
+}

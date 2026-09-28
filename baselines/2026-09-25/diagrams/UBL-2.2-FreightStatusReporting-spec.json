@@ -1,0 +1,396 @@
+{
+ "canvas": {
+  "w": 1480.0,
+  "h": 531.504
+ },
+ "stroke": {
+  "frame": 3.7,
+  "divider": 3.5,
+  "action": 2.6,
+  "object": 3.0,
+  "edge": 2.6
+ },
+ "font": {
+  "family": "Helvetica, Arial, sans-serif",
+  "node": 25.9,
+  "lane": 25.9,
+  "guard": 25.9
+ },
+ "arrow": 30.8,
+ "arrowWidth": 30.0,
+ "arrowStyle": "open",
+ "dashed": [],
+ "greyRules": [],
+ "crossMarks": [],
+ "openEnds": [],
+ "frameBox": [
+  1.7,
+  5.8,
+  1478.3,
+  527.4
+ ],
+ "dividers": [
+  [
+   509.0,
+   3.5,
+   0.0,
+   523.7
+  ],
+  [
+   1200.0,
+   3.5,
+   9.1,
+   531.1
+  ]
+ ],
+ "bands": [],
+ "lanes": [
+  {
+   "title": "",
+   "x": 0.0,
+   "w": 509.0,
+   "cx": 3.0,
+   "cy": 9.7
+  },
+  {
+   "title": "",
+   "x": 509.0,
+   "w": 691.0,
+   "cx": 854.5,
+   "cy": 25.9
+  },
+  {
+   "title": "",
+   "x": 1200.0,
+   "w": 280.0,
+   "cx": 1477.0,
+   "cy": 9.7
+  }
+ ],
+ "bandLabels": [],
+ "nodes": [
+  {
+   "id": "n1",
+   "kind": "initial",
+   "label": "",
+   "x": 193.6,
+   "y": 59.2,
+   "w": 43.2,
+   "h": 43.2
+  },
+  {
+   "id": "n2",
+   "kind": "object",
+   "label": "Transportation\nStatus Request",
+   "x": 422.4,
+   "y": 113.4,
+   "w": 217.4,
+   "h": 124.4,
+   "labelLines": [
+    {
+     "text": "Transportation",
+     "cx": 534.7,
+     "cy": 168.1,
+     "w": 172.4
+    },
+    {
+     "text": "Status Request",
+     "cx": 535.4,
+     "cy": 200.9,
+     "w": 182.4
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n3",
+   "kind": "action",
+   "label": "Receive Status Request",
+   "x": 765.3,
+   "y": 134.8,
+   "w": 333.6,
+   "h": 65.7,
+   "rx": 28.1,
+   "ry": 31.1,
+   "labelLines": [
+    {
+     "text": "Receive Status Request",
+     "cx": 926.2,
+     "cy": 168.1,
+     "w": 249.3
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "n4",
+   "kind": "action",
+   "label": "Request status",
+   "x": 73.5,
+   "y": 144.8,
+   "w": 266.6,
+   "h": 62.2,
+   "rx": 24.6,
+   "ry": 30.2,
+   "labelLines": [
+    {
+     "text": "Request status",
+     "cx": 208.9,
+     "cy": 173.5,
+     "w": 153.4
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "n5",
+   "kind": "object",
+   "label": "Transportation\nStatus",
+   "x": 421.1,
+   "y": 301.4,
+   "w": 216.9,
+   "h": 124.4,
+   "labelLines": [
+    {
+     "text": "Transportation",
+     "cx": 528.3,
+     "cy": 341.8,
+     "w": 172.4
+    },
+    {
+     "text": "Status",
+     "cx": 527.8,
+     "cy": 372.1,
+     "w": 74.8
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n6",
+   "kind": "action",
+   "label": "Receive Status Report",
+   "x": 73.5,
+   "y": 333.2,
+   "w": 267.0,
+   "h": 61.8,
+   "rx": 25.5,
+   "ry": 31.1,
+   "labelLines": [
+    {
+     "text": "Receive Status Report",
+     "cx": 207.6,
+     "cy": 367.1,
+     "w": 232.9
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "n7",
+   "kind": "action",
+   "label": "Report status",
+   "x": 814.5,
+   "y": 337.1,
+   "w": 232.0,
+   "h": 66.1,
+   "rx": 19.9,
+   "ry": 31.1,
+   "labelLines": [
+    {
+     "text": "Report status",
+     "cx": 933.2,
+     "cy": 370.3,
+     "w": 137.0
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "n8",
+   "kind": "initial",
+   "label": "",
+   "x": 1318.4,
+   "y": 346.6,
+   "w": 40.2,
+   "h": 40.2
+  },
+  {
+   "id": "n9",
+   "kind": "final",
+   "label": "",
+   "x": 191.2,
+   "y": 458.3,
+   "w": 41.1,
+   "h": 41.1,
+   "innerRatio": 0.489
+  }
+ ],
+ "edges": [
+  {
+   "from": "n1",
+   "to": "n4",
+   "exitXY": [
+    0.5,
+    1.0
+   ],
+   "entryXY": [
+    0.5266,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n2",
+   "to": "n3",
+   "exitXY": [
+    1.0,
+    0.4711
+   ],
+   "entryXY": [
+    0.0,
+    0.5464
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n4",
+   "to": "n2",
+   "exitXY": [
+    1.0,
+    0.5273
+   ],
+   "entryXY": [
+    0.0,
+    0.5161
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n3",
+   "to": "n7",
+   "exitXY": [
+    0.4715,
+    1.0
+   ],
+   "entryXY": [
+    0.4716,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n5",
+   "to": "n6",
+   "exitXY": [
+    0.0,
+    0.5297
+   ],
+   "entryXY": [
+    1.0,
+    0.5372
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n8",
+   "to": "n7",
+   "exitXY": [
+    0.0,
+    0.505
+   ],
+   "entryXY": [
+    1.0,
+    0.4705
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n7",
+   "to": "n5",
+   "exitXY": [
+    0.0,
+    0.5356
+   ],
+   "entryXY": [
+    1.0,
+    0.5611
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n6",
+   "to": "n9",
+   "exitXY": [
+    0.5127,
+    1.0
+   ],
+   "entryXY": [
+    0.4988,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  }
+ ],
+ "guards": [
+  {
+   "text": "Sender Party",
+   "x": 144.3,
+   "y": 15.1,
+   "w": 150.8,
+   "h": 25.1,
+   "labelLines": [
+    {
+     "text": "Sender Party",
+     "cx": 219.7,
+     "cy": 27.7,
+     "w": 150.8
+    }
+   ]
+  },
+  {
+   "text": "Receiver Party",
+   "x": 813.2,
+   "y": 19.4,
+   "w": 167.2,
+   "h": 24.6,
+   "labelLines": [
+    {
+     "text": "Receiver Party",
+     "cx": 896.9,
+     "cy": 31.8,
+     "w": 167.2
+    }
+   ]
+  },
+  {
+   "text": "Trigger reporting\nprocedure",
+   "x": 1265.2,
+   "y": 257.5,
+   "w": 169.8,
+   "h": 57.0,
+   "labelLines": [
+    {
+     "text": "Trigger reporting",
+     "cx": 1350.1,
+     "cy": 268.3,
+     "w": 169.8
+    },
+    {
+     "text": "procedure",
+     "cx": 1317.5,
+     "cy": 297.3,
+     "w": 102.8
+    }
+   ]
+  }
+ ]
+}

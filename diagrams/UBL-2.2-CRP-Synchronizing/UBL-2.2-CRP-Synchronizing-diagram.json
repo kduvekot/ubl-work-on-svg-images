@@ -1,0 +1,99 @@
+{
+ "schema": "ubl-activity-diagram/1",
+ "figure": {
+  "name": "UBL-2.2-CRP-Synchronizing",
+  "source": "UBL-2.2-CRP-Synchronizing.png"
+ },
+ "lanes": [
+  {
+   "id": "lane-producer",
+   "axis": "column",
+   "index": 0,
+   "title": "Producer"
+  },
+  {
+   "id": "lane-retailer",
+   "axis": "column",
+   "index": 1,
+   "title": "Retailer"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "initial-retailer",
+   "kind": "initial",
+   "label": "",
+   "lane": "lane-retailer"
+  },
+  {
+   "id": "object-inventory-report",
+   "kind": "object",
+   "label": "Inventory Report",
+   "lane": null,
+   "between": [
+    "lane-producer",
+    "lane-retailer"
+   ]
+  },
+  {
+   "id": "action-synchronize-stock-information",
+   "kind": "action",
+   "label": "Synchronize stock information",
+   "lane": "lane-producer"
+  },
+  {
+   "id": "action-send-information-about-stock",
+   "kind": "action",
+   "label": "Send information about stock",
+   "lane": "lane-retailer"
+  },
+  {
+   "id": "final-producer",
+   "kind": "final",
+   "label": "",
+   "lane": "lane-producer"
+  }
+ ],
+ "flows": [
+  {
+   "id": "flow-initial-retailer-to-send-information-about-stock",
+   "from": "initial-retailer",
+   "to": "action-send-information-about-stock",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-inventory-report-to-synchronize-stock-information",
+   "from": "object-inventory-report",
+   "to": "action-synchronize-stock-information",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-send-information-about-stock-to-inventory-report",
+   "from": "action-send-information-about-stock",
+   "to": "object-inventory-report",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-synchronize-stock-information-to-final-producer",
+   "from": "action-synchronize-stock-information",
+   "to": "final-producer",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  }
+ ],
+ "texts": [],
+ "offPage": [],
+ "marks": [],
+ "phases": []
+}

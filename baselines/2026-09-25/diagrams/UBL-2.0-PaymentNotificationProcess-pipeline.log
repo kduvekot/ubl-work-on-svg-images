@@ -1,0 +1,11 @@
+== UBL-2.0-PaymentNotificationProcess
+  scale 0.43212   frame 10px  divider 5px  action 5px  object 9px
+  font 51px (22.2 model)   3 lanes, 1 bands, 9 nodes, 9 edges -> review/baseline/UBL-2.0-PaymentNotificationProcess-spec.json
+  review/baseline/UBL-2.0-PaymentNotificationProcess.svg + .drawio + -classified.svg   (9 nodes, 9 edges)
+  rendered UBL-2.0-PaymentNotificationProcess.svg -> UBL-2.0-PaymentNotificationProcess-render.png @ 3425pxx2113, 600 dpi
+  aligned on ink bounds: scale x 1.0000, y 1.0000
+  size 3425x2113  radius 2
+  ink: original 265286   candidate 270553
+  MISSING (red)     5737  = 2.1626% of original ink
+  EXTRA   (blue)   11078  = 4.1759% of original ink
+  RESULT: DIFFERENCES - inspect review/baseline/UBL-2.0-PaymentNotificationProcess-diff-r2.png

@@ -1,0 +1,189 @@
+{
+ "schema": "ubl-activity-diagram/1",
+ "figure": {
+  "name": "UBL-2.0-PaymentNotificationProcess",
+  "source": "UBL-2.0-PaymentNotificationProcess.png"
+ },
+ "lanes": [
+  {
+   "id": "lane-accounting-customer",
+   "axis": "column",
+   "index": 0,
+   "title": "Accounting Customer"
+  },
+  {
+   "id": "lane-accounting-supplier",
+   "axis": "column",
+   "index": 1,
+   "title": "Accounting Supplier"
+  },
+  {
+   "id": "lane-payee-party",
+   "axis": "column",
+   "index": 2,
+   "title": "Payee Party"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "initial-accounting-customer",
+   "kind": "initial",
+   "label": "",
+   "lane": "lane-accounting-customer",
+   "linkedProcess": {
+    "name": "Billing",
+    "how": "starts-from"
+   }
+  },
+  {
+   "id": "action-authorize-payment",
+   "kind": "action",
+   "label": "Authorize Payment",
+   "lane": "lane-accounting-customer"
+  },
+  {
+   "id": "object-remittance-advice-between-accounting-customer-and-accounting-supplier",
+   "kind": "object",
+   "label": "Remittance\nAdvice",
+   "lane": null,
+   "between": [
+    "lane-accounting-customer",
+    "lane-accounting-supplier"
+   ]
+  },
+  {
+   "id": "action-receive-advice-in-accounting-supplier",
+   "kind": "action",
+   "label": "Receive Advice",
+   "lane": "lane-accounting-supplier"
+  },
+  {
+   "id": "action-notify-payee",
+   "kind": "action",
+   "label": "Notify Payee",
+   "lane": "lane-accounting-supplier"
+  },
+  {
+   "id": "action-notify-of-payment",
+   "kind": "action",
+   "label": "Notify of Payment",
+   "lane": "lane-accounting-customer"
+  },
+  {
+   "id": "object-remittance-advice-between-accounting-customer-and-accounting-supplier-and-payee-party",
+   "kind": "object",
+   "label": "Remittance\nAdvice",
+   "lane": null,
+   "between": [
+    "lane-accounting-customer",
+    "lane-accounting-supplier",
+    "lane-payee-party"
+   ]
+  },
+  {
+   "id": "action-receive-advice-in-payee-party",
+   "kind": "action",
+   "label": "Receive advice",
+   "lane": "lane-payee-party"
+  },
+  {
+   "id": "final-payee-party",
+   "kind": "final",
+   "label": "",
+   "lane": "lane-payee-party"
+  }
+ ],
+ "flows": [
+  {
+   "id": "flow-initial-accounting-customer-to-authorize-payment",
+   "from": "initial-accounting-customer",
+   "to": "action-authorize-payment",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-authorize-payment-to-notify-of-payment",
+   "from": "action-authorize-payment",
+   "to": "action-notify-of-payment",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-remittance-advice-between-accounting-customer-and-accounting-supplier-to-receive-advice-in-accounting-supplier",
+   "from": "object-remittance-advice-between-accounting-customer-and-accounting-supplier",
+   "to": "action-receive-advice-in-accounting-supplier",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-receive-advice-in-accounting-supplier-to-notify-payee",
+   "from": "action-receive-advice-in-accounting-supplier",
+   "to": "action-notify-payee",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-notify-of-payment-to-remittance-advice-between-accounting-customer-and-accounting-supplier",
+   "from": "action-notify-of-payment",
+   "to": "object-remittance-advice-between-accounting-customer-and-accounting-supplier",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-notify-payee-to-remittance-advice-between-accounting-customer-and-accounting-supplier-and-payee-party",
+   "from": "action-notify-payee",
+   "to": "object-remittance-advice-between-accounting-customer-and-accounting-supplier-and-payee-party",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-notify-of-payment-to-remittance-advice-between-accounting-customer-and-accounting-supplier-and-payee-party",
+   "from": "action-notify-of-payment",
+   "to": "object-remittance-advice-between-accounting-customer-and-accounting-supplier-and-payee-party",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-remittance-advice-between-accounting-customer-and-accounting-supplier-and-payee-party-to-receive-advice-in-payee-party",
+   "from": "object-remittance-advice-between-accounting-customer-and-accounting-supplier-and-payee-party",
+   "to": "action-receive-advice-in-payee-party",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-receive-advice-in-payee-party-to-final-payee-party",
+   "from": "action-receive-advice-in-payee-party",
+   "to": "final-payee-party",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  }
+ ],
+ "texts": [
+  {
+   "id": "text-from-billing",
+   "text": "From Billing",
+   "labels": "initial-accounting-customer"
+  }
+ ],
+ "offPage": [],
+ "marks": [],
+ "phases": []
+}

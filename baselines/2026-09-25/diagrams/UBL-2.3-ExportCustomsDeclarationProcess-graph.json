@@ -1,0 +1,915 @@
+{
+ "source": "UBL-2.3-ExportCustomsDeclarationProcess.png",
+ "size": [
+  1142,
+  1057
+ ],
+ "fontPx": 25.7,
+ "arrowPx": 22.0,
+ "arrowWidthPx": 18.2,
+ "arrowStyle": "filled",
+ "rules": {
+  "v": [
+   [
+    0,
+    5
+   ],
+   [
+    572,
+    2
+   ],
+   [
+    1137,
+    5
+   ]
+  ],
+  "h": [
+   [
+    0,
+    5
+   ],
+   [
+    63,
+    2
+   ],
+   [
+    1052,
+    5
+   ]
+  ]
+ },
+ "ruleSpan": {
+  "v": [
+   [
+    8,
+    1048
+   ],
+   [
+    8,
+    1048
+   ],
+   [
+    8,
+    1048
+   ]
+  ],
+  "h": [
+   [
+    8,
+    1133
+   ],
+   [
+    8,
+    1133
+   ],
+   [
+    8,
+    1133
+   ]
+  ]
+ },
+ "greyRules": [],
+ "dashed": [],
+ "openEnds": [],
+ "crossMarks": [],
+ "partitions": [
+  {
+   "axis": "column",
+   "index": 0,
+   "x0": 0,
+   "x1": 573,
+   "title": "Exporter party",
+   "titleBox": [
+    208,
+    30,
+    163,
+    23
+   ]
+  },
+  {
+   "axis": "column",
+   "index": 1,
+   "x0": 573,
+   "x1": 1142,
+   "title": "CustomsParty",
+   "titleBox": [
+    772,
+    30,
+    163,
+    23
+   ]
+  },
+  {
+   "axis": "band",
+   "index": 0,
+   "y0": 0,
+   "y1": 64,
+   "title": ""
+  },
+  {
+   "axis": "band",
+   "index": 1,
+   "y0": 64,
+   "y1": 1057,
+   "title": ""
+  }
+ ],
+ "nodes": [
+  {
+   "x": 248,
+   "y": 92,
+   "w": 46,
+   "h": 46,
+   "area": 1174,
+   "fill": 0.734,
+   "kind": "initial",
+   "id": "n1",
+   "label": "",
+   "col": 0,
+   "row": 1
+  },
+  {
+   "x": 454,
+   "y": 209,
+   "w": 239,
+   "h": 118,
+   "area": 25570,
+   "fill": 0.907,
+   "solid": 1.0,
+   "rx": 0,
+   "ry": 0,
+   "shape": "rect",
+   "stroke": 3,
+   "kind": "object",
+   "id": "n2",
+   "label": "Export Customs\nDeclaration",
+   "labelLines": [
+    {
+     "x": 480,
+     "y": 247,
+     "w": 186,
+     "h": 23,
+     "text": "Export Customs"
+    },
+    {
+     "x": 508,
+     "y": 271,
+     "w": 130,
+     "h": 18,
+     "text": "Declaration"
+    }
+   ],
+   "stem": 0.156,
+   "bold": true,
+   "col": 1,
+   "row": 1
+  },
+  {
+   "x": 158,
+   "y": 221,
+   "w": 226,
+   "h": 95,
+   "area": 18900,
+   "fill": 0.88,
+   "solid": 0.993,
+   "rx": 12,
+   "ry": 11,
+   "shape": "rounded",
+   "stroke": 2,
+   "kind": "action",
+   "id": "n3",
+   "label": "Draft\nExport Customs\nDeclaration",
+   "labelLines": [
+    {
+     "x": 250,
+     "y": 235,
+     "w": 50,
+     "h": 18,
+     "text": "Draft"
+    },
+    {
+     "x": 190,
+     "y": 259,
+     "w": 170,
+     "h": 23,
+     "text": "Export Customs"
+    },
+    {
+     "x": 215,
+     "y": 284,
+     "w": 119,
+     "h": 17,
+     "text": "Declaration"
+    }
+   ],
+   "stem": 0.078,
+   "bold": false,
+   "col": 0,
+   "row": 1
+  },
+  {
+   "x": 768,
+   "y": 221,
+   "w": 192,
+   "h": 95,
+   "area": 15416,
+   "fill": 0.845,
+   "solid": 0.992,
+   "rx": 12,
+   "ry": 14,
+   "shape": "rounded",
+   "stroke": 2,
+   "kind": "action",
+   "id": "n4",
+   "label": "Validate\nExport Customs\nDeclaration",
+   "labelLines": [
+    {
+     "x": 822,
+     "y": 235,
+     "w": 84,
+     "h": 18,
+     "text": "Validate"
+    },
+    {
+     "x": 779,
+     "y": 259,
+     "w": 170,
+     "h": 23,
+     "text": "Export Customs"
+    },
+    {
+     "x": 804,
+     "y": 284,
+     "w": 120,
+     "h": 17,
+     "text": "Declaration"
+    }
+   ],
+   "stem": 0.078,
+   "bold": false,
+   "col": 1,
+   "row": 1
+  },
+  {
+   "x": 788,
+   "y": 364,
+   "w": 157,
+   "h": 114,
+   "area": 8675,
+   "fill": 0.485,
+   "solid": 0.507,
+   "rx": 85,
+   "ry": 62,
+   "shape": "rhombus",
+   "stroke": 2,
+   "kind": "decision",
+   "id": "n5",
+   "label": "OK?",
+   "labelLines": [
+    {
+     "x": 842,
+     "y": 414,
+     "w": 47,
+     "h": 18,
+     "text": "OK?"
+    }
+   ],
+   "stem": 0.117,
+   "bold": true,
+   "col": 1,
+   "row": 1
+  },
+  {
+   "x": 454,
+   "y": 562,
+   "w": 239,
+   "h": 118,
+   "area": 25564,
+   "fill": 0.906,
+   "solid": 1.0,
+   "rx": 0,
+   "ry": 0,
+   "shape": "rect",
+   "stroke": 4,
+   "kind": "object",
+   "id": "n6",
+   "label": "Export Customs\nDeclaration",
+   "labelLines": [
+    {
+     "x": 480,
+     "y": 599,
+     "w": 186,
+     "h": 23,
+     "text": "Export Customs"
+    },
+    {
+     "x": 508,
+     "y": 624,
+     "w": 130,
+     "h": 18,
+     "text": "Declaration"
+    }
+   ],
+   "stem": 0.156,
+   "bold": true,
+   "col": 1,
+   "row": 1
+  },
+  {
+   "x": 166,
+   "y": 569,
+   "w": 210,
+   "h": 103,
+   "area": 18910,
+   "fill": 0.874,
+   "solid": 0.992,
+   "rx": 14,
+   "ry": 13,
+   "shape": "rounded",
+   "stroke": 2,
+   "kind": "action",
+   "id": "n7",
+   "label": "Receive\nExport Customs\nDeclaration",
+   "labelLines": [
+    {
+     "x": 229,
+     "y": 588,
+     "w": 84,
+     "h": 17,
+     "text": "Receive"
+    },
+    {
+     "x": 186,
+     "y": 611,
+     "w": 170,
+     "h": 23,
+     "text": "Export Customs"
+    },
+    {
+     "x": 211,
+     "y": 636,
+     "w": 119,
+     "h": 18,
+     "text": "Declaration"
+    }
+   ],
+   "stem": 0.078,
+   "bold": false,
+   "col": 0,
+   "row": 1
+  },
+  {
+   "x": 770,
+   "y": 569,
+   "w": 190,
+   "h": 103,
+   "area": 17379,
+   "fill": 0.888,
+   "solid": 0.991,
+   "rx": 15,
+   "ry": 15,
+   "shape": "rounded",
+   "stroke": 2,
+   "kind": "action",
+   "id": "n8",
+   "label": "Apply stamps\nand signature",
+   "labelLines": [
+    {
+     "x": 792,
+     "y": 597,
+     "w": 144,
+     "h": 23,
+     "text": "Apply stamps"
+    },
+    {
+     "x": 791,
+     "y": 621,
+     "w": 145,
+     "h": 23,
+     "text": "and signature"
+    }
+   ],
+   "stem": 0.078,
+   "bold": false,
+   "col": 1,
+   "row": 1
+  },
+  {
+   "x": 454,
+   "y": 764,
+   "w": 239,
+   "h": 118,
+   "area": 26337,
+   "fill": 0.934,
+   "solid": 1.0,
+   "rx": 0,
+   "ry": 0,
+   "shape": "rect",
+   "stroke": 3,
+   "kind": "object",
+   "id": "n9",
+   "label": "Application response",
+   "labelLines": [
+    {
+     "x": 457,
+     "y": 817,
+     "w": 233,
+     "h": 22,
+     "text": "Application response"
+    }
+   ],
+   "stem": 0.156,
+   "bold": true,
+   "col": 1,
+   "row": 1
+  },
+  {
+   "x": 166,
+   "y": 771,
+   "w": 210,
+   "h": 104,
+   "area": 20685,
+   "fill": 0.947,
+   "solid": 0.991,
+   "rx": 17,
+   "ry": 13,
+   "shape": "rounded",
+   "stroke": 2,
+   "kind": "action",
+   "id": "n10",
+   "label": "Receive reject",
+   "labelLines": [
+    {
+     "x": 196,
+     "y": 817,
+     "w": 151,
+     "h": 22,
+     "text": "Receive reject"
+    }
+   ],
+   "stem": 0.078,
+   "bold": false,
+   "col": 0,
+   "row": 1
+  },
+  {
+   "x": 772,
+   "y": 771,
+   "w": 190,
+   "h": 104,
+   "area": 18783,
+   "fill": 0.951,
+   "solid": 0.989,
+   "rx": 17,
+   "ry": 17,
+   "shape": "rounded",
+   "stroke": 2,
+   "kind": "action",
+   "id": "n11",
+   "label": "Send reject",
+   "labelLines": [
+    {
+     "x": 807,
+     "y": 816,
+     "w": 121,
+     "h": 23,
+     "text": "Send reject"
+    }
+   ],
+   "stem": 0.078,
+   "bold": false,
+   "col": 1,
+   "row": 1
+  },
+  {
+   "x": 79,
+   "y": 953,
+   "w": 58,
+   "h": 59,
+   "area": 1006,
+   "fill": 0.294,
+   "solid": 0.789,
+   "rx": 31,
+   "ry": 28,
+   "shape": "ellipse",
+   "stroke": 0,
+   "kind": "final",
+   "innerRatio": 0.793,
+   "id": "n12",
+   "label": "",
+   "col": 0,
+   "row": 1
+  }
+ ],
+ "edges": [
+  {
+   "from": "n1",
+   "to": "n3",
+   "routing": "straight",
+   "fromPoint": [
+    270,
+    152
+   ],
+   "toPoint": [
+    270,
+    206
+   ],
+   "arrowInk": [
+    121,
+    237
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    25,
+    18.0,
+    1.65
+   ],
+   "arrowFill": 0.889,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n3",
+   "to": "n2",
+   "routing": "straight",
+   "fromPoint": [
+    398,
+    268
+   ],
+   "toPoint": [
+    439,
+    268
+   ],
+   "arrowInk": [
+    246,
+    246
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    24,
+    18.0,
+    1.7
+   ],
+   "arrowFill": 0.942,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n2",
+   "to": "n4",
+   "routing": "straight",
+   "fromPoint": [
+    707,
+    268
+   ],
+   "toPoint": [
+    753,
+    268
+   ],
+   "arrowInk": [
+    253,
+    266
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    24,
+    18.0,
+    1.88
+   ],
+   "arrowFill": 0.942,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n4",
+   "to": "n5",
+   "routing": "straight",
+   "fromPoint": [
+    865,
+    330
+   ],
+   "toPoint": [
+    866,
+    349
+   ],
+   "arrowInk": [
+    157,
+    157
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    9,
+    18.9,
+    1.54
+   ],
+   "arrowFill": 0.5,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n5",
+   "to": "n11",
+   "routing": "orthogonal",
+   "fromPoint": [
+    959,
+    420
+   ],
+   "toPoint": [
+    976,
+    824
+   ],
+   "arrowInk": [
+    135,
+    312
+   ],
+   "directionConfidence": "high",
+   "points": [
+    [
+     1020,
+     420
+    ],
+    [
+     1020,
+     824
+    ]
+   ],
+   "arrowPx": [
+    22,
+    18.5,
+    1.51
+   ],
+   "arrowFill": 0.923,
+   "guard": "No",
+   "edgeKind": "control"
+  },
+  {
+   "from": "n5",
+   "to": "n8",
+   "routing": "straight",
+   "fromPoint": [
+    866,
+    492
+   ],
+   "toPoint": [
+    865,
+    554
+   ],
+   "arrowInk": [
+    189,
+    356
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    23,
+    19.6,
+    1.77
+   ],
+   "arrowFill": 1.0,
+   "guard": "Yes",
+   "edgeKind": "control"
+  },
+  {
+   "from": "n6",
+   "to": "n7",
+   "routing": "straight",
+   "fromPoint": [
+    439,
+    621
+   ],
+   "toPoint": [
+    390,
+    620
+   ],
+   "arrowInk": [
+    188,
+    227
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    22,
+    18.4,
+    1.71
+   ],
+   "arrowFill": 1.0,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n8",
+   "to": "n6",
+   "routing": "straight",
+   "fromPoint": [
+    755,
+    620
+   ],
+   "toPoint": [
+    707,
+    621
+   ],
+   "arrowInk": [
+    176,
+    208
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    20,
+    19.7,
+    1.85
+   ],
+   "arrowFill": 0.929,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n7",
+   "to": "n12",
+   "routing": "orthogonal",
+   "fromPoint": [
+    151,
+    620
+   ],
+   "toPoint": [
+    108,
+    938
+   ],
+   "arrowInk": [
+    142,
+    176
+   ],
+   "directionConfidence": "high",
+   "points": [
+    [
+     108,
+     620
+    ]
+   ],
+   "arrowPx": [
+    31,
+    12.1,
+    0.75
+   ],
+   "arrowSaturated": true,
+   "arrowFill": 0.316,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n9",
+   "to": "n10",
+   "routing": "straight",
+   "fromPoint": [
+    439,
+    822
+   ],
+   "toPoint": [
+    390,
+    822
+   ],
+   "arrowInk": [
+    188,
+    226
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    22,
+    18.0,
+    1.68
+   ],
+   "arrowFill": 1.0,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n11",
+   "to": "n9",
+   "routing": "straight",
+   "fromPoint": [
+    757,
+    824
+   ],
+   "toPoint": [
+    707,
+    824
+   ],
+   "arrowInk": [
+    150,
+    209
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    20,
+    20.0,
+    1.85
+   ],
+   "arrowFill": 0.883,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n10",
+   "to": "n12",
+   "routing": "orthogonal",
+   "fromPoint": [
+    272,
+    889
+   ],
+   "toPoint": [
+    153,
+    982
+   ],
+   "arrowInk": [
+    90,
+    151
+   ],
+   "directionConfidence": "high",
+   "points": [
+    [
+     272,
+     982
+    ]
+   ],
+   "arrowPx": [
+    19,
+    12.1,
+    0.69
+   ],
+   "arrowFill": 0.4,
+   "edgeKind": "control"
+  }
+ ],
+ "text": [
+  {
+   "text": "Exporter party",
+   "x": 208,
+   "y": 30,
+   "w": 163,
+   "h": 23,
+   "lines": [
+    {
+     "x": 208,
+     "y": 30,
+     "w": 163,
+     "h": 23,
+     "text": "Exporter party"
+    }
+   ]
+  },
+  {
+   "text": "CustomsParty",
+   "x": 772,
+   "y": 30,
+   "w": 163,
+   "h": 23,
+   "lines": [
+    {
+     "x": 772,
+     "y": 30,
+     "w": 163,
+     "h": 23,
+     "text": "CustomsParty"
+    }
+   ]
+  },
+  {
+   "text": "Yes",
+   "x": 805,
+   "y": 506,
+   "w": 34,
+   "h": 17,
+   "lines": [
+    {
+     "x": 805,
+     "y": 506,
+     "w": 34,
+     "h": 17,
+     "text": "Yes"
+    }
+   ],
+   "attachedTo": "n5->n8"
+  },
+  {
+   "text": "No",
+   "x": 1031,
+   "y": 592,
+   "w": 26,
+   "h": 16,
+   "lines": [
+    {
+     "x": 1031,
+     "y": 592,
+     "w": 26,
+     "h": 16,
+     "text": "No"
+    }
+   ],
+   "attachedTo": "n5->n11"
+  }
+ ],
+ "uncertain": [
+  {
+   "kind": "no-weight-split",
+   "reason": "all 9 box strokes are one weight ([2, 3, 4]), so no object node could be identified",
+   "check": "confirm the diagram really has no object nodes"
+  },
+  {
+   "kind": "ring-stroke-unreadable",
+   "x": 79,
+   "y": 953,
+   "w": 58,
+   "h": 59,
+   "reason": "line-work runs off this activity final on more than one side, so its ring thickness could not be measured",
+   "check": "confirm this is an activity final and how thick its ring is"
+  }
+ ]
+}

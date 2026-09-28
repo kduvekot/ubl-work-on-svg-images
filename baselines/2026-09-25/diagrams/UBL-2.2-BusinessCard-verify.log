@@ -1,0 +1,7 @@
+  verdict: NEEDS-HUMAN
+  structural: 0 element(s) absent, 0 invented, 0 text absent, 0 text differs, 0 incoherent
+  line-work  missing 76 px (0.050%)   invented 100 px (0.066%)   radius 3
+  needs a person (2):
+    no-weight-split     confirm the diagram really has no object nodes
+    mark-across-rule   at 1655,634  name this notation - the SVG carries it as line-work only
+review/baseline/UBL-2.2-BusinessCard-marked.png + review/baseline/UBL-2.2-BusinessCard-marked-lost.png  (2 finding(s) numbered)

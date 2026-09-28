@@ -1,0 +1,212 @@
+{
+ "canvas": {
+  "w": 1480.0,
+  "h": 644.718
+ },
+ "stroke": {
+  "frame": 4.3,
+  "divider": 2.6,
+  "action": 3.0,
+  "object": 5.6,
+  "edge": 3.0
+ },
+ "font": {
+  "family": "Helvetica, Arial, sans-serif",
+  "node": 35.8,
+  "lane": 35.8,
+  "guard": 35.8
+ },
+ "arrow": 44.8,
+ "arrowWidth": 35.6,
+ "arrowStyle": "open",
+ "dashed": [],
+ "greyRules": [],
+ "crossMarks": [],
+ "openEnds": [],
+ "frameBox": [
+  2.2,
+  2.2,
+  1477.8,
+  642.6
+ ],
+ "dividers": [
+  [
+   720.3,
+   2.6,
+   5.6,
+   639.1
+  ]
+ ],
+ "bands": [],
+ "lanes": [
+  {
+   "id": "lane-producer",
+   "title": "Producer",
+   "x": 0.0,
+   "w": 720.3,
+   "cx": 335.1,
+   "cy": 34.8,
+   "size": 34.4,
+   "textWidth": 134.4,
+   "baseline": 47.1
+  },
+  {
+   "id": "lane-retailer",
+   "title": "Retailer",
+   "x": 720.3,
+   "w": 759.7,
+   "cx": 1092.6,
+   "cy": 33.5,
+   "size": 34.4,
+   "textWidth": 113.6,
+   "baseline": 45.8
+  }
+ ],
+ "bandLabels": [],
+ "captions": [],
+ "nodes": [
+  {
+   "id": "initial-producer",
+   "kind": "initial",
+   "label": "",
+   "x": 187.5,
+   "y": 83.8,
+   "w": 51.9,
+   "h": 52.3
+  },
+  {
+   "id": "object-catalogue",
+   "kind": "object",
+   "label": "Catalogue",
+   "x": 608.6,
+   "y": 339.4,
+   "w": 220.8,
+   "h": 90.7,
+   "labelLines": [
+    {
+     "text": "Catalogue",
+     "cx": 720.1,
+     "cy": 381.725,
+     "w": 160.3,
+     "size": 34.5
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-receive-catalogue",
+   "kind": "action",
+   "label": "Receive Catalogue",
+   "x": 1093.5,
+   "y": 342.0,
+   "w": 347.9,
+   "h": 83.0,
+   "rx": 41.3,
+   "ry": 30.5,
+   "labelLines": [
+    {
+     "text": "Receive Catalogue",
+     "cx": 1262.2,
+     "cy": 381.725,
+     "w": 296.4,
+     "size": 34.5
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-send-catalogue",
+   "kind": "action",
+   "label": "Send Catalogue",
+   "x": 38.2,
+   "y": 344.6,
+   "w": 347.9,
+   "h": 83.0,
+   "rx": 41.3,
+   "ry": 28.3,
+   "labelLines": [
+    {
+     "text": "Send Catalogue",
+     "cx": 207.2,
+     "cy": 384.225,
+     "w": 252.8,
+     "size": 34.5
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "final-retailer",
+   "kind": "final",
+   "label": "",
+   "x": 1244.1,
+   "y": 573.0,
+   "w": 49.3,
+   "h": 48.8,
+   "innerRatio": 0.444
+  }
+ ],
+ "edges": [
+  {
+   "id": "flow-initial-producer-to-send-catalogue",
+   "from": "initial-producer",
+   "to": "action-send-catalogue",
+   "exitXY": [
+    0.4759,
+    1.0
+   ],
+   "entryXY": [
+    0.5001,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-catalogue-to-receive-catalogue",
+   "from": "object-catalogue",
+   "to": "action-receive-catalogue",
+   "exitXY": [
+    1.0,
+    0.484
+   ],
+   "entryXY": [
+    0.0,
+    0.4976
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-send-catalogue-to-catalogue",
+   "from": "action-send-catalogue",
+   "to": "object-catalogue",
+   "exitXY": [
+    1.0,
+    0.4976
+   ],
+   "entryXY": [
+    0.0,
+    0.5127
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-receive-catalogue-to-final-retailer",
+   "from": "action-receive-catalogue",
+   "to": "final-retailer",
+   "exitXY": [
+    0.4987,
+    1.0
+   ],
+   "entryXY": [
+    0.4807,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  }
+ ],
+ "guards": []
+}

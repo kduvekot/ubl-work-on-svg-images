@@ -1,0 +1,41 @@
+MODEL  UBL-2.2-CPFR-CreateOrderForecast
+  10 action, 1 decision, 2 fork, 5 object, 20 flows, 3 partitions
+
+FLOW
+  === bar ===   [No]
+    -No-> Send Product Activity   [No]
+    -> [Product Activity]   [Create Order Forecast]
+    -> === bar ===   [Create Order Forecast]
+    -> Receive   [Create Order Forecast]
+    -> Send Order Forecast   [Create Order Forecast]
+    -> [Forecast (order)]   [Create Order Forecast]
+    -> Receive Order Forecast   [No]
+    -> Revise Order Forecast and Send Revision   [No]
+    -> [Forecast Revision (order)]   [No]
+      -> Receive Order Forecast   [Create Order Forecast]
+      -> Revise Order Forecast and Resend Revision   [Create Order Forecast]
+      -> [Forecast Revision (order)]   [No]
+      -> Receive Revision   [No]
+      -> <?>   [No]
+        -No-> Revise Order Forecast and Send Revision   [No]
+        -Yes-> Send Order Forecast   [No]
+        -> [Forecast (order - positive response)]   [Create Order Forecast]
+    -No-> Send Retail Event   [No]
+    -> [Retail Event]   [Create Order Forecast]
+    -> === bar ===   [Create Order Forecast]
+
+  === bar ===   [No]
+
+CHECKS
+  ok   every element is connected
+  ok   start events have a way out and no way in
+  ok   end events have a way in and no way out
+  ok   decisions have at least two ways out
+  ok   branches out of a decision are labelled   (informational: several diagrams draw an unlabelled branch, so read these against the artwork rather than treating them as errors)
+  note documents are both written and read   (informational - read against the artwork and found to be the drawing's own)
+        - [Forecast (order - positive response)]
+  ok   no flow runs straight from one document to another
+  ok   work crossing between parties goes through a document   (informational: UBL draws the hand-over as a document on the divider, and each exception below is named)
+  ok   every flow's direction was read with confidence
+  ok   every action passes its work on   (informational: several diagrams do end on an action, so read these against the artwork rather than treating them as errors)
+  ok   every element is reachable from a start event

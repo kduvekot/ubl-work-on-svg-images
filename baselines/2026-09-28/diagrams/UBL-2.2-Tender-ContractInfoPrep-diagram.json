@@ -1,0 +1,325 @@
+{
+ "schema": "ubl-activity-diagram/1",
+ "figure": {
+  "name": "UBL-2.2-Tender-ContractInfoPrep",
+  "source": "UBL-2.2-Tender-ContractInfoPrep.png"
+ },
+ "lanes": [
+  {
+   "id": "lane-contracting-authority",
+   "axis": "column",
+   "index": 0,
+   "title": "Contracting Authority"
+  },
+  {
+   "id": "lane-publication-office",
+   "axis": "column",
+   "index": 1,
+   "title": "Publication Office"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "initial-contracting-authority",
+   "kind": "initial",
+   "label": "",
+   "lane": "lane-contracting-authority"
+  },
+  {
+   "id": "action-prepare-prior-notice",
+   "kind": "action",
+   "label": "Prepare Prior Notice",
+   "lane": "lane-contracting-authority"
+  },
+  {
+   "id": "object-prior-information-notice-between-contracting-authority-and-publication-office",
+   "kind": "object",
+   "label": "Prior\nInformation\nNotice",
+   "lane": null,
+   "between": [
+    "lane-contracting-authority",
+    "lane-publication-office"
+   ]
+  },
+  {
+   "id": "action-validate-prior-information-notice",
+   "kind": "action",
+   "label": "Validate Prior\nInformation Notice",
+   "lane": "lane-publication-office"
+  },
+  {
+   "id": "decision-contracting-authority",
+   "kind": "decision",
+   "label": "",
+   "lane": "lane-contracting-authority",
+   "question": "Above Thresholds?"
+  },
+  {
+   "id": "decision-ok-in-publication-office",
+   "kind": "decision",
+   "label": "OK?",
+   "lane": "lane-publication-office"
+  },
+  {
+   "id": "action-publish-prior-information-notice",
+   "kind": "action",
+   "label": "Publish Prior\nInformation Notice",
+   "lane": "lane-publication-office"
+  },
+  {
+   "id": "final-publication-office",
+   "kind": "final",
+   "label": "",
+   "lane": "lane-publication-office"
+  },
+  {
+   "id": "action-publish-in-buyer-profile",
+   "kind": "action",
+   "label": "Publish in Buyer Profile",
+   "lane": "lane-contracting-authority"
+  },
+  {
+   "id": "object-prior-information-notice-between-contracting-authority-and-publication-office-2",
+   "kind": "object",
+   "label": "Prior\nInformation\nNotice",
+   "lane": null,
+   "between": [
+    "lane-contracting-authority",
+    "lane-publication-office"
+   ]
+  },
+  {
+   "id": "action-validate-simplified-notice",
+   "kind": "action",
+   "label": "Validate Simplified Notice",
+   "lane": "lane-publication-office"
+  },
+  {
+   "id": "action-prepare-simplified-notice",
+   "kind": "action",
+   "label": "Prepare Simplified Notice",
+   "lane": "lane-contracting-authority"
+  },
+  {
+   "id": "decision-ok-in-publication-office-2",
+   "kind": "decision",
+   "label": "OK?",
+   "lane": "lane-publication-office"
+  },
+  {
+   "id": "action-publish-simplified-notice",
+   "kind": "action",
+   "label": "Publish Simplified Notice",
+   "lane": "lane-publication-office"
+  },
+  {
+   "id": "final-publication-office-2",
+   "kind": "final",
+   "label": "",
+   "lane": "lane-publication-office"
+  }
+ ],
+ "flows": [
+  {
+   "id": "flow-initial-contracting-authority-to-prepare-prior-notice",
+   "from": "initial-contracting-authority",
+   "to": "action-prepare-prior-notice",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-ok-in-publication-office-to-prepare-prior-notice",
+   "from": "decision-ok-in-publication-office",
+   "to": "action-prepare-prior-notice",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   },
+   "guard": "text-no-2"
+  },
+  {
+   "id": "flow-prepare-prior-notice-to-decision-contracting-authority",
+   "from": "action-prepare-prior-notice",
+   "to": "decision-contracting-authority",
+   "kind": "control",
+   "direction": {
+    "confidence": "medium",
+    "checked": "confirmed"
+   }
+  },
+  {
+   "id": "flow-prior-information-notice-between-contracting-authority-and-publication-office-to-validate-prior-information-notice",
+   "from": "object-prior-information-notice-between-contracting-authority-and-publication-office",
+   "to": "action-validate-prior-information-notice",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-decision-contracting-authority-to-prior-information-notice-between-contracting-authority-and-publication-office",
+   "from": "decision-contracting-authority",
+   "to": "object-prior-information-notice-between-contracting-authority-and-publication-office",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   },
+   "guard": "text-yes"
+  },
+  {
+   "id": "flow-decision-contracting-authority-to-publish-in-buyer-profile",
+   "from": "decision-contracting-authority",
+   "to": "action-publish-in-buyer-profile",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   },
+   "guard": "text-no"
+  },
+  {
+   "id": "flow-validate-prior-information-notice-to-ok-in-publication-office",
+   "from": "action-validate-prior-information-notice",
+   "to": "decision-ok-in-publication-office",
+   "kind": "control",
+   "direction": {
+    "confidence": "checked",
+    "checked": "confirmed"
+   }
+  },
+  {
+   "id": "flow-ok-in-publication-office-to-publish-prior-information-notice",
+   "from": "decision-ok-in-publication-office",
+   "to": "action-publish-prior-information-notice",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   },
+   "guard": "text-yes-2"
+  },
+  {
+   "id": "flow-publish-prior-information-notice-to-final-publication-office",
+   "from": "action-publish-prior-information-notice",
+   "to": "final-publication-office",
+   "kind": "control",
+   "direction": {
+    "confidence": "notation"
+   }
+  },
+  {
+   "id": "flow-publish-in-buyer-profile-to-prepare-simplified-notice",
+   "from": "action-publish-in-buyer-profile",
+   "to": "action-prepare-simplified-notice",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-prior-information-notice-between-contracting-authority-and-publication-office-2-to-validate-simplified-notice",
+   "from": "object-prior-information-notice-between-contracting-authority-and-publication-office-2",
+   "to": "action-validate-simplified-notice",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-prepare-simplified-notice-to-prior-information-notice-between-contracting-authority-and-publication-office-2",
+   "from": "action-prepare-simplified-notice",
+   "to": "object-prior-information-notice-between-contracting-authority-and-publication-office-2",
+   "kind": "object",
+   "direction": {
+    "confidence": "medium",
+    "checked": "confirmed"
+   }
+  },
+  {
+   "id": "flow-validate-simplified-notice-to-ok-in-publication-office-2",
+   "from": "action-validate-simplified-notice",
+   "to": "decision-ok-in-publication-office-2",
+   "kind": "control",
+   "direction": {
+    "confidence": "medium",
+    "checked": "confirmed"
+   }
+  },
+  {
+   "id": "flow-ok-in-publication-office-2-to-prepare-simplified-notice",
+   "from": "decision-ok-in-publication-office-2",
+   "to": "action-prepare-simplified-notice",
+   "kind": "control",
+   "direction": {
+    "confidence": "medium",
+    "checked": "confirmed"
+   },
+   "guard": "text-no-3"
+  },
+  {
+   "id": "flow-ok-in-publication-office-2-to-publish-simplified-notice",
+   "from": "decision-ok-in-publication-office-2",
+   "to": "action-publish-simplified-notice",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   },
+   "guard": "text-yes-3"
+  },
+  {
+   "id": "flow-publish-simplified-notice-to-final-publication-office-2",
+   "from": "action-publish-simplified-notice",
+   "to": "final-publication-office-2",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  }
+ ],
+ "texts": [
+  {
+   "id": "text-yes",
+   "text": "Yes",
+   "labels": "flow-decision-contracting-authority-to-prior-information-notice-between-contracting-authority-and-publication-office"
+  },
+  {
+   "id": "text-above-thresholds",
+   "text": "Above\nThresholds?",
+   "labels": "decision-contracting-authority"
+  },
+  {
+   "id": "text-no",
+   "text": "No",
+   "labels": "flow-decision-contracting-authority-to-publish-in-buyer-profile"
+  },
+  {
+   "id": "text-no-2",
+   "text": "No",
+   "labels": "flow-ok-in-publication-office-to-prepare-prior-notice"
+  },
+  {
+   "id": "text-yes-2",
+   "text": "Yes",
+   "labels": "flow-ok-in-publication-office-to-publish-prior-information-notice"
+  },
+  {
+   "id": "text-publish-official-journal",
+   "text": "Publish Official\nJournal",
+   "labels": "flow-prepare-simplified-notice-to-prior-information-notice-between-contracting-authority-and-publication-office-2",
+   "role": "purpose"
+  },
+  {
+   "id": "text-no-3",
+   "text": "No",
+   "labels": "flow-ok-in-publication-office-2-to-prepare-simplified-notice"
+  },
+  {
+   "id": "text-yes-3",
+   "text": "Yes",
+   "labels": "flow-ok-in-publication-office-2-to-publish-simplified-notice"
+  }
+ ],
+ "offPage": [],
+ "marks": [],
+ "phases": []
+}

@@ -1,0 +1,19 @@
+  verdict: NEEDS-HUMAN
+  structural: 0 element(s) absent, 0 invented, 0 text absent, 0 text differs, 0 incoherent
+  line-work  missing 1842 px (1.019%)   invented 1288 px (0.712%)   radius 3
+    line-work-missing      227 px at  2542,847     46x33    on node n4 (action 'Receive Invoice')
+    line-work-missing      226 px at  2542,691     49x34    on node n4 (action 'Receive Invoice')
+    line-work-missing      221 px at   837,841     46x33    on node n3 (action 'Raise Invoice')
+    line-work-missing      220 px at   837,686     46x33    on node n3 (action 'Raise Invoice')
+    line-work-missing      216 px at    85,686     46x32    on node n3 (action 'Raise Invoice')
+    line-work-missing      216 px at  3294,692     46x34    on node n4 (action 'Receive Invoice')
+    line-work-missing      216 px at  3294,847     46x33    on node n4 (action 'Receive Invoice')
+    line-work-missing      211 px at    85,842     46x32    on node n3 (action 'Raise Invoice')
+    line-work-invented     165 px at   833,838     40x27    on node n3 (action 'Raise Invoice')
+    line-work-invented     161 px at  3293,843     37x27    on node n4 (action 'Receive Invoice')
+    line-work-invented     159 px at  3293,702     37x27    on node n4 (action 'Receive Invoice')
+    line-work-invented     158 px at  2552,844     37x26    on node n4 (action 'Receive Invoice')
+    ... and 4 more line-work findings
+  needs a person (1):
+    kept-on-outline    at 1403,679  confirm this is a node and not trapped whitespace
+review/baseline/UBL-2.2-VMI-Invoicing-marked.png + review/baseline/UBL-2.2-VMI-Invoicing-marked-lost.png  (1 finding(s) numbered)

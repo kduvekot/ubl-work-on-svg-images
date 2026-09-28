@@ -1,0 +1,61 @@
+image 3425x2282
+
+PARTITION RULES
+   vertical  : [(0, 10), (1869, 12), (3415, 10)]
+   horizontal: [(0, 10), (2272, 10)]
+   -> 2 column(s) x 1 band(s)
+   type measured off the page: a word is 57px tall
+   (dropped x=10    y=10    1859x2262  is a partition cell)
+   (dropped x=1881  y=10    1534x2262  is a partition cell)
+   (kept    x=1652  y=862    427x442   own outline, iou 1.00 border 1.00, despite pass-through line-work)
+   (dropped x=1881  y=1089   940x551   outline matches no UML node shape (best rhombus 0.65, and 0.99 is the most this shape can reach at this size))
+   object nodes are those stroked heavier than 8.5px
+
+NODES
+   n1   action    x=900   y=78    w=31    h=43    stroke=5   fill=0.90  ''
+   n2   action    x=2202  y=78    w=38    h=44    stroke=7   fill=0.82  ''
+   n3   action    x=2951  y=78    w=38    h=44    stroke=7   fill=0.82  ''
+   n4   initial   x=715   y=273   w=122   h=122   stroke=0   fill=0.77  ''
+   n5   action    x=106   y=558   w=1340  h=206   stroke=13  fill=0.89  'Prepare qualification document'
+   n6   object    x=1652  y=862   w=427   h=442   stroke=12  fill=0.92  'Tenderer\nQualification'
+   n7   action    x=2318  y=933   w=1013  h=304   stroke=12  fill=0.89  'Evaluate Qualification\ndocument'
+   n8   action    x=94    y=983   w=1366  h=207   stroke=13  fill=0.89  'Submit Qualification document'
+   n9   action    x=2795  y=1010  w=38    h=45    stroke=7   fill=0.77  ''
+   n10  action    x=524   y=1060  w=38    h=45    stroke=7   fill=0.76  ''
+   n11  object    x=1641  y=1431  w=411   h=425   stroke=13  fill=0.87  'Tenderer\nQualification\nResponse'
+   n12  action    x=2362  y=1491  w=924   h=304   stroke=13  fill=0.89  'Submit Qualification\nresult'
+   n13  action    x=446   y=1535  w=660   h=207   stroke=12  fill=0.86  'Receive result'
+   n14  action    x=2750  y=1568  w=38    h=44    stroke=7   fill=0.78  ''
+   n15  final     x=691   y=2012  w=170   h=171   stroke=12  fill=0.38  ''
+
+TYPE  cap height 56px over 213 glyphs -> font 80.0px
+   (dropped x=900   y=78      31x43    smaller than one character of 80px type - a letter counter, not a node)
+   (dropped x=2202  y=78      38x44    smaller than one character of 80px type - a letter counter, not a node)
+   (dropped x=2951  y=78      38x44    smaller than one character of 80px type - a letter counter, not a node)
+   (dropped x=2795  y=1010    38x45    smaller than one character of 80px type - a letter counter, not a node)
+   (dropped x=524   y=1060    38x45    smaller than one character of 80px type - a letter counter, not a node)
+   (dropped x=2750  y=1568    38x44    smaller than one character of 80px type - a letter counter, not a node)
+   rejoined 2 line break(s) of up to 144px, where a label sits on the line
+
+EDGES
+   n4   -> n5    straight    arrowhead  1329 vs 540    ratio 4.0  high
+   n5   -> n8    straight    arrowhead  1345 vs 549    ratio 4.0  high
+   n8   -> n6    straight    arrowhead  1343 vs 555    ratio 4.0  high
+   n6   -> n7    straight    arrowhead  1339 vs 570    ratio 4.0  high
+   n7   -> n12   straight    arrowhead  1347 vs 585    ratio 4.0  high
+   n11  -> n13   straight    arrowhead  1290 vs 553    ratio 4.0  high
+   n12  -> n11   straight    arrowhead  1311 vs 552    ratio 4.0  high
+   n13  -> n15   straight    arrowhead  1158 vs 540    ratio 2.1  medium
+
+TEXT (titles, guards, notes)
+   'CONTRACTING AUTHORITY'                  x=2138  y=71    
+   'TENDERER'                               x=733   y=72    
+
+PARTITIONS
+   column 0  'TENDERER'
+   column 1  'CONTRACTING AUTHORITY'
+   band   0  ''
+
+ARROWHEAD  69 x 71px, open, measured on 7 connector(s)
+
+wrote review/baseline/UBL-2.2-Tender-QualificationInfo-graph.json   (9 nodes, 8 edges, 8 flagged for a human)

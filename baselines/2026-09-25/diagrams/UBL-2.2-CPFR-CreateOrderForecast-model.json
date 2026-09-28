@@ -1,0 +1,116 @@
+{
+ "name": "UBL-2.2-CPFR-CreateOrderForecast",
+ "counts": {
+  "fork": 2,
+  "action": 10,
+  "object": 5,
+  "decision": 1
+ },
+ "flow": [
+  "=== bar ===   [No]",
+  "  -No-> Send Product Activity   [No]",
+  "  -> [Product Activity]   [Create Order Forecast]",
+  "  -> === bar ===   [Create Order Forecast]",
+  "  -> Receive   [Create Order Forecast]",
+  "  -> Send Order Forecast   [Create Order Forecast]",
+  "  -> [Forecast (order)]   [Create Order Forecast]",
+  "  -> Receive Order Forecast   [No]",
+  "  -> Revise Order Forecast and Send Revision   [No]",
+  "  -> [Forecast Revision (order)]   [No]",
+  "    -> Receive Order Forecast   [Create Order Forecast]",
+  "    -> Revise Order Forecast and Resend Revision   [Create Order Forecast]",
+  "    -> [Forecast Revision (order)]   [No]",
+  "    -> Receive Revision   [No]",
+  "    -> <?>   [No]",
+  "      -No-> Revise Order Forecast and Send Revision   [No]",
+  "      -Yes-> Send Order Forecast   [No]",
+  "      -> [Forecast (order - positive response)]   [Create Order Forecast]",
+  "  -No-> Send Retail Event   [No]",
+  "  -> [Retail Event]   [Create Order Forecast]",
+  "  -> === bar ===   [Create Order Forecast]",
+  "",
+  "=== bar ===   [No]",
+  ""
+ ],
+ "checks": [
+  {
+   "rule": "every element is connected",
+   "ok": true,
+   "bad": [],
+   "note": "",
+   "report": false
+  },
+  {
+   "rule": "start events have a way out and no way in",
+   "ok": true,
+   "bad": [],
+   "note": "",
+   "report": false
+  },
+  {
+   "rule": "end events have a way in and no way out",
+   "ok": true,
+   "bad": [],
+   "note": "",
+   "report": false
+  },
+  {
+   "rule": "decisions have at least two ways out",
+   "ok": true,
+   "bad": [],
+   "note": "",
+   "report": false
+  },
+  {
+   "rule": "branches out of a decision are labelled",
+   "ok": true,
+   "bad": [],
+   "note": "informational: several diagrams draw an unlabelled branch, so read these against the artwork rather than treating them as errors",
+   "report": true
+  },
+  {
+   "rule": "documents are both written and read",
+   "ok": true,
+   "bad": [
+    "[Forecast (order - positive response)]"
+   ],
+   "note": "informational - read against the artwork and found to be the drawing's own",
+   "report": true
+  },
+  {
+   "rule": "no flow runs straight from one document to another",
+   "ok": true,
+   "bad": [],
+   "note": "",
+   "report": false
+  },
+  {
+   "rule": "work crossing between parties goes through a document",
+   "ok": true,
+   "bad": [],
+   "note": "informational: UBL draws the hand-over as a document on the divider, and each exception below is named",
+   "report": true
+  },
+  {
+   "rule": "every flow's direction was read with confidence",
+   "ok": true,
+   "bad": [],
+   "note": "",
+   "report": false
+  },
+  {
+   "rule": "every action passes its work on",
+   "ok": true,
+   "bad": [],
+   "note": "informational: several diagrams do end on an action, so read these against the artwork rather than treating them as errors",
+   "report": true
+  },
+  {
+   "rule": "every element is reachable from a start event",
+   "ok": true,
+   "bad": [],
+   "note": "",
+   "report": false
+  }
+ ]
+}

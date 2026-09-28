@@ -1,0 +1,394 @@
+{
+ "source": "UBL-2.2-ROCD-BaseArticleCatalogue.png",
+ "size": [
+  3425,
+  1492
+ ],
+ "fontPx": 82.9,
+ "arrowPx": 83.0,
+ "arrowWidthPx": 66.0,
+ "arrowStyle": "open",
+ "rules": {
+  "v": [
+   [
+    0,
+    10
+   ],
+   [
+    1664,
+    6
+   ],
+   [
+    3415,
+    10
+   ]
+  ],
+  "h": [
+   [
+    0,
+    10
+   ],
+   [
+    1482,
+    10
+   ]
+  ]
+ },
+ "ruleSpan": {
+  "v": [
+   [
+    13,
+    1478
+   ],
+   [
+    13,
+    1007
+   ],
+   [
+    13,
+    1478
+   ]
+  ],
+  "h": [
+   [
+    13,
+    3411
+   ],
+   [
+    13,
+    3411
+   ]
+  ]
+ },
+ "greyRules": [],
+ "dashed": [],
+ "openEnds": [
+  {
+   "node": "n2",
+   "at": [
+    1661,
+    1004
+   ],
+   "end": [
+    1658,
+    1479
+   ],
+   "points": [],
+   "arrow": false,
+   "inward": false,
+   "headPx": null,
+   "x": 1658,
+   "y": 1004,
+   "w": 4,
+   "h": 476
+  }
+ ],
+ "crossMarks": [],
+ "partitions": [
+  {
+   "axis": "column",
+   "index": 0,
+   "x0": 0,
+   "x1": 1667,
+   "title": "Producer",
+   "titleBox": [
+    620,
+    52,
+    311,
+    57
+   ]
+  },
+  {
+   "axis": "column",
+   "index": 1,
+   "x0": 1667,
+   "x1": 3425,
+   "title": "Retailer",
+   "titleBox": [
+    2397,
+    49,
+    263,
+    57
+   ]
+  },
+  {
+   "axis": "band",
+   "index": 0,
+   "y0": 0,
+   "y1": 1492,
+   "title": ""
+  }
+ ],
+ "nodes": [
+  {
+   "x": 434,
+   "y": 194,
+   "w": 120,
+   "h": 121,
+   "area": 10017,
+   "fill": 0.764,
+   "kind": "initial",
+   "id": "n1",
+   "label": "",
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 1415,
+   "y": 792,
+   "w": 498,
+   "h": 197,
+   "area": 87890,
+   "fill": 0.896,
+   "solid": 1.0,
+   "rx": 0,
+   "ry": 0,
+   "shape": "rect",
+   "keptOnOutline": true,
+   "stroke": 13,
+   "kind": "object",
+   "id": "n2",
+   "label": "Catalogue",
+   "labelLines": [
+    {
+     "x": 1481,
+     "y": 854,
+     "w": 371,
+     "h": 74,
+     "text": "Catalogue"
+    }
+   ],
+   "stem": 0.133,
+   "bold": true,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 2534,
+   "y": 795,
+   "w": 798,
+   "h": 185,
+   "area": 127170,
+   "fill": 0.861,
+   "solid": 0.981,
+   "rx": 92,
+   "ry": 67,
+   "shape": "rounded",
+   "stroke": 7,
+   "kind": "action",
+   "id": "n3",
+   "label": "Receive Catalogue",
+   "labelLines": [
+    {
+     "x": 2578,
+     "y": 854,
+     "w": 686,
+     "h": 74,
+     "text": "Receive Catalogue"
+    }
+   ],
+   "stem": 0.133,
+   "bold": true,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 92,
+   "y": 801,
+   "w": 798,
+   "h": 185,
+   "area": 129502,
+   "fill": 0.877,
+   "solid": 0.981,
+   "rx": 92,
+   "ry": 62,
+   "shape": "rounded",
+   "stroke": 7,
+   "kind": "action",
+   "id": "n4",
+   "label": "Send Catalogue",
+   "labelLines": [
+    {
+     "x": 187,
+     "y": 860,
+     "w": 585,
+     "h": 74,
+     "text": "Send Catalogue"
+    }
+   ],
+   "stem": 0.133,
+   "bold": true,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 2882,
+   "y": 1329,
+   "w": 108,
+   "h": 107,
+   "area": 7206,
+   "fill": 0.624,
+   "solid": 0.784,
+   "rx": 53,
+   "ry": 56,
+   "shape": "ellipse",
+   "stroke": 6,
+   "kind": "final",
+   "innerRatio": 0.444,
+   "id": "n5",
+   "label": "",
+   "col": 1,
+   "row": 0
+  }
+ ],
+ "edges": [
+  {
+   "from": "n1",
+   "to": "n4",
+   "routing": "straight",
+   "fromPoint": [
+    491,
+    329
+   ],
+   "toPoint": [
+    491,
+    786
+   ],
+   "arrowInk": [
+    270,
+    898
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    83,
+    66.0,
+    2.47
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n2",
+   "to": "n3",
+   "routing": "straight",
+   "fromPoint": [
+    1928,
+    887
+   ],
+   "toPoint": [
+    2519,
+    887
+   ],
+   "arrowInk": [
+    310,
+    952
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    83,
+    66.0,
+    2.44
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n4",
+   "to": "n2",
+   "routing": "straight",
+   "fromPoint": [
+    904,
+    893
+   ],
+   "toPoint": [
+    1400,
+    893
+   ],
+   "arrowInk": [
+    315,
+    867
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    86,
+    66.0,
+    3.09
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n3",
+   "to": "n5",
+   "routing": "straight",
+   "fromPoint": [
+    2932,
+    994
+   ],
+   "toPoint": [
+    2934,
+    1314
+   ],
+   "arrowInk": [
+    270,
+    907
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    83,
+    67.1,
+    2.34
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "control"
+  }
+ ],
+ "text": [
+  {
+   "text": "Retailer",
+   "x": 2397,
+   "y": 49,
+   "w": 263,
+   "h": 57,
+   "lines": [
+    {
+     "x": 2397,
+     "y": 49,
+     "w": 263,
+     "h": 57,
+     "text": "Retailer"
+    }
+   ]
+  },
+  {
+   "text": "Producer",
+   "x": 620,
+   "y": 52,
+   "w": 311,
+   "h": 57,
+   "lines": [
+    {
+     "x": 620,
+     "y": 52,
+     "w": 311,
+     "h": 57,
+     "text": "Producer"
+    }
+   ]
+  }
+ ],
+ "uncertain": [
+  {
+   "x": 1415,
+   "y": 792,
+   "w": 498,
+   "h": 197,
+   "shape": "rect",
+   "iou": 1.0,
+   "border": 1.0,
+   "kind": "kept-on-outline",
+   "reason": "every side has pass-through line-work, but the region carries a complete outline of its own",
+   "check": "confirm this is a node and not trapped whitespace"
+  }
+ ]
+}

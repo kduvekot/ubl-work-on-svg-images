@@ -1,0 +1,458 @@
+{
+ "source": "UBL-2.2-Tender-AwardNotification.png",
+ "size": [
+  3425,
+  1438
+ ],
+ "fontPx": 75.7,
+ "arrowPx": 65.0,
+ "arrowWidthPx": 68.0,
+ "arrowStyle": "open",
+ "rules": {
+  "v": [
+   [
+    0,
+    10
+   ],
+   [
+    1609,
+    14
+   ],
+   [
+    3415,
+    10
+   ]
+  ],
+  "h": [
+   [
+    0,
+    10
+   ],
+   [
+    1428,
+    10
+   ]
+  ]
+ },
+ "ruleSpan": {
+  "v": [
+   [
+    13,
+    1424
+   ],
+   [
+    13,
+    1424
+   ],
+   [
+    13,
+    1424
+   ]
+  ],
+  "h": [
+   [
+    13,
+    3411
+   ],
+   [
+    13,
+    3411
+   ]
+  ]
+ },
+ "greyRules": [],
+ "dashed": [],
+ "openEnds": [],
+ "crossMarks": [],
+ "partitions": [
+  {
+   "axis": "column",
+   "index": 0,
+   "x0": 0,
+   "x1": 1616,
+   "title": "TENDERER",
+   "titleBox": [
+    548,
+    78,
+    405,
+    53
+   ]
+  },
+  {
+   "axis": "column",
+   "index": 1,
+   "x0": 1616,
+   "x1": 3425,
+   "title": "CONTRACTING AUTHORITY",
+   "titleBox": [
+    2011,
+    79,
+    988,
+    54
+   ]
+  },
+  {
+   "axis": "band",
+   "index": 0,
+   "y0": 0,
+   "y1": 1438,
+   "title": ""
+  }
+ ],
+ "nodes": [
+  {
+   "x": 2676,
+   "y": 192,
+   "w": 116,
+   "h": 116,
+   "area": 9477,
+   "fill": 0.783,
+   "kind": "initial",
+   "id": "n3",
+   "label": "",
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 2137,
+   "y": 468,
+   "w": 1194,
+   "h": 197,
+   "area": 207139,
+   "fill": 0.881,
+   "solid": 0.965,
+   "rx": 96,
+   "ry": 95,
+   "shape": "rounded",
+   "stroke": 13,
+   "kind": "action",
+   "id": "n4",
+   "label": "Prepare awarding notification",
+   "labelLines": [
+    {
+     "x": 2251,
+     "y": 535,
+     "w": 950,
+     "h": 69,
+     "text": "Prepare awarding notification"
+    }
+   ],
+   "stem": 0.092,
+   "bold": false,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 1317,
+   "y": 693,
+   "w": 573,
+   "h": 194,
+   "area": 90989,
+   "fill": 0.819,
+   "solid": 1.0,
+   "rx": 0,
+   "ry": 0,
+   "shape": "rect",
+   "stroke": 12,
+   "kind": "object",
+   "id": "n5",
+   "label": "Unawarded\nNotification",
+   "labelLines": [
+    {
+     "x": 1412,
+     "y": 715,
+     "w": 398,
+     "h": 53,
+     "text": "Unawarded"
+    },
+    {
+     "x": 1409,
+     "y": 806,
+     "w": 403,
+     "h": 55,
+     "text": "Notification"
+    }
+   ],
+   "stem": 0.145,
+   "bold": true,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 2186,
+   "y": 831,
+   "w": 1096,
+   "h": 196,
+   "area": 189065,
+   "fill": 0.88,
+   "solid": 0.961,
+   "rx": 95,
+   "ry": 104,
+   "shape": "rounded",
+   "stroke": 13,
+   "kind": "action",
+   "id": "n6",
+   "label": "send awarding notification",
+   "labelLines": [
+    {
+     "x": 2300,
+     "y": 898,
+     "w": 862,
+     "h": 69,
+     "text": "send awarding notification"
+    }
+   ],
+   "stem": 0.092,
+   "bold": false,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 94,
+   "y": 833,
+   "w": 835,
+   "h": 196,
+   "area": 142868,
+   "fill": 0.873,
+   "solid": 0.949,
+   "rx": 94,
+   "ry": 96,
+   "shape": "rounded",
+   "stroke": 12,
+   "kind": "action",
+   "id": "n7",
+   "label": "Receive notification",
+   "labelLines": [
+    {
+     "x": 197,
+     "y": 900,
+     "w": 632,
+     "h": 54,
+     "text": "Receive notification"
+    }
+   ],
+   "stem": 0.092,
+   "bold": false,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 1316,
+   "y": 978,
+   "w": 572,
+   "h": 194,
+   "area": 92585,
+   "fill": 0.834,
+   "solid": 1.0,
+   "rx": 0,
+   "ry": 0,
+   "shape": "rect",
+   "keptOnOutline": true,
+   "stroke": 12,
+   "kind": "object",
+   "id": "n8",
+   "label": "Awarded\nNotification",
+   "labelLines": [
+    {
+     "x": 1403,
+     "y": 1000,
+     "w": 319,
+     "h": 54,
+     "text": "Awarded"
+    },
+    {
+     "x": 1408,
+     "y": 1091,
+     "w": 403,
+     "h": 55,
+     "text": "Notification"
+    }
+   ],
+   "stem": 0.145,
+   "bold": true,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 434,
+   "y": 1199,
+   "w": 162,
+   "h": 162,
+   "area": 9652,
+   "fill": 0.368,
+   "solid": 0.781,
+   "rx": 83,
+   "ry": 79,
+   "shape": "rounded",
+   "stroke": 12,
+   "kind": "final",
+   "innerRatio": 0.71,
+   "id": "n9",
+   "label": "",
+   "col": 0,
+   "row": 0
+  }
+ ],
+ "edges": [
+  {
+   "from": "n3",
+   "to": "n4",
+   "routing": "straight",
+   "fromPoint": [
+    2734,
+    322
+   ],
+   "toPoint": [
+    2734,
+    453
+   ],
+   "arrowInk": [
+    540,
+    1346
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    65,
+    68.0,
+    3.01
+   ],
+   "arrowFill": 0.095,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n4",
+   "to": "n6",
+   "routing": "straight",
+   "fromPoint": [
+    2734,
+    679
+   ],
+   "toPoint": [
+    2734,
+    816
+   ],
+   "arrowInk": [
+    540,
+    1321
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    65,
+    68.0,
+    3.06
+   ],
+   "arrowFill": 0.095,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n6",
+   "to": "n7",
+   "routing": "straight",
+   "fromPoint": [
+    2171,
+    929
+   ],
+   "toPoint": [
+    943,
+    930
+   ],
+   "arrowInk": [
+    552,
+    1328
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    64,
+    68.1,
+    2.8
+   ],
+   "arrowFill": 0.087,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n7",
+   "to": "n9",
+   "routing": "straight",
+   "fromPoint": [
+    511,
+    1043
+   ],
+   "toPoint": [
+    514,
+    1184
+   ],
+   "arrowInk": [
+    549,
+    1154
+   ],
+   "directionConfidence": "medium",
+   "edgeKind": "control"
+  }
+ ],
+ "text": [
+  {
+   "text": "TENDERER",
+   "x": 548,
+   "y": 78,
+   "w": 405,
+   "h": 53,
+   "lines": [
+    {
+     "x": 548,
+     "y": 78,
+     "w": 405,
+     "h": 53,
+     "text": "TENDERER"
+    }
+   ]
+  },
+  {
+   "text": "CONTRACTING AUTHORITY",
+   "x": 2011,
+   "y": 79,
+   "w": 988,
+   "h": 54,
+   "lines": [
+    {
+     "x": 2011,
+     "y": 79,
+     "w": 988,
+     "h": 54,
+     "text": "CONTRACTING AUTHORITY"
+    }
+   ]
+  }
+ ],
+ "uncertain": [
+  {
+   "x": 1316,
+   "y": 978,
+   "w": 572,
+   "h": 194,
+   "shape": "rect",
+   "iou": 1.0,
+   "border": 1.0,
+   "kind": "kept-on-outline",
+   "reason": "every side has pass-through line-work, but the region carries a complete outline of its own",
+   "check": "confirm this is a node and not trapped whitespace"
+  },
+  {
+   "kind": "sub-character-region",
+   "x": 2072,
+   "y": 85,
+   "w": 36,
+   "h": 42,
+   "reason": "enclosed region smaller than one character of the diagram's type",
+   "check": "confirm this is glyph interior and not a node"
+  },
+  {
+   "kind": "sub-character-region",
+   "x": 2785,
+   "y": 85,
+   "w": 36,
+   "h": 42,
+   "reason": "enclosed region smaller than one character of the diagram's type",
+   "check": "confirm this is glyph interior and not a node"
+  }
+ ]
+}

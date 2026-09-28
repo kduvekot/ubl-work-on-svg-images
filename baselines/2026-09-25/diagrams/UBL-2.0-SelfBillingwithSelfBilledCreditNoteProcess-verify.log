@@ -1,0 +1,22 @@
+  verdict: NEEDS-HUMAN
+  structural: 0 element(s) absent, 0 invented, 0 text absent, 0 text differs, 0 incoherent
+  line-work  missing 1565 px (0.607%)   invented 742 px (0.288%)   radius 3
+    line-work-missing      345 px at   499,1262    39x47    near edge n6 -> n10
+    line-work-missing      305 px at   804,1679    37x42    near edge n10 -> n12
+    line-work-missing      273 px at   707,1167    72x37    near edge n6 -> n10
+    line-work-missing      229 px at   499,1520    69x44    near edge n10 -> n12
+    line-work-missing      111 px at   754,1671    43x29    near edge n10 -> n12
+    line-work-invented     130 px at   713,1168    45x23    near edge n6 -> n10
+    line-work-invented     110 px at   509,1517    45x28    near edge n10 -> n12
+    line-work-invented      96 px at   535,1260    20x21    near edge n6 -> n10
+    line-work-invented      90 px at   785,1674    18x20    near edge n10 -> n12
+    line-work-invented      84 px at   768,1690    38x23    near edge n10 -> n12
+    line-work-invented      60 px at   561,1296    16x7     near edge n6 -> n10
+  needs a person (6):
+    kept-on-outline    at 1417,400  confirm this is a node and not trapped whitespace
+    kept-on-outline    at 1417,1005  confirm this is a node and not trapped whitespace
+    dropped-region     at 501,1083  a shape here would be missing from the SVG
+    kept-on-outline    at 1401,1712  confirm this is a node and not trapped whitespace
+    arrowhead-unmeasurable at 3188,1028  confirm the arrowhead here is drawn and points the way the original does
+    arrowhead-unmeasurable at 762,1650  confirm the arrowhead here is drawn and points the way the original does
+review/baseline/UBL-2.0-SelfBillingwithSelfBilledCreditNoteProcess-marked.png + review/baseline/UBL-2.0-SelfBillingwithSelfBilledCreditNoteProcess-marked-lost.png  (6 finding(s) numbered)

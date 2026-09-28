@@ -1,0 +1,20 @@
+  verdict: NEEDS-HUMAN
+  structural: 0 element(s) absent, 0 invented, 0 text absent, 0 text differs, 0 incoherent
+  line-work  missing 2669 px (0.735%)   invented 5585 px (1.537%)   radius 3
+    line-work-missing      220 px at  1387,1237    41x14    near edge n6 -> n5
+    line-work-missing      203 px at  1389,1209    38x14    near edge n6 -> n5
+    line-work-missing      170 px at  1994,2026    34x14    near edge n11 -> n9
+    line-work-missing      164 px at  1993,1998    33x14    near edge n11 -> n9
+    line-work-missing      161 px at  1119,2026    33x14    near edge n9 -> n10
+    line-work-missing      153 px at  1118,1998    32x14    near edge n9 -> n10
+    line-work-missing      134 px at  3308,3369    15x20    unattributed
+    line-work-missing      133 px at   152,134     18x17    unattributed
+    line-work-missing      123 px at  3251,122     18x17    unattributed
+    line-work-missing      122 px at   143,3419    17x18    unattributed
+    line-work-missing      102 px at  3258,3435    18x13    unattributed
+    line-work-missing       96 px at   181,114     18x11    unattributed
+    ... and 25 more line-work findings
+  needs a person (2):
+    no-weight-split     confirm the diagram really has no object nodes
+    arrowhead-unmeasurable at 732,2964  confirm the arrowhead here is drawn and points the way the original does
+/tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-2.2-CPFR-CreatingSalesForecast-marked.png + /tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-2.2-CPFR-CreatingSalesForecast-marked-lost.png  (2 finding(s) numbered)

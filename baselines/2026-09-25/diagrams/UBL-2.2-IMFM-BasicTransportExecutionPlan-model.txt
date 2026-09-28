@@ -1,0 +1,45 @@
+MODEL  UBL-2.2-IMFM-BasicTransportExecutionPlan
+  13 action, 4 decision, 3 final, 1 initial, 5 object, 27 flows, 3 partitions
+
+FLOW
+  (start)   [Transport User]
+  Request Transport Service   [Transport User]
+  [«NotConfirmed» Transport Execution Plan Request]   [Transport User]
+  Receive Transport Service Request   [Transport Service Provider]
+  EvaluateTransport Execution Plan Request   [Transport Service Provider]
+  <?>   [Transport Service Provider]
+    -[no]-> Reject Transport Service Request   [Transport Service Provider]
+    -> [«Rejected» Transport Execution Plan]   [Transport User]
+    -> Receive Rejected Transport Execution Plan   [Transport User]
+    -> <?>   [Transport User]
+      -[yes]-> Create/Update Transport Execution Plan Request   [Transport User]
+      -> Request Transport Service   [Transport User]
+      -[no]-> (end)   [Transport User]
+    -[yes]-> Confirm Transport Service Request   [Transport Service Provider]
+    -> [«Confirmed» Transport Execution Plan]   [Transport User]
+    -> Receive Proposed Transport Execution Plan   [Transport User]
+    -> EvaluateTransport Execution Plan   [Transport User]
+    -> <?>   [Transport User]
+      -[no]-> <?>   [Transport User]
+        -[yes]-> Create/Update Transport Execution Plan Request   [Transport User]
+        -[no]-> Reject Transport Execution Plan   [Transport User]
+        -> [«Rejected» Transport Execution Plan]   [Transport User]
+        -> Receive Rejected Transport Execution Plan   [Transport Service Provider]
+        -> (end)   [Transport Service Provider]
+      -[yes]-> Confirm Transport Execution Plan   [Transport User]
+      -> [«Confirmed» Transport Execution Plan]   [Transport Service Provider]
+      -> Receive Confirmed Transport Execution Plan   [Transport Service Provider]
+      -> (end)   [Transport Service Provider]
+
+CHECKS
+  ok   every element is connected
+  ok   start events have a way out and no way in
+  ok   end events have a way in and no way out
+  ok   decisions have at least two ways out
+  ok   branches out of a decision are labelled   (informational: several diagrams draw an unlabelled branch, so read these against the artwork rather than treating them as errors)
+  ok   documents are both written and read
+  ok   no flow runs straight from one document to another
+  ok   work crossing between parties goes through a document   (informational: UBL draws the hand-over as a document on the divider, and each exception below is named)
+  ok   every flow's direction was read with confidence
+  ok   every action passes its work on   (informational: several diagrams do end on an action, so read these against the artwork rather than treating them as errors)
+  ok   every element is reachable from a start event

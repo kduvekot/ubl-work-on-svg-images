@@ -1,0 +1,11 @@
+== UBL-2.3-TransitDeclarationProcess
+  scale 0.43199   frame 8px  divider 10px  action 5px  object 10px
+  font 59px (25.3 model)   2 lanes, 1 bands, 10 nodes, 10 edges -> review/baseline/UBL-2.3-TransitDeclarationProcess-spec.json
+  review/baseline/UBL-2.3-TransitDeclarationProcess.svg + .drawio + -classified.svg   (10 nodes, 10 edges)
+  rendered UBL-2.3-TransitDeclarationProcess.svg -> UBL-2.3-TransitDeclarationProcess-render.png @ 3426pxx2050, 600 dpi
+  aligned on ink bounds: scale x 1.0000, y 1.0005
+  size 3426x2050  radius 2
+  ink: original 294014   candidate 307521
+  MISSING (red)    12086  = 4.1107% of original ink
+  EXTRA   (blue)   15237  = 5.1824% of original ink
+  RESULT: DIFFERENCES - inspect review/baseline/UBL-2.3-TransitDeclarationProcess-diff-r2.png

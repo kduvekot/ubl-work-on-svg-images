@@ -1,0 +1,59 @@
+image 1142x1057
+
+PARTITION RULES
+   vertical  : [(0, 5), (572, 2), (1137, 5)]
+   horizontal: [(0, 5), (63, 2), (1052, 5)]
+   -> 2 column(s) x 2 band(s)
+   type measured off the page: a word is 19px tall
+   (dropped x=5     y=5      567x1047  encloses another region)
+   (dropped x=574   y=5      563x58    is a partition cell)
+   (dropped x=574   y=65     563x987   is a partition cell)
+   one line weight only - no object nodes
+
+NODES
+   n1   initial   x=248   y=92    w=46    h=46    stroke=0   fill=0.73  ''
+   n2   object    x=454   y=209   w=239   h=118   stroke=3   fill=0.91  'Export Customs\nDeclaration'
+   n3   action    x=158   y=221   w=226   h=95    stroke=2   fill=0.88  'Draft\nExport Customs\nDeclaration'
+   n4   action    x=768   y=221   w=192   h=95    stroke=2   fill=0.84  'Validate\nExport Customs\nDeclaration'
+   n5   decision  x=788   y=364   w=157   h=114   stroke=2   fill=0.48  'OK?'
+   n6   object    x=454   y=562   w=239   h=118   stroke=4   fill=0.91  'Export Customs\nDeclaration'
+   n7   action    x=166   y=569   w=210   h=103   stroke=2   fill=0.87  'Receive\nExport Customs\nDeclaration'
+   n8   action    x=770   y=569   w=190   h=103   stroke=2   fill=0.89  'Apply stamps\nand signature'
+   n9   object    x=454   y=764   w=239   h=118   stroke=3   fill=0.93  'Application response}'
+   n10  action    x=166   y=771   w=210   h=104   stroke=2   fill=0.95  'Receive reject'
+   n11  action    x=772   y=771   w=190   h=104   stroke=2   fill=0.95  'Send reject'
+   n12  final     x=79    y=953   w=58    h=59    stroke=0   fill=0.29  ''
+
+TYPE  cap height 18px over 191 glyphs -> font 25.7px
+
+EDGES
+   n1   -> n3    straight    arrowhead   237 vs 121    ratio 4.0  high
+   n3   -> n2    straight    arrowhead   246 vs 246    ratio 4.0  high
+   n2   -> n4    straight    arrowhead   266 vs 253    ratio 4.0  high
+   n4   -> n5    straight    arrowhead   157 vs 157    ratio 4.0  high
+   n5   -> n11   orthogonal  arrowhead   312 vs 135    ratio 4.0  high
+   n5   -> n8    straight    arrowhead   356 vs 189    ratio 4.0  high
+   n6   -> n7    straight    arrowhead   227 vs 188    ratio 4.0  high
+   n8   -> n6    straight    arrowhead   208 vs 176    ratio 4.0  high
+   n7   -> n12   orthogonal  arrowhead   176 vs 142    ratio 4.0  high
+   n9   -> n10   straight    arrowhead   226 vs 188    ratio 4.0  high
+   n11  -> n9    straight    arrowhead   209 vs 150    ratio 4.0  high
+   n10  -> n12   orthogonal  arrowhead   151 vs 90     ratio 4.0  high
+
+TEXT (titles, guards, notes)
+   'Exporter party'                         x=208   y=30    
+   'CustomsParty'                           x=772   y=30    
+   'Yes'                                    x=805   y=506   n5->n8
+   'No'                                     x=1031  y=592   n5->n11
+
+PARTITIONS
+   column 0  'Exporter party'
+   column 1  'CustomsParty'
+   band   0  ''
+   band   1  ''
+
+ARROWHEAD  22 x 18px, filled, measured on 10 connector(s)
+   reading settled: 'Application response}' -> 'Application response'
+   reading settled: 'Application response}' -> 'Application response'
+
+wrote review/baseline/UBL-2.3-ExportCustomsDeclarationProcess-graph.json   (12 nodes, 12 edges, 2 flagged for a human)

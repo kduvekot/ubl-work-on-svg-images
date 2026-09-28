@@ -1,0 +1,202 @@
+{
+ "name": "UBL-2.2-CRP-SalesAndInventoryMovement.png",
+ "verdict": "correct",
+ "radius": 3,
+ "lineWorkInk": 190477,
+ "missingPx": 1663,
+ "inventedPx": 1221,
+ "structural": {
+  "absent": 0,
+  "invented": 0,
+  "coherence": 0,
+  "textAbsent": 0,
+  "textDiffers": 0
+ },
+ "blocking": [],
+ "findings": [
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n6 (action 'Send a report about ')",
+   "x": 3311,
+   "y": 820,
+   "w": 31,
+   "h": 32,
+   "area": 156
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n6 (action 'Send a report about ')",
+   "x": 3313,
+   "y": 935,
+   "w": 29,
+   "h": 31,
+   "area": 150
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n6 (action 'Send a report about ')",
+   "x": 2390,
+   "y": 820,
+   "w": 30,
+   "h": 30,
+   "area": 142
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n7 (action 'Receive a report abo')",
+   "x": 1220,
+   "y": 939,
+   "w": 29,
+   "h": 31,
+   "area": 140
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n6 (action 'Send a report about ')",
+   "x": 2390,
+   "y": 937,
+   "w": 28,
+   "h": 29,
+   "area": 134
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n7 (action 'Receive a report abo')",
+   "x": 1221,
+   "y": 824,
+   "w": 28,
+   "h": 30,
+   "area": 133
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n7 (action 'Receive a report abo')",
+   "x": 217,
+   "y": 941,
+   "w": 26,
+   "h": 28,
+   "area": 125
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n7 (action 'Receive a report abo')",
+   "x": 217,
+   "y": 825,
+   "w": 26,
+   "h": 28,
+   "area": 121
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n3 (action 'Receive a report abo')",
+   "x": 1062,
+   "y": 499,
+   "w": 26,
+   "h": 22,
+   "area": 89
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n3 (action 'Receive a report abo')",
+   "x": 1065,
+   "y": 597,
+   "w": 23,
+   "h": 21,
+   "area": 78
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n3 (action 'Receive a report abo')",
+   "x": 389,
+   "y": 500,
+   "w": 24,
+   "h": 21,
+   "area": 77
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n3 (action 'Receive a report abo')",
+   "x": 389,
+   "y": 598,
+   "w": 23,
+   "h": 20,
+   "area": 70
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n6 (action 'Send a report about ')",
+   "x": 3307,
+   "y": 827,
+   "w": 28,
+   "h": 29,
+   "area": 130
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n6 (action 'Send a report about ')",
+   "x": 2397,
+   "y": 827,
+   "w": 27,
+   "h": 27,
+   "area": 124
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n6 (action 'Send a report about ')",
+   "x": 3309,
+   "y": 931,
+   "w": 26,
+   "h": 28,
+   "area": 122
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n6 (action 'Send a report about ')",
+   "x": 2397,
+   "y": 933,
+   "w": 25,
+   "h": 26,
+   "area": 112
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n7 (action 'Receive a report abo')",
+   "x": 1216,
+   "y": 936,
+   "w": 26,
+   "h": 27,
+   "area": 112
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n7 (action 'Receive a report abo')",
+   "x": 1218,
+   "y": 832,
+   "w": 24,
+   "h": 26,
+   "area": 107
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n7 (action 'Receive a report abo')",
+   "x": 224,
+   "y": 937,
+   "w": 23,
+   "h": 25,
+   "area": 104
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n7 (action 'Receive a report abo')",
+   "x": 225,
+   "y": 832,
+   "w": 22,
+   "h": 22,
+   "area": 97
+  }
+ ],
+ "text": [],
+ "coherence": [],
+ "human": [],
+ "review": []
+}

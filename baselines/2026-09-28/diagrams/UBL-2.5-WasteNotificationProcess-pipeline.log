@@ -1,0 +1,11 @@
+== UBL-2.5-WasteNotificationProcess
+  UBL-2.5-WasteNotificationProcess -> diagram, layout, extraction  (9 nodes, 8 flows, 0 texts)
+  scale 0.59176   frame 5px  divider 5px  action 4px  object 4px
+  font 59px (34.7 model)   2 lanes, 0 bands, 9 nodes, 8 edges -> /tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-2.5-WasteNotificationProcess-spec.json
+  /tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-2.5-WasteNotificationProcess.svg + .drawio + -classified.svg   (9 nodes, 8 edges)
+  aligned on ink bounds: scale x 1.0000, y 1.0000
+  size 2501x2069  radius 2
+  ink: original 192624   candidate 181480
+  MISSING (red)     5014  = 2.6030% of original ink
+  EXTRA   (blue)    3280  = 1.7028% of original ink
+  RESULT: DIFFERENCES - inspect /tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-2.5-WasteNotificationProcess-diff-r2.png

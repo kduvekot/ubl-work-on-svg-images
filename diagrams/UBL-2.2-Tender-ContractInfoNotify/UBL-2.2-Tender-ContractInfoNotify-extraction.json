@@ -1,0 +1,1087 @@
+{
+ "schema": "ubl-activity-diagram-extraction/1",
+ "figure": "UBL-2.2-Tender-ContractInfoNotify",
+ "nodes": {
+  "initial-contracting-authority": {
+   "area": 11938,
+   "fill": 0.783
+  },
+  "action-prepare-contract-notice": {
+   "area": 213547,
+   "fill": 0.878,
+   "solid": 0.958,
+   "stem": 0.095
+  },
+  "object-contract-notice": {
+   "area": 133438,
+   "fill": 0.896,
+   "solid": 1.0,
+   "stem": 0.142,
+   "keptOnOutline": true
+  },
+  "decision-contracting-authority": {
+   "area": 28640,
+   "fill": 0.501,
+   "solid": 0.501,
+   "stem": 0.107
+  },
+  "action-validate-contract-notice": {
+   "area": 216006,
+   "fill": 0.881,
+   "solid": 0.958,
+   "stem": 0.095
+  },
+  "decision-ok": {
+   "area": 24190,
+   "fill": 0.422,
+   "solid": 0.502,
+   "stem": 0.107
+  },
+  "action-publish-contract-notice": {
+   "area": 208545,
+   "fill": 0.88,
+   "solid": 0.957,
+   "stem": 0.095
+  },
+  "action-publish-in-buyer-profile": {
+   "area": 204532,
+   "fill": 0.876,
+   "solid": 0.956,
+   "stem": 0.083
+  },
+  "final-contracting-authority": {
+   "area": 12118,
+   "fill": 0.372,
+   "solid": 0.785
+  }
+ },
+ "flows": {
+  "flow-initial-contracting-authority-to-prepare-contract-notice": {
+   "arrowInk": [
+    614,
+    1369
+   ],
+   "arrowPx": [
+    73,
+    76.0,
+    3.18
+   ],
+   "arrowFill": 0.202
+  },
+  "flow-ok-to-prepare-contract-notice": {
+   "arrowInk": [
+    630,
+    1306
+   ],
+   "arrowPx": [
+    74,
+    75.9,
+    3.18
+   ],
+   "arrowFill": 0.104
+  },
+  "flow-prepare-contract-notice-to-decision-contracting-authority": {
+   "arrowInk": [
+    606,
+    1254
+   ]
+  },
+  "flow-contract-notice-to-validate-contract-notice": {
+   "arrowInk": [
+    595,
+    1359
+   ],
+   "arrowPx": [
+    74,
+    76.8,
+    3.14
+   ],
+   "arrowFill": 0.099
+  },
+  "flow-decision-contracting-authority-to-contract-notice": {
+   "arrowInk": [
+    585,
+    1384
+   ],
+   "arrowPx": [
+    73,
+    76.7,
+    2.99
+   ],
+   "arrowFill": 0.166
+  },
+  "flow-validate-contract-notice-to-ok": {
+   "arrowInk": [
+    602,
+    1277
+   ]
+  },
+  "flow-decision-contracting-authority-to-publish-in-buyer-profile": {
+   "arrowInk": [
+    603,
+    1344
+   ],
+   "arrowPx": [
+    74,
+    76.4,
+    3.26
+   ],
+   "arrowFill": 0.169
+  },
+  "flow-ok-to-publish-contract-notice": {
+   "arrowInk": [
+    604,
+    1362
+   ],
+   "arrowPx": [
+    74,
+    76.0,
+    3.11
+   ],
+   "arrowFill": 0.075
+  },
+  "flow-publish-contract-notice-to-publish-in-buyer-profile": {
+   "arrowInk": [
+    603,
+    1318
+   ],
+   "arrowPx": [
+    75,
+    77.0,
+    3.16
+   ],
+   "arrowFill": 0.204
+  },
+  "flow-publish-in-buyer-profile-to-final-contracting-authority": {
+   "arrowInk": [
+    591,
+    1376
+   ],
+   "arrowPx": [
+    74,
+    77.2,
+    3.06
+   ],
+   "arrowFill": 0.223
+  }
+ },
+ "offPage": {},
+ "marks": {},
+ "phases": {},
+ "greyRules": [],
+ "titleReadings": [
+  {
+   "position": 0,
+   "text": "CONTRACTING AUTHORITY",
+   "x": 353,
+   "y": 65,
+   "w": 1102,
+   "h": 61,
+   "lines": [
+    {
+     "x": 353,
+     "y": 65,
+     "w": 1102,
+     "h": 61,
+     "text": "CONTRACTING AUTHORITY"
+    }
+   ]
+  },
+  {
+   "position": 1,
+   "text": "PUBLICATION OFFICE",
+   "x": 2169,
+   "y": 67,
+   "w": 866,
+   "h": 61,
+   "lines": [
+    {
+     "x": 2169,
+     "y": 67,
+     "w": 866,
+     "h": 61,
+     "text": "PUBLICATION OFFICE"
+    }
+   ]
+  }
+ ],
+ "findings": [],
+ "uncertain": [
+  {
+   "x": 660,
+   "y": 667,
+   "w": 1140,
+   "h": 475,
+   "shape": "rounded",
+   "iou": 0.799,
+   "border": 0.673,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best rounded 0.80, and 0.99 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "x": 1615,
+   "y": 950,
+   "w": 380,
+   "h": 392,
+   "shape": "rect",
+   "iou": 1.0,
+   "border": 1.0,
+   "kind": "kept-on-outline",
+   "reason": "every side has pass-through line-work, but the region carries a complete outline of its own",
+   "check": "confirm this is a node and not trapped whitespace"
+  },
+  {
+   "x": 1814,
+   "y": 1145,
+   "w": 884,
+   "h": 841,
+   "shape": "rounded",
+   "iou": 0.76,
+   "border": 0.579,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best rounded 0.76, and 0.99 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "x": 665,
+   "y": 1148,
+   "w": 1135,
+   "h": 845,
+   "shape": "rounded",
+   "iou": 0.889,
+   "border": 0.755,
+   "kind": "dropped-region",
+   "reason": "3 of 4 sides are pass-through line-work",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "x": 2628,
+   "y": 1503,
+   "w": 41,
+   "h": 47,
+   "shape": "ellipse",
+   "iou": 0.979,
+   "border": 0.931,
+   "kind": "kept-on-outline",
+   "reason": "every side has pass-through line-work, but the region carries a complete outline of its own",
+   "check": "confirm this is a node and not trapped whitespace"
+  },
+  {
+   "kind": "sub-character-region",
+   "x": 421,
+   "y": 72,
+   "w": 40,
+   "h": 47,
+   "reason": "enclosed region smaller than one character of the diagram's type",
+   "check": "confirm this is glyph interior and not a node"
+  },
+  {
+   "kind": "sub-character-region",
+   "x": 1215,
+   "y": 72,
+   "w": 41,
+   "h": 47,
+   "reason": "enclosed region smaller than one character of the diagram's type",
+   "check": "confirm this is glyph interior and not a node"
+  },
+  {
+   "kind": "sub-character-region",
+   "x": 2601,
+   "y": 74,
+   "w": 41,
+   "h": 47,
+   "reason": "enclosed region smaller than one character of the diagram's type",
+   "check": "confirm this is glyph interior and not a node"
+  },
+  {
+   "kind": "sub-character-region",
+   "x": 2748,
+   "y": 74,
+   "w": 41,
+   "h": 47,
+   "reason": "enclosed region smaller than one character of the diagram's type",
+   "check": "confirm this is glyph interior and not a node"
+  },
+  {
+   "kind": "sub-character-region",
+   "x": 2628,
+   "y": 1503,
+   "w": 41,
+   "h": 47,
+   "reason": "enclosed region smaller than one character of the diagram's type",
+   "check": "confirm this is glyph interior and not a node"
+  }
+ ],
+ "present": [
+  "source",
+  "size",
+  "fontPx",
+  "arrowPx",
+  "arrowWidthPx",
+  "arrowStyle",
+  "rules",
+  "ruleSpan",
+  "greyRules",
+  "dashed",
+  "openEnds",
+  "crossMarks",
+  "partitions",
+  "nodes",
+  "edges",
+  "text",
+  "uncertain"
+ ],
+ "uncorrected": {
+  "model": {
+   "schema": "ubl-activity-diagram/1",
+   "figure": {
+    "name": "UBL-2.2-Tender-ContractInfoNotify",
+    "source": "UBL-2.2-Tender-ContractInfoNotify.png"
+   },
+   "lanes": [
+    {
+     "id": "lane0",
+     "axis": "column",
+     "index": 0,
+     "title": "CONTRACTING AUTHORITY"
+    },
+    {
+     "id": "lane1",
+     "axis": "column",
+     "index": 1,
+     "title": "PUBLICATION OFFICE"
+    },
+    {
+     "id": "lane2",
+     "axis": "band",
+     "index": 0,
+     "title": ""
+    }
+   ],
+   "nodes": [
+    {
+     "id": "n5",
+     "kind": "initial",
+     "label": "",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n6",
+     "kind": "action",
+     "label": "Prepare Contract Notice",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n7",
+     "kind": "object",
+     "label": "Contract\nNotice",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n8",
+     "kind": "decision",
+     "label": "",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n9",
+     "kind": "action",
+     "label": "Validate Contract Notice",
+     "lane": "lane1",
+     "band": "lane2"
+    },
+    {
+     "id": "n10",
+     "kind": "decision",
+     "label": "OK?",
+     "lane": "lane1",
+     "band": "lane2"
+    },
+    {
+     "id": "n12",
+     "kind": "action",
+     "label": "Publish Contract Notice",
+     "lane": "lane1",
+     "band": "lane2"
+    },
+    {
+     "id": "n13",
+     "kind": "action",
+     "label": "Publish in Buyer Profile",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n14",
+     "kind": "final",
+     "label": "",
+     "lane": "lane0",
+     "band": "lane2"
+    }
+   ],
+   "flows": [
+    {
+     "id": "f0",
+     "from": "n5",
+     "to": "n6",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f1",
+     "from": "n10",
+     "to": "n6",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     },
+     "guard": "t5"
+    },
+    {
+     "id": "f2",
+     "from": "n6",
+     "to": "n8",
+     "kind": "control",
+     "direction": {
+      "confidence": "medium",
+      "checked": "confirmed"
+     }
+    },
+    {
+     "id": "f3",
+     "from": "n7",
+     "to": "n9",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f4",
+     "from": "n8",
+     "to": "n7",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     },
+     "guard": "t2"
+    },
+    {
+     "id": "f5",
+     "from": "n9",
+     "to": "n10",
+     "kind": "control",
+     "direction": {
+      "confidence": "medium",
+      "checked": "confirmed"
+     }
+    },
+    {
+     "id": "f6",
+     "from": "n8",
+     "to": "n13",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     },
+     "guard": "t4"
+    },
+    {
+     "id": "f7",
+     "from": "n10",
+     "to": "n12",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     },
+     "guard": "t6"
+    },
+    {
+     "id": "f8",
+     "from": "n12",
+     "to": "n13",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f9",
+     "from": "n13",
+     "to": "n14",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    }
+   ],
+   "texts": [
+    {
+     "id": "t2",
+     "text": "Yes",
+     "labels": "f4"
+    },
+    {
+     "id": "t3",
+     "text": "Above P\nThresholds?"
+    },
+    {
+     "id": "t4",
+     "text": "No",
+     "labels": "f6"
+    },
+    {
+     "id": "t5",
+     "text": "No",
+     "labels": "f1"
+    },
+    {
+     "id": "t6",
+     "text": "Yes",
+     "labels": "f7"
+    }
+   ],
+   "offPage": [],
+   "marks": [],
+   "phases": []
+  },
+  "layout": {
+   "schema": "ubl-activity-diagram-layout/1",
+   "figure": "UBL-2.2-Tender-ContractInfoNotify",
+   "units": "px of the original PNG",
+   "size": [
+    3425,
+    2672
+   ],
+   "style": {
+    "fontPx": 84.3,
+    "arrowPx": 74.0,
+    "arrowWidthPx": 76.6,
+    "arrowStyle": "open"
+   },
+   "rules": {
+    "vertical": [
+     {
+      "at": 0,
+      "width": 10,
+      "span": [
+       13,
+       2658
+      ]
+     },
+     {
+      "at": 1800,
+      "width": 14,
+      "span": [
+       13,
+       2658
+      ]
+     },
+     {
+      "at": 3415,
+      "width": 10,
+      "span": [
+       13,
+       2658
+      ]
+     }
+    ],
+    "horizontal": [
+     {
+      "at": 0,
+      "width": 10,
+      "span": [
+       13,
+       3411
+      ]
+     },
+     {
+      "at": 2662,
+      "width": 10,
+      "span": [
+       13,
+       3411
+      ]
+     }
+    ]
+   },
+   "greyRules": [],
+   "lanes": {
+    "lane0": {
+     "x0": 0,
+     "x1": 1807,
+     "titleBox": [
+      353,
+      65,
+      1102,
+      61
+     ]
+    },
+    "lane1": {
+     "x0": 1807,
+     "x1": 3425,
+     "titleBox": [
+      2169,
+      67,
+      866,
+      61
+     ]
+    },
+    "lane2": {
+     "y0": 0,
+     "y1": 2672
+    }
+   },
+   "nodes": {
+    "n5": {
+     "x": 594,
+     "y": 191,
+     "w": 130,
+     "h": 129
+    },
+    "n6": {
+     "x": 101,
+     "y": 553,
+     "w": 1105,
+     "h": 220,
+     "shape": "rounded",
+     "stroke": 13,
+     "rx": 108,
+     "ry": 105,
+     "bold": false,
+     "labelLines": [
+      {
+       "x": 200,
+       "y": 628,
+       "w": 877,
+       "h": 77,
+       "text": "Prepare Contract Notice"
+      }
+     ]
+    },
+    "n7": {
+     "x": 1615,
+     "y": 950,
+     "w": 380,
+     "h": 392,
+     "shape": "rect",
+     "stroke": 14,
+     "rx": 0,
+     "ry": 0,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 1636,
+       "y": 1053,
+       "w": 337,
+       "h": 61,
+       "text": "Contract"
+      },
+      {
+       "x": 1632,
+       "y": 1177,
+       "w": 248,
+       "h": 60,
+       "text": "Notice"
+      }
+     ]
+    },
+    "n8": {
+     "x": 539,
+     "y": 1022,
+     "w": 239,
+     "h": 239,
+     "shape": "rhombus",
+     "stroke": 14,
+     "rx": 129,
+     "ry": 129,
+     "bold": false
+    },
+    "n9": {
+     "x": 2145,
+     "y": 1031,
+     "w": 1120,
+     "h": 219,
+     "shape": "rounded",
+     "stroke": 13,
+     "rx": 110,
+     "ry": 107,
+     "bold": false,
+     "labelLines": [
+      {
+       "x": 2250,
+       "y": 1106,
+       "w": 888,
+       "h": 61,
+       "text": "Validate Contract Notice"
+      }
+     ]
+    },
+    "n10": {
+     "x": 2579,
+     "y": 1401,
+     "w": 239,
+     "h": 240,
+     "shape": "rhombus",
+     "stroke": 13,
+     "rx": 129,
+     "ry": 129,
+     "bold": false,
+     "labelLines": [
+      {
+       "x": 2620,
+       "y": 1496,
+       "w": 158,
+       "h": 62,
+       "text": "OK?"
+      }
+     ]
+    },
+    "n12": {
+     "x": 2151,
+     "y": 1881,
+     "w": 1082,
+     "h": 219,
+     "shape": "rounded",
+     "stroke": 13,
+     "rx": 110,
+     "ry": 105,
+     "bold": false,
+     "labelLines": [
+      {
+       "x": 2264,
+       "y": 1955,
+       "w": 855,
+       "h": 62,
+       "text": "Publish Contract Notice"
+      }
+     ]
+    },
+    "n13": {
+     "x": 132,
+     "y": 1888,
+     "w": 1066,
+     "h": 219,
+     "shape": "rounded",
+     "stroke": 14,
+     "rx": 105,
+     "ry": 109,
+     "bold": false,
+     "labelLines": [
+      {
+       "x": 233,
+       "y": 1962,
+       "w": 845,
+       "h": 77,
+       "text": "Publish in Buyer Profile"
+      }
+     ]
+    },
+    "n14": {
+     "x": 569,
+     "y": 2394,
+     "w": 180,
+     "h": 181,
+     "shape": "rounded",
+     "stroke": 13,
+     "rx": 92,
+     "ry": 86,
+     "innerRatio": 0.711
+    }
+   },
+   "flows": {
+    "f0": {
+     "fromPoint": [
+      659,
+      334
+     ],
+     "toPoint": [
+      653,
+      538
+     ],
+     "routing": "straight"
+    },
+    "f1": {
+     "fromPoint": [
+      2832,
+      1520
+     ],
+     "toPoint": [
+      1220,
+      662
+     ],
+     "routing": "orthogonal",
+     "points": [
+      [
+       3336,
+       1520
+      ],
+      [
+       3336,
+       662
+      ]
+     ]
+    },
+    "f2": {
+     "fromPoint": [
+      653,
+      787
+     ],
+     "toPoint": [
+      658,
+      1007
+     ],
+     "routing": "straight"
+    },
+    "f3": {
+     "fromPoint": [
+      2009,
+      1146
+     ],
+     "toPoint": [
+      2130,
+      1140
+     ],
+     "routing": "straight"
+    },
+    "f4": {
+     "fromPoint": [
+      792,
+      1141
+     ],
+     "toPoint": [
+      1600,
+      1145
+     ],
+     "routing": "straight"
+    },
+    "f5": {
+     "fromPoint": [
+      2705,
+      1264
+     ],
+     "toPoint": [
+      2698,
+      1386
+     ],
+     "routing": "straight"
+    },
+    "f6": {
+     "fromPoint": [
+      658,
+      1275
+     ],
+     "toPoint": [
+      665,
+      1873
+     ],
+     "routing": "straight"
+    },
+    "f7": {
+     "fromPoint": [
+      2698,
+      1655
+     ],
+     "toPoint": [
+      2692,
+      1866
+     ],
+     "routing": "straight"
+    },
+    "f8": {
+     "fromPoint": [
+      2136,
+      1990
+     ],
+     "toPoint": [
+      1212,
+      1997
+     ],
+     "routing": "straight"
+    },
+    "f9": {
+     "fromPoint": [
+      665,
+      2121
+     ],
+     "toPoint": [
+      659,
+      2379
+     ],
+     "routing": "straight"
+    }
+   },
+   "texts": {
+    "t2": {
+     "x": 935,
+     "y": 1055,
+     "w": 139,
+     "h": 60,
+     "lines": [
+      {
+       "x": 935,
+       "y": 1055,
+       "w": 139,
+       "h": 60,
+       "text": "Yes"
+      }
+     ]
+    },
+    "t3": {
+     "x": 82,
+     "y": 1095,
+     "w": 450,
+     "h": 182,
+     "lines": [
+      {
+       "x": 82,
+       "y": 1095,
+       "w": 454,
+       "h": 62,
+       "text": "Above P"
+      },
+      {
+       "x": 83,
+       "y": 1217,
+       "w": 449,
+       "h": 60,
+       "text": "Thresholds?"
+      }
+     ]
+    },
+    "t4": {
+     "x": 718,
+     "y": 1367,
+     "w": 95,
+     "h": 60,
+     "lines": [
+      {
+       "x": 718,
+       "y": 1367,
+       "w": 95,
+       "h": 60,
+       "text": "No"
+      }
+     ]
+    },
+    "t5": {
+     "x": 2880,
+     "y": 1438,
+     "w": 96,
+     "h": 60,
+     "lines": [
+      {
+       "x": 2880,
+       "y": 1438,
+       "w": 96,
+       "h": 60,
+       "text": "No"
+      }
+     ]
+    },
+    "t6": {
+     "x": 2742,
+     "y": 1734,
+     "w": 138,
+     "h": 60,
+     "lines": [
+      {
+       "x": 2742,
+       "y": 1734,
+       "w": 138,
+       "h": 60,
+       "text": "Yes"
+      }
+     ]
+    }
+   },
+   "offPage": {},
+   "marks": {},
+   "phases": {},
+   "rulesHaveSpans": {
+    "vertical": true,
+    "horizontal": true
+   }
+  }
+ },
+ "retexted": {
+  "t3": {
+   "section": "texts",
+   "text": "Above\nThresholds?"
+  }
+ },
+ "graphPatches": {
+  "edges": {},
+  "texts": {
+   "t3": {
+    "x": 82,
+    "y": 1095,
+    "w": 450,
+    "h": 182,
+    "lines": [
+     {
+      "x": 82,
+      "y": 1095,
+      "w": 230,
+      "h": 62,
+      "text": "Above"
+     },
+     {
+      "x": 83,
+      "y": 1217,
+      "w": 449,
+      "h": 60,
+      "text": "Thresholds?"
+     }
+    ],
+    "text": "Above\nThresholds?"
+   }
+  },
+  "addEdges": []
+ },
+ "corrections": [
+  "text-22",
+  "draw-01",
+  "q13-34",
+  "party-13",
+  "party-14"
+ ],
+ "documentLanes": {
+  "object-contract-notice": "lane-contracting-authority"
+ },
+ "formerIds": {
+  "lane-contracting-authority": "lane0",
+  "lane-publication-office": "lane1",
+  "initial-contracting-authority": "n5",
+  "action-prepare-contract-notice": "n6",
+  "object-contract-notice": "n7",
+  "decision-contracting-authority": "n8",
+  "action-validate-contract-notice": "n9",
+  "decision-ok": "n10",
+  "action-publish-contract-notice": "n12",
+  "action-publish-in-buyer-profile": "n13",
+  "final-contracting-authority": "n14",
+  "flow-initial-contracting-authority-to-prepare-contract-notice": "f0",
+  "flow-ok-to-prepare-contract-notice": "f1",
+  "flow-prepare-contract-notice-to-decision-contracting-authority": "f2",
+  "flow-contract-notice-to-validate-contract-notice": "f3",
+  "flow-decision-contracting-authority-to-contract-notice": "f4",
+  "flow-validate-contract-notice-to-ok": "f5",
+  "flow-decision-contracting-authority-to-publish-in-buyer-profile": "f6",
+  "flow-ok-to-publish-contract-notice": "f7",
+  "flow-publish-contract-notice-to-publish-in-buyer-profile": "f8",
+  "flow-publish-in-buyer-profile-to-final-contracting-authority": "f9",
+  "text-yes": "t2",
+  "text-above-thresholds": "t3",
+  "text-no": "t4",
+  "text-no-2": "t5",
+  "text-yes-2": "t6"
+ }
+}

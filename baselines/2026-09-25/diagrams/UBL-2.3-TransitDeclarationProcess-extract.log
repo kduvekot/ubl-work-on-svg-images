@@ -1,0 +1,57 @@
+image 3426x2050
+
+PARTITION RULES
+   vertical  : [(2, 10), (1710, 10), (3418, 7)]
+   horizontal: [(2, 10), (2042, 7)]
+   -> 2 column(s) x 1 band(s)
+   type measured off the page: a word is 44px tall
+   (dropped x=12    y=12    1698x2030  encloses another region)
+   (dropped x=1720  y=12    1698x2030  encloses another region)
+   (dropped x=270   y=1100  1440x779   encloses another region)
+   object nodes are those stroked heavier than 7.0px
+
+NODES
+   n1   initial   x=788   y=242   w=99    h=99    stroke=0   fill=0.77  ''
+   n2   object    x=1435  y=439   w=560   h=275   stroke=10  fill=0.94  'Transit Customs\nDeclarations'
+   n3   action    x=579   y=484   w=517   h=185   stroke=5   fill=0.90  'Issue Transit\nDeclaration'
+   n4   action    x=2429  y=484   w=517   h=185   stroke=5   fill=0.89  'Receive Transit\nDeclaration'
+   n5   object    x=1435  y=961   w=560   h=275   stroke=10  fill=0.92  'Application response\n(approved)'
+   n6   decision  x=2456  y=982   w=463   h=232   stroke=5   fill=0.48  'Is valid?'
+   n7   action    x=579   y=1006  w=517   h=185   stroke=5   fill=0.94  'Receive accept'
+   n8   object    x=1435  y=1435  w=560   h=275   stroke=9   fill=0.92  'Application response\n(rejected)'
+   n9   action    x=579   y=1480  w=517   h=185   stroke=5   fill=0.94  'Receive reject'
+   n10  final     x=199   y=1812  w=138   h=138   stroke=0   fill=0.37  ''
+
+TYPE  cap height 41px over 158 glyphs -> font 58.6px
+   rejoined 2 line break(s) of up to 105px, where a label sits on the line
+   chained 3 dashes into one dashed flow
+
+EDGES
+   n1   -> n3    straight    arrowhead   770 vs 225    ratio 4.0  high
+   n3   -> n2    straight    arrowhead   782 vs 225    ratio 4.0  high
+   n2   -> n4    straight    arrowhead   779 vs 225    ratio 4.0  high
+   n4   -> n6    straight    arrowhead   770 vs 225    ratio 4.0  high
+   n5   -> n7    straight    arrowhead   755 vs 230    ratio 4.0  high
+   n6   -> n5    straight    arrowhead   785 vs 230    ratio 4.0  high
+   n7   -> n10   orthogonal  arrowhead   754 vs 184    ratio 4.0  high
+   n6   -> n8    orthogonal  arrowhead   774 vs 225    ratio 3.4  high
+   n8   -> n9    straight    arrowhead   781 vs 230    ratio 4.0  high
+   n9   -> n10   orthogonal  arrowhead   750 vs 225    ratio 4.0  high
+
+TEXT (titles, guards, notes)
+   'Customs\nParty'                         x=2505  y=48    
+   'Transit Exporter Party'                 x=750   y=82    
+   '‘Yes'                                   x=2181  y=1078  n6->n5
+   'No'                                     x=2511  y=1562  n6->n8
+
+PARTITIONS
+   column 0  'Transit Exporter Party'
+   column 1  'Customs\nParty'
+   band   0  ''
+
+ARROWHEAD  40 x 42px, filled, measured on 9 connector(s)
+   reading settled: '‘Yes' -> 'Yes'
+   reading settled: '‘Yes' -> 'Yes'
+   reading settled: '‘Yes' -> 'Yes'
+
+wrote review/baseline/UBL-2.3-TransitDeclarationProcess-graph.json   (10 nodes, 10 edges, 2 flagged for a human)

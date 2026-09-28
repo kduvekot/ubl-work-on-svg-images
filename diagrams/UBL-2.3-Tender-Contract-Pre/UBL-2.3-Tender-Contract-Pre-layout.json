@@ -1,0 +1,472 @@
+{
+ "schema": "ubl-activity-diagram-layout/1",
+ "figure": "UBL-2.3-Tender-Contract-Pre",
+ "units": "px of the original PNG",
+ "size": [
+  3223,
+  2374
+ ],
+ "style": {
+  "fontPx": 72.9,
+  "arrowPx": 75.5,
+  "arrowWidthPx": 65.9,
+  "arrowStyle": "open"
+ },
+ "rules": {
+  "vertical": [
+   {
+    "at": 6,
+    "width": 8,
+    "span": [
+     17,
+     2356
+    ]
+   },
+   {
+    "at": 1601,
+    "width": 8,
+    "span": [
+     17,
+     2356
+    ]
+   },
+   {
+    "at": 3209,
+    "width": 8,
+    "span": [
+     17,
+     2356
+    ]
+   }
+  ],
+  "horizontal": [
+   {
+    "at": 6,
+    "width": 8,
+    "span": [
+     17,
+     3205
+    ]
+   },
+   {
+    "at": 2360,
+    "width": 8,
+    "span": [
+     17,
+     3205
+    ]
+   }
+  ]
+ },
+ "greyRules": [],
+ "lanes": {
+  "lane-initiating-party": {
+   "x0": 0,
+   "x1": 1605,
+   "titleBox": [
+    279,
+    71,
+    670,
+    59
+   ],
+   "titleWords": "INITIATING PARTY"
+  },
+  "lane-responding-party": {
+   "x0": 1605,
+   "x1": 3223,
+   "titleBox": [
+    2204,
+    76,
+    780,
+    59
+   ],
+   "titleWords": "RESPONDING PARTY"
+  }
+ },
+ "nodes": {
+  "action-prior-exchange-of-public-keys-in-responding-party": {
+   "x": 2076,
+   "y": 223,
+   "w": 1036,
+   "h": 167,
+   "shape": "rounded",
+   "stroke": 8,
+   "rx": 79,
+   "ry": 80,
+   "bold": false,
+   "labelLines": [
+    {
+     "x": 2139,
+     "y": 280,
+     "w": 911,
+     "h": 66,
+     "text": "Prior exchange of public keys"
+    }
+   ]
+  },
+  "action-prior-exchange-of-public-keys-in-initiating-party": {
+   "x": 105,
+   "y": 226,
+   "w": 1019,
+   "h": 175,
+   "shape": "rounded",
+   "stroke": 8,
+   "rx": 84,
+   "ry": 82,
+   "bold": false,
+   "labelLines": [
+    {
+     "x": 159,
+     "y": 280,
+     "w": 911,
+     "h": 66,
+     "text": "Prior exchange of public keys"
+    }
+   ]
+  },
+  "initial-initiating-party": {
+   "x": 523,
+   "y": 471,
+   "w": 116,
+   "h": 116
+  },
+  "action-prepare-tender-contract": {
+   "x": 110,
+   "y": 693,
+   "w": 1028,
+   "h": 156,
+   "shape": "rounded",
+   "stroke": 8,
+   "rx": 83.0,
+   "ry": 80,
+   "bold": false,
+   "labelLines": [
+    {
+     "x": 247,
+     "y": 744,
+     "w": 733,
+     "h": 65,
+     "text": "Prepare tender contract"
+    }
+   ]
+  },
+  "action-add-w3c-digital-signature-in-initiating-party": {
+   "x": 110,
+   "y": 964,
+   "w": 1028,
+   "h": 157,
+   "shape": "rounded",
+   "stroke": 7,
+   "rx": 83.0,
+   "ry": 80,
+   "bold": false,
+   "labelLines": [
+    {
+     "x": 207,
+     "y": 1015,
+     "w": 834,
+     "h": 66,
+     "text": "Add W3C Digital Signature"
+    }
+   ]
+  },
+  "object-tender-contract-between-initiating-party-and-responding-party": {
+   "x": 1368,
+   "y": 1172,
+   "w": 485,
+   "h": 326,
+   "shape": "rect",
+   "stroke": 8,
+   "rx": 0,
+   "ry": 0,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 1411,
+     "y": 1245,
+     "w": 229,
+     "h": 51,
+     "text": "Tender"
+    },
+    {
+     "x": 1406,
+     "y": 1349,
+     "w": 286,
+     "h": 52,
+     "text": "Contract"
+    }
+   ]
+  },
+  "action-receive-tender-contract-in-responding-party": {
+   "x": 2076,
+   "y": 1246,
+   "w": 1036,
+   "h": 168,
+   "shape": "rounded",
+   "stroke": 7,
+   "rx": 83.0,
+   "ry": 82,
+   "bold": false,
+   "labelLines": [
+    {
+     "x": 2236,
+     "y": 1300,
+     "w": 737,
+     "h": 52,
+     "text": "Receive tender contract"
+    }
+   ]
+  },
+  "action-submit-tender-contract": {
+   "x": 105,
+   "y": 1250,
+   "w": 1019,
+   "h": 174,
+   "shape": "rounded",
+   "stroke": 8,
+   "rx": 83,
+   "ry": 82,
+   "bold": false,
+   "labelLines": [
+    {
+     "x": 269,
+     "y": 1304,
+     "w": 704,
+     "h": 52,
+     "text": "Submit tender contract"
+    }
+   ]
+  },
+  "action-add-w3c-digital-signature-in-responding-party": {
+   "x": 2076,
+   "y": 1607,
+   "w": 1028,
+   "h": 156,
+   "shape": "rounded",
+   "stroke": 8,
+   "rx": 83.0,
+   "ry": 80,
+   "bold": false,
+   "labelLines": [
+    {
+     "x": 2173,
+     "y": 1657,
+     "w": 834,
+     "h": 66,
+     "text": "Add W3C Digital Signature"
+    }
+   ]
+  },
+  "object-tender-contract-between-initiating-party-and-responding-party-2": {
+   "x": 1368,
+   "y": 1825,
+   "w": 485,
+   "h": 326,
+   "shape": "rect",
+   "stroke": 8,
+   "rx": 0,
+   "ry": 0,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 1411,
+     "y": 1898,
+     "w": 229,
+     "h": 51,
+     "text": "Tender"
+    },
+    {
+     "x": 1406,
+     "y": 2002,
+     "w": 286,
+     "h": 52,
+     "text": "Contract"
+    }
+   ]
+  },
+  "action-return-tender-contract": {
+   "x": 2076,
+   "y": 1899,
+   "w": 1036,
+   "h": 168,
+   "shape": "rounded",
+   "stroke": 7,
+   "rx": 83.0,
+   "ry": 82,
+   "bold": false,
+   "labelLines": [
+    {
+     "x": 2236,
+     "y": 1953,
+     "w": 694,
+     "h": 52,
+     "text": "Return tender contract"
+    }
+   ]
+  },
+  "action-receive-tender-contract-in-initiating-party": {
+   "x": 105,
+   "y": 1903,
+   "w": 1019,
+   "h": 175,
+   "shape": "rounded",
+   "stroke": 8,
+   "rx": 83,
+   "ry": 82,
+   "bold": false,
+   "labelLines": [
+    {
+     "x": 271,
+     "y": 1958,
+     "w": 738,
+     "h": 51,
+     "text": "Receive tender contract"
+    }
+   ]
+  },
+  "final-initiating-party": {
+   "x": 531,
+   "y": 2226,
+   "w": 102,
+   "h": 101,
+   "shape": "ellipse",
+   "stroke": 8,
+   "rx": 48,
+   "ry": 55,
+   "innerRatio": 0.49
+  }
+ },
+ "flows": {
+  "flow-prior-exchange-of-public-keys-in-responding-party-to-prior-exchange-of-public-keys-in-initiating-party": {
+   "fromPoint": [
+    2061,
+    302
+   ],
+   "toPoint": [
+    1138,
+    304
+   ],
+   "routing": "straight",
+   "dash": 70.0,
+   "gap": 55.0
+  },
+  "flow-initial-initiating-party-to-prepare-tender-contract": {
+   "fromPoint": [
+    581,
+    601
+   ],
+   "toPoint": [
+    589,
+    678
+   ],
+   "routing": "straight"
+  },
+  "flow-prepare-tender-contract-to-add-w3c-digital-signature-in-initiating-party": {
+   "fromPoint": [
+    585,
+    863
+   ],
+   "toPoint": [
+    589,
+    949
+   ],
+   "routing": "straight"
+  },
+  "flow-add-w3c-digital-signature-in-initiating-party-to-submit-tender-contract": {
+   "fromPoint": [
+    585,
+    1135
+   ],
+   "toPoint": [
+    589,
+    1235
+   ],
+   "routing": "straight"
+  },
+  "flow-submit-tender-contract-to-tender-contract-between-initiating-party-and-responding-party": {
+   "fromPoint": [
+    1138,
+    1326
+   ],
+   "toPoint": [
+    1353,
+    1328
+   ],
+   "routing": "straight"
+  },
+  "flow-tender-contract-between-initiating-party-and-responding-party-to-receive-tender-contract-in-responding-party": {
+   "fromPoint": [
+    1867,
+    1330
+   ],
+   "toPoint": [
+    2056,
+    1320
+   ],
+   "routing": "diagonal"
+  },
+  "flow-receive-tender-contract-in-responding-party-to-add-w3c-digital-signature-in-responding-party": {
+   "fromPoint": [
+    2592,
+    1428
+   ],
+   "toPoint": [
+    2590,
+    1590
+   ],
+   "routing": "straight"
+  },
+  "flow-add-w3c-digital-signature-in-responding-party-to-return-tender-contract": {
+   "fromPoint": [
+    2590,
+    1777
+   ],
+   "toPoint": [
+    2593,
+    1884
+   ],
+   "routing": "straight"
+  },
+  "flow-tender-contract-between-initiating-party-and-responding-party-2-to-receive-tender-contract-in-initiating-party": {
+   "fromPoint": [
+    1353,
+    1978
+   ],
+   "toPoint": [
+    1138,
+    1982
+   ],
+   "routing": "straight"
+  },
+  "flow-return-tender-contract-to-tender-contract-between-initiating-party-and-responding-party-2": {
+   "fromPoint": [
+    2055,
+    1987
+   ],
+   "toPoint": [
+    1867,
+    1988
+   ],
+   "routing": "straight"
+  },
+  "flow-receive-tender-contract-in-initiating-party-to-final-initiating-party": {
+   "fromPoint": [
+    584,
+    2092
+   ],
+   "toPoint": [
+    582,
+    2211
+   ],
+   "routing": "straight"
+  }
+ },
+ "texts": {},
+ "offPage": {},
+ "marks": {},
+ "phases": {},
+ "rulesHaveSpans": {
+  "vertical": true,
+  "horizontal": true
+ }
+}

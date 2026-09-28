@@ -1,0 +1,764 @@
+{
+ "source": "UBL-2.3-TransitDeclarationProcess.png",
+ "size": [
+  3426,
+  2050
+ ],
+ "fontPx": 58.6,
+ "arrowPx": 40.0,
+ "arrowWidthPx": 42.0,
+ "arrowStyle": "filled",
+ "rules": {
+  "v": [
+   [
+    2,
+    10
+   ],
+   [
+    1710,
+    10
+   ],
+   [
+    3418,
+    7
+   ]
+  ],
+  "h": [
+   [
+    2,
+    10
+   ],
+   [
+    2042,
+    7
+   ]
+  ]
+ },
+ "ruleSpan": {
+  "v": [
+   [
+    15,
+    2038
+   ],
+   [
+    15,
+    2038
+   ],
+   [
+    15,
+    2038
+   ]
+  ],
+  "h": [
+   [
+    15,
+    3414
+   ],
+   [
+    15,
+    3414
+   ]
+  ]
+ },
+ "greyRules": [],
+ "dashed": [],
+ "openEnds": [],
+ "crossMarks": [],
+ "partitions": [
+  {
+   "axis": "column",
+   "index": 0,
+   "x0": 0,
+   "x1": 1715,
+   "title": "Transit Exporter Party",
+   "titleBox": [
+    750,
+    82,
+    550,
+    52
+   ]
+  },
+  {
+   "axis": "column",
+   "index": 1,
+   "x0": 1715,
+   "x1": 3426,
+   "title": "Customs\nParty",
+   "titleBox": [
+    2505,
+    48,
+    219,
+    120
+   ]
+  },
+  {
+   "axis": "band",
+   "index": 0,
+   "y0": 0,
+   "y1": 2050,
+   "title": ""
+  }
+ ],
+ "nodes": [
+  {
+   "x": 788,
+   "y": 242,
+   "w": 99,
+   "h": 99,
+   "area": 6632,
+   "fill": 0.767,
+   "kind": "initial",
+   "id": "n1",
+   "label": "",
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 1435,
+   "y": 439,
+   "w": 560,
+   "h": 275,
+   "area": 143951,
+   "fill": 0.935,
+   "solid": 1.0,
+   "rx": 0,
+   "ry": 0,
+   "shape": "rect",
+   "stroke": 10,
+   "kind": "object",
+   "id": "n2",
+   "label": "Transit Customs\nDeclarations",
+   "labelLines": [
+    {
+     "x": 1508,
+     "y": 523,
+     "w": 408,
+     "h": 43,
+     "text": "Transit Customs"
+    },
+    {
+     "x": 1559,
+     "y": 590,
+     "w": 309,
+     "h": 41,
+     "text": "Declarations"
+    }
+   ],
+   "stem": 0.085,
+   "bold": false,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 579,
+   "y": 484,
+   "w": 517,
+   "h": 185,
+   "area": 86466,
+   "fill": 0.904,
+   "solid": 0.994,
+   "rx": 24,
+   "ry": 24,
+   "shape": "rounded",
+   "stroke": 5,
+   "kind": "action",
+   "id": "n3",
+   "label": "Issue Transit\nDeclaration",
+   "labelLines": [
+    {
+     "x": 679,
+     "y": 524,
+     "w": 317,
+     "h": 41,
+     "text": "Issue Transit"
+    },
+    {
+     "x": 696,
+     "y": 590,
+     "w": 279,
+     "h": 41,
+     "text": "Declaration"
+    }
+   ],
+   "stem": 0.085,
+   "bold": false,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 2429,
+   "y": 484,
+   "w": 517,
+   "h": 185,
+   "area": 84978,
+   "fill": 0.888,
+   "solid": 0.994,
+   "rx": 24,
+   "ry": 24,
+   "shape": "rounded",
+   "stroke": 5,
+   "kind": "action",
+   "id": "n4",
+   "label": "Receive Transit\nDeclaration",
+   "labelLines": [
+    {
+     "x": 2493,
+     "y": 524,
+     "w": 388,
+     "h": 41,
+     "text": "Receive Transit"
+    },
+    {
+     "x": 2546,
+     "y": 590,
+     "w": 279,
+     "h": 41,
+     "text": "Declaration"
+    }
+   ],
+   "stem": 0.085,
+   "bold": false,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 1435,
+   "y": 961,
+   "w": 560,
+   "h": 275,
+   "area": 141121,
+   "fill": 0.916,
+   "solid": 1.0,
+   "rx": 0,
+   "ry": 0,
+   "shape": "rect",
+   "stroke": 10,
+   "kind": "object",
+   "id": "n5",
+   "label": "Application response\n(approved)",
+   "labelLines": [
+    {
+     "x": 1449,
+     "y": 1045,
+     "w": 525,
+     "h": 52,
+     "text": "Application response"
+    },
+    {
+     "x": 1579,
+     "y": 1112,
+     "w": 269,
+     "h": 52,
+     "text": "(approved)"
+    }
+   ],
+   "stem": 0.085,
+   "bold": false,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 2456,
+   "y": 982,
+   "w": 463,
+   "h": 232,
+   "area": 51219,
+   "fill": 0.477,
+   "solid": 0.501,
+   "rx": 244,
+   "ry": 126,
+   "shape": "rhombus",
+   "stroke": 5,
+   "kind": "decision",
+   "id": "n6",
+   "label": "Is valid?",
+   "labelLines": [
+    {
+     "x": 2586,
+     "y": 1079,
+     "w": 200,
+     "h": 41,
+     "text": "Is valid?"
+    }
+   ],
+   "stem": 0.085,
+   "bold": false,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 579,
+   "y": 1006,
+   "w": 517,
+   "h": 185,
+   "area": 89474,
+   "fill": 0.935,
+   "solid": 0.994,
+   "rx": 23,
+   "ry": 24,
+   "shape": "rounded",
+   "stroke": 5,
+   "kind": "action",
+   "id": "n7",
+   "label": "Receive accept",
+   "labelLines": [
+    {
+     "x": 645,
+     "y": 1079,
+     "w": 384,
+     "h": 52,
+     "text": "Receive accept"
+    }
+   ],
+   "stem": 0.085,
+   "bold": false,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 1435,
+   "y": 1435,
+   "w": 560,
+   "h": 275,
+   "area": 142326,
+   "fill": 0.924,
+   "solid": 1.0,
+   "rx": 0,
+   "ry": 0,
+   "shape": "rect",
+   "stroke": 9,
+   "kind": "object",
+   "id": "n8",
+   "label": "Application response\n(rejected)",
+   "labelLines": [
+    {
+     "x": 1449,
+     "y": 1520,
+     "w": 525,
+     "h": 52,
+     "text": "Application response"
+    },
+    {
+     "x": 1596,
+     "y": 1586,
+     "w": 235,
+     "h": 52,
+     "text": "(rejected)"
+    }
+   ],
+   "stem": 0.085,
+   "bold": false,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 579,
+   "y": 1480,
+   "w": 517,
+   "h": 185,
+   "area": 90120,
+   "fill": 0.942,
+   "solid": 0.994,
+   "rx": 26,
+   "ry": 24,
+   "shape": "rounded",
+   "stroke": 5,
+   "kind": "action",
+   "id": "n9",
+   "label": "Receive reject",
+   "labelLines": [
+    {
+     "x": 659,
+     "y": 1553,
+     "w": 356,
+     "h": 52,
+     "text": "Receive reject"
+    }
+   ],
+   "stem": 0.085,
+   "bold": false,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 199,
+   "y": 1812,
+   "w": 138,
+   "h": 138,
+   "area": 7082,
+   "fill": 0.372,
+   "solid": 0.782,
+   "rx": 70,
+   "ry": 71,
+   "shape": "rounded",
+   "stroke": 0,
+   "kind": "final",
+   "innerRatio": 0.717,
+   "id": "n10",
+   "label": "",
+   "col": 0,
+   "row": 0
+  }
+ ],
+ "edges": [
+  {
+   "from": "n1",
+   "to": "n3",
+   "routing": "straight",
+   "fromPoint": [
+    837,
+    355
+   ],
+   "toPoint": [
+    837,
+    469
+   ],
+   "arrowInk": [
+    225,
+    770
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    40,
+    42.0,
+    2.18
+   ],
+   "arrowFill": 0.644,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n3",
+   "to": "n2",
+   "routing": "straight",
+   "fromPoint": [
+    1110,
+    576
+   ],
+   "toPoint": [
+    1420,
+    576
+   ],
+   "arrowInk": [
+    225,
+    782
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    38,
+    42.0,
+    2.48
+   ],
+   "arrowFill": 0.642,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n2",
+   "to": "n4",
+   "routing": "straight",
+   "fromPoint": [
+    2009,
+    576
+   ],
+   "toPoint": [
+    2414,
+    576
+   ],
+   "arrowInk": [
+    225,
+    779
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    40,
+    42.0,
+    2.18
+   ],
+   "arrowFill": 0.659,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n4",
+   "to": "n6",
+   "routing": "straight",
+   "fromPoint": [
+    2687,
+    683
+   ],
+   "toPoint": [
+    2687,
+    967
+   ],
+   "arrowInk": [
+    225,
+    770
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    41,
+    42.0,
+    2.18
+   ],
+   "arrowFill": 0.696,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n5",
+   "to": "n7",
+   "routing": "straight",
+   "fromPoint": [
+    1420,
+    1098
+   ],
+   "toPoint": [
+    1110,
+    1098
+   ],
+   "arrowInk": [
+    230,
+    755
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    40,
+    42.0,
+    2.18
+   ],
+   "arrowFill": 0.625,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n6",
+   "to": "n5",
+   "routing": "straight",
+   "fromPoint": [
+    2441,
+    1098
+   ],
+   "toPoint": [
+    2009,
+    1098
+   ],
+   "arrowInk": [
+    230,
+    785
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    38,
+    42.0,
+    2.39
+   ],
+   "arrowFill": 0.595,
+   "guard": "Yes",
+   "edgeKind": "object"
+  },
+  {
+   "from": "n7",
+   "to": "n10",
+   "routing": "orthogonal",
+   "fromPoint": [
+    564,
+    1098
+   ],
+   "toPoint": [
+    268,
+    1797
+   ],
+   "arrowInk": [
+    184,
+    754
+   ],
+   "directionConfidence": "high",
+   "points": [
+    [
+     268,
+     1098
+    ]
+   ],
+   "arrowPx": [
+    40,
+    44.0,
+    2.11
+   ],
+   "arrowFill": 0.63,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n6",
+   "to": "n8",
+   "routing": "orthogonal",
+   "fromPoint": [
+    2687,
+    1228
+   ],
+   "toPoint": [
+    2033,
+    1582
+   ],
+   "arrowInk": [
+    225,
+    774
+   ],
+   "directionConfidence": "high",
+   "points": [
+    [
+     2687,
+     1582
+    ]
+   ],
+   "guard": "No",
+   "edgeKind": "object"
+  },
+  {
+   "from": "n8",
+   "to": "n9",
+   "routing": "straight",
+   "fromPoint": [
+    1420,
+    1572
+   ],
+   "toPoint": [
+    1110,
+    1572
+   ],
+   "arrowInk": [
+    230,
+    781
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    40,
+    42.0,
+    2.18
+   ],
+   "arrowFill": 0.644,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n9",
+   "to": "n10",
+   "routing": "orthogonal",
+   "fromPoint": [
+    837,
+    1679
+   ],
+   "toPoint": [
+    351,
+    1880
+   ],
+   "arrowInk": [
+    225,
+    750
+   ],
+   "directionConfidence": "high",
+   "points": [
+    [
+     837,
+     1880
+    ]
+   ],
+   "arrowPx": [
+    39,
+    43.9,
+    2.11
+   ],
+   "arrowFill": 0.624,
+   "edgeKind": "control"
+  }
+ ],
+ "text": [
+  {
+   "text": "Customs\nParty",
+   "x": 2505,
+   "y": 48,
+   "w": 219,
+   "h": 120,
+   "lines": [
+    {
+     "x": 2505,
+     "y": 48,
+     "w": 219,
+     "h": 43,
+     "text": "Customs"
+    },
+    {
+     "x": 2552,
+     "y": 116,
+     "w": 127,
+     "h": 52,
+     "text": "Party"
+    }
+   ]
+  },
+  {
+   "text": "Transit Exporter Party",
+   "x": 750,
+   "y": 82,
+   "w": 550,
+   "h": 52,
+   "lines": [
+    {
+     "x": 750,
+     "y": 82,
+     "w": 550,
+     "h": 52,
+     "text": "Transit Exporter Party"
+    }
+   ]
+  },
+  {
+   "text": "Yes",
+   "x": 2181,
+   "y": 1078,
+   "w": 82,
+   "h": 37,
+   "lines": [
+    {
+     "x": 2177,
+     "y": 1078,
+     "w": 90,
+     "h": 37,
+     "text": "Yes"
+    }
+   ],
+   "attachedTo": "n6->n5"
+  },
+  {
+   "text": "No",
+   "x": 2511,
+   "y": 1562,
+   "w": 61,
+   "h": 37,
+   "lines": [
+    {
+     "x": 2511,
+     "y": 1562,
+     "w": 61,
+     "h": 37,
+     "text": "No"
+    }
+   ],
+   "attachedTo": "n6->n8"
+  }
+ ],
+ "uncertain": [
+  {
+   "kind": "ring-stroke-unreadable",
+   "x": 199,
+   "y": 1812,
+   "w": 138,
+   "h": 138,
+   "reason": "line-work runs off this activity final on more than one side, so its ring thickness could not be measured",
+   "check": "confirm this is an activity final and how thick its ring is"
+  },
+  {
+   "kind": "unexplained-line-work",
+   "x": 2592,
+   "y": -16,
+   "w": 96,
+   "h": 173,
+   "reason": "line-work that is neither a connector between two nodes nor the size of text",
+   "check": "decide what this is; the SVG does not draw it"
+  }
+ ]
+}

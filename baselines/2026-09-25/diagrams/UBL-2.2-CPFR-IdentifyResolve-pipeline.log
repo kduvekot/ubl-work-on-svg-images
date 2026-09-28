@@ -1,0 +1,11 @@
+== UBL-2.2-CPFR-IdentifyResolve
+  scale 0.43212   frame 10px  divider 1px  action 3px  object 6px
+  font 46px (19.7 model)   2 lanes, 1 bands, 10 nodes, 10 edges -> review/baseline/UBL-2.2-CPFR-IdentifyResolve-spec.json
+  review/baseline/UBL-2.2-CPFR-IdentifyResolve.svg + .drawio + -classified.svg   (10 nodes, 10 edges)
+  rendered UBL-2.2-CPFR-IdentifyResolve.svg -> UBL-2.2-CPFR-IdentifyResolve-render.png @ 3425pxx2222, 600 dpi
+  aligned on ink bounds: scale x 1.0000, y 1.0000
+  size 3425x2222  radius 2
+  ink: original 291384   candidate 290652
+  MISSING (red)    17148  = 5.8850% of original ink
+  EXTRA   (blue)   18870  = 6.4760% of original ink
+  RESULT: DIFFERENCES - inspect review/baseline/UBL-2.2-CPFR-IdentifyResolve-diff-r2.png

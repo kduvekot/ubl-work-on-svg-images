@@ -1,5 +1,5 @@
 {
- "_note": "the direction of every flow the reading could not settle, judged against the original artwork by a person (2026-09). Twenty-five were drawn the way the artwork draws them; one, on CPFR-ExceptionMonitor, was not and was corrected. A flow is named by where its two elements sit on the page, because that is what stays put: node ids are handed out in reading order and move, and a label can be re-read. The 'flow' beside each verdict is the labels as they read at the time, for a person to recognise it by. extract_graph marks these flows as checked, and says so loudly when one is no longer read the way this table says - which is what makes the table a fixture rather than an override: it never sets a direction, it records that a person checked the one that was read, and complains when that changes.",
+ "_note": "the direction of every flow the reading could not settle, judged against the original artwork by a person (2026-09). Twenty-five were drawn the way the artwork draws them; one, on CPFR-ExceptionMonitor, was not and was corrected. On 2026-09-27 (completeness sweep, flows) the 45 more read with medium confidence, or settled by a notation rule away from a start or end, were judged the same way, both ends zoomed on the original: all 45 as drawn. (The one the notation rule got wrong, on Fig C.1, is corrected in the model: model-05.) A flow is named by where its two elements sit on the page, because that is what stays put: node ids are handed out in reading order and move, and a label can be re-read. The 'flow' beside each verdict is the labels as they read at the time, for a person to recognise it by. extract_graph marks these flows as checked, and says so loudly when one is no longer read the way this table says - which is what makes the table a fixture rather than an override: it never sets a direction, it records that a person checked the one that was read, and complains when that changes.",
  "flows": {
   "UBL-2.2-CPFR-ExceptionMonitor": {
    "890,1358 -> 1436,1064": {
@@ -11,6 +11,22 @@
    "2188,946 -> 2482,1365": {
     "verdict": "confirmed",
     "flow": "Validate Prior Information Notice -> OK?"
+   },
+   "248,545 -> 575,982": {
+    "verdict": "confirmed",
+    "flow": "Prepare Prior Notice -> decision"
+   },
+   "146,2795 -> 1602,2638": {
+    "verdict": "confirmed",
+    "flow": "Prepare Simplified Notice -> Prior Information Notice"
+   },
+   "2237,2788 -> 2673,3134": {
+    "verdict": "confirmed",
+    "flow": "Validate Simplified Notice -> OK?"
+   },
+   "2673,3134 -> 146,2795": {
+    "verdict": "confirmed",
+    "flow": "OK? -> Prepare Simplified Notice"
    }
   },
   "UBL-2.2-Tender-QualificationApplication": {
@@ -123,6 +139,210 @@
    "1887,1474 -> 1168,1470": {
     "verdict": "confirmed",
     "flow": "Invoice -> reconcile invoice"
+   },
+   "1889,111 -> 2768,111": {
+    "verdict": "confirmed",
+    "flow": "Order -> receive order"
+   },
+   "2382,241 -> 1742,246": {
+    "verdict": "confirmed",
+    "flow": "reject order -> OrderResponseSimple"
+   },
+   "2926,234 -> 2754,382": {
+    "verdict": "confirmed",
+    "flow": "decision -> accept order"
+   },
+   "1742,246 -> 1011,387": {
+    "verdict": "confirmed",
+    "flow": "OrderResponseSimple -> receive response"
+   },
+   "2754,382 -> 1744,387": {
+    "verdict": "confirmed",
+    "flow": "accept order -> OrderResponseSimple"
+   },
+   "1316,564 -> 814,688": {
+    "verdict": "confirmed",
+    "flow": "decision -> cancel order"
+   },
+   "2835,616 -> 2325,792": {
+    "verdict": "confirmed",
+    "flow": "decision -> cancel order"
+   },
+   "1359,655 -> 1825,659": {
+    "verdict": "confirmed",
+    "flow": "change order -> OrderChange"
+   },
+   "1359,655 -> 1226,837": {
+    "verdict": "confirmed",
+    "flow": "change order -> receive advice"
+   },
+   "2569,1085 -> 1817,1093": {
+    "verdict": "confirmed",
+    "flow": "despatch order item(s) -> DespatchAdvice"
+   },
+   "559,1257 -> 2063,1246": {
+    "verdict": "confirmed",
+    "flow": "ReceiptAdvice -> decision if item(s) rejected"
+   }
+  },
+  "UBL-2.0-SelfBillingwithCreditNoteProcess": {
+   "841,1470 -> 511,1175": {
+    "verdict": "confirmed",
+    "flow": "Receive Credit Note -> Reconcile Charges"
+   }
+  },
+  "UBL-2.0-SourcingBuyerInitiatedProcess": {
+   "145,650 -> 1475,630": {
+    "verdict": "confirmed",
+    "flow": "Send request for Quotation -> Request for Quotation"
+   },
+   "1475,630 -> 2484,632": {
+    "verdict": "confirmed",
+    "flow": "Request for Quotation -> Receive request for quotation"
+   },
+   "2514,1238 -> 1511,1200": {
+    "verdict": "confirmed",
+    "flow": "Send quotation -> Quotation"
+   },
+   "1511,1200 -> 169,1214": {
+    "verdict": "confirmed",
+    "flow": "Quotation -> Receive quotation"
+   }
+  },
+  "UBL-2.0-SourcingPunchoutProcess": {
+   "2548,1271 -> 1495,1244": {
+    "verdict": "confirmed",
+    "flow": "Send shopping basket -> Quotation"
+   }
+  },
+  "UBL-2.0-UpdateCatalogueItemSpecificationProcess": {
+   "2464,170 -> 2621,953": {
+    "verdict": "confirmed",
+    "flow": "Respond to Request -> fork"
+   }
+  },
+  "UBL-2.0-UpdateCataloguePricingProcess": {
+   "2450,265 -> 2611,1186": {
+    "verdict": "confirmed",
+    "flow": "Respond to Request -> fork"
+   }
+  },
+  "UBL-2.2-CPFR-CreatingSalesForecast": {
+   "2334,313 -> 1477,310": {
+    "verdict": "confirmed",
+    "flow": "Create Item Information Request -> Item Information Request"
+   },
+   "561,1123 -> 1477,1120": {
+    "verdict": "confirmed",
+    "flow": "Send Product Activity -> Product Activity"
+   },
+   "1477,1909 -> 554,1912": {
+    "verdict": "confirmed",
+    "flow": "Forecast (sales) -> Receive Sales Forecast"
+   },
+   "2334,1912 -> 1477,1909": {
+    "verdict": "confirmed",
+    "flow": "Send Sales Forecast -> Forecast (sales)"
+   }
+  },
+  "UBL-2.2-CPFR-IdentifyResolve": {
+   "785,1048 -> 1409,740": {
+    "verdict": "confirmed",
+    "flow": "Send Exception -> Exception Notification (positive)"
+   }
+  },
+  "UBL-2.2-DigitalAgreement": {
+   "2958,817 -> 2185,1080": {
+    "verdict": "confirmed",
+    "flow": "Match digital capabilities -> Send digital agreement"
+   }
+  },
+  "UBL-2.2-FulfilmentDespatchAdviceProcess": {
+   "1251,574 -> 1129,766": {
+    "verdict": "confirmed",
+    "flow": "Receive Despatch Advice -> fork"
+   },
+   "2287,1332 -> 2960,970": {
+    "verdict": "confirmed",
+    "flow": "Receive Receipt Advice -> Adjust supply status"
+   }
+  },
+  "UBL-2.2-FulfilmentReceiptAdviceProcess": {
+   "2309,729 -> 2776,836": {
+    "verdict": "confirmed",
+    "flow": "Receive Receipt Advice -> Adjust supply status"
+   },
+   "2303,965 -> 2776,836": {
+    "verdict": "confirmed",
+    "flow": "Receive Fulfilment Cancellation -> Adjust supply status"
+   }
+  },
+  "UBL-2.2-IMFM-GoodsItemItinerary": {
+   "2136,578 -> 1201,575": {
+    "verdict": "confirmed",
+    "flow": "Send Goods Item Itinerary -> Goods Item Itinerary"
+   }
+  },
+  "UBL-2.2-Tender-AwardNotification": {
+   "94,833 -> 434,1199": {
+    "verdict": "confirmed",
+    "flow": "Receive notification -> final"
+   }
+  },
+  "UBL-2.2-Tender-AwardPublication": {
+   "2118,842 -> 2609,1180": {
+    "verdict": "confirmed",
+    "flow": "Validate contract award notice -> OK?"
+   },
+   "2139,1575 -> 2643,1977": {
+    "verdict": "confirmed",
+    "flow": "Publish contract award notice -> final"
+   }
+  },
+  "UBL-2.2-Tender-ContractInfoNotify": {
+   "101,553 -> 539,1022": {
+    "verdict": "confirmed",
+    "flow": "Prepare Contract Notice -> decision"
+   },
+   "2145,1031 -> 2579,1401": {
+    "verdict": "confirmed",
+    "flow": "Validate Contract Notice -> OK?"
+   }
+  },
+  "UBL-2.2-Tender-GuaranteeDeposit": {
+   "147,963 -> 1247,953": {
+    "verdict": "confirmed",
+    "flow": "Submit Certificate -> Guarantee Certificate"
+   }
+  },
+  "UBL-2.2-Tender-Invitation": {
+   "93,912 -> 1454,794": {
+    "verdict": "confirmed",
+    "flow": "Submit Invitation to Tender -> Call For Tenders"
+   }
+  },
+  "UBL-2.2-Tender-QualificationInfo": {
+   "446,1535 -> 691,2012": {
+    "verdict": "confirmed",
+    "flow": "Receive result -> final"
+   }
+  },
+  "UBL-2.2-Tender-SubmissionOfTenders": {
+   "304,1406 -> 563,1887": {
+    "verdict": "confirmed",
+    "flow": "Receive receipt -> final"
+   }
+  },
+  "UBL-2.5-BillingwithCreditNoteProcess": {
+   "963,747 -> 339,1192": {
+    "verdict": "confirmed",
+    "flow": "Receive Credit Note -> Reconcile Charges"
+   }
+  },
+  "UBL-2.5-BillingwithDebitNoteProcess": {
+   "963,747 -> 339,1192": {
+    "verdict": "confirmed",
+    "flow": "Receive Debit Note -> Reconcile Charges"
    }
   }
  }

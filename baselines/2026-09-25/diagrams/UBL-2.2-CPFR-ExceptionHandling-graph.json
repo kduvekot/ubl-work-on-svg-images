@@ -1,0 +1,854 @@
+{
+ "source": "UBL-2.2-CPFR-ExceptionHandling.png",
+ "size": [
+  3425,
+  1786
+ ],
+ "fontPx": 45.7,
+ "arrowPx": 50.3,
+ "arrowWidthPx": 45.3,
+ "arrowStyle": "open",
+ "rules": {
+  "v": [
+   [
+    0,
+    10
+   ],
+   [
+    1694,
+    1
+   ],
+   [
+    3415,
+    10
+   ]
+  ],
+  "h": [
+   [
+    0,
+    10
+   ],
+   [
+    1776,
+    10
+   ]
+  ]
+ },
+ "ruleSpan": {
+  "v": [
+   [
+    13,
+    1772
+   ],
+   [
+    13,
+    1772
+   ],
+   [
+    13,
+    1772
+   ]
+  ],
+  "h": [
+   [
+    13,
+    3411
+   ],
+   [
+    13,
+    3411
+   ]
+  ]
+ },
+ "greyRules": [],
+ "dashed": [
+  {
+   "x": 82,
+   "y": 82,
+   "w": 3260,
+   "h": 1636,
+   "rx": 158,
+   "dash": 12.0,
+   "gap": 9.0,
+   "weight": 3.0,
+   "dashes": 416
+  }
+ ],
+ "openEnds": [
+  {
+   "node": "n2",
+   "at": [
+    792,
+    12
+   ],
+   "end": [
+    788,
+    266
+   ],
+   "points": [],
+   "arrow": true,
+   "inward": true,
+   "headPx": [
+    55,
+    48.3,
+    2.49,
+    0,
+    true
+   ],
+   "x": 767,
+   "y": 12,
+   "w": 48,
+   "h": 255
+  },
+  {
+   "node": "n1",
+   "at": [
+    2640,
+    12
+   ],
+   "end": [
+    2645,
+    260
+   ],
+   "points": [],
+   "arrow": true,
+   "inward": true,
+   "headPx": [
+    55,
+    51.8,
+    2.24,
+    0,
+    true
+   ],
+   "x": 2618,
+   "y": 12,
+   "w": 48,
+   "h": 250
+  },
+  {
+   "node": "n3",
+   "at": [
+    2775,
+    828
+   ],
+   "end": [
+    851,
+    1773
+   ],
+   "points": [
+    [
+     2774,
+     1612
+    ],
+    [
+     852,
+     1612
+    ]
+   ],
+   "arrow": false,
+   "inward": false,
+   "headPx": null,
+   "x": 840,
+   "y": 828,
+   "w": 1936,
+   "h": 946
+  },
+  {
+   "node": "n4",
+   "at": [
+    662,
+    850
+   ],
+   "end": [
+    658,
+    1773
+   ],
+   "points": [],
+   "arrow": false,
+   "inward": false,
+   "headPx": null,
+   "x": 651,
+   "y": 850,
+   "w": 13,
+   "h": 924
+  }
+ ],
+ "crossMarks": [],
+ "partitions": [
+  {
+   "axis": "column",
+   "index": 0,
+   "x0": 0,
+   "x1": 1694,
+   "title": ""
+  },
+  {
+   "axis": "column",
+   "index": 1,
+   "x0": 1694,
+   "x1": 3425,
+   "title": "Exception Handling",
+   "titleBox": [
+    1502,
+    105,
+    398,
+    41
+   ]
+  },
+  {
+   "axis": "band",
+   "index": 0,
+   "y0": 0,
+   "y1": 1786,
+   "title": ""
+  }
+ ],
+ "nodes": [
+  {
+   "x": 2484,
+   "y": 276,
+   "w": 595,
+   "h": 236,
+   "area": 120816,
+   "fill": 0.86,
+   "solid": 0.973,
+   "rx": 67,
+   "ry": 66,
+   "shape": "rounded",
+   "stroke": 3,
+   "kind": "action",
+   "id": "n1",
+   "label": "Receive Sales Forecast &\nWait for Exception\nNotification",
+   "labelLines": [
+    {
+     "x": 2518,
+     "y": 318,
+     "w": 526,
+     "h": 32,
+     "text": "Receive Sales Forecast &"
+    },
+    {
+     "x": 2600,
+     "y": 376,
+     "w": 381,
+     "h": 41,
+     "text": "Wait for Exception"
+    },
+    {
+     "x": 2687,
+     "y": 433,
+     "w": 233,
+     "h": 33,
+     "text": "Notification"
+    }
+   ],
+   "stem": 0.153,
+   "bold": true,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 372,
+   "y": 281,
+   "w": 594,
+   "h": 231,
+   "area": 117715,
+   "fill": 0.858,
+   "solid": 0.973,
+   "rx": 62,
+   "ry": 65,
+   "shape": "rounded",
+   "stroke": 4,
+   "kind": "action",
+   "id": "n2",
+   "label": "Receive Sales Forecast &\nWait for Exception\nNotification",
+   "labelLines": [
+    {
+     "x": 402,
+     "y": 323,
+     "w": 526,
+     "h": 32,
+     "text": "Receive Sales Forecast &"
+    },
+    {
+     "x": 483,
+     "y": 380,
+     "w": 382,
+     "h": 41,
+     "text": "Wait for Exception"
+    },
+    {
+     "x": 570,
+     "y": 438,
+     "w": 234,
+     "h": 32,
+     "text": "Notification"
+    }
+   ],
+   "stem": 0.153,
+   "bold": true,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 2702,
+   "y": 669,
+   "w": 150,
+   "h": 145,
+   "area": 10918,
+   "fill": 0.502,
+   "solid": 0.502,
+   "rx": 79,
+   "ry": 79,
+   "shape": "rhombus",
+   "stroke": 3,
+   "kind": "decision",
+   "id": "n3",
+   "label": "",
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 590,
+   "y": 691,
+   "w": 145,
+   "h": 145,
+   "area": 10657,
+   "fill": 0.507,
+   "solid": 0.507,
+   "rx": 79,
+   "ry": 79,
+   "shape": "rhombus",
+   "stroke": 3,
+   "kind": "decision",
+   "id": "n4",
+   "label": "",
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 1427,
+   "y": 957,
+   "w": 543,
+   "h": 216,
+   "area": 108074,
+   "fill": 0.921,
+   "solid": 1.0,
+   "rx": 0,
+   "ry": 0,
+   "shape": "rect",
+   "stroke": 6,
+   "kind": "object",
+   "id": "n5",
+   "label": "Exception Notification\n(positive)",
+   "labelLines": [
+    {
+     "x": 1457,
+     "y": 1018,
+     "w": 455,
+     "h": 41,
+     "text": "Exception Notification"
+    },
+    {
+     "x": 1598,
+     "y": 1066,
+     "w": 190,
+     "h": 42,
+     "text": "(positive)"
+    }
+   ],
+   "stem": 0.131,
+   "bold": true,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 2134,
+   "y": 1005,
+   "w": 462,
+   "h": 138,
+   "area": 55391,
+   "fill": 0.869,
+   "solid": 0.941,
+   "rx": 62,
+   "ry": 67,
+   "shape": "rounded",
+   "stroke": 4,
+   "kind": "action",
+   "id": "n6",
+   "label": "Send Exception",
+   "labelLines": [
+    {
+     "x": 2196,
+     "y": 1051,
+     "w": 321,
+     "h": 41,
+     "text": "Send Exception"
+    }
+   ],
+   "stem": 0.153,
+   "bold": true,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 801,
+   "y": 1027,
+   "w": 489,
+   "h": 125,
+   "area": 52833,
+   "fill": 0.864,
+   "solid": 0.94,
+   "rx": 62,
+   "ry": 65.5,
+   "shape": "rounded",
+   "stroke": 4,
+   "kind": "action",
+   "id": "n7",
+   "label": "Send Exception",
+   "labelLines": [
+    {
+     "x": 876,
+     "y": 1069,
+     "w": 322,
+     "h": 41,
+     "text": "Send Exception"
+    }
+   ],
+   "stem": 0.153,
+   "bold": true,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 1829,
+   "y": 1350,
+   "w": 594,
+   "h": 147,
+   "area": 75348,
+   "fill": 0.863,
+   "solid": 0.958,
+   "rx": 63,
+   "ry": 62,
+   "shape": "rounded",
+   "stroke": 3,
+   "kind": "action",
+   "id": "n8",
+   "label": "Receive & Resolve\nException",
+   "labelLines": [
+    {
+     "x": 1910,
+     "y": 1379,
+     "w": 384,
+     "h": 32,
+     "text": "Receive & Resolve"
+    },
+    {
+     "x": 2020,
+     "y": 1436,
+     "w": 202,
+     "h": 41,
+     "text": "Exception"
+    }
+   ],
+   "stem": 0.153,
+   "bold": true,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 974,
+   "y": 1354,
+   "w": 595,
+   "h": 147,
+   "area": 75321,
+   "fill": 0.861,
+   "solid": 0.957,
+   "rx": 67,
+   "ry": 67,
+   "shape": "rounded",
+   "stroke": 3,
+   "kind": "action",
+   "id": "n9",
+   "label": "Receive & Resolve\nException",
+   "labelLines": [
+    {
+     "x": 1055,
+     "y": 1379,
+     "w": 384,
+     "h": 32,
+     "text": "Receive & Resolve"
+    },
+    {
+     "x": 1166,
+     "y": 1436,
+     "w": 201,
+     "h": 41,
+     "text": "Exception"
+    }
+   ],
+   "stem": 0.153,
+   "bold": true,
+   "col": 0,
+   "row": 0
+  }
+ ],
+ "edges": [
+  {
+   "from": "n2",
+   "to": "n4",
+   "routing": "straight",
+   "fromPoint": [
+    662,
+    526
+   ],
+   "toPoint": [
+    662,
+    676
+   ],
+   "arrowInk": [
+    135,
+    468
+   ],
+   "directionConfidence": "high",
+   "edgeKind": "control"
+  },
+  {
+   "from": "n1",
+   "to": "n3",
+   "routing": "straight",
+   "fromPoint": [
+    2774,
+    526
+   ],
+   "toPoint": [
+    2774,
+    654
+   ],
+   "arrowInk": [
+    135,
+    461
+   ],
+   "directionConfidence": "high",
+   "edgeKind": "control"
+  },
+  {
+   "from": "n3",
+   "to": "n6",
+   "routing": "orthogonal",
+   "fromPoint": [
+    2687,
+    741
+   ],
+   "toPoint": [
+    2367,
+    990
+   ],
+   "arrowInk": [
+    138,
+    491
+   ],
+   "directionConfidence": "high",
+   "points": [
+    [
+     2367,
+     741
+    ]
+   ],
+   "arrowPx": [
+    59,
+    47.1,
+    2.67
+   ],
+   "arrowSaturated": true,
+   "arrowFill": 0.024,
+   "guard": "No",
+   "edgeKind": "control"
+  },
+  {
+   "from": "n4",
+   "to": "n7",
+   "routing": "orthogonal",
+   "fromPoint": [
+    749,
+    763
+   ],
+   "toPoint": [
+    1034,
+    1012
+   ],
+   "arrowInk": [
+    135,
+    483
+   ],
+   "directionConfidence": "high",
+   "points": [
+    [
+     1034,
+     763
+    ]
+   ],
+   "arrowPx": [
+    59,
+    135.1,
+    6.97
+   ],
+   "arrowSaturated": true,
+   "arrowFill": 0.145,
+   "guard": "Yes",
+   "edgeKind": "control"
+  },
+  {
+   "from": "n6",
+   "to": "n5",
+   "routing": "straight",
+   "fromPoint": [
+    2119,
+    1069
+   ],
+   "toPoint": [
+    1989,
+    1064
+   ],
+   "arrowInk": [
+    158,
+    429
+   ],
+   "directionConfidence": "high",
+   "edgeKind": "object"
+  },
+  {
+   "from": "n7",
+   "to": "n5",
+   "routing": "straight",
+   "fromPoint": [
+    1304,
+    1078
+   ],
+   "toPoint": [
+    1407,
+    1072
+   ],
+   "arrowInk": [
+    196,
+    437
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    55,
+    43.8,
+    3.34
+   ],
+   "arrowSaturated": true,
+   "arrowFill": 0.004,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n5",
+   "to": "n9",
+   "routing": "diagonal",
+   "fromPoint": [
+    1544,
+    1192
+   ],
+   "toPoint": [
+    1367,
+    1339
+   ],
+   "arrowInk": [
+    200,
+    474
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    63,
+    79.8,
+    2.55
+   ],
+   "arrowFill": 0.152,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n5",
+   "to": "n8",
+   "routing": "diagonal",
+   "fromPoint": [
+    1848,
+    1192
+   ],
+   "toPoint": [
+    2021,
+    1335
+   ],
+   "arrowInk": [
+    193,
+    482
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    64,
+    79.7,
+    2.61
+   ],
+   "arrowFill": 0.143,
+   "edgeKind": "object"
+  }
+ ],
+ "text": [
+  {
+   "text": "Exception Handling",
+   "x": 1502,
+   "y": 105,
+   "w": 398,
+   "h": 41,
+   "lines": [
+    {
+     "x": 1502,
+     "y": 101,
+     "w": 398,
+     "h": 49,
+     "text": "Exception Handling"
+    }
+   ]
+  },
+  {
+   "text": "Exception Received ?",
+   "x": 2884,
+   "y": 705,
+   "w": 414,
+   "h": 41,
+   "lines": [
+    {
+     "x": 2884,
+     "y": 705,
+     "w": 414,
+     "h": 41,
+     "text": "Exception Received ?"
+    }
+   ]
+  },
+  {
+   "text": "Exception Received ?",
+   "x": 99,
+   "y": 727,
+   "w": 413,
+   "h": 41,
+   "lines": [
+    {
+     "x": 99,
+     "y": 727,
+     "w": 413,
+     "h": 41,
+     "text": "Exception Received ?"
+    }
+   ]
+  },
+  {
+   "text": "No",
+   "x": 2704,
+   "y": 920,
+   "w": 51,
+   "h": 33,
+   "lines": [
+    {
+     "x": 2704,
+     "y": 920,
+     "w": 51,
+     "h": 33,
+     "text": "No"
+    }
+   ],
+   "attachedTo": "n3->n6"
+  },
+  {
+   "text": "Yes",
+   "x": 2257,
+   "y": 921,
+   "w": 72,
+   "h": 33,
+   "lines": [
+    {
+     "x": 2257,
+     "y": 921,
+     "w": 72,
+     "h": 33,
+     "text": "Yes"
+    }
+   ]
+  },
+  {
+   "text": "No",
+   "x": 571,
+   "y": 941,
+   "w": 51,
+   "h": 33,
+   "lines": [
+    {
+     "x": 571,
+     "y": 941,
+     "w": 51,
+     "h": 33,
+     "text": "No"
+    }
+   ],
+   "attachedTo": "n4->n7"
+  },
+  {
+   "text": "Yes",
+   "x": 924,
+   "y": 944,
+   "w": 72,
+   "h": 32,
+   "lines": [
+    {
+     "x": 924,
+     "y": 944,
+     "w": 72,
+     "h": 32,
+     "text": "Yes"
+    }
+   ],
+   "attachedTo": "n4->n7"
+  }
+ ],
+ "uncertain": [
+  {
+   "x": 855,
+   "y": 1614,
+   "w": 839,
+   "h": 162,
+   "shape": "rect",
+   "iou": 1.0,
+   "border": 1.0,
+   "kind": "kept-on-outline",
+   "reason": "every side has pass-through line-work, but the region carries a complete outline of its own",
+   "check": "confirm this is a node and not trapped whitespace"
+  },
+  {
+   "kind": "empty-box",
+   "x": 855,
+   "y": 1614,
+   "w": 839,
+   "h": 162,
+   "reason": "a action carrying no text, with line-work passing its sides",
+   "check": "confirm nothing is drawn here in the original"
+  },
+  {
+   "kind": "rule-through-shape",
+   "x": 660,
+   "y": 0,
+   "w": 3,
+   "h": 3,
+   "reason": "a rule reaching one frame only, stopping at n2",
+   "check": "confirm there is no lane divider here"
+  },
+  {
+   "kind": "arrowhead-size-unreadable",
+   "x": 0,
+   "y": 0,
+   "w": 3425,
+   "h": 1786,
+   "reason": "only 0 of 8 connectors gave a usable arrowhead measurement; the head is drawn at 1.1x the type size"
+  }
+ ]
+}

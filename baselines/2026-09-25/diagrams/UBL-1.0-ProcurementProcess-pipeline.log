@@ -1,0 +1,11 @@
+== UBL-1.0-ProcurementProcess
+  scale 0.43212   frame 12px  divider 8px  action 7px  object 11px
+  font 39px (16.7 model)   3 lanes, 1 bands, 34 nodes, 43 edges -> review/baseline/UBL-1.0-ProcurementProcess-spec.json
+  review/baseline/UBL-1.0-ProcurementProcess.svg + .drawio + -classified.svg   (34 nodes, 43 edges)
+  rendered UBL-1.0-ProcurementProcess.svg -> UBL-1.0-ProcurementProcess-render.png @ 3425pxx1609, 600 dpi
+  aligned on ink bounds: scale x 1.0000, y 1.0000
+  size 3425x1609  radius 2
+  ink: original 470205   candidate 492499
+  MISSING (red)    18233  = 3.8777% of original ink
+  EXTRA   (blue)   40855  = 8.6888% of original ink
+  RESULT: DIFFERENCES - inspect review/baseline/UBL-1.0-ProcurementProcess-diff-r2.png

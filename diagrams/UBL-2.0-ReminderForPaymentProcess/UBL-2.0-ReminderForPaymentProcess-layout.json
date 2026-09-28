@@ -1,0 +1,224 @@
+{
+ "schema": "ubl-activity-diagram-layout/1",
+ "figure": "UBL-2.0-ReminderForPaymentProcess",
+ "units": "px of the original PNG",
+ "size": [
+  3425,
+  1980
+ ],
+ "style": {
+  "fontPx": 62.0,
+  "arrowPx": 83.0,
+  "arrowWidthPx": 66.1,
+  "arrowStyle": "open"
+ },
+ "rules": {
+  "vertical": [
+   {
+    "at": 0,
+    "width": 10,
+    "span": [
+     13,
+     1966
+    ]
+   },
+   {
+    "at": 1807,
+    "width": 7,
+    "span": [
+     13,
+     1966
+    ]
+   },
+   {
+    "at": 3415,
+    "width": 10,
+    "span": [
+     13,
+     1966
+    ]
+   }
+  ],
+  "horizontal": [
+   {
+    "at": 0,
+    "width": 10,
+    "span": [
+     13,
+     3411
+    ]
+   },
+   {
+    "at": 1970,
+    "width": 10,
+    "span": [
+     13,
+     3411
+    ]
+   }
+  ]
+ },
+ "greyRules": [],
+ "lanes": {
+  "lane-accounting-customer": {
+   "x0": 0,
+   "x1": 1810,
+   "titleBox": [
+    465,
+    66,
+    576,
+    56
+   ]
+  },
+  "lane-accounting-supplier": {
+   "x0": 1810,
+   "x1": 3425,
+   "titleBox": [
+    2421,
+    66,
+    536,
+    56
+   ]
+  }
+ },
+ "nodes": {
+  "initial-accounting-supplier": {
+   "x": 2815,
+   "y": 242,
+   "w": 121,
+   "h": 121
+  },
+  "object-reminder": {
+   "x": 1475,
+   "y": 912,
+   "w": 635,
+   "h": 335,
+   "shape": "rect",
+   "stroke": 13,
+   "rx": 0,
+   "ry": 0,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 1629,
+     "y": 1024,
+     "w": 335,
+     "h": 53,
+     "text": "Reminder"
+    }
+   ]
+  },
+  "action-receive-reminder": {
+   "x": 140,
+   "y": 951,
+   "w": 791,
+   "h": 203,
+   "shape": "rounded",
+   "stroke": 7,
+   "rx": 87,
+   "ry": 84,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 266,
+     "y": 1027,
+     "w": 517,
+     "h": 44,
+     "text": "Receive Reminder"
+    }
+   ]
+  },
+  "action-request-payment-of-account": {
+   "x": 2498,
+   "y": 951,
+   "w": 785,
+   "h": 245,
+   "shape": "rounded",
+   "stroke": 7,
+   "rx": 87,
+   "ry": 85,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 2594,
+     "y": 1005,
+     "w": 574,
+     "h": 57,
+     "text": "Request Payment of"
+    },
+    {
+     "x": 2770,
+     "y": 1084,
+     "w": 240,
+     "h": 44,
+     "text": "Account"
+    }
+   ]
+  },
+  "final-accounting-customer": {
+   "x": 482,
+   "y": 1773,
+   "w": 113,
+   "h": 112,
+   "shape": "ellipse",
+   "stroke": 7,
+   "rx": 52,
+   "ry": 52,
+   "innerRatio": 0.478
+  }
+ },
+ "flows": {
+  "flow-initial-accounting-supplier-to-request-payment-of-account": {
+   "fromPoint": [
+    2877,
+    377
+   ],
+   "toPoint": [
+    2885,
+    936
+   ],
+   "routing": "straight"
+  },
+  "flow-reminder-to-receive-reminder": {
+   "fromPoint": [
+    1460,
+    1056
+   ],
+   "toPoint": [
+    945,
+    1054
+   ],
+   "routing": "straight"
+  },
+  "flow-request-payment-of-account-to-reminder": {
+   "fromPoint": [
+    2483,
+    1073
+   ],
+   "toPoint": [
+    2125,
+    1073
+   ],
+   "routing": "straight"
+  },
+  "flow-receive-reminder-to-final-accounting-customer": {
+   "fromPoint": [
+    538,
+    1168
+   ],
+   "toPoint": [
+    538,
+    1758
+   ],
+   "routing": "straight"
+  }
+ },
+ "texts": {},
+ "offPage": {},
+ "marks": {},
+ "phases": {},
+ "rulesHaveSpans": {
+  "vertical": true,
+  "horizontal": true
+ }
+}

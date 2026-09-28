@@ -1,0 +1,148 @@
+{
+ "schema": "ubl-activity-diagram/1",
+ "figure": {
+  "name": "UBL-2.2-VMI-PriceAdjustment",
+  "source": "UBL-2.2-VMI-PriceAdjustment.png"
+ },
+ "lanes": [
+  {
+   "id": "lane-producer",
+   "axis": "column",
+   "index": 0,
+   "title": "Producer"
+  },
+  {
+   "id": "lane-retailer",
+   "axis": "column",
+   "index": 1,
+   "title": "Retailer"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "initial-producer",
+   "kind": "initial",
+   "label": "",
+   "lane": "lane-producer"
+  },
+  {
+   "id": "decision-producer",
+   "kind": "decision",
+   "label": "",
+   "lane": "lane-producer",
+   "question": "Change of prices?"
+  },
+  {
+   "id": "final-producer",
+   "kind": "final",
+   "label": "",
+   "lane": "lane-producer"
+  },
+  {
+   "id": "object-catalogue",
+   "kind": "object",
+   "label": "Catalogue",
+   "lane": null,
+   "between": [
+    "lane-producer",
+    "lane-retailer"
+   ]
+  },
+  {
+   "id": "action-send-price-list",
+   "kind": "action",
+   "label": "Send Price List",
+   "lane": "lane-producer"
+  },
+  {
+   "id": "action-receive-price-list",
+   "kind": "action",
+   "label": "Receive Price List",
+   "lane": "lane-retailer"
+  },
+  {
+   "id": "final-retailer",
+   "kind": "final",
+   "label": "",
+   "lane": "lane-retailer"
+  }
+ ],
+ "flows": [
+  {
+   "id": "flow-initial-producer-to-decision-producer",
+   "from": "initial-producer",
+   "to": "decision-producer",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-decision-producer-to-final-producer",
+   "from": "decision-producer",
+   "to": "final-producer",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   },
+   "guard": "text-false"
+  },
+  {
+   "id": "flow-decision-producer-to-send-price-list",
+   "from": "decision-producer",
+   "to": "action-send-price-list",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   },
+   "guard": "text-true"
+  },
+  {
+   "id": "flow-send-price-list-to-catalogue",
+   "from": "action-send-price-list",
+   "to": "object-catalogue",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-catalogue-to-receive-price-list",
+   "from": "object-catalogue",
+   "to": "action-receive-price-list",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-receive-price-list-to-final-retailer",
+   "from": "action-receive-price-list",
+   "to": "final-retailer",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  }
+ ],
+ "texts": [
+  {
+   "id": "text-change-of-prices",
+   "text": "Change of\nprices?",
+   "labels": "decision-producer"
+  },
+  {
+   "id": "text-false",
+   "text": "False",
+   "labels": "flow-decision-producer-to-final-producer"
+  },
+  {
+   "id": "text-true",
+   "text": "True",
+   "labels": "flow-decision-producer-to-send-price-list"
+  }
+ ],
+ "offPage": [],
+ "marks": [],
+ "phases": []
+}

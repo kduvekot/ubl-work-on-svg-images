@@ -1,0 +1,58 @@
+{
+ "name": "UBL-2.3-ManifestProcess.png",
+ "verdict": "needs-human",
+ "radius": 3,
+ "lineWorkInk": 148804,
+ "missingPx": 159,
+ "inventedPx": 163,
+ "structural": {
+  "absent": 0,
+  "invented": 0,
+  "coherence": 0,
+  "textAbsent": 0,
+  "textDiffers": 0
+ },
+ "blocking": [],
+ "findings": [
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n2 (object 'Manifest')",
+   "x": 1633,
+   "y": 557,
+   "w": 5,
+   "h": 28,
+   "area": 86
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n2 (object 'Manifest')",
+   "x": 1674,
+   "y": 557,
+   "w": 5,
+   "h": 26,
+   "area": 76
+  }
+ ],
+ "text": [],
+ "coherence": [],
+ "human": [
+  {
+   "kind": "unexplained-line-work",
+   "x": 1071,
+   "y": -61,
+   "w": 135,
+   "h": 218,
+   "reason": "line-work that is neither a connector between two nodes nor the size of text",
+   "check": "decide what this is; the SVG does not draw it"
+  }
+ ],
+ "review": [
+  {
+   "n": 1,
+   "what": "check",
+   "where": "1071,-61 135x218",
+   "detail": "line-work that is neither a connector between two nodes nor the size of text",
+   "check": "decide what this is; the SVG does not draw it"
+  }
+ ]
+}

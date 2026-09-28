@@ -1,0 +1,17 @@
+  verdict: CORRECT
+  structural: 0 element(s) absent, 0 invented, 0 text absent, 0 text differs, 0 incoherent
+  line-work  missing 1896 px (0.995%)   invented 1169 px (0.614%)   radius 3
+    line-work-missing      283 px at  3299,1273    43x41    on node n6 (action 'Receive Price List')
+    line-work-missing      269 px at  3299,1142    43x41    on node n6 (action 'Receive Price List')
+    line-work-missing      259 px at  2606,1276    42x39    on node n6 (action 'Receive Price List')
+    line-work-missing      238 px at  2606,1143    39x37    on node n6 (action 'Receive Price List')
+    line-work-missing      214 px at   336,1276    41x33    on node n5 (action 'Send Price List')
+    line-work-missing      205 px at  1029,1275    41x34    on node n5 (action 'Send Price List')
+    line-work-missing      175 px at   336,1143    36x31    on node n5 (action 'Send Price List')
+    line-work-missing      167 px at  1034,1143    36x32    on node n5 (action 'Send Price List')
+    line-work-invented     188 px at  3297,1271    36x34    on node n6 (action 'Receive Price List')
+    line-work-invented     182 px at  3300,1152    33x33    on node n6 (action 'Receive Price List')
+    line-work-invented     170 px at  2615,1274    34x31    on node n6 (action 'Receive Price List')
+    line-work-invented     160 px at  2615,1152    32x30    on node n6 (action 'Receive Price List')
+    ... and 4 more line-work findings
+/tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-2.2-VMI-PriceAdjustment-marked.png + /tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-2.2-VMI-PriceAdjustment-marked-lost.png  (0 finding(s) numbered)

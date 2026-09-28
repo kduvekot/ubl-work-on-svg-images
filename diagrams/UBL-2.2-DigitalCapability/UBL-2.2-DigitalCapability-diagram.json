@@ -1,0 +1,115 @@
+{
+ "schema": "ubl-activity-diagram/1",
+ "figure": {
+  "name": "UBL-2.2-DigitalCapability",
+  "source": "UBL-2.2-DigitalCapability.png"
+ },
+ "lanes": [
+  {
+   "id": "lane-business-party-1",
+   "axis": "column",
+   "index": 0,
+   "title": "Business Party 1"
+  },
+  {
+   "id": "lane-business-party-0-n",
+   "axis": "column",
+   "index": 1,
+   "title": "Business Party 0..n"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "initial-business-party-1",
+   "kind": "initial",
+   "label": "",
+   "lane": "lane-business-party-1"
+  },
+  {
+   "id": "object-digital-capability",
+   "kind": "object",
+   "label": "Digital\nCapability",
+   "lane": null,
+   "between": [
+    "lane-business-party-1",
+    "lane-business-party-0-n"
+   ]
+  },
+  {
+   "id": "action-publish-digital-capabilities",
+   "kind": "action",
+   "label": "Publish digital capabilities",
+   "lane": "lane-business-party-1"
+  },
+  {
+   "id": "action-download-digital-capabilities",
+   "kind": "action",
+   "label": "Download digital capabilities",
+   "lane": "lane-business-party-0-n"
+  },
+  {
+   "id": "final-business-party-0-n",
+   "kind": "final",
+   "label": "",
+   "lane": "lane-business-party-0-n"
+  }
+ ],
+ "flows": [
+  {
+   "id": "flow-initial-business-party-1-to-publish-digital-capabilities",
+   "from": "initial-business-party-1",
+   "to": "action-publish-digital-capabilities",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-publish-digital-capabilities-to-digital-capability",
+   "from": "action-publish-digital-capabilities",
+   "to": "object-digital-capability",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-download-digital-capabilities-to-final-business-party-0-n",
+   "from": "action-download-digital-capabilities",
+   "to": "final-business-party-0-n",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-digital-capability-to-download-digital-capabilities",
+   "from": "object-digital-capability",
+   "to": "action-download-digital-capabilities",
+   "kind": "object",
+   "direction": {
+    "confidence": "checked",
+    "checked": "confirmed"
+   }
+  }
+ ],
+ "texts": [],
+ "offPage": [],
+ "marks": [
+  {
+   "id": "mark-1",
+   "kind": "cross-mark",
+   "rule": "v",
+   "on": "flow-digital-capability-to-download-digital-capabilities",
+   "meaning": "break"
+  },
+  {
+   "id": "mark-2",
+   "kind": "cross-mark",
+   "rule": "v",
+   "on": "flow-digital-capability-to-download-digital-capabilities",
+   "meaning": "break"
+  }
+ ],
+ "phases": []
+}

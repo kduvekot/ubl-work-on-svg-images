@@ -1,0 +1,519 @@
+{
+ "source": "UBL-2.0-SourcingPunchoutProcess.png",
+ "size": [
+  3425,
+  2060
+ ],
+ "fontPx": 62.9,
+ "arrowPx": 83.0,
+ "arrowWidthPx": 66.0,
+ "arrowStyle": "open",
+ "rules": {
+  "v": [
+   [
+    0,
+    10
+   ],
+   [
+    1743,
+    7
+   ],
+   [
+    3415,
+    10
+   ]
+  ],
+  "h": [
+   [
+    0,
+    10
+   ],
+   [
+    2050,
+    10
+   ]
+  ]
+ },
+ "ruleSpan": {
+  "v": [
+   [
+    13,
+    2046
+   ],
+   [
+    13,
+    2046
+   ],
+   [
+    13,
+    2046
+   ]
+  ],
+  "h": [
+   [
+    13,
+    3411
+   ],
+   [
+    13,
+    3411
+   ]
+  ]
+ },
+ "greyRules": [],
+ "dashed": [],
+ "openEnds": [],
+ "crossMarks": [],
+ "partitions": [
+  {
+   "axis": "column",
+   "index": 0,
+   "x0": 0,
+   "x1": 1746,
+   "title": "Originator Customer Party",
+   "titleBox": [
+    245,
+    74,
+    691,
+    56
+   ]
+  },
+  {
+   "axis": "column",
+   "index": 1,
+   "x0": 1746,
+   "x1": 3425,
+   "title": "seller Supplier Party",
+   "titleBox": [
+    2313,
+    74,
+    542,
+    56
+   ]
+  },
+  {
+   "axis": "band",
+   "index": 0,
+   "y0": 0,
+   "y1": 2060,
+   "title": ""
+  }
+ ],
+ "nodes": [
+  {
+   "x": 478,
+   "y": 190,
+   "w": 121,
+   "h": 121,
+   "area": 10266,
+   "fill": 0.776,
+   "kind": "initial",
+   "id": "n1",
+   "label": "",
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 1456,
+   "y": 335,
+   "w": 533,
+   "h": 413,
+   "area": 192924,
+   "fill": 0.876,
+   "solid": 0.976,
+   "rx": 0,
+   "ry": 0,
+   "shape": "rect",
+   "fold": 59,
+   "stroke": 7,
+   "kind": "note",
+   "id": "n2",
+   "label": "Transaction\naccessing Seller's\ncatalogue\napplication",
+   "labelLines": [
+    {
+     "x": 1485,
+     "y": 433,
+     "w": 307,
+     "h": 44,
+     "text": "Transaction"
+    },
+    {
+     "x": 1485,
+     "y": 510,
+     "w": 474,
+     "h": 56,
+     "text": "accessing Seller's"
+    },
+    {
+     "x": 1485,
+     "y": 589,
+     "w": 256,
+     "h": 55,
+     "text": "catalogue"
+    },
+    {
+     "x": 1485,
+     "y": 667,
+     "w": 280,
+     "h": 55,
+     "text": "application"
+    }
+   ],
+   "stem": 0.079,
+   "bold": false,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 2530,
+   "y": 683,
+   "w": 772,
+   "h": 257,
+   "area": 178234,
+   "fill": 0.898,
+   "solid": 0.966,
+   "rx": 88,
+   "ry": 86,
+   "shape": "rounded",
+   "stroke": 7,
+   "kind": "action",
+   "id": "n3",
+   "label": "Build shopping basket",
+   "labelLines": [
+    {
+     "x": 2596,
+     "y": 778,
+     "w": 639,
+     "h": 56,
+     "text": "Build shopping basket"
+    }
+   ],
+   "stem": 0.127,
+   "bold": true,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 167,
+   "y": 689,
+   "w": 755,
+   "h": 245,
+   "area": 164612,
+   "fill": 0.89,
+   "solid": 0.963,
+   "rx": 88,
+   "ry": 89,
+   "shape": "rounded",
+   "stroke": 7,
+   "kind": "action",
+   "id": "n4",
+   "label": "Initiate a punchout\nsession",
+   "labelLines": [],
+   "stem": 0.127,
+   "bold": true,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 1495,
+   "y": 1244,
+   "w": 521,
+   "h": 281,
+   "area": 137234,
+   "fill": 0.937,
+   "solid": 1.0,
+   "rx": 0,
+   "ry": 0,
+   "shape": "rect",
+   "keptOnOutline": true,
+   "stroke": 13,
+   "kind": "object",
+   "id": "n5",
+   "label": "Quotation",
+   "labelLines": [
+    {
+     "x": 1586,
+     "y": 1343,
+     "w": 333,
+     "h": 58,
+     "text": "Quotation"
+    }
+   ],
+   "stem": 0.159,
+   "bold": true,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 149,
+   "y": 1265,
+   "w": 725,
+   "h": 245,
+   "area": 160853,
+   "fill": 0.906,
+   "solid": 0.961,
+   "rx": 87,
+   "ry": 88,
+   "shape": "rounded",
+   "stroke": 7,
+   "kind": "action",
+   "id": "n6",
+   "label": "Receive quotation",
+   "labelLines": [
+    {
+     "x": 252,
+     "y": 1359,
+     "w": 508,
+     "h": 55,
+     "text": "Receive quotation"
+    }
+   ],
+   "stem": 0.127,
+   "bold": true,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 2548,
+   "y": 1271,
+   "w": 736,
+   "h": 227,
+   "area": 147462,
+   "fill": 0.883,
+   "solid": 0.96,
+   "rx": 86,
+   "ry": 85,
+   "shape": "rounded",
+   "stroke": 7,
+   "kind": "action",
+   "id": "n7",
+   "label": "Send shopping basket",
+   "labelLines": [
+    {
+     "x": 2594,
+     "y": 1352,
+     "w": 638,
+     "h": 57,
+     "text": "Send shopping basket"
+    }
+   ],
+   "stem": 0.127,
+   "bold": true,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 455,
+   "y": 1865,
+   "w": 107,
+   "h": 107,
+   "area": 7292,
+   "fill": 0.637,
+   "solid": 0.793,
+   "rx": 48,
+   "ry": 50,
+   "shape": "ellipse",
+   "stroke": 7,
+   "kind": "final",
+   "innerRatio": 0.449,
+   "id": "n8",
+   "label": "",
+   "col": 0,
+   "row": 0
+  }
+ ],
+ "edges": [
+  {
+   "from": "n1",
+   "to": "n4",
+   "routing": "straight",
+   "fromPoint": [
+    540,
+    325
+   ],
+   "toPoint": [
+    542,
+    674
+   ],
+   "arrowInk": [
+    315,
+    995
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    82,
+    67.2,
+    2.34
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n4",
+   "to": "n3",
+   "routing": "straight",
+   "fromPoint": [
+    936,
+    811
+   ],
+   "toPoint": [
+    2515,
+    811
+   ],
+   "arrowInk": [
+    315,
+    1000
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    83,
+    66.0,
+    2.48
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n3",
+   "to": "n7",
+   "routing": "straight",
+   "fromPoint": [
+    2916,
+    954
+   ],
+   "toPoint": [
+    2916,
+    1256
+   ],
+   "arrowInk": [
+    315,
+    995
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    83,
+    66.0,
+    2.43
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n5",
+   "to": "n6",
+   "routing": "straight",
+   "fromPoint": [
+    1480,
+    1387
+   ],
+   "toPoint": [
+    888,
+    1387
+   ],
+   "arrowInk": [
+    322,
+    920
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    89,
+    66.0,
+    2.83
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n7",
+   "to": "n5",
+   "routing": "straight",
+   "fromPoint": [
+    2533,
+    1387
+   ],
+   "toPoint": [
+    2031,
+    1387
+   ],
+   "arrowInk": [
+    322,
+    799
+   ],
+   "directionConfidence": "medium",
+   "edgeKind": "object"
+  },
+  {
+   "from": "n6",
+   "to": "n8",
+   "routing": "straight",
+   "fromPoint": [
+    512,
+    1524
+   ],
+   "toPoint": [
+    510,
+    1850
+   ],
+   "arrowInk": [
+    315,
+    993
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    83,
+    67.1,
+    2.37
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "control"
+  }
+ ],
+ "text": [
+  {
+   "text": "Originator Customer Party",
+   "x": 245,
+   "y": 74,
+   "w": 691,
+   "h": 56,
+   "lines": [
+    {
+     "x": 245,
+     "y": 74,
+     "w": 691,
+     "h": 56,
+     "text": "Originator Customer Party"
+    }
+   ]
+  },
+  {
+   "text": "seller Supplier Party",
+   "x": 2313,
+   "y": 74,
+   "w": 542,
+   "h": 56,
+   "lines": [
+    {
+     "x": 2313,
+     "y": 74,
+     "w": 542,
+     "h": 56,
+     "text": "seller Supplier Party"
+    }
+   ]
+  }
+ ],
+ "uncertain": [
+  {
+   "x": 1495,
+   "y": 1244,
+   "w": 521,
+   "h": 281,
+   "shape": "rect",
+   "iou": 1.0,
+   "border": 1.0,
+   "kind": "kept-on-outline",
+   "reason": "every side has pass-through line-work, but the region carries a complete outline of its own",
+   "check": "confirm this is a node and not trapped whitespace"
+  }
+ ]
+}

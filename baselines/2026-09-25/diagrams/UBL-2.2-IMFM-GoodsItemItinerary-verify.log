@@ -1,0 +1,7 @@
+  verdict: NEEDS-HUMAN
+  structural: 0 element(s) absent, 0 invented, 0 text absent, 0 text differs, 0 incoherent
+  line-work  missing 310 px (0.164%)   invented 48 px (0.025%)   radius 3
+    line-work-missing      141 px at  1852,658     58x26    near edge n3 -> n2
+  needs a person (1):
+    unexplained-line-work at 2521,360  decide what this is; the SVG does not draw it
+review/baseline/UBL-2.2-IMFM-GoodsItemItinerary-marked.png + review/baseline/UBL-2.2-IMFM-GoodsItemItinerary-marked-lost.png  (1 finding(s) numbered)

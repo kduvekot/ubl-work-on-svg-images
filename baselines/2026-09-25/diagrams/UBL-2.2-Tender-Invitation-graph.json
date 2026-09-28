@@ -1,0 +1,531 @@
+{
+ "source": "UBL-2.2-Tender-Invitation.png",
+ "size": [
+  3425,
+  2056
+ ],
+ "fontPx": 77.1,
+ "arrowPx": 66.0,
+ "arrowWidthPx": 68.0,
+ "arrowStyle": "open",
+ "rules": {
+  "v": [
+   [
+    0,
+    10
+   ],
+   [
+    1648,
+    12
+   ],
+   [
+    3415,
+    10
+   ]
+  ],
+  "h": [
+   [
+    0,
+    10
+   ],
+   [
+    2046,
+    10
+   ]
+  ]
+ },
+ "ruleSpan": {
+  "v": [
+   [
+    13,
+    2042
+   ],
+   [
+    13,
+    2042
+   ],
+   [
+    13,
+    2042
+   ]
+  ],
+  "h": [
+   [
+    13,
+    3411
+   ],
+   [
+    13,
+    3411
+   ]
+  ]
+ },
+ "greyRules": [],
+ "dashed": [],
+ "openEnds": [],
+ "crossMarks": [],
+ "partitions": [
+  {
+   "axis": "column",
+   "index": 0,
+   "x0": 0,
+   "x1": 1654,
+   "title": "CONTRACTING AUTHORITY",
+   "titleBox": [
+    327,
+    81,
+    987,
+    55
+   ]
+  },
+  {
+   "axis": "column",
+   "index": 1,
+   "x0": 1654,
+   "x1": 3425,
+   "title": "ECONOMIC OPERATOR",
+   "titleBox": [
+    2117,
+    81,
+    836,
+    55
+   ]
+  },
+  {
+   "axis": "band",
+   "index": 0,
+   "y0": 0,
+   "y1": 2056,
+   "title": ""
+  }
+ ],
+ "nodes": [
+  {
+   "x": 589,
+   "y": 239,
+   "w": 115,
+   "h": 116,
+   "area": 9205,
+   "fill": 0.768,
+   "kind": "initial",
+   "id": "n7",
+   "label": "",
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 161,
+   "y": 533,
+   "w": 971,
+   "h": 196,
+   "area": 166921,
+   "fill": 0.877,
+   "solid": 0.956,
+   "rx": 95,
+   "ry": 102,
+   "shape": "rounded",
+   "stroke": 12,
+   "kind": "action",
+   "id": "n8",
+   "label": "Prepare call for tenders",
+   "labelLines": [
+    {
+     "x": 273,
+     "y": 600,
+     "w": 761,
+     "h": 68,
+     "text": "Prepare call for tenders"
+    }
+   ],
+   "stem": 0.091,
+   "bold": false,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 1454,
+   "y": 794,
+   "w": 439,
+   "h": 454,
+   "area": 182690,
+   "fill": 0.917,
+   "solid": 1.0,
+   "rx": 0,
+   "ry": 0,
+   "shape": "rect",
+   "stroke": 12,
+   "kind": "object",
+   "id": "n9",
+   "label": "Call\nFor\nTenders",
+   "labelLines": [
+    {
+     "x": 1528,
+     "y": 862,
+     "w": 152,
+     "h": 63,
+     "text": "Call"
+    },
+    {
+     "x": 1524,
+     "y": 987,
+     "w": 140,
+     "h": 62,
+     "text": "For"
+    },
+    {
+     "x": 1531,
+     "y": 1112,
+     "w": 319,
+     "h": 62,
+     "text": "Tenders"
+    }
+   ],
+   "stem": 0.156,
+   "bold": true,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 93,
+   "y": 912,
+   "w": 1107,
+   "h": 197,
+   "area": 193438,
+   "fill": 0.887,
+   "solid": 0.961,
+   "rx": 95.0,
+   "ry": 101,
+   "shape": "rounded",
+   "stroke": 11,
+   "kind": "action",
+   "id": "n10",
+   "label": "Submit Invitation to Tender",
+   "labelLines": [
+    {
+     "x": 188,
+     "y": 979,
+     "w": 883,
+     "h": 55,
+     "text": "Submit Invitation to Tender"
+    }
+   ],
+   "stem": 0.091,
+   "bold": false,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 2197,
+   "y": 919,
+   "w": 1134,
+   "h": 196,
+   "area": 196955,
+   "fill": 0.886,
+   "solid": 0.964,
+   "rx": 94,
+   "ry": 94,
+   "shape": "rounded",
+   "stroke": 12,
+   "kind": "action",
+   "id": "n11",
+   "label": "Receive Invitation to Tender",
+   "labelLines": [
+    {
+     "x": 2246,
+     "y": 986,
+     "w": 917,
+     "h": 54,
+     "text": "Receive Invitation to Tender"
+    }
+   ],
+   "stem": 0.091,
+   "bold": false,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 2266,
+   "y": 1354,
+   "w": 996,
+   "h": 196,
+   "area": 171597,
+   "fill": 0.879,
+   "solid": 0.958,
+   "rx": 96,
+   "ry": 101,
+   "shape": "rounded",
+   "stroke": 12,
+   "kind": "action",
+   "id": "n12",
+   "label": "Process Call For Tenders",
+   "labelLines": [
+    {
+     "x": 2315,
+     "y": 1421,
+     "w": 831,
+     "h": 54,
+     "text": "Process Call For Tenders"
+    }
+   ],
+   "stem": 0.091,
+   "bold": false,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 2683,
+   "y": 1785,
+   "w": 162,
+   "h": 161,
+   "area": 9895,
+   "fill": 0.379,
+   "solid": 0.785,
+   "rx": 76,
+   "ry": 84,
+   "shape": "rounded",
+   "stroke": 12,
+   "kind": "final",
+   "innerRatio": 0.71,
+   "id": "n13",
+   "label": "",
+   "col": 1,
+   "row": 0
+  }
+ ],
+ "edges": [
+  {
+   "from": "n7",
+   "to": "n8",
+   "routing": "straight",
+   "fromPoint": [
+    646,
+    369
+   ],
+   "toPoint": [
+    646,
+    518
+   ],
+   "arrowInk": [
+    495,
+    1300
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    65,
+    68.0,
+    3.16
+   ],
+   "arrowFill": 0.081,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n8",
+   "to": "n10",
+   "routing": "straight",
+   "fromPoint": [
+    646,
+    743
+   ],
+   "toPoint": [
+    646,
+    897
+   ],
+   "arrowInk": [
+    495,
+    1329
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    67,
+    68.0,
+    2.99
+   ],
+   "arrowFill": 0.163,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n10",
+   "to": "n9",
+   "routing": "straight",
+   "fromPoint": [
+    1214,
+    1010
+   ],
+   "toPoint": [
+    1439,
+    1017
+   ],
+   "arrowInk": [
+    540,
+    1156
+   ],
+   "directionConfidence": "medium",
+   "edgeKind": "object"
+  },
+  {
+   "from": "n9",
+   "to": "n11",
+   "routing": "straight",
+   "fromPoint": [
+    1907,
+    1021
+   ],
+   "toPoint": [
+    2182,
+    1017
+   ],
+   "arrowInk": [
+    539,
+    1310
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    65,
+    67.8,
+    2.89
+   ],
+   "arrowFill": 0.173,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n11",
+   "to": "n12",
+   "routing": "straight",
+   "fromPoint": [
+    2764,
+    1129
+   ],
+   "toPoint": [
+    2764,
+    1339
+   ],
+   "arrowInk": [
+    540,
+    1299
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    66,
+    68.0,
+    3.03
+   ],
+   "arrowFill": 0.212,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n12",
+   "to": "n13",
+   "routing": "straight",
+   "fromPoint": [
+    2764,
+    1564
+   ],
+   "toPoint": [
+    2764,
+    1770
+   ],
+   "arrowInk": [
+    540,
+    1306
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    67,
+    68.0,
+    3.05
+   ],
+   "arrowFill": 0.199,
+   "edgeKind": "control"
+  }
+ ],
+ "text": [
+  {
+   "text": "CONTRACTING AUTHORITY",
+   "x": 327,
+   "y": 81,
+   "w": 987,
+   "h": 55,
+   "lines": [
+    {
+     "x": 327,
+     "y": 81,
+     "w": 987,
+     "h": 55,
+     "text": "CONTRACTING AUTHORITY"
+    }
+   ]
+  },
+  {
+   "text": "ECONOMIC OPERATOR",
+   "x": 2117,
+   "y": 81,
+   "w": 836,
+   "h": 55,
+   "lines": [
+    {
+     "x": 2117,
+     "y": 81,
+     "w": 836,
+     "h": 55,
+     "text": "ECONOMIC OPERATOR"
+    }
+   ]
+  }
+ ],
+ "uncertain": [
+  {
+   "kind": "sub-character-region",
+   "x": 388,
+   "y": 87,
+   "w": 36,
+   "h": 42,
+   "reason": "enclosed region smaller than one character of the diagram's type",
+   "check": "confirm this is glyph interior and not a node"
+  },
+  {
+   "kind": "sub-character-region",
+   "x": 1099,
+   "y": 87,
+   "w": 37,
+   "h": 42,
+   "reason": "enclosed region smaller than one character of the diagram's type",
+   "check": "confirm this is glyph interior and not a node"
+  },
+  {
+   "kind": "sub-character-region",
+   "x": 2225,
+   "y": 88,
+   "w": 36,
+   "h": 42,
+   "reason": "enclosed region smaller than one character of the diagram's type",
+   "check": "confirm this is glyph interior and not a node"
+  },
+  {
+   "kind": "sub-character-region",
+   "x": 2336,
+   "y": 88,
+   "w": 36,
+   "h": 42,
+   "reason": "enclosed region smaller than one character of the diagram's type",
+   "check": "confirm this is glyph interior and not a node"
+  },
+  {
+   "kind": "sub-character-region",
+   "x": 2550,
+   "y": 88,
+   "w": 36,
+   "h": 42,
+   "reason": "enclosed region smaller than one character of the diagram's type",
+   "check": "confirm this is glyph interior and not a node"
+  },
+  {
+   "kind": "sub-character-region",
+   "x": 2854,
+   "y": 88,
+   "w": 36,
+   "h": 42,
+   "reason": "enclosed region smaller than one character of the diagram's type",
+   "check": "confirm this is glyph interior and not a node"
+  }
+ ]
+}

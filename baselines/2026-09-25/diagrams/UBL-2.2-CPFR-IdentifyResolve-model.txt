@@ -1,0 +1,32 @@
+MODEL  UBL-2.2-CPFR-IdentifyResolve
+  7 action, 2 decision, 1 object, 10 flows, 3 partitions
+
+FLOW
+  Receive & Wait for Exception Notification
+  <?>
+    -Yes-> Send Exception
+    -> [Exception Notification (positive)]
+      -> Receive & Resolve 1 Exception
+      -> Receive & Resolve Exception   [Identifying and Resolving Exceptions for Order Forecast]
+    -No-> Ordering
+
+  Receive & Wait for Exception Notification   [Identifying and Resolving Exceptions for Order Forecast]
+  <?>   [Identifying and Resolving Exceptions for Order Forecast]
+    -Yes-> Send Exception   [Identifying and Resolving Exceptions for Order Forecast]
+    -> [Exception Notification (positive)]
+    -No-> Ordering
+
+CHECKS
+  ok   every element is connected
+  ok   start events have a way out and no way in
+  ok   end events have a way in and no way out
+  ok   decisions have at least two ways out
+  ok   branches out of a decision are labelled   (informational: several diagrams draw an unlabelled branch, so read these against the artwork rather than treating them as errors)
+  ok   documents are both written and read
+  ok   no flow runs straight from one document to another
+  ok   work crossing between parties goes through a document   (informational: UBL draws the hand-over as a document on the divider, and each exception below is named)
+  ok   every flow's direction was read with confidence
+  note every action passes its work on   (informational: several diagrams do end on an action, so read these against the artwork rather than treating them as errors)
+        - Receive & Resolve Exception
+        - Receive & Resolve 1 Exception
+  ok   every element is reachable from a start event

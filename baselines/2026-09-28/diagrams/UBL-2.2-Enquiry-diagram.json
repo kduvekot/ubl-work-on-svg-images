@@ -1,0 +1,163 @@
+{
+ "schema": "ubl-activity-diagram/1",
+ "figure": {
+  "name": "UBL-2.2-Enquiry",
+  "source": "UBL-2.2-Enquiry.png"
+ },
+ "lanes": [
+  {
+   "id": "lane-requester",
+   "axis": "column",
+   "index": 0,
+   "title": "Requester"
+  },
+  {
+   "id": "lane-responder",
+   "axis": "column",
+   "index": 1,
+   "title": "Responder"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "initial-requester",
+   "kind": "initial",
+   "label": "",
+   "lane": "lane-requester"
+  },
+  {
+   "id": "action-prepare-enquiry",
+   "kind": "action",
+   "label": "Prepare enquiry",
+   "lane": "lane-requester"
+  },
+  {
+   "id": "object-enquiry",
+   "kind": "object",
+   "label": "Enquiry",
+   "lane": null,
+   "between": [
+    "lane-requester",
+    "lane-responder"
+   ]
+  },
+  {
+   "id": "action-submit-enquiry",
+   "kind": "action",
+   "label": "Submit enquiry",
+   "lane": "lane-requester"
+  },
+  {
+   "id": "action-receive-enquiry",
+   "kind": "action",
+   "label": "Receive enquiry",
+   "lane": "lane-responder"
+  },
+  {
+   "id": "object-enquiry-response",
+   "kind": "object",
+   "label": "Enquiry\nResponse",
+   "lane": null,
+   "between": [
+    "lane-requester",
+    "lane-responder"
+   ]
+  },
+  {
+   "id": "action-receive-enquiry-response",
+   "kind": "action",
+   "label": "Receive enquiry response",
+   "lane": "lane-requester"
+  },
+  {
+   "id": "action-submit-enquiry-response",
+   "kind": "action",
+   "label": "Submit enquiry response",
+   "lane": "lane-responder"
+  },
+  {
+   "id": "final-requester",
+   "kind": "final",
+   "label": "",
+   "lane": "lane-requester"
+  }
+ ],
+ "flows": [
+  {
+   "id": "flow-initial-requester-to-prepare-enquiry",
+   "from": "initial-requester",
+   "to": "action-prepare-enquiry",
+   "kind": "control",
+   "direction": {
+    "confidence": "notation"
+   }
+  },
+  {
+   "id": "flow-prepare-enquiry-to-submit-enquiry",
+   "from": "action-prepare-enquiry",
+   "to": "action-submit-enquiry",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-submit-enquiry-to-enquiry",
+   "from": "action-submit-enquiry",
+   "to": "object-enquiry",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-enquiry-to-receive-enquiry",
+   "from": "object-enquiry",
+   "to": "action-receive-enquiry",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-receive-enquiry-to-submit-enquiry-response",
+   "from": "action-receive-enquiry",
+   "to": "action-submit-enquiry-response",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-enquiry-response-to-receive-enquiry-response",
+   "from": "object-enquiry-response",
+   "to": "action-receive-enquiry-response",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-submit-enquiry-response-to-enquiry-response",
+   "from": "action-submit-enquiry-response",
+   "to": "object-enquiry-response",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-receive-enquiry-response-to-final-requester",
+   "from": "action-receive-enquiry-response",
+   "to": "final-requester",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  }
+ ],
+ "texts": [],
+ "offPage": [],
+ "marks": [],
+ "phases": []
+}

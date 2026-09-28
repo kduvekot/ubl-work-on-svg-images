@@ -1,0 +1,11 @@
+== UBL-2.0-SourcingBuyerInitiatedProcess
+  UBL-2.0-SourcingBuyerInitiatedProcess -> diagram, layout, extraction  (8 nodes, 7 flows, 0 texts)
+  scale 0.43212   frame 10px  divider 9px  action 9px  object 17px
+  font 63px (27.2 model)   2 lanes, 0 bands, 8 nodes, 7 edges -> /tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-2.0-SourcingBuyerInitiatedProcess-spec.json
+  /tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-2.0-SourcingBuyerInitiatedProcess.svg + .drawio + -classified.svg   (8 nodes, 7 edges)
+  aligned on ink bounds: scale x 1.0000, y 1.0000
+  size 3425x2020  radius 2
+  ink: original 376464   candidate 370510
+  MISSING (red)     4900  = 1.3016% of original ink
+  EXTRA   (blue)    2745  = 0.7292% of original ink
+  RESULT: DIFFERENCES - inspect /tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-2.0-SourcingBuyerInitiatedProcess-diff-r2.png

@@ -1,0 +1,210 @@
+{
+ "canvas": {
+  "w": 1480.0,
+  "h": 655.089
+ },
+ "stroke": {
+  "frame": 4.3,
+  "divider": 2.6,
+  "action": 2.6,
+  "object": 5.2,
+  "edge": 2.6
+ },
+ "font": {
+  "family": "Helvetica, Arial, sans-serif",
+  "node": 35.8,
+  "lane": 35.8,
+  "guard": 35.8
+ },
+ "arrow": 44.8,
+ "arrowWidth": 35.6,
+ "arrowStyle": "open",
+ "dashed": [],
+ "greyRules": [],
+ "crossMarks": [],
+ "openEnds": [
+  {
+   "points": [
+    [
+     717.7,
+     438.2
+    ],
+    [
+     716.4,
+     649.5
+    ]
+   ],
+   "arrow": false
+  }
+ ],
+ "frameBox": [
+  2.2,
+  2.2,
+  1477.8,
+  652.9
+ ],
+ "dividers": [
+  [
+   720.3,
+   2.6,
+   5.6,
+   439.5
+  ]
+ ],
+ "bands": [],
+ "lanes": [
+  {
+   "title": "Producer",
+   "x": 0.0,
+   "w": 720.3,
+   "cx": 335.1,
+   "cy": 38.7
+  },
+  {
+   "title": "Retailer",
+   "x": 720.3,
+   "w": 759.7,
+   "cx": 1089.2,
+   "cy": 38.2
+  }
+ ],
+ "bandLabels": [],
+ "nodes": [
+  {
+   "id": "n1",
+   "kind": "initial",
+   "label": "",
+   "x": 187.5,
+   "y": 88.2,
+   "w": 51.9,
+   "h": 51.9
+  },
+  {
+   "id": "n2",
+   "kind": "object",
+   "label": "Catalogue",
+   "x": 608.9,
+   "y": 343.5,
+   "w": 220.4,
+   "h": 90.7,
+   "labelLines": [
+    {
+     "text": "Catalogue",
+     "cx": 723.6,
+     "cy": 389.3,
+     "w": 160.3
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n3",
+   "kind": "action",
+   "label": "Receive Catalogue",
+   "x": 1093.7,
+   "y": 346.1,
+   "w": 347.4,
+   "h": 83.0,
+   "rx": 48.4,
+   "ry": 30.2,
+   "labelLines": [
+    {
+     "text": "Receive Catalogue",
+     "cx": 1262.2,
+     "cy": 389.3,
+     "w": 296.4
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n4",
+   "kind": "action",
+   "label": "send Catalogue",
+   "x": 38.5,
+   "y": 348.7,
+   "w": 347.4,
+   "h": 83.0,
+   "rx": 48.4,
+   "ry": 28.1,
+   "labelLines": [
+    {
+     "text": "send Catalogue",
+     "cx": 207.4,
+     "cy": 391.9,
+     "w": 252.4
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n5",
+   "kind": "final",
+   "label": "",
+   "x": 1244.1,
+   "y": 576.9,
+   "w": 49.3,
+   "h": 49.3,
+   "innerRatio": 0.435
+  }
+ ],
+ "edges": [
+  {
+   "from": "n1",
+   "to": "n4",
+   "exitXY": [
+    0.4759,
+    1.0
+   ],
+   "entryXY": [
+    0.5,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n2",
+   "to": "n3",
+   "exitXY": [
+    1.0,
+    0.4862
+   ],
+   "entryXY": [
+    0.0,
+    0.5
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n4",
+   "to": "n2",
+   "exitXY": [
+    1.0,
+    0.5
+   ],
+   "entryXY": [
+    0.0,
+    0.5105
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n3",
+   "to": "n5",
+   "exitXY": [
+    0.4988,
+    1.0
+   ],
+   "entryXY": [
+    0.4807,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  }
+ ],
+ "guards": []
+}

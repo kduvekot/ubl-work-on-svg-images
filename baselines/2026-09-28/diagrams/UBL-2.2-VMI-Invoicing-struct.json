@@ -1,0 +1,187 @@
+{
+ "name": "UBL-2.2-VMI-Invoicing.png",
+ "verdict": "needs-human",
+ "radius": 3,
+ "lineWorkInk": 180850,
+ "missingPx": 1842,
+ "inventedPx": 1288,
+ "structural": {
+  "absent": 0,
+  "invented": 0,
+  "coherence": 0,
+  "textAbsent": 0,
+  "textDiffers": 0
+ },
+ "blocking": [],
+ "findings": [
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n4 (action 'Receive Invoice')",
+   "x": 2542,
+   "y": 847,
+   "w": 46,
+   "h": 33,
+   "area": 227
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n4 (action 'Receive Invoice')",
+   "x": 2542,
+   "y": 691,
+   "w": 49,
+   "h": 34,
+   "area": 226
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n3 (action 'Raise Invoice')",
+   "x": 837,
+   "y": 841,
+   "w": 46,
+   "h": 33,
+   "area": 221
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n3 (action 'Raise Invoice')",
+   "x": 837,
+   "y": 686,
+   "w": 46,
+   "h": 33,
+   "area": 220
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n3 (action 'Raise Invoice')",
+   "x": 85,
+   "y": 686,
+   "w": 46,
+   "h": 32,
+   "area": 216
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n4 (action 'Receive Invoice')",
+   "x": 3294,
+   "y": 692,
+   "w": 46,
+   "h": 34,
+   "area": 216
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n4 (action 'Receive Invoice')",
+   "x": 3294,
+   "y": 847,
+   "w": 46,
+   "h": 33,
+   "area": 216
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n3 (action 'Raise Invoice')",
+   "x": 85,
+   "y": 842,
+   "w": 46,
+   "h": 32,
+   "area": 211
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n3 (action 'Raise Invoice')",
+   "x": 833,
+   "y": 838,
+   "w": 40,
+   "h": 27,
+   "area": 165
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n4 (action 'Receive Invoice')",
+   "x": 3293,
+   "y": 843,
+   "w": 37,
+   "h": 27,
+   "area": 161
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n4 (action 'Receive Invoice')",
+   "x": 3293,
+   "y": 702,
+   "w": 37,
+   "h": 27,
+   "area": 159
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n4 (action 'Receive Invoice')",
+   "x": 2552,
+   "y": 844,
+   "w": 37,
+   "h": 26,
+   "area": 158
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n4 (action 'Receive Invoice')",
+   "x": 2552,
+   "y": 702,
+   "w": 37,
+   "h": 26,
+   "area": 156
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n3 (action 'Raise Invoice')",
+   "x": 95,
+   "y": 838,
+   "w": 37,
+   "h": 26,
+   "area": 156
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n3 (action 'Raise Invoice')",
+   "x": 836,
+   "y": 696,
+   "w": 37,
+   "h": 26,
+   "area": 154
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n3 (action 'Raise Invoice')",
+   "x": 95,
+   "y": 696,
+   "w": 37,
+   "h": 26,
+   "area": 151
+  }
+ ],
+ "text": [],
+ "coherence": [],
+ "human": [
+  {
+   "x": 1403,
+   "y": 679,
+   "w": 494,
+   "h": 196,
+   "shape": "rect",
+   "iou": 1.0,
+   "border": 1.0,
+   "kind": "kept-on-outline",
+   "reason": "every side has pass-through line-work, but the region carries a complete outline of its own",
+   "check": "confirm this is a node and not trapped whitespace"
+  }
+ ],
+ "review": [
+  {
+   "n": 1,
+   "what": "check",
+   "where": "1403,679 494x196",
+   "detail": "every side has pass-through line-work, but the region carries a complete outline of its own",
+   "check": "confirm this is a node and not trapped whitespace"
+  }
+ ]
+}

@@ -1,0 +1,11 @@
+== UBL-2.2-VMI-PriceAdjustment
+  scale 0.43212   frame 10px  divider 6px  action 5px  object 12px
+  font 73px (31.5 model)   2 lanes, 1 bands, 7 nodes, 6 edges -> review/baseline/UBL-2.2-VMI-PriceAdjustment-spec.json
+  review/baseline/UBL-2.2-VMI-PriceAdjustment.svg + .drawio + -classified.svg   (7 nodes, 6 edges)
+  rendered UBL-2.2-VMI-PriceAdjustment.svg -> UBL-2.2-VMI-PriceAdjustment-render.png @ 3425pxx2075, 600 dpi
+  aligned on ink bounds: scale x 1.0000, y 1.0000
+  size 3425x2075  radius 2
+  ink: original 244417   candidate 238072
+  MISSING (red)     9860  = 4.0341% of original ink
+  EXTRA   (blue)    9863  = 4.0353% of original ink
+  RESULT: DIFFERENCES - inspect review/baseline/UBL-2.2-VMI-PriceAdjustment-diff-r2.png

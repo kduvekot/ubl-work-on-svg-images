@@ -1,0 +1,262 @@
+{
+ "name": "UBL-2.2-CPFR-CreateOrderForecast.png",
+ "verdict": "needs-human",
+ "radius": 3,
+ "lineWorkInk": 302628,
+ "missingPx": 4673,
+ "inventedPx": 4069,
+ "structural": {
+  "absent": 0,
+  "invented": 0,
+  "coherence": 0,
+  "textAbsent": 0,
+  "textDiffers": 0
+ },
+ "blocking": [],
+ "findings": [
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n1 -> n3",
+   "x": 844,
+   "y": 120,
+   "w": 28,
+   "h": 54,
+   "area": 305
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n2 -> n7",
+   "x": 1415,
+   "y": 1555,
+   "w": 52,
+   "h": 19,
+   "area": 171
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n17 -> n18",
+   "x": 1389,
+   "y": 3557,
+   "w": 50,
+   "h": 18,
+   "area": 167
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n2 -> n7",
+   "x": 1415,
+   "y": 1526,
+   "w": 51,
+   "h": 19,
+   "area": 165
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n14 -> n12",
+   "x": 1799,
+   "y": 2632,
+   "w": 18,
+   "h": 50,
+   "area": 165
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n3 -> n4",
+   "x": 1411,
+   "y": 983,
+   "w": 50,
+   "h": 18,
+   "area": 162
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n8 -> n9",
+   "x": 1920,
+   "y": 2047,
+   "w": 50,
+   "h": 18,
+   "area": 162
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n8 -> n9",
+   "x": 1918,
+   "y": 2075,
+   "w": 52,
+   "h": 20,
+   "area": 149
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n14 -> n12",
+   "x": 1826,
+   "y": 2628,
+   "w": 21,
+   "h": 54,
+   "area": 138
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n17 -> n18",
+   "x": 1389,
+   "y": 3585,
+   "w": 51,
+   "h": 19,
+   "area": 138
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n3 -> n4",
+   "x": 1411,
+   "y": 1011,
+   "w": 51,
+   "h": 20,
+   "area": 136
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n15 -> n17",
+   "x": 741,
+   "y": 3239,
+   "w": 15,
+   "h": 36,
+   "area": 71
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n2 -> n7",
+   "x": 1433,
+   "y": 1525,
+   "w": 57,
+   "h": 50,
+   "area": 357
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n8 -> n9",
+   "x": 1895,
+   "y": 2045,
+   "w": 57,
+   "h": 50,
+   "area": 336
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n17 -> n18",
+   "x": 1406,
+   "y": 3555,
+   "w": 58,
+   "h": 50,
+   "area": 332
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n3 -> n4",
+   "x": 1428,
+   "y": 981,
+   "w": 58,
+   "h": 50,
+   "area": 322
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n14 -> n12",
+   "x": 1797,
+   "y": 2606,
+   "w": 31,
+   "h": 59,
+   "area": 229
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n14 -> n12",
+   "x": 1828,
+   "y": 2614,
+   "w": 19,
+   "h": 51,
+   "area": 90
+  }
+ ],
+ "text": [],
+ "coherence": [],
+ "human": [
+  {
+   "kind": "no-weight-split",
+   "reason": "all 15 box strokes are one weight ([3, 4, 5, 6]), so no object node could be identified",
+   "check": "confirm the diagram really has no object nodes"
+  },
+  {
+   "kind": "unexplained-line-work",
+   "x": 3224,
+   "y": 3779,
+   "w": 101,
+   "h": 106,
+   "reason": "line-work that is neither a connector between two nodes nor the size of text",
+   "check": "decide what this is; the SVG does not draw it"
+  },
+  {
+   "kind": "unexplained-line-work",
+   "x": 102,
+   "y": 3785,
+   "w": 102,
+   "h": 102,
+   "reason": "line-work that is neither a connector between two nodes nor the size of text",
+   "check": "decide what this is; the SVG does not draw it"
+  },
+  {
+   "kind": "arrowhead-unmeasurable",
+   "x": 672,
+   "y": 2537,
+   "w": 128,
+   "h": 128,
+   "reason": "the ink at the head end of n15->n11 measures 64x90px, too wide for this diagram's own 50px arrowhead - a junction, not a head",
+   "check": "confirm the arrowhead here is drawn and points the way the original does"
+  },
+  {
+   "kind": "arrowhead-unmeasurable",
+   "x": 669,
+   "y": 3234,
+   "w": 128,
+   "h": 128,
+   "reason": "the ink at the head end of n15->n17 measures 64x90px, too wide for this diagram's own 50px arrowhead - a junction, not a head",
+   "check": "confirm the arrowhead here is drawn and points the way the original does"
+  }
+ ],
+ "review": [
+  {
+   "n": 1,
+   "what": "check",
+   "where": "",
+   "detail": "all 15 box strokes are one weight ([3, 4, 5, 6]), so no object node could be identified",
+   "check": "confirm the diagram really has no object nodes"
+  },
+  {
+   "n": 2,
+   "what": "check",
+   "where": "3224,3779 101x106",
+   "detail": "line-work that is neither a connector between two nodes nor the size of text",
+   "check": "decide what this is; the SVG does not draw it"
+  },
+  {
+   "n": 3,
+   "what": "check",
+   "where": "102,3785 102x102",
+   "detail": "line-work that is neither a connector between two nodes nor the size of text",
+   "check": "decide what this is; the SVG does not draw it"
+  },
+  {
+   "n": 4,
+   "what": "check",
+   "where": "672,2537 128x128",
+   "detail": "the ink at the head end of n15->n11 measures 64x90px, too wide for this diagram's own 50px arrowhead - a junction, not a head",
+   "check": "confirm the arrowhead here is drawn and points the way the original does"
+  },
+  {
+   "n": 5,
+   "what": "check",
+   "where": "669,3234 128x128",
+   "detail": "the ink at the head end of n15->n17 measures 64x90px, too wide for this diagram's own 50px arrowhead - a junction, not a head",
+   "check": "confirm the arrowhead here is drawn and points the way the original does"
+  }
+ ]
+}

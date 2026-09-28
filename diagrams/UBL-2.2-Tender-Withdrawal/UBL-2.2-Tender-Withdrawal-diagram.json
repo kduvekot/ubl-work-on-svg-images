@@ -1,0 +1,114 @@
+{
+ "schema": "ubl-activity-diagram/1",
+ "figure": {
+  "name": "UBL-2.2-Tender-Withdrawal",
+  "source": "UBL-2.2-Tender-Withdrawal.png"
+ },
+ "lanes": [
+  {
+   "id": "lane-economic-operator",
+   "axis": "column",
+   "index": 0,
+   "title": "Economic Operator"
+  },
+  {
+   "id": "lane-contracting-authority",
+   "axis": "column",
+   "index": 1,
+   "title": "Contracting Authority"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "initial-economic-operator",
+   "kind": "initial",
+   "label": "",
+   "lane": "lane-economic-operator"
+  },
+  {
+   "id": "action-prepare-tender-withdrawal-request",
+   "kind": "action",
+   "label": "Prepare tender withdrawal request",
+   "lane": "lane-economic-operator"
+  },
+  {
+   "id": "object-tender-withdrawal",
+   "kind": "object",
+   "label": "Tender\nWithdrawal",
+   "lane": null,
+   "between": [
+    "lane-economic-operator",
+    "lane-contracting-authority"
+   ]
+  },
+  {
+   "id": "action-receive-tender-withdrawal-request",
+   "kind": "action",
+   "label": "Receive tender withdrawal request",
+   "lane": "lane-contracting-authority"
+  },
+  {
+   "id": "action-submit-tender-withdrawal-request",
+   "kind": "action",
+   "label": "Submit tender withdrawal request",
+   "lane": "lane-economic-operator"
+  },
+  {
+   "id": "final-contracting-authority",
+   "kind": "final",
+   "label": "",
+   "lane": "lane-contracting-authority"
+  }
+ ],
+ "flows": [
+  {
+   "id": "flow-initial-economic-operator-to-prepare-tender-withdrawal-request",
+   "from": "initial-economic-operator",
+   "to": "action-prepare-tender-withdrawal-request",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-prepare-tender-withdrawal-request-to-submit-tender-withdrawal-request",
+   "from": "action-prepare-tender-withdrawal-request",
+   "to": "action-submit-tender-withdrawal-request",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-submit-tender-withdrawal-request-to-tender-withdrawal",
+   "from": "action-submit-tender-withdrawal-request",
+   "to": "object-tender-withdrawal",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-tender-withdrawal-to-receive-tender-withdrawal-request",
+   "from": "object-tender-withdrawal",
+   "to": "action-receive-tender-withdrawal-request",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-receive-tender-withdrawal-request-to-final-contracting-authority",
+   "from": "action-receive-tender-withdrawal-request",
+   "to": "final-contracting-authority",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  }
+ ],
+ "texts": [],
+ "offPage": [],
+ "marks": [],
+ "phases": []
+}

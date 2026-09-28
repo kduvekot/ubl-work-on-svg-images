@@ -1,0 +1,280 @@
+{
+ "canvas": {
+  "w": 1480.0,
+  "h": 543.603
+ },
+ "stroke": {
+  "frame": 4.3,
+  "divider": 3.0,
+  "action": 2.6,
+  "object": 5.2,
+  "edge": 2.6
+ },
+ "font": {
+  "family": "Helvetica, Arial, sans-serif",
+  "node": 26.5,
+  "lane": 26.5,
+  "guard": 26.5
+ },
+ "arrow": 44.6,
+ "arrowWidth": 35.8,
+ "arrowStyle": "open",
+ "dashed": [],
+ "greyRules": [],
+ "crossMarks": [],
+ "openEnds": [],
+ "frameBox": [
+  2.2,
+  2.2,
+  1477.8,
+  541.4
+ ],
+ "dividers": [
+  [
+   651.4,
+   3.0,
+   5.6,
+   537.6
+  ]
+ ],
+ "bands": [],
+ "lanes": [
+  {
+   "title": "Transport User",
+   "x": 0.0,
+   "w": 651.6,
+   "cx": 320.6,
+   "cy": 36.5
+  },
+  {
+   "title": "Transport Service Provider",
+   "x": 651.6,
+   "w": 828.4,
+   "cx": 1052.4,
+   "cy": 36.3
+  }
+ ],
+ "bandLabels": [],
+ "nodes": [
+  {
+   "id": "n1",
+   "kind": "initial",
+   "label": "",
+   "x": 1054.8,
+   "y": 79.5,
+   "w": 50.6,
+   "h": 50.6
+  },
+  {
+   "id": "n2",
+   "kind": "object",
+   "label": "Goods Item\nItinerary",
+   "x": 516.4,
+   "y": 245.9,
+   "w": 267.5,
+   "h": 109.8,
+   "labelLines": [
+    {
+     "text": "Goods Item",
+     "cx": 651.8,
+     "cy": 282.2,
+     "w": 134.4
+    },
+    {
+     "text": "Itinerary",
+     "cx": 649.9,
+     "cy": 312.4,
+     "w": 98.5
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n3",
+   "kind": "action",
+   "label": "Send Goods Item Itinerary",
+   "x": 921.7,
+   "y": 248.5,
+   "w": 334.5,
+   "h": 99.8,
+   "rx": 38.0,
+   "ry": 39.3,
+   "labelLines": [
+    {
+     "text": "Send Goods Item Itinerary",
+     "cx": 1090.7,
+     "cy": 298.4,
+     "w": 309.4
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n4",
+   "kind": "action",
+   "label": "Receive Goods Item\nItinerary",
+   "x": 36.7,
+   "y": 251.1,
+   "w": 334.5,
+   "h": 97.2,
+   "rx": 38.0,
+   "ry": 40.6,
+   "labelLines": [
+    {
+     "text": "Receive Goods Item",
+     "cx": 196.0,
+     "cy": 284.8,
+     "w": 235.5
+    },
+    {
+     "text": "Itinerary",
+     "cx": 203.7,
+     "cy": 319.8,
+     "w": 95.5
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n5",
+   "kind": "initial",
+   "label": "",
+   "x": 1384.9,
+   "y": 282.2,
+   "w": 50.6,
+   "h": 50.1
+  },
+  {
+   "id": "n6",
+   "kind": "final",
+   "label": "",
+   "x": 161.6,
+   "y": 466.3,
+   "w": 47.1,
+   "h": 47.1,
+   "innerRatio": 0.447
+  }
+ ],
+ "edges": [
+  {
+   "from": "n1",
+   "to": "n3",
+   "exitXY": [
+    0.496,
+    1.0
+   ],
+   "entryXY": [
+    0.4807,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n3",
+   "to": "n2",
+   "exitXY": [
+    0.0,
+    0.498
+   ],
+   "entryXY": [
+    1.0,
+    0.4763
+   ],
+   "straight": true,
+   "confidence": "medium"
+  },
+  {
+   "from": "n2",
+   "to": "n4",
+   "exitXY": [
+    0.0,
+    0.5036
+   ],
+   "entryXY": [
+    1.0,
+    0.5062
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n5",
+   "to": "n3",
+   "exitXY": [
+    0.0,
+    0.483
+   ],
+   "entryXY": [
+    1.0,
+    0.5451
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n4",
+   "to": "n6",
+   "exitXY": [
+    0.4496,
+    1.0
+   ],
+   "entryXY": [
+    0.5053,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  }
+ ],
+ "guards": [
+  {
+   "text": "Transport Execution\nPlan Confirmed",
+   "x": 1103.6,
+   "y": 155.6,
+   "w": 219.5,
+   "h": 51.0,
+   "labelLines": [
+    {
+     "text": "Transport Execution",
+     "cx": 1212.7,
+     "cy": 167.2,
+     "w": 220.8
+    },
+    {
+     "text": "Plan Confirmed",
+     "cx": 1187.9,
+     "cy": 197.3,
+     "w": 168.5
+    }
+   ]
+  },
+  {
+   "text": "Transport\nExecution\nUpdates",
+   "x": 1337.4,
+   "y": 350.4,
+   "w": 107.2,
+   "h": 87.7,
+   "labelLines": [
+    {
+     "text": "Transport",
+     "cx": 1390.3,
+     "cy": 361.9,
+     "w": 105.9
+    },
+    {
+     "text": "Execution",
+     "cx": 1391.6,
+     "cy": 391.9,
+     "w": 105.9
+    },
+    {
+     "text": "Updates",
+     "cx": 1383.6,
+     "cy": 426.7,
+     "w": 89.9
+    }
+   ]
+  }
+ ]
+}

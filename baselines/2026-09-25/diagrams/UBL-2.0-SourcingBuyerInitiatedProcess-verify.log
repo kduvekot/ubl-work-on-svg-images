@@ -1,0 +1,11 @@
+  verdict: NEEDS-HUMAN
+  structural: 0 element(s) absent, 0 invented, 0 text absent, 0 text differs, 0 incoherent
+  line-work  missing 510 px (0.170%)   invented 172 px (0.057%)   radius 3
+    line-work-missing      229 px at  2081,1307    55x25    near edge n7 -> n5
+    line-work-missing      101 px at  2125,1364    11x12    near edge n7 -> n5
+    line-work-invented     172 px at  2047,1305    73x27    near edge n7 -> n5
+  needs a person (3):
+    kept-on-outline    at 1475,630  confirm this is a node and not trapped whitespace
+    dropped-region     at 1764,775  a shape here would be missing from the SVG
+    kept-on-outline    at 1511,1200  confirm this is a node and not trapped whitespace
+review/baseline/UBL-2.0-SourcingBuyerInitiatedProcess-marked.png + review/baseline/UBL-2.0-SourcingBuyerInitiatedProcess-marked-lost.png  (3 finding(s) numbered)

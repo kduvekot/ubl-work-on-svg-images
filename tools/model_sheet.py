@@ -24,6 +24,7 @@ in the spec is this model's own measurements, carried through.
 """
 import json
 import os
+import re
 import sys
 
 GLYPH = {"initial": "(start)", "final": "(end)", "decision": "<%s?>",
@@ -153,7 +154,72 @@ def flow_lines(g):
     return lines
 
 
-def checks(g):
+def explained(src):
+    """The crossings a person has explained in the model split beside the graph,
+    as {(from, to): why}, in the graph's ids: a flow in a segment outside the
+    specification's scope (q7), and information exchanged with no UBL document,
+    named by a note (q10)."""
+    base = re.sub(r"-graph(-corrected)?\.json$", "", src)
+    try:
+        m = json.load(open(base + "-diagram.json"))
+        former = json.load(open(base + "-extraction.json")).get("formerIds", {})
+    except (OSError, ValueError):
+        return {}
+    flows = {f["id"]: f for f in m["flows"]}
+    key = lambda f: (former.get(f["from"], f["from"]), former.get(f["to"], f["to"]))
+    out = {}
+    for sg in m.get("segments", []):
+        if sg.get("scope") != "external":
+            continue
+        what = (sg.get("reference") or {}).get("what", sg["id"])
+        for x in sg["members"]:
+            if x in flows:
+                out[key(flows[x])] = "outside UBL's scope: " + what
+    notes = {n["annotates"]: n for n in m["nodes"] if n.get("annotates")}
+    for f in m["flows"]:
+        if f.get("kind") == "information":
+            n = notes.get(f["id"])
+            out[key(f)] = ("information exchanged with no UBL document"
+                           + (": " + " ".join(n["label"].split()) if n else ""))
+    return out
+
+
+def with_added_flows(g, src):
+    """The graph with the flows a person added to the model (a correction the
+    reading could not see, like the flow Figs 86/87 draw down a lane divider),
+    each replacing the off-page flow whose line it now ends in, or the line it
+    shares with others. Read from the
+    model split beside the graph, when there is one."""
+    base = re.sub(r"-graph(-corrected)?\.json$", "", src)
+    try:
+        m = json.load(open(base + "-diagram.json"))
+        former = json.load(open(base + "-extraction.json")).get("formerIds", {})
+    except (OSError, ValueError):
+        return g
+    added = [f for f in m["flows"] if former.get(f["id"], "").startswith("corr-")]
+    if not added:
+        return g
+    g = json.loads(json.dumps(g))
+    # a line drawn once that the model reads as several flows (one document of
+    # two each time, Tender Award Notification): the flows stand for it
+    try:
+        shared = json.load(open(base + "-layout.json")).get("sharedLines", {})
+    except (OSError, ValueError):
+        shared = {}
+    for ln in shared.values():
+        a, b = former.get(ln["from"], ln["from"]), former.get(ln["to"], ln["to"])
+        g["edges"] = [e for e in g["edges"] if not (e["from"] == a and e["to"] == b)]
+    for f in added:
+        a, b = former.get(f["from"], f["from"]), former.get(f["to"], f["to"])
+        if any(e["from"] == a and e["to"] == b for e in g["edges"]):
+            continue                   # the corrected graph has it already
+        g["edges"].append({"from": a, "to": b, "edgeKind": f.get("kind")})
+        g["openEnds"] = [o for o in g.get("openEnds", [])
+                         if not (o.get("node") == b and o.get("inward"))]
+    return g
+
+
+def checks(g, outside=None):
     """What an activity diagram is allowed to say, one rule at a time.
 
     Each rule is a statement about the artwork that holds whatever the drawing
@@ -256,6 +322,8 @@ def checks(g):
     # scope of UBL". So each crossing is named with what the drawing says it is,
     # and the rule reports rather than fails.
     def why(e, a, b):
+        if (e["from"], e["to"]) in (outside or {}):
+            return outside[(e["from"], e["to"])]
         if e.get("edgeKind") == "goods":
             return "the goods, beside their Despatch Advice"
         if a["kind"] in ("initial", "final") or b["kind"] in ("initial", "final"):
@@ -356,7 +424,7 @@ def checks(g):
 
 
 def main(src, out_json=None):
-    g = json.load(open(src))
+    g = with_added_flows(json.load(open(src)), src)
     name = (g.get("source") or src).split("/")[-1].rsplit(".", 1)[0]
     kinds = {}
     for n in g["nodes"]:
@@ -369,7 +437,7 @@ def main(src, out_json=None):
     for l in lines:
         print("  " + l if l else "")
     print("CHECKS")
-    res = checks(g)
+    res = checks(g, explained(src))
     for r in res:
         mark = "note" if (r.get("report") and r["bad"]) else \
                ("ok" if r["ok"] else "FAIL")

@@ -1,0 +1,295 @@
+{
+ "schema": "ubl-activity-diagram-layout/1",
+ "figure": "UBL-2.2-Tender-Invitation",
+ "units": "px of the original PNG",
+ "size": [
+  3425,
+  2056
+ ],
+ "style": {
+  "fontPx": 77.1,
+  "arrowPx": 66.0,
+  "arrowWidthPx": 68.0,
+  "arrowStyle": "open"
+ },
+ "rules": {
+  "vertical": [
+   {
+    "at": 0,
+    "width": 10,
+    "span": [
+     13,
+     2042
+    ]
+   },
+   {
+    "at": 1648,
+    "width": 12,
+    "span": [
+     13,
+     2042
+    ]
+   },
+   {
+    "at": 3415,
+    "width": 10,
+    "span": [
+     13,
+     2042
+    ]
+   }
+  ],
+  "horizontal": [
+   {
+    "at": 0,
+    "width": 10,
+    "span": [
+     13,
+     3411
+    ]
+   },
+   {
+    "at": 2046,
+    "width": 10,
+    "span": [
+     13,
+     3411
+    ]
+   }
+  ]
+ },
+ "greyRules": [],
+ "lanes": {
+  "lane-contracting-authority": {
+   "x0": 0,
+   "x1": 1654,
+   "titleBox": [
+    327,
+    81,
+    987,
+    55
+   ],
+   "titleWords": "CONTRACTING AUTHORITY"
+  },
+  "lane-economic-operator": {
+   "x0": 1654,
+   "x1": 3425,
+   "titleBox": [
+    2117,
+    81,
+    836,
+    55
+   ],
+   "titleWords": "ECONOMIC OPERATOR"
+  }
+ },
+ "nodes": {
+  "initial-contracting-authority": {
+   "x": 589,
+   "y": 239,
+   "w": 115,
+   "h": 116
+  },
+  "action-prepare-call-for-tenders": {
+   "x": 161,
+   "y": 533,
+   "w": 971,
+   "h": 196,
+   "shape": "rounded",
+   "stroke": 12,
+   "rx": 95,
+   "ry": 102,
+   "bold": false,
+   "labelLines": [
+    {
+     "x": 273,
+     "y": 600,
+     "w": 761,
+     "h": 68,
+     "text": "Prepare call for tenders"
+    }
+   ]
+  },
+  "object-call-for-tenders": {
+   "x": 1454,
+   "y": 794,
+   "w": 439,
+   "h": 454,
+   "shape": "rect",
+   "stroke": 12,
+   "rx": 0,
+   "ry": 0,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 1528,
+     "y": 862,
+     "w": 152,
+     "h": 63,
+     "text": "Call"
+    },
+    {
+     "x": 1524,
+     "y": 987,
+     "w": 140,
+     "h": 62,
+     "text": "For"
+    },
+    {
+     "x": 1531,
+     "y": 1112,
+     "w": 319,
+     "h": 62,
+     "text": "Tenders"
+    }
+   ]
+  },
+  "action-submit-invitation-to-tender": {
+   "x": 93,
+   "y": 912,
+   "w": 1107,
+   "h": 197,
+   "shape": "rounded",
+   "stroke": 11,
+   "rx": 95.0,
+   "ry": 101,
+   "bold": false,
+   "labelLines": [
+    {
+     "x": 188,
+     "y": 979,
+     "w": 883,
+     "h": 55,
+     "text": "Submit Invitation to Tender"
+    }
+   ]
+  },
+  "action-receive-invitation-to-tender": {
+   "x": 2197,
+   "y": 919,
+   "w": 1134,
+   "h": 196,
+   "shape": "rounded",
+   "stroke": 12,
+   "rx": 94,
+   "ry": 94,
+   "bold": false,
+   "labelLines": [
+    {
+     "x": 2246,
+     "y": 986,
+     "w": 917,
+     "h": 54,
+     "text": "Receive Invitation to Tender"
+    }
+   ]
+  },
+  "action-process-call-for-tenders": {
+   "x": 2266,
+   "y": 1354,
+   "w": 996,
+   "h": 196,
+   "shape": "rounded",
+   "stroke": 12,
+   "rx": 96,
+   "ry": 101,
+   "bold": false,
+   "labelLines": [
+    {
+     "x": 2315,
+     "y": 1421,
+     "w": 831,
+     "h": 54,
+     "text": "Process Call For Tenders"
+    }
+   ]
+  },
+  "final-economic-operator": {
+   "x": 2683,
+   "y": 1785,
+   "w": 162,
+   "h": 161,
+   "shape": "rounded",
+   "stroke": 12,
+   "rx": 76,
+   "ry": 84,
+   "innerRatio": 0.71
+  }
+ },
+ "flows": {
+  "flow-initial-contracting-authority-to-prepare-call-for-tenders": {
+   "fromPoint": [
+    646,
+    369
+   ],
+   "toPoint": [
+    646,
+    518
+   ],
+   "routing": "straight"
+  },
+  "flow-prepare-call-for-tenders-to-submit-invitation-to-tender": {
+   "fromPoint": [
+    646,
+    743
+   ],
+   "toPoint": [
+    646,
+    897
+   ],
+   "routing": "straight"
+  },
+  "flow-submit-invitation-to-tender-to-call-for-tenders": {
+   "fromPoint": [
+    1214,
+    1010
+   ],
+   "toPoint": [
+    1439,
+    1017
+   ],
+   "routing": "straight"
+  },
+  "flow-call-for-tenders-to-receive-invitation-to-tender": {
+   "fromPoint": [
+    1907,
+    1021
+   ],
+   "toPoint": [
+    2182,
+    1017
+   ],
+   "routing": "straight"
+  },
+  "flow-receive-invitation-to-tender-to-process-call-for-tenders": {
+   "fromPoint": [
+    2764,
+    1129
+   ],
+   "toPoint": [
+    2764,
+    1339
+   ],
+   "routing": "straight"
+  },
+  "flow-process-call-for-tenders-to-final-economic-operator": {
+   "fromPoint": [
+    2764,
+    1564
+   ],
+   "toPoint": [
+    2764,
+    1770
+   ],
+   "routing": "straight"
+  }
+ },
+ "texts": {},
+ "offPage": {},
+ "marks": {},
+ "phases": {},
+ "rulesHaveSpans": {
+  "vertical": true,
+  "horizontal": true
+ }
+}

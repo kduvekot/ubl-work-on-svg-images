@@ -1,0 +1,466 @@
+{
+ "schema": "ubl-activity-diagram/1",
+ "figure": {
+  "name": "UBL-2.2-DigitalAgreement",
+  "source": "UBL-2.2-DigitalAgreement.png"
+ },
+ "lanes": [
+  {
+   "id": "lane-participant-party-1",
+   "axis": "column",
+   "index": 0,
+   "title": "Participant Party 1"
+  },
+  {
+   "id": "lane-participant-party-2",
+   "axis": "column",
+   "index": 1,
+   "title": "Participant Party 2"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "initial-participant-party-1",
+   "kind": "initial",
+   "label": "",
+   "lane": "lane-participant-party-1"
+  },
+  {
+   "id": "object-digital-capabilities",
+   "kind": "object",
+   "label": "Digital\nCapabilities",
+   "lane": null,
+   "between": [
+    "lane-participant-party-1",
+    "lane-participant-party-2"
+   ]
+  },
+  {
+   "id": "action-send-digital-capabilities",
+   "kind": "action",
+   "label": "Send digital capabilities",
+   "lane": "lane-participant-party-1"
+  },
+  {
+   "id": "action-receive-digital-capabilities",
+   "kind": "action",
+   "label": "Receive digital capabilities",
+   "lane": "lane-participant-party-2"
+  },
+  {
+   "id": "object-application-response-between-participant-party-1-and-participant-party-2",
+   "kind": "object",
+   "label": "Application\nResponse",
+   "lane": null,
+   "between": [
+    "lane-participant-party-1",
+    "lane-participant-party-2"
+   ]
+  },
+  {
+   "id": "action-receive-application-response-in-participant-party-1",
+   "kind": "action",
+   "label": "Receive application response",
+   "lane": "lane-participant-party-1",
+   "unstated": {
+    "wayOut": "The path ends at this step: the artwork draws no end after it."
+   }
+  },
+  {
+   "id": "action-send-application-response-in-participant-party-2",
+   "kind": "action",
+   "label": "Send application response",
+   "lane": "lane-participant-party-2"
+  },
+  {
+   "id": "decision-match-digital-capabilities",
+   "kind": "decision",
+   "label": "Match\ndigital\ncapabilities",
+   "lane": "lane-participant-party-2"
+  },
+  {
+   "id": "object-digital-agreement-between-participant-party-1-and-participant-party-2",
+   "kind": "object",
+   "label": "Digital\nAgreement",
+   "lane": null,
+   "between": [
+    "lane-participant-party-1",
+    "lane-participant-party-2"
+   ]
+  },
+  {
+   "id": "action-receive-digital-agreement-in-participant-party-1",
+   "kind": "action",
+   "label": "Receive digital agreement",
+   "lane": "lane-participant-party-1"
+  },
+  {
+   "id": "action-send-digital-agreement-in-participant-party-2",
+   "kind": "action",
+   "label": "Send digital agreement",
+   "lane": "lane-participant-party-2"
+  },
+  {
+   "id": "object-application-response-between-participant-party-1-and-participant-party-2-2",
+   "kind": "object",
+   "label": "Application\nResponse",
+   "lane": null,
+   "between": [
+    "lane-participant-party-1",
+    "lane-participant-party-2"
+   ]
+  },
+  {
+   "id": "action-receive-application-response-in-participant-party-2",
+   "kind": "action",
+   "label": "Receive application response",
+   "lane": "lane-participant-party-2",
+   "unstated": {
+    "wayOut": "The path ends at this step: the artwork draws no end after it."
+   }
+  },
+  {
+   "id": "action-send-application-response-in-participant-party-1",
+   "kind": "action",
+   "label": "Send application response",
+   "lane": "lane-participant-party-1"
+  },
+  {
+   "id": "decision-reconcile-digital-agreement-with-own",
+   "kind": "decision",
+   "label": "Reconcile digital\nagreement with own\ndigital capabilities",
+   "lane": "lane-participant-party-1"
+  },
+  {
+   "id": "object-digital-agreement-between-participant-party-1-and-participant-party-2-2",
+   "kind": "object",
+   "label": "Digital\nAgreement",
+   "lane": null,
+   "between": [
+    "lane-participant-party-1",
+    "lane-participant-party-2"
+   ]
+  },
+  {
+   "id": "action-send-digital-agreement-in-participant-party-1",
+   "kind": "action",
+   "label": "Send digital agreement",
+   "lane": "lane-participant-party-1"
+  },
+  {
+   "id": "action-receive-digital-agreement-in-participant-party-2",
+   "kind": "action",
+   "label": "Receive digital agreement",
+   "lane": "lane-participant-party-2"
+  },
+  {
+   "id": "decision-validate-digital-agreement",
+   "kind": "decision",
+   "label": "Validate\ndigital\nagreement",
+   "lane": "lane-participant-party-2"
+  },
+  {
+   "id": "object-application-response-between-participant-party-1-and-participant-party-2-3",
+   "kind": "object",
+   "label": "Application\nResponse",
+   "lane": null,
+   "between": [
+    "lane-participant-party-1",
+    "lane-participant-party-2"
+   ]
+  },
+  {
+   "id": "action-send-application-response-in-participant-party-2-2",
+   "kind": "action",
+   "label": "Send application response",
+   "lane": "lane-participant-party-2"
+  },
+  {
+   "id": "action-receive-application-response-in-participant-party-1-2",
+   "kind": "action",
+   "label": "Receive application response",
+   "lane": "lane-participant-party-1"
+  },
+  {
+   "id": "final-participant-party-2",
+   "kind": "final",
+   "label": "",
+   "lane": "lane-participant-party-2"
+  },
+  {
+   "id": "final-participant-party-1",
+   "kind": "final",
+   "label": "",
+   "lane": "lane-participant-party-1"
+  }
+ ],
+ "flows": [
+  {
+   "id": "flow-initial-participant-party-1-to-send-digital-capabilities",
+   "from": "initial-participant-party-1",
+   "to": "action-send-digital-capabilities",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-send-digital-capabilities-to-digital-capabilities",
+   "from": "action-send-digital-capabilities",
+   "to": "object-digital-capabilities",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-digital-capabilities-to-receive-digital-capabilities",
+   "from": "object-digital-capabilities",
+   "to": "action-receive-digital-capabilities",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-receive-digital-capabilities-to-match-digital-capabilities",
+   "from": "action-receive-digital-capabilities",
+   "to": "decision-match-digital-capabilities",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-receive-digital-capabilities-to-send-application-response-in-participant-party-2",
+   "from": "action-receive-digital-capabilities",
+   "to": "action-send-application-response-in-participant-party-2",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-application-response-between-participant-party-1-and-participant-party-2-to-receive-application-response-in-participant-party-1",
+   "from": "object-application-response-between-participant-party-1-and-participant-party-2",
+   "to": "action-receive-application-response-in-participant-party-1",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-send-application-response-in-participant-party-2-to-application-response-between-participant-party-1-and-participant-party-2",
+   "from": "action-send-application-response-in-participant-party-2",
+   "to": "object-application-response-between-participant-party-1-and-participant-party-2",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-match-digital-capabilities-to-send-digital-agreement-in-participant-party-2",
+   "from": "decision-match-digital-capabilities",
+   "to": "action-send-digital-agreement-in-participant-party-2",
+   "kind": "control",
+   "direction": {
+    "confidence": "notation",
+    "checked": "confirmed"
+   },
+   "guard": "text-y"
+  },
+  {
+   "id": "flow-digital-agreement-between-participant-party-1-and-participant-party-2-to-receive-digital-agreement-in-participant-party-1",
+   "from": "object-digital-agreement-between-participant-party-1-and-participant-party-2",
+   "to": "action-receive-digital-agreement-in-participant-party-1",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-send-digital-agreement-in-participant-party-2-to-digital-agreement-between-participant-party-1-and-participant-party-2",
+   "from": "action-send-digital-agreement-in-participant-party-2",
+   "to": "object-digital-agreement-between-participant-party-1-and-participant-party-2",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-receive-digital-agreement-in-participant-party-1-to-reconcile-digital-agreement-with-own",
+   "from": "action-receive-digital-agreement-in-participant-party-1",
+   "to": "decision-reconcile-digital-agreement-with-own",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-match-digital-capabilities-to-final-participant-party-2",
+   "from": "decision-match-digital-capabilities",
+   "to": "final-participant-party-2",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   },
+   "guard": "text-n"
+  },
+  {
+   "id": "flow-receive-digital-agreement-in-participant-party-1-to-send-application-response-in-participant-party-1",
+   "from": "action-receive-digital-agreement-in-participant-party-1",
+   "to": "action-send-application-response-in-participant-party-1",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-send-application-response-in-participant-party-1-to-application-response-between-participant-party-1-and-participant-party-2-2",
+   "from": "action-send-application-response-in-participant-party-1",
+   "to": "object-application-response-between-participant-party-1-and-participant-party-2-2",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-application-response-between-participant-party-1-and-participant-party-2-2-to-receive-application-response-in-participant-party-2",
+   "from": "object-application-response-between-participant-party-1-and-participant-party-2-2",
+   "to": "action-receive-application-response-in-participant-party-2",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-reconcile-digital-agreement-with-own-to-send-digital-agreement-in-participant-party-1",
+   "from": "decision-reconcile-digital-agreement-with-own",
+   "to": "action-send-digital-agreement-in-participant-party-1",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   },
+   "guard": "text-y-2"
+  },
+  {
+   "id": "flow-send-digital-agreement-in-participant-party-1-to-digital-agreement-between-participant-party-1-and-participant-party-2-2",
+   "from": "action-send-digital-agreement-in-participant-party-1",
+   "to": "object-digital-agreement-between-participant-party-1-and-participant-party-2-2",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-digital-agreement-between-participant-party-1-and-participant-party-2-2-to-receive-digital-agreement-in-participant-party-2",
+   "from": "object-digital-agreement-between-participant-party-1-and-participant-party-2-2",
+   "to": "action-receive-digital-agreement-in-participant-party-2",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-reconcile-digital-agreement-with-own-to-final-participant-party-1",
+   "from": "decision-reconcile-digital-agreement-with-own",
+   "to": "final-participant-party-1",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   },
+   "guard": "text-n-2"
+  },
+  {
+   "id": "flow-receive-digital-agreement-in-participant-party-2-to-validate-digital-agreement",
+   "from": "action-receive-digital-agreement-in-participant-party-2",
+   "to": "decision-validate-digital-agreement",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-validate-digital-agreement-to-final-participant-party-2",
+   "from": "decision-validate-digital-agreement",
+   "to": "final-participant-party-2",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   },
+   "guard": "text-y-3"
+  },
+  {
+   "id": "flow-validate-digital-agreement-to-send-application-response-in-participant-party-2-2",
+   "from": "decision-validate-digital-agreement",
+   "to": "action-send-application-response-in-participant-party-2-2",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   },
+   "guard": "text-n-3"
+  },
+  {
+   "id": "flow-application-response-between-participant-party-1-and-participant-party-2-3-to-receive-application-response-in-participant-party-1-2",
+   "from": "object-application-response-between-participant-party-1-and-participant-party-2-3",
+   "to": "action-receive-application-response-in-participant-party-1-2",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-send-application-response-in-participant-party-2-2-to-application-response-between-participant-party-1-and-participant-party-2-3",
+   "from": "action-send-application-response-in-participant-party-2-2",
+   "to": "object-application-response-between-participant-party-1-and-participant-party-2-3",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-receive-application-response-in-participant-party-1-2-to-final-participant-party-1",
+   "from": "action-receive-application-response-in-participant-party-1-2",
+   "to": "final-participant-party-1",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  }
+ ],
+ "texts": [
+  {
+   "id": "text-y",
+   "text": "Y",
+   "labels": "flow-match-digital-capabilities-to-send-digital-agreement-in-participant-party-2"
+  },
+  {
+   "id": "text-n",
+   "text": "N",
+   "labels": "flow-match-digital-capabilities-to-final-participant-party-2"
+  },
+  {
+   "id": "text-y-2",
+   "text": "Y",
+   "labels": "flow-reconcile-digital-agreement-with-own-to-send-digital-agreement-in-participant-party-1"
+  },
+  {
+   "id": "text-n-2",
+   "text": "N",
+   "labels": "flow-reconcile-digital-agreement-with-own-to-final-participant-party-1"
+  },
+  {
+   "id": "text-y-3",
+   "text": "Y",
+   "labels": "flow-validate-digital-agreement-to-final-participant-party-2"
+  },
+  {
+   "id": "text-n-3",
+   "text": "N",
+   "labels": "flow-validate-digital-agreement-to-send-application-response-in-participant-party-2-2"
+  }
+ ],
+ "offPage": [],
+ "marks": [],
+ "phases": []
+}

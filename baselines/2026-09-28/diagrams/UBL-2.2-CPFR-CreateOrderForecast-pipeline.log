@@ -1,0 +1,11 @@
+== UBL-2.2-CPFR-CreateOrderForecast
+  UBL-2.2-CPFR-CreateOrderForecast -> diagram, layout, extraction  (18 nodes, 20 flows, 5 texts)
+  scale 0.43212   frame 10px  divider 1px  action 3px  object 5px
+  font 46px (19.7 model)   2 lanes, 0 bands, 18 nodes, 20 edges -> /tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-2.2-CPFR-CreateOrderForecast-spec.json
+  /tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-2.2-CPFR-CreateOrderForecast.svg + .drawio + -classified.svg   (18 nodes, 20 edges)
+  aligned on ink bounds: scale x 1.0000, y 1.0000
+  size 3425x4004  radius 2
+  ink: original 424974   candidate 419258
+  MISSING (red)    11191  = 2.6333% of original ink
+  EXTRA   (blue)   10475  = 2.4649% of original ink
+  RESULT: DIFFERENCES - inspect /tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-2.2-CPFR-CreateOrderForecast-diff-r2.png

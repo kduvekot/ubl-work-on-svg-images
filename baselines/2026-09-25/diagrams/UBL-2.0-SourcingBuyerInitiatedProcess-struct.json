@@ -1,0 +1,108 @@
+{
+ "name": "UBL-2.0-SourcingBuyerInitiatedProcess.png",
+ "verdict": "needs-human",
+ "radius": 3,
+ "lineWorkInk": 300429,
+ "missingPx": 510,
+ "inventedPx": 172,
+ "structural": {
+  "absent": 0,
+  "invented": 0,
+  "coherence": 0,
+  "textAbsent": 0,
+  "textDiffers": 0
+ },
+ "blocking": [],
+ "findings": [
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n7 -> n5",
+   "x": 2081,
+   "y": 1307,
+   "w": 55,
+   "h": 25,
+   "area": 229
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n7 -> n5",
+   "x": 2125,
+   "y": 1364,
+   "w": 11,
+   "h": 12,
+   "area": 101
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n7 -> n5",
+   "x": 2047,
+   "y": 1305,
+   "w": 73,
+   "h": 27,
+   "area": 172
+  }
+ ],
+ "text": [],
+ "coherence": [],
+ "human": [
+  {
+   "x": 1475,
+   "y": 630,
+   "w": 516,
+   "h": 277,
+   "shape": "rect",
+   "iou": 1.0,
+   "border": 1.0,
+   "kind": "kept-on-outline",
+   "reason": "every side has pass-through line-work, but the region carries a complete outline of its own",
+   "check": "confirm this is a node and not trapped whitespace"
+  },
+  {
+   "x": 1764,
+   "y": 775,
+   "w": 1065,
+   "h": 563,
+   "shape": "ellipse",
+   "iou": 0.817,
+   "border": 0.559,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best ellipse 0.82, and 0.99 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "x": 1511,
+   "y": 1200,
+   "w": 516,
+   "h": 277,
+   "shape": "rect",
+   "iou": 1.0,
+   "border": 1.0,
+   "kind": "kept-on-outline",
+   "reason": "every side has pass-through line-work, but the region carries a complete outline of its own",
+   "check": "confirm this is a node and not trapped whitespace"
+  }
+ ],
+ "review": [
+  {
+   "n": 1,
+   "what": "check",
+   "where": "1475,630 516x277",
+   "detail": "every side has pass-through line-work, but the region carries a complete outline of its own",
+   "check": "confirm this is a node and not trapped whitespace"
+  },
+  {
+   "n": 2,
+   "what": "check",
+   "where": "1764,775 1065x563",
+   "detail": "outline matches no UML node shape (best ellipse 0.82, and 0.99 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "n": 3,
+   "what": "check",
+   "where": "1511,1200 516x277",
+   "detail": "every side has pass-through line-work, but the region carries a complete outline of its own",
+   "check": "confirm this is a node and not trapped whitespace"
+  }
+ ]
+}

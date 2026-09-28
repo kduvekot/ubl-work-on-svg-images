@@ -1,0 +1,99 @@
+{
+ "schema": "ubl-activity-diagram/1",
+ "figure": {
+  "name": "UBL-2.3-ManifestProcess",
+  "source": "UBL-2.3-ManifestProcess.png"
+ },
+ "lanes": [
+  {
+   "id": "lane-sending-logistics-operator-party",
+   "axis": "column",
+   "index": 0,
+   "title": "Sending Logistics Operator Party"
+  },
+  {
+   "id": "lane-authority-party",
+   "axis": "column",
+   "index": 1,
+   "title": "Authority Party"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "initial-sending-logistics-operator-party",
+   "kind": "initial",
+   "label": "",
+   "lane": "lane-sending-logistics-operator-party"
+  },
+  {
+   "id": "object-manifest",
+   "kind": "object",
+   "label": "Manifest",
+   "lane": null,
+   "between": [
+    "lane-sending-logistics-operator-party",
+    "lane-authority-party"
+   ]
+  },
+  {
+   "id": "action-send-report",
+   "kind": "action",
+   "label": "Send report",
+   "lane": "lane-sending-logistics-operator-party"
+  },
+  {
+   "id": "action-receive-manifest",
+   "kind": "action",
+   "label": "Receive Manifest",
+   "lane": "lane-authority-party"
+  },
+  {
+   "id": "final-authority-party",
+   "kind": "final",
+   "label": "",
+   "lane": "lane-authority-party"
+  }
+ ],
+ "flows": [
+  {
+   "id": "flow-initial-sending-logistics-operator-party-to-send-report",
+   "from": "initial-sending-logistics-operator-party",
+   "to": "action-send-report",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-send-report-to-manifest",
+   "from": "action-send-report",
+   "to": "object-manifest",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-manifest-to-receive-manifest",
+   "from": "object-manifest",
+   "to": "action-receive-manifest",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-receive-manifest-to-final-authority-party",
+   "from": "action-receive-manifest",
+   "to": "final-authority-party",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  }
+ ],
+ "texts": [],
+ "offPage": [],
+ "marks": [],
+ "phases": []
+}

@@ -1,0 +1,50 @@
+image 3426x1808
+
+PARTITION RULES
+   vertical  : [(1, 8), (1702, 8), (3411, 14)]
+   horizontal: [(1, 8), (1794, 8)]
+   -> 3 column(s) x 2 band(s)
+   type measured off the page: a word is 55px tall
+   (dropped x=9     y=9     1693x1785  is a partition cell)
+   (dropped x=1710  y=9     1701x1785  is a partition cell)
+   (dropped x=1710  y=786   1071x534   outline matches no UML node shape (best ellipse 0.75, and 0.99 is the most this shape can reach at this size))
+   object nodes are those stroked heavier than 5.0px
+   (dropped x=2320  y=1436   921x9     only 9px across against a 8px line - a stroke, not a fork bar)
+
+NODES
+   n1   initial   x=552   y=158   w=124   h=124   stroke=0   fill=1.00  ''
+   n2   action    x=112   y=395   w=1001  h=167   stroke=8   fill=0.87  'Prepare expression of interest'
+   n3   object    x=1453  y=611   w=517   h=347   stroke=8   fill=0.85  'Expression\nOf Interest\nRequest'
+   n4   action    x=106   y=698   w=1012  h=173   stroke=8   fill=0.89  'Submit expression of interest'
+   n5   action    x=2264  y=698   w=1036  h=179   stroke=8   fill=0.89  'Receive expression of interest'
+   n6   object    x=1453  y=1150  w=517   h=328   stroke=8   fill=0.83  'Expression\nOf Interest\nResponse'
+   n7   action    x=135   y=1217  w=954   h=225   stroke=8   fill=0.87  'Receive expression of interest\nconfirmation'
+   n8   action    x=2264  y=1223  w=1036  h=213   stroke=8   fill=0.88  'Submit expression of interest\nconfirmation'
+   n9   final     x=561   y=1596  w=108   h=109   stroke=8   fill=0.58  ''
+
+TYPE  cap height 49px over 252 glyphs -> font 70.0px
+
+EDGES
+   n1   -> n2    straight    arrowhead  1117 vs 976    ratio 4.0  high
+   n2   -> n4    straight    arrowhead  1118 vs 565    ratio 4.0  high
+   n4   -> n3    straight    arrowhead  1153 vs 405    ratio 4.0  high
+   n3   -> n5    straight    arrowhead  1155 vs 405    ratio 4.0  high
+   n5   -> n8    straight    arrowhead  1115 vs 360    ratio 4.0  high
+   n6   -> n7    straight    arrowhead  1016 vs 368    ratio 4.0  high
+   n8   -> n6    straight    arrowhead  1089 vs 368    ratio 4.0  high
+   n7   -> n9    straight    arrowhead  1118 vs 360    ratio 4.0  high
+
+TEXT (titles, guards, notes)
+   'ECONOMIC OPERATOR'                      x=444   y=49    
+   'CONTRACTING AUTHORITY'                  x=2098  y=49    
+
+PARTITIONS
+   column 0  'ECONOMIC OPERATOR'
+   column 1  'CONTRACTING AUTHORITY'
+   column 2  ''
+   band   0  ''
+   band   1  ''
+
+ARROWHEAD  80 x 67px, open, measured on 8 connector(s)
+
+wrote review/baseline/UBL-2.2-Tender-ExpressionOfInterest-graph.json   (9 nodes, 8 edges, 1 flagged for a human)

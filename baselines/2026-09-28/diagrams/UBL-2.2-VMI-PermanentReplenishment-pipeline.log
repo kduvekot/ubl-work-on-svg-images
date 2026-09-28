@@ -1,0 +1,11 @@
+== UBL-2.2-VMI-PermanentReplenishment
+  UBL-2.2-VMI-PermanentReplenishment -> diagram, layout, extraction  (18 nodes, 21 flows, 3 texts)
+  scale 0.43212   frame 10px  divider 4px  action 4px  object 8px
+  font 51px (22.2 model)   2 lanes, 0 bands, 18 nodes, 21 edges -> /tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-2.2-VMI-PermanentReplenishment-spec.json
+  /tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-2.2-VMI-PermanentReplenishment.svg + .drawio + -classified.svg   (18 nodes, 21 edges)
+  aligned on ink bounds: scale x 1.0000, y 1.0000
+  size 3425x3211  radius 2
+  ink: original 407361   candidate 400466
+  MISSING (red)     4465  = 1.0961% of original ink
+  EXTRA   (blue)    3476  = 0.8533% of original ink
+  RESULT: DIFFERENCES - inspect /tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-2.2-VMI-PermanentReplenishment-diff-r2.png

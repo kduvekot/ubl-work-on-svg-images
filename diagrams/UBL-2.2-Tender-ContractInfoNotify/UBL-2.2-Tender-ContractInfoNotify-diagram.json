@@ -1,0 +1,210 @@
+{
+ "schema": "ubl-activity-diagram/1",
+ "figure": {
+  "name": "UBL-2.2-Tender-ContractInfoNotify",
+  "source": "UBL-2.2-Tender-ContractInfoNotify.png"
+ },
+ "lanes": [
+  {
+   "id": "lane-contracting-authority",
+   "axis": "column",
+   "index": 0,
+   "title": "Contracting Authority"
+  },
+  {
+   "id": "lane-publication-office",
+   "axis": "column",
+   "index": 1,
+   "title": "Publication Office"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "initial-contracting-authority",
+   "kind": "initial",
+   "label": "",
+   "lane": "lane-contracting-authority"
+  },
+  {
+   "id": "action-prepare-contract-notice",
+   "kind": "action",
+   "label": "Prepare Contract Notice",
+   "lane": "lane-contracting-authority"
+  },
+  {
+   "id": "object-contract-notice",
+   "kind": "object",
+   "label": "Contract\nNotice",
+   "lane": null,
+   "between": [
+    "lane-contracting-authority",
+    "lane-publication-office"
+   ]
+  },
+  {
+   "id": "decision-contracting-authority",
+   "kind": "decision",
+   "label": "",
+   "lane": "lane-contracting-authority",
+   "question": "Above Thresholds?"
+  },
+  {
+   "id": "action-validate-contract-notice",
+   "kind": "action",
+   "label": "Validate Contract Notice",
+   "lane": "lane-publication-office"
+  },
+  {
+   "id": "decision-ok",
+   "kind": "decision",
+   "label": "OK?",
+   "lane": "lane-publication-office"
+  },
+  {
+   "id": "action-publish-contract-notice",
+   "kind": "action",
+   "label": "Publish Contract Notice",
+   "lane": "lane-publication-office"
+  },
+  {
+   "id": "action-publish-in-buyer-profile",
+   "kind": "action",
+   "label": "Publish in Buyer Profile",
+   "lane": "lane-contracting-authority"
+  },
+  {
+   "id": "final-contracting-authority",
+   "kind": "final",
+   "label": "",
+   "lane": "lane-contracting-authority"
+  }
+ ],
+ "flows": [
+  {
+   "id": "flow-initial-contracting-authority-to-prepare-contract-notice",
+   "from": "initial-contracting-authority",
+   "to": "action-prepare-contract-notice",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-ok-to-prepare-contract-notice",
+   "from": "decision-ok",
+   "to": "action-prepare-contract-notice",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   },
+   "guard": "text-no-2"
+  },
+  {
+   "id": "flow-prepare-contract-notice-to-decision-contracting-authority",
+   "from": "action-prepare-contract-notice",
+   "to": "decision-contracting-authority",
+   "kind": "control",
+   "direction": {
+    "confidence": "medium",
+    "checked": "confirmed"
+   }
+  },
+  {
+   "id": "flow-contract-notice-to-validate-contract-notice",
+   "from": "object-contract-notice",
+   "to": "action-validate-contract-notice",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-decision-contracting-authority-to-contract-notice",
+   "from": "decision-contracting-authority",
+   "to": "object-contract-notice",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   },
+   "guard": "text-yes"
+  },
+  {
+   "id": "flow-validate-contract-notice-to-ok",
+   "from": "action-validate-contract-notice",
+   "to": "decision-ok",
+   "kind": "control",
+   "direction": {
+    "confidence": "medium",
+    "checked": "confirmed"
+   }
+  },
+  {
+   "id": "flow-decision-contracting-authority-to-publish-in-buyer-profile",
+   "from": "decision-contracting-authority",
+   "to": "action-publish-in-buyer-profile",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   },
+   "guard": "text-no"
+  },
+  {
+   "id": "flow-ok-to-publish-contract-notice",
+   "from": "decision-ok",
+   "to": "action-publish-contract-notice",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   },
+   "guard": "text-yes-2"
+  },
+  {
+   "id": "flow-publish-contract-notice-to-publish-in-buyer-profile",
+   "from": "action-publish-contract-notice",
+   "to": "action-publish-in-buyer-profile",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-publish-in-buyer-profile-to-final-contracting-authority",
+   "from": "action-publish-in-buyer-profile",
+   "to": "final-contracting-authority",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  }
+ ],
+ "texts": [
+  {
+   "id": "text-yes",
+   "text": "Yes",
+   "labels": "flow-decision-contracting-authority-to-contract-notice"
+  },
+  {
+   "id": "text-above-thresholds",
+   "text": "Above\nThresholds?",
+   "labels": "decision-contracting-authority"
+  },
+  {
+   "id": "text-no",
+   "text": "No",
+   "labels": "flow-decision-contracting-authority-to-publish-in-buyer-profile"
+  },
+  {
+   "id": "text-no-2",
+   "text": "No",
+   "labels": "flow-ok-to-prepare-contract-notice"
+  },
+  {
+   "id": "text-yes-2",
+   "text": "Yes",
+   "labels": "flow-ok-to-publish-contract-notice"
+  }
+ ],
+ "offPage": [],
+ "marks": [],
+ "phases": []
+}

@@ -1,0 +1,11 @@
+== UBL-2.5-BillingwithCreditNoteProcess
+  scale 0.43212   frame 10px  divider 4px  action 4px  object 8px
+  font 39px (16.7 model)   2 lanes, 1 bands, 17 nodes, 20 edges -> review/baseline/UBL-2.5-BillingwithCreditNoteProcess-spec.json
+  review/baseline/UBL-2.5-BillingwithCreditNoteProcess.svg + .drawio + -classified.svg   (17 nodes, 20 edges)
+  rendered UBL-2.5-BillingwithCreditNoteProcess.svg -> UBL-2.5-BillingwithCreditNoteProcess-render.png @ 3425pxx1813, 600 dpi
+  aligned on ink bounds: scale x 1.0000, y 1.0000
+  size 3425x1813  radius 2
+  ink: original 298232   candidate 291210
+  MISSING (red)    10044  = 3.3678% of original ink
+  EXTRA   (blue)   10352  = 3.4711% of original ink
+  RESULT: DIFFERENCES - inspect review/baseline/UBL-2.5-BillingwithCreditNoteProcess-diff-r2.png

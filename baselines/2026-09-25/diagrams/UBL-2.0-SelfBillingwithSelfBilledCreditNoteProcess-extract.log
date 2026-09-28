@@ -1,0 +1,80 @@
+image 3425x2162
+
+PARTITION RULES
+   vertical  : [(0, 10), (1580, 5), (3415, 10)]
+   horizontal: [(0, 10), (2152, 10)]
+   -> 2 column(s) x 1 band(s)
+   type measured off the page: a word is 30px tall
+   (dropped x=10    y=10    1570x2142  is a partition cell)
+   (dropped x=1585  y=10    1830x2142  is a partition cell)
+   (kept    x=1417  y=400    376x188   own outline, iou 1.00 border 1.00, despite pass-through line-work)
+   (dropped x=497   y=506   1083x797   encloses another region)
+   (kept    x=1417  y=1005   351x188   own outline, iou 1.00 border 1.00, despite pass-through line-work)
+   (dropped x=501   y=1083  1079x723   outline matches no UML node shape (best ellipse 0.77, and 0.99 is the most this shape can reach at this size))
+   (kept    x=1401  y=1712   351x188   own outline, iou 1.00 border 1.00, despite pass-through line-work)
+   object nodes are those stroked heavier than 9.0px
+
+NODES
+   n1   initial   x=309   y=118   w=86    h=86    stroke=0   fill=0.78  ''
+   n2   object    x=1417  y=400   w=376   h=188   stroke=13  fill=0.93  'Self Billed Invoice'
+   n3   action    x=2591  y=425   w=543   h=150   stroke=5   fill=0.91  'Receive Self Billed\nInvoice'
+   n4   action    x=80    y=453   w=543   h=98    stroke=5   fill=0.87  'Raise Self Billed Invoice'
+   n5   decision  x=2688  y=977   w=345   h=223   stroke=5   fill=0.47  'Reconcile\nCharges'
+   n6   action    x=685   y=1005  w=466   h=155   stroke=4   fill=0.89  'Receive Account\nResponse'
+   n7   object    x=1417  y=1005  w=351   h=188   stroke=13  fill=0.91  'Application\nResponse'
+   n8   action    x=1912  y=1005  w=380   h=163   stroke=4   fill=0.88  'Send Account\nResponse'
+   n9   final     x=3262  y=1050  w=72    h=73    stroke=5   fill=0.64  ''
+   n10  decision  x=273   y=1312  w=444   h=203   stroke=5   fill=0.47  'Reconcile\nCharges'
+   n11  object    x=1401  y=1712  w=351   h=188   stroke=13  fill=0.91  'Self Billed Credit\nNote'
+   n12  action    x=656   y=1728  w=544   h=155   stroke=4   fill=0.90  'Raise Self Billed Credit\nNote'
+   n13  action    x=2509  y=1728  w=543   h=147   stroke=4   fill=0.89  'Receive Self Billed Credit\nNote'
+   n14  final     x=166   y=1982  w=73    h=73    stroke=4   fill=0.64  ''
+   n15  final     x=461   y=2019  w=72    h=73    stroke=5   fill=0.64  ''
+
+TYPE  cap height 29px over 220 glyphs -> font 41.4px
+   corner radius rx on 'Raise Self Billed Invoice' could not be read (it came back larger than the box) - taking the 58 the rest of its kind measures
+   corner radius ry on 'Raise Self Billed Invoice' could not be read (it came back larger than the box) - taking the 67 the rest of its kind measures
+   rejoined 1 line break(s) of up to 75px, where a label sits on the line
+
+EDGES
+   n1   -> n4    straight    arrowhead   713 vs 225    ratio 4.0  high
+   n2   -> n3    straight    arrowhead   711 vs 221    ratio 4.0  high
+   n4   -> n2    straight    arrowhead   606 vs 180    ratio 4.0  high
+   n4   -> n14   straight    arrowhead   708 vs 225    ratio 4.0  high
+   n10  -> n4    straight    arrowhead   683 vs 599    ratio 4.0  high
+   n3   -> n5    straight    arrowhead   708 vs 225    ratio 4.0  high
+   n7   -> n6    straight    arrowhead   683 vs 230    ratio 4.0  high
+   n5   -> n8    straight    arrowhead   683 vs 230    ratio 4.0  high
+   n5   -> n9    straight    arrowhead   795 vs 280    ratio 4.0  high
+   n8   -> n7    straight    arrowhead   571 vs 184    ratio 4.0  high
+   n6   -> n10   diagonal    arrowhead   699 vs 229    ratio 3.1  high
+   n13  -> n5    straight    arrowhead   694 vs 230    ratio 4.0  high
+   n10  -> n15   straight    arrowhead   708 vs 382    ratio 4.0  high
+   n10  -> n12   diagonal    arrowhead   487 vs 466    ratio 1.0  <-- CHECK DIRECTION
+   n11  -> n13   straight    arrowhead   713 vs 220    ratio 4.0  high
+   n12  -> n11   straight    arrowhead   604 vs 180    ratio 4.0  high
+
+TEXT (titles, guards, notes)
+   'Accounting Customer'                    x=642   y=26    
+   'Accounting Supplier'                    x=2364  y=26    
+   '[under\ncharged]'                       x=553   y=750   n10->n4
+   '[discrepancy\nin charges]'              x=2423  y=1110  n5->n8
+   '[no action\nrequired]'                  x=3086  y=1110  n5->n9
+   '[accept\ncharges|'                      x=55    y=1290  n4->n14
+   '[over\ncharged]'                        x=709   y=1527  n10->n12
+   '[accept |\ncharges'                     x=365   y=1784  n10->n15
+
+PARTITIONS
+   column 0  'Accounting Customer'
+   column 1  'Accounting Supplier'
+   band   0  ''
+
+ARROWHEAD  60 x 46px, open, measured on 14 connector(s)
+   reading settled: '[accept\ncharges|' -> '[accept\ncharges'
+   reading settled: 'charges|' -> 'charges'
+   reading settled: '[accept |\ncharges' -> '[accept 1\ncharges'
+   reading settled: '[accept |' -> '[accept 1'
+   reading settled: '[accept charges|' -> '[accept charges'
+   reading settled: '[accept | charges' -> '[accept 1 charges'
+
+wrote review/baseline/UBL-2.0-SelfBillingwithSelfBilledCreditNoteProcess-graph.json   (15 nodes, 16 edges, 4 flagged for a human)

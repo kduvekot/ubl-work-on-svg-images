@@ -1,0 +1,1096 @@
+{
+ "canvas": {
+  "w": 1480.0,
+  "h": 1419.486
+ },
+ "stroke": {
+  "frame": 4.3,
+  "divider": 1.7,
+  "action": 1.7,
+  "object": 2.6,
+  "edge": 1.7
+ },
+ "font": {
+  "family": "Helvetica, Arial, sans-serif",
+  "node": 22.2,
+  "lane": 22.2,
+  "guard": 22.2
+ },
+ "arrow": 25.4,
+ "arrowWidth": 20.9,
+ "arrowStyle": "filled",
+ "dashed": [],
+ "greyRules": [],
+ "crossMarks": [],
+ "openEnds": [],
+ "frameBox": [
+  2.2,
+  2.2,
+  1477.0,
+  1417.3
+ ],
+ "dividers": [
+  [
+   463.8,
+   2.6,
+   6.9,
+   1411.7
+  ],
+  [
+   984.6,
+   1.7,
+   6.9,
+   1411.7
+  ]
+ ],
+ "bands": [
+  [
+   54.5,
+   1.7,
+   6.9,
+   1470.5
+  ]
+ ],
+ "lanes": [
+  {
+   "id": "lane-exporting-customs-party",
+   "title": "Exporting Customs Party",
+   "x": 0.0,
+   "w": 463.4,
+   "cx": 222.6,
+   "cy": 33.3,
+   "bold": true,
+   "size": 21.5,
+   "textWidth": 249.8,
+   "baseline": 38.7
+  },
+  {
+   "id": "lane-holder-party",
+   "title": "Holder Party",
+   "x": 463.4,
+   "w": 521.3,
+   "cx": 713.2,
+   "cy": 33.7,
+   "bold": true,
+   "size": 20.5,
+   "textWidth": 122.8,
+   "baseline": 38.9
+  },
+  {
+   "id": "lane-issuer-party",
+   "title": "Issuer Party",
+   "x": 984.6,
+   "w": 495.4,
+   "cx": 1238.4,
+   "cy": 33.7,
+   "bold": true,
+   "size": 20.5,
+   "textWidth": 118.4,
+   "baseline": 38.9
+  }
+ ],
+ "bandLabels": [],
+ "captions": [],
+ "nodes": [
+  {
+   "id": "initial-holder-party",
+   "kind": "initial",
+   "label": "",
+   "x": 706.3,
+   "y": 66.6,
+   "w": 39.8,
+   "h": 39.8
+  },
+  {
+   "id": "action-draft-goodsitem-passport",
+   "kind": "action",
+   "label": "Draft\nGoodsitem Passport",
+   "x": 620.7,
+   "y": 161.7,
+   "w": 210.1,
+   "h": 104.6,
+   "rx": 13.8,
+   "ry": 17.3,
+   "labelLines": [
+    {
+     "text": "Draft",
+     "cx": 726.6,
+     "cy": 198.875,
+     "w": 44.1,
+     "size": 21.5
+    },
+    {
+     "text": "Goodsitem Passport",
+     "cx": 726.2,
+     "cy": 224.875,
+     "w": 188.5,
+     "size": 21.5
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "object-goodsitem-passport-drafted",
+   "kind": "object",
+   "label": "Goodsitem\nPassport\n(Drafted)",
+   "x": 882.2,
+   "y": 161.2,
+   "w": 209.2,
+   "h": 104.6,
+   "labelLines": [
+    {
+     "text": "Goodsitem",
+     "cx": 985.9,
+     "cy": 191.075,
+     "w": 108.1,
+     "size": 21.5
+    },
+    {
+     "text": "Passport",
+     "cx": 986.4,
+     "cy": 211.875,
+     "w": 89.9,
+     "size": 21.5
+    },
+    {
+     "text": "(Drafted)",
+     "cx": 985.5,
+     "cy": 232.575,
+     "w": 86.4,
+     "size": 21.5
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-verify-goodsitem-passport",
+   "kind": "action",
+   "label": "Verify\nGoodsitem Passport",
+   "x": 1144.6,
+   "y": 172.0,
+   "w": 198.0,
+   "h": 83.9,
+   "rx": 12.1,
+   "ry": 13.0,
+   "labelLines": [
+    {
+     "text": "Verify",
+     "cx": 1245.3,
+     "cy": 198.875,
+     "w": 51.0,
+     "size": 21.5
+    },
+    {
+     "text": "Goodsitem Passport",
+     "cx": 1244.9,
+     "cy": 224.875,
+     "w": 188.5,
+     "size": 21.5
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "decision-ok",
+   "kind": "decision",
+   "label": "OK?",
+   "x": 1174.8,
+   "y": 300.8,
+   "w": 138.3,
+   "h": 100.3,
+   "labelLines": [
+    {
+     "text": "OK?",
+     "cx": 1244.4,
+     "cy": 351.58500000000004,
+     "w": 40.6,
+     "size": 22.9
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "final-holder-party",
+   "kind": "final",
+   "label": "",
+   "x": 698.5,
+   "y": 344.1,
+   "w": 51.9,
+   "h": 52.7,
+   "innerRatio": 0.793
+  },
+  {
+   "id": "object-application-response-between-holder-party-and-issuer-party",
+   "kind": "object",
+   "label": "Application response",
+   "x": 882.2,
+   "y": 449.1,
+   "w": 209.2,
+   "h": 104.6,
+   "labelLines": [
+    {
+     "text": "Application response",
+     "cx": 986.8,
+     "cy": 499.77500000000003,
+     "w": 201.4,
+     "size": 21.5
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-receive-declined",
+   "kind": "action",
+   "label": "Receive Declined",
+   "x": 634.5,
+   "y": 455.6,
+   "w": 183.3,
+   "h": 91.6,
+   "rx": 15.6,
+   "ry": 12.1,
+   "labelLines": [
+    {
+     "text": "Receive Declined",
+     "cx": 726.2,
+     "cy": 501.475,
+     "w": 160.8,
+     "size": 21.5
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "action-send-declined",
+   "kind": "action",
+   "label": "Send Declined",
+   "x": 1160.1,
+   "y": 455.6,
+   "w": 166.0,
+   "h": 91.6,
+   "rx": 15.6,
+   "ry": 13.8,
+   "labelLines": [
+    {
+     "text": "Send Declined",
+     "cx": 1245.3,
+     "cy": 501.475,
+     "w": 134.0,
+     "size": 21.5
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "object-goodsitem-passport-authorized-between-holder-party-and-issuer-party",
+   "kind": "object",
+   "label": "GoodsItem\nPassport\n(Authorized)",
+   "x": 882.2,
+   "y": 589.1,
+   "w": 209.2,
+   "h": 104.6,
+   "labelLines": [
+    {
+     "text": "GoodsItem",
+     "cx": 988.5,
+     "cy": 618.1750000000001,
+     "w": 108.1,
+     "size": 21.5
+    },
+    {
+     "text": "Passport",
+     "cx": 989.0,
+     "cy": 639.775,
+     "w": 89.9,
+     "size": 21.5
+    },
+    {
+     "text": "(Authorized)",
+     "cx": 988.1,
+     "cy": 660.575,
+     "w": 122.8,
+     "size": 21.5
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-receive-goodsitem-passport-in-holder-party",
+   "kind": "action",
+   "label": "Receive\nGoodsitem Passport",
+   "x": 620.7,
+   "y": 595.6,
+   "w": 197.1,
+   "h": 90.8,
+   "rx": 13.8,
+   "ry": 13.8,
+   "labelLines": [
+    {
+     "text": "Receive",
+     "cx": 718.4,
+     "cy": 628.575,
+     "w": 72.6,
+     "size": 21.5
+    },
+    {
+     "text": "Goodsitem Passport",
+     "cx": 718.4,
+     "cy": 649.275,
+     "w": 188.5,
+     "size": 21.5
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "action-apply-stamps-and-signature-in-issuer-party",
+   "kind": "action",
+   "label": "Apply Stamps\nAnd Signature",
+   "x": 1161.9,
+   "y": 595.6,
+   "w": 166.0,
+   "h": 90.8,
+   "rx": 13.0,
+   "ry": 13.8,
+   "labelLines": [
+    {
+     "text": "Apply Stamps",
+     "cx": 1241.8,
+     "cy": 628.575,
+     "w": 128.8,
+     "size": 21.5
+    },
+    {
+     "text": "And Signature",
+     "cx": 1241.4,
+     "cy": 649.275,
+     "w": 131.4,
+     "size": 21.5
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "object-goodsitem-passport-authorized-between-exporting-customs-party-and-holder-party",
+   "kind": "object",
+   "label": "Goodsitem\nPassport\n(Authorized)",
+   "x": 341.0,
+   "y": 755.1,
+   "w": 210.1,
+   "h": 104.6,
+   "labelLines": [
+    {
+     "text": "Goodsitem",
+     "cx": 444.8,
+     "cy": 784.975,
+     "w": 108.1,
+     "size": 21.5
+    },
+    {
+     "text": "Passport",
+     "cx": 445.2,
+     "cy": 805.775,
+     "w": 89.9,
+     "size": 21.5
+    },
+    {
+     "text": "(Authorized)",
+     "cx": 444.8,
+     "cy": 826.475,
+     "w": 121.9,
+     "size": 21.5
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-request-goods-to-leave-country",
+   "kind": "action",
+   "label": "Request Goods\nTo Leave Country",
+   "x": 615.5,
+   "y": 755.6,
+   "w": 210.1,
+   "h": 104.6,
+   "rx": 13.8,
+   "ry": 16.4,
+   "labelLines": [
+    {
+     "text": "Request Goods",
+     "cx": 721.0,
+     "cy": 792.775,
+     "w": 143.5,
+     "size": 21.5
+    },
+    {
+     "text": "To Leave Country",
+     "cx": 720.5,
+     "cy": 818.775,
+     "w": 163.4,
+     "size": 21.5
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "action-receive-and-verify-goodsitem-passport",
+   "kind": "action",
+   "label": "Receive and Verify\nGoodsitem Passport",
+   "x": 99.4,
+   "y": 765.9,
+   "w": 198.0,
+   "h": 83.9,
+   "rx": 12.1,
+   "ry": 13.8,
+   "labelLines": [
+    {
+     "text": "Receive and Verify",
+     "cx": 200.6,
+     "cy": 792.775,
+     "w": 172.9,
+     "size": 21.5
+    },
+    {
+     "text": "Goodsitem Passport",
+     "cx": 199.7,
+     "cy": 818.775,
+     "w": 188.5,
+     "size": 21.5
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "decision-valid",
+   "kind": "decision",
+   "label": "Valid?",
+   "x": 130.5,
+   "y": 894.7,
+   "w": 137.5,
+   "h": 100.3,
+   "labelLines": [
+    {
+     "text": "Valid?",
+     "cx": 198.8,
+     "cy": 946.385,
+     "w": 55.3,
+     "size": 22.9
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "final-holder-party-2",
+   "kind": "final",
+   "label": "",
+   "x": 692.5,
+   "y": 938.0,
+   "w": 52.7,
+   "h": 52.7,
+   "innerRatio": 0.78
+  },
+  {
+   "id": "object-application-response-between-exporting-customs-party-and-holder-party",
+   "kind": "object",
+   "label": "Application response",
+   "x": 348.0,
+   "y": 1043.0,
+   "w": 210.1,
+   "h": 104.6,
+   "labelLines": [
+    {
+     "text": "Application response",
+     "cx": 453.0,
+     "cy": 1097.975,
+     "w": 202.3,
+     "size": 21.5
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-send-reject",
+   "kind": "action",
+   "label": "Send Reject",
+   "x": 115.0,
+   "y": 1050.4,
+   "w": 166.0,
+   "h": 90.8,
+   "rx": 12.1,
+   "ry": 13.8,
+   "labelLines": [
+    {
+     "text": "Send Reject",
+     "cx": 200.1,
+     "cy": 1094.475,
+     "w": 113.2,
+     "size": 21.5
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "action-receive-reject",
+   "kind": "action",
+   "label": "Receive Reject",
+   "x": 628.5,
+   "y": 1050.4,
+   "w": 184.1,
+   "h": 90.8,
+   "rx": 12.1,
+   "ry": 15.6,
+   "labelLines": [
+    {
+     "text": "Receive Reject",
+     "cx": 721.4,
+     "cy": 1093.675,
+     "w": 139.2,
+     "size": 21.5
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "object-goodsitem-passport-approved",
+   "kind": "object",
+   "label": "GoodsItem\nPassport\n(Approved)",
+   "x": 348.0,
+   "y": 1183.0,
+   "w": 210.1,
+   "h": 104.6,
+   "labelLines": [
+    {
+     "text": "GoodsItem",
+     "cx": 454.3,
+     "cy": 1215.5749999999998,
+     "w": 108.1,
+     "size": 21.5
+    },
+    {
+     "text": "Passport",
+     "cx": 454.7,
+     "cy": 1237.175,
+     "w": 89.9,
+     "size": 21.5
+    },
+    {
+     "text": "(Approved)",
+     "cx": 453.9,
+     "cy": 1257.875,
+     "w": 110.7,
+     "size": 21.5
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-apply-stamps-and-signature-in-exporting-customs-party",
+   "kind": "action",
+   "label": "Apply Stamps\nAnd Signature",
+   "x": 116.7,
+   "y": 1189.5,
+   "w": 166.0,
+   "h": 90.8,
+   "rx": 13.8,
+   "ry": 15.6,
+   "labelLines": [
+    {
+     "text": "Apply Stamps",
+     "cx": 196.7,
+     "cy": 1220.675,
+     "w": 128.8,
+     "size": 21.5
+    },
+    {
+     "text": "And Signature",
+     "cx": 196.7,
+     "cy": 1241.475,
+     "w": 132.3,
+     "size": 21.5
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "action-receive-goodsitem-passport-in-holder-party-2",
+   "kind": "action",
+   "label": "Receive\nGoodsitem Passport",
+   "x": 615.5,
+   "y": 1189.5,
+   "w": 197.1,
+   "h": 90.8,
+   "rx": 15.6,
+   "ry": 13.0,
+   "labelLines": [
+    {
+     "text": "Receive",
+     "cx": 713.2,
+     "cy": 1225.0749999999998,
+     "w": 72.6,
+     "size": 21.5
+    },
+    {
+     "text": "Goodsitem Passport",
+     "cx": 713.2,
+     "cy": 1245.7749999999999,
+     "w": 188.5,
+     "size": 21.5
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "final-holder-party-3",
+   "kind": "final",
+   "label": "",
+   "x": 692.5,
+   "y": 1346.0,
+   "w": 52.7,
+   "h": 51.9,
+   "innerRatio": 0.763
+  }
+ ],
+ "edges": [
+  {
+   "id": "flow-initial-holder-party-to-draft-goodsitem-passport",
+   "from": "initial-holder-party",
+   "to": "action-draft-goodsitem-passport",
+   "exitXY": [
+    0.5,
+    1.0
+   ],
+   "entryXY": [
+    0.4979,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-draft-goodsitem-passport-to-goodsitem-passport-drafted",
+   "from": "action-draft-goodsitem-passport",
+   "to": "object-goodsitem-passport-drafted",
+   "exitXY": [
+    1.0,
+    0.4952
+   ],
+   "entryXY": [
+    0.0,
+    0.5
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-goodsitem-passport-drafted-to-verify-goodsitem-passport",
+   "from": "object-goodsitem-passport-drafted",
+   "to": "action-verify-goodsitem-passport",
+   "exitXY": [
+    1.0,
+    0.5
+   ],
+   "entryXY": [
+    0.0,
+    0.4946
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-verify-goodsitem-passport-to-ok",
+   "from": "action-verify-goodsitem-passport",
+   "to": "decision-ok",
+   "exitXY": [
+    0.4975,
+    1.0
+   ],
+   "entryXY": [
+    0.5004,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-ok-to-apply-stamps-and-signature-in-issuer-party",
+   "from": "decision-ok",
+   "to": "action-apply-stamps-and-signature-in-issuer-party",
+   "exitXY": [
+    1.0,
+    0.5174
+   ],
+   "entryXY": [
+    1.0,
+    0.4956
+   ],
+   "straight": false,
+   "confidence": "high",
+   "points": [
+    [
+     1379.7,
+     352.7
+    ],
+    [
+     1379.7,
+     643.2
+    ]
+   ],
+   "label": "Yes"
+  },
+  {
+   "id": "flow-receive-declined-to-final-holder-party",
+   "from": "action-receive-declined",
+   "to": "final-holder-party",
+   "exitXY": [
+    0.5003,
+    0.0
+   ],
+   "entryXY": [
+    0.499,
+    1.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-ok-to-send-declined",
+   "from": "decision-ok",
+   "to": "action-send-declined",
+   "exitXY": [
+    0.5004,
+    1.0
+   ],
+   "entryXY": [
+    0.5,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high",
+   "label": "No"
+  },
+  {
+   "id": "flow-application-response-between-holder-party-and-issuer-party-to-receive-declined",
+   "from": "object-application-response-between-holder-party-and-issuer-party",
+   "to": "action-receive-declined",
+   "exitXY": [
+    0.0,
+    0.4751
+   ],
+   "entryXY": [
+    1.0,
+    0.4902
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-send-declined-to-application-response-between-holder-party-and-issuer-party",
+   "from": "action-send-declined",
+   "to": "object-application-response-between-holder-party-and-issuer-party",
+   "exitXY": [
+    0.0,
+    0.5
+   ],
+   "entryXY": [
+    1.0,
+    0.5
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-goodsitem-passport-authorized-between-holder-party-and-issuer-party-to-receive-goodsitem-passport-in-holder-party",
+   "from": "object-goodsitem-passport-authorized-between-holder-party-and-issuer-party",
+   "to": "action-receive-goodsitem-passport-in-holder-party",
+   "exitXY": [
+    0.0,
+    0.5
+   ],
+   "entryXY": [
+    1.0,
+    0.4956
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-apply-stamps-and-signature-in-issuer-party-to-goodsitem-passport-authorized-between-holder-party-and-issuer-party",
+   "from": "action-apply-stamps-and-signature-in-issuer-party",
+   "to": "object-goodsitem-passport-authorized-between-holder-party-and-issuer-party",
+   "exitXY": [
+    0.0,
+    0.4956
+   ],
+   "entryXY": [
+    1.0,
+    0.5
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-receive-goodsitem-passport-in-holder-party-to-request-goods-to-leave-country",
+   "from": "action-receive-goodsitem-passport-in-holder-party",
+   "to": "action-request-goods-to-leave-country",
+   "exitXY": [
+    0.5261,
+    1.0
+   ],
+   "entryXY": [
+    0.5102,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-request-goods-to-leave-country-to-goodsitem-passport-authorized-between-exporting-customs-party-and-holder-party",
+   "from": "action-request-goods-to-leave-country",
+   "to": "object-goodsitem-passport-authorized-between-exporting-customs-party-and-holder-party",
+   "exitXY": [
+    0.0,
+    0.4876
+   ],
+   "entryXY": [
+    1.0,
+    0.4924
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-goodsitem-passport-authorized-between-exporting-customs-party-and-holder-party-to-receive-and-verify-goodsitem-passport",
+   "from": "object-goodsitem-passport-authorized-between-exporting-customs-party-and-holder-party",
+   "to": "action-receive-and-verify-goodsitem-passport",
+   "exitXY": [
+    0.0,
+    0.5
+   ],
+   "entryXY": [
+    1.0,
+    0.4946
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-receive-and-verify-goodsitem-passport-to-valid",
+   "from": "action-receive-and-verify-goodsitem-passport",
+   "to": "decision-valid",
+   "exitXY": [
+    0.498,
+    1.0
+   ],
+   "entryXY": [
+    0.4967,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-valid-to-apply-stamps-and-signature-in-exporting-customs-party",
+   "from": "decision-valid",
+   "to": "action-apply-stamps-and-signature-in-exporting-customs-party",
+   "exitXY": [
+    0.0,
+    0.5085
+   ],
+   "entryXY": [
+    0.0,
+    0.4956
+   ],
+   "straight": false,
+   "confidence": "high",
+   "points": [
+    [
+     69.2,
+     945.7
+    ],
+    [
+     69.2,
+     1237.9
+    ]
+   ],
+   "label": "Yes"
+  },
+  {
+   "id": "flow-receive-reject-to-final-holder-party-2",
+   "from": "action-receive-reject",
+   "to": "final-holder-party-2",
+   "exitXY": [
+    0.4976,
+    0.0
+   ],
+   "entryXY": [
+    0.4915,
+    1.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-valid-to-send-reject",
+   "from": "decision-valid",
+   "to": "action-send-reject",
+   "exitXY": [
+    0.4967,
+    1.0
+   ],
+   "entryXY": [
+    0.5,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high",
+   "label": "No"
+  },
+  {
+   "id": "flow-application-response-between-exporting-customs-party-and-holder-party-to-receive-reject",
+   "from": "object-application-response-between-exporting-customs-party-and-holder-party",
+   "to": "action-receive-reject",
+   "exitXY": [
+    1.0,
+    0.4751
+   ],
+   "entryXY": [
+    0.0,
+    0.4945
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-send-reject-to-application-response-between-exporting-customs-party-and-holder-party",
+   "from": "action-send-reject",
+   "to": "object-application-response-between-exporting-customs-party-and-holder-party",
+   "exitXY": [
+    1.0,
+    0.4846
+   ],
+   "entryXY": [
+    0.0,
+    0.5
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-goodsitem-passport-approved-to-receive-goodsitem-passport-in-holder-party-2",
+   "from": "object-goodsitem-passport-approved",
+   "to": "action-receive-goodsitem-passport-in-holder-party-2",
+   "exitXY": [
+    1.0,
+    0.4761
+   ],
+   "entryXY": [
+    0.0,
+    0.4956
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-apply-stamps-and-signature-in-exporting-customs-party-to-goodsitem-passport-approved",
+   "from": "action-apply-stamps-and-signature-in-exporting-customs-party",
+   "to": "object-goodsitem-passport-approved",
+   "exitXY": [
+    1.0,
+    0.5143
+   ],
+   "entryXY": [
+    0.0,
+    0.501
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-receive-goodsitem-passport-in-holder-party-2-to-final-holder-party-3",
+   "from": "action-receive-goodsitem-passport-in-holder-party-2",
+   "to": "final-holder-party-3",
+   "exitXY": [
+    0.5353,
+    1.0
+   ],
+   "entryXY": [
+    0.4915,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  }
+ ],
+ "guards": [
+  {
+   "id": "text-no",
+   "text": "No",
+   "x": 1197.3,
+   "y": 409.8,
+   "w": 22.5,
+   "h": 13.8,
+   "onFlow": "flow-ok-to-send-declined",
+   "labelLines": [
+    {
+     "text": "No",
+     "cx": 1208.6,
+     "cy": 416.845,
+     "w": 22.5,
+     "size": 19.3
+    }
+   ]
+  },
+  {
+   "id": "text-yes",
+   "text": "Yes",
+   "x": 1387.5,
+   "y": 500.5,
+   "w": 30.3,
+   "h": 14.7,
+   "onFlow": "flow-ok-to-apply-stamps-and-signature-in-issuer-party",
+   "labelLines": [
+    {
+     "text": "Yes",
+     "cx": 1402.6,
+     "cy": 508.02500000000003,
+     "w": 30.3,
+     "size": 20.5
+    }
+   ]
+  },
+  {
+   "id": "text-no-2",
+   "text": "No",
+   "x": 152.1,
+   "y": 1003.7,
+   "w": 22.5,
+   "h": 13.8,
+   "onFlow": "flow-valid-to-send-reject",
+   "labelLines": [
+    {
+     "text": "No",
+     "cx": 163.4,
+     "cy": 1010.745,
+     "w": 22.5,
+     "size": 19.3
+    }
+   ]
+  },
+  {
+   "id": "text-yes-2",
+   "text": "Yes",
+   "x": 30.3,
+   "y": 1094.4,
+   "w": 30.3,
+   "h": 14.7,
+   "onFlow": "flow-valid-to-apply-stamps-and-signature-in-exporting-customs-party",
+   "labelLines": [
+    {
+     "text": "Yes",
+     "cx": 45.4,
+     "cy": 1101.925,
+     "w": 30.3,
+     "size": 20.5
+    }
+   ]
+  }
+ ]
+}

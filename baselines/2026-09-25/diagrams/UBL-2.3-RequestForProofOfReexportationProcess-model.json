@@ -1,0 +1,112 @@
+{
+ "name": "UBL-2.3-RequestForProofOfReexportationProcess",
+ "counts": {
+  "initial": 1,
+  "action": 10,
+  "object": 6,
+  "decision": 1,
+  "final": 1
+ },
+ "flow": [
+  "(start)   [Importing Customs Party]",
+  "Query if goods have left the country   [Importing Customs Party]",
+  "[Request For Proof Of Reexportation]   [Importing Guarantor Party]",
+  "Issue to 1 Relevant Chamber of Commerce   [Importing Guarantor Party]",
+  "[Request For Proof Of Reexportation]   [Importing Guarantor Party]",
+  "Create Case Number   [Exporting Guarantor Party]",
+  "Get Status From Goods Item Passport   [Exporting Guarantor Party]",
+  "<Item Returned?>   [Exporting Guarantor Party]",
+  "  -No-> Send Declined   [Exporting Guarantor Party]",
+  "  -> [Application response]   [Importing Guarantor Party]",
+  "  -> Issue to Customs   [Importing Guarantor Party]",
+  "  -> [Application response]   [Importing Guarantor Party]",
+  "  -> Receive Declined   [Importing Customs Party]",
+  "  -> (end)   [Importing Customs Party]",
+  "  -Yes-> Apply Stamps And Signature   [Exporting Guarantor Party]",
+  "  -> [Proof Of Reexportation]   [Importing Guarantor Party]",
+  "  -> Issue to Customs   [Importing Guarantor Party]",
+  "  -> [Proof Of Reexportation]   [Importing Guarantor Party]",
+  "  -> Receive Proof of Reexportation   [Importing Customs Party]",
+  "  -> (end)   [Importing Customs Party]",
+  ""
+ ],
+ "checks": [
+  {
+   "rule": "every element is connected",
+   "ok": true,
+   "bad": [],
+   "note": "",
+   "report": false
+  },
+  {
+   "rule": "start events have a way out and no way in",
+   "ok": true,
+   "bad": [],
+   "note": "",
+   "report": false
+  },
+  {
+   "rule": "end events have a way in and no way out",
+   "ok": true,
+   "bad": [],
+   "note": "",
+   "report": false
+  },
+  {
+   "rule": "decisions have at least two ways out",
+   "ok": true,
+   "bad": [],
+   "note": "",
+   "report": false
+  },
+  {
+   "rule": "branches out of a decision are labelled",
+   "ok": true,
+   "bad": [],
+   "note": "informational: several diagrams draw an unlabelled branch, so read these against the artwork rather than treating them as errors",
+   "report": true
+  },
+  {
+   "rule": "documents are both written and read",
+   "ok": true,
+   "bad": [],
+   "note": "",
+   "report": false
+  },
+  {
+   "rule": "no flow runs straight from one document to another",
+   "ok": true,
+   "bad": [],
+   "note": "",
+   "report": false
+  },
+  {
+   "rule": "work crossing between parties goes through a document",
+   "ok": true,
+   "bad": [],
+   "note": "informational: UBL draws the hand-over as a document on the divider, and each exception below is named",
+   "report": true
+  },
+  {
+   "rule": "every flow's direction was read with confidence",
+   "ok": true,
+   "bad": [],
+   "note": "",
+   "report": false
+  },
+  {
+   "rule": "every action passes its work on",
+   "ok": true,
+   "bad": [],
+   "note": "informational: several diagrams do end on an action, so read these against the artwork rather than treating them as errors",
+   "report": true
+  },
+  {
+   "rule": "every element is reachable from a start event",
+   "ok": true,
+   "bad": [],
+   "note": "",
+   "report": false
+  }
+ ]
+}

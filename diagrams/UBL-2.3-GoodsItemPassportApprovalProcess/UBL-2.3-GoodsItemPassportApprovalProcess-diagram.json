@@ -1,0 +1,435 @@
+{
+ "schema": "ubl-activity-diagram/1",
+ "figure": {
+  "name": "UBL-2.3-GoodsItemPassportApprovalProcess",
+  "source": "UBL-2.3-GoodsItemPassportApprovalProcess.png"
+ },
+ "lanes": [
+  {
+   "id": "lane-exporting-customs-party",
+   "axis": "column",
+   "index": 0,
+   "title": "Exporting Customs Party"
+  },
+  {
+   "id": "lane-holder-party",
+   "axis": "column",
+   "index": 1,
+   "title": "Holder Party"
+  },
+  {
+   "id": "lane-issuer-party",
+   "axis": "column",
+   "index": 2,
+   "title": "Issuer Party"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "initial-holder-party",
+   "kind": "initial",
+   "label": "",
+   "lane": "lane-holder-party"
+  },
+  {
+   "id": "action-draft-goodsitem-passport",
+   "kind": "action",
+   "label": "Draft\nGoodsitem Passport",
+   "lane": "lane-holder-party"
+  },
+  {
+   "id": "object-goodsitem-passport-drafted",
+   "kind": "object",
+   "label": "Goodsitem\nPassport\n(Drafted)",
+   "lane": null,
+   "between": [
+    "lane-holder-party",
+    "lane-issuer-party"
+   ]
+  },
+  {
+   "id": "action-verify-goodsitem-passport",
+   "kind": "action",
+   "label": "Verify\nGoodsitem Passport",
+   "lane": "lane-issuer-party"
+  },
+  {
+   "id": "decision-ok",
+   "kind": "decision",
+   "label": "OK?",
+   "lane": "lane-issuer-party"
+  },
+  {
+   "id": "final-holder-party",
+   "kind": "final",
+   "label": "",
+   "lane": "lane-holder-party"
+  },
+  {
+   "id": "object-application-response-between-holder-party-and-issuer-party",
+   "kind": "object",
+   "label": "Application response",
+   "lane": null,
+   "between": [
+    "lane-holder-party",
+    "lane-issuer-party"
+   ]
+  },
+  {
+   "id": "action-receive-declined",
+   "kind": "action",
+   "label": "Receive Declined",
+   "lane": "lane-holder-party"
+  },
+  {
+   "id": "action-send-declined",
+   "kind": "action",
+   "label": "Send Declined",
+   "lane": "lane-issuer-party"
+  },
+  {
+   "id": "object-goodsitem-passport-authorized-between-holder-party-and-issuer-party",
+   "kind": "object",
+   "label": "GoodsItem\nPassport\n(Authorized)",
+   "lane": null,
+   "between": [
+    "lane-holder-party",
+    "lane-issuer-party"
+   ]
+  },
+  {
+   "id": "action-receive-goodsitem-passport-in-holder-party",
+   "kind": "action",
+   "label": "Receive\nGoodsitem Passport",
+   "lane": "lane-holder-party"
+  },
+  {
+   "id": "action-apply-stamps-and-signature-in-issuer-party",
+   "kind": "action",
+   "label": "Apply Stamps\nAnd Signature",
+   "lane": "lane-issuer-party"
+  },
+  {
+   "id": "object-goodsitem-passport-authorized-between-exporting-customs-party-and-holder-party",
+   "kind": "object",
+   "label": "Goodsitem\nPassport\n(Authorized)",
+   "lane": null,
+   "between": [
+    "lane-exporting-customs-party",
+    "lane-holder-party"
+   ]
+  },
+  {
+   "id": "action-request-goods-to-leave-country",
+   "kind": "action",
+   "label": "Request Goods\nTo Leave Country",
+   "lane": "lane-holder-party"
+  },
+  {
+   "id": "action-receive-and-verify-goodsitem-passport",
+   "kind": "action",
+   "label": "Receive and Verify\nGoodsitem Passport",
+   "lane": "lane-exporting-customs-party"
+  },
+  {
+   "id": "decision-valid",
+   "kind": "decision",
+   "label": "Valid?",
+   "lane": "lane-exporting-customs-party"
+  },
+  {
+   "id": "final-holder-party-2",
+   "kind": "final",
+   "label": "",
+   "lane": "lane-holder-party"
+  },
+  {
+   "id": "object-application-response-between-exporting-customs-party-and-holder-party",
+   "kind": "object",
+   "label": "Application response",
+   "lane": null,
+   "between": [
+    "lane-exporting-customs-party",
+    "lane-holder-party"
+   ]
+  },
+  {
+   "id": "action-send-reject",
+   "kind": "action",
+   "label": "Send Reject",
+   "lane": "lane-exporting-customs-party"
+  },
+  {
+   "id": "action-receive-reject",
+   "kind": "action",
+   "label": "Receive Reject",
+   "lane": "lane-holder-party"
+  },
+  {
+   "id": "object-goodsitem-passport-approved",
+   "kind": "object",
+   "label": "GoodsItem\nPassport\n(Approved)",
+   "lane": null,
+   "between": [
+    "lane-exporting-customs-party",
+    "lane-holder-party"
+   ]
+  },
+  {
+   "id": "action-apply-stamps-and-signature-in-exporting-customs-party",
+   "kind": "action",
+   "label": "Apply Stamps\nAnd Signature",
+   "lane": "lane-exporting-customs-party"
+  },
+  {
+   "id": "action-receive-goodsitem-passport-in-holder-party-2",
+   "kind": "action",
+   "label": "Receive\nGoodsitem Passport",
+   "lane": "lane-holder-party"
+  },
+  {
+   "id": "final-holder-party-3",
+   "kind": "final",
+   "label": "",
+   "lane": "lane-holder-party"
+  }
+ ],
+ "flows": [
+  {
+   "id": "flow-initial-holder-party-to-draft-goodsitem-passport",
+   "from": "initial-holder-party",
+   "to": "action-draft-goodsitem-passport",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-draft-goodsitem-passport-to-goodsitem-passport-drafted",
+   "from": "action-draft-goodsitem-passport",
+   "to": "object-goodsitem-passport-drafted",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-goodsitem-passport-drafted-to-verify-goodsitem-passport",
+   "from": "object-goodsitem-passport-drafted",
+   "to": "action-verify-goodsitem-passport",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-verify-goodsitem-passport-to-ok",
+   "from": "action-verify-goodsitem-passport",
+   "to": "decision-ok",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-ok-to-apply-stamps-and-signature-in-issuer-party",
+   "from": "decision-ok",
+   "to": "action-apply-stamps-and-signature-in-issuer-party",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   },
+   "guard": "text-yes"
+  },
+  {
+   "id": "flow-receive-declined-to-final-holder-party",
+   "from": "action-receive-declined",
+   "to": "final-holder-party",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-ok-to-send-declined",
+   "from": "decision-ok",
+   "to": "action-send-declined",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   },
+   "guard": "text-no"
+  },
+  {
+   "id": "flow-application-response-between-holder-party-and-issuer-party-to-receive-declined",
+   "from": "object-application-response-between-holder-party-and-issuer-party",
+   "to": "action-receive-declined",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-send-declined-to-application-response-between-holder-party-and-issuer-party",
+   "from": "action-send-declined",
+   "to": "object-application-response-between-holder-party-and-issuer-party",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-goodsitem-passport-authorized-between-holder-party-and-issuer-party-to-receive-goodsitem-passport-in-holder-party",
+   "from": "object-goodsitem-passport-authorized-between-holder-party-and-issuer-party",
+   "to": "action-receive-goodsitem-passport-in-holder-party",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-apply-stamps-and-signature-in-issuer-party-to-goodsitem-passport-authorized-between-holder-party-and-issuer-party",
+   "from": "action-apply-stamps-and-signature-in-issuer-party",
+   "to": "object-goodsitem-passport-authorized-between-holder-party-and-issuer-party",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-receive-goodsitem-passport-in-holder-party-to-request-goods-to-leave-country",
+   "from": "action-receive-goodsitem-passport-in-holder-party",
+   "to": "action-request-goods-to-leave-country",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-request-goods-to-leave-country-to-goodsitem-passport-authorized-between-exporting-customs-party-and-holder-party",
+   "from": "action-request-goods-to-leave-country",
+   "to": "object-goodsitem-passport-authorized-between-exporting-customs-party-and-holder-party",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-goodsitem-passport-authorized-between-exporting-customs-party-and-holder-party-to-receive-and-verify-goodsitem-passport",
+   "from": "object-goodsitem-passport-authorized-between-exporting-customs-party-and-holder-party",
+   "to": "action-receive-and-verify-goodsitem-passport",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-receive-and-verify-goodsitem-passport-to-valid",
+   "from": "action-receive-and-verify-goodsitem-passport",
+   "to": "decision-valid",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-valid-to-apply-stamps-and-signature-in-exporting-customs-party",
+   "from": "decision-valid",
+   "to": "action-apply-stamps-and-signature-in-exporting-customs-party",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   },
+   "guard": "text-yes-2"
+  },
+  {
+   "id": "flow-receive-reject-to-final-holder-party-2",
+   "from": "action-receive-reject",
+   "to": "final-holder-party-2",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-valid-to-send-reject",
+   "from": "decision-valid",
+   "to": "action-send-reject",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   },
+   "guard": "text-no-2"
+  },
+  {
+   "id": "flow-application-response-between-exporting-customs-party-and-holder-party-to-receive-reject",
+   "from": "object-application-response-between-exporting-customs-party-and-holder-party",
+   "to": "action-receive-reject",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-send-reject-to-application-response-between-exporting-customs-party-and-holder-party",
+   "from": "action-send-reject",
+   "to": "object-application-response-between-exporting-customs-party-and-holder-party",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-goodsitem-passport-approved-to-receive-goodsitem-passport-in-holder-party-2",
+   "from": "object-goodsitem-passport-approved",
+   "to": "action-receive-goodsitem-passport-in-holder-party-2",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-apply-stamps-and-signature-in-exporting-customs-party-to-goodsitem-passport-approved",
+   "from": "action-apply-stamps-and-signature-in-exporting-customs-party",
+   "to": "object-goodsitem-passport-approved",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-receive-goodsitem-passport-in-holder-party-2-to-final-holder-party-3",
+   "from": "action-receive-goodsitem-passport-in-holder-party-2",
+   "to": "final-holder-party-3",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  }
+ ],
+ "texts": [
+  {
+   "id": "text-no",
+   "text": "No",
+   "labels": "flow-ok-to-send-declined"
+  },
+  {
+   "id": "text-yes",
+   "text": "Yes",
+   "labels": "flow-ok-to-apply-stamps-and-signature-in-issuer-party"
+  },
+  {
+   "id": "text-no-2",
+   "text": "No",
+   "labels": "flow-valid-to-send-reject"
+  },
+  {
+   "id": "text-yes-2",
+   "text": "Yes",
+   "labels": "flow-valid-to-apply-stamps-and-signature-in-exporting-customs-party"
+  }
+ ],
+ "offPage": [],
+ "marks": [],
+ "phases": []
+}

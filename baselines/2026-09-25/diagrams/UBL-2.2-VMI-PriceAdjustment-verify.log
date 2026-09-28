@@ -1,0 +1,17 @@
+  verdict: CORRECT
+  structural: 0 element(s) absent, 0 invented, 0 text absent, 0 text differs, 0 incoherent
+  line-work  missing 3346 px (1.756%)   invented 2621 px (1.375%)   radius 3
+    line-work-missing     1452 px at  1820,1336     2x726   unattributed
+    line-work-missing      283 px at  3299,1273    43x41    on node n6 (action 'Receive Price List')
+    line-work-missing      269 px at  3299,1142    43x41    on node n6 (action 'Receive Price List')
+    line-work-missing      259 px at  2606,1276    42x39    on node n6 (action 'Receive Price List')
+    line-work-missing      238 px at  2606,1143    39x37    on node n6 (action 'Receive Price List')
+    line-work-missing      214 px at   336,1276    41x33    on node n5 (action 'Send Price List')
+    line-work-missing      205 px at  1029,1275    41x34    on node n5 (action 'Send Price List')
+    line-work-missing      175 px at   336,1143    36x31    on node n5 (action 'Send Price List')
+    line-work-missing      167 px at  1034,1143    36x32    on node n5 (action 'Send Price List')
+    line-work-invented    1452 px at  1811,1335     2x726   unattributed
+    line-work-invented     188 px at  3297,1271    36x34    on node n6 (action 'Receive Price List')
+    line-work-invented     182 px at  3300,1152    33x33    on node n6 (action 'Receive Price List')
+    ... and 6 more line-work findings
+review/baseline/UBL-2.2-VMI-PriceAdjustment-marked.png + review/baseline/UBL-2.2-VMI-PriceAdjustment-marked-lost.png  (0 finding(s) numbered)

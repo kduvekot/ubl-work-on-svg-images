@@ -1,0 +1,571 @@
+{
+ "schema": "ubl-activity-diagram/1",
+ "figure": {
+  "name": "UBL-2.2-InitiateFreightMgmtProcess",
+  "source": "UBL-2.2-InitiateFreightMgmtProcess.png"
+ },
+ "lanes": [
+  {
+   "id": "lane-consignee",
+   "axis": "column",
+   "index": 0,
+   "title": "Consignee"
+  },
+  {
+   "id": "lane-consignor",
+   "axis": "column",
+   "index": 1,
+   "title": "Consignor"
+  },
+  {
+   "id": "lane-freight-forwarder",
+   "axis": "column",
+   "index": 2,
+   "title": "Freight Forwarder"
+  },
+  {
+   "id": "lane-carrier",
+   "axis": "column",
+   "index": 3,
+   "title": "Carrier"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "object-forwarding-instructions-between-consignee-and-consignor-and-freight-forwarder",
+   "kind": "object",
+   "label": "Forwarding\nInstructions",
+   "lane": null,
+   "between": [
+    "lane-consignee",
+    "lane-consignor",
+    "lane-freight-forwarder"
+   ]
+  },
+  {
+   "id": "action-request-logistic-service-in-consignee",
+   "kind": "action",
+   "label": "Request Logistic\nService",
+   "lane": "lane-consignee"
+  },
+  {
+   "id": "action-request-transport-service",
+   "kind": "action",
+   "label": "Request Transport\nService",
+   "lane": "lane-freight-forwarder"
+  },
+  {
+   "id": "object-forwarding-instructions-between-freight-forwarder-and-carrier",
+   "kind": "object",
+   "label": "Forwarding\nInstructions",
+   "lane": null,
+   "between": [
+    "lane-freight-forwarder",
+    "lane-carrier"
+   ]
+  },
+  {
+   "id": "action-receive-transport-service-request",
+   "kind": "action",
+   "label": "Receive Transport\nService Request",
+   "lane": "lane-carrier"
+  },
+  {
+   "id": "action-request-logistic-service-in-consignor",
+   "kind": "action",
+   "label": "Request Logistic\nService",
+   "lane": "lane-consignor"
+  },
+  {
+   "id": "initial",
+   "kind": "initial",
+   "label": "",
+   "lane": null,
+   "linkedProcess": {
+    "name": "Ordering",
+    "how": "starts-from",
+    "source": "written beside the node in the artwork"
+   },
+   "between": [
+    "lane-consignee",
+    "lane-consignor"
+   ]
+  },
+  {
+   "id": "object-packing-list",
+   "kind": "object",
+   "label": "Packing List",
+   "lane": null,
+   "between": [
+    "lane-consignor",
+    "lane-freight-forwarder"
+   ]
+  },
+  {
+   "id": "action-receive-bill-of-lading-in-consignee",
+   "kind": "action",
+   "label": "Receive Bill of Lading",
+   "lane": "lane-consignee",
+   "unstated": {
+    "wayOut": "The path ends at this step: the artwork draws no end after it."
+   }
+  },
+  {
+   "id": "object-bill-of-lading-between-consignee-and-consignor-and-freight-forwarder",
+   "kind": "object",
+   "label": "Bill of Lading",
+   "lane": null,
+   "between": [
+    "lane-consignee",
+    "lane-consignor",
+    "lane-freight-forwarder"
+   ]
+  },
+  {
+   "id": "object-bill-of-lading-between-freight-forwarder-and-carrier",
+   "kind": "object",
+   "label": "Bill of Lading",
+   "lane": null,
+   "between": [
+    "lane-freight-forwarder",
+    "lane-carrier"
+   ]
+  },
+  {
+   "id": "action-send-bill-of-lading-to-consignor",
+   "kind": "action",
+   "label": "Send Bill of Lading to\nConsignor",
+   "lane": "lane-freight-forwarder"
+  },
+  {
+   "id": "action-send-bill-of-lading",
+   "kind": "action",
+   "label": "Send Bill of Lading",
+   "lane": "lane-carrier"
+  },
+  {
+   "id": "action-receive-bill-of-lading-in-consignor",
+   "kind": "action",
+   "label": "Receive Bill of Lading",
+   "lane": "lane-consignor",
+   "unstated": {
+    "wayOut": "The path ends at this step: the artwork draws no end after it."
+   }
+  },
+  {
+   "id": "action-receive-waybill-in-consignor",
+   "kind": "action",
+   "label": "Receive Waybill",
+   "lane": "lane-consignor",
+   "unstated": {
+    "wayOut": "The path ends at this step: the artwork draws no end after it."
+   }
+  },
+  {
+   "id": "object-waybill-between-freight-forwarder-and-carrier",
+   "kind": "object",
+   "label": "Waybill",
+   "lane": null,
+   "between": [
+    "lane-freight-forwarder",
+    "lane-carrier"
+   ]
+  },
+  {
+   "id": "object-waybill-between-consignee-and-consignor-and-freight-forwarder",
+   "kind": "object",
+   "label": "Waybill",
+   "lane": null,
+   "between": [
+    "lane-consignee",
+    "lane-consignor",
+    "lane-freight-forwarder"
+   ]
+  },
+  {
+   "id": "action-receive-waybill-in-consignee",
+   "kind": "action",
+   "label": "Receive Waybill",
+   "lane": "lane-consignee",
+   "unstated": {
+    "wayOut": "The path ends at this step: the artwork draws no end after it."
+   }
+  },
+  {
+   "id": "action-send-waybill-to-consignor",
+   "kind": "action",
+   "label": "Send Waybill to\nConsignor",
+   "lane": "lane-freight-forwarder"
+  },
+  {
+   "id": "action-send-waybill",
+   "kind": "action",
+   "label": "Send Waybill",
+   "lane": "lane-carrier"
+  },
+  {
+   "id": "action-transport-goods-items-to-delivery-party",
+   "kind": "action",
+   "label": "Transport Goods Items\nto Delivery Party",
+   "lane": "lane-carrier"
+  },
+  {
+   "id": "object-transportation-status-between-consignor-and-freight-forwarder",
+   "kind": "object",
+   "label": "Transportation\nStatus",
+   "lane": null,
+   "between": [
+    "lane-consignor",
+    "lane-freight-forwarder"
+   ]
+  },
+  {
+   "id": "action-receive-status-report-in-consignor",
+   "kind": "action",
+   "label": "Receive Status\nReport",
+   "lane": "lane-consignor",
+   "unstated": {
+    "wayOut": "The path ends at this step: the artwork draws no end after it."
+   }
+  },
+  {
+   "id": "object-transportation-status-between-freight-forwarder-and-carrier",
+   "kind": "object",
+   "label": "Transportation\nStatus",
+   "lane": null,
+   "between": [
+    "lane-freight-forwarder",
+    "lane-carrier"
+   ]
+  },
+  {
+   "id": "action-report-status-in-freight-forwarder",
+   "kind": "action",
+   "label": "Report Status",
+   "lane": "lane-freight-forwarder"
+  },
+  {
+   "id": "action-report-status-in-carrier",
+   "kind": "action",
+   "label": "Report Status",
+   "lane": "lane-carrier"
+  },
+  {
+   "id": "object-transportation-status-between-consignee-and-freight-forwarder",
+   "kind": "object",
+   "label": "Transportation\nStatus",
+   "lane": null,
+   "between": [
+    "lane-consignee",
+    "lane-freight-forwarder"
+   ]
+  },
+  {
+   "id": "action-receive-status-report-in-consignee",
+   "kind": "action",
+   "label": "Receive Status\nReport",
+   "lane": "lane-consignee",
+   "unstated": {
+    "wayOut": "The path ends at this step: the artwork draws no end after it."
+   }
+  },
+  {
+   "id": "final-carrier",
+   "kind": "final",
+   "label": "",
+   "lane": "lane-carrier",
+   "linkedProcess": {
+    "name": "Fulfilment",
+    "how": "leads-into",
+    "source": "written beside the node in the artwork"
+   }
+  }
+ ],
+ "flows": [
+  {
+   "id": "flow-request-logistic-service-in-consignee-to-forwarding-instructions-between-consignee-and-consignor-and-freight-forwarder",
+   "from": "action-request-logistic-service-in-consignee",
+   "to": "object-forwarding-instructions-between-consignee-and-consignor-and-freight-forwarder",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-forwarding-instructions-between-consignee-and-consignor-and-freight-forwarder-to-request-transport-service",
+   "from": "object-forwarding-instructions-between-consignee-and-consignor-and-freight-forwarder",
+   "to": "action-request-transport-service",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-request-transport-service-to-forwarding-instructions-between-freight-forwarder-and-carrier",
+   "from": "action-request-transport-service",
+   "to": "object-forwarding-instructions-between-freight-forwarder-and-carrier",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-initial-to-request-logistic-service-in-consignee",
+   "from": "initial",
+   "to": "action-request-logistic-service-in-consignee",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-request-logistic-service-in-consignor-to-forwarding-instructions-between-consignee-and-consignor-and-freight-forwarder",
+   "from": "action-request-logistic-service-in-consignor",
+   "to": "object-forwarding-instructions-between-consignee-and-consignor-and-freight-forwarder",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-forwarding-instructions-between-freight-forwarder-and-carrier-to-receive-transport-service-request",
+   "from": "object-forwarding-instructions-between-freight-forwarder-and-carrier",
+   "to": "action-receive-transport-service-request",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-packing-list-to-request-transport-service",
+   "from": "object-packing-list",
+   "to": "action-request-transport-service",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-receive-transport-service-request-to-send-bill-of-lading",
+   "from": "action-receive-transport-service-request",
+   "to": "action-send-bill-of-lading",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-initial-to-request-logistic-service-in-consignor",
+   "from": "initial",
+   "to": "action-request-logistic-service-in-consignor",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-request-logistic-service-in-consignor-to-packing-list",
+   "from": "action-request-logistic-service-in-consignor",
+   "to": "object-packing-list",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-bill-of-lading-between-consignee-and-consignor-and-freight-forwarder-to-receive-bill-of-lading-in-consignee",
+   "from": "object-bill-of-lading-between-consignee-and-consignor-and-freight-forwarder",
+   "to": "action-receive-bill-of-lading-in-consignee",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-send-bill-of-lading-to-consignor-to-bill-of-lading-between-consignee-and-consignor-and-freight-forwarder",
+   "from": "action-send-bill-of-lading-to-consignor",
+   "to": "object-bill-of-lading-between-consignee-and-consignor-and-freight-forwarder",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-bill-of-lading-between-freight-forwarder-and-carrier-to-send-bill-of-lading-to-consignor",
+   "from": "object-bill-of-lading-between-freight-forwarder-and-carrier",
+   "to": "action-send-bill-of-lading-to-consignor",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-send-bill-of-lading-to-bill-of-lading-between-freight-forwarder-and-carrier",
+   "from": "action-send-bill-of-lading",
+   "to": "object-bill-of-lading-between-freight-forwarder-and-carrier",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-bill-of-lading-between-consignee-and-consignor-and-freight-forwarder-to-receive-bill-of-lading-in-consignor",
+   "from": "object-bill-of-lading-between-consignee-and-consignor-and-freight-forwarder",
+   "to": "action-receive-bill-of-lading-in-consignor",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-send-bill-of-lading-to-send-waybill",
+   "from": "action-send-bill-of-lading",
+   "to": "action-send-waybill",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-waybill-between-consignee-and-consignor-and-freight-forwarder-to-receive-waybill-in-consignor",
+   "from": "object-waybill-between-consignee-and-consignor-and-freight-forwarder",
+   "to": "action-receive-waybill-in-consignor",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-waybill-between-consignee-and-consignor-and-freight-forwarder-to-receive-waybill-in-consignee",
+   "from": "object-waybill-between-consignee-and-consignor-and-freight-forwarder",
+   "to": "action-receive-waybill-in-consignee",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-send-waybill-to-consignor-to-waybill-between-consignee-and-consignor-and-freight-forwarder",
+   "from": "action-send-waybill-to-consignor",
+   "to": "object-waybill-between-consignee-and-consignor-and-freight-forwarder",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-waybill-between-freight-forwarder-and-carrier-to-send-waybill-to-consignor",
+   "from": "object-waybill-between-freight-forwarder-and-carrier",
+   "to": "action-send-waybill-to-consignor",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-send-waybill-to-waybill-between-freight-forwarder-and-carrier",
+   "from": "action-send-waybill",
+   "to": "object-waybill-between-freight-forwarder-and-carrier",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-send-waybill-to-transport-goods-items-to-delivery-party",
+   "from": "action-send-waybill",
+   "to": "action-transport-goods-items-to-delivery-party",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-transport-goods-items-to-delivery-party-to-report-status-in-carrier",
+   "from": "action-transport-goods-items-to-delivery-party",
+   "to": "action-report-status-in-carrier",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-transport-goods-items-to-delivery-party-to-final-carrier",
+   "from": "action-transport-goods-items-to-delivery-party",
+   "to": "final-carrier",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-transportation-status-between-consignor-and-freight-forwarder-to-receive-status-report-in-consignor",
+   "from": "object-transportation-status-between-consignor-and-freight-forwarder",
+   "to": "action-receive-status-report-in-consignor",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-report-status-in-freight-forwarder-to-transportation-status-between-consignor-and-freight-forwarder",
+   "from": "action-report-status-in-freight-forwarder",
+   "to": "object-transportation-status-between-consignor-and-freight-forwarder",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-transportation-status-between-freight-forwarder-and-carrier-to-report-status-in-freight-forwarder",
+   "from": "object-transportation-status-between-freight-forwarder-and-carrier",
+   "to": "action-report-status-in-freight-forwarder",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-report-status-in-carrier-to-transportation-status-between-freight-forwarder-and-carrier",
+   "from": "action-report-status-in-carrier",
+   "to": "object-transportation-status-between-freight-forwarder-and-carrier",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-report-status-in-freight-forwarder-to-transportation-status-between-consignee-and-freight-forwarder",
+   "from": "action-report-status-in-freight-forwarder",
+   "to": "object-transportation-status-between-consignee-and-freight-forwarder",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-transportation-status-between-consignee-and-freight-forwarder-to-receive-status-report-in-consignee",
+   "from": "object-transportation-status-between-consignee-and-freight-forwarder",
+   "to": "action-receive-status-report-in-consignee",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  }
+ ],
+ "texts": [
+  {
+   "id": "text-ordering-process",
+   "text": "Ordering\nProcess",
+   "labels": "initial"
+  },
+  {
+   "id": "text-fulfillment-process",
+   "text": "Fulfillment\nProcess",
+   "labels": "final-carrier"
+  }
+ ],
+ "offPage": [],
+ "marks": [],
+ "phases": []
+}

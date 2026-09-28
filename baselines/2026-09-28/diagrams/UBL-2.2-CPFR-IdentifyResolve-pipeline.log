@@ -1,0 +1,11 @@
+== UBL-2.2-CPFR-IdentifyResolve
+  UBL-2.2-CPFR-IdentifyResolve -> diagram, layout, extraction  (10 nodes, 10 flows, 6 texts)
+  scale 0.43212   frame 10px  divider 1px  action 3px  object 6px
+  font 46px (19.7 model)   2 lanes, 0 bands, 10 nodes, 10 edges -> /tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-2.2-CPFR-IdentifyResolve-spec.json
+  /tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-2.2-CPFR-IdentifyResolve.svg + .drawio + -classified.svg   (10 nodes, 10 edges)
+  aligned on ink bounds: scale x 1.0000, y 1.0000
+  size 3425x2222  radius 2
+  ink: original 291384   candidate 289820
+  MISSING (red)    10622  = 3.6454% of original ink
+  EXTRA   (blue)    9436  = 3.2383% of original ink
+  RESULT: DIFFERENCES - inspect /tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-2.2-CPFR-IdentifyResolve-diff-r2.png

@@ -1,0 +1,398 @@
+{
+ "canvas": {
+  "w": 1480.0,
+  "h": 967.077
+ },
+ "stroke": {
+  "frame": 4.3,
+  "divider": 5.2,
+  "action": 5.2,
+  "object": 4.8,
+  "edge": 5.2
+ },
+ "font": {
+  "family": "Helvetica, Arial, sans-serif",
+  "node": 31.5,
+  "lane": 31.5,
+  "guard": 31.5
+ },
+ "arrow": 33.5,
+ "arrowWidth": 34.8,
+ "arrowStyle": "open",
+ "dashed": [],
+ "greyRules": [],
+ "crossMarks": [],
+ "openEnds": [],
+ "frameBox": [
+  2.2,
+  2.2,
+  1477.8,
+  964.9
+ ],
+ "dividers": [
+  [
+   691.8,
+   5.2,
+   5.6,
+   961.0
+  ]
+ ],
+ "bands": [],
+ "lanes": [
+  {
+   "id": "lane-contracting-authority",
+   "title": "CONTRACTING AUTHORITY",
+   "x": 0.0,
+   "w": 691.8,
+   "cx": 317.2,
+   "cy": 48.4,
+   "name": "Contracting Authority",
+   "size": 31.4,
+   "textWidth": 406.2,
+   "baseline": 59.6
+  },
+  {
+   "id": "lane-publication-body",
+   "title": "PUBLICATION BODY",
+   "x": 691.8,
+   "w": 788.2,
+   "cx": 1070.8,
+   "cy": 48.0,
+   "name": "Publication Body",
+   "size": 31.4,
+   "textWidth": 294.7,
+   "baseline": 59.2
+  }
+ ],
+ "bandLabels": [],
+ "captions": [],
+ "nodes": [
+  {
+   "id": "initial-contracting-authority",
+   "kind": "initial",
+   "label": "",
+   "x": 267.5,
+   "y": 91.6,
+   "w": 48.0,
+   "h": 48.0
+  },
+  {
+   "id": "action-prepare-contract-award-notice",
+   "kind": "action",
+   "label": "Prepare contract award notice",
+   "x": 37.6,
+   "y": 202.7,
+   "w": 507.7,
+   "h": 86.0,
+   "rx": 41.9,
+   "ry": 43.2,
+   "labelLines": [
+    {
+     "text": "Prepare contract award notice",
+     "cx": 288.9,
+     "cy": 244.12,
+     "w": 403.2,
+     "size": 30.8
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "object-contract-award-notice",
+   "kind": "object",
+   "label": "Contract\nAward\nNotice",
+   "x": 615.1,
+   "y": 346.8,
+   "w": 218.2,
+   "h": 121.4,
+   "labelLines": [
+    {
+     "text": "Contract",
+     "cx": 724.4,
+     "cy": 366.02000000000004,
+     "w": 124.0,
+     "size": 30.8
+    },
+    {
+     "text": "Award",
+     "cx": 706.9,
+     "cy": 404.52000000000004,
+     "w": 95.1,
+     "size": 30.8
+    },
+    {
+     "text": "Notice",
+     "cx": 706.9,
+     "cy": 442.52000000000004,
+     "w": 91.6,
+     "size": 30.8
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-validate-contract-award-notice",
+   "kind": "action",
+   "label": "Validate contract award notice",
+   "x": 912.6,
+   "y": 361.2,
+   "w": 512.9,
+   "h": 86.0,
+   "rx": 41.1,
+   "ry": 41.5,
+   "labelLines": [
+    {
+     "text": "Validate contract award notice",
+     "cx": 1162.8,
+     "cy": 403.22,
+     "w": 407.1,
+     "size": 30.8
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "action-submit-contract-award-notice",
+   "kind": "action",
+   "label": "Submit contract award notice",
+   "x": 42.3,
+   "y": 363.4,
+   "w": 498.7,
+   "h": 86.0,
+   "rx": 43.6,
+   "ry": 42.8,
+   "labelLines": [
+    {
+     "text": "Submit contract award notice",
+     "cx": 291.7,
+     "cy": 404.92,
+     "w": 390.6,
+     "size": 30.8
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "decision-ok",
+   "kind": "decision",
+   "label": "OK?",
+   "x": 1124.8,
+   "y": 507.3,
+   "w": 92.9,
+   "h": 93.3,
+   "labelLines": [
+    {
+     "text": "OK?",
+     "cx": 1172.1,
+     "cy": 555.51,
+     "w": 58.3,
+     "size": 31.4
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "action-publish-contract-award-notice",
+   "kind": "action",
+   "label": "Publish contract award notice",
+   "x": 921.7,
+   "y": 678.0,
+   "w": 499.1,
+   "h": 86.0,
+   "rx": 42.3,
+   "ry": 42.8,
+   "labelLines": [
+    {
+     "text": "Publish contract award notice",
+     "cx": 1173.8,
+     "cy": 719.52,
+     "w": 394.5,
+     "size": 30.8
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "final-publication-body",
+   "kind": "final",
+   "label": "",
+   "x": 1139.5,
+   "y": 851.7,
+   "w": 71.3,
+   "h": 71.7,
+   "innerRatio": 0.719
+  }
+ ],
+ "edges": [
+  {
+   "id": "flow-initial-contracting-authority-to-prepare-contract-award-notice",
+   "from": "initial-contracting-authority",
+   "to": "action-prepare-contract-award-notice",
+   "exitXY": [
+    0.4937,
+    1.0
+   ],
+   "entryXY": [
+    0.4995,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-ok-to-prepare-contract-award-notice",
+   "from": "decision-ok",
+   "to": "action-prepare-contract-award-notice",
+   "exitXY": [
+    1.0,
+    0.4952
+   ],
+   "entryXY": [
+    1.0,
+    0.4965
+   ],
+   "straight": false,
+   "confidence": "high",
+   "points": [
+    [
+     1442.0,
+     553.5
+    ],
+    [
+     1442.0,
+     245.4
+    ]
+   ],
+   "label": "No"
+  },
+  {
+   "id": "flow-prepare-contract-award-notice-to-submit-contract-award-notice",
+   "from": "action-prepare-contract-award-notice",
+   "to": "action-submit-contract-award-notice",
+   "exitXY": [
+    0.4995,
+    1.0
+   ],
+   "entryXY": [
+    0.5001,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-contract-award-notice-to-validate-contract-award-notice",
+   "from": "object-contract-award-notice",
+   "to": "action-validate-contract-award-notice",
+   "exitXY": [
+    1.0,
+    0.5
+   ],
+   "entryXY": [
+    0.0,
+    0.4977
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-submit-contract-award-notice-to-contract-award-notice",
+   "from": "action-submit-contract-award-notice",
+   "to": "object-contract-award-notice",
+   "exitXY": [
+    1.0,
+    0.4977
+   ],
+   "entryXY": [
+    0.0,
+    0.5
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-validate-contract-award-notice-to-ok",
+   "from": "action-validate-contract-award-notice",
+   "to": "decision-ok",
+   "exitXY": [
+    0.4997,
+    1.0
+   ],
+   "entryXY": [
+    0.4973,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "medium"
+  },
+  {
+   "id": "flow-ok-to-publish-contract-award-notice",
+   "from": "decision-ok",
+   "to": "action-publish-contract-award-notice",
+   "exitXY": [
+    0.4973,
+    1.0
+   ],
+   "entryXY": [
+    0.4995,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high",
+   "label": "Yes"
+  },
+  {
+   "id": "flow-publish-contract-award-notice-to-final-publication-body",
+   "from": "action-publish-contract-award-notice",
+   "to": "final-publication-body",
+   "exitXY": [
+    0.4995,
+    1.0
+   ],
+   "entryXY": [
+    0.4909,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "medium"
+  }
+ ],
+ "guards": [
+  {
+   "id": "text-no",
+   "text": "No",
+   "x": 1253.6,
+   "y": 508.2,
+   "w": 35.4,
+   "h": 22.0,
+   "onFlow": "flow-ok-to-prepare-contract-award-notice",
+   "labelLines": [
+    {
+     "text": "No",
+     "cx": 1271.3,
+     "cy": 519.4200000000001,
+     "w": 35.4,
+     "size": 30.8
+    }
+   ]
+  },
+  {
+   "id": "text-yes",
+   "text": "Yes",
+   "x": 1186.2,
+   "y": 614.0,
+   "w": 51.0,
+   "h": 22.5,
+   "onFlow": "flow-ok-to-publish-contract-award-notice",
+   "labelLines": [
+    {
+     "text": "Yes",
+     "cx": 1211.7,
+     "cy": 625.51,
+     "w": 51.0,
+     "size": 31.4
+    }
+   ]
+  }
+ ]
+}

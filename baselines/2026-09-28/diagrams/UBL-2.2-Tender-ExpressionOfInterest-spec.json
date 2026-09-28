@@ -1,0 +1,398 @@
+{
+ "canvas": {
+  "w": 1480.0,
+  "h": 781.039
+ },
+ "stroke": {
+  "frame": 3.5,
+  "divider": 3.5,
+  "action": 3.5,
+  "object": 3.5,
+  "edge": 3.5
+ },
+ "font": {
+  "family": "Helvetica, Arial, sans-serif",
+  "node": 30.2,
+  "lane": 30.2,
+  "guard": 30.2
+ },
+ "arrow": 42.9,
+ "arrowWidth": 36.3,
+ "arrowStyle": "open",
+ "dashed": [],
+ "greyRules": [],
+ "crossMarks": [],
+ "openEnds": [],
+ "frameBox": [
+  2.2,
+  2.2,
+  1476.5,
+  776.7
+ ],
+ "dividers": [
+  [
+   737.0,
+   3.5,
+   5.2,
+   773.3
+  ]
+ ],
+ "bands": [],
+ "lanes": [
+  {
+   "id": "lane-economic-operator",
+   "title": "ECONOMIC OPERATOR",
+   "x": 0.0,
+   "w": 737.0,
+   "cx": 355.7,
+   "cy": 32.8,
+   "name": "Economic Operator",
+   "size": 32.6,
+   "textWidth": 327.9,
+   "baseline": 44.5
+  },
+  {
+   "id": "lane-contracting-authority",
+   "title": "CONTRACTING AUTHORITY",
+   "x": 737.0,
+   "w": 743.0,
+   "cx": 1102.7,
+   "cy": 32.8,
+   "name": "Contracting Authority",
+   "size": 32.6,
+   "textWidth": 392.7,
+   "baseline": 44.5
+  }
+ ],
+ "bandLabels": [],
+ "captions": [],
+ "nodes": [
+  {
+   "id": "initial-economic-operator",
+   "kind": "initial",
+   "label": "",
+   "x": 238.5,
+   "y": 68.3,
+   "w": 53.6,
+   "h": 53.6
+  },
+  {
+   "id": "action-prepare-expression-of-interest",
+   "kind": "action",
+   "label": "Prepare expression of interest",
+   "x": 46.7,
+   "y": 168.9,
+   "w": 435.9,
+   "h": 75.6,
+   "rx": 38.0,
+   "ry": 37.2,
+   "labelLines": [
+    {
+     "text": "Prepare expression of interest",
+     "cx": 267.8,
+     "cy": 202.785,
+     "w": 381.9,
+     "size": 28.9
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "object-expression-of-interest-request",
+   "kind": "object",
+   "label": "Expression\nOf Interest\nRequest",
+   "x": 626.0,
+   "y": 262.2,
+   "w": 226.8,
+   "h": 153.4,
+   "labelLines": [
+    {
+     "text": "Expression",
+     "cx": 728.8,
+     "cy": 290.83000000000004,
+     "w": 172.8,
+     "size": 32.2
+    },
+    {
+     "text": "Of Interest",
+     "cx": 722.9,
+     "cy": 338.83000000000004,
+     "w": 161.1,
+     "size": 32.2
+    },
+    {
+     "text": "Request",
+     "cx": 707.0,
+     "cy": 383.73,
+     "w": 128.3,
+     "size": 32.2
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-submit-expression-of-interest-in-economic-operator",
+   "kind": "action",
+   "label": "Submit expression of interest",
+   "x": 44.1,
+   "y": 299.8,
+   "w": 440.6,
+   "h": 78.2,
+   "rx": 39.3,
+   "ry": 37.6,
+   "labelLines": [
+    {
+     "text": "Submit expression of interest",
+     "cx": 268.7,
+     "cy": 334.185,
+     "w": 369.8,
+     "size": 28.9
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "action-receive-expression-of-interest-in-contracting-authority",
+   "kind": "action",
+   "label": "Receive expression of interest",
+   "x": 976.3,
+   "y": 299.8,
+   "w": 451.0,
+   "h": 80.8,
+   "rx": 39.3,
+   "ry": 39.7,
+   "labelLines": [
+    {
+     "text": "Receive expression of interest",
+     "cx": 1205.7,
+     "cy": 334.185,
+     "w": 383.6,
+     "size": 28.9
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "object-expression-of-interest-response",
+   "kind": "object",
+   "label": "Expression\nOf Interest\nResponse",
+   "x": 626.0,
+   "y": 495.1,
+   "w": 226.8,
+   "h": 145.1,
+   "labelLines": [
+    {
+     "text": "Expression",
+     "cx": 728.8,
+     "cy": 527.13,
+     "w": 172.8,
+     "size": 32.2
+    },
+    {
+     "text": "Of Interest",
+     "cx": 722.9,
+     "cy": 569.9300000000001,
+     "w": 161.1,
+     "size": 32.2
+    },
+    {
+     "text": "Response",
+     "cx": 719.5,
+     "cy": 611.4300000000001,
+     "w": 153.4,
+     "size": 32.2
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-receive-expression-of-interest-in-economic-operator",
+   "kind": "action",
+   "label": "Receive expression of interest\nconfirmation",
+   "x": 56.6,
+   "y": 524.0,
+   "w": 415.6,
+   "h": 100.7,
+   "rx": 39.7,
+   "ry": 38.4,
+   "labelLines": [
+    {
+     "text": "Receive expression of interest",
+     "cx": 263.9,
+     "cy": 558.385,
+     "w": 383.6,
+     "size": 28.9
+    },
+    {
+     "text": "confirmation",
+     "cx": 263.9,
+     "cy": 590.785,
+     "w": 153.8,
+     "size": 28.9
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "action-submit-expression-of-interest-in-contracting-authority",
+   "kind": "action",
+   "label": "Submit expression of interest\nconfirmation",
+   "x": 976.3,
+   "y": 526.6,
+   "w": 451.0,
+   "h": 95.5,
+   "rx": 38.9,
+   "ry": 39.3,
+   "labelLines": [
+    {
+     "text": "Submit expression of interest",
+     "cx": 1202.9,
+     "cy": 560.485,
+     "w": 370.2,
+     "size": 28.9
+    },
+    {
+     "text": "confirmation",
+     "cx": 1203.1,
+     "cy": 593.385,
+     "w": 153.8,
+     "size": 28.9
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "final-economic-operator",
+   "kind": "final",
+   "label": "",
+   "x": 240.6,
+   "y": 687.7,
+   "w": 50.1,
+   "h": 50.5,
+   "innerRatio": 0.5
+  }
+ ],
+ "edges": [
+  {
+   "id": "flow-initial-economic-operator-to-prepare-expression-of-interest",
+   "from": "initial-economic-operator",
+   "to": "action-prepare-expression-of-interest",
+   "exitXY": [
+    0.4981,
+    1.0
+   ],
+   "entryXY": [
+    0.4994,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-prepare-expression-of-interest-to-submit-expression-of-interest-in-economic-operator",
+   "from": "action-prepare-expression-of-interest",
+   "to": "action-submit-expression-of-interest-in-economic-operator",
+   "exitXY": [
+    0.4994,
+    1.0
+   ],
+   "entryXY": [
+    0.5,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-submit-expression-of-interest-in-economic-operator-to-expression-of-interest-request",
+   "from": "action-submit-expression-of-interest-in-economic-operator",
+   "to": "object-expression-of-interest-request",
+   "exitXY": [
+    1.0,
+    0.4808
+   ],
+   "entryXY": [
+    0.0,
+    0.4902
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-expression-of-interest-request-to-receive-expression-of-interest-in-contracting-authority",
+   "from": "object-expression-of-interest-request",
+   "to": "action-receive-expression-of-interest-in-contracting-authority",
+   "exitXY": [
+    1.0,
+    0.4876
+   ],
+   "entryXY": [
+    0.0,
+    0.4703
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-receive-expression-of-interest-in-contracting-authority-to-submit-expression-of-interest-in-contracting-authority",
+   "from": "action-receive-expression-of-interest-in-contracting-authority",
+   "to": "action-submit-expression-of-interest-in-contracting-authority",
+   "exitXY": [
+    0.502,
+    1.0
+   ],
+   "entryXY": [
+    0.502,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-expression-of-interest-response-to-receive-expression-of-interest-in-economic-operator",
+   "from": "object-expression-of-interest-response",
+   "to": "action-receive-expression-of-interest-in-economic-operator",
+   "exitXY": [
+    0.0,
+    0.521
+   ],
+   "entryXY": [
+    1.0,
+    0.4846
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-submit-expression-of-interest-in-contracting-authority-to-expression-of-interest-response",
+   "from": "action-submit-expression-of-interest-in-contracting-authority",
+   "to": "object-expression-of-interest-response",
+   "exitXY": [
+    0.0,
+    0.4838
+   ],
+   "entryXY": [
+    1.0,
+    0.521
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-receive-expression-of-interest-in-economic-operator-to-final-economic-operator",
+   "from": "action-receive-expression-of-interest-in-economic-operator",
+   "to": "final-economic-operator",
+   "exitXY": [
+    0.5,
+    1.0
+   ],
+   "entryXY": [
+    0.501,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  }
+ ],
+ "guards": []
+}

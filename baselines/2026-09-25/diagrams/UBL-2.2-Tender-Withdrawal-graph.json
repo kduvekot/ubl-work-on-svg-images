@@ -1,0 +1,421 @@
+{
+ "source": "UBL-2.2-Tender-Withdrawal.png",
+ "size": [
+  3425,
+  1264
+ ],
+ "fontPx": 70.0,
+ "arrowPx": 80.0,
+ "arrowWidthPx": 66.8,
+ "arrowStyle": "open",
+ "rules": {
+  "v": [
+   [
+    0,
+    8
+   ],
+   [
+    1701,
+    9
+   ],
+   [
+    3417,
+    8
+   ]
+  ],
+  "h": [
+   [
+    0,
+    9
+   ],
+   [
+    1256,
+    8
+   ]
+  ]
+ },
+ "ruleSpan": {
+  "v": [
+   [
+    12,
+    1252
+   ],
+   [
+    12,
+    1252
+   ],
+   [
+    12,
+    1252
+   ]
+  ],
+  "h": [
+   [
+    11,
+    3413
+   ],
+   [
+    11,
+    3413
+   ]
+  ]
+ },
+ "greyRules": [],
+ "dashed": [],
+ "openEnds": [],
+ "crossMarks": [],
+ "partitions": [
+  {
+   "axis": "column",
+   "index": 0,
+   "x0": 0,
+   "x1": 1706,
+   "title": "ECONOMIC OPERATOR",
+   "titleBox": [
+    415,
+    35,
+    759,
+    54
+   ]
+  },
+  {
+   "axis": "column",
+   "index": 1,
+   "x0": 1706,
+   "x1": 3425,
+   "title": "CONTRACTING AUTHORITY",
+   "titleBox": [
+    2172,
+    40,
+    910,
+    54
+   ]
+  },
+  {
+   "axis": "band",
+   "index": 0,
+   "y0": 0,
+   "y1": 1264,
+   "title": ""
+  }
+ ],
+ "nodes": [
+  {
+   "x": 551,
+   "y": 158,
+   "w": 124,
+   "h": 124,
+   "area": 12217,
+   "fill": 1.0,
+   "kind": "initial",
+   "id": "n1",
+   "label": "",
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 111,
+   "y": 395,
+   "w": 1096,
+   "h": 166,
+   "area": 157514,
+   "fill": 0.866,
+   "solid": 0.965,
+   "rx": 89.5,
+   "ry": 83,
+   "shape": "rounded",
+   "stroke": 9,
+   "kind": "action",
+   "id": "n2",
+   "label": "Prepare tender withdrawal request",
+   "labelLines": [
+    {
+     "x": 139,
+     "y": 456,
+     "w": 1013,
+     "h": 61,
+     "text": "Prepare tender withdrawal request"
+    }
+   ],
+   "stem": 0.086,
+   "bold": false,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 1453,
+   "y": 616,
+   "w": 517,
+   "h": 348,
+   "area": 163781,
+   "fill": 0.91,
+   "solid": 1.0,
+   "rx": 0,
+   "ry": 0,
+   "shape": "rect",
+   "stroke": 8,
+   "kind": "object",
+   "id": "n3",
+   "label": "Tender\nWithdrawal",
+   "labelLines": [
+    {
+     "x": 1498,
+     "y": 694,
+     "w": 245,
+     "h": 55,
+     "text": "Tender"
+    },
+    {
+     "x": 1494,
+     "y": 806,
+     "w": 395,
+     "h": 55,
+     "text": "Withdrawal"
+    }
+   ],
+   "stem": 0.157,
+   "bold": true,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 2208,
+   "y": 696,
+   "w": 1105,
+   "h": 178,
+   "area": 172649,
+   "fill": 0.878,
+   "solid": 0.968,
+   "rx": 85,
+   "ry": 87,
+   "shape": "rounded",
+   "stroke": 9,
+   "kind": "action",
+   "id": "n4",
+   "label": "Receive tender withdrawal request",
+   "labelLines": [
+    {
+     "x": 2269,
+     "y": 759,
+     "w": 1018,
+     "h": 61,
+     "text": "Receive tender withdrawal request"
+    }
+   ],
+   "stem": 0.086,
+   "bold": false,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 105,
+   "y": 699,
+   "w": 1087,
+   "h": 187,
+   "area": 179317,
+   "fill": 0.882,
+   "solid": 0.965,
+   "rx": 94,
+   "ry": 91,
+   "shape": "rounded",
+   "stroke": 8,
+   "kind": "action",
+   "id": "n5",
+   "label": "Submit tender withdrawal request",
+   "labelLines": [
+    {
+     "x": 163,
+     "y": 763,
+     "w": 985,
+     "h": 62,
+     "text": "Submit tender withdrawal request"
+    }
+   ],
+   "stem": 0.086,
+   "bold": false,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 2701,
+   "y": 1064,
+   "w": 109,
+   "h": 108,
+   "area": 6836,
+   "fill": 0.581,
+   "solid": 0.783,
+   "rx": 52,
+   "ry": 55,
+   "shape": "rounded",
+   "stroke": 8,
+   "kind": "final",
+   "innerRatio": 0.495,
+   "id": "n6",
+   "label": "",
+   "col": 1,
+   "row": 0
+  }
+ ],
+ "edges": [
+  {
+   "from": "n1",
+   "to": "n2",
+   "routing": "straight",
+   "fromPoint": [
+    613,
+    296
+   ],
+   "toPoint": [
+    621,
+    380
+   ],
+   "arrowInk": [
+    1028,
+    1143
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    78,
+    66.4,
+    1.73
+   ],
+   "arrowFill": 0.003,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n2",
+   "to": "n5",
+   "routing": "straight",
+   "fromPoint": [
+    618,
+    575
+   ],
+   "toPoint": [
+    621,
+    684
+   ],
+   "arrowInk": [
+    595,
+    1138
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    109,
+    76.1,
+    0.6
+   ],
+   "arrowFill": 0.031,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n5",
+   "to": "n3",
+   "routing": "straight",
+   "fromPoint": [
+    1206,
+    780
+   ],
+   "toPoint": [
+    1438,
+    782
+   ],
+   "arrowInk": [
+    405,
+    1152
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    80,
+    66.8,
+    2.3
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n3",
+   "to": "n4",
+   "routing": "straight",
+   "fromPoint": [
+    1984,
+    781
+   ],
+   "toPoint": [
+    2193,
+    781
+   ],
+   "arrowInk": [
+    405,
+    1050
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    89,
+    66.0,
+    2.92
+   ],
+   "arrowFill": 0.001,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n4",
+   "to": "n6",
+   "routing": "straight",
+   "fromPoint": [
+    2759,
+    888
+   ],
+   "toPoint": [
+    2755,
+    1049
+   ],
+   "arrowInk": [
+    405,
+    1142
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    80,
+    69.6,
+    2.41
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "control"
+  }
+ ],
+ "text": [
+  {
+   "text": "ECONOMIC OPERATOR",
+   "x": 415,
+   "y": 35,
+   "w": 759,
+   "h": 54,
+   "lines": [
+    {
+     "x": 415,
+     "y": 35,
+     "w": 759,
+     "h": 54,
+     "text": "ECONOMIC OPERATOR"
+    }
+   ]
+  },
+  {
+   "text": "CONTRACTING AUTHORITY",
+   "x": 2172,
+   "y": 40,
+   "w": 910,
+   "h": 54,
+   "lines": [
+    {
+     "x": 2172,
+     "y": 40,
+     "w": 910,
+     "h": 54,
+     "text": "CONTRACTING AUTHORITY"
+    }
+   ]
+  }
+ ],
+ "uncertain": []
+}

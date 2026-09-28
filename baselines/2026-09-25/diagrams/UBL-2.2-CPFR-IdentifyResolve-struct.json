@@ -1,0 +1,92 @@
+{
+ "name": "UBL-2.2-CPFR-IdentifyResolve.png",
+ "verdict": "needs-human",
+ "radius": 3,
+ "lineWorkInk": 187435,
+ "missingPx": 1629,
+ "inventedPx": 1452,
+ "structural": {
+  "absent": 0,
+  "invented": 0,
+  "coherence": 0,
+  "textAbsent": 0,
+  "textDiffers": 0
+ },
+ "blocking": [],
+ "findings": [
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n7 -> n3",
+   "x": 1968,
+   "y": 837,
+   "w": 50,
+   "h": 18,
+   "area": 148
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n6 -> n3",
+   "x": 1325,
+   "y": 855,
+   "w": 49,
+   "h": 18,
+   "area": 126
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n7 -> n3",
+   "x": 1942,
+   "y": 836,
+   "w": 60,
+   "h": 31,
+   "area": 213
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n6 -> n3",
+   "x": 1341,
+   "y": 854,
+   "w": 60,
+   "h": 34,
+   "area": 207
+  }
+ ],
+ "text": [],
+ "coherence": [],
+ "human": [
+  {
+   "kind": "arrowhead-unmeasurable",
+   "x": 847,
+   "y": 969,
+   "w": 128,
+   "h": 128,
+   "reason": "the ink at the head end of n5->n6 measures 64x148px, too wide for this diagram's own 48px arrowhead - a junction, not a head",
+   "check": "confirm the arrowhead here is drawn and points the way the original does"
+  },
+  {
+   "kind": "arrowhead-unmeasurable",
+   "x": 1525,
+   "y": 1848,
+   "w": 146,
+   "h": 146,
+   "reason": "the ink at the head end of n5->n10 measures 73x170px, too wide for this diagram's own 48px arrowhead - a junction, not a head",
+   "check": "confirm the arrowhead here is drawn and points the way the original does"
+  }
+ ],
+ "review": [
+  {
+   "n": 1,
+   "what": "check",
+   "where": "847,969 128x128",
+   "detail": "the ink at the head end of n5->n6 measures 64x148px, too wide for this diagram's own 48px arrowhead - a junction, not a head",
+   "check": "confirm the arrowhead here is drawn and points the way the original does"
+  },
+  {
+   "n": 2,
+   "what": "check",
+   "where": "1525,1848 146x146",
+   "detail": "the ink at the head end of n5->n10 measures 73x170px, too wide for this diagram's own 48px arrowhead - a junction, not a head",
+   "check": "confirm the arrowhead here is drawn and points the way the original does"
+  }
+ ]
+}

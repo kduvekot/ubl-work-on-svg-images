@@ -1,0 +1,313 @@
+{
+ "schema": "ubl-activity-diagram-layout/1",
+ "figure": "UBL-2.2-VMI-PriceAdjustment",
+ "units": "px of the original PNG",
+ "size": [
+  3425,
+  2075
+ ],
+ "style": {
+  "fontPx": 72.9,
+  "arrowPx": 76.0,
+  "arrowWidthPx": 61.0,
+  "arrowStyle": "open"
+ },
+ "rules": {
+  "vertical": [
+   {
+    "at": 0,
+    "width": 10,
+    "span": [
+     13,
+     2061
+    ]
+   },
+   {
+    "at": 1811,
+    "width": 6,
+    "span": [
+     13,
+     2061
+    ]
+   },
+   {
+    "at": 3415,
+    "width": 10,
+    "span": [
+     13,
+     2061
+    ]
+   }
+  ],
+  "horizontal": [
+   {
+    "at": 0,
+    "width": 10,
+    "span": [
+     13,
+     3411
+    ]
+   },
+   {
+    "at": 2065,
+    "width": 10,
+    "span": [
+     13,
+     3411
+    ]
+   }
+  ]
+ },
+ "greyRules": [],
+ "lanes": {
+  "lane-producer": {
+   "x0": 0,
+   "x1": 1814,
+   "titleBox": [
+    718,
+    67,
+    284,
+    52
+   ]
+  },
+  "lane-retailer": {
+   "x0": 1814,
+   "x1": 3425,
+   "titleBox": [
+    2531,
+    68,
+    240,
+    52
+   ]
+  }
+ },
+ "nodes": {
+  "initial-producer": {
+   "x": 673,
+   "y": 213,
+   "w": 115,
+   "h": 115
+  },
+  "decision-producer": {
+   "x": 659,
+   "y": 526,
+   "w": 132,
+   "h": 112,
+   "shape": "rhombus",
+   "stroke": 6,
+   "rx": 72,
+   "ry": 62
+  },
+  "final-producer": {
+   "x": 88,
+   "y": 536,
+   "w": 98,
+   "h": 98,
+   "shape": "ellipse",
+   "stroke": 6,
+   "rx": 50,
+   "ry": 44,
+   "innerRatio": 0.439
+  },
+  "object-catalogue": {
+   "x": 1590,
+   "y": 1141,
+   "w": 453,
+   "h": 180,
+   "shape": "rect",
+   "stroke": 12,
+   "rx": 0,
+   "ry": 0,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 1657,
+     "y": 1198,
+     "w": 338,
+     "h": 67,
+     "text": "Catalogue"
+    }
+   ]
+  },
+  "action-send-price-list": {
+   "x": 339,
+   "y": 1143,
+   "w": 728,
+   "h": 164,
+   "shape": "rounded",
+   "stroke": 5,
+   "rx": 79,
+   "ry": 56,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 442,
+     "y": 1198,
+     "w": 512,
+     "h": 53,
+     "text": "Send Price List"
+    }
+   ]
+  },
+  "action-receive-price-list": {
+   "x": 2610,
+   "y": 1143,
+   "w": 727,
+   "h": 170,
+   "shape": "rounded",
+   "stroke": 5,
+   "rx": 80,
+   "ry": 62,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 2667,
+     "y": 1199,
+     "w": 604,
+     "h": 52,
+     "text": "Receive Price List"
+    }
+   ]
+  },
+  "final-retailer": {
+   "x": 2917,
+   "y": 1899,
+   "w": 98,
+   "h": 97,
+   "shape": "ellipse",
+   "stroke": 6,
+   "rx": 44,
+   "ry": 45,
+   "innerRatio": 0.439
+  }
+ },
+ "flows": {
+  "flow-initial-producer-to-decision-producer": {
+   "fromPoint": [
+    725,
+    342
+   ],
+   "toPoint": [
+    724,
+    511
+   ],
+   "routing": "straight"
+  },
+  "flow-decision-producer-to-final-producer": {
+   "fromPoint": [
+    644,
+    582
+   ],
+   "toPoint": [
+    200,
+    582
+   ],
+   "routing": "straight"
+  },
+  "flow-decision-producer-to-send-price-list": {
+   "fromPoint": [
+    725,
+    652
+   ],
+   "toPoint": [
+    723,
+    1128
+   ],
+   "routing": "straight"
+  },
+  "flow-send-price-list-to-catalogue": {
+   "fromPoint": [
+    1081,
+    1226
+   ],
+   "toPoint": [
+    1575,
+    1229
+   ],
+   "routing": "straight"
+  },
+  "flow-catalogue-to-receive-price-list": {
+   "fromPoint": [
+    2057,
+    1228
+   ],
+   "toPoint": [
+    2595,
+    1228
+   ],
+   "routing": "straight"
+  },
+  "flow-receive-price-list-to-final-retailer": {
+   "fromPoint": [
+    2968,
+    1327
+   ],
+   "toPoint": [
+    2967,
+    1884
+   ],
+   "routing": "straight"
+  }
+ },
+ "texts": {
+  "text-change-of-prices": {
+   "x": 930,
+   "y": 499,
+   "w": 252,
+   "h": 122,
+   "lines": [
+    {
+     "x": 930,
+     "y": 499,
+     "w": 252,
+     "h": 51,
+     "text": "Change of"
+    },
+    {
+     "x": 931,
+     "y": 570,
+     "w": 170,
+     "h": 51,
+     "text": "prices?"
+    }
+   ]
+  },
+  "text-false": {
+   "x": 417,
+   "y": 527,
+   "w": 128,
+   "h": 39,
+   "lines": [
+    {
+     "x": 417,
+     "y": 527,
+     "w": 128,
+     "h": 39,
+     "text": "False"
+    }
+   ]
+  },
+  "text-true": {
+   "x": 753,
+   "y": 691,
+   "w": 110,
+   "h": 39,
+   "lines": [
+    {
+     "x": 753,
+     "y": 691,
+     "w": 110,
+     "h": 39,
+     "text": "True"
+    }
+   ]
+  }
+ },
+ "offPage": {},
+ "marks": {},
+ "phases": {},
+ "rulesHaveSpans": {
+  "vertical": true,
+  "horizontal": true
+ }
+}

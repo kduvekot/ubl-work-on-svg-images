@@ -1,0 +1,567 @@
+{
+ "schema": "ubl-activity-diagram-extraction/1",
+ "figure": "UBL-2.2-Tender-Withdrawal",
+ "nodes": {
+  "initial-economic-operator": {
+   "area": 12217,
+   "fill": 1.0
+  },
+  "action-prepare-tender-withdrawal-request": {
+   "area": 157514,
+   "fill": 0.866,
+   "solid": 0.965,
+   "stem": 0.086
+  },
+  "object-tender-withdrawal": {
+   "area": 163781,
+   "fill": 0.91,
+   "solid": 1.0,
+   "stem": 0.157
+  },
+  "action-receive-tender-withdrawal-request": {
+   "area": 172649,
+   "fill": 0.878,
+   "solid": 0.968,
+   "stem": 0.086
+  },
+  "action-submit-tender-withdrawal-request": {
+   "area": 179317,
+   "fill": 0.882,
+   "solid": 0.965,
+   "stem": 0.086
+  },
+  "final-contracting-authority": {
+   "area": 6836,
+   "fill": 0.581,
+   "solid": 0.783
+  }
+ },
+ "flows": {
+  "flow-initial-economic-operator-to-prepare-tender-withdrawal-request": {
+   "arrowInk": [
+    1028,
+    1143
+   ],
+   "arrowPx": [
+    78,
+    66.4,
+    1.73
+   ],
+   "arrowFill": 0.003
+  },
+  "flow-prepare-tender-withdrawal-request-to-submit-tender-withdrawal-request": {
+   "arrowInk": [
+    595,
+    1138
+   ],
+   "arrowPx": [
+    109,
+    76.1,
+    0.6
+   ],
+   "arrowFill": 0.031
+  },
+  "flow-submit-tender-withdrawal-request-to-tender-withdrawal": {
+   "arrowInk": [
+    405,
+    1152
+   ],
+   "arrowPx": [
+    80,
+    66.8,
+    2.3
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-tender-withdrawal-to-receive-tender-withdrawal-request": {
+   "arrowInk": [
+    405,
+    1050
+   ],
+   "arrowPx": [
+    89,
+    66.0,
+    2.92
+   ],
+   "arrowFill": 0.001
+  },
+  "flow-receive-tender-withdrawal-request-to-final-contracting-authority": {
+   "arrowInk": [
+    405,
+    1142
+   ],
+   "arrowPx": [
+    80,
+    69.6,
+    2.41
+   ],
+   "arrowFill": 0.0
+  }
+ },
+ "offPage": {},
+ "marks": {},
+ "phases": {},
+ "greyRules": [],
+ "titleReadings": [
+  {
+   "position": 0,
+   "text": "ECONOMIC OPERATOR",
+   "x": 415,
+   "y": 35,
+   "w": 759,
+   "h": 54,
+   "lines": [
+    {
+     "x": 415,
+     "y": 35,
+     "w": 759,
+     "h": 54,
+     "text": "ECONOMIC OPERATOR"
+    }
+   ]
+  },
+  {
+   "position": 1,
+   "text": "CONTRACTING AUTHORITY",
+   "x": 2172,
+   "y": 40,
+   "w": 910,
+   "h": 54,
+   "lines": [
+    {
+     "x": 2172,
+     "y": 40,
+     "w": 910,
+     "h": 54,
+     "text": "CONTRACTING AUTHORITY"
+    }
+   ]
+  }
+ ],
+ "findings": [],
+ "uncertain": [],
+ "present": [
+  "source",
+  "size",
+  "fontPx",
+  "arrowPx",
+  "arrowWidthPx",
+  "arrowStyle",
+  "rules",
+  "ruleSpan",
+  "greyRules",
+  "dashed",
+  "openEnds",
+  "crossMarks",
+  "partitions",
+  "nodes",
+  "edges",
+  "text",
+  "uncertain"
+ ],
+ "uncorrected": {
+  "model": {
+   "schema": "ubl-activity-diagram/1",
+   "figure": {
+    "name": "UBL-2.2-Tender-Withdrawal",
+    "source": "UBL-2.2-Tender-Withdrawal.png"
+   },
+   "lanes": [
+    {
+     "id": "lane0",
+     "axis": "column",
+     "index": 0,
+     "title": "ECONOMIC OPERATOR"
+    },
+    {
+     "id": "lane1",
+     "axis": "column",
+     "index": 1,
+     "title": "CONTRACTING AUTHORITY"
+    },
+    {
+     "id": "lane2",
+     "axis": "band",
+     "index": 0,
+     "title": ""
+    }
+   ],
+   "nodes": [
+    {
+     "id": "n1",
+     "kind": "initial",
+     "label": "",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n2",
+     "kind": "action",
+     "label": "Prepare tender withdrawal request",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n3",
+     "kind": "object",
+     "label": "Tender\nWithdrawal",
+     "lane": "lane1",
+     "band": "lane2"
+    },
+    {
+     "id": "n4",
+     "kind": "action",
+     "label": "Receive tender withdrawal request",
+     "lane": "lane1",
+     "band": "lane2"
+    },
+    {
+     "id": "n5",
+     "kind": "action",
+     "label": "Submit tender withdrawal request",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n6",
+     "kind": "final",
+     "label": "",
+     "lane": "lane1",
+     "band": "lane2"
+    }
+   ],
+   "flows": [
+    {
+     "id": "f0",
+     "from": "n1",
+     "to": "n2",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f1",
+     "from": "n2",
+     "to": "n5",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f2",
+     "from": "n5",
+     "to": "n3",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f3",
+     "from": "n3",
+     "to": "n4",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f4",
+     "from": "n4",
+     "to": "n6",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    }
+   ],
+   "texts": [],
+   "offPage": [],
+   "marks": [],
+   "phases": []
+  },
+  "layout": {
+   "schema": "ubl-activity-diagram-layout/1",
+   "figure": "UBL-2.2-Tender-Withdrawal",
+   "units": "px of the original PNG",
+   "size": [
+    3425,
+    1264
+   ],
+   "style": {
+    "fontPx": 70.0,
+    "arrowPx": 80.0,
+    "arrowWidthPx": 66.8,
+    "arrowStyle": "open"
+   },
+   "rules": {
+    "vertical": [
+     {
+      "at": 0,
+      "width": 8,
+      "span": [
+       12,
+       1252
+      ]
+     },
+     {
+      "at": 1701,
+      "width": 9,
+      "span": [
+       12,
+       1252
+      ]
+     },
+     {
+      "at": 3417,
+      "width": 8,
+      "span": [
+       12,
+       1252
+      ]
+     }
+    ],
+    "horizontal": [
+     {
+      "at": 0,
+      "width": 9,
+      "span": [
+       11,
+       3413
+      ]
+     },
+     {
+      "at": 1256,
+      "width": 8,
+      "span": [
+       11,
+       3413
+      ]
+     }
+    ]
+   },
+   "greyRules": [],
+   "lanes": {
+    "lane0": {
+     "x0": 0,
+     "x1": 1706,
+     "titleBox": [
+      415,
+      35,
+      759,
+      54
+     ]
+    },
+    "lane1": {
+     "x0": 1706,
+     "x1": 3425,
+     "titleBox": [
+      2172,
+      40,
+      910,
+      54
+     ]
+    },
+    "lane2": {
+     "y0": 0,
+     "y1": 1264
+    }
+   },
+   "nodes": {
+    "n1": {
+     "x": 551,
+     "y": 158,
+     "w": 124,
+     "h": 124
+    },
+    "n2": {
+     "x": 111,
+     "y": 395,
+     "w": 1096,
+     "h": 166,
+     "shape": "rounded",
+     "stroke": 9,
+     "rx": 89.5,
+     "ry": 83,
+     "bold": false,
+     "labelLines": [
+      {
+       "x": 139,
+       "y": 456,
+       "w": 1013,
+       "h": 61,
+       "text": "Prepare tender withdrawal request"
+      }
+     ]
+    },
+    "n3": {
+     "x": 1453,
+     "y": 616,
+     "w": 517,
+     "h": 348,
+     "shape": "rect",
+     "stroke": 8,
+     "rx": 0,
+     "ry": 0,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 1498,
+       "y": 694,
+       "w": 245,
+       "h": 55,
+       "text": "Tender"
+      },
+      {
+       "x": 1494,
+       "y": 806,
+       "w": 395,
+       "h": 55,
+       "text": "Withdrawal"
+      }
+     ]
+    },
+    "n4": {
+     "x": 2208,
+     "y": 696,
+     "w": 1105,
+     "h": 178,
+     "shape": "rounded",
+     "stroke": 9,
+     "rx": 85,
+     "ry": 87,
+     "bold": false,
+     "labelLines": [
+      {
+       "x": 2269,
+       "y": 759,
+       "w": 1018,
+       "h": 61,
+       "text": "Receive tender withdrawal request"
+      }
+     ]
+    },
+    "n5": {
+     "x": 105,
+     "y": 699,
+     "w": 1087,
+     "h": 187,
+     "shape": "rounded",
+     "stroke": 8,
+     "rx": 94,
+     "ry": 91,
+     "bold": false,
+     "labelLines": [
+      {
+       "x": 163,
+       "y": 763,
+       "w": 985,
+       "h": 62,
+       "text": "Submit tender withdrawal request"
+      }
+     ]
+    },
+    "n6": {
+     "x": 2701,
+     "y": 1064,
+     "w": 109,
+     "h": 108,
+     "shape": "rounded",
+     "stroke": 8,
+     "rx": 52,
+     "ry": 55,
+     "innerRatio": 0.495
+    }
+   },
+   "flows": {
+    "f0": {
+     "fromPoint": [
+      613,
+      296
+     ],
+     "toPoint": [
+      621,
+      380
+     ],
+     "routing": "straight"
+    },
+    "f1": {
+     "fromPoint": [
+      618,
+      575
+     ],
+     "toPoint": [
+      621,
+      684
+     ],
+     "routing": "straight"
+    },
+    "f2": {
+     "fromPoint": [
+      1206,
+      780
+     ],
+     "toPoint": [
+      1438,
+      782
+     ],
+     "routing": "straight"
+    },
+    "f3": {
+     "fromPoint": [
+      1984,
+      781
+     ],
+     "toPoint": [
+      2193,
+      781
+     ],
+     "routing": "straight"
+    },
+    "f4": {
+     "fromPoint": [
+      2759,
+      888
+     ],
+     "toPoint": [
+      2755,
+      1049
+     ],
+     "routing": "straight"
+    }
+   },
+   "texts": {},
+   "offPage": {},
+   "marks": {},
+   "phases": {},
+   "rulesHaveSpans": {
+    "vertical": true,
+    "horizontal": true
+   }
+  }
+ },
+ "corrections": [
+  "party-33",
+  "party-34"
+ ],
+ "documentLanes": {
+  "object-tender-withdrawal": "lane-contracting-authority"
+ },
+ "formerIds": {
+  "lane-economic-operator": "lane0",
+  "lane-contracting-authority": "lane1",
+  "initial-economic-operator": "n1",
+  "action-prepare-tender-withdrawal-request": "n2",
+  "object-tender-withdrawal": "n3",
+  "action-receive-tender-withdrawal-request": "n4",
+  "action-submit-tender-withdrawal-request": "n5",
+  "final-contracting-authority": "n6",
+  "flow-initial-economic-operator-to-prepare-tender-withdrawal-request": "f0",
+  "flow-prepare-tender-withdrawal-request-to-submit-tender-withdrawal-request": "f1",
+  "flow-submit-tender-withdrawal-request-to-tender-withdrawal": "f2",
+  "flow-tender-withdrawal-to-receive-tender-withdrawal-request": "f3",
+  "flow-receive-tender-withdrawal-request-to-final-contracting-authority": "f4"
+ }
+}

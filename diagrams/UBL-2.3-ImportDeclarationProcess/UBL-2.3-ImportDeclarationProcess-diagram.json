@@ -1,0 +1,204 @@
+{
+ "schema": "ubl-activity-diagram/1",
+ "figure": {
+  "name": "UBL-2.3-ImportDeclarationProcess",
+  "source": "UBL-2.3-ImportDeclarationProcess.png"
+ },
+ "lanes": [
+  {
+   "id": "lane-importer-party",
+   "axis": "column",
+   "index": 0,
+   "title": "Importer Party"
+  },
+  {
+   "id": "lane-customs-party",
+   "axis": "column",
+   "index": 1,
+   "title": "Customs Party"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "initial-importer-party",
+   "kind": "initial",
+   "label": "",
+   "lane": "lane-importer-party"
+  },
+  {
+   "id": "object-import-customs-declarations",
+   "kind": "object",
+   "label": "Import Customs\nDeclarations",
+   "lane": null,
+   "between": [
+    "lane-importer-party",
+    "lane-customs-party"
+   ]
+  },
+  {
+   "id": "action-issue-import-declaration",
+   "kind": "action",
+   "label": "Issue Import\nDeclaration",
+   "lane": "lane-importer-party"
+  },
+  {
+   "id": "action-receive-import-declaration",
+   "kind": "action",
+   "label": "Receive Import\nDeclaration",
+   "lane": "lane-customs-party"
+  },
+  {
+   "id": "object-application-response-approved",
+   "kind": "object",
+   "label": "Application response\n(approved)",
+   "lane": null,
+   "between": [
+    "lane-importer-party",
+    "lane-customs-party"
+   ]
+  },
+  {
+   "id": "decision-is-valid",
+   "kind": "decision",
+   "label": "Is valid?",
+   "lane": "lane-customs-party"
+  },
+  {
+   "id": "action-receive-accept",
+   "kind": "action",
+   "label": "Receive accept",
+   "lane": "lane-importer-party"
+  },
+  {
+   "id": "object-application-response-rejected",
+   "kind": "object",
+   "label": "Application response\n(rejected)",
+   "lane": null,
+   "between": [
+    "lane-importer-party",
+    "lane-customs-party"
+   ]
+  },
+  {
+   "id": "action-receive-reject",
+   "kind": "action",
+   "label": "Receive reject",
+   "lane": "lane-importer-party"
+  },
+  {
+   "id": "final-importer-party",
+   "kind": "final",
+   "label": "",
+   "lane": "lane-importer-party"
+  }
+ ],
+ "flows": [
+  {
+   "id": "flow-initial-importer-party-to-issue-import-declaration",
+   "from": "initial-importer-party",
+   "to": "action-issue-import-declaration",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-issue-import-declaration-to-import-customs-declarations",
+   "from": "action-issue-import-declaration",
+   "to": "object-import-customs-declarations",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-import-customs-declarations-to-receive-import-declaration",
+   "from": "object-import-customs-declarations",
+   "to": "action-receive-import-declaration",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-receive-import-declaration-to-is-valid",
+   "from": "action-receive-import-declaration",
+   "to": "decision-is-valid",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-application-response-approved-to-receive-accept",
+   "from": "object-application-response-approved",
+   "to": "action-receive-accept",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-is-valid-to-application-response-approved",
+   "from": "decision-is-valid",
+   "to": "object-application-response-approved",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   },
+   "guard": "text-yes"
+  },
+  {
+   "id": "flow-receive-accept-to-final-importer-party",
+   "from": "action-receive-accept",
+   "to": "final-importer-party",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-is-valid-to-application-response-rejected",
+   "from": "decision-is-valid",
+   "to": "object-application-response-rejected",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   },
+   "guard": "text-no"
+  },
+  {
+   "id": "flow-application-response-rejected-to-receive-reject",
+   "from": "object-application-response-rejected",
+   "to": "action-receive-reject",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-receive-reject-to-final-importer-party",
+   "from": "action-receive-reject",
+   "to": "final-importer-party",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  }
+ ],
+ "texts": [
+  {
+   "id": "text-yes",
+   "text": "Yes",
+   "labels": "flow-is-valid-to-application-response-approved"
+  },
+  {
+   "id": "text-no",
+   "text": "No",
+   "labels": "flow-is-valid-to-application-response-rejected"
+  }
+ ],
+ "offPage": [],
+ "marks": [],
+ "phases": []
+}

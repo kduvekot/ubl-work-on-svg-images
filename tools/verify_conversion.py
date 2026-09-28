@@ -171,7 +171,7 @@ def check_text(bg_render, graph, findings, human):
         x1 = max(l["x"] + l["w"] for l in lines); y1 = max(l["y"] + l["h"] for l in lines)
         pad = 10
         crop = bg_render.crop((max(0, x0 - pad), max(0, y0 - pad), x1 + pad, y1 + pad))
-        got = norm(pytesseract.image_to_string(crop, config="--psm 6"))
+        got = norm(ocr_cache.image_to_string(crop, config="--psm 6"))
         if not got:
             findings.append(dict(kind="label-missing", node=n["id"], x=x0, y=y0,
                                  w=x1 - x0, h=y1 - y0, expected=want, got="",
@@ -239,6 +239,11 @@ def check_text_complete(bg_orig, graph, boxes, findings, glyph_h, orig_ink=None)
     for t in graph.get("text", []):
         for ln in t.get("lines") or [t]:
             placed.append((ln, ln.get("text", ""), "text block"))
+        # words a correction set elsewhere on purpose (a guard moved beside its
+        # branch): the original's words, where the original has them, are the
+        # model's too
+        if t.get("wasAt"):
+            placed.append((t["wasAt"], t.get("text", ""), "text block (moved on purpose)"))
     for p in graph.get("partitions", []):
         b = p.get("titleBox")
         if b:
@@ -587,10 +592,144 @@ def check_coherent(graph, glyph_h, findings, missing=None, human=None):
                                  detail="%s (%s %r) has no edge" % (n["id"], k, n.get("label", "")[:20])))
 
 
-def verify(orig_png, render_png, graph_path, radius=3, diff_out=None):
+def _long_runs(m, axis, length):
+    """the pixels of `m` that lie in a run of at least `length` along `axis`"""
+    c = np.cumsum(np.pad(m.astype(np.int32), [(1, 0) if k == axis else (0, 0)
+                                              for k in range(2)]), axis=axis)
+    n = m.shape[axis]
+    if n < length:
+        return np.zeros_like(m)
+    full = np.take(c, range(length, n + 1), axis=axis) - np.take(c, range(0, n - length + 1), axis=axis) == length
+    out = np.zeros(m.shape, dtype=np.int32)
+    for k in range(length):          # spread each full window back over its pixels
+        sl = [slice(None)] * 2
+        sl[axis] = slice(k, k + full.shape[axis])
+        out[tuple(sl)] += full
+    return out > 0
+
+
+def straight_dividers(a, b, graph):
+    """A lane divider is drawn straight (the TC, 2026-09-28), where the artwork's
+    leans a few pixels here and there and was sometimes drawn in offset pieces.
+    Along each inner rule, in a band 12px either side of it, the artwork's
+    divider strokes - runs at least 40px long along the rule - are taken to lie
+    where the SVG's are, row by row where both images have one: the lean is not
+    counted, a divider missing from either side still is, and anything crossing
+    the divider (a document's edge, a flow) is too short along the rule to be
+    touched, and is still matched against the divider beside it."""
+    H, W = a.shape
+    for axis, key in ((0, "v"), (1, "h")):
+        size = W if key == "v" else H
+        margin = max(3, size * 0.015)
+        for at, wd in (graph.get("rules") or {}).get(key, []):
+            if not (margin < at and at + wd < size - margin):
+                continue                               # the frame, not a divider
+            lo, hi = max(0, int(at - 12)), min(size, int(at + wd + 12))
+            if key == "v":
+                sa, sb = _long_runs(a[:, lo:hi], 0, 40), _long_runs(b[:, lo:hi], 0, 40)
+                both = sa.any(axis=1) & sb.any(axis=1)
+                a[:, lo:hi] &= ~(sa & both[:, None])
+                a[:, lo:hi] |= sb & both[:, None]
+            else:
+                sa, sb = _long_runs(a[lo:hi, :], 1, 40), _long_runs(b[lo:hi, :], 1, 40)
+                both = sa.any(axis=0) & sb.any(axis=0)
+                a[lo:hi, :] &= ~(sa & both[None, :])
+                a[lo:hi, :] |= sb & both[None, :]
+
+
+def divider_jumps(a, b, graph, radius):
+    """Where a flow crosses a lane divider, the artwork sometimes jumps it - a
+    curl on three figures, a half circle on two - and the SVG draws a plain
+    crossing (the TC, 2026-09-28: nothing jumps a divider). The crossing's
+    neighbourhood, a disc the size of the diagram's arrowhead, is not counted
+    on either side."""
+    H, W = a.shape
+    r = (graph.get("arrowPx") or 40) * 0.8 + radius
+    yy, xx = np.ogrid[:H, :W]
+    spans = (graph.get("ruleSpan") or {}).get("v") or []
+    for k, (at, wd) in enumerate((graph.get("rules") or {}).get("v", [])):
+        if not (max(3, W * 0.015) < at and at + wd < W - max(3, W * 0.015)):
+            continue
+        x = at + wd / 2.0
+        lo, hi = spans[k] if k < len(spans) else (0, H)
+        for e in graph.get("edges", []):
+            pts = [e.get("fromPoint")] + (e.get("points") or []) + [e.get("toPoint")]
+            pts = [p for p in pts if p]
+            for (x1, y1), (x2, y2) in zip(pts, pts[1:]):
+                if (x1 - x) * (x2 - x) >= 0 or x1 == x2:
+                    continue
+                y = y1 + (x - x1) * (y2 - y1) / (x2 - x1)
+                # a flow into a document on the divider meets it there, and
+                # the document's box is drawn: only a crossing in the open
+                if lo <= y <= hi and min(abs(x - x1), abs(x - x2)) > r:
+                    disc = (xx - x) ** 2 + (yy - y) ** 2 <= r * r
+                    a &= ~disc
+                    b &= ~disc
+
+
+def drawn_hops(a, b, svg_path, radius):
+    """Where the SVG hops one flow over another (the TC, 2026-09-28: a half
+    circle where two solid flows cross), the artwork mostly draws a plain
+    crossing, and where it draws a hop it may bow the other way. The hop is a
+    deliberate difference, so the line-work within it - the disc the half
+    circle spans, and the checker's own radius round that - is not counted on
+    either side. The SVG says where its hops are (data-hops on the flow)."""
+    if not svg_path or not os.path.exists(svg_path):
+        return
+    svg = open(svg_path, encoding="utf-8").read()
+    m = re.search(r'viewBox="0 0 ([0-9.]+) ([0-9.]+)"', svg)
+    if not m:
+        return
+    k = a.shape[1] / float(m.group(1))
+    yy, xx = np.ogrid[:a.shape[0], :a.shape[1]]
+    for spec in re.findall(r'data-hops="([^"]+)"', svg):
+        for h in spec.split():
+            x, y, r = (float(v) * k for v in h.split(","))
+            disc = (xx - x) ** 2 + (yy - y) ** 2 <= (1.3 * r + radius) ** 2
+            a &= ~disc
+            b &= ~disc
+
+
+def moved_guards(a, b, svg_path, radius):
+    """A guard the SVG moved off its own flow's line (the TC, 2026-09-28) stands
+    where the artwork has none, and the artwork's words stand where the SVG
+    draws the line whole. Both places are a deliberate difference, so neither
+    is counted on either side. The SVG says where they are (data-moved-from,
+    data-moved-to on the guard)."""
+    if not svg_path or not os.path.exists(svg_path):
+        return
+    svg = open(svg_path, encoding="utf-8").read()
+    m = re.search(r'viewBox="0 0 ([0-9.]+) ([0-9.]+)"', svg)
+    if not m:
+        return
+    k = a.shape[1] / float(m.group(1))
+    for box in re.findall(r'data-moved-(?:from|to)="([^"]+)"', svg):
+        x0, y0, x1, y1 = (float(v) * k for v in box.split(","))
+        r0, r1 = max(int(y0) - radius, 0), int(y1) + radius + 1
+        c0, c1 = max(int(x0) - radius, 0), int(x1) + radius + 1
+        a[r0:r1, c0:c1] = False
+        b[r0:r1, c0:c1] = False
+
+
+def verify(orig_png, render_png, graph_path, radius=3, diff_out=None, svg_path=None):
     graph = json.load(open(graph_path))
     a, bg_orig = ink_of(orig_png)
     b, bg_render = ink_of(render_png)
+    # a divider the artwork draws in grey is drawn black (the TC, 2026-09-27:
+    # no grey in the diagrams), so the line is counted as the artwork's ink
+    if graph.get("greyRules"):
+        tone = np.asarray(bg_orig.convert("L"))
+        for gr in graph["greyRules"]:
+            lo, hi = int(gr["at"]), int(gr["at"] + max(1, gr["w"]))
+            if gr["axis"] == "v":
+                a[:, lo:hi] |= tone[:, lo:hi] < 245
+            else:
+                a[lo:hi, :] |= tone[lo:hi, :] < 245
+    if a.shape == b.shape:
+        straight_dividers(a, b, graph)
+        drawn_hops(a, b, svg_path, radius)
+        moved_guards(a, b, svg_path, radius)
+        divider_jumps(a, b, graph, radius)
     if a.shape != b.shape:
         return dict(verdict="improvable", name=graph_path,
                     findings=[dict(kind="size-mismatch", detail="original %s, render %s"
@@ -678,9 +817,10 @@ def main(argv):
     radius = int(argv[argv.index("--radius") + 1]) if "--radius" in argv else 3
     oj = argv[argv.index("--json") + 1] if "--json" in argv else None
     od = argv[argv.index("--diff") + 1] if "--diff" in argv else None
+    osvg = argv[argv.index("--svg") + 1] if "--svg" in argv else None
     pos = [x for i, x in enumerate(argv)
            if not x.startswith("--") and (i == 0 or not argv[i - 1].startswith("--"))]
-    rep = verify(pos[0], pos[1], pos[2], radius, od)
+    rep = verify(pos[0], pos[1], pos[2], radius, od, osvg)
 
     lw = max(1, rep.get("lineWorkInk", 1))
     print("  verdict: %s" % rep["verdict"].upper())

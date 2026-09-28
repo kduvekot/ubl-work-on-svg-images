@@ -1,0 +1,19 @@
+  verdict: NEEDS-HUMAN
+  structural: 0 element(s) absent, 0 invented, 0 text absent, 0 text differs, 0 incoherent
+  line-work  missing 2159 px (1.186%)   invented 2069 px (1.136%)   radius 3
+    line-work-missing      304 px at  3290,793     47x40    on node n3 (action 'Receive Catalogue')
+    line-work-missing      303 px at  3290,942     47x40    on node n3 (action 'Receive Catalogue')
+    line-work-missing      298 px at  2530,944     46x38    on node n3 (action 'Receive Catalogue')
+    line-work-missing      289 px at  2530,793     47x38    on node n3 (action 'Receive Catalogue')
+    line-work-missing      234 px at   849,953     44x35    on node n4 (action 'Send Catalogue')
+    line-work-missing      227 px at    89,954     44x34    on node n4 (action 'Send Catalogue')
+    line-work-missing      226 px at   849,799     44x35    on node n4 (action 'Send Catalogue')
+    line-work-missing      217 px at    89,799     44x35    on node n4 (action 'Send Catalogue')
+    line-work-invented     293 px at  3283,802     44x37    on node n3 (action 'Receive Catalogue')
+    line-work-invented     290 px at  3283,936     44x37    on node n3 (action 'Receive Catalogue')
+    line-work-invented     290 px at  2540,938     46x36    on node n3 (action 'Receive Catalogue')
+    line-work-invented     279 px at  2540,802     43x35    on node n3 (action 'Receive Catalogue')
+    ... and 4 more line-work findings
+  needs a person (1):
+    kept-on-outline    at 1415,792  confirm this is a node and not trapped whitespace
+review/baseline/UBL-2.2-ROCD-BaseArticleCatalogue-marked.png + review/baseline/UBL-2.2-ROCD-BaseArticleCatalogue-marked-lost.png  (1 finding(s) numbered)

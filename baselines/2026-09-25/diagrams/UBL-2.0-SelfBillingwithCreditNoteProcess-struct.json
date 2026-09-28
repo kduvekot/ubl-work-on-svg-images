@@ -1,0 +1,376 @@
+{
+ "name": "UBL-2.0-SelfBillingwithCreditNoteProcess.png",
+ "verdict": "needs-human",
+ "radius": 3,
+ "lineWorkInk": 235803,
+ "missingPx": 5974,
+ "inventedPx": 3958,
+ "structural": {
+  "absent": 0,
+  "invented": 0,
+  "coherence": 0,
+  "textAbsent": 0,
+  "textDiffers": 0
+ },
+ "blocking": [],
+ "findings": [
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n13 -> n10",
+   "x": 2623,
+   "y": 1230,
+   "w": 331,
+   "h": 162,
+   "area": 1246
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n13 -> n16",
+   "x": 2730,
+   "y": 1421,
+   "w": 236,
+   "h": 209,
+   "area": 980
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n6 -> n10",
+   "x": 2192,
+   "y": 803,
+   "w": 185,
+   "h": 181,
+   "area": 965
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n15 -> n14",
+   "x": 1281,
+   "y": 1578,
+   "w": 48,
+   "h": 37,
+   "area": 349
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n7 -> n11",
+   "x": 929,
+   "y": 984,
+   "w": 86,
+   "h": 46,
+   "area": 306
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n7 -> n11",
+   "x": 663,
+   "y": 1129,
+   "w": 34,
+   "h": 44,
+   "area": 289
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n6 -> n10",
+   "x": 2156,
+   "y": 966,
+   "w": 27,
+   "h": 46,
+   "area": 273
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n15 -> n14",
+   "x": 1337,
+   "y": 1592,
+   "w": 87,
+   "h": 28,
+   "area": 253
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n14 -> n11",
+   "x": 927,
+   "y": 1386,
+   "w": 77,
+   "h": 77,
+   "area": 231
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n8 -> n13",
+   "x": 3094,
+   "y": 1205,
+   "w": 9,
+   "h": 42,
+   "area": 156
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n8 -> n6",
+   "x": 2898,
+   "y": 988,
+   "w": 51,
+   "h": 47,
+   "area": 151
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n8 -> n13",
+   "x": 3082,
+   "y": 1347,
+   "w": 14,
+   "h": 26,
+   "area": 108
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n13 -> n10",
+   "x": 2520,
+   "y": 1192,
+   "w": 17,
+   "h": 18,
+   "area": 102
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n7 -> n11",
+   "x": 703,
+   "y": 1125,
+   "w": 40,
+   "h": 24,
+   "area": 101
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n13 -> n10",
+   "x": 2521,
+   "y": 1167,
+   "w": 16,
+   "h": 13,
+   "area": 82
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n13 -> n10",
+   "x": 2659,
+   "y": 1257,
+   "w": 273,
+   "h": 138,
+   "area": 938
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n6 -> n10",
+   "x": 2191,
+   "y": 811,
+   "w": 191,
+   "h": 183,
+   "area": 845
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n13 -> n16",
+   "x": 2764,
+   "y": 1421,
+   "w": 188,
+   "h": 167,
+   "area": 681
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n15 -> n14",
+   "x": 1321,
+   "y": 1581,
+   "w": 94,
+   "h": 28,
+   "area": 267
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n7 -> n11",
+   "x": 937,
+   "y": 985,
+   "w": 58,
+   "h": 31,
+   "area": 171
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n7 -> n11",
+   "x": 691,
+   "y": 1139,
+   "w": 44,
+   "h": 23,
+   "area": 109
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n8 -> n6",
+   "x": 2908,
+   "y": 986,
+   "w": 45,
+   "h": 41,
+   "area": 108
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n14 -> n11",
+   "x": 955,
+   "y": 1427,
+   "w": 36,
+   "h": 36,
+   "area": 81
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n7 -> n11",
+   "x": 696,
+   "y": 1128,
+   "w": 16,
+   "h": 16,
+   "area": 71
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n15 -> n14",
+   "x": 1343,
+   "y": 1571,
+   "w": 18,
+   "h": 4,
+   "area": 67
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n15 -> n14",
+   "x": 1334,
+   "y": 1600,
+   "w": 15,
+   "h": 11,
+   "area": 60
+  }
+ ],
+ "text": [],
+ "coherence": [],
+ "human": [
+  {
+   "x": 335,
+   "y": 454,
+   "w": 321,
+   "h": 816,
+   "shape": "rect",
+   "iou": 0.97,
+   "border": 0.906,
+   "kind": "dropped-region",
+   "reason": "3 of 4 sides are pass-through line-work",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "x": 2167,
+   "y": 806,
+   "w": 374,
+   "h": 373,
+   "shape": "rounded",
+   "iou": 0.531,
+   "border": 0.331,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best rounded 0.53, and 0.99 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "kind": "unexplained-line-work",
+   "x": 2424,
+   "y": 1150,
+   "w": 140,
+   "h": 457,
+   "reason": "ink left over where several connectors cross, claimed by none of them",
+   "check": "decide what this is; the SVG does not draw it"
+  },
+  {
+   "kind": "unexplained-line-work",
+   "x": 679,
+   "y": 544,
+   "w": 7,
+   "h": 251,
+   "reason": "line-work that is neither a connector between two nodes nor the size of text",
+   "check": "decide what this is; the SVG does not draw it"
+  },
+  {
+   "kind": "unexplained-line-work",
+   "x": 735,
+   "y": 727,
+   "w": 58,
+   "h": 86,
+   "reason": "line-work that is neither a connector between two nodes nor the size of text",
+   "check": "decide what this is; the SVG does not draw it"
+  },
+  {
+   "kind": "unexplained-line-work",
+   "x": 2874,
+   "y": 823,
+   "w": 74,
+   "h": 87,
+   "reason": "line-work that is neither a connector between two nodes nor the size of text",
+   "check": "decide what this is; the SVG does not draw it"
+  },
+  {
+   "kind": "arrowhead-unmeasurable",
+   "x": 759,
+   "y": 1211,
+   "w": 120,
+   "h": 120,
+   "reason": "the ink at the head end of n14->n11 measures 60x79px, too wide for this diagram's own 42px arrowhead - a junction, not a head",
+   "check": "confirm the arrowhead here is drawn and points the way the original does"
+  }
+ ],
+ "review": [
+  {
+   "n": 1,
+   "what": "check",
+   "where": "335,454 321x816",
+   "detail": "3 of 4 sides are pass-through line-work",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "n": 2,
+   "what": "check",
+   "where": "2167,806 374x373",
+   "detail": "outline matches no UML node shape (best rounded 0.53, and 0.99 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "n": 3,
+   "what": "check",
+   "where": "2424,1150 140x457",
+   "detail": "ink left over where several connectors cross, claimed by none of them",
+   "check": "decide what this is; the SVG does not draw it"
+  },
+  {
+   "n": 4,
+   "what": "check",
+   "where": "679,544 7x251",
+   "detail": "line-work that is neither a connector between two nodes nor the size of text",
+   "check": "decide what this is; the SVG does not draw it"
+  },
+  {
+   "n": 5,
+   "what": "check",
+   "where": "735,727 58x86",
+   "detail": "line-work that is neither a connector between two nodes nor the size of text",
+   "check": "decide what this is; the SVG does not draw it"
+  },
+  {
+   "n": 6,
+   "what": "check",
+   "where": "2874,823 74x87",
+   "detail": "line-work that is neither a connector between two nodes nor the size of text",
+   "check": "decide what this is; the SVG does not draw it"
+  },
+  {
+   "n": 7,
+   "what": "check",
+   "where": "759,1211 120x120",
+   "detail": "the ink at the head end of n14->n11 measures 60x79px, too wide for this diagram's own 42px arrowhead - a junction, not a head",
+   "check": "confirm the arrowhead here is drawn and points the way the original does"
+  }
+ ]
+}

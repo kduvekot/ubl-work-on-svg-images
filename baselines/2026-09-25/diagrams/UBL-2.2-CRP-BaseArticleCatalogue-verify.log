@@ -1,0 +1,17 @@
+  verdict: CORRECT
+  structural: 0 element(s) absent, 0 invented, 0 text absent, 0 text differs, 0 incoherent
+  line-work  missing 3473 px (1.948%)   invented 2652 px (1.487%)   radius 3
+    line-work-missing      462 px at  3270,946     67x48    on node n3 (action 'Receive Catalogue')
+    line-work-missing      456 px at  3270,800     67x48    on node n3 (action 'Receive Catalogue')
+    line-work-missing      448 px at  2529,948     67x46    on node n3 (action 'Receive Catalogue')
+    line-work-missing      439 px at  2529,800     66x46    on node n3 (action 'Receive Catalogue')
+    line-work-missing      409 px at    88,957     64x43    on node n4 (action 'send Catalogue')
+    line-work-missing      406 px at   830,958     64x42    on node n4 (action 'send Catalogue')
+    line-work-missing      397 px at   830,806     64x42    on node n4 (action 'send Catalogue')
+    line-work-missing      395 px at    88,806     64x42    on node n4 (action 'send Catalogue')
+    line-work-invented     357 px at  3267,944     60x41    on node n3 (action 'Receive Catalogue')
+    line-work-invented     350 px at  3270,810     57x40    on node n3 (action 'Receive Catalogue')
+    line-work-invented     348 px at  2539,810     57x40    on node n3 (action 'Receive Catalogue')
+    line-work-invented     348 px at  2539,944     57x40    on node n3 (action 'Receive Catalogue')
+    ... and 4 more line-work findings
+review/baseline/UBL-2.2-CRP-BaseArticleCatalogue-marked.png + review/baseline/UBL-2.2-CRP-BaseArticleCatalogue-marked-lost.png  (0 finding(s) numbered)

@@ -1,0 +1,220 @@
+{
+ "name": "UBL-2.2-VMI-InitialStocking.png",
+ "verdict": "needs-human",
+ "radius": 3,
+ "lineWorkInk": 325337,
+ "missingPx": 1754,
+ "inventedPx": 1904,
+ "structural": {
+  "absent": 0,
+  "invented": 0,
+  "coherence": 0,
+  "textAbsent": 0,
+  "textDiffers": 0
+ },
+ "blocking": [],
+ "findings": [
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n15 -> n14",
+   "x": 1270,
+   "y": 2430,
+   "w": 1,
+   "h": 194,
+   "area": 194
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n13 (action 'Check status of item')",
+   "x": 2820,
+   "y": 2313,
+   "w": 27,
+   "h": 22,
+   "area": 126
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n13 (action 'Check status of item')",
+   "x": 2224,
+   "y": 2417,
+   "w": 25,
+   "h": 26,
+   "area": 122
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n13 (action 'Check status of item')",
+   "x": 2224,
+   "y": 2314,
+   "w": 24,
+   "h": 26,
+   "area": 120
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n9 (action 'Receive Despatch Adv')",
+   "x": 2569,
+   "y": 1321,
+   "w": 24,
+   "h": 24,
+   "area": 103
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n9 (action 'Receive Despatch Adv')",
+   "x": 2569,
+   "y": 1221,
+   "w": 24,
+   "h": 24,
+   "area": 102
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n13 (action 'Check status of item')",
+   "x": 2822,
+   "y": 2429,
+   "w": 22,
+   "h": 14,
+   "area": 88
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n9 (action 'Receive Despatch Adv')",
+   "x": 1784,
+   "y": 1221,
+   "w": 22,
+   "h": 20,
+   "area": 80
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n9 (action 'Receive Despatch Adv')",
+   "x": 1784,
+   "y": 1325,
+   "w": 22,
+   "h": 20,
+   "area": 77
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n7 -> n9",
+   "x": 1270,
+   "y": 1360,
+   "w": 1,
+   "h": 69,
+   "area": 69
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n13 (action 'Check status of item')",
+   "x": 2230,
+   "y": 2408,
+   "w": 25,
+   "h": 28,
+   "area": 132
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n13 (action 'Check status of item')",
+   "x": 2231,
+   "y": 2320,
+   "w": 26,
+   "h": 26,
+   "area": 128
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n14 -> n16",
+   "x": 1263,
+   "y": 2510,
+   "w": 1,
+   "h": 114,
+   "area": 114
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n9 (action 'Receive Despatch Adv')",
+   "x": 2560,
+   "y": 1315,
+   "w": 26,
+   "h": 24,
+   "area": 111
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n9 (action 'Receive Despatch Adv')",
+   "x": 2561,
+   "y": 1227,
+   "w": 25,
+   "h": 24,
+   "area": 106
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n13 (action 'Check status of item')",
+   "x": 2814,
+   "y": 2320,
+   "w": 24,
+   "h": 15,
+   "area": 102
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n9 (action 'Receive Despatch Adv')",
+   "x": 1790,
+   "y": 1317,
+   "w": 22,
+   "h": 21,
+   "area": 91
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n9 (action 'Receive Despatch Adv')",
+   "x": 1790,
+   "y": 1228,
+   "w": 22,
+   "h": 21,
+   "area": 90
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n15 (action 'Send Receipt Advice')",
+   "x": 2814,
+   "y": 2645,
+   "w": 21,
+   "h": 17,
+   "area": 62
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n15 (action 'Send Receipt Advice')",
+   "x": 2816,
+   "y": 2739,
+   "w": 19,
+   "h": 16,
+   "area": 60
+  }
+ ],
+ "text": [],
+ "coherence": [],
+ "human": [
+  {
+   "kind": "unexplained-line-work",
+   "x": 1269,
+   "y": 1362,
+   "w": 2,
+   "h": 148,
+   "reason": "line-work that is neither a connector between two nodes nor the size of text",
+   "check": "decide what this is; the SVG does not draw it"
+  }
+ ],
+ "review": [
+  {
+   "n": 1,
+   "what": "check",
+   "where": "1269,1362 2x148",
+   "detail": "line-work that is neither a connector between two nodes nor the size of text",
+   "check": "decide what this is; the SVG does not draw it"
+  }
+ ]
+}

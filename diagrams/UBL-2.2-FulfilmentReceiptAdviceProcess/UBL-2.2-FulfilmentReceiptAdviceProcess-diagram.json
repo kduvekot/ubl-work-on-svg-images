@@ -1,0 +1,423 @@
+{
+ "schema": "ubl-activity-diagram/1",
+ "figure": {
+  "name": "UBL-2.2-FulfilmentReceiptAdviceProcess",
+  "source": "UBL-2.2-FulfilmentReceiptAdviceProcess.png"
+ },
+ "lanes": [
+  {
+   "id": "lane-buyer-party",
+   "axis": "column",
+   "index": 0,
+   "title": "Buyer Party"
+  },
+  {
+   "id": "lane-delivery-party",
+   "axis": "column",
+   "index": 1,
+   "title": "Delivery Party"
+  },
+  {
+   "id": "lane-seller-party",
+   "axis": "column",
+   "index": 2,
+   "title": "Seller Party"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "initial-delivery-party",
+   "kind": "initial",
+   "label": "",
+   "lane": "lane-delivery-party",
+   "linkedProcess": {
+    "name": "Ordering",
+    "how": "starts-from"
+   }
+  },
+  {
+   "id": "action-receive-order-item-s",
+   "kind": "action",
+   "label": "Receive Order Item(s)",
+   "lane": "lane-delivery-party"
+  },
+  {
+   "id": "action-check-status-of-item-s",
+   "kind": "action",
+   "label": "Check status of Item(s)",
+   "lane": "lane-delivery-party"
+  },
+  {
+   "id": "object-receipt-advice",
+   "kind": "object",
+   "label": "Receipt Advice",
+   "lane": null,
+   "between": [
+    "lane-delivery-party",
+    "lane-seller-party"
+   ]
+  },
+  {
+   "id": "action-receive-receipt-advice",
+   "kind": "action",
+   "label": "Receive Receipt Advice",
+   "lane": "lane-seller-party"
+  },
+  {
+   "id": "action-send-receipt-advice",
+   "kind": "action",
+   "label": "Send Receipt Advice",
+   "lane": "lane-delivery-party"
+  },
+  {
+   "id": "action-adjust-supply-status",
+   "kind": "action",
+   "label": "Adjust supply status",
+   "lane": "lane-seller-party"
+  },
+  {
+   "id": "final-seller-party",
+   "kind": "final",
+   "label": "",
+   "lane": "lane-seller-party"
+  },
+  {
+   "id": "object-fulfilment-cancellation",
+   "kind": "object",
+   "label": "Fulfilment\nCancellation",
+   "lane": null,
+   "between": [
+    "lane-delivery-party",
+    "lane-seller-party"
+   ]
+  },
+  {
+   "id": "action-receive-fulfilment-cancellation",
+   "kind": "action",
+   "label": "Receive Fulfilment\nCancellation",
+   "lane": "lane-seller-party"
+  },
+  {
+   "id": "action-cancel-receipt-notification",
+   "kind": "action",
+   "label": "Cancel receipt notification",
+   "lane": "lane-delivery-party"
+  },
+  {
+   "id": "decision-determine-action",
+   "kind": "decision",
+   "label": "Determine Action",
+   "lane": "lane-buyer-party"
+  },
+  {
+   "id": "action-advise-buyer-of-status",
+   "kind": "action",
+   "label": "Advise Buyer of status",
+   "lane": "lane-delivery-party"
+  },
+  {
+   "id": "object-order-cancellation",
+   "kind": "object",
+   "label": "Order Cancellation",
+   "lane": null,
+   "between": [
+    "lane-buyer-party",
+    "lane-seller-party"
+   ]
+  },
+  {
+   "id": "action-send-order-cancellation",
+   "kind": "action",
+   "label": "Send Order Cancellation",
+   "lane": "lane-buyer-party"
+  },
+  {
+   "id": "action-cancel-order",
+   "kind": "action",
+   "label": "Cancel order",
+   "lane": "lane-seller-party"
+  },
+  {
+   "id": "object-order-change",
+   "kind": "object",
+   "label": "Order Change",
+   "lane": null,
+   "between": [
+    "lane-buyer-party",
+    "lane-seller-party"
+   ]
+  },
+  {
+   "id": "action-adjust-order",
+   "kind": "action",
+   "label": "Adjust Order",
+   "lane": "lane-buyer-party"
+  },
+  {
+   "id": "action-change-order",
+   "kind": "action",
+   "label": "Change Order",
+   "lane": "lane-seller-party"
+  },
+  {
+   "id": "action-accept-items",
+   "kind": "action",
+   "label": "Accept Items",
+   "lane": "lane-buyer-party"
+  },
+  {
+   "id": "final-buyer-party",
+   "kind": "final",
+   "label": "",
+   "lane": "lane-buyer-party"
+  }
+ ],
+ "flows": [
+  {
+   "id": "flow-initial-delivery-party-to-receive-order-item-s",
+   "from": "initial-delivery-party",
+   "to": "action-receive-order-item-s",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-receive-order-item-s-to-check-status-of-item-s",
+   "from": "action-receive-order-item-s",
+   "to": "action-check-status-of-item-s",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-check-status-of-item-s-to-advise-buyer-of-status",
+   "from": "action-check-status-of-item-s",
+   "to": "action-advise-buyer-of-status",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-check-status-of-item-s-to-send-receipt-advice",
+   "from": "action-check-status-of-item-s",
+   "to": "action-send-receipt-advice",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-send-receipt-advice-to-receipt-advice",
+   "from": "action-send-receipt-advice",
+   "to": "object-receipt-advice",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-receipt-advice-to-receive-receipt-advice",
+   "from": "object-receipt-advice",
+   "to": "action-receive-receipt-advice",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-receive-receipt-advice-to-adjust-supply-status",
+   "from": "action-receive-receipt-advice",
+   "to": "action-adjust-supply-status",
+   "kind": "control",
+   "direction": {
+    "confidence": "medium",
+    "checked": "confirmed"
+   }
+  },
+  {
+   "id": "flow-send-receipt-advice-to-cancel-receipt-notification",
+   "from": "action-send-receipt-advice",
+   "to": "action-cancel-receipt-notification",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-cancel-receipt-notification-to-send-receipt-advice",
+   "from": "action-cancel-receipt-notification",
+   "to": "action-send-receipt-advice",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-adjust-supply-status-to-final-seller-party",
+   "from": "action-adjust-supply-status",
+   "to": "final-seller-party",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-receive-fulfilment-cancellation-to-adjust-supply-status",
+   "from": "action-receive-fulfilment-cancellation",
+   "to": "action-adjust-supply-status",
+   "kind": "control",
+   "direction": {
+    "confidence": "medium",
+    "checked": "confirmed"
+   }
+  },
+  {
+   "id": "flow-cancel-order-to-adjust-supply-status",
+   "from": "action-cancel-order",
+   "to": "action-adjust-supply-status",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-change-order-to-adjust-supply-status",
+   "from": "action-change-order",
+   "to": "action-adjust-supply-status",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-cancel-receipt-notification-to-fulfilment-cancellation",
+   "from": "action-cancel-receipt-notification",
+   "to": "object-fulfilment-cancellation",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-fulfilment-cancellation-to-receive-fulfilment-cancellation",
+   "from": "object-fulfilment-cancellation",
+   "to": "action-receive-fulfilment-cancellation",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-advise-buyer-of-status-to-determine-action",
+   "from": "action-advise-buyer-of-status",
+   "to": "decision-determine-action",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-determine-action-to-accept-items",
+   "from": "decision-determine-action",
+   "to": "action-accept-items",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   },
+   "guard": "text-accept-items"
+  },
+  {
+   "id": "flow-determine-action-to-adjust-order",
+   "from": "decision-determine-action",
+   "to": "action-adjust-order",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   },
+   "guard": "text-change-order"
+  },
+  {
+   "id": "flow-determine-action-to-send-order-cancellation",
+   "from": "decision-determine-action",
+   "to": "action-send-order-cancellation",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   },
+   "guard": "text-cancel-order"
+  },
+  {
+   "id": "flow-send-order-cancellation-to-order-cancellation",
+   "from": "action-send-order-cancellation",
+   "to": "object-order-cancellation",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-order-cancellation-to-cancel-order",
+   "from": "object-order-cancellation",
+   "to": "action-cancel-order",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-adjust-order-to-order-change",
+   "from": "action-adjust-order",
+   "to": "object-order-change",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-order-change-to-change-order",
+   "from": "object-order-change",
+   "to": "action-change-order",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-accept-items-to-final-buyer-party",
+   "from": "action-accept-items",
+   "to": "final-buyer-party",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  }
+ ],
+ "texts": [
+  {
+   "id": "text-from-order",
+   "text": "From Order",
+   "labels": "initial-delivery-party"
+  },
+  {
+   "id": "text-cancel-order",
+   "text": "[cancel\norder]",
+   "labels": "flow-determine-action-to-send-order-cancellation"
+  },
+  {
+   "id": "text-accept-items",
+   "text": "[accept\nitems]",
+   "labels": "flow-determine-action-to-accept-items"
+  },
+  {
+   "id": "text-change-order",
+   "text": "[change\norder]",
+   "labels": "flow-determine-action-to-adjust-order"
+  }
+ ],
+ "offPage": [],
+ "marks": [],
+ "phases": []
+}

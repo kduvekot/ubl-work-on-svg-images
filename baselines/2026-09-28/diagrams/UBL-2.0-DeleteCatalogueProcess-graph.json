@@ -1,0 +1,974 @@
+{
+ "source": "UBL-2.0-DeleteCatalogueProcess.png",
+ "size": [
+  3425,
+  2747
+ ],
+ "fontPx": 50.0,
+ "arrowPx": 65.0,
+ "arrowWidthPx": 53.5,
+ "arrowStyle": "open",
+ "rules": {
+  "v": [
+   [
+    0,
+    10
+   ],
+   [
+    1629,
+    5
+   ],
+   [
+    3415,
+    10
+   ]
+  ],
+  "h": [
+   [
+    0,
+    10
+   ],
+   [
+    2737,
+    10
+   ]
+  ]
+ },
+ "ruleSpan": {
+  "v": [
+   [
+    13,
+    2733
+   ],
+   [
+    13,
+    2733
+   ],
+   [
+    13,
+    2733
+   ]
+  ],
+  "h": [
+   [
+    13,
+    3411
+   ],
+   [
+    13,
+    3411
+   ]
+  ]
+ },
+ "greyRules": [],
+ "dashed": [],
+ "openEnds": [],
+ "crossMarks": [],
+ "partitions": [
+  {
+   "axis": "column",
+   "index": 0,
+   "x0": 0,
+   "x1": 1632,
+   "title": "Receiver Party",
+   "titleBox": [
+    590,
+    28,
+    305,
+    44
+   ]
+  },
+  {
+   "axis": "column",
+   "index": 1,
+   "x0": 1632,
+   "x1": 3425,
+   "title": "Provider Party",
+   "titleBox": [
+    2434,
+    28,
+    294,
+    44
+   ]
+  },
+  {
+   "axis": "band",
+   "index": 0,
+   "y0": 0,
+   "y1": 2747,
+   "title": ""
+  }
+ ],
+ "nodes": [
+  {
+   "x": 2995,
+   "y": 93,
+   "w": 96,
+   "h": 95,
+   "area": 6149,
+   "fill": 0.768,
+   "kind": "initial",
+   "id": "n1",
+   "label": "",
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 1419,
+   "y": 389,
+   "w": 411,
+   "h": 222,
+   "area": 80942,
+   "fill": 0.887,
+   "solid": 1.0,
+   "rx": 0,
+   "ry": 0,
+   "shape": "rect",
+   "stroke": 10,
+   "kind": "object",
+   "id": "n2",
+   "label": "Catalogue\nDeletion",
+   "labelLines": [
+    {
+     "x": 1486,
+     "y": 437,
+     "w": 269,
+     "h": 53,
+     "text": "Catalogue"
+    },
+    {
+     "x": 1517,
+     "y": 508,
+     "w": 220,
+     "h": 42,
+     "text": "Deletion"
+    }
+   ],
+   "stem": 0.16,
+   "bold": true,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 2727,
+   "y": 396,
+   "w": 628,
+   "h": 198,
+   "area": 110071,
+   "fill": 0.885,
+   "solid": 0.966,
+   "rx": 68,
+   "ry": 68,
+   "shape": "rounded",
+   "stroke": 5,
+   "kind": "action",
+   "id": "n3",
+   "label": "Notify of Catalogue\nDeletion",
+   "labelLines": [
+    {
+     "x": 2821,
+     "y": 439,
+     "w": 429,
+     "h": 45,
+     "text": "Notify of Catalogue"
+    },
+    {
+     "x": 2949,
+     "y": 501,
+     "w": 180,
+     "h": 35,
+     "text": "Deletion"
+    }
+   ],
+   "stem": 0.14,
+   "bold": true,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 79,
+   "y": 439,
+   "w": 666,
+   "h": 136,
+   "area": 80060,
+   "fill": 0.884,
+   "solid": 0.954,
+   "rx": 68,
+   "ry": 66,
+   "shape": "rounded",
+   "stroke": 6,
+   "kind": "action",
+   "id": "n4",
+   "label": "Identify Catalogue",
+   "labelLines": [
+    {
+     "x": 211,
+     "y": 481,
+     "w": 405,
+     "h": 45,
+     "text": "Identify Catalogue"
+    }
+   ],
+   "stem": 0.12,
+   "bold": true,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 199,
+   "y": 1169,
+   "w": 425,
+   "h": 425,
+   "area": 86062,
+   "fill": 0.476,
+   "solid": 0.503,
+   "rx": 226,
+   "ry": 226,
+   "shape": "rhombus",
+   "stroke": 5,
+   "kind": "decision",
+   "id": "n5",
+   "label": "Decide on Action",
+   "labelLines": [
+    {
+     "x": 236,
+     "y": 1357,
+     "w": 350,
+     "h": 35,
+     "text": "Decide on Action"
+    }
+   ],
+   "stem": 0.08,
+   "bold": false,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 2796,
+   "y": 1186,
+   "w": 550,
+   "h": 357,
+   "area": 90075,
+   "fill": 0.459,
+   "solid": 0.502,
+   "rx": 287,
+   "ry": 187,
+   "shape": "rhombus",
+   "stroke": 5,
+   "kind": "decision",
+   "id": "n6",
+   "label": "Review Deletion\nof Catalogue",
+   "labelLines": [
+    {
+     "x": 2912,
+     "y": 1314,
+     "w": 334,
+     "h": 35,
+     "text": "Review Deletion"
+    },
+    {
+     "x": 2910,
+     "y": 1375,
+     "w": 264,
+     "h": 44,
+     "text": "of Catalogue"
+    }
+   ],
+   "stem": 0.08,
+   "bold": false,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 1448,
+   "y": 1254,
+   "w": 410,
+   "h": 221,
+   "area": 79288,
+   "fill": 0.875,
+   "solid": 1.0,
+   "rx": 0,
+   "ry": 0,
+   "shape": "rect",
+   "stroke": 11,
+   "kind": "object",
+   "id": "n7",
+   "label": "Application\nResponse\n(negative)",
+   "labelLines": [
+    {
+     "x": 1518,
+     "y": 1294,
+     "w": 258,
+     "h": 44,
+     "text": "Application"
+    },
+    {
+     "x": 1535,
+     "y": 1346,
+     "w": 224,
+     "h": 44,
+     "text": "Response"
+    },
+    {
+     "x": 1545,
+     "y": 1398,
+     "w": 221,
+     "h": 44,
+     "text": "(negative)"
+    }
+   ],
+   "stem": 0.12,
+   "bold": true,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 1410,
+   "y": 2095,
+   "w": 410,
+   "h": 222,
+   "area": 79754,
+   "fill": 0.876,
+   "solid": 1.0,
+   "rx": 0,
+   "ry": 0,
+   "shape": "rect",
+   "stroke": 10,
+   "kind": "object",
+   "id": "n8",
+   "label": "Application\nResponse\n(positive)",
+   "labelLines": [
+    {
+     "x": 1480,
+     "y": 2135,
+     "w": 258,
+     "h": 43,
+     "text": "Application"
+    },
+    {
+     "x": 1497,
+     "y": 2187,
+     "w": 224,
+     "h": 43,
+     "text": "Response"
+    },
+    {
+     "x": 1512,
+     "y": 2239,
+     "w": 208,
+     "h": 43,
+     "text": "(positive)"
+    }
+   ],
+   "stem": 0.14,
+   "bold": true,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 169,
+   "y": 2117,
+   "w": 495,
+   "h": 164,
+   "area": 68373,
+   "fill": 0.842,
+   "solid": 0.95,
+   "rx": 63,
+   "ry": 61,
+   "shape": "rounded",
+   "stroke": 6,
+   "kind": "action",
+   "id": "n9",
+   "label": "Acknowledge\nCancelation",
+   "labelLines": [
+    {
+     "x": 251,
+     "y": 2151,
+     "w": 302,
+     "h": 44,
+     "text": "Acknowledge"
+    },
+    {
+     "x": 281,
+     "y": 2212,
+     "w": 263,
+     "h": 35,
+     "text": "Cancelation"
+    }
+   ],
+   "stem": 0.14,
+   "bold": true,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 2121,
+   "y": 2126,
+   "w": 657,
+   "h": 179,
+   "area": 107514,
+   "fill": 0.914,
+   "solid": 0.963,
+   "rx": 70,
+   "ry": 68,
+   "shape": "rounded",
+   "stroke": 5,
+   "kind": "action",
+   "id": "n10",
+   "label": "Cancel Catalogue",
+   "labelLines": [
+    {
+     "x": 2248,
+     "y": 2190,
+     "w": 393,
+     "h": 44,
+     "text": "Cancel Catalogue"
+    }
+   ],
+   "stem": 0.14,
+   "bold": true,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 3029,
+   "y": 2183,
+   "w": 85,
+   "h": 84,
+   "area": 4532,
+   "fill": 0.635,
+   "solid": 0.791,
+   "rx": 40,
+   "ry": 39,
+   "shape": "ellipse",
+   "stroke": 13,
+   "kind": "final",
+   "innerRatio": 0.447,
+   "id": "n11",
+   "label": "",
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 178,
+   "y": 2523,
+   "w": 496,
+   "h": 165,
+   "area": 71275,
+   "fill": 0.871,
+   "solid": 0.948,
+   "rx": 68,
+   "ry": 66,
+   "shape": "rounded",
+   "stroke": 5,
+   "kind": "action",
+   "id": "n12",
+   "label": "Delete Catalogue",
+   "labelLines": [
+    {
+     "x": 235,
+     "y": 2584,
+     "w": 378,
+     "h": 45,
+     "text": "Delete Catalogue"
+    }
+   ],
+   "stem": 0.14,
+   "bold": true,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 1124,
+   "y": 2580,
+   "w": 84,
+   "h": 84,
+   "area": 4519,
+   "fill": 0.64,
+   "solid": 0.797,
+   "rx": 39,
+   "ry": 38,
+   "shape": "ellipse",
+   "stroke": 6,
+   "kind": "final",
+   "innerRatio": 0.44,
+   "id": "n13",
+   "label": "",
+   "col": 0,
+   "row": 0
+  }
+ ],
+ "edges": [
+  {
+   "from": "n1",
+   "to": "n3",
+   "routing": "straight",
+   "fromPoint": [
+    3041,
+    202
+   ],
+   "toPoint": [
+    3041,
+    381
+   ],
+   "arrowInk": [
+    270,
+    818
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    65,
+    54.0,
+    2.21
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n3",
+   "to": "n2",
+   "routing": "straight",
+   "fromPoint": [
+    2712,
+    497
+   ],
+   "toPoint": [
+    1844,
+    497
+   ],
+   "arrowInk": [
+    230,
+    690
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    68,
+    52.0,
+    3.29
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n2",
+   "to": "n4",
+   "routing": "straight",
+   "fromPoint": [
+    1404,
+    501
+   ],
+   "toPoint": [
+    759,
+    503
+   ],
+   "arrowInk": [
+    230,
+    740
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    70,
+    53.6,
+    2.31
+   ],
+   "arrowFill": 0.003,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n4",
+   "to": "n5",
+   "routing": "straight",
+   "fromPoint": [
+    412,
+    589
+   ],
+   "toPoint": [
+    411,
+    1154
+   ],
+   "arrowInk": [
+    270,
+    809
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    67,
+    52.2,
+    2.39
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n6",
+   "to": "n3",
+   "routing": "straight",
+   "fromPoint": [
+    3070,
+    1171
+   ],
+   "toPoint": [
+    3067,
+    608
+   ],
+   "arrowInk": [
+    276,
+    778
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    69,
+    55.4,
+    2.39
+   ],
+   "arrowFill": 0.065,
+   "guard": "[insist on deletion]",
+   "edgeKind": "control"
+  },
+  {
+   "from": "n7",
+   "to": "n6",
+   "routing": "straight",
+   "fromPoint": [
+    1872,
+    1362
+   ],
+   "toPoint": [
+    2781,
+    1362
+   ],
+   "arrowInk": [
+    270,
+    807
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    70,
+    52.0,
+    2.48
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n5",
+   "to": "n7",
+   "routing": "straight",
+   "fromPoint": [
+    638,
+    1381
+   ],
+   "toPoint": [
+    1433,
+    1380
+   ],
+   "arrowInk": [
+    270,
+    768
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    64,
+    51.9,
+    2.74
+   ],
+   "arrowFill": 0.0,
+   "guard": "[query catalogue deletion]",
+   "edgeKind": "object"
+  },
+  {
+   "from": "n6",
+   "to": "n11",
+   "routing": "straight",
+   "fromPoint": [
+    3068,
+    1557
+   ],
+   "toPoint": [
+    3068,
+    2168
+   ],
+   "arrowInk": [
+    270,
+    823
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    65,
+    54.0,
+    2.25
+   ],
+   "arrowFill": 0.0,
+   "guard": "[cancel deletion]",
+   "edgeKind": "control"
+  },
+  {
+   "from": "n5",
+   "to": "n9",
+   "routing": "straight",
+   "fromPoint": [
+    411,
+    1608
+   ],
+   "toPoint": [
+    413,
+    2102
+   ],
+   "arrowInk": [
+    270,
+    818
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    64,
+    55.6,
+    2.07
+   ],
+   "arrowFill": 0.007,
+   "guard": "[accept catalogue deletion]",
+   "edgeKind": "control"
+  },
+  {
+   "from": "n9",
+   "to": "n8",
+   "routing": "straight",
+   "fromPoint": [
+    678,
+    2203
+   ],
+   "toPoint": [
+    1395,
+    2203
+   ],
+   "arrowInk": [
+    225,
+    745
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    68,
+    52.0,
+    2.81
+   ],
+   "arrowSaturated": true,
+   "arrowFill": 0.0,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n8",
+   "to": "n10",
+   "routing": "straight",
+   "fromPoint": [
+    1834,
+    2218
+   ],
+   "toPoint": [
+    2106,
+    2218
+   ],
+   "arrowInk": [
+    270,
+    826
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    65,
+    54.0,
+    2.21
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n10",
+   "to": "n11",
+   "routing": "straight",
+   "fromPoint": [
+    2792,
+    2221
+   ],
+   "toPoint": [
+    3014,
+    2223
+   ],
+   "arrowInk": [
+    225,
+    791
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    64,
+    53.0,
+    2.15
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n9",
+   "to": "n12",
+   "routing": "straight",
+   "fromPoint": [
+    424,
+    2295
+   ],
+   "toPoint": [
+    426,
+    2508
+   ],
+   "arrowInk": [
+    270,
+    822
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    65,
+    51.1,
+    2.16
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n12",
+   "to": "n13",
+   "routing": "straight",
+   "fromPoint": [
+    688,
+    2618
+   ],
+   "toPoint": [
+    1109,
+    2620
+   ],
+   "arrowInk": [
+    225,
+    782
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    64,
+    53.5,
+    2.22
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "control"
+  }
+ ],
+ "text": [
+  {
+   "text": "Receiver Party",
+   "x": 590,
+   "y": 28,
+   "w": 305,
+   "h": 44,
+   "lines": [
+    {
+     "x": 590,
+     "y": 28,
+     "w": 305,
+     "h": 44,
+     "text": "Receiver Party"
+    }
+   ]
+  },
+  {
+   "text": "Provider Party",
+   "x": 2434,
+   "y": 28,
+   "w": 294,
+   "h": 44,
+   "lines": [
+    {
+     "x": 2434,
+     "y": 28,
+     "w": 294,
+     "h": 44,
+     "text": "Provider Party"
+    }
+   ]
+  },
+  {
+   "text": "[insist on deletion]",
+   "x": 2618,
+   "y": 988,
+   "w": 373,
+   "h": 43,
+   "lines": [
+    {
+     "x": 2618,
+     "y": 988,
+     "w": 373,
+     "h": 43,
+     "text": "[insist on deletion]"
+    }
+   ],
+   "attachedTo": "n6->n3"
+  },
+  {
+   "text": "[query catalogue deletion]",
+   "x": 746,
+   "y": 1404,
+   "w": 535,
+   "h": 44,
+   "lines": [
+    {
+     "x": 746,
+     "y": 1404,
+     "w": 535,
+     "h": 44,
+     "text": "[query catalogue deletion]"
+    }
+   ],
+   "attachedTo": "n5->n7"
+  },
+  {
+   "text": "[cancel deletion]",
+   "x": 2642,
+   "y": 1612,
+   "w": 335,
+   "h": 44,
+   "lines": [
+    {
+     "x": 2642,
+     "y": 1612,
+     "w": 335,
+     "h": 44,
+     "text": "[cancel deletion]"
+    }
+   ],
+   "attachedTo": "n6->n11"
+  },
+  {
+   "text": "[accept catalogue deletion]",
+   "x": 112,
+   "y": 1882,
+   "w": 556,
+   "h": 43,
+   "lines": [
+    {
+     "x": 112,
+     "y": 1882,
+     "w": 556,
+     "h": 43,
+     "text": "[accept catalogue deletion]"
+    }
+   ],
+   "attachedTo": "n5->n9"
+  }
+ ],
+ "uncertain": [
+  {
+   "x": 414,
+   "y": 504,
+   "w": 1215,
+   "h": 874,
+   "shape": "rounded",
+   "iou": 0.942,
+   "border": 0.742,
+   "kind": "dropped-region",
+   "reason": "4 of 4 sides are pass-through line-work",
+   "check": "a shape here would be missing from the SVG"
+  }
+ ]
+}

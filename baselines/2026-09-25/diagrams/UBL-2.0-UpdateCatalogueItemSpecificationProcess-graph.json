@@ -1,0 +1,1778 @@
+{
+ "source": "UBL-2.0-UpdateCatalogueItemSpecificationProcess.png",
+ "size": [
+  3425,
+  4173
+ ],
+ "fontPx": 47.1,
+ "arrowPx": 63.0,
+ "arrowWidthPx": 50.3,
+ "arrowStyle": "open",
+ "rules": {
+  "v": [
+   [
+    0,
+    10
+   ],
+   [
+    1608,
+    6
+   ],
+   [
+    3415,
+    10
+   ]
+  ],
+  "h": [
+   [
+    0,
+    10
+   ],
+   [
+    4163,
+    10
+   ]
+  ]
+ },
+ "ruleSpan": {
+  "v": [
+   [
+    13,
+    4159
+   ],
+   [
+    13,
+    4159
+   ],
+   [
+    13,
+    4159
+   ]
+  ],
+  "h": [
+   [
+    13,
+    3411
+   ],
+   [
+    13,
+    3411
+   ]
+  ]
+ },
+ "greyRules": [],
+ "dashed": [],
+ "openEnds": [],
+ "crossMarks": [],
+ "partitions": [
+  {
+   "axis": "column",
+   "index": 0,
+   "x0": 0,
+   "x1": 1611,
+   "title": "Receiver Party",
+   "titleBox": [
+    660,
+    27,
+    287,
+    41
+   ]
+  },
+  {
+   "axis": "column",
+   "index": 1,
+   "x0": 1611,
+   "x1": 3425,
+   "title": "Provider Party",
+   "titleBox": [
+    2373,
+    27,
+    277,
+    41
+   ]
+  },
+  {
+   "axis": "band",
+   "index": 0,
+   "y0": 0,
+   "y1": 4173,
+   "title": ""
+  }
+ ],
+ "nodes": [
+  {
+   "x": 3121,
+   "y": 155,
+   "w": 90,
+   "h": 90,
+   "area": 5422,
+   "fill": 0.768,
+   "kind": "initial",
+   "id": "n1",
+   "label": "",
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 2464,
+   "y": 170,
+   "w": 586,
+   "h": 345,
+   "area": 96104,
+   "fill": 0.475,
+   "solid": 0.502,
+   "rx": 309,
+   "ry": 182,
+   "shape": "rhombus",
+   "stroke": 5,
+   "kind": "decision",
+   "id": "n2",
+   "label": "Respond to Request",
+   "labelLines": [
+    {
+     "x": 2538,
+     "y": 317,
+     "w": 403,
+     "h": 41,
+     "text": "Respond to Request"
+    }
+   ],
+   "stem": 0.085,
+   "bold": false,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 1411,
+   "y": 234,
+   "w": 387,
+   "h": 208,
+   "area": 74471,
+   "fill": 0.925,
+   "solid": 1.0,
+   "rx": 0,
+   "ry": 0,
+   "shape": "rect",
+   "stroke": 9,
+   "kind": "object",
+   "id": "n3",
+   "label": "Catalogue\nRequest",
+   "labelLines": [
+    {
+     "x": 1491,
+     "y": 281,
+     "w": 212,
+     "h": 42,
+     "text": "Catalogue"
+    },
+    {
+     "x": 1516,
+     "y": 330,
+     "w": 177,
+     "h": 41,
+     "text": "Request"
+    }
+   ],
+   "stem": 0.127,
+   "bold": true,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 512,
+   "y": 281,
+   "w": 619,
+   "h": 128,
+   "area": 67037,
+   "fill": 0.846,
+   "solid": 0.954,
+   "rx": 62,
+   "ry": 58,
+   "shape": "rounded",
+   "stroke": 5,
+   "kind": "action",
+   "id": "n4",
+   "label": "Request Catalogue Update",
+   "labelLines": [
+    {
+     "x": 538,
+     "y": 321,
+     "w": 563,
+     "h": 43,
+     "text": "Request Catalogue Update"
+    }
+   ],
+   "stem": 0.127,
+   "bold": true,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 163,
+   "y": 307,
+   "w": 90,
+   "h": 89,
+   "area": 5409,
+   "fill": 0.776,
+   "kind": "initial",
+   "id": "n5",
+   "label": "",
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 1375,
+   "y": 675,
+   "w": 387,
+   "h": 205,
+   "area": 69235,
+   "fill": 0.873,
+   "solid": 1.0,
+   "rx": 0,
+   "ry": 0,
+   "shape": "rect",
+   "stroke": 10,
+   "kind": "object",
+   "id": "n6",
+   "label": "Application\nResponse\n(negative)",
+   "labelLines": [
+    {
+     "x": 1441,
+     "y": 711,
+     "w": 243,
+     "h": 41,
+     "text": "Application"
+    },
+    {
+     "x": 1457,
+     "y": 760,
+     "w": 212,
+     "h": 41,
+     "text": "Response"
+    },
+    {
+     "x": 1467,
+     "y": 809,
+     "w": 208,
+     "h": 42,
+     "text": "(negative)"
+    }
+   ],
+   "stem": 0.127,
+   "bold": true,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 2055,
+   "y": 682,
+   "w": 544,
+   "h": 160,
+   "area": 78497,
+   "fill": 0.902,
+   "solid": 0.956,
+   "rx": 68,
+   "ry": 63,
+   "shape": "rounded",
+   "stroke": 5,
+   "kind": "action",
+   "id": "n7",
+   "label": "Send Rejection",
+   "labelLines": [
+    {
+     "x": 2161,
+     "y": 741,
+     "w": 318,
+     "h": 42,
+     "text": "Send Rejection"
+    }
+   ],
+   "stem": 0.127,
+   "bold": true,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 766,
+   "y": 735,
+   "w": 79,
+   "h": 80,
+   "area": 4029,
+   "fill": 0.637,
+   "solid": 0.794,
+   "rx": 39,
+   "ry": 37,
+   "shape": "ellipse",
+   "stroke": 5,
+   "kind": "final",
+   "innerRatio": 0.443,
+   "id": "n8",
+   "label": "",
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 2621,
+   "y": 953,
+   "w": 295,
+   "h": 28,
+   "area": 6387,
+   "fill": 0.614,
+   "kind": "fork",
+   "band": 28,
+   "box": 42,
+   "lumps": 1,
+   "id": "n9",
+   "label": "",
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 1384,
+   "y": 1313,
+   "w": 387,
+   "h": 209,
+   "area": 70936,
+   "fill": 0.877,
+   "solid": 1.0,
+   "rx": 0,
+   "ry": 0,
+   "shape": "rect",
+   "stroke": 10,
+   "kind": "object",
+   "id": "n10",
+   "label": "Application\nResponse\n(positive)",
+   "labelLines": [
+    {
+     "x": 1451,
+     "y": 1348,
+     "w": 242,
+     "h": 41,
+     "text": "Application"
+    },
+    {
+     "x": 1466,
+     "y": 1397,
+     "w": 212,
+     "h": 41,
+     "text": "Response"
+    },
+    {
+     "x": 1480,
+     "y": 1446,
+     "w": 196,
+     "h": 41,
+     "text": "(positive)"
+    }
+   ],
+   "stem": 0.127,
+   "bold": true,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 2046,
+   "y": 1338,
+   "w": 539,
+   "h": 186,
+   "area": 88203,
+   "fill": 0.88,
+   "solid": 0.964,
+   "rx": 59,
+   "ry": 62,
+   "shape": "rounded",
+   "stroke": 6,
+   "kind": "action",
+   "id": "n11",
+   "label": "Send Acceptance\nResponse",
+   "labelLines": [
+    {
+     "x": 2121,
+     "y": 1378,
+     "w": 369,
+     "h": 41,
+     "text": "Send Acceptance"
+    },
+    {
+     "x": 2211,
+     "y": 1437,
+     "w": 209,
+     "h": 40,
+     "text": "Response"
+    }
+   ],
+   "stem": 0.127,
+   "bold": true,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 2671,
+   "y": 1364,
+   "w": 588,
+   "h": 183,
+   "area": 90889,
+   "fill": 0.845,
+   "solid": 0.964,
+   "rx": 63,
+   "ry": 65,
+   "shape": "rounded",
+   "stroke": 5,
+   "kind": "action",
+   "id": "n12",
+   "label": "Prepare Catalogue Item\nUpdate Information",
+   "labelLines": [
+    {
+     "x": 2707,
+     "y": 1405,
+     "w": 492,
+     "h": 42,
+     "text": "Prepare Catalogue Item"
+    },
+    {
+     "x": 2765,
+     "y": 1463,
+     "w": 403,
+     "h": 41,
+     "text": "Update Information"
+    }
+   ],
+   "stem": 0.127,
+   "bold": true,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 1397,
+   "y": 1799,
+   "w": 388,
+   "h": 209,
+   "area": 70178,
+   "fill": 0.865,
+   "solid": 1.0,
+   "rx": 0,
+   "ry": 0,
+   "shape": "rect",
+   "stroke": 10,
+   "kind": "object",
+   "id": "n13",
+   "label": "Catalogue Item\nSpecification\nUpdate",
+   "labelLines": [
+    {
+     "x": 1428,
+     "y": 1842,
+     "w": 315,
+     "h": 42,
+     "text": "Catalogue Item"
+    },
+    {
+     "x": 1444,
+     "y": 1891,
+     "w": 275,
+     "h": 42,
+     "text": "Specification"
+    },
+    {
+     "x": 1522,
+     "y": 1941,
+     "w": 147,
+     "h": 41,
+     "text": "Update"
+    }
+   ],
+   "stem": 0.127,
+   "bold": true,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 2702,
+   "y": 1810,
+   "w": 597,
+   "h": 187,
+   "area": 99045,
+   "fill": 0.887,
+   "solid": 0.966,
+   "rx": 69,
+   "ry": 65,
+   "shape": "rounded",
+   "stroke": 5,
+   "kind": "action",
+   "id": "n14",
+   "label": "Distribute Item\nModifications",
+   "labelLines": [
+    {
+     "x": 2841,
+     "y": 1852,
+     "w": 306,
+     "h": 32,
+     "text": "Distribute Item"
+    },
+    {
+     "x": 2858,
+     "y": 1909,
+     "w": 283,
+     "h": 33,
+     "text": "Modifications"
+    }
+   ],
+   "stem": 0.127,
+   "bold": true,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 908,
+   "y": 1889,
+   "w": 179,
+   "h": 28,
+   "area": 3866,
+   "fill": 0.621,
+   "kind": "fork",
+   "band": 28,
+   "box": 42,
+   "lumps": 1,
+   "id": "n15",
+   "label": "",
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 529,
+   "y": 2211,
+   "w": 620,
+   "h": 142,
+   "area": 77971,
+   "fill": 0.886,
+   "solid": 0.957,
+   "rx": 66,
+   "ry": 63,
+   "shape": "rounded",
+   "stroke": 5,
+   "kind": "action",
+   "id": "n16",
+   "label": "Receive Item Update",
+   "labelLines": [
+    {
+     "x": 614,
+     "y": 2262,
+     "w": 432,
+     "h": 41,
+     "text": "Receive Item Update"
+    }
+   ],
+   "stem": 0.127,
+   "bold": true,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 384,
+   "y": 2582,
+   "w": 516,
+   "h": 403,
+   "area": 99533,
+   "fill": 0.479,
+   "solid": 0.502,
+   "rx": 273,
+   "ry": 214,
+   "shape": "rhombus",
+   "stroke": 5,
+   "kind": "decision",
+   "id": "n17",
+   "label": "Review Item\nDetails",
+   "labelLines": [
+    {
+     "x": 535,
+     "y": 2725,
+     "w": 238,
+     "h": 33,
+     "text": "Review Item"
+    },
+    {
+     "x": 535,
+     "y": 2783,
+     "w": 130,
+     "h": 33,
+     "text": "Details"
+    }
+   ],
+   "stem": 0.085,
+   "bold": false,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 2820,
+   "y": 2591,
+   "w": 485,
+   "h": 359,
+   "area": 82846,
+   "fill": 0.476,
+   "solid": 0.501,
+   "rx": 254,
+   "ry": 191,
+   "shape": "rhombus",
+   "stroke": 5,
+   "kind": "decision",
+   "id": "n18",
+   "label": "Decide on Action",
+   "labelLines": [
+    {
+     "x": 2881,
+     "y": 2743,
+     "w": 331,
+     "h": 33,
+     "text": "Decide on Action"
+    }
+   ],
+   "stem": 0.085,
+   "bold": false,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 1402,
+   "y": 2682,
+   "w": 387,
+   "h": 208,
+   "area": 70380,
+   "fill": 0.874,
+   "solid": 1.0,
+   "rx": 0,
+   "ry": 0,
+   "shape": "rect",
+   "stroke": 10,
+   "kind": "object",
+   "id": "n19",
+   "label": "Application\nResponse\n(negative)",
+   "labelLines": [
+    {
+     "x": 1468,
+     "y": 2711,
+     "w": 243,
+     "h": 41,
+     "text": "Application"
+    },
+    {
+     "x": 1484,
+     "y": 2760,
+     "w": 211,
+     "h": 41,
+     "text": "Response"
+    },
+    {
+     "x": 1494,
+     "y": 2809,
+     "w": 208,
+     "h": 42,
+     "text": "(negative)"
+    }
+   ],
+   "stem": 0.127,
+   "bold": true,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 378,
+   "y": 3433,
+   "w": 543,
+   "h": 187,
+   "area": 90011,
+   "fill": 0.886,
+   "solid": 0.963,
+   "rx": 66,
+   "ry": 59,
+   "shape": "rounded",
+   "stroke": 5,
+   "kind": "action",
+   "id": "n20",
+   "label": "Acknowledge\nAcceptance",
+   "labelLines": [
+    {
+     "x": 495,
+     "y": 3474,
+     "w": 286,
+     "h": 42,
+     "text": "Acknowledge"
+    },
+    {
+     "x": 522,
+     "y": 3532,
+     "w": 248,
+     "h": 41,
+     "text": "Acceptance"
+    }
+   ],
+   "stem": 0.127,
+   "bold": true,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 1379,
+   "y": 3440,
+   "w": 388,
+   "h": 209,
+   "area": 71141,
+   "fill": 0.877,
+   "solid": 1.0,
+   "rx": 0,
+   "ry": 0,
+   "shape": "rect",
+   "stroke": 10,
+   "kind": "object",
+   "id": "n21",
+   "label": "Application\nResponse\n(positive)",
+   "labelLines": [
+    {
+     "x": 1446,
+     "y": 3473,
+     "w": 243,
+     "h": 41,
+     "text": "Application"
+    },
+    {
+     "x": 1462,
+     "y": 3522,
+     "w": 211,
+     "h": 41,
+     "text": "Response"
+    },
+    {
+     "x": 1476,
+     "y": 3571,
+     "w": 196,
+     "h": 41,
+     "text": "(positive)"
+    }
+   ],
+   "stem": 0.127,
+   "bold": true,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 2149,
+   "y": 3455,
+   "w": 619,
+   "h": 169,
+   "area": 95771,
+   "fill": 0.915,
+   "solid": 0.964,
+   "rx": 66,
+   "ry": 65,
+   "shape": "rounded",
+   "stroke": 5,
+   "kind": "action",
+   "id": "n22",
+   "label": "Activate Changes",
+   "labelLines": [
+    {
+     "x": 2267,
+     "y": 3518,
+     "w": 371,
+     "h": 42,
+     "text": "Activate Changes"
+    }
+   ],
+   "stem": 0.127,
+   "bold": true,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 3023,
+   "y": 3478,
+   "w": 80,
+   "h": 79,
+   "area": 4042,
+   "fill": 0.64,
+   "solid": 0.797,
+   "rx": 34,
+   "ry": 37,
+   "shape": "ellipse",
+   "stroke": 0,
+   "kind": "final",
+   "innerRatio": 0.45,
+   "id": "n23",
+   "label": "",
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 355,
+   "y": 3910,
+   "w": 544,
+   "h": 187,
+   "area": 93154,
+   "fill": 0.916,
+   "solid": 0.962,
+   "rx": 63,
+   "ry": 63,
+   "shape": "rounded",
+   "stroke": 5,
+   "kind": "action",
+   "id": "n24",
+   "label": "Apply Changes",
+   "labelLines": [
+    {
+     "x": 463,
+     "y": 3977,
+     "w": 321,
+     "h": 42,
+     "text": "Apply Changes"
+    }
+   ],
+   "stem": 0.127,
+   "bold": true,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 1324,
+   "y": 3968,
+   "w": 79,
+   "h": 80,
+   "area": 4021,
+   "fill": 0.636,
+   "solid": 0.794,
+   "rx": 35,
+   "ry": 33,
+   "shape": "ellipse",
+   "stroke": 5,
+   "kind": "final",
+   "innerRatio": 0.443,
+   "id": "n25",
+   "label": "",
+   "col": 0,
+   "row": 0
+  }
+ ],
+ "edges": [
+  {
+   "from": "n1",
+   "to": "n12",
+   "routing": "straight",
+   "fromPoint": [
+    3172,
+    259
+   ],
+   "toPoint": [
+    3172,
+    1349
+   ],
+   "arrowInk": [
+    225,
+    748
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    61,
+    48.0,
+    2.18
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n4",
+   "to": "n3",
+   "routing": "straight",
+   "fromPoint": [
+    1145,
+    341
+   ],
+   "toPoint": [
+    1396,
+    339
+   ],
+   "arrowInk": [
+    225,
+    718
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    63,
+    49.1,
+    2.58
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n3",
+   "to": "n2",
+   "routing": "straight",
+   "fromPoint": [
+    1812,
+    340
+   ],
+   "toPoint": [
+    2449,
+    340
+   ],
+   "arrowInk": [
+    225,
+    738
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    66,
+    48.0,
+    2.46
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n5",
+   "to": "n4",
+   "routing": "straight",
+   "fromPoint": [
+    267,
+    350
+   ],
+   "toPoint": [
+    497,
+    347
+   ],
+   "arrowInk": [
+    270,
+    794
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    60,
+    50.7,
+    2.06
+   ],
+   "arrowFill": 0.042,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n2",
+   "to": "n7",
+   "routing": "diagonal",
+   "fromPoint": [
+    2740,
+    529
+   ],
+   "toPoint": [
+    2433,
+    667
+   ],
+   "arrowInk": [
+    470,
+    523
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    114,
+    99.8,
+    2.27
+   ],
+   "arrowFill": 0.04,
+   "guard": "[reject request]",
+   "edgeKind": "control"
+  },
+  {
+   "from": "n2",
+   "to": "n9",
+   "routing": "straight",
+   "fromPoint": [
+    2757,
+    529
+   ],
+   "toPoint": [
+    2757,
+    938
+   ],
+   "arrowInk": [
+    369,
+    760
+   ],
+   "directionConfidence": "medium",
+   "guard": "[accept request]",
+   "edgeKind": "control"
+  },
+  {
+   "from": "n7",
+   "to": "n6",
+   "routing": "straight",
+   "fromPoint": [
+    2040,
+    771
+   ],
+   "toPoint": [
+    1776,
+    774
+   ],
+   "arrowInk": [
+    276,
+    694
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    66,
+    50.6,
+    2.84
+   ],
+   "arrowFill": 0.037,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n6",
+   "to": "n8",
+   "routing": "straight",
+   "fromPoint": [
+    1360,
+    777
+   ],
+   "toPoint": [
+    859,
+    777
+   ],
+   "arrowInk": [
+    230,
+    724
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    67,
+    50.0,
+    2.51
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n9",
+   "to": "n11",
+   "routing": "diagonal",
+   "fromPoint": [
+    2748,
+    995
+   ],
+   "toPoint": [
+    2411,
+    1323
+   ],
+   "arrowInk": [
+    518,
+    709
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    119,
+    99.5,
+    0.2
+   ],
+   "arrowSaturated": true,
+   "arrowFill": 0.09,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n9",
+   "to": "n12",
+   "routing": "diagonal",
+   "fromPoint": [
+    2777,
+    995
+   ],
+   "toPoint": [
+    2928,
+    1349
+   ],
+   "arrowInk": [
+    372,
+    788
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    114,
+    60.8,
+    0.32
+   ],
+   "arrowFill": 0.143,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n11",
+   "to": "n10",
+   "routing": "straight",
+   "fromPoint": [
+    2031,
+    1420
+   ],
+   "toPoint": [
+    1785,
+    1418
+   ],
+   "arrowInk": [
+    230,
+    662
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    66,
+    51.0,
+    2.96
+   ],
+   "arrowSaturated": true,
+   "arrowFill": 0.0,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n10",
+   "to": "n15",
+   "routing": "diagonal",
+   "fromPoint": [
+    1369,
+    1440
+   ],
+   "toPoint": [
+    1024,
+    1874
+   ],
+   "arrowInk": [
+    297,
+    769
+   ],
+   "directionConfidence": "mark-at-head",
+   "arrowPx": [
+    71,
+    100.4,
+    3.75
+   ],
+   "arrowFill": 0.001,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n12",
+   "to": "n14",
+   "routing": "straight",
+   "fromPoint": [
+    2965,
+    1561
+   ],
+   "toPoint": [
+    2969,
+    1795
+   ],
+   "arrowInk": [
+    225,
+    751
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    61,
+    52.3,
+    2.03
+   ],
+   "arrowFill": 0.066,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n13",
+   "to": "n15",
+   "routing": "straight",
+   "fromPoint": [
+    1382,
+    1905
+   ],
+   "toPoint": [
+    1101,
+    1905
+   ],
+   "arrowInk": [
+    230,
+    819
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    63,
+    48.0,
+    2.17
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n14",
+   "to": "n13",
+   "routing": "straight",
+   "fromPoint": [
+    2687,
+    1905
+   ],
+   "toPoint": [
+    1799,
+    1905
+   ],
+   "arrowInk": [
+    230,
+    672
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    66,
+    48.0,
+    3.06
+   ],
+   "arrowSaturated": true,
+   "arrowFill": 0.0,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n15",
+   "to": "n16",
+   "routing": "straight",
+   "fromPoint": [
+    1000,
+    1931
+   ],
+   "toPoint": [
+    998,
+    2196
+   ],
+   "arrowInk": [
+    225,
+    751
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    60,
+    51.2,
+    2.09
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n18",
+   "to": "n14",
+   "routing": "straight",
+   "fromPoint": [
+    3062,
+    2576
+   ],
+   "toPoint": [
+    3059,
+    2011
+   ],
+   "arrowInk": [
+    276,
+    755
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    65,
+    51.4,
+    2.28
+   ],
+   "arrowFill": 0.069,
+   "guard": "[revise catalogue item]",
+   "edgeKind": "control"
+  },
+  {
+   "from": "n16",
+   "to": "n17",
+   "routing": "straight",
+   "fromPoint": [
+    647,
+    2367
+   ],
+   "toPoint": [
+    642,
+    2567
+   ],
+   "arrowInk": [
+    226,
+    754
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    63,
+    50.6,
+    2.28
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n19",
+   "to": "n18",
+   "routing": "straight",
+   "fromPoint": [
+    1803,
+    2771
+   ],
+   "toPoint": [
+    2805,
+    2770
+   ],
+   "arrowInk": [
+    270,
+    788
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    63,
+    48.1,
+    2.28
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n17",
+   "to": "n19",
+   "routing": "straight",
+   "fromPoint": [
+    914,
+    2784
+   ],
+   "toPoint": [
+    1387,
+    2784
+   ],
+   "arrowInk": [
+    225,
+    715
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    64,
+    50.0,
+    2.74
+   ],
+   "arrowFill": 0.0,
+   "guard": "[query changes]",
+   "edgeKind": "object"
+  },
+  {
+   "from": "n18",
+   "to": "n23",
+   "routing": "straight",
+   "fromPoint": [
+    3061,
+    2964
+   ],
+   "toPoint": [
+    3061,
+    3463
+   ],
+   "arrowInk": [
+    270,
+    795
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    62,
+    50.0,
+    2.15
+   ],
+   "arrowFill": 0.0,
+   "guard": "[cancel transaction]",
+   "edgeKind": "control"
+  },
+  {
+   "from": "n17",
+   "to": "n20",
+   "routing": "straight",
+   "fromPoint": [
+    641,
+    2999
+   ],
+   "toPoint": [
+    647,
+    3418
+   ],
+   "arrowInk": [
+    225,
+    745
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    61,
+    48.6,
+    2.16
+   ],
+   "arrowFill": 0.0,
+   "guard": "[accept changes]",
+   "edgeKind": "control"
+  },
+  {
+   "from": "n22",
+   "to": "n23",
+   "routing": "straight",
+   "fromPoint": [
+    2782,
+    3515
+   ],
+   "toPoint": [
+    3008,
+    3515
+   ],
+   "arrowInk": [
+    225,
+    750
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    61,
+    50.0,
+    2.16
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n20",
+   "to": "n21",
+   "routing": "straight",
+   "fromPoint": [
+    935,
+    3527
+   ],
+   "toPoint": [
+    1364,
+    3529
+   ],
+   "arrowInk": [
+    225,
+    722
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    63,
+    49.5,
+    2.57
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n21",
+   "to": "n22",
+   "routing": "straight",
+   "fromPoint": [
+    1781,
+    3543
+   ],
+   "toPoint": [
+    2134,
+    3540
+   ],
+   "arrowInk": [
+    270,
+    790
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    61,
+    51.1,
+    2.07
+   ],
+   "arrowFill": 0.068,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n20",
+   "to": "n24",
+   "routing": "straight",
+   "fromPoint": [
+    652,
+    3634
+   ],
+   "toPoint": [
+    650,
+    3895
+   ],
+   "arrowInk": [
+    225,
+    748
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    60,
+    51.2,
+    2.1
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n24",
+   "to": "n25",
+   "routing": "straight",
+   "fromPoint": [
+    913,
+    4004
+   ],
+   "toPoint": [
+    1309,
+    4007
+   ],
+   "arrowInk": [
+    270,
+    792
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    60,
+    51.3,
+    2.08
+   ],
+   "arrowFill": 0.069,
+   "edgeKind": "control"
+  }
+ ],
+ "text": [
+  {
+   "text": "Receiver Party",
+   "x": 660,
+   "y": 27,
+   "w": 287,
+   "h": 41,
+   "lines": [
+    {
+     "x": 660,
+     "y": 27,
+     "w": 287,
+     "h": 41,
+     "text": "Receiver Party"
+    }
+   ]
+  },
+  {
+   "text": "Provider Party",
+   "x": 2373,
+   "y": 27,
+   "w": 277,
+   "h": 41,
+   "lines": [
+    {
+     "x": 2373,
+     "y": 27,
+     "w": 277,
+     "h": 41,
+     "text": "Provider Party"
+    }
+   ]
+  },
+  {
+   "text": "oupplier Initiated\nUpdate",
+   "x": 2942,
+   "y": 67,
+   "w": 328,
+   "h": 100,
+   "lines": [
+    {
+     "x": 2942,
+     "y": 67,
+     "w": 328,
+     "h": 42,
+     "text": "oupplier Initiated"
+    },
+    {
+     "x": 2944,
+     "y": 126,
+     "w": 256,
+     "h": 45,
+     "text": "Update"
+    }
+   ]
+  },
+  {
+   "text": "Customer\nInitiated\nUpdate",
+   "x": 154,
+   "y": 437,
+   "w": 191,
+   "h": 158,
+   "lines": [
+    {
+     "x": 154,
+     "y": 437,
+     "w": 191,
+     "h": 34,
+     "text": "Customer"
+    },
+    {
+     "x": 155,
+     "y": 496,
+     "w": 150,
+     "h": 33,
+     "text": "Initiated"
+    },
+    {
+     "x": 155,
+     "y": 554,
+     "w": 139,
+     "h": 41,
+     "text": "Update"
+    }
+   ]
+  },
+  {
+   "text": "[reject request]",
+   "x": 2283,
+   "y": 549,
+   "w": 289,
+   "h": 41,
+   "lines": [
+    {
+     "x": 2283,
+     "y": 549,
+     "w": 289,
+     "h": 41,
+     "text": "[reject request]"
+    }
+   ],
+   "attachedTo": "n2->n7"
+  },
+  {
+   "text": "[accept request]",
+   "x": 2742,
+   "y": 701,
+   "w": 313,
+   "h": 41,
+   "lines": [
+    {
+     "x": 2742,
+     "y": 701,
+     "w": 313,
+     "h": 41,
+     "text": "[accept request]"
+    }
+   ],
+   "attachedTo": "n2->n9"
+  },
+  {
+   "text": "[revise catalogue item]",
+   "x": 2551,
+   "y": 2471,
+   "w": 440,
+   "h": 41,
+   "lines": [
+    {
+     "x": 2551,
+     "y": 2471,
+     "w": 440,
+     "h": 41,
+     "text": "[revise catalogue item]"
+    }
+   ],
+   "attachedTo": "n18->n14"
+  },
+  {
+   "text": "[query changes]",
+   "x": 989,
+   "y": 2806,
+   "w": 312,
+   "h": 40,
+   "lines": [
+    {
+     "x": 989,
+     "y": 2806,
+     "w": 312,
+     "h": 40,
+     "text": "[query changes]"
+    }
+   ],
+   "attachedTo": "n17->n19"
+  },
+  {
+   "text": "[accept changes]",
+   "x": 721,
+   "y": 3194,
+   "w": 332,
+   "h": 41,
+   "lines": [
+    {
+     "x": 721,
+     "y": 3194,
+     "w": 332,
+     "h": 41,
+     "text": "[accept changes]"
+    }
+   ],
+   "attachedTo": "n17->n20"
+  },
+  {
+   "text": "[cancel transaction]",
+   "x": 2626,
+   "y": 3212,
+   "w": 380,
+   "h": 40,
+   "lines": [
+    {
+     "x": 2626,
+     "y": 3212,
+     "w": 380,
+     "h": 40,
+     "text": "[cancel transaction]"
+    }
+   ],
+   "attachedTo": "n18->n23"
+  }
+ ],
+ "uncertain": [
+  {
+   "x": 1025,
+   "y": 1443,
+   "w": 583,
+   "h": 460,
+   "shape": "ellipse",
+   "iou": 0.589,
+   "border": 0.445,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best ellipse 0.59, and 0.99 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "x": 645,
+   "y": 1908,
+   "w": 963,
+   "h": 874,
+   "shape": "rounded",
+   "iou": 0.734,
+   "border": 0.596,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best rounded 0.73, and 1.00 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "x": 645,
+   "y": 2787,
+   "w": 963,
+   "h": 739,
+   "shape": "rounded",
+   "iou": 0.915,
+   "border": 0.638,
+   "kind": "dropped-region",
+   "reason": "4 of 4 sides are pass-through line-work",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "kind": "ring-stroke-unreadable",
+   "x": 3023,
+   "y": 3478,
+   "w": 80,
+   "h": 79,
+   "reason": "line-work runs off this activity final on more than one side, so its ring thickness could not be measured",
+   "check": "confirm this is an activity final and how thick its ring is"
+  },
+  {
+   "kind": "unexplained-line-work",
+   "x": 196,
+   "y": 439,
+   "w": 81,
+   "h": 192,
+   "reason": "line-work that is neither a connector between two nodes nor the size of text",
+   "check": "decide what this is; the SVG does not draw it"
+  }
+ ]
+}

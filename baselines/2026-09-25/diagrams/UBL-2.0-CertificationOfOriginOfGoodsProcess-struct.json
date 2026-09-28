@@ -1,0 +1,241 @@
+{
+ "name": "UBL-2.0-CertificationOfOriginOfGoodsProcess.png",
+ "verdict": "needs-human",
+ "radius": 3,
+ "lineWorkInk": 256594,
+ "missingPx": 1280,
+ "inventedPx": 873,
+ "structural": {
+  "absent": 0,
+  "invented": 0,
+  "coherence": 0,
+  "textAbsent": 0,
+  "textDiffers": 0
+ },
+ "blocking": [],
+ "findings": [
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n6 -> n1",
+   "x": 329,
+   "y": 545,
+   "w": 131,
+   "h": 78,
+   "area": 453
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n15 -> n19",
+   "x": 258,
+   "y": 1683,
+   "w": 39,
+   "h": 55,
+   "area": 209
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n15 -> n19",
+   "x": 299,
+   "y": 1740,
+   "w": 60,
+   "h": 81,
+   "area": 204
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n15 -> n19",
+   "x": 254,
+   "y": 1691,
+   "w": 94,
+   "h": 129,
+   "area": 365
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n6 -> n1",
+   "x": 343,
+   "y": 561,
+   "w": 106,
+   "h": 65,
+   "area": 342
+  }
+ ],
+ "text": [],
+ "coherence": [],
+ "human": [
+  {
+   "x": 224,
+   "y": 403,
+   "w": 580,
+   "h": 678,
+   "shape": "rounded",
+   "iou": 0.745,
+   "border": 0.614,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best rounded 0.75, and 0.99 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "x": 214,
+   "y": 1085,
+   "w": 590,
+   "h": 997,
+   "shape": "rounded",
+   "iou": 0.815,
+   "border": 0.785,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best rounded 0.81, and 0.99 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "x": 808,
+   "y": 2393,
+   "w": 991,
+   "h": 134,
+   "shape": "rect",
+   "iou": 1.0,
+   "border": 1.0,
+   "kind": "dropped-region",
+   "reason": "4 of 4 sides are pass-through line-work",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "x": 1802,
+   "y": 2393,
+   "w": 922,
+   "h": 134,
+   "shape": "rect",
+   "iou": 0.879,
+   "border": 0.896,
+   "kind": "dropped-region",
+   "reason": "4 of 4 sides are pass-through line-work",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "kind": "empty-box",
+   "x": 808,
+   "y": 1233,
+   "w": 991,
+   "h": 852,
+   "reason": "a note carrying no text, with line-work passing its sides",
+   "check": "confirm nothing is drawn here in the original"
+  },
+  {
+   "kind": "empty-box",
+   "x": 808,
+   "y": 2086,
+   "w": 991,
+   "h": 303,
+   "reason": "a note carrying no text, with line-work passing its sides",
+   "check": "confirm nothing is drawn here in the original"
+  },
+  {
+   "kind": "unexplained-line-work",
+   "x": 64,
+   "y": 112,
+   "w": 37,
+   "h": 103,
+   "reason": "line-work that is neither a connector between two nodes nor the size of text",
+   "check": "decide what this is; the SVG does not draw it"
+  },
+  {
+   "kind": "unexplained-line-work",
+   "x": 386,
+   "y": 1628,
+   "w": 39,
+   "h": 83,
+   "reason": "line-work that is neither a connector between two nodes nor the size of text",
+   "check": "decide what this is; the SVG does not draw it"
+  },
+  {
+   "kind": "unexplained-line-work",
+   "x": 2491,
+   "y": 1679,
+   "w": 54,
+   "h": 83,
+   "reason": "line-work that is neither a connector between two nodes nor the size of text",
+   "check": "decide what this is; the SVG does not draw it"
+  },
+  {
+   "kind": "arrowhead-unmeasurable",
+   "x": 1227,
+   "y": 557,
+   "w": 120,
+   "h": 120,
+   "reason": "the ink at the head end of n3->n7 measures 60x80px, too wide for this diagram's own 38px arrowhead - a junction, not a head",
+   "check": "confirm the arrowhead here is drawn and points the way the original does"
+  }
+ ],
+ "review": [
+  {
+   "n": 1,
+   "what": "check",
+   "where": "224,403 580x678",
+   "detail": "outline matches no UML node shape (best rounded 0.75, and 0.99 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "n": 2,
+   "what": "check",
+   "where": "214,1085 590x997",
+   "detail": "outline matches no UML node shape (best rounded 0.81, and 0.99 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "n": 3,
+   "what": "check",
+   "where": "808,2393 991x134",
+   "detail": "4 of 4 sides are pass-through line-work",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "n": 4,
+   "what": "check",
+   "where": "1802,2393 922x134",
+   "detail": "4 of 4 sides are pass-through line-work",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "n": 5,
+   "what": "check",
+   "where": "808,1233 991x852",
+   "detail": "a note carrying no text, with line-work passing its sides",
+   "check": "confirm nothing is drawn here in the original"
+  },
+  {
+   "n": 6,
+   "what": "check",
+   "where": "808,2086 991x303",
+   "detail": "a note carrying no text, with line-work passing its sides",
+   "check": "confirm nothing is drawn here in the original"
+  },
+  {
+   "n": 7,
+   "what": "check",
+   "where": "64,112 37x103",
+   "detail": "line-work that is neither a connector between two nodes nor the size of text",
+   "check": "decide what this is; the SVG does not draw it"
+  },
+  {
+   "n": 8,
+   "what": "check",
+   "where": "386,1628 39x83",
+   "detail": "line-work that is neither a connector between two nodes nor the size of text",
+   "check": "decide what this is; the SVG does not draw it"
+  },
+  {
+   "n": 9,
+   "what": "check",
+   "where": "2491,1679 54x83",
+   "detail": "line-work that is neither a connector between two nodes nor the size of text",
+   "check": "decide what this is; the SVG does not draw it"
+  },
+  {
+   "n": 10,
+   "what": "check",
+   "where": "1227,557 120x120",
+   "detail": "the ink at the head end of n3->n7 measures 60x80px, too wide for this diagram's own 38px arrowhead - a junction, not a head",
+   "check": "confirm the arrowhead here is drawn and points the way the original does"
+  }
+ ]
+}

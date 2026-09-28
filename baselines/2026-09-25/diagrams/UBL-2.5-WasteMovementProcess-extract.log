@@ -1,0 +1,41 @@
+image 2501x1733
+
+PARTITION RULES
+   vertical  : [(0, 5), (1248, 5), (2495, 5)]
+   horizontal: [(0, 5), (1727, 5)]
+   -> 2 column(s) x 1 band(s)
+   type measured off the page: a word is 48px tall
+   (dropped x=5     y=5     1243x1722  is a partition cell)
+   (dropped x=1253  y=5     1242x1722  is a partition cell)
+   one line weight only - no object nodes
+
+NODES
+   n1   initial   x=485   y=288   w=52    h=52    stroke=0   fill=0.75  ''
+   n2   action    x=202   y=485   w=619   h=187   stroke=5   fill=0.85  'Prepare partial waste\nmovement'
+   n3   object    x=1012  y=941   w=524   h=235   stroke=5   fill=0.94  'Waste Movement'
+   n4   action    x=226   y=964   w=571   h=188   stroke=4   fill=0.87  'Issue Waste\nMovement'
+   n5   action    x=1732  y=964   w=571   h=188   stroke=4   fill=0.86  'Receive Waste\nMovement'
+   n6   final     x=1972  y=1588  w=91    h=91    stroke=5   fill=0.42  ''
+
+TYPE  cap height 41px over 90 glyphs -> font 58.6px
+   rejoined 4 line break(s) of up to 105px, where a label sits on the line
+
+EDGES
+   n1   -> n2    straight    arrowhead   457 vs 180    ratio 4.0  high
+   n2   -> n4    straight    arrowhead   563 vs 180    ratio 4.0  high
+   n4   -> n3    straight    arrowhead   437 vs 180    ratio 4.0  high
+   n3   -> n5    straight    arrowhead   453 vs 180    ratio 4.0  high
+   n5   -> n6    straight    arrowhead   494 vs 225    ratio 4.0  high
+
+TEXT (titles, guards, notes)
+   'Senderparty'                            x=362   y=144   
+   'ReceiverParty'                          x=1684  y=145   
+
+PARTITIONS
+   column 0  ''
+   column 1  ''
+   band   0  ''
+
+ARROWHEAD  36 x 36px, open, measured on 5 connector(s)
+
+wrote review/baseline/UBL-2.5-WasteMovementProcess-graph.json   (6 nodes, 5 edges, 1 flagged for a human)

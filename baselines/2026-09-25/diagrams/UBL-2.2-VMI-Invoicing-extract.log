@@ -1,0 +1,40 @@
+image 3425x1525
+
+PARTITION RULES
+   vertical  : [(0, 10), (1651, 6), (3415, 10)]
+   horizontal: [(0, 10), (1515, 10)]
+   -> 2 column(s) x 1 band(s)
+   type measured off the page: a word is 57px tall
+   (dropped x=10    y=10    1641x1505  is a partition cell)
+   (dropped x=1657  y=10    1758x1505  is a partition cell)
+   (kept    x=1403  y=679    494x196   own outline, iou 1.00 border 1.00, despite pass-through line-work)
+   object nodes are those stroked heavier than 9.5px
+
+NODES
+   n1   initial   x=427   y=217   w=120   h=119   stroke=0   fill=0.77  ''
+   n2   object    x=1403  y=679   w=494   h=196   stroke=12  fill=0.94  'Invoice'
+   n3   action    x=88    y=688   w=792   h=184   stroke=6   fill=0.90  'Raise Invoice'
+   n4   action    x=2545  y=694   w=792   h=184   stroke=7   fill=0.89  'Receive Invoice'
+   n5   final     x=2884  y=1350  w=107   h=106   stroke=7   fill=0.63  ''
+
+TYPE  cap height 50px over 46 glyphs -> font 70.7px
+   rejoined 1 line break(s) of up to 127px, where a label sits on the line
+
+EDGES
+   n1   -> n3    straight    arrowhead   898 vs 270    ratio 4.0  high
+   n3   -> n2    straight    arrowhead   820 vs 270    ratio 4.0  high
+   n2   -> n4    straight    arrowhead   903 vs 268    ratio 4.0  high
+   n4   -> n5    straight    arrowhead   902 vs 270    ratio 4.0  high
+
+TEXT (titles, guards, notes)
+   'Producer'                               x=671   y=51    
+   'Retailer'                               x=2362  y=55    
+
+PARTITIONS
+   column 0  'Producer'
+   column 1  'Retailer'
+   band   0  ''
+
+ARROWHEAD  82 x 67px, open, measured on 4 connector(s)
+
+wrote review/baseline/UBL-2.2-VMI-Invoicing-graph.json   (5 nodes, 4 edges, 1 flagged for a human)

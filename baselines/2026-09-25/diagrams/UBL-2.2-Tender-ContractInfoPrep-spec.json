@@ -1,0 +1,729 @@
+{
+ "canvas": {
+  "w": 1480.0,
+  "h": 1844.274
+ },
+ "stroke": {
+  "frame": 4.3,
+  "divider": 5.2,
+  "action": 5.2,
+  "object": 5.2,
+  "edge": 5.2
+ },
+ "font": {
+  "family": "Helvetica, Arial, sans-serif",
+  "node": 34.6,
+  "lane": 34.6,
+  "guard": 34.6
+ },
+ "arrow": 36.7,
+ "arrowWidth": 37.8,
+ "arrowStyle": "open",
+ "dashed": [],
+ "greyRules": [],
+ "crossMarks": [],
+ "openEnds": [],
+ "frameBox": [
+  2.2,
+  2.2,
+  1477.8,
+  1842.1
+ ],
+ "dividers": [
+  [
+   803.7,
+   5.2,
+   5.6,
+   1838.2
+  ]
+ ],
+ "bands": [],
+ "lanes": [
+  {
+   "title": "CONTRACTING AUTHORITY",
+   "x": 0.0,
+   "w": 803.7,
+   "cx": 413.5,
+   "cy": 51.6
+  },
+  {
+   "title": "PUBLICATION OFFICE",
+   "x": 803.7,
+   "w": 676.3,
+   "cx": 1140.6,
+   "cy": 51.2
+  }
+ ],
+ "bandLabels": [],
+ "nodes": [
+  {
+   "id": "n5",
+   "kind": "initial",
+   "label": "",
+   "x": 270.5,
+   "y": 89.9,
+   "w": 51.9,
+   "h": 51.9
+  },
+  {
+   "id": "n6",
+   "kind": "action",
+   "label": "Prepare Prior Notice",
+   "x": 104.6,
+   "y": 232.9,
+   "w": 384.2,
+   "h": 93.8,
+   "rx": 44.1,
+   "ry": 47.1,
+   "labelLines": [
+    {
+     "text": "Prepare Prior Notice",
+     "cx": 299.7,
+     "cy": 281.3,
+     "w": 297.7
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "n7",
+   "kind": "object",
+   "label": "Prior\nInformation\nNotice",
+   "x": 686.6,
+   "y": 366.0,
+   "w": 213.0,
+   "h": 220.4,
+   "labelLines": [
+    {
+     "text": "Prior",
+     "cx": 742.2,
+     "cy": 427.8,
+     "w": 79.1
+    },
+    {
+     "text": "Information",
+     "cx": 792.9,
+     "cy": 469.5,
+     "w": 181.5
+    },
+    {
+     "text": "Notice",
+     "cx": 752.7,
+     "cy": 511.2,
+     "w": 100.3
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n8",
+   "kind": "action",
+   "label": "Validate Prior\nInformation Notice",
+   "x": 942.9,
+   "y": 406.2,
+   "w": 360.8,
+   "h": 135.3,
+   "rx": 51.0,
+   "ry": 49.7,
+   "labelLines": [
+    {
+     "text": "Validate Prior",
+     "cx": 1123.9,
+     "cy": 450.3,
+     "w": 199.6
+    },
+    {
+     "text": "Information Notice",
+     "cx": 1122.0,
+     "cy": 491.5,
+     "w": 265.8
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "n9",
+   "kind": "decision",
+   "label": "",
+   "x": 245.9,
+   "y": 421.7,
+   "w": 101.1,
+   "h": 101.1,
+   "bold": false
+  },
+  {
+   "id": "n10",
+   "kind": "decision",
+   "label": "OK?",
+   "x": 1069.9,
+   "y": 587.2,
+   "w": 101.5,
+   "h": 101.5,
+   "labelLines": [
+    {
+     "text": "OK?",
+     "cx": 1121.1,
+     "cy": 640.6,
+     "w": 63.5
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "n12",
+   "kind": "action",
+   "label": "Publish Prior\nInformation Notice",
+   "x": 937.3,
+   "y": 767.0,
+   "w": 361.2,
+   "h": 135.3,
+   "rx": 55.3,
+   "ry": 54.0,
+   "labelLines": [
+    {
+     "text": "Publish Prior",
+     "cx": 1117.2,
+     "cy": 812.4,
+     "w": 186.2
+    },
+    {
+     "text": "Information Notice",
+     "cx": 1111.2,
+     "cy": 853.6,
+     "w": 265.8
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "n13",
+   "kind": "final",
+   "label": "",
+   "x": 1076.2,
+   "y": 943.1,
+   "w": 78.2,
+   "h": 78.2,
+   "innerRatio": 0.714
+  },
+  {
+   "id": "n14",
+   "kind": "action",
+   "label": "Publish in Buyer Profile",
+   "x": 79.5,
+   "y": 1040.5,
+   "w": 434.3,
+   "h": 93.3,
+   "rx": 44.9,
+   "ry": 45.4,
+   "labelLines": [
+    {
+     "text": "Publish in Buyer Profile",
+     "cx": 293.8,
+     "cy": 1088.5,
+     "w": 340.5
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "n15",
+   "kind": "object",
+   "label": "Prior\nInformation\nNotice",
+   "x": 689.7,
+   "y": 1137.3,
+   "w": 213.0,
+   "h": 219.9,
+   "labelLines": [
+    {
+     "text": "Prior",
+     "cx": 748.2,
+     "cy": 1199.6,
+     "w": 79.1
+    },
+    {
+     "text": "Information",
+     "cx": 799.0,
+     "cy": 1241.3,
+     "w": 181.5
+    },
+    {
+     "text": "Notice",
+     "cx": 758.6,
+     "cy": 1283.0,
+     "w": 99.8
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n16",
+   "kind": "action",
+   "label": "Validate Simplified Notice",
+   "x": 964.1,
+   "y": 1202.1,
+   "w": 477.9,
+   "h": 93.8,
+   "rx": 45.2,
+   "ry": 47.1,
+   "labelLines": [
+    {
+     "text": "Validate Simplified Notice",
+     "cx": 1193.1,
+     "cy": 1250.3,
+     "w": 375.9
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "n17",
+   "kind": "action",
+   "label": "Prepare Simplified Notice",
+   "x": 60.5,
+   "y": 1205.2,
+   "w": 472.3,
+   "h": 93.3,
+   "rx": 45.4,
+   "ry": 46.7,
+   "labelLines": [
+    {
+     "text": "Prepare Simplified Notice",
+     "cx": 286.3,
+     "cy": 1253.1,
+     "w": 372.1
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "n19",
+   "kind": "decision",
+   "label": "OK?",
+   "x": 1152.5,
+   "y": 1351.7,
+   "w": 101.1,
+   "h": 101.1,
+   "labelLines": [
+    {
+     "text": "OK?",
+     "cx": 1203.4,
+     "cy": 1404.6,
+     "w": 63.1
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "n21",
+   "kind": "action",
+   "label": "Publish Simplified Notice",
+   "x": 974.4,
+   "y": 1544.4,
+   "w": 462.8,
+   "h": 93.3,
+   "rx": 44.5,
+   "ry": 44.5,
+   "labelLines": [
+    {
+     "text": "Publish Simplified Notice",
+     "cx": 1200.2,
+     "cy": 1592.4,
+     "w": 362.5
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "n22",
+   "kind": "final",
+   "label": "",
+   "x": 1166.7,
+   "y": 1722.8,
+   "w": 77.8,
+   "h": 78.2,
+   "innerRatio": 0.714
+  }
+ ],
+ "edges": [
+  {
+   "from": "n5",
+   "to": "n6",
+   "exitXY": [
+    0.499,
+    1.0
+   ],
+   "entryXY": [
+    0.4992,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n10",
+   "to": "n6",
+   "exitXY": [
+    1.0,
+    0.4985
+   ],
+   "entryXY": [
+    1.0,
+    0.4979
+   ],
+   "straight": false,
+   "confidence": "high",
+   "points": [
+    [
+     1419.1,
+     637.8
+    ],
+    [
+     1419.1,
+     279.6
+    ]
+   ],
+   "label": "No"
+  },
+  {
+   "from": "n6",
+   "to": "n9",
+   "exitXY": [
+    0.4992,
+    1.0
+   ],
+   "entryXY": [
+    0.4995,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "medium"
+  },
+  {
+   "from": "n7",
+   "to": "n8",
+   "exitXY": [
+    1.0,
+    0.5
+   ],
+   "entryXY": [
+    0.0,
+    0.4982
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n9",
+   "to": "n7",
+   "exitXY": [
+    1.0,
+    0.5005
+   ],
+   "entryXY": [
+    0.0,
+    0.5
+   ],
+   "straight": true,
+   "confidence": "high",
+   "label": "Yes"
+  },
+  {
+   "from": "n9",
+   "to": "n14",
+   "exitXY": [
+    0.4995,
+    1.0
+   ],
+   "entryXY": [
+    0.4994,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high",
+   "label": "No"
+  },
+  {
+   "from": "n8",
+   "to": "n10",
+   "exitXY": [
+    0.4994,
+    1.0
+   ],
+   "entryXY": [
+    0.4985,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "checked"
+  },
+  {
+   "from": "n10",
+   "to": "n12",
+   "exitXY": [
+    0.4985,
+    1.0
+   ],
+   "entryXY": [
+    0.5,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high",
+   "label": "Yes"
+  },
+  {
+   "from": "n12",
+   "to": "n13",
+   "exitXY": [
+    0.5,
+    1.0
+   ],
+   "entryXY": [
+    0.5,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "notation"
+  },
+  {
+   "from": "n14",
+   "to": "n17",
+   "exitXY": [
+    0.4994,
+    1.0
+   ],
+   "entryXY": [
+    0.4995,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n15",
+   "to": "n16",
+   "exitXY": [
+    1.0,
+    0.4993
+   ],
+   "entryXY": [
+    0.0,
+    0.4979
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n17",
+   "to": "n15",
+   "exitXY": [
+    1.0,
+    0.4995
+   ],
+   "entryXY": [
+    0.0,
+    0.507
+   ],
+   "straight": true,
+   "confidence": "medium"
+  },
+  {
+   "from": "n16",
+   "to": "n19",
+   "exitXY": [
+    0.4999,
+    1.0
+   ],
+   "entryXY": [
+    0.4995,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "medium"
+  },
+  {
+   "from": "n19",
+   "to": "n17",
+   "exitXY": [
+    0.0,
+    0.5549
+   ],
+   "entryXY": [
+    0.4995,
+    1.0
+   ],
+   "straight": false,
+   "confidence": "medium",
+   "points": [
+    [
+     296.4,
+     1407.8
+    ]
+   ],
+   "label": "No"
+  },
+  {
+   "from": "n19",
+   "to": "n21",
+   "exitXY": [
+    0.4995,
+    1.0
+   ],
+   "entryXY": [
+    0.4996,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high",
+   "label": "Yes"
+  },
+  {
+   "from": "n21",
+   "to": "n22",
+   "exitXY": [
+    0.4996,
+    1.0
+   ],
+   "entryXY": [
+    0.5,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  }
+ ],
+ "guards": [
+  {
+   "text": "Yes",
+   "x": 413.1,
+   "y": 432.5,
+   "w": 55.7,
+   "h": 24.6,
+   "labelLines": [
+    {
+     "text": "Yes",
+     "cx": 441.0,
+     "cy": 444.9,
+     "w": 55.7
+    }
+   ]
+  },
+  {
+   "text": "Above\nThresholds?",
+   "x": 35.4,
+   "y": 454.2,
+   "w": 181.1,
+   "h": 65.7,
+   "labelLines": [
+    {
+     "text": "Above",
+     "cx": 81.9,
+     "cy": 466.3,
+     "w": 92.9
+    },
+    {
+     "text": "Thresholds?",
+     "cx": 126.2,
+     "cy": 507.7,
+     "w": 180.6
+    }
+   ]
+  },
+  {
+   "text": "No",
+   "x": 317.6,
+   "y": 590.3,
+   "w": 38.5,
+   "h": 24.2,
+   "labelLines": [
+    {
+     "text": "No",
+     "cx": 336.8,
+     "cy": 602.4,
+     "w": 38.5
+    }
+   ]
+  },
+  {
+   "text": "No",
+   "x": 1197.4,
+   "y": 593.7,
+   "w": 38.5,
+   "h": 24.6,
+   "labelLines": [
+    {
+     "text": "No",
+     "cx": 1216.6,
+     "cy": 606.0,
+     "w": 38.5
+    }
+   ]
+  },
+  {
+   "text": "Yes",
+   "x": 1142.5,
+   "y": 706.9,
+   "w": 56.2,
+   "h": 24.6,
+   "labelLines": [
+    {
+     "text": "Yes",
+     "cx": 1170.6,
+     "cy": 719.3,
+     "w": 56.2
+    }
+   ]
+  },
+  {
+   "text": "Publish Official\nJournal",
+   "x": 438.2,
+   "y": 1308.0,
+   "w": 210.9,
+   "h": 63.1,
+   "labelLines": [
+    {
+     "text": "Publish Official",
+     "cx": 544.5,
+     "cy": 1320.1,
+     "w": 209.1
+    },
+    {
+     "text": "Journal",
+     "cx": 489.8,
+     "cy": 1359.2,
+     "w": 103.3
+    }
+   ]
+  },
+  {
+   "text": "No",
+   "x": 1092.4,
+   "y": 1356.8,
+   "w": 39.8,
+   "h": 24.6,
+   "labelLines": [
+    {
+     "text": "No",
+     "cx": 1112.3,
+     "cy": 1369.2,
+     "w": 39.8
+    }
+   ]
+  },
+  {
+   "text": "Yes",
+   "x": 1219.9,
+   "y": 1476.5,
+   "w": 56.2,
+   "h": 25.1,
+   "labelLines": [
+    {
+     "text": "Yes",
+     "cx": 1248.0,
+     "cy": 1489.1,
+     "w": 56.2
+    }
+   ]
+  }
+ ]
+}

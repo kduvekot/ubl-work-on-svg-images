@@ -1,0 +1,11 @@
+  verdict: NEEDS-HUMAN
+  structural: 0 element(s) absent, 0 invented, 0 text absent, 0 text differs, 0 incoherent
+  line-work  missing 901 px (0.281%)   invented 530 px (0.165%)   radius 3
+    line-work-missing       96 px at   274,1276     2x48    on node n7 (action 'Receive tender statu')
+    line-work-missing       95 px at   177,445      2x48    on node n2 (action 'Prepare tender statu')
+    line-work-missing       94 px at  2342,761      2x47    on node n5 (action 'Receive tender statu')
+    line-work-missing       63 px at   221,459      2x34    on node n2 (action 'Prepare tender statu')
+  needs a person (2):
+    dropped-region     at 1709,785  a shape here would be missing from the SVG
+    no-weight-split     confirm the diagram really has no object nodes
+/tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-2.2-Tender-Status-marked.png + /tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-2.2-Tender-Status-marked-lost.png  (2 finding(s) numbered)

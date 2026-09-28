@@ -1,0 +1,11 @@
+== UBL-2.2-VMI-ReturnsByProducer
+  UBL-2.2-VMI-ReturnsByProducer -> diagram, layout, extraction  (17 nodes, 17 flows, 3 texts)
+  scale 0.43212   frame 10px  divider 5px  action 5px  object 9px
+  font 57px (24.7 model)   2 lanes, 0 bands, 17 nodes, 17 edges -> /tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-2.2-VMI-ReturnsByProducer-spec.json
+  /tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-2.2-VMI-ReturnsByProducer.svg + .drawio + -classified.svg   (17 nodes, 17 edges)
+  aligned on ink bounds: scale x 1.0000, y 1.0000
+  size 3425x3172  radius 2
+  ink: original 450036   candidate 455294
+  MISSING (red)     9124  = 2.0274% of original ink
+  EXTRA   (blue)   10200  = 2.2665% of original ink
+  RESULT: DIFFERENCES - inspect /tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-2.2-VMI-ReturnsByProducer-diff-r2.png

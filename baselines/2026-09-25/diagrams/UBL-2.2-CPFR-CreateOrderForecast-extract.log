@@ -1,0 +1,85 @@
+image 3425x4004
+
+PARTITION RULES
+   vertical  : [(0, 10), (1690, 1), (3415, 10)]
+   horizontal: [(0, 10), (3994, 10)]
+   -> 2 column(s) x 1 band(s)
+   type measured off the page: a word is 32px tall
+   (dropped x=10    y=10    1680x3984  is a partition cell)
+   (dropped x=1691  y=10    1724x3984  is a partition cell)
+   one line weight only - no object nodes
+
+NODES
+   n1   fork      x=622   y=181   w=230   h=27    stroke=0   fill=1.00  ''
+   n2   action    x=151   y=488   w=377   h=279   stroke=3   fill=0.91  'Send Product\nActivity'
+   n3   action    x=1061  y=492   w=350   h=266   stroke=3   fill=0.90  'Send Retail\nEvent'
+   n4   object    x=1495  y=846   w=391   h=216   stroke=5   fill=0.96  'Retail Event'
+   n5   fork      x=2286  y=1223  w=27    h=177   stroke=0   fill=0.99  ''
+   n6   action    x=2619  y=1229  w=593   h=169   stroke=3   fill=0.94  'Receive'
+   n7   object    x=1499  y=1381  w=392   h=215   stroke=6   fill=0.95  'Product Activity'
+   n8   action    x=2641  y=1715  w=593   h=178   stroke=3   fill=0.91  'Send Order Forecast'
+   n9   object    x=1495  y=1954  w=391   h=216   stroke=5   fill=0.94  'Forecast (order)'
+   n10  action    x=306   y=1976  w=592   h=186   stroke=4   fill=0.91  'Receive Order Forecast'
+   n11  action    x=310   y=2377  w=593   h=209   stroke=3   fill=0.88  'Revise Order Forecast\nand Send Revision'
+   n12  object    x=1464  y=2383  w=431   h=215   stroke=6   fill=0.93  'Forecast Revision\n(order)'
+   n13  action    x=2602  y=2408  w=592   h=178   stroke=3   fill=0.90  'Receive Order Forecast'
+   n14  action    x=2602  y=2735  w=592   h=200   stroke=3   fill=0.86  'Revise Order Forecast\nand Resend Revision'
+   n15  decision  x=664   y=2992  w=145   h=145   stroke=2   fill=0.50  ''
+   n16  action    x=1025  y=3004  w=487   h=142   stroke=3   fill=0.88  'Receive Revision'
+   n17  action    x=509   y=3313  w=593   h=125   stroke=3   fill=0.87  'Send Order Forecast'
+   n18  object    x=1472  y=3548  w=489   h=260   stroke=5   fill=0.93  'Forecast (order -\npositive response)'
+
+TYPE  cap height 32px over 336 glyphs -> font 45.7px
+   corner radius rx on 'Send Order Forecast' could not be read (it came back larger than the box) - taking the 66 the rest of its kind measures
+   dashed enclosure x=82 y=102 3260x3788  r=144  dash 12/9 over 601 marks
+   rejoined 2 line break(s) of up to 82px, where a label sits on the line
+   chained 6 dashes into one dashed flow
+   chained 5 dashes into one dashed flow
+   chained 6 dashes into one dashed flow
+   chained 6 dashes into one dashed flow
+
+EDGES
+   n1   -> (off the diagram) at 661,165
+   n1   -> (off the diagram) at 842,152
+   n1   -> n2    orthogonal  arrowhead   451 vs 135    ratio 4.0  high
+   n1   -> n3    orthogonal  arrowhead   490 vs 135    ratio 4.0  high
+   n3   -> n4    orthogonal  arrowhead   453 vs 180    ratio 4.0  high
+   n2   -> n7    orthogonal  arrowhead   457 vs 180    ratio 4.0  high
+   n4   -> n5    orthogonal  arrowhead   521 vs 178    ratio 4.0  high
+   n5   -> n6    straight    arrowhead   456 vs 135    ratio 4.0  high
+   n7   -> n5    orthogonal  arrowhead   521 vs 135    ratio 4.0  high
+   n6   -> n8    straight    arrowhead   456 vs 135    ratio 4.0  high
+   n8   -> n9    orthogonal  arrowhead   445 vs 135    ratio 4.0  high
+   n9   -> n10   straight    arrowhead   472 vs 180    ratio 4.0  high
+   n10  -> n11   straight    arrowhead   487 vs 180    ratio 4.0  high
+   n11  -> n12   straight    arrowhead   426 vs 139    ratio 4.0  high
+   n12  -> n13   straight    arrowhead   452 vs 134    ratio 4.0  high
+   n15  -> n11   straight    arrowhead   506 vs 138    ratio 4.0  high
+   n13  -> n14   straight    arrowhead   451 vs 135    ratio 4.0  high
+   n12  -> n16   orthogonal  arrowhead   486 vs 134    ratio 4.0  high
+   n14  -> n12   orthogonal  arrowhead   445 vs 184    ratio 4.0  high
+   n16  -> n15   straight    arrowhead   465 vs 149    ratio 3.1  high
+   n15  -> n17   straight    arrowhead   490 vs 150    ratio 4.0  high
+   n17  -> n18   orthogonal  arrowhead   422 vs 135    ratio 3.1  high
+   n18  -> (off the diagram) at 2733,3991
+   n18  -> (off the diagram) at 664,3991
+
+TEXT (titles, guards, notes)
+   'No'                                     x=567   y=100   n1->n2
+   'No'                                     x=762   y=100   n1->n3
+   (dropped x=105   y=102    108x97    '7\n¢\n7\n¢\n4\n/\nvA' - marks a quarter of the type's height: a dashed line, not words)
+   (dropped x=3233  y=111     87x91    '~\n~\n\\\n‘\\\nN\n\\\nA' - marks a quarter of the type's height: a dashed line, not words)
+   'Create Order Forecast'                  x=1471  y=124   
+   'No'                                     x=647   y=2626  n15->n11
+   'Order Forecast Accepted ?'              x=98    y=3045  
+   (dropped x=823   y=3067    52x21    'SS' - line-work, not text)
+   'Yes'                                    x=622   y=3230  n15->n17
+
+PARTITIONS
+   column 0  'No'
+   column 1  'Create Order Forecast'
+   band   0  ''
+
+ARROWHEAD  63 x 50px, open, measured on 8 connector(s)
+
+wrote review/baseline/UBL-2.2-CPFR-CreateOrderForecast-graph.json   (18 nodes, 20 edges, 3 flagged for a human)

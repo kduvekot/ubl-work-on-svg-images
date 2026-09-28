@@ -1,0 +1,37 @@
+MODEL  UBL-2.3-RequestForProofOfReexportationProcess
+  10 action, 1 decision, 1 final, 1 initial, 6 object, 19 flows, 5 partitions
+
+FLOW
+  (start)   [Importing Customs Party]
+  Query if goods have left the country   [Importing Customs Party]
+  [Request For Proof Of Reexportation]   [Importing Guarantor Party]
+  Issue to 1 Relevant Chamber of Commerce   [Importing Guarantor Party]
+  [Request For Proof Of Reexportation]   [Importing Guarantor Party]
+  Create Case Number   [Exporting Guarantor Party]
+  Get Status From Goods Item Passport   [Exporting Guarantor Party]
+  <Item Returned?>   [Exporting Guarantor Party]
+    -No-> Send Declined   [Exporting Guarantor Party]
+    -> [Application response]   [Importing Guarantor Party]
+    -> Issue to Customs   [Importing Guarantor Party]
+    -> [Application response]   [Importing Guarantor Party]
+    -> Receive Declined   [Importing Customs Party]
+    -> (end)   [Importing Customs Party]
+    -Yes-> Apply Stamps And Signature   [Exporting Guarantor Party]
+    -> [Proof Of Reexportation]   [Importing Guarantor Party]
+    -> Issue to Customs   [Importing Guarantor Party]
+    -> [Proof Of Reexportation]   [Importing Guarantor Party]
+    -> Receive Proof of Reexportation   [Importing Customs Party]
+    -> (end)   [Importing Customs Party]
+
+CHECKS
+  ok   every element is connected
+  ok   start events have a way out and no way in
+  ok   end events have a way in and no way out
+  ok   decisions have at least two ways out
+  ok   branches out of a decision are labelled   (informational: several diagrams draw an unlabelled branch, so read these against the artwork rather than treating them as errors)
+  ok   documents are both written and read
+  ok   no flow runs straight from one document to another
+  ok   work crossing between parties goes through a document   (informational: UBL draws the hand-over as a document on the divider, and each exception below is named)
+  ok   every flow's direction was read with confidence
+  ok   every action passes its work on   (informational: several diagrams do end on an action, so read these against the artwork rather than treating them as errors)
+  ok   every element is reachable from a start event

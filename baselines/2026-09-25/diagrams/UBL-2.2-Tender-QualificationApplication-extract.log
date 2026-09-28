@@ -1,0 +1,52 @@
+image 3424x1802
+
+PARTITION RULES
+   vertical  : [(0, 8), (1701, 8), (3410, 14)]
+   horizontal: [(0, 8), (1794, 8)]
+   -> 3 column(s) x 1 band(s)
+   type measured off the page: a word is 62px tall
+   (dropped x=8     y=8     2754x1786  encloses another region)
+   (dropped x=1709  y=8     1701x1786  is a partition cell)
+   one line weight only - no object nodes
+   (dropped x=167   y=1230  1008x8     only 8px across against a 8px line - a stroke, not a fork bar)
+   (dropped x=2267  y=1433   979x9     only 9px across against a 8px line - a stroke, not a fork bar)
+
+NODES
+   n1   initial   x=551   y=157   w=124   h=124   stroke=0   fill=1.00  ''
+   n2   action    x=111   y=394   w=1096  h=167   stroke=8   fill=0.87  'Prepare qualification application request'
+   n3   object    x=1453  y=610   w=516   h=348   stroke=8   fill=0.83  'Qualification\nApplication\nRequest'
+   n4   action    x=2208  y=695   w=1104  h=178   stroke=8   fill=0.88  'Receive qualification application request'
+   n5   action    x=105   y=699   w=1087  h=186   stroke=9   fill=0.89  'Submit qualification application request'
+   n6   object    x=1453  y=1118  w=516   h=411   stroke=9   fill=0.85  'Qualification\nApplication\nResponse'
+   n7   action    x=2208  y=1220  w=1102  h=213   stroke=8   fill=0.90  'Submit qualification application response'
+   n8   action    x=110   y=1238  w=1121  h=169   stroke=8   fill=0.88  'Receive qualification application response'
+   n9   final     x=560   y=1596  w=108   h=108   stroke=9   fill=0.59  ''
+
+TYPE  cap height 43px over 283 glyphs -> font 61.4px
+   corner radius rx on 'Prepare qualification applic' could not be read (it came back larger than the box) - taking the 88 the rest of its kind measures
+   corner radius rx on 'Receive qualification applic' could not be read (it came back larger than the box) - taking the 88 the rest of its kind measures
+   rejoined 4 line break(s) of up to 111px, where a label sits on the line
+
+EDGES
+   n1   -> n2    straight    arrowhead  1117 vs 973    ratio 4.0  high
+   n2   -> n5    straight    arrowhead  1103 vs 554    ratio 1.0  <-- CHECK DIRECTION
+   n5   -> n3    straight    arrowhead  1117 vs 360    ratio 4.0  high
+   n3   -> n4    straight    arrowhead  1016 vs 360    ratio 4.0  high
+   n4   -> n7    straight    arrowhead  1147 vs 405    ratio 4.0  high
+   n6   -> n8    straight    arrowhead  1053 vs 368    ratio 4.0  high
+   n7   -> n6    straight    arrowhead  1119 vs 414    ratio 4.0  high
+   n8   -> n9    straight    arrowhead  1116 vs 360    ratio 4.0  high
+
+TEXT (titles, guards, notes)
+   'CONTRACTING AUTHORITY'                  x=352   y=40    
+   'ECONOMIC OPERATOR'                      x=2240  y=52    
+
+PARTITIONS
+   column 0  'CONTRACTING AUTHORITY'
+   column 1  'ECONOMIC OPERATOR'
+   column 2  ''
+   band   0  ''
+
+ARROWHEAD  80 x 67px, open, measured on 8 connector(s)
+
+wrote review/baseline/UBL-2.2-Tender-QualificationApplication-graph.json   (9 nodes, 8 edges, 1 flagged for a human)

@@ -1,0 +1,44 @@
+image 3425x1264
+
+PARTITION RULES
+   vertical  : [(0, 8), (1701, 9), (3417, 8)]
+   horizontal: [(0, 9), (1256, 8)]
+   -> 2 column(s) x 1 band(s)
+   type measured off the page: a word is 54px tall
+   (dropped x=8     y=9     1693x1247  is a partition cell)
+   (dropped x=1710  y=9     1707x1247  is a partition cell)
+   object nodes are those stroked heavier than 5.0px
+   (dropped x=2272  y=687    982x9     only 9px across against a 8px line - a stroke, not a fork bar)
+   (dropped x=166   y=886    966x8     only 8px across against a 8px line - a stroke, not a fork bar)
+   (dropped x=2751  y=883      9x182   only 9px across against a 8px line - a stroke, not a fork bar)
+
+NODES
+   n1   initial   x=551   y=158   w=124   h=124   stroke=0   fill=1.00  ''
+   n2   action    x=111   y=395   w=1096  h=166   stroke=9   fill=0.87  'Prepare tender withdrawal request'
+   n3   object    x=1453  y=616   w=517   h=348   stroke=8   fill=0.91  'Tender\nWithdrawal'
+   n4   action    x=2208  y=696   w=1105  h=178   stroke=9   fill=0.88  'Receive tender withdrawal request'
+   n5   action    x=105   y=699   w=1087  h=187   stroke=8   fill=0.88  'Submit tender withdrawal request'
+   n6   final     x=2701  y=1064  w=109   h=108   stroke=8   fill=0.58  ''
+
+TYPE  cap height 49px over 122 glyphs -> font 70.0px
+   corner radius rx on 'Prepare tender withdrawal re' could not be read (it came back larger than the box) - taking the 90 the rest of its kind measures
+
+EDGES
+   n1   -> n2    straight    arrowhead  1143 vs 1028   ratio 4.0  high
+   n2   -> n5    straight    arrowhead  1138 vs 595    ratio 4.0  high
+   n5   -> n3    straight    arrowhead  1152 vs 405    ratio 4.0  high
+   n3   -> n4    straight    arrowhead  1050 vs 405    ratio 4.0  high
+   n4   -> n6    straight    arrowhead  1142 vs 405    ratio 4.0  high
+
+TEXT (titles, guards, notes)
+   'ECONOMIC OPERATOR'                      x=415   y=35    
+   'CONTRACTING AUTHORITY'                  x=2172  y=40    
+
+PARTITIONS
+   column 0  'ECONOMIC OPERATOR'
+   column 1  'CONTRACTING AUTHORITY'
+   band   0  ''
+
+ARROWHEAD  80 x 67px, open, measured on 5 connector(s)
+
+wrote review/baseline/UBL-2.2-Tender-Withdrawal-graph.json   (6 nodes, 5 edges, 0 flagged for a human)

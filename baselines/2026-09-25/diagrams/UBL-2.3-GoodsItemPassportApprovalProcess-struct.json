@@ -1,0 +1,35 @@
+{
+ "name": "UBL-2.3-GoodsItemPassportApprovalProcess.png",
+ "verdict": "needs-human",
+ "radius": 3,
+ "lineWorkInk": 89123,
+ "missingPx": 258,
+ "inventedPx": 100,
+ "structural": {
+  "absent": 0,
+  "invented": 0,
+  "coherence": 0,
+  "textAbsent": 0,
+  "textDiffers": 0
+ },
+ "blocking": [],
+ "findings": [],
+ "text": [],
+ "coherence": [],
+ "human": [
+  {
+   "kind": "no-weight-split",
+   "reason": "all 18 box strokes are one weight ([2, 3, 4]), so no object node could be identified",
+   "check": "confirm the diagram really has no object nodes"
+  }
+ ],
+ "review": [
+  {
+   "n": 1,
+   "what": "check",
+   "where": "",
+   "detail": "all 18 box strokes are one weight ([2, 3, 4]), so no object node could be identified",
+   "check": "confirm the diagram really has no object nodes"
+  }
+ ]
+}

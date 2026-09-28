@@ -1,0 +1,636 @@
+{
+ "source": "UBL-2.5-WasteNotificationProcess.png",
+ "size": [
+  2501,
+  2069
+ ],
+ "fontPx": 58.6,
+ "arrowPx": 36.5,
+ "arrowWidthPx": 36.0,
+ "arrowStyle": "open",
+ "rules": {
+  "v": [
+   [
+    0,
+    5
+   ],
+   [
+    1248,
+    5
+   ],
+   [
+    2495,
+    5
+   ]
+  ],
+  "h": [
+   [
+    0,
+    5
+   ],
+   [
+    2063,
+    5
+   ]
+  ]
+ },
+ "ruleSpan": {
+  "v": [
+   [
+    8,
+    2059
+   ],
+   [
+    8,
+    2059
+   ],
+   [
+    8,
+    2059
+   ]
+  ],
+  "h": [
+   [
+    8,
+    2491
+   ],
+   [
+    8,
+    2491
+   ]
+  ]
+ },
+ "greyRules": [],
+ "dashed": [],
+ "openEnds": [],
+ "crossMarks": [],
+ "partitions": [
+  {
+   "axis": "column",
+   "index": 0,
+   "x0": 0,
+   "x1": 1250,
+   "title": "Senderparty",
+   "titleBox": [
+    362,
+    144,
+    332,
+    55
+   ]
+  },
+  {
+   "axis": "column",
+   "index": 1,
+   "x0": 1250,
+   "x1": 2501,
+   "title": "ReceiverParty",
+   "titleBox": [
+    1684,
+    145,
+    378,
+    54
+   ]
+  },
+  {
+   "axis": "band",
+   "index": 0,
+   "y0": 0,
+   "y1": 2069,
+   "title": ""
+  }
+ ],
+ "nodes": [
+  {
+   "x": 528,
+   "y": 288,
+   "w": 52,
+   "h": 52,
+   "area": 1591,
+   "fill": 0.752,
+   "kind": "initial",
+   "id": "n1",
+   "label": "",
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 245,
+   "y": 552,
+   "w": 619,
+   "h": 187,
+   "area": 95804,
+   "fill": 0.828,
+   "solid": 0.959,
+   "rx": 72,
+   "ry": 71,
+   "shape": "rounded",
+   "stroke": 5,
+   "kind": "action",
+   "id": "n2",
+   "label": "Prepare notification of\nwaste movement",
+   "labelLines": [
+    {
+     "x": 277,
+     "y": 587,
+     "w": 554,
+     "h": 54,
+     "text": "Prepare notification of"
+    },
+    {
+     "x": 335,
+     "y": 662,
+     "w": 433,
+     "h": 40,
+     "text": "waste movement"
+    }
+   ],
+   "stem": 0.085,
+   "bold": false,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 1012,
+   "y": 941,
+   "w": 524,
+   "h": 235,
+   "area": 115852,
+   "fill": 0.941,
+   "solid": 1.0,
+   "rx": 0,
+   "ry": 0,
+   "shape": "rect",
+   "stroke": 5,
+   "kind": "object",
+   "id": "n3",
+   "label": "Waste Notification",
+   "labelLines": [
+    {
+     "x": 1042,
+     "y": 1033,
+     "w": 457,
+     "h": 43,
+     "text": "Waste Notification"
+    }
+   ],
+   "stem": 0.102,
+   "bold": false,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 235,
+   "y": 964,
+   "w": 571,
+   "h": 188,
+   "area": 92898,
+   "fill": 0.865,
+   "solid": 0.955,
+   "rx": 83,
+   "ry": 75,
+   "shape": "rounded",
+   "stroke": 4,
+   "kind": "action",
+   "id": "n4",
+   "label": "Send Waste\nNotification",
+   "labelLines": [
+    {
+     "x": 365,
+     "y": 999,
+     "w": 306,
+     "h": 43,
+     "text": "Send Waste"
+    },
+    {
+     "x": 372,
+     "y": 1071,
+     "w": 277,
+     "h": 43,
+     "text": "Notification"
+    }
+   ],
+   "stem": 0.102,
+   "bold": false,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 1732,
+   "y": 964,
+   "w": 571,
+   "h": 188,
+   "area": 91792,
+   "fill": 0.855,
+   "solid": 0.955,
+   "rx": 83,
+   "ry": 77,
+   "shape": "rounded",
+   "stroke": 4,
+   "kind": "action",
+   "id": "n5",
+   "label": "Receive Waste\nNotification",
+   "labelLines": [
+    {
+     "x": 1828,
+     "y": 1000,
+     "w": 377,
+     "h": 42,
+     "text": "Receive Waste"
+    },
+    {
+     "x": 1869,
+     "y": 1071,
+     "w": 277,
+     "h": 43,
+     "text": "Notification"
+    }
+   ],
+   "stem": 0.102,
+   "bold": false,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 1012,
+   "y": 1372,
+   "w": 476,
+   "h": 235,
+   "area": 102163,
+   "fill": 0.913,
+   "solid": 1.0,
+   "rx": 0,
+   "ry": 0,
+   "shape": "rect",
+   "stroke": 4,
+   "kind": "object",
+   "id": "n6",
+   "label": "Application\nResponse",
+   "labelLines": [
+    {
+     "x": 1108,
+     "y": 1432,
+     "w": 277,
+     "h": 53,
+     "text": "Application"
+    },
+    {
+     "x": 1123,
+     "y": 1504,
+     "w": 252,
+     "h": 53,
+     "text": "Response"
+    }
+   ],
+   "stem": 0.102,
+   "bold": false,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 197,
+   "y": 1396,
+   "w": 667,
+   "h": 188,
+   "area": 105116,
+   "fill": 0.838,
+   "solid": 0.961,
+   "rx": 78,
+   "ry": 72,
+   "shape": "rounded",
+   "stroke": 4,
+   "kind": "action",
+   "id": "n7",
+   "label": "Receive Waste\nNotification Response",
+   "labelLines": [
+    {
+     "x": 340,
+     "y": 1432,
+     "w": 378,
+     "h": 42,
+     "text": "Receive Waste"
+    },
+    {
+     "x": 252,
+     "y": 1503,
+     "w": 553,
+     "h": 54,
+     "text": "Notification Response"
+    }
+   ],
+   "stem": 0.102,
+   "bold": false,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 1732,
+   "y": 1396,
+   "w": 571,
+   "h": 188,
+   "area": 90952,
+   "fill": 0.847,
+   "solid": 0.955,
+   "rx": 78,
+   "ry": 77,
+   "shape": "rounded",
+   "stroke": 4,
+   "kind": "action",
+   "id": "n8",
+   "label": "Prepare and send\nresponse",
+   "labelLines": [
+    {
+     "x": 1791,
+     "y": 1432,
+     "w": 450,
+     "h": 53,
+     "text": "Prepare and send"
+    },
+    {
+     "x": 1901,
+     "y": 1514,
+     "w": 230,
+     "h": 43,
+     "text": "response"
+    }
+   ],
+   "stem": 0.102,
+   "bold": false,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 485,
+   "y": 1828,
+   "w": 91,
+   "h": 91,
+   "area": 3475,
+   "fill": 0.42,
+   "solid": 0.788,
+   "rx": 46,
+   "ry": 43,
+   "shape": "ellipse",
+   "stroke": 5,
+   "kind": "final",
+   "innerRatio": 0.67,
+   "id": "n9",
+   "label": "",
+   "col": 0,
+   "row": 0
+  }
+ ],
+ "edges": [
+  {
+   "from": "n1",
+   "to": "n2",
+   "routing": "straight",
+   "fromPoint": [
+    554,
+    354
+   ],
+   "toPoint": [
+    554,
+    537
+   ],
+   "arrowInk": [
+    225,
+    495
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    36,
+    36.0,
+    2.03
+   ],
+   "arrowFill": 0.011,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n2",
+   "to": "n4",
+   "routing": "straight",
+   "fromPoint": [
+    555,
+    753
+   ],
+   "toPoint": [
+    549,
+    949
+   ],
+   "arrowInk": [
+    180,
+    558
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    44,
+    48.0,
+    2.15
+   ],
+   "arrowFill": 0.011,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n4",
+   "to": "n3",
+   "routing": "straight",
+   "fromPoint": [
+    820,
+    1058
+   ],
+   "toPoint": [
+    997,
+    1058
+   ],
+   "arrowInk": [
+    180,
+    437
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    36,
+    36.0,
+    2.04
+   ],
+   "arrowFill": 0.016,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n3",
+   "to": "n5",
+   "routing": "straight",
+   "fromPoint": [
+    1550,
+    1058
+   ],
+   "toPoint": [
+    1717,
+    1058
+   ],
+   "arrowInk": [
+    180,
+    453
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    37,
+    36.0,
+    1.99
+   ],
+   "arrowFill": 0.021,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n5",
+   "to": "n8",
+   "routing": "straight",
+   "fromPoint": [
+    2017,
+    1166
+   ],
+   "toPoint": [
+    2017,
+    1381
+   ],
+   "arrowInk": [
+    225,
+    494
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    37,
+    36.0,
+    1.99
+   ],
+   "arrowFill": 0.005,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n6",
+   "to": "n7",
+   "routing": "straight",
+   "fromPoint": [
+    997,
+    1489
+   ],
+   "toPoint": [
+    878,
+    1490
+   ],
+   "arrowInk": [
+    184,
+    449
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    35,
+    37.6,
+    1.95
+   ],
+   "arrowFill": 0.005,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n8",
+   "to": "n6",
+   "routing": "straight",
+   "fromPoint": [
+    1717,
+    1490
+   ],
+   "toPoint": [
+    1502,
+    1489
+   ],
+   "arrowInk": [
+    184,
+    435
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    34,
+    36.2,
+    2.04
+   ],
+   "arrowFill": 0.006,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n7",
+   "to": "n9",
+   "routing": "straight",
+   "fromPoint": [
+    530,
+    1598
+   ],
+   "toPoint": [
+    530,
+    1813
+   ],
+   "arrowInk": [
+    225,
+    496
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    37,
+    36.0,
+    2.02
+   ],
+   "arrowFill": 0.005,
+   "edgeKind": "control"
+  }
+ ],
+ "text": [
+  {
+   "text": "Senderparty",
+   "x": 362,
+   "y": 144,
+   "w": 332,
+   "h": 55,
+   "lines": [
+    {
+     "x": 362,
+     "y": 144,
+     "w": 332,
+     "h": 55,
+     "text": "Senderparty"
+    }
+   ]
+  },
+  {
+   "text": "ReceiverParty",
+   "x": 1684,
+   "y": 145,
+   "w": 378,
+   "h": 54,
+   "lines": [
+    {
+     "x": 1684,
+     "y": 145,
+     "w": 378,
+     "h": 54,
+     "text": "ReceiverParty"
+    }
+   ]
+  }
+ ],
+ "uncertain": [
+  {
+   "x": 1253,
+   "y": 1060,
+   "w": 763,
+   "h": 429,
+   "shape": "ellipse",
+   "iou": 0.763,
+   "border": 0.441,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best ellipse 0.76, and 0.99 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "kind": "no-weight-split",
+   "reason": "all 7 box strokes are one weight ([4, 5]), so no object node could be identified",
+   "check": "confirm the diagram really has no object nodes"
+  }
+ ]
+}

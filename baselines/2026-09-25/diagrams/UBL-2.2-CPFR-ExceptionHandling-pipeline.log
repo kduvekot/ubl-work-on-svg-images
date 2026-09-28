@@ -1,0 +1,11 @@
+== UBL-2.2-CPFR-ExceptionHandling
+  scale 0.43212   frame 10px  divider 1px  action 3px  object 6px
+  font 46px (19.7 model)   2 lanes, 1 bands, 9 nodes, 8 edges -> review/baseline/UBL-2.2-CPFR-ExceptionHandling-spec.json
+  review/baseline/UBL-2.2-CPFR-ExceptionHandling.svg + .drawio + -classified.svg   (9 nodes, 8 edges)
+  rendered UBL-2.2-CPFR-ExceptionHandling.svg -> UBL-2.2-CPFR-ExceptionHandling-render.png @ 3425pxx1786, 600 dpi
+  aligned on ink bounds: scale x 1.0000, y 1.0000
+  size 3425x1786  radius 2
+  ink: original 263154   candidate 261851
+  MISSING (red)    13034  = 4.9530% of original ink
+  EXTRA   (blue)   12398  = 4.7113% of original ink
+  RESULT: DIFFERENCES - inspect review/baseline/UBL-2.2-CPFR-ExceptionHandling-diff-r2.png

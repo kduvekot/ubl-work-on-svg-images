@@ -1,0 +1,18 @@
+  verdict: NEEDS-HUMAN
+  structural: 0 element(s) absent, 0 invented, 0 text absent, 0 text differs, 0 incoherent
+  line-work  missing 1280 px (0.499%)   invented 873 px (0.340%)   radius 3
+    line-work-missing      453 px at   329,545    131x78    near edge n6 -> n1
+    line-work-missing      209 px at   258,1683    39x55    near edge n15 -> n19
+    line-work-missing      204 px at   299,1740    60x81    near edge n15 -> n19
+    line-work-invented     365 px at   254,1691    94x129   near edge n15 -> n19
+    line-work-invented     342 px at   343,561    106x65    near edge n6 -> n1
+  needs a person (10):
+    dropped-region     at 224,403  a shape here would be missing from the SVG
+    dropped-region     at 214,1085  a shape here would be missing from the SVG
+    dropped-region     at 808,2393  a shape here would be missing from the SVG
+    dropped-region     at 1802,2393  a shape here would be missing from the SVG
+    empty-box          at 808,1233  confirm nothing is drawn here in the original
+    empty-box          at 808,2086  confirm nothing is drawn here in the original
+    unexplained-line-work at 64,112  decide what this is; the SVG does not draw it
+    unexplained-line-work at 386,1628  decide what this is; the SVG does not draw it
+review/baseline/UBL-2.0-CertificationOfOriginOfGoodsProcess-marked.png + review/baseline/UBL-2.0-CertificationOfOriginOfGoodsProcess-marked-lost.png  (10 finding(s) numbered)

@@ -1,0 +1,485 @@
+{
+ "schema": "ubl-activity-diagram/1",
+ "figure": {
+  "name": "UBL-2.0-CertificationOfOriginOfGoodsProcess",
+  "source": "UBL-2.0-CertificationOfOriginOfGoodsProcess.png"
+ },
+ "lanes": [
+  {
+   "id": "lane-exporter",
+   "axis": "column",
+   "index": 0,
+   "title": "Exporter"
+  },
+  {
+   "id": "lane-issuer",
+   "axis": "column",
+   "index": 1,
+   "title": "Issuer"
+  },
+  {
+   "id": "lane-endorser",
+   "axis": "column",
+   "index": 2,
+   "title": "Endorser"
+  },
+  {
+   "id": "lane-importer",
+   "axis": "column",
+   "index": 3,
+   "title": "Importer"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "object-certificate-of-origin-between-exporter-and-issuer",
+   "kind": "object",
+   "label": "Certificate Of\nOrigin",
+   "lane": null,
+   "between": [
+    "lane-exporter",
+    "lane-issuer"
+   ]
+  },
+  {
+   "id": "action-apply-for-coo",
+   "kind": "action",
+   "label": "Apply for CoO",
+   "lane": "lane-exporter"
+  },
+  {
+   "id": "action-receive-coo-in-issuer",
+   "kind": "action",
+   "label": "Receive CoO",
+   "lane": "lane-issuer"
+  },
+  {
+   "id": "initial-exporter",
+   "kind": "initial",
+   "label": "",
+   "lane": "lane-exporter",
+   "linkedProcess": {
+    "name": "Initiate Transport",
+    "how": "starts-from",
+    "source": "written beside the node in the artwork"
+   }
+  },
+  {
+   "id": "action-endorse-coo-in-issuer",
+   "kind": "action",
+   "label": "Endorse CoO",
+   "lane": "lane-issuer",
+   "unstated": {
+    "wayOut": "The path ends at this step: the artwork draws no end after it."
+   }
+  },
+  {
+   "id": "action-request-status",
+   "kind": "action",
+   "label": "Request\nStatus",
+   "lane": "lane-exporter"
+  },
+  {
+   "id": "decision-issuer",
+   "kind": "decision",
+   "label": "",
+   "lane": "lane-issuer",
+   "question": "Accept application?"
+  },
+  {
+   "id": "action-reject-coo-in-issuer",
+   "kind": "action",
+   "label": "Reject CoO",
+   "lane": "lane-issuer"
+  },
+  {
+   "id": "object-application-response-between-exporter-and-issuer",
+   "kind": "object",
+   "label": "Application\nResponse",
+   "lane": null,
+   "between": [
+    "lane-exporter",
+    "lane-issuer"
+   ]
+  },
+  {
+   "id": "action-query-coo",
+   "kind": "action",
+   "label": "Query CoO",
+   "lane": "lane-issuer"
+  },
+  {
+   "id": "action-receive-response",
+   "kind": "action",
+   "label": "Receive Response",
+   "lane": "lane-exporter"
+  },
+  {
+   "id": "object-application-response-between-exporter-and-endorser",
+   "kind": "object",
+   "label": "Application\nResponse",
+   "lane": null,
+   "between": [
+    "lane-exporter",
+    "lane-endorser"
+   ]
+  },
+  {
+   "id": "action-reject-coo-in-endorser",
+   "kind": "action",
+   "label": "Reject CoO",
+   "lane": "lane-endorser"
+  },
+  {
+   "id": "decision-exporter",
+   "kind": "decision",
+   "label": "",
+   "lane": "lane-exporter",
+   "question": "Endorsement Required?"
+  },
+  {
+   "id": "decision-endorser",
+   "kind": "decision",
+   "label": "",
+   "lane": "lane-endorser",
+   "question": "Endorse Application?"
+  },
+  {
+   "id": "action-endorse-coo-in-endorser",
+   "kind": "action",
+   "label": "Endorse CoO",
+   "lane": "lane-endorser",
+   "unstated": {
+    "wayOut": "The path ends at this step: the artwork draws no end after it."
+   }
+  },
+  {
+   "id": "final-importer",
+   "kind": "final",
+   "label": "",
+   "lane": "lane-importer"
+  },
+  {
+   "id": "action-apply-for-endorsement",
+   "kind": "action",
+   "label": "Apply for Endorsement",
+   "lane": "lane-exporter"
+  },
+  {
+   "id": "object-certificate-of-origin-between-exporter-and-endorser",
+   "kind": "object",
+   "label": "Certificate Of\nOrigin",
+   "lane": null,
+   "between": [
+    "lane-exporter",
+    "lane-endorser"
+   ]
+  },
+  {
+   "id": "action-receive-certificate-of-origin",
+   "kind": "action",
+   "label": "Receive Certificate Of\nOrigin",
+   "lane": "lane-endorser"
+  },
+  {
+   "id": "object-certificate-of-origin-between-exporter-and-importer",
+   "kind": "object",
+   "label": "Certificate Of\nOrigin",
+   "lane": null,
+   "between": [
+    "lane-exporter",
+    "lane-importer"
+   ]
+  },
+  {
+   "id": "action-send-coo",
+   "kind": "action",
+   "label": "Send CoO",
+   "lane": "lane-exporter"
+  },
+  {
+   "id": "action-receive-coo-in-importer",
+   "kind": "action",
+   "label": "Receive CoO",
+   "lane": "lane-importer"
+  }
+ ],
+ "flows": [
+  {
+   "id": "flow-initial-exporter-to-apply-for-coo",
+   "from": "initial-exporter",
+   "to": "action-apply-for-coo",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-apply-for-coo-to-certificate-of-origin-between-exporter-and-issuer",
+   "from": "action-apply-for-coo",
+   "to": "object-certificate-of-origin-between-exporter-and-issuer",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-certificate-of-origin-between-exporter-and-issuer-to-receive-coo-in-issuer",
+   "from": "object-certificate-of-origin-between-exporter-and-issuer",
+   "to": "action-receive-coo-in-issuer",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-receive-coo-in-issuer-to-decision-issuer",
+   "from": "action-receive-coo-in-issuer",
+   "to": "decision-issuer",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-request-status-to-certificate-of-origin-between-exporter-and-issuer",
+   "from": "action-request-status",
+   "to": "object-certificate-of-origin-between-exporter-and-issuer",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-decision-issuer-to-reject-coo-in-issuer",
+   "from": "decision-issuer",
+   "to": "action-reject-coo-in-issuer",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   },
+   "unstated": {
+    "guard": "The branches are drawn without guards; the step each leads to says which answer it is (Reject CoO, Endorse CoO, Query CoO; Apply for Endorsement, Send CoO)."
+   }
+  },
+  {
+   "id": "flow-decision-issuer-to-endorse-coo-in-issuer",
+   "from": "decision-issuer",
+   "to": "action-endorse-coo-in-issuer",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   },
+   "unstated": {
+    "guard": "The branches are drawn without guards; the step each leads to says which answer it is (Reject CoO, Endorse CoO, Query CoO; Apply for Endorsement, Send CoO)."
+   }
+  },
+  {
+   "id": "flow-receive-response-to-request-status",
+   "from": "action-receive-response",
+   "to": "action-request-status",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-decision-issuer-to-query-coo",
+   "from": "decision-issuer",
+   "to": "action-query-coo",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   },
+   "unstated": {
+    "guard": "The branches are drawn without guards; the step each leads to says which answer it is (Reject CoO, Endorse CoO, Query CoO; Apply for Endorsement, Send CoO)."
+   }
+  },
+  {
+   "id": "flow-reject-coo-in-issuer-to-application-response-between-exporter-and-issuer",
+   "from": "action-reject-coo-in-issuer",
+   "to": "object-application-response-between-exporter-and-issuer",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-application-response-between-exporter-and-issuer-to-receive-response",
+   "from": "object-application-response-between-exporter-and-issuer",
+   "to": "action-receive-response",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-query-coo-to-application-response-between-exporter-and-issuer",
+   "from": "action-query-coo",
+   "to": "object-application-response-between-exporter-and-issuer",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-application-response-between-exporter-and-endorser-to-receive-response",
+   "from": "object-application-response-between-exporter-and-endorser",
+   "to": "action-receive-response",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-receive-response-to-decision-exporter",
+   "from": "action-receive-response",
+   "to": "decision-exporter",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-reject-coo-in-endorser-to-application-response-between-exporter-and-endorser",
+   "from": "action-reject-coo-in-endorser",
+   "to": "object-application-response-between-exporter-and-endorser",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-decision-endorser-to-reject-coo-in-endorser",
+   "from": "decision-endorser",
+   "to": "action-reject-coo-in-endorser",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   },
+   "unstated": {
+    "guard": "The branches are drawn without guards; the step each leads to says which answer it is (Reject CoO, Endorse CoO, Query CoO; Apply for Endorsement, Send CoO)."
+   }
+  },
+  {
+   "id": "flow-decision-exporter-to-apply-for-endorsement",
+   "from": "decision-exporter",
+   "to": "action-apply-for-endorsement",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   },
+   "unstated": {
+    "guard": "The branches are drawn without guards; the step each leads to says which answer it is (Reject CoO, Endorse CoO, Query CoO; Apply for Endorsement, Send CoO)."
+   }
+  },
+  {
+   "id": "flow-decision-exporter-to-send-coo",
+   "from": "decision-exporter",
+   "to": "action-send-coo",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   },
+   "unstated": {
+    "guard": "The branches are drawn without guards; the step each leads to says which answer it is (Reject CoO, Endorse CoO, Query CoO; Apply for Endorsement, Send CoO)."
+   }
+  },
+  {
+   "id": "flow-decision-endorser-to-endorse-coo-in-endorser",
+   "from": "decision-endorser",
+   "to": "action-endorse-coo-in-endorser",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   },
+   "unstated": {
+    "guard": "The branches are drawn without guards; the step each leads to says which answer it is (Reject CoO, Endorse CoO, Query CoO; Apply for Endorsement, Send CoO)."
+   }
+  },
+  {
+   "id": "flow-receive-certificate-of-origin-to-decision-endorser",
+   "from": "action-receive-certificate-of-origin",
+   "to": "decision-endorser",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-apply-for-endorsement-to-certificate-of-origin-between-exporter-and-endorser",
+   "from": "action-apply-for-endorsement",
+   "to": "object-certificate-of-origin-between-exporter-and-endorser",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-receive-coo-in-importer-to-final-importer",
+   "from": "action-receive-coo-in-importer",
+   "to": "final-importer",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-certificate-of-origin-between-exporter-and-endorser-to-receive-certificate-of-origin",
+   "from": "object-certificate-of-origin-between-exporter-and-endorser",
+   "to": "action-receive-certificate-of-origin",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-send-coo-to-certificate-of-origin-between-exporter-and-importer",
+   "from": "action-send-coo",
+   "to": "object-certificate-of-origin-between-exporter-and-importer",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-certificate-of-origin-between-exporter-and-importer-to-receive-coo-in-importer",
+   "from": "object-certificate-of-origin-between-exporter-and-importer",
+   "to": "action-receive-coo-in-importer",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  }
+ ],
+ "texts": [
+  {
+   "id": "text-initiate-transport-process",
+   "text": "Initiate\nTransport\nProcess",
+   "labels": "initial-exporter"
+  },
+  {
+   "id": "text-accept-application",
+   "text": "Accept\napplication?",
+   "labels": "decision-issuer"
+  },
+  {
+   "id": "text-endorsement-required",
+   "text": "Endorsement\nRequired?",
+   "labels": "decision-exporter"
+  },
+  {
+   "id": "text-endorse-application",
+   "text": "Endorse\nApplication?",
+   "labels": "decision-endorser"
+  },
+  {
+   "id": "text-end-of-coo-process",
+   "text": "End of CoO\nProcess",
+   "labels": "final-importer"
+  }
+ ],
+ "offPage": [],
+ "marks": [],
+ "phases": []
+}

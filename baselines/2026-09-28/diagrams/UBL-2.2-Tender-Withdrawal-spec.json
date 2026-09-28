@@ -1,0 +1,257 @@
+{
+ "canvas": {
+  "w": 1480.0,
+  "h": 546.196
+ },
+ "stroke": {
+  "frame": 3.5,
+  "divider": 3.9,
+  "action": 3.9,
+  "object": 3.5,
+  "edge": 3.9
+ },
+ "font": {
+  "family": "Helvetica, Arial, sans-serif",
+  "node": 30.2,
+  "lane": 30.2,
+  "guard": 30.2
+ },
+ "arrow": 43.2,
+ "arrowWidth": 36.1,
+ "arrowStyle": "open",
+ "dashed": [],
+ "greyRules": [],
+ "crossMarks": [],
+ "openEnds": [],
+ "frameBox": [
+  1.7,
+  1.9,
+  1478.3,
+  544.5
+ ],
+ "dividers": [
+  [
+   737.0,
+   3.9,
+   5.2,
+   541.0
+  ]
+ ],
+ "bands": [],
+ "lanes": [
+  {
+   "id": "lane-economic-operator",
+   "title": "ECONOMIC OPERATOR",
+   "x": 0.0,
+   "w": 737.2,
+   "cx": 343.3,
+   "cy": 26.8,
+   "name": "Economic Operator",
+   "size": 32.6,
+   "textWidth": 328.0,
+   "baseline": 38.5
+  },
+  {
+   "id": "lane-contracting-authority",
+   "title": "CONTRACTING AUTHORITY",
+   "x": 737.2,
+   "w": 742.8,
+   "cx": 1135.2,
+   "cy": 29.0,
+   "name": "Contracting Authority",
+   "size": 32.6,
+   "textWidth": 393.2,
+   "baseline": 40.6
+  }
+ ],
+ "bandLabels": [],
+ "captions": [],
+ "nodes": [
+  {
+   "id": "initial-economic-operator",
+   "kind": "initial",
+   "label": "",
+   "x": 238.1,
+   "y": 68.3,
+   "w": 53.6,
+   "h": 53.6
+  },
+  {
+   "id": "action-prepare-tender-withdrawal-request",
+   "kind": "action",
+   "label": "Prepare tender withdrawal request",
+   "x": 46.0,
+   "y": 168.7,
+   "w": 477.5,
+   "h": 75.6,
+   "rx": 40.6,
+   "ry": 37.8,
+   "labelLines": [
+    {
+     "text": "Prepare tender withdrawal request",
+     "cx": 278.9,
+     "cy": 207.425,
+     "w": 437.7,
+     "size": 28.5
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "object-tender-withdrawal",
+   "kind": "object",
+   "label": "Tender\nWithdrawal",
+   "x": 626.1,
+   "y": 264.5,
+   "w": 226.9,
+   "h": 153.8,
+   "labelLines": [
+    {
+     "text": "Tender",
+     "cx": 700.2,
+     "cy": 312.08,
+     "w": 105.9,
+     "size": 33.2
+    },
+    {
+     "text": "Withdrawal",
+     "cx": 730.9,
+     "cy": 360.48,
+     "w": 170.7,
+     "size": 33.2
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-receive-tender-withdrawal-request",
+   "kind": "action",
+   "label": "Receive tender withdrawal request",
+   "x": 952.2,
+   "y": 298.8,
+   "w": 481.4,
+   "h": 80.8,
+   "rx": 38.7,
+   "ry": 39.5,
+   "labelLines": [
+    {
+     "text": "Receive tender withdrawal request",
+     "cx": 1200.4,
+     "cy": 338.42499999999995,
+     "w": 439.9,
+     "size": 28.5
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "action-submit-tender-withdrawal-request",
+   "kind": "action",
+   "label": "Submit tender withdrawal request",
+   "x": 43.4,
+   "y": 300.1,
+   "w": 473.6,
+   "h": 84.7,
+   "rx": 42.6,
+   "ry": 41.3,
+   "labelLines": [
+    {
+     "text": "Submit tender withdrawal request",
+     "cx": 283.3,
+     "cy": 340.125,
+     "w": 425.6,
+     "size": 28.5
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "final-contracting-authority",
+   "kind": "final",
+   "label": "",
+   "x": 1165.4,
+   "y": 458.0,
+   "w": 50.6,
+   "h": 50.1,
+   "innerRatio": 0.495
+  }
+ ],
+ "edges": [
+  {
+   "id": "flow-initial-economic-operator-to-prepare-tender-withdrawal-request",
+   "from": "initial-economic-operator",
+   "to": "action-prepare-tender-withdrawal-request",
+   "exitXY": [
+    0.5,
+    1.0
+   ],
+   "entryXY": [
+    0.4655,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-prepare-tender-withdrawal-request-to-submit-tender-withdrawal-request",
+   "from": "action-prepare-tender-withdrawal-request",
+   "to": "action-submit-tender-withdrawal-request",
+   "exitXY": [
+    0.4628,
+    1.0
+   ],
+   "entryXY": [
+    0.4749,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-submit-tender-withdrawal-request-to-tender-withdrawal",
+   "from": "action-submit-tender-withdrawal-request",
+   "to": "object-tender-withdrawal",
+   "exitXY": [
+    1.0,
+    0.4368
+   ],
+   "entryXY": [
+    0.0,
+    0.4772
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-tender-withdrawal-to-receive-tender-withdrawal-request",
+   "from": "object-tender-withdrawal",
+   "to": "action-receive-tender-withdrawal-request",
+   "exitXY": [
+    1.0,
+    0.4746
+   ],
+   "entryXY": [
+    0.0,
+    0.479
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-receive-tender-withdrawal-request-to-final-contracting-authority",
+   "from": "action-receive-tender-withdrawal-request",
+   "to": "final-contracting-authority",
+   "exitXY": [
+    0.4985,
+    1.0
+   ],
+   "entryXY": [
+    0.496,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  }
+ ],
+ "guards": []
+}

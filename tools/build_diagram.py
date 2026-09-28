@@ -11,7 +11,7 @@ Shapes follow UML 2.5.1 notation and the TC's own draw.io style vocabulary:
 action = rounded rect, object node = plain rect (heavier stroke), initial = filled
 disc, activity final = ring + disc, decision = rhombus, edges = open "V" arrowhead.
 """
-import html, json, sys, xml.sax.saxutils as su
+import html, json, math, sys, xml.sax.saxutils as su
 
 SIDE = {"l": (0, .5), "r": (1, .5), "t": (.5, 0), "b": (.5, 1)}
 # what each kind is called in the drawing, for the <title> a reader sees
@@ -45,6 +45,78 @@ def side_of(e, which):
     fx, fy = f
     return ("l" if fx < 0.5 else "r") if min(fx, 1 - fx) < min(fy, 1 - fy) \
         else ("t" if fy < 0.5 else "b")
+
+
+def _cross(p, q, r, t):
+    """where segment p-q crosses segment r-t, as (point, fraction along p-q,
+    fraction along r-t), or None"""
+    (x1, y1), (x2, y2), (x3, y3), (x4, y4) = p, q, r, t
+    den = (x1 - x2) * (y3 - y4) - (y1 - y2) * (x3 - x4)
+    if abs(den) < 1e-9:
+        return None
+    a = ((x1 - x3) * (y3 - y4) - (y1 - y3) * (x3 - x4)) / den
+    b = -((x1 - x2) * (y1 - y3) - (y1 - y2) * (x1 - x3)) / den
+    if 0 < a < 1 and 0 < b < 1:
+        return (x1 + a * (x2 - x1), y1 + a * (y2 - y1)), a, b
+    return None
+
+
+def line_hops(spec):
+    """Where one flow hops over another (the TC, 2026-09-28).
+
+    A hop - a half circle in the line - shows that two crossing lines do not
+    meet. It is drawn only where two solid flows cross: never at a lane divider
+    or a phase boundary, which no one reads as joining a flow, and never where
+    either line is dashed, whose gaps already show it. The steeper line hops
+    (at a right angle, the vertical one), as on the three hops the artwork
+    draws between flows (Self Billing with Credit Note, Billing with Credit
+    and with Debit Note); the half circle bows up, or right on an upright line.
+    Returns {edge index: [(segment index, crossing point), ...]}."""
+    r = hop_radius(spec)
+    lines = [(i, polyline(spec, e)) for i, e in enumerate(spec["edges"]) if not e.get("dash")]
+    out = {}
+    for n, (i, pa) in enumerate(lines):
+        for j, pb in lines[n + 1:]:
+            for si, (p, q) in enumerate(zip(pa, pa[1:])):
+                for sj, (u, v) in enumerate(zip(pb, pb[1:])):
+                    c = _cross(p, q, u, v)
+                    if not c:
+                        continue
+                    pt = c[0]
+                    la, lb = math.dist(p, q), math.dist(u, v)
+                    # a crossing at a line's end is a corner or a meeting, not a crossing
+                    if min(c[1] * la, (1 - c[1]) * la, c[2] * lb, (1 - c[2]) * lb) < 2 * r:
+                        continue
+                    steep_a = abs(q[1] - p[1]) / la
+                    steep_b = abs(v[1] - u[1]) / lb
+                    k, seg = (i, si) if steep_a >= steep_b else (j, sj)
+                    out.setdefault(k, []).append((seg, pt))
+    return out
+
+
+def hop_radius(spec):
+    """half the arrowhead's length: the artwork's hops are about that size"""
+    return spec.get("arrow", 20) * 0.8 / 2
+
+
+def hop_path(pts, hops, r):
+    """the polyline as a path, with a half circle of radius r at each hop"""
+    d = ["M %.1f %.1f" % pts[0]]
+    for si, (p, q) in enumerate(zip(pts, pts[1:])):
+        L = math.dist(p, q)
+        ux, uy = (q[0] - p[0]) / L, (q[1] - p[1]) / L
+        here = sorted((math.dist(p, pt), pt) for s, pt in hops if s == si)
+        for _, pt in here:
+            a = (pt[0] - ux * r, pt[1] - uy * r)
+            b = (pt[0] + ux * r, pt[1] + uy * r)
+            # bow up on a line nearer horizontal, right on one nearer vertical
+            nx, ny = (-uy, ux)
+            if (abs(ux) >= abs(uy) and ny > 0) or (abs(ux) < abs(uy) and nx < 0):
+                nx, ny = -nx, -ny
+            sweep = 1 if ux * ny - uy * nx < 0 else 0
+            d.append("L %.1f %.1f A %.1f %.1f 0 0 %d %.1f %.1f" % (a[0], a[1], r, r, sweep, b[0], b[1]))
+        d.append("L %.1f %.1f" % q)
+    return " ".join(d)
 
 
 def polyline(spec, e):
@@ -86,6 +158,8 @@ def lines_of(n, cx, cy, size, font, weight="", style=""):
     usually set in."""
     if n.get("bold") is not None:
         weight = "bold" if n["bold"] else ""
+    if n.get("italic") is not None:
+        style = "italic" if n["italic"] else ""
     ll = n.get("labelLines")
     if not ll:
         # a node carries its words under "label" and a free block under "text",
@@ -96,8 +170,193 @@ def lines_of(n, cx, cy, size, font, weight="", style=""):
         # its <title>
         return text(n.get("label") or n.get("text") or "",
                     cx, cy, size, font, weight, style)
-    return "".join(text(l["text"], l["cx"], l["cy"], size, font, weight, style,
+    return "".join(text(l["text"], l["cx"], l["cy"], l.get("size", size), font, weight, style,
                         l.get("w")) for l in ll)
+
+
+def title_text(t, words, F):
+    """A lane title (or words set as one): at the size, width and baseline the
+    artwork gives it where they were measured, at the labels' size otherwise."""
+    weight = "bold" if t.get("bold") else ""
+    if t.get("size"):
+        return text(words, t["cx"], t["baseline"] - t["size"] * 0.35, t["size"], F["family"],
+                    weight, width=t.get("textWidth"))
+    return text(words, t["cx"], t["cy"], F["lane"], F["family"], weight)
+
+
+def guard_extent(g):
+    """The box a guard's words cover, a little wider than the letters."""
+    ll = g.get("labelLines") or [{"cx": g["x"] + g["w"] / 2, "cy": g["y"] + g["h"] / 2,
+                                  "w": g["w"], "size": g["h"] / 1.25}]
+    size = max(l.get("size") or g["h"] for l in ll)
+    return (min(l["cx"] - (l.get("w") or g["w"]) / 2 for l in ll) - size * 0.2,
+            min(l["cy"] for l in ll) - size * 0.55,
+            max(l["cx"] + (l.get("w") or g["w"]) / 2 for l in ll) + size * 0.2,
+            max(l["cy"] for l in ll) + size * 0.55), size
+
+
+def _seg_box_dist(a, b, box):
+    """Shortest distance from segment a-b to a box (0 when it enters it)."""
+    x0, y0, x1, y1 = box
+    best = float("inf")
+    for k in range(41):
+        x = a[0] + (b[0] - a[0]) * k / 40
+        y = a[1] + (b[1] - a[1]) * k / 40
+        dx = max(x0 - x, 0, x - x1)
+        dy = max(y0 - y, 0, y - y1)
+        best = min(best, math.hypot(dx, dy))
+        if best == 0:
+            break
+    return best
+
+
+def _boxes_apart(a, b, pad):
+    return (a[2] + pad <= b[0] or b[2] + pad <= a[0] or
+            a[3] + pad <= b[1] or b[3] + pad <= a[1])
+
+
+def clear_guards(spec):
+    """Move a guard off the line of the flow it labels, where it can go clear.
+
+    UBL set some guards on their own flow's line, and the artwork breaks the
+    line behind the words (see guard_ground). The TC (2026-09-28) asked for
+    such a guard to be moved off the line wherever it can stand clear of
+    everything else, a deliberate departure from the artwork: the smallest
+    shift, sideways or up and down, that leaves the words a margin from every
+    line, arrowhead, box, title and other text, and keeps the flow they label
+    the nearest line to them, so they cannot be read as another flow's. A guard
+    with no such place stays where it is, on its white ground."""
+    W, H = spec["canvas"]["w"], spec["canvas"]["h"]
+    segs = []                                   # (edge id or None, a, b)
+    for e in spec["edges"]:
+        pts = polyline(spec, e)
+        segs += [(e.get("id"), a, b) for a, b in zip(pts, pts[1:])]
+    for oe in spec.get("openEnds", []):
+        pts = oe["points"]
+        segs += [(None, tuple(a), tuple(b)) for a, b in zip(pts, pts[1:])]
+    for d in spec.get("dividers", []):
+        at = d if not isinstance(d, (list, tuple)) else d[0]
+        a = d[2] if isinstance(d, (list, tuple)) and len(d) > 3 else 0
+        b = d[3] if isinstance(d, (list, tuple)) and len(d) > 3 else H
+        segs.append((None, (at, a), (at, b)))
+    for d in spec.get("bands", []):
+        at = d if not isinstance(d, (list, tuple)) else d[0]
+        a = d[2] if isinstance(d, (list, tuple)) and len(d) > 3 else 0
+        b = d[3] if isinstance(d, (list, tuple)) and len(d) > 3 else W
+        segs.append((None, (a, at), (b, at)))
+    for gr in spec.get("greyRules", []):
+        c = gr["at"] + gr["w"] / 2
+        segs.append((None, (c, 0), (c, H)) if gr["axis"] == "v" else (None, (0, c), (W, c)))
+    boxes = [(n["x"], n["y"], n["x"] + n["w"], n["y"] + n["h"]) for n in spec["nodes"]]
+    for d in spec.get("dashed", []):
+        x0, y0, x1, y1 = d["x"], d["y"], d["x"] + d["w"], d["y"] + d["h"]
+        segs += [(None, (x0, y0), (x1, y0)), (None, (x1, y0), (x1, y1)),
+                 (None, (x1, y1), (x0, y1)), (None, (x0, y1), (x0, y0))]
+    for t in spec.get("lanes", []) + spec.get("captions", []):
+        if t.get("cx") is not None and t.get("title", t.get("text")):
+            hw = (t.get("textWidth") or 0) / 2 or 60
+            sz = t.get("size") or spec["font"]["lane"]
+            boxes.append((t["cx"] - hw, t["cy"] - sz, t["cx"] + hw, t["cy"] + sz))
+    arrow = spec.get("arrowWidth") or spec.get("arrow") or 10
+    heads = [polyline(spec, e)[-1] for e in spec["edges"]]
+    guards = spec.get("guards", [])
+    for g in guards:
+        own = g.get("onFlow")
+        if not own:
+            continue
+        box, size = guard_extent(g)
+        mine = [(a, b) for i, a, b in segs if i == own]
+        if not any(_seg_box_dist(a, b, box) == 0 for a, b in mine):
+            continue
+        pad = size * 0.3
+        g0 = json.loads(json.dumps(g))
+        others = [guard_extent(o)[0] for o in guards if o is not g]
+
+        def clear(bx):
+            if bx[0] < pad or bx[1] < pad or bx[2] > W - pad or bx[3] > H - pad:
+                return False
+            near_own = min(_seg_box_dist(a, b, bx) for a, b in mine)
+            for i, a, b in segs:
+                d = _seg_box_dist(a, b, bx)
+                if d < pad or (i != own and d <= near_own):
+                    return False
+            if any(math.hypot(max(bx[0] - hx, 0, hx - bx[2]), max(bx[1] - hy, 0, hy - bx[3]))
+                   < arrow / 2 + pad for hx, hy in heads):
+                return False
+            return all(_boxes_apart(bx, o, pad) for o in boxes + others)
+
+        def place(bx, first):
+            """the smallest shift from `first` on that leaves bx clear"""
+            best = None
+            reach = (bx[2] - bx[0]) + (bx[3] - bx[1]) + 2 * size
+            for dx, dy in ((1, 0), (0, -1), (-1, 0), (0, 1)):   # right, up, left, down
+                d = first
+                while d <= reach:
+                    b2 = (bx[0] + dx * d, bx[1] + dy * d, bx[2] + dx * d, bx[3] + dy * d)
+                    if clear(b2):
+                        if best is None or d < best[0]:
+                            best = (d, dx * d, dy * d)
+                        break
+                    d += 1.0
+            return best
+
+        best = place(box, 1.0)
+        lines = g.get("labelLines") or []
+        if best is None and len(lines) == 1 and " " in lines[0]["text"].strip():
+            # no place on one line: the words set over two, split at the space
+            # nearest the middle, the way UBL sets its other long guards
+            # (Self Billing with Credit Note's [incorrect information])
+            l = lines[0]
+            words = l["text"]
+            cut = min((i for i, c in enumerate(words) if c == " "),
+                      key=lambda i: abs(i - len(words) / 2))
+            parts = [words[:cut], words[cut + 1:]]
+            lsize = l.get("size") or size
+            lh = lsize * 1.25
+            two = [dict(l, text=t, cy=l["cy"] + (k - 0.5) * lh,
+                        w=(l.get("w") or g["w"]) * len(t) / len(words))
+                   for k, t in enumerate(parts)]
+            trial = dict(g, labelLines=two)
+            tbox, _ = guard_extent(trial)
+            tb = place(tbox, 0.0)
+            if tb is not None:
+                g["labelLines"] = two
+                g["text"] = "\n".join(parts)
+                g["rewrapped"] = True
+                box, best = tbox, tb
+        if best:
+            _, mx, my = best
+            g["x"] += mx
+            g["y"] += my
+            for l in g.get("labelLines", []):
+                l["cx"] += mx
+                l["cy"] += my
+            g["moved"] = [round(mx, 1), round(my, 1)]
+        if best or g.get("rewrapped"):
+            # where the words stood and where they stand now, both left out of
+            # the line-work check (verify_conversion.py): a deliberate difference
+            g["movedFrom"] = [round(v, 1) for v in guard_extent(dict(g0))[0]]
+            g["movedTo"] = [round(v, 1) for v in guard_extent(g)[0]]
+
+
+def guard_ground(g, pts):
+    """White behind a guard's words where its own flow runs through them.
+
+    draw.io sets an edge's label on a white ground, so where UBL placed a guard
+    on the line it labels, the line stops either side of the words and resumes
+    after them (Transit and Import Declaration's Yes and No, Delete Catalogue's
+    [accept catalogue deletion], and five more). Drawn plainly, the line struck
+    the words through. A text only crossed by some other line - a decision's
+    question on the CPFR figures - keeps that line over it, as the artwork has
+    it. The ground covers the words' own extent, a little wider, and nothing
+    when the line does not reach them."""
+    (x0, y0, x1, y1), _ = guard_extent(g)
+    hit = any(x0 < a[0] + (b[0] - a[0]) * k / 50 < x1 and y0 < a[1] + (b[1] - a[1]) * k / 50 < y1
+              for a, b in zip(pts, pts[1:]) for k in range(51))
+    if not hit:
+        return ""
+    return ('<rect class="ubl-label-ground" x="%.1f" y="%.1f" width="%.1f" height="%.1f" fill="#fff"/>'
+            % (x0, y0, x1 - x0, y1 - y0))
 
 
 def text(label, cx, cy, size, font, weight="", style="", width=None):
@@ -174,21 +433,22 @@ def svg_body(spec):
                  % (a, at, b, at, wt))
         o.append("</g>")
     for i, gr in enumerate(spec.get("greyRules", [])):
-        # a divider the artwork draws in grey; promoting it to black would be a
-        # louder line than the drawing has
-        o.append(group("lane-divider", "greyrule%d" % i, "lane divider (drawn in grey)",
+        # a divider the artwork draws in grey (Fig C.1, CPFR Creating Sales
+        # Forecast) is drawn black at its own width: the diagrams use no grey
+        # (the TC, 2026-09-27); the layout keeps the artwork's tone
+        o.append(group("lane-divider", "greyrule%d" % i, "lane divider (grey in the artwork)",
                        axis=gr["axis"], tone=gr["colour"]))
         if gr["axis"] == "v":
             o.append('<line x1="%.1f" y1="0" x2="%.1f" y2="%.1f" stroke="%s" stroke-width="%.2f"/>'
-                     % (gr["at"] + gr["w"] / 2, gr["at"] + gr["w"] / 2, H, gr["colour"], gr["w"]))
+                     % (gr["at"] + gr["w"] / 2, gr["at"] + gr["w"] / 2, H, "#000", gr["w"]))
         else:
             o.append('<line x1="0" y1="%.1f" x2="%.1f" y2="%.1f" stroke="%s" stroke-width="%.2f"/>'
-                     % (gr["at"] + gr["w"] / 2, W, gr["at"] + gr["w"] / 2, gr["colour"], gr["w"]))
+                     % (gr["at"] + gr["w"] / 2, W, gr["at"] + gr["w"] / 2, "#000", gr["w"]))
         o.append("</g>")
     for i, d in enumerate(spec.get("dashed", [])):
         # the dashed rounded box a CPFR phase is drawn inside, at the artwork's own
         # dash and gap
-        o.append(group("phase-boundary", "phase%d" % i,
+        o.append(group("phase-boundary", d.get("id") or "phase%d" % i,
                        "phase boundary (this diagram is one phase of a larger process)"))
         o.append('<rect x="%.2f" y="%.2f" width="%.2f" height="%.2f" rx="%.2f" ry="%.2f" '
                  'fill="none" stroke="#000" stroke-width="%.2f" stroke-dasharray="%.1f %.1f"/>'
@@ -197,13 +457,20 @@ def svg_body(spec):
                     max(d["dash"], 0.5), max(d["gap"], 0.5)))
         o.append("</g>")
     for i, l in enumerate(spec["lanes"]):
-        o.append(group("lane-title", "lane%d" % i, l["title"]))
-        o.append(text(l["title"], l["cx"], l["cy"], F["lane"], F["family"]))
+        o.append(group("lane-title", l.get("id") or "lane%d" % i, l["title"]))
+        o.append(title_text(l, l["title"], F))
+        o.append("</g>")
+    for c in spec.get("captions", []):
+        # words the reading took for a lane title and a correction found to be a
+        # phase's title or a guard: set exactly as a lane title is
+        o.append(group(c["role"], c["id"], " ".join(c["text"].split())))
+        o.append(title_text(c, c["text"], F))
         o.append("</g>")
     for i, b in enumerate(spec.get("bandLabels", [])):   # band titles run up the gutter
-        o.append(group("band-title", "bandtitle%d" % i, b["title"]))
+        o.append(group("band-title", b.get("id") or "bandtitle%d" % i, b["title"]))
         o.append('<g transform="rotate(-90 %.1f %.1f)">%s</g>'
-                 % (b["cx"], b["cy"], text(b["title"], b["cx"], b["cy"], F["lane"], F["family"])))
+                 % (b["cx"], b["cy"], text(b["title"], b["cx"], b["cy"], F["lane"], F["family"],
+                                            weight="bold" if b.get("bold") else "")))
         o.append("</g>")
     for n in spec["nodes"]:
         x, y, w, h = n["x"], n["y"], n["w"], n["h"]
@@ -245,12 +512,15 @@ def svg_body(spec):
                      % (x + w - f, y, y + f, x + w, S["action"]))
             o.append(lines_of(n, cx, cy, F["node"], F["family"]))
         o.append("</g>")
+    hops = line_hops(spec)
     for i, e in enumerate(spec["edges"]):
         pts = polyline(spec, e)
-        o.append(group("edge", "e%d" % i, "%s to %s" % (e["from"], e["to"]),
+        o.append(group("edge", e.get("id") or "e%d" % i, "%s to %s" % (e["from"], e["to"]),
                        source=e["from"], target=e["to"],
                        routing="straight" if e.get("straight") else "orthogonal",
-                       confidence=e.get("confidence")))
+                       confidence=e.get("confidence"),
+                       hops=" ".join("%.1f,%.1f,%.1f" % (pt[0], pt[1], hop_radius(spec))
+                                     for _, pt in hops.get(i, []))))
         at = ' marker-end="url(#arrow)"'
         if e.get("arrowBoth"):
             at += ' marker-start="url(#arrowback)"'
@@ -260,28 +530,43 @@ def svg_body(spec):
             # the original's dashes rather than in the gaps between them
             if e.get("dashOffset") is not None:
                 at += ' stroke-dashoffset="%.1f"' % e["dashOffset"]
-        o.append('<polyline points="%s" fill="none" stroke="#000" stroke-width="%.2f"%s/>'
-                 % (" ".join("%.1f,%.1f" % p for p in pts), S["edge"], at))
+        if hops.get(i):
+            o.append('<path d="%s" fill="none" stroke="#000" stroke-width="%.2f"%s/>'
+                     % (hop_path(pts, hops[i], hop_radius(spec)), S["edge"], at))
+        else:
+            o.append('<polyline points="%s" fill="none" stroke="#000" stroke-width="%.2f"%s/>'
+                     % (" ".join("%.1f,%.1f" % p for p in pts), S["edge"], at))
         o.append("</g>")
     for i, oe in enumerate(spec.get("openEnds", [])):
         # a flow that leaves the diagram, drawn along the route it actually takes
-        o.append(group("off-page-flow", "open%d" % i,
-                       "flow continuing outside this diagram",
-                       node=oe.get("node"),
-                       direction="into the diagram" if oe.get("inward") else "out of the diagram"))
+        if oe.get("role") == "lane-divider":
+            o.append(group("lane-divider", oe["id"], "lane divider", axis="v"))
+        else:
+            o.append(group("off-page-flow", oe.get("id") or "open%d" % i,
+                           "flow continuing outside this diagram",
+                           node=oe.get("node"),
+                           direction="into the diagram" if oe.get("inward") else "out of the diagram"))
         o.append('<polyline points="%s" fill="none" stroke="#000" stroke-width="%.2f"%s/>'
                  % (" ".join("%.1f,%.1f" % (p[0], p[1]) for p in oe["points"]),
                     S["edge"], ' marker-end="url(#arrow)"' if oe.get("arrow") else ""))
         o.append("</g>")
     for i, m in enumerate(spec.get("crossMarks", [])):
-        o.append(group("mark", "mark%d" % i, "stroke across a partition rule"))
+        o.append(group("mark", m.get("id") or "mark%d" % i, "stroke across a partition rule"))
         o.append('<line x1="%.1f" y1="%.1f" x2="%.1f" y2="%.1f" stroke="#000" '
                  'stroke-width="%.2f" stroke-linecap="butt"/>'
                  % (m["x1"], m["y1"], m["x2"], m["y2"],
                     m.get("weight") or S["divider"]))
         o.append("</g>")
+    edges = {e.get("id"): e for e in spec["edges"]}
     for i, g in enumerate(spec.get("guards", [])):
-        o.append(group("guard", "text%d" % i, " ".join(g.get("text", "").split())))
+        o.append(group(g.get("role", "guard"), g.get("id") or "text%d" % i,
+                       " ".join(g.get("text", "").split()),
+                       moved=",".join("%.1f" % v for v in g["moved"]) if g.get("moved") else None,
+                       moved_from=",".join("%.1f" % v for v in g["movedFrom"]) if g.get("movedFrom") else None,
+                       moved_to=",".join("%.1f" % v for v in g["movedTo"]) if g.get("movedTo") else None))
+        e = edges.get(g.get("onFlow"))
+        if e is not None:
+            o.append(guard_ground(g, polyline(spec, e)))
         o.append(lines_of(g, g["x"] + g["w"] / 2, g["y"] + g["h"] / 2, F["guard"], F["family"]))
         o.append("</g>")
     return "".join(o)
@@ -306,9 +591,9 @@ def mxfile(spec):
          'pageWidth="%d" pageHeight="%d"><root><mxCell id="0"/><mxCell id="1" parent="0"/>'
          % (round(spec["canvas"]["w"]), round(spec["canvas"]["h"]))]
     for i, l in enumerate(spec["lanes"]):
-        c.append('<mxCell id="lane%d" value="%s" style="%s" vertex="1" parent="1">'
+        c.append('<mxCell id="%s" value="%s" style="%s" vertex="1" parent="1">'
                  '<mxGeometry x="%.1f" y="0" width="%.1f" height="%.1f" as="geometry"/></mxCell>'
-                 % (i, su.escape(l["title"]), MXSTYLE["lane"] % round(F["lane"] * 2),
+                 % (l.get("id") or "lane%d" % i, su.escape(l.get("name", l["title"])), MXSTYLE["lane"] % round(F["lane"] * 2),
                     l["x"], l["w"], spec["canvas"]["h"]))
     for n in spec["nodes"]:
         c.append('<mxCell id="%s" value="%s" style="%sfontFamily=Helvetica;fontSize=%d;" vertex="1" parent="1">'
@@ -322,9 +607,9 @@ def mxfile(spec):
         if e.get("straight"):
             st = st.replace("edgeStyle=orthogonalEdgeStyle;", "edgeStyle=none;")
         pts = "".join('<mxPoint x="%.1f" y="%.1f"/>' % tuple(p) for p in e.get("points", []))
-        c.append('<mxCell id="e%d" value="%s" style="%s" edge="1" parent="1" source="%s" target="%s">'
+        c.append('<mxCell id="%s" value="%s" style="%s" edge="1" parent="1" source="%s" target="%s">'
                  '<mxGeometry relative="1" as="geometry">%s</mxGeometry></mxCell>'
-                 % (i, su.escape(e.get("label", "")), st, e["from"], e["to"],
+                 % (e.get("id") or "e%d" % i, su.escape(e.get("label", "")), st, e["from"], e["to"],
                     ('<Array as="points">%s</Array>' % pts) if pts else ""))
     c.append("</root></mxGraphModel>")
     return ('<mxfile host="UBL-TC" agent="UBL artwork pipeline" type="device">'
@@ -399,6 +684,7 @@ def classified(spec, defs, model):
 
 def main(spec_path, out):
     spec = load(spec_path)
+    clear_guards(spec)
     S = spec["stroke"]
     # the head the artwork draws: a solid triangle in the UBL 2.3 transport
     # diagrams, an open "V" in the CPFR and billing ones
@@ -446,7 +732,9 @@ def main(spec_path, out):
                    ("M %.2f %.2f L %.2f %.2f L %.2f %.2f"
                     % ((18, y0, 2, vh / 2.0, 18, y1) if back else
                        (2, y0, 18, vh / 2.0, 2, y1)))
-                   + (" Z" if filled else ""),
+                   # the filled head of the 2.3 figures has a notched back
+                   + (" L %.2f %.2f Z" % ((14, vh / 2.0) if back else (6, vh / 2.0))
+                      if filled else ""),
                    "#000" if filled else "none", bw))
     defs = "<defs>" + marker("arrow") + marker("arrowback", back=True) + "</defs>"
     model = mxfile(spec)

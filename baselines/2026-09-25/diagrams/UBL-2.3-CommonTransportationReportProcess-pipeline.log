@@ -1,0 +1,11 @@
+== UBL-2.3-CommonTransportationReportProcess
+  scale 0.43199   frame 8px  divider 10px  action 5px  object 10px
+  font 59px (25.3 model)   2 lanes, 1 bands, 5 nodes, 4 edges -> review/baseline/UBL-2.3-CommonTransportationReportProcess-spec.json
+  review/baseline/UBL-2.3-CommonTransportationReportProcess.svg + .drawio + -classified.svg   (5 nodes, 4 edges)
+  rendered UBL-2.3-CommonTransportationReportProcess.svg -> UBL-2.3-CommonTransportationReportProcess-render.png @ 3426pxx1291, 600 dpi
+  aligned on ink bounds: scale x 1.0000, y 1.0008
+  size 3426x1291  radius 2
+  ink: original 171308   candidate 175283
+  MISSING (red)     5714  = 3.3355% of original ink
+  EXTRA   (blue)    6978  = 4.0734% of original ink
+  RESULT: DIFFERENCES - inspect review/baseline/UBL-2.3-CommonTransportationReportProcess-diff-r2.png

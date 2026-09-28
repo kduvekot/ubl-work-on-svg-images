@@ -1,0 +1,163 @@
+{
+ "schema": "ubl-activity-diagram/1",
+ "figure": {
+  "name": "UBL-2.2-Tender-ExpressionOfInterest",
+  "source": "UBL-2.2-Tender-ExpressionOfInterest.png"
+ },
+ "lanes": [
+  {
+   "id": "lane-economic-operator",
+   "axis": "column",
+   "index": 0,
+   "title": "Economic Operator"
+  },
+  {
+   "id": "lane-contracting-authority",
+   "axis": "column",
+   "index": 1,
+   "title": "Contracting Authority"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "initial-economic-operator",
+   "kind": "initial",
+   "label": "",
+   "lane": "lane-economic-operator"
+  },
+  {
+   "id": "action-prepare-expression-of-interest",
+   "kind": "action",
+   "label": "Prepare expression of interest",
+   "lane": "lane-economic-operator"
+  },
+  {
+   "id": "object-expression-of-interest-request",
+   "kind": "object",
+   "label": "Expression\nOf Interest\nRequest",
+   "lane": null,
+   "between": [
+    "lane-economic-operator",
+    "lane-contracting-authority"
+   ]
+  },
+  {
+   "id": "action-submit-expression-of-interest-in-economic-operator",
+   "kind": "action",
+   "label": "Submit expression of interest",
+   "lane": "lane-economic-operator"
+  },
+  {
+   "id": "action-receive-expression-of-interest-in-contracting-authority",
+   "kind": "action",
+   "label": "Receive expression of interest",
+   "lane": "lane-contracting-authority"
+  },
+  {
+   "id": "object-expression-of-interest-response",
+   "kind": "object",
+   "label": "Expression\nOf Interest\nResponse",
+   "lane": null,
+   "between": [
+    "lane-economic-operator",
+    "lane-contracting-authority"
+   ]
+  },
+  {
+   "id": "action-receive-expression-of-interest-in-economic-operator",
+   "kind": "action",
+   "label": "Receive expression of interest\nconfirmation",
+   "lane": "lane-economic-operator"
+  },
+  {
+   "id": "action-submit-expression-of-interest-in-contracting-authority",
+   "kind": "action",
+   "label": "Submit expression of interest\nconfirmation",
+   "lane": "lane-contracting-authority"
+  },
+  {
+   "id": "final-economic-operator",
+   "kind": "final",
+   "label": "",
+   "lane": "lane-economic-operator"
+  }
+ ],
+ "flows": [
+  {
+   "id": "flow-initial-economic-operator-to-prepare-expression-of-interest",
+   "from": "initial-economic-operator",
+   "to": "action-prepare-expression-of-interest",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-prepare-expression-of-interest-to-submit-expression-of-interest-in-economic-operator",
+   "from": "action-prepare-expression-of-interest",
+   "to": "action-submit-expression-of-interest-in-economic-operator",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-submit-expression-of-interest-in-economic-operator-to-expression-of-interest-request",
+   "from": "action-submit-expression-of-interest-in-economic-operator",
+   "to": "object-expression-of-interest-request",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-expression-of-interest-request-to-receive-expression-of-interest-in-contracting-authority",
+   "from": "object-expression-of-interest-request",
+   "to": "action-receive-expression-of-interest-in-contracting-authority",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-receive-expression-of-interest-in-contracting-authority-to-submit-expression-of-interest-in-contracting-authority",
+   "from": "action-receive-expression-of-interest-in-contracting-authority",
+   "to": "action-submit-expression-of-interest-in-contracting-authority",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-expression-of-interest-response-to-receive-expression-of-interest-in-economic-operator",
+   "from": "object-expression-of-interest-response",
+   "to": "action-receive-expression-of-interest-in-economic-operator",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-submit-expression-of-interest-in-contracting-authority-to-expression-of-interest-response",
+   "from": "action-submit-expression-of-interest-in-contracting-authority",
+   "to": "object-expression-of-interest-response",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-receive-expression-of-interest-in-economic-operator-to-final-economic-operator",
+   "from": "action-receive-expression-of-interest-in-economic-operator",
+   "to": "final-economic-operator",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  }
+ ],
+ "texts": [],
+ "offPage": [],
+ "marks": [],
+ "phases": []
+}

@@ -1,0 +1,77 @@
+image 3425x3499
+
+PARTITION RULES
+   vertical  : [(0, 10), (1263, 4), (3415, 10)]
+   horizontal: [(0, 10), (3489, 10)]
+   -> 2 column(s) x 1 band(s)
+   type measured off the page: a word is 38px tall
+   (dropped x=10    y=10    3405x3479  encloses another region)
+   object nodes are those stroked heavier than 6.5px
+
+NODES
+   n1   initial   x=434   y=167   w=81    h=81    stroke=0   fill=0.76  ''
+   n2   action    x=86    y=528   w=768   h=109   stroke=5   fill=0.86  'Calculate the initial delivery'
+   n3   object    x=1095  y=854   w=336   h=133   stroke=9   fill=0.90  'Catalogue'
+   n4   action    x=1850  y=856   w=538   h=125   stroke=5   fill=0.86  'Receive Catalogue'
+   n5   action    x=2591  y=856   w=748   h=125   stroke=5   fill=0.86  'Update products database'
+   n6   action    x=203   y=860   w=538   h=125   stroke=5   fill=0.88  'Send Catalogue'
+   n7   object    x=1043  y=1214  w=449   h=134   stroke=8   fill=0.88  'Despatch Advice'
+   n8   action    x=163   y=1220  w=618   h=126   stroke=4   fill=0.86  'Send Despatch Advice'
+   n9   action    x=1785  y=1220  w=805   h=126   stroke=4   fill=0.88  'Receive Despatch Advice'
+   n10  action    x=159   y=1625  w=614   h=125   stroke=4   fill=0.89  'Despatch item(s)'
+   n11  action    x=1814  y=1629  w=614   h=125   stroke=4   fill=0.90  'Receive item(s)'
+   n12  fork      x=1919  y=1994  w=1242  h=24    stroke=0   fill=0.56  ''
+   n13  action    x=2226  y=2314  w=619   h=129   stroke=5   fill=0.87  'Check status of item(s)'
+   n14  object    x=1043  y=2636  w=449   h=137   stroke=9   fill=0.89  'Receipt Advice'
+   n15  action    x=2222  y=2638  w=619   h=125   stroke=5   fill=0.87  'Send Receipt Advice'
+   n16  action    x=195   y=2646  w=619   h=121   stroke=5   fill=0.85  'Receive Receipt Advice'
+   n17  action    x=195   y=2957  w=619   h=130   stroke=4   fill=0.88  'Adjust supply status'
+   n18  final     x=470   y=3334  w=73    h=73    stroke=4   fill=0.61  ''
+
+TYPE  cap height 39px over 264 glyphs -> font 55.7px
+   corner radius rx on 'Send Despatch Advice' could not be read (it came back larger than the box) - taking the 61 the rest of its kind measures
+   corner radius rx on 'Receive Despatch Advice' could not be read (it came back larger than the box) - taking the 61 the rest of its kind measures
+   corner radius rx on 'Despatch item(s)' could not be read (it came back larger than the box) - taking the 61 the rest of its kind measures
+   corner radius rx on 'Receive item(s)' could not be read (it came back larger than the box) - taking the 61 the rest of its kind measures
+   corner radius rx on 'Adjust supply status' could not be read (it came back larger than the box) - taking the 61 the rest of its kind measures
+
+EDGES
+   n3   -> (off the diagram) at 1260,12
+   n1   -> n2    straight    arrowhead   621 vs 180    ratio 4.0  high
+   n2   -> n6    straight    arrowhead   619 vs 180    ratio 4.0  high
+   n3   -> n4    straight    arrowhead   616 vs 180    ratio 4.0  high
+   n4   -> n5    straight    arrowhead   618 vs 180    ratio 4.0  high
+   n6   -> n3    straight    arrowhead   641 vs 225    ratio 4.0  high
+   n5   -> n12   straight    arrowhead   633 vs 225    ratio 4.0  high
+   n6   -> n8    straight    arrowhead   619 vs 180    ratio 4.0  high
+   n8   -> n7    straight    arrowhead   605 vs 180    ratio 4.0  high
+   n7   -> n9    straight    arrowhead   616 vs 180    ratio 4.0  high
+   n8   -> n10   straight    arrowhead   619 vs 180    ratio 4.0  high
+   n9   -> n12   straight    arrowhead   592 vs 180    ratio 4.0  high
+   n10  -> n11   straight    arrowhead   665 vs 225    ratio 4.0  high
+   n11  -> n12   straight    arrowhead   589 vs 180    ratio 4.0  high
+   n12  -> n13   straight    arrowhead   618 vs 180    ratio 4.0  high
+   n14  -> (off the diagram) at 1269,2198
+   n13  -> n15   straight    arrowhead   623 vs 180    ratio 4.0  high
+   n15  -> n14   straight    arrowhead   573 vs 184    ratio 4.0  high
+   n14  -> n16   straight    arrowhead   597 vs 184    ratio 4.0  high
+   n16  -> n17   straight    arrowhead   625 vs 180    ratio 4.0  high
+   n17  -> n18   straight    arrowhead   617 vs 180    ratio 4.0  high
+
+TEXT (titles, guards, notes)
+   'Producer'                               x=487   y=59    
+   'Retailer'                               x=2222  y=60    
+   (dropped x=2097  y=1937    44x43    '\\/' - line-work, not text)
+   (dropped x=2517  y=1937    45x43    '\\/' - line-work, not text)
+   (dropped x=2938  y=1937    45x43    '\\/' - line-work, not text)
+
+PARTITIONS
+   column 0  'Producer'
+   column 1  'Retailer'
+   band   0  ''
+
+ARROWHEAD  56 x 44px, open, measured on 18 connector(s)
+   (dropped the open end at 1260,12 1x828 - a sliver lying along the rule at 1263)
+   (dropped the open end at 1269,2198 2x424 - a sliver lying along the rule at 1263)
+
+wrote review/baseline/UBL-2.2-VMI-InitialStocking-graph.json   (18 nodes, 19 edges, 1 flagged for a human)

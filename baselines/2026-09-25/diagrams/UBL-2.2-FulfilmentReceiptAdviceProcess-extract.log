@@ -1,0 +1,103 @@
+image 3425x2019
+
+PARTITION RULES
+   vertical  : [(0, 10), (1111, 3), (2058, 3), (3415, 10)]
+   horizontal: [(0, 10), (2009, 10)]
+   -> 3 column(s) x 1 band(s)
+   type measured off the page: a word is 21px tall
+   (dropped x=10    y=10    1101x1999  is a partition cell)
+   (dropped x=1114  y=10     944x1455  encloses another region)
+   (dropped x=2061  y=10    1354x1999  is a partition cell)
+   (dropped x=1690  y=782    368x233   outline matches no UML node shape (best ellipse 0.77, and 0.98 is the most this shape can reach at this size))
+   (dropped x=615   y=1198   496x264   outline matches no UML node shape (best rect 0.69, and 0.99 is the most this shape can reach at this size))
+   (dropped x=613   y=1293   498x422   encloses another region)
+   (dropped x=1114  y=1465   944x250   3 of 4 sides are pass-through line-work)
+   object nodes are those stroked heavier than 5.0px
+
+NODES
+   n1   initial   x=1476  y=116   w=70    h=70    stroke=0   fill=0.78  ''
+   n2   action    x=1316  y=305   w=377   h=106   stroke=4   fill=0.90  'Receive Order Item(s)'
+   n3   action    x=1325  y=507   w=373   h=109   stroke=3   fill=0.93  'Check status of Item(s)'
+   n4   object    x=1939  y=714   w=241   h=131   stroke=6   fill=0.94  'Receipt Advice'
+   n5   action    x=2309  y=729   w=368   h=95    stroke=3   fill=0.88  'Receive Receipt Advice'
+   n6   action    x=1437  y=737   w=393   h=87    stroke=3   fill=0.87  'Send Receipt Advice'
+   n7   action    x=2776  y=836   w=398   h=103   stroke=3   fill=0.91  'Adjust supply status'
+   n8   final     x=3293  y=867   w=47    h=47    stroke=3   fill=0.64  ''
+   n9   object    x=1936  y=950   w=244   h=131   stroke=6   fill=0.92  'Fulfilment\nCancellation'
+   n10  action    x=2303  y=965   w=374   h=98    stroke=3   fill=0.86  'Receive Fulfilment\nCancellation'
+   n11  action    x=1434  y=971   w=388   h=86    stroke=3   fill=0.87  'Cancel receipt notification'
+   n12  decision  x=469   y=1109  w=285   h=178   stroke=3   fill=0.47  'Determine Action'
+   n13  action    x=1215  y=1162  w=368   h=89    stroke=4   fill=0.90  'Advise Buyer of status'
+   n14  object    x=1925  y=1402  w=267   h=132   stroke=6   fill=0.94  'Order Cancellation'
+   n15  action    x=692   y=1412  w=368   h=98    stroke=4   fill=0.88  'Send Order Cancellation'
+   n16  action    x=2643  y=1420  w=368   h=98    stroke=3   fill=0.92  'Cancel order'
+   n17  object    x=1936  y=1652  w=244   h=129   stroke=6   fill=0.94  'Order Change'
+   n18  action    x=464   y=1665  w=329   h=103   stroke=4   fill=0.91  'Adjust Order'
+   n19  action    x=2908  y=1665  w=353   h=106   stroke=4   fill=0.92  'Change Order'
+   n20  action    x=85    y=1676  w=191   h=92    stroke=3   fill=0.89  'Accept Items'
+   n21  note      x=1114  y=1718  w=944   h=291   stroke=3   fill=0.97  ''
+   n22  final     x=144   y=1875  w=67    h=67    stroke=3   fill=0.49  ''
+
+TYPE  cap height 21px over 291 glyphs -> font 30.0px
+   (dropped x=1114  y=1718   944x291   no text, and line-work runs past 4 of its sides - whitespace between shapes, not a note)
+   rejoined 3 line break(s) of up to 54px, where a label sits on the line
+   chained 6 dashes into one dashed flow
+   chained 7 dashes into one dashed flow
+   chained 3 dashes into one dashed flow
+
+EDGES
+   n1   -> n2    straight    arrowhead   346 vs 135    ratio 4.0  high
+   n2   -> n3    straight    arrowhead   345 vs 173    ratio 4.0  high
+   n3   -> n13   straight    arrowhead   346 vs 135    ratio 4.0  high
+   n3   -> n6    straight    arrowhead   333 vs 143    ratio 4.0  high
+   n6   -> n4    straight    arrowhead   375 vs 135    ratio 4.0  high
+   n4   -> n5    straight    arrowhead   343 vs 135    ratio 4.0  high
+   n5   -> n7    diagonal    arrowhead   366 vs 194    ratio 1.9  medium
+   n6   -> n11   straight    arrowhead   320 vs 98     ratio 4.0  high
+   n11  -> n6    straight    arrowhead   361 vs 138    ratio 4.0  high
+   n7   -> n8    straight    arrowhead   343 vs 135    ratio 4.0  high
+   n10  -> n7    diagonal    arrowhead   370 vs 188    ratio 2.0  medium
+   n16  -> n7    straight    arrowhead   412 vs 184    ratio 4.0  high
+   n19  -> n7    straight    arrowhead   412 vs 184    ratio 4.0  high
+   n11  -> n9    straight    arrowhead   417 vs 180    ratio 4.0  high
+   n9   -> n10   straight    arrowhead   336 vs 135    ratio 4.0  high
+   n13  -> n12   straight    arrowhead   354 vs 138    ratio 4.0  high
+   n12  -> n20   diagonal    arrowhead   430 vs 364    ratio 4.0  high
+   n12  -> n18   straight    arrowhead   420 vs 393    ratio 4.0  high
+   n12  -> n15   diagonal    arrowhead   410 vs 276    ratio 4.0  high
+   n15  -> n14   straight    arrowhead   372 vs 135    ratio 4.0  high
+   n14  -> n16   straight    arrowhead   340 vs 135    ratio 4.0  high
+   n18  -> n17   straight    arrowhead   368 vs 135    ratio 4.0  high
+   n17  -> n19   straight    arrowhead   346 vs 135    ratio 4.0  high
+   n20  -> n22   straight    arrowhead   340 vs 135    ratio 4.0  high
+
+TEXT (titles, guards, notes)
+   'Buyer Party'                            x=512   y=53    
+   'Delivery Party'                         x=1524  y=53    
+   'Seller Party'                           x=2693  y=53    
+   'From Order'                             x=1308  y=139   
+   (dropped x=1496  y=262     31x29    '\\/' - line-work, not text)
+   (dropped x=1493  y=464     31x29    '\\V/' - line-work, not text)
+   (dropped x=2266  y=765     29x32    '>' - line-work, not text)
+   '\\'                                     x=2744  y=813   
+   (dropped x=3250  y=872     29x31    '>' - line-work, not text)
+   (dropped x=2261  y=998     28x31    '>' - line-work, not text)
+   (dropped x=1380  y=1119    32x29    '\\/' - line-work, not text)
+   '[cancel\norder]'                        x=710   y=1298  n12->n15
+   (dropped x=2601  y=1453    28x32    '—' - line-work, not text)
+   '[accept\nitems]'                        x=182   y=1552  n12->n20
+   '[change\norder]'                        x=500   y=1559  n12->n18
+   (dropped x=2865  y=1701    29x31    '>' - line-work, not text)
+   (dropped x=163   y=1833    31x28    '\\V/' - line-work, not text)
+
+PARTITIONS
+   column 0  'Buyer Party'
+   column 1  'Delivery Party'
+   column 2  'Seller Party'
+   band   0  ''
+
+ARROWHEAD  39 x 31px, open, measured on 17 connector(s)
+   reading settled: '\\' -> ''
+   reading settled: '\\' -> ''
+
+wrote review/baseline/UBL-2.2-FulfilmentReceiptAdviceProcess-graph.json   (21 nodes, 24 edges, 4 flagged for a human)

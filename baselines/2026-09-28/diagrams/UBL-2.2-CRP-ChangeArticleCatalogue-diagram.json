@@ -1,0 +1,163 @@
+{
+ "schema": "ubl-activity-diagram/1",
+ "figure": {
+  "name": "UBL-2.2-CRP-ChangeArticleCatalogue",
+  "source": "UBL-2.2-CRP-ChangeArticleCatalogue.png"
+ },
+ "lanes": [
+  {
+   "id": "lane-producer",
+   "axis": "column",
+   "index": 0,
+   "title": "Producer"
+  },
+  {
+   "id": "lane-retailer",
+   "axis": "column",
+   "index": 1,
+   "title": "Retailer"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "initial-producer",
+   "kind": "initial",
+   "label": "",
+   "lane": "lane-producer"
+  },
+  {
+   "id": "decision-producer",
+   "kind": "decision",
+   "label": "",
+   "lane": "lane-producer",
+   "question": "Catalogue update is needed?"
+  },
+  {
+   "id": "final-producer",
+   "kind": "final",
+   "label": "",
+   "lane": "lane-producer"
+  },
+  {
+   "id": "object-catalogue",
+   "kind": "object",
+   "label": "Catalogue",
+   "lane": null,
+   "between": [
+    "lane-producer",
+    "lane-retailer"
+   ]
+  },
+  {
+   "id": "action-inform-about-changes-inside-the",
+   "kind": "action",
+   "label": "Inform about changes inside the\ncatalogue",
+   "lane": "lane-producer"
+  },
+  {
+   "id": "action-receive-information",
+   "kind": "action",
+   "label": "Receive information",
+   "lane": "lane-retailer"
+  },
+  {
+   "id": "action-update-product-database",
+   "kind": "action",
+   "label": "Update Product database",
+   "lane": "lane-retailer"
+  },
+  {
+   "id": "final-retailer",
+   "kind": "final",
+   "label": "",
+   "lane": "lane-retailer"
+  }
+ ],
+ "flows": [
+  {
+   "id": "flow-initial-producer-to-decision-producer",
+   "from": "initial-producer",
+   "to": "decision-producer",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-decision-producer-to-final-producer",
+   "from": "decision-producer",
+   "to": "final-producer",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   },
+   "guard": "text-false"
+  },
+  {
+   "id": "flow-decision-producer-to-inform-about-changes-inside-the",
+   "from": "decision-producer",
+   "to": "action-inform-about-changes-inside-the",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   },
+   "guard": "text-true"
+  },
+  {
+   "id": "flow-inform-about-changes-inside-the-to-catalogue",
+   "from": "action-inform-about-changes-inside-the",
+   "to": "object-catalogue",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-catalogue-to-receive-information",
+   "from": "object-catalogue",
+   "to": "action-receive-information",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-receive-information-to-update-product-database",
+   "from": "action-receive-information",
+   "to": "action-update-product-database",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-update-product-database-to-final-retailer",
+   "from": "action-update-product-database",
+   "to": "final-retailer",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  }
+ ],
+ "texts": [
+  {
+   "id": "text-false",
+   "text": "False",
+   "labels": "flow-decision-producer-to-final-producer"
+  },
+  {
+   "id": "text-catalogue-update-is-needed",
+   "text": "Catalogue update is\nneeded?",
+   "labels": "decision-producer"
+  },
+  {
+   "id": "text-true",
+   "text": "True",
+   "labels": "flow-decision-producer-to-inform-about-changes-inside-the"
+  }
+ ],
+ "offPage": [],
+ "marks": [],
+ "phases": []
+}

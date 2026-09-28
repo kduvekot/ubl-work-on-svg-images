@@ -1,0 +1,1253 @@
+{
+ "canvas": {
+  "w": 1480.0,
+  "h": 1098.873
+ },
+ "stroke": {
+  "frame": 4.3,
+  "divider": 1.7,
+  "action": 1.7,
+  "object": 3.5,
+  "edge": 1.7
+ },
+ "font": {
+  "family": "Helvetica, Arial, sans-serif",
+  "node": 16.0,
+  "lane": 16.0,
+  "guard": 16.0
+ },
+ "arrow": 28.4,
+ "arrowWidth": 22.0,
+ "arrowStyle": "open",
+ "dashed": [],
+ "greyRules": [],
+ "crossMarks": [],
+ "openEnds": [],
+ "frameBox": [
+  2.2,
+  2.2,
+  1477.8,
+  1096.7
+ ],
+ "dividers": [
+  [
+   277.9,
+   1.7,
+   5.6,
+   1092.8
+  ],
+  [
+   683.0,
+   2.2,
+   5.6,
+   1092.8
+  ],
+  [
+   1098.9,
+   1.7,
+   5.6,
+   1092.8
+  ]
+ ],
+ "bands": [],
+ "lanes": [
+  {
+   "id": "lane-consignee",
+   "title": "Consignee",
+   "x": 0.0,
+   "w": 277.9,
+   "cx": 138.1,
+   "cy": 15.8,
+   "size": 15.4,
+   "textWidth": 73.0,
+   "baseline": 19.7
+  },
+  {
+   "id": "lane-consignor",
+   "title": "Consignor",
+   "x": 277.9,
+   "w": 404.9,
+   "cx": 481.4,
+   "cy": 15.8,
+   "size": 15.4,
+   "textWidth": 70.0,
+   "baseline": 19.7
+  },
+  {
+   "id": "lane-freight-forwarder",
+   "title": "Freight Forwarder",
+   "x": 682.7,
+   "w": 416.1,
+   "cx": 891.2,
+   "cy": 15.8,
+   "size": 15.4,
+   "textWidth": 122.3,
+   "baseline": 19.7
+  },
+  {
+   "id": "lane-carrier",
+   "title": "Carrier",
+   "x": 1098.9,
+   "w": 381.1,
+   "cx": 1289.0,
+   "cy": 14.5,
+   "size": 16.3,
+   "textWidth": 46.7,
+   "baseline": 20.3
+  }
+ ],
+ "bandLabels": [],
+ "captions": [],
+ "nodes": [
+  {
+   "id": "object-forwarding-instructions-between-consignee-and-consignor-and-freight-forwarder",
+   "kind": "object",
+   "label": "Forwarding\nInstructions",
+   "x": 624.0,
+   "y": 69.6,
+   "w": 113.2,
+   "h": 66.5,
+   "labelLines": [
+    {
+     "text": "Forwarding",
+     "cx": 679.3,
+     "cy": 92.235,
+     "w": 83.8,
+     "size": 15.9
+    },
+    {
+     "text": "Instructions",
+     "cx": 681.2,
+     "cy": 109.535,
+     "w": 87.7,
+     "size": 15.9
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-request-logistic-service-in-consignee",
+   "kind": "action",
+   "label": "Request Logistic\nService",
+   "x": 23.3,
+   "y": 78.6,
+   "w": 194.0,
+   "h": 56.2,
+   "rx": 25.1,
+   "ry": 23.3,
+   "labelLines": [
+    {
+     "text": "Request Logistic",
+     "cx": 117.1,
+     "cy": 96.935,
+     "w": 123.6,
+     "size": 15.9
+    },
+    {
+     "text": "Service",
+     "cx": 117.8,
+     "cy": 116.83500000000001,
+     "w": 54.0,
+     "size": 15.9
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-request-transport-service",
+   "kind": "action",
+   "label": "Request Transport\nService",
+   "x": 825.8,
+   "y": 116.2,
+   "w": 190.6,
+   "h": 57.5,
+   "rx": 22.9,
+   "ry": 23.3,
+   "labelLines": [
+    {
+     "text": "Request Transport",
+     "cx": 921.5,
+     "cy": 134.135,
+     "w": 137.0,
+     "size": 15.9
+    },
+    {
+     "text": "Service",
+     "cx": 919.8,
+     "cy": 154.035,
+     "w": 54.0,
+     "size": 15.9
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "object-forwarding-instructions-between-freight-forwarder-and-carrier",
+   "kind": "object",
+   "label": "Forwarding\nInstructions",
+   "x": 1053.9,
+   "y": 116.2,
+   "w": 113.2,
+   "h": 66.5,
+   "labelLines": [
+    {
+     "text": "Forwarding",
+     "cx": 1109.5,
+     "cy": 138.935,
+     "w": 84.3,
+     "size": 15.9
+    },
+    {
+     "text": "Instructions",
+     "cx": 1111.2,
+     "cy": 155.735,
+     "w": 87.7,
+     "size": 15.9
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-receive-transport-service-request",
+   "kind": "action",
+   "label": "Receive Transport\nService Request",
+   "x": 1221.6,
+   "y": 117.5,
+   "w": 190.6,
+   "h": 56.2,
+   "rx": 25.1,
+   "ry": 23.8,
+   "labelLines": [
+    {
+     "text": "Receive Transport",
+     "cx": 1317.3,
+     "cy": 134.535,
+     "w": 134.4,
+     "size": 15.9
+    },
+    {
+     "text": "Service Request",
+     "cx": 1319.0,
+     "cy": 154.435,
+     "w": 120.6,
+     "size": 15.9
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-request-logistic-service-in-consignor",
+   "kind": "action",
+   "label": "Request Logistic\nService",
+   "x": 386.7,
+   "y": 206.1,
+   "w": 190.6,
+   "h": 55.7,
+   "rx": 24.2,
+   "ry": 21.6,
+   "labelLines": [
+    {
+     "text": "Request Logistic",
+     "cx": 478.8,
+     "cy": 223.135,
+     "w": 123.6,
+     "size": 15.9
+    },
+    {
+     "text": "Service",
+     "cx": 479.2,
+     "cy": 243.035,
+     "w": 54.4,
+     "size": 15.9
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "initial",
+   "kind": "initial",
+   "label": "",
+   "x": 258.4,
+   "y": 216.1,
+   "w": 34.1,
+   "h": 34.6
+  },
+  {
+   "id": "object-packing-list",
+   "kind": "object",
+   "label": "Packing List",
+   "x": 633.1,
+   "y": 246.3,
+   "w": 116.7,
+   "h": 65.7,
+   "labelLines": [
+    {
+     "text": "Packing List",
+     "cx": 691.0,
+     "cy": 276.335,
+     "w": 91.6,
+     "size": 15.9
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-receive-bill-of-lading-in-consignee",
+   "kind": "action",
+   "label": "Receive Bill of Lading",
+   "x": 44.9,
+   "y": 372.5,
+   "w": 189.3,
+   "h": 55.7,
+   "rx": 22.5,
+   "ry": 25.5,
+   "labelLines": [
+    {
+     "text": "Receive Bill of Lading",
+     "cx": 139.1,
+     "cy": 399.435,
+     "w": 159.0,
+     "size": 15.9
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "object-bill-of-lading-between-consignee-and-consignor-and-freight-forwarder",
+   "kind": "object",
+   "label": "Bill of Lading",
+   "x": 624.0,
+   "y": 392.4,
+   "w": 113.2,
+   "h": 67.0,
+   "labelLines": [
+    {
+     "text": "Bill of Lading",
+     "cx": 681.9,
+     "cy": 423.635,
+     "w": 97.7,
+     "size": 15.9
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "object-bill-of-lading-between-freight-forwarder-and-carrier",
+   "kind": "object",
+   "label": "Bill of Lading",
+   "x": 1053.9,
+   "y": 395.8,
+   "w": 113.2,
+   "h": 66.5,
+   "labelLines": [
+    {
+     "text": "Bill of Lading",
+     "cx": 1110.3,
+     "cy": 426.235,
+     "w": 98.1,
+     "size": 15.9
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-send-bill-of-lading-to-consignor",
+   "kind": "action",
+   "label": "Send Bill of Lading to\nConsignor",
+   "x": 808.9,
+   "y": 400.6,
+   "w": 190.6,
+   "h": 55.7,
+   "rx": 21.6,
+   "ry": 21.2,
+   "bold": true
+  },
+  {
+   "id": "action-send-bill-of-lading",
+   "kind": "action",
+   "label": "Send Bill of Lading",
+   "x": 1260.5,
+   "y": 403.6,
+   "w": 192.3,
+   "h": 54.0,
+   "rx": 21.6,
+   "ry": 21.6,
+   "labelLines": [
+    {
+     "text": "Send Bill of Lading",
+     "cx": 1355.1,
+     "cy": 428.435,
+     "w": 139.1,
+     "size": 15.9
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-receive-bill-of-lading-in-consignor",
+   "kind": "action",
+   "label": "Receive Bill of Lading",
+   "x": 344.8,
+   "y": 434.7,
+   "w": 188.8,
+   "h": 55.7,
+   "rx": 21.6,
+   "ry": 21.6,
+   "labelLines": [
+    {
+     "text": "Receive Bill of Lading",
+     "cx": 438.8,
+     "cy": 459.535,
+     "w": 159.5,
+     "size": 15.9
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-receive-waybill-in-consignor",
+   "kind": "action",
+   "label": "Receive Waybill",
+   "x": 343.1,
+   "y": 526.3,
+   "w": 189.3,
+   "h": 55.7,
+   "rx": 21.6,
+   "ry": 23.3,
+   "labelLines": [
+    {
+     "text": "Receive Waybill",
+     "cx": 435.8,
+     "cy": 553.3349999999999,
+     "w": 115.4,
+     "size": 15.9
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "object-waybill-between-freight-forwarder-and-carrier",
+   "kind": "object",
+   "label": "Waybill",
+   "x": 1053.9,
+   "y": 600.6,
+   "w": 113.2,
+   "h": 66.5,
+   "labelLines": [
+    {
+     "text": "Waybill",
+     "cx": 1109.2,
+     "cy": 630.2349999999999,
+     "w": 53.6,
+     "size": 15.9
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "object-waybill-between-consignee-and-consignor-and-freight-forwarder",
+   "kind": "object",
+   "label": "Waybill",
+   "x": 622.2,
+   "y": 602.4,
+   "w": 113.6,
+   "h": 66.5,
+   "labelLines": [
+    {
+     "text": "Waybill",
+     "cx": 679.9,
+     "cy": 632.3349999999999,
+     "w": 53.2,
+     "size": 15.9
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-receive-waybill-in-consignee",
+   "kind": "action",
+   "label": "Receive Waybill",
+   "x": 40.2,
+   "y": 607.1,
+   "w": 189.3,
+   "h": 55.3,
+   "rx": 21.6,
+   "ry": 25.1,
+   "labelLines": [
+    {
+     "text": "Receive Waybill",
+     "cx": 133.1,
+     "cy": 631.935,
+     "w": 114.9,
+     "size": 15.9
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-send-waybill-to-consignor",
+   "kind": "action",
+   "label": "Send Waybill to\nConsignor",
+   "x": 804.2,
+   "y": 607.1,
+   "w": 190.6,
+   "h": 55.3,
+   "rx": 21.2,
+   "ry": 21.6,
+   "labelLines": [
+    {
+     "text": "Send Waybill to",
+     "cx": 898.8,
+     "cy": 623.7349999999999,
+     "w": 114.9,
+     "size": 15.9
+    },
+    {
+     "text": "Consignor",
+     "cx": 902.0,
+     "cy": 644.035,
+     "w": 77.3,
+     "size": 15.9
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-send-waybill",
+   "kind": "action",
+   "label": "Send Waybill",
+   "x": 1260.5,
+   "y": 610.1,
+   "w": 190.6,
+   "h": 55.3,
+   "rx": 21.2,
+   "ry": 21.6,
+   "labelLines": [
+    {
+     "text": "Send Waybill",
+     "cx": 1354.9,
+     "cy": 634.935,
+     "w": 95.5,
+     "size": 15.9
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-transport-goods-items-to-delivery-party",
+   "kind": "action",
+   "label": "Transport Goods Items\nto Delivery Party",
+   "x": 1261.8,
+   "y": 718.6,
+   "w": 189.3,
+   "h": 55.7,
+   "rx": 23.3,
+   "ry": 23.3,
+   "labelLines": [
+    {
+     "text": "Transport Goods Items",
+     "cx": 1356.8,
+     "cy": 736.035,
+     "w": 169.4,
+     "size": 15.9
+    },
+    {
+     "text": "to Delivery Party",
+     "cx": 1359.0,
+     "cy": 756.3349999999999,
+     "w": 121.9,
+     "size": 15.9
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "object-transportation-status-between-consignor-and-freight-forwarder",
+   "kind": "object",
+   "label": "Transportation\nStatus",
+   "x": 619.2,
+   "y": 755.8,
+   "w": 138.3,
+   "h": 76.1,
+   "labelLines": [
+    {
+     "text": "Transportation",
+     "cx": 687.5,
+     "cy": 782.3349999999999,
+     "w": 107.2,
+     "size": 15.9
+    },
+    {
+     "text": "Status",
+     "cx": 688.6,
+     "cy": 799.135,
+     "w": 46.2,
+     "size": 15.9
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-receive-status-report-in-consignor",
+   "kind": "action",
+   "label": "Receive Status\nReport",
+   "x": 355.6,
+   "y": 765.3,
+   "w": 159.5,
+   "h": 52.7,
+   "rx": 22.9,
+   "ry": 21.6,
+   "labelLines": [
+    {
+     "text": "Receive Status",
+     "cx": 430.8,
+     "cy": 780.535,
+     "w": 108.0,
+     "size": 15.9
+    },
+    {
+     "text": "Report",
+     "cx": 436.7,
+     "cy": 800.935,
+     "w": 48.8,
+     "size": 15.9
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "object-transportation-status-between-freight-forwarder-and-carrier",
+   "kind": "object",
+   "label": "Transportation\nStatus",
+   "x": 1024.1,
+   "y": 842.6,
+   "w": 138.3,
+   "h": 76.1,
+   "labelLines": [
+    {
+     "text": "Transportation",
+     "cx": 1092.8,
+     "cy": 870.435,
+     "w": 107.2,
+     "size": 15.9
+    },
+    {
+     "text": "Status",
+     "cx": 1093.7,
+     "cy": 887.3349999999999,
+     "w": 46.7,
+     "size": 15.9
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-report-status-in-freight-forwarder",
+   "kind": "action",
+   "label": "Report Status",
+   "x": 779.1,
+   "y": 858.2,
+   "w": 153.4,
+   "h": 52.7,
+   "rx": 24.6,
+   "ry": 23.8,
+   "labelLines": [
+    {
+     "text": "Report Status",
+     "cx": 856.5,
+     "cy": 883.035,
+     "w": 100.3,
+     "size": 15.9
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-report-status-in-carrier",
+   "kind": "action",
+   "label": "Report Status",
+   "x": 1223.3,
+   "y": 858.2,
+   "w": 153.4,
+   "h": 54.4,
+   "rx": 24.6,
+   "ry": 22.5,
+   "labelLines": [
+    {
+     "text": "Report Status",
+     "cx": 1300.5,
+     "cy": 881.7349999999999,
+     "w": 99.8,
+     "size": 15.9
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "object-transportation-status-between-consignee-and-freight-forwarder",
+   "kind": "object",
+   "label": "Transportation\nStatus",
+   "x": 606.7,
+   "y": 973.6,
+   "w": 138.3,
+   "h": 76.1,
+   "labelLines": [
+    {
+     "text": "Transportation",
+     "cx": 675.4,
+     "cy": 999.635,
+     "w": 107.2,
+     "size": 15.9
+    },
+    {
+     "text": "Status",
+     "cx": 676.0,
+     "cy": 1016.535,
+     "w": 46.2,
+     "size": 15.9
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-receive-status-report-in-consignee",
+   "kind": "action",
+   "label": "Receive Status\nReport",
+   "x": 40.2,
+   "y": 993.9,
+   "w": 158.6,
+   "h": 51.0,
+   "rx": 22.5,
+   "ry": 25.1,
+   "labelLines": [
+    {
+     "text": "Receive Status",
+     "cx": 118.6,
+     "cy": 1008.3349999999999,
+     "w": 108.5,
+     "size": 15.9
+    },
+    {
+     "text": "Report",
+     "cx": 124.7,
+     "cy": 1028.635,
+     "w": 48.8,
+     "size": 15.9
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "final-carrier",
+   "kind": "final",
+   "label": "",
+   "x": 1376.7,
+   "y": 1043.6,
+   "w": 29.4,
+   "h": 29.4,
+   "innerRatio": 0.453
+  }
+ ],
+ "edges": [
+  {
+   "id": "flow-request-logistic-service-in-consignee-to-forwarding-instructions-between-consignee-and-consignor-and-freight-forwarder",
+   "from": "action-request-logistic-service-in-consignee",
+   "to": "object-forwarding-instructions-between-consignee-and-consignor-and-freight-forwarder",
+   "exitXY": [
+    1.0,
+    0.4698
+   ],
+   "entryXY": [
+    0.0,
+    0.5068
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-forwarding-instructions-between-consignee-and-consignor-and-freight-forwarder-to-request-transport-service",
+   "from": "object-forwarding-instructions-between-consignee-and-consignor-and-freight-forwarder",
+   "to": "action-request-transport-service",
+   "exitXY": [
+    1.0,
+    0.6436
+   ],
+   "entryXY": [
+    0.0,
+    0.233
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-request-transport-service-to-forwarding-instructions-between-freight-forwarder-and-carrier",
+   "from": "action-request-transport-service",
+   "to": "object-forwarding-instructions-between-freight-forwarder-and-carrier",
+   "exitXY": [
+    1.0,
+    0.527
+   ],
+   "entryXY": [
+    0.0,
+    0.5008
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-initial-to-request-logistic-service-in-consignee",
+   "from": "initial",
+   "to": "action-request-logistic-service-in-consignee",
+   "exitXY": [
+    0.0,
+    0.0
+   ],
+   "entryXY": [
+    0.6928,
+    1.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-request-logistic-service-in-consignor-to-forwarding-instructions-between-consignee-and-consignor-and-freight-forwarder",
+   "from": "action-request-logistic-service-in-consignor",
+   "to": "object-forwarding-instructions-between-consignee-and-consignor-and-freight-forwarder",
+   "exitXY": [
+    0.7576,
+    0.0
+   ],
+   "entryXY": [
+    0.0115,
+    1.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-forwarding-instructions-between-freight-forwarder-and-carrier-to-receive-transport-service-request",
+   "from": "object-forwarding-instructions-between-freight-forwarder-and-carrier",
+   "to": "action-receive-transport-service-request",
+   "exitXY": [
+    1.0,
+    0.5008
+   ],
+   "entryXY": [
+    0.0,
+    0.532
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-packing-list-to-request-transport-service",
+   "from": "object-packing-list",
+   "to": "action-request-transport-service",
+   "exitXY": [
+    1.0,
+    0.0
+   ],
+   "entryXY": [
+    0.2219,
+    1.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-receive-transport-service-request-to-send-bill-of-lading",
+   "from": "action-receive-transport-service-request",
+   "to": "action-send-bill-of-lading",
+   "exitXY": [
+    0.5986,
+    1.0
+   ],
+   "entryXY": [
+    0.3978,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-initial-to-request-logistic-service-in-consignor",
+   "from": "initial",
+   "to": "action-request-logistic-service-in-consignor",
+   "exitXY": [
+    1.0,
+    0.5116
+   ],
+   "entryXY": [
+    0.0,
+    0.4973
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-request-logistic-service-in-consignor-to-packing-list",
+   "from": "action-request-logistic-service-in-consignor",
+   "to": "object-packing-list",
+   "exitXY": [
+    1.0,
+    0.8618
+   ],
+   "entryXY": [
+    0.0,
+    0.3029
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-bill-of-lading-between-consignee-and-consignor-and-freight-forwarder-to-receive-bill-of-lading-in-consignee",
+   "from": "object-bill-of-lading-between-consignee-and-consignor-and-freight-forwarder",
+   "to": "action-receive-bill-of-lading-in-consignee",
+   "exitXY": [
+    0.0,
+    0.1149
+   ],
+   "entryXY": [
+    1.0,
+    0.4955
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-send-bill-of-lading-to-consignor-to-bill-of-lading-between-consignee-and-consignor-and-freight-forwarder",
+   "from": "action-send-bill-of-lading-to-consignor",
+   "to": "object-bill-of-lading-between-consignee-and-consignor-and-freight-forwarder",
+   "exitXY": [
+    0.0,
+    0.4722
+   ],
+   "entryXY": [
+    1.0,
+    0.503
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-bill-of-lading-between-freight-forwarder-and-carrier-to-send-bill-of-lading-to-consignor",
+   "from": "object-bill-of-lading-between-freight-forwarder-and-carrier",
+   "to": "action-send-bill-of-lading-to-consignor",
+   "exitXY": [
+    0.0,
+    0.4947
+   ],
+   "entryXY": [
+    1.0,
+    0.4955
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-send-bill-of-lading-to-bill-of-lading-between-freight-forwarder-and-carrier",
+   "from": "action-send-bill-of-lading",
+   "to": "object-bill-of-lading-between-freight-forwarder-and-carrier",
+   "exitXY": [
+    0.0,
+    0.4963
+   ],
+   "entryXY": [
+    1.0,
+    0.5008
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-bill-of-lading-between-consignee-and-consignor-and-freight-forwarder-to-receive-bill-of-lading-in-consignor",
+   "from": "object-bill-of-lading-between-consignee-and-consignor-and-freight-forwarder",
+   "to": "action-receive-bill-of-lading-in-consignor",
+   "exitXY": [
+    0.0,
+    0.6179
+   ],
+   "entryXY": [
+    1.0,
+    0.2406
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-send-bill-of-lading-to-send-waybill",
+   "from": "action-send-bill-of-lading",
+   "to": "action-send-waybill",
+   "exitXY": [
+    0.4987,
+    1.0
+   ],
+   "entryXY": [
+    0.5031,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-waybill-between-consignee-and-consignor-and-freight-forwarder-to-receive-waybill-in-consignor",
+   "from": "object-waybill-between-consignee-and-consignor-and-freight-forwarder",
+   "to": "action-receive-waybill-in-consignor",
+   "exitXY": [
+    0.0,
+    0.2015
+   ],
+   "entryXY": [
+    0.9974,
+    1.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-waybill-between-consignee-and-consignor-and-freight-forwarder-to-receive-waybill-in-consignee",
+   "from": "object-waybill-between-consignee-and-consignor-and-freight-forwarder",
+   "to": "action-receive-waybill-in-consignee",
+   "exitXY": [
+    0.0,
+    0.4872
+   ],
+   "entryXY": [
+    1.0,
+    0.5009
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-send-waybill-to-consignor-to-waybill-between-consignee-and-consignor-and-freight-forwarder",
+   "from": "action-send-waybill-to-consignor",
+   "to": "object-waybill-between-consignee-and-consignor-and-freight-forwarder",
+   "exitXY": [
+    0.0,
+    0.4919
+   ],
+   "entryXY": [
+    1.0,
+    0.4932
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-waybill-between-freight-forwarder-and-carrier-to-send-waybill-to-consignor",
+   "from": "object-waybill-between-freight-forwarder-and-carrier",
+   "to": "action-send-waybill-to-consignor",
+   "exitXY": [
+    0.0,
+    0.5008
+   ],
+   "entryXY": [
+    1.0,
+    0.5009
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-send-waybill-to-waybill-between-freight-forwarder-and-carrier",
+   "from": "action-send-waybill",
+   "to": "object-waybill-between-freight-forwarder-and-carrier",
+   "exitXY": [
+    0.0,
+    0.4774
+   ],
+   "entryXY": [
+    1.0,
+    0.5008
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-send-waybill-to-transport-goods-items-to-delivery-party",
+   "from": "action-send-waybill",
+   "to": "action-transport-goods-items-to-delivery-party",
+   "exitXY": [
+    0.499,
+    1.0
+   ],
+   "entryXY": [
+    0.4997,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-transport-goods-items-to-delivery-party-to-report-status-in-carrier",
+   "from": "action-transport-goods-items-to-delivery-party",
+   "to": "action-report-status-in-carrier",
+   "exitXY": [
+    0.2076,
+    1.0
+   ],
+   "entryXY": [
+    0.4987,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-transport-goods-items-to-delivery-party-to-final-carrier",
+   "from": "action-transport-goods-items-to-delivery-party",
+   "to": "final-carrier",
+   "exitXY": [
+    0.719,
+    1.0
+   ],
+   "entryXY": [
+    0.7211,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-transportation-status-between-consignor-and-freight-forwarder-to-receive-status-report-in-consignor",
+   "from": "object-transportation-status-between-consignor-and-freight-forwarder",
+   "to": "action-receive-status-report-in-consignor",
+   "exitXY": [
+    0.0,
+    0.4704
+   ],
+   "entryXY": [
+    1.0,
+    0.4991
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-report-status-in-freight-forwarder-to-transportation-status-between-consignor-and-freight-forwarder",
+   "from": "action-report-status-in-freight-forwarder",
+   "to": "object-transportation-status-between-consignor-and-freight-forwarder",
+   "exitXY": [
+    0.1297,
+    0.0
+   ],
+   "entryXY": [
+    1.0,
+    0.9934
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-transportation-status-between-freight-forwarder-and-carrier-to-report-status-in-freight-forwarder",
+   "from": "object-transportation-status-between-freight-forwarder-and-carrier",
+   "to": "action-report-status-in-freight-forwarder",
+   "exitXY": [
+    0.0,
+    0.523
+   ],
+   "entryXY": [
+    1.0,
+    0.4839
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-report-status-in-carrier-to-transportation-status-between-freight-forwarder-and-carrier",
+   "from": "action-report-status-in-carrier",
+   "to": "object-transportation-status-between-freight-forwarder-and-carrier",
+   "exitXY": [
+    0.0,
+    0.4688
+   ],
+   "entryXY": [
+    1.0,
+    0.5112
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-report-status-in-freight-forwarder-to-transportation-status-between-consignee-and-freight-forwarder",
+   "from": "action-report-status-in-freight-forwarder",
+   "to": "object-transportation-status-between-consignee-and-freight-forwarder",
+   "exitXY": [
+    0.1858,
+    1.0
+   ],
+   "entryXY": [
+    0.8373,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-transportation-status-between-consignee-and-freight-forwarder-to-receive-status-report-in-consignee",
+   "from": "object-transportation-status-between-consignee-and-freight-forwarder",
+   "to": "action-receive-status-report-in-consignee",
+   "exitXY": [
+    0.0,
+    0.6071
+   ],
+   "entryXY": [
+    1.0,
+    0.5078
+   ],
+   "straight": true,
+   "confidence": "high"
+  }
+ ],
+ "guards": [
+  {
+   "id": "text-ordering-process",
+   "text": "Ordering\nProcess",
+   "x": 188.8,
+   "y": 252.4,
+   "w": 59.2,
+   "h": 32.0,
+   "labelLines": [
+    {
+     "text": "Ordering",
+     "cx": 218.0,
+     "cy": 258.135,
+     "w": 58.3,
+     "size": 15.9
+    },
+    {
+     "text": "Process",
+     "cx": 221.0,
+     "cy": 278.595,
+     "w": 54.0,
+     "size": 16.3
+    }
+   ]
+  },
+  {
+   "id": "text-fulfillment-process",
+   "text": "Fulfillment\nProcess",
+   "x": 1284.7,
+   "y": 1035.4,
+   "w": 69.6,
+   "h": 31.5,
+   "labelLines": [
+    {
+     "text": "Fulfillment",
+     "cx": 1319.5,
+     "cy": 1041.105,
+     "w": 69.6,
+     "size": 15.7
+    },
+    {
+     "text": "Process",
+     "cx": 1324.4,
+     "cy": 1061.1950000000002,
+     "w": 54.4,
+     "size": 16.3
+    }
+   ]
+  }
+ ]
+}

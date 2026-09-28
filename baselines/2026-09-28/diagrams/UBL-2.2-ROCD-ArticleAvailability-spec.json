@@ -1,0 +1,219 @@
+{
+ "canvas": {
+  "w": 1480.0,
+  "h": 571.691
+ },
+ "stroke": {
+  "frame": 4.3,
+  "divider": 2.2,
+  "action": 2.2,
+  "object": 4.3,
+  "edge": 2.2
+ },
+ "font": {
+  "family": "Helvetica, Arial, sans-serif",
+  "node": 28.4,
+  "lane": 28.4,
+  "guard": 28.4
+ },
+ "arrow": 36.2,
+ "arrowWidth": 29.5,
+ "arrowStyle": "open",
+ "dashed": [],
+ "greyRules": [],
+ "crossMarks": [],
+ "openEnds": [],
+ "frameBox": [
+  2.2,
+  2.2,
+  1477.8,
+  569.5
+ ],
+ "dividers": [
+  [
+   720.6,
+   2.2,
+   5.6,
+   566.1
+  ]
+ ],
+ "bands": [],
+ "lanes": [
+  {
+   "id": "lane-producer",
+   "title": "Producer",
+   "x": 0.0,
+   "w": 720.8,
+   "cx": 356.3,
+   "cy": 31.3,
+   "size": 28.4,
+   "textWidth": 110.2,
+   "baseline": 41.5
+  },
+  {
+   "id": "lane-retailer",
+   "title": "Retailer",
+   "x": 720.8,
+   "w": 759.2,
+   "cx": 1101.0,
+   "cy": 30.0,
+   "size": 28.4,
+   "textWidth": 93.3,
+   "baseline": 40.2
+  }
+ ],
+ "bandLabels": [],
+ "captions": [],
+ "nodes": [
+  {
+   "id": "initial-producer",
+   "kind": "initial",
+   "label": "",
+   "x": 213.9,
+   "y": 77.3,
+   "w": 42.3,
+   "h": 42.8
+  },
+  {
+   "id": "object-stock-availability-report",
+   "kind": "object",
+   "label": "Stock Availability Report",
+   "x": 553.1,
+   "y": 284.8,
+   "w": 340.1,
+   "h": 74.3,
+   "labelLines": [
+    {
+     "text": "Stock Availability Report",
+     "cx": 722.1,
+     "cy": 320.775,
+     "w": 316.3,
+     "size": 27.5
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-receive-stock-availability-report",
+   "kind": "action",
+   "label": "Receive stock availability\nreport",
+   "x": 1020.4,
+   "y": 286.7,
+   "w": 423.0,
+   "h": 83.0,
+   "rx": 53.8,
+   "ry": 31.3,
+   "labelLines": [
+    {
+     "text": "Receive stock availability",
+     "cx": 1224.2,
+     "cy": 310.875,
+     "w": 331.0,
+     "size": 27.5
+    },
+    {
+     "text": "report",
+     "cx": 1233.7,
+     "cy": 342.375,
+     "w": 77.8,
+     "size": 27.5
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-send-stock-availability-report",
+   "kind": "action",
+   "label": "Send stock availability report",
+   "x": 36.5,
+   "y": 288.9,
+   "w": 403.6,
+   "h": 67.8,
+   "rx": 53.8,
+   "ry": 20.5,
+   "labelLines": [
+    {
+     "text": "Send stock availability report",
+     "cx": 235.3,
+     "cy": 321.175,
+     "w": 383.3,
+     "size": 27.5
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "final-retailer",
+   "kind": "final",
+   "label": "",
+   "x": 1211.7,
+   "y": 503.4,
+   "w": 40.6,
+   "h": 40.6,
+   "innerRatio": 0.443
+  }
+ ],
+ "edges": [
+  {
+   "id": "flow-initial-producer-to-send-stock-availability-report",
+   "from": "initial-producer",
+   "to": "action-send-stock-availability-report",
+   "exitXY": [
+    0.5106,
+    1.0
+   ],
+   "entryXY": [
+    0.4953,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-send-stock-availability-report-to-stock-availability-report",
+   "from": "action-send-stock-availability-report",
+   "to": "object-stock-availability-report",
+   "exitXY": [
+    1.0,
+    0.5
+   ],
+   "entryXY": [
+    0.0,
+    0.5114
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-stock-availability-report-to-receive-stock-availability-report",
+   "from": "object-stock-availability-report",
+   "to": "action-receive-stock-availability-report",
+   "exitXY": [
+    1.0,
+    0.5289
+   ],
+   "entryXY": [
+    0.0,
+    0.4711
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-receive-stock-availability-report-to-final-retailer",
+   "from": "action-receive-stock-availability-report",
+   "to": "final-retailer",
+   "exitXY": [
+    0.5021,
+    1.0
+   ],
+   "entryXY": [
+    0.5197,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  }
+ ],
+ "guards": []
+}

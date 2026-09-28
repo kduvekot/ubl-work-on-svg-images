@@ -1,0 +1,237 @@
+{
+ "name": "UBL-2.2-DigitalAgreement.png",
+ "verdict": "needs-human",
+ "radius": 3,
+ "lineWorkInk": 430672,
+ "missingPx": 2779,
+ "inventedPx": 2127,
+ "structural": {
+  "absent": 0,
+  "invented": 0,
+  "coherence": 0,
+  "textAbsent": 0,
+  "textDiffers": 0
+ },
+ "blocking": [],
+ "findings": [
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n22 -> n24",
+   "x": 678,
+   "y": 2892,
+   "w": 288,
+   "h": 124,
+   "area": 1340
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n19 -> n23",
+   "x": 2761,
+   "y": 2400,
+   "w": 86,
+   "h": 155,
+   "area": 389
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n10 -> n15",
+   "x": 456,
+   "y": 1133,
+   "w": 50,
+   "h": 118,
+   "area": 317
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n15 -> n17",
+   "x": 697,
+   "y": 1716,
+   "w": 24,
+   "h": 48,
+   "area": 117
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n8 -> n11",
+   "x": 2808,
+   "y": 1014,
+   "w": 27,
+   "h": 32,
+   "area": 79
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n22 -> n24",
+   "x": 687,
+   "y": 2892,
+   "w": 251,
+   "h": 109,
+   "area": 1089
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n10 -> n15",
+   "x": 467,
+   "y": 1157,
+   "w": 41,
+   "h": 94,
+   "area": 224
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n19 -> n23",
+   "x": 2776,
+   "y": 2447,
+   "w": 56,
+   "h": 102,
+   "area": 207
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n15 -> n17",
+   "x": 690,
+   "y": 1724,
+   "w": 23,
+   "h": 47,
+   "area": 114
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n8 -> n11",
+   "x": 2821,
+   "y": 1017,
+   "w": 21,
+   "h": 29,
+   "area": 67
+  }
+ ],
+ "text": [],
+ "coherence": [],
+ "human": [
+  {
+   "x": 1728,
+   "y": 488,
+   "w": 784,
+   "h": 312,
+   "shape": "ellipse",
+   "iou": 0.729,
+   "border": 0.532,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best ellipse 0.73, and 0.99 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "x": 2958,
+   "y": 817,
+   "w": 446,
+   "h": 325,
+   "shape": "rhombus",
+   "iou": 0.964,
+   "border": 0.067,
+   "kind": "kept-on-outline",
+   "reason": "every side has pass-through line-work, but the region carries a complete outline of its own",
+   "check": "confirm this is a node and not trapped whitespace"
+  },
+  {
+   "x": 967,
+   "y": 1149,
+   "w": 754,
+   "h": 303,
+   "shape": "rhombus",
+   "iou": 0.69,
+   "border": 0.489,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best rhombus 0.69, and 0.98 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "x": 26,
+   "y": 1493,
+   "w": 663,
+   "h": 440,
+   "shape": "rhombus",
+   "iou": 0.964,
+   "border": 0.068,
+   "kind": "kept-on-outline",
+   "reason": "every side has pass-through line-work, but the region carries a complete outline of its own",
+   "check": "confirm this is a node and not trapped whitespace"
+  },
+  {
+   "x": 1728,
+   "y": 1969,
+   "w": 784,
+   "h": 849,
+   "shape": "rounded",
+   "iou": 0.802,
+   "border": 0.581,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best rounded 0.80, and 0.99 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "kind": "no-weight-split",
+   "reason": "all 19 box strokes are one weight ([0, 6, 7]), so no object node could be identified",
+   "check": "confirm the diagram really has no object nodes"
+  },
+  {
+   "kind": "arrowhead-unmeasurable",
+   "x": 3113,
+   "y": 3020,
+   "w": 144,
+   "h": 144,
+   "reason": "the ink at the head end of n8->n23 measures 72x102px, too wide for this diagram's own 56px arrowhead - a junction, not a head",
+   "check": "confirm the arrowhead here is drawn and points the way the original does"
+  }
+ ],
+ "review": [
+  {
+   "n": 1,
+   "what": "check",
+   "where": "1728,488 784x312",
+   "detail": "outline matches no UML node shape (best ellipse 0.73, and 0.99 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "n": 2,
+   "what": "check",
+   "where": "2958,817 446x325",
+   "detail": "every side has pass-through line-work, but the region carries a complete outline of its own",
+   "check": "confirm this is a node and not trapped whitespace"
+  },
+  {
+   "n": 3,
+   "what": "check",
+   "where": "967,1149 754x303",
+   "detail": "outline matches no UML node shape (best rhombus 0.69, and 0.98 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "n": 4,
+   "what": "check",
+   "where": "26,1493 663x440",
+   "detail": "every side has pass-through line-work, but the region carries a complete outline of its own",
+   "check": "confirm this is a node and not trapped whitespace"
+  },
+  {
+   "n": 5,
+   "what": "check",
+   "where": "1728,1969 784x849",
+   "detail": "outline matches no UML node shape (best rounded 0.80, and 0.99 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "n": 6,
+   "what": "check",
+   "where": "",
+   "detail": "all 19 box strokes are one weight ([0, 6, 7]), so no object node could be identified",
+   "check": "confirm the diagram really has no object nodes"
+  },
+  {
+   "n": 7,
+   "what": "check",
+   "where": "3113,3020 144x144",
+   "detail": "the ink at the head end of n8->n23 measures 72x102px, too wide for this diagram's own 56px arrowhead - a junction, not a head",
+   "check": "confirm the arrowhead here is drawn and points the way the original does"
+  }
+ ]
+}

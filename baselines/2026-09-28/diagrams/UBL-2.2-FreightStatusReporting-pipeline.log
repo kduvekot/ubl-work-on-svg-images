@@ -1,0 +1,11 @@
+== UBL-2.2-FreightStatusReporting
+  UBL-2.2-FreightStatusReporting -> diagram, layout, extraction  (9 nodes, 8 flows, 1 texts)
+  scale 0.43212   frame 8px  divider 8px  action 6px  object 7px
+  font 60px (25.9 model)   2 lanes, 0 bands, 9 nodes, 8 edges -> /tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-2.2-FreightStatusReporting-spec.json
+  /tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-2.2-FreightStatusReporting.svg + .drawio + -classified.svg   (9 nodes, 8 edges)
+  aligned on ink bounds: scale x 1.0000, y 1.0008
+  size 3425x1230  radius 2
+  ink: original 259969   candidate 249948
+  MISSING (red)     7987  = 3.0723% of original ink
+  EXTRA   (blue)    6168  = 2.3726% of original ink
+  RESULT: DIFFERENCES - inspect /tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-2.2-FreightStatusReporting-diff-r2.png

@@ -1,0 +1,808 @@
+{
+ "schema": "ubl-activity-diagram-extraction/1",
+ "figure": "UBL-2.2-Tender-QualificationApplication",
+ "nodes": {
+  "initial-contracting-authority": {
+   "area": 12079,
+   "fill": 1.0
+  },
+  "action-prepare-qualification-application": {
+   "area": 159645,
+   "fill": 0.872,
+   "solid": 0.964,
+   "stem": 0.081
+  },
+  "object-qualification-application-request": {
+   "area": 149242,
+   "fill": 0.831,
+   "solid": 1.0,
+   "stem": 0.179
+  },
+  "action-receive-qualification-application-in-economic-operator": {
+   "area": 173734,
+   "fill": 0.884,
+   "solid": 0.968,
+   "stem": 0.081
+  },
+  "action-submit-qualification-application-request": {
+   "area": 179454,
+   "fill": 0.888,
+   "solid": 0.966,
+   "stem": 0.081
+  },
+  "object-qualification-application-response": {
+   "area": 180413,
+   "fill": 0.851,
+   "solid": 1.0,
+   "stem": 0.179
+  },
+  "action-submit-qualification-application": {
+   "area": 211808,
+   "fill": 0.902,
+   "solid": 0.973,
+   "stem": 0.081
+  },
+  "action-receive-qualification-application-in-contracting-authority": {
+   "area": 166923,
+   "fill": 0.881,
+   "solid": 0.972,
+   "stem": 0.081
+  },
+  "final-contracting-authority": {
+   "area": 6836,
+   "fill": 0.586,
+   "solid": 0.79
+  }
+ },
+ "flows": {
+  "flow-initial-contracting-authority-to-prepare-qualification-application": {
+   "arrowInk": [
+    973,
+    1117
+   ],
+   "arrowPx": [
+    78,
+    66.6,
+    1.71
+   ],
+   "arrowFill": 0.003
+  },
+  "flow-prepare-qualification-application-to-submit-qualification-application-request": {
+   "arrowInk": [
+    554,
+    1103
+   ],
+   "arrowPx": [
+    109,
+    74.7,
+    0.6
+   ],
+   "arrowFill": 0.008
+  },
+  "flow-submit-qualification-application-request-to-qualification-application-request": {
+   "arrowInk": [
+    360,
+    1117
+   ],
+   "arrowPx": [
+    80,
+    66.0,
+    2.38
+   ],
+   "arrowFill": 0.048
+  },
+  "flow-qualification-application-request-to-receive-qualification-application-in-economic-operator": {
+   "arrowInk": [
+    360,
+    1016
+   ],
+   "arrowPx": [
+    88,
+    66.0,
+    2.9
+   ],
+   "arrowFill": 0.05
+  },
+  "flow-receive-qualification-application-in-economic-operator-to-submit-qualification-application": {
+   "arrowInk": [
+    405,
+    1147
+   ],
+   "arrowPx": [
+    80,
+    67.6,
+    2.3
+   ],
+   "arrowFill": 0.051
+  },
+  "flow-qualification-application-response-to-receive-qualification-application-in-contracting-authority": {
+   "arrowInk": [
+    368,
+    1053
+   ],
+   "arrowPx": [
+    84,
+    66.0,
+    2.55
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-submit-qualification-application-to-qualification-application-response": {
+   "arrowInk": [
+    414,
+    1119
+   ],
+   "arrowPx": [
+    80,
+    66.7,
+    2.31
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-receive-qualification-application-in-contracting-authority-to-final-contracting-authority": {
+   "arrowInk": [
+    360,
+    1116
+   ],
+   "arrowPx": [
+    80,
+    68.7,
+    2.36
+   ],
+   "arrowFill": 0.0
+  }
+ },
+ "offPage": {},
+ "marks": {},
+ "phases": {},
+ "greyRules": [],
+ "titleReadings": [
+  {
+   "position": 0,
+   "text": "CONTRACTING AUTHORITY",
+   "x": 352,
+   "y": 40,
+   "w": 909,
+   "h": 54,
+   "lines": [
+    {
+     "x": 352,
+     "y": 40,
+     "w": 909,
+     "h": 54,
+     "text": "CONTRACTING AUTHORITY"
+    }
+   ]
+  },
+  {
+   "position": 1,
+   "text": "ECONOMIC OPERATOR",
+   "x": 2240,
+   "y": 52,
+   "w": 759,
+   "h": 54,
+   "lines": [
+    {
+     "x": 2240,
+     "y": 52,
+     "w": 759,
+     "h": 54,
+     "text": "ECONOMIC OPERATOR"
+    }
+   ]
+  }
+ ],
+ "findings": [],
+ "uncertain": [
+  {
+   "kind": "no-weight-split",
+   "reason": "all 7 box strokes are one weight ([8, 9]), so no object node could be identified",
+   "check": "confirm the diagram really has no object nodes"
+  }
+ ],
+ "present": [
+  "source",
+  "size",
+  "fontPx",
+  "arrowPx",
+  "arrowWidthPx",
+  "arrowStyle",
+  "rules",
+  "ruleSpan",
+  "greyRules",
+  "dashed",
+  "openEnds",
+  "crossMarks",
+  "partitions",
+  "nodes",
+  "edges",
+  "text",
+  "uncertain"
+ ],
+ "uncorrected": {
+  "model": {
+   "schema": "ubl-activity-diagram/1",
+   "figure": {
+    "name": "UBL-2.2-Tender-QualificationApplication",
+    "source": "UBL-2.2-Tender-QualificationApplication.png"
+   },
+   "lanes": [
+    {
+     "id": "lane0",
+     "axis": "column",
+     "index": 0,
+     "title": "CONTRACTING AUTHORITY"
+    },
+    {
+     "id": "lane1",
+     "axis": "column",
+     "index": 1,
+     "title": "ECONOMIC OPERATOR"
+    },
+    {
+     "id": "lane2",
+     "axis": "column",
+     "index": 2,
+     "title": ""
+    },
+    {
+     "id": "lane3",
+     "axis": "band",
+     "index": 0,
+     "title": ""
+    }
+   ],
+   "nodes": [
+    {
+     "id": "n1",
+     "kind": "initial",
+     "label": "",
+     "lane": "lane0",
+     "band": "lane3"
+    },
+    {
+     "id": "n2",
+     "kind": "action",
+     "label": "Prepare qualification application request",
+     "lane": "lane0",
+     "band": "lane3"
+    },
+    {
+     "id": "n3",
+     "kind": "object",
+     "label": "Qualification\nApplication\nRequest",
+     "lane": "lane1",
+     "band": "lane3"
+    },
+    {
+     "id": "n4",
+     "kind": "action",
+     "label": "Receive qualification application request",
+     "lane": "lane1",
+     "band": "lane3"
+    },
+    {
+     "id": "n5",
+     "kind": "action",
+     "label": "Submit qualification application request",
+     "lane": "lane0",
+     "band": "lane3"
+    },
+    {
+     "id": "n6",
+     "kind": "object",
+     "label": "Qualification\nApplication\nResponse",
+     "lane": "lane1",
+     "band": "lane3"
+    },
+    {
+     "id": "n7",
+     "kind": "action",
+     "label": "Submit qualification application response",
+     "lane": "lane1",
+     "band": "lane3"
+    },
+    {
+     "id": "n8",
+     "kind": "action",
+     "label": "Receive qualification application response",
+     "lane": "lane0",
+     "band": "lane3"
+    },
+    {
+     "id": "n9",
+     "kind": "final",
+     "label": "",
+     "lane": "lane0",
+     "band": "lane3"
+    }
+   ],
+   "flows": [
+    {
+     "id": "f0",
+     "from": "n1",
+     "to": "n2",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f1",
+     "from": "n2",
+     "to": "n5",
+     "kind": "control",
+     "direction": {
+      "confidence": "checked",
+      "checked": "confirmed"
+     }
+    },
+    {
+     "id": "f2",
+     "from": "n5",
+     "to": "n3",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f3",
+     "from": "n3",
+     "to": "n4",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f4",
+     "from": "n4",
+     "to": "n7",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f5",
+     "from": "n6",
+     "to": "n8",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f6",
+     "from": "n7",
+     "to": "n6",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f7",
+     "from": "n8",
+     "to": "n9",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    }
+   ],
+   "texts": [],
+   "offPage": [],
+   "marks": [],
+   "phases": []
+  },
+  "layout": {
+   "schema": "ubl-activity-diagram-layout/1",
+   "figure": "UBL-2.2-Tender-QualificationApplication",
+   "units": "px of the original PNG",
+   "size": [
+    3424,
+    1802
+   ],
+   "style": {
+    "fontPx": 61.4,
+    "arrowPx": 80.0,
+    "arrowWidthPx": 66.7,
+    "arrowStyle": "open"
+   },
+   "rules": {
+    "vertical": [
+     {
+      "at": 0,
+      "width": 8,
+      "span": [
+       11,
+       1790
+      ]
+     },
+     {
+      "at": 1701,
+      "width": 8,
+      "span": [
+       11,
+       1790
+      ]
+     },
+     {
+      "at": 3410,
+      "width": 14,
+      "span": [
+       11,
+       1790
+      ]
+     }
+    ],
+    "horizontal": [
+     {
+      "at": 0,
+      "width": 8,
+      "span": [
+       11,
+       3406
+      ]
+     },
+     {
+      "at": 1794,
+      "width": 8,
+      "span": [
+       11,
+       3406
+      ]
+     }
+    ]
+   },
+   "greyRules": [],
+   "lanes": {
+    "lane0": {
+     "x0": 0,
+     "x1": 1705,
+     "titleBox": [
+      352,
+      40,
+      909,
+      54
+     ]
+    },
+    "lane1": {
+     "x0": 1705,
+     "x1": 3417,
+     "titleBox": [
+      2240,
+      52,
+      759,
+      54
+     ]
+    },
+    "lane2": {
+     "x0": 3417,
+     "x1": 3424
+    },
+    "lane3": {
+     "y0": 0,
+     "y1": 1802
+    }
+   },
+   "nodes": {
+    "n1": {
+     "x": 551,
+     "y": 157,
+     "w": 124,
+     "h": 124
+    },
+    "n2": {
+     "x": 111,
+     "y": 394,
+     "w": 1096,
+     "h": 167,
+     "shape": "rounded",
+     "stroke": 8,
+     "rx": 88.0,
+     "ry": 83,
+     "bold": false,
+     "labelLines": [
+      {
+       "x": 141,
+       "y": 455,
+       "w": 1033,
+       "h": 54,
+       "text": "Prepare qualification application request"
+      }
+     ]
+    },
+    "n3": {
+     "x": 1453,
+     "y": 610,
+     "w": 516,
+     "h": 348,
+     "shape": "rect",
+     "stroke": 8,
+     "rx": 0,
+     "ry": 0,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 1490,
+       "y": 644,
+       "w": 446,
+       "h": 62,
+       "text": "Qualification"
+      },
+      {
+       "x": 1479,
+       "y": 757,
+       "w": 408,
+       "h": 68,
+       "text": "Application"
+      },
+      {
+       "x": 1487,
+       "y": 861,
+       "w": 297,
+       "h": 68,
+       "text": "Request"
+      }
+     ]
+    },
+    "n4": {
+     "x": 2208,
+     "y": 695,
+     "w": 1104,
+     "h": 178,
+     "shape": "rounded",
+     "stroke": 8,
+     "rx": 88,
+     "ry": 80,
+     "bold": false,
+     "labelLines": [
+      {
+       "x": 2231,
+       "y": 755,
+       "w": 1036,
+       "h": 54,
+       "text": "Receive qualification application request"
+      }
+     ]
+    },
+    "n5": {
+     "x": 105,
+     "y": 699,
+     "w": 1087,
+     "h": 186,
+     "shape": "rounded",
+     "stroke": 9,
+     "rx": 87,
+     "ry": 90,
+     "bold": false,
+     "labelLines": [
+      {
+       "x": 156,
+       "y": 766,
+       "w": 1009,
+       "h": 54,
+       "text": "Submit qualification application request"
+      }
+     ]
+    },
+    "n6": {
+     "x": 1453,
+     "y": 1118,
+     "w": 516,
+     "h": 411,
+     "shape": "rect",
+     "stroke": 9,
+     "rx": 0,
+     "ry": 0,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 1490,
+       "y": 1177,
+       "w": 446,
+       "h": 61,
+       "text": "Qualification"
+      },
+      {
+       "x": 1479,
+       "y": 1290,
+       "w": 408,
+       "h": 68,
+       "text": "Application"
+      },
+      {
+       "x": 1487,
+       "y": 1394,
+       "w": 355,
+       "h": 68,
+       "text": "Response"
+      }
+     ]
+    },
+    "n7": {
+     "x": 2208,
+     "y": 1220,
+     "w": 1102,
+     "h": 213,
+     "shape": "rounded",
+     "stroke": 8,
+     "rx": 88,
+     "ry": 80,
+     "bold": false,
+     "labelLines": [
+      {
+       "x": 2234,
+       "y": 1301,
+       "w": 1053,
+       "h": 55,
+       "text": "Submit qualification application response"
+      }
+     ]
+    },
+    "n8": {
+     "x": 110,
+     "y": 1238,
+     "w": 1121,
+     "h": 169,
+     "shape": "rounded",
+     "stroke": 8,
+     "rx": 88.0,
+     "ry": 67,
+     "bold": false,
+     "labelLines": [
+      {
+       "x": 127,
+       "y": 1294,
+       "w": 1080,
+       "h": 54,
+       "text": "Receive qualification application response"
+      }
+     ]
+    },
+    "n9": {
+     "x": 560,
+     "y": 1596,
+     "w": 108,
+     "h": 108,
+     "shape": "ellipse",
+     "stroke": 9,
+     "rx": 54,
+     "ry": 54,
+     "innerRatio": 0.5
+    }
+   },
+   "flows": {
+    "f0": {
+     "fromPoint": [
+      613,
+      295
+     ],
+     "toPoint": [
+      621,
+      379
+     ],
+     "routing": "straight"
+    },
+    "f1": {
+     "fromPoint": [
+      617,
+      575
+     ],
+     "toPoint": [
+      621,
+      684
+     ],
+     "routing": "straight"
+    },
+    "f2": {
+     "fromPoint": [
+      1206,
+      780
+     ],
+     "toPoint": [
+      1438,
+      780
+     ],
+     "routing": "straight"
+    },
+    "f3": {
+     "fromPoint": [
+      1983,
+      780
+     ],
+     "toPoint": [
+      2193,
+      780
+     ],
+     "routing": "straight"
+    },
+    "f4": {
+     "fromPoint": [
+      2765,
+      887
+     ],
+     "toPoint": [
+      2764,
+      1205
+     ],
+     "routing": "straight"
+    },
+    "f5": {
+     "fromPoint": [
+      1438,
+      1321
+     ],
+     "toPoint": [
+      1245,
+      1321
+     ],
+     "routing": "straight"
+    },
+    "f6": {
+     "fromPoint": [
+      2193,
+      1324
+     ],
+     "toPoint": [
+      1983,
+      1322
+     ],
+     "routing": "straight"
+    },
+    "f7": {
+     "fromPoint": [
+      617,
+      1421
+     ],
+     "toPoint": [
+      614,
+      1581
+     ],
+     "routing": "straight"
+    }
+   },
+   "texts": {},
+   "offPage": {},
+   "marks": {},
+   "phases": {},
+   "rulesHaveSpans": {
+    "vertical": true,
+    "horizontal": true
+   }
+  }
+ },
+ "corrections": [
+  "q15-09",
+  "party-23",
+  "party-24"
+ ],
+ "documentLanes": {
+  "object-qualification-application-request": "lane-economic-operator",
+  "object-qualification-application-response": "lane-economic-operator"
+ },
+ "formerIds": {
+  "lane-contracting-authority": "lane0",
+  "lane-economic-operator": "lane1",
+  "initial-contracting-authority": "n1",
+  "action-prepare-qualification-application": "n2",
+  "object-qualification-application-request": "n3",
+  "action-receive-qualification-application-in-economic-operator": "n4",
+  "action-submit-qualification-application-request": "n5",
+  "object-qualification-application-response": "n6",
+  "action-submit-qualification-application": "n7",
+  "action-receive-qualification-application-in-contracting-authority": "n8",
+  "final-contracting-authority": "n9",
+  "flow-initial-contracting-authority-to-prepare-qualification-application": "f0",
+  "flow-prepare-qualification-application-to-submit-qualification-application-request": "f1",
+  "flow-submit-qualification-application-request-to-qualification-application-request": "f2",
+  "flow-qualification-application-request-to-receive-qualification-application-in-economic-operator": "f3",
+  "flow-receive-qualification-application-in-economic-operator-to-submit-qualification-application": "f4",
+  "flow-qualification-application-response-to-receive-qualification-application-in-contracting-authority": "f5",
+  "flow-submit-qualification-application-to-qualification-application-response": "f6",
+  "flow-receive-qualification-application-in-contracting-authority-to-final-contracting-authority": "f7"
+ }
+}

@@ -1,0 +1,11 @@
+== UBL-2.2-VMI-PermanentReplenishment
+  scale 0.43212   frame 10px  divider 4px  action 4px  object 8px
+  font 51px (22.2 model)   2 lanes, 1 bands, 18 nodes, 21 edges -> review/baseline/UBL-2.2-VMI-PermanentReplenishment-spec.json
+  review/baseline/UBL-2.2-VMI-PermanentReplenishment.svg + .drawio + -classified.svg   (18 nodes, 21 edges)
+  rendered UBL-2.2-VMI-PermanentReplenishment.svg -> UBL-2.2-VMI-PermanentReplenishment-render.png @ 3425pxx3211, 600 dpi
+  aligned on ink bounds: scale x 1.0000, y 1.0000
+  size 3425x3211  radius 2
+  ink: original 407361   candidate 403861
+  MISSING (red)    19878  = 4.8797% of original ink
+  EXTRA   (blue)   20849  = 5.1181% of original ink
+  RESULT: DIFFERENCES - inspect review/baseline/UBL-2.2-VMI-PermanentReplenishment-diff-r2.png

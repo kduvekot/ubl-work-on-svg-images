@@ -1,0 +1,264 @@
+{
+ "schema": "ubl-activity-diagram-layout/1",
+ "figure": "UBL-2.2-Tender-GuaranteeDeposit",
+ "units": "px of the original PNG",
+ "size": [
+  3425,
+  1578
+ ],
+ "style": {
+  "fontPx": 81.4,
+  "arrowPx": 70.5,
+  "arrowWidthPx": 74.0,
+  "arrowStyle": "open"
+ },
+ "rules": {
+  "vertical": [
+   {
+    "at": 0,
+    "width": 10,
+    "span": [
+     13,
+     1564
+    ]
+   },
+   {
+    "at": 1484,
+    "width": 22,
+    "span": [
+     13,
+     1564
+    ]
+   },
+   {
+    "at": 3415,
+    "width": 10,
+    "span": [
+     13,
+     1564
+    ]
+   }
+  ],
+  "horizontal": [
+   {
+    "at": 0,
+    "width": 10,
+    "span": [
+     13,
+     3411
+    ]
+   },
+   {
+    "at": 1568,
+    "width": 10,
+    "span": [
+     13,
+     3411
+    ]
+   }
+  ]
+ },
+ "greyRules": [],
+ "lanes": {
+  "lane-tenderer": {
+   "x0": 0,
+   "x1": 1495,
+   "titleBox": [
+    493,
+    70,
+    434,
+    57
+   ],
+   "titleWords": "TENDERER"
+  },
+  "lane-contracting-authority": {
+   "x0": 1495,
+   "x1": 3425,
+   "titleBox": [
+    1915,
+    71,
+    1063,
+    59
+   ],
+   "titleWords": "CONTRACTING AUTHORITY"
+  }
+ },
+ "nodes": {
+  "initial-tenderer": {
+   "x": 501,
+   "y": 218,
+   "w": 124,
+   "h": 124
+  },
+  "action-get-guarantee-from-financial-institution": {
+   "x": 95,
+   "y": 522,
+   "w": 936,
+   "h": 311,
+   "shape": "rounded",
+   "stroke": 13,
+   "rx": 115,
+   "ry": 113,
+   "bold": false,
+   "labelLines": [
+    {
+     "x": 205,
+     "y": 588,
+     "w": 699,
+     "h": 58,
+     "text": "Get Guarantee from"
+    },
+    {
+     "x": 234,
+     "y": 688,
+     "w": 644,
+     "h": 58,
+     "text": "financial institution"
+    }
+   ]
+  },
+  "object-guarantee-certificate": {
+   "x": 1247,
+   "y": 953,
+   "w": 579,
+   "h": 240,
+   "shape": "rect",
+   "stroke": 13,
+   "rx": 0,
+   "ry": 0,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 1335,
+     "y": 988,
+     "w": 386,
+     "h": 58,
+     "text": "Guarantee"
+    },
+    {
+     "x": 1335,
+     "y": 1087,
+     "w": 382,
+     "h": 59,
+     "text": "Certificate"
+    }
+   ]
+  },
+  "action-submit-certificate": {
+   "x": 147,
+   "y": 963,
+   "w": 832,
+   "h": 211,
+   "shape": "rounded",
+   "stroke": 13,
+   "rx": 110,
+   "ry": 102,
+   "bold": false,
+   "labelLines": [
+    {
+     "x": 245,
+     "y": 1035,
+     "w": 621,
+     "h": 59,
+     "text": "Submit Certificate"
+    }
+   ]
+  },
+  "action-receive-guarantee-certificate": {
+   "x": 2042,
+   "y": 968,
+   "w": 1288,
+   "h": 211,
+   "shape": "rounded",
+   "stroke": 14,
+   "rx": 103,
+   "ry": 107,
+   "bold": false,
+   "labelLines": [
+    {
+     "x": 2168,
+     "y": 1040,
+     "w": 1022,
+     "h": 74,
+     "text": "Receive guarantee certificate"
+    }
+   ]
+  },
+  "final-contracting-authority": {
+   "x": 2597,
+   "y": 1308,
+   "w": 174,
+   "h": 174,
+   "shape": "rounded",
+   "stroke": 13,
+   "rx": 89,
+   "ry": 93,
+   "innerRatio": 0.713
+  }
+ },
+ "flows": {
+  "flow-initial-tenderer-to-get-guarantee-from-financial-institution": {
+   "fromPoint": [
+    563,
+    356
+   ],
+   "toPoint": [
+    563,
+    507
+   ],
+   "routing": "straight"
+  },
+  "flow-get-guarantee-from-financial-institution-to-submit-certificate": {
+   "fromPoint": [
+    563,
+    847
+   ],
+   "toPoint": [
+    563,
+    948
+   ],
+   "routing": "straight"
+  },
+  "flow-submit-certificate-to-guarantee-certificate": {
+   "fromPoint": [
+    993,
+    1068
+   ],
+   "toPoint": [
+    1232,
+    1071
+   ],
+   "routing": "straight"
+  },
+  "flow-guarantee-certificate-to-receive-guarantee-certificate": {
+   "fromPoint": [
+    1840,
+    1073
+   ],
+   "toPoint": [
+    2027,
+    1073
+   ],
+   "routing": "straight"
+  },
+  "flow-receive-guarantee-certificate-to-final-contracting-authority": {
+   "fromPoint": [
+    2686,
+    1193
+   ],
+   "toPoint": [
+    2684,
+    1293
+   ],
+   "routing": "straight"
+  }
+ },
+ "texts": {},
+ "offPage": {},
+ "marks": {},
+ "phases": {},
+ "rulesHaveSpans": {
+  "vertical": true,
+  "horizontal": true
+ }
+}

@@ -1,0 +1,116 @@
+{
+ "name": "UBL-2.2-Tender-AwardNotification.png",
+ "verdict": "needs-human",
+ "radius": 3,
+ "lineWorkInk": 267661,
+ "missingPx": 92,
+ "inventedPx": 231,
+ "structural": {
+  "absent": 0,
+  "invented": 0,
+  "coherence": 0,
+  "textAbsent": 0,
+  "textDiffers": 0
+ },
+ "blocking": [],
+ "findings": [
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n7 -> n9",
+   "x": 525,
+   "y": 1139,
+   "w": 17,
+   "h": 35,
+   "area": 89
+  }
+ ],
+ "text": [],
+ "coherence": [],
+ "human": [
+  {
+   "x": 1316,
+   "y": 978,
+   "w": 572,
+   "h": 194,
+   "shape": "rect",
+   "iou": 1.0,
+   "border": 1.0,
+   "kind": "kept-on-outline",
+   "reason": "every side has pass-through line-work, but the region carries a complete outline of its own",
+   "check": "confirm this is a node and not trapped whitespace"
+  },
+  {
+   "kind": "sub-character-region",
+   "x": 2072,
+   "y": 85,
+   "w": 36,
+   "h": 42,
+   "reason": "enclosed region smaller than one character of the diagram's type",
+   "check": "confirm this is glyph interior and not a node"
+  },
+  {
+   "kind": "sub-character-region",
+   "x": 2785,
+   "y": 85,
+   "w": 36,
+   "h": 42,
+   "reason": "enclosed region smaller than one character of the diagram's type",
+   "check": "confirm this is glyph interior and not a node"
+  },
+  {
+   "kind": "node-isolated-in-the-artwork",
+   "x": 1317,
+   "y": 693,
+   "w": 573,
+   "h": 194,
+   "reason": "n5 (object 'Unawarded\\nNotificati') has no flow on it, and no line-work is missing around it, so the original draws it that way too",
+   "check": "confirm against the artwork that nothing connects to this element"
+  },
+  {
+   "kind": "node-isolated-in-the-artwork",
+   "x": 1316,
+   "y": 978,
+   "w": 572,
+   "h": 194,
+   "reason": "n8 (object 'Awarded\\nNotification') has no flow on it, and no line-work is missing around it, so the original draws it that way too",
+   "check": "confirm against the artwork that nothing connects to this element"
+  }
+ ],
+ "review": [
+  {
+   "n": 1,
+   "what": "check",
+   "where": "1316,978 572x194",
+   "detail": "every side has pass-through line-work, but the region carries a complete outline of its own",
+   "check": "confirm this is a node and not trapped whitespace"
+  },
+  {
+   "n": 2,
+   "what": "check",
+   "where": "2072,85 36x42",
+   "detail": "enclosed region smaller than one character of the diagram's type",
+   "check": "confirm this is glyph interior and not a node"
+  },
+  {
+   "n": 3,
+   "what": "check",
+   "where": "2785,85 36x42",
+   "detail": "enclosed region smaller than one character of the diagram's type",
+   "check": "confirm this is glyph interior and not a node"
+  },
+  {
+   "n": 4,
+   "what": "check",
+   "where": "1317,693 573x194",
+   "detail": "n5 (object 'Unawarded\\nNotificati') has no flow on it, and no line-work is missing around it, so the original draws it that way too",
+   "check": "confirm against the artwork that nothing connects to this element"
+  },
+  {
+   "n": 5,
+   "what": "check",
+   "where": "1316,978 572x194",
+   "detail": "n8 (object 'Awarded\\nNotification') has no flow on it, and no line-work is missing around it, so the original draws it that way too",
+   "check": "confirm against the artwork that nothing connects to this element"
+  }
+ ]
+}

@@ -1,0 +1,43 @@
+MODEL  UBL-2.0-SelfBillingwithCreditNoteProcess
+  6 action, 3 decision, 4 final, 1 fork, 1 initial, 3 object, 22 flows, 3 partitions
+
+FLOW
+  (start)   [Accounting Customer]
+  Raise Self Billed Invoice   [Accounting Customer]
+    -> [Self Billed Invoice]   [Accounting Supplier]
+    -> Receive Self Billed Invoice   [Accounting Supplier]
+    -> <Validate Invoice>   [Accounting Supplier]
+      -[incorrect charges]-> <econcile Charges>   [Accounting Supplier]
+        -[no action required]-> (end)   [Accounting Supplier]
+        -[under charged]-> Send Account Response   [Accounting Supplier]
+        -> [Application Response]   [Accounting Customer]
+        -> Receive Account Response   [Accounting Customer]
+        -> <Reconcile Charges>   [Accounting Customer]
+          -[under charged or incorrect information-> Raise Self Billed Invoice   [Accounting Customer]
+          -[accept credit]-> (end)   [Accounting Customer]
+          -[accept charges]-> (end)   [Accounting Customer]
+        -[over charged]-> Raise Credit Note   [Accounting Supplier]
+        -> [Credit Note]   [Accounting Customer]
+        -> Receive Credit Note   [Accounting Customer]
+        -> <Reconcile Charges>   [Accounting Customer]
+      -[incorrect information]-> === bar ===   [Accounting Supplier]
+        -> Send Account Response   [Accounting Supplier]
+        -> Raise Credit Note   [Accounting Supplier]
+    -[accept charges]-> (end)   [Accounting Customer]
+    -> <Reconcile Charges>   [Accounting Customer]
+
+CHECKS
+
+  drawn dashed (1):
+    <Validate Invoice> ---> === bar === (26 on, 26 off)
+  ok   every element is connected
+  ok   start events have a way out and no way in
+  ok   end events have a way in and no way out
+  ok   decisions have at least two ways out
+  ok   branches out of a decision are labelled   (informational: several diagrams draw an unlabelled branch, so read these against the artwork rather than treating them as errors)
+  ok   documents are both written and read
+  ok   no flow runs straight from one document to another
+  ok   work crossing between parties goes through a document   (informational: UBL draws the hand-over as a document on the divider, and each exception below is named)
+  ok   every flow's direction was read with confidence
+  ok   every action passes its work on   (informational: several diagrams do end on an action, so read these against the artwork rather than treating them as errors)
+  ok   every element is reachable from a start event

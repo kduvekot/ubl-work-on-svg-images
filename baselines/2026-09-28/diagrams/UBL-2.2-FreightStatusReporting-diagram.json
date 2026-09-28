@@ -1,0 +1,170 @@
+{
+ "schema": "ubl-activity-diagram/1",
+ "figure": {
+  "name": "UBL-2.2-FreightStatusReporting",
+  "source": "UBL-2.2-FreightStatusReporting.png"
+ },
+ "lanes": [
+  {
+   "id": "lane-sender-party",
+   "axis": "column",
+   "index": 0,
+   "title": "Sender Party"
+  },
+  {
+   "id": "lane-receiver-party",
+   "axis": "column",
+   "index": 1,
+   "title": "Receiver Party"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "initial-sender-party",
+   "kind": "initial",
+   "label": "",
+   "lane": "lane-sender-party"
+  },
+  {
+   "id": "object-transportation-status-request",
+   "kind": "object",
+   "label": "Transportation\nStatus Request",
+   "lane": null,
+   "between": [
+    "lane-sender-party",
+    "lane-receiver-party"
+   ]
+  },
+  {
+   "id": "action-receive-status-request",
+   "kind": "action",
+   "label": "Receive Status Request",
+   "lane": "lane-receiver-party"
+  },
+  {
+   "id": "action-request-status",
+   "kind": "action",
+   "label": "Request status",
+   "lane": "lane-sender-party"
+  },
+  {
+   "id": "object-transportation-status",
+   "kind": "object",
+   "label": "Transportation\nStatus",
+   "lane": null,
+   "between": [
+    "lane-sender-party",
+    "lane-receiver-party"
+   ]
+  },
+  {
+   "id": "action-receive-status-report",
+   "kind": "action",
+   "label": "Receive Status Report",
+   "lane": "lane-sender-party"
+  },
+  {
+   "id": "action-report-status",
+   "kind": "action",
+   "label": "Report status",
+   "lane": "lane-receiver-party"
+  },
+  {
+   "id": "initial-receiver-party",
+   "kind": "initial",
+   "label": "",
+   "lane": "lane-receiver-party",
+   "trigger": "the agreed status reporting procedure: the Receiver Party reports status on its own initiative, without a request (in BPMN a timer start)"
+  },
+  {
+   "id": "final-sender-party",
+   "kind": "final",
+   "label": "",
+   "lane": "lane-sender-party"
+  }
+ ],
+ "flows": [
+  {
+   "id": "flow-initial-sender-party-to-request-status",
+   "from": "initial-sender-party",
+   "to": "action-request-status",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-transportation-status-request-to-receive-status-request",
+   "from": "object-transportation-status-request",
+   "to": "action-receive-status-request",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-request-status-to-transportation-status-request",
+   "from": "action-request-status",
+   "to": "object-transportation-status-request",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-receive-status-request-to-report-status",
+   "from": "action-receive-status-request",
+   "to": "action-report-status",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-transportation-status-to-receive-status-report",
+   "from": "object-transportation-status",
+   "to": "action-receive-status-report",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-initial-receiver-party-to-report-status",
+   "from": "initial-receiver-party",
+   "to": "action-report-status",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-report-status-to-transportation-status",
+   "from": "action-report-status",
+   "to": "object-transportation-status",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-receive-status-report-to-final-sender-party",
+   "from": "action-receive-status-report",
+   "to": "final-sender-party",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  }
+ ],
+ "texts": [
+  {
+   "id": "text-trigger-reporting-procedure",
+   "text": "Trigger reporting\nprocedure",
+   "labels": "initial-receiver-party"
+  }
+ ],
+ "offPage": [],
+ "marks": [],
+ "phases": []
+}

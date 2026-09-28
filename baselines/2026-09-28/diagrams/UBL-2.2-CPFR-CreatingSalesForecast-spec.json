@@ -1,0 +1,945 @@
+{
+ "canvas": {
+  "w": 1480.0,
+  "h": 1557.349
+ },
+ "stroke": {
+  "frame": 4.3,
+  "divider": 4.3,
+  "action": 3.0,
+  "object": 3.0,
+  "edge": 3.0
+ },
+ "font": {
+  "family": "Helvetica, Arial, sans-serif",
+  "node": 17.9,
+  "lane": 17.9,
+  "guard": 17.9
+ },
+ "arrow": 29.7,
+ "arrowWidth": 23.2,
+ "arrowStyle": "open",
+ "dashed": [
+  {
+   "id": "phase-creating-sales-forecast",
+   "x": 37.2,
+   "y": 28.5,
+   "w": 1408.7,
+   "h": 1489.9,
+   "rx": 95.1,
+   "dash": 8.6,
+   "gap": 8.6,
+   "weight": 3.0
+  }
+ ],
+ "greyRules": [
+  {
+   "axis": "v",
+   "at": 739.8,
+   "w": 3.0,
+   "colour": "#e0e0e0"
+  }
+ ],
+ "crossMarks": [],
+ "openEnds": [
+  {
+   "id": "offpage-action-create-product-activity-pos-data",
+   "points": [
+    [
+     421.3,
+     5.2
+    ],
+    [
+     419.2,
+     124.0
+    ]
+   ],
+   "arrow": true
+  },
+  {
+   "id": "offpage-object-forecast-sales-positive-response",
+   "points": [
+    [
+     629.2,
+     1387.1
+    ],
+    [
+     346.6,
+     1388.4
+    ],
+    [
+     344.4,
+     1551.7
+    ]
+   ],
+   "arrow": false
+  },
+  {
+   "id": "offpage-object-forecast-sales-positive-response-2",
+   "points": [
+    [
+     849.5,
+     1387.1
+    ],
+    [
+     1125.7,
+     1388.4
+    ],
+    [
+     1127.0,
+     1551.7
+    ]
+   ],
+   "arrow": false
+  }
+ ],
+ "frameBox": [
+  2.2,
+  2.2,
+  1477.8,
+  1555.2
+ ],
+ "dividers": [],
+ "bands": [],
+ "lanes": [
+  {
+   "id": "lane-buyer-party",
+   "title": "",
+   "x": 0.0,
+   "w": 739.8,
+   "cx": 369.9,
+   "cy": 17.9,
+   "name": "Buyer Party"
+  },
+  {
+   "id": "lane-seller-party",
+   "title": "",
+   "x": 739.8,
+   "w": 740.2,
+   "cx": 1109.9,
+   "cy": 17.9,
+   "name": "Seller Party"
+  }
+ ],
+ "bandLabels": [],
+ "captions": [
+  {
+   "id": "phase-creating-sales-forecast",
+   "role": "phase-title",
+   "text": "Creating Sales Forecast",
+   "cx": 744.5,
+   "cy": 58.8,
+   "bold": true,
+   "size": 17.7,
+   "textWidth": 196.2,
+   "baseline": 63.3
+  }
+ ],
+ "nodes": [
+  {
+   "id": "object-item-information-request",
+   "kind": "object",
+   "label": "Item Information\nRequest",
+   "x": 636.7,
+   "y": 132.4,
+   "w": 204.8,
+   "h": 98.1,
+   "labelLines": [
+    {
+     "text": "Item Information",
+     "cx": 738.7,
+     "cy": 169.275,
+     "w": 134.4,
+     "size": 17.5
+    },
+    {
+     "text": "Request",
+     "cx": 739.8,
+     "cy": 190.875,
+     "w": 68.3,
+     "size": 17.5
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-create-product-activity-pos-data",
+   "kind": "action",
+   "label": "Create Product Activity\n(POS Data)",
+   "x": 240.9,
+   "y": 133.7,
+   "w": 225.1,
+   "h": 95.5,
+   "rx": 34.4,
+   "ry": 34.8,
+   "labelLines": [
+    {
+     "text": "Create Product Activity",
+     "cx": 350.9,
+     "cy": 168.875,
+     "w": 189.3,
+     "size": 17.5
+    },
+    {
+     "text": "(POS Data)",
+     "cx": 350.7,
+     "cy": 190.475,
+     "w": 88.6,
+     "size": 17.5
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-create-item-information-request",
+   "kind": "action",
+   "label": "Create Item\nInformation Request",
+   "x": 1007.0,
+   "y": 133.7,
+   "w": 225.6,
+   "h": 95.5,
+   "rx": 34.8,
+   "ry": 37.8,
+   "labelLines": [
+    {
+     "text": "Create Item",
+     "cx": 1119.2,
+     "cy": 169.275,
+     "w": 92.5,
+     "size": 17.5
+    },
+    {
+     "text": "Information Request",
+     "cx": 1119.8,
+     "cy": 190.475,
+     "w": 166.4,
+     "size": 17.5
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-create-product-activity-dc-data",
+   "kind": "action",
+   "label": "Create Product Activity\n(DC Data)",
+   "x": 240.9,
+   "y": 309.6,
+   "w": 225.1,
+   "h": 95.5,
+   "rx": 34.4,
+   "ry": 34.8,
+   "labelLines": [
+    {
+     "text": "Create Product Activity",
+     "cx": 350.9,
+     "cy": 344.775,
+     "w": 189.3,
+     "size": 17.5
+    },
+    {
+     "text": "(DC Data)",
+     "cx": 350.4,
+     "cy": 366.375,
+     "w": 76.9,
+     "size": 17.5
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "object-product-activity",
+   "kind": "object",
+   "label": "Product Activity",
+   "x": 636.7,
+   "y": 482.5,
+   "w": 204.8,
+   "h": 98.1,
+   "labelLines": [
+    {
+     "text": "Product Activity",
+     "cx": 739.6,
+     "cy": 530.175,
+     "w": 131.8,
+     "size": 17.5
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-send-product-activity",
+   "kind": "action",
+   "label": "Send Product Activity",
+   "x": 240.9,
+   "y": 483.8,
+   "w": 225.1,
+   "h": 95.5,
+   "rx": 34.4,
+   "ry": 34.8,
+   "labelLines": [
+    {
+     "text": "Send Product Activity",
+     "cx": 350.9,
+     "cy": 529.675,
+     "w": 178.0,
+     "size": 17.5
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-receive-product-activity",
+   "kind": "action",
+   "label": "Receive Product Activity",
+   "x": 1007.0,
+   "y": 483.8,
+   "w": 225.6,
+   "h": 95.5,
+   "rx": 34.4,
+   "ry": 37.8,
+   "labelLines": [
+    {
+     "text": "Receive Product Activity",
+     "cx": 1119.6,
+     "cy": 530.175,
+     "w": 200.5,
+     "size": 17.5
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-create-sales-forecast",
+   "kind": "action",
+   "label": "Create Sales Forecast",
+   "x": 1007.0,
+   "y": 654.9,
+   "w": 225.6,
+   "h": 95.5,
+   "rx": 34.4,
+   "ry": 37.8,
+   "labelLines": [
+    {
+     "text": "Create Sales Forecast",
+     "cx": 1119.8,
+     "cy": 702.575,
+     "w": 179.3,
+     "size": 17.5
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "object-forecast-sales",
+   "kind": "object",
+   "label": "Forecast (sales)",
+   "x": 636.7,
+   "y": 823.4,
+   "w": 204.8,
+   "h": 98.1,
+   "labelLines": [
+    {
+     "text": "Forecast (sales)",
+     "cx": 738.7,
+     "cy": 870.675,
+     "w": 130.1,
+     "size": 17.5
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-receive-sales-forecast",
+   "kind": "action",
+   "label": "Receive Sales Forecast",
+   "x": 237.9,
+   "y": 824.7,
+   "w": 225.6,
+   "h": 95.5,
+   "rx": 34.4,
+   "ry": 37.8,
+   "labelLines": [
+    {
+     "text": "Receive Sales Forecast",
+     "cx": 348.3,
+     "cy": 872.375,
+     "w": 191.0,
+     "size": 17.5
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-send-sales-forecast-in-seller-party",
+   "kind": "action",
+   "label": "Send Sales Forecast",
+   "x": 1007.0,
+   "y": 824.7,
+   "w": 225.6,
+   "h": 95.5,
+   "rx": 34.4,
+   "ry": 37.8,
+   "labelLines": [
+    {
+     "text": "Send Sales Forecast",
+     "cx": 1119.8,
+     "cy": 872.375,
+     "w": 168.1,
+     "size": 17.5
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "object-forecast-revision-sales",
+   "kind": "object",
+   "label": "Forecast Revision\n(sales)",
+   "x": 636.7,
+   "y": 989.8,
+   "w": 204.8,
+   "h": 98.1,
+   "labelLines": [
+    {
+     "text": "Forecast Revision",
+     "cx": 738.9,
+     "cy": 1026.675,
+     "w": 147.8,
+     "size": 17.5
+    },
+    {
+     "text": "(sales)",
+     "cx": 738.9,
+     "cy": 1047.375,
+     "w": 52.7,
+     "size": 17.5
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-revise-sales-forecast-and-send-revision",
+   "kind": "action",
+   "label": "Revise Sales Forecast\nand Send Revision",
+   "x": 237.9,
+   "y": 991.1,
+   "w": 225.6,
+   "h": 95.5,
+   "rx": 33.5,
+   "ry": 37.8,
+   "labelLines": [
+    {
+     "text": "Revise Sales Forecast",
+     "cx": 348.1,
+     "cy": 1027.975,
+     "w": 181.1,
+     "size": 17.5
+    },
+    {
+     "text": "and Send Revision",
+     "cx": 347.4,
+     "cy": 1049.575,
+     "w": 153.0,
+     "size": 17.5
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-receive-sales-forecast-revision",
+   "kind": "action",
+   "label": "Receive Sales Forecast\nRevision",
+   "x": 1007.0,
+   "y": 991.1,
+   "w": 225.6,
+   "h": 95.5,
+   "rx": 33.5,
+   "ry": 37.8,
+   "labelLines": [
+    {
+     "text": "Receive Sales Forecast",
+     "cx": 1119.8,
+     "cy": 1027.975,
+     "w": 190.6,
+     "size": 17.5
+    },
+    {
+     "text": "Revision",
+     "cx": 1119.4,
+     "cy": 1049.575,
+     "w": 69.6,
+     "size": 17.5
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-revise-and-resend-revision",
+   "kind": "action",
+   "label": "Revise and Resend\nRevision",
+   "x": 1007.0,
+   "y": 1163.0,
+   "w": 225.6,
+   "h": 95.5,
+   "rx": 33.9,
+   "ry": 37.8,
+   "labelLines": [
+    {
+     "text": "Revise and Resend",
+     "cx": 1119.8,
+     "cy": 1200.375,
+     "w": 156.0,
+     "size": 17.5
+    },
+    {
+     "text": "Revision",
+     "cx": 1119.8,
+     "cy": 1221.475,
+     "w": 69.6,
+     "size": 17.5
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "decision-buyer-party",
+   "kind": "decision",
+   "label": "",
+   "x": 317.8,
+   "y": 1182.5,
+   "w": 55.7,
+   "h": 56.2
+  },
+  {
+   "id": "action-receive-revision",
+   "kind": "action",
+   "label": "Receive Revision",
+   "x": 485.9,
+   "y": 1183.8,
+   "w": 213.0,
+   "h": 53.6,
+   "rx": 34.4,
+   "ry": 25.3,
+   "labelLines": [
+    {
+     "text": "Receive Revision",
+     "cx": 592.4,
+     "cy": 1211.175,
+     "w": 140.0,
+     "size": 17.5
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-send-sales-forecast-in-buyer-party",
+   "kind": "action",
+   "label": "Send Sales Forecast",
+   "x": 235.3,
+   "y": 1313.9,
+   "w": 213.0,
+   "h": 53.6,
+   "rx": 27.4,
+   "ry": 25.3,
+   "labelLines": [
+    {
+     "text": "Send Sales Forecast",
+     "cx": 341.8,
+     "cy": 1340.775,
+     "w": 168.5,
+     "size": 17.5
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "object-forecast-sales-positive-response",
+   "kind": "object",
+   "label": "Forecast (sales -\npositive response)",
+   "x": 636.7,
+   "y": 1324.7,
+   "w": 204.8,
+   "h": 98.1,
+   "labelLines": [
+    {
+     "text": "Forecast (sales -",
+     "cx": 739.8,
+     "cy": 1361.475,
+     "w": 135.7,
+     "size": 17.5
+    },
+    {
+     "text": "positive response)",
+     "cx": 738.9,
+     "cy": 1382.675,
+     "w": 152.1,
+     "size": 17.5
+    }
+   ],
+   "bold": true
+  }
+ ],
+ "edges": [
+  {
+   "id": "flow-item-information-request-to-create-product-activity-pos-data",
+   "from": "object-item-information-request",
+   "to": "action-create-product-activity-pos-data",
+   "exitXY": [
+    0.0,
+    0.5005
+   ],
+   "entryXY": [
+    1.0,
+    0.5005
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-create-item-information-request-to-item-information-request",
+   "from": "action-create-item-information-request",
+   "to": "object-item-information-request",
+   "exitXY": [
+    0.0,
+    0.5005
+   ],
+   "entryXY": [
+    1.0,
+    0.5005
+   ],
+   "straight": true,
+   "confidence": "medium"
+  },
+  {
+   "id": "flow-create-product-activity-pos-data-to-create-product-activity-dc-data",
+   "from": "action-create-product-activity-pos-data",
+   "to": "action-create-product-activity-dc-data",
+   "exitXY": [
+    0.4847,
+    1.0
+   ],
+   "entryXY": [
+    0.4811,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-create-product-activity-dc-data-to-send-product-activity",
+   "from": "action-create-product-activity-dc-data",
+   "to": "action-send-product-activity",
+   "exitXY": [
+    0.4865,
+    1.0
+   ],
+   "entryXY": [
+    0.4847,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-send-product-activity-to-product-activity",
+   "from": "action-send-product-activity",
+   "to": "object-product-activity",
+   "exitXY": [
+    1.0,
+    0.4995
+   ],
+   "entryXY": [
+    0.0,
+    0.4995
+   ],
+   "straight": true,
+   "confidence": "medium"
+  },
+  {
+   "id": "flow-product-activity-to-receive-product-activity",
+   "from": "object-product-activity",
+   "to": "action-receive-product-activity",
+   "exitXY": [
+    1.0,
+    0.4995
+   ],
+   "entryXY": [
+    0.0,
+    0.4995
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-receive-product-activity-to-create-sales-forecast",
+   "from": "action-receive-product-activity",
+   "to": "action-create-sales-forecast",
+   "exitXY": [
+    0.4991,
+    1.0
+   ],
+   "entryXY": [
+    0.4991,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-create-sales-forecast-to-send-sales-forecast-in-seller-party",
+   "from": "action-create-sales-forecast",
+   "to": "action-send-sales-forecast-in-seller-party",
+   "exitXY": [
+    0.5009,
+    1.0
+   ],
+   "entryXY": [
+    0.4991,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-forecast-sales-to-receive-sales-forecast",
+   "from": "object-forecast-sales",
+   "to": "action-receive-sales-forecast",
+   "exitXY": [
+    0.0,
+    0.4995
+   ],
+   "entryXY": [
+    1.0,
+    0.4995
+   ],
+   "straight": true,
+   "confidence": "medium"
+  },
+  {
+   "id": "flow-send-sales-forecast-in-seller-party-to-forecast-sales",
+   "from": "action-send-sales-forecast-in-seller-party",
+   "to": "object-forecast-sales",
+   "exitXY": [
+    0.0,
+    0.4995
+   ],
+   "entryXY": [
+    1.0,
+    0.4995
+   ],
+   "straight": true,
+   "confidence": "medium"
+  },
+  {
+   "id": "flow-receive-sales-forecast-to-revise-sales-forecast-and-send-revision",
+   "from": "action-receive-sales-forecast",
+   "to": "action-revise-sales-forecast-and-send-revision",
+   "exitXY": [
+    0.4987,
+    1.0
+   ],
+   "entryXY": [
+    0.4951,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-revise-sales-forecast-and-send-revision-to-forecast-revision-sales",
+   "from": "action-revise-sales-forecast-and-send-revision",
+   "to": "object-forecast-revision-sales",
+   "exitXY": [
+    1.0,
+    0.4995
+   ],
+   "entryXY": [
+    0.0,
+    0.4954
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-forecast-revision-sales-to-receive-sales-forecast-revision",
+   "from": "object-forecast-revision-sales",
+   "to": "action-receive-sales-forecast-revision",
+   "exitXY": [
+    1.0,
+    0.4995
+   ],
+   "entryXY": [
+    0.0,
+    0.4953
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-decision-buyer-party-to-revise-sales-forecast-and-send-revision",
+   "from": "decision-buyer-party",
+   "to": "action-revise-sales-forecast-and-send-revision",
+   "exitXY": [
+    0.4937,
+    0.0
+   ],
+   "entryXY": [
+    0.4761,
+    1.0
+   ],
+   "straight": true,
+   "confidence": "high",
+   "label": "No"
+  },
+  {
+   "id": "flow-receive-sales-forecast-revision-to-revise-and-resend-revision",
+   "from": "action-receive-sales-forecast-revision",
+   "to": "action-revise-and-resend-revision",
+   "exitXY": [
+    0.4991,
+    1.0
+   ],
+   "entryXY": [
+    0.4991,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-forecast-revision-sales-to-receive-revision",
+   "from": "object-forecast-revision-sales",
+   "to": "action-receive-revision",
+   "exitXY": [
+    0.1743,
+    1.0
+   ],
+   "entryXY": [
+    0.8653,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-revise-and-resend-revision-to-forecast-revision-sales",
+   "from": "action-revise-and-resend-revision",
+   "to": "object-forecast-revision-sales",
+   "exitXY": [
+    0.0,
+    0.5005
+   ],
+   "entryXY": [
+    0.877,
+    1.0
+   ],
+   "straight": false,
+   "confidence": "high",
+   "points": [
+    [
+     816.3,
+     1210.8
+    ]
+   ]
+  },
+  {
+   "id": "flow-receive-revision-to-decision-buyer-party",
+   "from": "action-receive-revision",
+   "to": "decision-buyer-party",
+   "exitXY": [
+    0.0,
+    0.5037
+   ],
+   "entryXY": [
+    1.0,
+    0.5036
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-decision-buyer-party-to-send-sales-forecast-in-buyer-party",
+   "from": "decision-buyer-party",
+   "to": "action-send-sales-forecast-in-buyer-party",
+   "exitXY": [
+    0.5009,
+    1.0
+   ],
+   "entryXY": [
+    0.5122,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high",
+   "label": "Yes"
+  },
+  {
+   "id": "flow-send-sales-forecast-in-buyer-party-to-forecast-sales-positive-response",
+   "from": "action-send-sales-forecast-in-buyer-party",
+   "to": "object-forecast-sales-positive-response",
+   "exitXY": [
+    1.0,
+    0.4944
+   ],
+   "entryXY": [
+    0.0,
+    0.16
+   ],
+   "straight": true,
+   "confidence": "high"
+  }
+ ],
+ "guards": [
+  {
+   "id": "text-no",
+   "text": "No",
+   "x": 299.9,
+   "y": 1101.9,
+   "w": 19.9,
+   "h": 12.5,
+   "onFlow": "flow-decision-buyer-party-to-revise-sales-forecast-and-send-revision",
+   "labelLines": [
+    {
+     "text": "No",
+     "cx": 309.8,
+     "cy": 1108.275,
+     "w": 19.9,
+     "size": 17.5
+    }
+   ]
+  },
+  {
+   "id": "text-sales-forecast-accepted",
+   "text": "Sales Forecast Accepted?",
+   "x": 102.8,
+   "y": 1203.0,
+   "w": 199.2,
+   "h": 16.0,
+   "labelLines": [
+    {
+     "text": "Sales Forecast Accepted?",
+     "cx": 202.4,
+     "cy": 1209.345,
+     "w": 199.2,
+     "size": 17.3
+    }
+   ]
+  },
+  {
+   "id": "text-yes",
+   "text": "Yes",
+   "x": 301.2,
+   "y": 1272.2,
+   "w": 27.2,
+   "h": 12.5,
+   "onFlow": "flow-decision-buyer-party-to-send-sales-forecast-in-buyer-party",
+   "labelLines": [
+    {
+     "text": "Yes",
+     "cx": 314.8,
+     "cy": 1278.575,
+     "w": 27.2,
+     "size": 17.5
+    }
+   ]
+  }
+ ]
+}

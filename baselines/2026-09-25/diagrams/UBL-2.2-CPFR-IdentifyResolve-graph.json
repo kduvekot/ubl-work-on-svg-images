@@ -1,0 +1,928 @@
+{
+ "source": "UBL-2.2-CPFR-IdentifyResolve.png",
+ "size": [
+  3425,
+  2222
+ ],
+ "fontPx": 45.7,
+ "arrowPx": 64.0,
+ "arrowWidthPx": 48.2,
+ "arrowStyle": "open",
+ "rules": {
+  "v": [
+   [
+    0,
+    10
+   ],
+   [
+    1680,
+    1
+   ],
+   [
+    3415,
+    10
+   ]
+  ],
+  "h": [
+   [
+    0,
+    10
+   ],
+   [
+    2212,
+    10
+   ]
+  ]
+ },
+ "ruleSpan": {
+  "v": [
+   [
+    13,
+    2208
+   ],
+   [
+    13,
+    2160
+   ],
+   [
+    13,
+    2208
+   ]
+  ],
+  "h": [
+   [
+    13,
+    3411
+   ],
+   [
+    13,
+    3411
+   ]
+  ]
+ },
+ "greyRules": [],
+ "dashed": [
+  {
+   "x": 86,
+   "y": 74,
+   "w": 3256,
+   "h": 1668,
+   "rx": 142,
+   "dash": 12.0,
+   "gap": 9.0,
+   "weight": 3.0,
+   "dashes": 418
+  }
+ ],
+ "openEnds": [
+  {
+   "node": "n2",
+   "at": [
+    641,
+    12
+   ],
+   "end": [
+    645,
+    286
+   ],
+   "points": [],
+   "arrow": true,
+   "inward": true,
+   "headPx": [
+    47,
+    44.7,
+    2.21,
+    0,
+    true
+   ],
+   "x": 618,
+   "y": 12,
+   "w": 48,
+   "h": 275
+  },
+  {
+   "node": "n1",
+   "at": [
+    2721,
+    12
+   ],
+   "end": [
+    2726,
+    273
+   ],
+   "points": [],
+   "arrow": true,
+   "inward": true,
+   "headPx": [
+    47,
+    44.2,
+    2.21,
+    0,
+    true
+   ],
+   "x": 2699,
+   "y": 12,
+   "w": 48,
+   "h": 262
+  },
+  {
+   "node": "n10",
+   "at": [
+    1298,
+    2052
+   ],
+   "end": [
+    665,
+    2209
+   ],
+   "points": [
+    [
+     666,
+     2053
+    ]
+   ],
+   "arrow": false,
+   "inward": false,
+   "headPx": null,
+   "x": 665,
+   "y": 2052,
+   "w": 634,
+   "h": 158
+  },
+  {
+   "node": "n10",
+   "at": [
+    2057,
+    2105
+   ],
+   "end": [
+    2699,
+    2209
+   ],
+   "points": [
+    [
+     2698,
+     2106
+    ]
+   ],
+   "arrow": false,
+   "inward": false,
+   "headPx": null,
+   "x": 2057,
+   "y": 2105,
+   "w": 643,
+   "h": 105
+  }
+ ],
+ "crossMarks": [],
+ "partitions": [
+  {
+   "axis": "column",
+   "index": 0,
+   "x0": 0,
+   "x1": 1680,
+   "title": ""
+  },
+  {
+   "axis": "column",
+   "index": 1,
+   "x0": 1680,
+   "x1": 3425,
+   "title": "Identifying and Resolving Exceptions for Order Forecast",
+   "titleBox": [
+    1108,
+    96,
+    1162,
+    41
+   ]
+  },
+  {
+   "axis": "band",
+   "index": 0,
+   "y0": 0,
+   "y1": 2222,
+   "title": ""
+  }
+ ],
+ "nodes": [
+  {
+   "x": 2433,
+   "y": 288,
+   "w": 593,
+   "h": 187,
+   "area": 95532,
+   "fill": 0.861,
+   "solid": 0.966,
+   "rx": 63,
+   "ry": 65,
+   "shape": "rounded",
+   "stroke": 3,
+   "kind": "action",
+   "id": "n1",
+   "label": "Receive & Wait for\nException Notification",
+   "labelLines": [
+    {
+     "x": 2523,
+     "y": 330,
+     "w": 383,
+     "h": 32,
+     "text": "Receive & Wait for"
+    },
+    {
+     "x": 2496,
+     "y": 388,
+     "w": 452,
+     "h": 40,
+     "text": "Exception Notification"
+    }
+   ],
+   "stem": 0.153,
+   "bold": true,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 361,
+   "y": 301,
+   "w": 593,
+   "h": 196,
+   "area": 100713,
+   "fill": 0.867,
+   "solid": 0.967,
+   "rx": 63,
+   "ry": 65,
+   "shape": "rounded",
+   "stroke": 3,
+   "kind": "action",
+   "id": "n2",
+   "label": "Receive & Wait for\nException Notification",
+   "labelLines": [
+    {
+     "x": 457,
+     "y": 348,
+     "w": 383,
+     "h": 32,
+     "text": "Receive & Wait for"
+    },
+    {
+     "x": 431,
+     "y": 405,
+     "w": 451,
+     "h": 41,
+     "text": "Exception Notification"
+    }
+   ],
+   "stem": 0.153,
+   "bold": true,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 1409,
+   "y": 740,
+   "w": 525,
+   "h": 246,
+   "area": 119998,
+   "fill": 0.929,
+   "solid": 1.0,
+   "rx": 0,
+   "ry": 0,
+   "shape": "rect",
+   "stroke": 6,
+   "kind": "object",
+   "id": "n3",
+   "label": "Exception Notification\n(positive)",
+   "labelLines": [
+    {
+     "x": 1430,
+     "y": 821,
+     "w": 454,
+     "h": 40,
+     "text": "Exception Notification"
+    },
+    {
+     "x": 1572,
+     "y": 869,
+     "w": 189,
+     "h": 41,
+     "text": "(positive)"
+    }
+   ],
+   "stem": 0.131,
+   "bold": true,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 2646,
+   "y": 771,
+   "w": 172,
+   "h": 158,
+   "area": 13647,
+   "fill": 0.502,
+   "solid": 0.502,
+   "rx": 93,
+   "ry": 84,
+   "shape": "rhombus",
+   "stroke": 3,
+   "kind": "decision",
+   "id": "n4",
+   "label": "",
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 570,
+   "y": 780,
+   "w": 158,
+   "h": 162,
+   "area": 12888,
+   "fill": 0.504,
+   "solid": 0.504,
+   "rx": 84,
+   "ry": 87,
+   "shape": "rhombus",
+   "stroke": 3,
+   "kind": "decision",
+   "id": "n5",
+   "label": "",
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 785,
+   "y": 1048,
+   "w": 496,
+   "h": 120,
+   "area": 51586,
+   "fill": 0.867,
+   "solid": 0.944,
+   "rx": 65.0,
+   "ry": 60,
+   "shape": "rounded",
+   "stroke": 3,
+   "kind": "action",
+   "id": "n6",
+   "label": "Send Exception",
+   "labelLines": [
+    {
+     "x": 864,
+     "y": 1090,
+     "w": 321,
+     "h": 41,
+     "text": "Send Exception"
+    }
+   ],
+   "stem": 0.153,
+   "bold": true,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 2111,
+   "y": 1079,
+   "w": 478,
+   "h": 116,
+   "area": 47530,
+   "fill": 0.857,
+   "solid": 0.941,
+   "rx": 65.0,
+   "ry": 56,
+   "shape": "rounded",
+   "stroke": 3,
+   "kind": "action",
+   "id": "n7",
+   "label": "Send Exception",
+   "labelLines": [
+    {
+     "x": 2180,
+     "y": 1116,
+     "w": 322,
+     "h": 41,
+     "text": "Send Exception"
+    }
+   ],
+   "stem": 0.153,
+   "bold": true,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 1863,
+   "y": 1357,
+   "w": 593,
+   "h": 147,
+   "area": 75271,
+   "fill": 0.863,
+   "solid": 0.957,
+   "rx": 65,
+   "ry": 65,
+   "shape": "rounded",
+   "stroke": 3,
+   "kind": "action",
+   "id": "n8",
+   "label": "Receive & Resolve\nException",
+   "labelLines": [
+    {
+     "x": 1962,
+     "y": 1388,
+     "w": 383,
+     "h": 32,
+     "text": "Receive & Resolve"
+    },
+    {
+     "x": 2072,
+     "y": 1446,
+     "w": 201,
+     "h": 40,
+     "text": "Exception"
+    }
+   ],
+   "stem": 0.153,
+   "bold": true,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 975,
+   "y": 1362,
+   "w": 593,
+   "h": 147,
+   "area": 75177,
+   "fill": 0.862,
+   "solid": 0.957,
+   "rx": 65,
+   "ry": 63,
+   "shape": "rounded",
+   "stroke": 4,
+   "kind": "action",
+   "id": "n9",
+   "label": "Receive & Resolve\n1 Exception",
+   "labelLines": [
+    {
+     "x": 1078,
+     "y": 1393,
+     "w": 383,
+     "h": 32,
+     "text": "Receive & Resolve"
+    },
+    {
+     "x": 1034,
+     "y": 1450,
+     "w": 355,
+     "h": 42,
+     "text": "1 Exception"
+    }
+   ],
+   "stem": 0.153,
+   "bold": true,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 1313,
+   "y": 1936,
+   "w": 730,
+   "h": 222,
+   "area": 155292,
+   "fill": 0.958,
+   "solid": 0.977,
+   "rx": 65,
+   "ry": 63,
+   "shape": "rounded",
+   "stroke": 3,
+   "kind": "action",
+   "id": "n10",
+   "label": "Ordering",
+   "labelLines": [
+    {
+     "x": 1583,
+     "y": 2020,
+     "w": 179,
+     "h": 41,
+     "text": "Ordering"
+    }
+   ],
+   "stem": 0.153,
+   "bold": true,
+   "col": 0,
+   "row": 0
+  }
+ ],
+ "edges": [
+  {
+   "from": "n1",
+   "to": "n4",
+   "routing": "straight",
+   "fromPoint": [
+    2727,
+    489
+   ],
+   "toPoint": [
+    2731,
+    756
+   ],
+   "arrowInk": [
+    136,
+    485
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    49,
+    39.1,
+    2.11
+   ],
+   "arrowSaturated": true,
+   "arrowFill": 0.033,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n2",
+   "to": "n5",
+   "routing": "straight",
+   "fromPoint": [
+    651,
+    511
+   ],
+   "toPoint": [
+    646,
+    765
+   ],
+   "arrowInk": [
+    180,
+    467
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    62,
+    48.0,
+    2.33
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n7",
+   "to": "n3",
+   "routing": "orthogonal",
+   "fromPoint": [
+    2250,
+    1064
+   ],
+   "toPoint": [
+    1953,
+    860
+   ],
+   "arrowInk": [
+    138,
+    417
+   ],
+   "directionConfidence": "high",
+   "points": [
+    [
+     2250,
+     860
+    ]
+   ],
+   "arrowPx": [
+    47,
+    35.7,
+    3.51
+   ],
+   "arrowSaturated": true,
+   "arrowFill": 0.0,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n4",
+   "to": "n7",
+   "routing": "orthogonal",
+   "fromPoint": [
+    2631,
+    847
+   ],
+   "toPoint": [
+    2418,
+    1064
+   ],
+   "arrowInk": [
+    138,
+    494
+   ],
+   "directionConfidence": "high",
+   "points": [
+    [
+     2418,
+     847
+    ]
+   ],
+   "arrowPx": [
+    51,
+    46.3,
+    2.21
+   ],
+   "arrowSaturated": true,
+   "arrowFill": 0.293,
+   "guard": "Yes",
+   "edgeKind": "control"
+  },
+  {
+   "from": "n6",
+   "to": "n3",
+   "routing": "orthogonal",
+   "fromPoint": [
+    1092,
+    1033
+   ],
+   "toPoint": [
+    1390,
+    878
+   ],
+   "arrowInk": [
+    184,
+    424
+   ],
+   "directionConfidence": "medium",
+   "points": [
+    [
+     1092,
+     878
+    ]
+   ],
+   "edgeKind": "object"
+  },
+  {
+   "from": "n5",
+   "to": "n6",
+   "routing": "orthogonal",
+   "fromPoint": [
+    742,
+    860
+   ],
+   "toPoint": [
+    911,
+    1033
+   ],
+   "arrowInk": [
+    135,
+    480
+   ],
+   "directionConfidence": "high",
+   "points": [
+    [
+     911,
+     860
+    ]
+   ],
+   "arrowPx": [
+    74,
+    175.0,
+    5.19
+   ],
+   "arrowFill": 0.092,
+   "guard": "Yes",
+   "edgeKind": "control"
+  },
+  {
+   "from": "n4",
+   "to": "n10",
+   "routing": "orthogonal",
+   "fromPoint": [
+    2732,
+    943
+   ],
+   "toPoint": [
+    1753,
+    1921
+   ],
+   "arrowInk": [
+    180,
+    492
+   ],
+   "directionConfidence": "high",
+   "points": [
+    [
+     2732,
+     1594
+    ],
+    [
+     1753,
+     1594
+    ]
+   ],
+   "arrowPx": [
+    63,
+    52.6,
+    2.34
+   ],
+   "arrowFill": 0.128,
+   "guard": "No",
+   "edgeKind": "control"
+  },
+  {
+   "from": "n5",
+   "to": "n10",
+   "routing": "orthogonal",
+   "fromPoint": [
+    646,
+    956
+   ],
+   "toPoint": [
+    1598,
+    1921
+   ],
+   "arrowInk": [
+    135,
+    459
+   ],
+   "directionConfidence": "high",
+   "points": [
+    [
+     646,
+     1602
+    ],
+    [
+     1598,
+     1602
+    ]
+   ],
+   "arrowPx": [
+    73,
+    172.5,
+    6.96
+   ],
+   "arrowFill": 0.108,
+   "guard": "No",
+   "edgeKind": "control"
+  },
+  {
+   "from": "n3",
+   "to": "n9",
+   "routing": "diagonal",
+   "fromPoint": [
+    1566,
+    1006
+   ],
+   "toPoint": [
+    1326,
+    1347
+   ],
+   "arrowInk": [
+    174,
+    496
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    66,
+    48.5,
+    2.51
+   ],
+   "arrowFill": 0.058,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n3",
+   "to": "n8",
+   "routing": "diagonal",
+   "fromPoint": [
+    1781,
+    1005
+   ],
+   "toPoint": [
+    2042,
+    1342
+   ],
+   "arrowInk": [
+    187,
+    511
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    65,
+    47.4,
+    2.34
+   ],
+   "arrowFill": 0.043,
+   "edgeKind": "object"
+  }
+ ],
+ "text": [
+  {
+   "text": "Identifying and Resolving Exceptions for Order Forecast",
+   "x": 1108,
+   "y": 96,
+   "w": 1162,
+   "h": 41,
+   "lines": [
+    {
+     "x": 1108,
+     "y": 92,
+     "w": 1162,
+     "h": 49,
+     "text": "Identifying and Resolving Exceptions for Order Forecast"
+    }
+   ]
+  },
+  {
+   "text": "Exception Received ?",
+   "x": 2858,
+   "y": 824,
+   "w": 413,
+   "h": 41,
+   "lines": [
+    {
+     "x": 2858,
+     "y": 824,
+     "w": 413,
+     "h": 41,
+     "text": "Exception Received ?"
+    }
+   ]
+  },
+  {
+   "text": "Exception Received ?",
+   "x": 115,
+   "y": 837,
+   "w": 413,
+   "h": 41,
+   "lines": [
+    {
+     "x": 115,
+     "y": 837,
+     "w": 413,
+     "h": 41,
+     "text": "Exception Received ?"
+    }
+   ]
+  },
+  {
+   "text": "Yes",
+   "x": 802,
+   "y": 965,
+   "w": 72,
+   "h": 32,
+   "lines": [
+    {
+     "x": 802,
+     "y": 965,
+     "w": 72,
+     "h": 32,
+     "text": "Yes"
+    }
+   ],
+   "attachedTo": "n5->n6"
+  },
+  {
+   "text": "Yes",
+   "x": 2308,
+   "y": 996,
+   "w": 72,
+   "h": 32,
+   "lines": [
+    {
+     "x": 2308,
+     "y": 996,
+     "w": 72,
+     "h": 32,
+     "text": "Yes"
+    }
+   ],
+   "attachedTo": "n4->n7"
+  },
+  {
+   "text": "No",
+   "x": 1509,
+   "y": 1853,
+   "w": 50,
+   "h": 32,
+   "lines": [
+    {
+     "x": 1509,
+     "y": 1853,
+     "w": 50,
+     "h": 32,
+     "text": "No"
+    }
+   ],
+   "attachedTo": "n5->n10"
+  },
+  {
+   "text": "No",
+   "x": 1663,
+   "y": 1853,
+   "w": 51,
+   "h": 32,
+   "lines": [
+    {
+     "x": 1663,
+     "y": 1853,
+     "w": 51,
+     "h": 32,
+     "text": "No"
+    }
+   ],
+   "attachedTo": "n4->n10"
+  }
+ ],
+ "uncertain": []
+}

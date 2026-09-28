@@ -1,0 +1,11 @@
+== UBL-2.5-WasteMovementProcess
+  scale 0.59176   frame 5px  divider 5px  action 4px  object 5px
+  font 59px (34.7 model)   2 lanes, 1 bands, 6 nodes, 5 edges -> review/baseline/UBL-2.5-WasteMovementProcess-spec.json
+  review/baseline/UBL-2.5-WasteMovementProcess.svg + .drawio + -classified.svg   (6 nodes, 5 edges)
+  rendered UBL-2.5-WasteMovementProcess.svg -> UBL-2.5-WasteMovementProcess-render.png @ 2501pxx1733, 600 dpi
+  aligned on ink bounds: scale x 1.0000, y 1.0000
+  size 2501x1733  radius 2
+  ink: original 135222   candidate 126719
+  MISSING (red)     8113  = 5.9998% of original ink
+  EXTRA   (blue)    4348  = 3.2155% of original ink
+  RESULT: DIFFERENCES - inspect review/baseline/UBL-2.5-WasteMovementProcess-diff-r2.png

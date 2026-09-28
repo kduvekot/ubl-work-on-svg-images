@@ -1,0 +1,42 @@
+{
+ "name": "UBL-2.0-ReportStateofAccountsProcess.png",
+ "verdict": "needs-human",
+ "radius": 3,
+ "lineWorkInk": 163382,
+ "missingPx": 129,
+ "inventedPx": 0,
+ "structural": {
+  "absent": 0,
+  "invented": 0,
+  "coherence": 0,
+  "textAbsent": 0,
+  "textDiffers": 0
+ },
+ "blocking": [],
+ "findings": [],
+ "text": [],
+ "coherence": [],
+ "human": [
+  {
+   "x": 1394,
+   "y": 466,
+   "w": 641,
+   "h": 334,
+   "shape": "rect",
+   "iou": 1.0,
+   "border": 1.0,
+   "kind": "kept-on-outline",
+   "reason": "every side has pass-through line-work, but the region carries a complete outline of its own",
+   "check": "confirm this is a node and not trapped whitespace"
+  }
+ ],
+ "review": [
+  {
+   "n": 1,
+   "what": "check",
+   "where": "1394,466 641x334",
+   "detail": "every side has pass-through line-work, but the region carries a complete outline of its own",
+   "check": "confirm this is a node and not trapped whitespace"
+  }
+ ]
+}

@@ -1,0 +1,294 @@
+{
+ "schema": "ubl-activity-diagram-layout/1",
+ "figure": "UBL-2.2-Tender-AwardNotification",
+ "units": "px of the original PNG",
+ "size": [
+  3425,
+  1438
+ ],
+ "style": {
+  "fontPx": 75.7,
+  "arrowPx": 65.0,
+  "arrowWidthPx": 68.0,
+  "arrowStyle": "open"
+ },
+ "rules": {
+  "vertical": [
+   {
+    "at": 0,
+    "width": 10,
+    "span": [
+     13,
+     1424
+    ]
+   },
+   {
+    "at": 1609,
+    "width": 14,
+    "span": [
+     13,
+     1424
+    ]
+   },
+   {
+    "at": 3415,
+    "width": 10,
+    "span": [
+     13,
+     1424
+    ]
+   }
+  ],
+  "horizontal": [
+   {
+    "at": 0,
+    "width": 10,
+    "span": [
+     13,
+     3411
+    ]
+   },
+   {
+    "at": 1428,
+    "width": 10,
+    "span": [
+     13,
+     3411
+    ]
+   }
+  ]
+ },
+ "greyRules": [],
+ "lanes": {
+  "lane-tenderer": {
+   "x0": 0,
+   "x1": 1616,
+   "titleBox": [
+    548,
+    78,
+    405,
+    53
+   ],
+   "titleWords": "TENDERER"
+  },
+  "lane-contracting-authority": {
+   "x0": 1616,
+   "x1": 3425,
+   "titleBox": [
+    2011,
+    79,
+    988,
+    54
+   ],
+   "titleWords": "CONTRACTING AUTHORITY"
+  }
+ },
+ "nodes": {
+  "initial-contracting-authority": {
+   "x": 2676,
+   "y": 192,
+   "w": 116,
+   "h": 116
+  },
+  "action-prepare-awarding-notification": {
+   "x": 2137,
+   "y": 468,
+   "w": 1194,
+   "h": 197,
+   "shape": "rounded",
+   "stroke": 13,
+   "rx": 96,
+   "ry": 95,
+   "bold": false,
+   "labelLines": [
+    {
+     "x": 2251,
+     "y": 535,
+     "w": 950,
+     "h": 69,
+     "text": "Prepare awarding notification"
+    }
+   ]
+  },
+  "object-unawarded-notification": {
+   "x": 1317,
+   "y": 693,
+   "w": 573,
+   "h": 194,
+   "shape": "rect",
+   "stroke": 12,
+   "rx": 0,
+   "ry": 0,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 1412,
+     "y": 715,
+     "w": 398,
+     "h": 53,
+     "text": "Unawarded"
+    },
+    {
+     "x": 1409,
+     "y": 806,
+     "w": 403,
+     "h": 55,
+     "text": "Notification"
+    }
+   ]
+  },
+  "action-send-awarding-notification": {
+   "x": 2186,
+   "y": 831,
+   "w": 1096,
+   "h": 196,
+   "shape": "rounded",
+   "stroke": 13,
+   "rx": 95,
+   "ry": 104,
+   "bold": false,
+   "labelLines": [
+    {
+     "x": 2300,
+     "y": 898,
+     "w": 862,
+     "h": 69,
+     "text": "Send awarding notification"
+    }
+   ]
+  },
+  "action-receive-notification": {
+   "x": 94,
+   "y": 833,
+   "w": 835,
+   "h": 196,
+   "shape": "rounded",
+   "stroke": 12,
+   "rx": 94,
+   "ry": 96,
+   "bold": false,
+   "labelLines": [
+    {
+     "x": 197,
+     "y": 900,
+     "w": 632,
+     "h": 54,
+     "text": "Receive notification"
+    }
+   ]
+  },
+  "object-awarded-notification": {
+   "x": 1316,
+   "y": 978,
+   "w": 572,
+   "h": 194,
+   "shape": "rect",
+   "stroke": 12,
+   "rx": 0,
+   "ry": 0,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 1403,
+     "y": 1000,
+     "w": 319,
+     "h": 54,
+     "text": "Awarded"
+    },
+    {
+     "x": 1408,
+     "y": 1091,
+     "w": 403,
+     "h": 55,
+     "text": "Notification"
+    }
+   ]
+  },
+  "final-tenderer": {
+   "x": 434,
+   "y": 1199,
+   "w": 162,
+   "h": 162,
+   "shape": "rounded",
+   "stroke": 12,
+   "rx": 83,
+   "ry": 79,
+   "innerRatio": 0.71
+  }
+ },
+ "flows": {
+  "flow-initial-contracting-authority-to-prepare-awarding-notification": {
+   "fromPoint": [
+    2734,
+    322
+   ],
+   "toPoint": [
+    2734,
+    453
+   ],
+   "routing": "straight"
+  },
+  "flow-prepare-awarding-notification-to-send-awarding-notification": {
+   "fromPoint": [
+    2734,
+    679
+   ],
+   "toPoint": [
+    2734,
+    816
+   ],
+   "routing": "straight"
+  },
+  "flow-receive-notification-to-final-tenderer": {
+   "fromPoint": [
+    511,
+    1043
+   ],
+   "toPoint": [
+    514,
+    1184
+   ],
+   "routing": "straight"
+  },
+  "flow-send-awarding-notification-to-awarded-notification": {
+   "routing": "shared",
+   "line": "flow-send-awarding-notification-to-receive-notification"
+  },
+  "flow-awarded-notification-to-receive-notification": {
+   "routing": "shared",
+   "line": "flow-send-awarding-notification-to-receive-notification"
+  },
+  "flow-send-awarding-notification-to-unawarded-notification": {
+   "routing": "shared",
+   "line": "flow-send-awarding-notification-to-receive-notification"
+  },
+  "flow-unawarded-notification-to-receive-notification": {
+   "routing": "shared",
+   "line": "flow-send-awarding-notification-to-receive-notification"
+  }
+ },
+ "texts": {},
+ "offPage": {},
+ "marks": {},
+ "phases": {},
+ "rulesHaveSpans": {
+  "vertical": true,
+  "horizontal": true
+ },
+ "sharedLines": {
+  "flow-send-awarding-notification-to-receive-notification": {
+   "fromPoint": [
+    2171,
+    929
+   ],
+   "toPoint": [
+    943,
+    930
+   ],
+   "routing": "straight",
+   "from": "action-send-awarding-notification",
+   "to": "action-receive-notification",
+   "confidence": "high"
+  }
+ }
+}

@@ -1,0 +1,11 @@
+== UBL-2.2-FulfilmentReceiptAdviceProcess
+  scale 0.43212   frame 10px  divider 3px  action 3px  object 6px
+  font 30px (13.0 model)   3 lanes, 1 bands, 21 nodes, 24 edges -> review/baseline/UBL-2.2-FulfilmentReceiptAdviceProcess-spec.json
+  review/baseline/UBL-2.2-FulfilmentReceiptAdviceProcess.svg + .drawio + -classified.svg   (21 nodes, 24 edges)
+  rendered UBL-2.2-FulfilmentReceiptAdviceProcess.svg -> UBL-2.2-FulfilmentReceiptAdviceProcess-render.png @ 3425pxx2019, 600 dpi
+  aligned on ink bounds: scale x 1.0000, y 1.0000
+  size 3425x2019  radius 2
+  ink: original 257846   candidate 257607
+  MISSING (red)     3051  = 1.1833% of original ink
+  EXTRA   (blue)    4530  = 1.7569% of original ink
+  RESULT: DIFFERENCES - inspect review/baseline/UBL-2.2-FulfilmentReceiptAdviceProcess-diff-r2.png

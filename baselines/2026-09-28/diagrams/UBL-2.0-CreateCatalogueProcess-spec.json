@@ -1,0 +1,1118 @@
+{
+ "canvas": {
+  "w": 1480.0,
+  "h": 2100.952
+ },
+ "stroke": {
+  "frame": 4.3,
+  "divider": 2.2,
+  "action": 2.6,
+  "object": 4.3,
+  "edge": 2.6
+ },
+ "font": {
+  "family": "Helvetica, Arial, sans-serif",
+  "node": 21.6,
+  "lane": 21.6,
+  "guard": 21.6
+ },
+ "arrow": 36.2,
+ "arrowWidth": 28.6,
+ "arrowStyle": "open",
+ "dashed": [],
+ "greyRules": [],
+ "crossMarks": [],
+ "openEnds": [],
+ "frameBox": [
+  2.2,
+  2.2,
+  1477.8,
+  2098.8
+ ],
+ "dividers": [
+  [
+   555.1,
+   2.2,
+   5.6,
+   2094.9
+  ]
+ ],
+ "bands": [],
+ "lanes": [
+  {
+   "id": "lane-receiver-party",
+   "title": "Receiver Party",
+   "x": 0.0,
+   "w": 554.8,
+   "cx": 276.8,
+   "cy": 22.7,
+   "size": 20.1,
+   "textWidth": 131.8,
+   "baseline": 27.8
+  },
+  {
+   "id": "lane-provider-party",
+   "title": "Provider Party",
+   "x": 554.8,
+   "w": 925.2,
+   "cx": 1015.7,
+   "cy": 22.7,
+   "size": 20.1,
+   "textWidth": 127.5,
+   "baseline": 27.8
+  }
+ ],
+ "bandLabels": [],
+ "captions": [],
+ "nodes": [
+  {
+   "id": "initial-receiver-party",
+   "kind": "initial",
+   "label": "",
+   "x": 72.6,
+   "y": 20.7,
+   "w": 41.1,
+   "h": 41.5
+  },
+  {
+   "id": "object-catalogue-request",
+   "kind": "object",
+   "label": "Catalogue\nRequest",
+   "x": 455.0,
+   "y": 102.0,
+   "w": 181.9,
+   "h": 100.3,
+   "labelLines": [
+    {
+     "text": "Catalogue",
+     "cx": 544.3,
+     "cy": 136.3,
+     "w": 117.1,
+     "size": 20.5
+    },
+    {
+     "text": "Request",
+     "cx": 546.0,
+     "cy": 167.0,
+     "w": 97.2,
+     "size": 20.5
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-request-catalogue",
+   "kind": "action",
+   "label": "Request Catalogue",
+   "x": 22.5,
+   "y": 118.4,
+   "w": 286.9,
+   "h": 67.8,
+   "rx": 28.5,
+   "ry": 29.8,
+   "labelLines": [
+    {
+     "text": "Request Catalogue",
+     "cx": 164.9,
+     "cy": 150.75,
+     "w": 183.6,
+     "size": 21.0
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-respond-to-request",
+   "kind": "action",
+   "label": "Respond to Request",
+   "x": 1118.3,
+   "y": 118.4,
+   "w": 278.7,
+   "h": 67.8,
+   "rx": 28.5,
+   "ry": 32.0,
+   "labelLines": [
+    {
+     "text": "Respond to Request",
+     "cx": 1257.9,
+     "cy": 149.85,
+     "w": 197.9,
+     "size": 21.0
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "object-application-response-negative-between-receiver-party-and-provider-party",
+   "kind": "object",
+   "label": "Application\nResponse\n(negative)",
+   "x": 444.6,
+   "y": 358.2,
+   "w": 181.9,
+   "h": 108.0,
+   "labelLines": [
+    {
+     "text": "Application",
+     "cx": 533.0,
+     "cy": 387.825,
+     "w": 111.9,
+     "size": 20.5
+    },
+    {
+     "text": "Response",
+     "cx": 533.2,
+     "cy": 410.22499999999997,
+     "w": 96.8,
+     "size": 20.5
+    },
+    {
+     "text": "(negative)",
+     "cx": 536.9,
+     "cy": 432.72499999999997,
+     "w": 95.5,
+     "size": 20.5
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-send-rejection",
+   "kind": "action",
+   "label": "Send Rejection",
+   "x": 767.9,
+   "y": 368.2,
+   "w": 252.4,
+   "h": 76.1,
+   "rx": 30.2,
+   "ry": 31.1,
+   "labelLines": [
+    {
+     "text": "Send Rejection",
+     "cx": 891.0,
+     "cy": 403.54999999999995,
+     "w": 146.1,
+     "size": 21.0
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "decision-provider-party",
+   "kind": "decision",
+   "label": "",
+   "x": 1229.8,
+   "y": 371.2,
+   "w": 51.9,
+   "h": 67.8,
+   "bold": false
+  },
+  {
+   "id": "final-receiver-party",
+   "kind": "final",
+   "label": "",
+   "x": 92.3,
+   "y": 386.5,
+   "w": 38.5,
+   "h": 38.9,
+   "innerRatio": 0.44
+  },
+  {
+   "id": "fork-provider-party",
+   "kind": "fork",
+   "label": "",
+   "x": 1188.8,
+   "y": 543.2,
+   "w": 137.8,
+   "h": 12.5
+  },
+  {
+   "id": "object-application-response-positive-between-receiver-party-and-provider-party",
+   "kind": "object",
+   "label": "Application\nResponse\n(positive)",
+   "x": 446.8,
+   "y": 649.0,
+   "w": 181.9,
+   "h": 108.5,
+   "labelLines": [
+    {
+     "text": "Application",
+     "cx": 535.4,
+     "cy": 678.625,
+     "w": 111.5,
+     "size": 20.5
+    },
+    {
+     "text": "Response",
+     "cx": 535.2,
+     "cy": 701.5250000000001,
+     "w": 96.4,
+     "size": 20.5
+    },
+    {
+     "text": "(positive)",
+     "cx": 538.4,
+     "cy": 724.0250000000001,
+     "w": 89.9,
+     "size": 20.5
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-prepare-catalogue-information",
+   "kind": "action",
+   "label": "Prepare Catalogue\nInformation",
+   "x": 1167.6,
+   "y": 655.1,
+   "w": 274.8,
+   "h": 88.2,
+   "rx": 29.4,
+   "ry": 32.0,
+   "labelLines": [
+    {
+     "text": "Prepare Catalogue",
+     "cx": 1299.4,
+     "cy": 682.65,
+     "w": 178.9,
+     "size": 21.0
+    },
+    {
+     "text": "Information",
+     "cx": 1305.9,
+     "cy": 709.4499999999999,
+     "w": 110.6,
+     "size": 21.0
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-send-acceptance-response",
+   "kind": "action",
+   "label": "Send Acceptance\nResponse",
+   "x": 829.7,
+   "y": 661.1,
+   "w": 249.8,
+   "h": 88.2,
+   "rx": 32.0,
+   "ry": 31.1,
+   "labelLines": [
+    {
+     "text": "Send Acceptance",
+     "cx": 949.8,
+     "cy": 688.75,
+     "w": 169.4,
+     "size": 21.0
+    },
+    {
+     "text": "Response",
+     "cx": 954.5,
+     "cy": 715.9499999999999,
+     "w": 95.9,
+     "size": 21.0
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-produce-catalogue",
+   "kind": "action",
+   "label": "Produce Catalogue",
+   "x": 817.1,
+   "y": 839.6,
+   "w": 272.7,
+   "h": 96.4,
+   "rx": 29.4,
+   "ry": 30.7,
+   "labelLines": [
+    {
+     "text": "Produce Catalogue",
+     "cx": 951.7,
+     "cy": 886.65,
+     "w": 184.5,
+     "size": 21.0
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-distribute-catalogue",
+   "kind": "action",
+   "label": "Distribute Catalogue",
+   "x": 815.4,
+   "y": 1023.7,
+   "w": 274.4,
+   "h": 84.3,
+   "rx": 30.7,
+   "ry": 29.4,
+   "labelLines": [
+    {
+     "text": "Distribute Catalogue",
+     "cx": 952.6,
+     "cy": 1065.5500000000002,
+     "w": 198.3,
+     "size": 21.0
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "object-catalogue",
+   "kind": "object",
+   "label": "Catalogue",
+   "x": 452.9,
+   "y": 1024.1,
+   "w": 181.9,
+   "h": 100.3,
+   "labelLines": [
+    {
+     "text": "Catalogue",
+     "cx": 546.2,
+     "cy": 1069.9,
+     "w": 116.7,
+     "size": 20.5
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "fork-receiver-party",
+   "kind": "fork",
+   "label": "",
+   "x": 136.1,
+   "y": 1066.0,
+   "w": 82.1,
+   "h": 12.5
+  },
+  {
+   "id": "action-receive-catalogue",
+   "kind": "action",
+   "label": "Receive Catalogue",
+   "x": 57.0,
+   "y": 1181.8,
+   "w": 281.3,
+   "h": 69.6,
+   "rx": 31.1,
+   "ry": 32.8,
+   "labelLines": [
+    {
+     "text": "Receive Catalogue",
+     "cx": 193.8,
+     "cy": 1215.45,
+     "w": 180.2,
+     "size": 21.0
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "decision-decide-on-action",
+   "kind": "decision",
+   "label": "Decide on Action",
+   "x": 1158.1,
+   "y": 1362.9,
+   "w": 213.5,
+   "h": 199.2,
+   "labelLines": [
+    {
+     "text": "Decide on Action",
+     "cx": 1263.5,
+     "cy": 1465.715,
+     "w": 151.2,
+     "size": 21.1
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "decision-review-catalogue-content",
+   "kind": "decision",
+   "label": "Review Catalogue\nContent",
+   "x": 58.3,
+   "y": 1368.5,
+   "w": 258.4,
+   "h": 202.2,
+   "labelLines": [
+    {
+     "text": "Review Catalogue",
+     "cx": 188.2,
+     "cy": 1461.415,
+     "w": 163.8,
+     "size": 21.1
+    },
+    {
+     "text": "Content",
+     "cx": 140.7,
+     "cy": 1488.215,
+     "w": 70.4,
+     "size": 21.1
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "object-application-response-negative-between-receiver-party-and-provider-party-2",
+   "kind": "object",
+   "label": "Application\nResponse\n(negative)",
+   "x": 463.2,
+   "y": 1419.5,
+   "w": 181.9,
+   "h": 108.5,
+   "labelLines": [
+    {
+     "text": "Application",
+     "cx": 551.6,
+     "cy": 1449.025,
+     "w": 111.9,
+     "size": 20.5
+    },
+    {
+     "text": "Response",
+     "cx": 551.6,
+     "cy": 1471.525,
+     "w": 96.4,
+     "size": 20.5
+    },
+    {
+     "text": "(negative)",
+     "cx": 555.3,
+     "cy": 1494.425,
+     "w": 95.1,
+     "size": 20.5
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "object-application-response-positive-between-receiver-party-and-provider-party-2",
+   "kind": "object",
+   "label": "Application\nResponse\n(positive)",
+   "x": 471.4,
+   "y": 1691.7,
+   "w": 181.9,
+   "h": 108.9,
+   "labelLines": [
+    {
+     "text": "Application",
+     "cx": 559.8,
+     "cy": 1721.7250000000001,
+     "w": 111.9,
+     "size": 20.5
+    },
+    {
+     "text": "Response",
+     "cx": 559.8,
+     "cy": 1744.2250000000001,
+     "w": 96.4,
+     "size": 20.5
+    },
+    {
+     "text": "(positive)",
+     "cx": 562.8,
+     "cy": 1766.625,
+     "w": 89.4,
+     "size": 20.5
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-acknowledge-acceptance",
+   "kind": "action",
+   "label": "Acknowledge Acceptance",
+   "x": 42.8,
+   "y": 1706.0,
+   "w": 280.9,
+   "h": 70.0,
+   "rx": 32.8,
+   "ry": 33.7,
+   "labelLines": [
+    {
+     "text": "Acknowledge Acceptance",
+     "cx": 179.1,
+     "cy": 1738.3500000000001,
+     "w": 251.9,
+     "size": 21.0
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "final-provider-party",
+   "kind": "final",
+   "label": "",
+   "x": 1237.2,
+   "y": 1728.5,
+   "w": 49.3,
+   "h": 49.7,
+   "innerRatio": 0.574
+  },
+  {
+   "id": "action-accept-catalogue",
+   "kind": "action",
+   "label": "Accept Catalogue",
+   "x": 38.5,
+   "y": 1890.5,
+   "w": 299.9,
+   "h": 65.7,
+   "rx": 32.4,
+   "ry": 33.7,
+   "labelLines": [
+    {
+     "text": "Accept Catalogue",
+     "cx": 186.7,
+     "cy": 1922.3500000000001,
+     "w": 172.0,
+     "size": 21.0
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "final-receiver-party-2",
+   "kind": "final",
+   "label": "",
+   "x": 167.9,
+   "y": 2028.1,
+   "w": 38.9,
+   "h": 38.9,
+   "innerRatio": 0.447
+  }
+ ],
+ "edges": [
+  {
+   "id": "flow-initial-receiver-party-to-request-catalogue",
+   "from": "initial-receiver-party",
+   "to": "action-request-catalogue",
+   "exitXY": [
+    0.4939,
+    1.0
+   ],
+   "entryXY": [
+    0.259,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-request-catalogue-to-catalogue-request",
+   "from": "action-request-catalogue",
+   "to": "object-catalogue-request",
+   "exitXY": [
+    1.0,
+    0.5103
+   ],
+   "entryXY": [
+    0.0,
+    0.5085
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-catalogue-request-to-respond-to-request",
+   "from": "object-catalogue-request",
+   "to": "action-respond-to-request",
+   "exitXY": [
+    1.0,
+    0.5085
+   ],
+   "entryXY": [
+    0.0,
+    0.5103
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-respond-to-request-to-decision-provider-party",
+   "from": "action-respond-to-request",
+   "to": "decision-provider-party",
+   "exitXY": [
+    0.493,
+    1.0
+   ],
+   "entryXY": [
+    0.499,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-decision-provider-party-to-send-rejection",
+   "from": "decision-provider-party",
+   "to": "action-send-rejection",
+   "exitXY": [
+    0.0,
+    0.4971
+   ],
+   "entryXY": [
+    1.0,
+    0.4823
+   ],
+   "straight": true,
+   "confidence": "high",
+   "label": "[reject request]"
+  },
+  {
+   "id": "flow-application-response-negative-between-receiver-party-and-provider-party-to-final-receiver-party",
+   "from": "object-application-response-negative-between-receiver-party-and-provider-party",
+   "to": "final-receiver-party",
+   "exitXY": [
+    0.0,
+    0.4926
+   ],
+   "entryXY": [
+    1.0,
+    0.5167
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-send-rejection-to-application-response-negative-between-receiver-party-and-provider-party",
+   "from": "action-send-rejection",
+   "to": "object-application-response-negative-between-receiver-party-and-provider-party",
+   "exitXY": [
+    0.0,
+    0.5283
+   ],
+   "entryXY": [
+    1.0,
+    0.4926
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-decision-provider-party-to-fork-provider-party",
+   "from": "decision-provider-party",
+   "to": "fork-provider-party",
+   "exitXY": [
+    0.4913,
+    1.0
+   ],
+   "entryXY": [
+    0.4891,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high",
+   "label": "[accept request]"
+  },
+  {
+   "id": "flow-fork-provider-party-to-send-acceptance-response",
+   "from": "fork-provider-party",
+   "to": "action-send-acceptance-response",
+   "exitXY": [
+    0.2315,
+    1.0
+   ],
+   "entryXY": [
+    0.96,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-fork-provider-party-to-prepare-catalogue-information",
+   "from": "fork-provider-party",
+   "to": "action-prepare-catalogue-information",
+   "exitXY": [
+    0.7583,
+    1.0
+   ],
+   "entryXY": [
+    0.4654,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-send-acceptance-response-to-application-response-positive-between-receiver-party-and-provider-party",
+   "from": "action-send-acceptance-response",
+   "to": "object-application-response-positive-between-receiver-party-and-provider-party",
+   "exitXY": [
+    0.0,
+    0.441
+   ],
+   "entryXY": [
+    1.0,
+    0.47
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-application-response-positive-between-receiver-party-and-provider-party-to-fork-receiver-party",
+   "from": "object-application-response-positive-between-receiver-party-and-provider-party",
+   "to": "fork-receiver-party",
+   "exitXY": [
+    0.0,
+    0.7889
+   ],
+   "entryXY": [
+    0.363,
+    0.0
+   ],
+   "straight": false,
+   "confidence": "high",
+   "points": [
+    [
+     165.9,
+     734.6
+    ]
+   ]
+  },
+  {
+   "id": "flow-prepare-catalogue-information-to-produce-catalogue",
+   "from": "action-prepare-catalogue-information",
+   "to": "action-produce-catalogue",
+   "exitXY": [
+    0.0,
+    1.0
+   ],
+   "entryXY": [
+    0.7671,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-decide-on-action-to-prepare-catalogue-information",
+   "from": "decision-decide-on-action",
+   "to": "action-prepare-catalogue-information",
+   "exitXY": [
+    0.4956,
+    0.0
+   ],
+   "entryXY": [
+    0.3428,
+    1.0
+   ],
+   "straight": true,
+   "confidence": "high",
+   "label": "[revise content]"
+  },
+  {
+   "id": "flow-produce-catalogue-to-distribute-catalogue",
+   "from": "action-produce-catalogue",
+   "to": "action-distribute-catalogue",
+   "exitXY": [
+    0.4961,
+    1.0
+   ],
+   "entryXY": [
+    0.4993,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-catalogue-to-fork-receiver-party",
+   "from": "object-catalogue",
+   "to": "fork-receiver-party",
+   "exitXY": [
+    0.0,
+    0.4656
+   ],
+   "entryXY": [
+    1.0,
+    0.384
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-distribute-catalogue-to-catalogue",
+   "from": "action-distribute-catalogue",
+   "to": "object-catalogue",
+   "exitXY": [
+    0.0,
+    0.5789
+   ],
+   "entryXY": [
+    1.0,
+    0.4915
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-fork-receiver-party-to-receive-catalogue",
+   "from": "fork-receiver-party",
+   "to": "action-receive-catalogue",
+   "exitXY": [
+    0.5481,
+    1.0
+   ],
+   "entryXY": [
+    0.4486,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-receive-catalogue-to-review-catalogue-content",
+   "from": "action-receive-catalogue",
+   "to": "decision-review-catalogue-content",
+   "exitXY": [
+    0.4593,
+    1.0
+   ],
+   "entryXY": [
+    0.495,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-application-response-negative-between-receiver-party-and-provider-party-2-to-decide-on-action",
+   "from": "object-application-response-negative-between-receiver-party-and-provider-party-2",
+   "to": "decision-decide-on-action",
+   "exitXY": [
+    1.0,
+    0.3945
+   ],
+   "entryXY": [
+    0.0,
+    0.499
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-review-catalogue-content-to-application-response-negative-between-receiver-party-and-provider-party-2",
+   "from": "decision-review-catalogue-content",
+   "to": "object-application-response-negative-between-receiver-party-and-provider-party-2",
+   "exitXY": [
+    1.0,
+    0.4936
+   ],
+   "entryXY": [
+    0.0,
+    0.47
+   ],
+   "straight": true,
+   "confidence": "high",
+   "label": "[query catalogue content]"
+  },
+  {
+   "id": "flow-decide-on-action-to-final-provider-party",
+   "from": "decision-decide-on-action",
+   "to": "final-provider-party",
+   "exitXY": [
+    0.4956,
+    1.0
+   ],
+   "entryXY": [
+    0.499,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high",
+   "label": "[cancel transaction]"
+  },
+  {
+   "id": "flow-review-catalogue-content-to-acknowledge-acceptance",
+   "from": "decision-review-catalogue-content",
+   "to": "action-acknowledge-acceptance",
+   "exitXY": [
+    0.4985,
+    1.0
+   ],
+   "entryXY": [
+    0.5059,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high",
+   "label": "[accept content]"
+  },
+  {
+   "id": "flow-acknowledge-acceptance-to-application-response-positive-between-receiver-party-and-provider-party-2",
+   "from": "action-acknowledge-acceptance",
+   "to": "object-application-response-positive-between-receiver-party-and-provider-party-2",
+   "exitXY": [
+    1.0,
+    0.5186
+   ],
+   "entryXY": [
+    0.0,
+    0.4968
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-application-response-positive-between-receiver-party-and-provider-party-2-to-final-provider-party",
+   "from": "object-application-response-positive-between-receiver-party-and-provider-party-2",
+   "to": "final-provider-party",
+   "exitXY": [
+    1.0,
+    0.4885
+   ],
+   "entryXY": [
+    0.0,
+    0.33
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-acknowledge-acceptance-to-accept-catalogue",
+   "from": "action-acknowledge-acceptance",
+   "to": "action-accept-catalogue",
+   "exitXY": [
+    0.4998,
+    1.0
+   ],
+   "entryXY": [
+    0.4898,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-accept-catalogue-to-final-receiver-party-2",
+   "from": "action-accept-catalogue",
+   "to": "final-receiver-party-2",
+   "exitXY": [
+    0.4998,
+    1.0
+   ],
+   "entryXY": [
+    0.4936,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  }
+ ],
+ "guards": [
+  {
+   "id": "text-reject-request",
+   "text": "[reject request]",
+   "x": 1058.3,
+   "y": 415.3,
+   "w": 133.1,
+   "h": 18.6,
+   "onFlow": "flow-decision-provider-party-to-send-rejection",
+   "labelLines": [
+    {
+     "text": "[reject request]",
+     "cx": 1124.8,
+     "cy": 422.565,
+     "w": 133.1,
+     "size": 20.1
+    }
+   ]
+  },
+  {
+   "id": "text-accept-request",
+   "text": "[accept request]",
+   "x": 1263.1,
+   "y": 470.6,
+   "w": 143.0,
+   "h": 18.6,
+   "onFlow": "flow-decision-provider-party-to-fork-provider-party",
+   "labelLines": [
+    {
+     "text": "[accept request]",
+     "cx": 1334.6,
+     "cy": 477.86499999999995,
+     "w": 143.0,
+     "size": 20.1
+    }
+   ]
+  },
+  {
+   "id": "text-revise-content",
+   "text": "[revise content]",
+   "x": 1271.3,
+   "y": 1076.8,
+   "w": 136.1,
+   "h": 18.6,
+   "onFlow": "flow-decide-on-action-to-prepare-catalogue-information",
+   "labelLines": [
+    {
+     "text": "[revise content]",
+     "cx": 1339.3,
+     "cy": 1084.165,
+     "w": 136.1,
+     "size": 20.1
+    }
+   ]
+  },
+  {
+   "id": "text-query-catalogue-content",
+   "text": "[query catalogue\ncontent]",
+   "x": 287.4,
+   "y": 1392.3,
+   "w": 149.9,
+   "h": 45.4,
+   "onFlow": "flow-review-catalogue-content-to-application-response-negative-between-receiver-party-and-provider-party-2",
+   "labelLines": [
+    {
+     "text": "[query catalogue",
+     "cx": 362.5,
+     "cy": 1399.825,
+     "w": 149.5,
+     "size": 20.5
+    },
+    {
+     "text": "content]",
+     "cx": 322.8,
+     "cy": 1426.365,
+     "w": 70.9,
+     "size": 20.1
+    }
+   ]
+  },
+  {
+   "id": "text-accept-content",
+   "text": "[accept content]",
+   "x": 210.4,
+   "y": 1589.3,
+   "w": 141.7,
+   "h": 18.6,
+   "onFlow": "flow-review-catalogue-content-to-acknowledge-acceptance",
+   "labelLines": [
+    {
+     "text": "[accept content]",
+     "cx": 281.3,
+     "cy": 1596.665,
+     "w": 141.7,
+     "size": 20.1
+    }
+   ]
+  },
+  {
+   "id": "text-cancel-transaction",
+   "text": "[cancel transaction]",
+   "x": 1054.4,
+   "y": 1617.8,
+   "w": 173.7,
+   "h": 19.0,
+   "onFlow": "flow-decide-on-action-to-final-provider-party",
+   "labelLines": [
+    {
+     "text": "[cancel transaction]",
+     "cx": 1141.2,
+     "cy": 1625.325,
+     "w": 173.7,
+     "size": 20.5
+    }
+   ]
+  }
+ ]
+}

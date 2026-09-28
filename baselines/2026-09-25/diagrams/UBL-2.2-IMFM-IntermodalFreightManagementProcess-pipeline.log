@@ -1,0 +1,11 @@
+== UBL-2.2-IMFM-IntermodalFreightManagementProcess
+  scale 0.43212   frame 9px  divider 4px  action 4px  object 7px
+  font 33px (14.2 model)   4 lanes, 3 bands, 28 nodes, 33 edges -> review/baseline/UBL-2.2-IMFM-IntermodalFreightManagementProcess-spec.json
+  review/baseline/UBL-2.2-IMFM-IntermodalFreightManagementProcess.svg + .drawio + -classified.svg   (28 nodes, 33 edges)
+  rendered UBL-2.2-IMFM-IntermodalFreightManagementProcess.svg -> UBL-2.2-IMFM-IntermodalFreightManagementProcess-render.png @ 3425pxx3221, 600 dpi
+  aligned on ink bounds: scale x 1.0000, y 1.0000
+  size 3425x3221  radius 2
+  ink: original 567272   candidate 565145
+  MISSING (red)    14967  = 2.6384% of original ink
+  EXTRA   (blue)   15007  = 2.6455% of original ink
+  RESULT: DIFFERENCES - inspect review/baseline/UBL-2.2-IMFM-IntermodalFreightManagementProcess-diff-r2.png

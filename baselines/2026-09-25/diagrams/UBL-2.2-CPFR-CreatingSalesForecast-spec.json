@@ -1,0 +1,862 @@
+{
+ "canvas": {
+  "w": 1480.0,
+  "h": 1557.349
+ },
+ "stroke": {
+  "frame": 4.3,
+  "divider": 4.3,
+  "action": 3.0,
+  "object": 3.0,
+  "edge": 3.0
+ },
+ "font": {
+  "family": "Helvetica, Arial, sans-serif",
+  "node": 17.9,
+  "lane": 17.9,
+  "guard": 17.9
+ },
+ "arrow": 29.7,
+ "arrowWidth": 23.2,
+ "arrowStyle": "open",
+ "dashed": [
+  {
+   "x": 37.2,
+   "y": 28.5,
+   "w": 1408.7,
+   "h": 1489.9,
+   "rx": 95.1,
+   "dash": 8.6,
+   "gap": 8.6,
+   "weight": 3.0
+  }
+ ],
+ "greyRules": [
+  {
+   "axis": "v",
+   "at": 739.8,
+   "w": 3.0,
+   "colour": "#e0e0e0"
+  }
+ ],
+ "crossMarks": [],
+ "openEnds": [
+  {
+   "points": [
+    [
+     421.3,
+     5.2
+    ],
+    [
+     419.2,
+     124.0
+    ]
+   ],
+   "arrow": true
+  },
+  {
+   "points": [
+    [
+     344.4,
+     1551.7
+    ],
+    [
+     346.6,
+     1388.4
+    ],
+    [
+     629.2,
+     1387.1
+    ]
+   ],
+   "arrow": false
+  },
+  {
+   "points": [
+    [
+     849.5,
+     1387.1
+    ],
+    [
+     1125.7,
+     1388.4
+    ],
+    [
+     1127.0,
+     1551.7
+    ]
+   ],
+   "arrow": false
+  }
+ ],
+ "frameBox": [
+  2.2,
+  2.2,
+  1477.8,
+  1555.2
+ ],
+ "dividers": [],
+ "bands": [],
+ "lanes": [
+  {
+   "title": "Creating Sales Forecast",
+   "x": 0.0,
+   "w": 1480.0,
+   "cx": 744.5,
+   "cy": 58.8
+  }
+ ],
+ "bandLabels": [],
+ "nodes": [
+  {
+   "id": "n1",
+   "kind": "object",
+   "label": "Item Information\nRequest",
+   "x": 636.7,
+   "y": 132.4,
+   "w": 204.8,
+   "h": 98.1,
+   "labelLines": [
+    {
+     "text": "Item Information",
+     "cx": 738.7,
+     "cy": 169.2,
+     "w": 134.4
+    },
+    {
+     "text": "Request",
+     "cx": 739.8,
+     "cy": 192.3,
+     "w": 68.3
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n2",
+   "kind": "action",
+   "label": "Create Product Activity\n(POS Data)",
+   "x": 240.9,
+   "y": 133.7,
+   "w": 225.1,
+   "h": 95.5,
+   "rx": 34.4,
+   "ry": 34.8,
+   "labelLines": [
+    {
+     "text": "Create Product Activity",
+     "cx": 350.9,
+     "cy": 170.7,
+     "w": 189.3
+    },
+    {
+     "text": "(POS Data)",
+     "cx": 350.7,
+     "cy": 192.1,
+     "w": 88.6
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n3",
+   "kind": "action",
+   "label": "Create Item\nInformation Request",
+   "x": 1007.0,
+   "y": 133.7,
+   "w": 225.6,
+   "h": 95.5,
+   "rx": 34.8,
+   "ry": 37.8,
+   "labelLines": [
+    {
+     "text": "Create Item",
+     "cx": 1119.2,
+     "cy": 169.2,
+     "w": 92.5
+    },
+    {
+     "text": "Information Request",
+     "cx": 1119.8,
+     "cy": 192.1,
+     "w": 166.4
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n4",
+   "kind": "action",
+   "label": "Create Product Activity\n(DC Data)",
+   "x": 240.9,
+   "y": 309.6,
+   "w": 225.1,
+   "h": 95.5,
+   "rx": 34.4,
+   "ry": 34.8,
+   "labelLines": [
+    {
+     "text": "Create Product Activity",
+     "cx": 350.9,
+     "cy": 346.6,
+     "w": 189.3
+    },
+    {
+     "text": "(DC Data)",
+     "cx": 350.4,
+     "cy": 367.9,
+     "w": 76.9
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n5",
+   "kind": "object",
+   "label": "Product Activity",
+   "x": 636.7,
+   "y": 482.5,
+   "w": 204.8,
+   "h": 98.1,
+   "labelLines": [
+    {
+     "text": "Product Activity",
+     "cx": 739.6,
+     "cy": 531.7,
+     "w": 131.8
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n6",
+   "kind": "action",
+   "label": "Send Product Activity",
+   "x": 240.9,
+   "y": 483.8,
+   "w": 225.1,
+   "h": 95.5,
+   "rx": 34.4,
+   "ry": 34.8,
+   "labelLines": [
+    {
+     "text": "Send Product Activity",
+     "cx": 350.9,
+     "cy": 531.5,
+     "w": 178.0
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n7",
+   "kind": "action",
+   "label": "Receive Product Activity",
+   "x": 1007.0,
+   "y": 483.8,
+   "w": 225.6,
+   "h": 95.5,
+   "rx": 34.4,
+   "ry": 37.8,
+   "labelLines": [
+    {
+     "text": "Receive Product Activity",
+     "cx": 1119.6,
+     "cy": 531.7,
+     "w": 200.5
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n8",
+   "kind": "action",
+   "label": "Create Sales Forecast",
+   "x": 1007.0,
+   "y": 654.9,
+   "w": 225.6,
+   "h": 95.5,
+   "rx": 34.4,
+   "ry": 37.8,
+   "labelLines": [
+    {
+     "text": "Create Sales Forecast",
+     "cx": 1119.8,
+     "cy": 702.6,
+     "w": 179.3
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n9",
+   "kind": "object",
+   "label": "Forecast (sales)",
+   "x": 636.7,
+   "y": 823.4,
+   "w": 204.8,
+   "h": 98.1,
+   "labelLines": [
+    {
+     "text": "Forecast (sales)",
+     "cx": 738.7,
+     "cy": 872.4,
+     "w": 130.1
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n10",
+   "kind": "action",
+   "label": "Receive Sales Forecast",
+   "x": 237.9,
+   "y": 824.7,
+   "w": 225.6,
+   "h": 95.5,
+   "rx": 34.4,
+   "ry": 37.8,
+   "labelLines": [
+    {
+     "text": "Receive Sales Forecast",
+     "cx": 348.3,
+     "cy": 872.4,
+     "w": 191.0
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n11",
+   "kind": "action",
+   "label": "Send Sales Forecast",
+   "x": 1007.0,
+   "y": 824.7,
+   "w": 225.6,
+   "h": 95.5,
+   "rx": 34.4,
+   "ry": 37.8,
+   "labelLines": [
+    {
+     "text": "Send Sales Forecast",
+     "cx": 1119.8,
+     "cy": 872.4,
+     "w": 168.1
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n12",
+   "kind": "object",
+   "label": "Forecast Revision\n(sales)",
+   "x": 636.7,
+   "y": 989.8,
+   "w": 204.8,
+   "h": 98.1,
+   "labelLines": [
+    {
+     "text": "Forecast Revision",
+     "cx": 738.9,
+     "cy": 1026.5,
+     "w": 147.8
+    },
+    {
+     "text": "(sales)",
+     "cx": 738.9,
+     "cy": 1049.2,
+     "w": 52.7
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n13",
+   "kind": "action",
+   "label": "Revise Sales Forecast\nand Send Revision",
+   "x": 237.9,
+   "y": 991.1,
+   "w": 225.6,
+   "h": 95.5,
+   "rx": 33.5,
+   "ry": 37.8,
+   "labelLines": [
+    {
+     "text": "Revise Sales Forecast",
+     "cx": 348.1,
+     "cy": 1028.0,
+     "w": 181.1
+    },
+    {
+     "text": "and Send Revision",
+     "cx": 347.4,
+     "cy": 1049.4,
+     "w": 153.0
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n14",
+   "kind": "action",
+   "label": "Receive Sales Forecast\nRevision",
+   "x": 1007.0,
+   "y": 991.1,
+   "w": 225.6,
+   "h": 95.5,
+   "rx": 33.5,
+   "ry": 37.8,
+   "labelLines": [
+    {
+     "text": "Receive Sales Forecast",
+     "cx": 1119.8,
+     "cy": 1028.0,
+     "w": 190.6
+    },
+    {
+     "text": "Revision",
+     "cx": 1119.4,
+     "cy": 1049.4,
+     "w": 69.6
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n15",
+   "kind": "action",
+   "label": "Revise and Resend\nRevision",
+   "x": 1007.0,
+   "y": 1163.0,
+   "w": 225.6,
+   "h": 95.5,
+   "rx": 33.9,
+   "ry": 37.8,
+   "labelLines": [
+    {
+     "text": "Revise and Resend",
+     "cx": 1119.8,
+     "cy": 1200.2,
+     "w": 156.0
+    },
+    {
+     "text": "Revision",
+     "cx": 1119.8,
+     "cy": 1221.4,
+     "w": 69.6
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n16",
+   "kind": "decision",
+   "label": "",
+   "x": 317.8,
+   "y": 1182.5,
+   "w": 55.7,
+   "h": 56.2
+  },
+  {
+   "id": "n17",
+   "kind": "action",
+   "label": "Receive Revision",
+   "x": 485.9,
+   "y": 1183.8,
+   "w": 213.0,
+   "h": 53.6,
+   "rx": 34.4,
+   "ry": 25.3,
+   "labelLines": [
+    {
+     "text": "Receive Revision",
+     "cx": 592.4,
+     "cy": 1211.0,
+     "w": 140.0
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n18",
+   "kind": "action",
+   "label": "Send Sales Forecast",
+   "x": 235.3,
+   "y": 1313.9,
+   "w": 213.0,
+   "h": 53.6,
+   "rx": 27.4,
+   "ry": 25.3,
+   "labelLines": [
+    {
+     "text": "Send Sales Forecast",
+     "cx": 341.8,
+     "cy": 1340.6,
+     "w": 168.5
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n19",
+   "kind": "object",
+   "label": "Forecast (sales -\npositive response)",
+   "x": 636.7,
+   "y": 1324.7,
+   "w": 204.8,
+   "h": 98.1,
+   "labelLines": [
+    {
+     "text": "Forecast (sales -",
+     "cx": 739.8,
+     "cy": 1363.1,
+     "w": 135.7
+    },
+    {
+     "text": "positive response)",
+     "cx": 738.9,
+     "cy": 1384.3,
+     "w": 152.1
+    }
+   ],
+   "bold": true
+  }
+ ],
+ "edges": [
+  {
+   "from": "n1",
+   "to": "n2",
+   "exitXY": [
+    0.0,
+    0.5005
+   ],
+   "entryXY": [
+    1.0,
+    0.5005
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n3",
+   "to": "n1",
+   "exitXY": [
+    0.0,
+    0.5005
+   ],
+   "entryXY": [
+    1.0,
+    0.5005
+   ],
+   "straight": true,
+   "confidence": "medium"
+  },
+  {
+   "from": "n2",
+   "to": "n4",
+   "exitXY": [
+    0.4847,
+    1.0
+   ],
+   "entryXY": [
+    0.4811,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n4",
+   "to": "n6",
+   "exitXY": [
+    0.4865,
+    1.0
+   ],
+   "entryXY": [
+    0.4847,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n6",
+   "to": "n5",
+   "exitXY": [
+    1.0,
+    0.4995
+   ],
+   "entryXY": [
+    0.0,
+    0.4995
+   ],
+   "straight": true,
+   "confidence": "medium"
+  },
+  {
+   "from": "n5",
+   "to": "n7",
+   "exitXY": [
+    1.0,
+    0.4995
+   ],
+   "entryXY": [
+    0.0,
+    0.4995
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n7",
+   "to": "n8",
+   "exitXY": [
+    0.4991,
+    1.0
+   ],
+   "entryXY": [
+    0.4991,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n8",
+   "to": "n11",
+   "exitXY": [
+    0.5009,
+    1.0
+   ],
+   "entryXY": [
+    0.4991,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n9",
+   "to": "n10",
+   "exitXY": [
+    0.0,
+    0.4995
+   ],
+   "entryXY": [
+    1.0,
+    0.4995
+   ],
+   "straight": true,
+   "confidence": "medium"
+  },
+  {
+   "from": "n11",
+   "to": "n9",
+   "exitXY": [
+    0.0,
+    0.4995
+   ],
+   "entryXY": [
+    1.0,
+    0.4995
+   ],
+   "straight": true,
+   "confidence": "medium"
+  },
+  {
+   "from": "n10",
+   "to": "n13",
+   "exitXY": [
+    0.4987,
+    1.0
+   ],
+   "entryXY": [
+    0.4951,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n13",
+   "to": "n12",
+   "exitXY": [
+    1.0,
+    0.4995
+   ],
+   "entryXY": [
+    0.0,
+    0.4954
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n12",
+   "to": "n14",
+   "exitXY": [
+    1.0,
+    0.4995
+   ],
+   "entryXY": [
+    0.0,
+    0.4953
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n16",
+   "to": "n13",
+   "exitXY": [
+    0.4937,
+    0.0
+   ],
+   "entryXY": [
+    0.4761,
+    1.0
+   ],
+   "straight": true,
+   "confidence": "high",
+   "label": "No"
+  },
+  {
+   "from": "n14",
+   "to": "n15",
+   "exitXY": [
+    0.4991,
+    1.0
+   ],
+   "entryXY": [
+    0.4991,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n12",
+   "to": "n17",
+   "exitXY": [
+    0.1743,
+    1.0
+   ],
+   "entryXY": [
+    0.8653,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n15",
+   "to": "n12",
+   "exitXY": [
+    0.0,
+    0.5005
+   ],
+   "entryXY": [
+    0.877,
+    1.0
+   ],
+   "straight": false,
+   "confidence": "high",
+   "points": [
+    [
+     816.3,
+     1210.8
+    ]
+   ]
+  },
+  {
+   "from": "n17",
+   "to": "n16",
+   "exitXY": [
+    0.0,
+    0.5037
+   ],
+   "entryXY": [
+    1.0,
+    0.5036
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n16",
+   "to": "n18",
+   "exitXY": [
+    0.5009,
+    1.0
+   ],
+   "entryXY": [
+    0.5122,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high",
+   "label": "Yes"
+  },
+  {
+   "from": "n18",
+   "to": "n19",
+   "exitXY": [
+    1.0,
+    0.4944
+   ],
+   "entryXY": [
+    0.0,
+    0.16
+   ],
+   "straight": true,
+   "confidence": "high"
+  }
+ ],
+ "guards": [
+  {
+   "text": "No",
+   "x": 299.9,
+   "y": 1101.9,
+   "w": 19.9,
+   "h": 12.5,
+   "labelLines": [
+    {
+     "text": "No",
+     "cx": 309.8,
+     "cy": 1108.2,
+     "w": 19.9
+    }
+   ]
+  },
+  {
+   "text": "Sales Forecast Accepted?",
+   "x": 102.8,
+   "y": 1203.0,
+   "w": 199.2,
+   "h": 16.0,
+   "labelLines": [
+    {
+     "text": "Sales Forecast Accepted?",
+     "cx": 202.4,
+     "cy": 1211.0,
+     "w": 199.2
+    }
+   ]
+  },
+  {
+   "text": "Yes",
+   "x": 301.2,
+   "y": 1272.2,
+   "w": 27.2,
+   "h": 12.5,
+   "labelLines": [
+    {
+     "text": "Yes",
+     "cx": 314.8,
+     "cy": 1278.4,
+     "w": 27.2
+    }
+   ]
+  }
+ ]
+}

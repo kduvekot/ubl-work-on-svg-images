@@ -1,0 +1,99 @@
+{
+ "schema": "ubl-activity-diagram/1",
+ "figure": {
+  "name": "UBL-2.0-ReminderForPaymentProcess",
+  "source": "UBL-2.0-ReminderForPaymentProcess.png"
+ },
+ "lanes": [
+  {
+   "id": "lane-accounting-customer",
+   "axis": "column",
+   "index": 0,
+   "title": "Accounting Customer"
+  },
+  {
+   "id": "lane-accounting-supplier",
+   "axis": "column",
+   "index": 1,
+   "title": "Accounting Supplier"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "initial-accounting-supplier",
+   "kind": "initial",
+   "label": "",
+   "lane": "lane-accounting-supplier"
+  },
+  {
+   "id": "object-reminder",
+   "kind": "object",
+   "label": "Reminder",
+   "lane": null,
+   "between": [
+    "lane-accounting-customer",
+    "lane-accounting-supplier"
+   ]
+  },
+  {
+   "id": "action-receive-reminder",
+   "kind": "action",
+   "label": "Receive Reminder",
+   "lane": "lane-accounting-customer"
+  },
+  {
+   "id": "action-request-payment-of-account",
+   "kind": "action",
+   "label": "Request Payment of\nAccount",
+   "lane": "lane-accounting-supplier"
+  },
+  {
+   "id": "final-accounting-customer",
+   "kind": "final",
+   "label": "",
+   "lane": "lane-accounting-customer"
+  }
+ ],
+ "flows": [
+  {
+   "id": "flow-initial-accounting-supplier-to-request-payment-of-account",
+   "from": "initial-accounting-supplier",
+   "to": "action-request-payment-of-account",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-reminder-to-receive-reminder",
+   "from": "object-reminder",
+   "to": "action-receive-reminder",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-request-payment-of-account-to-reminder",
+   "from": "action-request-payment-of-account",
+   "to": "object-reminder",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-receive-reminder-to-final-accounting-customer",
+   "from": "action-receive-reminder",
+   "to": "final-accounting-customer",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  }
+ ],
+ "texts": [],
+ "offPage": [],
+ "marks": [],
+ "phases": []
+}

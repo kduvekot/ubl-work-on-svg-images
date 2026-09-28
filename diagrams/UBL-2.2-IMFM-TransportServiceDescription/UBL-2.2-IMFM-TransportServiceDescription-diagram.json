@@ -1,0 +1,148 @@
+{
+ "schema": "ubl-activity-diagram/1",
+ "figure": {
+  "name": "UBL-2.2-IMFM-TransportServiceDescription",
+  "source": "UBL-2.2-IMFM-TransportServiceDescription.png"
+ },
+ "lanes": [
+  {
+   "id": "lane-transport-user",
+   "axis": "column",
+   "index": 0,
+   "title": "Transport User"
+  },
+  {
+   "id": "lane-transport-service-provider",
+   "axis": "column",
+   "index": 1,
+   "title": "Transport Service Provider"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "initial-transport-user",
+   "kind": "initial",
+   "label": "",
+   "lane": "lane-transport-user"
+  },
+  {
+   "id": "object-transport-service-description-request",
+   "kind": "object",
+   "label": "Transport Service\nDescription\nRequest",
+   "lane": null,
+   "between": [
+    "lane-transport-user",
+    "lane-transport-service-provider"
+   ]
+  },
+  {
+   "id": "action-receive-transport-service-description-in-transport-service-provider",
+   "kind": "action",
+   "label": "Receive Transport\nService Description\nRequest",
+   "lane": "lane-transport-service-provider"
+  },
+  {
+   "id": "action-request-transport-service-description",
+   "kind": "action",
+   "label": "Request Transport\nService Description",
+   "lane": "lane-transport-user"
+  },
+  {
+   "id": "object-transport-service-description",
+   "kind": "object",
+   "label": "Transport Service\nDescription",
+   "lane": null,
+   "between": [
+    "lane-transport-user",
+    "lane-transport-service-provider"
+   ]
+  },
+  {
+   "id": "action-receive-transport-service-description-in-transport-user",
+   "kind": "action",
+   "label": "Receive Transport\nService Description",
+   "lane": "lane-transport-user"
+  },
+  {
+   "id": "action-send-transport-service-description",
+   "kind": "action",
+   "label": "Send Transport Service\nDescription",
+   "lane": "lane-transport-service-provider"
+  },
+  {
+   "id": "final-transport-user",
+   "kind": "final",
+   "label": "",
+   "lane": "lane-transport-user"
+  }
+ ],
+ "flows": [
+  {
+   "id": "flow-initial-transport-user-to-request-transport-service-description",
+   "from": "initial-transport-user",
+   "to": "action-request-transport-service-description",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-request-transport-service-description-to-transport-service-description-request",
+   "from": "action-request-transport-service-description",
+   "to": "object-transport-service-description-request",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-transport-service-description-request-to-receive-transport-service-description-in-transport-service-provider",
+   "from": "object-transport-service-description-request",
+   "to": "action-receive-transport-service-description-in-transport-service-provider",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-receive-transport-service-description-in-transport-service-provider-to-send-transport-service-description",
+   "from": "action-receive-transport-service-description-in-transport-service-provider",
+   "to": "action-send-transport-service-description",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-transport-service-description-to-receive-transport-service-description-in-transport-user",
+   "from": "object-transport-service-description",
+   "to": "action-receive-transport-service-description-in-transport-user",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-send-transport-service-description-to-transport-service-description",
+   "from": "action-send-transport-service-description",
+   "to": "object-transport-service-description",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-receive-transport-service-description-in-transport-user-to-final-transport-user",
+   "from": "action-receive-transport-service-description-in-transport-user",
+   "to": "final-transport-user",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  }
+ ],
+ "texts": [],
+ "offPage": [],
+ "marks": [],
+ "phases": []
+}

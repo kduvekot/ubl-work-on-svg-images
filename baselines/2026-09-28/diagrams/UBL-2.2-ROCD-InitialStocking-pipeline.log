@@ -1,0 +1,11 @@
+== UBL-2.2-ROCD-InitialStocking
+  UBL-2.2-ROCD-InitialStocking -> diagram, layout, extraction  (20 nodes, 22 flows, 3 texts)
+  scale 0.43212   frame 10px  divider 4px  action 4px  object 7px
+  font 49px (21.0 model)   2 lanes, 0 bands, 20 nodes, 22 edges -> /tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-2.2-ROCD-InitialStocking-spec.json
+  /tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-2.2-ROCD-InitialStocking.svg + .drawio + -classified.svg   (20 nodes, 22 edges)
+  aligned on ink bounds: scale x 1.0000, y 1.0000
+  size 3425x3241  radius 2
+  ink: original 414232   candidate 418841
+  MISSING (red)     8105  = 1.9566% of original ink
+  EXTRA   (blue)    7594  = 1.8333% of original ink
+  RESULT: DIFFERENCES - inspect /tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-2.2-ROCD-InitialStocking-diff-r2.png

@@ -1,0 +1,101 @@
+image 3425x2354
+
+PARTITION RULES
+   vertical  : [(0, 10), (1890, 4), (3415, 10)]
+   horizontal: [(0, 10), (2344, 10)]
+   -> 2 column(s) x 1 band(s)
+   type measured off the page: a word is 23px tall
+   (dropped x=10    y=10    1880x2334  is a partition cell)
+   (dropped x=1894  y=10    1521x2334  is a partition cell)
+   (dropped x=847   y=1098  1043x623   outline matches no UML node shape (best rounded 0.66, and 0.99 is the most this shape can reach at this size))
+   object nodes are those stroked heavier than 5.0px
+
+NODES
+   n1   initial   x=2457  y=115   w=64    h=64    stroke=0   fill=0.78  ''
+   n2   action    x=874   y=291   w=404   h=119   stroke=3   fill=0.90  'Receive Order Item(s)'
+   n3   action    x=2284  y=313   w=407   h=97    stroke=4   fill=0.87  'Despatch Order Item(s)'
+   n4   object    x=1758  y=545   w=265   h=131   stroke=6   fill=0.93  'Despatch Advice'
+   n5   action    x=2284  y=562   w=401   h=94    stroke=3   fill=0.87  'Send Despatch Advice'
+   n6   action    x=1251  y=574   w=408   h=82    stroke=3   fill=0.84  'Receive Despatch Advice'
+   n7   fork      x=1129  y=766   w=192   h=18    stroke=0   fill=1.00  ''
+   n8   action    x=2960  y=970   w=380   h=140   stroke=3   fill=0.94  'Adjust supply status'
+   n9   object    x=1758  y=1023  w=265   h=143   stroke=6   fill=0.92  'Fulfilment\nCancellation'
+   n10  action    x=1199  y=1034  w=377   h=127   stroke=3   fill=0.88  'Receive Fulfilment\nCancellation'
+   n11  action    x=645   y=1046  w=399   h=118   stroke=3   fill=0.93  'Check status of Item(s)'
+   n12  action    x=2314  y=1049  w=347   h=88    stroke=3   fill=0.86  'Cancel Despatch'
+   n13  final     x=3091  y=1292  w=60    h=61    stroke=3   fill=0.56  ''
+   n14  action    x=2287  y=1332  w=398   h=103   stroke=4   fill=0.88  'Receive Receipt Advice'
+   n15  object    x=1758  y=1513  w=262   h=146   stroke=6   fill=0.94  'Receipt Advice'
+   n16  decision  x=583   y=1637  w=519   h=175   stroke=3   fill=0.48  'Determine Action'
+   n17  action    x=85    y=1661  w=356   h=124   stroke=4   fill=0.92  'Adjust Order'
+   n18  action    x=1224  y=1682  w=432   h=94    stroke=3   fill=0.89  'Send Receipt Advice'
+   n19  action    x=691   y=1941  w=295   h=102   stroke=4   fill=0.92  'Accept Items'
+   n20  final     x=807   y=2205  w=69    h=70    stroke=3   fill=0.54  ''
+
+TYPE  cap height 22px over 279 glyphs -> font 31.4px
+   corner radius rx on 'Receive Despatch Advice' could not be read (it came back larger than the box) - taking the 43 the rest of its kind measures
+   rejoined 17 line break(s) of up to 57px, where a label sits on the line
+   rejoined a 15px break in a line at 45 degrees, where a label sits on it
+   rejoined a 60px break in a line at 45 degrees, where a label sits on it
+   rejoined a 62px break in a line at 49 degrees, where a label sits on it
+   rejoined a 60px break in a line at 45 degrees, where a label sits on it
+   rejoined a 62px break in a line at 49 degrees, where a label sits on it
+   rejoined a 60px break in a line at 45 degrees, where a label sits on it
+   rejoined a 105px break in a line at 45 degrees, where a label sits on it
+   rejoined a 106px break in a line at 49 degrees, where a label sits on it
+   rejoined a 105px break in a line at 45 degrees, where a label sits on it
+   rejoined a 59px break in a line at 45 degrees, where a label sits on it
+   rejoined a 105px break in a line at 45 degrees, where a label sits on it
+   rejoined a 106px break in a line at 45 degrees, where a label sits on it
+   rejoined a 105px break in a line at 45 degrees, where a label sits on it
+   chained 10 dashes into one dashed flow
+   chained 13 dashes into one dashed flow
+   chained 15 dashes into one dashed flow
+
+EDGES
+   n1   -> n3    straight    arrowhead   434 vs 180    ratio 4.0  high
+   n2   -> n11   straight    arrowhead   416 vs 136    ratio 4.0  high
+   n2   -> n7    straight    arrowhead   428 vs 136    ratio 3.1  high
+   n3   -> n5    straight    arrowhead   432 vs 180    ratio 4.0  high
+   n4   -> n6    straight    arrowhead   448 vs 258    ratio 4.0  high
+   n5   -> n4    straight    arrowhead   470 vs 184    ratio 4.0  high
+   n6   -> n7    straight    arrowhead   407 vs 180    ratio 2.5  medium
+   n5   -> n12   straight    arrowhead   400 vs 139    ratio 4.0  high
+   n8   -> n5    diagonal    arrowhead   314 vs 187    ratio 4.0  high
+   n7   -> n11   diagonal    arrowhead   426 vs 202    ratio 4.0  high
+   n12  -> n8    diagonal    arrowhead   420 vs 164    ratio 4.0  high
+   n12  -> n9    straight    arrowhead   468 vs 184    ratio 4.0  high
+   n9   -> n10   straight    arrowhead   417 vs 138    ratio 4.0  high
+   n14  -> n8    diagonal    arrowhead   351 vs 175    ratio 2.0  medium
+   n8   -> n13   straight    arrowhead   401 vs 180    ratio 4.0  high
+   n10  -> n16   diagonal    arrowhead   791 vs 223    ratio 3.5  high
+   n11  -> n16   straight    arrowhead   741 vs 135    ratio 4.0  high
+   n11  -> n18   diagonal    arrowhead   367 vs 119    ratio 4.0  high
+   n15  -> n14   diagonal    arrowhead   386 vs 188    ratio 4.0  high
+   n18  -> n15   diagonal    arrowhead   461 vs 173    ratio 4.0  high
+   n16  -> n17   straight    arrowhead   444 vs 184    ratio 4.0  high
+   n16  -> n18   straight    arrowhead   432 vs 180    ratio 4.0  high
+   n16  -> n19   straight    arrowhead   428 vs 180    ratio 4.0  high
+   n19  -> n20   straight    arrowhead   426 vs 180    ratio 4.0  high
+
+TEXT (titles, guards, notes)
+   'Delivery Party'                         x=825   y=56    
+   'Despatch Party'                         x=2586  y=56    
+   'From Order'                             x=2546  y=133   
+   (dropped x=2472  y=516     34x32    '\\/' - line-work, not text)
+   (dropped x=1269  y=723     34x29    '\\/' - line-work, not text)
+   'AN'                                     x=3008  y=930   
+   (dropped a line at x=2912  y=1033    38x22   - line-work, not text)
+   'a'                                      x=2916  y=1037  
+   (dropped x=1348  y=1657    23x11    '“' - line-work, not text)
+   (dropped x=1178  y=1706    32x14    'SS' - line-work, not text)
+   (dropped x=821   y=2159    34x32    '\\/' - line-work, not text)
+
+PARTITIONS
+   column 0  'Delivery Party'
+   column 1  'Despatch Party'
+   band   0  ''
+
+ARROWHEAD  45 x 34px, open, measured on 19 connector(s)
+
+wrote review/baseline/UBL-2.2-FulfilmentDespatchAdviceProcess-graph.json   (20 nodes, 24 edges, 1 flagged for a human)

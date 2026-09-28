@@ -1,0 +1,316 @@
+{
+ "canvas": {
+  "w": 1480.0,
+  "h": 890.161
+ },
+ "stroke": {
+  "frame": 4.3,
+  "divider": 3.0,
+  "action": 3.0,
+  "object": 5.6,
+  "edge": 3.0
+ },
+ "font": {
+  "family": "Helvetica, Arial, sans-serif",
+  "node": 27.2,
+  "lane": 27.2,
+  "guard": 27.2
+ },
+ "arrow": 44.8,
+ "arrowWidth": 35.6,
+ "arrowStyle": "open",
+ "dashed": [],
+ "greyRules": [],
+ "crossMarks": [],
+ "openEnds": [],
+ "frameBox": [
+  2.2,
+  2.2,
+  1477.8,
+  888.0
+ ],
+ "dividers": [
+  [
+   754.7,
+   3.0,
+   5.6,
+   884.1
+  ]
+ ],
+ "bands": [],
+ "lanes": [
+  {
+   "id": "lane-originator-customer-party",
+   "title": "Originator Customer Party",
+   "x": 0.0,
+   "w": 754.5,
+   "cx": 255.2,
+   "cy": 44.1,
+   "size": 26.1,
+   "textWidth": 298.6,
+   "baseline": 50.7
+  },
+  {
+   "id": "lane-seller-supplier-party",
+   "title": "Seller Supplier Party",
+   "x": 754.5,
+   "w": 725.5,
+   "cx": 1116.6,
+   "cy": 44.1,
+   "size": 26.1,
+   "textWidth": 234.2,
+   "baseline": 50.7
+  }
+ ],
+ "bandLabels": [],
+ "captions": [],
+ "nodes": [
+  {
+   "id": "initial-originator-customer-party",
+   "kind": "initial",
+   "label": "",
+   "x": 206.6,
+   "y": 82.1,
+   "w": 52.3,
+   "h": 52.3
+  },
+  {
+   "id": "note-transaction-accessing-seller-s-catalogue",
+   "kind": "note",
+   "label": "Transaction\naccessing Seller's\ncatalogue\napplication",
+   "x": 627.6,
+   "y": 143.2,
+   "w": 233.3,
+   "h": 181.5,
+   "fold": 25.5,
+   "labelLines": [
+    {
+     "text": "Transaction",
+     "cx": 708.0,
+     "cy": 196.66500000000002,
+     "w": 132.7,
+     "size": 26.1
+    },
+    {
+     "text": "accessing Seller's",
+     "cx": 744.1,
+     "cy": 229.965,
+     "w": 204.8,
+     "size": 26.1
+    },
+    {
+     "text": "catalogue",
+     "cx": 697.0,
+     "cy": 264.065,
+     "w": 110.6,
+     "size": 26.1
+    },
+    {
+     "text": "application",
+     "cx": 702.2,
+     "cy": 297.765,
+     "w": 121.0,
+     "size": 26.1
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "action-build-shopping-basket",
+   "kind": "action",
+   "label": "Build shopping basket",
+   "x": 1091.7,
+   "y": 293.6,
+   "w": 336.6,
+   "h": 114.1,
+   "rx": 39.5,
+   "ry": 38.7,
+   "labelLines": [
+    {
+     "text": "Build shopping basket",
+     "cx": 1259.8,
+     "cy": 345.765,
+     "w": 276.1,
+     "size": 26.1
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-initiate-a-punchout-session",
+   "kind": "action",
+   "label": "Initiate a punchout\nsession",
+   "x": 70.7,
+   "y": 296.2,
+   "w": 329.3,
+   "h": 108.9,
+   "rx": 39.5,
+   "ry": 40.0,
+   "bold": true
+  },
+  {
+   "id": "object-quotation",
+   "kind": "object",
+   "label": "Quotation",
+   "x": 643.2,
+   "y": 534.7,
+   "w": 230.8,
+   "h": 127.0,
+   "labelLines": [
+    {
+     "text": "Quotation",
+     "cx": 757.3,
+     "cy": 590.215,
+     "w": 143.9,
+     "size": 27.1
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-receive-quotation",
+   "kind": "action",
+   "label": "Receive quotation",
+   "x": 62.9,
+   "y": 545.1,
+   "w": 316.3,
+   "h": 108.9,
+   "rx": 39.1,
+   "ry": 39.5,
+   "labelLines": [
+    {
+     "text": "Receive quotation",
+     "cx": 218.7,
+     "cy": 596.865,
+     "w": 219.5,
+     "size": 26.1
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-send-shopping-basket",
+   "kind": "action",
+   "label": "Send shopping basket",
+   "x": 1099.5,
+   "y": 547.7,
+   "w": 321.1,
+   "h": 101.1,
+   "rx": 38.7,
+   "ry": 38.2,
+   "labelLines": [
+    {
+     "text": "Send shopping basket",
+     "cx": 1258.8,
+     "cy": 593.765,
+     "w": 275.7,
+     "size": 26.1
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "final-originator-customer-party",
+   "kind": "final",
+   "label": "",
+   "x": 195.1,
+   "y": 804.4,
+   "w": 49.3,
+   "h": 49.3,
+   "innerRatio": 0.449
+  }
+ ],
+ "edges": [
+  {
+   "id": "flow-initial-originator-customer-party-to-initiate-a-punchout-session",
+   "from": "initial-originator-customer-party",
+   "to": "action-initiate-a-punchout-session",
+   "exitXY": [
+    0.5105,
+    1.0
+   ],
+   "entryXY": [
+    0.4965,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-initiate-a-punchout-session-to-build-shopping-basket",
+   "from": "action-initiate-a-punchout-session",
+   "to": "action-build-shopping-basket",
+   "exitXY": [
+    1.0,
+    0.4977
+   ],
+   "entryXY": [
+    0.0,
+    0.4978
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-build-shopping-basket-to-send-shopping-basket",
+   "from": "action-build-shopping-basket",
+   "to": "action-send-shopping-basket",
+   "exitXY": [
+    0.5003,
+    1.0
+   ],
+   "entryXY": [
+    0.5002,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-quotation-to-receive-quotation",
+   "from": "object-quotation",
+   "to": "action-receive-quotation",
+   "exitXY": [
+    0.0,
+    0.5087
+   ],
+   "entryXY": [
+    1.0,
+    0.4977
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-send-shopping-basket-to-quotation",
+   "from": "action-send-shopping-basket",
+   "to": "object-quotation",
+   "exitXY": [
+    0.0,
+    0.5104
+   ],
+   "entryXY": [
+    1.0,
+    0.5087
+   ],
+   "straight": true,
+   "confidence": "medium"
+  },
+  {
+   "id": "flow-receive-quotation-to-final-originator-customer-party",
+   "from": "action-receive-quotation",
+   "to": "final-originator-customer-party",
+   "exitXY": [
+    0.5005,
+    1.0
+   ],
+   "entryXY": [
+    0.5132,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  }
+ ],
+ "guards": []
+}

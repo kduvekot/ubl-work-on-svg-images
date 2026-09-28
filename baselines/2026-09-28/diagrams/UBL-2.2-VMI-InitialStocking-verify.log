@@ -1,0 +1,19 @@
+  verdict: NEEDS-HUMAN
+  structural: 0 element(s) absent, 0 invented, 0 text absent, 0 text differs, 0 incoherent
+  line-work  missing 1514 px (0.459%)   invented 1785 px (0.541%)   radius 3
+    line-work-missing      123 px at  2820,2313    27x22    on node n13 (action 'Check status of item')
+    line-work-missing      122 px at  2224,2417    25x26    on node n13 (action 'Check status of item')
+    line-work-missing      122 px at  2822,2422    25x21    on node n13 (action 'Check status of item')
+    line-work-missing      120 px at  2224,2314    24x26    on node n13 (action 'Check status of item')
+    line-work-missing      103 px at  2569,1321    24x24    on node n9 (action 'Receive Despatch Adv')
+    line-work-missing      102 px at  2569,1221    24x24    on node n9 (action 'Receive Despatch Adv')
+    line-work-missing       80 px at  1784,1221    22x20    on node n9 (action 'Receive Despatch Adv')
+    line-work-missing       77 px at  1784,1325    22x20    on node n9 (action 'Receive Despatch Adv')
+    line-work-invented     132 px at  2230,2408    25x28    on node n13 (action 'Check status of item')
+    line-work-invented     127 px at  2231,2320    26x26    on node n13 (action 'Check status of item')
+    line-work-invented     111 px at  2560,1315    26x24    on node n9 (action 'Receive Despatch Adv')
+    line-work-invented     106 px at  2561,1227    25x24    on node n9 (action 'Receive Despatch Adv')
+    ... and 6 more line-work findings
+  needs a person (1):
+    unexplained-line-work at 1269,1362  decide what this is; the SVG does not draw it
+/tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-2.2-VMI-InitialStocking-marked.png + /tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-2.2-VMI-InitialStocking-marked-lost.png  (1 finding(s) numbered)

@@ -1,0 +1,17 @@
+  verdict: CORRECT
+  structural: 0 element(s) absent, 0 invented, 0 text absent, 0 text differs, 0 incoherent
+  line-work  missing 3488 px (2.154%)   invented 2650 px (1.636%)   radius 3
+    line-work-missing      508 px at  3259,803     84x55    on node n3 (action 'Receive stock availa')
+    line-work-missing      496 px at  3263,662     80x54    on node n3 (action 'Receive stock availa')
+    line-work-missing      488 px at  2360,806     78x51    on node n3 (action 'Receive stock availa')
+    line-work-missing      484 px at  2360,662     79x51    on node n3 (action 'Receive stock availa')
+    line-work-missing      366 px at    84,795     74x33    on node n4 (action 'Send stock availabil')
+    line-work-missing      359 px at   945,796     74x32    on node n4 (action 'Send stock availabil')
+    line-work-missing      329 px at    84,667     68x31    on node n4 (action 'Send stock availabil')
+    line-work-missing      320 px at   951,667     67x30    on node n4 (action 'Send stock availabil')
+    line-work-invented     408 px at  3260,801     74x48    on node n3 (action 'Receive stock availa')
+    line-work-invented     403 px at  3259,670     75x48    on node n3 (action 'Receive stock availa')
+    line-work-invented     390 px at  2369,804     73x45    on node n3 (action 'Receive stock availa')
+    line-work-invented     385 px at  2369,670     73x45    on node n3 (action 'Receive stock availa')
+    ... and 4 more line-work findings
+review/baseline/UBL-2.2-ROCD-ArticleAvailability-marked.png + review/baseline/UBL-2.2-ROCD-ArticleAvailability-marked-lost.png  (0 finding(s) numbered)

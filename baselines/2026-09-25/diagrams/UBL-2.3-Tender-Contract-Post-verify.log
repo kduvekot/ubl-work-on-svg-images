@@ -1,0 +1,22 @@
+  verdict: NEEDS-HUMAN
+  structural: 0 element(s) absent, 0 invented, 0 text absent, 0 text differs, 0 incoherent
+  line-work  missing 2302 px (0.605%)   invented 3158 px (0.831%)   radius 3
+    line-work-missing      290 px at  2597,1236    23x55    near edge n8 -> n10
+    line-work-missing      232 px at  2597,2417    23x52    near edge n16 -> n18
+    line-work-missing      179 px at  2599,1535    21x48    near edge n10 -> n12
+    line-work-missing      175 px at  1984,2294    48x22    near edge n15 -> n16
+    line-work-missing      168 px at  2558,1236    22x45    near edge n8 -> n10
+    line-work-missing      162 px at  1984,1065    48x22    near edge n7 -> n8
+    line-work-missing      106 px at  1485,299     14x8     unattributed
+    line-work-missing      103 px at   595,2122    15x39    near edge n14 -> n17
+    line-work-missing       99 px at   595,893     15x39    near edge n6 -> n9
+    line-work-missing       92 px at  2558,2417    11x15    near edge n16 -> n18
+    line-work-missing       85 px at   578,2103     2x58    near edge n14 -> n17
+    line-work-missing       84 px at   578,874      2x58    near edge n6 -> n9
+    ... and 22 more line-work findings
+  needs a person (4):
+    dropped-region     at 586,1713  a shape here would be missing from the SVG
+    sub-character-region at 2410,82  confirm this is glyph interior and not a node
+    sub-character-region at 2532,83  confirm this is glyph interior and not a node
+    edge-direction      confirm which way this edge points
+review/baseline/UBL-2.3-Tender-Contract-Post-marked.png + review/baseline/UBL-2.3-Tender-Contract-Post-marked-lost.png  (4 finding(s) numbered)

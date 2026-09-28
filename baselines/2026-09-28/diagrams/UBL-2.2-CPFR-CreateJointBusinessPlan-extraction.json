@@ -1,0 +1,2016 @@
+{
+ "schema": "ubl-activity-diagram-extraction/1",
+ "figure": "UBL-2.2-CPFR-CreateJointBusinessPlan",
+ "nodes": {
+  "action-create-retail-event": {
+   "area": 103191,
+   "fill": 0.918,
+   "solid": 0.965,
+   "stem": 0.153
+  },
+  "action-receive-retail-event-in-seller-party": {
+   "area": 132136,
+   "fill": 0.933,
+   "solid": 0.973,
+   "stem": 0.153
+  },
+  "object-retail-event": {
+   "area": 90043,
+   "fill": 0.963,
+   "solid": 1.0,
+   "stem": 0.153
+  },
+  "action-send-retail-event-in-buyer-party": {
+   "area": 100453,
+   "fill": 0.918,
+   "solid": 0.964,
+   "stem": 0.153
+  },
+  "action-revise-retail-event-and-send-revision": {
+   "area": 122564,
+   "fill": 0.893,
+   "solid": 0.972,
+   "stem": 0.153
+  },
+  "object-retail-event-revision": {
+   "area": 87717,
+   "fill": 0.936,
+   "solid": 1.0,
+   "stem": 0.131
+  },
+  "action-receive-retail-event-revision": {
+   "area": 90259,
+   "fill": 0.881,
+   "solid": 0.962,
+   "stem": 0.153
+  },
+  "decision-buyer-party": {
+   "area": 13878,
+   "fill": 0.504,
+   "solid": 0.504
+  },
+  "object-retail-event-response-positive": {
+   "area": 121884,
+   "fill": 0.931,
+   "solid": 1.0,
+   "stem": 0.153
+  },
+  "action-send-retail-event-in-buyer-party-2": {
+   "area": 87637,
+   "fill": 0.909,
+   "solid": 0.961,
+   "stem": 0.153
+  },
+  "action-receive-retail-event-in-seller-party-2": {
+   "area": 80850,
+   "fill": 0.892,
+   "solid": 0.958,
+   "stem": 0.153
+  },
+  "action-create-trade-item-location-profile": {
+   "area": 127185,
+   "fill": 0.906,
+   "solid": 0.973,
+   "stem": 0.153
+  },
+  "object-trade-item-location-profile": {
+   "area": 120437,
+   "fill": 0.94,
+   "solid": 1.0,
+   "stem": 0.153
+  },
+  "action-receive-trade-item-location-profile": {
+   "area": 125990,
+   "fill": 0.903,
+   "solid": 0.973,
+   "stem": 0.153
+  },
+  "action-send-trade-item-location-profile": {
+   "area": 104693,
+   "fill": 0.887,
+   "solid": 0.968,
+   "stem": 0.153
+  },
+  "action-revise-trade-item-location-profile-and": {
+   "area": 152618,
+   "fill": 0.891,
+   "solid": 0.978,
+   "stem": 0.153
+  },
+  "object-trade-item-location-profile-revision": {
+   "area": 93075,
+   "fill": 0.905,
+   "solid": 1.0,
+   "stem": 0.153
+  },
+  "action-receive-tilp-in-seller-party": {
+   "area": 59312,
+   "fill": 0.889,
+   "solid": 0.945,
+   "stem": 0.153
+  },
+  "decision-seller-party": {
+   "area": 12430,
+   "fill": 0.504,
+   "solid": 0.504
+  },
+  "object-tilp-response-positive": {
+   "area": 79226,
+   "fill": 0.922,
+   "solid": 1.0,
+   "stem": 0.153
+  },
+  "action-send-tilp": {
+   "area": 50524,
+   "fill": 0.881,
+   "solid": 0.933,
+   "stem": 0.153
+  },
+  "action-receive-tilp-in-buyer-party": {
+   "area": 72653,
+   "fill": 0.908,
+   "solid": 0.952,
+   "stem": 0.131
+  }
+ },
+ "flows": {
+  "flow-decision-buyer-party-to-create-retail-event": {
+   "arrowInk": [
+    498,
+    774
+   ],
+   "arrowPx": [
+    64,
+    48.9,
+    2.39
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-create-retail-event-to-send-retail-event-in-buyer-party": {
+   "arrowInk": [
+    138,
+    458
+   ],
+   "arrowPx": [
+    59,
+    48.2,
+    2.91
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-retail-event-to-receive-retail-event-in-seller-party": {
+   "arrowInk": [
+    133,
+    488
+   ],
+   "arrowPx": [
+    60,
+    47.8,
+    3.06
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-send-retail-event-in-buyer-party-to-retail-event": {
+   "arrowInk": [
+    180,
+    464
+   ],
+   "arrowPx": [
+    63,
+    47.8,
+    3.83
+   ],
+   "arrowFill": 0.0,
+   "arrowSaturated": true
+  },
+  "flow-receive-retail-event-in-seller-party-to-revise-retail-event-and-send-revision": {
+   "arrowInk": [
+    135,
+    458
+   ],
+   "arrowPx": [
+    60,
+    48.0,
+    3.1
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-retail-event-revision-to-receive-retail-event-revision": {
+   "arrowInk": [
+    136,
+    450
+   ],
+   "arrowPx": [
+    59,
+    47.0,
+    2.89
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-revise-retail-event-and-send-revision-to-retail-event-revision": {
+   "arrowInk": [
+    138,
+    417
+   ],
+   "arrowPx": [
+    64,
+    48.0,
+    3.88
+   ],
+   "arrowFill": 0.0,
+   "arrowSaturated": true
+  },
+  "flow-receive-retail-event-revision-to-decision-buyer-party": {
+   "arrowInk": [
+    138,
+    458
+   ],
+   "arrowPx": [
+    52,
+    48.0,
+    2.39
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-decision-buyer-party-to-send-retail-event-in-buyer-party-2": {
+   "arrowInk": [
+    180,
+    490
+   ],
+   "arrowPx": [
+    60,
+    50.3,
+    2.54
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-retail-event-response-positive-to-receive-retail-event-in-seller-party-2": {
+   "arrowInk": [
+    133,
+    457
+   ],
+   "arrowPx": [
+    59,
+    48.0,
+    3.08
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-send-retail-event-in-buyer-party-2-to-retail-event-response-positive": {
+   "arrowInk": [
+    135,
+    431
+   ],
+   "arrowPx": [
+    64,
+    48.0,
+    3.76
+   ],
+   "arrowFill": 0.0,
+   "arrowSaturated": true
+  },
+  "flow-receive-retail-event-in-seller-party-2-to-create-trade-item-location-profile": {
+   "arrowInk": [
+    298,
+    460
+   ],
+   "arrowPx": [
+    61,
+    48.3,
+    2.21
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-trade-item-location-profile-to-receive-trade-item-location-profile": {
+   "arrowInk": [
+    136,
+    448
+   ],
+   "arrowPx": [
+    60,
+    48.0,
+    3.03
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-create-trade-item-location-profile-to-send-trade-item-location-profile": {
+   "arrowInk": [
+    485,
+    501
+   ],
+   "arrowPx": [
+    55,
+    86.0,
+    3.17
+   ],
+   "arrowFill": 0.166
+  },
+  "f14": {
+   "arrowInk": [
+    490,
+    912
+   ]
+  },
+  "flow-decision-seller-party-to-create-trade-item-location-profile": {
+   "arrowInk": [
+    431,
+    505
+   ],
+   "arrowPx": [
+    53,
+    78.8,
+    3.46
+   ],
+   "arrowFill": 0.249,
+   "arrowSaturated": true
+  },
+  "flow-send-trade-item-location-profile-to-trade-item-location-profile": {
+   "arrowInk": [
+    163,
+    425
+   ]
+  },
+  "flow-receive-trade-item-location-profile-to-revise-trade-item-location-profile-and": {
+   "arrowInk": [
+    135,
+    458
+   ],
+   "arrowPx": [
+    47,
+    48.0,
+    2.11
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-revise-trade-item-location-profile-and-to-trade-item-location-profile-revision": {
+   "arrowInk": [
+    135,
+    429
+   ],
+   "arrowPx": [
+    64,
+    48.0,
+    3.79
+   ],
+   "arrowFill": 0.0,
+   "arrowSaturated": true
+  },
+  "flow-trade-item-location-profile-revision-to-receive-tilp-in-seller-party": {
+   "arrowInk": [
+    154,
+    469
+   ],
+   "arrowPx": [
+    62,
+    44.0,
+    3.04
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-receive-tilp-in-seller-party-to-decision-seller-party": {
+   "arrowInk": [
+    141,
+    497
+   ],
+   "arrowPx": [
+    60,
+    46.9,
+    2.22
+   ],
+   "arrowFill": 0.0,
+   "arrowSaturated": true
+  },
+  "flow-decision-seller-party-to-send-tilp": {
+   "arrowInk": [
+    135,
+    503
+   ],
+   "arrowPx": [
+    59,
+    49.2,
+    2.74
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-send-tilp-to-tilp-response-positive": {
+   "arrowInk": [
+    138,
+    421
+   ],
+   "arrowPx": [
+    64,
+    48.0,
+    3.86
+   ],
+   "arrowFill": 0.0,
+   "arrowSaturated": true
+  },
+  "flow-tilp-response-positive-to-receive-tilp-in-buyer-party": {
+   "arrowInk": [
+    136,
+    448
+   ],
+   "arrowPx": [
+    60,
+    48.0,
+    3.07
+   ],
+   "arrowFill": 0.0
+  }
+ },
+ "offPage": {
+  "offpage-action-create-retail-event": {
+   "headPx": [
+    59,
+    52.0,
+    2.38,
+    0,
+    false
+   ]
+  },
+  "offpage-action-receive-tilp-in-buyer-party": {
+   "headPx": null
+  }
+ },
+ "marks": {},
+ "phases": {
+  "phase-creating-joint-business-plan": {
+   "dashes": 531
+  }
+ },
+ "greyRules": [],
+ "titleReadings": [
+  {
+   "position": 0,
+   "text": "Creating Joint Business Plan",
+   "x": 1402,
+   "y": 114,
+   "w": 601,
+   "h": 41,
+   "lines": [
+    {
+     "x": 1402,
+     "y": 110,
+     "w": 601,
+     "h": 49,
+     "text": "Creating Joint Business Plan"
+    }
+   ]
+  }
+ ],
+ "findings": [],
+ "uncertain": [],
+ "present": [
+  "source",
+  "size",
+  "fontPx",
+  "arrowPx",
+  "arrowWidthPx",
+  "arrowStyle",
+  "rules",
+  "ruleSpan",
+  "greyRules",
+  "dashed",
+  "openEnds",
+  "crossMarks",
+  "partitions",
+  "nodes",
+  "edges",
+  "text",
+  "uncertain"
+ ],
+ "uncorrected": {
+  "model": {
+   "schema": "ubl-activity-diagram/1",
+   "figure": {
+    "name": "UBL-2.2-CPFR-CreateJointBusinessPlan",
+    "source": "UBL-2.2-CPFR-CreateJointBusinessPlan.png"
+   },
+   "lanes": [
+    {
+     "id": "lane0",
+     "axis": "column",
+     "index": 0,
+     "title": ""
+    },
+    {
+     "id": "lane1",
+     "axis": "column",
+     "index": 1,
+     "title": "Creating Joint Business Plan"
+    },
+    {
+     "id": "lane2",
+     "axis": "band",
+     "index": 0,
+     "title": ""
+    }
+   ],
+   "nodes": [
+    {
+     "id": "n1",
+     "kind": "action",
+     "label": "Create Retail Event",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n2",
+     "kind": "action",
+     "label": "Receive Retail Event",
+     "lane": "lane1",
+     "band": "lane2"
+    },
+    {
+     "id": "n3",
+     "kind": "object",
+     "label": "Retail Event",
+     "lane": "lane1",
+     "band": "lane2"
+    },
+    {
+     "id": "n4",
+     "kind": "action",
+     "label": "Send Retail Event",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n5",
+     "kind": "action",
+     "label": "Revise Retail Event and\nSend Revision",
+     "lane": "lane1",
+     "band": "lane2"
+    },
+    {
+     "id": "n6",
+     "kind": "object",
+     "label": "Retail Event\n(revision)",
+     "lane": "lane1",
+     "band": "lane2"
+    },
+    {
+     "id": "n7",
+     "kind": "action",
+     "label": "Receive Retail Event\nRevision",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n8",
+     "kind": "decision",
+     "label": "",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n9",
+     "kind": "object",
+     "label": "Retail Event (response\npositive)",
+     "lane": "lane1",
+     "band": "lane2"
+    },
+    {
+     "id": "n10",
+     "kind": "action",
+     "label": "Send Retail Event",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n11",
+     "kind": "action",
+     "label": "Receive Retail Event",
+     "lane": "lane1",
+     "band": "lane2"
+    },
+    {
+     "id": "n12",
+     "kind": "action",
+     "label": "Create Trade Item\nLocation Profile",
+     "lane": "lane1",
+     "band": "lane2"
+    },
+    {
+     "id": "n13",
+     "kind": "object",
+     "label": "Trade Item Location\nProfile",
+     "lane": "lane1",
+     "band": "lane2"
+    },
+    {
+     "id": "n14",
+     "kind": "action",
+     "label": "Receive Trade Item\nLocation Profile",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n15",
+     "kind": "action",
+     "label": "Send Trade Item Location\nProfile",
+     "lane": "lane1",
+     "band": "lane2"
+    },
+    {
+     "id": "n16",
+     "kind": "action",
+     "label": "Revise Trade Item\nLocation Profile and Send\nRevision",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n17",
+     "kind": "object",
+     "label": "Trade Item Location\nProfile (revision)",
+     "lane": "lane1",
+     "band": "lane2"
+    },
+    {
+     "id": "n18",
+     "kind": "action",
+     "label": "Receive TILP",
+     "lane": "lane1",
+     "band": "lane2"
+    },
+    {
+     "id": "n19",
+     "kind": "decision",
+     "label": "",
+     "lane": "lane1",
+     "band": "lane2"
+    },
+    {
+     "id": "n20",
+     "kind": "object",
+     "label": "TILP (response\npositive)",
+     "lane": "lane1",
+     "band": "lane2"
+    },
+    {
+     "id": "n21",
+     "kind": "action",
+     "label": "Send TILP",
+     "lane": "lane1",
+     "band": "lane2"
+    },
+    {
+     "id": "n22",
+     "kind": "action",
+     "label": "Receive TILP",
+     "lane": "lane0",
+     "band": "lane2"
+    }
+   ],
+   "flows": [
+    {
+     "id": "f0",
+     "from": "n8",
+     "to": "n1",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     },
+     "guard": "t1"
+    },
+    {
+     "id": "f1",
+     "from": "n1",
+     "to": "n4",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f2",
+     "from": "n3",
+     "to": "n2",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f3",
+     "from": "n4",
+     "to": "n3",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f4",
+     "from": "n2",
+     "to": "n5",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f5",
+     "from": "n6",
+     "to": "n7",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f6",
+     "from": "n5",
+     "to": "n6",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f7",
+     "from": "n7",
+     "to": "n8",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f8",
+     "from": "n8",
+     "to": "n10",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     },
+     "guard": "t3"
+    },
+    {
+     "id": "f9",
+     "from": "n9",
+     "to": "n11",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f10",
+     "from": "n10",
+     "to": "n9",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f11",
+     "from": "n11",
+     "to": "n12",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f12",
+     "from": "n13",
+     "to": "n14",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f13",
+     "from": "n12",
+     "to": "n15",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f14",
+     "from": "n12",
+     "to": "n15",
+     "kind": "control",
+     "direction": {
+      "confidence": "medium"
+     }
+    },
+    {
+     "id": "f15",
+     "from": "n19",
+     "to": "n12",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     },
+     "guard": "t4"
+    },
+    {
+     "id": "f16",
+     "from": "n15",
+     "to": "n13",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f17",
+     "from": "n14",
+     "to": "n16",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f18",
+     "from": "n16",
+     "to": "n17",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f19",
+     "from": "n17",
+     "to": "n18",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f20",
+     "from": "n18",
+     "to": "n19",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f21",
+     "from": "n19",
+     "to": "n21",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     },
+     "guard": "t6"
+    },
+    {
+     "id": "f22",
+     "from": "n21",
+     "to": "n20",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f23",
+     "from": "n20",
+     "to": "n22",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    }
+   ],
+   "texts": [
+    {
+     "id": "t1",
+     "text": "No",
+     "labels": "f0"
+    },
+    {
+     "id": "t2",
+     "text": "Retail Event Accepted ?"
+    },
+    {
+     "id": "t3",
+     "text": "Yes",
+     "labels": "f8"
+    },
+    {
+     "id": "t4",
+     "text": "No",
+     "labels": "f15"
+    },
+    {
+     "id": "t5",
+     "text": "TILP Accepted ?"
+    },
+    {
+     "id": "t6",
+     "text": "Yes",
+     "labels": "f21"
+    }
+   ],
+   "offPage": [
+    {
+     "id": "o0",
+     "node": "n1",
+     "direction": "in",
+     "arrow": true
+    },
+    {
+     "id": "o1",
+     "node": "n22",
+     "direction": "out",
+     "arrow": false
+    }
+   ],
+   "marks": [],
+   "phases": [
+    {
+     "id": "p0"
+    }
+   ]
+  },
+  "layout": {
+   "schema": "ubl-activity-diagram-layout/1",
+   "figure": "UBL-2.2-CPFR-CreateJointBusinessPlan",
+   "units": "px of the original PNG",
+   "size": [
+    3425,
+    3289
+   ],
+   "style": {
+    "fontPx": 45.7,
+    "arrowPx": 60.0,
+    "arrowWidthPx": 48.0,
+    "arrowStyle": "open"
+   },
+   "rules": {
+    "vertical": [
+     {
+      "at": 0,
+      "width": 10,
+      "span": [
+       13,
+       3275
+      ]
+     },
+     {
+      "at": 1690,
+      "width": 1,
+      "span": [
+       13,
+       3275
+      ]
+     },
+     {
+      "at": 3415,
+      "width": 10,
+      "span": [
+       13,
+       3275
+      ]
+     }
+    ],
+    "horizontal": [
+     {
+      "at": 0,
+      "width": 10,
+      "span": [
+       13,
+       3411
+      ]
+     },
+     {
+      "at": 3279,
+      "width": 10,
+      "span": [
+       13,
+       3411
+      ]
+     }
+    ]
+   },
+   "greyRules": [],
+   "lanes": {
+    "lane0": {
+     "x0": 0,
+     "x1": 1690
+    },
+    "lane1": {
+     "x0": 1690,
+     "x1": 3425,
+     "titleBox": [
+      1402,
+      114,
+      601,
+      41
+     ],
+     "titleBold": true
+    },
+    "lane2": {
+     "y0": 0,
+     "y1": 3289
+    }
+   },
+   "nodes": {
+    "n1": {
+     "x": 215,
+     "y": 254,
+     "w": 595,
+     "h": 189,
+     "shape": "rounded",
+     "stroke": 3,
+     "rx": 65,
+     "ry": 65,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 296,
+       "y": 328,
+       "w": 399,
+       "h": 32,
+       "text": "Create Retail Event"
+      }
+     ]
+    },
+    "n2": {
+     "x": 2544,
+     "y": 504,
+     "w": 608,
+     "h": 233,
+     "shape": "rounded",
+     "stroke": 3,
+     "rx": 65,
+     "ry": 65,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 2616,
+       "y": 598,
+       "w": 426,
+       "h": 32,
+       "text": "Receive Retail Event"
+      }
+     ]
+    },
+    "n3": {
+     "x": 1510,
+     "y": 528,
+     "w": 423,
+     "h": 221,
+     "shape": "rect",
+     "stroke": 6,
+     "rx": 0,
+     "ry": 0,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 1589,
+       "y": 616,
+       "w": 252,
+       "h": 32,
+       "text": "Retail Event"
+      }
+     ]
+    },
+    "n4": {
+     "x": 380,
+     "y": 575,
+     "w": 595,
+     "h": 184,
+     "shape": "rounded",
+     "stroke": 3,
+     "rx": 65,
+     "ry": 65,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 482,
+       "y": 649,
+       "w": 369,
+       "h": 32,
+       "text": "Send Retail Event"
+      }
+     ]
+    },
+    "n5": {
+     "x": 2539,
+     "y": 879,
+     "w": 613,
+     "h": 224,
+     "shape": "rounded",
+     "stroke": 4,
+     "rx": 65,
+     "ry": 65,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 2576,
+       "y": 926,
+       "w": 488,
+       "h": 32,
+       "text": "Revise Retail Event and"
+      },
+      {
+       "x": 2686,
+       "y": 984,
+       "w": 297,
+       "h": 32,
+       "text": "Send Revision"
+      }
+     ]
+    },
+    "n6": {
+     "x": 1492,
+     "y": 880,
+     "w": 432,
+     "h": 217,
+     "shape": "rect",
+     "stroke": 6,
+     "rx": 0,
+     "ry": 0,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 1571,
+       "y": 946,
+       "w": 252,
+       "h": 32,
+       "text": "Retail Event"
+      },
+      {
+       "x": 1607,
+       "y": 995,
+       "w": 194,
+       "h": 41,
+       "text": "(revision)"
+      }
+     ]
+    },
+    "n7": {
+     "x": 742,
+     "y": 923,
+     "w": 599,
+     "h": 171,
+     "shape": "rounded",
+     "stroke": 3,
+     "rx": 65,
+     "ry": 65,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 805,
+       "y": 966,
+       "w": 426,
+       "h": 32,
+       "text": "Receive Retail Event"
+      },
+      {
+       "x": 943,
+       "y": 1024,
+       "w": 177,
+       "h": 32,
+       "text": "Revision"
+      }
+     ]
+    },
+    "n8": {
+     "x": 194,
+     "y": 942,
+     "w": 168,
+     "h": 164,
+     "shape": "rhombus",
+     "stroke": 4,
+     "rx": 89,
+     "ry": 90
+    },
+    "n9": {
+     "x": 1465,
+     "y": 1322,
+     "w": 548,
+     "h": 239,
+     "shape": "rect",
+     "stroke": 6,
+     "rx": 0,
+     "ry": 0,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 1487,
+       "y": 1385,
+       "w": 471,
+       "h": 41,
+       "text": "Retail Event (response"
+      },
+      {
+       "x": 1645,
+       "y": 1434,
+       "w": 178,
+       "h": 42,
+       "text": "positive)"
+      }
+     ]
+    },
+    "n10": {
+     "x": 496,
+     "y": 1361,
+     "w": 599,
+     "h": 161,
+     "shape": "rounded",
+     "stroke": 4,
+     "rx": 65,
+     "ry": 65,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 593,
+       "y": 1421,
+       "w": 369,
+       "h": 32,
+       "text": "Send Retail Event"
+      }
+     ]
+    },
+    "n11": {
+     "x": 2548,
+     "y": 1370,
+     "w": 577,
+     "h": 157,
+     "shape": "rounded",
+     "stroke": 4,
+     "rx": 65,
+     "ry": 63,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 2607,
+       "y": 1428,
+       "w": 427,
+       "h": 32,
+       "text": "Receive Retail Event"
+      }
+     ]
+    },
+    "n12": {
+     "x": 2566,
+     "y": 1637,
+     "w": 590,
+     "h": 238,
+     "shape": "rounded",
+     "stroke": 3,
+     "rx": 65,
+     "ry": 65,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 2664,
+       "y": 1693,
+       "w": 370,
+       "h": 32,
+       "text": "Create Trade Item"
+      },
+      {
+       "x": 2692,
+       "y": 1751,
+       "w": 328,
+       "h": 32,
+       "text": "Location Profile"
+      }
+     ]
+    },
+    "n13": {
+     "x": 1443,
+     "y": 1790,
+     "w": 525,
+     "h": 244,
+     "shape": "rect",
+     "stroke": 6,
+     "rx": 0,
+     "ry": 0,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 1486,
+       "y": 1851,
+       "w": 411,
+       "h": 33,
+       "text": "Trade Item Location"
+      },
+      {
+       "x": 1634,
+       "y": 1900,
+       "w": 134,
+       "h": 33,
+       "text": "Profile"
+      }
+     ]
+    },
+    "n14": {
+     "x": 474,
+     "y": 1793,
+     "w": 599,
+     "h": 233,
+     "shape": "rounded",
+     "stroke": 3,
+     "rx": 65,
+     "ry": 65,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 555,
+       "y": 1847,
+       "w": 396,
+       "h": 32,
+       "text": "Receive Trade Item"
+      },
+      {
+       "x": 604,
+       "y": 1905,
+       "w": 328,
+       "h": 32,
+       "text": "Location Profile"
+      }
+     ]
+    },
+    "n15": {
+     "x": 2419,
+     "y": 1963,
+     "w": 599,
+     "h": 197,
+     "shape": "rounded",
+     "stroke": 3,
+     "rx": 65,
+     "ry": 65,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 2436,
+       "y": 2014,
+       "w": 533,
+       "h": 33,
+       "text": "Send Trade Item Location"
+      },
+      {
+       "x": 2648,
+       "y": 2072,
+       "w": 133,
+       "h": 33,
+       "text": "Profile"
+      }
+     ]
+    },
+    "n16": {
+     "x": 469,
+     "y": 2213,
+     "w": 599,
+     "h": 286,
+     "shape": "rounded",
+     "stroke": 4,
+     "rx": 65,
+     "ry": 65,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 564,
+       "y": 2255,
+       "w": 372,
+       "h": 32,
+       "text": "Revise Trade Item"
+      },
+      {
+       "x": 484,
+       "y": 2313,
+       "w": 534,
+       "h": 32,
+       "text": "Location Profile and Send"
+      },
+      {
+       "x": 671,
+       "y": 2371,
+       "w": 177,
+       "h": 32,
+       "text": "Revision"
+      }
+     ]
+    },
+    "n17": {
+     "x": 1465,
+     "y": 2245,
+     "w": 472,
+     "h": 218,
+     "shape": "rect",
+     "stroke": 6,
+     "rx": 0,
+     "ry": 0,
+     "bold": true,
+     "labelLines": []
+    },
+    "n18": {
+     "x": 2290,
+     "y": 2436,
+     "w": 451,
+     "h": 148,
+     "shape": "rounded",
+     "stroke": 4,
+     "rx": 65,
+     "ry": 65,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 2371,
+       "y": 2492,
+       "w": 268,
+       "h": 32,
+       "text": "Receive TILP"
+      }
+     ]
+    },
+    "n19": {
+     "x": 2982,
+     "y": 2486,
+     "w": 155,
+     "h": 159,
+     "shape": "rhombus",
+     "stroke": 4,
+     "rx": 85,
+     "ry": 85
+    },
+    "n20": {
+     "x": 1497,
+     "y": 2803,
+     "w": 396,
+     "h": 217,
+     "shape": "rect",
+     "stroke": 6,
+     "rx": 0,
+     "ry": 0,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 1535,
+       "y": 2864,
+       "w": 312,
+       "h": 41,
+       "text": "TILP (response"
+      },
+      {
+       "x": 1609,
+       "y": 2913,
+       "w": 179,
+       "h": 41,
+       "text": "positive)"
+      }
+     ]
+    },
+    "n21": {
+     "x": 2705,
+     "y": 2819,
+     "w": 438,
+     "h": 131,
+     "shape": "rounded",
+     "stroke": 3,
+     "rx": 63,
+     "ry": 65,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 2815,
+       "y": 2862,
+       "w": 211,
+       "h": 32,
+       "text": "Send TILP"
+      }
+     ]
+    },
+    "n22": {
+     "x": 710,
+     "y": 2828,
+     "w": 523,
+     "h": 153,
+     "shape": "rounded",
+     "stroke": 3,
+     "rx": 65,
+     "ry": 65,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 828,
+       "y": 2871,
+       "w": 267,
+       "h": 32,
+       "text": "Receive TILP"
+      }
+     ]
+    }
+   },
+   "flows": {
+    "f0": {
+     "fromPoint": [
+      276,
+      927
+     ],
+     "toPoint": [
+      272,
+      461
+     ],
+     "routing": "straight"
+    },
+    "f1": {
+     "fromPoint": [
+      591,
+      457
+     ],
+     "toPoint": [
+      593,
+      560
+     ],
+     "routing": "straight"
+    },
+    "f2": {
+     "fromPoint": [
+      1952,
+      631
+     ],
+     "toPoint": [
+      2529,
+      622
+     ],
+     "routing": "diagonal"
+    },
+    "f3": {
+     "fromPoint": [
+      989,
+      663
+     ],
+     "toPoint": [
+      1490,
+      662
+     ],
+     "routing": "straight"
+    },
+    "f4": {
+     "fromPoint": [
+      2845,
+      751
+     ],
+     "toPoint": [
+      2845,
+      864
+     ],
+     "routing": "straight"
+    },
+    "f5": {
+     "fromPoint": [
+      1472,
+      988
+     ],
+     "toPoint": [
+      1355,
+      989
+     ],
+     "routing": "straight"
+    },
+    "f6": {
+     "fromPoint": [
+      2524,
+      988
+     ],
+     "toPoint": [
+      1943,
+      988
+     ],
+     "routing": "straight"
+    },
+    "f7": {
+     "fromPoint": [
+      727,
+      1024
+     ],
+     "toPoint": [
+      376,
+      1024
+     ],
+     "routing": "straight"
+    },
+    "f8": {
+     "fromPoint": [
+      276,
+      1120
+     ],
+     "toPoint": [
+      740,
+      1346
+     ],
+     "routing": "orthogonal",
+     "points": [
+      [
+       276,
+       1207
+      ],
+      [
+       740,
+       1207
+      ]
+     ]
+    },
+    "f9": {
+     "fromPoint": [
+      2032,
+      1434
+     ],
+     "toPoint": [
+      2533,
+      1434
+     ],
+     "routing": "straight"
+    },
+    "f10": {
+     "fromPoint": [
+      1109,
+      1443
+     ],
+     "toPoint": [
+      1445,
+      1443
+     ],
+     "routing": "straight"
+    },
+    "f11": {
+     "fromPoint": [
+      2836,
+      1541
+     ],
+     "toPoint": [
+      2840,
+      1622
+     ],
+     "routing": "straight"
+    },
+    "f12": {
+     "fromPoint": [
+      1423,
+      1907
+     ],
+     "toPoint": [
+      1087,
+      1907
+     ],
+     "routing": "straight"
+    },
+    "f13": {
+     "fromPoint": [
+      2815,
+      1889
+     ],
+     "toPoint": [
+      2789,
+      1948
+     ],
+     "routing": "orthogonal"
+    },
+    "f14": {
+     "fromPoint": [
+      3051,
+      1889
+     ],
+     "toPoint": [
+      3031,
+      1947
+     ],
+     "routing": "diagonal"
+    },
+    "f15": {
+     "fromPoint": [
+      3059,
+      2471
+     ],
+     "toPoint": [
+      3054,
+      1890
+     ],
+     "routing": "straight"
+    },
+    "f16": {
+     "fromPoint": [
+      2404,
+      2010
+     ],
+     "toPoint": [
+      1987,
+      1951
+     ],
+     "routing": "diagonal"
+    },
+    "f17": {
+     "fromPoint": [
+      766,
+      2040
+     ],
+     "toPoint": [
+      766,
+      2198
+     ],
+     "routing": "straight"
+    },
+    "f18": {
+     "fromPoint": [
+      1082,
+      2353
+     ],
+     "toPoint": [
+      1445,
+      2353
+     ],
+     "routing": "straight"
+    },
+    "f19": {
+     "fromPoint": [
+      1956,
+      2402
+     ],
+     "toPoint": [
+      2275,
+      2460
+     ],
+     "routing": "diagonal"
+    },
+    "f20": {
+     "fromPoint": [
+      2755,
+      2531
+     ],
+     "toPoint": [
+      2967,
+      2562
+     ],
+     "routing": "diagonal"
+    },
+    "f21": {
+     "fromPoint": [
+      3068,
+      2659
+     ],
+     "toPoint": [
+      3067,
+      2804
+     ],
+     "routing": "straight"
+    },
+    "f22": {
+     "fromPoint": [
+      2690,
+      2884
+     ],
+     "toPoint": [
+      1912,
+      2884
+     ],
+     "routing": "straight"
+    },
+    "f23": {
+     "fromPoint": [
+      1477,
+      2893
+     ],
+     "toPoint": [
+      1247,
+      2893
+     ],
+     "routing": "straight"
+    }
+   },
+   "texts": {
+    "t1": {
+     "x": 181,
+     "y": 483,
+     "w": 51,
+     "h": 32,
+     "lines": [
+      {
+       "x": 181,
+       "y": 483,
+       "w": 51,
+       "h": 32,
+       "text": "No"
+      }
+     ]
+    },
+    "t2": {
+     "x": 38,
+     "y": 864,
+     "w": 464,
+     "h": 48,
+     "lines": [
+      {
+       "x": 38,
+       "y": 860,
+       "w": 464,
+       "h": 56,
+       "text": "Retail Event Accepted ?"
+      }
+     ]
+    },
+    "t3": {
+     "x": 575,
+     "y": 1277,
+     "w": 73,
+     "h": 32,
+     "lines": [
+      {
+       "x": 575,
+       "y": 1277,
+       "w": 73,
+       "h": 32,
+       "text": "Yes"
+      }
+     ]
+    },
+    "t4": {
+     "x": 2964,
+     "y": 1915,
+     "w": 52,
+     "h": 32,
+     "lines": [
+      {
+       "x": 2964,
+       "y": 1915,
+       "w": 52,
+       "h": 32,
+       "text": "No"
+      }
+     ]
+    },
+    "t5": {
+     "x": 2877,
+     "y": 2401,
+     "w": 324,
+     "h": 41,
+     "lines": [
+      {
+       "x": 2877,
+       "y": 2397,
+       "w": 324,
+       "h": 49,
+       "text": "TILP Accepted ?"
+      }
+     ]
+    },
+    "t6": {
+     "x": 2958,
+     "y": 2736,
+     "w": 72,
+     "h": 32,
+     "lines": [
+      {
+       "x": 2958,
+       "y": 2736,
+       "w": 72,
+       "h": 32,
+       "text": "Yes"
+      }
+     ]
+    }
+   },
+   "offPage": {
+    "o0": {
+     "at": [
+      709,
+      12
+     ],
+     "end": [
+      705,
+      239
+     ],
+     "points": [],
+     "x": 685,
+     "y": 12,
+     "w": 48,
+     "h": 228
+    },
+    "o1": {
+     "at": [
+      971,
+      2995
+     ],
+     "end": [
+      970,
+      3276
+     ],
+     "points": [],
+     "x": 959,
+     "y": 2995,
+     "w": 15,
+     "h": 282
+    }
+   },
+   "marks": {},
+   "phases": {
+    "p0": {
+     "x": 94,
+     "y": 94,
+     "w": 3248,
+     "h": 3096,
+     "rx": 131,
+     "dash": 12.0,
+     "gap": 9.0,
+     "weight": 4.0
+    }
+   },
+   "rulesHaveSpans": {
+    "vertical": true,
+    "horizontal": true
+   }
+  }
+ },
+ "graphPatches": {
+  "edges": {
+   "f14": {
+    "remove": true
+   }
+  },
+  "texts": {},
+  "addEdges": []
+ },
+ "corrections": [
+  "q2a-fig7",
+  "q2b-fig7-left",
+  "q2b-fig7-right",
+  "model-04",
+  "draw-08",
+  "q13-10",
+  "q13-11",
+  "q16-03",
+  "q16-04"
+ ],
+ "documentLanes": {
+  "object-retail-event": "lane-seller-party",
+  "object-retail-event-revision": "lane-seller-party",
+  "object-retail-event-response-positive": "lane-seller-party",
+  "object-trade-item-location-profile": "lane-seller-party",
+  "object-trade-item-location-profile-revision": "lane-seller-party",
+  "object-tilp-response-positive": "lane-seller-party"
+ },
+ "formerIds": {
+  "lane-buyer-party": "lane0",
+  "lane-seller-party": "lane1",
+  "action-create-retail-event": "n1",
+  "action-receive-retail-event-in-seller-party": "n2",
+  "object-retail-event": "n3",
+  "action-send-retail-event-in-buyer-party": "n4",
+  "action-revise-retail-event-and-send-revision": "n5",
+  "object-retail-event-revision": "n6",
+  "action-receive-retail-event-revision": "n7",
+  "decision-buyer-party": "n8",
+  "object-retail-event-response-positive": "n9",
+  "action-send-retail-event-in-buyer-party-2": "n10",
+  "action-receive-retail-event-in-seller-party-2": "n11",
+  "action-create-trade-item-location-profile": "n12",
+  "object-trade-item-location-profile": "n13",
+  "action-receive-trade-item-location-profile": "n14",
+  "action-send-trade-item-location-profile": "n15",
+  "action-revise-trade-item-location-profile-and": "n16",
+  "object-trade-item-location-profile-revision": "n17",
+  "action-receive-tilp-in-seller-party": "n18",
+  "decision-seller-party": "n19",
+  "object-tilp-response-positive": "n20",
+  "action-send-tilp": "n21",
+  "action-receive-tilp-in-buyer-party": "n22",
+  "flow-decision-buyer-party-to-create-retail-event": "f0",
+  "flow-create-retail-event-to-send-retail-event-in-buyer-party": "f1",
+  "flow-retail-event-to-receive-retail-event-in-seller-party": "f2",
+  "flow-send-retail-event-in-buyer-party-to-retail-event": "f3",
+  "flow-receive-retail-event-in-seller-party-to-revise-retail-event-and-send-revision": "f4",
+  "flow-retail-event-revision-to-receive-retail-event-revision": "f5",
+  "flow-revise-retail-event-and-send-revision-to-retail-event-revision": "f6",
+  "flow-receive-retail-event-revision-to-decision-buyer-party": "f7",
+  "flow-decision-buyer-party-to-send-retail-event-in-buyer-party-2": "f8",
+  "flow-retail-event-response-positive-to-receive-retail-event-in-seller-party-2": "f9",
+  "flow-send-retail-event-in-buyer-party-2-to-retail-event-response-positive": "f10",
+  "flow-receive-retail-event-in-seller-party-2-to-create-trade-item-location-profile": "f11",
+  "flow-trade-item-location-profile-to-receive-trade-item-location-profile": "f12",
+  "flow-create-trade-item-location-profile-to-send-trade-item-location-profile": "f13",
+  "flow-decision-seller-party-to-create-trade-item-location-profile": "f15",
+  "flow-send-trade-item-location-profile-to-trade-item-location-profile": "f16",
+  "flow-receive-trade-item-location-profile-to-revise-trade-item-location-profile-and": "f17",
+  "flow-revise-trade-item-location-profile-and-to-trade-item-location-profile-revision": "f18",
+  "flow-trade-item-location-profile-revision-to-receive-tilp-in-seller-party": "f19",
+  "flow-receive-tilp-in-seller-party-to-decision-seller-party": "f20",
+  "flow-decision-seller-party-to-send-tilp": "f21",
+  "flow-send-tilp-to-tilp-response-positive": "f22",
+  "flow-tilp-response-positive-to-receive-tilp-in-buyer-party": "f23",
+  "text-no": "t1",
+  "text-retail-event-accepted": "t2",
+  "text-yes": "t3",
+  "text-no-2": "t4",
+  "text-tilp-accepted": "t5",
+  "text-yes-2": "t6",
+  "offpage-action-create-retail-event": "o0",
+  "offpage-action-receive-tilp-in-buyer-party": "o1",
+  "phase-creating-joint-business-plan": "p0"
+ }
+}

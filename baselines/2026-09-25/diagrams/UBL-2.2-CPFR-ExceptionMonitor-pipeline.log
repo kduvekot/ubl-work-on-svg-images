@@ -1,0 +1,11 @@
+== UBL-2.2-CPFR-ExceptionMonitor
+  scale 0.43212   frame 10px  divider 1px  action 3px  object 5px
+  font 46px (19.7 model)   2 lanes, 1 bands, 11 nodes, 12 edges -> review/baseline/UBL-2.2-CPFR-ExceptionMonitor-spec.json
+  review/baseline/UBL-2.2-CPFR-ExceptionMonitor.svg + .drawio + -classified.svg   (11 nodes, 12 edges)
+  rendered UBL-2.2-CPFR-ExceptionMonitor.svg -> UBL-2.2-CPFR-ExceptionMonitor-render.png @ 3425pxx2410, 600 dpi
+  aligned on ink bounds: scale x 1.0000, y 1.0000
+  size 3425x2410  radius 2
+  ink: original 297075   candidate 297567
+  MISSING (red)    14588  = 4.9105% of original ink
+  EXTRA   (blue)   16408  = 5.5232% of original ink
+  RESULT: DIFFERENCES - inspect review/baseline/UBL-2.2-CPFR-ExceptionMonitor-diff-r2.png

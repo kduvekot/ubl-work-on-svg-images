@@ -1,0 +1,11 @@
+== UBL-2.0-CreateCatalogueProcess
+  scale 0.43212   frame 10px  divider 5px  action 6px  object 10px
+  font 50px (21.6 model)   2 lanes, 1 bands, 25 nodes, 27 edges -> review/baseline/UBL-2.0-CreateCatalogueProcess-spec.json
+  review/baseline/UBL-2.0-CreateCatalogueProcess.svg + .drawio + -classified.svg   (25 nodes, 27 edges)
+  rendered UBL-2.0-CreateCatalogueProcess.svg -> UBL-2.0-CreateCatalogueProcess-render.png @ 3425pxx4862, 600 dpi
+  aligned on ink bounds: scale x 1.0000, y 1.0000
+  size 3425x4862  radius 2
+  ink: original 658498   candidate 671031
+  MISSING (red)    21301  = 3.2348% of original ink
+  EXTRA   (blue)   24545  = 3.7274% of original ink
+  RESULT: DIFFERENCES - inspect review/baseline/UBL-2.0-CreateCatalogueProcess-diff-r2.png

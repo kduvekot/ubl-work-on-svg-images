@@ -1,0 +1,503 @@
+{
+ "schema": "ubl-activity-diagram-extraction/1",
+ "figure": "UBL-2.0-ReportStateofAccountsProcess",
+ "nodes": {
+  "initial-accounting-supplier": {
+   "area": 11388,
+   "fill": 1.0
+  },
+  "object-statement": {
+   "area": 208600,
+   "fill": 0.974,
+   "solid": 1.0,
+   "stem": 0.13,
+   "keptOnOutline": true
+  },
+  "action-receive-statement": {
+   "area": 144506,
+   "fill": 0.898,
+   "solid": 0.959,
+   "stem": 0.13
+  },
+  "action-generate-statement": {
+   "area": 174484,
+   "fill": 0.911,
+   "solid": 0.965,
+   "stem": 0.13
+  },
+  "final-accounting-customer": {
+   "area": 7293,
+   "fill": 0.637,
+   "solid": 0.793
+  }
+ },
+ "flows": {
+  "flow-initial-accounting-supplier-to-generate-statement": {
+   "arrowInk": [
+    315,
+    996
+   ],
+   "arrowPx": [
+    82,
+    67.2,
+    2.23
+   ],
+   "arrowFill": 0.028
+  },
+  "flow-statement-to-receive-statement": {
+   "arrowInk": [
+    322,
+    913
+   ],
+   "arrowPx": [
+    88,
+    65.4,
+    2.81
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-generate-statement-to-statement": {
+   "arrowInk": [
+    322,
+    797
+   ],
+   "arrowPx": [
+    90,
+    66.0,
+    3.55
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-receive-statement-to-final-accounting-customer": {
+   "arrowInk": [
+    315,
+    996
+   ],
+   "arrowPx": [
+    83,
+    66.7,
+    2.38
+   ],
+   "arrowFill": 0.0
+  }
+ },
+ "offPage": {},
+ "marks": {},
+ "phases": {},
+ "greyRules": [],
+ "titleReadings": [
+  {
+   "position": 0,
+   "text": "Accounting Customer",
+   "x": 541,
+   "y": 48,
+   "w": 575,
+   "h": 56,
+   "lines": [
+    {
+     "x": 541,
+     "y": 48,
+     "w": 575,
+     "h": 56,
+     "text": "Accounting Customer"
+    }
+   ]
+  },
+  {
+   "position": 1,
+   "text": "Accounting Supplier",
+   "x": 2361,
+   "y": 48,
+   "w": 535,
+   "h": 56,
+   "lines": [
+    {
+     "x": 2361,
+     "y": 48,
+     "w": 535,
+     "h": 56,
+     "text": "Accounting Supplier"
+    }
+   ]
+  }
+ ],
+ "findings": [],
+ "uncertain": [
+  {
+   "x": 1394,
+   "y": 466,
+   "w": 641,
+   "h": 334,
+   "shape": "rect",
+   "iou": 1.0,
+   "border": 1.0,
+   "kind": "kept-on-outline",
+   "reason": "every side has pass-through line-work, but the region carries a complete outline of its own",
+   "check": "confirm this is a node and not trapped whitespace"
+  }
+ ],
+ "present": [
+  "source",
+  "size",
+  "fontPx",
+  "arrowPx",
+  "arrowWidthPx",
+  "arrowStyle",
+  "rules",
+  "ruleSpan",
+  "greyRules",
+  "dashed",
+  "openEnds",
+  "crossMarks",
+  "partitions",
+  "nodes",
+  "edges",
+  "text",
+  "uncertain"
+ ],
+ "uncorrected": {
+  "model": {
+   "schema": "ubl-activity-diagram/1",
+   "figure": {
+    "name": "UBL-2.0-ReportStateofAccountsProcess",
+    "source": "UBL-2.0-ReportStateofAccountsProcess.png"
+   },
+   "lanes": [
+    {
+     "id": "lane0",
+     "axis": "column",
+     "index": 0,
+     "title": "Accounting Customer"
+    },
+    {
+     "id": "lane1",
+     "axis": "column",
+     "index": 1,
+     "title": "Accounting Supplier"
+    },
+    {
+     "id": "lane2",
+     "axis": "band",
+     "index": 0,
+     "title": ""
+    }
+   ],
+   "nodes": [
+    {
+     "id": "n1",
+     "kind": "initial",
+     "label": "",
+     "lane": "lane1",
+     "band": "lane2"
+    },
+    {
+     "id": "n2",
+     "kind": "object",
+     "label": "Statement",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n3",
+     "kind": "action",
+     "label": "Receive Statement",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n4",
+     "kind": "action",
+     "label": "Generate Statement",
+     "lane": "lane1",
+     "band": "lane2"
+    },
+    {
+     "id": "n5",
+     "kind": "final",
+     "label": "",
+     "lane": "lane0",
+     "band": "lane2"
+    }
+   ],
+   "flows": [
+    {
+     "id": "f0",
+     "from": "n1",
+     "to": "n4",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f1",
+     "from": "n2",
+     "to": "n3",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f2",
+     "from": "n4",
+     "to": "n2",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f3",
+     "from": "n3",
+     "to": "n5",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    }
+   ],
+   "texts": [],
+   "offPage": [],
+   "marks": [],
+   "phases": []
+  },
+  "layout": {
+   "schema": "ubl-activity-diagram-layout/1",
+   "figure": "UBL-2.0-ReportStateofAccountsProcess",
+   "units": "px of the original PNG",
+   "size": [
+    3425,
+    1173
+   ],
+   "style": {
+    "fontPx": 61.4,
+    "arrowPx": 85.5,
+    "arrowWidthPx": 66.3,
+    "arrowStyle": "open"
+   },
+   "rules": {
+    "vertical": [
+     {
+      "at": 0,
+      "width": 10,
+      "span": [
+       13,
+       1159
+      ]
+     },
+     {
+      "at": 1744,
+      "width": 7,
+      "span": [
+       13,
+       1159
+      ]
+     },
+     {
+      "at": 3415,
+      "width": 10,
+      "span": [
+       13,
+       1159
+      ]
+     }
+    ],
+    "horizontal": [
+     {
+      "at": 0,
+      "width": 10,
+      "span": [
+       13,
+       3411
+      ]
+     },
+     {
+      "at": 1163,
+      "width": 10,
+      "span": [
+       13,
+       3411
+      ]
+     }
+    ]
+   },
+   "greyRules": [],
+   "lanes": {
+    "lane0": {
+     "x0": 0,
+     "x1": 1748,
+     "titleBox": [
+      541,
+      48,
+      575,
+      56
+     ]
+    },
+    "lane1": {
+     "x0": 1748,
+     "x1": 3425,
+     "titleBox": [
+      2361,
+      48,
+      535,
+      56
+     ]
+    },
+    "lane2": {
+     "y0": 0,
+     "y1": 1173
+    }
+   },
+   "nodes": {
+    "n1": {
+     "x": 2895,
+     "y": 167,
+     "w": 120,
+     "h": 120
+    },
+    "n2": {
+     "x": 1394,
+     "y": 466,
+     "w": 641,
+     "h": 334,
+     "shape": "rect",
+     "stroke": 13,
+     "rx": 0,
+     "ry": 0,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 1568,
+       "y": 603,
+       "w": 291,
+       "h": 45,
+       "text": "Statement"
+      }
+     ]
+    },
+    "n3": {
+     "x": 65,
+     "y": 523,
+     "w": 797,
+     "h": 202,
+     "shape": "rounded",
+     "stroke": 7,
+     "rx": 84,
+     "ry": 91,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 196,
+       "y": 595,
+       "w": 529,
+       "h": 45,
+       "text": "Receive Statement"
+      }
+     ]
+    },
+    "n4": {
+     "x": 2579,
+     "y": 523,
+     "w": 785,
+     "h": 244,
+     "shape": "rounded",
+     "stroke": 7,
+     "rx": 84,
+     "ry": 87,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 2683,
+       "y": 609,
+       "w": 563,
+       "h": 45,
+       "text": "Generate Statement"
+      }
+     ]
+    },
+    "n5": {
+     "x": 413,
+     "y": 972,
+     "w": 107,
+     "h": 107,
+     "shape": "ellipse",
+     "stroke": 7,
+     "rx": 53,
+     "ry": 54,
+     "innerRatio": 0.449
+    }
+   },
+   "flows": {
+    "f0": {
+     "fromPoint": [
+      2957,
+      301
+     ],
+     "toPoint": [
+      2961,
+      508
+     ],
+     "routing": "straight"
+    },
+    "f1": {
+     "fromPoint": [
+      1379,
+      628
+     ],
+     "toPoint": [
+      876,
+      626
+     ],
+     "routing": "straight"
+    },
+    "f2": {
+     "fromPoint": [
+      2564,
+      633
+     ],
+     "toPoint": [
+      2050,
+      633
+     ],
+     "routing": "straight"
+    },
+    "f3": {
+     "fromPoint": [
+      462,
+      739
+     ],
+     "toPoint": [
+      464,
+      957
+     ],
+     "routing": "straight"
+    }
+   },
+   "texts": {},
+   "offPage": {},
+   "marks": {},
+   "phases": {},
+   "rulesHaveSpans": {
+    "vertical": true,
+    "horizontal": true
+   }
+  }
+ },
+ "documentLanes": {
+  "object-statement": "lane-accounting-customer"
+ },
+ "formerIds": {
+  "lane-accounting-customer": "lane0",
+  "lane-accounting-supplier": "lane1",
+  "initial-accounting-supplier": "n1",
+  "object-statement": "n2",
+  "action-receive-statement": "n3",
+  "action-generate-statement": "n4",
+  "final-accounting-customer": "n5",
+  "flow-initial-accounting-supplier-to-generate-statement": "f0",
+  "flow-statement-to-receive-statement": "f1",
+  "flow-generate-statement-to-statement": "f2",
+  "flow-receive-statement-to-final-accounting-customer": "f3"
+ }
+}

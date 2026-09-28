@@ -1,0 +1,133 @@
+{
+ "name": "UBL-2.0-CreateCatalogueProcess.png",
+ "verdict": "needs-human",
+ "radius": 3,
+ "lineWorkInk": 487533,
+ "missingPx": 1034,
+ "inventedPx": 805,
+ "structural": {
+  "absent": 0,
+  "invented": 0,
+  "coherence": 0,
+  "textAbsent": 0,
+  "textDiffers": 0
+ },
+ "blocking": [],
+ "findings": [
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n9 -> n12",
+   "x": 2702,
+   "y": 1289,
+   "w": 140,
+   "h": 92,
+   "area": 605
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n11 -> n13",
+   "x": 2672,
+   "y": 1722,
+   "w": 37,
+   "h": 28,
+   "area": 90
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n9 -> n12",
+   "x": 2696,
+   "y": 1289,
+   "w": 129,
+   "h": 84,
+   "area": 542
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n11 -> n13",
+   "x": 2658,
+   "y": 1718,
+   "w": 44,
+   "h": 29,
+   "area": 97
+  }
+ ],
+ "text": [],
+ "coherence": [],
+ "human": [
+  {
+   "x": 387,
+   "y": 1704,
+   "w": 895,
+   "h": 772,
+   "shape": "rounded",
+   "iou": 0.941,
+   "border": 0.844,
+   "kind": "dropped-region",
+   "reason": "4 of 4 sides are pass-through line-work",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "x": 425,
+   "y": 2481,
+   "w": 857,
+   "h": 919,
+   "shape": "rounded",
+   "iou": 0.822,
+   "border": 0.726,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best rounded 0.82, and 1.00 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "x": 434,
+   "y": 3402,
+   "w": 848,
+   "h": 634,
+   "shape": "ellipse",
+   "iou": 0.883,
+   "border": 0.633,
+   "kind": "dropped-region",
+   "reason": "4 of 4 sides are pass-through line-work",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "kind": "arrowhead-unmeasurable",
+   "x": 2295,
+   "y": 1851,
+   "w": 160,
+   "h": 160,
+   "reason": "the ink at the head end of n11->n13 measures 80x100px, too wide for this diagram's own 53px arrowhead - a junction, not a head",
+   "check": "confirm the arrowhead here is drawn and points the way the original does"
+  }
+ ],
+ "review": [
+  {
+   "n": 1,
+   "what": "check",
+   "where": "387,1704 895x772",
+   "detail": "4 of 4 sides are pass-through line-work",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "n": 2,
+   "what": "check",
+   "where": "425,2481 857x919",
+   "detail": "outline matches no UML node shape (best rounded 0.82, and 1.00 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "n": 3,
+   "what": "check",
+   "where": "434,3402 848x634",
+   "detail": "4 of 4 sides are pass-through line-work",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "n": 4,
+   "what": "check",
+   "where": "2295,1851 160x160",
+   "detail": "the ink at the head end of n11->n13 measures 80x100px, too wide for this diagram's own 53px arrowhead - a junction, not a head",
+   "check": "confirm the arrowhead here is drawn and points the way the original does"
+  }
+ ]
+}

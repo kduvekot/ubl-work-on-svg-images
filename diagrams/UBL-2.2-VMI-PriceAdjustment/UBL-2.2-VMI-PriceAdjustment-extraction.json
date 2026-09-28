@@ -1,0 +1,678 @@
+{
+ "schema": "ubl-activity-diagram-extraction/1",
+ "figure": "UBL-2.2-VMI-PriceAdjustment",
+ "nodes": {
+  "initial-producer": {
+   "area": 9126,
+   "fill": 0.768
+  },
+  "decision-producer": {
+   "area": 7455,
+   "fill": 0.504,
+   "solid": 0.504
+  },
+  "final-producer": {
+   "area": 5974,
+   "fill": 0.622,
+   "solid": 0.783
+  },
+  "object-catalogue": {
+   "area": 73068,
+   "fill": 0.896,
+   "solid": 1.0,
+   "stem": 0.137
+  },
+  "action-send-price-list": {
+   "area": 105535,
+   "fill": 0.884,
+   "solid": 0.975,
+   "stem": 0.137
+  },
+  "action-receive-price-list": {
+   "area": 107857,
+   "fill": 0.873,
+   "solid": 0.975,
+   "stem": 0.137
+  },
+  "final-retailer": {
+   "area": 5963,
+   "fill": 0.627,
+   "solid": 0.79
+  }
+ },
+ "flows": {
+  "flow-initial-producer-to-decision-producer": {
+   "arrowInk": [
+    270,
+    848
+   ],
+   "arrowPx": [
+    77,
+    60.8,
+    2.45
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-decision-producer-to-final-producer": {
+   "arrowInk": [
+    230,
+    771
+   ],
+   "arrowPx": [
+    81,
+    60.0,
+    2.73
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-decision-producer-to-send-price-list": {
+   "arrowInk": [
+    346,
+    856
+   ],
+   "arrowPx": [
+    75,
+    61.5,
+    2.24
+   ],
+   "arrowFill": 0.019
+  },
+  "flow-send-price-list-to-catalogue": {
+   "arrowInk": [
+    270,
+    782
+   ],
+   "arrowPx": [
+    77,
+    61.1,
+    2.8
+   ],
+   "arrowFill": 0.054
+  },
+  "flow-catalogue-to-receive-price-list": {
+   "arrowInk": [
+    267,
+    859
+   ],
+   "arrowPx": [
+    75,
+    60.0,
+    2.37
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-receive-price-list-to-final-retailer": {
+   "arrowInk": [
+    270,
+    849
+   ],
+   "arrowPx": [
+    75,
+    61.8,
+    2.37
+   ],
+   "arrowFill": 0.0
+  }
+ },
+ "offPage": {},
+ "marks": {},
+ "phases": {},
+ "greyRules": [],
+ "titleReadings": [
+  {
+   "position": 0,
+   "text": "Producer",
+   "x": 718,
+   "y": 67,
+   "w": 284,
+   "h": 52,
+   "lines": [
+    {
+     "x": 718,
+     "y": 67,
+     "w": 284,
+     "h": 52,
+     "text": "Producer"
+    }
+   ]
+  },
+  {
+   "position": 1,
+   "text": "Retailer",
+   "x": 2531,
+   "y": 68,
+   "w": 240,
+   "h": 52,
+   "lines": [
+    {
+     "x": 2531,
+     "y": 68,
+     "w": 240,
+     "h": 52,
+     "text": "Retailer"
+    }
+   ]
+  }
+ ],
+ "findings": [],
+ "uncertain": [],
+ "present": [
+  "source",
+  "size",
+  "fontPx",
+  "arrowPx",
+  "arrowWidthPx",
+  "arrowStyle",
+  "rules",
+  "ruleSpan",
+  "greyRules",
+  "dashed",
+  "openEnds",
+  "crossMarks",
+  "partitions",
+  "nodes",
+  "edges",
+  "text",
+  "uncertain"
+ ],
+ "uncorrected": {
+  "model": {
+   "schema": "ubl-activity-diagram/1",
+   "figure": {
+    "name": "UBL-2.2-VMI-PriceAdjustment",
+    "source": "UBL-2.2-VMI-PriceAdjustment.png"
+   },
+   "lanes": [
+    {
+     "id": "lane0",
+     "axis": "column",
+     "index": 0,
+     "title": "Producer"
+    },
+    {
+     "id": "lane1",
+     "axis": "column",
+     "index": 1,
+     "title": "Retailer"
+    },
+    {
+     "id": "lane2",
+     "axis": "band",
+     "index": 0,
+     "title": ""
+    }
+   ],
+   "nodes": [
+    {
+     "id": "n1",
+     "kind": "initial",
+     "label": "",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n2",
+     "kind": "decision",
+     "label": "",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n3",
+     "kind": "final",
+     "label": "",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n4",
+     "kind": "object",
+     "label": "Catalogue",
+     "lane": "lane1",
+     "band": "lane2"
+    },
+    {
+     "id": "n5",
+     "kind": "action",
+     "label": "Send Price List",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n6",
+     "kind": "action",
+     "label": "Receive Price List",
+     "lane": "lane1",
+     "band": "lane2"
+    },
+    {
+     "id": "n7",
+     "kind": "final",
+     "label": "",
+     "lane": "lane1",
+     "band": "lane2"
+    }
+   ],
+   "flows": [
+    {
+     "id": "f0",
+     "from": "n1",
+     "to": "n2",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f1",
+     "from": "n2",
+     "to": "n3",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     },
+     "guard": "t3"
+    },
+    {
+     "id": "f2",
+     "from": "n2",
+     "to": "n5",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     },
+     "guard": "t4"
+    },
+    {
+     "id": "f3",
+     "from": "n5",
+     "to": "n4",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f4",
+     "from": "n4",
+     "to": "n6",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f5",
+     "from": "n6",
+     "to": "n7",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    }
+   ],
+   "texts": [
+    {
+     "id": "t2",
+     "text": "Change of\nprices?"
+    },
+    {
+     "id": "t3",
+     "text": "False",
+     "labels": "f1"
+    },
+    {
+     "id": "t4",
+     "text": "True",
+     "labels": "f2"
+    }
+   ],
+   "offPage": [],
+   "marks": [],
+   "phases": []
+  },
+  "layout": {
+   "schema": "ubl-activity-diagram-layout/1",
+   "figure": "UBL-2.2-VMI-PriceAdjustment",
+   "units": "px of the original PNG",
+   "size": [
+    3425,
+    2075
+   ],
+   "style": {
+    "fontPx": 72.9,
+    "arrowPx": 76.0,
+    "arrowWidthPx": 61.0,
+    "arrowStyle": "open"
+   },
+   "rules": {
+    "vertical": [
+     {
+      "at": 0,
+      "width": 10,
+      "span": [
+       13,
+       2061
+      ]
+     },
+     {
+      "at": 1811,
+      "width": 6,
+      "span": [
+       13,
+       2061
+      ]
+     },
+     {
+      "at": 3415,
+      "width": 10,
+      "span": [
+       13,
+       2061
+      ]
+     }
+    ],
+    "horizontal": [
+     {
+      "at": 0,
+      "width": 10,
+      "span": [
+       13,
+       3411
+      ]
+     },
+     {
+      "at": 2065,
+      "width": 10,
+      "span": [
+       13,
+       3411
+      ]
+     }
+    ]
+   },
+   "greyRules": [],
+   "lanes": {
+    "lane0": {
+     "x0": 0,
+     "x1": 1814,
+     "titleBox": [
+      718,
+      67,
+      284,
+      52
+     ]
+    },
+    "lane1": {
+     "x0": 1814,
+     "x1": 3425,
+     "titleBox": [
+      2531,
+      68,
+      240,
+      52
+     ]
+    },
+    "lane2": {
+     "y0": 0,
+     "y1": 2075
+    }
+   },
+   "nodes": {
+    "n1": {
+     "x": 673,
+     "y": 213,
+     "w": 115,
+     "h": 115
+    },
+    "n2": {
+     "x": 659,
+     "y": 526,
+     "w": 132,
+     "h": 112,
+     "shape": "rhombus",
+     "stroke": 6,
+     "rx": 72,
+     "ry": 62
+    },
+    "n3": {
+     "x": 88,
+     "y": 536,
+     "w": 98,
+     "h": 98,
+     "shape": "ellipse",
+     "stroke": 6,
+     "rx": 50,
+     "ry": 44,
+     "innerRatio": 0.439
+    },
+    "n4": {
+     "x": 1590,
+     "y": 1141,
+     "w": 453,
+     "h": 180,
+     "shape": "rect",
+     "stroke": 12,
+     "rx": 0,
+     "ry": 0,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 1657,
+       "y": 1198,
+       "w": 338,
+       "h": 67,
+       "text": "Catalogue"
+      }
+     ]
+    },
+    "n5": {
+     "x": 339,
+     "y": 1143,
+     "w": 728,
+     "h": 164,
+     "shape": "rounded",
+     "stroke": 5,
+     "rx": 79,
+     "ry": 56,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 442,
+       "y": 1198,
+       "w": 512,
+       "h": 53,
+       "text": "Send Price List"
+      }
+     ]
+    },
+    "n6": {
+     "x": 2610,
+     "y": 1143,
+     "w": 727,
+     "h": 170,
+     "shape": "rounded",
+     "stroke": 5,
+     "rx": 80,
+     "ry": 62,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 2667,
+       "y": 1199,
+       "w": 604,
+       "h": 52,
+       "text": "Receive Price List"
+      }
+     ]
+    },
+    "n7": {
+     "x": 2917,
+     "y": 1899,
+     "w": 98,
+     "h": 97,
+     "shape": "ellipse",
+     "stroke": 6,
+     "rx": 44,
+     "ry": 45,
+     "innerRatio": 0.439
+    }
+   },
+   "flows": {
+    "f0": {
+     "fromPoint": [
+      725,
+      342
+     ],
+     "toPoint": [
+      724,
+      511
+     ],
+     "routing": "straight"
+    },
+    "f1": {
+     "fromPoint": [
+      644,
+      582
+     ],
+     "toPoint": [
+      200,
+      582
+     ],
+     "routing": "straight"
+    },
+    "f2": {
+     "fromPoint": [
+      725,
+      652
+     ],
+     "toPoint": [
+      723,
+      1128
+     ],
+     "routing": "straight"
+    },
+    "f3": {
+     "fromPoint": [
+      1081,
+      1226
+     ],
+     "toPoint": [
+      1575,
+      1229
+     ],
+     "routing": "straight"
+    },
+    "f4": {
+     "fromPoint": [
+      2057,
+      1228
+     ],
+     "toPoint": [
+      2595,
+      1228
+     ],
+     "routing": "straight"
+    },
+    "f5": {
+     "fromPoint": [
+      2968,
+      1327
+     ],
+     "toPoint": [
+      2967,
+      1884
+     ],
+     "routing": "straight"
+    }
+   },
+   "texts": {
+    "t2": {
+     "x": 930,
+     "y": 499,
+     "w": 252,
+     "h": 122,
+     "lines": [
+      {
+       "x": 930,
+       "y": 499,
+       "w": 252,
+       "h": 51,
+       "text": "Change of"
+      },
+      {
+       "x": 931,
+       "y": 570,
+       "w": 170,
+       "h": 51,
+       "text": "prices?"
+      }
+     ]
+    },
+    "t3": {
+     "x": 417,
+     "y": 527,
+     "w": 128,
+     "h": 39,
+     "lines": [
+      {
+       "x": 417,
+       "y": 527,
+       "w": 128,
+       "h": 39,
+       "text": "False"
+      }
+     ]
+    },
+    "t4": {
+     "x": 753,
+     "y": 691,
+     "w": 110,
+     "h": 39,
+     "lines": [
+      {
+       "x": 753,
+       "y": 691,
+       "w": 110,
+       "h": 39,
+       "text": "True"
+      }
+     ]
+    }
+   },
+   "offPage": {},
+   "marks": {},
+   "phases": {},
+   "rulesHaveSpans": {
+    "vertical": true,
+    "horizontal": true
+   }
+  }
+ },
+ "corrections": [
+  "q13-36"
+ ],
+ "documentLanes": {
+  "object-catalogue": "lane-retailer"
+ },
+ "formerIds": {
+  "lane-producer": "lane0",
+  "lane-retailer": "lane1",
+  "initial-producer": "n1",
+  "decision-producer": "n2",
+  "final-producer": "n3",
+  "object-catalogue": "n4",
+  "action-send-price-list": "n5",
+  "action-receive-price-list": "n6",
+  "final-retailer": "n7",
+  "flow-initial-producer-to-decision-producer": "f0",
+  "flow-decision-producer-to-final-producer": "f1",
+  "flow-decision-producer-to-send-price-list": "f2",
+  "flow-send-price-list-to-catalogue": "f3",
+  "flow-catalogue-to-receive-price-list": "f4",
+  "flow-receive-price-list-to-final-retailer": "f5",
+  "text-change-of-prices": "t2",
+  "text-false": "t3",
+  "text-true": "t4"
+ }
+}

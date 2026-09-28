@@ -1,0 +1,17 @@
+  verdict: CORRECT
+  structural: 0 element(s) absent, 0 invented, 0 text absent, 0 text differs, 0 incoherent
+  line-work  missing 1663 px (0.873%)   invented 1221 px (0.641%)   radius 3
+    line-work-missing      156 px at  3311,820     31x32    on node n6 (action 'Send a report about ')
+    line-work-missing      150 px at  3313,935     29x31    on node n6 (action 'Send a report about ')
+    line-work-missing      142 px at  2390,820     30x30    on node n6 (action 'Send a report about ')
+    line-work-missing      140 px at  1220,939     29x31    on node n7 (action 'Receive a report abo')
+    line-work-missing      134 px at  2390,937     28x29    on node n6 (action 'Send a report about ')
+    line-work-missing      133 px at  1221,824     28x30    on node n7 (action 'Receive a report abo')
+    line-work-missing      125 px at   217,941     26x28    on node n7 (action 'Receive a report abo')
+    line-work-missing      121 px at   217,825     26x28    on node n7 (action 'Receive a report abo')
+    line-work-missing       89 px at  1062,499     26x22    on node n3 (action 'Receive a report abo')
+    line-work-missing       78 px at  1065,597     23x21    on node n3 (action 'Receive a report abo')
+    line-work-missing       77 px at   389,500     24x21    on node n3 (action 'Receive a report abo')
+    line-work-missing       70 px at   389,598     23x20    on node n3 (action 'Receive a report abo')
+    ... and 8 more line-work findings
+review/baseline/UBL-2.2-CRP-SalesAndInventoryMovement-marked.png + review/baseline/UBL-2.2-CRP-SalesAndInventoryMovement-marked-lost.png  (0 finding(s) numbered)

@@ -1,0 +1,99 @@
+{
+ "schema": "ubl-activity-diagram/1",
+ "figure": {
+  "name": "UBL-2.0-ReportStateofAccountsProcess",
+  "source": "UBL-2.0-ReportStateofAccountsProcess.png"
+ },
+ "lanes": [
+  {
+   "id": "lane-accounting-customer",
+   "axis": "column",
+   "index": 0,
+   "title": "Accounting Customer"
+  },
+  {
+   "id": "lane-accounting-supplier",
+   "axis": "column",
+   "index": 1,
+   "title": "Accounting Supplier"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "initial-accounting-supplier",
+   "kind": "initial",
+   "label": "",
+   "lane": "lane-accounting-supplier"
+  },
+  {
+   "id": "object-statement",
+   "kind": "object",
+   "label": "Statement",
+   "lane": null,
+   "between": [
+    "lane-accounting-customer",
+    "lane-accounting-supplier"
+   ]
+  },
+  {
+   "id": "action-receive-statement",
+   "kind": "action",
+   "label": "Receive Statement",
+   "lane": "lane-accounting-customer"
+  },
+  {
+   "id": "action-generate-statement",
+   "kind": "action",
+   "label": "Generate Statement",
+   "lane": "lane-accounting-supplier"
+  },
+  {
+   "id": "final-accounting-customer",
+   "kind": "final",
+   "label": "",
+   "lane": "lane-accounting-customer"
+  }
+ ],
+ "flows": [
+  {
+   "id": "flow-initial-accounting-supplier-to-generate-statement",
+   "from": "initial-accounting-supplier",
+   "to": "action-generate-statement",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-statement-to-receive-statement",
+   "from": "object-statement",
+   "to": "action-receive-statement",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-generate-statement-to-statement",
+   "from": "action-generate-statement",
+   "to": "object-statement",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-receive-statement-to-final-accounting-customer",
+   "from": "action-receive-statement",
+   "to": "final-accounting-customer",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  }
+ ],
+ "texts": [],
+ "offPage": [],
+ "marks": [],
+ "phases": []
+}

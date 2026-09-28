@@ -1,0 +1,605 @@
+{
+ "source": "UBL-2.2-IMFM-TransportServiceDescription.png",
+ "size": [
+  3425,
+  2013
+ ],
+ "fontPx": 74.3,
+ "arrowPx": 98.0,
+ "arrowWidthPx": 78.6,
+ "arrowStyle": "open",
+ "rules": {
+  "v": [
+   [
+    0,
+    10
+   ],
+   [
+    1712,
+    8
+   ],
+   [
+    3415,
+    10
+   ]
+  ],
+  "h": [
+   [
+    0,
+    10
+   ],
+   [
+    2003,
+    10
+   ]
+  ]
+ },
+ "ruleSpan": {
+  "v": [
+   [
+    13,
+    1999
+   ],
+   [
+    13,
+    1999
+   ],
+   [
+    13,
+    1999
+   ]
+  ],
+  "h": [
+   [
+    13,
+    3411
+   ],
+   [
+    13,
+    3411
+   ]
+  ]
+ },
+ "greyRules": [],
+ "dashed": [],
+ "openEnds": [],
+ "crossMarks": [],
+ "partitions": [
+  {
+   "axis": "column",
+   "index": 0,
+   "x0": 0,
+   "x1": 1716,
+   "title": "Transport User",
+   "titleBox": [
+    606,
+    76,
+    471,
+    65
+   ]
+  },
+  {
+   "axis": "column",
+   "index": 1,
+   "x0": 1716,
+   "x1": 3425,
+   "title": "Transport Service Provider",
+   "titleBox": [
+    2149,
+    74,
+    841,
+    67
+   ]
+  },
+  {
+   "axis": "band",
+   "index": 0,
+   "y0": 0,
+   "y1": 2013,
+   "title": ""
+  }
+ ],
+ "nodes": [
+  {
+   "x": 486,
+   "y": 215,
+   "w": 141,
+   "h": 141,
+   "area": 15660,
+   "fill": 1.0,
+   "kind": "initial",
+   "id": "n1",
+   "label": "",
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 1369,
+   "y": 564,
+   "w": 694,
+   "h": 381,
+   "area": 235297,
+   "fill": 0.89,
+   "solid": 1.0,
+   "rx": 0,
+   "ry": 0,
+   "shape": "rect",
+   "keptOnOutline": true,
+   "stroke": 16,
+   "kind": "object",
+   "id": "n2",
+   "label": "Transport Service\nDescription\nRequest",
+   "labelLines": [
+    {
+     "x": 1408,
+     "y": 632,
+     "w": 593,
+     "h": 66,
+     "text": "Transport Service"
+    },
+    {
+     "x": 1523,
+     "y": 711,
+     "w": 385,
+     "h": 65,
+     "text": "Description"
+    },
+    {
+     "x": 1580,
+     "y": 789,
+     "w": 281,
+     "h": 65,
+     "text": "Request"
+    }
+   ],
+   "stem": 0.135,
+   "bold": true,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 2386,
+   "y": 574,
+   "w": 942,
+   "h": 361,
+   "area": 295128,
+   "fill": 0.868,
+   "solid": 0.971,
+   "rx": 105,
+   "ry": 107,
+   "shape": "rounded",
+   "stroke": 8,
+   "kind": "action",
+   "id": "n3",
+   "label": "Receive Transport\nService Description\nRequest",
+   "labelLines": [
+    {
+     "x": 2546,
+     "y": 630,
+     "w": 614,
+     "h": 65,
+     "text": "Receive Transport"
+    },
+    {
+     "x": 2515,
+     "y": 721,
+     "w": 656,
+     "h": 66,
+     "text": "Service Description"
+    },
+    {
+     "x": 2730,
+     "y": 814,
+     "w": 276,
+     "h": 65,
+     "text": "Request"
+    }
+   ],
+   "stem": 0.135,
+   "bold": true,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 90,
+   "y": 581,
+   "w": 941,
+   "h": 354,
+   "area": 294463,
+   "fill": 0.884,
+   "solid": 0.971,
+   "rx": 105,
+   "ry": 111,
+   "shape": "rounded",
+   "stroke": 8,
+   "kind": "action",
+   "id": "n4",
+   "label": "Request Transport\nService Description",
+   "labelLines": [
+    {
+     "x": 263,
+     "y": 677,
+     "w": 627,
+     "h": 65,
+     "text": "Request Transport"
+    },
+    {
+     "x": 226,
+     "y": 768,
+     "w": 655,
+     "h": 66,
+     "text": "Service Description"
+    }
+   ],
+   "stem": 0.135,
+   "bold": true,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 1369,
+   "y": 1172,
+   "w": 694,
+   "h": 381,
+   "area": 242418,
+   "fill": 0.917,
+   "solid": 1.0,
+   "rx": 0,
+   "ry": 0,
+   "shape": "rect",
+   "keptOnOutline": true,
+   "stroke": 16,
+   "kind": "object",
+   "id": "n5",
+   "label": "Transport Service\nDescription",
+   "labelLines": [
+    {
+     "x": 1408,
+     "y": 1279,
+     "w": 593,
+     "h": 66,
+     "text": "Transport Service"
+    },
+    {
+     "x": 1523,
+     "y": 1358,
+     "w": 385,
+     "h": 65,
+     "text": "Description"
+    }
+   ],
+   "stem": 0.135,
+   "bold": true,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 97,
+   "y": 1182,
+   "w": 942,
+   "h": 347,
+   "area": 288800,
+   "fill": 0.884,
+   "solid": 0.97,
+   "rx": 101,
+   "ry": 110,
+   "shape": "rounded",
+   "stroke": 8,
+   "kind": "action",
+   "id": "n6",
+   "label": "Receive Transport\nService Description",
+   "labelLines": [
+    {
+     "x": 256,
+     "y": 1277,
+     "w": 615,
+     "h": 65,
+     "text": "Receive Transport"
+    },
+    {
+     "x": 233,
+     "y": 1368,
+     "w": 655,
+     "h": 66,
+     "text": "Service Description"
+    }
+   ],
+   "stem": 0.135,
+   "bold": true,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 2394,
+   "y": 1182,
+   "w": 941,
+   "h": 347,
+   "area": 290770,
+   "fill": 0.89,
+   "solid": 0.971,
+   "rx": 101,
+   "ry": 107,
+   "shape": "rounded",
+   "stroke": 8,
+   "kind": "action",
+   "id": "n7",
+   "label": "Send Transport Service\nDescription",
+   "labelLines": [
+    {
+     "x": 2459,
+     "y": 1266,
+     "w": 790,
+     "h": 66,
+     "text": "Send Transport Service"
+    },
+    {
+     "x": 2681,
+     "y": 1360,
+     "w": 380,
+     "h": 65,
+     "text": "Description"
+    }
+   ],
+   "stem": 0.135,
+   "bold": true,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 465,
+   "y": 1785,
+   "w": 127,
+   "h": 126,
+   "area": 10157,
+   "fill": 0.635,
+   "solid": 0.791,
+   "rx": 57,
+   "ry": 65,
+   "shape": "ellipse",
+   "stroke": 8,
+   "kind": "final",
+   "innerRatio": 0.441,
+   "id": "n8",
+   "label": "",
+   "col": 0,
+   "row": 0
+  }
+ ],
+ "edges": [
+  {
+   "from": "n1",
+   "to": "n4",
+   "routing": "straight",
+   "fromPoint": [
+    559,
+    370
+   ],
+   "toPoint": [
+    561,
+    566
+   ],
+   "arrowInk": [
+    405,
+    1168
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    97,
+    78.2,
+    2.56
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n4",
+   "to": "n2",
+   "routing": "straight",
+   "fromPoint": [
+    1045,
+    762
+   ],
+   "toPoint": [
+    1354,
+    760
+   ],
+   "arrowInk": [
+    405,
+    1102
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    103,
+    78.7,
+    3.09
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n2",
+   "to": "n3",
+   "routing": "straight",
+   "fromPoint": [
+    2080,
+    753
+   ],
+   "toPoint": [
+    2371,
+    754
+   ],
+   "arrowInk": [
+    437,
+    1141
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    97,
+    78.6,
+    2.54
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n3",
+   "to": "n7",
+   "routing": "straight",
+   "fromPoint": [
+    2863,
+    949
+   ],
+   "toPoint": [
+    2865,
+    1167
+   ],
+   "arrowInk": [
+    405,
+    1168
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    97,
+    78.4,
+    2.53
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n5",
+   "to": "n6",
+   "routing": "straight",
+   "fromPoint": [
+    1354,
+    1357
+   ],
+   "toPoint": [
+    1053,
+    1354
+   ],
+   "arrowInk": [
+    495,
+    1040
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    104,
+    78.1,
+    2.95
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n7",
+   "to": "n5",
+   "routing": "straight",
+   "fromPoint": [
+    2379,
+    1355
+   ],
+   "toPoint": [
+    2080,
+    1356
+   ],
+   "arrowInk": [
+    414,
+    985
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    107,
+    79.3,
+    3.48
+   ],
+   "arrowFill": 0.041,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n6",
+   "to": "n8",
+   "routing": "straight",
+   "fromPoint": [
+    534,
+    1543
+   ],
+   "toPoint": [
+    529,
+    1770
+   ],
+   "arrowInk": [
+    360,
+    1132
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    98,
+    80.2,
+    2.27
+   ],
+   "arrowFill": 0.018,
+   "edgeKind": "control"
+  }
+ ],
+ "text": [
+  {
+   "text": "Transport Service Provider",
+   "x": 2149,
+   "y": 74,
+   "w": 841,
+   "h": 67,
+   "lines": [
+    {
+     "x": 2149,
+     "y": 74,
+     "w": 841,
+     "h": 67,
+     "text": "Transport Service Provider"
+    }
+   ]
+  },
+  {
+   "text": "Transport User",
+   "x": 606,
+   "y": 76,
+   "w": 471,
+   "h": 65,
+   "lines": [
+    {
+     "x": 606,
+     "y": 76,
+     "w": 471,
+     "h": 65,
+     "text": "Transport User"
+    }
+   ]
+  }
+ ],
+ "uncertain": [
+  {
+   "x": 1369,
+   "y": 564,
+   "w": 694,
+   "h": 381,
+   "shape": "rect",
+   "iou": 1.0,
+   "border": 1.0,
+   "kind": "kept-on-outline",
+   "reason": "every side has pass-through line-work, but the region carries a complete outline of its own",
+   "check": "confirm this is a node and not trapped whitespace"
+  },
+  {
+   "x": 1369,
+   "y": 1172,
+   "w": 694,
+   "h": 381,
+   "shape": "rect",
+   "iou": 1.0,
+   "border": 1.0,
+   "kind": "kept-on-outline",
+   "reason": "every side has pass-through line-work, but the region carries a complete outline of its own",
+   "check": "confirm this is a node and not trapped whitespace"
+  }
+ ]
+}

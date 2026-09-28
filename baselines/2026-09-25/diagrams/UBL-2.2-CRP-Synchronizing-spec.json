@@ -1,0 +1,210 @@
+{
+ "canvas": {
+  "w": 1480.0,
+  "h": 521.133
+ },
+ "stroke": {
+  "frame": 4.3,
+  "divider": 2.2,
+  "action": 2.2,
+  "object": 4.8,
+  "edge": 2.2
+ },
+ "font": {
+  "family": "Helvetica, Arial, sans-serif",
+  "node": 29.6,
+  "lane": 29.6,
+  "guard": 29.6
+ },
+ "arrow": 38.9,
+ "arrowWidth": 30.0,
+ "arrowStyle": "open",
+ "dashed": [],
+ "greyRules": [],
+ "crossMarks": [],
+ "openEnds": [
+  {
+   "points": [
+    [
+     740.6,
+     324.5
+    ],
+    [
+     741.9,
+     515.5
+    ]
+   ],
+   "arrow": false
+  }
+ ],
+ "frameBox": [
+  2.2,
+  2.2,
+  1477.8,
+  519.0
+ ],
+ "dividers": [
+  [
+   738.7,
+   2.2,
+   5.6,
+   322.8
+  ]
+ ],
+ "bands": [],
+ "lanes": [
+  {
+   "title": "Producer",
+   "x": 0.0,
+   "w": 738.9,
+   "cx": 359.3,
+   "cy": 30.5
+  },
+  {
+   "title": "Retailer",
+   "x": 738.9,
+   "w": 741.1,
+   "cx": 1102.1,
+   "cy": 30.5
+  }
+ ],
+ "bandLabels": [],
+ "nodes": [
+  {
+   "id": "n1",
+   "kind": "initial",
+   "label": "",
+   "x": 1194.4,
+   "y": 76.1,
+   "w": 43.6,
+   "h": 43.6
+  },
+  {
+   "id": "n2",
+   "kind": "object",
+   "label": "Inventory Report",
+   "x": 608.2,
+   "y": 244.8,
+   "w": 263.6,
+   "h": 76.1,
+   "labelLines": [
+    {
+     "text": "Inventory Report",
+     "cx": 745.4,
+     "cy": 283.3,
+     "w": 226.4
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n3",
+   "kind": "action",
+   "label": "Synchronize stock information",
+   "x": 36.5,
+   "y": 249.1,
+   "w": 434.7,
+   "h": 69.6,
+   "rx": 35.2,
+   "ry": 21.0,
+   "labelLines": [
+    {
+     "text": "Synchronize stock information",
+     "cx": 251.1,
+     "cy": 285.2,
+     "w": 410.5
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n4",
+   "kind": "action",
+   "label": "Send information about stock",
+   "x": 988.9,
+   "y": 251.3,
+   "w": 454.6,
+   "h": 69.6,
+   "rx": 41.7,
+   "ry": 25.7,
+   "labelLines": [
+    {
+     "text": "Send information about stock",
+     "cx": 1214.9,
+     "cy": 284.5,
+     "w": 398.0
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n5",
+   "kind": "final",
+   "label": "",
+   "x": 234.2,
+   "y": 457.6,
+   "w": 41.5,
+   "h": 41.5,
+   "innerRatio": 0.444
+  }
+ ],
+ "edges": [
+  {
+   "from": "n1",
+   "to": "n4",
+   "exitXY": [
+    0.5138,
+    1.0
+   ],
+   "entryXY": [
+    0.5013,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n2",
+   "to": "n3",
+   "exitXY": [
+    0.0,
+    0.502
+   ],
+   "entryXY": [
+    1.0,
+    0.5
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n4",
+   "to": "n2",
+   "exitXY": [
+    0.0,
+    0.4741
+   ],
+   "entryXY": [
+    1.0,
+    0.502
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n3",
+   "to": "n5",
+   "exitXY": [
+    0.4985,
+    1.0
+   ],
+   "entryXY": [
+    0.4795,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  }
+ ],
+ "guards": []
+}

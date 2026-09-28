@@ -1,0 +1,710 @@
+{
+ "schema": "ubl-activity-diagram-layout/1",
+ "figure": "UBL-2.2-VMI-PermanentReplenishment",
+ "units": "px of the original PNG",
+ "size": [
+  3425,
+  3211
+ ],
+ "style": {
+  "fontPx": 51.4,
+  "arrowPx": 51.0,
+  "arrowWidthPx": 42.0,
+  "arrowStyle": "open"
+ },
+ "rules": {
+  "vertical": [
+   {
+    "at": 0,
+    "width": 10,
+    "span": [
+     13,
+     3197
+    ]
+   },
+   {
+    "at": 1406,
+    "width": 4,
+    "span": [
+     13,
+     3197
+    ]
+   },
+   {
+    "at": 3415,
+    "width": 10,
+    "span": [
+     13,
+     3197
+    ]
+   }
+  ],
+  "horizontal": [
+   {
+    "at": 0,
+    "width": 10,
+    "span": [
+     13,
+     3411
+    ]
+   },
+   {
+    "at": 3201,
+    "width": 10,
+    "span": [
+     13,
+     3411
+    ]
+   }
+  ]
+ },
+ "greyRules": [],
+ "lanes": {
+  "lane-producer": {
+   "x0": 0,
+   "x1": 1408,
+   "titleBox": [
+    566,
+    49,
+    195,
+    36
+   ]
+  },
+  "lane-retailer": {
+   "x0": 1408,
+   "x1": 3425,
+   "titleBox": [
+    2306,
+    50,
+    165,
+    36
+   ]
+  }
+ },
+ "nodes": {
+  "initial-producer": {
+   "x": 618,
+   "y": 150,
+   "w": 79,
+   "h": 80
+  },
+  "decision-producer": {
+   "x": 608,
+   "y": 367,
+   "w": 91,
+   "h": 77,
+   "shape": "rhombus",
+   "stroke": 4,
+   "rx": 51,
+   "ry": 43
+  },
+  "object-catalogue": {
+   "x": 1250,
+   "y": 791,
+   "w": 313,
+   "h": 124,
+   "shape": "rect",
+   "stroke": 8,
+   "rx": 0,
+   "ry": 0,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 1297,
+     "y": 831,
+     "w": 233,
+     "h": 46,
+     "text": "Catalogue"
+    }
+   ]
+  },
+  "action-send-catalogue": {
+   "x": 388,
+   "y": 793,
+   "w": 502,
+   "h": 113,
+   "shape": "rounded",
+   "stroke": 4,
+   "rx": 53.5,
+   "ry": 32,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 448,
+     "y": 831,
+     "w": 367,
+     "h": 46,
+     "text": "Send Catalogue"
+    }
+   ]
+  },
+  "action-update-products-database": {
+   "x": 2642,
+   "y": 804,
+   "w": 697,
+   "h": 117,
+   "shape": "rounded",
+   "stroke": 4,
+   "rx": 53.5,
+   "ry": 31,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 2684,
+     "y": 843,
+     "w": 611,
+     "h": 45,
+     "text": "Update products database"
+    }
+   ]
+  },
+  "action-receive-catalogue": {
+   "x": 1954,
+   "y": 808,
+   "w": 502,
+   "h": 117,
+   "shape": "rounded",
+   "stroke": 4,
+   "rx": 53.5,
+   "ry": 43,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 1982,
+     "y": 846,
+     "w": 431,
+     "h": 46,
+     "text": "Receive Catalogue"
+    }
+   ]
+  },
+  "object-despatch-advice": {
+   "x": 1201,
+   "y": 1135,
+   "w": 415,
+   "h": 125,
+   "shape": "rect",
+   "stroke": 8,
+   "rx": 0,
+   "ry": 0,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 1214,
+     "y": 1175,
+     "w": 392,
+     "h": 45,
+     "text": "Despatch Advice"
+    }
+   ]
+  },
+  "action-send-despatch-advice": {
+   "x": 399,
+   "y": 1137,
+   "w": 517,
+   "h": 143,
+   "shape": "rounded",
+   "stroke": 4,
+   "rx": 66,
+   "ry": 44,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 474,
+     "y": 1164,
+     "w": 349,
+     "h": 46,
+     "text": "Send Despatch"
+    },
+    {
+     "x": 579,
+     "y": 1226,
+     "w": 158,
+     "h": 35,
+     "text": "Advice"
+    }
+   ]
+  },
+  "action-receive-despatch-advice": {
+   "x": 1890,
+   "y": 1141,
+   "w": 751,
+   "h": 117,
+   "shape": "rounded",
+   "stroke": 4,
+   "rx": 55,
+   "ry": 38,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 1967,
+     "y": 1179,
+     "w": 590,
+     "h": 45,
+     "text": "Receive Despatch Advice"
+    }
+   ]
+  },
+  "action-despatch-item-s": {
+   "x": 373,
+   "y": 1511,
+   "w": 573,
+   "h": 117,
+   "shape": "rounded",
+   "stroke": 4,
+   "rx": 57,
+   "ry": 32,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 468,
+     "y": 1549,
+     "w": 390,
+     "h": 46,
+     "text": "Despatch item(s)"
+    }
+   ]
+  },
+  "action-receive-item-s": {
+   "x": 1917,
+   "y": 1515,
+   "w": 573,
+   "h": 117,
+   "shape": "rounded",
+   "stroke": 5,
+   "rx": 51,
+   "ry": 33,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 2024,
+     "y": 1552,
+     "w": 354,
+     "h": 47,
+     "text": "Receive item(s)"
+    }
+   ]
+  },
+  "fork-retailer": {
+   "x": 2015,
+   "y": 1855,
+   "w": 1159,
+   "h": 22
+  },
+  "action-check-status-of-item-s": {
+   "x": 2302,
+   "y": 2154,
+   "w": 577,
+   "h": 120,
+   "shape": "rounded",
+   "stroke": 5,
+   "rx": 52,
+   "ry": 34,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 2328,
+     "y": 2191,
+     "w": 536,
+     "h": 46,
+     "text": "Check status of item(s)"
+    }
+   ]
+  },
+  "object-receipt-advice": {
+   "x": 1197,
+   "y": 2454,
+   "w": 419,
+   "h": 128,
+   "shape": "rect",
+   "stroke": 8,
+   "rx": 0,
+   "ry": 0,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 1235,
+     "y": 2494,
+     "w": 349,
+     "h": 45,
+     "text": "Receipt Advice"
+    }
+   ]
+  },
+  "action-send-receipt-advice": {
+   "x": 2298,
+   "y": 2455,
+   "w": 577,
+   "h": 117,
+   "shape": "rounded",
+   "stroke": 4,
+   "rx": 53.5,
+   "ry": 35,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 2339,
+     "y": 2493,
+     "w": 482,
+     "h": 46,
+     "text": "Send Receipt Advice"
+    }
+   ]
+  },
+  "action-receive-receipt-advice": {
+   "x": 407,
+   "y": 2463,
+   "w": 577,
+   "h": 113,
+   "shape": "rounded",
+   "stroke": 4,
+   "rx": 53.5,
+   "ry": 31,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 419,
+     "y": 2501,
+     "w": 546,
+     "h": 45,
+     "text": "Receive Receipt Advice"
+    }
+   ]
+  },
+  "action-adjust-supply-status": {
+   "x": 407,
+   "y": 2754,
+   "w": 577,
+   "h": 121,
+   "shape": "rounded",
+   "stroke": 4,
+   "rx": 53.5,
+   "ry": 33,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 461,
+     "y": 2792,
+     "w": 480,
+     "h": 46,
+     "text": "Adjust supply status"
+    }
+   ]
+  },
+  "final-producer": {
+   "x": 663,
+   "y": 3106,
+   "w": 68,
+   "h": 67,
+   "shape": "ellipse",
+   "stroke": 4,
+   "rx": 31,
+   "ry": 37,
+   "innerRatio": 0.426
+  }
+ },
+ "flows": {
+  "flow-initial-producer-to-decision-producer": {
+   "fromPoint": [
+    655,
+    244
+   ],
+   "toPoint": [
+    653,
+    352
+   ],
+   "routing": "straight"
+  },
+  "flow-decision-producer-to-send-despatch-advice": {
+   "fromPoint": [
+    593,
+    406
+   ],
+   "toPoint": [
+    384,
+    1207
+   ],
+   "routing": "orthogonal",
+   "points": [
+    [
+     84,
+     406
+    ],
+    [
+     84,
+     1207
+    ]
+   ]
+  },
+  "flow-decision-producer-to-send-catalogue": {
+   "fromPoint": [
+    654,
+    458
+   ],
+   "toPoint": [
+    652,
+    778
+   ],
+   "routing": "straight"
+  },
+  "flow-send-catalogue-to-catalogue": {
+   "fromPoint": [
+    904,
+    850
+   ],
+   "toPoint": [
+    1235,
+    851
+   ],
+   "routing": "straight"
+  },
+  "flow-catalogue-to-receive-catalogue": {
+   "fromPoint": [
+    1577,
+    853
+   ],
+   "toPoint": [
+    1939,
+    856
+   ],
+   "routing": "straight"
+  },
+  "flow-receive-catalogue-to-update-products-database": {
+   "fromPoint": [
+    2470,
+    863
+   ],
+   "toPoint": [
+    2627,
+    862
+   ],
+   "routing": "straight"
+  },
+  "flow-send-catalogue-to-send-despatch-advice": {
+   "fromPoint": [
+    648,
+    920
+   ],
+   "toPoint": [
+    652,
+    1122
+   ],
+   "routing": "straight"
+  },
+  "flow-update-products-database-to-fork-retailer": {
+   "fromPoint": [
+    2990,
+    935
+   ],
+   "toPoint": [
+    2990,
+    1840
+   ],
+   "routing": "straight"
+  },
+  "flow-receive-catalogue-to-receive-despatch-advice": {
+   "fromPoint": [
+    2204,
+    939
+   ],
+   "toPoint": [
+    2207,
+    1126
+   ],
+   "routing": "straight"
+  },
+  "flow-send-despatch-advice-to-despatch-advice": {
+   "fromPoint": [
+    930,
+    1203
+   ],
+   "toPoint": [
+    1186,
+    1198
+   ],
+   "routing": "straight"
+  },
+  "flow-despatch-advice-to-receive-despatch-advice": {
+   "fromPoint": [
+    1630,
+    1198
+   ],
+   "toPoint": [
+    1875,
+    1199
+   ],
+   "routing": "straight"
+  },
+  "flow-receive-despatch-advice-to-fork-retailer": {
+   "fromPoint": [
+    2552,
+    1272
+   ],
+   "toPoint": [
+    2553,
+    1840
+   ],
+   "routing": "straight"
+  },
+  "flow-send-despatch-advice-to-despatch-item-s": {
+   "fromPoint": [
+    649,
+    1294
+   ],
+   "toPoint": [
+    651,
+    1496
+   ],
+   "routing": "straight"
+  },
+  "flow-despatch-item-s-to-receive-item-s": {
+   "fromPoint": [
+    960,
+    1569
+   ],
+   "toPoint": [
+    1902,
+    1569
+   ],
+   "routing": "straight"
+  },
+  "flow-receive-item-s-to-fork-retailer": {
+   "fromPoint": [
+    2203,
+    1646
+   ],
+   "toPoint": [
+    2206,
+    1840
+   ],
+   "routing": "straight"
+  },
+  "flow-fork-retailer-to-check-status-of-item-s": {
+   "fromPoint": [
+    2590,
+    1891
+   ],
+   "toPoint": [
+    2590,
+    2139
+   ],
+   "routing": "straight"
+  },
+  "flow-check-status-of-item-s-to-send-receipt-advice": {
+   "fromPoint": [
+    2587,
+    2288
+   ],
+   "toPoint": [
+    2586,
+    2440
+   ],
+   "routing": "straight"
+  },
+  "flow-send-receipt-advice-to-receipt-advice": {
+   "fromPoint": [
+    2283,
+    2513
+   ],
+   "toPoint": [
+    1630,
+    2514
+   ],
+   "routing": "straight"
+  },
+  "flow-receipt-advice-to-receive-receipt-advice": {
+   "fromPoint": [
+    1182,
+    2518
+   ],
+   "toPoint": [
+    998,
+    2518
+   ],
+   "routing": "straight"
+  },
+  "flow-receive-receipt-advice-to-adjust-supply-status": {
+   "fromPoint": [
+    694,
+    2590
+   ],
+   "toPoint": [
+    694,
+    2739
+   ],
+   "routing": "straight"
+  },
+  "flow-adjust-supply-status-to-final-producer": {
+   "fromPoint": [
+    695,
+    2889
+   ],
+   "toPoint": [
+    695,
+    3091
+   ],
+   "routing": "straight"
+  }
+ },
+ "texts": {
+  "text-is-there-a-new-item-to-be-delivered": {
+   "x": 733,
+   "y": 378,
+   "w": 355,
+   "h": 77,
+   "lines": [
+    {
+     "x": 733,
+     "y": 378,
+     "w": 355,
+     "h": 28,
+     "text": "Is there a new item to"
+    },
+    {
+     "x": 732,
+     "y": 427,
+     "w": 222,
+     "h": 28,
+     "text": "be delivered?"
+    }
+   ]
+  },
+  "text-false": {
+   "x": 442,
+   "y": 367,
+   "w": 88,
+   "h": 27,
+   "lines": [
+    {
+     "x": 442,
+     "y": 367,
+     "w": 88,
+     "h": 27,
+     "text": "False"
+    }
+   ]
+  },
+  "text-true": {
+   "x": 674,
+   "y": 481,
+   "w": 75,
+   "h": 27,
+   "lines": [
+    {
+     "x": 674,
+     "y": 481,
+     "w": 75,
+     "h": 27,
+     "text": "True"
+    }
+   ]
+  }
+ },
+ "offPage": {},
+ "marks": {},
+ "phases": {},
+ "rulesHaveSpans": {
+  "vertical": true,
+  "horizontal": true
+ }
+}

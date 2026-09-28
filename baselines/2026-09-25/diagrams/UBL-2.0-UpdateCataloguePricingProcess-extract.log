@@ -1,0 +1,101 @@
+image 3425x4484
+
+PARTITION RULES
+   vertical  : [(0, 10), (1546, 6), (3415, 10)]
+   horizontal: [(0, 10), (4474, 10)]
+   -> 2 column(s) x 1 band(s)
+   type measured off the page: a word is 42px tall
+   (dropped x=10    y=10    1536x4464  is a partition cell)
+   (dropped x=1552  y=10    1863x4464  is a partition cell)
+   (dropped x=587   y=2164   959x894   outline matches no UML node shape (best rounded 0.73, and 1.00 is the most this shape can reach at this size))
+   (dropped x=588   y=3064   958x757   4 of 4 sides are pass-through line-work)
+   object nodes are those stroked heavier than 8.0px
+
+NODES
+   n1   initial   x=3068  y=232   w=92    h=92    stroke=0   fill=0.77  ''
+   n2   decision  x=2450  y=265   w=600   h=354   stroke=5   fill=0.47  'Respond to Request'
+   n3   object    x=1358  y=335   w=396   h=214   stroke=10  fill=0.92  'Catalogue\nRequest'
+   n4   action    x=460   y=378   w=634   h=132   stroke=5   fill=0.84  'Request Catalogue Update'
+   n5   initial   x=94    y=397   w=91    h=91    stroke=0   fill=0.79  ''
+   n6   object    x=1335  y=902   w=397   h=209   stroke=10  fill=0.87  'Application\nResponse\n(negative)'
+   n7   action    x=2032  y=909   w=556   h=163   stroke=6   fill=0.90  'Send Rejection'
+   n8   final     x=711   y=963   w=82    h=82    stroke=5   fill=0.63  ''
+   n9   fork      x=2611  y=1186  w=302   h=29    stroke=0   fill=0.62  ''
+   n10  object    x=1344  y=1555  w=397   h=213   stroke=10  fill=0.88  'Application\nResponse\n(positive)'
+   n11  action    x=2022  y=1580  w=552   h=191   stroke=5   fill=0.88  'Send Acceptance\nResponse'
+   n12  action    x=2667  y=1608  w=602   h=222   stroke=6   fill=0.86  'Prepare Catalogue Pricing\nUpdate Information'
+   n13  object    x=1358  y=2052  w=424   h=214   stroke=10  fill=0.91  'Catalogue Pricing\nUpdate'
+   n14  action    x=2694  y=2064  w=611   h=191   stroke=6   fill=0.88  'Distribute Pricing\nModifications'
+   n15  fork      x=857   y=2145  w=183   h=28    stroke=0   fill=0.70  ''
+   n16  action    x=469   y=2475  w=634   h=145   stroke=5   fill=0.88  'Receive Pricing Update'
+   n17  decision  x=321   y=2855  w=528   h=413   stroke=6   fill=0.47  'Review Pricing\nDetails'
+   n18  decision  x=2815  y=2864  w=497   h=367   stroke=5   fill=0.48  'Decide on Action'
+   n19  object    x=1362  y=2956  w=397   h=214   stroke=10  fill=0.88  'Application\nResponse\n(negative)'
+   n20  action    x=314   y=3726  w=556   h=191   stroke=5   fill=0.89  'Acknowledge\nAcceptance'
+   n21  object    x=1339  y=3733  w=397   h=214   stroke=10  fill=0.88  'Application\nResponse\n(positive)'
+   n22  action    x=2127  y=3749  w=635   h=173   stroke=5   fill=0.91  'Activate Changes'
+   n23  final     x=3023  y=3772  w=81    h=81    stroke=0   fill=0.65  ''
+   n24  action    x=291   y=4214  w=556   h=192   stroke=5   fill=0.92  'Apply Changes'
+   n25  final     x=1282  y=4274  w=82    h=81    stroke=5   fill=0.64  ''
+
+TYPE  cap height 34px over 385 glyphs -> font 48.6px
+   corner radius rx on 'Request Catalogue Update' could not be read (it came back larger than the box) - taking the 66 the rest of its kind measures
+   rejoined 3 line break(s) of up to 87px, where a label sits on the line
+   chained 4 dashes into one dashed flow
+   chained 4 dashes into one dashed flow
+
+EDGES
+   n1   -> n12   straight    arrowhead   760 vs 225    ratio 4.0  high
+   n3   -> n2    straight    arrowhead   755 vs 225    ratio 4.0  high
+   n5   -> n4    straight    arrowhead   765 vs 225    ratio 4.0  high
+   n4   -> n3    straight    arrowhead   724 vs 225    ratio 4.0  high
+   n5   -> (off the diagram) at 125,512
+   n5   -> (off the diagram) at 193,513
+   n2   -> n7    diagonal    arrowhead   669 vs 526    ratio 4.0  high
+   n2   -> n9    straight    arrowhead   775 vs 452    ratio 1.7  medium
+   n7   -> n6    straight    arrowhead   682 vs 230    ratio 4.0  high
+   n6   -> n8    straight    arrowhead   736 vs 230    ratio 4.0  high
+   n9   -> n11   diagonal    arrowhead   711 vs 517    ratio 4.0  high
+   n9   -> n12   diagonal    arrowhead   802 vs 369    ratio 4.0  high
+   n11  -> n10   straight    arrowhead   678 vs 230    ratio 4.0  high
+   n10  -> n15   diagonal    arrowhead   670 vs 322    ratio 4.0  high
+   n12  -> n14   straight    arrowhead   762 vs 225    ratio 4.0  high
+   n13  -> n15   straight    arrowhead   856 vs 230    ratio 4.0  high
+   n14  -> n13   straight    arrowhead   672 vs 230    ratio 4.0  high
+   n15  -> n16   straight    arrowhead   825 vs 270    ratio 4.0  high
+   n18  -> n14   straight    arrowhead   736 vs 230    ratio 4.0  high
+   n16  -> n17   straight    arrowhead   807 vs 270    ratio 4.0  high
+   n19  -> n18   straight    arrowhead   756 vs 225    ratio 4.0  high
+   n17  -> n19   straight    arrowhead   763 vs 270    ratio 4.0  high
+   n18  -> n23   straight    arrowhead   763 vs 225    ratio 4.0  high
+   n17  -> n20   straight    arrowhead   807 vs 270    ratio 4.0  high
+   n22  -> n23   straight    arrowhead   806 vs 270    ratio 4.0  high
+   n20  -> n21   straight    arrowhead   765 vs 270    ratio 4.0  high
+   n21  -> n22   straight    arrowhead   768 vs 225    ratio 4.0  high
+   n20  -> n24   straight    arrowhead   769 vs 225    ratio 4.0  high
+   n24  -> n25   straight    arrowhead   768 vs 225    ratio 4.0  high
+
+TEXT (titles, guards, notes)
+   'Receiver Party'                         x=625   y=28    
+   'Provider Party'                         x=2338  y=28    
+   'Supplier Initiated\nUpdate'             x=2885  y=142   
+   'J,ustomer\nnitiated\nJpdate'            x=121   y=521   
+   '[reject request]'                       x=2242  y=709   n2->n7
+   '[accept request]'                       x=2708  y=919   n2->n9
+   (dropped x=2725  y=1123    51x49    '\\/' - line-work, not text)
+   (dropped x=2413  y=1547    43x19    'ty”' - line-work, not text)
+   '[revise catalogue pricing]'             x=2488  y=2553  n18->n14
+   '[query changes]'                        x=940   y=3083  n17->n19
+   '[cancel transaction]'                   x=2589  y=3435  n18->n23
+   '[accept changes]'                       x=647   y=3454  n17->n20
+
+PARTITIONS
+   column 0  'Receiver Party'
+   column 1  'Provider Party'
+   band   0  ''
+
+ARROWHEAD  64 x 52px, open, measured on 22 connector(s)
+   (dropped the open end at 107,512 - it is ink inside 'J,ustomer nitiated Jpdate')
+   (dropped the open end at 151,513 - it is ink inside 'J,ustomer nitiated Jpdate')
+
+wrote review/baseline/UBL-2.0-UpdateCataloguePricingProcess-graph.json   (25 nodes, 27 edges, 4 flagged for a human)

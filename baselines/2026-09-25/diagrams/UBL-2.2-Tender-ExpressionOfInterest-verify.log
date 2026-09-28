@@ -1,0 +1,6 @@
+  verdict: NEEDS-HUMAN
+  structural: 0 element(s) absent, 0 invented, 0 text absent, 0 text differs, 0 incoherent
+  line-work  missing 112 px (0.043%)   invented 0 px (0.000%)   radius 3
+  needs a person (1):
+    dropped-region     at 1710,786  a shape here would be missing from the SVG
+review/baseline/UBL-2.2-Tender-ExpressionOfInterest-marked.png + review/baseline/UBL-2.2-Tender-ExpressionOfInterest-marked-lost.png  (1 finding(s) numbered)

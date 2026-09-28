@@ -1,0 +1,163 @@
+{
+ "schema": "ubl-activity-diagram/1",
+ "figure": {
+  "name": "UBL-2.2-Tender-UnsubscribeFromProcedure",
+  "source": "UBL-2.2-Tender-UnsubscribeFromProcedure.png"
+ },
+ "lanes": [
+  {
+   "id": "lane-economic-operator",
+   "axis": "column",
+   "index": 0,
+   "title": "Economic Operator"
+  },
+  {
+   "id": "lane-contracting-authority",
+   "axis": "column",
+   "index": 1,
+   "title": "Contracting Authority"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "initial-economic-operator",
+   "kind": "initial",
+   "label": "",
+   "lane": "lane-economic-operator"
+  },
+  {
+   "id": "action-prepare-unsubscribe-from-procedure",
+   "kind": "action",
+   "label": "Prepare unsubscribe from procedure",
+   "lane": "lane-economic-operator"
+  },
+  {
+   "id": "object-unsubscribe-from-procedure-request",
+   "kind": "object",
+   "label": "Unsubscribe\nFrom\nProcedure\nRequest",
+   "lane": null,
+   "between": [
+    "lane-economic-operator",
+    "lane-contracting-authority"
+   ]
+  },
+  {
+   "id": "action-submit-unsubscribe-from-procedure-in-economic-operator",
+   "kind": "action",
+   "label": "Submit unsubscribe from procedure",
+   "lane": "lane-economic-operator"
+  },
+  {
+   "id": "action-receive-unsubscribe-from-procedure-in-contracting-authority",
+   "kind": "action",
+   "label": "Receive unsubscribe from procedure",
+   "lane": "lane-contracting-authority"
+  },
+  {
+   "id": "object-unsubscribe-from-procedure-response",
+   "kind": "object",
+   "label": "Unsubscribe\nFrom\nProcedure\nResponse",
+   "lane": null,
+   "between": [
+    "lane-economic-operator",
+    "lane-contracting-authority"
+   ]
+  },
+  {
+   "id": "action-receive-unsubscribe-from-procedure-in-economic-operator",
+   "kind": "action",
+   "label": "Receive unsubscribe from procedure\nconfirmation",
+   "lane": "lane-economic-operator"
+  },
+  {
+   "id": "action-submit-unsubscribe-from-procedure-in-contracting-authority",
+   "kind": "action",
+   "label": "Submit unsubscribe from procedure\nconfirmation",
+   "lane": "lane-contracting-authority"
+  },
+  {
+   "id": "final-economic-operator",
+   "kind": "final",
+   "label": "",
+   "lane": "lane-economic-operator"
+  }
+ ],
+ "flows": [
+  {
+   "id": "flow-initial-economic-operator-to-prepare-unsubscribe-from-procedure",
+   "from": "initial-economic-operator",
+   "to": "action-prepare-unsubscribe-from-procedure",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-prepare-unsubscribe-from-procedure-to-submit-unsubscribe-from-procedure-in-economic-operator",
+   "from": "action-prepare-unsubscribe-from-procedure",
+   "to": "action-submit-unsubscribe-from-procedure-in-economic-operator",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-submit-unsubscribe-from-procedure-in-economic-operator-to-unsubscribe-from-procedure-request",
+   "from": "action-submit-unsubscribe-from-procedure-in-economic-operator",
+   "to": "object-unsubscribe-from-procedure-request",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-unsubscribe-from-procedure-request-to-receive-unsubscribe-from-procedure-in-contracting-authority",
+   "from": "object-unsubscribe-from-procedure-request",
+   "to": "action-receive-unsubscribe-from-procedure-in-contracting-authority",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-receive-unsubscribe-from-procedure-in-contracting-authority-to-submit-unsubscribe-from-procedure-in-contracting-authority",
+   "from": "action-receive-unsubscribe-from-procedure-in-contracting-authority",
+   "to": "action-submit-unsubscribe-from-procedure-in-contracting-authority",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-unsubscribe-from-procedure-response-to-receive-unsubscribe-from-procedure-in-economic-operator",
+   "from": "object-unsubscribe-from-procedure-response",
+   "to": "action-receive-unsubscribe-from-procedure-in-economic-operator",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-submit-unsubscribe-from-procedure-in-contracting-authority-to-unsubscribe-from-procedure-response",
+   "from": "action-submit-unsubscribe-from-procedure-in-contracting-authority",
+   "to": "object-unsubscribe-from-procedure-response",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-receive-unsubscribe-from-procedure-in-economic-operator-to-final-economic-operator",
+   "from": "action-receive-unsubscribe-from-procedure-in-economic-operator",
+   "to": "final-economic-operator",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  }
+ ],
+ "texts": [],
+ "offPage": [],
+ "marks": [],
+ "phases": []
+}

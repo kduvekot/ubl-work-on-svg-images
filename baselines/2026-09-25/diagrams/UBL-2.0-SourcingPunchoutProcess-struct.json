@@ -1,0 +1,61 @@
+{
+ "name": "UBL-2.0-SourcingPunchoutProcess.png",
+ "verdict": "needs-human",
+ "radius": 3,
+ "lineWorkInk": 252987,
+ "missingPx": 222,
+ "inventedPx": 36,
+ "structural": {
+  "absent": 0,
+  "invented": 0,
+  "coherence": 0,
+  "textAbsent": 0,
+  "textDiffers": 0
+ },
+ "blocking": [],
+ "findings": [
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n7 -> n5",
+   "x": 2112,
+   "y": 1411,
+   "w": 10,
+   "h": 10,
+   "area": 71
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n7 -> n5",
+   "x": 2112,
+   "y": 1354,
+   "w": 10,
+   "h": 9,
+   "area": 70
+  }
+ ],
+ "text": [],
+ "coherence": [],
+ "human": [
+  {
+   "x": 1495,
+   "y": 1244,
+   "w": 521,
+   "h": 281,
+   "shape": "rect",
+   "iou": 1.0,
+   "border": 1.0,
+   "kind": "kept-on-outline",
+   "reason": "every side has pass-through line-work, but the region carries a complete outline of its own",
+   "check": "confirm this is a node and not trapped whitespace"
+  }
+ ],
+ "review": [
+  {
+   "n": 1,
+   "what": "check",
+   "where": "1495,1244 521x281",
+   "detail": "every side has pass-through line-work, but the region carries a complete outline of its own",
+   "check": "confirm this is a node and not trapped whitespace"
+  }
+ ]
+}

@@ -1,0 +1,19 @@
+  verdict: NEEDS-HUMAN
+  structural: 0 element(s) absent, 0 invented, 0 text absent, 0 text differs, 0 incoherent
+  line-work  missing 1754 px (0.539%)   invented 1904 px (0.585%)   radius 3
+    line-work-missing      194 px at  1270,2430     1x194   near edge n15 -> n14
+    line-work-missing      126 px at  2820,2313    27x22    on node n13 (action 'Check status of item')
+    line-work-missing      122 px at  2224,2417    25x26    on node n13 (action 'Check status of item')
+    line-work-missing      120 px at  2224,2314    24x26    on node n13 (action 'Check status of item')
+    line-work-missing      103 px at  2569,1321    24x24    on node n9 (action 'Receive Despatch Adv')
+    line-work-missing      102 px at  2569,1221    24x24    on node n9 (action 'Receive Despatch Adv')
+    line-work-missing       88 px at  2822,2429    22x14    on node n13 (action 'Check status of item')
+    line-work-missing       80 px at  1784,1221    22x20    on node n9 (action 'Receive Despatch Adv')
+    line-work-missing       77 px at  1784,1325    22x20    on node n9 (action 'Receive Despatch Adv')
+    line-work-missing       69 px at  1270,1360     1x69    near edge n7 -> n9
+    line-work-invented     132 px at  2230,2408    25x28    on node n13 (action 'Check status of item')
+    line-work-invented     128 px at  2231,2320    26x26    on node n13 (action 'Check status of item')
+    ... and 8 more line-work findings
+  needs a person (1):
+    unexplained-line-work at 1269,1362  decide what this is; the SVG does not draw it
+review/baseline/UBL-2.2-VMI-InitialStocking-marked.png + review/baseline/UBL-2.2-VMI-InitialStocking-marked-lost.png  (1 finding(s) numbered)

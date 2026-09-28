@@ -1,0 +1,11 @@
+== UBL-2.3-ManifestProcess
+  UBL-2.3-ManifestProcess -> diagram, layout, extraction  (5 nodes, 4 flows, 0 texts)
+  scale 0.43199   frame 8px  divider 10px  action 5px  object 10px
+  font 59px (25.3 model)   2 lanes, 0 bands, 5 nodes, 4 edges -> /tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-2.3-ManifestProcess-spec.json
+  /tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-2.3-ManifestProcess.svg + .drawio + -classified.svg   (5 nodes, 4 edges)
+  aligned on ink bounds: scale x 1.0000, y 1.0008
+  size 3426x1291  radius 2
+  ink: original 171259   candidate 174171
+  MISSING (red)     2693  = 1.5725% of original ink
+  EXTRA   (blue)    3354  = 1.9584% of original ink
+  RESULT: DIFFERENCES - inspect /tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-2.3-ManifestProcess-diff-r2.png

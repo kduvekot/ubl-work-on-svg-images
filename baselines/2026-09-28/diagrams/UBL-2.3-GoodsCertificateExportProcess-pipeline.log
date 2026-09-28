@@ -1,0 +1,11 @@
+== UBL-2.3-GoodsCertificateExportProcess
+  UBL-2.3-GoodsCertificateExportProcess -> diagram, layout, extraction  (19 nodes, 19 flows, 2 texts)
+  scale 0.86449   frame 5px  divider 2px  action 2px  object 3px
+  font 26px (22.2 model)   3 lanes, 0 bands, 19 nodes, 19 edges -> /tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-2.3-GoodsCertificateExportProcess-spec.json
+  /tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-2.3-GoodsCertificateExportProcess.svg + .drawio + -classified.svg   (19 nodes, 19 edges)
+  aligned on ink bounds: scale x 1.0006, y 1.0000
+  size 1712x1279  radius 2
+  ink: original 105504   candidate 101013
+  MISSING (red)      880  = 0.8341% of original ink
+  EXTRA   (blue)     449  = 0.4256% of original ink
+  RESULT: DIFFERENCES - inspect /tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-2.3-GoodsCertificateExportProcess-diff-r2.png

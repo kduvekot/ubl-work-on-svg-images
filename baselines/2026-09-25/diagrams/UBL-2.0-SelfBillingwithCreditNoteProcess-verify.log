@@ -1,0 +1,25 @@
+  verdict: NEEDS-HUMAN
+  structural: 0 element(s) absent, 0 invented, 0 text absent, 0 text differs, 0 incoherent
+  line-work  missing 5974 px (2.533%)   invented 3958 px (1.679%)   radius 3
+    line-work-missing     1246 px at  2623,1230   331x162   near edge n13 -> n10
+    line-work-missing      980 px at  2730,1421   236x209   near edge n13 -> n16
+    line-work-missing      965 px at  2192,803    185x181   near edge n6 -> n10
+    line-work-missing      349 px at  1281,1578    48x37    near edge n15 -> n14
+    line-work-missing      306 px at   929,984     86x46    near edge n7 -> n11
+    line-work-missing      289 px at   663,1129    34x44    near edge n7 -> n11
+    line-work-missing      273 px at  2156,966     27x46    near edge n6 -> n10
+    line-work-missing      253 px at  1337,1592    87x28    near edge n15 -> n14
+    line-work-missing      231 px at   927,1386    77x77    near edge n14 -> n11
+    line-work-missing      156 px at  3094,1205     9x42    near edge n8 -> n13
+    line-work-missing      151 px at  2898,988     51x47    near edge n8 -> n6
+    line-work-missing      108 px at  3082,1347    14x26    near edge n8 -> n13
+    ... and 14 more line-work findings
+  needs a person (7):
+    dropped-region     at 335,454  a shape here would be missing from the SVG
+    dropped-region     at 2167,806  a shape here would be missing from the SVG
+    unexplained-line-work at 2424,1150  decide what this is; the SVG does not draw it
+    unexplained-line-work at 679,544  decide what this is; the SVG does not draw it
+    unexplained-line-work at 735,727  decide what this is; the SVG does not draw it
+    unexplained-line-work at 2874,823  decide what this is; the SVG does not draw it
+    arrowhead-unmeasurable at 759,1211  confirm the arrowhead here is drawn and points the way the original does
+review/baseline/UBL-2.0-SelfBillingwithCreditNoteProcess-marked.png + review/baseline/UBL-2.0-SelfBillingwithCreditNoteProcess-marked-lost.png  (7 finding(s) numbered)

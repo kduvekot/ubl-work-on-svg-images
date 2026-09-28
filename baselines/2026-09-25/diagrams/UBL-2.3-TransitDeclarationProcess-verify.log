@@ -1,0 +1,11 @@
+  verdict: NEEDS-HUMAN
+  structural: 0 element(s) absent, 0 invented, 0 text absent, 0 text differs, 0 incoherent
+  line-work  missing 121 px (0.053%)   invented 300 px (0.132%)   radius 3
+    line-work-missing       82 px at  2586,1079     2x41    on node n6 (decision 'Is valid?')
+    line-work-invented      75 px at  2594,1079     2x41    on node n6 (decision 'Is valid?')
+    line-work-invented      64 px at  1425,1503     1x64    near edge n8 -> n9
+    line-work-invented      60 px at  1425,1032     1x60    near edge n5 -> n7
+  needs a person (2):
+    ring-stroke-unreadable at 199,1812  confirm this is an activity final and how thick its ring is
+    unexplained-line-work at 2592,-16  decide what this is; the SVG does not draw it
+review/baseline/UBL-2.3-TransitDeclarationProcess-marked.png + review/baseline/UBL-2.3-TransitDeclarationProcess-marked-lost.png  (2 finding(s) numbered)

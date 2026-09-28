@@ -1,0 +1,374 @@
+{
+ "source": "UBL-2.0-ReportStateofAccountsProcess.png",
+ "size": [
+  3425,
+  1173
+ ],
+ "fontPx": 61.4,
+ "arrowPx": 85.5,
+ "arrowWidthPx": 66.3,
+ "arrowStyle": "open",
+ "rules": {
+  "v": [
+   [
+    0,
+    10
+   ],
+   [
+    1744,
+    7
+   ],
+   [
+    3415,
+    10
+   ]
+  ],
+  "h": [
+   [
+    0,
+    10
+   ],
+   [
+    1163,
+    10
+   ]
+  ]
+ },
+ "ruleSpan": {
+  "v": [
+   [
+    13,
+    1159
+   ],
+   [
+    13,
+    1159
+   ],
+   [
+    13,
+    1159
+   ]
+  ],
+  "h": [
+   [
+    13,
+    3411
+   ],
+   [
+    13,
+    3411
+   ]
+  ]
+ },
+ "greyRules": [],
+ "dashed": [],
+ "openEnds": [],
+ "crossMarks": [],
+ "partitions": [
+  {
+   "axis": "column",
+   "index": 0,
+   "x0": 0,
+   "x1": 1748,
+   "title": "Accounting Customer",
+   "titleBox": [
+    541,
+    48,
+    575,
+    56
+   ]
+  },
+  {
+   "axis": "column",
+   "index": 1,
+   "x0": 1748,
+   "x1": 3425,
+   "title": "Accounting Supplier",
+   "titleBox": [
+    2361,
+    48,
+    535,
+    56
+   ]
+  },
+  {
+   "axis": "band",
+   "index": 0,
+   "y0": 0,
+   "y1": 1173,
+   "title": ""
+  }
+ ],
+ "nodes": [
+  {
+   "x": 2895,
+   "y": 167,
+   "w": 120,
+   "h": 120,
+   "area": 11388,
+   "fill": 1.0,
+   "kind": "initial",
+   "id": "n1",
+   "label": "",
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 1394,
+   "y": 466,
+   "w": 641,
+   "h": 334,
+   "area": 208600,
+   "fill": 0.974,
+   "solid": 1.0,
+   "rx": 0,
+   "ry": 0,
+   "shape": "rect",
+   "keptOnOutline": true,
+   "stroke": 13,
+   "kind": "object",
+   "id": "n2",
+   "label": "Statement",
+   "labelLines": [
+    {
+     "x": 1568,
+     "y": 603,
+     "w": 291,
+     "h": 45,
+     "text": "Statement"
+    }
+   ],
+   "stem": 0.13,
+   "bold": true,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 65,
+   "y": 523,
+   "w": 797,
+   "h": 202,
+   "area": 144506,
+   "fill": 0.898,
+   "solid": 0.959,
+   "rx": 84,
+   "ry": 91,
+   "shape": "rounded",
+   "stroke": 7,
+   "kind": "action",
+   "id": "n3",
+   "label": "Receive Statement",
+   "labelLines": [
+    {
+     "x": 196,
+     "y": 595,
+     "w": 529,
+     "h": 45,
+     "text": "Receive Statement"
+    }
+   ],
+   "stem": 0.13,
+   "bold": true,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 2579,
+   "y": 523,
+   "w": 785,
+   "h": 244,
+   "area": 174484,
+   "fill": 0.911,
+   "solid": 0.965,
+   "rx": 84,
+   "ry": 87,
+   "shape": "rounded",
+   "stroke": 7,
+   "kind": "action",
+   "id": "n4",
+   "label": "Generate Statement",
+   "labelLines": [
+    {
+     "x": 2683,
+     "y": 609,
+     "w": 563,
+     "h": 45,
+     "text": "Generate Statement"
+    }
+   ],
+   "stem": 0.13,
+   "bold": true,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 413,
+   "y": 972,
+   "w": 107,
+   "h": 107,
+   "area": 7293,
+   "fill": 0.637,
+   "solid": 0.793,
+   "rx": 53,
+   "ry": 54,
+   "shape": "ellipse",
+   "stroke": 7,
+   "kind": "final",
+   "innerRatio": 0.449,
+   "id": "n5",
+   "label": "",
+   "col": 0,
+   "row": 0
+  }
+ ],
+ "edges": [
+  {
+   "from": "n1",
+   "to": "n4",
+   "routing": "straight",
+   "fromPoint": [
+    2957,
+    301
+   ],
+   "toPoint": [
+    2961,
+    508
+   ],
+   "arrowInk": [
+    315,
+    996
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    82,
+    67.2,
+    2.23
+   ],
+   "arrowFill": 0.028,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n2",
+   "to": "n3",
+   "routing": "straight",
+   "fromPoint": [
+    1379,
+    628
+   ],
+   "toPoint": [
+    876,
+    626
+   ],
+   "arrowInk": [
+    322,
+    913
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    88,
+    65.4,
+    2.81
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n4",
+   "to": "n2",
+   "routing": "straight",
+   "fromPoint": [
+    2564,
+    633
+   ],
+   "toPoint": [
+    2050,
+    633
+   ],
+   "arrowInk": [
+    322,
+    797
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    90,
+    66.0,
+    3.55
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n3",
+   "to": "n5",
+   "routing": "straight",
+   "fromPoint": [
+    462,
+    739
+   ],
+   "toPoint": [
+    464,
+    957
+   ],
+   "arrowInk": [
+    315,
+    996
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    83,
+    66.7,
+    2.38
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "control"
+  }
+ ],
+ "text": [
+  {
+   "text": "Accounting Customer",
+   "x": 541,
+   "y": 48,
+   "w": 575,
+   "h": 56,
+   "lines": [
+    {
+     "x": 541,
+     "y": 48,
+     "w": 575,
+     "h": 56,
+     "text": "Accounting Customer"
+    }
+   ]
+  },
+  {
+   "text": "Accounting Supplier",
+   "x": 2361,
+   "y": 48,
+   "w": 535,
+   "h": 56,
+   "lines": [
+    {
+     "x": 2361,
+     "y": 48,
+     "w": 535,
+     "h": 56,
+     "text": "Accounting Supplier"
+    }
+   ]
+  }
+ ],
+ "uncertain": [
+  {
+   "x": 1394,
+   "y": 466,
+   "w": 641,
+   "h": 334,
+   "shape": "rect",
+   "iou": 1.0,
+   "border": 1.0,
+   "kind": "kept-on-outline",
+   "reason": "every side has pass-through line-work, but the region carries a complete outline of its own",
+   "check": "confirm this is a node and not trapped whitespace"
+  }
+ ]
+}

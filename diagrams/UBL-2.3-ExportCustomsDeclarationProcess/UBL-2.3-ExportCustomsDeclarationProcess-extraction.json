@@ -1,0 +1,1165 @@
+{
+ "schema": "ubl-activity-diagram-extraction/1",
+ "figure": "UBL-2.3-ExportCustomsDeclarationProcess",
+ "nodes": {
+  "initial-exporter-party": {
+   "area": 1174,
+   "fill": 0.734
+  },
+  "object-export-customs-declaration-between-exporter-party-and-customs-party": {
+   "area": 25570,
+   "fill": 0.907,
+   "solid": 1.0,
+   "stem": 0.156
+  },
+  "action-draft-export-customs-declaration": {
+   "area": 18900,
+   "fill": 0.88,
+   "solid": 0.993,
+   "stem": 0.078
+  },
+  "action-validate-export-customs-declaration": {
+   "area": 15416,
+   "fill": 0.845,
+   "solid": 0.992,
+   "stem": 0.078
+  },
+  "decision-ok": {
+   "area": 8675,
+   "fill": 0.485,
+   "solid": 0.507,
+   "stem": 0.117
+  },
+  "object-export-customs-declaration-between-exporter-party-and-customs-party-2": {
+   "area": 25564,
+   "fill": 0.906,
+   "solid": 1.0,
+   "stem": 0.156
+  },
+  "action-receive-export-customs-declaration": {
+   "area": 18910,
+   "fill": 0.874,
+   "solid": 0.992,
+   "stem": 0.078
+  },
+  "action-apply-stamps-and-signature": {
+   "area": 17379,
+   "fill": 0.888,
+   "solid": 0.991,
+   "stem": 0.078
+  },
+  "object-application-response": {
+   "area": 26337,
+   "fill": 0.934,
+   "solid": 1.0,
+   "stem": 0.156
+  },
+  "action-receive-reject": {
+   "area": 20685,
+   "fill": 0.947,
+   "solid": 0.991,
+   "stem": 0.078
+  },
+  "action-send-reject": {
+   "area": 18783,
+   "fill": 0.951,
+   "solid": 0.989,
+   "stem": 0.078
+  },
+  "final-exporter-party": {
+   "area": 1006,
+   "fill": 0.294,
+   "solid": 0.789
+  }
+ },
+ "flows": {
+  "flow-initial-exporter-party-to-draft-export-customs-declaration": {
+   "arrowInk": [
+    121,
+    237
+   ],
+   "arrowPx": [
+    25,
+    18.0,
+    1.65
+   ],
+   "arrowFill": 0.889
+  },
+  "flow-draft-export-customs-declaration-to-export-customs-declaration-between-exporter-party-and-customs-party": {
+   "arrowInk": [
+    246,
+    246
+   ],
+   "arrowPx": [
+    24,
+    18.0,
+    1.7
+   ],
+   "arrowFill": 0.942
+  },
+  "flow-export-customs-declaration-between-exporter-party-and-customs-party-to-validate-export-customs-declaration": {
+   "arrowInk": [
+    253,
+    266
+   ],
+   "arrowPx": [
+    24,
+    18.0,
+    1.88
+   ],
+   "arrowFill": 0.942
+  },
+  "flow-validate-export-customs-declaration-to-ok": {
+   "arrowInk": [
+    157,
+    157
+   ],
+   "arrowPx": [
+    9,
+    18.9,
+    1.54
+   ],
+   "arrowFill": 0.5
+  },
+  "flow-ok-to-send-reject": {
+   "arrowInk": [
+    135,
+    312
+   ],
+   "arrowPx": [
+    22,
+    18.5,
+    1.51
+   ],
+   "arrowFill": 0.923
+  },
+  "flow-ok-to-apply-stamps-and-signature": {
+   "arrowInk": [
+    189,
+    356
+   ],
+   "arrowPx": [
+    23,
+    19.6,
+    1.77
+   ],
+   "arrowFill": 1.0
+  },
+  "flow-export-customs-declaration-between-exporter-party-and-customs-party-2-to-receive-export-customs-declaration": {
+   "arrowInk": [
+    188,
+    227
+   ],
+   "arrowPx": [
+    22,
+    18.4,
+    1.71
+   ],
+   "arrowFill": 1.0
+  },
+  "flow-apply-stamps-and-signature-to-export-customs-declaration-between-exporter-party-and-customs-party-2": {
+   "arrowInk": [
+    176,
+    208
+   ],
+   "arrowPx": [
+    20,
+    19.7,
+    1.85
+   ],
+   "arrowFill": 0.929
+  },
+  "flow-receive-export-customs-declaration-to-final-exporter-party": {
+   "arrowInk": [
+    142,
+    176
+   ],
+   "arrowPx": [
+    31,
+    12.1,
+    0.75
+   ],
+   "arrowFill": 0.316,
+   "arrowSaturated": true
+  },
+  "flow-application-response-to-receive-reject": {
+   "arrowInk": [
+    188,
+    226
+   ],
+   "arrowPx": [
+    22,
+    18.0,
+    1.68
+   ],
+   "arrowFill": 1.0
+  },
+  "flow-send-reject-to-application-response": {
+   "arrowInk": [
+    150,
+    209
+   ],
+   "arrowPx": [
+    20,
+    20.0,
+    1.85
+   ],
+   "arrowFill": 0.883
+  },
+  "flow-receive-reject-to-final-exporter-party": {
+   "arrowInk": [
+    90,
+    151
+   ],
+   "arrowPx": [
+    19,
+    12.1,
+    0.69
+   ],
+   "arrowFill": 0.4
+  }
+ },
+ "offPage": {},
+ "marks": {},
+ "phases": {},
+ "greyRules": [],
+ "titleReadings": [
+  {
+   "position": 0,
+   "text": "Exporter party",
+   "x": 208,
+   "y": 30,
+   "w": 163,
+   "h": 23,
+   "lines": [
+    {
+     "x": 208,
+     "y": 30,
+     "w": 163,
+     "h": 23,
+     "text": "Exporter party"
+    }
+   ]
+  },
+  {
+   "position": 1,
+   "text": "CustomsParty",
+   "x": 772,
+   "y": 30,
+   "w": 163,
+   "h": 23,
+   "lines": [
+    {
+     "x": 772,
+     "y": 30,
+     "w": 163,
+     "h": 23,
+     "text": "CustomsParty"
+    }
+   ]
+  }
+ ],
+ "findings": [],
+ "uncertain": [
+  {
+   "kind": "no-weight-split",
+   "reason": "all 9 box strokes are one weight ([2, 3, 4]), so no object node could be identified",
+   "check": "confirm the diagram really has no object nodes"
+  },
+  {
+   "kind": "ring-stroke-unreadable",
+   "x": 79,
+   "y": 953,
+   "w": 58,
+   "h": 59,
+   "reason": "line-work runs off this activity final on more than one side, so its ring thickness could not be measured",
+   "check": "confirm this is an activity final and how thick its ring is"
+  }
+ ],
+ "present": [
+  "source",
+  "size",
+  "fontPx",
+  "arrowPx",
+  "arrowWidthPx",
+  "arrowStyle",
+  "rules",
+  "ruleSpan",
+  "greyRules",
+  "dashed",
+  "openEnds",
+  "crossMarks",
+  "partitions",
+  "nodes",
+  "edges",
+  "text",
+  "uncertain"
+ ],
+ "uncorrected": {
+  "model": {
+   "schema": "ubl-activity-diagram/1",
+   "figure": {
+    "name": "UBL-2.3-ExportCustomsDeclarationProcess",
+    "source": "UBL-2.3-ExportCustomsDeclarationProcess.png"
+   },
+   "lanes": [
+    {
+     "id": "lane0",
+     "axis": "column",
+     "index": 0,
+     "title": "Exporter party"
+    },
+    {
+     "id": "lane1",
+     "axis": "column",
+     "index": 1,
+     "title": "CustomsParty"
+    },
+    {
+     "id": "lane2",
+     "axis": "band",
+     "index": 0,
+     "title": ""
+    },
+    {
+     "id": "lane3",
+     "axis": "band",
+     "index": 1,
+     "title": ""
+    }
+   ],
+   "nodes": [
+    {
+     "id": "n1",
+     "kind": "initial",
+     "label": "",
+     "lane": "lane0",
+     "band": "lane3"
+    },
+    {
+     "id": "n2",
+     "kind": "object",
+     "label": "Export Customs\nDeclaration",
+     "lane": "lane1",
+     "band": "lane3"
+    },
+    {
+     "id": "n3",
+     "kind": "action",
+     "label": "Draft\nExport Customs\nDeclaration",
+     "lane": "lane0",
+     "band": "lane3"
+    },
+    {
+     "id": "n4",
+     "kind": "action",
+     "label": "Validate\nExport Customs\nDeclaration",
+     "lane": "lane1",
+     "band": "lane3"
+    },
+    {
+     "id": "n5",
+     "kind": "decision",
+     "label": "OK?",
+     "lane": "lane1",
+     "band": "lane3"
+    },
+    {
+     "id": "n6",
+     "kind": "object",
+     "label": "Export Customs\nDeclaration",
+     "lane": "lane1",
+     "band": "lane3"
+    },
+    {
+     "id": "n7",
+     "kind": "action",
+     "label": "Receive\nExport Customs\nDeclaration",
+     "lane": "lane0",
+     "band": "lane3"
+    },
+    {
+     "id": "n8",
+     "kind": "action",
+     "label": "Apply stamps\nand signature",
+     "lane": "lane1",
+     "band": "lane3"
+    },
+    {
+     "id": "n9",
+     "kind": "object",
+     "label": "Application response",
+     "lane": "lane1",
+     "band": "lane3"
+    },
+    {
+     "id": "n10",
+     "kind": "action",
+     "label": "Receive reject",
+     "lane": "lane0",
+     "band": "lane3"
+    },
+    {
+     "id": "n11",
+     "kind": "action",
+     "label": "Send reject",
+     "lane": "lane1",
+     "band": "lane3"
+    },
+    {
+     "id": "n12",
+     "kind": "final",
+     "label": "",
+     "lane": "lane0",
+     "band": "lane3"
+    }
+   ],
+   "flows": [
+    {
+     "id": "f0",
+     "from": "n1",
+     "to": "n3",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f1",
+     "from": "n3",
+     "to": "n2",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f2",
+     "from": "n2",
+     "to": "n4",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f3",
+     "from": "n4",
+     "to": "n5",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f4",
+     "from": "n5",
+     "to": "n11",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     },
+     "guard": "t3"
+    },
+    {
+     "id": "f5",
+     "from": "n5",
+     "to": "n8",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     },
+     "guard": "t2"
+    },
+    {
+     "id": "f6",
+     "from": "n6",
+     "to": "n7",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f7",
+     "from": "n8",
+     "to": "n6",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f8",
+     "from": "n7",
+     "to": "n12",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f9",
+     "from": "n9",
+     "to": "n10",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f10",
+     "from": "n11",
+     "to": "n9",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f11",
+     "from": "n10",
+     "to": "n12",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    }
+   ],
+   "texts": [
+    {
+     "id": "t2",
+     "text": "Yes",
+     "labels": "f5"
+    },
+    {
+     "id": "t3",
+     "text": "No",
+     "labels": "f4"
+    }
+   ],
+   "offPage": [],
+   "marks": [],
+   "phases": []
+  },
+  "layout": {
+   "schema": "ubl-activity-diagram-layout/1",
+   "figure": "UBL-2.3-ExportCustomsDeclarationProcess",
+   "units": "px of the original PNG",
+   "size": [
+    1142,
+    1057
+   ],
+   "style": {
+    "fontPx": 25.7,
+    "arrowPx": 22.0,
+    "arrowWidthPx": 18.2,
+    "arrowStyle": "filled"
+   },
+   "rules": {
+    "vertical": [
+     {
+      "at": 0,
+      "width": 5,
+      "span": [
+       8,
+       1048
+      ]
+     },
+     {
+      "at": 572,
+      "width": 2,
+      "span": [
+       8,
+       1048
+      ]
+     },
+     {
+      "at": 1137,
+      "width": 5,
+      "span": [
+       8,
+       1048
+      ]
+     }
+    ],
+    "horizontal": [
+     {
+      "at": 0,
+      "width": 5,
+      "span": [
+       8,
+       1133
+      ]
+     },
+     {
+      "at": 63,
+      "width": 2,
+      "span": [
+       8,
+       1133
+      ]
+     },
+     {
+      "at": 1052,
+      "width": 5,
+      "span": [
+       8,
+       1133
+      ]
+     }
+    ]
+   },
+   "greyRules": [],
+   "lanes": {
+    "lane0": {
+     "x0": 0,
+     "x1": 573,
+     "titleBox": [
+      208,
+      30,
+      163,
+      23
+     ],
+     "titleBold": true
+    },
+    "lane1": {
+     "x0": 573,
+     "x1": 1142,
+     "titleBox": [
+      772,
+      30,
+      163,
+      23
+     ],
+     "titleBold": true
+    },
+    "lane2": {
+     "y0": 0,
+     "y1": 64
+    },
+    "lane3": {
+     "y0": 64,
+     "y1": 1057
+    }
+   },
+   "nodes": {
+    "n1": {
+     "x": 248,
+     "y": 92,
+     "w": 46,
+     "h": 46
+    },
+    "n2": {
+     "x": 454,
+     "y": 209,
+     "w": 239,
+     "h": 118,
+     "shape": "rect",
+     "stroke": 3,
+     "rx": 0,
+     "ry": 0,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 480,
+       "y": 247,
+       "w": 186,
+       "h": 23,
+       "text": "Export Customs"
+      },
+      {
+       "x": 508,
+       "y": 271,
+       "w": 130,
+       "h": 18,
+       "text": "Declaration"
+      }
+     ]
+    },
+    "n3": {
+     "x": 158,
+     "y": 221,
+     "w": 226,
+     "h": 95,
+     "shape": "rounded",
+     "stroke": 2,
+     "rx": 12,
+     "ry": 11,
+     "bold": false,
+     "labelLines": [
+      {
+       "x": 250,
+       "y": 235,
+       "w": 50,
+       "h": 18,
+       "text": "Draft"
+      },
+      {
+       "x": 190,
+       "y": 259,
+       "w": 170,
+       "h": 23,
+       "text": "Export Customs"
+      },
+      {
+       "x": 215,
+       "y": 284,
+       "w": 119,
+       "h": 17,
+       "text": "Declaration"
+      }
+     ]
+    },
+    "n4": {
+     "x": 768,
+     "y": 221,
+     "w": 192,
+     "h": 95,
+     "shape": "rounded",
+     "stroke": 2,
+     "rx": 12,
+     "ry": 14,
+     "bold": false,
+     "labelLines": [
+      {
+       "x": 822,
+       "y": 235,
+       "w": 84,
+       "h": 18,
+       "text": "Validate"
+      },
+      {
+       "x": 779,
+       "y": 259,
+       "w": 170,
+       "h": 23,
+       "text": "Export Customs"
+      },
+      {
+       "x": 804,
+       "y": 284,
+       "w": 120,
+       "h": 17,
+       "text": "Declaration"
+      }
+     ]
+    },
+    "n5": {
+     "x": 788,
+     "y": 364,
+     "w": 157,
+     "h": 114,
+     "shape": "rhombus",
+     "stroke": 2,
+     "rx": 85,
+     "ry": 62,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 842,
+       "y": 414,
+       "w": 47,
+       "h": 18,
+       "text": "OK?"
+      }
+     ]
+    },
+    "n6": {
+     "x": 454,
+     "y": 562,
+     "w": 239,
+     "h": 118,
+     "shape": "rect",
+     "stroke": 4,
+     "rx": 0,
+     "ry": 0,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 480,
+       "y": 599,
+       "w": 186,
+       "h": 23,
+       "text": "Export Customs"
+      },
+      {
+       "x": 508,
+       "y": 624,
+       "w": 130,
+       "h": 18,
+       "text": "Declaration"
+      }
+     ]
+    },
+    "n7": {
+     "x": 166,
+     "y": 569,
+     "w": 210,
+     "h": 103,
+     "shape": "rounded",
+     "stroke": 2,
+     "rx": 14,
+     "ry": 13,
+     "bold": false,
+     "labelLines": [
+      {
+       "x": 229,
+       "y": 588,
+       "w": 84,
+       "h": 17,
+       "text": "Receive"
+      },
+      {
+       "x": 186,
+       "y": 611,
+       "w": 170,
+       "h": 23,
+       "text": "Export Customs"
+      },
+      {
+       "x": 211,
+       "y": 636,
+       "w": 119,
+       "h": 18,
+       "text": "Declaration"
+      }
+     ]
+    },
+    "n8": {
+     "x": 770,
+     "y": 569,
+     "w": 190,
+     "h": 103,
+     "shape": "rounded",
+     "stroke": 2,
+     "rx": 15,
+     "ry": 15,
+     "bold": false,
+     "labelLines": [
+      {
+       "x": 792,
+       "y": 597,
+       "w": 144,
+       "h": 23,
+       "text": "Apply stamps"
+      },
+      {
+       "x": 791,
+       "y": 621,
+       "w": 145,
+       "h": 23,
+       "text": "and signature"
+      }
+     ]
+    },
+    "n9": {
+     "x": 454,
+     "y": 764,
+     "w": 239,
+     "h": 118,
+     "shape": "rect",
+     "stroke": 3,
+     "rx": 0,
+     "ry": 0,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 457,
+       "y": 817,
+       "w": 233,
+       "h": 22,
+       "text": "Application response"
+      }
+     ]
+    },
+    "n10": {
+     "x": 166,
+     "y": 771,
+     "w": 210,
+     "h": 104,
+     "shape": "rounded",
+     "stroke": 2,
+     "rx": 17,
+     "ry": 13,
+     "bold": false,
+     "labelLines": [
+      {
+       "x": 196,
+       "y": 817,
+       "w": 151,
+       "h": 22,
+       "text": "Receive reject"
+      }
+     ]
+    },
+    "n11": {
+     "x": 772,
+     "y": 771,
+     "w": 190,
+     "h": 104,
+     "shape": "rounded",
+     "stroke": 2,
+     "rx": 17,
+     "ry": 17,
+     "bold": false,
+     "labelLines": [
+      {
+       "x": 807,
+       "y": 816,
+       "w": 121,
+       "h": 23,
+       "text": "Send reject"
+      }
+     ]
+    },
+    "n12": {
+     "x": 79,
+     "y": 953,
+     "w": 58,
+     "h": 59,
+     "shape": "ellipse",
+     "stroke": 0,
+     "rx": 31,
+     "ry": 28,
+     "innerRatio": 0.793
+    }
+   },
+   "flows": {
+    "f0": {
+     "fromPoint": [
+      270,
+      152
+     ],
+     "toPoint": [
+      270,
+      206
+     ],
+     "routing": "straight"
+    },
+    "f1": {
+     "fromPoint": [
+      398,
+      268
+     ],
+     "toPoint": [
+      439,
+      268
+     ],
+     "routing": "straight"
+    },
+    "f2": {
+     "fromPoint": [
+      707,
+      268
+     ],
+     "toPoint": [
+      753,
+      268
+     ],
+     "routing": "straight"
+    },
+    "f3": {
+     "fromPoint": [
+      865,
+      330
+     ],
+     "toPoint": [
+      866,
+      349
+     ],
+     "routing": "straight"
+    },
+    "f4": {
+     "fromPoint": [
+      959,
+      420
+     ],
+     "toPoint": [
+      976,
+      824
+     ],
+     "routing": "orthogonal",
+     "points": [
+      [
+       1020,
+       420
+      ],
+      [
+       1020,
+       824
+      ]
+     ]
+    },
+    "f5": {
+     "fromPoint": [
+      866,
+      492
+     ],
+     "toPoint": [
+      865,
+      554
+     ],
+     "routing": "straight"
+    },
+    "f6": {
+     "fromPoint": [
+      439,
+      621
+     ],
+     "toPoint": [
+      390,
+      620
+     ],
+     "routing": "straight"
+    },
+    "f7": {
+     "fromPoint": [
+      755,
+      620
+     ],
+     "toPoint": [
+      707,
+      621
+     ],
+     "routing": "straight"
+    },
+    "f8": {
+     "fromPoint": [
+      151,
+      620
+     ],
+     "toPoint": [
+      108,
+      938
+     ],
+     "routing": "orthogonal",
+     "points": [
+      [
+       108,
+       620
+      ]
+     ]
+    },
+    "f9": {
+     "fromPoint": [
+      439,
+      822
+     ],
+     "toPoint": [
+      390,
+      822
+     ],
+     "routing": "straight"
+    },
+    "f10": {
+     "fromPoint": [
+      757,
+      824
+     ],
+     "toPoint": [
+      707,
+      824
+     ],
+     "routing": "straight"
+    },
+    "f11": {
+     "fromPoint": [
+      272,
+      889
+     ],
+     "toPoint": [
+      153,
+      982
+     ],
+     "routing": "orthogonal",
+     "points": [
+      [
+       272,
+       982
+      ]
+     ]
+    }
+   },
+   "texts": {
+    "t2": {
+     "x": 805,
+     "y": 506,
+     "w": 34,
+     "h": 17,
+     "lines": [
+      {
+       "x": 805,
+       "y": 506,
+       "w": 34,
+       "h": 17,
+       "text": "Yes"
+      }
+     ]
+    },
+    "t3": {
+     "x": 1031,
+     "y": 592,
+     "w": 26,
+     "h": 16,
+     "lines": [
+      {
+       "x": 1031,
+       "y": 592,
+       "w": 26,
+       "h": 16,
+       "text": "No"
+      }
+     ]
+    }
+   },
+   "offPage": {},
+   "marks": {},
+   "phases": {},
+   "rulesHaveSpans": {
+    "vertical": true,
+    "horizontal": true
+   }
+  }
+ },
+ "corrections": [
+  "party-35",
+  "party-36",
+  "draw-26"
+ ],
+ "documentLanes": {
+  "object-export-customs-declaration-between-exporter-party-and-customs-party": "lane-customs-party",
+  "object-export-customs-declaration-between-exporter-party-and-customs-party-2": "lane-customs-party",
+  "object-application-response": "lane-customs-party"
+ },
+ "formerIds": {
+  "lane-exporter-party": "lane0",
+  "lane-customs-party": "lane1",
+  "initial-exporter-party": "n1",
+  "object-export-customs-declaration-between-exporter-party-and-customs-party": "n2",
+  "action-draft-export-customs-declaration": "n3",
+  "action-validate-export-customs-declaration": "n4",
+  "decision-ok": "n5",
+  "object-export-customs-declaration-between-exporter-party-and-customs-party-2": "n6",
+  "action-receive-export-customs-declaration": "n7",
+  "action-apply-stamps-and-signature": "n8",
+  "object-application-response": "n9",
+  "action-receive-reject": "n10",
+  "action-send-reject": "n11",
+  "final-exporter-party": "n12",
+  "flow-initial-exporter-party-to-draft-export-customs-declaration": "f0",
+  "flow-draft-export-customs-declaration-to-export-customs-declaration-between-exporter-party-and-customs-party": "f1",
+  "flow-export-customs-declaration-between-exporter-party-and-customs-party-to-validate-export-customs-declaration": "f2",
+  "flow-validate-export-customs-declaration-to-ok": "f3",
+  "flow-ok-to-send-reject": "f4",
+  "flow-ok-to-apply-stamps-and-signature": "f5",
+  "flow-export-customs-declaration-between-exporter-party-and-customs-party-2-to-receive-export-customs-declaration": "f6",
+  "flow-apply-stamps-and-signature-to-export-customs-declaration-between-exporter-party-and-customs-party-2": "f7",
+  "flow-receive-export-customs-declaration-to-final-exporter-party": "f8",
+  "flow-application-response-to-receive-reject": "f9",
+  "flow-send-reject-to-application-response": "f10",
+  "flow-receive-reject-to-final-exporter-party": "f11",
+  "text-yes": "t2",
+  "text-no": "t3"
+ }
+}

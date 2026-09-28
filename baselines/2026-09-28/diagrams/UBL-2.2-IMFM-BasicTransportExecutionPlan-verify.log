@@ -1,0 +1,12 @@
+  verdict: NEEDS-HUMAN
+  structural: 0 element(s) absent, 0 invented, 0 text absent, 0 text differs, 0 incoherent
+  line-work  missing 236 px (0.087%)   invented 161 px (0.060%)   radius 3
+  needs a person (7):
+    dropped-region     at 390,406  a shape here would be missing from the SVG
+    kept-on-outline    at 347,634  confirm this is a node and not trapped whitespace
+    dropped-region     at 1109,940  a shape here would be missing from the SVG
+    kept-on-outline    at 1065,1417  confirm this is a node and not trapped whitespace
+    unexplained-line-work at 503,552  decide what this is; the SVG does not draw it
+    unexplained-line-work at 3022,620  decide what this is; the SVG does not draw it
+    arrowhead-unmeasurable at 340,1636  confirm the arrowhead here is drawn and points the way the original does
+/tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-2.2-IMFM-BasicTransportExecutionPlan-marked.png + /tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-2.2-IMFM-BasicTransportExecutionPlan-marked-lost.png  (7 finding(s) numbered)

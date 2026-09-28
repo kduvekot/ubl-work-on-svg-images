@@ -1,0 +1,276 @@
+{
+ "canvas": {
+  "w": 1480.0,
+  "h": 888.432
+ },
+ "stroke": {
+  "frame": 4.3,
+  "divider": 5.2,
+  "action": 5.2,
+  "object": 5.2,
+  "edge": 5.2
+ },
+ "font": {
+  "family": "Helvetica, Arial, sans-serif",
+  "node": 33.3,
+  "lane": 33.3,
+  "guard": 33.3
+ },
+ "arrow": 35.6,
+ "arrowWidth": 36.7,
+ "arrowStyle": "open",
+ "dashed": [],
+ "greyRules": [],
+ "crossMarks": [],
+ "openEnds": [],
+ "frameBox": [
+  2.2,
+  2.2,
+  1477.8,
+  886.3
+ ],
+ "dividers": [
+  [
+   714.7,
+   5.2,
+   5.6,
+   882.4
+  ]
+ ],
+ "bands": [],
+ "lanes": [
+  {
+   "title": "CONTRACTING AUTHORITY",
+   "x": 0.0,
+   "w": 714.7,
+   "cx": 354.6,
+   "cy": 46.9
+  },
+  {
+   "title": "ECONOMIC OPERATOR",
+   "x": 714.7,
+   "w": 765.3,
+   "cx": 1095.4,
+   "cy": 46.9
+  }
+ ],
+ "bandLabels": [],
+ "nodes": [
+  {
+   "id": "n7",
+   "kind": "initial",
+   "label": "",
+   "x": 254.5,
+   "y": 103.3,
+   "w": 49.7,
+   "h": 50.1
+  },
+  {
+   "id": "n8",
+   "kind": "action",
+   "label": "Prepare call for tenders",
+   "x": 67.0,
+   "y": 227.7,
+   "w": 424.8,
+   "h": 89.9,
+   "rx": 43.6,
+   "ry": 46.7,
+   "labelLines": [
+    {
+     "text": "Prepare call for tenders",
+     "cx": 282.4,
+     "cy": 274.0,
+     "w": 328.8
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "n9",
+   "kind": "object",
+   "label": "Call\nFor\nTenders",
+   "x": 625.7,
+   "y": 340.5,
+   "w": 194.9,
+   "h": 201.4,
+   "labelLines": [
+    {
+     "text": "Call",
+     "cx": 693.1,
+     "cy": 386.1,
+     "w": 65.7
+    },
+    {
+     "text": "For",
+     "cx": 688.8,
+     "cy": 439.9,
+     "w": 60.5
+    },
+    {
+     "text": "Tenders",
+     "cx": 730.5,
+     "cy": 493.9,
+     "w": 137.8
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n10",
+   "kind": "action",
+   "label": "Submit Invitation to Tender",
+   "x": 37.6,
+   "y": 391.5,
+   "w": 483.5,
+   "h": 90.3,
+   "rx": 43.6,
+   "ry": 46.2,
+   "labelLines": [
+    {
+     "text": "Submit Invitation to Tender",
+     "cx": 272.0,
+     "cy": 434.9,
+     "w": 381.6
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "n11",
+   "kind": "action",
+   "label": "Receive Invitation to Tender",
+   "x": 946.8,
+   "y": 394.5,
+   "w": 495.2,
+   "h": 89.9,
+   "rx": 43.2,
+   "ry": 43.2,
+   "labelLines": [
+    {
+     "text": "Receive Invitation to Tender",
+     "cx": 1168.7,
+     "cy": 437.7,
+     "w": 396.3
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "n12",
+   "kind": "action",
+   "label": "Process Call For Tenders",
+   "x": 976.6,
+   "y": 582.5,
+   "w": 435.6,
+   "h": 89.9,
+   "rx": 44.1,
+   "ry": 46.2,
+   "labelLines": [
+    {
+     "text": "Process Call For Tenders",
+     "cx": 1179.9,
+     "cy": 625.7,
+     "w": 359.1
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "n13",
+   "kind": "final",
+   "label": "",
+   "x": 1156.8,
+   "y": 768.7,
+   "w": 75.2,
+   "h": 74.8,
+   "innerRatio": 0.71
+  }
+ ],
+ "edges": [
+  {
+   "from": "n7",
+   "to": "n8",
+   "exitXY": [
+    0.495,
+    1.0
+   ],
+   "entryXY": [
+    0.4993,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n8",
+   "to": "n10",
+   "exitXY": [
+    0.4993,
+    1.0
+   ],
+   "entryXY": [
+    0.4995,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n10",
+   "to": "n9",
+   "exitXY": [
+    1.0,
+    0.4972
+   ],
+   "entryXY": [
+    0.0,
+    0.4916
+   ],
+   "straight": true,
+   "confidence": "medium"
+  },
+  {
+   "from": "n9",
+   "to": "n11",
+   "exitXY": [
+    1.0,
+    0.5
+   ],
+   "entryXY": [
+    0.0,
+    0.5006
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n11",
+   "to": "n12",
+   "exitXY": [
+    0.5,
+    1.0
+   ],
+   "entryXY": [
+    0.5,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n12",
+   "to": "n13",
+   "exitXY": [
+    0.5,
+    1.0
+   ],
+   "entryXY": [
+    0.5,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  }
+ ],
+ "guards": []
+}

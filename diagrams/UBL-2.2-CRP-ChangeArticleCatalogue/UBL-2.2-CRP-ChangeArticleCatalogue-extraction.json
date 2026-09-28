@@ -1,0 +1,814 @@
+{
+ "schema": "ubl-activity-diagram-extraction/1",
+ "figure": "UBL-2.2-CRP-ChangeArticleCatalogue",
+ "nodes": {
+  "initial-producer": {
+   "area": 5391,
+   "fill": 0.764
+  },
+  "decision-producer": {
+   "area": 4590,
+   "fill": 0.512,
+   "solid": 0.512
+  },
+  "final-producer": {
+   "area": 3680,
+   "fill": 0.621,
+   "solid": 0.781
+  },
+  "object-catalogue": {
+   "area": 83777,
+   "fill": 0.942,
+   "solid": 1.0,
+   "stem": 0.137
+  },
+  "action-inform-about-changes-inside-the": {
+   "area": 157558,
+   "fill": 0.88,
+   "solid": 0.989,
+   "stem": 0.137
+  },
+  "action-receive-information": {
+   "area": 87746,
+   "fill": 0.893,
+   "solid": 0.986,
+   "stem": 0.137
+  },
+  "action-update-product-database": {
+   "area": 93706,
+   "fill": 0.869,
+   "solid": 0.986,
+   "stem": 0.137
+  },
+  "final-retailer": {
+   "area": 3690,
+   "fill": 0.622,
+   "solid": 0.782
+  }
+ },
+ "flows": {
+  "flow-initial-producer-to-decision-producer": {
+   "arrowInk": [
+    180,
+    647
+   ],
+   "arrowPx": [
+    62,
+    46.0,
+    2.28
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-decision-producer-to-final-producer": {
+   "arrowInk": [
+    230,
+    661
+   ],
+   "arrowPx": [
+    63,
+    46.0,
+    2.54
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-decision-producer-to-inform-about-changes-inside-the": {
+   "arrowInk": [
+    324,
+    651
+   ],
+   "arrowPx": [
+    59,
+    46.0,
+    2.21
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-inform-about-changes-inside-the-to-catalogue": {
+   "arrowInk": [
+    209,
+    648
+   ],
+   "arrowPx": [
+    60,
+    47.5,
+    2.68
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-catalogue-to-receive-information": {
+   "arrowInk": [
+    225,
+    696
+   ],
+   "arrowPx": [
+    58,
+    47.4,
+    2.09
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-receive-information-to-update-product-database": {
+   "arrowInk": [
+    225,
+    690
+   ],
+   "arrowPx": [
+    59,
+    46.0,
+    2.25
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-update-product-database-to-final-retailer": {
+   "arrowInk": [
+    225,
+    691
+   ],
+   "arrowPx": [
+    59,
+    46.0,
+    2.23
+   ],
+   "arrowFill": 0.0
+  }
+ },
+ "offPage": {},
+ "marks": {},
+ "phases": {},
+ "greyRules": [],
+ "titleReadings": [
+  {
+   "position": 0,
+   "text": "Producer",
+   "x": 544,
+   "y": 48,
+   "w": 222,
+   "h": 41,
+   "lines": [
+    {
+     "x": 544,
+     "y": 48,
+     "w": 222,
+     "h": 41,
+     "text": "Producer"
+    }
+   ],
+   "attachedTo": "n2->n3"
+  },
+  {
+   "position": 1,
+   "text": "Retailer",
+   "x": 2627,
+   "y": 50,
+   "w": 188,
+   "h": 41,
+   "lines": [
+    {
+     "x": 2627,
+     "y": 50,
+     "w": 188,
+     "h": 41,
+     "text": "Retailer"
+    }
+   ]
+  }
+ ],
+ "findings": [
+  {
+   "kind": "guard-is-lane-title",
+   "flow": "flow-decision-producer-to-final-producer",
+   "lane": "lane-producer",
+   "detail": "the guard on n2->n3 is the title of lane0, 'Producer'",
+   "check": "a lane title does not label a flow: either the title was attached by mistake or the lane title is a misread guard",
+   "resolvedBy": [
+    "q13-42",
+    "q13-43",
+    "q13-44",
+    "q13-45",
+    "draw-35",
+    "text-36"
+   ]
+  }
+ ],
+ "uncertain": [],
+ "present": [
+  "source",
+  "size",
+  "fontPx",
+  "arrowPx",
+  "arrowWidthPx",
+  "arrowStyle",
+  "rules",
+  "ruleSpan",
+  "greyRules",
+  "dashed",
+  "openEnds",
+  "crossMarks",
+  "partitions",
+  "nodes",
+  "edges",
+  "text",
+  "uncertain"
+ ],
+ "uncorrected": {
+  "model": {
+   "schema": "ubl-activity-diagram/1",
+   "figure": {
+    "name": "UBL-2.2-CRP-ChangeArticleCatalogue",
+    "source": "UBL-2.2-CRP-ChangeArticleCatalogue.png"
+   },
+   "lanes": [
+    {
+     "id": "lane0",
+     "axis": "column",
+     "index": 0,
+     "title": "Producer"
+    },
+    {
+     "id": "lane1",
+     "axis": "column",
+     "index": 1,
+     "title": "Retailer"
+    },
+    {
+     "id": "lane2",
+     "axis": "band",
+     "index": 0,
+     "title": ""
+    }
+   ],
+   "nodes": [
+    {
+     "id": "n1",
+     "kind": "initial",
+     "label": "",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n2",
+     "kind": "decision",
+     "label": "",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n3",
+     "kind": "final",
+     "label": "",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n4",
+     "kind": "object",
+     "label": "Catalogue",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n5",
+     "kind": "action",
+     "label": "Inform about changes inside the\ncatalogue",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n6",
+     "kind": "action",
+     "label": "Receive information",
+     "lane": "lane1",
+     "band": "lane2"
+    },
+    {
+     "id": "n7",
+     "kind": "action",
+     "label": "Update Product database",
+     "lane": "lane1",
+     "band": "lane2"
+    },
+    {
+     "id": "n8",
+     "kind": "final",
+     "label": "",
+     "lane": "lane1",
+     "band": "lane2"
+    }
+   ],
+   "flows": [
+    {
+     "id": "f0",
+     "from": "n1",
+     "to": "n2",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f1",
+     "from": "n2",
+     "to": "n3",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     },
+     "guard": "lane0"
+    },
+    {
+     "id": "f2",
+     "from": "n2",
+     "to": "n5",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     },
+     "guard": "t2"
+    },
+    {
+     "id": "f3",
+     "from": "n5",
+     "to": "n4",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f4",
+     "from": "n4",
+     "to": "n6",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f5",
+     "from": "n6",
+     "to": "n7",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f6",
+     "from": "n7",
+     "to": "n8",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    }
+   ],
+   "texts": [
+    {
+     "id": "t2",
+     "text": "False",
+     "labels": "f2"
+    },
+    {
+     "id": "t3",
+     "text": "Catalogue update is needed?\nTrue"
+    }
+   ],
+   "offPage": [],
+   "marks": [],
+   "phases": []
+  },
+  "layout": {
+   "schema": "ubl-activity-diagram-layout/1",
+   "figure": "UBL-2.2-CRP-ChangeArticleCatalogue",
+   "units": "px of the original PNG",
+   "size": [
+    3425,
+    1894
+   ],
+   "style": {
+    "fontPx": 58.6,
+    "arrowPx": 59.0,
+    "arrowWidthPx": 46.0,
+    "arrowStyle": "open"
+   },
+   "rules": {
+    "vertical": [
+     {
+      "at": 0,
+      "width": 10,
+      "span": [
+       13,
+       1880
+      ]
+     },
+     {
+      "at": 1888,
+      "width": 4,
+      "span": [
+       13,
+       1880
+      ]
+     },
+     {
+      "at": 3415,
+      "width": 10,
+      "span": [
+       13,
+       1880
+      ]
+     }
+    ],
+    "horizontal": [
+     {
+      "at": 0,
+      "width": 10,
+      "span": [
+       13,
+       3411
+      ]
+     },
+     {
+      "at": 1884,
+      "width": 10,
+      "span": [
+       13,
+       3411
+      ]
+     }
+    ]
+   },
+   "greyRules": [],
+   "lanes": {
+    "lane0": {
+     "x0": 0,
+     "x1": 1890,
+     "titleBox": [
+      544,
+      48,
+      222,
+      41
+     ]
+    },
+    "lane1": {
+     "x0": 1890,
+     "x1": 3425,
+     "titleBox": [
+      2627,
+      50,
+      188,
+      41
+     ]
+    },
+    "lane2": {
+     "y0": 0,
+     "y1": 1894
+    }
+   },
+   "nodes": {
+    "n1": {
+     "x": 593,
+     "y": 164,
+     "w": 90,
+     "h": 90
+    },
+    "n2": {
+     "x": 582,
+     "y": 410,
+     "w": 103,
+     "h": 87,
+     "shape": "rhombus",
+     "stroke": 5,
+     "rx": 57,
+     "ry": 48
+    },
+    "n3": {
+     "x": 133,
+     "y": 417,
+     "w": 77,
+     "h": 77,
+     "shape": "ellipse",
+     "stroke": 4,
+     "rx": 39,
+     "ry": 43,
+     "innerRatio": 0.442
+    },
+    "n4": {
+     "x": 1573,
+     "y": 896,
+     "w": 631,
+     "h": 141,
+     "shape": "rect",
+     "stroke": 9,
+     "rx": 0,
+     "ry": 0,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 1763,
+       "y": 941,
+       "w": 265,
+       "h": 53,
+       "text": "Catalogue"
+      }
+     ]
+    },
+    "n5": {
+     "x": 86,
+     "y": 898,
+     "w": 1099,
+     "h": 163,
+     "shape": "rounded",
+     "stroke": 5,
+     "rx": 79,
+     "ry": 68,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 195,
+       "y": 918,
+       "w": 853,
+       "h": 53,
+       "text": "Inform about changes inside the"
+      },
+      {
+       "x": 502,
+       "y": 987,
+       "w": 257,
+       "h": 52,
+       "text": "catalogue"
+      }
+     ]
+    },
+    "n6": {
+     "x": 2549,
+     "y": 907,
+     "w": 768,
+     "h": 128,
+     "shape": "rounded",
+     "stroke": 5,
+     "rx": 65,
+     "ry": 57,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 2663,
+       "y": 949,
+       "w": 525,
+       "h": 42,
+       "text": "Receive information"
+      }
+     ]
+    },
+    "n7": {
+     "x": 2528,
+     "y": 1349,
+     "w": 811,
+     "h": 133,
+     "shape": "rounded",
+     "stroke": 5,
+     "rx": 61,
+     "ry": 44,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 2594,
+       "y": 1392,
+       "w": 667,
+       "h": 52,
+       "text": "Update Product database"
+      }
+     ]
+    },
+    "n8": {
+     "x": 2893,
+     "y": 1757,
+     "w": 77,
+     "h": 77,
+     "shape": "ellipse",
+     "stroke": 5,
+     "rx": 37,
+     "ry": 38,
+     "innerRatio": 0.442
+    }
+   },
+   "flows": {
+    "f0": {
+     "fromPoint": [
+      633,
+      268
+     ],
+     "toPoint": [
+      633,
+      395
+     ],
+     "routing": "straight"
+    },
+    "f1": {
+     "fromPoint": [
+      567,
+      453
+     ],
+     "toPoint": [
+      224,
+      453
+     ],
+     "routing": "straight"
+    },
+    "f2": {
+     "fromPoint": [
+      633,
+      511
+     ],
+     "toPoint": [
+      633,
+      883
+     ],
+     "routing": "straight"
+    },
+    "f3": {
+     "fromPoint": [
+      1199,
+      973
+     ],
+     "toPoint": [
+      1558,
+      968
+     ],
+     "routing": "straight"
+    },
+    "f4": {
+     "fromPoint": [
+      2218,
+      967
+     ],
+     "toPoint": [
+      2534,
+      969
+     ],
+     "routing": "straight"
+    },
+    "f5": {
+     "fromPoint": [
+      2933,
+      1049
+     ],
+     "toPoint": [
+      2933,
+      1334
+     ],
+     "routing": "straight"
+    },
+    "f6": {
+     "fromPoint": [
+      2933,
+      1496
+     ],
+     "toPoint": [
+      2933,
+      1742
+     ],
+     "routing": "straight"
+    }
+   },
+   "texts": {
+    "t2": {
+     "x": 392,
+     "y": 410,
+     "w": 100,
+     "h": 31,
+     "lines": [
+      {
+       "x": 392,
+       "y": 410,
+       "w": 100,
+       "h": 31,
+       "text": "False"
+      }
+     ]
+    },
+    "t3": {
+     "x": 656,
+     "y": 422,
+     "w": 435,
+     "h": 148,
+     "lines": [
+      {
+       "x": 652,
+       "y": 419,
+       "w": 439,
+       "h": 90,
+       "text": "Catalogue update is needed?"
+      },
+      {
+       "x": 656,
+       "y": 538,
+       "w": 86,
+       "h": 32,
+       "text": "True"
+      }
+     ]
+    }
+   },
+   "offPage": {},
+   "marks": {},
+   "phases": {},
+   "rulesHaveSpans": {
+    "vertical": true,
+    "horizontal": true
+   }
+  }
+ },
+ "retexted": {
+  "t3": {
+   "section": "texts",
+   "text": "Catalogue update is\nneeded?"
+  }
+ },
+ "graphPatches": {
+  "edges": {
+   "f2": {
+    "guard": "True"
+   },
+   "f1": {
+    "guard": "False"
+   }
+  },
+  "texts": {
+   "t3": {
+    "x": 713,
+    "y": 422,
+    "w": 377,
+    "h": 86,
+    "lines": [
+     {
+      "x": 713,
+      "y": 422,
+      "w": 377,
+      "h": 39,
+      "text": "Catalogue update is"
+     },
+     {
+      "x": 713,
+      "y": 478,
+      "w": 162,
+      "h": 30,
+      "text": "needed?"
+     }
+    ],
+    "text": "Catalogue update is\nneeded?"
+   }
+  },
+  "addEdges": [],
+  "addTexts": [
+   {
+    "x": 656,
+    "y": 538,
+    "w": 86,
+    "h": 32,
+    "lines": [
+     {
+      "x": 656,
+      "y": 538,
+      "w": 86,
+      "h": 32,
+      "text": "True"
+     }
+    ],
+    "text": "True"
+   }
+  ]
+ },
+ "corrections": [
+  "q13-42",
+  "q13-43",
+  "q13-44",
+  "q13-45",
+  "draw-35",
+  "text-36"
+ ],
+ "documentLanes": {
+  "object-catalogue": "lane-producer"
+ },
+ "formerIds": {
+  "lane-producer": "lane0",
+  "lane-retailer": "lane1",
+  "initial-producer": "n1",
+  "decision-producer": "n2",
+  "final-producer": "n3",
+  "object-catalogue": "n4",
+  "action-inform-about-changes-inside-the": "n5",
+  "action-receive-information": "n6",
+  "action-update-product-database": "n7",
+  "final-retailer": "n8",
+  "flow-initial-producer-to-decision-producer": "f0",
+  "flow-decision-producer-to-final-producer": "f1",
+  "flow-decision-producer-to-inform-about-changes-inside-the": "f2",
+  "flow-inform-about-changes-inside-the-to-catalogue": "f3",
+  "flow-catalogue-to-receive-information": "f4",
+  "flow-receive-information-to-update-product-database": "f5",
+  "flow-update-product-database-to-final-retailer": "f6",
+  "text-false": "t2",
+  "text-catalogue-update-is-needed": "t3",
+  "text-true": "corr-q13-42"
+ }
+}

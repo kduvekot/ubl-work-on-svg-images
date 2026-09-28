@@ -1,0 +1,194 @@
+{
+ "name": "UBL-2.2-Tender-QualificationInfo.png",
+ "verdict": "needs-human",
+ "radius": 3,
+ "lineWorkInk": 373602,
+ "missingPx": 529,
+ "inventedPx": 528,
+ "structural": {
+  "absent": 0,
+  "invented": 0,
+  "coherence": 0,
+  "textAbsent": 0,
+  "textDiffers": 0
+ },
+ "blocking": [],
+ "findings": [
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n13 (action 'Receive result')",
+   "x": 526,
+   "y": 1607,
+   "w": 3,
+   "h": 56,
+   "area": 168
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n6 -> n7",
+   "x": 2091,
+   "y": 1093,
+   "w": 1,
+   "h": 84,
+   "area": 84
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n13 (action 'Receive result')",
+   "x": 578,
+   "y": 1628,
+   "w": 6,
+   "h": 30,
+   "area": 81
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n13 (action 'Receive result')",
+   "x": 536,
+   "y": 1641,
+   "w": 3,
+   "h": 22,
+   "area": 66
+  }
+ ],
+ "text": [],
+ "coherence": [],
+ "human": [
+  {
+   "x": 1652,
+   "y": 862,
+   "w": 427,
+   "h": 442,
+   "shape": "rect",
+   "iou": 1.0,
+   "border": 1.0,
+   "kind": "kept-on-outline",
+   "reason": "every side has pass-through line-work, but the region carries a complete outline of its own",
+   "check": "confirm this is a node and not trapped whitespace"
+  },
+  {
+   "x": 1881,
+   "y": 1089,
+   "w": 940,
+   "h": 551,
+   "shape": "rhombus",
+   "iou": 0.647,
+   "border": 0.376,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best rhombus 0.65, and 0.99 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "kind": "sub-character-region",
+   "x": 900,
+   "y": 78,
+   "w": 31,
+   "h": 43,
+   "reason": "enclosed region smaller than one character of the diagram's type",
+   "check": "confirm this is glyph interior and not a node"
+  },
+  {
+   "kind": "sub-character-region",
+   "x": 2202,
+   "y": 78,
+   "w": 38,
+   "h": 44,
+   "reason": "enclosed region smaller than one character of the diagram's type",
+   "check": "confirm this is glyph interior and not a node"
+  },
+  {
+   "kind": "sub-character-region",
+   "x": 2951,
+   "y": 78,
+   "w": 38,
+   "h": 44,
+   "reason": "enclosed region smaller than one character of the diagram's type",
+   "check": "confirm this is glyph interior and not a node"
+  },
+  {
+   "kind": "sub-character-region",
+   "x": 2795,
+   "y": 1010,
+   "w": 38,
+   "h": 45,
+   "reason": "enclosed region smaller than one character of the diagram's type",
+   "check": "confirm this is glyph interior and not a node"
+  },
+  {
+   "kind": "sub-character-region",
+   "x": 524,
+   "y": 1060,
+   "w": 38,
+   "h": 45,
+   "reason": "enclosed region smaller than one character of the diagram's type",
+   "check": "confirm this is glyph interior and not a node"
+  },
+  {
+   "kind": "sub-character-region",
+   "x": 2750,
+   "y": 1568,
+   "w": 38,
+   "h": 44,
+   "reason": "enclosed region smaller than one character of the diagram's type",
+   "check": "confirm this is glyph interior and not a node"
+  }
+ ],
+ "review": [
+  {
+   "n": 1,
+   "what": "check",
+   "where": "1652,862 427x442",
+   "detail": "every side has pass-through line-work, but the region carries a complete outline of its own",
+   "check": "confirm this is a node and not trapped whitespace"
+  },
+  {
+   "n": 2,
+   "what": "check",
+   "where": "1881,1089 940x551",
+   "detail": "outline matches no UML node shape (best rhombus 0.65, and 0.99 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "n": 3,
+   "what": "check",
+   "where": "900,78 31x43",
+   "detail": "enclosed region smaller than one character of the diagram's type",
+   "check": "confirm this is glyph interior and not a node"
+  },
+  {
+   "n": 4,
+   "what": "check",
+   "where": "2202,78 38x44",
+   "detail": "enclosed region smaller than one character of the diagram's type",
+   "check": "confirm this is glyph interior and not a node"
+  },
+  {
+   "n": 5,
+   "what": "check",
+   "where": "2951,78 38x44",
+   "detail": "enclosed region smaller than one character of the diagram's type",
+   "check": "confirm this is glyph interior and not a node"
+  },
+  {
+   "n": 6,
+   "what": "check",
+   "where": "2795,1010 38x45",
+   "detail": "enclosed region smaller than one character of the diagram's type",
+   "check": "confirm this is glyph interior and not a node"
+  },
+  {
+   "n": 7,
+   "what": "check",
+   "where": "524,1060 38x45",
+   "detail": "enclosed region smaller than one character of the diagram's type",
+   "check": "confirm this is glyph interior and not a node"
+  },
+  {
+   "n": 8,
+   "what": "check",
+   "where": "2750,1568 38x44",
+   "detail": "enclosed region smaller than one character of the diagram's type",
+   "check": "confirm this is glyph interior and not a node"
+  }
+ ]
+}

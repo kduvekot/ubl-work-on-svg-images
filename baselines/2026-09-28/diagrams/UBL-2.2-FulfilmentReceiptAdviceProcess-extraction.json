@@ -1,0 +1,1913 @@
+{
+ "schema": "ubl-activity-diagram-extraction/1",
+ "figure": "UBL-2.2-FulfilmentReceiptAdviceProcess",
+ "nodes": {
+  "initial-delivery-party": {
+   "area": 3183,
+   "fill": 0.777
+  },
+  "action-receive-order-item-s": {
+   "area": 35867,
+   "fill": 0.898,
+   "solid": 0.962,
+   "stem": 0.133
+  },
+  "action-check-status-of-item-s": {
+   "area": 37639,
+   "fill": 0.926,
+   "solid": 0.987,
+   "stem": 0.133
+  },
+  "object-receipt-advice": {
+   "area": 29737,
+   "fill": 0.942,
+   "solid": 1.0,
+   "stem": 0.133
+  },
+  "action-receive-receipt-advice": {
+   "area": 30649,
+   "fill": 0.877,
+   "solid": 0.957,
+   "stem": 0.133
+  },
+  "action-send-receipt-advice": {
+   "area": 29836,
+   "fill": 0.873,
+   "solid": 0.947,
+   "stem": 0.133
+  },
+  "action-adjust-supply-status": {
+   "area": 37143,
+   "fill": 0.906,
+   "solid": 0.966,
+   "stem": 0.133
+  },
+  "final-seller-party": {
+   "area": 1411,
+   "fill": 0.639,
+   "solid": 0.795
+  },
+  "object-fulfilment-cancellation": {
+   "area": 29390,
+   "fill": 0.919,
+   "solid": 1.0,
+   "stem": 0.133
+  },
+  "action-receive-fulfilment-cancellation": {
+   "area": 31580,
+   "fill": 0.862,
+   "solid": 0.958,
+   "stem": 0.133
+  },
+  "action-cancel-receipt-notification": {
+   "area": 28986,
+   "fill": 0.869,
+   "solid": 0.956,
+   "stem": 0.133
+  },
+  "decision-determine-action": {
+   "area": 23878,
+   "fill": 0.471,
+   "solid": 0.503,
+   "stem": 0.1
+  },
+  "action-advise-buyer-of-status": {
+   "area": 29587,
+   "fill": 0.903,
+   "solid": 0.984,
+   "stem": 0.133
+  },
+  "object-order-cancellation": {
+   "area": 32970,
+   "fill": 0.935,
+   "solid": 1.0,
+   "stem": 0.133
+  },
+  "action-send-order-cancellation": {
+   "area": 31664,
+   "fill": 0.878,
+   "solid": 0.958,
+   "stem": 0.133
+  },
+  "action-cancel-order": {
+   "area": 33127,
+   "fill": 0.919,
+   "solid": 0.958,
+   "stem": 0.133
+  },
+  "object-order-change": {
+   "area": 29697,
+   "fill": 0.943,
+   "solid": 1.0,
+   "stem": 0.133
+  },
+  "action-adjust-order": {
+   "area": 30744,
+   "fill": 0.907,
+   "solid": 0.956,
+   "stem": 0.133
+  },
+  "action-change-order": {
+   "area": 34256,
+   "fill": 0.915,
+   "solid": 0.963,
+   "stem": 0.133
+  },
+  "action-accept-items": {
+   "area": 15551,
+   "fill": 0.885,
+   "solid": 0.968,
+   "stem": 0.133
+  },
+  "final-buyer-party": {
+   "area": 2182,
+   "fill": 0.486,
+   "solid": 0.765
+  }
+ },
+ "flows": {
+  "flow-initial-delivery-party-to-receive-order-item-s": {
+   "arrowInk": [
+    135,
+    346
+   ],
+   "arrowPx": [
+    38,
+    30.0,
+    1.95
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-receive-order-item-s-to-check-status-of-item-s": {
+   "arrowInk": [
+    173,
+    345
+   ],
+   "arrowPx": [
+    39,
+    31.9,
+    1.76
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-check-status-of-item-s-to-advise-buyer-of-status": {
+   "arrowInk": [
+    135,
+    346
+   ],
+   "arrowPx": [
+    38,
+    32.0,
+    2.01
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-check-status-of-item-s-to-send-receipt-advice": {
+   "arrowInk": [
+    143,
+    333
+   ],
+   "arrowPx": [
+    45,
+    37.6,
+    0.47
+   ],
+   "arrowFill": 0.138
+  },
+  "flow-send-receipt-advice-to-receipt-advice": {
+   "arrowInk": [
+    135,
+    375
+   ],
+   "arrowPx": [
+    40,
+    32.0,
+    2.17
+   ],
+   "arrowFill": 0.0,
+   "arrowSaturated": true
+  },
+  "flow-receipt-advice-to-receive-receipt-advice": {
+   "arrowInk": [
+    135,
+    343
+   ],
+   "arrowPx": [
+    39,
+    32.0,
+    1.95
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-receive-receipt-advice-to-adjust-supply-status": {
+   "arrowInk": [
+    194,
+    366
+   ]
+  },
+  "flow-send-receipt-advice-to-cancel-receipt-notification": {
+   "arrowInk": [
+    98,
+    320
+   ],
+   "arrowPx": [
+    47,
+    38.1,
+    0.9
+   ],
+   "arrowFill": 0.144,
+   "arrowSaturated": true
+  },
+  "flow-cancel-receipt-notification-to-send-receipt-advice": {
+   "arrowInk": [
+    138,
+    361
+   ],
+   "arrowPx": [
+    41,
+    31.0,
+    1.92
+   ],
+   "arrowFill": 0.005
+  },
+  "flow-adjust-supply-status-to-final-seller-party": {
+   "arrowInk": [
+    135,
+    343
+   ],
+   "arrowPx": [
+    39,
+    30.0,
+    1.96
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-receive-fulfilment-cancellation-to-adjust-supply-status": {
+   "arrowInk": [
+    188,
+    370
+   ],
+   "arrowPx": [
+    41,
+    32.7,
+    2.96
+   ],
+   "arrowFill": 0.006,
+   "arrowSaturated": true
+  },
+  "flow-cancel-order-to-adjust-supply-status": {
+   "arrowInk": [
+    184,
+    412
+   ],
+   "arrowPx": [
+    40,
+    33.8,
+    1.78
+   ],
+   "arrowFill": 0.066
+  },
+  "flow-change-order-to-adjust-supply-status": {
+   "arrowInk": [
+    184,
+    412
+   ],
+   "arrowPx": [
+    41,
+    32.0,
+    1.9
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-cancel-receipt-notification-to-fulfilment-cancellation": {
+   "arrowInk": [
+    180,
+    417
+   ],
+   "arrowPx": [
+    40,
+    30.0,
+    2.11
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-fulfilment-cancellation-to-receive-fulfilment-cancellation": {
+   "arrowInk": [
+    135,
+    336
+   ],
+   "arrowPx": [
+    38,
+    32.0,
+    1.93
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-advise-buyer-of-status-to-determine-action": {
+   "arrowInk": [
+    138,
+    354
+   ],
+   "arrowPx": [
+    41,
+    30.0,
+    2.04
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-determine-action-to-accept-items": {
+   "arrowInk": [
+    364,
+    430
+   ],
+   "arrowPx": [
+    45,
+    57.0,
+    1.39
+   ],
+   "arrowFill": 0.037,
+   "arrowSaturated": true
+  },
+  "flow-determine-action-to-adjust-order": {
+   "arrowInk": [
+    393,
+    420
+   ],
+   "arrowPx": [
+    37,
+    30.5,
+    1.81
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-determine-action-to-send-order-cancellation": {
+   "arrowInk": [
+    276,
+    410
+   ],
+   "arrowPx": [
+    87,
+    80.5,
+    2.43
+   ],
+   "arrowFill": 0.021,
+   "arrowSaturated": true
+  },
+  "flow-send-order-cancellation-to-order-cancellation": {
+   "arrowInk": [
+    135,
+    372
+   ],
+   "arrowPx": [
+    39,
+    30.2,
+    2.12
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-order-cancellation-to-cancel-order": {
+   "arrowInk": [
+    135,
+    340
+   ],
+   "arrowPx": [
+    38,
+    32.0,
+    1.93
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-adjust-order-to-order-change": {
+   "arrowInk": [
+    135,
+    368
+   ],
+   "arrowPx": [
+    40,
+    30.0,
+    2.14
+   ],
+   "arrowFill": 0.0,
+   "arrowSaturated": true
+  },
+  "flow-order-change-to-change-order": {
+   "arrowInk": [
+    135,
+    346
+   ],
+   "arrowPx": [
+    38,
+    30.0,
+    1.96
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-accept-items-to-final-buyer-party": {
+   "arrowInk": [
+    135,
+    340
+   ],
+   "arrowPx": [
+    37,
+    30.8,
+    1.79
+   ],
+   "arrowFill": 0.0
+  }
+ },
+ "offPage": {},
+ "marks": {},
+ "phases": {},
+ "greyRules": [],
+ "titleReadings": [
+  {
+   "position": 0,
+   "text": "Buyer Party",
+   "x": 512,
+   "y": 53,
+   "w": 124,
+   "h": 22,
+   "lines": [
+    {
+     "x": 512,
+     "y": 53,
+     "w": 124,
+     "h": 22,
+     "text": "Buyer Party"
+    }
+   ]
+  },
+  {
+   "position": 1,
+   "text": "Delivery Party",
+   "x": 1524,
+   "y": 53,
+   "w": 149,
+   "h": 22,
+   "lines": [
+    {
+     "x": 1524,
+     "y": 53,
+     "w": 149,
+     "h": 22,
+     "text": "Delivery Party"
+    }
+   ]
+  },
+  {
+   "position": 2,
+   "text": "Seller Party",
+   "x": 2693,
+   "y": 53,
+   "w": 127,
+   "h": 22,
+   "lines": [
+    {
+     "x": 2693,
+     "y": 53,
+     "w": 127,
+     "h": 22,
+     "text": "Seller Party"
+    }
+   ]
+  }
+ ],
+ "findings": [],
+ "uncertain": [
+  {
+   "x": 1690,
+   "y": 782,
+   "w": 368,
+   "h": 233,
+   "shape": "ellipse",
+   "iou": 0.765,
+   "border": 0.607,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best ellipse 0.77, and 0.98 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "x": 615,
+   "y": 1198,
+   "w": 496,
+   "h": 264,
+   "shape": "rect",
+   "iou": 0.687,
+   "border": 0.739,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best rect 0.69, and 0.99 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "x": 1114,
+   "y": 1465,
+   "w": 944,
+   "h": 250,
+   "shape": "rect",
+   "iou": 0.911,
+   "border": 0.902,
+   "kind": "dropped-region",
+   "reason": "3 of 4 sides are pass-through line-work",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "kind": "empty-box",
+   "x": 1114,
+   "y": 1718,
+   "w": 944,
+   "h": 291,
+   "reason": "a note carrying no text, with line-work passing its sides",
+   "check": "confirm nothing is drawn here in the original"
+  }
+ ],
+ "present": [
+  "source",
+  "size",
+  "fontPx",
+  "arrowPx",
+  "arrowWidthPx",
+  "arrowStyle",
+  "rules",
+  "ruleSpan",
+  "greyRules",
+  "dashed",
+  "openEnds",
+  "crossMarks",
+  "partitions",
+  "nodes",
+  "edges",
+  "text",
+  "uncertain"
+ ],
+ "uncorrected": {
+  "model": {
+   "schema": "ubl-activity-diagram/1",
+   "figure": {
+    "name": "UBL-2.2-FulfilmentReceiptAdviceProcess",
+    "source": "UBL-2.2-FulfilmentReceiptAdviceProcess.png"
+   },
+   "lanes": [
+    {
+     "id": "lane0",
+     "axis": "column",
+     "index": 0,
+     "title": "Buyer Party"
+    },
+    {
+     "id": "lane1",
+     "axis": "column",
+     "index": 1,
+     "title": "Delivery Party"
+    },
+    {
+     "id": "lane2",
+     "axis": "column",
+     "index": 2,
+     "title": "Seller Party"
+    },
+    {
+     "id": "lane3",
+     "axis": "band",
+     "index": 0,
+     "title": ""
+    }
+   ],
+   "nodes": [
+    {
+     "id": "n1",
+     "kind": "initial",
+     "label": "",
+     "lane": "lane1",
+     "band": "lane3"
+    },
+    {
+     "id": "n2",
+     "kind": "action",
+     "label": "Receive Order Item(s)",
+     "lane": "lane1",
+     "band": "lane3"
+    },
+    {
+     "id": "n3",
+     "kind": "action",
+     "label": "Check status of Item(s)",
+     "lane": "lane1",
+     "band": "lane3"
+    },
+    {
+     "id": "n4",
+     "kind": "object",
+     "label": "Receipt Advice",
+     "lane": "lane1",
+     "band": "lane3"
+    },
+    {
+     "id": "n5",
+     "kind": "action",
+     "label": "Receive Receipt Advice",
+     "lane": "lane2",
+     "band": "lane3"
+    },
+    {
+     "id": "n6",
+     "kind": "action",
+     "label": "Send Receipt Advice",
+     "lane": "lane1",
+     "band": "lane3"
+    },
+    {
+     "id": "n7",
+     "kind": "action",
+     "label": "Adjust supply status",
+     "lane": "lane2",
+     "band": "lane3"
+    },
+    {
+     "id": "n8",
+     "kind": "final",
+     "label": "",
+     "lane": "lane2",
+     "band": "lane3"
+    },
+    {
+     "id": "n9",
+     "kind": "object",
+     "label": "Fulfilment\nCancellation",
+     "lane": "lane1",
+     "band": "lane3"
+    },
+    {
+     "id": "n10",
+     "kind": "action",
+     "label": "Receive Fulfilment\nCancellation",
+     "lane": "lane2",
+     "band": "lane3"
+    },
+    {
+     "id": "n11",
+     "kind": "action",
+     "label": "Cancel receipt notification",
+     "lane": "lane1",
+     "band": "lane3"
+    },
+    {
+     "id": "n12",
+     "kind": "decision",
+     "label": "Determine Action",
+     "lane": "lane0",
+     "band": "lane3"
+    },
+    {
+     "id": "n13",
+     "kind": "action",
+     "label": "Advise Buyer of status",
+     "lane": "lane1",
+     "band": "lane3"
+    },
+    {
+     "id": "n14",
+     "kind": "object",
+     "label": "Order Cancellation",
+     "lane": "lane1",
+     "band": "lane3"
+    },
+    {
+     "id": "n15",
+     "kind": "action",
+     "label": "Send Order Cancellation",
+     "lane": "lane0",
+     "band": "lane3"
+    },
+    {
+     "id": "n16",
+     "kind": "action",
+     "label": "Cancel order",
+     "lane": "lane2",
+     "band": "lane3"
+    },
+    {
+     "id": "n17",
+     "kind": "object",
+     "label": "Order Change",
+     "lane": "lane1",
+     "band": "lane3"
+    },
+    {
+     "id": "n18",
+     "kind": "action",
+     "label": "Adjust Order",
+     "lane": "lane0",
+     "band": "lane3"
+    },
+    {
+     "id": "n19",
+     "kind": "action",
+     "label": "Change Order",
+     "lane": "lane2",
+     "band": "lane3"
+    },
+    {
+     "id": "n20",
+     "kind": "action",
+     "label": "Accept Items",
+     "lane": "lane0",
+     "band": "lane3"
+    },
+    {
+     "id": "n22",
+     "kind": "final",
+     "label": "",
+     "lane": "lane0",
+     "band": "lane3"
+    }
+   ],
+   "flows": [
+    {
+     "id": "f0",
+     "from": "n1",
+     "to": "n2",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f1",
+     "from": "n2",
+     "to": "n3",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f2",
+     "from": "n3",
+     "to": "n13",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f3",
+     "from": "n3",
+     "to": "n6",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f4",
+     "from": "n6",
+     "to": "n4",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f5",
+     "from": "n4",
+     "to": "n5",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f6",
+     "from": "n5",
+     "to": "n7",
+     "kind": "control",
+     "direction": {
+      "confidence": "medium",
+      "checked": "confirmed"
+     }
+    },
+    {
+     "id": "f7",
+     "from": "n6",
+     "to": "n11",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f8",
+     "from": "n11",
+     "to": "n6",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f9",
+     "from": "n7",
+     "to": "n8",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f10",
+     "from": "n10",
+     "to": "n7",
+     "kind": "control",
+     "direction": {
+      "confidence": "medium",
+      "checked": "confirmed"
+     }
+    },
+    {
+     "id": "f11",
+     "from": "n16",
+     "to": "n7",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f12",
+     "from": "n19",
+     "to": "n7",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f13",
+     "from": "n11",
+     "to": "n9",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f14",
+     "from": "n9",
+     "to": "n10",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f15",
+     "from": "n13",
+     "to": "n12",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f16",
+     "from": "n12",
+     "to": "n20",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     },
+     "guard": "t5"
+    },
+    {
+     "id": "f17",
+     "from": "n12",
+     "to": "n18",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     },
+     "guard": "t6"
+    },
+    {
+     "id": "f18",
+     "from": "n12",
+     "to": "n15",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     },
+     "guard": "t4"
+    },
+    {
+     "id": "f19",
+     "from": "n15",
+     "to": "n14",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f20",
+     "from": "n14",
+     "to": "n16",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f21",
+     "from": "n18",
+     "to": "n17",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f22",
+     "from": "n17",
+     "to": "n19",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f23",
+     "from": "n20",
+     "to": "n22",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    }
+   ],
+   "texts": [
+    {
+     "id": "t3",
+     "text": "From Order"
+    },
+    {
+     "id": "t4",
+     "text": "[cancel\norder]",
+     "labels": "f18"
+    },
+    {
+     "id": "t5",
+     "text": "[accept\nitems]",
+     "labels": "f16"
+    },
+    {
+     "id": "t6",
+     "text": "[change\norder]",
+     "labels": "f17"
+    }
+   ],
+   "offPage": [],
+   "marks": [],
+   "phases": []
+  },
+  "layout": {
+   "schema": "ubl-activity-diagram-layout/1",
+   "figure": "UBL-2.2-FulfilmentReceiptAdviceProcess",
+   "units": "px of the original PNG",
+   "size": [
+    3425,
+    2019
+   ],
+   "style": {
+    "fontPx": 30.0,
+    "arrowPx": 39.0,
+    "arrowWidthPx": 31.0,
+    "arrowStyle": "open"
+   },
+   "rules": {
+    "vertical": [
+     {
+      "at": 0,
+      "width": 10,
+      "span": [
+       13,
+       2005
+      ]
+     },
+     {
+      "at": 1111,
+      "width": 3,
+      "span": [
+       13,
+       2005
+      ]
+     },
+     {
+      "at": 2058,
+      "width": 3,
+      "span": [
+       13,
+       2005
+      ]
+     },
+     {
+      "at": 3415,
+      "width": 10,
+      "span": [
+       13,
+       2005
+      ]
+     }
+    ],
+    "horizontal": [
+     {
+      "at": 0,
+      "width": 10,
+      "span": [
+       13,
+       3411
+      ]
+     },
+     {
+      "at": 2009,
+      "width": 10,
+      "span": [
+       13,
+       3411
+      ]
+     }
+    ]
+   },
+   "greyRules": [],
+   "lanes": {
+    "lane0": {
+     "x0": 0,
+     "x1": 1112,
+     "titleBox": [
+      512,
+      53,
+      124,
+      22
+     ]
+    },
+    "lane1": {
+     "x0": 1112,
+     "x1": 2060,
+     "titleBox": [
+      1524,
+      53,
+      149,
+      22
+     ]
+    },
+    "lane2": {
+     "x0": 2060,
+     "x1": 3425,
+     "titleBox": [
+      2693,
+      53,
+      127,
+      22
+     ]
+    },
+    "lane3": {
+     "y0": 0,
+     "y1": 2019
+    }
+   },
+   "nodes": {
+    "n1": {
+     "x": 1476,
+     "y": 116,
+     "w": 70,
+     "h": 70
+    },
+    "n2": {
+     "x": 1316,
+     "y": 305,
+     "w": 377,
+     "h": 106,
+     "shape": "rounded",
+     "stroke": 4,
+     "rx": 39,
+     "ry": 41,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 1356,
+       "y": 342,
+       "w": 287,
+       "h": 26,
+       "text": "Receive Order Item(s)"
+      }
+     ]
+    },
+    "n3": {
+     "x": 1325,
+     "y": 507,
+     "w": 373,
+     "h": 109,
+     "shape": "rounded",
+     "stroke": 3,
+     "rx": 24,
+     "ry": 23,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 1355,
+       "y": 547,
+       "w": 307,
+       "h": 27,
+       "text": "Check status of Item(s)"
+      }
+     ]
+    },
+    "n4": {
+     "x": 1939,
+     "y": 714,
+     "w": 241,
+     "h": 131,
+     "shape": "rect",
+     "stroke": 6,
+     "rx": 0,
+     "ry": 0,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 1957,
+       "y": 768,
+       "w": 200,
+       "h": 26,
+       "text": "Receipt Advice"
+      }
+     ]
+    },
+    "n5": {
+     "x": 2309,
+     "y": 729,
+     "w": 368,
+     "h": 95,
+     "shape": "rounded",
+     "stroke": 3,
+     "rx": 41,
+     "ry": 39,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 2328,
+       "y": 767,
+       "w": 313,
+       "h": 25,
+       "text": "Receive Receipt Advice"
+      }
+     ]
+    },
+    "n6": {
+     "x": 1437,
+     "y": 737,
+     "w": 393,
+     "h": 87,
+     "shape": "rounded",
+     "stroke": 3,
+     "rx": 38,
+     "ry": 42,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 1490,
+       "y": 767,
+       "w": 276,
+       "h": 26,
+       "text": "Send Receipt Advice"
+      }
+     ]
+    },
+    "n7": {
+     "x": 2776,
+     "y": 836,
+     "w": 398,
+     "h": 103,
+     "shape": "rounded",
+     "stroke": 3,
+     "rx": 39,
+     "ry": 37,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 2836,
+       "y": 873,
+       "w": 275,
+       "h": 27,
+       "text": "Adjust supply status"
+      }
+     ]
+    },
+    "n8": {
+     "x": 3293,
+     "y": 867,
+     "w": 47,
+     "h": 47,
+     "shape": "ellipse",
+     "stroke": 3,
+     "rx": 21,
+     "ry": 21,
+     "innerRatio": 0.426
+    },
+    "n9": {
+     "x": 1936,
+     "y": 950,
+     "w": 244,
+     "h": 131,
+     "shape": "rect",
+     "stroke": 6,
+     "rx": 0,
+     "ry": 0,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 1988,
+       "y": 988,
+       "w": 135,
+       "h": 21,
+       "text": "Fulfilment"
+      },
+      {
+       "x": 1976,
+       "y": 1019,
+       "w": 164,
+       "h": 21,
+       "text": "Cancellation"
+      }
+     ]
+    },
+    "n10": {
+     "x": 2303,
+     "y": 965,
+     "w": 374,
+     "h": 98,
+     "shape": "rounded",
+     "stroke": 3,
+     "rx": 41,
+     "ry": 42,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 2359,
+       "y": 987,
+       "w": 247,
+       "h": 21,
+       "text": "Receive Fulfilment"
+      },
+      {
+       "x": 2407,
+       "y": 1020,
+       "w": 164,
+       "h": 22,
+       "text": "Cancellation"
+      }
+     ]
+    },
+    "n11": {
+     "x": 1434,
+     "y": 971,
+     "w": 388,
+     "h": 86,
+     "shape": "rounded",
+     "stroke": 3,
+     "rx": 39,
+     "ry": 41,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 1455,
+       "y": 1000,
+       "w": 348,
+       "h": 26,
+       "text": "Cancel receipt notification"
+      }
+     ]
+    },
+    "n12": {
+     "x": 469,
+     "y": 1109,
+     "w": 285,
+     "h": 178,
+     "shape": "rhombus",
+     "stroke": 3,
+     "rx": 153,
+     "ry": 95,
+     "bold": false,
+     "labelLines": [
+      {
+       "x": 505,
+       "y": 1186,
+       "w": 211,
+       "h": 21,
+       "text": "Determine Action"
+      }
+     ]
+    },
+    "n13": {
+     "x": 1215,
+     "y": 1162,
+     "w": 368,
+     "h": 89,
+     "shape": "rounded",
+     "stroke": 4,
+     "rx": 23,
+     "ry": 26,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 1244,
+       "y": 1191,
+       "w": 303,
+       "h": 26,
+       "text": "Advise Buyer of status"
+      }
+     ]
+    },
+    "n14": {
+     "x": 1925,
+     "y": 1402,
+     "w": 267,
+     "h": 132,
+     "shape": "rect",
+     "stroke": 6,
+     "rx": 0,
+     "ry": 0,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 1933,
+       "y": 1452,
+       "w": 249,
+       "h": 21,
+       "text": "Order Cancellation"
+      }
+     ]
+    },
+    "n15": {
+     "x": 692,
+     "y": 1412,
+     "w": 368,
+     "h": 98,
+     "shape": "rounded",
+     "stroke": 4,
+     "rx": 39,
+     "ry": 41,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 712,
+       "y": 1449,
+       "w": 325,
+       "h": 21,
+       "text": "Send Order Cancellation"
+      }
+     ]
+    },
+    "n16": {
+     "x": 2643,
+     "y": 1420,
+     "w": 368,
+     "h": 98,
+     "shape": "rounded",
+     "stroke": 3,
+     "rx": 43,
+     "ry": 42,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 2741,
+       "y": 1457,
+       "w": 171,
+       "h": 21,
+       "text": "Cancel order"
+      }
+     ]
+    },
+    "n17": {
+     "x": 1936,
+     "y": 1652,
+     "w": 244,
+     "h": 129,
+     "shape": "rect",
+     "stroke": 6,
+     "rx": 0,
+     "ry": 0,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 1967,
+       "y": 1702,
+       "w": 185,
+       "h": 27,
+       "text": "Order Change"
+      }
+     ]
+    },
+    "n18": {
+     "x": 464,
+     "y": 1665,
+     "w": 329,
+     "h": 103,
+     "shape": "rounded",
+     "stroke": 4,
+     "rx": 39,
+     "ry": 41,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 542,
+       "y": 1706,
+       "w": 171,
+       "h": 26,
+       "text": "Adjust Order"
+      }
+     ]
+    },
+    "n19": {
+     "x": 2908,
+     "y": 1665,
+     "w": 353,
+     "h": 106,
+     "shape": "rounded",
+     "stroke": 4,
+     "rx": 38,
+     "ry": 38,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 2992,
+       "y": 1702,
+       "w": 186,
+       "h": 27,
+       "text": "Change Order"
+      }
+     ]
+    },
+    "n20": {
+     "x": 85,
+     "y": 1676,
+     "w": 191,
+     "h": 92,
+     "shape": "rounded",
+     "stroke": 3,
+     "rx": 26,
+     "ry": 23,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 92,
+       "y": 1712,
+       "w": 173,
+       "h": 26,
+       "text": "Accept Items"
+      }
+     ]
+    },
+    "n22": {
+     "x": 144,
+     "y": 1875,
+     "w": 67,
+     "h": 67,
+     "shape": "rounded",
+     "stroke": 3,
+     "rx": 39,
+     "ry": 31,
+     "innerRatio": 0.582
+    }
+   },
+   "flows": {
+    "f0": {
+     "fromPoint": [
+      1511,
+      200
+     ],
+     "toPoint": [
+      1511,
+      290
+     ],
+     "routing": "straight"
+    },
+    "f1": {
+     "fromPoint": [
+      1504,
+      425
+     ],
+     "toPoint": [
+      1509,
+      492
+     ],
+     "routing": "straight"
+    },
+    "f2": {
+     "fromPoint": [
+      1396,
+      630
+     ],
+     "toPoint": [
+      1396,
+      1147
+     ],
+     "routing": "straight"
+    },
+    "f3": {
+     "fromPoint": [
+      1622,
+      630
+     ],
+     "toPoint": [
+      1629,
+      722
+     ],
+     "routing": "straight",
+     "dash": 22.2,
+     "gap": 32.8,
+     "dashOffset": 44.7
+    },
+    "f4": {
+     "fromPoint": [
+      1844,
+      780
+     ],
+     "toPoint": [
+      1924,
+      780
+     ],
+     "routing": "straight"
+    },
+    "f5": {
+     "fromPoint": [
+      2194,
+      780
+     ],
+     "toPoint": [
+      2294,
+      780
+     ],
+     "routing": "straight"
+    },
+    "f6": {
+     "fromPoint": [
+      2691,
+      802
+     ],
+     "toPoint": [
+      2761,
+      839
+     ],
+     "routing": "diagonal"
+    },
+    "f7": {
+     "fromPoint": [
+      1571,
+      838
+     ],
+     "toPoint": [
+      1575,
+      956
+     ],
+     "routing": "straight",
+     "dash": 23.1,
+     "gap": 30.3,
+     "dashOffset": 15.7
+    },
+    "f8": {
+     "fromPoint": [
+      1689,
+      956
+     ],
+     "toPoint": [
+      1687,
+      838
+     ],
+     "routing": "straight"
+    },
+    "f9": {
+     "fromPoint": [
+      3188,
+      887
+     ],
+     "toPoint": [
+      3278,
+      887
+     ],
+     "routing": "straight"
+    },
+    "f10": {
+     "fromPoint": [
+      2691,
+      972
+     ],
+     "toPoint": [
+      2761,
+      924
+     ],
+     "routing": "diagonal"
+    },
+    "f11": {
+     "fromPoint": [
+      2891,
+      1405
+     ],
+     "toPoint": [
+      2893,
+      954
+     ],
+     "routing": "straight"
+    },
+    "f12": {
+     "fromPoint": [
+      3085,
+      1650
+     ],
+     "toPoint": [
+      3085,
+      954
+     ],
+     "routing": "straight"
+    },
+    "f13": {
+     "fromPoint": [
+      1836,
+      1016
+     ],
+     "toPoint": [
+      1921,
+      1016
+     ],
+     "routing": "straight"
+    },
+    "f14": {
+     "fromPoint": [
+      2194,
+      1014
+     ],
+     "toPoint": [
+      2288,
+      1014
+     ],
+     "routing": "straight"
+    },
+    "f15": {
+     "fromPoint": [
+      1200,
+      1196
+     ],
+     "toPoint": [
+      768,
+      1196
+     ],
+     "routing": "straight"
+    },
+    "f16": {
+     "fromPoint": [
+      601,
+      1301
+     ],
+     "toPoint": [
+      228,
+      1661
+     ],
+     "routing": "diagonal"
+    },
+    "f17": {
+     "fromPoint": [
+      611,
+      1301
+     ],
+     "toPoint": [
+      614,
+      1650
+     ],
+     "routing": "straight"
+    },
+    "f18": {
+     "fromPoint": [
+      627,
+      1301
+     ],
+     "toPoint": [
+      775,
+      1397
+     ],
+     "routing": "diagonal"
+    },
+    "f19": {
+     "fromPoint": [
+      1074,
+      1463
+     ],
+     "toPoint": [
+      1910,
+      1466
+     ],
+     "routing": "straight"
+    },
+    "f20": {
+     "fromPoint": [
+      2206,
+      1469
+     ],
+     "toPoint": [
+      2628,
+      1469
+     ],
+     "routing": "straight"
+    },
+    "f21": {
+     "fromPoint": [
+      807,
+      1716
+     ],
+     "toPoint": [
+      1921,
+      1716
+     ],
+     "routing": "straight"
+    },
+    "f22": {
+     "fromPoint": [
+      2194,
+      1716
+     ],
+     "toPoint": [
+      2893,
+      1716
+     ],
+     "routing": "straight"
+    },
+    "f23": {
+     "fromPoint": [
+      179,
+      1782
+     ],
+     "toPoint": [
+      177,
+      1860
+     ],
+     "routing": "straight"
+    }
+   },
+   "texts": {
+    "t3": {
+     "x": 1308,
+     "y": 139,
+     "w": 143,
+     "h": 21,
+     "lines": [
+      {
+       "x": 1308,
+       "y": 139,
+       "w": 143,
+       "h": 21,
+       "text": "From Order"
+      }
+     ]
+    },
+    "t4": {
+     "x": 710,
+     "y": 1298,
+     "w": 76,
+     "h": 49,
+     "lines": [
+      {
+       "x": 711,
+       "y": 1298,
+       "w": 75,
+       "h": 21,
+       "text": "[cancel"
+      },
+      {
+       "x": 710,
+       "y": 1326,
+       "w": 60,
+       "h": 21,
+       "text": "order]"
+      }
+     ]
+    },
+    "t5": {
+     "x": 182,
+     "y": 1552,
+     "w": 78,
+     "h": 66,
+     "lines": [
+      {
+       "x": 182,
+       "y": 1552,
+       "w": 78,
+       "h": 21,
+       "text": "[accept"
+      },
+      {
+       "x": 182,
+       "y": 1580,
+       "w": 57,
+       "h": 21,
+       "text": "items]"
+      }
+     ]
+    },
+    "t6": {
+     "x": 500,
+     "y": 1559,
+     "w": 87,
+     "h": 50,
+     "lines": [
+      {
+       "x": 500,
+       "y": 1559,
+       "w": 87,
+       "h": 21,
+       "text": "[change"
+      },
+      {
+       "x": 500,
+       "y": 1587,
+       "w": 60,
+       "h": 22,
+       "text": "order]"
+      }
+     ]
+    }
+   },
+   "offPage": {},
+   "marks": {},
+   "phases": {},
+   "rulesHaveSpans": {
+    "vertical": true,
+    "horizontal": true
+   }
+  }
+ },
+ "corrections": [
+  "q13-24",
+  "q13-25",
+  "draw-17",
+  "draw-18",
+  "draw-19",
+  "draw-20"
+ ],
+ "documentLanes": {
+  "object-receipt-advice": "lane-delivery-party",
+  "object-fulfilment-cancellation": "lane-delivery-party",
+  "object-order-cancellation": "lane-delivery-party",
+  "object-order-change": "lane-delivery-party"
+ },
+ "formerIds": {
+  "lane-buyer-party": "lane0",
+  "lane-delivery-party": "lane1",
+  "lane-seller-party": "lane2",
+  "initial-delivery-party": "n1",
+  "action-receive-order-item-s": "n2",
+  "action-check-status-of-item-s": "n3",
+  "object-receipt-advice": "n4",
+  "action-receive-receipt-advice": "n5",
+  "action-send-receipt-advice": "n6",
+  "action-adjust-supply-status": "n7",
+  "final-seller-party": "n8",
+  "object-fulfilment-cancellation": "n9",
+  "action-receive-fulfilment-cancellation": "n10",
+  "action-cancel-receipt-notification": "n11",
+  "decision-determine-action": "n12",
+  "action-advise-buyer-of-status": "n13",
+  "object-order-cancellation": "n14",
+  "action-send-order-cancellation": "n15",
+  "action-cancel-order": "n16",
+  "object-order-change": "n17",
+  "action-adjust-order": "n18",
+  "action-change-order": "n19",
+  "action-accept-items": "n20",
+  "final-buyer-party": "n22",
+  "flow-initial-delivery-party-to-receive-order-item-s": "f0",
+  "flow-receive-order-item-s-to-check-status-of-item-s": "f1",
+  "flow-check-status-of-item-s-to-advise-buyer-of-status": "f2",
+  "flow-check-status-of-item-s-to-send-receipt-advice": "f3",
+  "flow-send-receipt-advice-to-receipt-advice": "f4",
+  "flow-receipt-advice-to-receive-receipt-advice": "f5",
+  "flow-receive-receipt-advice-to-adjust-supply-status": "f6",
+  "flow-send-receipt-advice-to-cancel-receipt-notification": "f7",
+  "flow-cancel-receipt-notification-to-send-receipt-advice": "f8",
+  "flow-adjust-supply-status-to-final-seller-party": "f9",
+  "flow-receive-fulfilment-cancellation-to-adjust-supply-status": "f10",
+  "flow-cancel-order-to-adjust-supply-status": "f11",
+  "flow-change-order-to-adjust-supply-status": "f12",
+  "flow-cancel-receipt-notification-to-fulfilment-cancellation": "f13",
+  "flow-fulfilment-cancellation-to-receive-fulfilment-cancellation": "f14",
+  "flow-advise-buyer-of-status-to-determine-action": "f15",
+  "flow-determine-action-to-accept-items": "f16",
+  "flow-determine-action-to-adjust-order": "f17",
+  "flow-determine-action-to-send-order-cancellation": "f18",
+  "flow-send-order-cancellation-to-order-cancellation": "f19",
+  "flow-order-cancellation-to-cancel-order": "f20",
+  "flow-adjust-order-to-order-change": "f21",
+  "flow-order-change-to-change-order": "f22",
+  "flow-accept-items-to-final-buyer-party": "f23",
+  "text-from-order": "t3",
+  "text-cancel-order": "t4",
+  "text-accept-items": "t5",
+  "text-change-order": "t6"
+ }
+}

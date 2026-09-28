@@ -1,0 +1,1884 @@
+{
+ "schema": "ubl-activity-diagram-extraction/1",
+ "figure": "UBL-2.2-CPFR-CreateOrderForecast",
+ "nodes": {
+  "fork-buyer-party": {
+   "area": 4685,
+   "fill": 0.996,
+   "lumps": 0,
+   "band": 27,
+   "box": 27
+  },
+  "action-send-product-activity": {
+   "area": 95319,
+   "fill": 0.906,
+   "solid": 0.964,
+   "stem": 0.131
+  },
+  "action-send-retail-event": {
+   "area": 84166,
+   "fill": 0.904,
+   "solid": 0.96,
+   "stem": 0.153
+  },
+  "object-retail-event": {
+   "area": 81037,
+   "fill": 0.96,
+   "solid": 1.0,
+   "stem": 0.131
+  },
+  "fork-seller-party": {
+   "area": 3572,
+   "fill": 0.995,
+   "lumps": 0,
+   "band": 27,
+   "box": 27
+  },
+  "action-receive": {
+   "area": 94184,
+   "fill": 0.94,
+   "solid": 0.962,
+   "stem": 0.131
+  },
+  "object-product-activity": {
+   "area": 79763,
+   "fill": 0.946,
+   "solid": 1.0,
+   "stem": 0.131
+  },
+  "action-send-order-forecast-in-seller-party": {
+   "area": 95728,
+   "fill": 0.907,
+   "solid": 0.964,
+   "stem": 0.153
+  },
+  "object-forecast-order": {
+   "area": 79634,
+   "fill": 0.943,
+   "solid": 0.995,
+   "stem": 0.131
+  },
+  "action-receive-order-forecast-in-buyer-party": {
+   "area": 99979,
+   "fill": 0.908,
+   "solid": 0.968,
+   "stem": 0.131
+  },
+  "action-revise-order-forecast-and-send-revision": {
+   "area": 108408,
+   "fill": 0.875,
+   "solid": 0.969,
+   "stem": 0.153
+  },
+  "object-forecast-revision-order": {
+   "area": 85700,
+   "fill": 0.925,
+   "solid": 1.0,
+   "stem": 0.131
+  },
+  "action-receive-order-forecast-in-seller-party": {
+   "area": 95022,
+   "fill": 0.902,
+   "solid": 0.965,
+   "stem": 0.153
+  },
+  "action-revise-order-forecast-and-resend": {
+   "area": 102293,
+   "fill": 0.864,
+   "solid": 0.969,
+   "stem": 0.153
+  },
+  "decision-buyer-party": {
+   "area": 10585,
+   "fill": 0.503,
+   "solid": 0.503
+  },
+  "action-receive-revision": {
+   "area": 60555,
+   "fill": 0.876,
+   "solid": 0.946,
+   "stem": 0.153
+  },
+  "action-send-order-forecast-in-buyer-party": {
+   "area": 64535,
+   "fill": 0.871,
+   "solid": 0.951,
+   "stem": 0.153
+  },
+  "object-forecast-order-positive-response": {
+   "area": 117741,
+   "fill": 0.926,
+   "solid": 1.0,
+   "stem": 0.131
+  }
+ },
+ "flows": {
+  "flow-fork-buyer-party-to-send-product-activity": {
+   "arrowInk": [
+    135,
+    451
+   ],
+   "arrowPx": [
+    62,
+    43.8,
+    2.26
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-fork-buyer-party-to-send-retail-event": {
+   "arrowInk": [
+    135,
+    490
+   ],
+   "arrowPx": [
+    63,
+    50.2,
+    2.55
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-send-retail-event-to-retail-event": {
+   "arrowInk": [
+    180,
+    453
+   ],
+   "arrowPx": [
+    48,
+    36.0,
+    3.53
+   ],
+   "arrowFill": 0.0,
+   "arrowSaturated": true
+  },
+  "flow-send-product-activity-to-product-activity": {
+   "arrowInk": [
+    180,
+    457
+   ],
+   "arrowPx": [
+    47,
+    37.8,
+    3.06
+   ],
+   "arrowFill": 0.116,
+   "arrowSaturated": true
+  },
+  "flow-retail-event-to-fork-seller-party": {
+   "arrowInk": [
+    178,
+    521
+   ],
+   "arrowPx": [
+    63,
+    53.0,
+    2.01
+   ],
+   "arrowFill": 0.157
+  },
+  "flow-fork-seller-party-to-receive": {
+   "arrowInk": [
+    135,
+    456
+   ],
+   "arrowPx": [
+    48,
+    40.0,
+    2.85
+   ],
+   "arrowFill": 0.0,
+   "arrowSaturated": true
+  },
+  "flow-product-activity-to-fork-seller-party": {
+   "arrowInk": [
+    135,
+    521
+   ],
+   "arrowPx": [
+    63,
+    52.9,
+    2.01
+   ],
+   "arrowFill": 0.152
+  },
+  "flow-receive-to-send-order-forecast-in-seller-party": {
+   "arrowInk": [
+    135,
+    456
+   ],
+   "arrowPx": [
+    51,
+    39.7,
+    2.69
+   ],
+   "arrowFill": 0.0,
+   "arrowSaturated": true
+  },
+  "flow-send-order-forecast-in-seller-party-to-forecast-order": {
+   "arrowInk": [
+    135,
+    445
+   ],
+   "arrowPx": [
+    47,
+    37.9,
+    3.08
+   ],
+   "arrowFill": 0.119,
+   "arrowSaturated": true
+  },
+  "flow-forecast-order-to-receive-order-forecast-in-buyer-party": {
+   "arrowInk": [
+    180,
+    472
+   ],
+   "arrowPx": [
+    64,
+    48.0,
+    3.15
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-receive-order-forecast-in-buyer-party-to-revise-order-forecast-and-send-revision": {
+   "arrowInk": [
+    180,
+    487
+   ],
+   "arrowPx": [
+    64,
+    48.0,
+    3.0
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-revise-order-forecast-and-send-revision-to-forecast-revision-order": {
+   "arrowInk": [
+    139,
+    426
+   ],
+   "arrowPx": [
+    47,
+    36.7,
+    3.5
+   ],
+   "arrowFill": 0.0,
+   "arrowSaturated": true
+  },
+  "flow-forecast-revision-order-to-receive-order-forecast-in-seller-party": {
+   "arrowInk": [
+    134,
+    452
+   ],
+   "arrowPx": [
+    48,
+    40.0,
+    2.96
+   ],
+   "arrowFill": 0.0,
+   "arrowSaturated": true
+  },
+  "flow-decision-buyer-party-to-revise-order-forecast-and-send-revision": {
+   "arrowInk": [
+    138,
+    506
+   ],
+   "arrowPx": [
+    48,
+    40.0,
+    2.71
+   ],
+   "arrowFill": 0.0,
+   "arrowSaturated": true
+  },
+  "flow-receive-order-forecast-in-seller-party-to-revise-order-forecast-and-resend": {
+   "arrowInk": [
+    135,
+    451
+   ],
+   "arrowPx": [
+    52,
+    41.2,
+    2.76
+   ],
+   "arrowFill": 0.0,
+   "arrowSaturated": true
+  },
+  "flow-forecast-revision-order-to-receive-revision": {
+   "arrowInk": [
+    134,
+    486
+   ],
+   "arrowPx": [
+    63,
+    50.8,
+    2.54
+   ],
+   "arrowFill": 0.005
+  },
+  "flow-revise-order-forecast-and-resend-to-forecast-revision-order": {
+   "arrowInk": [
+    184,
+    445
+   ],
+   "arrowPx": [
+    47,
+    37.6,
+    3.08
+   ],
+   "arrowFill": 0.104,
+   "arrowSaturated": true
+  },
+  "flow-receive-revision-to-decision-buyer-party": {
+   "arrowInk": [
+    149,
+    465
+   ]
+  },
+  "flow-decision-buyer-party-to-send-order-forecast-in-buyer-party": {
+   "arrowInk": [
+    150,
+    490
+   ],
+   "arrowPx": [
+    64,
+    50.4,
+    2.74
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-send-order-forecast-in-buyer-party-to-forecast-order-positive-response": {
+   "arrowInk": [
+    135,
+    422
+   ]
+  }
+ },
+ "offPage": {
+  "offpage-fork-buyer-party": {
+   "headPx": [
+    47,
+    46.9,
+    2.03,
+    0,
+    true
+   ]
+  },
+  "offpage-fork-buyer-party-2": {
+   "headPx": [
+    47,
+    58.1,
+    1.99,
+    0,
+    true
+   ]
+  },
+  "offpage-object-forecast-order-positive-response": {
+   "headPx": null
+  },
+  "offpage-object-forecast-order-positive-response-2": {
+   "headPx": null
+  }
+ },
+ "marks": {},
+ "phases": {
+  "phase-create-order-forecast": {
+   "dashes": 601
+  }
+ },
+ "greyRules": [],
+ "titleReadings": [
+  {
+   "position": 0,
+   "text": "No",
+   "x": 567,
+   "y": 100,
+   "w": 51,
+   "h": 32,
+   "lines": [
+    {
+     "x": 567,
+     "y": 100,
+     "w": 51,
+     "h": 32,
+     "text": "No"
+    }
+   ],
+   "attachedTo": "n1->n2"
+  },
+  {
+   "position": 2,
+   "text": "Create Order Forecast",
+   "x": 1471,
+   "y": 124,
+   "w": 462,
+   "h": 32,
+   "lines": [
+    {
+     "x": 1471,
+     "y": 120,
+     "w": 462,
+     "h": 40,
+     "text": "Create Order Forecast"
+    }
+   ]
+  }
+ ],
+ "findings": [
+  {
+   "kind": "guard-is-lane-title",
+   "flow": "flow-fork-buyer-party-to-send-product-activity",
+   "lane": "lane-buyer-party",
+   "detail": "the guard on n1->n2 is the title of lane0, 'No'",
+   "check": "a lane title does not label a flow: either the title was attached by mistake or the lane title is a misread guard",
+   "resolvedBy": [
+    "q2a-fig12",
+    "q2c-fig12-left",
+    "q2c-fig12-right",
+    "q2c-fig12-from-left",
+    "q2c-fig12-from-right",
+    "q2b-fig12-left",
+    "q2b-fig12-right",
+    "q13-12",
+    "q16-12",
+    "q16-13",
+    "q16-14",
+    "q16-15",
+    "doc-02",
+    "draw-15",
+    "draw-16"
+   ]
+  }
+ ],
+ "uncertain": [
+  {
+   "kind": "no-weight-split",
+   "reason": "all 15 box strokes are one weight ([3, 4, 5, 6]), so no object node could be identified",
+   "check": "confirm the diagram really has no object nodes"
+  },
+  {
+   "kind": "unexplained-line-work",
+   "x": 3224,
+   "y": 3779,
+   "w": 101,
+   "h": 106,
+   "reason": "line-work that is neither a connector between two nodes nor the size of text",
+   "check": "decide what this is; the SVG does not draw it"
+  },
+  {
+   "kind": "unexplained-line-work",
+   "x": 102,
+   "y": 3785,
+   "w": 102,
+   "h": 102,
+   "reason": "line-work that is neither a connector between two nodes nor the size of text",
+   "check": "decide what this is; the SVG does not draw it"
+  }
+ ],
+ "present": [
+  "source",
+  "size",
+  "fontPx",
+  "arrowPx",
+  "arrowWidthPx",
+  "arrowStyle",
+  "rules",
+  "ruleSpan",
+  "greyRules",
+  "dashed",
+  "openEnds",
+  "crossMarks",
+  "partitions",
+  "nodes",
+  "edges",
+  "text",
+  "uncertain"
+ ],
+ "uncorrected": {
+  "model": {
+   "schema": "ubl-activity-diagram/1",
+   "figure": {
+    "name": "UBL-2.2-CPFR-CreateOrderForecast",
+    "source": "UBL-2.2-CPFR-CreateOrderForecast.png"
+   },
+   "lanes": [
+    {
+     "id": "lane0",
+     "axis": "column",
+     "index": 0,
+     "title": "No"
+    },
+    {
+     "id": "lane1",
+     "axis": "column",
+     "index": 1,
+     "title": "Create Order Forecast"
+    },
+    {
+     "id": "lane2",
+     "axis": "band",
+     "index": 0,
+     "title": ""
+    }
+   ],
+   "nodes": [
+    {
+     "id": "n1",
+     "kind": "fork",
+     "label": "",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n2",
+     "kind": "action",
+     "label": "Send Product\nActivity",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n3",
+     "kind": "action",
+     "label": "Send Retail\nEvent",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n4",
+     "kind": "object",
+     "label": "Retail Event",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n5",
+     "kind": "fork",
+     "label": "",
+     "lane": "lane1",
+     "band": "lane2"
+    },
+    {
+     "id": "n6",
+     "kind": "action",
+     "label": "Receive",
+     "lane": "lane1",
+     "band": "lane2"
+    },
+    {
+     "id": "n7",
+     "kind": "object",
+     "label": "Product Activity",
+     "lane": "lane1",
+     "band": "lane2"
+    },
+    {
+     "id": "n8",
+     "kind": "action",
+     "label": "Send Order Forecast",
+     "lane": "lane1",
+     "band": "lane2"
+    },
+    {
+     "id": "n9",
+     "kind": "object",
+     "label": "Forecast (order)",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n10",
+     "kind": "action",
+     "label": "Receive Order Forecast",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n11",
+     "kind": "action",
+     "label": "Revise Order Forecast\nand Send Revision",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n12",
+     "kind": "object",
+     "label": "Forecast Revision\n(order)",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n13",
+     "kind": "action",
+     "label": "Receive Order Forecast",
+     "lane": "lane1",
+     "band": "lane2"
+    },
+    {
+     "id": "n14",
+     "kind": "action",
+     "label": "Revise Order Forecast\nand Resend Revision",
+     "lane": "lane1",
+     "band": "lane2"
+    },
+    {
+     "id": "n15",
+     "kind": "decision",
+     "label": "",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n16",
+     "kind": "action",
+     "label": "Receive Revision",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n17",
+     "kind": "action",
+     "label": "Send Order Forecast",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n18",
+     "kind": "object",
+     "label": "Forecast (order -\npositive response)",
+     "lane": "lane1",
+     "band": "lane2"
+    }
+   ],
+   "flows": [
+    {
+     "id": "f0",
+     "from": "n1",
+     "to": "n2",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     },
+     "guard": "lane0"
+    },
+    {
+     "id": "f1",
+     "from": "n1",
+     "to": "n3",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     },
+     "guard": "t1"
+    },
+    {
+     "id": "f2",
+     "from": "n3",
+     "to": "n4",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f3",
+     "from": "n2",
+     "to": "n7",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f4",
+     "from": "n4",
+     "to": "n5",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f5",
+     "from": "n5",
+     "to": "n6",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f6",
+     "from": "n7",
+     "to": "n5",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f7",
+     "from": "n6",
+     "to": "n8",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f8",
+     "from": "n8",
+     "to": "n9",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f9",
+     "from": "n9",
+     "to": "n10",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f10",
+     "from": "n10",
+     "to": "n11",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f11",
+     "from": "n11",
+     "to": "n12",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f12",
+     "from": "n12",
+     "to": "n13",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f13",
+     "from": "n15",
+     "to": "n11",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     },
+     "guard": "t3"
+    },
+    {
+     "id": "f14",
+     "from": "n13",
+     "to": "n14",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f15",
+     "from": "n12",
+     "to": "n16",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f16",
+     "from": "n14",
+     "to": "n12",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f17",
+     "from": "n16",
+     "to": "n15",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f18",
+     "from": "n15",
+     "to": "n17",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     },
+     "guard": "t5"
+    },
+    {
+     "id": "f19",
+     "from": "n17",
+     "to": "n18",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    }
+   ],
+   "texts": [
+    {
+     "id": "t1",
+     "text": "No",
+     "labels": "f1"
+    },
+    {
+     "id": "t3",
+     "text": "No",
+     "labels": "f13"
+    },
+    {
+     "id": "t4",
+     "text": "Order Forecast Accepted ?"
+    },
+    {
+     "id": "t5",
+     "text": "Yes",
+     "labels": "f18"
+    }
+   ],
+   "offPage": [
+    {
+     "id": "o0",
+     "node": "n1",
+     "direction": "in",
+     "arrow": true
+    },
+    {
+     "id": "o1",
+     "node": "n1",
+     "direction": "in",
+     "arrow": true
+    },
+    {
+     "id": "o2",
+     "node": "n18",
+     "direction": "out",
+     "arrow": false
+    },
+    {
+     "id": "o3",
+     "node": "n18",
+     "direction": "out",
+     "arrow": false
+    }
+   ],
+   "marks": [],
+   "phases": [
+    {
+     "id": "p0"
+    }
+   ]
+  },
+  "layout": {
+   "schema": "ubl-activity-diagram-layout/1",
+   "figure": "UBL-2.2-CPFR-CreateOrderForecast",
+   "units": "px of the original PNG",
+   "size": [
+    3425,
+    4004
+   ],
+   "style": {
+    "fontPx": 45.7,
+    "arrowPx": 63.0,
+    "arrowWidthPx": 50.3,
+    "arrowStyle": "open"
+   },
+   "rules": {
+    "vertical": [
+     {
+      "at": 0,
+      "width": 10,
+      "span": [
+       13,
+       3990
+      ]
+     },
+     {
+      "at": 1690,
+      "width": 1,
+      "span": [
+       13,
+       3990
+      ]
+     },
+     {
+      "at": 3415,
+      "width": 10,
+      "span": [
+       13,
+       3990
+      ]
+     }
+    ],
+    "horizontal": [
+     {
+      "at": 0,
+      "width": 10,
+      "span": [
+       13,
+       3411
+      ]
+     },
+     {
+      "at": 3994,
+      "width": 10,
+      "span": [
+       13,
+       3411
+      ]
+     }
+    ]
+   },
+   "greyRules": [],
+   "lanes": {
+    "lane0": {
+     "x0": 0,
+     "x1": 1690,
+     "titleBox": [
+      567,
+      100,
+      51,
+      32
+     ]
+    },
+    "lane1": {
+     "x0": 1690,
+     "x1": 3425,
+     "titleBox": [
+      1471,
+      124,
+      462,
+      32
+     ],
+     "titleBold": true
+    },
+    "lane2": {
+     "y0": 0,
+     "y1": 4004
+    }
+   },
+   "nodes": {
+    "n1": {
+     "x": 622,
+     "y": 181,
+     "w": 230,
+     "h": 27
+    },
+    "n2": {
+     "x": 151,
+     "y": 488,
+     "w": 377,
+     "h": 279,
+     "shape": "rounded",
+     "stroke": 3,
+     "rx": 63,
+     "ry": 67,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 195,
+       "y": 578,
+       "w": 281,
+       "h": 32,
+       "text": "Send Product"
+      },
+      {
+       "x": 264,
+       "y": 636,
+       "w": 154,
+       "h": 41,
+       "text": "Activity"
+      }
+     ]
+    },
+    "n3": {
+     "x": 1061,
+     "y": 492,
+     "w": 350,
+     "h": 266,
+     "shape": "rounded",
+     "stroke": 3,
+     "rx": 67,
+     "ry": 63,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 1115,
+       "y": 572,
+       "w": 234,
+       "h": 32,
+       "text": "Send Retail"
+      },
+      {
+       "x": 1183,
+       "y": 629,
+       "w": 114,
+       "h": 32,
+       "text": "Event"
+      }
+     ]
+    },
+    "n4": {
+     "x": 1495,
+     "y": 846,
+     "w": 391,
+     "h": 216,
+     "shape": "rect",
+     "stroke": 5,
+     "rx": 0,
+     "ry": 0,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 1560,
+       "y": 927,
+       "w": 249,
+       "h": 32,
+       "text": "Retail Event"
+      }
+     ]
+    },
+    "n5": {
+     "x": 2286,
+     "y": 1223,
+     "w": 27,
+     "h": 177
+    },
+    "n6": {
+     "x": 2619,
+     "y": 1229,
+     "w": 593,
+     "h": 169,
+     "shape": "rounded",
+     "stroke": 3,
+     "rx": 70,
+     "ry": 67,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 2828,
+       "y": 1293,
+       "w": 160,
+       "h": 33,
+       "text": "Receive"
+      }
+     ]
+    },
+    "n7": {
+     "x": 1499,
+     "y": 1381,
+     "w": 392,
+     "h": 215,
+     "shape": "rect",
+     "stroke": 6,
+     "rx": 0,
+     "ry": 0,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 1525,
+       "y": 1463,
+       "w": 334,
+       "h": 41,
+       "text": "Product Activity"
+      }
+     ]
+    },
+    "n8": {
+     "x": 2641,
+     "y": 1715,
+     "w": 593,
+     "h": 178,
+     "shape": "rounded",
+     "stroke": 3,
+     "rx": 66,
+     "ry": 68,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 2711,
+       "y": 1783,
+       "w": 431,
+       "h": 33,
+       "text": "Send Order Forecast"
+      }
+     ]
+    },
+    "n9": {
+     "x": 1495,
+     "y": 1954,
+     "w": 391,
+     "h": 216,
+     "shape": "rect",
+     "stroke": 5,
+     "rx": 0,
+     "ry": 0,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 1520,
+       "y": 2033,
+       "w": 333,
+       "h": 41,
+       "text": "Forecast (order)"
+      }
+     ]
+    },
+    "n10": {
+     "x": 306,
+     "y": 1976,
+     "w": 592,
+     "h": 186,
+     "shape": "rounded",
+     "stroke": 4,
+     "rx": 61,
+     "ry": 62,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 349,
+       "y": 2044,
+       "w": 488,
+       "h": 32,
+       "text": "Receive Order Forecast"
+      }
+     ]
+    },
+    "n11": {
+     "x": 310,
+     "y": 2377,
+     "w": 593,
+     "h": 209,
+     "shape": "rounded",
+     "stroke": 3,
+     "rx": 67,
+     "ry": 67,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 369,
+       "y": 2430,
+       "w": 463,
+       "h": 32,
+       "text": "Revise Order Forecast"
+      },
+      {
+       "x": 415,
+       "y": 2488,
+       "w": 383,
+       "h": 32,
+       "text": "and Send Revision"
+      }
+     ]
+    },
+    "n12": {
+     "x": 1464,
+     "y": 2383,
+     "w": 431,
+     "h": 215,
+     "shape": "rect",
+     "stroke": 6,
+     "rx": 0,
+     "ry": 0,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 1483,
+       "y": 2441,
+       "w": 371,
+       "h": 32,
+       "text": "Forecast Revision"
+      },
+      {
+       "x": 1615,
+       "y": 2490,
+       "w": 139,
+       "h": 41,
+       "text": "(order)"
+      }
+     ]
+    },
+    "n13": {
+     "x": 2602,
+     "y": 2408,
+     "w": 592,
+     "h": 178,
+     "shape": "rounded",
+     "stroke": 3,
+     "rx": 66,
+     "ry": 62,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 2649,
+       "y": 2472,
+       "w": 490,
+       "h": 32,
+       "text": "Receive Order Forecast"
+      }
+     ]
+    },
+    "n14": {
+     "x": 2602,
+     "y": 2735,
+     "w": 592,
+     "h": 200,
+     "shape": "rounded",
+     "stroke": 3,
+     "rx": 62,
+     "ry": 61,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 2651,
+       "y": 2781,
+       "w": 464,
+       "h": 32,
+       "text": "Revise Order Forecast"
+      },
+      {
+       "x": 2671,
+       "y": 2839,
+       "w": 434,
+       "h": 32,
+       "text": "and Resend Revision"
+      }
+     ]
+    },
+    "n15": {
+     "x": 664,
+     "y": 2992,
+     "w": 145,
+     "h": 145,
+     "shape": "rhombus",
+     "stroke": 2,
+     "rx": 79,
+     "ry": 79
+    },
+    "n16": {
+     "x": 1025,
+     "y": 3004,
+     "w": 487,
+     "h": 142,
+     "shape": "rounded",
+     "stroke": 3,
+     "rx": 66,
+     "ry": 69,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 1086,
+       "y": 3053,
+       "w": 351,
+       "h": 32,
+       "text": "Receive Revision"
+      }
+     ]
+    },
+    "n17": {
+     "x": 509,
+     "y": 3313,
+     "w": 593,
+     "h": 125,
+     "shape": "rounded",
+     "stroke": 3,
+     "rx": 66.0,
+     "ry": 59,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 579,
+       "y": 3355,
+       "w": 431,
+       "h": 32,
+       "text": "Send Order Forecast"
+      }
+     ]
+    },
+    "n18": {
+     "x": 1472,
+     "y": 3548,
+     "w": 489,
+     "h": 260,
+     "shape": "rect",
+     "stroke": 5,
+     "rx": 2,
+     "ry": 2,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 1525,
+       "y": 3624,
+       "w": 345,
+       "h": 41,
+       "text": "Forecast (order -"
+      },
+      {
+       "x": 1514,
+       "y": 3673,
+       "w": 382,
+       "h": 41,
+       "text": "positive response)"
+      }
+     ]
+    }
+   },
+   "flows": {
+    "f0": {
+     "fromPoint": [
+      701,
+      222
+     ],
+     "toPoint": [
+      317,
+      473
+     ],
+     "routing": "orthogonal",
+     "points": [
+      [
+       701,
+       344
+      ],
+      [
+       317,
+       344
+      ]
+     ]
+    },
+    "f1": {
+     "fromPoint": [
+      776,
+      222
+     ],
+     "toPoint": [
+      1218,
+      477
+     ],
+     "routing": "orthogonal",
+     "points": [
+      [
+       776,
+       349
+      ],
+      [
+       1218,
+       349
+      ]
+     ]
+    },
+    "f2": {
+     "fromPoint": [
+      1314,
+      772
+     ],
+     "toPoint": [
+      1475,
+      1006
+     ],
+     "routing": "orthogonal",
+     "points": [
+      [
+       1314,
+       1006
+      ]
+     ]
+    },
+    "f3": {
+     "fromPoint": [
+      334,
+      781
+     ],
+     "toPoint": [
+      1479,
+      1550
+     ],
+     "routing": "orthogonal",
+     "points": [
+      [
+       334,
+       1550
+      ]
+     ]
+    },
+    "f4": {
+     "fromPoint": [
+      1905,
+      984
+     ],
+     "toPoint": [
+      2269,
+      1240
+     ],
+     "routing": "orthogonal",
+     "points": [
+      [
+       2092,
+       984
+      ],
+      [
+       2092,
+       1240
+      ]
+     ]
+    },
+    "f5": {
+     "fromPoint": [
+      2327,
+      1311
+     ],
+     "toPoint": [
+      2604,
+      1311
+     ],
+     "routing": "straight"
+    },
+    "f6": {
+     "fromPoint": [
+      1910,
+      1488
+     ],
+     "toPoint": [
+      2269,
+      1400
+     ],
+     "routing": "orthogonal",
+     "points": [
+      [
+       2096,
+       1488
+      ],
+      [
+       2096,
+       1400
+      ]
+     ]
+    },
+    "f7": {
+     "fromPoint": [
+      2926,
+      1412
+     ],
+     "toPoint": [
+      2927,
+      1700
+     ],
+     "routing": "straight"
+    },
+    "f8": {
+     "fromPoint": [
+      2692,
+      1907
+     ],
+     "toPoint": [
+      1905,
+      2070
+     ],
+     "routing": "orthogonal",
+     "points": [
+      [
+       2692,
+       2070
+      ]
+     ]
+    },
+    "f9": {
+     "fromPoint": [
+      1475,
+      2062
+     ],
+     "toPoint": [
+      912,
+      2062
+     ],
+     "routing": "straight"
+    },
+    "f10": {
+     "fromPoint": [
+      600,
+      2176
+     ],
+     "toPoint": [
+      600,
+      2362
+     ],
+     "routing": "straight"
+    },
+    "f11": {
+     "fromPoint": [
+      917,
+      2481
+     ],
+     "toPoint": [
+      1444,
+      2485
+     ],
+     "routing": "straight"
+    },
+    "f12": {
+     "fromPoint": [
+      1914,
+      2490
+     ],
+     "toPoint": [
+      2587,
+      2490
+     ],
+     "routing": "straight"
+    },
+    "f13": {
+     "fromPoint": [
+      736,
+      2977
+     ],
+     "toPoint": [
+      736,
+      2601
+     ],
+     "routing": "straight"
+    },
+    "f14": {
+     "fromPoint": [
+      2895,
+      2600
+     ],
+     "toPoint": [
+      2896,
+      2720
+     ],
+     "routing": "straight"
+    },
+    "f15": {
+     "fromPoint": [
+      1460,
+      2617
+     ],
+     "toPoint": [
+      1314,
+      2989
+     ],
+     "routing": "orthogonal",
+     "points": [
+      [
+       1460,
+       2803
+      ],
+      [
+       1314,
+       2803
+      ]
+     ]
+    },
+    "f16": {
+     "fromPoint": [
+      2587,
+      2838
+     ],
+     "toPoint": [
+      1822,
+      2617
+     ],
+     "routing": "orthogonal",
+     "points": [
+      [
+       1822,
+       2838
+      ]
+     ]
+    },
+    "f17": {
+     "fromPoint": [
+      1010,
+      3068
+     ],
+     "toPoint": [
+      823,
+      3064
+     ],
+     "routing": "straight"
+    },
+    "f18": {
+     "fromPoint": [
+      736,
+      3151
+     ],
+     "toPoint": [
+      733,
+      3298
+     ],
+     "routing": "straight"
+    },
+    "f19": {
+     "fromPoint": [
+      988,
+      3452
+     ],
+     "toPoint": [
+      1453,
+      3580
+     ],
+     "routing": "orthogonal",
+     "points": [
+      [
+       988,
+       3580
+      ]
+     ]
+    }
+   },
+   "texts": {
+    "t1": {
+     "x": 762,
+     "y": 100,
+     "w": 50,
+     "h": 32,
+     "lines": [
+      {
+       "x": 762,
+       "y": 100,
+       "w": 50,
+       "h": 32,
+       "text": "No"
+      }
+     ]
+    },
+    "t3": {
+     "x": 647,
+     "y": 2626,
+     "w": 51,
+     "h": 32,
+     "lines": [
+      {
+       "x": 647,
+       "y": 2626,
+       "w": 51,
+       "h": 32,
+       "text": "No"
+      }
+     ]
+    },
+    "t4": {
+     "x": 98,
+     "y": 3045,
+     "w": 520,
+     "h": 41,
+     "lines": [
+      {
+       "x": 98,
+       "y": 3045,
+       "w": 520,
+       "h": 41,
+       "text": "Order Forecast Accepted ?"
+      }
+     ]
+    },
+    "t5": {
+     "x": 622,
+     "y": 3230,
+     "w": 72,
+     "h": 32,
+     "lines": [
+      {
+       "x": 622,
+       "y": 3230,
+       "w": 72,
+       "h": 32,
+       "text": "Yes"
+      }
+     ]
+    }
+   },
+   "offPage": {
+    "o0": {
+     "at": [
+      656,
+      12
+     ],
+     "end": [
+      661,
+      165
+     ],
+     "points": [],
+     "x": 634,
+     "y": 12,
+     "w": 47,
+     "h": 155
+    },
+    "o1": {
+     "at": [
+      852,
+      12
+     ],
+     "end": [
+      842,
+      152
+     ],
+     "points": [],
+     "x": 828,
+     "y": 12,
+     "w": 47,
+     "h": 155
+    },
+    "o2": {
+     "at": [
+      1980,
+      3721
+     ],
+     "end": [
+      2733,
+      3991
+     ],
+     "points": [
+      [
+       2732,
+       3722
+      ]
+     ],
+     "x": 1980,
+     "y": 3720,
+     "w": 754,
+     "h": 272
+    },
+    "o3": {
+     "at": [
+      1453,
+      3752
+     ],
+     "end": [
+      664,
+      3991
+     ],
+     "points": [
+      [
+       666,
+       3752
+      ]
+     ],
+     "x": 660,
+     "y": 3751,
+     "w": 794,
+     "h": 241
+    }
+   },
+   "marks": {},
+   "phases": {
+    "p0": {
+     "x": 82,
+     "y": 102,
+     "w": 3260,
+     "h": 3788,
+     "rx": 144,
+     "dash": 12.0,
+     "gap": 9.0,
+     "weight": 3.0
+    }
+   },
+   "rulesHaveSpans": {
+    "vertical": true,
+    "horizontal": true
+   }
+  }
+ },
+ "graphPatches": {
+  "edges": {
+   "f1": {
+    "guard": null
+   }
+  },
+  "texts": {},
+  "addEdges": []
+ },
+ "corrections": [
+  "q2a-fig12",
+  "q2c-fig12-left",
+  "q2c-fig12-right",
+  "q2c-fig12-from-left",
+  "q2c-fig12-from-right",
+  "q2b-fig12-left",
+  "q2b-fig12-right",
+  "q13-12",
+  "q16-12",
+  "q16-13",
+  "q16-14",
+  "q16-15",
+  "doc-02",
+  "draw-15",
+  "draw-16"
+ ],
+ "documentLanes": {
+  "object-retail-event": "lane-buyer-party",
+  "object-product-activity": "lane-seller-party",
+  "object-forecast-order": "lane-buyer-party",
+  "object-forecast-revision-order": "lane-buyer-party",
+  "object-forecast-order-positive-response": "lane-seller-party"
+ },
+ "formerIds": {
+  "lane-buyer-party": "lane0",
+  "lane-seller-party": "lane1",
+  "fork-buyer-party": "n1",
+  "action-send-product-activity": "n2",
+  "action-send-retail-event": "n3",
+  "object-retail-event": "n4",
+  "fork-seller-party": "n5",
+  "action-receive": "n6",
+  "object-product-activity": "n7",
+  "action-send-order-forecast-in-seller-party": "n8",
+  "object-forecast-order": "n9",
+  "action-receive-order-forecast-in-buyer-party": "n10",
+  "action-revise-order-forecast-and-send-revision": "n11",
+  "object-forecast-revision-order": "n12",
+  "action-receive-order-forecast-in-seller-party": "n13",
+  "action-revise-order-forecast-and-resend": "n14",
+  "decision-buyer-party": "n15",
+  "action-receive-revision": "n16",
+  "action-send-order-forecast-in-buyer-party": "n17",
+  "object-forecast-order-positive-response": "n18",
+  "flow-fork-buyer-party-to-send-product-activity": "f0",
+  "flow-fork-buyer-party-to-send-retail-event": "f1",
+  "flow-send-retail-event-to-retail-event": "f2",
+  "flow-send-product-activity-to-product-activity": "f3",
+  "flow-retail-event-to-fork-seller-party": "f4",
+  "flow-fork-seller-party-to-receive": "f5",
+  "flow-product-activity-to-fork-seller-party": "f6",
+  "flow-receive-to-send-order-forecast-in-seller-party": "f7",
+  "flow-send-order-forecast-in-seller-party-to-forecast-order": "f8",
+  "flow-forecast-order-to-receive-order-forecast-in-buyer-party": "f9",
+  "flow-receive-order-forecast-in-buyer-party-to-revise-order-forecast-and-send-revision": "f10",
+  "flow-revise-order-forecast-and-send-revision-to-forecast-revision-order": "f11",
+  "flow-forecast-revision-order-to-receive-order-forecast-in-seller-party": "f12",
+  "flow-decision-buyer-party-to-revise-order-forecast-and-send-revision": "f13",
+  "flow-receive-order-forecast-in-seller-party-to-revise-order-forecast-and-resend": "f14",
+  "flow-forecast-revision-order-to-receive-revision": "f15",
+  "flow-revise-order-forecast-and-resend-to-forecast-revision-order": "f16",
+  "flow-receive-revision-to-decision-buyer-party": "f17",
+  "flow-decision-buyer-party-to-send-order-forecast-in-buyer-party": "f18",
+  "flow-send-order-forecast-in-buyer-party-to-forecast-order-positive-response": "f19",
+  "text-no-2": "t1",
+  "text-no-3": "t3",
+  "text-order-forecast-accepted": "t4",
+  "text-yes": "t5",
+  "text-no": "corr-q2c-fig12-left",
+  "offpage-fork-buyer-party": "o0",
+  "offpage-fork-buyer-party-2": "o1",
+  "offpage-object-forecast-order-positive-response": "o2",
+  "offpage-object-forecast-order-positive-response-2": "o3",
+  "phase-create-order-forecast": "p0"
+ }
+}

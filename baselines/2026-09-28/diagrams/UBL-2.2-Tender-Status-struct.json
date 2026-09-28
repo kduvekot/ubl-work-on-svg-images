@@ -1,0 +1,91 @@
+{
+ "name": "UBL-2.2-Tender-Status.png",
+ "verdict": "needs-human",
+ "radius": 3,
+ "lineWorkInk": 320359,
+ "missingPx": 901,
+ "inventedPx": 530,
+ "structural": {
+  "absent": 0,
+  "invented": 0,
+  "coherence": 0,
+  "textAbsent": 0,
+  "textDiffers": 0
+ },
+ "blocking": [],
+ "findings": [
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n7 (action 'Receive tender statu')",
+   "x": 274,
+   "y": 1276,
+   "w": 2,
+   "h": 48,
+   "area": 96
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n2 (action 'Prepare tender statu')",
+   "x": 177,
+   "y": 445,
+   "w": 2,
+   "h": 48,
+   "area": 95
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n5 (action 'Receive tender statu')",
+   "x": 2342,
+   "y": 761,
+   "w": 2,
+   "h": 47,
+   "area": 94
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n2 (action 'Prepare tender statu')",
+   "x": 221,
+   "y": 459,
+   "w": 2,
+   "h": 34,
+   "area": 63
+  }
+ ],
+ "text": [],
+ "coherence": [],
+ "human": [
+  {
+   "x": 1709,
+   "y": 785,
+   "w": 1071,
+   "h": 534,
+   "shape": "ellipse",
+   "iou": 0.733,
+   "border": 0.499,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best ellipse 0.73, and 0.99 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "kind": "no-weight-split",
+   "reason": "all 7 box strokes are one weight ([8, 9]), so no object node could be identified",
+   "check": "confirm the diagram really has no object nodes"
+  }
+ ],
+ "review": [
+  {
+   "n": 1,
+   "what": "check",
+   "where": "1709,785 1071x534",
+   "detail": "outline matches no UML node shape (best ellipse 0.73, and 0.99 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "n": 2,
+   "what": "check",
+   "where": "",
+   "detail": "all 7 box strokes are one weight ([8, 9]), so no object node could be identified",
+   "check": "confirm the diagram really has no object nodes"
+  }
+ ]
+}

@@ -1,0 +1,168 @@
+{
+ "schema": "ubl-activity-diagram/1",
+ "figure": {
+  "name": "UBL-2.2-Tender-AwardPublication",
+  "source": "UBL-2.2-Tender-AwardPublication.png"
+ },
+ "lanes": [
+  {
+   "id": "lane-contracting-authority",
+   "axis": "column",
+   "index": 0,
+   "title": "Contracting Authority"
+  },
+  {
+   "id": "lane-publication-body",
+   "axis": "column",
+   "index": 1,
+   "title": "Publication Body"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "initial-contracting-authority",
+   "kind": "initial",
+   "label": "",
+   "lane": "lane-contracting-authority"
+  },
+  {
+   "id": "action-prepare-contract-award-notice",
+   "kind": "action",
+   "label": "Prepare contract award notice",
+   "lane": "lane-contracting-authority"
+  },
+  {
+   "id": "object-contract-award-notice",
+   "kind": "object",
+   "label": "Contract\nAward\nNotice",
+   "lane": null,
+   "between": [
+    "lane-contracting-authority",
+    "lane-publication-body"
+   ]
+  },
+  {
+   "id": "action-validate-contract-award-notice",
+   "kind": "action",
+   "label": "Validate contract award notice",
+   "lane": "lane-publication-body"
+  },
+  {
+   "id": "action-submit-contract-award-notice",
+   "kind": "action",
+   "label": "Submit contract award notice",
+   "lane": "lane-contracting-authority"
+  },
+  {
+   "id": "decision-ok",
+   "kind": "decision",
+   "label": "OK?",
+   "lane": "lane-publication-body"
+  },
+  {
+   "id": "action-publish-contract-award-notice",
+   "kind": "action",
+   "label": "Publish contract award notice",
+   "lane": "lane-publication-body"
+  },
+  {
+   "id": "final-publication-body",
+   "kind": "final",
+   "label": "",
+   "lane": "lane-publication-body"
+  }
+ ],
+ "flows": [
+  {
+   "id": "flow-initial-contracting-authority-to-prepare-contract-award-notice",
+   "from": "initial-contracting-authority",
+   "to": "action-prepare-contract-award-notice",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-ok-to-prepare-contract-award-notice",
+   "from": "decision-ok",
+   "to": "action-prepare-contract-award-notice",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   },
+   "guard": "text-no"
+  },
+  {
+   "id": "flow-prepare-contract-award-notice-to-submit-contract-award-notice",
+   "from": "action-prepare-contract-award-notice",
+   "to": "action-submit-contract-award-notice",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-contract-award-notice-to-validate-contract-award-notice",
+   "from": "object-contract-award-notice",
+   "to": "action-validate-contract-award-notice",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-submit-contract-award-notice-to-contract-award-notice",
+   "from": "action-submit-contract-award-notice",
+   "to": "object-contract-award-notice",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-validate-contract-award-notice-to-ok",
+   "from": "action-validate-contract-award-notice",
+   "to": "decision-ok",
+   "kind": "control",
+   "direction": {
+    "confidence": "medium",
+    "checked": "confirmed"
+   }
+  },
+  {
+   "id": "flow-ok-to-publish-contract-award-notice",
+   "from": "decision-ok",
+   "to": "action-publish-contract-award-notice",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   },
+   "guard": "text-yes"
+  },
+  {
+   "id": "flow-publish-contract-award-notice-to-final-publication-body",
+   "from": "action-publish-contract-award-notice",
+   "to": "final-publication-body",
+   "kind": "control",
+   "direction": {
+    "confidence": "medium",
+    "checked": "confirmed"
+   }
+  }
+ ],
+ "texts": [
+  {
+   "id": "text-no",
+   "text": "No",
+   "labels": "flow-ok-to-prepare-contract-award-notice"
+  },
+  {
+   "id": "text-yes",
+   "text": "Yes",
+   "labels": "flow-ok-to-publish-contract-award-notice"
+  }
+ ],
+ "offPage": [],
+ "marks": [],
+ "phases": []
+}

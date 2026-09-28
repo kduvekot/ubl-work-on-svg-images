@@ -1,0 +1,367 @@
+{
+ "canvas": {
+  "w": 1480.0,
+  "h": 1022.388
+ },
+ "stroke": {
+  "frame": 4.3,
+  "divider": 3.5,
+  "action": 3.5,
+  "object": 6.5,
+  "edge": 3.5
+ },
+ "font": {
+  "family": "Helvetica, Arial, sans-serif",
+  "node": 32.1,
+  "lane": 32.1,
+  "guard": 32.1
+ },
+ "arrow": 52.4,
+ "arrowWidth": 42.7,
+ "arrowStyle": "open",
+ "dashed": [],
+ "greyRules": [],
+ "crossMarks": [],
+ "openEnds": [],
+ "frameBox": [
+  2.2,
+  2.2,
+  1477.8,
+  1020.2
+ ],
+ "dividers": [
+  [
+   738.1,
+   3.5,
+   5.6,
+   1016.3
+  ]
+ ],
+ "bands": [],
+ "lanes": [
+  {
+   "id": "lane-transport-service-provider",
+   "title": "Transport Service Provider",
+   "x": 0.0,
+   "w": 738.1,
+   "cx": 370.1,
+   "cy": 42.3,
+   "size": 30.8,
+   "textWidth": 361.7,
+   "baseline": 50.1
+  },
+  {
+   "id": "lane-transportation-network-manager",
+   "title": "Transportation Network Manager",
+   "x": 738.1,
+   "w": 741.9,
+   "cx": 1111.4,
+   "cy": 42.6,
+   "size": 30.3,
+   "textWidth": 445.1,
+   "baseline": 50.2
+  }
+ ],
+ "bandLabels": [],
+ "captions": [],
+ "nodes": [
+  {
+   "id": "initial-transport-service-provider",
+   "kind": "initial",
+   "label": "",
+   "x": 206.1,
+   "y": 79.9,
+   "w": 60.5,
+   "h": 60.5
+  },
+  {
+   "id": "object-transport-progress-status-request",
+   "kind": "object",
+   "label": "Transport\nProgress Status\nRequest",
+   "x": 582.7,
+   "y": 279.8,
+   "w": 311.1,
+   "h": 149.1,
+   "labelLines": [
+    {
+     "text": "Transport",
+     "cx": 747.1,
+     "cy": 319.59499999999997,
+     "w": 140.0,
+     "size": 30.3
+    },
+    {
+     "text": "Progress Status",
+     "cx": 735.5,
+     "cy": 352.495,
+     "w": 231.6,
+     "size": 30.3
+    },
+    {
+     "text": "Request",
+     "cx": 744.1,
+     "cy": 386.59499999999997,
+     "w": 121.0,
+     "size": 30.3
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-request-transport-progress-status",
+   "kind": "action",
+   "label": "Request Transport\nProgress Status",
+   "x": 36.7,
+   "y": 286.1,
+   "w": 408.8,
+   "h": 140.0,
+   "rx": 46.7,
+   "ry": 49.3,
+   "labelLines": [
+    {
+     "text": "Request Transport",
+     "cx": 242.0,
+     "cy": 331.64500000000004,
+     "w": 269.6,
+     "size": 31.3
+    },
+    {
+     "text": "Progress Status",
+     "cx": 243.7,
+     "cy": 370.545,
+     "w": 229.9,
+     "size": 31.3
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-receive-transport-progress-status-in-transportation-network-manager",
+   "kind": "action",
+   "label": "Receive Transport\nProgress Status Request",
+   "x": 1031.0,
+   "y": 286.1,
+   "w": 408.4,
+   "h": 140.0,
+   "rx": 46.7,
+   "ry": 47.5,
+   "labelLines": [
+    {
+     "text": "Receive Transport",
+     "cx": 1233.5,
+     "cy": 331.64500000000004,
+     "w": 264.0,
+     "size": 31.3
+    },
+    {
+     "text": "Progress Status Request",
+     "cx": 1236.1,
+     "cy": 370.545,
+     "w": 360.8,
+     "size": 31.3
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-receive-transport-progress-status-in-transport-service-provider",
+   "kind": "action",
+   "label": "Receive Transport\nProgress Status",
+   "x": 36.7,
+   "y": 660.7,
+   "w": 408.8,
+   "h": 143.5,
+   "rx": 45.4,
+   "ry": 49.3,
+   "labelLines": [
+    {
+     "text": "Receive Transport",
+     "cx": 239.4,
+     "cy": 710.645,
+     "w": 264.5,
+     "size": 31.3
+    },
+    {
+     "text": "Progress Status",
+     "cx": 243.7,
+     "cy": 749.9449999999999,
+     "w": 229.9,
+     "size": 31.3
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-send-transport-progress-status",
+   "kind": "action",
+   "label": "Send Transport Progress\nStatus",
+   "x": 1034.1,
+   "y": 660.7,
+   "w": 408.4,
+   "h": 143.5,
+   "rx": 45.4,
+   "ry": 48.0,
+   "labelLines": [
+    {
+     "text": "Send Transport Progress",
+     "cx": 1236.5,
+     "cy": 710.145,
+     "w": 363.4,
+     "size": 31.3
+    },
+    {
+     "text": "Status",
+     "cx": 1243.2,
+     "cy": 749.9449999999999,
+     "w": 90.7,
+     "size": 31.3
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "object-transport-progress-status",
+   "kind": "object",
+   "label": "Transport\nProgress Status",
+   "x": 579.7,
+   "y": 660.9,
+   "w": 311.1,
+   "h": 149.1,
+   "labelLines": [
+    {
+     "text": "Transport",
+     "cx": 744.1,
+     "cy": 713.295,
+     "w": 140.0,
+     "size": 30.3
+    },
+    {
+     "text": "Progress Status",
+     "cx": 738.5,
+     "cy": 746.595,
+     "w": 231.6,
+     "size": 30.3
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "final-transport-service-provider",
+   "kind": "final",
+   "label": "",
+   "x": 195.3,
+   "y": 926.0,
+   "w": 57.9,
+   "h": 57.9,
+   "innerRatio": 0.444
+  }
+ ],
+ "edges": [
+  {
+   "id": "flow-initial-transport-service-provider-to-request-transport-progress-status",
+   "from": "initial-transport-service-provider",
+   "to": "action-request-transport-progress-status",
+   "exitXY": [
+    0.5074,
+    1.0
+   ],
+   "entryXY": [
+    0.4949,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-request-transport-progress-status-to-transport-progress-status-request",
+   "from": "action-request-transport-progress-status",
+   "to": "object-transport-progress-status-request",
+   "exitXY": [
+    1.0,
+    0.5
+   ],
+   "entryXY": [
+    0.0,
+    0.5057
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-transport-progress-status-request-to-receive-transport-progress-status-in-transportation-network-manager",
+   "from": "object-transport-progress-status-request",
+   "to": "action-receive-transport-progress-status-in-transportation-network-manager",
+   "exitXY": [
+    1.0,
+    0.5084
+   ],
+   "entryXY": [
+    0.0,
+    0.5
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-receive-transport-progress-status-in-transportation-network-manager-to-send-transport-progress-status",
+   "from": "action-receive-transport-progress-status-in-transportation-network-manager",
+   "to": "action-send-transport-progress-status",
+   "exitXY": [
+    0.5059,
+    1.0
+   ],
+   "entryXY": [
+    0.5002,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-transport-progress-status-to-receive-transport-progress-status-in-transport-service-provider",
+   "from": "object-transport-progress-status",
+   "to": "action-receive-transport-progress-status-in-transport-service-provider",
+   "exitXY": [
+    0.0,
+    0.497
+   ],
+   "entryXY": [
+    1.0,
+    0.5031
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-send-transport-progress-status-to-transport-progress-status",
+   "from": "action-send-transport-progress-status",
+   "to": "object-transport-progress-status",
+   "exitXY": [
+    0.0,
+    0.5059
+   ],
+   "entryXY": [
+    1.0,
+    0.4916
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-receive-transport-progress-status-in-transport-service-provider-to-final-transport-service-provider",
+   "from": "action-receive-transport-progress-status-in-transport-service-provider",
+   "to": "final-transport-service-provider",
+   "exitXY": [
+    0.4653,
+    1.0
+   ],
+   "entryXY": [
+    0.5078,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  }
+ ],
+ "guards": []
+}

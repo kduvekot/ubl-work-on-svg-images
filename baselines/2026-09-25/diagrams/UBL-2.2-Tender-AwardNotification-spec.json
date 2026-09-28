@@ -1,0 +1,246 @@
+{
+ "canvas": {
+  "w": 1480.0,
+  "h": 621.384
+ },
+ "stroke": {
+  "frame": 4.3,
+  "divider": 6.0,
+  "action": 5.6,
+  "object": 5.2,
+  "edge": 5.6
+ },
+ "font": {
+  "family": "Helvetica, Arial, sans-serif",
+  "node": 32.7,
+  "lane": 32.7,
+  "guard": 32.7
+ },
+ "arrow": 35.1,
+ "arrowWidth": 36.7,
+ "arrowStyle": "open",
+ "dashed": [],
+ "greyRules": [],
+ "crossMarks": [],
+ "openEnds": [],
+ "frameBox": [
+  2.2,
+  2.2,
+  1477.8,
+  619.2
+ ],
+ "dividers": [
+  [
+   698.3,
+   6.0,
+   5.6,
+   615.3
+  ]
+ ],
+ "bands": [],
+ "lanes": [
+  {
+   "title": "TENDERER",
+   "x": 0.0,
+   "w": 698.3,
+   "cx": 324.3,
+   "cy": 45.2
+  },
+  {
+   "title": "CONTRACTING AUTHORITY",
+   "x": 698.3,
+   "w": 781.7,
+   "cx": 1082.5,
+   "cy": 45.8
+  }
+ ],
+ "bandLabels": [],
+ "nodes": [
+  {
+   "id": "n3",
+   "kind": "initial",
+   "label": "",
+   "x": 1156.3,
+   "y": 83.0,
+   "w": 50.1,
+   "h": 50.1
+  },
+  {
+   "id": "n4",
+   "kind": "action",
+   "label": "Prepare awarding notification",
+   "x": 920.6,
+   "y": 199.4,
+   "w": 521.6,
+   "h": 90.7,
+   "rx": 44.3,
+   "ry": 43.9,
+   "labelLines": [
+    {
+     "text": "Prepare awarding notification",
+     "cx": 1178.0,
+     "cy": 246.1,
+     "w": 410.5
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "n5",
+   "kind": "object",
+   "label": "Unawarded\nNotification",
+   "x": 566.5,
+   "y": 296.9,
+   "w": 252.8,
+   "h": 89.0,
+   "labelLines": [
+    {
+     "text": "Unawarded",
+     "cx": 696.1,
+     "cy": 320.4,
+     "w": 172.0
+    },
+    {
+     "text": "Notification",
+     "cx": 695.9,
+     "cy": 360.2,
+     "w": 174.1
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n6",
+   "kind": "action",
+   "label": "send awarding notification",
+   "x": 941.8,
+   "y": 356.3,
+   "w": 479.2,
+   "h": 90.3,
+   "rx": 43.9,
+   "ry": 47.7,
+   "labelLines": [
+    {
+     "text": "send awarding notification",
+     "cx": 1180.1,
+     "cy": 402.9,
+     "w": 372.5
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "n7",
+   "kind": "action",
+   "label": "Receive notification",
+   "x": 37.8,
+   "y": 357.1,
+   "w": 366.4,
+   "h": 90.3,
+   "rx": 43.4,
+   "ry": 44.3,
+   "labelLines": [
+    {
+     "text": "Receive notification",
+     "cx": 221.7,
+     "cy": 400.6,
+     "w": 273.1
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "n8",
+   "kind": "object",
+   "label": "Awarded\nNotification",
+   "x": 566.1,
+   "y": 420.0,
+   "w": 252.4,
+   "h": 89.0,
+   "labelLines": [
+    {
+     "text": "Awarded",
+     "cx": 675.2,
+     "cy": 443.8,
+     "w": 137.8
+    },
+    {
+     "text": "Notification",
+     "cx": 695.5,
+     "cy": 483.3,
+     "w": 174.1
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n9",
+   "kind": "final",
+   "label": "",
+   "x": 184.9,
+   "y": 515.5,
+   "w": 75.2,
+   "h": 75.2,
+   "innerRatio": 0.71
+  }
+ ],
+ "edges": [
+  {
+   "from": "n3",
+   "to": "n4",
+   "exitXY": [
+    0.501,
+    1.0
+   ],
+   "entryXY": [
+    0.5,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n4",
+   "to": "n6",
+   "exitXY": [
+    0.5,
+    1.0
+   ],
+   "entryXY": [
+    0.5,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n6",
+   "to": "n7",
+   "exitXY": [
+    0.0,
+    0.4994
+   ],
+   "entryXY": [
+    1.0,
+    0.4961
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n7",
+   "to": "n9",
+   "exitXY": [
+    0.4995,
+    1.0
+   ],
+   "entryXY": [
+    0.4947,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "medium"
+  }
+ ],
+ "guards": []
+}

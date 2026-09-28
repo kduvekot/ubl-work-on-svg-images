@@ -1,0 +1,9 @@
+  verdict: NEEDS-HUMAN
+  structural: 0 element(s) absent, 0 invented, 0 text absent, 0 text differs, 0 incoherent
+  line-work  missing 211 px (0.076%)   invented 116 px (0.042%)   radius 3
+    line-work-missing       94 px at  2522,749      2x47    on node n5 (action 'Receive enquiry')
+  needs a person (3):
+    dropped-region     at 1709,785  a shape here would be missing from the SVG
+    no-weight-split     confirm the diagram really has no object nodes
+    edge-direction      confirm which way this edge points
+/tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-2.2-Enquiry-marked.png + /tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-2.2-Enquiry-marked-lost.png  (3 finding(s) numbered)

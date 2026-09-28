@@ -1,0 +1,120 @@
+{
+ "name": "UBL-2.2-IMFM-BasicTransportExecutionPlan",
+ "counts": {
+  "initial": 1,
+  "action": 13,
+  "object": 5,
+  "decision": 4,
+  "final": 3
+ },
+ "flow": [
+  "(start)   [Transport User]",
+  "Request Transport Service   [Transport User]",
+  "[\u00abNotConfirmed\u00bb Transport Execution Plan Request]   [Transport User]",
+  "Receive Transport Service Request   [Transport Service Provider]",
+  "EvaluateTransport Execution Plan Request   [Transport Service Provider]",
+  "<?>   [Transport Service Provider]",
+  "  -[no]-> Reject Transport Service Request   [Transport Service Provider]",
+  "  -> [\u00abRejected\u00bb Transport Execution Plan]   [Transport User]",
+  "  -> Receive Rejected Transport Execution Plan   [Transport User]",
+  "  -> <?>   [Transport User]",
+  "    -[yes]-> Create/Update Transport Execution Plan Request   [Transport User]",
+  "    -> Request Transport Service   [Transport User]",
+  "    -[no]-> (end)   [Transport User]",
+  "  -[yes]-> Confirm Transport Service Request   [Transport Service Provider]",
+  "  -> [\u00abConfirmed\u00bb Transport Execution Plan]   [Transport User]",
+  "  -> Receive Proposed Transport Execution Plan   [Transport User]",
+  "  -> EvaluateTransport Execution Plan   [Transport User]",
+  "  -> <?>   [Transport User]",
+  "    -[no]-> <?>   [Transport User]",
+  "      -[yes]-> Create/Update Transport Execution Plan Request   [Transport User]",
+  "      -[no]-> Reject Transport Execution Plan   [Transport User]",
+  "      -> [\u00abRejected\u00bb Transport Execution Plan]   [Transport User]",
+  "      -> Receive Rejected Transport Execution Plan   [Transport Service Provider]",
+  "      -> (end)   [Transport Service Provider]",
+  "    -[yes]-> Confirm Transport Execution Plan   [Transport User]",
+  "    -> [\u00abConfirmed\u00bb Transport Execution Plan]   [Transport Service Provider]",
+  "    -> Receive Confirmed Transport Execution Plan   [Transport Service Provider]",
+  "    -> (end)   [Transport Service Provider]",
+  ""
+ ],
+ "checks": [
+  {
+   "rule": "every element is connected",
+   "ok": true,
+   "bad": [],
+   "note": "",
+   "report": false
+  },
+  {
+   "rule": "start events have a way out and no way in",
+   "ok": true,
+   "bad": [],
+   "note": "",
+   "report": false
+  },
+  {
+   "rule": "end events have a way in and no way out",
+   "ok": true,
+   "bad": [],
+   "note": "",
+   "report": false
+  },
+  {
+   "rule": "decisions have at least two ways out",
+   "ok": true,
+   "bad": [],
+   "note": "",
+   "report": false
+  },
+  {
+   "rule": "branches out of a decision are labelled",
+   "ok": true,
+   "bad": [],
+   "note": "informational: several diagrams draw an unlabelled branch, so read these against the artwork rather than treating them as errors",
+   "report": true
+  },
+  {
+   "rule": "documents are both written and read",
+   "ok": true,
+   "bad": [],
+   "note": "",
+   "report": false
+  },
+  {
+   "rule": "no flow runs straight from one document to another",
+   "ok": true,
+   "bad": [],
+   "note": "",
+   "report": false
+  },
+  {
+   "rule": "work crossing between parties goes through a document",
+   "ok": true,
+   "bad": [],
+   "note": "informational: UBL draws the hand-over as a document on the divider, and each exception below is named",
+   "report": true
+  },
+  {
+   "rule": "every flow's direction was read with confidence",
+   "ok": true,
+   "bad": [],
+   "note": "",
+   "report": false
+  },
+  {
+   "rule": "every action passes its work on",
+   "ok": true,
+   "bad": [],
+   "note": "informational: several diagrams do end on an action, so read these against the artwork rather than treating them as errors",
+   "report": true
+  },
+  {
+   "rule": "every element is reachable from a start event",
+   "ok": true,
+   "bad": [],
+   "note": "",
+   "report": false
+  }
+ ]
+}

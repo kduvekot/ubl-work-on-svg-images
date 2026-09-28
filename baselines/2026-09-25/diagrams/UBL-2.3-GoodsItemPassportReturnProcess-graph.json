@@ -1,0 +1,1625 @@
+{
+ "source": "UBL-2.3-GoodsItemPassportReturnProcess.png",
+ "size": [
+  1712,
+  1642
+ ],
+ "fontPx": 25.7,
+ "arrowPx": 23.0,
+ "arrowWidthPx": 19.2,
+ "arrowStyle": "filled",
+ "rules": {
+  "v": [
+   [
+    0,
+    5
+   ],
+   [
+    535,
+    3
+   ],
+   [
+    1138,
+    2
+   ],
+   [
+    1705,
+    7
+   ]
+  ],
+  "h": [
+   [
+    0,
+    5
+   ],
+   [
+    62,
+    2
+   ],
+   [
+    1637,
+    5
+   ]
+  ]
+ },
+ "ruleSpan": {
+  "v": [
+   [
+    8,
+    1633
+   ],
+   [
+    8,
+    1633
+   ],
+   [
+    8,
+    1633
+   ],
+   [
+    8,
+    1633
+   ]
+  ],
+  "h": [
+   [
+    8,
+    1701
+   ],
+   [
+    8,
+    1701
+   ],
+   [
+    8,
+    1701
+   ]
+  ]
+ },
+ "greyRules": [],
+ "dashed": [],
+ "openEnds": [],
+ "crossMarks": [],
+ "partitions": [
+  {
+   "axis": "column",
+   "index": 0,
+   "x0": 0,
+   "x1": 536,
+   "title": "Exporting Customs Party",
+   "titleBox": [
+    128,
+    26,
+    288,
+    23
+   ]
+  },
+  {
+   "axis": "column",
+   "index": 1,
+   "x0": 536,
+   "x1": 1139,
+   "title": "Representative Party",
+   "titleBox": [
+    705,
+    27,
+    239,
+    23
+   ]
+  },
+  {
+   "axis": "column",
+   "index": 2,
+   "x0": 1139,
+   "x1": 1712,
+   "title": "Importing Customs Party",
+   "titleBox": [
+    1292,
+    9,
+    414,
+    50
+   ]
+  },
+  {
+   "axis": "band",
+   "index": 0,
+   "y0": 63,
+   "y1": 1642,
+   "title": ""
+  }
+ ],
+ "nodes": [
+  {
+   "x": 817,
+   "y": 77,
+   "w": 46,
+   "h": 46,
+   "area": 1176,
+   "fill": 0.735,
+   "kind": "initial",
+   "id": "n1",
+   "label": "",
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 712,
+   "y": 187,
+   "w": 241,
+   "h": 119,
+   "area": 26240,
+   "fill": 0.915,
+   "solid": 0.991,
+   "rx": 17,
+   "ry": 18,
+   "shape": "rounded",
+   "stroke": 2,
+   "kind": "action",
+   "id": "n2",
+   "label": "Present Goods\nTo Leave Country",
+   "labelLines": [
+    {
+     "x": 754,
+     "y": 220,
+     "w": 159,
+     "h": 18,
+     "text": "Present Goods"
+    },
+    {
+     "x": 738,
+     "y": 250,
+     "w": 189,
+     "h": 23,
+     "text": "To Leave Country"
+    }
+   ],
+   "stem": 0.078,
+   "bold": false,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 1007,
+   "y": 188,
+   "w": 240,
+   "h": 118,
+   "area": 25240,
+   "fill": 0.891,
+   "solid": 1.0,
+   "rx": 0,
+   "ry": 0,
+   "shape": "rect",
+   "stroke": 4,
+   "kind": "object",
+   "id": "n3",
+   "label": "Goodsitem\nPassport\n(Imported)",
+   "labelLines": [
+    {
+     "x": 1064,
+     "y": 211,
+     "w": 124,
+     "h": 18,
+     "text": "Goodsitem"
+    },
+    {
+     "x": 1075,
+     "y": 236,
+     "w": 103,
+     "h": 22,
+     "text": "Passport"
+    },
+    {
+     "x": 1066,
+     "y": 260,
+     "w": 119,
+     "h": 22,
+     "text": "(Imported)"
+    }
+   ],
+   "stem": 0.156,
+   "bold": true,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 1301,
+   "y": 199,
+   "w": 226,
+   "h": 95,
+   "area": 18489,
+   "fill": 0.861,
+   "solid": 0.993,
+   "rx": 13,
+   "ry": 13,
+   "shape": "rounded",
+   "stroke": 2,
+   "kind": "action",
+   "id": "n4",
+   "label": "Receive and Verify\nGoodsitem Passport",
+   "labelLines": [
+    {
+     "x": 1317,
+     "y": 220,
+     "w": 199,
+     "h": 23,
+     "text": "Receive and Verify"
+    },
+    {
+     "x": 1307,
+     "y": 250,
+     "w": 217,
+     "h": 23,
+     "text": "Goodsitem Passport"
+    }
+   ],
+   "stem": 0.078,
+   "bold": false,
+   "col": 2,
+   "row": 0
+  },
+  {
+   "x": 1336,
+   "y": 349,
+   "w": 158,
+   "h": 113,
+   "area": 8645,
+   "fill": 0.484,
+   "solid": 0.508,
+   "rx": 86,
+   "ry": 62,
+   "shape": "rhombus",
+   "stroke": 2,
+   "kind": "decision",
+   "id": "n5",
+   "label": "Valid?",
+   "labelLines": [
+    {
+     "x": 1383,
+     "y": 397,
+     "w": 64,
+     "h": 18,
+     "text": "Valid?"
+    }
+   ],
+   "stem": 0.078,
+   "bold": false,
+   "col": 2,
+   "row": 0
+  },
+  {
+   "x": 801,
+   "y": 398,
+   "w": 59,
+   "h": 59,
+   "area": 1004,
+   "fill": 0.288,
+   "solid": 0.776,
+   "rx": 31,
+   "ry": 27,
+   "shape": "ellipse",
+   "stroke": 2,
+   "kind": "final",
+   "innerRatio": 0.78,
+   "id": "n6",
+   "label": "",
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 1015,
+   "y": 520,
+   "w": 240,
+   "h": 118,
+   "area": 26438,
+   "fill": 0.934,
+   "solid": 1.0,
+   "rx": 2,
+   "ry": 2,
+   "shape": "rect",
+   "stroke": 3,
+   "kind": "object",
+   "id": "n7",
+   "label": "Application response",
+   "labelLines": [
+    {
+     "x": 1018,
+     "y": 573,
+     "w": 234,
+     "h": 21,
+     "text": "Application response"
+    }
+   ],
+   "stem": 0.156,
+   "bold": true,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 727,
+   "y": 528,
+   "w": 211,
+   "h": 103,
+   "area": 20437,
+   "fill": 0.94,
+   "solid": 0.991,
+   "rx": 13,
+   "ry": 17,
+   "shape": "rounded",
+   "stroke": 2,
+   "kind": "action",
+   "id": "n8",
+   "label": "Receive Reject",
+   "labelLines": [
+    {
+     "x": 753,
+     "y": 568,
+     "w": 161,
+     "h": 23,
+     "text": "Receive Reject"
+    }
+   ],
+   "stem": 0.078,
+   "bold": false,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 1319,
+   "y": 528,
+   "w": 190,
+   "h": 103,
+   "area": 18465,
+   "fill": 0.944,
+   "solid": 0.991,
+   "rx": 13,
+   "ry": 13,
+   "shape": "rounded",
+   "stroke": 2,
+   "kind": "action",
+   "id": "n9",
+   "label": "Send Reject",
+   "labelLines": [
+    {
+     "x": 1351,
+     "y": 569,
+     "w": 131,
+     "h": 23,
+     "text": "Send Reject"
+    }
+   ],
+   "stem": 0.097,
+   "bold": false,
+   "col": 2,
+   "row": 0
+  },
+  {
+   "x": 1015,
+   "y": 682,
+   "w": 240,
+   "h": 118,
+   "area": 24894,
+   "fill": 0.879,
+   "solid": 1.0,
+   "rx": 0,
+   "ry": 0,
+   "shape": "rect",
+   "stroke": 3,
+   "kind": "object",
+   "id": "n10",
+   "label": "Goodslitem\nPassport\n(Reexported)",
+   "labelLines": [
+    {
+     "x": 1074,
+     "y": 709,
+     "w": 125,
+     "h": 19,
+     "text": "Goodslitem"
+    },
+    {
+     "x": 1085,
+     "y": 734,
+     "w": 104,
+     "h": 22,
+     "text": "Passport"
+    },
+    {
+     "x": 1062,
+     "y": 758,
+     "w": 149,
+     "h": 23,
+     "text": "(Reexported)"
+    }
+   ],
+   "stem": 0.156,
+   "bold": true,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 712,
+   "y": 689,
+   "w": 226,
+   "h": 103,
+   "area": 20913,
+   "fill": 0.898,
+   "solid": 0.991,
+   "rx": 17,
+   "ry": 15,
+   "shape": "rounded",
+   "stroke": 2,
+   "kind": "action",
+   "id": "n11",
+   "label": "Receive\nGoodsitem Passport",
+   "labelLines": [
+    {
+     "x": 782,
+     "y": 721,
+     "w": 84,
+     "h": 17,
+     "text": "Receive"
+    },
+    {
+     "x": 715,
+     "y": 744,
+     "w": 218,
+     "h": 23,
+     "text": "Goodsitem Passport"
+    }
+   ],
+   "stem": 0.078,
+   "bold": false,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 1321,
+   "y": 689,
+   "w": 190,
+   "h": 103,
+   "area": 17327,
+   "fill": 0.885,
+   "solid": 0.991,
+   "rx": 15,
+   "ry": 14,
+   "shape": "rounded",
+   "stroke": 2,
+   "kind": "action",
+   "id": "n12",
+   "label": "Apply Stamps\nAnd Signature",
+   "labelLines": [
+    {
+     "x": 1338,
+     "y": 715,
+     "w": 148,
+     "h": 23,
+     "text": "Apply Stamps"
+    },
+    {
+     "x": 1336,
+     "y": 739,
+     "w": 152,
+     "h": 23,
+     "text": "And Signature"
+    }
+   ],
+   "stem": 0.078,
+   "bold": false,
+   "col": 2,
+   "row": 0
+  },
+  {
+   "x": 719,
+   "y": 877,
+   "w": 241,
+   "h": 120,
+   "area": 26237,
+   "fill": 0.907,
+   "solid": 0.99,
+   "rx": 19,
+   "ry": 20,
+   "shape": "rounded",
+   "stroke": 2,
+   "kind": "action",
+   "id": "n13",
+   "label": "Present Goods\nTo Re-enter Country",
+   "labelLines": [
+    {
+     "x": 761,
+     "y": 910,
+     "w": 159,
+     "h": 18,
+     "text": "Present Goods"
+    },
+    {
+     "x": 731,
+     "y": 941,
+     "w": 218,
+     "h": 23,
+     "text": "To Re-enter Country"
+    }
+   ],
+   "stem": 0.078,
+   "bold": false,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 415,
+   "y": 878,
+   "w": 240,
+   "h": 118,
+   "area": 24907,
+   "fill": 0.879,
+   "solid": 1.0,
+   "rx": 0,
+   "ry": 0,
+   "shape": "rect",
+   "stroke": 3,
+   "kind": "object",
+   "id": "n14",
+   "label": "Goodsitem\nPassport\n(Reexported)",
+   "labelLines": [
+    {
+     "x": 472,
+     "y": 901,
+     "w": 124,
+     "h": 19,
+     "text": "Goodsitem"
+    },
+    {
+     "x": 483,
+     "y": 926,
+     "w": 103,
+     "h": 23,
+     "text": "Passport"
+    },
+    {
+     "x": 459,
+     "y": 950,
+     "w": 149,
+     "h": 23,
+     "text": "(Reexported)"
+    }
+   ],
+   "stem": 0.156,
+   "bold": true,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 130,
+   "y": 889,
+   "w": 227,
+   "h": 96,
+   "area": 18778,
+   "fill": 0.862,
+   "solid": 0.991,
+   "rx": 18,
+   "ry": 17,
+   "shape": "rounded",
+   "stroke": 2,
+   "kind": "action",
+   "id": "n15",
+   "label": "Receive and Verify\nGoodsitem Passport",
+   "labelLines": [
+    {
+     "x": 146,
+     "y": 910,
+     "w": 200,
+     "h": 23,
+     "text": "Receive and Verify"
+    },
+    {
+     "x": 136,
+     "y": 941,
+     "w": 218,
+     "h": 23,
+     "text": "Goodsitem Passport"
+    }
+   ],
+   "stem": 0.078,
+   "bold": false,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 166,
+   "y": 1039,
+   "w": 157,
+   "h": 113,
+   "area": 8635,
+   "fill": 0.487,
+   "solid": 0.512,
+   "rx": 86,
+   "ry": 63,
+   "shape": "rhombus",
+   "stroke": 2,
+   "kind": "decision",
+   "id": "n16",
+   "label": "Valid?",
+   "labelLines": [
+    {
+     "x": 213,
+     "y": 1087,
+     "w": 63,
+     "h": 18,
+     "text": "Valid?"
+    }
+   ],
+   "stem": 0.078,
+   "bold": false,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 809,
+   "y": 1089,
+   "w": 58,
+   "h": 58,
+   "area": 1006,
+   "fill": 0.299,
+   "solid": 0.803,
+   "rx": 27,
+   "ry": 27,
+   "shape": "ellipse",
+   "stroke": 2,
+   "kind": "final",
+   "innerRatio": 0.776,
+   "id": "n17",
+   "label": "",
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 415,
+   "y": 1211,
+   "w": 240,
+   "h": 118,
+   "area": 26416,
+   "fill": 0.933,
+   "solid": 1.0,
+   "rx": 0,
+   "ry": 0,
+   "shape": "rect",
+   "stroke": 4,
+   "kind": "object",
+   "id": "n18",
+   "label": "Application response",
+   "labelLines": [
+    {
+     "x": 418,
+     "y": 1259,
+     "w": 234,
+     "h": 21,
+     "text": "Application response"
+    }
+   ],
+   "stem": 0.156,
+   "bold": true,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 148,
+   "y": 1218,
+   "w": 191,
+   "h": 103,
+   "area": 18315,
+   "fill": 0.931,
+   "solid": 0.989,
+   "rx": 15,
+   "ry": 17,
+   "shape": "rounded",
+   "stroke": 2,
+   "kind": "action",
+   "id": "n19",
+   "label": "Send Declined",
+   "labelLines": [
+    {
+     "x": 168,
+     "y": 1261,
+     "w": 155,
+     "h": 18,
+     "text": "Send Declined"
+    }
+   ],
+   "stem": 0.078,
+   "bold": false,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 735,
+   "y": 1218,
+   "w": 210,
+   "h": 103,
+   "area": 20088,
+   "fill": 0.929,
+   "solid": 0.992,
+   "rx": 14,
+   "ry": 13,
+   "shape": "rounded",
+   "stroke": 2,
+   "kind": "action",
+   "id": "n20",
+   "label": "Receive Declined",
+   "labelLines": [
+    {
+     "x": 747,
+     "y": 1261,
+     "w": 186,
+     "h": 18,
+     "text": "Receive Declined"
+    }
+   ],
+   "stem": 0.078,
+   "bold": false,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 415,
+   "y": 1372,
+   "w": 240,
+   "h": 118,
+   "area": 24900,
+   "fill": 0.879,
+   "solid": 1.0,
+   "rx": 2,
+   "ry": 2,
+   "shape": "rect",
+   "stroke": 3,
+   "kind": "object",
+   "id": "n21",
+   "label": "Goodsltem\nPassport\n(Reimported)",
+   "labelLines": [
+    {
+     "x": 474,
+     "y": 1396,
+     "w": 125,
+     "h": 18,
+     "text": "Goodsltem"
+    },
+    {
+     "x": 485,
+     "y": 1420,
+     "w": 104,
+     "h": 23,
+     "text": "Passport"
+    },
+    {
+     "x": 462,
+     "y": 1444,
+     "w": 149,
+     "h": 23,
+     "text": "(Reimported)"
+    }
+   ],
+   "stem": 0.156,
+   "bold": true,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 150,
+   "y": 1380,
+   "w": 191,
+   "h": 103,
+   "area": 17409,
+   "fill": 0.885,
+   "solid": 0.989,
+   "rx": 14,
+   "ry": 17,
+   "shape": "rounded",
+   "stroke": 2,
+   "kind": "action",
+   "id": "n22",
+   "label": "Apply Stamps\nAnd Signature",
+   "labelLines": [
+    {
+     "x": 168,
+     "y": 1408,
+     "w": 148,
+     "h": 23,
+     "text": "Apply Stamps"
+    },
+    {
+     "x": 166,
+     "y": 1432,
+     "w": 152,
+     "h": 23,
+     "text": "And Signature"
+    }
+   ],
+   "stem": 0.078,
+   "bold": false,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 719,
+   "y": 1380,
+   "w": 226,
+   "h": 103,
+   "area": 20875,
+   "fill": 0.897,
+   "solid": 0.991,
+   "rx": 14,
+   "ry": 15,
+   "shape": "rounded",
+   "stroke": 2,
+   "kind": "action",
+   "id": "n23",
+   "label": "Receive\nGoodsitem Passport",
+   "labelLines": [
+    {
+     "x": 789,
+     "y": 1408,
+     "w": 84,
+     "h": 18,
+     "text": "Receive"
+    },
+    {
+     "x": 722,
+     "y": 1432,
+     "w": 218,
+     "h": 23,
+     "text": "Goodsitem Passport"
+    }
+   ],
+   "stem": 0.117,
+   "bold": true,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 802,
+   "y": 1558,
+   "w": 59,
+   "h": 58,
+   "area": 1010,
+   "fill": 0.295,
+   "solid": 0.789,
+   "rx": 27,
+   "ry": 26,
+   "shape": "ellipse",
+   "stroke": 2,
+   "kind": "final",
+   "innerRatio": 0.763,
+   "id": "n24",
+   "label": "",
+   "col": 1,
+   "row": 0
+  }
+ ],
+ "edges": [
+  {
+   "from": "n1",
+   "to": "n2",
+   "routing": "straight",
+   "fromPoint": [
+    840,
+    137
+   ],
+   "toPoint": [
+    834,
+    172
+   ],
+   "arrowInk": [
+    214,
+    214
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    24,
+    24.2,
+    1.28
+   ],
+   "arrowFill": 0.64,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n2",
+   "to": "n3",
+   "routing": "straight",
+   "fromPoint": [
+    967,
+    246
+   ],
+   "toPoint": [
+    992,
+    247
+   ],
+   "arrowInk": [
+    179,
+    179
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    20,
+    19.3,
+    1.25
+   ],
+   "arrowFill": 0.909,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n3",
+   "to": "n4",
+   "routing": "straight",
+   "fromPoint": [
+    1261,
+    247
+   ],
+   "toPoint": [
+    1286,
+    246
+   ],
+   "arrowInk": [
+    162,
+    162
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    20,
+    18.7,
+    1.74
+   ],
+   "arrowFill": 0.846,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n4",
+   "to": "n5",
+   "routing": "straight",
+   "fromPoint": [
+    1414,
+    308
+   ],
+   "toPoint": [
+    1415,
+    334
+   ],
+   "arrowInk": [
+    210,
+    210
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    21,
+    17.1,
+    1.49
+   ],
+   "arrowSaturated": true,
+   "arrowFill": 1.0,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n5",
+   "to": "n12",
+   "routing": "orthogonal",
+   "fromPoint": [
+    1508,
+    406
+   ],
+   "toPoint": [
+    1525,
+    740
+   ],
+   "arrowInk": [
+    90,
+    316
+   ],
+   "directionConfidence": "high",
+   "points": [
+    [
+     1568,
+     406
+    ],
+    [
+     1568,
+     744
+    ]
+   ],
+   "arrowPx": [
+    16,
+    24.2,
+    0.97
+   ],
+   "arrowFill": 0.312,
+   "guard": "Yes",
+   "edgeKind": "control"
+  },
+  {
+   "from": "n8",
+   "to": "n6",
+   "routing": "straight",
+   "fromPoint": [
+    832,
+    513
+   ],
+   "toPoint": [
+    830,
+    471
+   ],
+   "arrowInk": [
+    269,
+    269
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    23,
+    20.4,
+    1.74
+   ],
+   "arrowFill": 0.931,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n5",
+   "to": "n9",
+   "routing": "straight",
+   "fromPoint": [
+    1415,
+    476
+   ],
+   "toPoint": [
+    1414,
+    513
+   ],
+   "arrowInk": [
+    335,
+    339
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    23,
+    19.2,
+    1.67
+   ],
+   "arrowFill": 0.955,
+   "guard": "No",
+   "edgeKind": "control"
+  },
+  {
+   "from": "n7",
+   "to": "n8",
+   "routing": "straight",
+   "fromPoint": [
+    1000,
+    578
+   ],
+   "toPoint": [
+    952,
+    578
+   ],
+   "arrowInk": [
+    198,
+    226
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    22,
+    20.0,
+    1.8
+   ],
+   "arrowFill": 1.0,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n9",
+   "to": "n7",
+   "routing": "straight",
+   "fromPoint": [
+    1304,
+    579
+   ],
+   "toPoint": [
+    1269,
+    579
+   ],
+   "arrowInk": [
+    189,
+    189
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    20,
+    18.0,
+    1.75
+   ],
+   "arrowFill": 0.84,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n10",
+   "to": "n11",
+   "routing": "straight",
+   "fromPoint": [
+    1000,
+    740
+   ],
+   "toPoint": [
+    952,
+    740
+   ],
+   "arrowInk": [
+    198,
+    226
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    22,
+    18.0,
+    1.68
+   ],
+   "arrowFill": 1.0,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n12",
+   "to": "n10",
+   "routing": "straight",
+   "fromPoint": [
+    1306,
+    741
+   ],
+   "toPoint": [
+    1269,
+    741
+   ],
+   "arrowInk": [
+    193,
+    193
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    20,
+    18.0,
+    1.75
+   ],
+   "arrowFill": 0.84,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n11",
+   "to": "n13",
+   "routing": "straight",
+   "fromPoint": [
+    837,
+    806
+   ],
+   "toPoint": [
+    839,
+    862
+   ],
+   "arrowInk": [
+    159,
+    268
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    23,
+    18.9,
+    1.73
+   ],
+   "arrowFill": 0.953,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n14",
+   "to": "n15",
+   "routing": "straight",
+   "fromPoint": [
+    400,
+    937
+   ],
+   "toPoint": [
+    371,
+    937
+   ],
+   "arrowInk": [
+    236,
+    236
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    20,
+    16.0,
+    1.91
+   ],
+   "arrowSaturated": true,
+   "arrowFill": 1.0,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n13",
+   "to": "n14",
+   "routing": "straight",
+   "fromPoint": [
+    704,
+    937
+   ],
+   "toPoint": [
+    669,
+    937
+   ],
+   "arrowInk": [
+    194,
+    194
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    21,
+    18.0,
+    1.76
+   ],
+   "arrowFill": 0.932,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n15",
+   "to": "n16",
+   "routing": "straight",
+   "fromPoint": [
+    243,
+    999
+   ],
+   "toPoint": [
+    244,
+    1024
+   ],
+   "arrowInk": [
+    208,
+    208
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    22,
+    18.9,
+    1.54
+   ],
+   "arrowSaturated": true,
+   "arrowFill": 1.0,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n16",
+   "to": "n22",
+   "routing": "orthogonal",
+   "fromPoint": [
+    151,
+    1098
+   ],
+   "toPoint": [
+    135,
+    1431
+   ],
+   "arrowInk": [
+    92,
+    286
+   ],
+   "directionConfidence": "high",
+   "points": [
+    [
+     90,
+     1098
+    ],
+    [
+     90,
+     1434
+    ]
+   ],
+   "arrowPx": [
+    22,
+    22.6,
+    0.36
+   ],
+   "arrowFill": 0.267,
+   "guard": "Yes",
+   "edgeKind": "control"
+  },
+  {
+   "from": "n20",
+   "to": "n17",
+   "routing": "straight",
+   "fromPoint": [
+    840,
+    1203
+   ],
+   "toPoint": [
+    838,
+    1161
+   ],
+   "arrowInk": [
+    269,
+    269
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    24,
+    18.4,
+    1.95
+   ],
+   "arrowSaturated": true,
+   "arrowFill": 0.81,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n16",
+   "to": "n19",
+   "routing": "straight",
+   "fromPoint": [
+    244,
+    1166
+   ],
+   "toPoint": [
+    243,
+    1203
+   ],
+   "arrowInk": [
+    327,
+    330
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    24,
+    19.3,
+    1.75
+   ],
+   "arrowFill": 0.894,
+   "guard": "No",
+   "edgeKind": "control"
+  },
+  {
+   "from": "n18",
+   "to": "n20",
+   "routing": "straight",
+   "fromPoint": [
+    669,
+    1268
+   ],
+   "toPoint": [
+    720,
+    1268
+   ],
+   "arrowInk": [
+    203,
+    261
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    25,
+    20.0,
+    1.73
+   ],
+   "arrowFill": 0.939,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n19",
+   "to": "n18",
+   "routing": "straight",
+   "fromPoint": [
+    353,
+    1269
+   ],
+   "toPoint": [
+    400,
+    1270
+   ],
+   "arrowInk": [
+    252,
+    270
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    24,
+    19.3,
+    1.92
+   ],
+   "arrowFill": 0.894,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n22",
+   "to": "n21",
+   "routing": "straight",
+   "fromPoint": [
+    355,
+    1431
+   ],
+   "toPoint": [
+    400,
+    1431
+   ],
+   "arrowInk": [
+    261,
+    268
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    25,
+    18.0,
+    2.02
+   ],
+   "arrowFill": 0.889,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n21",
+   "to": "n23",
+   "routing": "straight",
+   "fromPoint": [
+    669,
+    1431
+   ],
+   "toPoint": [
+    704,
+    1431
+   ],
+   "arrowInk": [
+    221,
+    221
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    25,
+    18.0,
+    1.62
+   ],
+   "arrowFill": 0.926,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n23",
+   "to": "n24",
+   "routing": "straight",
+   "fromPoint": [
+    833,
+    1497
+   ],
+   "toPoint": [
+    831,
+    1543
+   ],
+   "arrowInk": [
+    267,
+    275
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    24,
+    20.4,
+    1.82
+   ],
+   "arrowFill": 0.897,
+   "edgeKind": "control"
+  }
+ ],
+ "text": [
+  {
+   "text": "Exporting Customs Party",
+   "x": 128,
+   "y": 26,
+   "w": 288,
+   "h": 23,
+   "lines": [
+    {
+     "x": 128,
+     "y": 26,
+     "w": 288,
+     "h": 23,
+     "text": "Exporting Customs Party"
+    }
+   ]
+  },
+  {
+   "text": "Representative Party",
+   "x": 705,
+   "y": 27,
+   "w": 239,
+   "h": 23,
+   "lines": [
+    {
+     "x": 705,
+     "y": 27,
+     "w": 239,
+     "h": 23,
+     "text": "Representative Party"
+    }
+   ]
+  },
+  {
+   "text": "Importing Customs Party",
+   "x": 1292,
+   "y": 27,
+   "w": 288,
+   "h": 23,
+   "lines": [
+    {
+     "x": 1292,
+     "y": 27,
+     "w": 288,
+     "h": 23,
+     "text": "Importing Customs Party"
+    }
+   ]
+  },
+  {
+   "text": "No",
+   "x": 1361,
+   "y": 473,
+   "w": 26,
+   "h": 16,
+   "lines": [
+    {
+     "x": 1361,
+     "y": 473,
+     "w": 26,
+     "h": 16,
+     "text": "No"
+    }
+   ],
+   "attachedTo": "n5->n9"
+  },
+  {
+   "text": "Yes",
+   "x": 1575,
+   "y": 578,
+   "w": 34,
+   "h": 17,
+   "lines": [
+    {
+     "x": 1575,
+     "y": 578,
+     "w": 34,
+     "h": 17,
+     "text": "Yes"
+    }
+   ],
+   "attachedTo": "n5->n12"
+  },
+  {
+   "text": "No",
+   "x": 190,
+   "y": 1164,
+   "w": 26,
+   "h": 16,
+   "lines": [
+    {
+     "x": 190,
+     "y": 1164,
+     "w": 26,
+     "h": 16,
+     "text": "No"
+    }
+   ],
+   "attachedTo": "n16->n19"
+  },
+  {
+   "text": "Yes",
+   "x": 44,
+   "y": 1269,
+   "w": 34,
+   "h": 16,
+   "lines": [
+    {
+     "x": 44,
+     "y": 1269,
+     "w": 34,
+     "h": 16,
+     "text": "Yes"
+    }
+   ],
+   "attachedTo": "n16->n22"
+  }
+ ],
+ "uncertain": [
+  {
+   "kind": "no-weight-split",
+   "reason": "all 18 box strokes are one weight ([2, 3, 4]), so no object node could be identified",
+   "check": "confirm the diagram really has no object nodes"
+  }
+ ]
+}

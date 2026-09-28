@@ -1,0 +1,46 @@
+image 3425x1234
+
+PARTITION RULES
+   vertical  : [(0, 10), (1721, 7), (3415, 10)]
+   horizontal: [(0, 10), (1224, 10)]
+   -> 2 column(s) x 1 band(s)
+   type measured off the page: a word is 54px tall
+   (dropped x=10    y=10    1711x1214  is a partition cell)
+   (dropped x=1728  y=10    1687x1214  is a partition cell)
+   one line weight only - no object nodes
+
+NODES
+   n1   initial   x=901   y=169   w=106   h=106   stroke=0   fill=0.75  ''
+   n2   object    x=1494  y=394   w=441   h=183   stroke=6   fill=0.91  'Digital\nCapability'
+   n3   action    x=591   y=419   w=714   h=128   stroke=6   fill=0.84  'Publish digital capabilities'
+   n4   action    x=2100  y=747   w=824   h=123   stroke=6   fill=0.84  'Download digital capabilities'
+   n5   final     x=2468  y=1064  w=93    h=93    stroke=7   fill=0.59  ''
+
+TYPE  cap height 36px over 80 glyphs -> font 51.4px
+   rejoined 6 line break(s) of up to 93px, where a label sits on the line
+   rejoined a 12px break in a line at 146 degrees, where a label sits on it
+   rejoined a 12px break in a line at 146 degrees, where a label sits on it
+
+EDGES
+   n1   -> n3    straight    arrowhead   870 vs 270    ratio 4.0  high
+   n3   -> n2    straight    arrowhead   871 vs 270    ratio 4.0  high
+   n4   -> (off the diagram) at 2085,808
+   n4   -> n5    straight    arrowhead   878 vs 270    ratio 4.0  high
+   mark across the column rule at 1724: 151px at 146 degrees
+   mark across the column rule at 1724: 151px at 146 degrees
+
+TEXT (titles, guards, notes)
+   'BUSINESS PARTY 1'                       x=534   y=42    
+   'BUSINESS PARTY O..n'                    x=2263  y=42    
+
+PARTITIONS
+   column 0  'BUSINESS PARTY 1'
+   column 1  'BUSINESS PARTY O..n'
+   band   0  ''
+
+ARROWHEAD  67 x 55px, open, measured on 2 connector(s)
+   reading settled: 'BUSINESS PARTY O..n' -> 'BUSINESS PARTY 0..n'
+   reading settled: 'BUSINESS PARTY O..n' -> 'BUSINESS PARTY 0..n'
+   reading settled: 'BUSINESS PARTY O..n' -> 'BUSINESS PARTY 0..n'
+
+wrote review/baseline/UBL-2.2-DigitalCapability-graph.json   (5 nodes, 3 edges, 2 flagged for a human)

@@ -1,0 +1,616 @@
+{
+ "schema": "ubl-activity-diagram/1",
+ "figure": {
+  "name": "UBL-2.2-IMFM-IntermodalFreightManagementProcess",
+  "source": "UBL-2.2-IMFM-IntermodalFreightManagementProcess.png"
+ },
+ "lanes": [
+  {
+   "id": "lane-transport-user",
+   "axis": "column",
+   "index": 0,
+   "title": "Transport User"
+  },
+  {
+   "id": "lane-transport-service-provider",
+   "axis": "column",
+   "index": 1,
+   "title": "Transport Service Provider"
+  },
+  {
+   "id": "lane-transport-regulator",
+   "axis": "column",
+   "index": 2,
+   "title": "Transport Regulator"
+  },
+  {
+   "id": "lane-transportation-network-manager",
+   "axis": "column",
+   "index": 3,
+   "title": "Transportation Network Manager"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "initial-transport-service-provider",
+   "kind": "initial",
+   "label": "",
+   "lane": "lane-transport-service-provider"
+  },
+  {
+   "id": "note-transportation-network-information",
+   "kind": "note",
+   "label": "Transportation Network\nInformation",
+   "lane": null,
+   "annotates": "flow-provide-transportation-network-to-plan-transport-services"
+  },
+  {
+   "id": "action-plan-transport-services",
+   "kind": "action",
+   "label": "Plan Transport Services",
+   "lane": "lane-transport-service-provider"
+  },
+  {
+   "id": "action-provide-transportation-network",
+   "kind": "action",
+   "label": "Provide\nTransportation\nNetwork\nInformation",
+   "lane": "lane-transportation-network-manager",
+   "alsoIn": [
+    "phase-execution"
+   ]
+  },
+  {
+   "id": "object-transport-service-description-request",
+   "kind": "object",
+   "label": "Transport Service\nDescription\nRequest",
+   "lane": null,
+   "between": [
+    "lane-transport-user",
+    "lane-transport-service-provider"
+   ]
+  },
+  {
+   "id": "action-define-transport-service-demand",
+   "kind": "action",
+   "label": "Define Transport\nService Demand",
+   "lane": "lane-transport-user"
+  },
+  {
+   "id": "action-announce-transport-services",
+   "kind": "action",
+   "label": "Announce Transport\nServices",
+   "lane": "lane-transport-service-provider"
+  },
+  {
+   "id": "object-transport-service-description",
+   "kind": "object",
+   "label": "Transport Service\nDescription",
+   "lane": null,
+   "between": [
+    "lane-transport-user",
+    "lane-transport-service-provider"
+   ]
+  },
+  {
+   "id": "object-transport-execution-plan-request",
+   "kind": "object",
+   "label": "Transport\nExecution\nPlan Request",
+   "lane": null,
+   "between": [
+    "lane-transport-user",
+    "lane-transport-service-provider"
+   ]
+  },
+  {
+   "id": "action-perform-booking-management",
+   "kind": "action",
+   "label": "Perform Booking\nManagement",
+   "lane": "lane-transport-user"
+  },
+  {
+   "id": "action-perform-order-management",
+   "kind": "action",
+   "label": "Perform\nOrder Management",
+   "lane": "lane-transport-service-provider"
+  },
+  {
+   "id": "note-transportation-network-information-2",
+   "kind": "note",
+   "label": "Transportation Network\nInformation",
+   "lane": null,
+   "annotates": "flow-provide-transportation-network-to-perform-order-management"
+  },
+  {
+   "id": "object-transport-execution-plan-between-transport-user-and-transport-service-provider",
+   "kind": "object",
+   "label": "Transport\nExecution Plan",
+   "lane": null,
+   "between": [
+    "lane-transport-user",
+    "lane-transport-service-provider"
+   ]
+  },
+  {
+   "id": "object-goods-item-itinerary",
+   "kind": "object",
+   "label": "Goods Item\nItinerary",
+   "lane": null,
+   "between": [
+    "lane-transport-user",
+    "lane-transport-service-provider"
+   ]
+  },
+  {
+   "id": "action-monitor-and-control-transport-services",
+   "kind": "action",
+   "label": "Monitor and Control\nTransport Services",
+   "lane": "lane-transport-user"
+  },
+  {
+   "id": "action-execute-transport-services",
+   "kind": "action",
+   "label": "Execute\nTransport Services",
+   "lane": "lane-transport-service-provider"
+  },
+  {
+   "id": "object-transport-progress-status-request",
+   "kind": "object",
+   "label": "Transport\nProgress Status\nRequest",
+   "lane": null,
+   "between": [
+    "lane-transport-service-provider",
+    "lane-transportation-network-manager"
+   ]
+  },
+  {
+   "id": "object-transportation-status-request",
+   "kind": "object",
+   "label": "Transportation\nStatus Request",
+   "lane": null,
+   "between": [
+    "lane-transport-user",
+    "lane-transport-service-provider"
+   ]
+  },
+  {
+   "id": "object-transport-progress-status",
+   "kind": "object",
+   "label": "Transport\nProgress Status",
+   "lane": null,
+   "between": [
+    "lane-transport-service-provider",
+    "lane-transportation-network-manager"
+   ]
+  },
+  {
+   "id": "object-transportation-status",
+   "kind": "object",
+   "label": "Transportation\nStatus",
+   "lane": null,
+   "between": [
+    "lane-transport-user",
+    "lane-transport-service-provider"
+   ]
+  },
+  {
+   "id": "object-transport-execution-plan-between-transport-user-and-transport-service-provider-2",
+   "kind": "object",
+   "label": "Transport\nExecution Plan",
+   "lane": null,
+   "between": [
+    "lane-transport-user",
+    "lane-transport-service-provider"
+   ]
+  },
+  {
+   "id": "note-regulatory-information",
+   "kind": "note",
+   "label": "Regulatory\nInformation",
+   "lane": null,
+   "annotates": "flow-execute-transport-services-to-perform-compliance-management",
+   "between": [
+    "lane-transport-service-provider",
+    "lane-transport-regulator"
+   ]
+  },
+  {
+   "id": "action-perform-compliance-management",
+   "kind": "action",
+   "label": "Perform Compliance\nManagement",
+   "lane": "lane-transport-regulator",
+   "unstated": {
+    "wayOut": "The path ends at this step: the artwork draws no end after it."
+   }
+  },
+  {
+   "id": "object-transport-execution-plan-between-transport-user-and-transport-service-provider-3",
+   "kind": "object",
+   "label": "Transport\nExecution Plan",
+   "lane": null,
+   "between": [
+    "lane-transport-user",
+    "lane-transport-service-provider"
+   ]
+  },
+  {
+   "id": "action-finalize-transport-services",
+   "kind": "action",
+   "label": "Finalize\nTransport Services",
+   "lane": "lane-transport-user"
+  },
+  {
+   "id": "action-manage-completion",
+   "kind": "action",
+   "label": "Manage Completion",
+   "lane": "lane-transport-service-provider"
+  },
+  {
+   "id": "object-freight-invoice",
+   "kind": "object",
+   "label": "Freight Invoice",
+   "lane": null,
+   "between": [
+    "lane-transport-user",
+    "lane-transport-service-provider"
+   ]
+  },
+  {
+   "id": "final-transport-user",
+   "kind": "final",
+   "label": "",
+   "lane": "lane-transport-user"
+  }
+ ],
+ "flows": [
+  {
+   "id": "flow-initial-transport-service-provider-to-plan-transport-services",
+   "from": "initial-transport-service-provider",
+   "to": "action-plan-transport-services",
+   "kind": "control",
+   "direction": {
+    "confidence": "notation"
+   }
+  },
+  {
+   "id": "flow-provide-transportation-network-to-plan-transport-services",
+   "from": "action-provide-transportation-network",
+   "to": "action-plan-transport-services",
+   "kind": "information",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-plan-transport-services-to-announce-transport-services",
+   "from": "action-plan-transport-services",
+   "to": "action-announce-transport-services",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-define-transport-service-demand-to-transport-service-description-request",
+   "from": "action-define-transport-service-demand",
+   "to": "object-transport-service-description-request",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-transport-service-description-request-to-announce-transport-services",
+   "from": "object-transport-service-description-request",
+   "to": "action-announce-transport-services",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-transport-service-description-to-define-transport-service-demand",
+   "from": "object-transport-service-description",
+   "to": "action-define-transport-service-demand",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-announce-transport-services-to-transport-service-description",
+   "from": "action-announce-transport-services",
+   "to": "object-transport-service-description",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-define-transport-service-demand-to-perform-booking-management",
+   "from": "action-define-transport-service-demand",
+   "to": "action-perform-booking-management",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-perform-booking-management-to-transport-execution-plan-request",
+   "from": "action-perform-booking-management",
+   "to": "object-transport-execution-plan-request",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-transport-execution-plan-request-to-perform-order-management",
+   "from": "object-transport-execution-plan-request",
+   "to": "action-perform-order-management",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-provide-transportation-network-to-perform-order-management",
+   "from": "action-provide-transportation-network",
+   "to": "action-perform-order-management",
+   "kind": "information",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-transport-execution-plan-between-transport-user-and-transport-service-provider-to-perform-booking-management",
+   "from": "object-transport-execution-plan-between-transport-user-and-transport-service-provider",
+   "to": "action-perform-booking-management",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-perform-order-management-to-transport-execution-plan-between-transport-user-and-transport-service-provider",
+   "from": "action-perform-order-management",
+   "to": "object-transport-execution-plan-between-transport-user-and-transport-service-provider",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-perform-order-management-to-goods-item-itinerary",
+   "from": "action-perform-order-management",
+   "to": "object-goods-item-itinerary",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-goods-item-itinerary-to-perform-booking-management",
+   "from": "object-goods-item-itinerary",
+   "to": "action-perform-booking-management",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-perform-order-management-to-execute-transport-services",
+   "from": "action-perform-order-management",
+   "to": "action-execute-transport-services",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-execute-transport-services-to-transport-progress-status-request",
+   "from": "action-execute-transport-services",
+   "to": "object-transport-progress-status-request",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-transport-progress-status-request-to-provide-transportation-network",
+   "from": "object-transport-progress-status-request",
+   "to": "action-provide-transportation-network",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-monitor-and-control-transport-services-to-transportation-status-request",
+   "from": "action-monitor-and-control-transport-services",
+   "to": "object-transportation-status-request",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-transportation-status-request-to-execute-transport-services",
+   "from": "object-transportation-status-request",
+   "to": "action-execute-transport-services",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-provide-transportation-network-to-transport-progress-status",
+   "from": "action-provide-transportation-network",
+   "to": "object-transport-progress-status",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-transport-progress-status-to-execute-transport-services",
+   "from": "object-transport-progress-status",
+   "to": "action-execute-transport-services",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-transportation-status-to-monitor-and-control-transport-services",
+   "from": "object-transportation-status",
+   "to": "action-monitor-and-control-transport-services",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-execute-transport-services-to-transportation-status",
+   "from": "action-execute-transport-services",
+   "to": "object-transportation-status",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-monitor-and-control-transport-services-to-transport-execution-plan-between-transport-user-and-transport-service-provider-2",
+   "from": "action-monitor-and-control-transport-services",
+   "to": "object-transport-execution-plan-between-transport-user-and-transport-service-provider-2",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-transport-execution-plan-between-transport-user-and-transport-service-provider-2-to-execute-transport-services",
+   "from": "object-transport-execution-plan-between-transport-user-and-transport-service-provider-2",
+   "to": "action-execute-transport-services",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-execute-transport-services-to-perform-compliance-management",
+   "from": "action-execute-transport-services",
+   "to": "action-perform-compliance-management",
+   "kind": "information",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-transport-execution-plan-between-transport-user-and-transport-service-provider-3-to-monitor-and-control-transport-services",
+   "from": "object-transport-execution-plan-between-transport-user-and-transport-service-provider-3",
+   "to": "action-monitor-and-control-transport-services",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-execute-transport-services-to-transport-execution-plan-between-transport-user-and-transport-service-provider-3",
+   "from": "action-execute-transport-services",
+   "to": "object-transport-execution-plan-between-transport-user-and-transport-service-provider-3",
+   "kind": "object",
+   "direction": {
+    "confidence": "checked",
+    "checked": "confirmed"
+   }
+  },
+  {
+   "id": "flow-execute-transport-services-to-manage-completion",
+   "from": "action-execute-transport-services",
+   "to": "action-manage-completion",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-freight-invoice-to-finalize-transport-services",
+   "from": "object-freight-invoice",
+   "to": "action-finalize-transport-services",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-manage-completion-to-freight-invoice",
+   "from": "action-manage-completion",
+   "to": "object-freight-invoice",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-finalize-transport-services-to-final-transport-user",
+   "from": "action-finalize-transport-services",
+   "to": "final-transport-user",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  }
+ ],
+ "texts": [],
+ "offPage": [],
+ "marks": [],
+ "phases": [
+  {
+   "id": "phase-planning",
+   "title": "Planning",
+   "members": [
+    "initial-transport-service-provider",
+    "note-transportation-network-information",
+    "action-plan-transport-services",
+    "action-provide-transportation-network",
+    "object-transport-service-description-request",
+    "action-define-transport-service-demand",
+    "action-announce-transport-services",
+    "object-transport-service-description",
+    "object-transport-execution-plan-request",
+    "action-perform-booking-management",
+    "action-perform-order-management",
+    "note-transportation-network-information-2",
+    "object-transport-execution-plan-between-transport-user-and-transport-service-provider",
+    "object-goods-item-itinerary"
+   ]
+  },
+  {
+   "id": "phase-execution",
+   "title": "Execution",
+   "members": [
+    "action-monitor-and-control-transport-services",
+    "action-execute-transport-services",
+    "object-transport-progress-status-request",
+    "object-transportation-status-request",
+    "object-transport-progress-status",
+    "object-transportation-status",
+    "object-transport-execution-plan-between-transport-user-and-transport-service-provider-2",
+    "note-regulatory-information",
+    "action-perform-compliance-management",
+    "object-transport-execution-plan-between-transport-user-and-transport-service-provider-3",
+    "action-provide-transportation-network"
+   ]
+  },
+  {
+   "id": "phase-completion",
+   "title": "Completion",
+   "members": [
+    "action-finalize-transport-services",
+    "action-manage-completion",
+    "object-freight-invoice",
+    "final-transport-user"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,11 @@
+== UBL-2.2-CPFR-CreateJointBusinessPlan
+  scale 0.43212   frame 10px  divider 1px  action 3px  object 6px
+  font 46px (19.7 model)   2 lanes, 1 bands, 22 nodes, 24 edges -> review/baseline/UBL-2.2-CPFR-CreateJointBusinessPlan-spec.json
+  review/baseline/UBL-2.2-CPFR-CreateJointBusinessPlan.svg + .drawio + -classified.svg   (22 nodes, 24 edges)
+  rendered UBL-2.2-CPFR-CreateJointBusinessPlan.svg -> UBL-2.2-CPFR-CreateJointBusinessPlan-render.png @ 3425pxx3289, 600 dpi
+  aligned on ink bounds: scale x 1.0000, y 1.0000
+  size 3425x3289  radius 2
+  ink: original 466814   candidate 469442
+  MISSING (red)    25229  = 5.4045% of original ink
+  EXTRA   (blue)   26898  = 5.7620% of original ink
+  RESULT: DIFFERENCES - inspect review/baseline/UBL-2.2-CPFR-CreateJointBusinessPlan-diff-r2.png

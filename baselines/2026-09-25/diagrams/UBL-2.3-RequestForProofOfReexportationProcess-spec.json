@@ -1,0 +1,851 @@
+{
+ "canvas": {
+  "w": 1480.0,
+  "h": 1105.678
+ },
+ "stroke": {
+  "frame": 4.3,
+  "divider": 1.7,
+  "action": 1.7,
+  "object": 2.6,
+  "edge": 1.7
+ },
+ "font": {
+  "family": "Helvetica, Arial, sans-serif",
+  "node": 22.2,
+  "lane": 22.2,
+  "guard": 22.2
+ },
+ "arrow": 24.9,
+ "arrowWidth": 19.5,
+ "arrowStyle": "filled",
+ "dashed": [],
+ "greyRules": [],
+ "crossMarks": [],
+ "openEnds": [],
+ "frameBox": [
+  2.2,
+  2.2,
+  1477.0,
+  1103.5
+ ],
+ "dividers": [
+  [
+   495.4,
+   1.7,
+   6.9,
+   1097.9
+  ],
+  [
+   984.6,
+   1.7,
+   6.9,
+   1097.9
+  ]
+ ],
+ "bands": [
+  [
+   54.5,
+   1.7,
+   6.9,
+   1470.5
+  ]
+ ],
+ "lanes": [
+  {
+   "title": "Importing Customs Party",
+   "x": 0.0,
+   "w": 495.4,
+   "cx": 250.3,
+   "cy": 35.9
+  },
+  {
+   "title": "Importing Guarantor Party",
+   "x": 495.4,
+   "w": 489.3,
+   "cx": 737.8,
+   "cy": 35.4
+  },
+  {
+   "title": "Exporting Guarantor Party",
+   "x": 984.6,
+   "w": 495.4,
+   "cx": 1229.7,
+   "cy": 35.4
+  }
+ ],
+ "bandLabels": [],
+ "nodes": [
+  {
+   "id": "n1",
+   "kind": "initial",
+   "label": "",
+   "x": 214.4,
+   "y": 124.5,
+   "w": 39.8,
+   "h": 39.8
+  },
+  {
+   "id": "n2",
+   "kind": "action",
+   "label": "Query if goods have\nleft the country",
+   "x": 129.7,
+   "y": 240.3,
+   "w": 209.2,
+   "h": 104.6,
+   "rx": 13.0,
+   "ry": 13.0,
+   "labelLines": [
+    {
+     "text": "Query if goods have",
+     "cx": 233.8,
+     "cy": 279.2,
+     "w": 185.9
+    },
+    {
+     "text": "left the country",
+     "cx": 234.7,
+     "cy": 305.6,
+     "w": 135.7
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "n3",
+   "kind": "object",
+   "label": "Request For Proof\nOf Reexportation",
+   "x": 391.2,
+   "y": 239.9,
+   "w": 209.2,
+   "h": 104.6,
+   "labelLines": [
+    {
+     "text": "Request For Proof",
+     "cx": 495.8,
+     "cy": 281.8,
+     "w": 184.1
+    },
+    {
+     "text": "Of Reexportation",
+     "cx": 494.9,
+     "cy": 303.0,
+     "w": 168.6
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n4",
+   "kind": "object",
+   "label": "Request For Proof\nOf Reexportation",
+   "x": 878.8,
+   "y": 239.9,
+   "w": 209.2,
+   "h": 104.6,
+   "labelLines": [
+    {
+     "text": "Request For Proof",
+     "cx": 983.4,
+     "cy": 281.8,
+     "w": 184.1
+    },
+    {
+     "text": "Of Reexportation",
+     "cx": 982.5,
+     "cy": 303.0,
+     "w": 168.6
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n5",
+   "kind": "action",
+   "label": "Issue to 1\nRelevant Chamber\nof Commerce",
+   "x": 638.0,
+   "y": 250.7,
+   "w": 198.0,
+   "h": 83.9,
+   "rx": 11.2,
+   "ry": 12.1,
+   "labelLines": [
+    {
+     "text": "Issue to 1",
+     "cx": 739.1,
+     "cy": 265.8,
+     "w": 70.9
+    },
+    {
+     "text": "Relevant Chamber",
+     "cx": 739.1,
+     "cy": 292.2,
+     "w": 172.9
+    },
+    {
+     "text": "of Commerce",
+     "cx": 740.9,
+     "cy": 319.0,
+     "w": 124.5
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "n6",
+   "kind": "action",
+   "label": "Create\nCase Number",
+   "x": 1189.5,
+   "y": 250.7,
+   "w": 168.6,
+   "h": 83.9,
+   "rx": 11.2,
+   "ry": 13.8,
+   "labelLines": [
+    {
+     "text": "Create",
+     "cx": 1274.7,
+     "cy": 281.8,
+     "w": 61.4
+    },
+    {
+     "text": "Case Number",
+     "cx": 1274.7,
+     "cy": 302.6,
+     "w": 128.8
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "n7",
+   "kind": "action",
+   "label": "Get Status From\nGoods Item\nPassport",
+   "x": 1189.5,
+   "y": 379.5,
+   "w": 168.6,
+   "h": 83.9,
+   "rx": 13.0,
+   "ry": 15.6,
+   "labelLines": [
+    {
+     "text": "Get Status From",
+     "cx": 1273.8,
+     "cy": 398.5,
+     "w": 151.3
+    },
+    {
+     "text": "Goods Item",
+     "cx": 1273.8,
+     "cy": 419.7,
+     "w": 106.3
+    },
+    {
+     "text": "Passport",
+     "cx": 1277.3,
+     "cy": 442.6,
+     "w": 80.4
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "n8",
+   "kind": "decision",
+   "label": "Item\nReturned?",
+   "x": 1206.8,
+   "y": 504.0,
+   "w": 137.5,
+   "h": 99.4,
+   "labelLines": [
+    {
+     "text": "Item",
+     "cx": 1277.3,
+     "cy": 534.7,
+     "w": 37.2
+    },
+    {
+     "text": "Returned?",
+     "cx": 1277.3,
+     "cy": 555.9,
+     "w": 96.0
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "n9",
+   "kind": "object",
+   "label": "Proof\nOf Reexportation",
+   "x": 391.2,
+   "y": 673.9,
+   "w": 209.2,
+   "h": 104.6,
+   "labelLines": [
+    {
+     "text": "Proof",
+     "cx": 496.6,
+     "cy": 714.1,
+     "w": 56.2
+    },
+    {
+     "text": "Of Reexportation",
+     "cx": 495.8,
+     "cy": 737.0,
+     "w": 168.6
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n10",
+   "kind": "object",
+   "label": "Proof\nOf Reexportation",
+   "x": 878.8,
+   "y": 673.9,
+   "w": 209.2,
+   "h": 104.6,
+   "labelLines": [
+    {
+     "text": "Proof",
+     "cx": 984.2,
+     "cy": 714.1,
+     "w": 56.2
+    },
+    {
+     "text": "Of Reexportation",
+     "cx": 983.4,
+     "cy": 737.0,
+     "w": 168.6
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n11",
+   "kind": "action",
+   "label": "Receive Proof\nof Reexportation",
+   "x": 142.6,
+   "y": 681.2,
+   "w": 183.3,
+   "h": 90.8,
+   "rx": 11.2,
+   "ry": 12.1,
+   "labelLines": [
+    {
+     "text": "Receive Proof",
+     "cx": 240.3,
+     "cy": 715.8,
+     "w": 129.7
+    },
+    {
+     "text": "of Reexportation",
+     "cx": 239.5,
+     "cy": 738.7,
+     "w": 152.1
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "n12",
+   "kind": "action",
+   "label": "Apply Stamps\nAnd Signature",
+   "x": 1191.3,
+   "y": 681.2,
+   "w": 166.8,
+   "h": 90.8,
+   "rx": 12.1,
+   "ry": 15.6,
+   "labelLines": [
+    {
+     "text": "Apply Stamps",
+     "cx": 1273.0,
+     "cy": 715.4,
+     "w": 128.8
+    },
+    {
+     "text": "And Signature",
+     "cx": 1273.0,
+     "cy": 736.5,
+     "w": 132.3
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "n13",
+   "kind": "action",
+   "label": "Issue\nto\nCustoms",
+   "x": 662.2,
+   "y": 684.7,
+   "w": 148.7,
+   "h": 83.9,
+   "rx": 11.2,
+   "ry": 11.2,
+   "labelLines": [
+    {
+     "text": "Issue",
+     "cx": 737.0,
+     "cy": 705.4,
+     "w": 47.5
+    },
+    {
+     "text": "to",
+     "cx": 736.1,
+     "cy": 726.6,
+     "w": 16.4
+    },
+    {
+     "text": "Customs",
+     "cx": 736.5,
+     "cy": 746.9,
+     "w": 81.3
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "n14",
+   "kind": "object",
+   "label": "Application response",
+   "x": 391.2,
+   "y": 848.5,
+   "w": 209.2,
+   "h": 104.6,
+   "labelLines": [
+    {
+     "text": "Application response",
+     "cx": 495.8,
+     "cy": 905.5,
+     "w": 201.4
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n15",
+   "kind": "object",
+   "label": "Application response",
+   "x": 878.8,
+   "y": 848.5,
+   "w": 209.2,
+   "h": 104.6,
+   "labelLines": [
+    {
+     "text": "Application response",
+     "cx": 983.4,
+     "cy": 905.5,
+     "w": 201.4
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n16",
+   "kind": "action",
+   "label": "Receive Declined",
+   "x": 142.6,
+   "y": 855.8,
+   "w": 183.3,
+   "h": 90.8,
+   "rx": 12.1,
+   "ry": 12.1,
+   "labelLines": [
+    {
+     "text": "Receive Declined",
+     "cx": 234.7,
+     "cy": 903.4,
+     "w": 159.9
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "n17",
+   "kind": "action",
+   "label": "Issue\nto\nCustoms",
+   "x": 659.6,
+   "y": 855.8,
+   "w": 153.0,
+   "h": 90.8,
+   "rx": 12.1,
+   "ry": 16.4,
+   "labelLines": [
+    {
+     "text": "Issue",
+     "cx": 737.0,
+     "cy": 880.0,
+     "w": 47.5
+    },
+    {
+     "text": "to",
+     "cx": 736.1,
+     "cy": 901.7,
+     "w": 16.4
+    },
+    {
+     "text": "Customs",
+     "cx": 736.5,
+     "cy": 922.0,
+     "w": 81.3
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "n18",
+   "kind": "action",
+   "label": "Send Declined",
+   "x": 1193.0,
+   "y": 855.8,
+   "w": 166.8,
+   "h": 90.8,
+   "rx": 13.0,
+   "ry": 15.6,
+   "labelLines": [
+    {
+     "text": "Send Declined",
+     "cx": 1276.4,
+     "cy": 903.4,
+     "w": 134.0
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "n19",
+   "kind": "final",
+   "label": "",
+   "x": 67.4,
+   "y": 1013.2,
+   "w": 51.9,
+   "h": 51.9,
+   "innerRatio": 0.776
+  }
+ ],
+ "edges": [
+  {
+   "from": "n1",
+   "to": "n2",
+   "exitXY": [
+    0.4774,
+    1.0
+   ],
+   "entryXY": [
+    0.5,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n2",
+   "to": "n3",
+   "exitXY": [
+    1.0,
+    0.4962
+   ],
+   "entryXY": [
+    0.0,
+    0.5
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n3",
+   "to": "n5",
+   "exitXY": [
+    1.0,
+    0.5
+   ],
+   "entryXY": [
+    0.0,
+    0.4946
+   ],
+   "straight": true,
+   "confidence": "checked"
+  },
+  {
+   "from": "n5",
+   "to": "n4",
+   "exitXY": [
+    1.0,
+    0.4946
+   ],
+   "entryXY": [
+    0.0,
+    0.5
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n4",
+   "to": "n6",
+   "exitXY": [
+    1.0,
+    0.5
+   ],
+   "entryXY": [
+    0.0,
+    0.4946
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n6",
+   "to": "n7",
+   "exitXY": [
+    0.5077,
+    1.0
+   ],
+   "entryXY": [
+    0.4976,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n7",
+   "to": "n8",
+   "exitXY": [
+    0.5077,
+    1.0
+   ],
+   "entryXY": [
+    0.4967,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "checked"
+  },
+  {
+   "from": "n8",
+   "to": "n18",
+   "exitXY": [
+    1.0,
+    0.496
+   ],
+   "entryXY": [
+    1.0,
+    0.4956
+   ],
+   "straight": false,
+   "confidence": "high",
+   "points": [
+    [
+     1409.1,
+     553.3
+    ],
+    [
+     1409.1,
+     900.8
+    ]
+   ],
+   "label": "No"
+  },
+  {
+   "from": "n8",
+   "to": "n12",
+   "exitXY": [
+    0.4967,
+    1.0
+   ],
+   "entryXY": [
+    0.5024,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high",
+   "label": "Yes"
+  },
+  {
+   "from": "n9",
+   "to": "n11",
+   "exitXY": [
+    0.0,
+    0.5
+   ],
+   "entryXY": [
+    1.0,
+    0.4956
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n13",
+   "to": "n9",
+   "exitXY": [
+    0.0,
+    0.4946
+   ],
+   "entryXY": [
+    1.0,
+    0.5
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n10",
+   "to": "n13",
+   "exitXY": [
+    0.0,
+    0.5
+   ],
+   "entryXY": [
+    1.0,
+    0.4946
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n12",
+   "to": "n10",
+   "exitXY": [
+    0.0,
+    0.4956
+   ],
+   "entryXY": [
+    1.0,
+    0.5
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n11",
+   "to": "n19",
+   "exitXY": [
+    0.0,
+    0.4956
+   ],
+   "entryXY": [
+    0.501,
+    0.0
+   ],
+   "straight": false,
+   "confidence": "high",
+   "points": [
+    [
+     93.4,
+     726.2
+    ]
+   ]
+  },
+  {
+   "from": "n14",
+   "to": "n16",
+   "exitXY": [
+    0.0,
+    0.5
+   ],
+   "entryXY": [
+    1.0,
+    0.4956
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n17",
+   "to": "n14",
+   "exitXY": [
+    0.0,
+    0.4956
+   ],
+   "entryXY": [
+    1.0,
+    0.5
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n18",
+   "to": "n15",
+   "exitXY": [
+    0.0,
+    0.5143
+   ],
+   "entryXY": [
+    1.0,
+    0.5163
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n15",
+   "to": "n17",
+   "exitXY": [
+    0.0,
+    0.5249
+   ],
+   "entryXY": [
+    1.0,
+    0.5143
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n16",
+   "to": "n19",
+   "exitXY": [
+    0.5046,
+    1.0
+   ],
+   "entryXY": [
+    1.0,
+    0.499
+   ],
+   "straight": false,
+   "confidence": "high",
+   "points": [
+    [
+     235.1,
+     1039.1
+    ]
+   ]
+  }
+ ],
+ "guards": [
+  {
+   "text": "Yes",
+   "x": 1222.4,
+   "y": 627.6,
+   "w": 29.4,
+   "h": 13.8,
+   "labelLines": [
+    {
+     "text": "Yes",
+     "cx": 1237.1,
+     "cy": 634.5,
+     "w": 29.4
+    }
+   ]
+  },
+  {
+   "text": "No",
+   "x": 1417.8,
+   "y": 701.1,
+   "w": 22.5,
+   "h": 14.7,
+   "labelLines": [
+    {
+     "text": "No",
+     "cx": 1429.0,
+     "cy": 708.4,
+     "w": 22.5
+    }
+   ]
+  }
+ ]
+}

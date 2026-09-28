@@ -1,0 +1,140 @@
+{
+ "name": "UBL-2.5-UtilityBillingProcess.png",
+ "verdict": "needs-human",
+ "radius": 3,
+ "lineWorkInk": 238394,
+ "missingPx": 1592,
+ "inventedPx": 1287,
+ "structural": {
+  "absent": 0,
+  "invented": 0,
+  "coherence": 0,
+  "textAbsent": 0,
+  "textDiffers": 0
+ },
+ "blocking": [],
+ "findings": [
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n6 -> n9",
+   "x": 755,
+   "y": 811,
+   "w": 111,
+   "h": 40,
+   "area": 387
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n8 -> n4",
+   "x": 2988,
+   "y": 838,
+   "w": 117,
+   "h": 88,
+   "area": 370
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n6 -> n9",
+   "x": 409,
+   "y": 938,
+   "w": 40,
+   "h": 42,
+   "area": 335
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n6 -> n9",
+   "x": 458,
+   "y": 940,
+   "w": 42,
+   "h": 17,
+   "area": 95
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n8 -> n4",
+   "x": 2982,
+   "y": 845,
+   "w": 121,
+   "h": 90,
+   "area": 399
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n6 -> n9",
+   "x": 743,
+   "y": 811,
+   "w": 97,
+   "h": 35,
+   "area": 299
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n6 -> n9",
+   "x": 436,
+   "y": 945,
+   "w": 76,
+   "h": 27,
+   "area": 202
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n6 -> n9",
+   "x": 449,
+   "y": 936,
+   "w": 21,
+   "h": 17,
+   "area": 108
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n9 (decision 'Reconcile\\nCharges')",
+   "x": 468,
+   "y": 974,
+   "w": 17,
+   "h": 5,
+   "area": 84
+  }
+ ],
+ "text": [],
+ "coherence": [],
+ "human": [
+  {
+   "x": 412,
+   "y": 741,
+   "w": 1274,
+   "h": 344,
+   "shape": "ellipse",
+   "iou": 0.638,
+   "border": 0.479,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best ellipse 0.64, and 0.99 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "kind": "arrowhead-unmeasurable",
+   "x": 2379,
+   "y": 384,
+   "w": 136,
+   "h": 136,
+   "reason": "the ink at the head end of n8->n4 measures 68x84px, too wide for this diagram's own 46px arrowhead - a junction, not a head",
+   "check": "confirm the arrowhead here is drawn and points the way the original does"
+  }
+ ],
+ "review": [
+  {
+   "n": 1,
+   "what": "check",
+   "where": "412,741 1274x344",
+   "detail": "outline matches no UML node shape (best ellipse 0.64, and 0.99 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "n": 2,
+   "what": "check",
+   "where": "2379,384 136x136",
+   "detail": "the ink at the head end of n8->n4 measures 68x84px, too wide for this diagram's own 46px arrowhead - a junction, not a head",
+   "check": "confirm the arrowhead here is drawn and points the way the original does"
+  }
+ ]
+}

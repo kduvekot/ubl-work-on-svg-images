@@ -1,0 +1,338 @@
+{
+ "canvas": {
+  "w": 1480.0,
+  "h": 1022.388
+ },
+ "stroke": {
+  "frame": 4.3,
+  "divider": 3.5,
+  "action": 3.5,
+  "object": 6.5,
+  "edge": 3.5
+ },
+ "font": {
+  "family": "Helvetica, Arial, sans-serif",
+  "node": 32.1,
+  "lane": 32.1,
+  "guard": 32.1
+ },
+ "arrow": 52.4,
+ "arrowWidth": 42.7,
+ "arrowStyle": "open",
+ "dashed": [],
+ "greyRules": [],
+ "crossMarks": [],
+ "openEnds": [],
+ "frameBox": [
+  2.2,
+  2.2,
+  1477.8,
+  1020.2
+ ],
+ "dividers": [
+  [
+   738.1,
+   3.5,
+   5.6,
+   1016.3
+  ]
+ ],
+ "bands": [],
+ "lanes": [
+  {
+   "title": "Transport Service Provider",
+   "x": 0.0,
+   "w": 738.1,
+   "cx": 370.1,
+   "cy": 42.3
+  },
+  {
+   "title": "Transportation Network Manager",
+   "x": 738.1,
+   "w": 741.9,
+   "cx": 1111.4,
+   "cy": 42.6
+  }
+ ],
+ "bandLabels": [],
+ "nodes": [
+  {
+   "id": "n1",
+   "kind": "initial",
+   "label": "",
+   "x": 206.1,
+   "y": 79.9,
+   "w": 60.5,
+   "h": 60.5
+  },
+  {
+   "id": "n2",
+   "kind": "object",
+   "label": "Transport\nProgress Status\nRequest",
+   "x": 582.7,
+   "y": 279.8,
+   "w": 311.1,
+   "h": 149.1,
+   "labelLines": [
+    {
+     "text": "Transport",
+     "cx": 747.1,
+     "cy": 322.6,
+     "w": 140.0
+    },
+    {
+     "text": "Progress Status",
+     "cx": 735.5,
+     "cy": 355.8,
+     "w": 231.6
+    },
+    {
+     "text": "Request",
+     "cx": 744.1,
+     "cy": 389.6,
+     "w": 121.0
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n3",
+   "kind": "action",
+   "label": "Request Transport\nProgress Status",
+   "x": 36.7,
+   "y": 286.1,
+   "w": 408.8,
+   "h": 140.0,
+   "rx": 46.7,
+   "ry": 49.3,
+   "labelLines": [
+    {
+     "text": "Request Transport",
+     "cx": 242.0,
+     "cy": 334.2,
+     "w": 269.6
+    },
+    {
+     "text": "Progress Status",
+     "cx": 243.7,
+     "cy": 373.6,
+     "w": 229.9
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n4",
+   "kind": "action",
+   "label": "Receive Transport\nProgress Status Request",
+   "x": 1031.0,
+   "y": 286.1,
+   "w": 408.4,
+   "h": 140.0,
+   "rx": 46.7,
+   "ry": 47.5,
+   "labelLines": [
+    {
+     "text": "Receive Transport",
+     "cx": 1233.5,
+     "cy": 334.2,
+     "w": 264.0
+    },
+    {
+     "text": "Progress Status Request",
+     "cx": 1236.1,
+     "cy": 373.6,
+     "w": 360.8
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n5",
+   "kind": "action",
+   "label": "Receive Transport\nProgress Status",
+   "x": 36.7,
+   "y": 660.7,
+   "w": 408.8,
+   "h": 143.5,
+   "rx": 45.4,
+   "ry": 49.3,
+   "labelLines": [
+    {
+     "text": "Receive Transport",
+     "cx": 239.4,
+     "cy": 713.2,
+     "w": 264.5
+    },
+    {
+     "text": "Progress Status",
+     "cx": 243.7,
+     "cy": 753.0,
+     "w": 229.9
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n6",
+   "kind": "action",
+   "label": "Send Transport Progress\nStatus",
+   "x": 1034.1,
+   "y": 660.7,
+   "w": 408.4,
+   "h": 143.5,
+   "rx": 45.4,
+   "ry": 48.0,
+   "labelLines": [
+    {
+     "text": "Send Transport Progress",
+     "cx": 1236.5,
+     "cy": 713.2,
+     "w": 363.4
+    },
+    {
+     "text": "Status",
+     "cx": 1243.2,
+     "cy": 749.9,
+     "w": 90.7
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n7",
+   "kind": "object",
+   "label": "Transport\nProgress Status",
+   "x": 579.7,
+   "y": 660.9,
+   "w": 311.1,
+   "h": 149.1,
+   "labelLines": [
+    {
+     "text": "Transport",
+     "cx": 744.1,
+     "cy": 716.2,
+     "w": 140.0
+    },
+    {
+     "text": "Progress Status",
+     "cx": 738.5,
+     "cy": 749.9,
+     "w": 231.6
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "n8",
+   "kind": "final",
+   "label": "",
+   "x": 195.3,
+   "y": 926.0,
+   "w": 57.9,
+   "h": 57.9,
+   "innerRatio": 0.444
+  }
+ ],
+ "edges": [
+  {
+   "from": "n1",
+   "to": "n3",
+   "exitXY": [
+    0.5074,
+    1.0
+   ],
+   "entryXY": [
+    0.4949,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n3",
+   "to": "n2",
+   "exitXY": [
+    1.0,
+    0.5
+   ],
+   "entryXY": [
+    0.0,
+    0.5057
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n2",
+   "to": "n4",
+   "exitXY": [
+    1.0,
+    0.5084
+   ],
+   "entryXY": [
+    0.0,
+    0.5
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n4",
+   "to": "n6",
+   "exitXY": [
+    0.5059,
+    1.0
+   ],
+   "entryXY": [
+    0.5002,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n7",
+   "to": "n5",
+   "exitXY": [
+    0.0,
+    0.497
+   ],
+   "entryXY": [
+    1.0,
+    0.5031
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n6",
+   "to": "n7",
+   "exitXY": [
+    0.0,
+    0.5059
+   ],
+   "entryXY": [
+    1.0,
+    0.4916
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "from": "n5",
+   "to": "n8",
+   "exitXY": [
+    0.4653,
+    1.0
+   ],
+   "entryXY": [
+    0.5078,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  }
+ ],
+ "guards": []
+}

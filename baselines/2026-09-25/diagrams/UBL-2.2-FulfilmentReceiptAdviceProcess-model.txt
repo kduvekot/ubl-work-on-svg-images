@@ -1,0 +1,47 @@
+MODEL  UBL-2.2-FulfilmentReceiptAdviceProcess
+  13 action, 1 decision, 2 final, 1 initial, 4 object, 24 flows, 4 partitions
+
+FLOW
+  (start)   [Delivery Party]
+  Receive Order Item(s)   [Delivery Party]
+  Check status of Item(s)   [Delivery Party]
+    -> Advise Buyer of status   [Delivery Party]
+    -> <Determine Action>   [Buyer Party]
+      -[accept items]-> Accept Items   [Buyer Party]
+      -> (end)   [Buyer Party]
+      -[change order]-> Adjust Order   [Buyer Party]
+      -> [Order Change]   [Delivery Party]
+      -> Change Order   [Seller Party]
+      -> Adjust supply status   [Seller Party]
+      -> (end)   [Seller Party]
+      -[cancel order]-> Send Order Cancellation   [Buyer Party]
+      -> [Order Cancellation]   [Delivery Party]
+      -> Cancel order   [Seller Party]
+      -> Adjust supply status   [Seller Party]
+    -> Send Receipt Advice   [Delivery Party]
+      -> [Receipt Advice]   [Delivery Party]
+      -> Receive Receipt Advice   [Seller Party]
+      -> Adjust supply status   [Seller Party]
+      -> Cancel receipt notification   [Delivery Party]
+        -> Send Receipt Advice   [Delivery Party]
+        -> [Fulfilment Cancellation]   [Delivery Party]
+        -> Receive Fulfilment Cancellation   [Seller Party]
+        -> Adjust supply status   [Seller Party]
+
+CHECKS
+
+  drawn dashed (2):
+    Check status of Item(s) ---> Send Receipt Advice (22 on, 33 off)
+    Send Receipt Advice ---> Cancel receipt notification (23 on, 30 off)
+  ok   every element is connected
+  ok   start events have a way out and no way in
+  ok   end events have a way in and no way out
+  ok   decisions have at least two ways out
+  ok   branches out of a decision are labelled   (informational: several diagrams draw an unlabelled branch, so read these against the artwork rather than treating them as errors)
+  ok   documents are both written and read
+  ok   no flow runs straight from one document to another
+  note work crossing between parties goes through a document   (informational: UBL draws the hand-over as a document on the divider, and each exception below is named)
+        - Advise Buyer of status [Delivery Party] -> <Determine Action> [Buyer Party]   (no document drawn - read this one against the artwork)
+  ok   every flow's direction was read with confidence
+  ok   every action passes its work on   (informational: several diagrams do end on an action, so read these against the artwork rather than treating them as errors)
+  ok   every element is reachable from a start event

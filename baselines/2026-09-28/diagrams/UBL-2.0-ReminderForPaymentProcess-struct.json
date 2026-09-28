@@ -1,0 +1,61 @@
+{
+ "name": "UBL-2.0-ReminderForPaymentProcess.png",
+ "verdict": "needs-human",
+ "radius": 3,
+ "lineWorkInk": 207685,
+ "missingPx": 203,
+ "inventedPx": 26,
+ "structural": {
+  "absent": 0,
+  "invented": 0,
+  "coherence": 0,
+  "textAbsent": 0,
+  "textDiffers": 0
+ },
+ "blocking": [],
+ "findings": [
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n4 -> n2",
+   "x": 2206,
+   "y": 1040,
+   "w": 10,
+   "h": 9,
+   "area": 68
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n4 -> n2",
+   "x": 2206,
+   "y": 1098,
+   "w": 10,
+   "h": 9,
+   "area": 68
+  }
+ ],
+ "text": [],
+ "coherence": [],
+ "human": [
+  {
+   "x": 1475,
+   "y": 912,
+   "w": 635,
+   "h": 335,
+   "shape": "rect",
+   "iou": 1.0,
+   "border": 1.0,
+   "kind": "kept-on-outline",
+   "reason": "every side has pass-through line-work, but the region carries a complete outline of its own",
+   "check": "confirm this is a node and not trapped whitespace"
+  }
+ ],
+ "review": [
+  {
+   "n": 1,
+   "what": "check",
+   "where": "1475,912 635x335",
+   "detail": "every side has pass-through line-work, but the region carries a complete outline of its own",
+   "check": "confirm this is a node and not trapped whitespace"
+  }
+ ]
+}

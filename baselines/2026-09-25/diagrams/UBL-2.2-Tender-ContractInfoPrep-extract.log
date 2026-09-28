@@ -1,0 +1,92 @@
+image 3425x4268
+
+PARTITION RULES
+   vertical  : [(0, 10), (1854, 12), (3415, 10)]
+   horizontal: [(0, 10), (4258, 10)]
+   -> 2 column(s) x 1 band(s)
+   type measured off the page: a word is 57px tall
+   (dropped x=10    y=10    1844x4248  is a partition cell)
+   (dropped x=1866  y=10    1549x4248  is a partition cell)
+   (dropped x=690   y=651   1164x448   outline matches no UML node shape (best rounded 0.76, and 0.99 is the most this shape can reach at this size))
+   (dropped x=1866  y=654   1412x817   encloses another region)
+   (dropped x=690   y=1099  1164x1792  outline matches no UML node shape (best rounded 0.86, and 1.00 is the most this shape can reach at this size))
+   (kept    x=2528  y=1460    38x44    own outline, iou 0.98 border 0.93, despite pass-through line-work)
+   (dropped x=690   y=2893  1164x360   outline matches no UML node shape (best rect 0.68, and 0.99 is the most this shape can reach at this size))
+   (dropped x=1866  y=2893   915x360   outline matches no UML node shape (best rounded 0.63, and 0.99 is the most this shape can reach at this size))
+   (kept    x=2719  y=3228    38x44    own outline, iou 0.99 border 0.93, despite pass-through line-work)
+   object nodes are those stroked heavier than 7.0px
+
+NODES
+   n1   action    x=2639  y=96    w=38    h=44    stroke=6   fill=0.81  ''
+   n2   action    x=2776  y=96    w=37    h=44    stroke=6   fill=0.82  ''
+   n3   object    x=506   y=98    w=38    h=44    stroke=7   fill=0.81  ''
+   n4   object    x=1247  y=98    w=38    h=44    stroke=7   fill=0.81  ''
+   n5   initial   x=626   y=208   w=120   h=120   stroke=0   fill=0.77  ''
+   n6   action    x=248   y=545   w=877   h=205   stroke=12  fill=0.86  'Prepare Prior Notice'
+   n7   object    x=1595  y=853   w=481   h=498   stroke=12  fill=0.91  'Prior\nInformation\nNotice'
+   n8   action    x=2188  y=946   w=823   h=301   stroke=12  fill=0.86  'Validate Prior\nInformation Notice'
+   n9   decision  x=575   y=982   w=222   h=222   stroke=12  fill=0.50  ''
+   n10  decision  x=2482  y=1365  w=223   h=223   stroke=12  fill=0.42  'OK?'
+   n11  action    x=2528  y=1460  w=38    h=44    stroke=6   fill=0.81  ''
+   n12  action    x=2175  y=1781  w=824   h=301   stroke=12  fill=0.87  'Publish Prior\nInformation Notice'
+   n13  final     x=2497  y=2189  w=168   h=168   stroke=13  fill=0.38  ''
+   n14  action    x=190   y=2414  w=993   h=204   stroke=13  fill=0.88  'Publish in Buyer Profile'
+   n15  object    x=1602  y=2638  w=481   h=497   stroke=12  fill=0.91  'Prior\nInformation\nNotice'
+   n16  action    x=2237  y=2788  w=1094  h=205   stroke=12  fill=0.88  'Validate Simplified Notice'
+   n17  action    x=146   y=2795  w=1081  h=204   stroke=13  fill=0.87  'Prepare Simplified Notice'
+   n18  object    x=1290  y=3034  w=37    h=42    stroke=7   fill=0.82  ''
+   n19  decision  x=2673  y=3134  w=222   h=222   stroke=12  fill=0.42  'OK?'
+   n20  action    x=2719  y=3228  w=38    h=44    stroke=6   fill=0.81  ''
+   n21  action    x=2261  y=3580  w=1059  h=204   stroke=13  fill=0.88  'Publish Simplified Notice'
+   n22  final     x=2706  y=3993  w=168   h=169   stroke=12  fill=0.38  ''
+
+TYPE  cap height 56px over 273 glyphs -> font 80.0px
+   (dropped x=2639  y=96      38x44    smaller than one character of 80px type - a letter counter, not a node)
+   (dropped x=2776  y=96      37x44    smaller than one character of 80px type - a letter counter, not a node)
+   (dropped x=506   y=98      38x44    smaller than one character of 80px type - a letter counter, not a node)
+   (dropped x=1247  y=98      38x44    smaller than one character of 80px type - a letter counter, not a node)
+   (dropped x=2528  y=1460    38x44    smaller than one character of 80px type - a letter counter, not a node)
+   (dropped x=1290  y=3034    37x42    smaller than one character of 80px type - a letter counter, not a node)
+   (dropped x=2719  y=3228    38x44    smaller than one character of 80px type - a letter counter, not a node)
+   corner radius rx on 'Validate Simplified Notice' could not be read (it came back larger than the box) - taking the 98 the rest of its kind measures
+   rejoined 3 line break(s) of up to 144px, where a label sits on the line
+   chained 3 dashes into one dashed flow
+
+EDGES
+   n5   -> n6    straight    arrowhead  1345 vs 540    ratio 4.0  high
+   n10  -> n6    orthogonal  arrowhead  1333 vs 540    ratio 4.0  high
+   n6   -> n9    straight    arrowhead  1226 vs 540    ratio 2.3  medium
+   n7   -> n8    straight    arrowhead  1323 vs 1316   ratio 4.0  high
+   n9   -> n7    diagonal    arrowhead  1337 vs 557    ratio 4.0  high
+   n9   -> n14   straight    arrowhead  1299 vs 540    ratio 4.0  high
+   n8   -> n10   straight    arrowhead  1255 vs 1205   ratio 1.0  <-- CHECK DIRECTION
+   n10  -> n12   straight    arrowhead  1352 vs 547    ratio 4.0  high
+   n12  -> n13   straight    arrowhead  1440 vs 1351   ratio 1.0  <-- CHECK DIRECTION
+   n14  -> n17   straight    arrowhead  1345 vs 540    ratio 4.0  high
+   n15  -> n16   straight    arrowhead  1342 vs 556    ratio 4.0  high
+   n17  -> n15   straight    arrowhead  1233 vs 567    ratio 2.2  medium
+   n16  -> n19   straight    arrowhead  1208 vs 584    ratio 2.1  medium
+   n19  -> n17   orthogonal  arrowhead  1305 vs 574    ratio 1.8  medium
+   n19  -> n21   straight    arrowhead  1331 vs 557    ratio 4.0  high
+   n21  -> n22   straight    arrowhead  1339 vs 540    ratio 4.0  high
+
+TEXT (titles, guards, notes)
+   'PUBLICATION OFFICE'                     x=2236  y=90    
+   'CONTRACTING AUTHORITY'                  x=443   y=91    
+   'Yes'                                    x=956   y=1001  n9->n7
+   'Above\nThresholds?'                     x=82    y=1051  
+   'No'                                     x=735   y=1366  n9->n14
+   'No'                                     x=2771  y=1374  n10->n6
+   'Yes'                                    x=2644  y=1636  n10->n12
+   'Publish Official\nJournal'              x=1014  y=3027  
+   'No'                                     x=2528  y=3140  n19->n17
+   'Yes'                                    x=2823  y=3417  n19->n21
+
+PARTITIONS
+   column 0  'CONTRACTING AUTHORITY'
+   column 1  'PUBLICATION OFFICE'
+   band   0  ''
+
+ARROWHEAD  68 x 70px, open, measured on 11 connector(s)
+
+wrote review/baseline/UBL-2.2-Tender-ContractInfoPrep-graph.json   (15 nodes, 16 edges, 15 flagged for a human)

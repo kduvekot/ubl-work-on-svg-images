@@ -1,0 +1,503 @@
+{
+ "schema": "ubl-activity-diagram-extraction/1",
+ "figure": "UBL-2.2-VMI-Invoicing",
+ "nodes": {
+  "initial-producer": {
+   "area": 9886,
+   "fill": 0.767
+  },
+  "object-invoice": {
+   "area": 90649,
+   "fill": 0.936,
+   "solid": 1.0,
+   "stem": 0.156,
+   "keptOnOutline": true
+  },
+  "action-raise-invoice": {
+   "area": 131140,
+   "fill": 0.9,
+   "solid": 0.981,
+   "stem": 0.156
+  },
+  "action-receive-invoice": {
+   "area": 129348,
+   "fill": 0.888,
+   "solid": 0.981,
+   "stem": 0.156
+  },
+  "final-retailer": {
+   "area": 7105,
+   "fill": 0.626,
+   "solid": 0.788
+  }
+ },
+ "flows": {
+  "flow-initial-producer-to-raise-invoice": {
+   "arrowInk": [
+    270,
+    898
+   ],
+   "arrowPx": [
+    83,
+    66.0,
+    2.44
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-raise-invoice-to-invoice": {
+   "arrowInk": [
+    270,
+    820
+   ],
+   "arrowPx": [
+    84,
+    65.7,
+    3.08
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-invoice-to-receive-invoice": {
+   "arrowInk": [
+    268,
+    903
+   ],
+   "arrowPx": [
+    81,
+    67.3,
+    2.33
+   ],
+   "arrowFill": 0.047
+  },
+  "flow-receive-invoice-to-final-retailer": {
+   "arrowInk": [
+    270,
+    902
+   ],
+   "arrowPx": [
+    82,
+    67.4,
+    2.35
+   ],
+   "arrowFill": 0.007
+  }
+ },
+ "offPage": {},
+ "marks": {},
+ "phases": {},
+ "greyRules": [],
+ "titleReadings": [
+  {
+   "position": 0,
+   "text": "Producer",
+   "x": 671,
+   "y": 51,
+   "w": 309,
+   "h": 57,
+   "lines": [
+    {
+     "x": 671,
+     "y": 51,
+     "w": 309,
+     "h": 57,
+     "text": "Producer"
+    }
+   ]
+  },
+  {
+   "position": 1,
+   "text": "Retailer",
+   "x": 2362,
+   "y": 55,
+   "w": 261,
+   "h": 57,
+   "lines": [
+    {
+     "x": 2362,
+     "y": 55,
+     "w": 261,
+     "h": 57,
+     "text": "Retailer"
+    }
+   ]
+  }
+ ],
+ "findings": [],
+ "uncertain": [
+  {
+   "x": 1403,
+   "y": 679,
+   "w": 494,
+   "h": 196,
+   "shape": "rect",
+   "iou": 1.0,
+   "border": 1.0,
+   "kind": "kept-on-outline",
+   "reason": "every side has pass-through line-work, but the region carries a complete outline of its own",
+   "check": "confirm this is a node and not trapped whitespace"
+  }
+ ],
+ "present": [
+  "source",
+  "size",
+  "fontPx",
+  "arrowPx",
+  "arrowWidthPx",
+  "arrowStyle",
+  "rules",
+  "ruleSpan",
+  "greyRules",
+  "dashed",
+  "openEnds",
+  "crossMarks",
+  "partitions",
+  "nodes",
+  "edges",
+  "text",
+  "uncertain"
+ ],
+ "uncorrected": {
+  "model": {
+   "schema": "ubl-activity-diagram/1",
+   "figure": {
+    "name": "UBL-2.2-VMI-Invoicing",
+    "source": "UBL-2.2-VMI-Invoicing.png"
+   },
+   "lanes": [
+    {
+     "id": "lane0",
+     "axis": "column",
+     "index": 0,
+     "title": "Producer"
+    },
+    {
+     "id": "lane1",
+     "axis": "column",
+     "index": 1,
+     "title": "Retailer"
+    },
+    {
+     "id": "lane2",
+     "axis": "band",
+     "index": 0,
+     "title": ""
+    }
+   ],
+   "nodes": [
+    {
+     "id": "n1",
+     "kind": "initial",
+     "label": "",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n2",
+     "kind": "object",
+     "label": "Invoice",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n3",
+     "kind": "action",
+     "label": "Raise Invoice",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n4",
+     "kind": "action",
+     "label": "Receive Invoice",
+     "lane": "lane1",
+     "band": "lane2"
+    },
+    {
+     "id": "n5",
+     "kind": "final",
+     "label": "",
+     "lane": "lane1",
+     "band": "lane2"
+    }
+   ],
+   "flows": [
+    {
+     "id": "f0",
+     "from": "n1",
+     "to": "n3",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f1",
+     "from": "n3",
+     "to": "n2",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f2",
+     "from": "n2",
+     "to": "n4",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f3",
+     "from": "n4",
+     "to": "n5",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    }
+   ],
+   "texts": [],
+   "offPage": [],
+   "marks": [],
+   "phases": []
+  },
+  "layout": {
+   "schema": "ubl-activity-diagram-layout/1",
+   "figure": "UBL-2.2-VMI-Invoicing",
+   "units": "px of the original PNG",
+   "size": [
+    3425,
+    1525
+   ],
+   "style": {
+    "fontPx": 70.7,
+    "arrowPx": 82.5,
+    "arrowWidthPx": 66.7,
+    "arrowStyle": "open"
+   },
+   "rules": {
+    "vertical": [
+     {
+      "at": 0,
+      "width": 10,
+      "span": [
+       13,
+       1511
+      ]
+     },
+     {
+      "at": 1651,
+      "width": 6,
+      "span": [
+       13,
+       1511
+      ]
+     },
+     {
+      "at": 3415,
+      "width": 10,
+      "span": [
+       13,
+       1511
+      ]
+     }
+    ],
+    "horizontal": [
+     {
+      "at": 0,
+      "width": 10,
+      "span": [
+       13,
+       3411
+      ]
+     },
+     {
+      "at": 1515,
+      "width": 10,
+      "span": [
+       13,
+       3411
+      ]
+     }
+    ]
+   },
+   "greyRules": [],
+   "lanes": {
+    "lane0": {
+     "x0": 0,
+     "x1": 1654,
+     "titleBox": [
+      671,
+      51,
+      309,
+      57
+     ]
+    },
+    "lane1": {
+     "x0": 1654,
+     "x1": 3425,
+     "titleBox": [
+      2362,
+      55,
+      261,
+      57
+     ]
+    },
+    "lane2": {
+     "y0": 0,
+     "y1": 1525
+    }
+   },
+   "nodes": {
+    "n1": {
+     "x": 427,
+     "y": 217,
+     "w": 120,
+     "h": 119
+    },
+    "n2": {
+     "x": 1403,
+     "y": 679,
+     "w": 494,
+     "h": 196,
+     "shape": "rect",
+     "stroke": 12,
+     "rx": 0,
+     "ry": 0,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 1527,
+       "y": 742,
+       "w": 263,
+       "h": 57,
+       "text": "Invoice"
+      }
+     ]
+    },
+    "n3": {
+     "x": 88,
+     "y": 688,
+     "w": 792,
+     "h": 184,
+     "shape": "rounded",
+     "stroke": 6,
+     "rx": 95,
+     "ry": 55,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 239,
+       "y": 748,
+       "w": 487,
+       "h": 57,
+       "text": "Raise Invoice"
+      }
+     ]
+    },
+    "n4": {
+     "x": 2545,
+     "y": 694,
+     "w": 792,
+     "h": 184,
+     "shape": "rounded",
+     "stroke": 7,
+     "rx": 94,
+     "ry": 56,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 2658,
+       "y": 754,
+       "w": 573,
+       "h": 57,
+       "text": "Receive Invoice"
+      }
+     ]
+    },
+    "n5": {
+     "x": 2884,
+     "y": 1350,
+     "w": 107,
+     "h": 106,
+     "shape": "ellipse",
+     "stroke": 7,
+     "rx": 53,
+     "ry": 56,
+     "innerRatio": 0.439
+    }
+   },
+   "flows": {
+    "f0": {
+     "fromPoint": [
+      484,
+      350
+     ],
+     "toPoint": [
+      484,
+      673
+     ],
+     "routing": "straight"
+    },
+    "f1": {
+     "fromPoint": [
+      894,
+      780
+     ],
+     "toPoint": [
+      1388,
+      779
+     ],
+     "routing": "straight"
+    },
+    "f2": {
+     "fromPoint": [
+      1912,
+      778
+     ],
+     "toPoint": [
+      2530,
+      781
+     ],
+     "routing": "straight"
+    },
+    "f3": {
+     "fromPoint": [
+      2941,
+      892
+     ],
+     "toPoint": [
+      2939,
+      1335
+     ],
+     "routing": "straight"
+    }
+   },
+   "texts": {},
+   "offPage": {},
+   "marks": {},
+   "phases": {},
+   "rulesHaveSpans": {
+    "vertical": true,
+    "horizontal": true
+   }
+  }
+ },
+ "documentLanes": {
+  "object-invoice": "lane-producer"
+ },
+ "formerIds": {
+  "lane-producer": "lane0",
+  "lane-retailer": "lane1",
+  "initial-producer": "n1",
+  "object-invoice": "n2",
+  "action-raise-invoice": "n3",
+  "action-receive-invoice": "n4",
+  "final-retailer": "n5",
+  "flow-initial-producer-to-raise-invoice": "f0",
+  "flow-raise-invoice-to-invoice": "f1",
+  "flow-invoice-to-receive-invoice": "f2",
+  "flow-receive-invoice-to-final-retailer": "f3"
+ }
+}

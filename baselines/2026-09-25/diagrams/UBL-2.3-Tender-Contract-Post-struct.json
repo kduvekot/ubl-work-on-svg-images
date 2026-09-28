@@ -1,0 +1,397 @@
+{
+ "name": "UBL-2.3-Tender-Contract-Post.png",
+ "verdict": "needs-human",
+ "radius": 3,
+ "lineWorkInk": 380185,
+ "missingPx": 2302,
+ "inventedPx": 3158,
+ "structural": {
+  "absent": 0,
+  "invented": 0,
+  "coherence": 0,
+  "textAbsent": 0,
+  "textDiffers": 0
+ },
+ "blocking": [],
+ "findings": [
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n8 -> n10",
+   "x": 2597,
+   "y": 1236,
+   "w": 23,
+   "h": 55,
+   "area": 290
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n16 -> n18",
+   "x": 2597,
+   "y": 2417,
+   "w": 23,
+   "h": 52,
+   "area": 232
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n10 -> n12",
+   "x": 2599,
+   "y": 1535,
+   "w": 21,
+   "h": 48,
+   "area": 179
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n15 -> n16",
+   "x": 1984,
+   "y": 2294,
+   "w": 48,
+   "h": 22,
+   "area": 175
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n8 -> n10",
+   "x": 2558,
+   "y": 1236,
+   "w": 22,
+   "h": 45,
+   "area": 168
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n7 -> n8",
+   "x": 1984,
+   "y": 1065,
+   "w": 48,
+   "h": 22,
+   "area": 162
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "unattributed",
+   "x": 1485,
+   "y": 299,
+   "w": 14,
+   "h": 8,
+   "area": 106
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n14 -> n17",
+   "x": 595,
+   "y": 2122,
+   "w": 15,
+   "h": 39,
+   "area": 103
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n6 -> n9",
+   "x": 595,
+   "y": 893,
+   "w": 15,
+   "h": 39,
+   "area": 99
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n16 -> n18",
+   "x": 2558,
+   "y": 2417,
+   "w": 11,
+   "h": 15,
+   "area": 92
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n14 -> n17",
+   "x": 578,
+   "y": 2103,
+   "w": 2,
+   "h": 58,
+   "area": 85
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n6 -> n9",
+   "x": 578,
+   "y": 874,
+   "w": 2,
+   "h": 58,
+   "area": 84
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n13 -> n14",
+   "x": 594,
+   "y": 1838,
+   "w": 15,
+   "h": 38,
+   "area": 83
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n13 -> n14",
+   "x": 578,
+   "y": 1829,
+   "w": 2,
+   "h": 47,
+   "area": 66
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n10 -> n12",
+   "x": 2558,
+   "y": 1535,
+   "w": 9,
+   "h": 9,
+   "area": 65
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n8 -> n10",
+   "x": 2582,
+   "y": 1254,
+   "w": 41,
+   "h": 70,
+   "area": 307
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n15 -> n16",
+   "x": 1995,
+   "y": 2278,
+   "w": 70,
+   "h": 42,
+   "area": 282
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n7 -> n8",
+   "x": 1996,
+   "y": 1049,
+   "w": 69,
+   "h": 42,
+   "area": 257
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n10 -> n12",
+   "x": 2597,
+   "y": 1547,
+   "w": 27,
+   "h": 70,
+   "area": 223
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n14 -> n17",
+   "x": 593,
+   "y": 2125,
+   "w": 26,
+   "h": 71,
+   "area": 213
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n12 -> n11",
+   "x": 1897,
+   "y": 1712,
+   "w": 168,
+   "h": 8,
+   "area": 210
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n6 -> n9",
+   "x": 593,
+   "y": 896,
+   "w": 26,
+   "h": 72,
+   "area": 209
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n13 -> n14",
+   "x": 593,
+   "y": 1840,
+   "w": 26,
+   "h": 71,
+   "area": 184
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n16 -> n18",
+   "x": 2601,
+   "y": 2434,
+   "w": 22,
+   "h": 55,
+   "area": 175
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "unattributed",
+   "x": 1558,
+   "y": 299,
+   "w": 14,
+   "h": 8,
+   "area": 112
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n3 -> n4",
+   "x": 1183,
+   "y": 300,
+   "w": 14,
+   "h": 8,
+   "area": 112
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n3 -> n4",
+   "x": 1186,
+   "y": 271,
+   "w": 19,
+   "h": 14,
+   "area": 105
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n11 -> n13",
+   "x": 1192,
+   "y": 1730,
+   "w": 14,
+   "h": 11,
+   "area": 99
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n3 -> n4",
+   "x": 1192,
+   "y": 325,
+   "w": 13,
+   "h": 12,
+   "area": 97
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n11 -> n13",
+   "x": 1191,
+   "y": 1676,
+   "w": 14,
+   "h": 12,
+   "area": 96
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n14 -> n17",
+   "x": 589,
+   "y": 2097,
+   "w": 2,
+   "h": 62,
+   "area": 91
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n6 -> n9",
+   "x": 589,
+   "y": 869,
+   "w": 2,
+   "h": 61,
+   "area": 90
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n13 -> n14",
+   "x": 589,
+   "y": 1824,
+   "w": 2,
+   "h": 50,
+   "area": 71
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n8 -> n10",
+   "x": 2558,
+   "y": 1256,
+   "w": 15,
+   "h": 40,
+   "area": 67
+  }
+ ],
+ "text": [],
+ "coherence": [],
+ "human": [
+  {
+   "x": 586,
+   "y": 1713,
+   "w": 1015,
+   "h": 567,
+   "shape": "ellipse",
+   "iou": 0.591,
+   "border": 0.5,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best ellipse 0.59, and 0.99 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "kind": "sub-character-region",
+   "x": 2410,
+   "y": 82,
+   "w": 36,
+   "h": 47,
+   "reason": "enclosed region smaller than one character of the diagram's type",
+   "check": "confirm this is glyph interior and not a node"
+  },
+  {
+   "kind": "sub-character-region",
+   "x": 2532,
+   "y": 83,
+   "w": 33,
+   "h": 45,
+   "reason": "enclosed region smaller than one character of the diagram's type",
+   "check": "confirm this is glyph interior and not a node"
+  },
+  {
+   "kind": "edge-direction",
+   "reason": "arrowhead ink is ambiguous where several connectors meet",
+   "edge": [
+    "n16",
+    "n18"
+   ],
+   "check": "confirm which way this edge points"
+  }
+ ],
+ "review": [
+  {
+   "n": 1,
+   "what": "check",
+   "where": "586,1713 1015x567",
+   "detail": "outline matches no UML node shape (best ellipse 0.59, and 0.99 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "n": 2,
+   "what": "check",
+   "where": "2410,82 36x47",
+   "detail": "enclosed region smaller than one character of the diagram's type",
+   "check": "confirm this is glyph interior and not a node"
+  },
+  {
+   "n": 3,
+   "what": "check",
+   "where": "2532,83 33x45",
+   "detail": "enclosed region smaller than one character of the diagram's type",
+   "check": "confirm this is glyph interior and not a node"
+  },
+  {
+   "n": 4,
+   "what": "check",
+   "where": "",
+   "detail": "arrowhead ink is ambiguous where several connectors meet",
+   "check": "confirm which way this edge points"
+  }
+ ]
+}

@@ -1,0 +1,7 @@
+  verdict: CORRECT
+  structural: 0 element(s) absent, 0 invented, 0 text absent, 0 text differs, 0 incoherent
+  line-work  missing 291 px (0.151%)   invented 310 px (0.161%)   radius 3
+    line-work-missing      100 px at   610,574      2x73    near edge n2 -> n5
+    line-work-invented     150 px at   625,612     27x76    near edge n2 -> n5
+    line-work-invented     107 px at   622,573      2x74    near edge n2 -> n5
+review/baseline/UBL-2.2-Tender-Withdrawal-marked.png + review/baseline/UBL-2.2-Tender-Withdrawal-marked-lost.png  (0 finding(s) numbered)

@@ -1,0 +1,17 @@
+  verdict: CORRECT
+  structural: 0 element(s) absent, 0 invented, 0 text absent, 0 text differs, 0 incoherent
+  line-work  missing 1705 px (1.099%)   invented 1181 px (0.761%)   radius 3
+    line-work-missing      317 px at  3284,580     58x39    on node n4 (action 'Send information abo')
+    line-work-missing      308 px at  2287,581     54x38    on node n4 (action 'Send information abo')
+    line-work-missing      294 px at  3289,705     53x38    on node n4 (action 'Send information abo')
+    line-work-missing      286 px at  2288,707     48x35    on node n4 (action 'Send information abo')
+    line-work-missing      100 px at    86,579     30x22    on node n3 (action 'Synchronize stock in')
+    line-work-missing       94 px at  1059,579     30x22    on node n3 (action 'Synchronize stock in')
+    line-work-missing       72 px at    91,722     25x13    on node n3 (action 'Synchronize stock in')
+    line-work-missing       70 px at  1061,716     26x18    on node n3 (action 'Synchronize stock in')
+    line-work-missing       64 px at    81,625      1x64    on node n3 (action 'Synchronize stock in')
+    line-work-invented     249 px at  2296,589     49x33    on node n4 (action 'Send information abo')
+    line-work-invented     249 px at  3284,589     49x33    on node n4 (action 'Send information abo')
+    line-work-invented     233 px at  2296,702     45x32    on node n4 (action 'Send information abo')
+    ... and 3 more line-work findings
+review/baseline/UBL-2.2-CRP-Synchronizing-marked.png + review/baseline/UBL-2.2-CRP-Synchronizing-marked-lost.png  (0 finding(s) numbered)

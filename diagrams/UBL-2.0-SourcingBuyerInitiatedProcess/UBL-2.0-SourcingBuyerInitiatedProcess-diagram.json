@@ -1,0 +1,152 @@
+{
+ "schema": "ubl-activity-diagram/1",
+ "figure": {
+  "name": "UBL-2.0-SourcingBuyerInitiatedProcess",
+  "source": "UBL-2.0-SourcingBuyerInitiatedProcess.png"
+ },
+ "lanes": [
+  {
+   "id": "lane-originator-customer-party",
+   "axis": "column",
+   "index": 0,
+   "title": "Originator Customer Party"
+  },
+  {
+   "id": "lane-seller-supplier-party",
+   "axis": "column",
+   "index": 1,
+   "title": "Seller Supplier Party"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "initial-originator-customer-party",
+   "kind": "initial",
+   "label": "",
+   "lane": "lane-originator-customer-party"
+  },
+  {
+   "id": "object-request-for-quotation",
+   "kind": "object",
+   "label": "Request for\nQuotation",
+   "lane": null,
+   "between": [
+    "lane-originator-customer-party",
+    "lane-seller-supplier-party"
+   ]
+  },
+  {
+   "id": "action-receive-request-for-quotation",
+   "kind": "action",
+   "label": "Receive request for\nquotation",
+   "lane": "lane-seller-supplier-party"
+  },
+  {
+   "id": "action-send-request-for-quotation",
+   "kind": "action",
+   "label": "Send request for Quotation",
+   "lane": "lane-originator-customer-party"
+  },
+  {
+   "id": "object-quotation",
+   "kind": "object",
+   "label": "Quotation",
+   "lane": null,
+   "between": [
+    "lane-originator-customer-party",
+    "lane-seller-supplier-party"
+   ]
+  },
+  {
+   "id": "action-receive-quotation",
+   "kind": "action",
+   "label": "Receive quotation",
+   "lane": "lane-originator-customer-party"
+  },
+  {
+   "id": "action-send-quotation",
+   "kind": "action",
+   "label": "Send quotation",
+   "lane": "lane-seller-supplier-party"
+  },
+  {
+   "id": "final-originator-customer-party",
+   "kind": "final",
+   "label": "",
+   "lane": "lane-originator-customer-party"
+  }
+ ],
+ "flows": [
+  {
+   "id": "flow-initial-originator-customer-party-to-send-request-for-quotation",
+   "from": "initial-originator-customer-party",
+   "to": "action-send-request-for-quotation",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-send-request-for-quotation-to-request-for-quotation",
+   "from": "action-send-request-for-quotation",
+   "to": "object-request-for-quotation",
+   "kind": "object",
+   "direction": {
+    "confidence": "notation",
+    "checked": "confirmed"
+   }
+  },
+  {
+   "id": "flow-request-for-quotation-to-receive-request-for-quotation",
+   "from": "object-request-for-quotation",
+   "to": "action-receive-request-for-quotation",
+   "kind": "object",
+   "direction": {
+    "confidence": "notation",
+    "checked": "confirmed"
+   }
+  },
+  {
+   "id": "flow-receive-request-for-quotation-to-send-quotation",
+   "from": "action-receive-request-for-quotation",
+   "to": "action-send-quotation",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-send-quotation-to-quotation",
+   "from": "action-send-quotation",
+   "to": "object-quotation",
+   "kind": "object",
+   "direction": {
+    "confidence": "notation",
+    "checked": "confirmed"
+   }
+  },
+  {
+   "id": "flow-quotation-to-receive-quotation",
+   "from": "object-quotation",
+   "to": "action-receive-quotation",
+   "kind": "object",
+   "direction": {
+    "confidence": "notation",
+    "checked": "confirmed"
+   }
+  },
+  {
+   "id": "flow-receive-quotation-to-final-originator-customer-party",
+   "from": "action-receive-quotation",
+   "to": "final-originator-customer-party",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  }
+ ],
+ "texts": [],
+ "offPage": [],
+ "marks": [],
+ "phases": []
+}

@@ -100,3 +100,51 @@ def word_boxes(image, path=None, config="--psm 11", min_conf=30):
         except OSError:
             pass          # a cache that cannot be written is not an error
     return [r for r in out if r[5] >= min_conf]
+
+
+def _image_key(image, kind, config):
+    """Key for an image that is not a file: its exact pixels, mode and size,
+    with the call and configuration it is read with."""
+    h = hashlib.sha1(("%s\x00%s\x00%s\x00%s" % (kind, config, image.mode, image.size)).encode())
+    h.update(image.tobytes())
+    return h.hexdigest()
+
+
+def _cached(image, kind, config, read):
+    key = _image_key(image, kind, config)
+    hit = os.path.join(CACHE_DIR, "crop-" + key + ".json")
+    try:
+        with open(hit) as fh:
+            return json.load(fh)["value"]
+    except (OSError, ValueError, KeyError):
+        pass
+    value = read()
+    try:
+        os.makedirs(CACHE_DIR, exist_ok=True)
+        tmp = hit + ".tmp%d" % os.getpid()
+        with open(tmp, "w") as fh:
+            json.dump({"value": value}, fh)
+        os.replace(tmp, hit)
+    except OSError:
+        pass
+    return value
+
+
+# The label crops. The extractor reads every node's label, every guard and every
+# single letter it suspects on its own, and the verifier reads every label back
+# off the render: some thirty tesseract calls a diagram, a tenth of a second each,
+# repeated unchanged on every sweep. These return exactly what pytesseract
+# returns - the value is stored as it came back - keyed on the crop's pixels.
+
+def image_to_string(image, config=""):
+    import pytesseract
+    return _cached(image, "string", config,
+                   lambda: pytesseract.image_to_string(image, config=config))
+
+
+def image_to_data(image, config=""):
+    """pytesseract.image_to_data(..., output_type=Output.DICT)"""
+    import pytesseract
+    return _cached(image, "data", config,
+                   lambda: pytesseract.image_to_data(image, config=config,
+                                                     output_type=pytesseract.Output.DICT))

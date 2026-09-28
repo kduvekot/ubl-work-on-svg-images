@@ -1,0 +1,11 @@
+== UBL-2.2-Tender-AwardPublication
+  scale 0.43212   frame 10px  divider 12px  action 12px  object 11px
+  font 73px (31.5 model)   2 lanes, 1 bands, 8 nodes, 8 edges -> review/baseline/UBL-2.2-Tender-AwardPublication-spec.json
+  review/baseline/UBL-2.2-Tender-AwardPublication.svg + .drawio + -classified.svg   (8 nodes, 8 edges)
+  rendered UBL-2.2-Tender-AwardPublication.svg -> UBL-2.2-Tender-AwardPublication-render.png @ 3425pxx2238, 600 dpi
+  aligned on ink bounds: scale x 1.0000, y 1.0000
+  size 3425x2238  radius 2
+  ink: original 466890   candidate 471948
+  MISSING (red)    15174  = 3.2500% of original ink
+  EXTRA   (blue)   15733  = 3.3697% of original ink
+  RESULT: DIFFERENCES - inspect review/baseline/UBL-2.2-Tender-AwardPublication-diff-r2.png

@@ -1,0 +1,231 @@
+{
+ "name": "UBL-2.0-SelfBillingwithSelfBilledCreditNoteProcess.png",
+ "verdict": "needs-human",
+ "radius": 3,
+ "lineWorkInk": 257708,
+ "missingPx": 1565,
+ "inventedPx": 742,
+ "structural": {
+  "absent": 0,
+  "invented": 0,
+  "coherence": 0,
+  "textAbsent": 0,
+  "textDiffers": 0
+ },
+ "blocking": [],
+ "findings": [
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n6 -> n10",
+   "x": 499,
+   "y": 1262,
+   "w": 39,
+   "h": 47,
+   "area": 345
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n10 -> n12",
+   "x": 804,
+   "y": 1679,
+   "w": 37,
+   "h": 42,
+   "area": 305
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n6 -> n10",
+   "x": 707,
+   "y": 1167,
+   "w": 72,
+   "h": 37,
+   "area": 273
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n10 -> n12",
+   "x": 499,
+   "y": 1520,
+   "w": 69,
+   "h": 44,
+   "area": 229
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n10 -> n12",
+   "x": 754,
+   "y": 1671,
+   "w": 43,
+   "h": 29,
+   "area": 111
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n6 -> n10",
+   "x": 713,
+   "y": 1168,
+   "w": 45,
+   "h": 23,
+   "area": 130
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n10 -> n12",
+   "x": 509,
+   "y": 1517,
+   "w": 45,
+   "h": 28,
+   "area": 110
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n6 -> n10",
+   "x": 535,
+   "y": 1260,
+   "w": 20,
+   "h": 21,
+   "area": 96
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n10 -> n12",
+   "x": 785,
+   "y": 1674,
+   "w": 18,
+   "h": 20,
+   "area": 90
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n10 -> n12",
+   "x": 768,
+   "y": 1690,
+   "w": 38,
+   "h": 23,
+   "area": 84
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n6 -> n10",
+   "x": 561,
+   "y": 1296,
+   "w": 16,
+   "h": 7,
+   "area": 60
+  }
+ ],
+ "text": [],
+ "coherence": [],
+ "human": [
+  {
+   "x": 1417,
+   "y": 400,
+   "w": 376,
+   "h": 188,
+   "shape": "rect",
+   "iou": 1.0,
+   "border": 1.0,
+   "kind": "kept-on-outline",
+   "reason": "every side has pass-through line-work, but the region carries a complete outline of its own",
+   "check": "confirm this is a node and not trapped whitespace"
+  },
+  {
+   "x": 1417,
+   "y": 1005,
+   "w": 351,
+   "h": 188,
+   "shape": "rect",
+   "iou": 1.0,
+   "border": 1.0,
+   "kind": "kept-on-outline",
+   "reason": "every side has pass-through line-work, but the region carries a complete outline of its own",
+   "check": "confirm this is a node and not trapped whitespace"
+  },
+  {
+   "x": 501,
+   "y": 1083,
+   "w": 1079,
+   "h": 723,
+   "shape": "ellipse",
+   "iou": 0.773,
+   "border": 0.314,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best ellipse 0.77, and 0.99 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "x": 1401,
+   "y": 1712,
+   "w": 351,
+   "h": 188,
+   "shape": "rect",
+   "iou": 1.0,
+   "border": 1.0,
+   "kind": "kept-on-outline",
+   "reason": "every side has pass-through line-work, but the region carries a complete outline of its own",
+   "check": "confirm this is a node and not trapped whitespace"
+  },
+  {
+   "kind": "arrowhead-unmeasurable",
+   "x": 3188,
+   "y": 1028,
+   "w": 118,
+   "h": 118,
+   "reason": "the ink at the head end of n5->n9 measures 59x82px, too wide for this diagram's own 46px arrowhead - a junction, not a head",
+   "check": "confirm the arrowhead here is drawn and points the way the original does"
+  },
+  {
+   "kind": "arrowhead-unmeasurable",
+   "x": 762,
+   "y": 1650,
+   "w": 126,
+   "h": 126,
+   "reason": "the ink at the head end of n10->n12 measures 63x81px, too wide for this diagram's own 46px arrowhead - a junction, not a head",
+   "check": "confirm the arrowhead here is drawn and points the way the original does"
+  }
+ ],
+ "review": [
+  {
+   "n": 1,
+   "what": "check",
+   "where": "1417,400 376x188",
+   "detail": "every side has pass-through line-work, but the region carries a complete outline of its own",
+   "check": "confirm this is a node and not trapped whitespace"
+  },
+  {
+   "n": 2,
+   "what": "check",
+   "where": "1417,1005 351x188",
+   "detail": "every side has pass-through line-work, but the region carries a complete outline of its own",
+   "check": "confirm this is a node and not trapped whitespace"
+  },
+  {
+   "n": 3,
+   "what": "check",
+   "where": "501,1083 1079x723",
+   "detail": "outline matches no UML node shape (best ellipse 0.77, and 0.99 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "n": 4,
+   "what": "check",
+   "where": "1401,1712 351x188",
+   "detail": "every side has pass-through line-work, but the region carries a complete outline of its own",
+   "check": "confirm this is a node and not trapped whitespace"
+  },
+  {
+   "n": 5,
+   "what": "check",
+   "where": "3188,1028 118x118",
+   "detail": "the ink at the head end of n5->n9 measures 59x82px, too wide for this diagram's own 46px arrowhead - a junction, not a head",
+   "check": "confirm the arrowhead here is drawn and points the way the original does"
+  },
+  {
+   "n": 6,
+   "what": "check",
+   "where": "762,1650 126x126",
+   "detail": "the ink at the head end of n10->n12 measures 63x81px, too wide for this diagram's own 46px arrowhead - a junction, not a head",
+   "check": "confirm the arrowhead here is drawn and points the way the original does"
+  }
+ ]
+}

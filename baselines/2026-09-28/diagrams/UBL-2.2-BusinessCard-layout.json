@@ -1,0 +1,247 @@
+{
+ "schema": "ubl-activity-diagram-layout/1",
+ "figure": "UBL-2.2-BusinessCard",
+ "units": "px of the original PNG",
+ "size": [
+  3425,
+  1234
+ ],
+ "style": {
+  "fontPx": 51.4,
+  "arrowPx": 67.0,
+  "arrowWidthPx": 55.4,
+  "arrowStyle": "open"
+ },
+ "rules": {
+  "vertical": [
+   {
+    "at": 0,
+    "width": 10,
+    "span": [
+     13,
+     1220
+    ]
+   },
+   {
+    "at": 1721,
+    "width": 7,
+    "span": [
+     13,
+     1220
+    ]
+   },
+   {
+    "at": 3415,
+    "width": 10,
+    "span": [
+     13,
+     1220
+    ]
+   }
+  ],
+  "horizontal": [
+   {
+    "at": 0,
+    "width": 10,
+    "span": [
+     13,
+     3411
+    ]
+   },
+   {
+    "at": 1224,
+    "width": 10,
+    "span": [
+     13,
+     3411
+    ]
+   }
+  ]
+ },
+ "greyRules": [],
+ "lanes": {
+  "lane-business-party-1": {
+   "x0": 0,
+   "x1": 1724,
+   "titleBox": [
+    534,
+    42,
+    609,
+    54
+   ],
+   "titleWords": "BUSINESS PARTY 1"
+  },
+  "lane-business-party-0-n": {
+   "x0": 1724,
+   "x1": 3425,
+   "titleBox": [
+    2263,
+    42,
+    693,
+    54
+   ],
+   "titleWords": "BUSINESS PARTY 0..n"
+  }
+ },
+ "nodes": {
+  "initial-business-party-1": {
+   "x": 901,
+   "y": 169,
+   "w": 106,
+   "h": 106
+  },
+  "object-business-card": {
+   "x": 1494,
+   "y": 394,
+   "w": 441,
+   "h": 183,
+   "shape": "rect",
+   "stroke": 6,
+   "rx": 0,
+   "ry": 0,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 1608,
+     "y": 436,
+     "w": 219,
+     "h": 37,
+     "text": "Business"
+    },
+    {
+     "x": 1662,
+     "y": 500,
+     "w": 111,
+     "h": 37,
+     "text": "Card"
+    }
+   ]
+  },
+  "action-publish-business-card": {
+   "x": 624,
+   "y": 419,
+   "w": 655,
+   "h": 128,
+   "shape": "rounded",
+   "stroke": 6,
+   "rx": 70,
+   "ry": 67,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 678,
+     "y": 463,
+     "w": 522,
+     "h": 36,
+     "text": "Publish business card"
+    }
+   ]
+  },
+  "action-download-business-card": {
+   "x": 2100,
+   "y": 747,
+   "w": 824,
+   "h": 123,
+   "shape": "rounded",
+   "stroke": 6,
+   "rx": 79,
+   "ry": 60,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 2230,
+     "y": 792,
+     "w": 579,
+     "h": 36,
+     "text": "Download business card"
+    }
+   ]
+  },
+  "final-business-party-0-n": {
+   "x": 2468,
+   "y": 1064,
+   "w": 93,
+   "h": 93,
+   "shape": "ellipse",
+   "stroke": 7,
+   "rx": 48,
+   "ry": 47,
+   "innerRatio": 0.484
+  }
+ },
+ "flows": {
+  "flow-initial-business-party-1-to-publish-business-card": {
+   "fromPoint": [
+    954,
+    289
+   ],
+   "toPoint": [
+    951,
+    404
+   ],
+   "routing": "straight"
+  },
+  "flow-publish-business-card-to-business-card": {
+   "fromPoint": [
+    1293,
+    484
+   ],
+   "toPoint": [
+    1479,
+    485
+   ],
+   "routing": "straight"
+  },
+  "flow-download-business-card-to-final-business-party-0-n": {
+   "fromPoint": [
+    2513,
+    884
+   ],
+   "toPoint": [
+    2515,
+    1049
+   ],
+   "routing": "straight"
+  },
+  "flow-business-card-to-download-business-card": {
+   "fromPoint": [
+    1730,
+    577
+   ],
+   "toPoint": [
+    2085,
+    808
+   ],
+   "routing": "along-divider",
+   "points": [
+    [
+     1730,
+     806
+    ]
+   ]
+  }
+ },
+ "texts": {},
+ "offPage": {},
+ "marks": {
+  "mark-1": {
+   "x1": 1781,
+   "y1": 634,
+   "x2": 1655,
+   "y2": 717,
+   "weight": 7.6
+  },
+  "mark-2": {
+   "x1": 1781,
+   "y1": 670,
+   "x2": 1655,
+   "y2": 754,
+   "weight": 7.7
+  }
+ },
+ "phases": {},
+ "rulesHaveSpans": {
+  "vertical": true,
+  "horizontal": true
+ }
+}

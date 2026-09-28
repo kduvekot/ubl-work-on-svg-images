@@ -1,0 +1,11 @@
+== UBL-2.2-Tender-ExpressionOfInterest
+  UBL-2.2-Tender-ExpressionOfInterest -> diagram, layout, extraction  (9 nodes, 8 flows, 0 texts)
+  scale 0.43199   frame 8px  divider 8px  action 8px  object 8px
+  font 70px (30.2 model)   2 lanes, 0 bands, 9 nodes, 8 edges -> /tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-2.2-Tender-ExpressionOfInterest-spec.json
+  /tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-2.2-Tender-ExpressionOfInterest.svg + .drawio + -classified.svg   (9 nodes, 8 edges)
+  aligned on ink bounds: scale x 1.0009, y 1.0000
+  size 3426x1808  radius 2
+  ink: original 418665   candidate 395098
+  MISSING (red)    28935  = 6.9113% of original ink
+  EXTRA   (blue)   17993  = 4.2977% of original ink
+  RESULT: DIFFERENCES - inspect /tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-2.2-Tender-ExpressionOfInterest-diff-r2.png

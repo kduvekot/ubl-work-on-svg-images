@@ -1,0 +1,820 @@
+{
+ "source": "UBL-2.3-Tender-Contract-Pre.png",
+ "size": [
+  3223,
+  2374
+ ],
+ "fontPx": 72.9,
+ "arrowPx": 75.5,
+ "arrowWidthPx": 65.9,
+ "arrowStyle": "open",
+ "rules": {
+  "v": [
+   [
+    6,
+    8
+   ],
+   [
+    1601,
+    8
+   ],
+   [
+    3209,
+    8
+   ]
+  ],
+  "h": [
+   [
+    6,
+    8
+   ],
+   [
+    2360,
+    8
+   ]
+  ]
+ },
+ "ruleSpan": {
+  "v": [
+   [
+    17,
+    2356
+   ],
+   [
+    17,
+    2356
+   ],
+   [
+    17,
+    2356
+   ]
+  ],
+  "h": [
+   [
+    17,
+    3205
+   ],
+   [
+    17,
+    3205
+   ]
+  ]
+ },
+ "greyRules": [],
+ "dashed": [],
+ "openEnds": [],
+ "crossMarks": [],
+ "partitions": [
+  {
+   "axis": "column",
+   "index": 0,
+   "x0": 0,
+   "x1": 1605,
+   "title": "INITIATING PARTY",
+   "titleBox": [
+    279,
+    71,
+    670,
+    59
+   ]
+  },
+  {
+   "axis": "column",
+   "index": 1,
+   "x0": 1605,
+   "x1": 3213,
+   "title": "RESPONDING PARTY",
+   "titleBox": [
+    2204,
+    76,
+    780,
+    59
+   ]
+  },
+  {
+   "axis": "column",
+   "index": 2,
+   "x0": 3213,
+   "x1": 3223,
+   "title": ""
+  },
+  {
+   "axis": "band",
+   "index": 0,
+   "y0": 0,
+   "y1": 2364,
+   "title": ""
+  },
+  {
+   "axis": "band",
+   "index": 1,
+   "y0": 2364,
+   "y1": 2374,
+   "title": ""
+  }
+ ],
+ "nodes": [
+  {
+   "x": 2076,
+   "y": 223,
+   "w": 1036,
+   "h": 167,
+   "area": 150502,
+   "fill": 0.87,
+   "solid": 0.968,
+   "rx": 79,
+   "ry": 80,
+   "shape": "rounded",
+   "stroke": 8,
+   "kind": "action",
+   "id": "n3",
+   "label": "Prior exchange of public keys",
+   "labelLines": [
+    {
+     "x": 2139,
+     "y": 280,
+     "w": 911,
+     "h": 66,
+     "text": "Prior exchange of public keys"
+    }
+   ],
+   "stem": 0.096,
+   "bold": false,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 105,
+   "y": 226,
+   "w": 1019,
+   "h": 175,
+   "area": 155231,
+   "fill": 0.87,
+   "solid": 0.965,
+   "rx": 84,
+   "ry": 82,
+   "shape": "rounded",
+   "stroke": 8,
+   "kind": "action",
+   "id": "n4",
+   "label": "Prior exchange of public keys",
+   "labelLines": [
+    {
+     "x": 159,
+     "y": 280,
+     "w": 911,
+     "h": 66,
+     "text": "Prior exchange of public keys"
+    }
+   ],
+   "stem": 0.096,
+   "bold": false,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 523,
+   "y": 471,
+   "w": 116,
+   "h": 116,
+   "area": 10646,
+   "fill": 1.0,
+   "kind": "initial",
+   "id": "n5",
+   "label": "",
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 110,
+   "y": 693,
+   "w": 1028,
+   "h": 156,
+   "area": 140848,
+   "fill": 0.878,
+   "solid": 0.964,
+   "rx": 83.0,
+   "ry": 80,
+   "shape": "rounded",
+   "stroke": 8,
+   "kind": "action",
+   "id": "n6",
+   "label": "Prepare tender contract",
+   "labelLines": [
+    {
+     "x": 247,
+     "y": 744,
+     "w": 733,
+     "h": 65,
+     "text": "Prepare tender contract"
+    }
+   ],
+   "stem": 0.096,
+   "bold": false,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 110,
+   "y": 964,
+   "w": 1028,
+   "h": 157,
+   "area": 138831,
+   "fill": 0.86,
+   "solid": 0.963,
+   "rx": 83.0,
+   "ry": 80,
+   "shape": "rounded",
+   "stroke": 7,
+   "kind": "action",
+   "id": "n7",
+   "label": "Add W3C Digital Signature",
+   "labelLines": [
+    {
+     "x": 207,
+     "y": 1015,
+     "w": 834,
+     "h": 66,
+     "text": "Add W3C Digital Signature"
+    }
+   ],
+   "stem": 0.096,
+   "bold": false,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 1368,
+   "y": 1172,
+   "w": 485,
+   "h": 326,
+   "area": 146665,
+   "fill": 0.928,
+   "solid": 1.0,
+   "rx": 0,
+   "ry": 0,
+   "shape": "rect",
+   "stroke": 8,
+   "kind": "object",
+   "id": "n8",
+   "label": "Tender\nContract",
+   "labelLines": [
+    {
+     "x": 1411,
+     "y": 1245,
+     "w": 229,
+     "h": 51,
+     "text": "Tender"
+    },
+    {
+     "x": 1406,
+     "y": 1349,
+     "w": 286,
+     "h": 52,
+     "text": "Contract"
+    }
+   ],
+   "stem": 0.137,
+   "bold": true,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 2076,
+   "y": 1246,
+   "w": 1036,
+   "h": 168,
+   "area": 154938,
+   "fill": 0.89,
+   "solid": 0.967,
+   "rx": 83.0,
+   "ry": 82,
+   "shape": "rounded",
+   "stroke": 7,
+   "kind": "action",
+   "id": "n9",
+   "label": "Receive tender contract",
+   "labelLines": [
+    {
+     "x": 2236,
+     "y": 1300,
+     "w": 737,
+     "h": 52,
+     "text": "Receive tender contract"
+    }
+   ],
+   "stem": 0.096,
+   "bold": false,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 105,
+   "y": 1250,
+   "w": 1019,
+   "h": 174,
+   "area": 158978,
+   "fill": 0.897,
+   "solid": 0.966,
+   "rx": 83,
+   "ry": 82,
+   "shape": "rounded",
+   "stroke": 8,
+   "kind": "action",
+   "id": "n10",
+   "label": "Submit tender contract",
+   "labelLines": [
+    {
+     "x": 269,
+     "y": 1304,
+     "w": 704,
+     "h": 52,
+     "text": "Submit tender contract"
+    }
+   ],
+   "stem": 0.082,
+   "bold": false,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 2076,
+   "y": 1607,
+   "w": 1028,
+   "h": 156,
+   "area": 137954,
+   "fill": 0.86,
+   "solid": 0.964,
+   "rx": 83.0,
+   "ry": 80,
+   "shape": "rounded",
+   "stroke": 8,
+   "kind": "action",
+   "id": "n11",
+   "label": "Add W3C Digital Signature",
+   "labelLines": [
+    {
+     "x": 2173,
+     "y": 1657,
+     "w": 834,
+     "h": 66,
+     "text": "Add W3C Digital Signature"
+    }
+   ],
+   "stem": 0.096,
+   "bold": false,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 1368,
+   "y": 1825,
+   "w": 485,
+   "h": 326,
+   "area": 146678,
+   "fill": 0.928,
+   "solid": 1.0,
+   "rx": 0,
+   "ry": 0,
+   "shape": "rect",
+   "stroke": 8,
+   "kind": "object",
+   "id": "n12",
+   "label": "Tender\nContract",
+   "labelLines": [
+    {
+     "x": 1411,
+     "y": 1898,
+     "w": 229,
+     "h": 51,
+     "text": "Tender"
+    },
+    {
+     "x": 1406,
+     "y": 2002,
+     "w": 286,
+     "h": 52,
+     "text": "Contract"
+    }
+   ],
+   "stem": 0.137,
+   "bold": true,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 2076,
+   "y": 1899,
+   "w": 1036,
+   "h": 168,
+   "area": 155952,
+   "fill": 0.896,
+   "solid": 0.967,
+   "rx": 83.0,
+   "ry": 82,
+   "shape": "rounded",
+   "stroke": 7,
+   "kind": "action",
+   "id": "n13",
+   "label": "Return tender contract",
+   "labelLines": [
+    {
+     "x": 2236,
+     "y": 1953,
+     "w": 694,
+     "h": 52,
+     "text": "Return tender contract"
+    }
+   ],
+   "stem": 0.096,
+   "bold": false,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 105,
+   "y": 1903,
+   "w": 1019,
+   "h": 175,
+   "area": 158652,
+   "fill": 0.89,
+   "solid": 0.965,
+   "rx": 83,
+   "ry": 82,
+   "shape": "rounded",
+   "stroke": 8,
+   "kind": "action",
+   "id": "n14",
+   "label": "Receive tender contract",
+   "labelLines": [
+    {
+     "x": 271,
+     "y": 1958,
+     "w": 738,
+     "h": 51,
+     "text": "Receive tender contract"
+    }
+   ],
+   "stem": 0.096,
+   "bold": false,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 531,
+   "y": 2226,
+   "w": 102,
+   "h": 101,
+   "area": 6010,
+   "fill": 0.583,
+   "solid": 0.786,
+   "rx": 48,
+   "ry": 55,
+   "shape": "ellipse",
+   "stroke": 8,
+   "kind": "final",
+   "innerRatio": 0.49,
+   "id": "n15",
+   "label": "",
+   "col": 0,
+   "row": 0
+  }
+ ],
+ "edges": [
+  {
+   "from": "n3",
+   "to": "n4",
+   "routing": "straight",
+   "fromPoint": [
+    2061,
+    302
+   ],
+   "toPoint": [
+    1138,
+    304
+   ],
+   "arrowInk": [
+    1083,
+    1091
+   ],
+   "directionConfidence": "both-ends",
+   "arrowBoth": true,
+   "dash": 70.0,
+   "gap": 55.0,
+   "arrowPx": [
+    58,
+    63.8,
+    1.96
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n5",
+   "to": "n6",
+   "routing": "straight",
+   "fromPoint": [
+    581,
+    601
+   ],
+   "toPoint": [
+    589,
+    678
+   ],
+   "arrowInk": [
+    963,
+    1076
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    72,
+    62.4,
+    1.65
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n6",
+   "to": "n7",
+   "routing": "straight",
+   "fromPoint": [
+    585,
+    863
+   ],
+   "toPoint": [
+    589,
+    949
+   ],
+   "arrowInk": [
+    810,
+    1081
+   ],
+   "directionConfidence": "checked",
+   "arrowPx": [
+    86,
+    70.0,
+    1.02
+   ],
+   "arrowFill": 0.014,
+   "edgeKind": "control",
+   "directionChecked": "confirmed"
+  },
+  {
+   "from": "n7",
+   "to": "n10",
+   "routing": "straight",
+   "fromPoint": [
+    585,
+    1135
+   ],
+   "toPoint": [
+    589,
+    1235
+   ],
+   "arrowInk": [
+    599,
+    1063
+   ],
+   "directionConfidence": "checked",
+   "arrowPx": [
+    100,
+    70.7,
+    0.66
+   ],
+   "arrowFill": 0.009,
+   "edgeKind": "control",
+   "directionChecked": "confirmed"
+  },
+  {
+   "from": "n10",
+   "to": "n8",
+   "routing": "straight",
+   "fromPoint": [
+    1138,
+    1326
+   ],
+   "toPoint": [
+    1353,
+    1328
+   ],
+   "arrowInk": [
+    360,
+    1078
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    74,
+    62.8,
+    2.18
+   ],
+   "arrowFill": 0.054,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n8",
+   "to": "n9",
+   "routing": "diagonal",
+   "fromPoint": [
+    1867,
+    1330
+   ],
+   "toPoint": [
+    2056,
+    1320
+   ],
+   "arrowInk": [
+    360,
+    1042
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    73,
+    66.9,
+    1.83
+   ],
+   "arrowFill": 0.198,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n9",
+   "to": "n11",
+   "routing": "straight",
+   "fromPoint": [
+    2592,
+    1428
+   ],
+   "toPoint": [
+    2590,
+    1590
+   ],
+   "arrowInk": [
+    360,
+    882
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    83,
+    66.0,
+    3.06
+   ],
+   "arrowFill": 0.062,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n11",
+   "to": "n13",
+   "routing": "straight",
+   "fromPoint": [
+    2590,
+    1777
+   ],
+   "toPoint": [
+    2593,
+    1884
+   ],
+   "arrowInk": [
+    597,
+    982
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    77,
+    65.9,
+    2.24
+   ],
+   "arrowFill": 0.073,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n12",
+   "to": "n14",
+   "routing": "straight",
+   "fromPoint": [
+    1353,
+    1978
+   ],
+   "toPoint": [
+    1138,
+    1982
+   ],
+   "arrowInk": [
+    368,
+    1183
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    58,
+    66.2,
+    1.87
+   ],
+   "arrowFill": 0.091,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n13",
+   "to": "n12",
+   "routing": "straight",
+   "fromPoint": [
+    2055,
+    1987
+   ],
+   "toPoint": [
+    1867,
+    1988
+   ],
+   "arrowInk": [
+    368,
+    1072
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    127,
+    66.7,
+    0.34
+   ],
+   "arrowSaturated": true,
+   "arrowFill": 0.017,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n14",
+   "to": "n15",
+   "routing": "straight",
+   "fromPoint": [
+    584,
+    2092
+   ],
+   "toPoint": [
+    582,
+    2211
+   ],
+   "arrowInk": [
+    470,
+    911
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    82,
+    64.7,
+    3.19
+   ],
+   "arrowFill": 0.016,
+   "edgeKind": "control"
+  }
+ ],
+ "text": [
+  {
+   "text": "INITIATING PARTY",
+   "x": 279,
+   "y": 71,
+   "w": 670,
+   "h": 59,
+   "lines": [
+    {
+     "x": 279,
+     "y": 71,
+     "w": 670,
+     "h": 59,
+     "text": "INITIATING PARTY"
+    }
+   ]
+  },
+  {
+   "text": "RESPONDING PARTY",
+   "x": 2204,
+   "y": 76,
+   "w": 780,
+   "h": 59,
+   "lines": [
+    {
+     "x": 2204,
+     "y": 76,
+     "w": 780,
+     "h": 59,
+     "text": "RESPONDING PARTY"
+    }
+   ]
+  }
+ ],
+ "uncertain": [
+  {
+   "kind": "sub-character-region",
+   "x": 2410,
+   "y": 82,
+   "w": 36,
+   "h": 47,
+   "reason": "enclosed region smaller than one character of the diagram's type",
+   "check": "confirm this is glyph interior and not a node"
+  },
+  {
+   "kind": "sub-character-region",
+   "x": 2532,
+   "y": 83,
+   "w": 33,
+   "h": 45,
+   "reason": "enclosed region smaller than one character of the diagram's type",
+   "check": "confirm this is glyph interior and not a node"
+  }
+ ]
+}

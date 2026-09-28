@@ -1,0 +1,20 @@
+  verdict: NEEDS-HUMAN
+  structural: 0 element(s) absent, 0 invented, 0 text absent, 0 text differs, 0 incoherent
+  line-work  missing 2900 px (0.982%)   invented 2999 px (1.016%)   radius 3
+    line-work-missing      182 px at  2342,761     33x47    on node n5 (action 'Receive tender statu')
+    line-work-missing      119 px at  2387,773     25x29    on node n5 (action 'Receive tender statu')
+    line-work-missing      106 px at  2357,777     18x11    on node n5 (action 'Receive tender statu')
+    line-work-missing       96 px at   274,1276     2x48    on node n7 (action 'Receive tender statu')
+    line-work-missing       87 px at  2425,773     24x20    on node n5 (action 'Receive tender statu')
+    line-work-missing       67 px at  2460,773     22x12    on node n5 (action 'Receive tender statu')
+    line-work-missing       67 px at  2441,796     13x12    on node n5 (action 'Receive tender statu')
+    line-work-missing       63 px at  2526,774     13x23    on node n5 (action 'Receive tender statu')
+    line-work-missing       60 px at  2729,773     24x14    on node n5 (action 'Receive tender statu')
+    line-work-invented     131 px at  2347,790     15x26    on node n5 (action 'Receive tender statu')
+    line-work-invented     110 px at  2523,785     17x31    on node n5 (action 'Receive tender statu')
+    line-work-invented     105 px at  2397,807     25x9     on node n5 (action 'Receive tender statu')
+    ... and 18 more line-work findings
+  needs a person (2):
+    dropped-region     at 1709,785  a shape here would be missing from the SVG
+    no-weight-split     confirm the diagram really has no object nodes
+review/baseline/UBL-2.2-Tender-Status-marked.png + review/baseline/UBL-2.2-Tender-Status-marked-lost.png  (2 finding(s) numbered)

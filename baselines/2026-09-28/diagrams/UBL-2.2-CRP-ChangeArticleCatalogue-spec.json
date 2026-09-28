@@ -1,0 +1,367 @@
+{
+ "canvas": {
+  "w": 1480.0,
+  "h": 818.429
+ },
+ "stroke": {
+  "frame": 4.3,
+  "divider": 1.7,
+  "action": 2.2,
+  "object": 3.9,
+  "edge": 2.2
+ },
+ "font": {
+  "family": "Helvetica, Arial, sans-serif",
+  "node": 25.3,
+  "lane": 25.3,
+  "guard": 25.3
+ },
+ "arrow": 31.9,
+ "arrowWidth": 24.8,
+ "arrowStyle": "open",
+ "dashed": [],
+ "greyRules": [],
+ "crossMarks": [],
+ "openEnds": [],
+ "frameBox": [
+  2.2,
+  2.2,
+  1477.8,
+  816.3
+ ],
+ "dividers": [
+  [
+   816.7,
+   1.7,
+   5.6,
+   812.4
+  ]
+ ],
+ "bands": [],
+ "lanes": [
+  {
+   "id": "lane-producer",
+   "title": "Producer",
+   "x": 0.0,
+   "w": 816.7,
+   "cx": 283.0,
+   "cy": 29.6,
+   "size": 24.7,
+   "textWidth": 95.9,
+   "baseline": 38.5
+  },
+  {
+   "id": "lane-retailer",
+   "title": "Retailer",
+   "x": 816.7,
+   "w": 663.3,
+   "cx": 1175.8,
+   "cy": 30.5,
+   "size": 24.7,
+   "textWidth": 81.2,
+   "baseline": 39.3
+  }
+ ],
+ "bandLabels": [],
+ "captions": [],
+ "nodes": [
+  {
+   "id": "initial-producer",
+   "kind": "initial",
+   "label": "",
+   "x": 256.2,
+   "y": 70.9,
+   "w": 38.9,
+   "h": 38.9
+  },
+  {
+   "id": "decision-producer",
+   "kind": "decision",
+   "label": "",
+   "x": 250.4,
+   "y": 176.1,
+   "w": 46.7,
+   "h": 39.8
+  },
+  {
+   "id": "final-producer",
+   "kind": "final",
+   "label": "",
+   "x": 56.6,
+   "y": 179.3,
+   "w": 35.0,
+   "h": 35.0,
+   "innerRatio": 0.442
+  },
+  {
+   "id": "object-catalogue",
+   "kind": "object",
+   "label": "Catalogue",
+   "x": 677.8,
+   "y": 385.2,
+   "w": 276.6,
+   "h": 64.8,
+   "labelLines": [
+    {
+     "text": "Catalogue",
+     "cx": 819.1,
+     "cy": 415.65500000000003,
+     "w": 114.5,
+     "size": 24.7
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-inform-about-changes-inside-the",
+   "kind": "action",
+   "label": "Inform about changes inside the\ncatalogue",
+   "x": 36.1,
+   "y": 387.0,
+   "w": 477.1,
+   "h": 72.6,
+   "rx": 35.2,
+   "ry": 30.5,
+   "labelLines": [
+    {
+     "text": "Inform about changes inside the",
+     "cx": 268.6,
+     "cy": 405.755,
+     "w": 368.6,
+     "size": 24.7
+    },
+    {
+     "text": "catalogue",
+     "cx": 272.4,
+     "cy": 435.555,
+     "w": 111.1,
+     "size": 24.7
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-receive-information",
+   "kind": "action",
+   "label": "Receive information",
+   "x": 1100.4,
+   "y": 390.8,
+   "w": 334.0,
+   "h": 57.5,
+   "rx": 29.2,
+   "ry": 25.7,
+   "labelLines": [
+    {
+     "text": "Receive information",
+     "cx": 1264.2,
+     "cy": 419.15500000000003,
+     "w": 226.9,
+     "size": 24.7
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-update-product-database",
+   "kind": "action",
+   "label": "Update Product database",
+   "x": 1091.3,
+   "y": 581.8,
+   "w": 352.6,
+   "h": 59.6,
+   "rx": 27.4,
+   "ry": 20.1,
+   "labelLines": [
+    {
+     "text": "Update Product database",
+     "cx": 1265.0,
+     "cy": 610.5550000000001,
+     "w": 288.2,
+     "size": 24.7
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "final-retailer",
+   "kind": "final",
+   "label": "",
+   "x": 1249.0,
+   "y": 758.1,
+   "w": 35.4,
+   "h": 35.4,
+   "innerRatio": 0.442
+  }
+ ],
+ "edges": [
+  {
+   "id": "flow-initial-producer-to-decision-producer",
+   "from": "initial-producer",
+   "to": "decision-producer",
+   "exitXY": [
+    0.4447,
+    1.0
+   ],
+   "entryXY": [
+    0.4946,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-decision-producer-to-final-producer",
+   "from": "decision-producer",
+   "to": "final-producer",
+   "exitXY": [
+    0.0,
+    0.4925
+   ],
+   "entryXY": [
+    1.0,
+    0.4686
+   ],
+   "straight": true,
+   "confidence": "high",
+   "label": "False"
+  },
+  {
+   "id": "flow-decision-producer-to-inform-about-changes-inside-the",
+   "from": "decision-producer",
+   "to": "action-inform-about-changes-inside-the",
+   "exitXY": [
+    0.4946,
+    1.0
+   ],
+   "entryXY": [
+    0.4976,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high",
+   "label": "True"
+  },
+  {
+   "id": "flow-inform-about-changes-inside-the-to-catalogue",
+   "from": "action-inform-about-changes-inside-the",
+   "to": "object-catalogue",
+   "exitXY": [
+    1.0,
+    0.4601
+   ],
+   "entryXY": [
+    0.0,
+    0.5108
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-catalogue-to-receive-information",
+   "from": "object-catalogue",
+   "to": "action-receive-information",
+   "exitXY": [
+    1.0,
+    0.5046
+   ],
+   "entryXY": [
+    0.0,
+    0.4852
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-receive-information-to-update-product-database",
+   "from": "action-receive-information",
+   "to": "action-update-product-database",
+   "exitXY": [
+    0.5,
+    1.0
+   ],
+   "entryXY": [
+    0.4994,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-update-product-database-to-final-retailer",
+   "from": "action-update-product-database",
+   "to": "final-retailer",
+   "exitXY": [
+    0.4994,
+    1.0
+   ],
+   "entryXY": [
+    0.5198,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  }
+ ],
+ "guards": [
+  {
+   "id": "text-false",
+   "text": "False",
+   "x": 169.4,
+   "y": 177.2,
+   "w": 43.2,
+   "h": 13.4,
+   "onFlow": "flow-decision-producer-to-final-producer",
+   "labelLines": [
+    {
+     "text": "False",
+     "cx": 191.0,
+     "cy": 184.055,
+     "w": 43.2,
+     "size": 18.7
+    }
+   ]
+  },
+  {
+   "id": "text-catalogue-update-is-needed",
+   "text": "Catalogue update is\nneeded?",
+   "x": 308.1,
+   "y": 182.4,
+   "w": 162.9,
+   "h": 37.2,
+   "labelLines": [
+    {
+     "text": "Catalogue update is",
+     "cx": 389.6,
+     "cy": 189.03,
+     "w": 162.9,
+     "size": 18.2
+    },
+    {
+     "text": "needed?",
+     "cx": 343.1,
+     "cy": 213.165,
+     "w": 70.0,
+     "size": 18.1
+    }
+   ]
+  },
+  {
+   "id": "text-true",
+   "text": "True",
+   "x": 283.5,
+   "y": 232.5,
+   "w": 37.2,
+   "h": 13.8,
+   "onFlow": "flow-decision-producer-to-inform-about-changes-inside-the",
+   "labelLines": [
+    {
+     "text": "True",
+     "cx": 302.0,
+     "cy": 239.54500000000002,
+     "w": 37.2,
+     "size": 19.3
+    }
+   ]
+  }
+ ]
+}

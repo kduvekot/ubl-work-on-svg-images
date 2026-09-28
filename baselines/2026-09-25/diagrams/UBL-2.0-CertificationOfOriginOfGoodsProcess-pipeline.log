@@ -1,0 +1,11 @@
+== UBL-2.0-CertificationOfOriginOfGoodsProcess
+  scale 0.43212   frame 10px  divider 4px  action 4px  object 7px
+  font 36px (15.4 model)   4 lanes, 1 bands, 23 nodes, 25 edges -> review/baseline/UBL-2.0-CertificationOfOriginOfGoodsProcess-spec.json
+  review/baseline/UBL-2.0-CertificationOfOriginOfGoodsProcess.svg + .drawio + -classified.svg   (23 nodes, 25 edges)
+  rendered UBL-2.0-CertificationOfOriginOfGoodsProcess.svg -> UBL-2.0-CertificationOfOriginOfGoodsProcess-render.png @ 3425pxx2537, 600 dpi
+  aligned on ink bounds: scale x 1.0000, y 1.0000
+  size 3425x2537  radius 2
+  ink: original 338497   candidate 335481
+  MISSING (red)     6039  = 1.7841% of original ink
+  EXTRA   (blue)    5952  = 1.7584% of original ink
+  RESULT: DIFFERENCES - inspect review/baseline/UBL-2.0-CertificationOfOriginOfGoodsProcess-diff-r2.png

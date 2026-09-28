@@ -1,0 +1,166 @@
+{
+ "name": "UBL-2.2-CRP-BaseArticleCatalogue.png",
+ "verdict": "correct",
+ "radius": 3,
+ "lineWorkInk": 178292,
+ "missingPx": 3473,
+ "inventedPx": 2652,
+ "structural": {
+  "absent": 0,
+  "invented": 0,
+  "coherence": 0,
+  "textAbsent": 0,
+  "textDiffers": 0
+ },
+ "blocking": [],
+ "findings": [
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n3 (action 'Receive Catalogue')",
+   "x": 3270,
+   "y": 946,
+   "w": 67,
+   "h": 48,
+   "area": 462
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n3 (action 'Receive Catalogue')",
+   "x": 3270,
+   "y": 800,
+   "w": 67,
+   "h": 48,
+   "area": 456
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n3 (action 'Receive Catalogue')",
+   "x": 2529,
+   "y": 948,
+   "w": 67,
+   "h": 46,
+   "area": 448
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n3 (action 'Receive Catalogue')",
+   "x": 2529,
+   "y": 800,
+   "w": 66,
+   "h": 46,
+   "area": 439
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n4 (action 'send Catalogue')",
+   "x": 88,
+   "y": 957,
+   "w": 64,
+   "h": 43,
+   "area": 409
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n4 (action 'send Catalogue')",
+   "x": 830,
+   "y": 958,
+   "w": 64,
+   "h": 42,
+   "area": 406
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n4 (action 'send Catalogue')",
+   "x": 830,
+   "y": 806,
+   "w": 64,
+   "h": 42,
+   "area": 397
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n4 (action 'send Catalogue')",
+   "x": 88,
+   "y": 806,
+   "w": 64,
+   "h": 42,
+   "area": 395
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n3 (action 'Receive Catalogue')",
+   "x": 3267,
+   "y": 944,
+   "w": 60,
+   "h": 41,
+   "area": 357
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n3 (action 'Receive Catalogue')",
+   "x": 3270,
+   "y": 810,
+   "w": 57,
+   "h": 40,
+   "area": 350
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n3 (action 'Receive Catalogue')",
+   "x": 2539,
+   "y": 810,
+   "w": 57,
+   "h": 40,
+   "area": 348
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n3 (action 'Receive Catalogue')",
+   "x": 2539,
+   "y": 944,
+   "w": 57,
+   "h": 40,
+   "area": 348
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n4 (action 'send Catalogue')",
+   "x": 98,
+   "y": 955,
+   "w": 54,
+   "h": 35,
+   "area": 314
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n4 (action 'send Catalogue')",
+   "x": 830,
+   "y": 955,
+   "w": 54,
+   "h": 35,
+   "area": 305
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n4 (action 'send Catalogue')",
+   "x": 830,
+   "y": 816,
+   "w": 55,
+   "h": 37,
+   "area": 303
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "on node n4 (action 'send Catalogue')",
+   "x": 98,
+   "y": 816,
+   "w": 54,
+   "h": 35,
+   "area": 299
+  }
+ ],
+ "text": [],
+ "coherence": [],
+ "human": [],
+ "review": []
+}

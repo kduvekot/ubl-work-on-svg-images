@@ -1,0 +1,101 @@
+image 3425x1844
+
+PARTITION RULES
+   vertical  : [(0, 10), (1665, 4), (3415, 10)]
+   horizontal: [(0, 10), (1834, 10)]
+   -> 2 column(s) x 1 band(s)
+   type measured off the page: a word is 34px tall
+   (dropped x=10    y=10    1655x1824  is a partition cell)
+   (dropped x=1669  y=10    1746x1824  is a partition cell)
+   (dropped x=660   y=401   1005x1235  encloses another region)
+   (dropped x=335   y=454    321x816   3 of 4 sides are pass-through line-work)
+   (dropped x=2167  y=806    374x373   outline matches no UML node shape (best rounded 0.53, and 0.99 is the most this shape can reach at this size))
+   object nodes are those stroked heavier than 6.5px
+
+NODES
+   n1   initial   x=430   y=46    w=78    h=78    stroke=0   fill=0.76  ''
+   n2   object    x=1509  y=300   w=342   h=173   stroke=8   fill=0.94  'Self Billed Invoice'
+   n3   action    x=2764  y=320   w=491   h=137   stroke=4   fill=0.88  'Receive Self Billed\nInvoice'
+   n4   action    x=239   y=354   w=491   h=95    stroke=5   fill=0.84  'Raise Self Billed Invoice'
+   n5   final     x=2505  y=468   w=66    h=66    stroke=4   fill=0.64  ''
+   n6   decision  x=2385  y=695   w=316   h=219   stroke=4   fill=0.46  'econcile\nCharges'
+   n7   action    x=893   y=838   w=421   h=139   stroke=5   fill=0.86  'Receive Account\nResponse'
+   n8   decision  x=2955  y=946   w=330   h=182   stroke=4   fill=0.46  'Validate\nInvoice'
+   n9   object    x=1498  y=1002  w=320   h=173   stroke=8   fill=0.91  'Application\nResponse'
+   n10  action    x=2054  y=1019  w=343   h=147   stroke=5   fill=0.85  'Send Account\nResponse'
+   n11  decision  x=511   y=1175  w=294   h=194   stroke=4   fill=0.45  'Reconcile\nCharges'
+   n12  final     x=1196  y=1241  w=66    h=66    stroke=5   fill=0.64  ''
+   n13  fork      x=2933  y=1395  w=149   h=23    stroke=0   fill=0.57  ''
+   n14  action    x=841   y=1470  w=492   h=103   stroke=4   fill=0.87  'Receive Credit Note'
+   n15  object    x=1505  y=1598  w=321   h=173   stroke=8   fill=0.96  'Credit Note'
+   n16  action    x=2179  y=1637  w=492   h=103   stroke=4   fill=0.88  'Raise Credit Note'
+   n17  final     x=253   y=1700  w=66    h=66    stroke=4   fill=0.64  ''
+   n18  final     x=627   y=1715  w=66    h=66    stroke=4   fill=0.64  ''
+
+TYPE  cap height 27px over 189 glyphs -> font 38.6px
+   corner radius rx on 'Receive Credit Note' could not be read (it came back larger than the box) - taking the 53 the rest of its kind measures
+   corner radius rx on 'Raise Credit Note' could not be read (it came back larger than the box) - taking the 53 the rest of its kind measures
+   corner radius ry on 'Raise Credit Note' could not be read (it came back larger than the box) - taking the 52 the rest of its kind measures
+   rejoined 1 line break(s) of up to 69px, where a label sits on the line
+   rejoined a 71px break in a line at 90 degrees, where a label sits on it
+   rejoined a 119px break in a line at 90 degrees, where a label sits on it
+   rejoined a 46px break in a line at 102 degrees, where a label sits on it
+   rejoined a 30px break in a line at 85 degrees, where a label sits on it
+   chained 3 dashes into one dashed flow
+   chained 5 dashes into one dashed flow
+   chained 3 dashes into one dashed flow
+   chained 3 dashes into one dashed flow
+   chained 3 dashes into one dashed flow
+   chained 3 dashes into one dashed flow
+   one component crossing 4 nodes split into 2 connectors
+   one component crossing 3 nodes split into 2 connectors
+
+EDGES
+   n1   -> n4    straight    arrowhead   582 vs 180    ratio 4.0  high
+   n2   -> n3    straight    arrowhead   625 vs 225    ratio 4.0  high
+   n4   -> n2    straight    arrowhead   611 vs 180    ratio 4.0  high
+   n4   -> n17   straight    arrowhead   625 vs 270    ratio 4.0  high
+   n4   -> n11   orthogonal  arrowhead   597 vs 225    ratio 4.0  high
+   n11  -> n4    straight    arrowhead   623 vs 499    ratio 4.0  high
+   n3   -> n8    straight    arrowhead   589 vs 180    ratio 4.0  high
+   n6   -> n5    straight    arrowhead   603 vs 184    ratio 4.0  high
+   n7   -> (off the diagram) at 843,680
+   n8   -> n6    diagonal    arrowhead   618 vs 277    ratio 4.0  high
+   n6   -> n10   diagonal    arrowhead   615 vs 272    ratio 4.0  high
+   n6   -> n16   straight    arrowhead   587 vs 180    ratio 4.0  high
+   n13  -> n10   diagonal    arrowhead   620 vs 210    ratio 4.0  high
+   n9   -> n7    diagonal    arrowhead   598 vs 216    ratio 4.0  high
+   n7   -> n11   diagonal    arrowhead   587 vs 219    ratio 2.7  high
+   n10  -> n9    straight    arrowhead   604 vs 230    ratio 4.0  high
+   n8   -> n13   orthogonal  arrowhead   567 vs 203    ratio 4.0  high
+   n11  -> n12   straight    arrowhead   753 vs 575    ratio 4.0  high
+   n14  -> n11   diagonal    arrowhead   741 vs 301    ratio 2.3  medium
+   n13  -> (off the diagram) at 3085,1238
+   n11  -> n18   straight    arrowhead   586 vs 180    ratio 4.0  high
+   n13  -> n16   diagonal    arrowhead   646 vs 263    ratio 4.0  high
+   n15  -> n14   diagonal    arrowhead   377 vs 216    ratio 4.0  high
+   n16  -> n15   straight    arrowhead   614 vs 230    ratio 4.0  high
+
+TEXT (titles, guards, notes)
+   'Accounting Customer'                    x=650   y=22    
+   'Accounting Supplier'                    x=2369  y=22    
+   '[no action\nrequired]'                  x=2590  y=576   n6->n5
+   '[under\ncharged or\nincorrect\ninformation' x=678   y=624   n11->n4
+   '[under\ncharged]'                       x=2127  y=798   n6->n10
+   '[incorrect\ncharges]'                   x=2822  y=817   n8->n6
+   '[accept credit]'                        x=882   y=1227  n11->n12
+   '[incorrect information]'                x=2908  y=1283  n8->n13
+   '[over\ncharged]'                        x=2367  y=1437  n6->n16
+   '[accept\ncharges]'                      x=112   y=1485  n4->n17
+   '[accept\ncharges]'                      x=471   y=1559  n11->n18
+
+PARTITIONS
+   column 0  'Accounting Customer'
+   column 1  'Accounting Supplier'
+   band   0  ''
+
+ARROWHEAD  52 x 42px, open, measured on 14 connector(s)
+   (dropped the open end at 792,679 - it is ink inside '[under charged or incorrect information')
+   (dropped the open end at 3044,1234 - it is ink inside '[incorrect information]')
+
+wrote review/baseline/UBL-2.0-SelfBillingwithCreditNoteProcess-graph.json   (18 nodes, 22 edges, 6 flagged for a human)

@@ -1,0 +1,11 @@
+== UBL-2.2-InitiateFreightMgmtProcess
+  scale 0.43212   frame 10px  divider 4px  action 4px  object 8px
+  font 37px (16.0 model)   4 lanes, 1 bands, 29 nodes, 30 edges -> review/baseline/UBL-2.2-InitiateFreightMgmtProcess-spec.json
+  review/baseline/UBL-2.2-InitiateFreightMgmtProcess.svg + .drawio + -classified.svg   (29 nodes, 30 edges)
+  rendered UBL-2.2-InitiateFreightMgmtProcess.svg -> UBL-2.2-InitiateFreightMgmtProcess-render.png @ 3425pxx2543, 600 dpi
+  aligned on ink bounds: scale x 1.0000, y 1.0000
+  size 3425x2543  radius 2
+  ink: original 454628   candidate 449393
+  MISSING (red)     9644  = 2.1213% of original ink
+  EXTRA   (blue)   11323  = 2.4906% of original ink
+  RESULT: DIFFERENCES - inspect review/baseline/UBL-2.2-InitiateFreightMgmtProcess-diff-r2.png

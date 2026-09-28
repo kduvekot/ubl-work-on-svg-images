@@ -1,0 +1,207 @@
+{
+ "name": "UBL-2.0-UpdateCataloguePricingProcess.png",
+ "verdict": "needs-human",
+ "radius": 3,
+ "lineWorkInk": 454919,
+ "missingPx": 1959,
+ "inventedPx": 1023,
+ "structural": {
+  "absent": 0,
+  "invented": 0,
+  "coherence": 0,
+  "textAbsent": 0,
+  "textDiffers": 0
+ },
+ "blocking": [],
+ "findings": [
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n9 -> n11",
+   "x": 2644,
+   "y": 1218,
+   "w": 108,
+   "h": 109,
+   "area": 477
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n10 -> n15",
+   "x": 964,
+   "y": 2086,
+   "w": 35,
+   "h": 56,
+   "area": 390
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n2 -> n7",
+   "x": 2676,
+   "y": 627,
+   "w": 68,
+   "h": 55,
+   "area": 222
+  },
+  {
+   "kind": "line-work-missing",
+   "detail": "near edge n10 -> n15",
+   "x": 1007,
+   "y": 2058,
+   "w": 61,
+   "h": 54,
+   "area": 201
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n9 -> n11",
+   "x": 2652,
+   "y": 1218,
+   "w": 87,
+   "h": 87,
+   "area": 320
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n10 -> n15",
+   "x": 1000,
+   "y": 2074,
+   "w": 64,
+   "h": 54,
+   "area": 189
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n10 -> n15",
+   "x": 997,
+   "y": 2084,
+   "w": 18,
+   "h": 27,
+   "area": 132
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n2 -> n7",
+   "x": 2694,
+   "y": 622,
+   "w": 44,
+   "h": 34,
+   "area": 118
+  },
+  {
+   "kind": "line-work-invented",
+   "detail": "near edge n13 -> n15",
+   "x": 1034,
+   "y": 2118,
+   "w": 12,
+   "h": 9,
+   "area": 62
+  }
+ ],
+ "text": [],
+ "coherence": [],
+ "human": [
+  {
+   "x": 587,
+   "y": 2164,
+   "w": 959,
+   "h": 894,
+   "shape": "rounded",
+   "iou": 0.734,
+   "border": 0.571,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best rounded 0.73, and 1.00 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "x": 588,
+   "y": 3064,
+   "w": 958,
+   "h": 757,
+   "shape": "rounded",
+   "iou": 0.914,
+   "border": 0.634,
+   "kind": "dropped-region",
+   "reason": "4 of 4 sides are pass-through line-work",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "kind": "ring-stroke-unreadable",
+   "x": 3023,
+   "y": 3772,
+   "w": 81,
+   "h": 81,
+   "reason": "line-work runs off this activity final on more than one side, so its ring thickness could not be measured",
+   "check": "confirm this is an activity final and how thick its ring is"
+  },
+  {
+   "kind": "unexplained-line-work",
+   "x": 2989,
+   "y": 102,
+   "w": 109,
+   "h": 133,
+   "reason": "line-work that is neither a connector between two nodes nor the size of text",
+   "check": "decide what this is; the SVG does not draw it"
+  },
+  {
+   "kind": "arrowhead-unmeasurable",
+   "x": 2309,
+   "y": 818,
+   "w": 152,
+   "h": 152,
+   "reason": "the ink at the head end of n2->n7 measures 76x96px, too wide for this diagram's own 52px arrowhead - a junction, not a head",
+   "check": "confirm the arrowhead here is drawn and points the way the original does"
+  },
+  {
+   "kind": "arrowhead-unmeasurable",
+   "x": 2320,
+   "y": 1489,
+   "w": 152,
+   "h": 152,
+   "reason": "the ink at the head end of n9->n11 measures 76x95px, too wide for this diagram's own 52px arrowhead - a junction, not a head",
+   "check": "confirm the arrowhead here is drawn and points the way the original does"
+  }
+ ],
+ "review": [
+  {
+   "n": 1,
+   "what": "check",
+   "where": "587,2164 959x894",
+   "detail": "outline matches no UML node shape (best rounded 0.73, and 1.00 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "n": 2,
+   "what": "check",
+   "where": "588,3064 958x757",
+   "detail": "4 of 4 sides are pass-through line-work",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "n": 3,
+   "what": "check",
+   "where": "3023,3772 81x81",
+   "detail": "line-work runs off this activity final on more than one side, so its ring thickness could not be measured",
+   "check": "confirm this is an activity final and how thick its ring is"
+  },
+  {
+   "n": 4,
+   "what": "check",
+   "where": "2989,102 109x133",
+   "detail": "line-work that is neither a connector between two nodes nor the size of text",
+   "check": "decide what this is; the SVG does not draw it"
+  },
+  {
+   "n": 5,
+   "what": "check",
+   "where": "2309,818 152x152",
+   "detail": "the ink at the head end of n2->n7 measures 76x96px, too wide for this diagram's own 52px arrowhead - a junction, not a head",
+   "check": "confirm the arrowhead here is drawn and points the way the original does"
+  },
+  {
+   "n": 6,
+   "what": "check",
+   "where": "2320,1489 152x152",
+   "detail": "the ink at the head end of n9->n11 measures 76x95px, too wide for this diagram's own 52px arrowhead - a junction, not a head",
+   "check": "confirm the arrowhead here is drawn and points the way the original does"
+  }
+ ]
+}

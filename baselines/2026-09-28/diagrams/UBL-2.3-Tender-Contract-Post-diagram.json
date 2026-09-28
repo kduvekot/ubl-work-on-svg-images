@@ -1,0 +1,286 @@
+{
+ "schema": "ubl-activity-diagram/1",
+ "figure": {
+  "name": "UBL-2.3-Tender-Contract-Post",
+  "source": "UBL-2.3-Tender-Contract-Post.png"
+ },
+ "lanes": [
+  {
+   "id": "lane-initiating-party",
+   "axis": "column",
+   "index": 0,
+   "title": "Initiating Party"
+  },
+  {
+   "id": "lane-responding-party",
+   "axis": "column",
+   "index": 1,
+   "title": "Responding Party"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "action-prior-exchange-of-public-keys-in-responding-party",
+   "kind": "action",
+   "label": "Prior exchange of public keys",
+   "lane": "lane-responding-party",
+   "scope": "external",
+   "reference": {
+    "what": "Prior exchange of public keys: a precondition of the contract process, outside its scope",
+    "source": "UBL.xml, after the Tender Contract figures: 'provided for the general understanding of the business choreography'; detailed under UBL Digital Signatures"
+   },
+   "unstated": {
+    "wayIn": "A precondition between the parties (the exchange of public keys), not a step in the sequence: nothing leads into it or out of it.",
+    "wayOut": "A precondition between the parties (the exchange of public keys), not a step in the sequence: nothing leads into it or out of it."
+   }
+  },
+  {
+   "id": "action-prior-exchange-of-public-keys-in-initiating-party",
+   "kind": "action",
+   "label": "Prior exchange of public keys",
+   "lane": "lane-initiating-party",
+   "scope": "external",
+   "reference": {
+    "what": "Prior exchange of public keys: a precondition of the contract process, outside its scope",
+    "source": "UBL.xml, after the Tender Contract figures: 'provided for the general understanding of the business choreography'; detailed under UBL Digital Signatures"
+   },
+   "unstated": {
+    "wayIn": "A precondition between the parties (the exchange of public keys), not a step in the sequence: nothing leads into it or out of it.",
+    "wayOut": "A precondition between the parties (the exchange of public keys), not a step in the sequence: nothing leads into it or out of it."
+   }
+  },
+  {
+   "id": "initial-initiating-party",
+   "kind": "initial",
+   "label": "",
+   "lane": "lane-initiating-party"
+  },
+  {
+   "id": "action-prepare-tender-contract",
+   "kind": "action",
+   "label": "Prepare tender contract",
+   "lane": "lane-initiating-party"
+  },
+  {
+   "id": "object-tender-contract-between-initiating-party-and-responding-party",
+   "kind": "object",
+   "label": "Tender\nContract",
+   "lane": null,
+   "between": [
+    "lane-initiating-party",
+    "lane-responding-party"
+   ]
+  },
+  {
+   "id": "action-receive-tender-contract-in-responding-party",
+   "kind": "action",
+   "label": "Receive tender contract",
+   "lane": "lane-responding-party"
+  },
+  {
+   "id": "action-submit-tender-contract",
+   "kind": "action",
+   "label": "Submit tender contract",
+   "lane": "lane-initiating-party"
+  },
+  {
+   "id": "action-add-w3c-digital-signature-in-responding-party",
+   "kind": "action",
+   "label": "Add W3C Digital Signature",
+   "lane": "lane-responding-party"
+  },
+  {
+   "id": "object-tender-contract-between-initiating-party-and-responding-party-2",
+   "kind": "object",
+   "label": "Tender\nContract",
+   "lane": null,
+   "between": [
+    "lane-initiating-party",
+    "lane-responding-party"
+   ]
+  },
+  {
+   "id": "action-return-tender-contract-in-responding-party",
+   "kind": "action",
+   "label": "Return tender contract",
+   "lane": "lane-responding-party"
+  },
+  {
+   "id": "action-receive-tender-contract-in-initiating-party",
+   "kind": "action",
+   "label": "Receive tender contract",
+   "lane": "lane-initiating-party"
+  },
+  {
+   "id": "action-add-w3c-digital-signature-in-initiating-party",
+   "kind": "action",
+   "label": "Add W3C Digital Signature",
+   "lane": "lane-initiating-party"
+  },
+  {
+   "id": "object-tender-contract-between-initiating-party-and-responding-party-3",
+   "kind": "object",
+   "label": "Tender\nContract",
+   "lane": null,
+   "between": [
+    "lane-initiating-party",
+    "lane-responding-party"
+   ]
+  },
+  {
+   "id": "action-receive-tender-contract-in-responding-party-2",
+   "kind": "action",
+   "label": "Receive tender contract",
+   "lane": "lane-responding-party"
+  },
+  {
+   "id": "action-return-tender-contract-in-initiating-party",
+   "kind": "action",
+   "label": "Return tender contract",
+   "lane": "lane-initiating-party"
+  },
+  {
+   "id": "final-responding-party",
+   "kind": "final",
+   "label": "",
+   "lane": "lane-responding-party"
+  }
+ ],
+ "flows": [
+  {
+   "id": "flow-prior-exchange-of-public-keys-in-responding-party-to-prior-exchange-of-public-keys-in-initiating-party",
+   "from": "action-prior-exchange-of-public-keys-in-responding-party",
+   "to": "action-prior-exchange-of-public-keys-in-initiating-party",
+   "kind": "precondition",
+   "direction": {
+    "confidence": "both-ends"
+   },
+   "bothEnds": true
+  },
+  {
+   "id": "flow-initial-initiating-party-to-prepare-tender-contract",
+   "from": "initial-initiating-party",
+   "to": "action-prepare-tender-contract",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-prepare-tender-contract-to-submit-tender-contract",
+   "from": "action-prepare-tender-contract",
+   "to": "action-submit-tender-contract",
+   "kind": "control",
+   "direction": {
+    "confidence": "checked",
+    "checked": "confirmed"
+   }
+  },
+  {
+   "id": "flow-submit-tender-contract-to-tender-contract-between-initiating-party-and-responding-party",
+   "from": "action-submit-tender-contract",
+   "to": "object-tender-contract-between-initiating-party-and-responding-party",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-tender-contract-between-initiating-party-and-responding-party-to-receive-tender-contract-in-responding-party",
+   "from": "object-tender-contract-between-initiating-party-and-responding-party",
+   "to": "action-receive-tender-contract-in-responding-party",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-receive-tender-contract-in-responding-party-to-add-w3c-digital-signature-in-responding-party",
+   "from": "action-receive-tender-contract-in-responding-party",
+   "to": "action-add-w3c-digital-signature-in-responding-party",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-add-w3c-digital-signature-in-responding-party-to-return-tender-contract-in-responding-party",
+   "from": "action-add-w3c-digital-signature-in-responding-party",
+   "to": "action-return-tender-contract-in-responding-party",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-tender-contract-between-initiating-party-and-responding-party-2-to-receive-tender-contract-in-initiating-party",
+   "from": "object-tender-contract-between-initiating-party-and-responding-party-2",
+   "to": "action-receive-tender-contract-in-initiating-party",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-return-tender-contract-in-responding-party-to-tender-contract-between-initiating-party-and-responding-party-2",
+   "from": "action-return-tender-contract-in-responding-party",
+   "to": "object-tender-contract-between-initiating-party-and-responding-party-2",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-receive-tender-contract-in-initiating-party-to-add-w3c-digital-signature-in-initiating-party",
+   "from": "action-receive-tender-contract-in-initiating-party",
+   "to": "action-add-w3c-digital-signature-in-initiating-party",
+   "kind": "control",
+   "direction": {
+    "confidence": "checked",
+    "checked": "confirmed"
+   }
+  },
+  {
+   "id": "flow-add-w3c-digital-signature-in-initiating-party-to-return-tender-contract-in-initiating-party",
+   "from": "action-add-w3c-digital-signature-in-initiating-party",
+   "to": "action-return-tender-contract-in-initiating-party",
+   "kind": "control",
+   "direction": {
+    "confidence": "checked",
+    "checked": "confirmed"
+   }
+  },
+  {
+   "id": "flow-return-tender-contract-in-initiating-party-to-tender-contract-between-initiating-party-and-responding-party-3",
+   "from": "action-return-tender-contract-in-initiating-party",
+   "to": "object-tender-contract-between-initiating-party-and-responding-party-3",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-tender-contract-between-initiating-party-and-responding-party-3-to-receive-tender-contract-in-responding-party-2",
+   "from": "object-tender-contract-between-initiating-party-and-responding-party-3",
+   "to": "action-receive-tender-contract-in-responding-party-2",
+   "kind": "object",
+   "direction": {
+    "confidence": "checked",
+    "checked": "confirmed"
+   }
+  },
+  {
+   "id": "flow-receive-tender-contract-in-responding-party-2-to-final-responding-party",
+   "from": "action-receive-tender-contract-in-responding-party-2",
+   "to": "final-responding-party",
+   "kind": "control",
+   "direction": {
+    "confidence": "notation"
+   }
+  }
+ ],
+ "texts": [],
+ "offPage": [],
+ "marks": [],
+ "phases": []
+}

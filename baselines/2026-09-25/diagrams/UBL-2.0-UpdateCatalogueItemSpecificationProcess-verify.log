@@ -1,0 +1,25 @@
+  verdict: NEEDS-HUMAN
+  structural: 0 element(s) absent, 0 invented, 0 text absent, 0 text differs, 0 incoherent
+  line-work  missing 2716 px (0.630%)   invented 1801 px (0.417%)   radius 3
+    line-work-missing      876 px at  1043,1538   249x316   near edge n13 -> n15
+    line-work-missing      346 px at  2417,632     48x42    near edge n2 -> n7
+    line-work-missing      342 px at  2670,984     89x90    near edge n9 -> n11
+    line-work-missing      326 px at  1013,1827    24x59    near edge n10 -> n15
+    line-work-missing      259 px at  2678,520     73x38    near edge n2 -> n7
+    line-work-invented     475 px at  1046,1681   145x182   near edge n13 -> n15
+    line-work-invented     218 px at  2679,984     66x67    near edge n9 -> n11
+    line-work-invented     193 px at  2681,515     60x31    near edge n2 -> n7
+    line-work-invented     134 px at  2454,628     26x25    near edge n2 -> n7
+    line-work-invented     128 px at  1034,1824    14x30    near edge n10 -> n15
+    line-work-invented      77 px at  2449,654     37x17    near edge n2 -> n7
+    line-work-invented      71 px at  2486,668     15x6     near edge n2 -> n7
+    ... and 1 more line-work findings
+  needs a person (7):
+    dropped-region     at 1025,1443  a shape here would be missing from the SVG
+    dropped-region     at 645,1908  a shape here would be missing from the SVG
+    dropped-region     at 645,2787  a shape here would be missing from the SVG
+    ring-stroke-unreadable at 3023,3478  confirm this is an activity final and how thick its ring is
+    unexplained-line-work at 196,439  decide what this is; the SVG does not draw it
+    arrowhead-unmeasurable at 2359,593  confirm the arrowhead here is drawn and points the way the original does
+    arrowhead-unmeasurable at 2337,1249  confirm the arrowhead here is drawn and points the way the original does
+review/baseline/UBL-2.0-UpdateCatalogueItemSpecificationProcess-marked.png + review/baseline/UBL-2.0-UpdateCatalogueItemSpecificationProcess-marked-lost.png  (7 finding(s) numbered)

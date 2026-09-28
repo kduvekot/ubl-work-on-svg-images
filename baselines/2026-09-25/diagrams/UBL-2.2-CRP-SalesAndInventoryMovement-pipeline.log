@@ -1,0 +1,11 @@
+== UBL-2.2-CRP-SalesAndInventoryMovement
+  scale 0.43212   frame 10px  divider 4px  action 4px  object 8px
+  font 51px (22.2 model)   2 lanes, 1 bands, 9 nodes, 9 edges -> review/baseline/UBL-2.2-CRP-SalesAndInventoryMovement-spec.json
+  review/baseline/UBL-2.2-CRP-SalesAndInventoryMovement.svg + .drawio + -classified.svg   (9 nodes, 9 edges)
+  rendered UBL-2.2-CRP-SalesAndInventoryMovement.svg -> UBL-2.2-CRP-SalesAndInventoryMovement-render.png @ 3425pxx1746, 600 dpi
+  aligned on ink bounds: scale x 1.0000, y 1.0000
+  size 3425x1746  radius 2
+  ink: original 251349   candidate 249363
+  MISSING (red)     9841  = 3.9153% of original ink
+  EXTRA   (blue)   10221  = 4.0665% of original ink
+  RESULT: DIFFERENCES - inspect review/baseline/UBL-2.2-CRP-SalesAndInventoryMovement-diff-r2.png
