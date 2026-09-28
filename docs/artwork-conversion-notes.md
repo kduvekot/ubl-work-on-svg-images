@@ -1774,7 +1774,16 @@ differences shown.
   Reconcile Charges sends [initial charges or under charged] to *Raise
   Invoice* and [under charged] to *Raise Debit Note* - the two guards overlap,
   so "under charged" does not say which way to go (on the credit-note twin
-  the second branch is [over charged]).
+  the second branch is [over charged]). The fault is new in 2.5: UBL 2.0 to
+  2.4 draw a different process, the Customer raising the Debit Note when
+  [over charged] (os-UBL-2.4 art/UBL-2.0-BillingwithDebitNoteProcess.png,
+  the same drawing since 2.1, and in 2.0 as a JPEG), with the Supplier's
+  diamond sending only [initial charges or under charged] to *Raise
+  Invoice*. The 2.5 figure moves the Debit Note to the Supplier (the text
+  after it now says the Supplier specifies the tax requirements) and was
+  redrawn from the credit-note figure, keeping that guard; most likely the
+  invoice branch should read [initial charges]. For the TC to settle before
+  2.5 is final.
 
 **The notes for a person, all 266 settled by eye (2026-09-27).** The sweep
 leaves, per diagram, notes where the reading could not be sure; each was looked at
