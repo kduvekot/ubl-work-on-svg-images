@@ -4636,6 +4636,22 @@
      "label": "Goodsitem\nPassport\n(Imported)"
     }
    }
+  ],
+  "UBL-2.3-RequestForProofOfReexportationProcess": [
+   {
+    "id": "text-33",
+    "decided": "2026-09-28",
+    "by": "Kees Duvekot, figure-by-figure review",
+    "question": "Figure 38: the reading put a '1' after 'Issue to' that the artwork does not have (the first line reads 'Issue to', x 814 to 895).",
+    "answer": "It reads as the artwork writes it: 'Issue to Relevant Chamber of Commerce'.",
+    "op": "retext",
+    "section": "nodes",
+    "element": "action-issue-to-1-relevant-chamber-of-commerce",
+    "text": "Issue to\nRelevant Chamber\nof Commerce",
+    "was": {
+     "label": "Issue to 1\nRelevant Chamber\nof Commerce"
+    }
+   }
   ]
  },
  "appliedTextFixes": {

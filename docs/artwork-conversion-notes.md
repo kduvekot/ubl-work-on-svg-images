@@ -1819,6 +1819,19 @@ differences shown.
   starting 16px too far left, so running at a shallower angle, and [over
   charged] leaving right of the bottom corner (`draw-33`, `draw-34`). The
   line-work difference went from 0.61% to 0.08%.
+- *Tender Submission of Tenders, Tender Invitation (34, 35 of 78).* Models
+  correct and complete; SVGs faithful.
+- *Figures 36-40, reviewed as a batch (the TC, 2026-09-28: "a self
+  evaluation of the next 5 in one go").* Tender Award Publication, Utility
+  Billing, Request for Proof of Reexportation, Goods Certificate Export and
+  IMFM Transport Progress Status: models correct and complete, SVGs faithful.
+  One fault, fixed: on Request for Proof of Reexportation the reading put a
+  "1" after "Issue to" that the artwork does not have (`text-33`); no other
+  stray single character is left in any of the 78 models. On Goods
+  Certificate Export the artwork's "Draft Goods Certificate" runs over both
+  ends of its box; the SVG keeps it inside (the TC's condition for the node
+  sizing). Utility Billing's *Report usage* has no way in and two unguarded
+  branches, recorded before (and among the future-release points).
 
 **The notes for a person, all 266 settled by eye (2026-09-27).** The sweep
 leaves, per diagram, notes where the reading could not be sure; each was looked at
