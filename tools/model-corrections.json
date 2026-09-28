@@ -4471,6 +4471,62 @@
     "op": "implied-choice",
     "flow": "flow-raise-self-billed-invoice-to-final-accounting-customer",
     "reason": "the step waits on the supplier: no dispute means the charges are accepted and the process ends; a reply leads to Reconcile Charges"
+   },
+   {
+    "decided": "2026-09-28",
+    "by": "Kees Duvekot, figure-by-figure review",
+    "op": "layout",
+    "section": "flows",
+    "id": "draw-33",
+    "question": "Figure 33: the lines into and out of the Customer's Reconcile Charges meet its corners in the artwork; the reading ended the line from Receive Account Response left of the top corner and started [over charged] right of the bottom corner.",
+    "answer": "From Receive Account Response's bottom edge at x 781 into the top corner (494, 1310), as drawn.",
+    "element": "flow-receive-account-response-to-reconcile-charges-in-accounting-customer",
+    "was": {
+     "fromPoint": [
+      765,
+      1174
+     ],
+     "toPoint": [
+      513,
+      1297
+     ]
+    },
+    "set": {
+     "fromPoint": [
+      781,
+      1164
+     ],
+     "toPoint": [
+      494,
+      1310
+     ]
+    }
+   },
+   {
+    "decided": "2026-09-28",
+    "by": "Kees Duvekot, figure-by-figure review",
+    "op": "layout",
+    "section": "flows",
+    "id": "draw-34",
+    "question": "Figure 33: the lines into and out of the Customer's Reconcile Charges meet its corners in the artwork; the reading ended the line from Receive Account Response left of the top corner and started [over charged] right of the bottom corner.",
+    "answer": "From the bottom corner (494, 1515) to the top of Raise Self Billed Credit Note (840, 1726), as drawn.",
+    "element": "flow-reconcile-charges-in-accounting-customer-to-raise-self-billed-credit-note",
+    "was": {
+     "fromPoint": [
+      509,
+      1529
+     ]
+    },
+    "set": {
+     "fromPoint": [
+      494,
+      1515
+     ],
+     "toPoint": [
+      840,
+      1726
+     ]
+    }
    }
   ],
   "UBL-2.3-GoodsItemPassportApprovalProcess": [

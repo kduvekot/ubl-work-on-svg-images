@@ -1812,6 +1812,13 @@ differences shown.
   element, `sub`, here a phase's `title`). And the Buyer's *Send Exception
   Criteria* to *Exception Criteria (response positive)*, one short straight
   line, was drawn with a kink before its head (`draw-32`).
+- *Self Billing with Self Billed Credit Note (33 of 78).* Model correct and
+  complete (16 flows). One drawing fault, fixed: the lines into and out of
+  the Customer's Reconcile Charges meet its corners in the artwork, and were
+  drawn a little beside them - the line from *Receive Account Response*
+  starting 16px too far left, so running at a shallower angle, and [over
+  charged] leaving right of the bottom corner (`draw-33`, `draw-34`). The
+  line-work difference went from 0.61% to 0.08%.
 
 **The notes for a person, all 266 settled by eye (2026-09-27).** The sweep
 leaves, per diagram, notes where the reading could not be sure; each was looked at
