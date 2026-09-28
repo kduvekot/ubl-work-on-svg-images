@@ -1,0 +1,268 @@
+{
+ "canvas": {
+  "w": 1480.0,
+  "h": 621.384
+ },
+ "stroke": {
+  "frame": 4.3,
+  "divider": 6.0,
+  "action": 5.6,
+  "object": 5.2,
+  "edge": 5.6
+ },
+ "font": {
+  "family": "Helvetica, Arial, sans-serif",
+  "node": 32.7,
+  "lane": 32.7,
+  "guard": 32.7
+ },
+ "arrow": 35.1,
+ "arrowWidth": 36.7,
+ "arrowStyle": "open",
+ "dashed": [],
+ "greyRules": [],
+ "crossMarks": [],
+ "openEnds": [],
+ "frameBox": [
+  2.2,
+  2.2,
+  1477.8,
+  619.2
+ ],
+ "dividers": [
+  [
+   698.3,
+   6.0,
+   5.6,
+   615.3
+  ]
+ ],
+ "bands": [],
+ "lanes": [
+  {
+   "id": "lane-tenderer",
+   "title": "TENDERER",
+   "x": 0.0,
+   "w": 698.3,
+   "cx": 324.3,
+   "cy": 45.2,
+   "name": "Tenderer",
+   "size": 32.0,
+   "textWidth": 175.0,
+   "baseline": 56.6
+  },
+  {
+   "id": "lane-contracting-authority",
+   "title": "CONTRACTING AUTHORITY",
+   "x": 698.3,
+   "w": 781.7,
+   "cx": 1082.5,
+   "cy": 45.8,
+   "name": "Contracting Authority",
+   "size": 32.6,
+   "textWidth": 426.9,
+   "baseline": 57.5
+  }
+ ],
+ "bandLabels": [],
+ "captions": [],
+ "nodes": [
+  {
+   "id": "initial-contracting-authority",
+   "kind": "initial",
+   "label": "",
+   "x": 1156.3,
+   "y": 83.0,
+   "w": 50.1,
+   "h": 50.1
+  },
+  {
+   "id": "action-prepare-awarding-notification",
+   "kind": "action",
+   "label": "Prepare awarding notification",
+   "x": 920.6,
+   "y": 199.4,
+   "w": 521.6,
+   "h": 90.7,
+   "rx": 44.3,
+   "ry": 43.9,
+   "labelLines": [
+    {
+     "text": "Prepare awarding notification",
+     "cx": 1178.0,
+     "cy": 242.92999999999998,
+     "w": 410.5,
+     "size": 32.2
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "object-unawarded-notification",
+   "kind": "object",
+   "label": "Unawarded\nNotification",
+   "x": 566.5,
+   "y": 296.9,
+   "w": 252.8,
+   "h": 89.0,
+   "labelLines": [
+    {
+     "text": "Unawarded",
+     "cx": 696.1,
+     "cy": 321.08,
+     "w": 172.0,
+     "size": 33.2
+    },
+    {
+     "text": "Notification",
+     "cx": 695.9,
+     "cy": 360.48,
+     "w": 174.1,
+     "size": 33.2
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-send-awarding-notification",
+   "kind": "action",
+   "label": "Send awarding notification",
+   "x": 941.8,
+   "y": 356.3,
+   "w": 479.2,
+   "h": 90.3,
+   "rx": 43.9,
+   "ry": 47.7,
+   "labelLines": [
+    {
+     "text": "Send awarding notification",
+     "cx": 1180.1,
+     "cy": 399.83000000000004,
+     "w": 372.5,
+     "size": 32.2
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "action-receive-notification",
+   "kind": "action",
+   "label": "Receive notification",
+   "x": 37.8,
+   "y": 357.1,
+   "w": 366.4,
+   "h": 90.3,
+   "rx": 43.4,
+   "ry": 44.3,
+   "labelLines": [
+    {
+     "text": "Receive notification",
+     "cx": 221.7,
+     "cy": 400.73,
+     "w": 273.1,
+     "size": 32.2
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "object-awarded-notification",
+   "kind": "object",
+   "label": "Awarded\nNotification",
+   "x": 566.1,
+   "y": 420.0,
+   "w": 252.4,
+   "h": 89.0,
+   "labelLines": [
+    {
+     "text": "Awarded",
+     "cx": 675.2,
+     "cy": 444.28,
+     "w": 137.8,
+     "size": 33.2
+    },
+    {
+     "text": "Notification",
+     "cx": 695.5,
+     "cy": 483.58,
+     "w": 174.1,
+     "size": 33.2
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "final-tenderer",
+   "kind": "final",
+   "label": "",
+   "x": 184.9,
+   "y": 515.5,
+   "w": 75.2,
+   "h": 75.2,
+   "innerRatio": 0.71
+  }
+ ],
+ "edges": [
+  {
+   "id": "flow-initial-contracting-authority-to-prepare-awarding-notification",
+   "from": "initial-contracting-authority",
+   "to": "action-prepare-awarding-notification",
+   "exitXY": [
+    0.501,
+    1.0
+   ],
+   "entryXY": [
+    0.5,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-prepare-awarding-notification-to-send-awarding-notification",
+   "from": "action-prepare-awarding-notification",
+   "to": "action-send-awarding-notification",
+   "exitXY": [
+    0.5,
+    1.0
+   ],
+   "entryXY": [
+    0.5,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-send-awarding-notification-to-receive-notification",
+   "from": "action-send-awarding-notification",
+   "to": "action-receive-notification",
+   "exitXY": [
+    0.0,
+    0.4994
+   ],
+   "entryXY": [
+    1.0,
+    0.4961
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-receive-notification-to-final-tenderer",
+   "from": "action-receive-notification",
+   "to": "final-tenderer",
+   "exitXY": [
+    0.4995,
+    1.0
+   ],
+   "entryXY": [
+    0.4947,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "medium"
+  }
+ ],
+ "guards": []
+}

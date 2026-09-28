@@ -1,0 +1,645 @@
+{
+ "source": "UBL-2.2-Tender-ExpressionOfInterest.png",
+ "size": [
+  3426,
+  1808
+ ],
+ "fontPx": 70.0,
+ "arrowPx": 79.5,
+ "arrowWidthPx": 67.2,
+ "arrowStyle": "open",
+ "rules": {
+  "v": [
+   [
+    1,
+    8
+   ],
+   [
+    1702,
+    8
+   ],
+   [
+    3411,
+    14
+   ]
+  ],
+  "h": [
+   [
+    1,
+    8
+   ],
+   [
+    1794,
+    8
+   ]
+  ]
+ },
+ "ruleSpan": {
+  "v": [
+   [
+    12,
+    1790
+   ],
+   [
+    12,
+    1790
+   ],
+   [
+    12,
+    1790
+   ]
+  ],
+  "h": [
+   [
+    12,
+    3407
+   ],
+   [
+    12,
+    3407
+   ]
+  ]
+ },
+ "greyRules": [],
+ "dashed": [],
+ "openEnds": [],
+ "crossMarks": [],
+ "partitions": [
+  {
+   "axis": "column",
+   "index": 0,
+   "x0": 0,
+   "x1": 1706,
+   "title": "ECONOMIC OPERATOR",
+   "titleBox": [
+    444,
+    49,
+    759,
+    54
+   ]
+  },
+  {
+   "axis": "column",
+   "index": 1,
+   "x0": 1706,
+   "x1": 3418,
+   "title": "CONTRACTING AUTHORITY",
+   "titleBox": [
+    2098,
+    49,
+    909,
+    54
+   ]
+  },
+  {
+   "axis": "column",
+   "index": 2,
+   "x0": 3418,
+   "x1": 3426,
+   "title": ""
+  },
+  {
+   "axis": "band",
+   "index": 0,
+   "y0": 0,
+   "y1": 1798,
+   "title": ""
+  },
+  {
+   "axis": "band",
+   "index": 1,
+   "y0": 1798,
+   "y1": 1808,
+   "title": ""
+  }
+ ],
+ "nodes": [
+  {
+   "x": 552,
+   "y": 158,
+   "w": 124,
+   "h": 124,
+   "area": 12088,
+   "fill": 1.0,
+   "kind": "initial",
+   "id": "n1",
+   "label": "",
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 112,
+   "y": 395,
+   "w": 1001,
+   "h": 167,
+   "area": 145411,
+   "fill": 0.87,
+   "solid": 0.964,
+   "rx": 84,
+   "ry": 82,
+   "shape": "rounded",
+   "stroke": 8,
+   "kind": "action",
+   "id": "n2",
+   "label": "Prepare expression of interest",
+   "labelLines": [
+    {
+     "x": 178,
+     "y": 445,
+     "w": 884,
+     "h": 62,
+     "text": "Prepare expression of interest"
+    }
+   ],
+   "stem": 0.086,
+   "bold": false,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 1453,
+   "y": 611,
+   "w": 517,
+   "h": 347,
+   "area": 152554,
+   "fill": 0.85,
+   "solid": 1.0,
+   "rx": 0,
+   "ry": 0,
+   "shape": "rect",
+   "stroke": 8,
+   "kind": "object",
+   "id": "n3",
+   "label": "Expression\nOf Interest\nRequest",
+   "labelLines": [
+    {
+     "x": 1487,
+     "y": 646,
+     "w": 400,
+     "h": 68,
+     "text": "Expression"
+    },
+    {
+     "x": 1487,
+     "y": 757,
+     "w": 373,
+     "h": 55,
+     "text": "Of Interest"
+    },
+    {
+     "x": 1488,
+     "y": 861,
+     "w": 297,
+     "h": 69,
+     "text": "Request"
+    }
+   ],
+   "stem": 0.157,
+   "bold": true,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 106,
+   "y": 698,
+   "w": 1012,
+   "h": 173,
+   "area": 154906,
+   "fill": 0.885,
+   "solid": 0.966,
+   "rx": 87,
+   "ry": 83,
+   "shape": "rounded",
+   "stroke": 8,
+   "kind": "action",
+   "id": "n4",
+   "label": "Submit expression of interest",
+   "labelLines": [
+    {
+     "x": 194,
+     "y": 749,
+     "w": 856,
+     "h": 61,
+     "text": "Submit expression of interest"
+    }
+   ],
+   "stem": 0.086,
+   "bold": false,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 2264,
+   "y": 698,
+   "w": 1036,
+   "h": 179,
+   "area": 164144,
+   "fill": 0.885,
+   "solid": 0.967,
+   "rx": 87,
+   "ry": 88,
+   "shape": "rounded",
+   "stroke": 8,
+   "kind": "action",
+   "id": "n5",
+   "label": "Receive expression of interest",
+   "labelLines": [
+    {
+     "x": 2347,
+     "y": 749,
+     "w": 888,
+     "h": 61,
+     "text": "Receive expression of interest"
+    }
+   ],
+   "stem": 0.086,
+   "bold": false,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 1453,
+   "y": 1150,
+   "w": 517,
+   "h": 328,
+   "area": 141102,
+   "fill": 0.832,
+   "solid": 1.0,
+   "rx": 2,
+   "ry": 2,
+   "shape": "rect",
+   "stroke": 8,
+   "kind": "object",
+   "id": "n6",
+   "label": "Expression\nOf Interest\nResponse",
+   "labelLines": [
+    {
+     "x": 1487,
+     "y": 1193,
+     "w": 400,
+     "h": 69,
+     "text": "Expression"
+    },
+    {
+     "x": 1487,
+     "y": 1292,
+     "w": 373,
+     "h": 55,
+     "text": "Of Interest"
+    },
+    {
+     "x": 1488,
+     "y": 1388,
+     "w": 355,
+     "h": 69,
+     "text": "Response"
+    }
+   ],
+   "stem": 0.157,
+   "bold": true,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 135,
+   "y": 1217,
+   "w": 954,
+   "h": 225,
+   "area": 187202,
+   "fill": 0.872,
+   "solid": 0.972,
+   "rx": 88,
+   "ry": 85,
+   "shape": "rounded",
+   "stroke": 8,
+   "kind": "action",
+   "id": "n7",
+   "label": "Receive expression of interest\nconfirmation",
+   "labelLines": [
+    {
+     "x": 167,
+     "y": 1268,
+     "w": 888,
+     "h": 61,
+     "text": "Receive expression of interest"
+    },
+    {
+     "x": 433,
+     "y": 1343,
+     "w": 356,
+     "h": 50,
+     "text": "confirmation"
+    }
+   ],
+   "stem": 0.086,
+   "bold": false,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 2264,
+   "y": 1223,
+   "w": 1036,
+   "h": 213,
+   "area": 194048,
+   "fill": 0.879,
+   "solid": 0.973,
+   "rx": 86,
+   "ry": 87,
+   "shape": "rounded",
+   "stroke": 8,
+   "kind": "action",
+   "id": "n8",
+   "label": "Submit expression of interest\nconfirmation",
+   "labelLines": [
+    {
+     "x": 2356,
+     "y": 1273,
+     "w": 857,
+     "h": 62,
+     "text": "Submit expression of interest"
+    },
+    {
+     "x": 2607,
+     "y": 1349,
+     "w": 356,
+     "h": 50,
+     "text": "confirmation"
+    }
+   ],
+   "stem": 0.086,
+   "bold": false,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 561,
+   "y": 1596,
+   "w": 108,
+   "h": 109,
+   "area": 6836,
+   "fill": 0.581,
+   "solid": 0.782,
+   "rx": 50,
+   "ry": 54,
+   "shape": "rounded",
+   "stroke": 8,
+   "kind": "final",
+   "innerRatio": 0.5,
+   "id": "n9",
+   "label": "",
+   "col": 0,
+   "row": 0
+  }
+ ],
+ "edges": [
+  {
+   "from": "n1",
+   "to": "n2",
+   "routing": "straight",
+   "fromPoint": [
+    614,
+    296
+   ],
+   "toPoint": [
+    612,
+    380
+   ],
+   "arrowInk": [
+    976,
+    1117
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    75,
+    66.7,
+    2.1
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n2",
+   "to": "n4",
+   "routing": "straight",
+   "fromPoint": [
+    612,
+    576
+   ],
+   "toPoint": [
+    612,
+    683
+   ],
+   "arrowInk": [
+    565,
+    1118
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    75,
+    70.0,
+    2.15
+   ],
+   "arrowFill": 0.006,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n4",
+   "to": "n3",
+   "routing": "straight",
+   "fromPoint": [
+    1132,
+    781
+   ],
+   "toPoint": [
+    1438,
+    781
+   ],
+   "arrowInk": [
+    405,
+    1153
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    80,
+    66.0,
+    2.39
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n3",
+   "to": "n5",
+   "routing": "straight",
+   "fromPoint": [
+    1984,
+    780
+   ],
+   "toPoint": [
+    2249,
+    782
+   ],
+   "arrowInk": [
+    405,
+    1155
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    80,
+    66.9,
+    2.28
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n5",
+   "to": "n8",
+   "routing": "straight",
+   "fromPoint": [
+    2784,
+    891
+   ],
+   "toPoint": [
+    2784,
+    1208
+   ],
+   "arrowInk": [
+    360,
+    1115
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    81,
+    66.0,
+    2.34
+   ],
+   "arrowFill": 0.048,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n6",
+   "to": "n7",
+   "routing": "straight",
+   "fromPoint": [
+    1438,
+    1321
+   ],
+   "toPoint": [
+    1103,
+    1326
+   ],
+   "arrowInk": [
+    368,
+    1016
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    85,
+    67.8,
+    2.42
+   ],
+   "arrowFill": 0.073,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n8",
+   "to": "n6",
+   "routing": "straight",
+   "fromPoint": [
+    2249,
+    1326
+   ],
+   "toPoint": [
+    1984,
+    1321
+   ],
+   "arrowInk": [
+    368,
+    1089
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    79,
+    67.4,
+    2.14
+   ],
+   "arrowFill": 0.053,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n7",
+   "to": "n9",
+   "routing": "straight",
+   "fromPoint": [
+    612,
+    1456
+   ],
+   "toPoint": [
+    615,
+    1581
+   ],
+   "arrowInk": [
+    360,
+    1118
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    74,
+    67.5,
+    2.43
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "control"
+  }
+ ],
+ "text": [
+  {
+   "text": "ECONOMIC OPERATOR",
+   "x": 444,
+   "y": 49,
+   "w": 759,
+   "h": 54,
+   "lines": [
+    {
+     "x": 444,
+     "y": 49,
+     "w": 759,
+     "h": 54,
+     "text": "ECONOMIC OPERATOR"
+    }
+   ]
+  },
+  {
+   "text": "CONTRACTING AUTHORITY",
+   "x": 2098,
+   "y": 49,
+   "w": 909,
+   "h": 54,
+   "lines": [
+    {
+     "x": 2098,
+     "y": 49,
+     "w": 909,
+     "h": 54,
+     "text": "CONTRACTING AUTHORITY"
+    }
+   ]
+  }
+ ],
+ "uncertain": [
+  {
+   "x": 1710,
+   "y": 786,
+   "w": 1071,
+   "h": 534,
+   "shape": "ellipse",
+   "iou": 0.751,
+   "border": 0.584,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best ellipse 0.75, and 0.99 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  }
+ ]
+}

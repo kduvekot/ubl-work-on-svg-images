@@ -1,0 +1,99 @@
+{
+ "schema": "ubl-activity-diagram/1",
+ "figure": {
+  "name": "UBL-2.3-CommonTransportationReportProcess",
+  "source": "UBL-2.3-CommonTransportationReportProcess.png"
+ },
+ "lanes": [
+  {
+   "id": "lane-reporter-party",
+   "axis": "column",
+   "index": 0,
+   "title": "Reporter Party"
+  },
+  {
+   "id": "lane-authority-party",
+   "axis": "column",
+   "index": 1,
+   "title": "Authority Party"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "initial-reporter-party",
+   "kind": "initial",
+   "label": "",
+   "lane": "lane-reporter-party"
+  },
+  {
+   "id": "object-common-transportation-report",
+   "kind": "object",
+   "label": "Common\nTransportation Report",
+   "lane": null,
+   "between": [
+    "lane-reporter-party",
+    "lane-authority-party"
+   ]
+  },
+  {
+   "id": "action-send-report",
+   "kind": "action",
+   "label": "Send report",
+   "lane": "lane-reporter-party"
+  },
+  {
+   "id": "action-receive-report",
+   "kind": "action",
+   "label": "Receive Report",
+   "lane": "lane-authority-party"
+  },
+  {
+   "id": "final-authority-party",
+   "kind": "final",
+   "label": "",
+   "lane": "lane-authority-party"
+  }
+ ],
+ "flows": [
+  {
+   "id": "flow-initial-reporter-party-to-send-report",
+   "from": "initial-reporter-party",
+   "to": "action-send-report",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-send-report-to-common-transportation-report",
+   "from": "action-send-report",
+   "to": "object-common-transportation-report",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-common-transportation-report-to-receive-report",
+   "from": "object-common-transportation-report",
+   "to": "action-receive-report",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-receive-report-to-final-authority-party",
+   "from": "action-receive-report",
+   "to": "final-authority-party",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  }
+ ],
+ "texts": [],
+ "offPage": [],
+ "marks": [],
+ "phases": []
+}

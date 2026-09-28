@@ -1,0 +1,10 @@
+  verdict: CORRECT
+  structural: 0 element(s) absent, 0 invented, 0 text absent, 0 text differs, 0 incoherent
+  line-work  missing 817 px (0.388%)   invented 752 px (0.357%)   radius 3
+    line-work-missing      100 px at   610,574      2x73    near edge n2 -> n5
+    line-work-missing       95 px at   182,469      3x34    on node n2 (action 'Prepare tender withd')
+    line-work-missing       94 px at   139,456      2x47    on node n2 (action 'Prepare tender withd')
+    line-work-invented     150 px at   625,612     27x76    near edge n2 -> n5
+    line-work-invented     107 px at   622,573      2x74    near edge n2 -> n5
+    line-work-invented      66 px at   191,479      3x24    on node n2 (action 'Prepare tender withd')
+/tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-2.2-Tender-Withdrawal-marked.png + /tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-2.2-Tender-Withdrawal-marked-lost.png  (0 finding(s) numbered)

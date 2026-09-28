@@ -1,0 +1,11 @@
+== UBL-2.2-IMFM-TransportServiceDescription
+  UBL-2.2-IMFM-TransportServiceDescription -> diagram, layout, extraction  (8 nodes, 7 flows, 0 texts)
+  scale 0.43212   frame 10px  divider 8px  action 8px  object 16px
+  font 74px (32.1 model)   2 lanes, 0 bands, 8 nodes, 7 edges -> /tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-2.2-IMFM-TransportServiceDescription-spec.json
+  /tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-2.2-IMFM-TransportServiceDescription.svg + .drawio + -classified.svg   (8 nodes, 7 edges)
+  aligned on ink bounds: scale x 1.0000, y 1.0000
+  size 3425x2013  radius 2
+  ink: original 486501   candidate 477118
+  MISSING (red)     9623  = 1.9780% of original ink
+  EXTRA   (blue)    7840  = 1.6115% of original ink
+  RESULT: DIFFERENCES - inspect /tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-2.2-IMFM-TransportServiceDescription-diff-r2.png

@@ -1,0 +1,300 @@
+{
+ "schema": "ubl-activity-diagram-layout/1",
+ "figure": "UBL-2.2-IMFM-GoodsItemItinerary",
+ "units": "px of the original PNG",
+ "size": [
+  3425,
+  1258
+ ],
+ "style": {
+  "fontPx": 61.4,
+  "arrowPx": 82.5,
+  "arrowWidthPx": 66.2,
+  "arrowStyle": "open"
+ },
+ "rules": {
+  "vertical": [
+   {
+    "at": 0,
+    "width": 10,
+    "span": [
+     13,
+     1244
+    ]
+   },
+   {
+    "at": 1504,
+    "width": 7,
+    "span": [
+     13,
+     1244
+    ]
+   },
+   {
+    "at": 3415,
+    "width": 10,
+    "span": [
+     13,
+     1244
+    ]
+   }
+  ],
+  "horizontal": [
+   {
+    "at": 0,
+    "width": 10,
+    "span": [
+     13,
+     3411
+    ]
+   },
+   {
+    "at": 1248,
+    "width": 10,
+    "span": [
+     13,
+     3411
+    ]
+   }
+  ]
+ },
+ "greyRules": [],
+ "lanes": {
+  "lane-transport-user": {
+   "x0": 0,
+   "x1": 1508,
+   "titleBox": [
+    550,
+    58,
+    384,
+    53
+   ]
+  },
+  "lane-transport-service-provider": {
+   "x0": 1508,
+   "x1": 3425,
+   "titleBox": [
+    2092,
+    57,
+    687,
+    54
+   ]
+  }
+ },
+ "nodes": {
+  "initial-transport-service-provider": {
+   "x": 2441,
+   "y": 184,
+   "w": 117,
+   "h": 117
+  },
+  "object-goods-item-itinerary": {
+   "x": 1201,
+   "y": 575,
+   "w": 607,
+   "h": 242,
+   "shape": "rect",
+   "stroke": 12,
+   "rx": 2,
+   "ry": 2,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 1353,
+     "y": 631,
+     "w": 311,
+     "h": 44,
+     "text": "Goods Item"
+    },
+    {
+     "x": 1390,
+     "y": 696,
+     "w": 228,
+     "h": 54,
+     "text": "Itinerary"
+    }
+   ]
+  },
+  "action-send-goods-item-itinerary": {
+   "x": 2136,
+   "y": 578,
+   "w": 768,
+   "h": 225,
+   "shape": "rounded",
+   "stroke": 6,
+   "rx": 85,
+   "ry": 88,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 2166,
+     "y": 663,
+     "w": 716,
+     "h": 55,
+     "text": "Send Goods Item Itinerary"
+    }
+   ]
+  },
+  "action-receive-goods-item-itinerary": {
+   "x": 88,
+   "y": 584,
+   "w": 768,
+   "h": 219,
+   "shape": "rounded",
+   "stroke": 7,
+   "rx": 85,
+   "ry": 91,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 181,
+     "y": 637,
+     "w": 545,
+     "h": 44,
+     "text": "Receive Goods Item"
+    },
+    {
+     "x": 361,
+     "y": 713,
+     "w": 221,
+     "h": 54,
+     "text": "Itinerary"
+    }
+   ]
+  },
+  "initial-transport-service-provider-2": {
+   "x": 3205,
+   "y": 653,
+   "w": 117,
+   "h": 116
+  },
+  "final-transport-user": {
+   "x": 377,
+   "y": 1082,
+   "w": 103,
+   "h": 103,
+   "shape": "ellipse",
+   "stroke": 6,
+   "rx": 47,
+   "ry": 53,
+   "innerRatio": 0.447
+  }
+ },
+ "flows": {
+  "flow-initial-transport-service-provider-to-send-goods-item-itinerary": {
+   "fromPoint": [
+    2499,
+    315
+   ],
+   "toPoint": [
+    2505,
+    563
+   ],
+   "routing": "straight"
+  },
+  "flow-send-goods-item-itinerary-to-goods-item-itinerary": {
+   "fromPoint": [
+    2121,
+    690
+   ],
+   "toPoint": [
+    1822,
+    690
+   ],
+   "routing": "straight"
+  },
+  "flow-goods-item-itinerary-to-receive-goods-item-itinerary": {
+   "fromPoint": [
+    1186,
+    697
+   ],
+   "toPoint": [
+    870,
+    695
+   ],
+   "routing": "straight"
+  },
+  "flow-initial-transport-service-provider-2-to-send-goods-item-itinerary": {
+   "fromPoint": [
+    3190,
+    709
+   ],
+   "toPoint": [
+    2918,
+    701
+   ],
+   "routing": "straight"
+  },
+  "flow-receive-goods-item-itinerary-to-final-transport-user": {
+   "fromPoint": [
+    433,
+    817
+   ],
+   "toPoint": [
+    429,
+    1067
+   ],
+   "routing": "straight"
+  }
+ },
+ "texts": {
+  "text-transport-execution-plan-confirmed": {
+   "x": 2554,
+   "y": 360,
+   "w": 508,
+   "h": 118,
+   "lines": [
+    {
+     "x": 2551,
+     "y": 360,
+     "w": 511,
+     "h": 54,
+     "text": "Transport Execution"
+    },
+    {
+     "x": 2554,
+     "y": 435,
+     "w": 390,
+     "h": 43,
+     "text": "Plan Confirmed"
+    }
+   ]
+  },
+  "text-transport-execution-updates": {
+   "x": 3095,
+   "y": 811,
+   "w": 248,
+   "h": 203,
+   "lines": [
+    {
+     "x": 3095,
+     "y": 811,
+     "w": 245,
+     "h": 53,
+     "text": "Transport"
+    },
+    {
+     "x": 3098,
+     "y": 886,
+     "w": 245,
+     "h": 42,
+     "text": "Execution"
+    },
+    {
+     "x": 3098,
+     "y": 961,
+     "w": 208,
+     "h": 53,
+     "text": "Updates"
+    }
+   ]
+  }
+ },
+ "offPage": {},
+ "marks": {},
+ "phases": {},
+ "rulesHaveSpans": {
+  "vertical": true,
+  "horizontal": true
+ }
+}

@@ -1,0 +1,1222 @@
+{
+ "source": "UBL-2.2-VMI-PermanentReplenishment.png",
+ "size": [
+  3425,
+  3211
+ ],
+ "fontPx": 51.4,
+ "arrowPx": 51.0,
+ "arrowWidthPx": 42.0,
+ "arrowStyle": "open",
+ "rules": {
+  "v": [
+   [
+    0,
+    10
+   ],
+   [
+    1406,
+    4
+   ],
+   [
+    3415,
+    10
+   ]
+  ],
+  "h": [
+   [
+    0,
+    10
+   ],
+   [
+    3201,
+    10
+   ]
+  ]
+ },
+ "ruleSpan": {
+  "v": [
+   [
+    13,
+    3197
+   ],
+   [
+    13,
+    3197
+   ],
+   [
+    13,
+    3197
+   ]
+  ],
+  "h": [
+   [
+    13,
+    3411
+   ],
+   [
+    13,
+    3411
+   ]
+  ]
+ },
+ "greyRules": [],
+ "dashed": [],
+ "openEnds": [],
+ "crossMarks": [],
+ "partitions": [
+  {
+   "axis": "column",
+   "index": 0,
+   "x0": 0,
+   "x1": 1408,
+   "title": "Producer",
+   "titleBox": [
+    566,
+    49,
+    195,
+    36
+   ]
+  },
+  {
+   "axis": "column",
+   "index": 1,
+   "x0": 1408,
+   "x1": 3425,
+   "title": "Retailer",
+   "titleBox": [
+    2306,
+    50,
+    165,
+    36
+   ]
+  },
+  {
+   "axis": "band",
+   "index": 0,
+   "y0": 0,
+   "y1": 3211,
+   "title": ""
+  }
+ ],
+ "nodes": [
+  {
+   "x": 618,
+   "y": 150,
+   "w": 79,
+   "h": 80,
+   "area": 4071,
+   "fill": 0.754,
+   "kind": "initial",
+   "id": "n1",
+   "label": "",
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 608,
+   "y": 367,
+   "w": 91,
+   "h": 77,
+   "area": 3554,
+   "fill": 0.507,
+   "solid": 0.507,
+   "rx": 51,
+   "ry": 43,
+   "shape": "rhombus",
+   "stroke": 4,
+   "kind": "decision",
+   "id": "n2",
+   "label": "",
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 1250,
+   "y": 791,
+   "w": 313,
+   "h": 124,
+   "area": 34799,
+   "fill": 0.897,
+   "solid": 1.0,
+   "rx": 0,
+   "ry": 0,
+   "shape": "rect",
+   "stroke": 8,
+   "kind": "object",
+   "id": "n4",
+   "label": "Catalogue",
+   "labelLines": [
+    {
+     "x": 1297,
+     "y": 831,
+     "w": 233,
+     "h": 46,
+     "text": "Catalogue"
+    }
+   ],
+   "stem": 0.136,
+   "bold": true,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 388,
+   "y": 793,
+   "w": 502,
+   "h": 113,
+   "area": 49551,
+   "fill": 0.874,
+   "solid": 0.98,
+   "rx": 53.5,
+   "ry": 32,
+   "shape": "rounded",
+   "stroke": 4,
+   "kind": "action",
+   "id": "n5",
+   "label": "Send Catalogue",
+   "labelLines": [
+    {
+     "x": 448,
+     "y": 831,
+     "w": 367,
+     "h": 46,
+     "text": "Send Catalogue"
+    }
+   ],
+   "stem": 0.136,
+   "bold": true,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 2642,
+   "y": 804,
+   "w": 697,
+   "h": 117,
+   "area": 70141,
+   "fill": 0.86,
+   "solid": 0.986,
+   "rx": 53.5,
+   "ry": 31,
+   "shape": "rounded",
+   "stroke": 4,
+   "kind": "action",
+   "id": "n6",
+   "label": "Update products database",
+   "labelLines": [
+    {
+     "x": 2684,
+     "y": 843,
+     "w": 611,
+     "h": 45,
+     "text": "Update products database"
+    }
+   ],
+   "stem": 0.136,
+   "bold": true,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 1954,
+   "y": 808,
+   "w": 502,
+   "h": 117,
+   "area": 50655,
+   "fill": 0.862,
+   "solid": 0.98,
+   "rx": 53.5,
+   "ry": 43,
+   "shape": "rounded",
+   "stroke": 4,
+   "kind": "action",
+   "id": "n7",
+   "label": "Receive Catalogue",
+   "labelLines": [
+    {
+     "x": 1982,
+     "y": 846,
+     "w": 431,
+     "h": 46,
+     "text": "Receive Catalogue"
+    }
+   ],
+   "stem": 0.136,
+   "bold": true,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 1201,
+   "y": 1135,
+   "w": 415,
+   "h": 125,
+   "area": 45406,
+   "fill": 0.875,
+   "solid": 1.0,
+   "rx": 0,
+   "ry": 0,
+   "shape": "rect",
+   "stroke": 8,
+   "kind": "object",
+   "id": "n8",
+   "label": "Despatch Advice",
+   "labelLines": [
+    {
+     "x": 1214,
+     "y": 1175,
+     "w": 392,
+     "h": 45,
+     "text": "Despatch Advice"
+    }
+   ],
+   "stem": 0.136,
+   "bold": true,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 399,
+   "y": 1137,
+   "w": 517,
+   "h": 143,
+   "area": 63973,
+   "fill": 0.865,
+   "solid": 0.981,
+   "rx": 66,
+   "ry": 44,
+   "shape": "rounded",
+   "stroke": 4,
+   "kind": "action",
+   "id": "n9",
+   "label": "Send Despatch\nAdvice",
+   "labelLines": [
+    {
+     "x": 474,
+     "y": 1164,
+     "w": 349,
+     "h": 46,
+     "text": "Send Despatch"
+    },
+    {
+     "x": 579,
+     "y": 1226,
+     "w": 158,
+     "h": 35,
+     "text": "Advice"
+    }
+   ],
+   "stem": 0.136,
+   "bold": true,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 1890,
+   "y": 1141,
+   "w": 751,
+   "h": 117,
+   "area": 77265,
+   "fill": 0.879,
+   "solid": 0.986,
+   "rx": 55,
+   "ry": 38,
+   "shape": "rounded",
+   "stroke": 4,
+   "kind": "action",
+   "id": "n10",
+   "label": "Receive Despatch Advice",
+   "labelLines": [
+    {
+     "x": 1967,
+     "y": 1179,
+     "w": 590,
+     "h": 45,
+     "text": "Receive Despatch Advice"
+    }
+   ],
+   "stem": 0.136,
+   "bold": true,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 373,
+   "y": 1511,
+   "w": 573,
+   "h": 117,
+   "area": 59517,
+   "fill": 0.888,
+   "solid": 0.984,
+   "rx": 57,
+   "ry": 32,
+   "shape": "rounded",
+   "stroke": 4,
+   "kind": "action",
+   "id": "n11",
+   "label": "Despatch item(s)",
+   "labelLines": [
+    {
+     "x": 468,
+     "y": 1549,
+     "w": 390,
+     "h": 46,
+     "text": "Despatch item(s)"
+    }
+   ],
+   "stem": 0.136,
+   "bold": true,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 1917,
+   "y": 1515,
+   "w": 573,
+   "h": 117,
+   "area": 60571,
+   "fill": 0.903,
+   "solid": 0.983,
+   "rx": 51,
+   "ry": 33,
+   "shape": "rounded",
+   "stroke": 5,
+   "kind": "action",
+   "id": "n12",
+   "label": "Receive item(s)",
+   "labelLines": [
+    {
+     "x": 2024,
+     "y": 1552,
+     "w": 354,
+     "h": 47,
+     "text": "Receive item(s)"
+    }
+   ],
+   "stem": 0.136,
+   "bold": true,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 2015,
+   "y": 1855,
+   "w": 1159,
+   "h": 22,
+   "area": 18483,
+   "fill": 0.573,
+   "kind": "fork",
+   "band": 22,
+   "box": 34,
+   "lumps": 3,
+   "id": "n13",
+   "label": "",
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 2302,
+   "y": 2154,
+   "w": 577,
+   "h": 120,
+   "area": 60557,
+   "fill": 0.875,
+   "solid": 0.984,
+   "rx": 52,
+   "ry": 34,
+   "shape": "rounded",
+   "stroke": 5,
+   "kind": "action",
+   "id": "n14",
+   "label": "Check status of item(s)",
+   "labelLines": [
+    {
+     "x": 2328,
+     "y": 2191,
+     "w": 536,
+     "h": 46,
+     "text": "Check status of item(s)"
+    }
+   ],
+   "stem": 0.136,
+   "bold": true,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 1197,
+   "y": 2454,
+   "w": 419,
+   "h": 128,
+   "area": 47991,
+   "fill": 0.895,
+   "solid": 1.0,
+   "rx": 0,
+   "ry": 0,
+   "shape": "rect",
+   "stroke": 8,
+   "kind": "object",
+   "id": "n15",
+   "label": "Receipt Advice",
+   "labelLines": [
+    {
+     "x": 1235,
+     "y": 2494,
+     "w": 349,
+     "h": 45,
+     "text": "Receipt Advice"
+    }
+   ],
+   "stem": 0.136,
+   "bold": true,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 2298,
+   "y": 2455,
+   "w": 577,
+   "h": 117,
+   "area": 58602,
+   "fill": 0.868,
+   "solid": 0.982,
+   "rx": 53.5,
+   "ry": 35,
+   "shape": "rounded",
+   "stroke": 4,
+   "kind": "action",
+   "id": "n16",
+   "label": "Send Receipt Advice",
+   "labelLines": [
+    {
+     "x": 2339,
+     "y": 2493,
+     "w": 482,
+     "h": 46,
+     "text": "Send Receipt Advice"
+    }
+   ],
+   "stem": 0.136,
+   "bold": true,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 407,
+   "y": 2463,
+   "w": 577,
+   "h": 113,
+   "area": 55415,
+   "fill": 0.85,
+   "solid": 0.983,
+   "rx": 53.5,
+   "ry": 31,
+   "shape": "rounded",
+   "stroke": 4,
+   "kind": "action",
+   "id": "n17",
+   "label": "Receive Receipt Advice",
+   "labelLines": [
+    {
+     "x": 419,
+     "y": 2501,
+     "w": 546,
+     "h": 45,
+     "text": "Receive Receipt Advice"
+    }
+   ],
+   "stem": 0.136,
+   "bold": true,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 407,
+   "y": 2754,
+   "w": 577,
+   "h": 121,
+   "area": 61049,
+   "fill": 0.874,
+   "solid": 0.982,
+   "rx": 53.5,
+   "ry": 33,
+   "shape": "rounded",
+   "stroke": 4,
+   "kind": "action",
+   "id": "n18",
+   "label": "Adjust supply status",
+   "labelLines": [
+    {
+     "x": 461,
+     "y": 2792,
+     "w": 480,
+     "h": 46,
+     "text": "Adjust supply status"
+    }
+   ],
+   "stem": 0.136,
+   "bold": true,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 663,
+   "y": 3106,
+   "w": 68,
+   "h": 67,
+   "area": 2846,
+   "fill": 0.625,
+   "solid": 0.786,
+   "rx": 31,
+   "ry": 37,
+   "shape": "ellipse",
+   "stroke": 4,
+   "kind": "final",
+   "innerRatio": 0.426,
+   "id": "n19",
+   "label": "",
+   "col": 0,
+   "row": 0
+  }
+ ],
+ "edges": [
+  {
+   "from": "n1",
+   "to": "n2",
+   "routing": "straight",
+   "fromPoint": [
+    655,
+    244
+   ],
+   "toPoint": [
+    653,
+    352
+   ],
+   "arrowInk": [
+    180,
+    571
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    53,
+    41.5,
+    2.16
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n2",
+   "to": "n9",
+   "routing": "orthogonal",
+   "fromPoint": [
+    593,
+    406
+   ],
+   "toPoint": [
+    384,
+    1207
+   ],
+   "arrowInk": [
+    184,
+    561
+   ],
+   "directionConfidence": "high",
+   "points": [
+    [
+     84,
+     406
+    ],
+    [
+     84,
+     1207
+    ]
+   ],
+   "arrowPx": [
+    48,
+    44.3,
+    1.84
+   ],
+   "arrowFill": 0.049,
+   "guard": "Producer",
+   "edgeKind": "control"
+  },
+  {
+   "from": "n2",
+   "to": "n5",
+   "routing": "straight",
+   "fromPoint": [
+    654,
+    458
+   ],
+   "toPoint": [
+    652,
+    778
+   ],
+   "arrowInk": [
+    319,
+    563
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    51,
+    43.5,
+    1.96
+   ],
+   "arrowFill": 0.0,
+   "guard": "False",
+   "edgeKind": "control"
+  },
+  {
+   "from": "n5",
+   "to": "n4",
+   "routing": "straight",
+   "fromPoint": [
+    904,
+    850
+   ],
+   "toPoint": [
+    1235,
+    851
+   ],
+   "arrowInk": [
+    180,
+    583
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    52,
+    41.7,
+    2.46
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n4",
+   "to": "n7",
+   "routing": "straight",
+   "fromPoint": [
+    1577,
+    853
+   ],
+   "toPoint": [
+    1939,
+    856
+   ],
+   "arrowInk": [
+    180,
+    562
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    51,
+    43.4,
+    1.99
+   ],
+   "arrowFill": 0.076,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n7",
+   "to": "n6",
+   "routing": "straight",
+   "fromPoint": [
+    2470,
+    863
+   ],
+   "toPoint": [
+    2627,
+    862
+   ],
+   "arrowInk": [
+    180,
+    562
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    50,
+    41.5,
+    2.12
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n5",
+   "to": "n9",
+   "routing": "straight",
+   "fromPoint": [
+    648,
+    920
+   ],
+   "toPoint": [
+    652,
+    1122
+   ],
+   "arrowInk": [
+    180,
+    563
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    51,
+    44.4,
+    1.86
+   ],
+   "arrowFill": 0.093,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n6",
+   "to": "n13",
+   "routing": "straight",
+   "fromPoint": [
+    2990,
+    935
+   ],
+   "toPoint": [
+    2990,
+    1840
+   ],
+   "arrowInk": [
+    225,
+    570
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    54,
+    40.0,
+    3.77
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n7",
+   "to": "n10",
+   "routing": "straight",
+   "fromPoint": [
+    2204,
+    939
+   ],
+   "toPoint": [
+    2207,
+    1126
+   ],
+   "arrowInk": [
+    180,
+    563
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    51,
+    44.7,
+    1.87
+   ],
+   "arrowFill": 0.084,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n9",
+   "to": "n8",
+   "routing": "straight",
+   "fromPoint": [
+    930,
+    1203
+   ],
+   "toPoint": [
+    1186,
+    1198
+   ],
+   "arrowInk": [
+    180,
+    585
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    52,
+    41.8,
+    2.44
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n8",
+   "to": "n10",
+   "routing": "straight",
+   "fromPoint": [
+    1630,
+    1198
+   ],
+   "toPoint": [
+    1875,
+    1199
+   ],
+   "arrowInk": [
+    180,
+    561
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    51,
+    41.7,
+    2.05
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n10",
+   "to": "n13",
+   "routing": "straight",
+   "fromPoint": [
+    2552,
+    1272
+   ],
+   "toPoint": [
+    2553,
+    1840
+   ],
+   "arrowInk": [
+    180,
+    528
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    50,
+    41.9,
+    1.9
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n9",
+   "to": "n11",
+   "routing": "straight",
+   "fromPoint": [
+    649,
+    1294
+   ],
+   "toPoint": [
+    651,
+    1496
+   ],
+   "arrowInk": [
+    180,
+    565
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    51,
+    43.2,
+    1.94
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n11",
+   "to": "n12",
+   "routing": "straight",
+   "fromPoint": [
+    960,
+    1569
+   ],
+   "toPoint": [
+    1902,
+    1569
+   ],
+   "arrowInk": [
+    180,
+    569
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    52,
+    42.0,
+    2.1
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "goods"
+  },
+  {
+   "from": "n12",
+   "to": "n13",
+   "routing": "straight",
+   "fromPoint": [
+    2203,
+    1646
+   ],
+   "toPoint": [
+    2206,
+    1840
+   ],
+   "arrowInk": [
+    180,
+    525
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    50,
+    40.6,
+    3.23
+   ],
+   "arrowSaturated": true,
+   "arrowFill": 0.007,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n13",
+   "to": "n14",
+   "routing": "straight",
+   "fromPoint": [
+    2590,
+    1891
+   ],
+   "toPoint": [
+    2590,
+    2139
+   ],
+   "arrowInk": [
+    180,
+    570
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    52,
+    42.0,
+    2.11
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n14",
+   "to": "n16",
+   "routing": "straight",
+   "fromPoint": [
+    2587,
+    2288
+   ],
+   "toPoint": [
+    2586,
+    2440
+   ],
+   "arrowInk": [
+    180,
+    555
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    50,
+    41.5,
+    2.06
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n16",
+   "to": "n15",
+   "routing": "straight",
+   "fromPoint": [
+    2283,
+    2513
+   ],
+   "toPoint": [
+    1630,
+    2514
+   ],
+   "arrowInk": [
+    184,
+    548
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    52,
+    40.2,
+    2.79
+   ],
+   "arrowSaturated": true,
+   "arrowFill": 0.0,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n15",
+   "to": "n17",
+   "routing": "straight",
+   "fromPoint": [
+    1182,
+    2518
+   ],
+   "toPoint": [
+    998,
+    2518
+   ],
+   "arrowInk": [
+    184,
+    575
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    56,
+    42.0,
+    2.25
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n17",
+   "to": "n18",
+   "routing": "straight",
+   "fromPoint": [
+    694,
+    2590
+   ],
+   "toPoint": [
+    694,
+    2739
+   ],
+   "arrowInk": [
+    180,
+    560
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    52,
+    42.0,
+    2.0
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n18",
+   "to": "n19",
+   "routing": "straight",
+   "fromPoint": [
+    695,
+    2889
+   ],
+   "toPoint": [
+    695,
+    3091
+   ],
+   "arrowInk": [
+    180,
+    563
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    51,
+    42.0,
+    2.08
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "control"
+  }
+ ],
+ "text": [
+  {
+   "text": "Producer",
+   "x": 566,
+   "y": 49,
+   "w": 195,
+   "h": 36,
+   "lines": [
+    {
+     "x": 566,
+     "y": 49,
+     "w": 195,
+     "h": 36,
+     "text": "Producer"
+    }
+   ],
+   "attachedTo": "n2->n9"
+  },
+  {
+   "text": "Retailer",
+   "x": 2306,
+   "y": 50,
+   "w": 165,
+   "h": 36,
+   "lines": [
+    {
+     "x": 2306,
+     "y": 50,
+     "w": 165,
+     "h": 36,
+     "text": "Retailer"
+    }
+   ]
+  },
+  {
+   "text": "Is there a new item to be delivered?\nTrue",
+   "x": 674,
+   "y": 365,
+   "w": 414,
+   "h": 143,
+   "lines": [
+    {
+     "x": 670,
+     "y": 375,
+     "w": 418,
+     "h": 80,
+     "text": "Is there a new item to be delivered?"
+    },
+    {
+     "x": 674,
+     "y": 481,
+     "w": 75,
+     "h": 27,
+     "text": "True"
+    }
+   ]
+  },
+  {
+   "text": "False",
+   "x": 442,
+   "y": 367,
+   "w": 88,
+   "h": 27,
+   "lines": [
+    {
+     "x": 442,
+     "y": 367,
+     "w": 88,
+     "h": 27,
+     "text": "False"
+    }
+   ],
+   "attachedTo": "n2->n5"
+  }
+ ],
+ "uncertain": [
+  {
+   "x": 2207,
+   "y": 865,
+   "w": 782,
+   "h": 990,
+   "shape": "rounded",
+   "iou": 0.617,
+   "border": 0.756,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best rounded 0.62, and 1.00 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "kind": "empty-box",
+   "x": 86,
+   "y": 408,
+   "w": 566,
+   "h": 800,
+   "reason": "a action carrying no text, with line-work passing its sides",
+   "check": "confirm nothing is drawn here in the original"
+  }
+ ]
+}

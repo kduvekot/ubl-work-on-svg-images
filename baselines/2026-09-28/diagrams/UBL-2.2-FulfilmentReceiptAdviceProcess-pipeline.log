@@ -1,0 +1,11 @@
+== UBL-2.2-FulfilmentReceiptAdviceProcess
+  UBL-2.2-FulfilmentReceiptAdviceProcess -> diagram, layout, extraction  (21 nodes, 24 flows, 4 texts)
+  scale 0.43212   frame 10px  divider 3px  action 3px  object 6px
+  font 30px (13.0 model)   3 lanes, 0 bands, 21 nodes, 24 edges -> /tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-2.2-FulfilmentReceiptAdviceProcess-spec.json
+  /tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-2.2-FulfilmentReceiptAdviceProcess.svg + .drawio + -classified.svg   (21 nodes, 24 edges)
+  aligned on ink bounds: scale x 1.0000, y 1.0000
+  size 3425x2019  radius 2
+  ink: original 257846   candidate 255986
+  MISSING (red)     1655  = 0.6419% of original ink
+  EXTRA   (blue)    1086  = 0.4212% of original ink
+  RESULT: DIFFERENCES - inspect /tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-2.2-FulfilmentReceiptAdviceProcess-diff-r2.png

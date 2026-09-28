@@ -1,0 +1,163 @@
+{
+ "schema": "ubl-activity-diagram/1",
+ "figure": {
+  "name": "UBL-2.5-WasteNotificationProcess",
+  "source": "UBL-2.5-WasteNotificationProcess.png"
+ },
+ "lanes": [
+  {
+   "id": "lane-sender-party",
+   "axis": "column",
+   "index": 0,
+   "title": "Sender Party"
+  },
+  {
+   "id": "lane-receiver-party",
+   "axis": "column",
+   "index": 1,
+   "title": "Receiver Party"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "initial-sender-party",
+   "kind": "initial",
+   "label": "",
+   "lane": "lane-sender-party"
+  },
+  {
+   "id": "action-prepare-notification-of-waste-movement",
+   "kind": "action",
+   "label": "Prepare notification of\nwaste movement",
+   "lane": "lane-sender-party"
+  },
+  {
+   "id": "object-waste-notification",
+   "kind": "object",
+   "label": "Waste Notification",
+   "lane": null,
+   "between": [
+    "lane-sender-party",
+    "lane-receiver-party"
+   ]
+  },
+  {
+   "id": "action-send-waste-notification",
+   "kind": "action",
+   "label": "Send Waste\nNotification",
+   "lane": "lane-sender-party"
+  },
+  {
+   "id": "action-receive-waste-notification",
+   "kind": "action",
+   "label": "Receive Waste\nNotification",
+   "lane": "lane-receiver-party"
+  },
+  {
+   "id": "object-application-response",
+   "kind": "object",
+   "label": "Application\nResponse",
+   "lane": null,
+   "between": [
+    "lane-sender-party",
+    "lane-receiver-party"
+   ]
+  },
+  {
+   "id": "action-receive-waste-notification-response",
+   "kind": "action",
+   "label": "Receive Waste\nNotification Response",
+   "lane": "lane-sender-party"
+  },
+  {
+   "id": "action-prepare-and-send-response",
+   "kind": "action",
+   "label": "Prepare and send\nresponse",
+   "lane": "lane-receiver-party"
+  },
+  {
+   "id": "final-sender-party",
+   "kind": "final",
+   "label": "",
+   "lane": "lane-sender-party"
+  }
+ ],
+ "flows": [
+  {
+   "id": "flow-initial-sender-party-to-prepare-notification-of-waste-movement",
+   "from": "initial-sender-party",
+   "to": "action-prepare-notification-of-waste-movement",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-prepare-notification-of-waste-movement-to-send-waste-notification",
+   "from": "action-prepare-notification-of-waste-movement",
+   "to": "action-send-waste-notification",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-send-waste-notification-to-waste-notification",
+   "from": "action-send-waste-notification",
+   "to": "object-waste-notification",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-waste-notification-to-receive-waste-notification",
+   "from": "object-waste-notification",
+   "to": "action-receive-waste-notification",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-receive-waste-notification-to-prepare-and-send-response",
+   "from": "action-receive-waste-notification",
+   "to": "action-prepare-and-send-response",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-application-response-to-receive-waste-notification-response",
+   "from": "object-application-response",
+   "to": "action-receive-waste-notification-response",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-prepare-and-send-response-to-application-response",
+   "from": "action-prepare-and-send-response",
+   "to": "object-application-response",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-receive-waste-notification-response-to-final-sender-party",
+   "from": "action-receive-waste-notification-response",
+   "to": "final-sender-party",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  }
+ ],
+ "texts": [],
+ "offPage": [],
+ "marks": [],
+ "phases": []
+}

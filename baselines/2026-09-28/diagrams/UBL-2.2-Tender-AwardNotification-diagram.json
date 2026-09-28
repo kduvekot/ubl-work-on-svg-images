@@ -1,0 +1,155 @@
+{
+ "schema": "ubl-activity-diagram/1",
+ "figure": {
+  "name": "UBL-2.2-Tender-AwardNotification",
+  "source": "UBL-2.2-Tender-AwardNotification.png"
+ },
+ "lanes": [
+  {
+   "id": "lane-tenderer",
+   "axis": "column",
+   "index": 0,
+   "title": "Tenderer"
+  },
+  {
+   "id": "lane-contracting-authority",
+   "axis": "column",
+   "index": 1,
+   "title": "Contracting Authority"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "initial-contracting-authority",
+   "kind": "initial",
+   "label": "",
+   "lane": "lane-contracting-authority"
+  },
+  {
+   "id": "action-prepare-awarding-notification",
+   "kind": "action",
+   "label": "Prepare awarding notification",
+   "lane": "lane-contracting-authority"
+  },
+  {
+   "id": "object-unawarded-notification",
+   "kind": "object",
+   "label": "Unawarded\nNotification",
+   "lane": null,
+   "between": [
+    "lane-tenderer",
+    "lane-contracting-authority"
+   ]
+  },
+  {
+   "id": "action-send-awarding-notification",
+   "kind": "action",
+   "label": "Send awarding notification",
+   "lane": "lane-contracting-authority"
+  },
+  {
+   "id": "action-receive-notification",
+   "kind": "action",
+   "label": "Receive notification",
+   "lane": "lane-tenderer"
+  },
+  {
+   "id": "object-awarded-notification",
+   "kind": "object",
+   "label": "Awarded\nNotification",
+   "lane": null,
+   "between": [
+    "lane-tenderer",
+    "lane-contracting-authority"
+   ]
+  },
+  {
+   "id": "final-tenderer",
+   "kind": "final",
+   "label": "",
+   "lane": "lane-tenderer"
+  }
+ ],
+ "flows": [
+  {
+   "id": "flow-initial-contracting-authority-to-prepare-awarding-notification",
+   "from": "initial-contracting-authority",
+   "to": "action-prepare-awarding-notification",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-prepare-awarding-notification-to-send-awarding-notification",
+   "from": "action-prepare-awarding-notification",
+   "to": "action-send-awarding-notification",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-send-awarding-notification-to-awarded-notification",
+   "kind": "object",
+   "alternative": {
+    "group": "award-outcome",
+    "when": "the tenderer won the contract"
+   },
+   "from": "action-send-awarding-notification",
+   "to": "object-awarded-notification",
+   "direction": {
+    "confidence": "checked",
+    "checked": "confirmed"
+   }
+  },
+  {
+   "id": "flow-awarded-notification-to-receive-notification",
+   "kind": "object",
+   "from": "object-awarded-notification",
+   "to": "action-receive-notification",
+   "direction": {
+    "confidence": "checked",
+    "checked": "confirmed"
+   }
+  },
+  {
+   "id": "flow-send-awarding-notification-to-unawarded-notification",
+   "kind": "object",
+   "alternative": {
+    "group": "award-outcome",
+    "when": "the contract went to another tenderer"
+   },
+   "from": "action-send-awarding-notification",
+   "to": "object-unawarded-notification",
+   "direction": {
+    "confidence": "checked",
+    "checked": "confirmed"
+   }
+  },
+  {
+   "id": "flow-unawarded-notification-to-receive-notification",
+   "kind": "object",
+   "from": "object-unawarded-notification",
+   "to": "action-receive-notification",
+   "direction": {
+    "confidence": "checked",
+    "checked": "confirmed"
+   }
+  },
+  {
+   "id": "flow-receive-notification-to-final-tenderer",
+   "from": "action-receive-notification",
+   "to": "final-tenderer",
+   "kind": "control",
+   "direction": {
+    "confidence": "medium",
+    "checked": "confirmed"
+   }
+  }
+ ],
+ "texts": [],
+ "offPage": [],
+ "marks": [],
+ "phases": []
+}

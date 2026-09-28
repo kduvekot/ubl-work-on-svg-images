@@ -1,0 +1,871 @@
+{
+ "canvas": {
+  "w": 1480.0,
+  "h": 783.428
+ },
+ "stroke": {
+  "frame": 4.3,
+  "divider": 1.7,
+  "action": 1.7,
+  "object": 3.5,
+  "edge": 1.7
+ },
+ "font": {
+  "family": "Helvetica, Arial, sans-serif",
+  "node": 17.3,
+  "lane": 17.3,
+  "guard": 17.3
+ },
+ "arrow": 28.1,
+ "arrowWidth": 21.9,
+ "arrowStyle": "open",
+ "dashed": [],
+ "greyRules": [],
+ "crossMarks": [],
+ "openEnds": [],
+ "frameBox": [
+  2.2,
+  2.2,
+  1477.8,
+  781.3
+ ],
+ "dividers": [
+  [
+   783.4,
+   1.7,
+   5.6,
+   777.4
+  ]
+ ],
+ "bands": [],
+ "lanes": [
+  {
+   "id": "lane-accounting-customer",
+   "title": "Accounting Customer",
+   "x": 0.0,
+   "w": 783.4,
+   "cx": 388.3,
+   "cy": 17.7,
+   "size": 15.9,
+   "textWidth": 150.8,
+   "baseline": 21.7
+  },
+  {
+   "id": "lane-accounting-supplier",
+   "title": "Accounting Supplier",
+   "x": 783.4,
+   "w": 696.6,
+   "cx": 1125.9,
+   "cy": 17.7,
+   "size": 15.9,
+   "textWidth": 140.4,
+   "baseline": 21.7
+  }
+ ],
+ "bandLabels": [],
+ "captions": [],
+ "nodes": [
+  {
+   "id": "initial-accounting-supplier",
+   "kind": "initial",
+   "label": "",
+   "x": 1314.5,
+   "y": 34.6,
+   "w": 41.1,
+   "h": 41.5
+  },
+  {
+   "id": "object-invoice",
+   "kind": "object",
+   "label": "Invoice",
+   "x": 706.5,
+   "y": 155.1,
+   "w": 140.0,
+   "h": 76.9,
+   "labelLines": [
+    {
+     "text": "Invoice",
+     "cx": 777.8,
+     "cy": 188.945,
+     "w": 64.0,
+     "size": 19.3
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-receive-invoice",
+   "kind": "action",
+   "label": "Receive Invoice",
+   "x": 140.0,
+   "y": 167.7,
+   "w": 213.9,
+   "h": 42.3,
+   "rx": 21.6,
+   "ry": 19.0,
+   "labelLines": [
+    {
+     "text": "Receive Invoice",
+     "cx": 243.3,
+     "cy": 189.195,
+     "w": 116.7,
+     "size": 16.3
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-raise-invoice",
+   "kind": "action",
+   "label": "Raise Invoice",
+   "x": 948.9,
+   "y": 171.1,
+   "w": 212.2,
+   "h": 50.1,
+   "rx": 21.6,
+   "ry": 22.5,
+   "labelLines": [
+    {
+     "text": "Raise Invoice",
+     "cx": 1052.9,
+     "cy": 193.49499999999998,
+     "w": 99.0,
+     "size": 16.3
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "object-debit-note",
+   "kind": "object",
+   "label": "Debit Note",
+   "x": 704.8,
+   "y": 309.0,
+   "w": 140.0,
+   "h": 77.3,
+   "labelLines": [
+    {
+     "text": "Debit Note",
+     "cx": 775.4,
+     "cy": 345.845,
+     "w": 92.9,
+     "size": 19.3
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "decision-reconcile-charges-in-accounting-supplier",
+   "kind": "decision",
+   "label": "Reconcile\nCharges",
+   "x": 1255.7,
+   "y": 311.1,
+   "w": 159.9,
+   "h": 78.2,
+   "labelLines": [
+    {
+     "text": "Reconcile",
+     "cx": 1334.6,
+     "cy": 339.995,
+     "w": 67.0,
+     "size": 16.3
+    },
+    {
+     "text": "Charges",
+     "cx": 1329.6,
+     "cy": 360.295,
+     "w": 57.9,
+     "size": 16.3
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "action-receive-debit-note",
+   "kind": "action",
+   "label": "Receive Debit Note",
+   "x": 415.3,
+   "y": 321.9,
+   "w": 212.6,
+   "h": 48.4,
+   "rx": 23.3,
+   "ry": 25.1,
+   "labelLines": [
+    {
+     "text": "Receive Debit Note",
+     "cx": 520.3,
+     "cy": 345.595,
+     "w": 140.9,
+     "size": 16.3
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "action-raise-debit-note",
+   "kind": "action",
+   "label": "Raise Debit Note",
+   "x": 906.1,
+   "y": 328.0,
+   "w": 212.6,
+   "h": 44.1,
+   "rx": 21.6,
+   "ry": 20.7,
+   "labelLines": [
+    {
+     "text": "Raise Debit Note",
+     "cx": 1011.6,
+     "cy": 348.595,
+     "w": 123.6,
+     "size": 16.3
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "fork-accounting-supplier",
+   "kind": "fork",
+   "label": "",
+   "x": 1152.5,
+   "y": 457.6,
+   "w": 119.7,
+   "h": 9.9
+  },
+  {
+   "id": "decision-validate-response",
+   "kind": "decision",
+   "label": "Validate\nResponse",
+   "x": 1272.2,
+   "y": 513.8,
+   "w": 128.8,
+   "h": 99.8,
+   "labelLines": [
+    {
+     "text": "Validate",
+     "cx": 1330.9,
+     "cy": 552.1949999999999,
+     "w": 56.2,
+     "size": 16.3
+    },
+    {
+     "text": "Response",
+     "cx": 1338.5,
+     "cy": 572.895,
+     "w": 68.7,
+     "size": 16.3
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "decision-reconcile-charges-in-accounting-customer",
+   "kind": "decision",
+   "label": "Reconcile\nCharges",
+   "x": 145.6,
+   "y": 514.2,
+   "w": 127.5,
+   "h": 99.4,
+   "labelLines": [
+    {
+     "text": "Reconcile",
+     "cx": 212.8,
+     "cy": 556.895,
+     "w": 67.0,
+     "size": 16.3
+    },
+    {
+     "text": "Charges",
+     "cx": 207.6,
+     "cy": 577.1949999999999,
+     "w": 58.3,
+     "size": 16.3
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "object-invoice-status-response",
+   "kind": "object",
+   "label": "Invoice Status\nResponse",
+   "x": 711.3,
+   "y": 523.3,
+   "w": 162.0,
+   "h": 76.9,
+   "labelLines": [
+    {
+     "text": "Invoice Status",
+     "cx": 791.6,
+     "cy": 551.545,
+     "w": 119.3,
+     "size": 19.3
+    },
+    {
+     "text": "Response",
+     "cx": 791.9,
+     "cy": 572.745,
+     "w": 83.4,
+     "size": 19.3
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-receive-account-response",
+   "kind": "action",
+   "label": "Receive Account Response",
+   "x": 920.4,
+   "y": 537.6,
+   "w": 250.2,
+   "h": 56.2,
+   "rx": 14.3,
+   "ry": 16.0,
+   "labelLines": [
+    {
+     "text": "Receive Account Response",
+     "cx": 1042.7,
+     "cy": 566.395,
+     "w": 204.8,
+     "size": 16.3
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-send-account-response",
+   "kind": "action",
+   "label": "Send Account Response",
+   "x": 412.2,
+   "y": 541.9,
+   "w": 213.9,
+   "h": 44.1,
+   "rx": 21.6,
+   "ry": 20.7,
+   "labelLines": [
+    {
+     "text": "Send Account Response",
+     "cx": 517.5,
+     "cy": 562.995,
+     "w": 184.5,
+     "size": 16.3
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "final-accounting-customer",
+   "kind": "final",
+   "label": "",
+   "x": 20.7,
+   "y": 551.4,
+   "w": 29.4,
+   "h": 29.8,
+   "innerRatio": 0.453
+  },
+  {
+   "id": "final-accounting-supplier",
+   "kind": "final",
+   "label": "",
+   "x": 1318.8,
+   "y": 713.4,
+   "w": 40.6,
+   "h": 40.6,
+   "innerRatio": 0.611
+  },
+  {
+   "id": "final-accounting-customer-2",
+   "kind": "final",
+   "label": "",
+   "x": 193.4,
+   "y": 724.0,
+   "w": 33.3,
+   "h": 33.3,
+   "innerRatio": 0.5
+  }
+ ],
+ "edges": [
+  {
+   "id": "flow-initial-accounting-supplier-to-reconcile-charges-in-accounting-supplier",
+   "from": "initial-accounting-supplier",
+   "to": "decision-reconcile-charges-in-accounting-supplier",
+   "exitXY": [
+    0.5158,
+    1.0
+   ],
+   "entryXY": [
+    0.5003,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-invoice-to-receive-invoice",
+   "from": "object-invoice",
+   "to": "action-receive-invoice",
+   "exitXY": [
+    0.0,
+    0.472
+   ],
+   "entryXY": [
+    1.0,
+    0.5414
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-raise-invoice-to-invoice",
+   "from": "action-raise-invoice",
+   "to": "object-invoice",
+   "exitXY": [
+    0.0,
+    0.475
+   ],
+   "entryXY": [
+    1.0,
+    0.5007
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-reconcile-charges-in-accounting-supplier-to-raise-invoice",
+   "from": "decision-reconcile-charges-in-accounting-supplier",
+   "to": "action-raise-invoice",
+   "exitXY": [
+    0.4653,
+    0.0
+   ],
+   "entryXY": [
+    1.0,
+    0.4232
+   ],
+   "straight": true,
+   "confidence": "high",
+   "label": "[initial charges or under charged]"
+  },
+  {
+   "id": "flow-receive-invoice-to-reconcile-charges-in-accounting-customer",
+   "from": "action-receive-invoice",
+   "to": "decision-reconcile-charges-in-accounting-customer",
+   "exitXY": [
+    0.323,
+    1.0
+   ],
+   "entryXY": [
+    0.498,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-fork-accounting-supplier-to-raise-invoice",
+   "from": "fork-accounting-supplier",
+   "to": "action-raise-invoice",
+   "exitXY": [
+    0.6349,
+    0.0
+   ],
+   "entryXY": [
+    0.6885,
+    1.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-reconcile-charges-in-accounting-supplier-to-raise-debit-note",
+   "from": "decision-reconcile-charges-in-accounting-supplier",
+   "to": "action-raise-debit-note",
+   "exitXY": [
+    0.0,
+    0.4974
+   ],
+   "entryXY": [
+    1.0,
+    0.4989
+   ],
+   "straight": true,
+   "confidence": "high",
+   "label": "[under charged]"
+  },
+  {
+   "id": "flow-debit-note-to-receive-debit-note",
+   "from": "object-debit-note",
+   "to": "action-receive-debit-note",
+   "exitXY": [
+    0.0,
+    0.4968
+   ],
+   "entryXY": [
+    1.0,
+    0.5
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-raise-debit-note-to-debit-note",
+   "from": "action-raise-debit-note",
+   "to": "object-debit-note",
+   "exitXY": [
+    0.0,
+    0.4807
+   ],
+   "entryXY": [
+    1.0,
+    0.4968
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-receive-debit-note-to-reconcile-charges-in-accounting-customer",
+   "from": "action-receive-debit-note",
+   "to": "decision-reconcile-charges-in-accounting-customer",
+   "exitXY": [
+    0.0183,
+    1.0
+   ],
+   "entryXY": [
+    0.5459,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "notation"
+  },
+  {
+   "id": "flow-fork-accounting-supplier-to-raise-debit-note",
+   "from": "fork-accounting-supplier",
+   "to": "action-raise-debit-note",
+   "exitXY": [
+    0.0284,
+    0.0
+   ],
+   "entryXY": [
+    0.5287,
+    1.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-validate-response-to-reconcile-charges-in-accounting-supplier",
+   "from": "decision-validate-response",
+   "to": "decision-reconcile-charges-in-accounting-supplier",
+   "exitXY": [
+    0.493,
+    0.0
+   ],
+   "entryXY": [
+    0.5003,
+    1.0
+   ],
+   "straight": true,
+   "confidence": "high",
+   "label": "[incorrect charges]"
+  },
+  {
+   "id": "flow-validate-response-to-fork-accounting-supplier",
+   "from": "decision-validate-response",
+   "to": "fork-accounting-supplier",
+   "exitXY": [
+    0.0,
+    0.4549
+   ],
+   "entryXY": [
+    0.4144,
+    1.0
+   ],
+   "straight": true,
+   "confidence": "high",
+   "label": "[incorrect information]"
+  },
+  {
+   "id": "flow-send-account-response-to-invoice-status-response",
+   "from": "action-send-account-response",
+   "to": "object-invoice-status-response",
+   "exitXY": [
+    1.0,
+    0.4785
+   ],
+   "entryXY": [
+    0.0,
+    0.5007
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-reconcile-charges-in-accounting-customer-to-send-account-response",
+   "from": "decision-reconcile-charges-in-accounting-customer",
+   "to": "action-send-account-response",
+   "exitXY": [
+    1.0,
+    0.496
+   ],
+   "entryXY": [
+    0.0,
+    0.4898
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-invoice-status-response-to-receive-account-response",
+   "from": "object-invoice-status-response",
+   "to": "action-receive-account-response",
+   "exitXY": [
+    1.0,
+    0.5007
+   ],
+   "entryXY": [
+    0.0,
+    0.4982
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-receive-account-response-to-validate-response",
+   "from": "action-receive-account-response",
+   "to": "decision-validate-response",
+   "exitXY": [
+    1.0,
+    0.468
+   ],
+   "entryXY": [
+    0.0,
+    0.498
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-reconcile-charges-in-accounting-customer-to-final-accounting-customer",
+   "from": "decision-reconcile-charges-in-accounting-customer",
+   "to": "final-accounting-customer",
+   "exitXY": [
+    0.0,
+    0.5
+   ],
+   "entryXY": [
+    1.0,
+    0.4765
+   ],
+   "straight": true,
+   "confidence": "high",
+   "label": "[accept debit]"
+  },
+  {
+   "id": "flow-reconcile-charges-in-accounting-customer-to-final-accounting-customer-2",
+   "from": "decision-reconcile-charges-in-accounting-customer",
+   "to": "final-accounting-customer-2",
+   "exitXY": [
+    0.498,
+    1.0
+   ],
+   "entryXY": [
+    0.4715,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high",
+   "label": "[accept charges]"
+  },
+  {
+   "id": "flow-validate-response-to-final-accounting-supplier",
+   "from": "decision-validate-response",
+   "to": "final-accounting-supplier",
+   "exitXY": [
+    0.4891,
+    1.0
+   ],
+   "entryXY": [
+    0.4261,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high",
+   "label": "[no action required]"
+  }
+ ],
+ "guards": [
+  {
+   "id": "text-initial-charges-or-under-charged",
+   "text": "[initial\ncharges or\nunder\ncharged]",
+   "x": 1188.8,
+   "y": 115.4,
+   "w": 73.9,
+   "h": 76.1,
+   "onFlow": "flow-reconcile-charges-in-accounting-supplier-to-raise-invoice",
+   "labelLines": [
+    {
+     "text": "[initial",
+     "cx": 1208.2,
+     "cy": 121.135,
+     "w": 38.0,
+     "size": 15.9
+    },
+    {
+     "text": "charges or",
+     "cx": 1225.7,
+     "cy": 141.71,
+     "w": 73.9,
+     "size": 15.4
+    },
+    {
+     "text": "under",
+     "cx": 1208.6,
+     "cy": 162.39499999999998,
+     "w": 38.9,
+     "size": 16.3
+    },
+    {
+     "text": "charged]",
+     "cx": 1218.4,
+     "cy": 182.535,
+     "w": 59.2,
+     "size": 15.9
+    }
+   ]
+  },
+  {
+   "id": "text-under-charged",
+   "text": "[under\ncharged]",
+   "x": 1193.5,
+   "y": 313.3,
+   "w": 59.2,
+   "h": 37.6,
+   "onFlow": "flow-reconcile-charges-in-accounting-supplier-to-raise-debit-note",
+   "labelLines": [
+    {
+     "text": "[under",
+     "cx": 1215.8,
+     "cy": 318.91,
+     "w": 42.8,
+     "size": 15.4
+    },
+    {
+     "text": "charged]",
+     "cx": 1223.1,
+     "cy": 337.635,
+     "w": 59.2,
+     "size": 15.9
+    }
+   ]
+  },
+  {
+   "id": "text-incorrect-charges",
+   "text": "[incorrect\ncharges]",
+   "x": 1343.0,
+   "y": 450.3,
+   "w": 64.0,
+   "h": 39.8,
+   "onFlow": "flow-validate-response-to-reconcile-charges-in-accounting-supplier",
+   "labelLines": [
+    {
+     "text": "[incorrect",
+     "cx": 1375.2,
+     "cy": 456.035,
+     "w": 63.5,
+     "size": 15.9
+    },
+    {
+     "text": "charges]",
+     "cx": 1372.4,
+     "cy": 476.61,
+     "w": 58.8,
+     "size": 15.4
+    }
+   ]
+  },
+  {
+   "id": "text-incorrect-information",
+   "text": "[incorrect information]",
+   "x": 1155.9,
+   "y": 499.1,
+   "w": 149.5,
+   "h": 14.3,
+   "onFlow": "flow-validate-response-to-fork-accounting-supplier",
+   "labelLines": [
+    {
+     "text": "[incorrect information]",
+     "cx": 1230.7,
+     "cy": 504.71000000000004,
+     "w": 149.5,
+     "size": 15.4
+    }
+   ]
+  },
+  {
+   "id": "text-accept-debit",
+   "text": "[accept\ndebit]",
+   "x": 62.7,
+   "y": 584.2,
+   "w": 49.7,
+   "h": 32.8,
+   "onFlow": "flow-reconcile-charges-in-accounting-customer-to-final-accounting-customer",
+   "labelLines": [
+    {
+     "text": "[accept",
+     "cx": 87.9,
+     "cy": 589.8100000000001,
+     "w": 48.8,
+     "size": 15.4
+    },
+    {
+     "text": "debit]",
+     "cx": 81.0,
+     "cy": 608.41,
+     "w": 36.7,
+     "size": 15.4
+    }
+   ]
+  },
+  {
+   "id": "text-no-action-required",
+   "text": "[no action\nrequired]",
+   "x": 1340.0,
+   "y": 637.8,
+   "w": 66.1,
+   "h": 34.6,
+   "onFlow": "flow-validate-response-to-final-accounting-supplier",
+   "labelLines": [
+    {
+     "text": "[no action",
+     "cx": 1373.1,
+     "cy": 643.41,
+     "w": 66.1,
+     "size": 15.4
+    },
+    {
+     "text": "required]",
+     "cx": 1370.0,
+     "cy": 663.71,
+     "w": 60.1,
+     "size": 15.4
+    }
+   ]
+  },
+  {
+   "id": "text-accept-charges",
+   "text": "[accept charges]",
+   "x": 223.0,
+   "y": 668.9,
+   "w": 113.2,
+   "h": 14.7,
+   "onFlow": "flow-reconcile-charges-in-accounting-customer-to-final-accounting-customer-2",
+   "labelLines": [
+    {
+     "text": "[accept charges]",
+     "cx": 279.6,
+     "cy": 674.7349999999999,
+     "w": 113.2,
+     "size": 15.9
+    }
+   ]
+  }
+ ]
+}

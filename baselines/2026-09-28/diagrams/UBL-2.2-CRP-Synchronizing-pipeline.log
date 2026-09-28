@@ -1,0 +1,11 @@
+== UBL-2.2-CRP-Synchronizing
+  UBL-2.2-CRP-Synchronizing -> diagram, layout, extraction  (5 nodes, 4 flows, 0 texts)
+  scale 0.43212   frame 10px  divider 5px  action 5px  object 11px
+  font 69px (29.6 model)   2 lanes, 0 bands, 5 nodes, 4 edges -> /tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-2.2-CRP-Synchronizing-spec.json
+  /tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-2.2-CRP-Synchronizing.svg + .drawio + -classified.svg   (5 nodes, 4 edges)
+  aligned on ink bounds: scale x 1.0000, y 1.0000
+  size 3425x1206  radius 2
+  ink: original 210121   candidate 207742
+  MISSING (red)     5405  = 2.5723% of original ink
+  EXTRA   (blue)    4131  = 1.9660% of original ink
+  RESULT: DIFFERENCES - inspect /tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-2.2-CRP-Synchronizing-diff-r2.png

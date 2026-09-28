@@ -1,0 +1,11 @@
+== UBL-2.0-ReportStateofAccountsProcess
+  UBL-2.0-ReportStateofAccountsProcess -> diagram, layout, extraction  (5 nodes, 4 flows, 0 texts)
+  scale 0.43212   frame 10px  divider 7px  action 7px  object 13px
+  font 61px (26.5 model)   2 lanes, 0 bands, 5 nodes, 4 edges -> /tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-2.0-ReportStateofAccountsProcess-spec.json
+  /tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-2.0-ReportStateofAccountsProcess.svg + .drawio + -classified.svg   (5 nodes, 4 edges)
+  aligned on ink bounds: scale x 1.0000, y 1.0000
+  size 3425x1173  radius 2
+  ink: original 219832   candidate 218661
+  MISSING (red)      724  = 0.3293% of original ink
+  EXTRA   (blue)     578  = 0.2629% of original ink
+  RESULT: DIFFERENCES - inspect /tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-2.0-ReportStateofAccountsProcess-diff-r2.png

@@ -1,0 +1,257 @@
+{
+ "schema": "ubl-activity-diagram-layout/1",
+ "figure": "UBL-2.2-Tender-Withdrawal",
+ "units": "px of the original PNG",
+ "size": [
+  3425,
+  1264
+ ],
+ "style": {
+  "fontPx": 70.0,
+  "arrowPx": 80.0,
+  "arrowWidthPx": 66.8,
+  "arrowStyle": "open"
+ },
+ "rules": {
+  "vertical": [
+   {
+    "at": 0,
+    "width": 8,
+    "span": [
+     12,
+     1252
+    ]
+   },
+   {
+    "at": 1701,
+    "width": 9,
+    "span": [
+     12,
+     1252
+    ]
+   },
+   {
+    "at": 3417,
+    "width": 8,
+    "span": [
+     12,
+     1252
+    ]
+   }
+  ],
+  "horizontal": [
+   {
+    "at": 0,
+    "width": 9,
+    "span": [
+     11,
+     3413
+    ]
+   },
+   {
+    "at": 1256,
+    "width": 8,
+    "span": [
+     11,
+     3413
+    ]
+   }
+  ]
+ },
+ "greyRules": [],
+ "lanes": {
+  "lane-economic-operator": {
+   "x0": 0,
+   "x1": 1706,
+   "titleBox": [
+    415,
+    35,
+    759,
+    54
+   ],
+   "titleWords": "ECONOMIC OPERATOR"
+  },
+  "lane-contracting-authority": {
+   "x0": 1706,
+   "x1": 3425,
+   "titleBox": [
+    2172,
+    40,
+    910,
+    54
+   ],
+   "titleWords": "CONTRACTING AUTHORITY"
+  }
+ },
+ "nodes": {
+  "initial-economic-operator": {
+   "x": 551,
+   "y": 158,
+   "w": 124,
+   "h": 124
+  },
+  "action-prepare-tender-withdrawal-request": {
+   "x": 111,
+   "y": 395,
+   "w": 1096,
+   "h": 166,
+   "shape": "rounded",
+   "stroke": 9,
+   "rx": 89.5,
+   "ry": 83,
+   "bold": false,
+   "labelLines": [
+    {
+     "x": 139,
+     "y": 456,
+     "w": 1013,
+     "h": 61,
+     "text": "Prepare tender withdrawal request"
+    }
+   ]
+  },
+  "object-tender-withdrawal": {
+   "x": 1453,
+   "y": 616,
+   "w": 517,
+   "h": 348,
+   "shape": "rect",
+   "stroke": 8,
+   "rx": 0,
+   "ry": 0,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 1498,
+     "y": 694,
+     "w": 245,
+     "h": 55,
+     "text": "Tender"
+    },
+    {
+     "x": 1494,
+     "y": 806,
+     "w": 395,
+     "h": 55,
+     "text": "Withdrawal"
+    }
+   ]
+  },
+  "action-receive-tender-withdrawal-request": {
+   "x": 2208,
+   "y": 696,
+   "w": 1105,
+   "h": 178,
+   "shape": "rounded",
+   "stroke": 9,
+   "rx": 85,
+   "ry": 87,
+   "bold": false,
+   "labelLines": [
+    {
+     "x": 2269,
+     "y": 759,
+     "w": 1018,
+     "h": 61,
+     "text": "Receive tender withdrawal request"
+    }
+   ]
+  },
+  "action-submit-tender-withdrawal-request": {
+   "x": 105,
+   "y": 699,
+   "w": 1087,
+   "h": 187,
+   "shape": "rounded",
+   "stroke": 8,
+   "rx": 94,
+   "ry": 91,
+   "bold": false,
+   "labelLines": [
+    {
+     "x": 163,
+     "y": 763,
+     "w": 985,
+     "h": 62,
+     "text": "Submit tender withdrawal request"
+    }
+   ]
+  },
+  "final-contracting-authority": {
+   "x": 2701,
+   "y": 1064,
+   "w": 109,
+   "h": 108,
+   "shape": "rounded",
+   "stroke": 8,
+   "rx": 52,
+   "ry": 55,
+   "innerRatio": 0.495
+  }
+ },
+ "flows": {
+  "flow-initial-economic-operator-to-prepare-tender-withdrawal-request": {
+   "fromPoint": [
+    613,
+    296
+   ],
+   "toPoint": [
+    621,
+    380
+   ],
+   "routing": "straight"
+  },
+  "flow-prepare-tender-withdrawal-request-to-submit-tender-withdrawal-request": {
+   "fromPoint": [
+    618,
+    575
+   ],
+   "toPoint": [
+    621,
+    684
+   ],
+   "routing": "straight"
+  },
+  "flow-submit-tender-withdrawal-request-to-tender-withdrawal": {
+   "fromPoint": [
+    1206,
+    780
+   ],
+   "toPoint": [
+    1438,
+    782
+   ],
+   "routing": "straight"
+  },
+  "flow-tender-withdrawal-to-receive-tender-withdrawal-request": {
+   "fromPoint": [
+    1984,
+    781
+   ],
+   "toPoint": [
+    2193,
+    781
+   ],
+   "routing": "straight"
+  },
+  "flow-receive-tender-withdrawal-request-to-final-contracting-authority": {
+   "fromPoint": [
+    2759,
+    888
+   ],
+   "toPoint": [
+    2755,
+    1049
+   ],
+   "routing": "straight"
+  }
+ },
+ "texts": {},
+ "offPage": {},
+ "marks": {},
+ "phases": {},
+ "rulesHaveSpans": {
+  "vertical": true,
+  "horizontal": true
+ }
+}

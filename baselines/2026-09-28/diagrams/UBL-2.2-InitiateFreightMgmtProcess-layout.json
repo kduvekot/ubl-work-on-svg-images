@@ -1,0 +1,1147 @@
+{
+ "schema": "ubl-activity-diagram-layout/1",
+ "figure": "UBL-2.2-InitiateFreightMgmtProcess",
+ "units": "px of the original PNG",
+ "size": [
+  3425,
+  2543
+ ],
+ "style": {
+  "fontPx": 37.1,
+  "arrowPx": 52.5,
+  "arrowWidthPx": 40.7,
+  "arrowStyle": "open"
+ },
+ "rules": {
+  "vertical": [
+   {
+    "at": 0,
+    "width": 10,
+    "span": [
+     13,
+     2529
+    ]
+   },
+   {
+    "at": 641,
+    "width": 4,
+    "span": [
+     13,
+     2529
+    ]
+   },
+   {
+    "at": 1578,
+    "width": 5,
+    "span": [
+     13,
+     2529
+    ]
+   },
+   {
+    "at": 2541,
+    "width": 4,
+    "span": [
+     13,
+     2529
+    ]
+   },
+   {
+    "at": 3415,
+    "width": 10,
+    "span": [
+     13,
+     2529
+    ]
+   }
+  ],
+  "horizontal": [
+   {
+    "at": 0,
+    "width": 10,
+    "span": [
+     13,
+     3411
+    ]
+   },
+   {
+    "at": 2533,
+    "width": 10,
+    "span": [
+     13,
+     3411
+    ]
+   }
+  ]
+ },
+ "greyRules": [],
+ "lanes": {
+  "lane-consignee": {
+   "x0": 0,
+   "x1": 643,
+   "titleBox": [
+    235,
+    20,
+    169,
+    33
+   ]
+  },
+  "lane-consignor": {
+   "x0": 643,
+   "x1": 1580,
+   "titleBox": [
+    1033,
+    20,
+    162,
+    33
+   ]
+  },
+  "lane-freight-forwarder": {
+   "x0": 1580,
+   "x1": 2543,
+   "titleBox": [
+    1921,
+    20,
+    283,
+    33
+   ]
+  },
+  "lane-carrier": {
+   "x0": 2543,
+   "x1": 3425,
+   "titleBox": [
+    2929,
+    20,
+    108,
+    27
+   ]
+  }
+ },
+ "nodes": {
+  "object-forwarding-instructions-between-consignee-and-consignor-and-freight-forwarder": {
+   "x": 1448,
+   "y": 165,
+   "w": 254,
+   "h": 146,
+   "shape": "rect",
+   "stroke": 8,
+   "rx": 0,
+   "ry": 0,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 1475,
+     "y": 200,
+     "w": 194,
+     "h": 34,
+     "text": "Forwarding"
+    },
+    {
+     "x": 1475,
+     "y": 240,
+     "w": 203,
+     "h": 26,
+     "text": "Instructions"
+    }
+   ]
+  },
+  "action-request-logistic-service-in-consignee": {
+   "x": 56,
+   "y": 184,
+   "w": 445,
+   "h": 126,
+   "shape": "rounded",
+   "stroke": 4,
+   "rx": 56,
+   "ry": 52,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 128,
+     "y": 211,
+     "w": 286,
+     "h": 34,
+     "text": "Request Logistic"
+    },
+    {
+     "x": 210,
+     "y": 257,
+     "w": 125,
+     "h": 27,
+     "text": "Service"
+    }
+   ]
+  },
+  "action-request-transport-service": {
+   "x": 1913,
+   "y": 271,
+   "w": 437,
+   "h": 129,
+   "shape": "rounded",
+   "stroke": 4,
+   "rx": 51,
+   "ry": 52,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 1974,
+     "y": 297,
+     "w": 317,
+     "h": 33,
+     "text": "Request Transport"
+    },
+    {
+     "x": 2066,
+     "y": 343,
+     "w": 125,
+     "h": 27,
+     "text": "Service"
+    }
+   ]
+  },
+  "object-forwarding-instructions-between-freight-forwarder-and-carrier": {
+   "x": 2443,
+   "y": 273,
+   "w": 254,
+   "h": 146,
+   "shape": "rect",
+   "stroke": 8,
+   "rx": 0,
+   "ry": 0,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 2470,
+     "y": 308,
+     "w": 195,
+     "h": 33,
+     "text": "Forwarding"
+    },
+    {
+     "x": 2470,
+     "y": 347,
+     "w": 203,
+     "h": 27,
+     "text": "Instructions"
+    }
+   ]
+  },
+  "action-receive-transport-service-request": {
+   "x": 2829,
+   "y": 274,
+   "w": 437,
+   "h": 126,
+   "shape": "rounded",
+   "stroke": 4,
+   "rx": 56,
+   "ry": 53,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 2893,
+     "y": 298,
+     "w": 311,
+     "h": 33,
+     "text": "Receive Transport"
+    },
+    {
+     "x": 2913,
+     "y": 344,
+     "w": 279,
+     "h": 34,
+     "text": "Service Request"
+    }
+   ]
+  },
+  "action-request-logistic-service-in-consignor": {
+   "x": 897,
+   "y": 479,
+   "w": 437,
+   "h": 125,
+   "shape": "rounded",
+   "stroke": 4,
+   "rx": 54,
+   "ry": 48,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 965,
+     "y": 503,
+     "w": 286,
+     "h": 33,
+     "text": "Request Logistic"
+    },
+    {
+     "x": 1046,
+     "y": 549,
+     "w": 126,
+     "h": 27,
+     "text": "Service"
+    }
+   ]
+  },
+  "initial": {
+   "x": 598,
+   "y": 500,
+   "w": 79,
+   "h": 80
+  },
+  "object-packing-list": {
+   "x": 1469,
+   "y": 574,
+   "w": 262,
+   "h": 144,
+   "shape": "rect",
+   "stroke": 7,
+   "rx": 0,
+   "ry": 0,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 1493,
+     "y": 626,
+     "w": 212,
+     "h": 33,
+     "text": "Packing List"
+    }
+   ]
+  },
+  "action-receive-bill-of-lading-in-consignee": {
+   "x": 106,
+   "y": 864,
+   "w": 434,
+   "h": 125,
+   "shape": "rounded",
+   "stroke": 4,
+   "rx": 50,
+   "ry": 57,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 138,
+     "y": 911,
+     "w": 368,
+     "h": 34,
+     "text": "Receive Bill of Lading"
+    }
+   ]
+  },
+  "object-bill-of-lading-between-consignee-and-consignor-and-freight-forwarder": {
+   "x": 1448,
+   "y": 912,
+   "w": 254,
+   "h": 147,
+   "shape": "rect",
+   "stroke": 7,
+   "rx": 0,
+   "ry": 0,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 1465,
+     "y": 967,
+     "w": 226,
+     "h": 35,
+     "text": "Bill of Lading"
+    }
+   ]
+  },
+  "object-bill-of-lading-between-freight-forwarder-and-carrier": {
+   "x": 2443,
+   "y": 920,
+   "w": 254,
+   "h": 146,
+   "shape": "rect",
+   "stroke": 8,
+   "rx": 0,
+   "ry": 0,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 2456,
+     "y": 973,
+     "w": 227,
+     "h": 34,
+     "text": "Bill of Lading"
+    }
+   ]
+  },
+  "action-send-bill-of-lading-to-consignor": {
+   "x": 1874,
+   "y": 929,
+   "w": 437,
+   "h": 125,
+   "shape": "rounded",
+   "stroke": 5,
+   "rx": 48,
+   "ry": 47,
+   "bold": true,
+   "labelLines": []
+  },
+  "action-send-bill-of-lading": {
+   "x": 2919,
+   "y": 936,
+   "w": 441,
+   "h": 121,
+   "shape": "rounded",
+   "stroke": 4,
+   "rx": 48,
+   "ry": 48,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 2975,
+     "y": 978,
+     "w": 322,
+     "h": 34,
+     "text": "Send Bill of Lading"
+    }
+   ]
+  },
+  "action-receive-bill-of-lading-in-consignor": {
+   "x": 800,
+   "y": 1008,
+   "w": 433,
+   "h": 125,
+   "shape": "rounded",
+   "stroke": 5,
+   "rx": 48,
+   "ry": 48,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 831,
+     "y": 1050,
+     "w": 369,
+     "h": 34,
+     "text": "Receive Bill of Lading"
+    }
+   ]
+  },
+  "action-receive-waybill-in-consignor": {
+   "x": 796,
+   "y": 1220,
+   "w": 434,
+   "h": 125,
+   "shape": "rounded",
+   "stroke": 5,
+   "rx": 48,
+   "ry": 52,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 875,
+     "y": 1267,
+     "w": 267,
+     "h": 33,
+     "text": "Receive Waybill"
+    }
+   ]
+  },
+  "object-waybill-between-freight-forwarder-and-carrier": {
+   "x": 2443,
+   "y": 1394,
+   "w": 254,
+   "h": 146,
+   "shape": "rect",
+   "stroke": 8,
+   "rx": 0,
+   "ry": 0,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 2505,
+     "y": 1445,
+     "w": 124,
+     "h": 33,
+     "text": "Waybill"
+    }
+   ]
+  },
+  "object-waybill-between-consignee-and-consignor-and-freight-forwarder": {
+   "x": 1444,
+   "y": 1398,
+   "w": 255,
+   "h": 146,
+   "shape": "rect",
+   "stroke": 8,
+   "rx": 0,
+   "ry": 0,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 1512,
+     "y": 1450,
+     "w": 123,
+     "h": 34,
+     "text": "Waybill"
+    }
+   ]
+  },
+  "action-receive-waybill-in-consignee": {
+   "x": 95,
+   "y": 1407,
+   "w": 434,
+   "h": 124,
+   "shape": "rounded",
+   "stroke": 5,
+   "rx": 48,
+   "ry": 56,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 175,
+     "y": 1449,
+     "w": 266,
+     "h": 33,
+     "text": "Receive Waybill"
+    }
+   ]
+  },
+  "action-send-waybill-to-consignor": {
+   "x": 1863,
+   "y": 1407,
+   "w": 437,
+   "h": 124,
+   "shape": "rounded",
+   "stroke": 5,
+   "rx": 47,
+   "ry": 48,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 1947,
+     "y": 1430,
+     "w": 266,
+     "h": 34,
+     "text": "Send Waybill to"
+    },
+    {
+     "x": 1998,
+     "y": 1477,
+     "w": 179,
+     "h": 34,
+     "text": "Consignor"
+    }
+   ]
+  },
+  "action-send-waybill": {
+   "x": 2919,
+   "y": 1414,
+   "w": 437,
+   "h": 124,
+   "shape": "rounded",
+   "stroke": 4,
+   "rx": 47,
+   "ry": 48,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 3025,
+     "y": 1456,
+     "w": 221,
+     "h": 34,
+     "text": "Send Waybill"
+    }
+   ]
+  },
+  "action-transport-goods-items-to-delivery-party": {
+   "x": 2922,
+   "y": 1665,
+   "w": 434,
+   "h": 125,
+   "shape": "rounded",
+   "stroke": 4,
+   "rx": 52,
+   "ry": 52,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 2944,
+     "y": 1690,
+     "w": 392,
+     "h": 33,
+     "text": "Transport Goods Items"
+    },
+    {
+     "x": 3004,
+     "y": 1737,
+     "w": 282,
+     "h": 34,
+     "text": "to Delivery Party"
+    }
+   ]
+  },
+  "object-transportation-status-between-consignor-and-freight-forwarder": {
+   "x": 1437,
+   "y": 1753,
+   "w": 312,
+   "h": 168,
+   "shape": "rect",
+   "stroke": 8,
+   "rx": 0,
+   "ry": 0,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 1467,
+     "y": 1797,
+     "w": 248,
+     "h": 33,
+     "text": "Transportation"
+    },
+    {
+     "x": 1540,
+     "y": 1836,
+     "w": 107,
+     "h": 27,
+     "text": "Status"
+    }
+   ]
+  },
+  "action-receive-status-report-in-consignor": {
+   "x": 825,
+   "y": 1773,
+   "w": 365,
+   "h": 118,
+   "shape": "rounded",
+   "stroke": 5,
+   "rx": 51,
+   "ry": 48,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 872,
+     "y": 1793,
+     "w": 250,
+     "h": 27,
+     "text": "Receive Status"
+    },
+    {
+     "x": 954,
+     "y": 1840,
+     "w": 113,
+     "h": 33,
+     "text": "Report"
+    }
+   ]
+  },
+  "object-transportation-status-between-freight-forwarder-and-carrier": {
+   "x": 2374,
+   "y": 1954,
+   "w": 312,
+   "h": 168,
+   "shape": "rect",
+   "stroke": 8,
+   "rx": 0,
+   "ry": 0,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 2405,
+     "y": 2001,
+     "w": 248,
+     "h": 33,
+     "text": "Transportation"
+    },
+    {
+     "x": 2477,
+     "y": 2040,
+     "w": 108,
+     "h": 27,
+     "text": "Status"
+    }
+   ]
+  },
+  "action-report-status-in-freight-forwarder": {
+   "x": 1805,
+   "y": 1988,
+   "w": 351,
+   "h": 118,
+   "shape": "rounded",
+   "stroke": 4,
+   "rx": 55,
+   "ry": 53,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 1866,
+     "y": 2030,
+     "w": 232,
+     "h": 34,
+     "text": "Report Status"
+    }
+   ]
+  },
+  "action-report-status-in-carrier": {
+   "x": 2833,
+   "y": 1988,
+   "w": 351,
+   "h": 122,
+   "shape": "rounded",
+   "stroke": 4,
+   "rx": 55,
+   "ry": 50,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 2894,
+     "y": 2027,
+     "w": 231,
+     "h": 34,
+     "text": "Report Status"
+    }
+   ]
+  },
+  "object-transportation-status-between-consignee-and-freight-forwarder": {
+   "x": 1408,
+   "y": 2257,
+   "w": 312,
+   "h": 168,
+   "shape": "rect",
+   "stroke": 8,
+   "rx": 0,
+   "ry": 0,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 1439,
+     "y": 2300,
+     "w": 248,
+     "h": 33,
+     "text": "Transportation"
+    },
+    {
+     "x": 1511,
+     "y": 2339,
+     "w": 107,
+     "h": 27,
+     "text": "Status"
+    }
+   ]
+  },
+  "action-receive-status-report-in-consignee": {
+   "x": 95,
+   "y": 2302,
+   "w": 363,
+   "h": 114,
+   "shape": "rounded",
+   "stroke": 5,
+   "rx": 50,
+   "ry": 56,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 149,
+     "y": 2320,
+     "w": 251,
+     "h": 27,
+     "text": "Receive Status"
+    },
+    {
+     "x": 232,
+     "y": 2367,
+     "w": 113,
+     "h": 33,
+     "text": "Report"
+    }
+   ]
+  },
+  "final-carrier": {
+   "x": 3188,
+   "y": 2417,
+   "w": 64,
+   "h": 64,
+   "shape": "ellipse",
+   "stroke": 4,
+   "rx": 30,
+   "ry": 29,
+   "innerRatio": 0.453
+  }
+ },
+ "flows": {
+  "flow-request-logistic-service-in-consignee-to-forwarding-instructions-between-consignee-and-consignor-and-freight-forwarder": {
+   "fromPoint": [
+    515,
+    243
+   ],
+   "toPoint": [
+    1433,
+    239
+   ],
+   "routing": "straight"
+  },
+  "flow-forwarding-instructions-between-consignee-and-consignor-and-freight-forwarder-to-request-transport-service": {
+   "fromPoint": [
+    1716,
+    260
+   ],
+   "toPoint": [
+    1898,
+    300
+   ],
+   "routing": "diagonal"
+  },
+  "flow-request-transport-service-to-forwarding-instructions-between-freight-forwarder-and-carrier": {
+   "fromPoint": [
+    2364,
+    339
+   ],
+   "toPoint": [
+    2428,
+    346
+   ],
+   "routing": "straight"
+  },
+  "flow-initial-to-request-logistic-service-in-consignee": {
+   "fromPoint": [
+    583,
+    495
+   ],
+   "toPoint": [
+    365,
+    324
+   ],
+   "routing": "diagonal"
+  },
+  "flow-request-logistic-service-in-consignor-to-forwarding-instructions-between-consignee-and-consignor-and-freight-forwarder": {
+   "fromPoint": [
+    1229,
+    464
+   ],
+   "toPoint": [
+    1447,
+    325
+   ],
+   "routing": "diagonal"
+  },
+  "flow-forwarding-instructions-between-freight-forwarder-and-carrier-to-receive-transport-service-request": {
+   "fromPoint": [
+    2711,
+    346
+   ],
+   "toPoint": [
+    2814,
+    341
+   ],
+   "routing": "straight"
+  },
+  "flow-packing-list-to-request-transport-service": {
+   "fromPoint": [
+    1745,
+    562
+   ],
+   "toPoint": [
+    2009,
+    414
+   ],
+   "routing": "diagonal"
+  },
+  "flow-receive-transport-service-request-to-send-bill-of-lading": {
+   "fromPoint": [
+    3091,
+    414
+   ],
+   "toPoint": [
+    3094,
+    921
+   ],
+   "routing": "straight"
+  },
+  "flow-initial-to-request-logistic-service-in-consignor": {
+   "fromPoint": [
+    691,
+    541
+   ],
+   "toPoint": [
+    882,
+    541
+   ],
+   "routing": "straight"
+  },
+  "flow-request-logistic-service-in-consignor-to-packing-list": {
+   "fromPoint": [
+    1348,
+    588
+   ],
+   "toPoint": [
+    1454,
+    616
+   ],
+   "routing": "diagonal"
+  },
+  "flow-bill-of-lading-between-consignee-and-consignor-and-freight-forwarder-to-receive-bill-of-lading-in-consignee": {
+   "fromPoint": [
+    1433,
+    926
+   ],
+   "toPoint": [
+    554,
+    926
+   ],
+   "routing": "straight"
+  },
+  "flow-send-bill-of-lading-to-consignor-to-bill-of-lading-between-consignee-and-consignor-and-freight-forwarder": {
+   "fromPoint": [
+    1859,
+    988
+   ],
+   "toPoint": [
+    1716,
+    986
+   ],
+   "routing": "straight"
+  },
+  "flow-bill-of-lading-between-freight-forwarder-and-carrier-to-send-bill-of-lading-to-consignor": {
+   "fromPoint": [
+    2428,
+    992
+   ],
+   "toPoint": [
+    2325,
+    991
+   ],
+   "routing": "straight"
+  },
+  "flow-send-bill-of-lading-to-bill-of-lading-between-freight-forwarder-and-carrier": {
+   "fromPoint": [
+    2904,
+    996
+   ],
+   "toPoint": [
+    2711,
+    993
+   ],
+   "routing": "straight"
+  },
+  "flow-bill-of-lading-between-consignee-and-consignor-and-freight-forwarder-to-receive-bill-of-lading-in-consignor": {
+   "fromPoint": [
+    1433,
+    1004
+   ],
+   "toPoint": [
+    1247,
+    1037
+   ],
+   "routing": "diagonal"
+  },
+  "flow-send-bill-of-lading-to-send-waybill": {
+   "fromPoint": [
+    3139,
+    1071
+   ],
+   "toPoint": [
+    3139,
+    1399
+   ],
+   "routing": "straight"
+  },
+  "flow-waybill-between-consignee-and-consignor-and-freight-forwarder-to-receive-waybill-in-consignor": {
+   "fromPoint": [
+    1429,
+    1425
+   ],
+   "toPoint": [
+    1231,
+    1359
+   ],
+   "routing": "diagonal"
+  },
+  "flow-waybill-between-consignee-and-consignor-and-freight-forwarder-to-receive-waybill-in-consignee": {
+   "fromPoint": [
+    1429,
+    1469
+   ],
+   "toPoint": [
+    543,
+    1469
+   ],
+   "routing": "straight"
+  },
+  "flow-send-waybill-to-consignor-to-waybill-between-consignee-and-consignor-and-freight-forwarder": {
+   "fromPoint": [
+    1848,
+    1468
+   ],
+   "toPoint": [
+    1713,
+    1470
+   ],
+   "routing": "straight"
+  },
+  "flow-waybill-between-freight-forwarder-and-carrier-to-send-waybill-to-consignor": {
+   "fromPoint": [
+    2428,
+    1467
+   ],
+   "toPoint": [
+    2314,
+    1469
+   ],
+   "routing": "straight"
+  },
+  "flow-send-waybill-to-waybill-between-freight-forwarder-and-carrier": {
+   "fromPoint": [
+    2904,
+    1473
+   ],
+   "toPoint": [
+    2711,
+    1467
+   ],
+   "routing": "straight"
+  },
+  "flow-send-waybill-to-transport-goods-items-to-delivery-party": {
+   "fromPoint": [
+    3137,
+    1552
+   ],
+   "toPoint": [
+    3139,
+    1650
+   ],
+   "routing": "straight"
+  },
+  "flow-transport-goods-items-to-delivery-party-to-report-status-in-carrier": {
+   "fromPoint": [
+    3011,
+    1804
+   ],
+   "toPoint": [
+    3008,
+    1973
+   ],
+   "routing": "straight"
+  },
+  "flow-transport-goods-items-to-delivery-party-to-final-carrier": {
+   "fromPoint": [
+    3235,
+    1804
+   ],
+   "toPoint": [
+    3235,
+    2402
+   ],
+   "routing": "straight"
+  },
+  "flow-transportation-status-between-consignor-and-freight-forwarder-to-receive-status-report-in-consignor": {
+   "fromPoint": [
+    1422,
+    1832
+   ],
+   "toPoint": [
+    1204,
+    1832
+   ],
+   "routing": "straight"
+  },
+  "flow-report-status-in-freight-forwarder-to-transportation-status-between-consignor-and-freight-forwarder": {
+   "fromPoint": [
+    1849,
+    1973
+   ],
+   "toPoint": [
+    1763,
+    1924
+   ],
+   "routing": "diagonal"
+  },
+  "flow-transportation-status-between-freight-forwarder-and-carrier-to-report-status-in-freight-forwarder": {
+   "fromPoint": [
+    2359,
+    2042
+   ],
+   "toPoint": [
+    2170,
+    2045
+   ],
+   "routing": "straight"
+  },
+  "flow-report-status-in-carrier-to-transportation-status-between-freight-forwarder-and-carrier": {
+   "fromPoint": [
+    2818,
+    2045
+   ],
+   "toPoint": [
+    2700,
+    2040
+   ],
+   "routing": "straight"
+  },
+  "flow-report-status-in-freight-forwarder-to-transportation-status-between-consignee-and-freight-forwarder": {
+   "fromPoint": [
+    1869,
+    2120
+   ],
+   "toPoint": [
+    1672,
+    2242
+   ],
+   "routing": "diagonal"
+  },
+  "flow-transportation-status-between-consignee-and-freight-forwarder-to-receive-status-report-in-consignee": {
+   "fromPoint": [
+    1393,
+    2360
+   ],
+   "toPoint": [
+    472,
+    2360
+   ],
+   "routing": "straight"
+  }
+ },
+ "texts": {
+  "text-ordering-process": {
+   "x": 437,
+   "y": 584,
+   "w": 137,
+   "h": 74,
+   "lines": [
+    {
+     "x": 437,
+     "y": 584,
+     "w": 135,
+     "h": 34,
+     "text": "Ordering"
+    },
+    {
+     "x": 449,
+     "y": 631,
+     "w": 125,
+     "h": 27,
+     "text": "Process"
+    }
+   ]
+  },
+  "text-fulfillment-process": {
+   "x": 2973,
+   "y": 2396,
+   "w": 161,
+   "h": 73,
+   "lines": [
+    {
+     "x": 2973,
+     "y": 2396,
+     "w": 161,
+     "h": 26,
+     "text": "Fulfillment"
+    },
+    {
+     "x": 3002,
+     "y": 2442,
+     "w": 126,
+     "h": 27,
+     "text": "Process"
+    }
+   ]
+  }
+ },
+ "offPage": {},
+ "marks": {},
+ "phases": {},
+ "rulesHaveSpans": {
+  "vertical": true,
+  "horizontal": true
+ }
+}

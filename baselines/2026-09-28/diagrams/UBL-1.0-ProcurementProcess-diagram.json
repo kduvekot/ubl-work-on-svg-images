@@ -1,0 +1,738 @@
+{
+ "schema": "ubl-activity-diagram/1",
+ "figure": {
+  "name": "UBL-1.0-ProcurementProcess",
+  "source": "UBL-1.0-ProcurementProcess.png",
+  "unstated": {
+   "start": "Fig C.1 draws no start node: the process begins with the Buyer's 'place order'."
+  }
+ },
+ "lanes": [
+  {
+   "id": "lane-delivery-recipient",
+   "axis": "column",
+   "index": 0,
+   "title": "Delivery Recipient"
+  },
+  {
+   "id": "lane-buyer",
+   "axis": "column",
+   "index": 1,
+   "title": "Buyer"
+  },
+  {
+   "id": "lane-seller",
+   "axis": "column",
+   "index": 2,
+   "title": "Seller"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "action-place-order",
+   "kind": "action",
+   "label": "place order",
+   "lane": "lane-buyer",
+   "unstated": {
+    "wayIn": "The process begins at this step: Fig C.1 draws no start."
+   }
+  },
+  {
+   "id": "object-order",
+   "kind": "object",
+   "label": "Order",
+   "lane": null,
+   "between": [
+    "lane-buyer",
+    "lane-seller"
+   ]
+  },
+  {
+   "id": "action-receive-order",
+   "kind": "action",
+   "label": "receive order",
+   "lane": "lane-seller"
+  },
+  {
+   "id": "decision-seller",
+   "kind": "decision",
+   "label": "",
+   "lane": "lane-seller",
+   "unstated": {
+    "question": "Fig C.1 draws its four decisions as plain diamonds with no question and no guards; what each branch means is said by the step it leads to (reject order, accept order, add detail, change order; cancel order)."
+   }
+  },
+  {
+   "id": "action-reject-order",
+   "kind": "action",
+   "label": "reject order",
+   "lane": "lane-seller"
+  },
+  {
+   "id": "object-orderresponsesimple-between-buyer-and-seller",
+   "kind": "object",
+   "label": "OrderResponseSimple",
+   "lane": null,
+   "between": [
+    "lane-buyer",
+    "lane-seller"
+   ]
+  },
+  {
+   "id": "action-accept-order",
+   "kind": "action",
+   "label": "accept order",
+   "lane": "lane-seller"
+  },
+  {
+   "id": "action-receive-response",
+   "kind": "action",
+   "label": "receive response",
+   "lane": "lane-buyer"
+  },
+  {
+   "id": "object-orderresponsesimple-between-buyer-and-seller-2",
+   "kind": "object",
+   "label": "OrderResponseSimple",
+   "lane": null,
+   "between": [
+    "lane-buyer",
+    "lane-seller"
+   ]
+  },
+  {
+   "id": "action-add-detail",
+   "kind": "action",
+   "label": "add detail",
+   "lane": "lane-seller"
+  },
+  {
+   "id": "object-orderresponse-detailed",
+   "kind": "object",
+   "label": "OrderResponse (detailed)",
+   "lane": null,
+   "between": [
+    "lane-buyer",
+    "lane-seller"
+   ]
+  },
+  {
+   "id": "decision-buyer",
+   "kind": "decision",
+   "label": "",
+   "lane": "lane-buyer",
+   "unstated": {
+    "question": "Fig C.1 draws its four decisions as plain diamonds with no question and no guards; what each branch means is said by the step it leads to (reject order, accept order, add detail, change order; cancel order)."
+   }
+  },
+  {
+   "id": "action-change-order-in-seller",
+   "kind": "action",
+   "label": "change order",
+   "lane": "lane-seller"
+  },
+  {
+   "id": "decision-seller-2",
+   "kind": "decision",
+   "label": "",
+   "lane": "lane-seller",
+   "unstated": {
+    "question": "Fig C.1 draws its four decisions as plain diamonds with no question and no guards; what each branch means is said by the step it leads to (reject order, accept order, add detail, change order; cancel order)."
+   }
+  },
+  {
+   "id": "action-change-order-in-buyer",
+   "kind": "action",
+   "label": "change order",
+   "lane": "lane-buyer"
+  },
+  {
+   "id": "object-orderchange",
+   "kind": "object",
+   "label": "OrderChange",
+   "lane": null,
+   "between": [
+    "lane-buyer",
+    "lane-seller"
+   ]
+  },
+  {
+   "id": "decision-seller-3",
+   "kind": "decision",
+   "label": "",
+   "lane": "lane-seller",
+   "unstated": {
+    "question": "Fig C.1 draws its four decisions as plain diamonds with no question and no guards; what each branch means is said by the step it leads to (reject order, accept order, add detail, change order; cancel order)."
+   }
+  },
+  {
+   "id": "action-cancel-order-in-buyer",
+   "kind": "action",
+   "label": "cancel order",
+   "lane": "lane-buyer"
+  },
+  {
+   "id": "action-cancel-order-in-seller",
+   "kind": "action",
+   "label": "cancel order",
+   "lane": "lane-seller",
+   "unstated": {
+    "wayOut": "The path ends at this step: the artwork draws no end after it."
+   }
+  },
+  {
+   "id": "object-ordercancellation",
+   "kind": "object",
+   "label": "OrderCancellation",
+   "lane": null,
+   "between": [
+    "lane-buyer",
+    "lane-seller"
+   ]
+  },
+  {
+   "id": "fork-seller",
+   "kind": "fork",
+   "label": "",
+   "lane": "lane-seller"
+  },
+  {
+   "id": "action-receive-advice-in-buyer",
+   "kind": "action",
+   "label": "receive advice",
+   "lane": "lane-buyer"
+  },
+  {
+   "id": "action-despatch-order-item-s",
+   "kind": "action",
+   "label": "despatch order item(s)",
+   "lane": "lane-seller"
+  },
+  {
+   "id": "object-despatchadvice",
+   "kind": "object",
+   "label": "DespatchAdvice",
+   "lane": null,
+   "between": [
+    "lane-delivery-recipient",
+    "lane-buyer",
+    "lane-seller"
+   ]
+  },
+  {
+   "id": "action-receive-advice-in-delivery-recipient",
+   "kind": "action",
+   "label": "receive advice",
+   "lane": "lane-delivery-recipient"
+  },
+  {
+   "id": "action-decision-if-item-s-rejected",
+   "kind": "action",
+   "label": "decision if item(s) rejected",
+   "lane": "lane-seller"
+  },
+  {
+   "id": "object-receiptadvice",
+   "kind": "object",
+   "label": "ReceiptAdvice",
+   "lane": null,
+   "between": [
+    "lane-delivery-recipient",
+    "lane-seller"
+   ]
+  },
+  {
+   "id": "action-receive-goods",
+   "kind": "action",
+   "label": "receive goods",
+   "lane": "lane-delivery-recipient"
+  },
+  {
+   "id": "fork-seller-2",
+   "kind": "fork",
+   "label": "",
+   "lane": "lane-seller"
+  },
+  {
+   "id": "action-advise-receipt",
+   "kind": "action",
+   "label": "advise receipt",
+   "lane": "lane-delivery-recipient"
+  },
+  {
+   "id": "action-reconcile-invoice",
+   "kind": "action",
+   "label": "reconcile invoice",
+   "lane": "lane-buyer"
+  },
+  {
+   "id": "action-raise-invoice",
+   "kind": "action",
+   "label": "raise invoice",
+   "lane": "lane-seller"
+  },
+  {
+   "id": "object-invoice",
+   "kind": "object",
+   "label": "Invoice",
+   "lane": null,
+   "between": [
+    "lane-buyer",
+    "lane-seller"
+   ]
+  },
+  {
+   "id": "final-buyer",
+   "kind": "final",
+   "label": "",
+   "lane": "lane-buyer"
+  }
+ ],
+ "flows": [
+  {
+   "id": "flow-order-to-receive-order",
+   "from": "object-order",
+   "to": "action-receive-order",
+   "kind": "object",
+   "direction": {
+    "confidence": "notation",
+    "checked": "confirmed"
+   }
+  },
+  {
+   "id": "flow-place-order-to-order",
+   "from": "action-place-order",
+   "to": "object-order",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-receive-order-to-decision-seller",
+   "from": "action-receive-order",
+   "to": "decision-seller",
+   "kind": "control",
+   "direction": {
+    "confidence": "checked",
+    "checked": "confirmed"
+   }
+  },
+  {
+   "id": "flow-decision-seller-to-reject-order",
+   "from": "decision-seller",
+   "to": "action-reject-order",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   },
+   "unstated": {
+    "guard": "Fig C.1 draws its four decisions as plain diamonds with no question and no guards; what each branch means is said by the step it leads to (reject order, accept order, add detail, change order; cancel order)."
+   }
+  },
+  {
+   "id": "flow-decision-seller-to-add-detail",
+   "from": "decision-seller",
+   "to": "action-add-detail",
+   "kind": "control",
+   "direction": {
+    "confidence": "checked",
+    "checked": "confirmed"
+   },
+   "unstated": {
+    "guard": "Fig C.1 draws its four decisions as plain diamonds with no question and no guards; what each branch means is said by the step it leads to (reject order, accept order, add detail, change order; cancel order)."
+   }
+  },
+  {
+   "id": "flow-change-order-in-seller-to-decision-seller",
+   "from": "action-change-order-in-seller",
+   "to": "decision-seller",
+   "kind": "control",
+   "direction": {
+    "confidence": "high",
+    "checked": "corrected"
+   },
+   "unstated": {
+    "guard": "Fig C.1 draws its four decisions as plain diamonds with no question and no guards; what each branch means is said by the step it leads to (reject order, accept order, add detail, change order; cancel order)."
+   }
+  },
+  {
+   "id": "flow-reject-order-to-orderresponsesimple-between-buyer-and-seller",
+   "from": "action-reject-order",
+   "to": "object-orderresponsesimple-between-buyer-and-seller",
+   "kind": "object",
+   "direction": {
+    "confidence": "medium",
+    "checked": "confirmed"
+   }
+  },
+  {
+   "id": "flow-decision-seller-to-accept-order",
+   "from": "decision-seller",
+   "to": "action-accept-order",
+   "kind": "control",
+   "direction": {
+    "confidence": "notation",
+    "checked": "confirmed"
+   },
+   "unstated": {
+    "guard": "Fig C.1 draws its four decisions as plain diamonds with no question and no guards; what each branch means is said by the step it leads to (reject order, accept order, add detail, change order; cancel order)."
+   }
+  },
+  {
+   "id": "flow-orderresponsesimple-between-buyer-and-seller-to-receive-response",
+   "from": "object-orderresponsesimple-between-buyer-and-seller",
+   "to": "action-receive-response",
+   "kind": "object",
+   "direction": {
+    "confidence": "medium",
+    "checked": "confirmed"
+   }
+  },
+  {
+   "id": "flow-orderresponsesimple-between-buyer-and-seller-2-to-receive-response",
+   "from": "object-orderresponsesimple-between-buyer-and-seller-2",
+   "to": "action-receive-response",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-accept-order-to-orderresponsesimple-between-buyer-and-seller-2",
+   "from": "action-accept-order",
+   "to": "object-orderresponsesimple-between-buyer-and-seller-2",
+   "kind": "object",
+   "direction": {
+    "confidence": "notation",
+    "checked": "confirmed"
+   }
+  },
+  {
+   "id": "flow-orderresponse-detailed-to-receive-response",
+   "from": "object-orderresponse-detailed",
+   "to": "action-receive-response",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-accept-order-to-decision-seller-2",
+   "from": "action-accept-order",
+   "to": "decision-seller-2",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-receive-response-to-receive-advice-in-buyer",
+   "from": "action-receive-response",
+   "to": "action-receive-advice-in-buyer",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-decision-buyer-to-cancel-order-in-buyer",
+   "from": "decision-buyer",
+   "to": "action-cancel-order-in-buyer",
+   "kind": "control",
+   "direction": {
+    "confidence": "notation",
+    "checked": "confirmed"
+   },
+   "unstated": {
+    "guard": "Fig C.1 draws its four decisions as plain diamonds with no question and no guards; what each branch means is said by the step it leads to (reject order, accept order, add detail, change order; cancel order)."
+   }
+  },
+  {
+   "id": "flow-receive-response-to-decision-buyer",
+   "from": "action-receive-response",
+   "to": "decision-buyer",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-add-detail-to-orderresponse-detailed",
+   "from": "action-add-detail",
+   "to": "object-orderresponse-detailed",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-decision-buyer-to-change-order-in-buyer",
+   "from": "decision-buyer",
+   "to": "action-change-order-in-buyer",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   },
+   "unstated": {
+    "guard": "Fig C.1 draws its four decisions as plain diamonds with no question and no guards; what each branch means is said by the step it leads to (reject order, accept order, add detail, change order; cancel order)."
+   }
+  },
+  {
+   "id": "flow-add-detail-to-decision-seller-3",
+   "from": "action-add-detail",
+   "to": "decision-seller-3",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-decision-seller-2-to-cancel-order-in-seller",
+   "from": "decision-seller-2",
+   "to": "action-cancel-order-in-seller",
+   "kind": "control",
+   "direction": {
+    "confidence": "medium",
+    "checked": "confirmed"
+   },
+   "unstated": {
+    "guard": "Fig C.1 draws its four decisions as plain diamonds with no question and no guards; what each branch means is said by the step it leads to (reject order, accept order, add detail, change order; cancel order)."
+   }
+  },
+  {
+   "id": "flow-decision-seller-2-to-fork-seller",
+   "from": "decision-seller-2",
+   "to": "fork-seller",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   },
+   "unstated": {
+    "guard": "Fig C.1 draws its four decisions as plain diamonds with no question and no guards; what each branch means is said by the step it leads to (reject order, accept order, add detail, change order; cancel order)."
+   }
+  },
+  {
+   "id": "flow-decision-seller-3-to-cancel-order-in-seller",
+   "from": "decision-seller-3",
+   "to": "action-cancel-order-in-seller",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   },
+   "unstated": {
+    "guard": "Fig C.1 draws its four decisions as plain diamonds with no question and no guards; what each branch means is said by the step it leads to (reject order, accept order, add detail, change order; cancel order)."
+   }
+  },
+  {
+   "id": "flow-orderchange-to-change-order-in-seller",
+   "from": "object-orderchange",
+   "to": "action-change-order-in-seller",
+   "kind": "object",
+   "direction": {
+    "confidence": "checked",
+    "checked": "confirmed"
+   }
+  },
+  {
+   "id": "flow-change-order-in-buyer-to-orderchange",
+   "from": "action-change-order-in-buyer",
+   "to": "object-orderchange",
+   "kind": "object",
+   "direction": {
+    "confidence": "medium",
+    "checked": "confirmed"
+   }
+  },
+  {
+   "id": "flow-decision-seller-3-to-fork-seller",
+   "from": "decision-seller-3",
+   "to": "fork-seller",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   },
+   "unstated": {
+    "guard": "Fig C.1 draws its four decisions as plain diamonds with no question and no guards; what each branch means is said by the step it leads to (reject order, accept order, add detail, change order; cancel order)."
+   }
+  },
+  {
+   "id": "flow-cancel-order-in-buyer-to-ordercancellation",
+   "from": "action-cancel-order-in-buyer",
+   "to": "object-ordercancellation",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-change-order-in-buyer-to-receive-advice-in-buyer",
+   "from": "action-change-order-in-buyer",
+   "to": "action-receive-advice-in-buyer",
+   "kind": "control",
+   "direction": {
+    "confidence": "medium",
+    "checked": "confirmed"
+   }
+  },
+  {
+   "id": "flow-ordercancellation-to-cancel-order-in-seller",
+   "from": "object-ordercancellation",
+   "to": "action-cancel-order-in-seller",
+   "kind": "object",
+   "direction": {
+    "confidence": "checked",
+    "checked": "confirmed"
+   }
+  },
+  {
+   "id": "flow-fork-seller-to-despatch-order-item-s",
+   "from": "fork-seller",
+   "to": "action-despatch-order-item-s",
+   "kind": "control",
+   "direction": {
+    "confidence": "high",
+    "checked": "corrected"
+   }
+  },
+  {
+   "id": "flow-despatchadvice-to-receive-advice-in-buyer",
+   "from": "object-despatchadvice",
+   "to": "action-receive-advice-in-buyer",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-receive-advice-in-buyer-to-reconcile-invoice",
+   "from": "action-receive-advice-in-buyer",
+   "to": "action-reconcile-invoice",
+   "kind": "control",
+   "direction": {
+    "confidence": "checked",
+    "checked": "confirmed"
+   }
+  },
+  {
+   "id": "flow-despatch-order-item-s-to-despatchadvice",
+   "from": "action-despatch-order-item-s",
+   "to": "object-despatchadvice",
+   "kind": "object",
+   "direction": {
+    "confidence": "medium",
+    "checked": "confirmed"
+   }
+  },
+  {
+   "id": "flow-despatchadvice-to-receive-advice-in-delivery-recipient",
+   "from": "object-despatchadvice",
+   "to": "action-receive-advice-in-delivery-recipient",
+   "kind": "object",
+   "direction": {
+    "confidence": "checked",
+    "checked": "confirmed"
+   }
+  },
+  {
+   "id": "flow-despatch-order-item-s-to-fork-seller-2",
+   "from": "action-despatch-order-item-s",
+   "to": "fork-seller-2",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-receive-advice-in-delivery-recipient-to-receive-goods",
+   "from": "action-receive-advice-in-delivery-recipient",
+   "to": "action-receive-goods",
+   "kind": "control",
+   "direction": {
+    "confidence": "checked",
+    "checked": "confirmed"
+   }
+  },
+  {
+   "id": "flow-receiptadvice-to-decision-if-item-s-rejected",
+   "from": "object-receiptadvice",
+   "to": "action-decision-if-item-s-rejected",
+   "kind": "object",
+   "direction": {
+    "confidence": "medium",
+    "checked": "confirmed"
+   }
+  },
+  {
+   "id": "flow-decision-if-item-s-rejected-to-fork-seller-2",
+   "from": "action-decision-if-item-s-rejected",
+   "to": "fork-seller-2",
+   "kind": "control",
+   "direction": {
+    "confidence": "checked",
+    "checked": "confirmed"
+   }
+  },
+  {
+   "id": "flow-receive-goods-to-advise-receipt",
+   "from": "action-receive-goods",
+   "to": "action-advise-receipt",
+   "kind": "control",
+   "direction": {
+    "confidence": "checked",
+    "checked": "confirmed"
+   }
+  },
+  {
+   "id": "flow-advise-receipt-to-receiptadvice",
+   "from": "action-advise-receipt",
+   "to": "object-receiptadvice",
+   "kind": "object",
+   "direction": {
+    "confidence": "checked",
+    "checked": "confirmed"
+   }
+  },
+  {
+   "id": "flow-fork-seller-2-to-raise-invoice",
+   "from": "fork-seller-2",
+   "to": "action-raise-invoice",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-reconcile-invoice-to-final-buyer",
+   "from": "action-reconcile-invoice",
+   "to": "final-buyer",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-raise-invoice-to-invoice",
+   "from": "action-raise-invoice",
+   "to": "object-invoice",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-invoice-to-reconcile-invoice",
+   "from": "object-invoice",
+   "to": "action-reconcile-invoice",
+   "kind": "object",
+   "direction": {
+    "confidence": "checked",
+    "checked": "confirmed"
+   }
+  }
+ ],
+ "texts": [],
+ "offPage": [],
+ "marks": [],
+ "phases": []
+}

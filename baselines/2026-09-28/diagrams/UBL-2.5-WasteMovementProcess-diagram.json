@@ -1,0 +1,114 @@
+{
+ "schema": "ubl-activity-diagram/1",
+ "figure": {
+  "name": "UBL-2.5-WasteMovementProcess",
+  "source": "UBL-2.5-WasteMovementProcess.png"
+ },
+ "lanes": [
+  {
+   "id": "lane-sender-party",
+   "axis": "column",
+   "index": 0,
+   "title": "Sender Party"
+  },
+  {
+   "id": "lane-receiver-party",
+   "axis": "column",
+   "index": 1,
+   "title": "Receiver Party"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "initial-sender-party",
+   "kind": "initial",
+   "label": "",
+   "lane": "lane-sender-party"
+  },
+  {
+   "id": "action-prepare-partial-waste-movement",
+   "kind": "action",
+   "label": "Prepare partial waste\nmovement",
+   "lane": "lane-sender-party"
+  },
+  {
+   "id": "object-waste-movement",
+   "kind": "object",
+   "label": "Waste Movement",
+   "lane": null,
+   "between": [
+    "lane-sender-party",
+    "lane-receiver-party"
+   ]
+  },
+  {
+   "id": "action-issue-waste-movement",
+   "kind": "action",
+   "label": "Issue Waste\nMovement",
+   "lane": "lane-sender-party"
+  },
+  {
+   "id": "action-receive-waste-movement",
+   "kind": "action",
+   "label": "Receive Waste\nMovement",
+   "lane": "lane-receiver-party"
+  },
+  {
+   "id": "final-receiver-party",
+   "kind": "final",
+   "label": "",
+   "lane": "lane-receiver-party"
+  }
+ ],
+ "flows": [
+  {
+   "id": "flow-initial-sender-party-to-prepare-partial-waste-movement",
+   "from": "initial-sender-party",
+   "to": "action-prepare-partial-waste-movement",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-prepare-partial-waste-movement-to-issue-waste-movement",
+   "from": "action-prepare-partial-waste-movement",
+   "to": "action-issue-waste-movement",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-issue-waste-movement-to-waste-movement",
+   "from": "action-issue-waste-movement",
+   "to": "object-waste-movement",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-waste-movement-to-receive-waste-movement",
+   "from": "object-waste-movement",
+   "to": "action-receive-waste-movement",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-receive-waste-movement-to-final-receiver-party",
+   "from": "action-receive-waste-movement",
+   "to": "final-receiver-party",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  }
+ ],
+ "texts": [],
+ "offPage": [],
+ "marks": [],
+ "phases": []
+}

@@ -1,0 +1,11 @@
+== UBL-2.0-PaymentNotificationProcess
+  UBL-2.0-PaymentNotificationProcess -> diagram, layout, extraction  (9 nodes, 9 flows, 1 texts)
+  scale 0.43212   frame 10px  divider 5px  action 5px  object 9px
+  font 51px (22.2 model)   3 lanes, 0 bands, 9 nodes, 9 edges -> /tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-2.0-PaymentNotificationProcess-spec.json
+  /tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-2.0-PaymentNotificationProcess.svg + .drawio + -classified.svg   (9 nodes, 9 edges)
+  aligned on ink bounds: scale x 1.0000, y 1.0000
+  size 3425x2113  radius 2
+  ink: original 265286   candidate 263711
+  MISSING (red)     1744  = 0.6574% of original ink
+  EXTRA   (blue)    1404  = 0.5292% of original ink
+  RESULT: DIFFERENCES - inspect /tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-2.0-PaymentNotificationProcess-diff-r2.png

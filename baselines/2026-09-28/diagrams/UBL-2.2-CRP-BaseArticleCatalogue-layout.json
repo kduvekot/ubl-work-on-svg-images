@@ -1,0 +1,231 @@
+{
+ "schema": "ubl-activity-diagram-layout/1",
+ "figure": "UBL-2.2-CRP-BaseArticleCatalogue",
+ "units": "px of the original PNG",
+ "size": [
+  3425,
+  1516
+ ],
+ "style": {
+  "fontPx": 82.9,
+  "arrowPx": 83.0,
+  "arrowWidthPx": 66.0,
+  "arrowStyle": "open"
+ },
+ "rules": {
+  "vertical": [
+   {
+    "at": 0,
+    "width": 10,
+    "span": [
+     13,
+     1502
+    ]
+   },
+   {
+    "at": 1664,
+    "width": 6,
+    "span": [
+     13,
+     1017
+    ]
+   },
+   {
+    "at": 3415,
+    "width": 10,
+    "span": [
+     13,
+     1502
+    ]
+   }
+  ],
+  "horizontal": [
+   {
+    "at": 0,
+    "width": 10,
+    "span": [
+     13,
+     3411
+    ]
+   },
+   {
+    "at": 1506,
+    "width": 10,
+    "span": [
+     13,
+     3411
+    ]
+   }
+  ],
+  "pieces": [
+   {
+    "points": [
+     [
+      1661,
+      1014
+     ],
+     [
+      1658,
+      1503
+     ]
+    ]
+   }
+  ]
+ },
+ "greyRules": [],
+ "lanes": {
+  "lane-producer": {
+   "x0": 0,
+   "x1": 1667,
+   "titleBox": [
+    620,
+    61,
+    311,
+    57
+   ]
+  },
+  "lane-retailer": {
+   "x0": 1667,
+   "x1": 3425,
+   "titleBox": [
+    2389,
+    60,
+    263,
+    57
+   ]
+  }
+ },
+ "nodes": {
+  "initial-producer": {
+   "x": 434,
+   "y": 204,
+   "w": 120,
+   "h": 120
+  },
+  "object-catalogue": {
+   "x": 1415,
+   "y": 801,
+   "w": 498,
+   "h": 198,
+   "shape": "rect",
+   "stroke": 12,
+   "rx": 2,
+   "ry": 2,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 1489,
+     "y": 864,
+     "w": 371,
+     "h": 74,
+     "text": "Catalogue"
+    }
+   ]
+  },
+  "action-receive-catalogue": {
+   "x": 2534,
+   "y": 804,
+   "w": 798,
+   "h": 186,
+   "shape": "rounded",
+   "stroke": 6,
+   "rx": 109,
+   "ry": 67,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 2578,
+     "y": 864,
+     "w": 686,
+     "h": 74,
+     "text": "Receive Catalogue"
+    }
+   ]
+  },
+  "action-send-catalogue": {
+   "x": 92,
+   "y": 810,
+   "w": 798,
+   "h": 186,
+   "shape": "rounded",
+   "stroke": 6,
+   "rx": 109,
+   "ry": 62,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 188,
+     "y": 870,
+     "w": 584,
+     "h": 74,
+     "text": "Send Catalogue"
+    }
+   ]
+  },
+  "final-retailer": {
+   "x": 2882,
+   "y": 1338,
+   "w": 108,
+   "h": 108,
+   "shape": "rounded",
+   "stroke": 6,
+   "rx": 57,
+   "ry": 57,
+   "innerRatio": 0.435
+  }
+ },
+ "flows": {
+  "flow-initial-producer-to-send-catalogue": {
+   "fromPoint": [
+    491,
+    338
+   ],
+   "toPoint": [
+    491,
+    795
+   ],
+   "routing": "straight"
+  },
+  "flow-catalogue-to-receive-catalogue": {
+   "fromPoint": [
+    1928,
+    897
+   ],
+   "toPoint": [
+    2519,
+    897
+   ],
+   "routing": "straight"
+  },
+  "flow-send-catalogue-to-catalogue": {
+   "fromPoint": [
+    904,
+    903
+   ],
+   "toPoint": [
+    1400,
+    902
+   ],
+   "routing": "straight"
+  },
+  "flow-receive-catalogue-to-final-retailer": {
+   "fromPoint": [
+    2932,
+    1004
+   ],
+   "toPoint": [
+    2934,
+    1323
+   ],
+   "routing": "straight"
+  }
+ },
+ "texts": {},
+ "offPage": {},
+ "marks": {},
+ "phases": {},
+ "rulesHaveSpans": {
+  "vertical": true,
+  "horizontal": true
+ }
+}

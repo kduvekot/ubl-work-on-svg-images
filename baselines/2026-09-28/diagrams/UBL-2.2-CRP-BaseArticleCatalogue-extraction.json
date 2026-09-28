@@ -1,0 +1,534 @@
+{
+ "schema": "ubl-activity-diagram-extraction/1",
+ "figure": "UBL-2.2-CRP-BaseArticleCatalogue",
+ "nodes": {
+  "initial-producer": {
+   "area": 10022,
+   "fill": 0.771
+  },
+  "object-catalogue": {
+   "area": 88407,
+   "fill": 0.897,
+   "solid": 1.0,
+   "stem": 0.133
+  },
+  "action-receive-catalogue": {
+   "area": 127814,
+   "fill": 0.861,
+   "solid": 0.98,
+   "stem": 0.133
+  },
+  "action-send-catalogue": {
+   "area": 130134,
+   "fill": 0.877,
+   "solid": 0.98,
+   "stem": 0.133
+  },
+  "final-retailer": {
+   "area": 7200,
+   "fill": 0.617,
+   "solid": 0.776
+  }
+ },
+ "flows": {
+  "flow-initial-producer-to-send-catalogue": {
+   "arrowInk": [
+    270,
+    894
+   ],
+   "arrowPx": [
+    83,
+    66.0,
+    2.45
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-catalogue-to-receive-catalogue": {
+   "arrowInk": [
+    267,
+    916
+   ],
+   "arrowPx": [
+    83,
+    66.0,
+    2.4
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-send-catalogue-to-catalogue": {
+   "arrowInk": [
+    270,
+    838
+   ],
+   "arrowPx": [
+    84,
+    65.7,
+    2.97
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-receive-catalogue-to-final-retailer": {
+   "arrowInk": [
+    270,
+    907
+   ],
+   "arrowPx": [
+    82,
+    67.1,
+    2.32
+   ],
+   "arrowFill": 0.0
+  }
+ },
+ "offPage": {
+  "o0": {
+   "headPx": null
+  }
+ },
+ "marks": {},
+ "phases": {},
+ "greyRules": [],
+ "titleReadings": [
+  {
+   "position": 0,
+   "text": "Retailer",
+   "x": 2389,
+   "y": 60,
+   "w": 263,
+   "h": 57,
+   "lines": [
+    {
+     "x": 2389,
+     "y": 60,
+     "w": 263,
+     "h": 57,
+     "text": "Retailer"
+    }
+   ]
+  },
+  {
+   "position": 1,
+   "text": "Producer",
+   "x": 620,
+   "y": 61,
+   "w": 311,
+   "h": 57,
+   "lines": [
+    {
+     "x": 620,
+     "y": 61,
+     "w": 311,
+     "h": 57,
+     "text": "Producer"
+    }
+   ]
+  }
+ ],
+ "findings": [],
+ "uncertain": [],
+ "present": [
+  "source",
+  "size",
+  "fontPx",
+  "arrowPx",
+  "arrowWidthPx",
+  "arrowStyle",
+  "rules",
+  "ruleSpan",
+  "greyRules",
+  "dashed",
+  "openEnds",
+  "crossMarks",
+  "partitions",
+  "nodes",
+  "edges",
+  "text",
+  "uncertain"
+ ],
+ "uncorrected": {
+  "model": {
+   "schema": "ubl-activity-diagram/1",
+   "figure": {
+    "name": "UBL-2.2-CRP-BaseArticleCatalogue",
+    "source": "UBL-2.2-CRP-BaseArticleCatalogue.png"
+   },
+   "lanes": [
+    {
+     "id": "lane0",
+     "axis": "column",
+     "index": 0,
+     "title": "Producer"
+    },
+    {
+     "id": "lane1",
+     "axis": "column",
+     "index": 1,
+     "title": "Retailer"
+    },
+    {
+     "id": "lane2",
+     "axis": "band",
+     "index": 0,
+     "title": ""
+    }
+   ],
+   "nodes": [
+    {
+     "id": "n1",
+     "kind": "initial",
+     "label": "",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n2",
+     "kind": "object",
+     "label": "Catalogue",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n3",
+     "kind": "action",
+     "label": "Receive Catalogue",
+     "lane": "lane1",
+     "band": "lane2"
+    },
+    {
+     "id": "n4",
+     "kind": "action",
+     "label": "send Catalogue",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n5",
+     "kind": "final",
+     "label": "",
+     "lane": "lane1",
+     "band": "lane2"
+    }
+   ],
+   "flows": [
+    {
+     "id": "f0",
+     "from": "n1",
+     "to": "n4",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f1",
+     "from": "n2",
+     "to": "n3",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f2",
+     "from": "n4",
+     "to": "n2",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f3",
+     "from": "n3",
+     "to": "n5",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    }
+   ],
+   "texts": [],
+   "offPage": [
+    {
+     "id": "o0",
+     "node": "n2",
+     "direction": "out",
+     "arrow": false
+    }
+   ],
+   "marks": [],
+   "phases": []
+  },
+  "layout": {
+   "schema": "ubl-activity-diagram-layout/1",
+   "figure": "UBL-2.2-CRP-BaseArticleCatalogue",
+   "units": "px of the original PNG",
+   "size": [
+    3425,
+    1516
+   ],
+   "style": {
+    "fontPx": 82.9,
+    "arrowPx": 83.0,
+    "arrowWidthPx": 66.0,
+    "arrowStyle": "open"
+   },
+   "rules": {
+    "vertical": [
+     {
+      "at": 0,
+      "width": 10,
+      "span": [
+       13,
+       1502
+      ]
+     },
+     {
+      "at": 1664,
+      "width": 6,
+      "span": [
+       13,
+       1017
+      ]
+     },
+     {
+      "at": 3415,
+      "width": 10,
+      "span": [
+       13,
+       1502
+      ]
+     }
+    ],
+    "horizontal": [
+     {
+      "at": 0,
+      "width": 10,
+      "span": [
+       13,
+       3411
+      ]
+     },
+     {
+      "at": 1506,
+      "width": 10,
+      "span": [
+       13,
+       3411
+      ]
+     }
+    ]
+   },
+   "greyRules": [],
+   "lanes": {
+    "lane0": {
+     "x0": 0,
+     "x1": 1667,
+     "titleBox": [
+      620,
+      61,
+      311,
+      57
+     ]
+    },
+    "lane1": {
+     "x0": 1667,
+     "x1": 3425,
+     "titleBox": [
+      2389,
+      60,
+      263,
+      57
+     ]
+    },
+    "lane2": {
+     "y0": 0,
+     "y1": 1516
+    }
+   },
+   "nodes": {
+    "n1": {
+     "x": 434,
+     "y": 204,
+     "w": 120,
+     "h": 120
+    },
+    "n2": {
+     "x": 1415,
+     "y": 801,
+     "w": 498,
+     "h": 198,
+     "shape": "rect",
+     "stroke": 12,
+     "rx": 2,
+     "ry": 2,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 1489,
+       "y": 864,
+       "w": 371,
+       "h": 74,
+       "text": "Catalogue"
+      }
+     ]
+    },
+    "n3": {
+     "x": 2534,
+     "y": 804,
+     "w": 798,
+     "h": 186,
+     "shape": "rounded",
+     "stroke": 6,
+     "rx": 109,
+     "ry": 67,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 2578,
+       "y": 864,
+       "w": 686,
+       "h": 74,
+       "text": "Receive Catalogue"
+      }
+     ]
+    },
+    "n4": {
+     "x": 92,
+     "y": 810,
+     "w": 798,
+     "h": 186,
+     "shape": "rounded",
+     "stroke": 6,
+     "rx": 109,
+     "ry": 62,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 188,
+       "y": 870,
+       "w": 584,
+       "h": 74,
+       "text": "send Catalogue"
+      }
+     ]
+    },
+    "n5": {
+     "x": 2882,
+     "y": 1338,
+     "w": 108,
+     "h": 108,
+     "shape": "rounded",
+     "stroke": 6,
+     "rx": 57,
+     "ry": 57,
+     "innerRatio": 0.435
+    }
+   },
+   "flows": {
+    "f0": {
+     "fromPoint": [
+      491,
+      338
+     ],
+     "toPoint": [
+      491,
+      795
+     ],
+     "routing": "straight"
+    },
+    "f1": {
+     "fromPoint": [
+      1928,
+      897
+     ],
+     "toPoint": [
+      2519,
+      897
+     ],
+     "routing": "straight"
+    },
+    "f2": {
+     "fromPoint": [
+      904,
+      903
+     ],
+     "toPoint": [
+      1400,
+      902
+     ],
+     "routing": "straight"
+    },
+    "f3": {
+     "fromPoint": [
+      2932,
+      1004
+     ],
+     "toPoint": [
+      2934,
+      1323
+     ],
+     "routing": "straight"
+    }
+   },
+   "texts": {},
+   "offPage": {
+    "o0": {
+     "at": [
+      1661,
+      1014
+     ],
+     "end": [
+      1658,
+      1503
+     ],
+     "points": [],
+     "x": 1658,
+     "y": 1014,
+     "w": 4,
+     "h": 490
+    }
+   },
+   "marks": {},
+   "phases": {},
+   "rulesHaveSpans": {
+    "vertical": true,
+    "horizontal": true
+   }
+  }
+ },
+ "retexted": {
+  "n4": {
+   "section": "nodes",
+   "text": "Send Catalogue"
+  }
+ },
+ "graphPatches": {
+  "edges": {},
+  "texts": {},
+  "addEdges": [],
+  "dropOpenEnds": [
+   "o0"
+  ]
+ },
+ "corrections": [
+  "div-01",
+  "text-35"
+ ],
+ "documentLanes": {
+  "object-catalogue": "lane-producer"
+ },
+ "formerIds": {
+  "lane-producer": "lane0",
+  "lane-retailer": "lane1",
+  "initial-producer": "n1",
+  "object-catalogue": "n2",
+  "action-receive-catalogue": "n3",
+  "action-send-catalogue": "n4",
+  "final-retailer": "n5",
+  "flow-initial-producer-to-send-catalogue": "f0",
+  "flow-catalogue-to-receive-catalogue": "f1",
+  "flow-send-catalogue-to-catalogue": "f2",
+  "flow-receive-catalogue-to-final-retailer": "f3"
+ }
+}

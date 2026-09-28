@@ -1,0 +1,377 @@
+{
+ "canvas": {
+  "w": 1480.0,
+  "h": 754.476
+ },
+ "stroke": {
+  "frame": 4.3,
+  "divider": 1.7,
+  "action": 1.7,
+  "object": 3.5,
+  "edge": 1.7
+ },
+ "font": {
+  "family": "Helvetica, Arial, sans-serif",
+  "node": 22.2,
+  "lane": 22.2,
+  "guard": 22.2
+ },
+ "arrow": 28.6,
+ "arrowWidth": 22.7,
+ "arrowStyle": "open",
+ "dashed": [],
+ "greyRules": [],
+ "crossMarks": [],
+ "openEnds": [],
+ "frameBox": [
+  2.2,
+  2.2,
+  1477.8,
+  752.3
+ ],
+ "dividers": [
+  [
+   768.7,
+   1.7,
+   5.2,
+   748.4
+  ]
+ ],
+ "bands": [],
+ "lanes": [
+  {
+   "id": "lane-producer",
+   "title": "Producer",
+   "x": 0.0,
+   "w": 768.7,
+   "cx": 385.0,
+   "cy": 29.0,
+   "size": 21.7,
+   "textWidth": 85.6,
+   "baseline": 36.7
+  },
+  {
+   "id": "lane-retailer",
+   "title": "Retailer",
+   "x": 768.7,
+   "w": 711.3,
+   "cx": 1125.2,
+   "cy": 29.0,
+   "size": 21.7,
+   "textWidth": 72.6,
+   "baseline": 36.7
+  }
+ ],
+ "bandLabels": [],
+ "captions": [],
+ "nodes": [
+  {
+   "id": "initial-retailer",
+   "kind": "initial",
+   "label": "",
+   "x": 1222.0,
+   "y": 73.9,
+   "w": 32.8,
+   "h": 32.8
+  },
+  {
+   "id": "object-product-activity-between-producer-and-retailer",
+   "kind": "object",
+   "label": "Product Activity",
+   "x": 673.2,
+   "y": 211.7,
+   "w": 191.4,
+   "h": 57.9,
+   "labelLines": [
+    {
+     "text": "Product Activity",
+     "cx": 771.8,
+     "cy": 239.235,
+     "w": 164.2,
+     "size": 21.9
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-receive-a-report-about-sales",
+   "kind": "action",
+   "label": "Receive a report about sales",
+   "x": 168.1,
+   "y": 215.2,
+   "w": 302.0,
+   "h": 52.7,
+   "rx": 26.4,
+   "ry": 19.0,
+   "labelLines": [
+    {
+     "text": "Receive a report about sales",
+     "cx": 319.6,
+     "cy": 240.275,
+     "w": 288.2,
+     "size": 21.5
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-send-a-report-about-sales",
+   "kind": "action",
+   "label": "Send a report about sales",
+   "x": 1080.7,
+   "y": 218.2,
+   "w": 316.7,
+   "h": 44.5,
+   "rx": 26.6,
+   "ry": 14.7,
+   "labelLines": [
+    {
+     "text": "Send a report about sales",
+     "cx": 1238.7,
+     "cy": 241.17499999999998,
+     "w": 260.6,
+     "size": 21.5
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "object-product-activity-between-producer-and-retailer-2",
+   "kind": "object",
+   "label": "Product Activity",
+   "x": 671.5,
+   "y": 352.2,
+   "w": 196.6,
+   "h": 57.9,
+   "labelLines": [
+    {
+     "text": "Product Activity",
+     "cx": 772.0,
+     "cy": 379.23499999999996,
+     "w": 164.6,
+     "size": 21.9
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-send-a-report-about-movement-of-goods",
+   "kind": "action",
+   "label": "Send a report about movement of\ngoods",
+   "x": 1032.8,
+   "y": 353.9,
+   "w": 410.9,
+   "h": 64.4,
+   "rx": 26.8,
+   "ry": 25.5,
+   "labelLines": [
+    {
+     "text": "Send a report about movement of",
+     "cx": 1237.6,
+     "cy": 374.27500000000003,
+     "w": 342.2,
+     "size": 21.5
+    },
+    {
+     "text": "goods",
+     "cx": 1240.0,
+     "cy": 398.475,
+     "w": 62.7,
+     "size": 21.5
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-receive-a-report-about-movement-of-goods",
+   "kind": "action",
+   "label": "Receive a report about movement of\ngoods",
+   "x": 93.8,
+   "y": 355.2,
+   "w": 445.5,
+   "h": 64.8,
+   "rx": 26.6,
+   "ry": 25.1,
+   "labelLines": [
+    {
+     "text": "Receive a report about movement of",
+     "cx": 312.6,
+     "cy": 375.975,
+     "w": 370.3,
+     "size": 21.5
+    },
+    {
+     "text": "goods",
+     "cx": 317.4,
+     "cy": 400.175,
+     "w": 62.7,
+     "size": 21.5
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "fork-producer",
+   "kind": "fork",
+   "label": "",
+   "x": 35.4,
+   "y": 607.1,
+   "w": 153.4,
+   "h": 9.9
+  },
+  {
+   "id": "final-producer",
+   "kind": "final",
+   "label": "",
+   "x": 95.5,
+   "y": 699.2,
+   "w": 31.5,
+   "h": 31.1,
+   "innerRatio": 0.435
+  }
+ ],
+ "edges": [
+  {
+   "id": "flow-initial-retailer-to-send-a-report-about-sales",
+   "from": "initial-retailer",
+   "to": "action-send-a-report-about-sales",
+   "exitXY": [
+    0.5152,
+    1.0
+   ],
+   "entryXY": [
+    0.4995,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-product-activity-between-producer-and-retailer-to-receive-a-report-about-sales",
+   "from": "object-product-activity-between-producer-and-retailer",
+   "to": "action-receive-a-report-about-sales",
+   "exitXY": [
+    0.0,
+    0.5078
+   ],
+   "entryXY": [
+    1.0,
+    0.5009
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-send-a-report-about-sales-to-product-activity-between-producer-and-retailer",
+   "from": "action-send-a-report-about-sales",
+   "to": "object-product-activity-between-producer-and-retailer",
+   "exitXY": [
+    0.0,
+    0.5146
+   ],
+   "entryXY": [
+    1.0,
+    0.5078
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-receive-a-report-about-sales-to-fork-producer",
+   "from": "action-receive-a-report-about-sales",
+   "to": "fork-producer",
+   "exitXY": [
+    0.0,
+    0.4915
+   ],
+   "entryXY": [
+    0.1747,
+    0.0
+   ],
+   "straight": false,
+   "confidence": "high",
+   "points": [
+    [
+     62.2,
+     241.1
+    ]
+   ]
+  },
+  {
+   "id": "flow-send-a-report-about-sales-to-send-a-report-about-movement-of-goods",
+   "from": "action-send-a-report-about-sales",
+   "to": "action-send-a-report-about-movement-of-goods",
+   "exitXY": [
+    0.4995,
+    1.0
+   ],
+   "entryXY": [
+    0.5016,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-send-a-report-about-movement-of-goods-to-product-activity-between-producer-and-retailer-2",
+   "from": "action-send-a-report-about-movement-of-goods",
+   "to": "object-product-activity-between-producer-and-retailer-2",
+   "exitXY": [
+    0.0,
+    0.4627
+   ],
+   "entryXY": [
+    1.0,
+    0.4991
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-product-activity-between-producer-and-retailer-2-to-receive-a-report-about-movement-of-goods",
+   "from": "object-product-activity-between-producer-and-retailer-2",
+   "to": "action-receive-a-report-about-movement-of-goods",
+   "exitXY": [
+    0.0,
+    0.4991
+   ],
+   "entryXY": [
+    1.0,
+    0.466
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-receive-a-report-about-movement-of-goods-to-fork-producer",
+   "from": "action-receive-a-report-about-movement-of-goods",
+   "to": "fork-producer",
+   "exitXY": [
+    0.156,
+    1.0
+   ],
+   "entryXY": [
+    0.8312,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-fork-producer-to-final-producer",
+   "from": "fork-producer",
+   "to": "final-producer",
+   "exitXY": [
+    0.4987,
+    1.0
+   ],
+   "entryXY": [
+    0.5079,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  }
+ ],
+ "guards": []
+}

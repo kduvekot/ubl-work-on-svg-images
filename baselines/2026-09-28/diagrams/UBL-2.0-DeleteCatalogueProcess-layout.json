@@ -1,0 +1,595 @@
+{
+ "schema": "ubl-activity-diagram-layout/1",
+ "figure": "UBL-2.0-DeleteCatalogueProcess",
+ "units": "px of the original PNG",
+ "size": [
+  3425,
+  2747
+ ],
+ "style": {
+  "fontPx": 50.0,
+  "arrowPx": 65.0,
+  "arrowWidthPx": 53.5,
+  "arrowStyle": "open"
+ },
+ "rules": {
+  "vertical": [
+   {
+    "at": 0,
+    "width": 10,
+    "span": [
+     13,
+     2733
+    ]
+   },
+   {
+    "at": 1629,
+    "width": 5,
+    "span": [
+     13,
+     2733
+    ]
+   },
+   {
+    "at": 3415,
+    "width": 10,
+    "span": [
+     13,
+     2733
+    ]
+   }
+  ],
+  "horizontal": [
+   {
+    "at": 0,
+    "width": 10,
+    "span": [
+     13,
+     3411
+    ]
+   },
+   {
+    "at": 2737,
+    "width": 10,
+    "span": [
+     13,
+     3411
+    ]
+   }
+  ]
+ },
+ "greyRules": [],
+ "lanes": {
+  "lane-receiver-party": {
+   "x0": 0,
+   "x1": 1632,
+   "titleBox": [
+    590,
+    28,
+    305,
+    44
+   ]
+  },
+  "lane-provider-party": {
+   "x0": 1632,
+   "x1": 3425,
+   "titleBox": [
+    2434,
+    28,
+    294,
+    44
+   ]
+  }
+ },
+ "nodes": {
+  "initial-provider-party": {
+   "x": 2995,
+   "y": 93,
+   "w": 96,
+   "h": 95
+  },
+  "object-catalogue-deletion": {
+   "x": 1419,
+   "y": 389,
+   "w": 411,
+   "h": 222,
+   "shape": "rect",
+   "stroke": 10,
+   "rx": 0,
+   "ry": 0,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 1486,
+     "y": 437,
+     "w": 269,
+     "h": 53,
+     "text": "Catalogue"
+    },
+    {
+     "x": 1517,
+     "y": 508,
+     "w": 220,
+     "h": 42,
+     "text": "Deletion"
+    }
+   ]
+  },
+  "action-notify-of-catalogue-deletion": {
+   "x": 2727,
+   "y": 396,
+   "w": 628,
+   "h": 198,
+   "shape": "rounded",
+   "stroke": 5,
+   "rx": 68,
+   "ry": 68,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 2821,
+     "y": 439,
+     "w": 429,
+     "h": 45,
+     "text": "Notify of Catalogue"
+    },
+    {
+     "x": 2949,
+     "y": 501,
+     "w": 180,
+     "h": 35,
+     "text": "Deletion"
+    }
+   ]
+  },
+  "action-identify-catalogue": {
+   "x": 79,
+   "y": 439,
+   "w": 666,
+   "h": 136,
+   "shape": "rounded",
+   "stroke": 6,
+   "rx": 68,
+   "ry": 66,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 211,
+     "y": 481,
+     "w": 405,
+     "h": 45,
+     "text": "Identify Catalogue"
+    }
+   ]
+  },
+  "decision-decide-on-action": {
+   "x": 199,
+   "y": 1169,
+   "w": 425,
+   "h": 425,
+   "shape": "rhombus",
+   "stroke": 5,
+   "rx": 226,
+   "ry": 226,
+   "bold": false,
+   "labelLines": [
+    {
+     "x": 236,
+     "y": 1357,
+     "w": 350,
+     "h": 35,
+     "text": "Decide on Action"
+    }
+   ]
+  },
+  "decision-review-deletion-of-catalogue": {
+   "x": 2796,
+   "y": 1186,
+   "w": 550,
+   "h": 357,
+   "shape": "rhombus",
+   "stroke": 5,
+   "rx": 287,
+   "ry": 187,
+   "bold": false,
+   "labelLines": [
+    {
+     "x": 2912,
+     "y": 1314,
+     "w": 334,
+     "h": 35,
+     "text": "Review Deletion"
+    },
+    {
+     "x": 2910,
+     "y": 1375,
+     "w": 264,
+     "h": 44,
+     "text": "of Catalogue"
+    }
+   ]
+  },
+  "object-application-response-negative": {
+   "x": 1448,
+   "y": 1254,
+   "w": 410,
+   "h": 221,
+   "shape": "rect",
+   "stroke": 11,
+   "rx": 0,
+   "ry": 0,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 1518,
+     "y": 1294,
+     "w": 258,
+     "h": 44,
+     "text": "Application"
+    },
+    {
+     "x": 1535,
+     "y": 1346,
+     "w": 224,
+     "h": 44,
+     "text": "Response"
+    },
+    {
+     "x": 1545,
+     "y": 1398,
+     "w": 221,
+     "h": 44,
+     "text": "(negative)"
+    }
+   ]
+  },
+  "object-application-response-positive": {
+   "x": 1410,
+   "y": 2095,
+   "w": 410,
+   "h": 222,
+   "shape": "rect",
+   "stroke": 10,
+   "rx": 0,
+   "ry": 0,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 1480,
+     "y": 2135,
+     "w": 258,
+     "h": 43,
+     "text": "Application"
+    },
+    {
+     "x": 1497,
+     "y": 2187,
+     "w": 224,
+     "h": 43,
+     "text": "Response"
+    },
+    {
+     "x": 1512,
+     "y": 2239,
+     "w": 208,
+     "h": 43,
+     "text": "(positive)"
+    }
+   ]
+  },
+  "action-acknowledge-cancelation": {
+   "x": 169,
+   "y": 2117,
+   "w": 495,
+   "h": 164,
+   "shape": "rounded",
+   "stroke": 6,
+   "rx": 63,
+   "ry": 61,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 251,
+     "y": 2151,
+     "w": 302,
+     "h": 44,
+     "text": "Acknowledge"
+    },
+    {
+     "x": 281,
+     "y": 2212,
+     "w": 263,
+     "h": 35,
+     "text": "Cancelation"
+    }
+   ]
+  },
+  "action-cancel-catalogue": {
+   "x": 2121,
+   "y": 2126,
+   "w": 657,
+   "h": 179,
+   "shape": "rounded",
+   "stroke": 5,
+   "rx": 70,
+   "ry": 68,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 2248,
+     "y": 2190,
+     "w": 393,
+     "h": 44,
+     "text": "Cancel Catalogue"
+    }
+   ]
+  },
+  "final-provider-party": {
+   "x": 3029,
+   "y": 2183,
+   "w": 85,
+   "h": 84,
+   "shape": "ellipse",
+   "stroke": 13,
+   "rx": 40,
+   "ry": 39,
+   "innerRatio": 0.447
+  },
+  "action-delete-catalogue": {
+   "x": 178,
+   "y": 2523,
+   "w": 496,
+   "h": 165,
+   "shape": "rounded",
+   "stroke": 5,
+   "rx": 68,
+   "ry": 66,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 235,
+     "y": 2584,
+     "w": 378,
+     "h": 45,
+     "text": "Delete Catalogue"
+    }
+   ]
+  },
+  "final-receiver-party": {
+   "x": 1124,
+   "y": 2580,
+   "w": 84,
+   "h": 84,
+   "shape": "ellipse",
+   "stroke": 6,
+   "rx": 39,
+   "ry": 38,
+   "innerRatio": 0.44
+  }
+ },
+ "flows": {
+  "flow-initial-provider-party-to-notify-of-catalogue-deletion": {
+   "fromPoint": [
+    3041,
+    202
+   ],
+   "toPoint": [
+    3041,
+    381
+   ],
+   "routing": "straight"
+  },
+  "flow-notify-of-catalogue-deletion-to-catalogue-deletion": {
+   "fromPoint": [
+    2712,
+    497
+   ],
+   "toPoint": [
+    1844,
+    497
+   ],
+   "routing": "straight"
+  },
+  "flow-catalogue-deletion-to-identify-catalogue": {
+   "fromPoint": [
+    1404,
+    501
+   ],
+   "toPoint": [
+    759,
+    503
+   ],
+   "routing": "straight"
+  },
+  "flow-identify-catalogue-to-decide-on-action": {
+   "fromPoint": [
+    412,
+    589
+   ],
+   "toPoint": [
+    411,
+    1154
+   ],
+   "routing": "straight"
+  },
+  "flow-review-deletion-of-catalogue-to-notify-of-catalogue-deletion": {
+   "fromPoint": [
+    3070,
+    1171
+   ],
+   "toPoint": [
+    3067,
+    608
+   ],
+   "routing": "straight"
+  },
+  "flow-application-response-negative-to-review-deletion-of-catalogue": {
+   "fromPoint": [
+    1872,
+    1362
+   ],
+   "toPoint": [
+    2781,
+    1362
+   ],
+   "routing": "straight"
+  },
+  "flow-decide-on-action-to-application-response-negative": {
+   "fromPoint": [
+    638,
+    1381
+   ],
+   "toPoint": [
+    1433,
+    1380
+   ],
+   "routing": "straight"
+  },
+  "flow-review-deletion-of-catalogue-to-final-provider-party": {
+   "fromPoint": [
+    3068,
+    1557
+   ],
+   "toPoint": [
+    3068,
+    2168
+   ],
+   "routing": "straight"
+  },
+  "flow-decide-on-action-to-acknowledge-cancelation": {
+   "fromPoint": [
+    411,
+    1608
+   ],
+   "toPoint": [
+    413,
+    2102
+   ],
+   "routing": "straight"
+  },
+  "flow-acknowledge-cancelation-to-application-response-positive": {
+   "fromPoint": [
+    678,
+    2203
+   ],
+   "toPoint": [
+    1395,
+    2203
+   ],
+   "routing": "straight"
+  },
+  "flow-application-response-positive-to-cancel-catalogue": {
+   "fromPoint": [
+    1834,
+    2218
+   ],
+   "toPoint": [
+    2106,
+    2218
+   ],
+   "routing": "straight"
+  },
+  "flow-cancel-catalogue-to-final-provider-party": {
+   "fromPoint": [
+    2792,
+    2221
+   ],
+   "toPoint": [
+    3014,
+    2223
+   ],
+   "routing": "straight"
+  },
+  "flow-acknowledge-cancelation-to-delete-catalogue": {
+   "fromPoint": [
+    424,
+    2295
+   ],
+   "toPoint": [
+    426,
+    2508
+   ],
+   "routing": "straight"
+  },
+  "flow-delete-catalogue-to-final-receiver-party": {
+   "fromPoint": [
+    688,
+    2618
+   ],
+   "toPoint": [
+    1109,
+    2620
+   ],
+   "routing": "straight"
+  }
+ },
+ "texts": {
+  "text-insist-on-deletion": {
+   "x": 2618,
+   "y": 988,
+   "w": 373,
+   "h": 43,
+   "lines": [
+    {
+     "x": 2618,
+     "y": 988,
+     "w": 373,
+     "h": 43,
+     "text": "[insist on deletion]"
+    }
+   ]
+  },
+  "text-query-catalogue-deletion": {
+   "x": 746,
+   "y": 1404,
+   "w": 535,
+   "h": 44,
+   "lines": [
+    {
+     "x": 746,
+     "y": 1404,
+     "w": 535,
+     "h": 44,
+     "text": "[query catalogue deletion]"
+    }
+   ]
+  },
+  "text-cancel-deletion": {
+   "x": 2642,
+   "y": 1612,
+   "w": 335,
+   "h": 44,
+   "lines": [
+    {
+     "x": 2642,
+     "y": 1612,
+     "w": 335,
+     "h": 44,
+     "text": "[cancel deletion]"
+    }
+   ]
+  },
+  "text-accept-catalogue-deletion": {
+   "x": 112,
+   "y": 1882,
+   "w": 556,
+   "h": 43,
+   "lines": [
+    {
+     "x": 112,
+     "y": 1882,
+     "w": 556,
+     "h": 43,
+     "text": "[accept catalogue deletion]"
+    }
+   ]
+  }
+ },
+ "offPage": {},
+ "marks": {},
+ "phases": {},
+ "rulesHaveSpans": {
+  "vertical": true,
+  "horizontal": true
+ }
+}

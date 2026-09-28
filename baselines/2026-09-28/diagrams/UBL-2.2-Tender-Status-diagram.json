@@ -1,0 +1,163 @@
+{
+ "schema": "ubl-activity-diagram/1",
+ "figure": {
+  "name": "UBL-2.2-Tender-Status",
+  "source": "UBL-2.2-Tender-Status.png"
+ },
+ "lanes": [
+  {
+   "id": "lane-economic-operator",
+   "axis": "column",
+   "index": 0,
+   "title": "Economic Operator"
+  },
+  {
+   "id": "lane-contracting-authority",
+   "axis": "column",
+   "index": 1,
+   "title": "Contracting Authority"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "initial-economic-operator",
+   "kind": "initial",
+   "label": "",
+   "lane": "lane-economic-operator"
+  },
+  {
+   "id": "action-prepare-tender-status-request",
+   "kind": "action",
+   "label": "Prepare tender status request",
+   "lane": "lane-economic-operator"
+  },
+  {
+   "id": "object-tender-status-request",
+   "kind": "object",
+   "label": "Tender\nStatus\nRequest",
+   "lane": null,
+   "between": [
+    "lane-economic-operator",
+    "lane-contracting-authority"
+   ]
+  },
+  {
+   "id": "action-submit-tender-status-request",
+   "kind": "action",
+   "label": "Submit tender status request",
+   "lane": "lane-economic-operator"
+  },
+  {
+   "id": "action-receive-tender-status-request",
+   "kind": "action",
+   "label": "Receive tender status request",
+   "lane": "lane-contracting-authority"
+  },
+  {
+   "id": "object-tender-status",
+   "kind": "object",
+   "label": "Tender\nStatus",
+   "lane": null,
+   "between": [
+    "lane-economic-operator",
+    "lane-contracting-authority"
+   ]
+  },
+  {
+   "id": "action-receive-tender-status",
+   "kind": "action",
+   "label": "Receive tender status",
+   "lane": "lane-economic-operator"
+  },
+  {
+   "id": "action-submit-tender-status",
+   "kind": "action",
+   "label": "Submit tender status",
+   "lane": "lane-contracting-authority"
+  },
+  {
+   "id": "final-economic-operator",
+   "kind": "final",
+   "label": "",
+   "lane": "lane-economic-operator"
+  }
+ ],
+ "flows": [
+  {
+   "id": "flow-initial-economic-operator-to-prepare-tender-status-request",
+   "from": "initial-economic-operator",
+   "to": "action-prepare-tender-status-request",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-prepare-tender-status-request-to-submit-tender-status-request",
+   "from": "action-prepare-tender-status-request",
+   "to": "action-submit-tender-status-request",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-submit-tender-status-request-to-tender-status-request",
+   "from": "action-submit-tender-status-request",
+   "to": "object-tender-status-request",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-tender-status-request-to-receive-tender-status-request",
+   "from": "object-tender-status-request",
+   "to": "action-receive-tender-status-request",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-receive-tender-status-request-to-submit-tender-status",
+   "from": "action-receive-tender-status-request",
+   "to": "action-submit-tender-status",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-tender-status-to-receive-tender-status",
+   "from": "object-tender-status",
+   "to": "action-receive-tender-status",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-submit-tender-status-to-tender-status",
+   "from": "action-submit-tender-status",
+   "to": "object-tender-status",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-receive-tender-status-to-final-economic-operator",
+   "from": "action-receive-tender-status",
+   "to": "final-economic-operator",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  }
+ ],
+ "texts": [],
+ "offPage": [],
+ "marks": [],
+ "phases": []
+}

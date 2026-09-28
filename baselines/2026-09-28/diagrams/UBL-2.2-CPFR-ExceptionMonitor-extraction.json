@@ -1,0 +1,1309 @@
+{
+ "schema": "ubl-activity-diagram-extraction/1",
+ "figure": "UBL-2.2-CPFR-ExceptionMonitor",
+ "nodes": {
+  "action-ordering": {
+   "area": 153949,
+   "fill": 0.958,
+   "solid": 0.977,
+   "stem": 0.153
+  },
+  "action-wait-for-exception-notification-in-buyer-party": {
+   "area": 110417,
+   "fill": 0.898,
+   "solid": 0.969,
+   "stem": 0.131
+  },
+  "action-wait-for-exception-notification-in-seller-party": {
+   "area": 109849,
+   "fill": 0.898,
+   "solid": 0.97,
+   "stem": 0.153
+  },
+  "decision-seller-party": {
+   "area": 13573,
+   "fill": 0.505,
+   "solid": 0.505
+  },
+  "decision-buyer-party": {
+   "area": 12806,
+   "fill": 0.503,
+   "solid": 0.503
+  },
+  "object-exception-notification-positive": {
+   "area": 133397,
+   "fill": 0.936,
+   "solid": 1.0,
+   "stem": 0.131
+  },
+  "action-send-exception-in-buyer-party": {
+   "area": 55170,
+   "fill": 0.872,
+   "solid": 0.944,
+   "stem": 0.153
+  },
+  "action-send-exception-in-seller-party": {
+   "area": 46285,
+   "fill": 0.848,
+   "solid": 0.932,
+   "stem": 0.153
+  },
+  "action-receive-resolve-exception-in-buyer-party": {
+   "area": 81950,
+   "fill": 0.874,
+   "solid": 0.962,
+   "stem": 0.153
+  },
+  "action-receive-resolve-exception-in-seller-party": {
+   "area": 82542,
+   "fill": 0.874,
+   "solid": 0.961,
+   "stem": 0.153
+  },
+  "final-seller-party": {
+   "area": 9643,
+   "fill": 0.401,
+   "solid": 0.787
+  }
+ },
+ "flows": {
+  "flow-ordering-to-wait-for-exception-notification-in-buyer-party": {
+   "arrowInk": [
+    138,
+    454
+   ],
+   "arrowPx": [
+    62,
+    42.6,
+    2.16
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-ordering-to-wait-for-exception-notification-in-seller-party": {
+   "arrowInk": [
+    135,
+    448
+   ],
+   "arrowPx": [
+    59,
+    47.4,
+    2.59
+   ],
+   "arrowFill": 0.055,
+   "arrowSaturated": true
+  },
+  "flow-wait-for-exception-notification-in-buyer-party-to-decision-buyer-party": {
+   "arrowInk": [
+    180,
+    502
+   ]
+  },
+  "flow-wait-for-exception-notification-in-seller-party-to-decision-seller-party": {
+   "arrowInk": [
+    135,
+    462
+   ],
+   "arrowPx": [
+    58,
+    46.0,
+    2.26
+   ],
+   "arrowFill": 0.0,
+   "arrowSaturated": true
+  },
+  "flow-decision-seller-party-to-send-exception-in-seller-party": {
+   "arrowInk": [
+    138,
+    500
+   ],
+   "arrowPx": [
+    59,
+    48.9,
+    2.43
+   ],
+   "arrowFill": 0.088,
+   "arrowSaturated": true
+  },
+  "flow-decision-buyer-party-to-send-exception-in-buyer-party": {
+   "arrowInk": [
+    135,
+    525
+   ],
+   "arrowPx": [
+    60,
+    136.0,
+    5.86
+   ],
+   "arrowFill": 0.177,
+   "arrowSaturated": true
+  },
+  "flow-send-exception-in-seller-party-to-exception-notification-positive": {
+   "arrowInk": [
+    138,
+    412
+   ],
+   "arrowPx": [
+    55,
+    41.6,
+    3.48
+   ],
+   "arrowFill": 0.0,
+   "arrowSaturated": true
+  },
+  "flow-decision-seller-party-to-final-seller-party": {
+   "arrowInk": [
+    135,
+    495
+   ],
+   "arrowPx": [
+    62,
+    50.0,
+    2.4
+   ],
+   "arrowFill": 0.005
+  },
+  "flow-decision-buyer-party-to-final-seller-party": {
+   "arrowInk": [
+    180,
+    518
+   ],
+   "arrowPx": [
+    72,
+    170.0,
+    8.09
+   ],
+   "arrowFill": 0.166
+  },
+  "flow-send-exception-in-buyer-party-to-exception-notification-positive": {
+   "arrowInk": [
+    489,
+    211
+   ],
+   "arrowPx": [
+    55,
+    75.4,
+    2.16
+   ],
+   "arrowFill": 0.091,
+   "arrowSaturated": true
+  },
+  "flow-exception-notification-positive-to-receive-resolve-exception-in-buyer-party": {
+   "arrowInk": [
+    177,
+    490
+   ],
+   "arrowPx": [
+    62,
+    52.1,
+    2.75
+   ],
+   "arrowFill": 0.032,
+   "arrowSaturated": true
+  },
+  "flow-exception-notification-positive-to-receive-resolve-exception-in-seller-party": {
+   "arrowInk": [
+    199,
+    511
+   ],
+   "arrowPx": [
+    65,
+    50.6,
+    2.52
+   ],
+   "arrowFill": 0.032
+  }
+ },
+ "offPage": {
+  "offpage-action-ordering": {
+   "headPx": [
+    55,
+    45.6,
+    2.52,
+    0,
+    true
+   ]
+  },
+  "offpage-action-ordering-2": {
+   "headPx": [
+    55,
+    46.8,
+    2.41,
+    0,
+    true
+   ]
+  }
+ },
+ "marks": {},
+ "phases": {
+  "phase-exception-monitor-during-execution": {
+   "dashes": 444
+  }
+ },
+ "greyRules": [],
+ "titleReadings": [
+  {
+   "position": 0,
+   "text": "No",
+   "x": 1533,
+   "y": 78,
+   "w": 50,
+   "h": 32,
+   "lines": [
+    {
+     "x": 1533,
+     "y": 78,
+     "w": 50,
+     "h": 32,
+     "text": "No"
+    }
+   ]
+  },
+  {
+   "position": 1,
+   "text": "No",
+   "x": 1687,
+   "y": 78,
+   "w": 50,
+   "h": 32,
+   "lines": [
+    {
+     "x": 1687,
+     "y": 78,
+     "w": 50,
+     "h": 32,
+     "text": "No"
+    }
+   ]
+  }
+ ],
+ "findings": [],
+ "uncertain": [
+  {
+   "kind": "no-weight-split",
+   "reason": "all 8 box strokes are one weight ([3, 4, 5]), so no object node could be identified",
+   "check": "confirm the diagram really has no object nodes"
+  },
+  {
+   "kind": "edge-direction",
+   "reason": "arrowhead ink is ambiguous where several connectors meet",
+   "edge": [
+    "n6",
+    "n7"
+   ],
+   "check": "confirm which way this edge points"
+  }
+ ],
+ "present": [
+  "source",
+  "size",
+  "fontPx",
+  "arrowPx",
+  "arrowWidthPx",
+  "arrowStyle",
+  "rules",
+  "ruleSpan",
+  "greyRules",
+  "dashed",
+  "openEnds",
+  "crossMarks",
+  "partitions",
+  "nodes",
+  "edges",
+  "text",
+  "uncertain"
+ ],
+ "uncorrected": {
+  "model": {
+   "schema": "ubl-activity-diagram/1",
+   "figure": {
+    "name": "UBL-2.2-CPFR-ExceptionMonitor",
+    "source": "UBL-2.2-CPFR-ExceptionMonitor.png"
+   },
+   "lanes": [
+    {
+     "id": "lane0",
+     "axis": "column",
+     "index": 0,
+     "title": "No"
+    },
+    {
+     "id": "lane1",
+     "axis": "column",
+     "index": 1,
+     "title": "No"
+    },
+    {
+     "id": "lane2",
+     "axis": "band",
+     "index": 0,
+     "title": ""
+    }
+   ],
+   "nodes": [
+    {
+     "id": "n1",
+     "kind": "action",
+     "label": "Ordering",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n2",
+     "kind": "action",
+     "label": "Wait for Exception\nNotification",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n3",
+     "kind": "action",
+     "label": "Wait for Exception\nNotification",
+     "lane": "lane1",
+     "band": "lane2"
+    },
+    {
+     "id": "n4",
+     "kind": "decision",
+     "label": "",
+     "lane": "lane1",
+     "band": "lane2"
+    },
+    {
+     "id": "n5",
+     "kind": "decision",
+     "label": "",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n6",
+     "kind": "object",
+     "label": "Exception Notification\n(positive)",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n7",
+     "kind": "action",
+     "label": "Send Exception",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n8",
+     "kind": "action",
+     "label": "Send Exception",
+     "lane": "lane1",
+     "band": "lane2"
+    },
+    {
+     "id": "n9",
+     "kind": "action",
+     "label": "Receive & Resolve\nException",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n10",
+     "kind": "action",
+     "label": "Receive & Resolve\nException",
+     "lane": "lane1",
+     "band": "lane2"
+    },
+    {
+     "id": "n11",
+     "kind": "final",
+     "label": "",
+     "lane": "lane1",
+     "band": "lane2"
+    }
+   ],
+   "flows": [
+    {
+     "id": "f0",
+     "from": "n1",
+     "to": "n2",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f1",
+     "from": "n1",
+     "to": "n3",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f2",
+     "from": "n2",
+     "to": "n5",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f3",
+     "from": "n3",
+     "to": "n4",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f4",
+     "from": "n4",
+     "to": "n8",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     },
+     "guard": "t6"
+    },
+    {
+     "id": "f5",
+     "from": "n5",
+     "to": "n7",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     },
+     "guard": "t5"
+    },
+    {
+     "id": "f6",
+     "from": "n8",
+     "to": "n6",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f7",
+     "from": "n4",
+     "to": "n11",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     },
+     "guard": "t8"
+    },
+    {
+     "id": "f8",
+     "from": "n5",
+     "to": "n11",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     },
+     "guard": "t7"
+    },
+    {
+     "id": "f9",
+     "from": "n7",
+     "to": "n6",
+     "kind": "object",
+     "direction": {
+      "confidence": "notation",
+      "checked": "corrected"
+     }
+    },
+    {
+     "id": "f10",
+     "from": "n6",
+     "to": "n9",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f11",
+     "from": "n6",
+     "to": "n10",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    }
+   ],
+   "texts": [
+    {
+     "id": "t2",
+     "text": "Exception Monitor During Execution"
+    },
+    {
+     "id": "t3",
+     "text": "Exception Received ?"
+    },
+    {
+     "id": "t4",
+     "text": "Exception Received ?"
+    },
+    {
+     "id": "t5",
+     "text": "Yes",
+     "labels": "f5"
+    },
+    {
+     "id": "t6",
+     "text": "Yes",
+     "labels": "f4"
+    },
+    {
+     "id": "t7",
+     "text": "No",
+     "labels": "f8"
+    },
+    {
+     "id": "t8",
+     "text": "No",
+     "labels": "f7"
+    }
+   ],
+   "offPage": [
+    {
+     "id": "o0",
+     "node": "n1",
+     "direction": "in",
+     "arrow": true
+    },
+    {
+     "id": "o1",
+     "node": "n1",
+     "direction": "in",
+     "arrow": true
+    }
+   ],
+   "marks": [],
+   "phases": [
+    {
+     "id": "p0"
+    }
+   ]
+  },
+  "layout": {
+   "schema": "ubl-activity-diagram-layout/1",
+   "figure": "UBL-2.2-CPFR-ExceptionMonitor",
+   "units": "px of the original PNG",
+   "size": [
+    3425,
+    2410
+   ],
+   "style": {
+    "fontPx": 45.7,
+    "arrowPx": 62.0,
+    "arrowWidthPx": 50.0,
+    "arrowStyle": "open"
+   },
+   "rules": {
+    "vertical": [
+     {
+      "at": 0,
+      "width": 10,
+      "span": [
+       13,
+       2396
+      ]
+     },
+     {
+      "at": 1701,
+      "width": 1,
+      "span": [
+       13,
+       2335
+      ]
+     },
+     {
+      "at": 3415,
+      "width": 10,
+      "span": [
+       13,
+       2396
+      ]
+     }
+    ],
+    "horizontal": [
+     {
+      "at": 0,
+      "width": 10,
+      "span": [
+       13,
+       3411
+      ]
+     },
+     {
+      "at": 2400,
+      "width": 10,
+      "span": [
+       13,
+       3411
+      ]
+     }
+    ]
+   },
+   "greyRules": [],
+   "lanes": {
+    "lane0": {
+     "x0": 0,
+     "x1": 1702,
+     "titleBox": [
+      1533,
+      78,
+      50,
+      32
+     ]
+    },
+    "lane1": {
+     "x0": 1702,
+     "x1": 3425,
+     "titleBox": [
+      1687,
+      78,
+      50,
+      32
+     ]
+    },
+    "lane2": {
+     "y0": 0,
+     "y1": 2410
+    }
+   },
+   "nodes": {
+    "n1": {
+     "x": 1338,
+     "y": 161,
+     "w": 727,
+     "h": 221,
+     "shape": "rounded",
+     "stroke": 4,
+     "rx": 61,
+     "ry": 65,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 1600,
+       "y": 242,
+       "w": 178,
+       "h": 41,
+       "text": "Ordering"
+      }
+     ]
+    },
+    "n2": {
+     "x": 410,
+     "y": 685,
+     "w": 591,
+     "h": 208,
+     "shape": "rounded",
+     "stroke": 3,
+     "rx": 65,
+     "ry": 66,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 501,
+       "y": 740,
+       "w": 379,
+       "h": 41,
+       "text": "Wait for Exception"
+      },
+      {
+       "x": 587,
+       "y": 797,
+       "w": 232,
+       "h": 32,
+       "text": "Notification"
+      }
+     ]
+    },
+    "n3": {
+     "x": 2433,
+     "y": 703,
+     "w": 591,
+     "h": 207,
+     "shape": "rounded",
+     "stroke": 4,
+     "rx": 61,
+     "ry": 66,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 2531,
+       "y": 754,
+       "w": 378,
+       "h": 41,
+       "text": "Wait for Exception"
+      },
+      {
+       "x": 2617,
+       "y": 811,
+       "w": 232,
+       "h": 32,
+       "text": "Notification"
+      }
+     ]
+    },
+    "n4": {
+     "x": 2663,
+     "y": 1038,
+     "w": 166,
+     "h": 162,
+     "shape": "rhombus",
+     "stroke": 3,
+     "rx": 88,
+     "ry": 88
+    },
+    "n5": {
+     "x": 644,
+     "y": 1051,
+     "w": 162,
+     "h": 157,
+     "shape": "rhombus",
+     "stroke": 3,
+     "rx": 88,
+     "ry": 84
+    },
+    "n6": {
+     "x": 1436,
+     "y": 1064,
+     "w": 500,
+     "h": 285,
+     "shape": "rect",
+     "stroke": 5,
+     "rx": 0,
+     "ry": 0,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 1456,
+       "y": 1153,
+       "w": 452,
+       "h": 41,
+       "text": "Exception Notification"
+      },
+      {
+       "x": 1601,
+       "y": 1202,
+       "w": 188,
+       "h": 40,
+       "text": "(positive)"
+      }
+     ]
+    },
+    "n7": {
+     "x": 890,
+     "y": 1358,
+     "w": 462,
+     "h": 137,
+     "shape": "rounded",
+     "stroke": 3,
+     "rx": 62,
+     "ry": 61,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 954,
+       "y": 1406,
+       "w": 319,
+       "h": 41,
+       "text": "Send Exception"
+      }
+     ]
+    },
+    "n8": {
+     "x": 2139,
+     "y": 1428,
+     "w": 423,
+     "h": 129,
+     "shape": "rounded",
+     "stroke": 3,
+     "rx": 66,
+     "ry": 61,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 2185,
+       "y": 1473,
+       "w": 320,
+       "h": 41,
+       "text": "Send Exception"
+      }
+     ]
+    },
+    "n9": {
+     "x": 1013,
+     "y": 1732,
+     "w": 590,
+     "h": 159,
+     "shape": "rounded",
+     "stroke": 4,
+     "rx": 61,
+     "ry": 61,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 1100,
+       "y": 1763,
+       "w": 381,
+       "h": 32,
+       "text": "Receive & Resolve"
+      },
+      {
+       "x": 1209,
+       "y": 1821,
+       "w": 201,
+       "h": 40,
+       "text": "Exception"
+      }
+     ]
+    },
+    "n10": {
+     "x": 1945,
+     "y": 1740,
+     "w": 590,
+     "h": 160,
+     "shape": "rounded",
+     "stroke": 3,
+     "rx": 69,
+     "ry": 66,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 2042,
+       "y": 1772,
+       "w": 381,
+       "h": 32,
+       "text": "Receive & Resolve"
+      },
+      {
+       "x": 2152,
+       "y": 1829,
+       "w": 200,
+       "h": 41,
+       "text": "Exception"
+      }
+     ]
+    },
+    "n11": {
+     "x": 1637,
+     "y": 2103,
+     "w": 155,
+     "h": 155,
+     "shape": "ellipse",
+     "stroke": 3,
+     "rx": 79,
+     "ry": 79,
+     "innerRatio": 0.697
+    }
+   },
+   "flows": {
+    "f0": {
+     "fromPoint": [
+      1323,
+      277
+     ],
+     "toPoint": [
+      694,
+      670
+     ],
+     "routing": "orthogonal",
+     "points": [
+      [
+       694,
+       277
+      ]
+     ]
+    },
+    "f1": {
+     "fromPoint": [
+      2079,
+      330
+     ],
+     "toPoint": [
+      2717,
+      688
+     ],
+     "routing": "orthogonal",
+     "points": [
+      [
+       2717,
+       330
+      ]
+     ]
+    },
+    "f2": {
+     "fromPoint": [
+      724,
+      907
+     ],
+     "toPoint": [
+      725,
+      1036
+     ],
+     "routing": "straight"
+    },
+    "f3": {
+     "fromPoint": [
+      2742,
+      924
+     ],
+     "toPoint": [
+      2744,
+      1023
+     ],
+     "routing": "straight"
+    },
+    "f4": {
+     "fromPoint": [
+      2648,
+      1118
+     ],
+     "toPoint": [
+      2427,
+      1413
+     ],
+     "routing": "orthogonal",
+     "points": [
+      [
+       2427,
+       1118
+      ]
+     ]
+    },
+    "f5": {
+     "fromPoint": [
+      820,
+      1127
+     ],
+     "toPoint": [
+      1010,
+      1342
+     ],
+     "routing": "orthogonal",
+     "points": [
+      [
+       1010,
+       1127
+      ]
+     ]
+    },
+    "f6": {
+     "fromPoint": [
+      2229,
+      1413
+     ],
+     "toPoint": [
+      1955,
+      1237
+     ],
+     "routing": "orthogonal",
+     "points": [
+      [
+       2229,
+       1237
+      ]
+     ]
+    },
+    "f7": {
+     "fromPoint": [
+      2743,
+      1214
+     ],
+     "toPoint": [
+      1767,
+      2088
+     ],
+     "routing": "orthogonal",
+     "points": [
+      [
+       2743,
+       1918
+      ],
+      [
+       1767,
+       1918
+      ]
+     ]
+    },
+    "f8": {
+     "fromPoint": [
+      724,
+      1222
+     ],
+     "toPoint": [
+      1648,
+      2088
+     ],
+     "routing": "orthogonal",
+     "points": [
+      [
+       724,
+       1923
+      ],
+      [
+       1648,
+       1923
+      ]
+     ]
+    },
+    "f9": {
+     "fromPoint": [
+      1366,
+      1357
+     ],
+     "toPoint": [
+      1416,
+      1289
+     ],
+     "routing": "orthogonal"
+    },
+    "f10": {
+     "fromPoint": [
+      1579,
+      1368
+     ],
+     "toPoint": [
+      1358,
+      1717
+     ],
+     "routing": "diagonal"
+    },
+    "f11": {
+     "fromPoint": [
+      1828,
+      1368
+     ],
+     "toPoint": [
+      2153,
+      1725
+     ],
+     "routing": "diagonal"
+    }
+   },
+   "texts": {
+    "t2": {
+     "x": 1326,
+     "y": 478,
+     "w": 738,
+     "h": 41,
+     "lines": [
+      {
+       "x": 1326,
+       "y": 474,
+       "w": 738,
+       "h": 49,
+       "text": "Exception Monitor During Execution"
+      }
+     ]
+    },
+    "t3": {
+     "x": 2861,
+     "y": 1095,
+     "w": 411,
+     "h": 41,
+     "lines": [
+      {
+       "x": 2861,
+       "y": 1095,
+       "w": 411,
+       "h": 41,
+       "text": "Exception Received ?"
+      }
+     ]
+    },
+    "t4": {
+     "x": 139,
+     "y": 1108,
+     "w": 411,
+     "h": 41,
+     "lines": [
+      {
+       "x": 139,
+       "y": 1108,
+       "w": 411,
+       "h": 41,
+       "text": "Exception Received ?"
+      }
+     ]
+    },
+    "t5": {
+     "x": 901,
+     "y": 1275,
+     "w": 72,
+     "h": 32,
+     "lines": [
+      {
+       "x": 901,
+       "y": 1275,
+       "w": 72,
+       "h": 32,
+       "text": "Yes"
+      }
+     ]
+    },
+    "t6": {
+     "x": 2317,
+     "y": 1346,
+     "w": 72,
+     "h": 32,
+     "lines": [
+      {
+       "x": 2317,
+       "y": 1346,
+       "w": 72,
+       "h": 32,
+       "text": "Yes"
+      }
+     ]
+    },
+    "t7": {
+     "x": 1559,
+     "y": 2021,
+     "w": 51,
+     "h": 32,
+     "lines": [
+      {
+       "x": 1559,
+       "y": 2021,
+       "w": 51,
+       "h": 32,
+       "text": "No"
+      }
+     ]
+    },
+    "t8": {
+     "x": 1678,
+     "y": 2021,
+     "w": 50,
+     "h": 32,
+     "lines": [
+      {
+       "x": 1678,
+       "y": 2021,
+       "w": 50,
+       "h": 32,
+       "text": "No"
+      }
+     ]
+    }
+   },
+   "offPage": {
+    "o0": {
+     "at": [
+      1621,
+      12
+     ],
+     "end": [
+      1624,
+      146
+     ],
+     "points": [],
+     "x": 1599,
+     "y": 12,
+     "w": 47,
+     "h": 135
+    },
+    "o1": {
+     "at": [
+      1777,
+      12
+     ],
+     "end": [
+      1773,
+      146
+     ],
+     "points": [],
+     "x": 1753,
+     "y": 12,
+     "w": 47,
+     "h": 135
+    }
+   },
+   "marks": {},
+   "phases": {
+    "p0": {
+     "x": 82,
+     "y": 458,
+     "w": 3260,
+     "h": 1876,
+     "rx": 122,
+     "dash": 12.0,
+     "gap": 9.0,
+     "weight": 4.0
+    }
+   },
+   "rulesHaveSpans": {
+    "vertical": true,
+    "horizontal": true
+   }
+  }
+ },
+ "corrections": [
+  "q2a-fig14",
+  "q2c-fig14-left",
+  "q2c-fig14-right",
+  "q2c-fig14-from-left",
+  "q2c-fig14-from-right",
+  "q2b-fig14-left",
+  "q2b-fig14-right",
+  "q5-fig14-external",
+  "q5-fig14-between",
+  "q13-17",
+  "q13-18",
+  "q16-20",
+  "q16-21",
+  "q16-23",
+  "doc-06",
+  "act-08",
+  "act-09",
+  "draw-31"
+ ],
+ "documentLanes": {
+  "object-exception-notification-positive": "lane-buyer-party"
+ },
+ "formerIds": {
+  "lane-buyer-party": "lane0",
+  "lane-seller-party": "lane1",
+  "action-ordering": "n1",
+  "action-wait-for-exception-notification-in-buyer-party": "n2",
+  "action-wait-for-exception-notification-in-seller-party": "n3",
+  "decision-seller-party": "n4",
+  "decision-buyer-party": "n5",
+  "object-exception-notification-positive": "n6",
+  "action-send-exception-in-buyer-party": "n7",
+  "action-send-exception-in-seller-party": "n8",
+  "action-receive-resolve-exception-in-buyer-party": "n9",
+  "action-receive-resolve-exception-in-seller-party": "n10",
+  "final-seller-party": "n11",
+  "flow-ordering-to-wait-for-exception-notification-in-buyer-party": "f0",
+  "flow-ordering-to-wait-for-exception-notification-in-seller-party": "f1",
+  "flow-wait-for-exception-notification-in-buyer-party-to-decision-buyer-party": "f2",
+  "flow-wait-for-exception-notification-in-seller-party-to-decision-seller-party": "f3",
+  "flow-decision-seller-party-to-send-exception-in-seller-party": "f4",
+  "flow-decision-buyer-party-to-send-exception-in-buyer-party": "f5",
+  "flow-send-exception-in-seller-party-to-exception-notification-positive": "f6",
+  "flow-decision-seller-party-to-final-seller-party": "f7",
+  "flow-decision-buyer-party-to-final-seller-party": "f8",
+  "flow-send-exception-in-buyer-party-to-exception-notification-positive": "f9",
+  "flow-exception-notification-positive-to-receive-resolve-exception-in-buyer-party": "f10",
+  "flow-exception-notification-positive-to-receive-resolve-exception-in-seller-party": "f11",
+  "text-exception-received": "t3",
+  "text-exception-received-2": "t4",
+  "text-yes": "t5",
+  "text-yes-2": "t6",
+  "text-no-3": "t7",
+  "text-no-4": "t8",
+  "text-no": "corr-q2c-fig14-left",
+  "text-no-2": "corr-q2c-fig14-right",
+  "offpage-action-ordering": "o0",
+  "offpage-action-ordering-2": "o1",
+  "phase-exception-monitor-during-execution": "p0"
+ }
+}

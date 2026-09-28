@@ -1,0 +1,11 @@
+== UBL-2.2-Enquiry
+  UBL-2.2-Enquiry -> diagram, layout, extraction  (9 nodes, 8 flows, 0 texts)
+  scale 0.43224   frame 8px  divider 8px  action 9px  object 8px
+  font 70px (30.3 model)   2 lanes, 0 bands, 9 nodes, 8 edges -> /tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-2.2-Enquiry-spec.json
+  /tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-2.2-Enquiry.svg + .drawio + -classified.svg   (9 nodes, 8 edges)
+  aligned on ink bounds: scale x 1.0009, y 1.0000
+  size 3424x1802  radius 2
+  ink: original 347448   candidate 340901
+  MISSING (red)    17216  = 4.9550% of original ink
+  EXTRA   (blue)    8291  = 2.3863% of original ink
+  RESULT: DIFFERENCES - inspect /tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-2.2-Enquiry-diff-r2.png

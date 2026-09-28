@@ -1,0 +1,11 @@
+== UBL-2.2-VMI-Invoicing
+  UBL-2.2-VMI-Invoicing -> diagram, layout, extraction  (5 nodes, 4 flows, 0 texts)
+  scale 0.43212   frame 10px  divider 6px  action 6px  object 12px
+  font 71px (30.6 model)   2 lanes, 0 bands, 5 nodes, 4 edges -> /tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-2.2-VMI-Invoicing-spec.json
+  /tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-2.2-VMI-Invoicing.svg + .drawio + -classified.svg   (5 nodes, 4 edges)
+  aligned on ink bounds: scale x 1.0000, y 1.0000
+  size 3425x1525  radius 2
+  ink: original 219904   candidate 215239
+  MISSING (red)     5409  = 2.4597% of original ink
+  EXTRA   (blue)    4035  = 1.8349% of original ink
+  RESULT: DIFFERENCES - inspect /tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-2.2-VMI-Invoicing-diff-r2.png

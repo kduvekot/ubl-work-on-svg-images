@@ -1,0 +1,11 @@
+== UBL-2.2-InitiateFreightMgmtProcess
+  UBL-2.2-InitiateFreightMgmtProcess -> diagram, layout, extraction  (29 nodes, 30 flows, 2 texts)
+  scale 0.43212   frame 10px  divider 4px  action 4px  object 8px
+  font 37px (16.0 model)   4 lanes, 0 bands, 29 nodes, 30 edges -> /tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-2.2-InitiateFreightMgmtProcess-spec.json
+  /tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-2.2-InitiateFreightMgmtProcess.svg + .drawio + -classified.svg   (29 nodes, 30 edges)
+  aligned on ink bounds: scale x 1.0000, y 1.0000
+  size 3425x2543  radius 2
+  ink: original 454628   candidate 448935
+  MISSING (red)     5223  = 1.1489% of original ink
+  EXTRA   (blue)    4620  = 1.0162% of original ink
+  RESULT: DIFFERENCES - inspect /tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-2.2-InitiateFreightMgmtProcess-diff-r2.png

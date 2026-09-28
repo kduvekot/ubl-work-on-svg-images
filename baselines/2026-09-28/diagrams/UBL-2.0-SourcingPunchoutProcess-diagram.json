@@ -1,0 +1,156 @@
+{
+ "schema": "ubl-activity-diagram/1",
+ "figure": {
+  "name": "UBL-2.0-SourcingPunchoutProcess",
+  "source": "UBL-2.0-SourcingPunchoutProcess.png"
+ },
+ "lanes": [
+  {
+   "id": "lane-originator-customer-party",
+   "axis": "column",
+   "index": 0,
+   "title": "Originator Customer Party"
+  },
+  {
+   "id": "lane-seller-supplier-party",
+   "axis": "column",
+   "index": 1,
+   "title": "Seller Supplier Party"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "initial-originator-customer-party",
+   "kind": "initial",
+   "label": "",
+   "lane": "lane-originator-customer-party"
+  },
+  {
+   "id": "note-transaction-accessing-seller-s-catalogue",
+   "kind": "note",
+   "label": "Transaction\naccessing Seller's\ncatalogue\napplication",
+   "lane": null,
+   "between": [
+    "lane-originator-customer-party",
+    "lane-seller-supplier-party"
+   ],
+   "annotates": "segment-punch-out-session"
+  },
+  {
+   "id": "action-build-shopping-basket",
+   "kind": "action",
+   "label": "Build shopping basket",
+   "lane": "lane-seller-supplier-party"
+  },
+  {
+   "id": "action-initiate-a-punchout-session",
+   "kind": "action",
+   "label": "Initiate a punchout\nsession",
+   "lane": "lane-originator-customer-party"
+  },
+  {
+   "id": "object-quotation",
+   "kind": "object",
+   "label": "Quotation",
+   "lane": null,
+   "between": [
+    "lane-originator-customer-party",
+    "lane-seller-supplier-party"
+   ]
+  },
+  {
+   "id": "action-receive-quotation",
+   "kind": "action",
+   "label": "Receive quotation",
+   "lane": "lane-originator-customer-party"
+  },
+  {
+   "id": "action-send-shopping-basket",
+   "kind": "action",
+   "label": "Send shopping basket",
+   "lane": "lane-seller-supplier-party"
+  },
+  {
+   "id": "final-originator-customer-party",
+   "kind": "final",
+   "label": "",
+   "lane": "lane-originator-customer-party"
+  }
+ ],
+ "flows": [
+  {
+   "id": "flow-initial-originator-customer-party-to-initiate-a-punchout-session",
+   "from": "initial-originator-customer-party",
+   "to": "action-initiate-a-punchout-session",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-initiate-a-punchout-session-to-build-shopping-basket",
+   "from": "action-initiate-a-punchout-session",
+   "to": "action-build-shopping-basket",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-build-shopping-basket-to-send-shopping-basket",
+   "from": "action-build-shopping-basket",
+   "to": "action-send-shopping-basket",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-quotation-to-receive-quotation",
+   "from": "object-quotation",
+   "to": "action-receive-quotation",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-send-shopping-basket-to-quotation",
+   "from": "action-send-shopping-basket",
+   "to": "object-quotation",
+   "kind": "object",
+   "direction": {
+    "confidence": "medium",
+    "checked": "confirmed"
+   }
+  },
+  {
+   "id": "flow-receive-quotation-to-final-originator-customer-party",
+   "from": "action-receive-quotation",
+   "to": "final-originator-customer-party",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  }
+ ],
+ "texts": [],
+ "offPage": [],
+ "marks": [],
+ "phases": [],
+ "segments": [
+  {
+   "id": "segment-punch-out-session",
+   "members": [
+    "action-initiate-a-punchout-session",
+    "flow-initiate-a-punchout-session-to-build-shopping-basket",
+    "action-build-shopping-basket"
+   ],
+   "scope": "external",
+   "reference": {
+    "what": "the punch-out exchange, tightly coupled to the Seller's catalogue application",
+    "source": "UBL.xml section S-PUNCHOUT (Punchout)"
+   }
+  }
+ ]
+}

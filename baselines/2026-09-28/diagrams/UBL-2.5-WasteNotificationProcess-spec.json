@@ -1,0 +1,402 @@
+{
+ "canvas": {
+  "w": 1480.0,
+  "h": 1224.358
+ },
+ "stroke": {
+  "frame": 3.0,
+  "divider": 3.0,
+  "action": 2.4,
+  "object": 2.4,
+  "edge": 2.4
+ },
+ "font": {
+  "family": "Helvetica, Arial, sans-serif",
+  "node": 34.7,
+  "lane": 34.7,
+  "guard": 34.7
+ },
+ "arrow": 27.0,
+ "arrowWidth": 26.6,
+ "arrowStyle": "open",
+ "dashed": [],
+ "greyRules": [],
+ "crossMarks": [],
+ "openEnds": [],
+ "frameBox": [
+  1.5,
+  1.5,
+  1477.9,
+  1222.3
+ ],
+ "dividers": [
+  [
+   740.0,
+   3.0,
+   4.7,
+   1218.4
+  ]
+ ],
+ "bands": [],
+ "lanes": [
+  {
+   "id": "lane-sender-party",
+   "title": "Senderparty",
+   "x": 0.0,
+   "w": 739.7,
+   "cx": 312.5,
+   "cy": 101.5,
+   "name": "Sender Party",
+   "bold": true,
+   "size": 35.1,
+   "textWidth": 196.5,
+   "baseline": 110.4
+  },
+  {
+   "id": "lane-receiver-party",
+   "title": "ReceiverParty",
+   "x": 739.7,
+   "w": 740.3,
+   "cx": 1108.4,
+   "cy": 101.8,
+   "name": "Receiver Party",
+   "bold": true,
+   "size": 34.5,
+   "textWidth": 223.7,
+   "baseline": 110.5
+  }
+ ],
+ "bandLabels": [],
+ "captions": [],
+ "nodes": [
+  {
+   "id": "initial-sender-party",
+   "kind": "initial",
+   "label": "",
+   "x": 312.5,
+   "y": 170.4,
+   "w": 30.8,
+   "h": 30.8
+  },
+  {
+   "id": "action-prepare-notification-of-waste-movement",
+   "kind": "action",
+   "label": "Prepare notification of\nwaste movement",
+   "x": 143.8,
+   "y": 325.5,
+   "w": 368.7,
+   "h": 113.0,
+   "rx": 43.8,
+   "ry": 43.2,
+   "labelLines": [
+    {
+     "text": "Prepare notification of",
+     "cx": 327.8,
+     "cy": 360.055,
+     "w": 327.8,
+     "size": 34.7
+    },
+    {
+     "text": "waste movement",
+     "cx": 326.4,
+     "cy": 404.45500000000004,
+     "w": 256.2,
+     "size": 34.7
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "object-waste-notification",
+   "kind": "object",
+   "label": "Waste Notification",
+   "x": 597.7,
+   "y": 555.7,
+   "w": 312.5,
+   "h": 141.4,
+   "labelLines": [
+    {
+     "text": "Waste Notification",
+     "cx": 751.8,
+     "cy": 623.635,
+     "w": 270.4,
+     "size": 33.9
+    }
+   ],
+   "bold": false,
+   "italic": false
+  },
+  {
+   "id": "action-send-waste-notification",
+   "kind": "action",
+   "label": "Send Waste\nNotification",
+   "x": 137.9,
+   "y": 569.3,
+   "w": 340.3,
+   "h": 113.6,
+   "rx": 50.3,
+   "ry": 45.6,
+   "labelLines": [
+    {
+     "text": "Send Waste",
+     "cx": 306.5,
+     "cy": 603.855,
+     "w": 181.1,
+     "size": 34.7
+    },
+    {
+     "text": "Notification",
+     "cx": 302.1,
+     "cy": 646.455,
+     "w": 163.9,
+     "size": 34.7
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "action-receive-waste-notification",
+   "kind": "action",
+   "label": "Receive Waste\nNotification",
+   "x": 1023.8,
+   "y": 569.3,
+   "w": 340.3,
+   "h": 113.6,
+   "rx": 50.3,
+   "ry": 46.7,
+   "labelLines": [
+    {
+     "text": "Receive Waste",
+     "cx": 1193.3,
+     "cy": 604.455,
+     "w": 223.1,
+     "size": 34.7
+    },
+    {
+     "text": "Notification",
+     "cx": 1188.0,
+     "cy": 646.455,
+     "w": 163.9,
+     "size": 34.7
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "object-application-response",
+   "kind": "object",
+   "label": "Application\nResponse",
+   "x": 597.7,
+   "y": 810.7,
+   "w": 284.0,
+   "h": 141.4,
+   "labelLines": [
+    {
+     "text": "Application",
+     "cx": 737.6,
+     "cy": 859.835,
+     "w": 163.9,
+     "size": 33.9
+    },
+    {
+     "text": "Response",
+     "cx": 739.1,
+     "cy": 902.435,
+     "w": 149.1,
+     "size": 33.9
+    }
+   ],
+   "bold": false,
+   "italic": false
+  },
+  {
+   "id": "action-receive-waste-notification-response",
+   "kind": "action",
+   "label": "Receive Waste\nNotification Response",
+   "x": 115.4,
+   "y": 824.9,
+   "w": 397.1,
+   "h": 113.6,
+   "rx": 47.3,
+   "ry": 43.8,
+   "labelLines": [
+    {
+     "text": "Receive Waste",
+     "cx": 313.0,
+     "cy": 860.155,
+     "w": 223.7,
+     "size": 34.7
+    },
+    {
+     "text": "Notification Response",
+     "cx": 312.7,
+     "cy": 902.155,
+     "w": 327.2,
+     "size": 34.7
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "action-prepare-and-send-response",
+   "kind": "action",
+   "label": "Prepare and send\nresponse",
+   "x": 1023.8,
+   "y": 824.9,
+   "w": 340.3,
+   "h": 113.6,
+   "rx": 47.3,
+   "ry": 46.7,
+   "labelLines": [
+    {
+     "text": "Prepare and send",
+     "cx": 1193.0,
+     "cy": 860.155,
+     "w": 266.3,
+     "size": 34.7
+    },
+    {
+     "text": "response",
+     "cx": 1193.0,
+     "cy": 908.7,
+     "w": 136.1,
+     "size": 34.7
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "final-sender-party",
+   "kind": "final",
+   "label": "",
+   "x": 285.5,
+   "y": 1080.3,
+   "w": 56.8,
+   "h": 56.8,
+   "innerRatio": 0.67
+  }
+ ],
+ "edges": [
+  {
+   "id": "flow-initial-sender-party-to-prepare-notification-of-waste-movement",
+   "from": "initial-sender-party",
+   "to": "action-prepare-notification-of-waste-movement",
+   "exitXY": [
+    0.4968,
+    1.0
+   ],
+   "entryXY": [
+    0.4991,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-prepare-notification-of-waste-movement-to-send-waste-notification",
+   "from": "action-prepare-notification-of-waste-movement",
+   "to": "action-send-waste-notification",
+   "exitXY": [
+    0.5007,
+    1.0
+   ],
+   "entryXY": [
+    0.5495,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-send-waste-notification-to-waste-notification",
+   "from": "action-send-waste-notification",
+   "to": "object-waste-notification",
+   "exitXY": [
+    1.0,
+    0.5
+   ],
+   "entryXY": [
+    0.0,
+    0.4979
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-waste-notification-to-receive-waste-notification",
+   "from": "object-waste-notification",
+   "to": "action-receive-waste-notification",
+   "exitXY": [
+    1.0,
+    0.4979
+   ],
+   "entryXY": [
+    0.0,
+    0.5
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-receive-waste-notification-to-prepare-and-send-response",
+   "from": "action-receive-waste-notification",
+   "to": "action-prepare-and-send-response",
+   "exitXY": [
+    0.499,
+    1.0
+   ],
+   "entryXY": [
+    0.499,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-application-response-to-receive-waste-notification-response",
+   "from": "object-application-response",
+   "to": "action-receive-waste-notification-response",
+   "exitXY": [
+    0.0,
+    0.4979
+   ],
+   "entryXY": [
+    1.0,
+    0.5
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-prepare-and-send-response-to-application-response",
+   "from": "action-prepare-and-send-response",
+   "to": "object-application-response",
+   "exitXY": [
+    0.0,
+    0.5
+   ],
+   "entryXY": [
+    1.0,
+    0.4979
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-receive-waste-notification-response-to-final-sender-party",
+   "from": "action-receive-waste-notification-response",
+   "to": "final-sender-party",
+   "exitXY": [
+    0.4991,
+    1.0
+   ],
+   "entryXY": [
+    0.4947,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  }
+ ],
+ "guards": []
+}

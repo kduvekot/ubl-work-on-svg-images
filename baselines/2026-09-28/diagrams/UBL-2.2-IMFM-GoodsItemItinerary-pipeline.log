@@ -1,0 +1,11 @@
+== UBL-2.2-IMFM-GoodsItemItinerary
+  UBL-2.2-IMFM-GoodsItemItinerary -> diagram, layout, extraction  (6 nodes, 5 flows, 2 texts)
+  scale 0.43212   frame 10px  divider 7px  action 6px  object 12px
+  font 61px (26.5 model)   2 lanes, 0 bands, 6 nodes, 5 edges -> /tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-2.2-IMFM-GoodsItemItinerary-spec.json
+  /tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-2.2-IMFM-GoodsItemItinerary.svg + .drawio + -classified.svg   (6 nodes, 5 edges)
+  aligned on ink bounds: scale x 1.0000, y 1.0000
+  size 3425x1258  radius 2
+  ink: original 255073   candidate 246661
+  MISSING (red)     2886  = 1.1314% of original ink
+  EXTRA   (blue)    2257  = 0.8848% of original ink
+  RESULT: DIFFERENCES - inspect /tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-2.2-IMFM-GoodsItemItinerary-diff-r2.png

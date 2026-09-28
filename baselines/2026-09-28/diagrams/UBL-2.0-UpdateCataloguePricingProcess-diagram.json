@@ -1,0 +1,494 @@
+{
+ "schema": "ubl-activity-diagram/1",
+ "figure": {
+  "name": "UBL-2.0-UpdateCataloguePricingProcess",
+  "source": "UBL-2.0-UpdateCataloguePricingProcess.png"
+ },
+ "lanes": [
+  {
+   "id": "lane-receiver-party",
+   "axis": "column",
+   "index": 0,
+   "title": "Receiver Party"
+  },
+  {
+   "id": "lane-provider-party",
+   "axis": "column",
+   "index": 1,
+   "title": "Provider Party"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "initial-provider-party",
+   "kind": "initial",
+   "label": "",
+   "lane": "lane-provider-party"
+  },
+  {
+   "id": "decision-respond-to-request",
+   "kind": "decision",
+   "label": "Respond to Request",
+   "lane": "lane-provider-party"
+  },
+  {
+   "id": "object-catalogue-request",
+   "kind": "object",
+   "label": "Catalogue\nRequest",
+   "lane": null,
+   "between": [
+    "lane-receiver-party",
+    "lane-provider-party"
+   ]
+  },
+  {
+   "id": "action-request-catalogue-update",
+   "kind": "action",
+   "label": "Request Catalogue Update",
+   "lane": "lane-receiver-party"
+  },
+  {
+   "id": "initial-receiver-party",
+   "kind": "initial",
+   "label": "",
+   "lane": "lane-receiver-party"
+  },
+  {
+   "id": "object-application-response-negative-between-receiver-party-and-provider-party",
+   "kind": "object",
+   "label": "Application\nResponse\n(negative)",
+   "lane": null,
+   "between": [
+    "lane-receiver-party",
+    "lane-provider-party"
+   ]
+  },
+  {
+   "id": "action-send-rejection",
+   "kind": "action",
+   "label": "Send Rejection",
+   "lane": "lane-provider-party"
+  },
+  {
+   "id": "final-receiver-party",
+   "kind": "final",
+   "label": "",
+   "lane": "lane-receiver-party"
+  },
+  {
+   "id": "fork-provider-party",
+   "kind": "fork",
+   "label": "",
+   "lane": "lane-provider-party"
+  },
+  {
+   "id": "object-application-response-positive-between-receiver-party-and-provider-party",
+   "kind": "object",
+   "label": "Application\nResponse\n(positive)",
+   "lane": null,
+   "between": [
+    "lane-receiver-party",
+    "lane-provider-party"
+   ]
+  },
+  {
+   "id": "action-send-acceptance-response",
+   "kind": "action",
+   "label": "Send Acceptance\nResponse",
+   "lane": "lane-provider-party"
+  },
+  {
+   "id": "action-prepare-catalogue-pricing-update",
+   "kind": "action",
+   "label": "Prepare Catalogue Pricing\nUpdate Information",
+   "lane": "lane-provider-party"
+  },
+  {
+   "id": "object-catalogue-pricing-update",
+   "kind": "object",
+   "label": "Catalogue Pricing\nUpdate",
+   "lane": null,
+   "between": [
+    "lane-receiver-party",
+    "lane-provider-party"
+   ]
+  },
+  {
+   "id": "action-distribute-pricing-modifications",
+   "kind": "action",
+   "label": "Distribute Pricing\nModifications",
+   "lane": "lane-provider-party"
+  },
+  {
+   "id": "fork-receiver-party",
+   "kind": "fork",
+   "label": "",
+   "lane": "lane-receiver-party"
+  },
+  {
+   "id": "action-receive-pricing-update",
+   "kind": "action",
+   "label": "Receive Pricing Update",
+   "lane": "lane-receiver-party"
+  },
+  {
+   "id": "decision-review-pricing-details",
+   "kind": "decision",
+   "label": "Review Pricing\nDetails",
+   "lane": "lane-receiver-party"
+  },
+  {
+   "id": "decision-decide-on-action",
+   "kind": "decision",
+   "label": "Decide on Action",
+   "lane": "lane-provider-party"
+  },
+  {
+   "id": "object-application-response-negative-between-receiver-party-and-provider-party-2",
+   "kind": "object",
+   "label": "Application\nResponse\n(negative)",
+   "lane": null,
+   "between": [
+    "lane-receiver-party",
+    "lane-provider-party"
+   ]
+  },
+  {
+   "id": "action-acknowledge-acceptance",
+   "kind": "action",
+   "label": "Acknowledge\nAcceptance",
+   "lane": "lane-receiver-party"
+  },
+  {
+   "id": "object-application-response-positive-between-receiver-party-and-provider-party-2",
+   "kind": "object",
+   "label": "Application\nResponse\n(positive)",
+   "lane": null,
+   "between": [
+    "lane-receiver-party",
+    "lane-provider-party"
+   ]
+  },
+  {
+   "id": "action-activate-changes",
+   "kind": "action",
+   "label": "Activate Changes",
+   "lane": "lane-provider-party"
+  },
+  {
+   "id": "final-provider-party",
+   "kind": "final",
+   "label": "",
+   "lane": "lane-provider-party"
+  },
+  {
+   "id": "action-apply-changes",
+   "kind": "action",
+   "label": "Apply Changes",
+   "lane": "lane-receiver-party"
+  },
+  {
+   "id": "final-receiver-party-2",
+   "kind": "final",
+   "label": "",
+   "lane": "lane-receiver-party"
+  }
+ ],
+ "flows": [
+  {
+   "id": "flow-initial-provider-party-to-prepare-catalogue-pricing-update",
+   "from": "initial-provider-party",
+   "to": "action-prepare-catalogue-pricing-update",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-catalogue-request-to-respond-to-request",
+   "from": "object-catalogue-request",
+   "to": "decision-respond-to-request",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-initial-receiver-party-to-request-catalogue-update",
+   "from": "initial-receiver-party",
+   "to": "action-request-catalogue-update",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-request-catalogue-update-to-catalogue-request",
+   "from": "action-request-catalogue-update",
+   "to": "object-catalogue-request",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-respond-to-request-to-send-rejection",
+   "from": "decision-respond-to-request",
+   "to": "action-send-rejection",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   },
+   "guard": "text-reject-request"
+  },
+  {
+   "id": "flow-respond-to-request-to-fork-provider-party",
+   "from": "decision-respond-to-request",
+   "to": "fork-provider-party",
+   "kind": "control",
+   "direction": {
+    "confidence": "medium",
+    "checked": "confirmed"
+   },
+   "guard": "text-accept-request"
+  },
+  {
+   "id": "flow-send-rejection-to-application-response-negative-between-receiver-party-and-provider-party",
+   "from": "action-send-rejection",
+   "to": "object-application-response-negative-between-receiver-party-and-provider-party",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-application-response-negative-between-receiver-party-and-provider-party-to-final-receiver-party",
+   "from": "object-application-response-negative-between-receiver-party-and-provider-party",
+   "to": "final-receiver-party",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-fork-provider-party-to-send-acceptance-response",
+   "from": "fork-provider-party",
+   "to": "action-send-acceptance-response",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-fork-provider-party-to-prepare-catalogue-pricing-update",
+   "from": "fork-provider-party",
+   "to": "action-prepare-catalogue-pricing-update",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-send-acceptance-response-to-application-response-positive-between-receiver-party-and-provider-party",
+   "from": "action-send-acceptance-response",
+   "to": "object-application-response-positive-between-receiver-party-and-provider-party",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-application-response-positive-between-receiver-party-and-provider-party-to-fork-receiver-party",
+   "from": "object-application-response-positive-between-receiver-party-and-provider-party",
+   "to": "fork-receiver-party",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-prepare-catalogue-pricing-update-to-distribute-pricing-modifications",
+   "from": "action-prepare-catalogue-pricing-update",
+   "to": "action-distribute-pricing-modifications",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-catalogue-pricing-update-to-fork-receiver-party",
+   "from": "object-catalogue-pricing-update",
+   "to": "fork-receiver-party",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-distribute-pricing-modifications-to-catalogue-pricing-update",
+   "from": "action-distribute-pricing-modifications",
+   "to": "object-catalogue-pricing-update",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-fork-receiver-party-to-receive-pricing-update",
+   "from": "fork-receiver-party",
+   "to": "action-receive-pricing-update",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-decide-on-action-to-distribute-pricing-modifications",
+   "from": "decision-decide-on-action",
+   "to": "action-distribute-pricing-modifications",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   },
+   "guard": "text-revise-catalogue-pricing"
+  },
+  {
+   "id": "flow-receive-pricing-update-to-review-pricing-details",
+   "from": "action-receive-pricing-update",
+   "to": "decision-review-pricing-details",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-application-response-negative-between-receiver-party-and-provider-party-2-to-decide-on-action",
+   "from": "object-application-response-negative-between-receiver-party-and-provider-party-2",
+   "to": "decision-decide-on-action",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-review-pricing-details-to-application-response-negative-between-receiver-party-and-provider-party-2",
+   "from": "decision-review-pricing-details",
+   "to": "object-application-response-negative-between-receiver-party-and-provider-party-2",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   },
+   "guard": "text-query-changes"
+  },
+  {
+   "id": "flow-decide-on-action-to-final-provider-party",
+   "from": "decision-decide-on-action",
+   "to": "final-provider-party",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   },
+   "guard": "text-cancel-transaction"
+  },
+  {
+   "id": "flow-review-pricing-details-to-acknowledge-acceptance",
+   "from": "decision-review-pricing-details",
+   "to": "action-acknowledge-acceptance",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   },
+   "guard": "text-accept-changes"
+  },
+  {
+   "id": "flow-activate-changes-to-final-provider-party",
+   "from": "action-activate-changes",
+   "to": "final-provider-party",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-acknowledge-acceptance-to-application-response-positive-between-receiver-party-and-provider-party-2",
+   "from": "action-acknowledge-acceptance",
+   "to": "object-application-response-positive-between-receiver-party-and-provider-party-2",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-application-response-positive-between-receiver-party-and-provider-party-2-to-activate-changes",
+   "from": "object-application-response-positive-between-receiver-party-and-provider-party-2",
+   "to": "action-activate-changes",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-acknowledge-acceptance-to-apply-changes",
+   "from": "action-acknowledge-acceptance",
+   "to": "action-apply-changes",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-apply-changes-to-final-receiver-party-2",
+   "from": "action-apply-changes",
+   "to": "final-receiver-party-2",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  }
+ ],
+ "texts": [
+  {
+   "id": "text-supplier-initiated-update",
+   "text": "Supplier Initiated\nUpdate",
+   "labels": "initial-provider-party"
+  },
+  {
+   "id": "text-customer-initiated-update",
+   "text": "Customer\nInitiated\nUpdate",
+   "labels": "initial-receiver-party"
+  },
+  {
+   "id": "text-reject-request",
+   "text": "[reject request]",
+   "labels": "flow-respond-to-request-to-send-rejection"
+  },
+  {
+   "id": "text-accept-request",
+   "text": "[accept request]",
+   "labels": "flow-respond-to-request-to-fork-provider-party"
+  },
+  {
+   "id": "text-revise-catalogue-pricing",
+   "text": "[revise catalogue pricing]",
+   "labels": "flow-decide-on-action-to-distribute-pricing-modifications"
+  },
+  {
+   "id": "text-query-changes",
+   "text": "[query changes]",
+   "labels": "flow-review-pricing-details-to-application-response-negative-between-receiver-party-and-provider-party-2"
+  },
+  {
+   "id": "text-cancel-transaction",
+   "text": "[cancel transaction]",
+   "labels": "flow-decide-on-action-to-final-provider-party"
+  },
+  {
+   "id": "text-accept-changes",
+   "text": "[accept changes]",
+   "labels": "flow-review-pricing-details-to-acknowledge-acceptance"
+  }
+ ],
+ "offPage": [],
+ "marks": [],
+ "phases": []
+}

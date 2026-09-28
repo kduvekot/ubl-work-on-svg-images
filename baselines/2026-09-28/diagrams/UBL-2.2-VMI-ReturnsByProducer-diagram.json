@@ -1,0 +1,315 @@
+{
+ "schema": "ubl-activity-diagram/1",
+ "figure": {
+  "name": "UBL-2.2-VMI-ReturnsByProducer",
+  "source": "UBL-2.2-VMI-ReturnsByProducer.png"
+ },
+ "lanes": [
+  {
+   "id": "lane-producer",
+   "axis": "column",
+   "index": 0,
+   "title": "Producer"
+  },
+  {
+   "id": "lane-retailer",
+   "axis": "column",
+   "index": 1,
+   "title": "Retailer"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "initial-producer",
+   "kind": "initial",
+   "label": "",
+   "lane": "lane-producer"
+  },
+  {
+   "id": "decision-producer",
+   "kind": "decision",
+   "label": "",
+   "lane": "lane-producer",
+   "question": "Wrong despatching?"
+  },
+  {
+   "id": "final-producer",
+   "kind": "final",
+   "label": "",
+   "lane": "lane-producer"
+  },
+  {
+   "id": "object-instruction-for-returns",
+   "kind": "object",
+   "label": "Instruction for Returns",
+   "lane": null,
+   "between": [
+    "lane-producer",
+    "lane-retailer"
+   ]
+  },
+  {
+   "id": "action-receive-instruction-for-returns",
+   "kind": "action",
+   "label": "Receive Instruction for\nReturns",
+   "lane": "lane-retailer"
+  },
+  {
+   "id": "action-send-instruction-for-returns",
+   "kind": "action",
+   "label": "Send Instruction for Returns",
+   "lane": "lane-producer"
+  },
+  {
+   "id": "object-despatch-advice",
+   "kind": "object",
+   "label": "Despatch Advice",
+   "lane": null,
+   "between": [
+    "lane-producer",
+    "lane-retailer"
+   ]
+  },
+  {
+   "id": "action-receive-the-advice",
+   "kind": "action",
+   "label": "Receive the advice",
+   "lane": "lane-producer"
+  },
+  {
+   "id": "action-send-an-advice-to-notify-the-return",
+   "kind": "action",
+   "label": "Send an advice to notify the\nreturn",
+   "lane": "lane-retailer"
+  },
+  {
+   "id": "action-receive-the-return-item-s",
+   "kind": "action",
+   "label": "Receive the return item(s)",
+   "lane": "lane-producer"
+  },
+  {
+   "id": "action-send-item-s",
+   "kind": "action",
+   "label": "Send item(s)",
+   "lane": "lane-retailer"
+  },
+  {
+   "id": "fork-producer",
+   "kind": "fork",
+   "label": "",
+   "lane": "lane-producer"
+  },
+  {
+   "id": "action-check-status-of-item-s",
+   "kind": "action",
+   "label": "Check status of item(s)",
+   "lane": "lane-producer"
+  },
+  {
+   "id": "object-receipt-advice",
+   "kind": "object",
+   "label": "Receipt Advice",
+   "lane": null,
+   "between": [
+    "lane-producer",
+    "lane-retailer"
+   ]
+  },
+  {
+   "id": "action-receive-receipt-advice",
+   "kind": "action",
+   "label": "Receive Receipt Advice",
+   "lane": "lane-retailer"
+  },
+  {
+   "id": "action-send-receipt-advice",
+   "kind": "action",
+   "label": "Send Receipt Advice",
+   "lane": "lane-producer"
+  },
+  {
+   "id": "final-retailer",
+   "kind": "final",
+   "label": "",
+   "lane": "lane-retailer"
+  }
+ ],
+ "flows": [
+  {
+   "id": "flow-initial-producer-to-decision-producer",
+   "from": "initial-producer",
+   "to": "decision-producer",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-decision-producer-to-final-producer",
+   "from": "decision-producer",
+   "to": "final-producer",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   },
+   "guard": "text-false"
+  },
+  {
+   "id": "flow-decision-producer-to-send-instruction-for-returns",
+   "from": "decision-producer",
+   "to": "action-send-instruction-for-returns",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   },
+   "guard": "text-true"
+  },
+  {
+   "id": "flow-send-instruction-for-returns-to-instruction-for-returns",
+   "from": "action-send-instruction-for-returns",
+   "to": "object-instruction-for-returns",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-instruction-for-returns-to-receive-instruction-for-returns",
+   "from": "object-instruction-for-returns",
+   "to": "action-receive-instruction-for-returns",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-receive-instruction-for-returns-to-send-an-advice-to-notify-the-return",
+   "from": "action-receive-instruction-for-returns",
+   "to": "action-send-an-advice-to-notify-the-return",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-despatch-advice-to-receive-the-advice",
+   "from": "object-despatch-advice",
+   "to": "action-receive-the-advice",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-send-an-advice-to-notify-the-return-to-despatch-advice",
+   "from": "action-send-an-advice-to-notify-the-return",
+   "to": "object-despatch-advice",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-receive-the-advice-to-fork-producer",
+   "from": "action-receive-the-advice",
+   "to": "fork-producer",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-send-an-advice-to-notify-the-return-to-send-item-s",
+   "from": "action-send-an-advice-to-notify-the-return",
+   "to": "action-send-item-s",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-send-item-s-to-receive-the-return-item-s",
+   "from": "action-send-item-s",
+   "to": "action-receive-the-return-item-s",
+   "kind": "goods",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-receive-the-return-item-s-to-fork-producer",
+   "from": "action-receive-the-return-item-s",
+   "to": "fork-producer",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-fork-producer-to-check-status-of-item-s",
+   "from": "fork-producer",
+   "to": "action-check-status-of-item-s",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-check-status-of-item-s-to-send-receipt-advice",
+   "from": "action-check-status-of-item-s",
+   "to": "action-send-receipt-advice",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-receipt-advice-to-receive-receipt-advice",
+   "from": "object-receipt-advice",
+   "to": "action-receive-receipt-advice",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-send-receipt-advice-to-receipt-advice",
+   "from": "action-send-receipt-advice",
+   "to": "object-receipt-advice",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-receive-receipt-advice-to-final-retailer",
+   "from": "action-receive-receipt-advice",
+   "to": "final-retailer",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  }
+ ],
+ "texts": [
+  {
+   "id": "text-false",
+   "text": "False",
+   "labels": "flow-decision-producer-to-final-producer"
+  },
+  {
+   "id": "text-wrong-despatching",
+   "text": "Wrong despatching?",
+   "labels": "decision-producer"
+  },
+  {
+   "id": "text-true",
+   "text": "True",
+   "labels": "flow-decision-producer-to-send-instruction-for-returns"
+  }
+ ],
+ "offPage": [],
+ "marks": [],
+ "phases": []
+}

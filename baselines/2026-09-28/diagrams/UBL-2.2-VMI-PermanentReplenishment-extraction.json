@@ -1,0 +1,1641 @@
+{
+ "schema": "ubl-activity-diagram-extraction/1",
+ "figure": "UBL-2.2-VMI-PermanentReplenishment",
+ "nodes": {
+  "initial-producer": {
+   "area": 4071,
+   "fill": 0.754
+  },
+  "decision-producer": {
+   "area": 3554,
+   "fill": 0.507,
+   "solid": 0.507
+  },
+  "object-catalogue": {
+   "area": 34799,
+   "fill": 0.897,
+   "solid": 1.0,
+   "stem": 0.136
+  },
+  "action-send-catalogue": {
+   "area": 49551,
+   "fill": 0.874,
+   "solid": 0.98,
+   "stem": 0.136
+  },
+  "action-update-products-database": {
+   "area": 70141,
+   "fill": 0.86,
+   "solid": 0.986,
+   "stem": 0.136
+  },
+  "action-receive-catalogue": {
+   "area": 50655,
+   "fill": 0.862,
+   "solid": 0.98,
+   "stem": 0.136
+  },
+  "object-despatch-advice": {
+   "area": 45406,
+   "fill": 0.875,
+   "solid": 1.0,
+   "stem": 0.136
+  },
+  "action-send-despatch-advice": {
+   "area": 63973,
+   "fill": 0.865,
+   "solid": 0.981,
+   "stem": 0.136
+  },
+  "action-receive-despatch-advice": {
+   "area": 77265,
+   "fill": 0.879,
+   "solid": 0.986,
+   "stem": 0.136
+  },
+  "action-despatch-item-s": {
+   "area": 59517,
+   "fill": 0.888,
+   "solid": 0.984,
+   "stem": 0.136
+  },
+  "action-receive-item-s": {
+   "area": 60571,
+   "fill": 0.903,
+   "solid": 0.983,
+   "stem": 0.136
+  },
+  "fork-retailer": {
+   "area": 18483,
+   "fill": 0.573,
+   "lumps": 3,
+   "band": 22,
+   "box": 34
+  },
+  "action-check-status-of-item-s": {
+   "area": 60557,
+   "fill": 0.875,
+   "solid": 0.984,
+   "stem": 0.136
+  },
+  "object-receipt-advice": {
+   "area": 47991,
+   "fill": 0.895,
+   "solid": 1.0,
+   "stem": 0.136
+  },
+  "action-send-receipt-advice": {
+   "area": 58602,
+   "fill": 0.868,
+   "solid": 0.982,
+   "stem": 0.136
+  },
+  "action-receive-receipt-advice": {
+   "area": 55415,
+   "fill": 0.85,
+   "solid": 0.983,
+   "stem": 0.136
+  },
+  "action-adjust-supply-status": {
+   "area": 61049,
+   "fill": 0.874,
+   "solid": 0.982,
+   "stem": 0.136
+  },
+  "final-producer": {
+   "area": 2846,
+   "fill": 0.625,
+   "solid": 0.786
+  }
+ },
+ "flows": {
+  "flow-initial-producer-to-decision-producer": {
+   "arrowInk": [
+    180,
+    571
+   ],
+   "arrowPx": [
+    53,
+    41.5,
+    2.16
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-decision-producer-to-send-despatch-advice": {
+   "arrowInk": [
+    184,
+    561
+   ],
+   "arrowPx": [
+    48,
+    44.3,
+    1.84
+   ],
+   "arrowFill": 0.049
+  },
+  "flow-decision-producer-to-send-catalogue": {
+   "arrowInk": [
+    319,
+    563
+   ],
+   "arrowPx": [
+    51,
+    43.5,
+    1.96
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-send-catalogue-to-catalogue": {
+   "arrowInk": [
+    180,
+    583
+   ],
+   "arrowPx": [
+    52,
+    41.7,
+    2.46
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-catalogue-to-receive-catalogue": {
+   "arrowInk": [
+    180,
+    562
+   ],
+   "arrowPx": [
+    51,
+    43.4,
+    1.99
+   ],
+   "arrowFill": 0.076
+  },
+  "flow-receive-catalogue-to-update-products-database": {
+   "arrowInk": [
+    180,
+    562
+   ],
+   "arrowPx": [
+    50,
+    41.5,
+    2.12
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-send-catalogue-to-send-despatch-advice": {
+   "arrowInk": [
+    180,
+    563
+   ],
+   "arrowPx": [
+    51,
+    44.4,
+    1.86
+   ],
+   "arrowFill": 0.093
+  },
+  "flow-update-products-database-to-fork-retailer": {
+   "arrowInk": [
+    225,
+    570
+   ],
+   "arrowPx": [
+    54,
+    40.0,
+    3.77
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-receive-catalogue-to-receive-despatch-advice": {
+   "arrowInk": [
+    180,
+    563
+   ],
+   "arrowPx": [
+    51,
+    44.7,
+    1.87
+   ],
+   "arrowFill": 0.084
+  },
+  "flow-send-despatch-advice-to-despatch-advice": {
+   "arrowInk": [
+    180,
+    585
+   ],
+   "arrowPx": [
+    52,
+    41.8,
+    2.44
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-despatch-advice-to-receive-despatch-advice": {
+   "arrowInk": [
+    180,
+    561
+   ],
+   "arrowPx": [
+    51,
+    41.7,
+    2.05
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-receive-despatch-advice-to-fork-retailer": {
+   "arrowInk": [
+    180,
+    528
+   ],
+   "arrowPx": [
+    50,
+    41.9,
+    1.9
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-send-despatch-advice-to-despatch-item-s": {
+   "arrowInk": [
+    180,
+    565
+   ],
+   "arrowPx": [
+    51,
+    43.2,
+    1.94
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-despatch-item-s-to-receive-item-s": {
+   "arrowInk": [
+    180,
+    569
+   ],
+   "arrowPx": [
+    52,
+    42.0,
+    2.1
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-receive-item-s-to-fork-retailer": {
+   "arrowInk": [
+    180,
+    525
+   ],
+   "arrowPx": [
+    50,
+    40.6,
+    3.23
+   ],
+   "arrowFill": 0.007,
+   "arrowSaturated": true
+  },
+  "flow-fork-retailer-to-check-status-of-item-s": {
+   "arrowInk": [
+    180,
+    570
+   ],
+   "arrowPx": [
+    52,
+    42.0,
+    2.11
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-check-status-of-item-s-to-send-receipt-advice": {
+   "arrowInk": [
+    180,
+    555
+   ],
+   "arrowPx": [
+    50,
+    41.5,
+    2.06
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-send-receipt-advice-to-receipt-advice": {
+   "arrowInk": [
+    184,
+    548
+   ],
+   "arrowPx": [
+    52,
+    40.2,
+    2.79
+   ],
+   "arrowFill": 0.0,
+   "arrowSaturated": true
+  },
+  "flow-receipt-advice-to-receive-receipt-advice": {
+   "arrowInk": [
+    184,
+    575
+   ],
+   "arrowPx": [
+    56,
+    42.0,
+    2.25
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-receive-receipt-advice-to-adjust-supply-status": {
+   "arrowInk": [
+    180,
+    560
+   ],
+   "arrowPx": [
+    52,
+    42.0,
+    2.0
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-adjust-supply-status-to-final-producer": {
+   "arrowInk": [
+    180,
+    563
+   ],
+   "arrowPx": [
+    51,
+    42.0,
+    2.08
+   ],
+   "arrowFill": 0.0
+  }
+ },
+ "offPage": {},
+ "marks": {},
+ "phases": {},
+ "greyRules": [],
+ "titleReadings": [
+  {
+   "position": 0,
+   "text": "Producer",
+   "x": 566,
+   "y": 49,
+   "w": 195,
+   "h": 36,
+   "lines": [
+    {
+     "x": 566,
+     "y": 49,
+     "w": 195,
+     "h": 36,
+     "text": "Producer"
+    }
+   ],
+   "attachedTo": "n2->n9"
+  },
+  {
+   "position": 1,
+   "text": "Retailer",
+   "x": 2306,
+   "y": 50,
+   "w": 165,
+   "h": 36,
+   "lines": [
+    {
+     "x": 2306,
+     "y": 50,
+     "w": 165,
+     "h": 36,
+     "text": "Retailer"
+    }
+   ]
+  }
+ ],
+ "findings": [
+  {
+   "kind": "guard-is-lane-title",
+   "flow": "flow-decision-producer-to-send-despatch-advice",
+   "lane": "lane-producer",
+   "detail": "the guard on n2->n9 is the title of lane0, 'Producer'",
+   "check": "a lane title does not label a flow: either the title was attached by mistake or the lane title is a misread guard",
+   "resolvedBy": [
+    "q13-38",
+    "q13-39",
+    "q13-40",
+    "q13-41",
+    "draw-21"
+   ]
+  }
+ ],
+ "uncertain": [
+  {
+   "x": 2207,
+   "y": 865,
+   "w": 782,
+   "h": 990,
+   "shape": "rounded",
+   "iou": 0.617,
+   "border": 0.756,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best rounded 0.62, and 1.00 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "kind": "empty-box",
+   "x": 86,
+   "y": 408,
+   "w": 566,
+   "h": 800,
+   "reason": "a action carrying no text, with line-work passing its sides",
+   "check": "confirm nothing is drawn here in the original"
+  }
+ ],
+ "present": [
+  "source",
+  "size",
+  "fontPx",
+  "arrowPx",
+  "arrowWidthPx",
+  "arrowStyle",
+  "rules",
+  "ruleSpan",
+  "greyRules",
+  "dashed",
+  "openEnds",
+  "crossMarks",
+  "partitions",
+  "nodes",
+  "edges",
+  "text",
+  "uncertain"
+ ],
+ "uncorrected": {
+  "model": {
+   "schema": "ubl-activity-diagram/1",
+   "figure": {
+    "name": "UBL-2.2-VMI-PermanentReplenishment",
+    "source": "UBL-2.2-VMI-PermanentReplenishment.png"
+   },
+   "lanes": [
+    {
+     "id": "lane0",
+     "axis": "column",
+     "index": 0,
+     "title": "Producer"
+    },
+    {
+     "id": "lane1",
+     "axis": "column",
+     "index": 1,
+     "title": "Retailer"
+    },
+    {
+     "id": "lane2",
+     "axis": "band",
+     "index": 0,
+     "title": ""
+    }
+   ],
+   "nodes": [
+    {
+     "id": "n1",
+     "kind": "initial",
+     "label": "",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n2",
+     "kind": "decision",
+     "label": "",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n4",
+     "kind": "object",
+     "label": "Catalogue",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n5",
+     "kind": "action",
+     "label": "Send Catalogue",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n6",
+     "kind": "action",
+     "label": "Update products database",
+     "lane": "lane1",
+     "band": "lane2"
+    },
+    {
+     "id": "n7",
+     "kind": "action",
+     "label": "Receive Catalogue",
+     "lane": "lane1",
+     "band": "lane2"
+    },
+    {
+     "id": "n8",
+     "kind": "object",
+     "label": "Despatch Advice",
+     "lane": "lane1",
+     "band": "lane2"
+    },
+    {
+     "id": "n9",
+     "kind": "action",
+     "label": "Send Despatch\nAdvice",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n10",
+     "kind": "action",
+     "label": "Receive Despatch Advice",
+     "lane": "lane1",
+     "band": "lane2"
+    },
+    {
+     "id": "n11",
+     "kind": "action",
+     "label": "Despatch item(s)",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n12",
+     "kind": "action",
+     "label": "Receive item(s)",
+     "lane": "lane1",
+     "band": "lane2"
+    },
+    {
+     "id": "n13",
+     "kind": "fork",
+     "label": "",
+     "lane": "lane1",
+     "band": "lane2"
+    },
+    {
+     "id": "n14",
+     "kind": "action",
+     "label": "Check status of item(s)",
+     "lane": "lane1",
+     "band": "lane2"
+    },
+    {
+     "id": "n15",
+     "kind": "object",
+     "label": "Receipt Advice",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n16",
+     "kind": "action",
+     "label": "Send Receipt Advice",
+     "lane": "lane1",
+     "band": "lane2"
+    },
+    {
+     "id": "n17",
+     "kind": "action",
+     "label": "Receive Receipt Advice",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n18",
+     "kind": "action",
+     "label": "Adjust supply status",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n19",
+     "kind": "final",
+     "label": "",
+     "lane": "lane0",
+     "band": "lane2"
+    }
+   ],
+   "flows": [
+    {
+     "id": "f0",
+     "from": "n1",
+     "to": "n2",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f1",
+     "from": "n2",
+     "to": "n9",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     },
+     "guard": "lane0"
+    },
+    {
+     "id": "f2",
+     "from": "n2",
+     "to": "n5",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     },
+     "guard": "t3"
+    },
+    {
+     "id": "f3",
+     "from": "n5",
+     "to": "n4",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f4",
+     "from": "n4",
+     "to": "n7",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f5",
+     "from": "n7",
+     "to": "n6",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f6",
+     "from": "n5",
+     "to": "n9",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f7",
+     "from": "n6",
+     "to": "n13",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f8",
+     "from": "n7",
+     "to": "n10",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f9",
+     "from": "n9",
+     "to": "n8",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f10",
+     "from": "n8",
+     "to": "n10",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f11",
+     "from": "n10",
+     "to": "n13",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f12",
+     "from": "n9",
+     "to": "n11",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f13",
+     "from": "n11",
+     "to": "n12",
+     "kind": "goods",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f14",
+     "from": "n12",
+     "to": "n13",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f15",
+     "from": "n13",
+     "to": "n14",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f16",
+     "from": "n14",
+     "to": "n16",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f17",
+     "from": "n16",
+     "to": "n15",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f18",
+     "from": "n15",
+     "to": "n17",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f19",
+     "from": "n17",
+     "to": "n18",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f20",
+     "from": "n18",
+     "to": "n19",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    }
+   ],
+   "texts": [
+    {
+     "id": "t2",
+     "text": "Is there a new item to be delivered?\nTrue"
+    },
+    {
+     "id": "t3",
+     "text": "False",
+     "labels": "f2"
+    }
+   ],
+   "offPage": [],
+   "marks": [],
+   "phases": []
+  },
+  "layout": {
+   "schema": "ubl-activity-diagram-layout/1",
+   "figure": "UBL-2.2-VMI-PermanentReplenishment",
+   "units": "px of the original PNG",
+   "size": [
+    3425,
+    3211
+   ],
+   "style": {
+    "fontPx": 51.4,
+    "arrowPx": 51.0,
+    "arrowWidthPx": 42.0,
+    "arrowStyle": "open"
+   },
+   "rules": {
+    "vertical": [
+     {
+      "at": 0,
+      "width": 10,
+      "span": [
+       13,
+       3197
+      ]
+     },
+     {
+      "at": 1406,
+      "width": 4,
+      "span": [
+       13,
+       3197
+      ]
+     },
+     {
+      "at": 3415,
+      "width": 10,
+      "span": [
+       13,
+       3197
+      ]
+     }
+    ],
+    "horizontal": [
+     {
+      "at": 0,
+      "width": 10,
+      "span": [
+       13,
+       3411
+      ]
+     },
+     {
+      "at": 3201,
+      "width": 10,
+      "span": [
+       13,
+       3411
+      ]
+     }
+    ]
+   },
+   "greyRules": [],
+   "lanes": {
+    "lane0": {
+     "x0": 0,
+     "x1": 1408,
+     "titleBox": [
+      566,
+      49,
+      195,
+      36
+     ]
+    },
+    "lane1": {
+     "x0": 1408,
+     "x1": 3425,
+     "titleBox": [
+      2306,
+      50,
+      165,
+      36
+     ]
+    },
+    "lane2": {
+     "y0": 0,
+     "y1": 3211
+    }
+   },
+   "nodes": {
+    "n1": {
+     "x": 618,
+     "y": 150,
+     "w": 79,
+     "h": 80
+    },
+    "n2": {
+     "x": 608,
+     "y": 367,
+     "w": 91,
+     "h": 77,
+     "shape": "rhombus",
+     "stroke": 4,
+     "rx": 51,
+     "ry": 43
+    },
+    "n4": {
+     "x": 1250,
+     "y": 791,
+     "w": 313,
+     "h": 124,
+     "shape": "rect",
+     "stroke": 8,
+     "rx": 0,
+     "ry": 0,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 1297,
+       "y": 831,
+       "w": 233,
+       "h": 46,
+       "text": "Catalogue"
+      }
+     ]
+    },
+    "n5": {
+     "x": 388,
+     "y": 793,
+     "w": 502,
+     "h": 113,
+     "shape": "rounded",
+     "stroke": 4,
+     "rx": 53.5,
+     "ry": 32,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 448,
+       "y": 831,
+       "w": 367,
+       "h": 46,
+       "text": "Send Catalogue"
+      }
+     ]
+    },
+    "n6": {
+     "x": 2642,
+     "y": 804,
+     "w": 697,
+     "h": 117,
+     "shape": "rounded",
+     "stroke": 4,
+     "rx": 53.5,
+     "ry": 31,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 2684,
+       "y": 843,
+       "w": 611,
+       "h": 45,
+       "text": "Update products database"
+      }
+     ]
+    },
+    "n7": {
+     "x": 1954,
+     "y": 808,
+     "w": 502,
+     "h": 117,
+     "shape": "rounded",
+     "stroke": 4,
+     "rx": 53.5,
+     "ry": 43,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 1982,
+       "y": 846,
+       "w": 431,
+       "h": 46,
+       "text": "Receive Catalogue"
+      }
+     ]
+    },
+    "n8": {
+     "x": 1201,
+     "y": 1135,
+     "w": 415,
+     "h": 125,
+     "shape": "rect",
+     "stroke": 8,
+     "rx": 0,
+     "ry": 0,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 1214,
+       "y": 1175,
+       "w": 392,
+       "h": 45,
+       "text": "Despatch Advice"
+      }
+     ]
+    },
+    "n9": {
+     "x": 399,
+     "y": 1137,
+     "w": 517,
+     "h": 143,
+     "shape": "rounded",
+     "stroke": 4,
+     "rx": 66,
+     "ry": 44,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 474,
+       "y": 1164,
+       "w": 349,
+       "h": 46,
+       "text": "Send Despatch"
+      },
+      {
+       "x": 579,
+       "y": 1226,
+       "w": 158,
+       "h": 35,
+       "text": "Advice"
+      }
+     ]
+    },
+    "n10": {
+     "x": 1890,
+     "y": 1141,
+     "w": 751,
+     "h": 117,
+     "shape": "rounded",
+     "stroke": 4,
+     "rx": 55,
+     "ry": 38,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 1967,
+       "y": 1179,
+       "w": 590,
+       "h": 45,
+       "text": "Receive Despatch Advice"
+      }
+     ]
+    },
+    "n11": {
+     "x": 373,
+     "y": 1511,
+     "w": 573,
+     "h": 117,
+     "shape": "rounded",
+     "stroke": 4,
+     "rx": 57,
+     "ry": 32,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 468,
+       "y": 1549,
+       "w": 390,
+       "h": 46,
+       "text": "Despatch item(s)"
+      }
+     ]
+    },
+    "n12": {
+     "x": 1917,
+     "y": 1515,
+     "w": 573,
+     "h": 117,
+     "shape": "rounded",
+     "stroke": 5,
+     "rx": 51,
+     "ry": 33,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 2024,
+       "y": 1552,
+       "w": 354,
+       "h": 47,
+       "text": "Receive item(s)"
+      }
+     ]
+    },
+    "n13": {
+     "x": 2015,
+     "y": 1855,
+     "w": 1159,
+     "h": 22
+    },
+    "n14": {
+     "x": 2302,
+     "y": 2154,
+     "w": 577,
+     "h": 120,
+     "shape": "rounded",
+     "stroke": 5,
+     "rx": 52,
+     "ry": 34,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 2328,
+       "y": 2191,
+       "w": 536,
+       "h": 46,
+       "text": "Check status of item(s)"
+      }
+     ]
+    },
+    "n15": {
+     "x": 1197,
+     "y": 2454,
+     "w": 419,
+     "h": 128,
+     "shape": "rect",
+     "stroke": 8,
+     "rx": 0,
+     "ry": 0,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 1235,
+       "y": 2494,
+       "w": 349,
+       "h": 45,
+       "text": "Receipt Advice"
+      }
+     ]
+    },
+    "n16": {
+     "x": 2298,
+     "y": 2455,
+     "w": 577,
+     "h": 117,
+     "shape": "rounded",
+     "stroke": 4,
+     "rx": 53.5,
+     "ry": 35,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 2339,
+       "y": 2493,
+       "w": 482,
+       "h": 46,
+       "text": "Send Receipt Advice"
+      }
+     ]
+    },
+    "n17": {
+     "x": 407,
+     "y": 2463,
+     "w": 577,
+     "h": 113,
+     "shape": "rounded",
+     "stroke": 4,
+     "rx": 53.5,
+     "ry": 31,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 419,
+       "y": 2501,
+       "w": 546,
+       "h": 45,
+       "text": "Receive Receipt Advice"
+      }
+     ]
+    },
+    "n18": {
+     "x": 407,
+     "y": 2754,
+     "w": 577,
+     "h": 121,
+     "shape": "rounded",
+     "stroke": 4,
+     "rx": 53.5,
+     "ry": 33,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 461,
+       "y": 2792,
+       "w": 480,
+       "h": 46,
+       "text": "Adjust supply status"
+      }
+     ]
+    },
+    "n19": {
+     "x": 663,
+     "y": 3106,
+     "w": 68,
+     "h": 67,
+     "shape": "ellipse",
+     "stroke": 4,
+     "rx": 31,
+     "ry": 37,
+     "innerRatio": 0.426
+    }
+   },
+   "flows": {
+    "f0": {
+     "fromPoint": [
+      655,
+      244
+     ],
+     "toPoint": [
+      653,
+      352
+     ],
+     "routing": "straight"
+    },
+    "f1": {
+     "fromPoint": [
+      593,
+      406
+     ],
+     "toPoint": [
+      384,
+      1207
+     ],
+     "routing": "orthogonal",
+     "points": [
+      [
+       84,
+       406
+      ],
+      [
+       84,
+       1207
+      ]
+     ]
+    },
+    "f2": {
+     "fromPoint": [
+      654,
+      458
+     ],
+     "toPoint": [
+      652,
+      778
+     ],
+     "routing": "straight"
+    },
+    "f3": {
+     "fromPoint": [
+      904,
+      850
+     ],
+     "toPoint": [
+      1235,
+      851
+     ],
+     "routing": "straight"
+    },
+    "f4": {
+     "fromPoint": [
+      1577,
+      853
+     ],
+     "toPoint": [
+      1939,
+      856
+     ],
+     "routing": "straight"
+    },
+    "f5": {
+     "fromPoint": [
+      2470,
+      863
+     ],
+     "toPoint": [
+      2627,
+      862
+     ],
+     "routing": "straight"
+    },
+    "f6": {
+     "fromPoint": [
+      648,
+      920
+     ],
+     "toPoint": [
+      652,
+      1122
+     ],
+     "routing": "straight"
+    },
+    "f7": {
+     "fromPoint": [
+      2990,
+      935
+     ],
+     "toPoint": [
+      2990,
+      1840
+     ],
+     "routing": "straight"
+    },
+    "f8": {
+     "fromPoint": [
+      2204,
+      939
+     ],
+     "toPoint": [
+      2207,
+      1126
+     ],
+     "routing": "straight"
+    },
+    "f9": {
+     "fromPoint": [
+      930,
+      1203
+     ],
+     "toPoint": [
+      1186,
+      1198
+     ],
+     "routing": "straight"
+    },
+    "f10": {
+     "fromPoint": [
+      1630,
+      1198
+     ],
+     "toPoint": [
+      1875,
+      1199
+     ],
+     "routing": "straight"
+    },
+    "f11": {
+     "fromPoint": [
+      2552,
+      1272
+     ],
+     "toPoint": [
+      2553,
+      1840
+     ],
+     "routing": "straight"
+    },
+    "f12": {
+     "fromPoint": [
+      649,
+      1294
+     ],
+     "toPoint": [
+      651,
+      1496
+     ],
+     "routing": "straight"
+    },
+    "f13": {
+     "fromPoint": [
+      960,
+      1569
+     ],
+     "toPoint": [
+      1902,
+      1569
+     ],
+     "routing": "straight"
+    },
+    "f14": {
+     "fromPoint": [
+      2203,
+      1646
+     ],
+     "toPoint": [
+      2206,
+      1840
+     ],
+     "routing": "straight"
+    },
+    "f15": {
+     "fromPoint": [
+      2590,
+      1891
+     ],
+     "toPoint": [
+      2590,
+      2139
+     ],
+     "routing": "straight"
+    },
+    "f16": {
+     "fromPoint": [
+      2587,
+      2288
+     ],
+     "toPoint": [
+      2586,
+      2440
+     ],
+     "routing": "straight"
+    },
+    "f17": {
+     "fromPoint": [
+      2283,
+      2513
+     ],
+     "toPoint": [
+      1630,
+      2514
+     ],
+     "routing": "straight"
+    },
+    "f18": {
+     "fromPoint": [
+      1182,
+      2518
+     ],
+     "toPoint": [
+      998,
+      2518
+     ],
+     "routing": "straight"
+    },
+    "f19": {
+     "fromPoint": [
+      694,
+      2590
+     ],
+     "toPoint": [
+      694,
+      2739
+     ],
+     "routing": "straight"
+    },
+    "f20": {
+     "fromPoint": [
+      695,
+      2889
+     ],
+     "toPoint": [
+      695,
+      3091
+     ],
+     "routing": "straight"
+    }
+   },
+   "texts": {
+    "t2": {
+     "x": 674,
+     "y": 365,
+     "w": 414,
+     "h": 143,
+     "lines": [
+      {
+       "x": 670,
+       "y": 375,
+       "w": 418,
+       "h": 80,
+       "text": "Is there a new item to be delivered?"
+      },
+      {
+       "x": 674,
+       "y": 481,
+       "w": 75,
+       "h": 27,
+       "text": "True"
+      }
+     ]
+    },
+    "t3": {
+     "x": 442,
+     "y": 367,
+     "w": 88,
+     "h": 27,
+     "lines": [
+      {
+       "x": 442,
+       "y": 367,
+       "w": 88,
+       "h": 27,
+       "text": "False"
+      }
+     ]
+    }
+   },
+   "offPage": {},
+   "marks": {},
+   "phases": {},
+   "rulesHaveSpans": {
+    "vertical": true,
+    "horizontal": true
+   }
+  }
+ },
+ "graphPatches": {
+  "edges": {
+   "f2": {
+    "guard": "True"
+   },
+   "f1": {
+    "guard": "False"
+   }
+  },
+  "texts": {
+   "t2": {
+    "x": 733,
+    "y": 378,
+    "w": 355,
+    "h": 77,
+    "lines": [
+     {
+      "x": 733,
+      "y": 378,
+      "w": 355,
+      "h": 28,
+      "text": "Is there a new item to"
+     },
+     {
+      "x": 732,
+      "y": 427,
+      "w": 222,
+      "h": 28,
+      "text": "be delivered?"
+     }
+    ],
+    "text": "Is there a new item to be delivered?"
+   }
+  },
+  "addEdges": [],
+  "addTexts": [
+   {
+    "x": 674,
+    "y": 481,
+    "w": 75,
+    "h": 27,
+    "lines": [
+     {
+      "x": 674,
+      "y": 481,
+      "w": 75,
+      "h": 27,
+      "text": "True"
+     }
+    ],
+    "text": "True"
+   }
+  ]
+ },
+ "corrections": [
+  "q13-38",
+  "q13-39",
+  "q13-40",
+  "q13-41",
+  "draw-21"
+ ],
+ "documentLanes": {
+  "object-catalogue": "lane-producer",
+  "object-despatch-advice": "lane-retailer",
+  "object-receipt-advice": "lane-producer"
+ },
+ "formerIds": {
+  "lane-producer": "lane0",
+  "lane-retailer": "lane1",
+  "initial-producer": "n1",
+  "decision-producer": "n2",
+  "object-catalogue": "n4",
+  "action-send-catalogue": "n5",
+  "action-update-products-database": "n6",
+  "action-receive-catalogue": "n7",
+  "object-despatch-advice": "n8",
+  "action-send-despatch-advice": "n9",
+  "action-receive-despatch-advice": "n10",
+  "action-despatch-item-s": "n11",
+  "action-receive-item-s": "n12",
+  "fork-retailer": "n13",
+  "action-check-status-of-item-s": "n14",
+  "object-receipt-advice": "n15",
+  "action-send-receipt-advice": "n16",
+  "action-receive-receipt-advice": "n17",
+  "action-adjust-supply-status": "n18",
+  "final-producer": "n19",
+  "flow-initial-producer-to-decision-producer": "f0",
+  "flow-decision-producer-to-send-despatch-advice": "f1",
+  "flow-decision-producer-to-send-catalogue": "f2",
+  "flow-send-catalogue-to-catalogue": "f3",
+  "flow-catalogue-to-receive-catalogue": "f4",
+  "flow-receive-catalogue-to-update-products-database": "f5",
+  "flow-send-catalogue-to-send-despatch-advice": "f6",
+  "flow-update-products-database-to-fork-retailer": "f7",
+  "flow-receive-catalogue-to-receive-despatch-advice": "f8",
+  "flow-send-despatch-advice-to-despatch-advice": "f9",
+  "flow-despatch-advice-to-receive-despatch-advice": "f10",
+  "flow-receive-despatch-advice-to-fork-retailer": "f11",
+  "flow-send-despatch-advice-to-despatch-item-s": "f12",
+  "flow-despatch-item-s-to-receive-item-s": "f13",
+  "flow-receive-item-s-to-fork-retailer": "f14",
+  "flow-fork-retailer-to-check-status-of-item-s": "f15",
+  "flow-check-status-of-item-s-to-send-receipt-advice": "f16",
+  "flow-send-receipt-advice-to-receipt-advice": "f17",
+  "flow-receipt-advice-to-receive-receipt-advice": "f18",
+  "flow-receive-receipt-advice-to-adjust-supply-status": "f19",
+  "flow-adjust-supply-status-to-final-producer": "f20",
+  "text-is-there-a-new-item-to-be-delivered": "t2",
+  "text-true": "corr-q13-38",
+  "text-false": "t3"
+ }
+}

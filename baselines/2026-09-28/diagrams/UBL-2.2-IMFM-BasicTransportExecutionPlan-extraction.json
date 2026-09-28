@@ -1,0 +1,2567 @@
+{
+ "schema": "ubl-activity-diagram-extraction/1",
+ "figure": "UBL-2.2-IMFM-BasicTransportExecutionPlan",
+ "nodes": {
+  "initial-transport-user": {
+   "area": 3005,
+   "fill": 0.769
+  },
+  "action-create-update-transport-execution-plan": {
+   "area": 75595,
+   "fill": 0.877,
+   "solid": 0.974,
+   "stem": 0.14
+  },
+  "action-evaluate-transport-execution-plan-in-transport-service-provider": {
+   "area": 76877,
+   "fill": 0.888,
+   "solid": 0.973,
+   "stem": 0.14
+  },
+  "object-notconfirmed-transport-execution-plan": {
+   "area": 59370,
+   "fill": 0.873,
+   "solid": 1.0,
+   "stem": 0.14
+  },
+  "action-request-transport-service": {
+   "area": 46545,
+   "fill": 0.874,
+   "solid": 0.959,
+   "stem": 0.14
+  },
+  "action-receive-transport-service-request": {
+   "area": 43630,
+   "fill": 0.844,
+   "solid": 0.959,
+   "stem": 0.14
+  },
+  "object-rejected-transport-execution-plan-between-transport-user-and-transport-service-provider": {
+   "area": 62813,
+   "fill": 0.909,
+   "solid": 1.0,
+   "stem": 0.14
+  },
+  "action-reject-transport-service-request": {
+   "area": 51461,
+   "fill": 0.867,
+   "solid": 0.962,
+   "stem": 0.14
+  },
+  "action-receive-rejected-transport-execution-in-transport-user": {
+   "area": 53229,
+   "fill": 0.847,
+   "solid": 0.964,
+   "stem": 0.14
+  },
+  "decision-transport-service-provider": {
+   "area": 7589,
+   "fill": 0.507,
+   "solid": 0.507
+  },
+  "decision-transport-user": {
+   "area": 4575,
+   "fill": 0.506,
+   "solid": 0.506,
+   "keptOnOutline": true
+  },
+  "final-transport-user": {
+   "area": 2369,
+   "fill": 0.637,
+   "solid": 0.792
+  },
+  "object-confirmed-transport-execution-plan-between-transport-user-and-transport-service-provider": {
+   "area": 57822,
+   "fill": 0.902,
+   "solid": 1.0,
+   "stem": 0.14
+  },
+  "action-receive-proposed-transport-execution": {
+   "area": 50160,
+   "fill": 0.836,
+   "solid": 0.964,
+   "stem": 0.14
+  },
+  "action-confirm-transport-service-request": {
+   "area": 52251,
+   "fill": 0.869,
+   "solid": 0.964,
+   "stem": 0.14
+  },
+  "action-evaluate-transport-execution-plan-in-transport-user": {
+   "area": 48029,
+   "fill": 0.859,
+   "solid": 0.961,
+   "stem": 0.14
+  },
+  "decision-transport-user-2": {
+   "area": 4569,
+   "fill": 0.505,
+   "solid": 0.505,
+   "keptOnOutline": true
+  },
+  "action-receive-confirmed-transport-execution": {
+   "area": 56913,
+   "fill": 0.854,
+   "solid": 0.967,
+   "stem": 0.14
+  },
+  "object-confirmed-transport-execution-plan-between-transport-user-and-transport-service-provider-2": {
+   "area": 59089,
+   "fill": 0.9,
+   "solid": 0.995,
+   "stem": 0.14
+  },
+  "action-confirm-transport-execution-plan": {
+   "area": 48435,
+   "fill": 0.863,
+   "solid": 0.961,
+   "stem": 0.14
+  },
+  "final-transport-service-provider": {
+   "area": 2370,
+   "fill": 0.637,
+   "solid": 0.792
+  },
+  "decision-transport-user-3": {
+   "area": 4571,
+   "fill": 0.51,
+   "solid": 0.51
+  },
+  "object-rejected-transport-execution-plan-between-transport-user-and-transport-service-provider-2": {
+   "area": 62704,
+   "fill": 0.91,
+   "solid": 1.0,
+   "stem": 0.14
+  },
+  "action-receive-rejected-transport-execution-in-transport-service-provider": {
+   "area": 60915,
+   "fill": 0.86,
+   "solid": 0.963,
+   "stem": 0.14
+  },
+  "action-reject-transport-execution-plan": {
+   "area": 51448,
+   "fill": 0.872,
+   "solid": 0.964,
+   "stem": 0.14
+  },
+  "final-transport-service-provider-2": {
+   "area": 2364,
+   "fill": 0.635,
+   "solid": 0.793
+  }
+ },
+ "flows": {
+  "flow-initial-transport-user-to-request-transport-service": {
+   "arrowInk": [
+    272,
+    515
+   ],
+   "arrowPx": [
+    62,
+    44.2,
+    0.29
+   ],
+   "arrowFill": 0.03
+  },
+  "flow-decision-transport-user-3-to-create-update-transport-execution-plan": {
+   "arrowInk": [
+    303,
+    510
+   ],
+   "arrowPx": [
+    46,
+    39.3,
+    1.85
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-receive-transport-service-request-to-evaluate-transport-execution-plan-in-transport-service-provider": {
+   "arrowInk": [
+    273,
+    515
+   ],
+   "arrowPx": [
+    63,
+    45.0,
+    0.3
+   ],
+   "arrowFill": 0.056,
+   "arrowSaturated": true
+  },
+  "flow-create-update-transport-execution-plan-to-request-transport-service": {
+   "arrowInk": [
+    180,
+    513
+   ],
+   "arrowPx": [
+    47,
+    38.0,
+    1.98
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-request-transport-service-to-notconfirmed-transport-execution-plan": {
+   "arrowInk": [
+    180,
+    551
+   ],
+   "arrowPx": [
+    48,
+    39.2,
+    2.17
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-notconfirmed-transport-execution-plan-to-receive-transport-service-request": {
+   "arrowInk": [
+    180,
+    514
+   ],
+   "arrowPx": [
+    46,
+    39.8,
+    1.8
+   ],
+   "arrowFill": 0.018
+  },
+  "flow-decision-transport-user-to-create-update-transport-execution-plan": {
+   "arrowInk": [
+    417,
+    561
+   ],
+   "arrowPx": [
+    49,
+    38.3,
+    1.93
+   ],
+   "arrowFill": 0.02
+  },
+  "flow-evaluate-transport-execution-plan-in-transport-service-provider-to-decision-transport-service-provider": {
+   "arrowInk": [
+    368,
+    529
+   ],
+   "arrowPx": [
+    40,
+    34.0,
+    1.86
+   ],
+   "arrowFill": 0.0,
+   "arrowSaturated": true
+  },
+  "flow-receive-rejected-transport-execution-in-transport-user-to-decision-transport-user": {
+   "arrowInk": [
+    184,
+    515
+   ],
+   "arrowPx": [
+    47,
+    37.9,
+    1.95
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-rejected-transport-execution-plan-between-transport-user-and-transport-service-provider-to-receive-rejected-transport-execution-in-transport-user": {
+   "arrowInk": [
+    184,
+    536
+   ],
+   "arrowPx": [
+    50,
+    38.0,
+    2.16
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-reject-transport-service-request-to-rejected-transport-execution-plan-between-transport-user-and-transport-service-provider": {
+   "arrowInk": [
+    184,
+    551
+   ],
+   "arrowPx": [
+    51,
+    38.0,
+    2.6
+   ],
+   "arrowFill": 0.004
+  },
+  "flow-decision-transport-service-provider-to-reject-transport-service-request": {
+   "arrowInk": [
+    184,
+    533
+   ],
+   "arrowPx": [
+    49,
+    39.3,
+    1.99
+   ],
+   "arrowFill": 0.008
+  },
+  "flow-decision-transport-user-to-final-transport-user": {
+   "arrowInk": [
+    203,
+    516
+   ],
+   "arrowPx": [
+    48,
+    37.2,
+    1.69
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-decision-transport-service-provider-to-confirm-transport-service-request": {
+   "arrowInk": [
+    253,
+    535
+   ],
+   "arrowPx": [
+    56,
+    41.2,
+    1.24
+   ],
+   "arrowFill": 0.103
+  },
+  "flow-confirmed-transport-execution-plan-between-transport-user-and-transport-service-provider-to-receive-proposed-transport-execution": {
+   "arrowInk": [
+    184,
+    539
+   ],
+   "arrowPx": [
+    51,
+    38.0,
+    2.2
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-confirm-transport-service-request-to-confirmed-transport-execution-plan-between-transport-user-and-transport-service-provider": {
+   "arrowInk": [
+    184,
+    555
+   ],
+   "arrowPx": [
+    51,
+    38.0,
+    2.5
+   ],
+   "arrowFill": 0.007
+  },
+  "flow-receive-proposed-transport-execution-to-evaluate-transport-execution-plan-in-transport-user": {
+   "arrowInk": [
+    180,
+    516
+   ],
+   "arrowPx": [
+    46,
+    39.7,
+    1.87
+   ],
+   "arrowFill": 0.008
+  },
+  "flow-evaluate-transport-execution-plan-in-transport-user-to-decision-transport-user-2": {
+   "arrowInk": [
+    180,
+    526
+   ],
+   "arrowPx": [
+    47,
+    39.5,
+    2.09
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-decision-transport-user-2-to-decision-transport-user-3": {
+   "arrowInk": [
+    334,
+    599
+   ],
+   "arrowPx": [
+    48,
+    86.3,
+    2.74
+   ],
+   "arrowFill": 0.292
+  },
+  "flow-decision-transport-user-2-to-confirm-transport-execution-plan": {
+   "arrowInk": [
+    206,
+    511
+   ],
+   "arrowPx": [
+    46,
+    39.2,
+    1.83
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-confirmed-transport-execution-plan-between-transport-user-and-transport-service-provider-2-to-receive-confirmed-transport-execution": {
+   "arrowInk": [
+    180,
+    518
+   ],
+   "arrowPx": [
+    46,
+    41.8,
+    1.82
+   ],
+   "arrowFill": 0.025
+  },
+  "flow-confirm-transport-execution-plan-to-confirmed-transport-execution-plan-between-transport-user-and-transport-service-provider-2": {
+   "arrowInk": [
+    180,
+    554
+   ],
+   "arrowPx": [
+    48,
+    40.0,
+    2.22
+   ],
+   "arrowFill": 0.004
+  },
+  "flow-receive-confirmed-transport-execution-to-final-transport-service-provider": {
+   "arrowInk": [
+    180,
+    517
+   ],
+   "arrowPx": [
+    46,
+    38.3,
+    2.0
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-decision-transport-user-3-to-reject-transport-execution-plan": {
+   "arrowInk": [
+    181,
+    517
+   ],
+   "arrowPx": [
+    46,
+    37.5,
+    1.83
+   ],
+   "arrowFill": 0.031
+  },
+  "flow-reject-transport-execution-plan-to-rejected-transport-execution-plan-between-transport-user-and-transport-service-provider-2": {
+   "arrowInk": [
+    180,
+    547
+   ],
+   "arrowPx": [
+    47,
+    37.9,
+    2.36
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-rejected-transport-execution-plan-between-transport-user-and-transport-service-provider-2-to-receive-rejected-transport-execution-in-transport-service-provider": {
+   "arrowInk": [
+    180,
+    513
+   ],
+   "arrowPx": [
+    46,
+    37.8,
+    1.94
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-receive-rejected-transport-execution-in-transport-service-provider-to-final-transport-service-provider-2": {
+   "arrowInk": [
+    180,
+    518
+   ],
+   "arrowPx": [
+    46,
+    39.1,
+    1.88
+   ],
+   "arrowFill": 0.067
+  }
+ },
+ "offPage": {},
+ "marks": {},
+ "phases": {},
+ "greyRules": [],
+ "titleReadings": [
+  {
+   "position": 0,
+   "text": "Transport Service Provider",
+   "x": 2369,
+   "y": 58,
+   "w": 407,
+   "h": 32,
+   "lines": [
+    {
+     "x": 2369,
+     "y": 58,
+     "w": 407,
+     "h": 32,
+     "text": "Transport Service Provider"
+    }
+   ]
+  },
+  {
+   "position": 1,
+   "text": "Transport User",
+   "x": 735,
+   "y": 59,
+   "w": 227,
+   "h": 31,
+   "lines": [
+    {
+     "x": 735,
+     "y": 59,
+     "w": 227,
+     "h": 31,
+     "text": "Transport User"
+    }
+   ]
+  }
+ ],
+ "findings": [],
+ "uncertain": [
+  {
+   "x": 390,
+   "y": 406,
+   "w": 1330,
+   "h": 277,
+   "shape": "rounded",
+   "iou": 0.686,
+   "border": 0.663,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best rounded 0.69, and 0.99 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "x": 347,
+   "y": 634,
+   "w": 83,
+   "h": 109,
+   "shape": "rhombus",
+   "iou": 0.973,
+   "border": 0.214,
+   "kind": "kept-on-outline",
+   "reason": "every side has pass-through line-work, but the region carries a complete outline of its own",
+   "check": "confirm this is a node and not trapped whitespace"
+  },
+  {
+   "x": 1109,
+   "y": 940,
+   "w": 611,
+   "h": 776,
+   "shape": "rounded",
+   "iou": 0.832,
+   "border": 0.712,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best rounded 0.83, and 0.99 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "x": 1065,
+   "y": 1417,
+   "w": 83,
+   "h": 109,
+   "shape": "rhombus",
+   "iou": 0.972,
+   "border": 0.197,
+   "kind": "kept-on-outline",
+   "reason": "every side has pass-through line-work, but the region carries a complete outline of its own",
+   "check": "confirm this is a node and not trapped whitespace"
+  },
+  {
+   "kind": "unexplained-line-work",
+   "x": 503,
+   "y": 552,
+   "w": 58,
+   "h": 83,
+   "reason": "line-work that is neither a connector between two nodes nor the size of text",
+   "check": "decide what this is; the SVG does not draw it"
+  },
+  {
+   "kind": "unexplained-line-work",
+   "x": 3022,
+   "y": 620,
+   "w": 50,
+   "h": 90,
+   "reason": "line-work that is neither a connector between two nodes nor the size of text",
+   "check": "decide what this is; the SVG does not draw it"
+  }
+ ],
+ "present": [
+  "source",
+  "size",
+  "fontPx",
+  "arrowPx",
+  "arrowWidthPx",
+  "arrowStyle",
+  "rules",
+  "ruleSpan",
+  "greyRules",
+  "dashed",
+  "openEnds",
+  "crossMarks",
+  "partitions",
+  "nodes",
+  "edges",
+  "text",
+  "uncertain"
+ ],
+ "uncorrected": {
+  "model": {
+   "schema": "ubl-activity-diagram/1",
+   "figure": {
+    "name": "UBL-2.2-IMFM-BasicTransportExecutionPlan",
+    "source": "UBL-2.2-IMFM-BasicTransportExecutionPlan.png"
+   },
+   "lanes": [
+    {
+     "id": "lane0",
+     "axis": "column",
+     "index": 0,
+     "title": "Transport User"
+    },
+    {
+     "id": "lane1",
+     "axis": "column",
+     "index": 1,
+     "title": "Transport Service Provider"
+    },
+    {
+     "id": "lane2",
+     "axis": "band",
+     "index": 0,
+     "title": ""
+    }
+   ],
+   "nodes": [
+    {
+     "id": "n1",
+     "kind": "initial",
+     "label": "",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n2",
+     "kind": "action",
+     "label": "Create/Update\nTransport Execution\nPlan Request",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n3",
+     "kind": "action",
+     "label": "EvaluateTransport\nExecution Plan\nRequest",
+     "lane": "lane1",
+     "band": "lane2"
+    },
+    {
+     "id": "n4",
+     "kind": "object",
+     "label": "«NotConfirmed»\nTransport Execution\nPlan Request",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n5",
+     "kind": "action",
+     "label": "Request Transport\nService",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n6",
+     "kind": "action",
+     "label": "Receive Transport\nService Request",
+     "lane": "lane1",
+     "band": "lane2"
+    },
+    {
+     "id": "n7",
+     "kind": "object",
+     "label": "«Rejected»\nTransport Execution\nPlan",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n8",
+     "kind": "action",
+     "label": "Reject Transport\nService Request",
+     "lane": "lane1",
+     "band": "lane2"
+    },
+    {
+     "id": "n9",
+     "kind": "action",
+     "label": "Receive Rejected\nTransport Execution\nPlan",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n10",
+     "kind": "decision",
+     "label": "",
+     "lane": "lane1",
+     "band": "lane2"
+    },
+    {
+     "id": "n11",
+     "kind": "decision",
+     "label": "",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n12",
+     "kind": "final",
+     "label": "",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n13",
+     "kind": "object",
+     "label": "«Confirmed»\nTransport Execution\nPlan",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n14",
+     "kind": "action",
+     "label": "Receive Proposed\nTransport Execution\nPlan",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n15",
+     "kind": "action",
+     "label": "Confirm Transport\nService Request",
+     "lane": "lane1",
+     "band": "lane2"
+    },
+    {
+     "id": "n16",
+     "kind": "action",
+     "label": "EvaluateTransport\nExecution Plan",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n17",
+     "kind": "decision",
+     "label": "",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n18",
+     "kind": "action",
+     "label": "Receive Confirmed\nTransport Execution\nPlan",
+     "lane": "lane1",
+     "band": "lane2"
+    },
+    {
+     "id": "n19",
+     "kind": "object",
+     "label": "«Confirmed»\nTransport Execution\nPlan",
+     "lane": "lane1",
+     "band": "lane2"
+    },
+    {
+     "id": "n20",
+     "kind": "action",
+     "label": "Confirm Transport\nExecution Plan",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n21",
+     "kind": "final",
+     "label": "",
+     "lane": "lane1",
+     "band": "lane2"
+    },
+    {
+     "id": "n22",
+     "kind": "decision",
+     "label": "",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n23",
+     "kind": "object",
+     "label": "«Rejected»\nTransport Execution\nPlan",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n24",
+     "kind": "action",
+     "label": "Receive Rejected\nTransport Execution\nPlan",
+     "lane": "lane1",
+     "band": "lane2"
+    },
+    {
+     "id": "n25",
+     "kind": "action",
+     "label": "Reject Transport\nExecution Plan",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n26",
+     "kind": "final",
+     "label": "",
+     "lane": "lane1",
+     "band": "lane2"
+    }
+   ],
+   "flows": [
+    {
+     "id": "f0",
+     "from": "n1",
+     "to": "n5",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f1",
+     "from": "n22",
+     "to": "n2",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     },
+     "guard": "t11"
+    },
+    {
+     "id": "f2",
+     "from": "n6",
+     "to": "n3",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f3",
+     "from": "n2",
+     "to": "n5",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f4",
+     "from": "n5",
+     "to": "n4",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f5",
+     "from": "n4",
+     "to": "n6",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f6",
+     "from": "n11",
+     "to": "n2",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     },
+     "guard": "t3"
+    },
+    {
+     "id": "f7",
+     "from": "n3",
+     "to": "n10",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f8",
+     "from": "n9",
+     "to": "n11",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f9",
+     "from": "n7",
+     "to": "n9",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f10",
+     "from": "n8",
+     "to": "n7",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f11",
+     "from": "n10",
+     "to": "n8",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     },
+     "guard": "t5"
+    },
+    {
+     "id": "f12",
+     "from": "n11",
+     "to": "n12",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     },
+     "guard": "t6"
+    },
+    {
+     "id": "f13",
+     "from": "n10",
+     "to": "n15",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     },
+     "guard": "t7"
+    },
+    {
+     "id": "f14",
+     "from": "n13",
+     "to": "n14",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f15",
+     "from": "n15",
+     "to": "n13",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f16",
+     "from": "n14",
+     "to": "n16",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f17",
+     "from": "n16",
+     "to": "n17",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f18",
+     "from": "n17",
+     "to": "n22",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     },
+     "guard": "t9"
+    },
+    {
+     "id": "f19",
+     "from": "n17",
+     "to": "n20",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     },
+     "guard": "t10"
+    },
+    {
+     "id": "f20",
+     "from": "n19",
+     "to": "n18",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f21",
+     "from": "n20",
+     "to": "n19",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f22",
+     "from": "n18",
+     "to": "n21",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f23",
+     "from": "n22",
+     "to": "n25",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     },
+     "guard": "t13"
+    },
+    {
+     "id": "f24",
+     "from": "n25",
+     "to": "n23",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f25",
+     "from": "n23",
+     "to": "n24",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f26",
+     "from": "n24",
+     "to": "n26",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    }
+   ],
+   "texts": [
+    {
+     "id": "t2",
+     "text": "Update Transport\nExecution Plan Request?"
+    },
+    {
+     "id": "t3",
+     "text": "[yes]",
+     "labels": "f6"
+    },
+    {
+     "id": "t4",
+     "text": "Transport Execution\nPlan Request\nAcceptable?"
+    },
+    {
+     "id": "t5",
+     "text": "[no]",
+     "labels": "f11"
+    },
+    {
+     "id": "t6",
+     "text": "[no]",
+     "labels": "f12"
+    },
+    {
+     "id": "t7",
+     "text": "[yes]",
+     "labels": "f13"
+    },
+    {
+     "id": "t8",
+     "text": "Transport Execution Plan\nAcceptable?"
+    },
+    {
+     "id": "t9",
+     "text": "[no]",
+     "labels": "f18"
+    },
+    {
+     "id": "t10",
+     "text": "[yes]",
+     "labels": "f19"
+    },
+    {
+     "id": "t11",
+     "text": "[yes]",
+     "labels": "f1"
+    },
+    {
+     "id": "t12",
+     "text": "Transport Service Ready\nFor Execution"
+    },
+    {
+     "id": "t13",
+     "text": "[no]",
+     "labels": "f23"
+    },
+    {
+     "id": "t14",
+     "text": "Update Transport Execution\nPlan Request?"
+    }
+   ],
+   "offPage": [],
+   "marks": [],
+   "phases": []
+  },
+  "layout": {
+   "schema": "ubl-activity-diagram-layout/1",
+   "figure": "UBL-2.2-IMFM-BasicTransportExecutionPlan",
+   "units": "px of the original PNG",
+   "size": [
+    3425,
+    2204
+   ],
+   "style": {
+    "fontPx": 35.7,
+    "arrowPx": 47.0,
+    "arrowWidthPx": 38.7,
+    "arrowStyle": "open"
+   },
+   "rules": {
+    "vertical": [
+     {
+      "at": 0,
+      "width": 10,
+      "span": [
+       13,
+       2190
+      ]
+     },
+     {
+      "at": 1720,
+      "width": 4,
+      "span": [
+       13,
+       2190
+      ]
+     },
+     {
+      "at": 3415,
+      "width": 10,
+      "span": [
+       13,
+       2190
+      ]
+     }
+    ],
+    "horizontal": [
+     {
+      "at": 0,
+      "width": 10,
+      "span": [
+       13,
+       3411
+      ]
+     },
+     {
+      "at": 2194,
+      "width": 10,
+      "span": [
+       13,
+       3411
+      ]
+     }
+    ]
+   },
+   "greyRules": [],
+   "lanes": {
+    "lane0": {
+     "x0": 0,
+     "x1": 1722,
+     "titleBox": [
+      735,
+      59,
+      227,
+      31
+     ]
+    },
+    "lane1": {
+     "x0": 1722,
+     "x1": 3425,
+     "titleBox": [
+      2369,
+      58,
+      407,
+      32
+     ]
+    },
+    "lane2": {
+     "y0": 0,
+     "y1": 2204
+    }
+   },
+   "nodes": {
+    "n1": {
+     "x": 1060,
+     "y": 167,
+     "w": 69,
+     "h": 68
+    },
+    "n2": {
+     "x": 195,
+     "y": 294,
+     "w": 383,
+     "h": 225,
+     "shape": "rounded",
+     "stroke": 4,
+     "rx": 48,
+     "ry": 54,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 267,
+       "y": 339,
+       "w": 229,
+       "h": 32,
+       "text": "Create/Update"
+      },
+      {
+       "x": 215,
+       "y": 381,
+       "w": 330,
+       "h": 31,
+       "text": "Transport Execution"
+      },
+      {
+       "x": 278,
+       "y": 422,
+       "w": 214,
+       "h": 31,
+       "text": "Plan Request"
+      }
+     ]
+    },
+    "n3": {
+     "x": 2751,
+     "y": 300,
+     "w": 383,
+     "h": 226,
+     "shape": "rounded",
+     "stroke": 4,
+     "rx": 54,
+     "ry": 50,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 2795,
+       "y": 351,
+       "w": 298,
+       "h": 32,
+       "text": "EvaluateTransport"
+      },
+      {
+       "x": 2829,
+       "y": 392,
+       "w": 241,
+       "h": 25,
+       "text": "Execution Plan"
+      },
+      {
+       "x": 2887,
+       "y": 433,
+       "w": 133,
+       "h": 32,
+       "text": "Request"
+      }
+     ]
+    },
+    "n4": {
+     "x": 1541,
+     "y": 312,
+     "w": 356,
+     "h": 191,
+     "shape": "rect",
+     "stroke": 7,
+     "rx": 2,
+     "ry": 2,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 1591,
+       "y": 341,
+       "w": 264,
+       "h": 26,
+       "text": "«NotConfirmed»"
+      },
+      {
+       "x": 1555,
+       "y": 385,
+       "w": 327,
+       "h": 31,
+       "text": "Transport Execution"
+      },
+      {
+       "x": 1617,
+       "y": 422,
+       "w": 217,
+       "h": 32,
+       "text": "Plan Request"
+      }
+     ]
+    },
+    "n5": {
+     "x": 917,
+     "y": 335,
+     "w": 383,
+     "h": 139,
+     "shape": "rounded",
+     "stroke": 4,
+     "rx": 48,
+     "ry": 52,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 955,
+       "y": 371,
+       "w": 302,
+       "h": 32,
+       "text": "Request Transport"
+      },
+      {
+       "x": 1043,
+       "y": 412,
+       "w": 119,
+       "h": 25,
+       "text": "Service"
+      }
+     ]
+    },
+    "n6": {
+     "x": 2279,
+     "y": 335,
+     "w": 372,
+     "h": 139,
+     "shape": "rounded",
+     "stroke": 4,
+     "rx": 47,
+     "ry": 46,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 2310,
+       "y": 367,
+       "w": 296,
+       "h": 31,
+       "text": "Receive Transport"
+      },
+      {
+       "x": 2326,
+       "y": 407,
+       "w": 265,
+       "h": 32,
+       "text": "Service Request"
+      }
+     ]
+    },
+    "n7": {
+     "x": 1541,
+     "y": 586,
+     "w": 356,
+     "h": 194,
+     "shape": "rect",
+     "stroke": 7,
+     "rx": 0,
+     "ry": 0,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 1632,
+       "y": 615,
+       "w": 179,
+       "h": 32,
+       "text": "«Rejected»"
+      },
+      {
+       "x": 1555,
+       "y": 658,
+       "w": 327,
+       "h": 32,
+       "text": "Transport Execution"
+      },
+      {
+       "x": 1689,
+       "y": 696,
+       "w": 70,
+       "h": 25,
+       "text": "Plan"
+      }
+     ]
+    },
+    "n8": {
+     "x": 2286,
+     "y": 598,
+     "w": 362,
+     "h": 164,
+     "shape": "rounded",
+     "stroke": 4,
+     "rx": 51,
+     "ry": 46,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 2327,
+       "y": 639,
+       "w": 269,
+       "h": 32,
+       "text": "Reject Transport"
+      },
+      {
+       "x": 2329,
+       "y": 680,
+       "w": 265,
+       "h": 32,
+       "text": "Service Request"
+      }
+     ]
+    },
+    "n9": {
+     "x": 920,
+     "y": 601,
+     "w": 383,
+     "h": 164,
+     "shape": "rounded",
+     "stroke": 4,
+     "rx": 53,
+     "ry": 53,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 963,
+       "y": 633,
+       "w": 277,
+       "h": 32,
+       "text": "Receive Rejected"
+      },
+      {
+       "x": 945,
+       "y": 674,
+       "w": 330,
+       "h": 32,
+       "text": "Transport Execution"
+      },
+      {
+       "x": 1083,
+       "y": 715,
+       "w": 68,
+       "h": 25,
+       "text": "Plan"
+      }
+     ]
+    },
+    "n10": {
+     "x": 2889,
+     "y": 617,
+     "w": 110,
+     "h": 136,
+     "shape": "rhombus",
+     "stroke": 4,
+     "rx": 60,
+     "ry": 73
+    },
+    "n11": {
+     "x": 347,
+     "y": 634,
+     "w": 83,
+     "h": 109,
+     "shape": "rhombus",
+     "stroke": 4,
+     "rx": 46,
+     "ry": 60
+    },
+    "n12": {
+     "x": 352,
+     "y": 858,
+     "w": 61,
+     "h": 61,
+     "shape": "ellipse",
+     "stroke": 4,
+     "rx": 30,
+     "ry": 37,
+     "innerRatio": 0.426
+    },
+    "n13": {
+     "x": 1541,
+     "y": 860,
+     "w": 356,
+     "h": 180,
+     "shape": "rect",
+     "stroke": 8,
+     "rx": 0,
+     "ry": 0,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 1621,
+       "y": 888,
+       "w": 207,
+       "h": 26,
+       "text": "«Confirmed»"
+      },
+      {
+       "x": 1555,
+       "y": 932,
+       "w": 327,
+       "h": 31,
+       "text": "Transport Execution"
+      },
+      {
+       "x": 1689,
+       "y": 970,
+       "w": 70,
+       "h": 25,
+       "text": "Plan"
+      }
+     ]
+    },
+    "n14": {
+     "x": 914,
+     "y": 861,
+     "w": 382,
+     "h": 157,
+     "shape": "rounded",
+     "stroke": 4,
+     "rx": 51,
+     "ry": 48,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 953,
+       "y": 888,
+       "w": 292,
+       "h": 32,
+       "text": "Receive Proposed"
+      },
+      {
+       "x": 938,
+       "y": 929,
+       "w": 330,
+       "h": 32,
+       "text": "Transport Execution"
+      },
+      {
+       "x": 1076,
+       "y": 970,
+       "w": 68,
+       "h": 25,
+       "text": "Plan"
+      }
+     ]
+    },
+    "n15": {
+     "x": 2282,
+     "y": 865,
+     "w": 369,
+     "h": 163,
+     "shape": "rounded",
+     "stroke": 4,
+     "rx": 47,
+     "ry": 51,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 2316,
+       "y": 905,
+       "w": 299,
+       "h": 32,
+       "text": "Confirm Transport"
+      },
+      {
+       "x": 2329,
+       "y": 946,
+       "w": 265,
+       "h": 32,
+       "text": "Service Request"
+      }
+     ]
+    },
+    "n16": {
+     "x": 917,
+     "y": 1142,
+     "w": 383,
+     "h": 146,
+     "shape": "rounded",
+     "stroke": 4,
+     "rx": 46,
+     "ry": 52,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 956,
+       "y": 1178,
+       "w": 299,
+       "h": 31,
+       "text": "EvaluateTransport"
+      },
+      {
+       "x": 991,
+       "y": 1219,
+       "w": 240,
+       "h": 25,
+       "text": "Execution Plan"
+      }
+     ]
+    },
+    "n17": {
+     "x": 1065,
+     "y": 1417,
+     "w": 83,
+     "h": 109,
+     "shape": "rhombus",
+     "stroke": 4,
+     "rx": 46,
+     "ry": 59
+    },
+    "n18": {
+     "x": 2306,
+     "y": 1624,
+     "w": 362,
+     "h": 184,
+     "shape": "rounded",
+     "stroke": 4,
+     "rx": 48,
+     "ry": 50,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 2333,
+       "y": 1660,
+       "w": 306,
+       "h": 25,
+       "text": "Receive Confirmed"
+      },
+      {
+       "x": 2325,
+       "y": 1701,
+       "w": 330,
+       "h": 32,
+       "text": "Transport Execution"
+      },
+      {
+       "x": 2463,
+       "y": 1742,
+       "w": 68,
+       "h": 25,
+       "text": "Plan"
+      }
+     ]
+    },
+    "n19": {
+     "x": 1545,
+     "y": 1625,
+     "w": 355,
+     "h": 185,
+     "shape": "rect",
+     "stroke": 7,
+     "rx": 0,
+     "ry": 0,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 1625,
+       "y": 1659,
+       "w": 206,
+       "h": 26,
+       "text": "«Confirmed»"
+      },
+      {
+       "x": 1558,
+       "y": 1703,
+       "w": 328,
+       "h": 31,
+       "text": "Transport Execution"
+      },
+      {
+       "x": 1692,
+       "y": 1740,
+       "w": 70,
+       "h": 26,
+       "text": "Plan"
+      }
+     ]
+    },
+    "n20": {
+     "x": 914,
+     "y": 1644,
+     "w": 382,
+     "h": 147,
+     "shape": "rounded",
+     "stroke": 4,
+     "rx": 53,
+     "ry": 48,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 955,
+       "y": 1675,
+       "w": 298,
+       "h": 32,
+       "text": "Confirm Transport"
+      },
+      {
+       "x": 983,
+       "y": 1717,
+       "w": 240,
+       "h": 25,
+       "text": "Execution Plan"
+      }
+     ]
+    },
+    "n21": {
+     "x": 2943,
+     "y": 1689,
+     "w": 61,
+     "h": 61,
+     "shape": "ellipse",
+     "stroke": 4,
+     "rx": 27,
+     "ry": 26,
+     "innerRatio": 0.443
+    },
+    "n22": {
+     "x": 350,
+     "y": 1701,
+     "w": 83,
+     "h": 108,
+     "shape": "rhombus",
+     "stroke": 4,
+     "rx": 46,
+     "ry": 59
+    },
+    "n23": {
+     "x": 1538,
+     "y": 1930,
+     "w": 355,
+     "h": 194,
+     "shape": "rect",
+     "stroke": 8,
+     "rx": 0,
+     "ry": 0,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 1629,
+       "y": 1962,
+       "w": 178,
+       "h": 32,
+       "text": "«Rejected»"
+      },
+      {
+       "x": 1551,
+       "y": 2007,
+       "w": 328,
+       "h": 31,
+       "text": "Transport Execution"
+      },
+      {
+       "x": 1685,
+       "y": 2044,
+       "w": 70,
+       "h": 25,
+       "text": "Plan"
+      }
+     ]
+    },
+    "n24": {
+     "x": 2323,
+     "y": 1938,
+     "w": 383,
+     "h": 185,
+     "shape": "rounded",
+     "stroke": 4,
+     "rx": 52,
+     "ry": 51,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 2371,
+       "y": 1975,
+       "w": 277,
+       "h": 32,
+       "text": "Receive Rejected"
+      },
+      {
+       "x": 2352,
+       "y": 2016,
+       "w": 330,
+       "h": 31,
+       "text": "Transport Execution"
+      },
+      {
+       "x": 2490,
+       "y": 2057,
+       "w": 68,
+       "h": 25,
+       "text": "Plan"
+      }
+     ]
+    },
+    "n25": {
+     "x": 216,
+     "y": 1942,
+     "w": 362,
+     "h": 163,
+     "shape": "rounded",
+     "stroke": 4,
+     "rx": 47,
+     "ry": 48,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 257,
+       "y": 1983,
+       "w": 270,
+       "h": 32,
+       "text": "Reject Transport"
+      },
+      {
+       "x": 274,
+       "y": 2024,
+       "w": 241,
+       "h": 25,
+       "text": "Execution Plan"
+      }
+     ]
+    },
+    "n26": {
+     "x": 2960,
+     "y": 2010,
+     "w": 61,
+     "h": 61,
+     "shape": "ellipse",
+     "stroke": 4,
+     "rx": 29,
+     "ry": 26,
+     "innerRatio": 0.443
+    }
+   },
+   "flows": {
+    "f0": {
+     "fromPoint": [
+      1094,
+      249
+     ],
+     "toPoint": [
+      1098,
+      320
+     ],
+     "routing": "straight"
+    },
+    "f1": {
+     "fromPoint": [
+      335,
+      1754
+     ],
+     "toPoint": [
+      180,
+      394
+     ],
+     "routing": "orthogonal",
+     "points": [
+      [
+       84,
+       1754
+      ],
+      [
+       84,
+       394
+      ]
+     ]
+    },
+    "f2": {
+     "fromPoint": [
+      2665,
+      395
+     ],
+     "toPoint": [
+      2736,
+      400
+     ],
+     "routing": "straight"
+    },
+    "f3": {
+     "fromPoint": [
+      592,
+      404
+     ],
+     "toPoint": [
+      902,
+      404
+     ],
+     "routing": "straight"
+    },
+    "f4": {
+     "fromPoint": [
+      1314,
+      403
+     ],
+     "toPoint": [
+      1526,
+      405
+     ],
+     "routing": "straight"
+    },
+    "f5": {
+     "fromPoint": [
+      1911,
+      410
+     ],
+     "toPoint": [
+      2264,
+      409
+     ],
+     "routing": "straight"
+    },
+    "f6": {
+     "fromPoint": [
+      388,
+      619
+     ],
+     "toPoint": [
+      386,
+      533
+     ],
+     "routing": "straight"
+    },
+    "f7": {
+     "fromPoint": [
+      2942,
+      540
+     ],
+     "toPoint": [
+      2944,
+      602
+     ],
+     "routing": "straight"
+    },
+    "f8": {
+     "fromPoint": [
+      905,
+      684
+     ],
+     "toPoint": [
+      444,
+      685
+     ],
+     "routing": "straight"
+    },
+    "f9": {
+     "fromPoint": [
+      1526,
+      684
+     ],
+     "toPoint": [
+      1317,
+      684
+     ],
+     "routing": "straight"
+    },
+    "f10": {
+     "fromPoint": [
+      2271,
+      684
+     ],
+     "toPoint": [
+      1911,
+      684
+     ],
+     "routing": "straight"
+    },
+    "f11": {
+     "fromPoint": [
+      2874,
+      685
+     ],
+     "toPoint": [
+      2662,
+      683
+     ],
+     "routing": "straight"
+    },
+    "f12": {
+     "fromPoint": [
+      388,
+      757
+     ],
+     "toPoint": [
+      382,
+      843
+     ],
+     "routing": "straight"
+    },
+    "f13": {
+     "fromPoint": [
+      2944,
+      767
+     ],
+     "toPoint": [
+      2666,
+      944
+     ],
+     "routing": "orthogonal",
+     "points": [
+      [
+       2944,
+       944
+      ]
+     ]
+    },
+    "f14": {
+     "fromPoint": [
+      1526,
+      938
+     ],
+     "toPoint": [
+      1310,
+      938
+     ],
+     "routing": "straight"
+    },
+    "f15": {
+     "fromPoint": [
+      2267,
+      952
+     ],
+     "toPoint": [
+      1911,
+      952
+     ],
+     "routing": "straight"
+    },
+    "f16": {
+     "fromPoint": [
+      1105,
+      1032
+     ],
+     "toPoint": [
+      1108,
+      1127
+     ],
+     "routing": "straight"
+    },
+    "f17": {
+     "fromPoint": [
+      1108,
+      1302
+     ],
+     "toPoint": [
+      1106,
+      1402
+     ],
+     "routing": "straight"
+    },
+    "f18": {
+     "fromPoint": [
+      1050,
+      1470
+     ],
+     "toPoint": [
+      390,
+      1686
+     ],
+     "routing": "orthogonal",
+     "points": [
+      [
+       390,
+       1470
+      ]
+     ]
+    },
+    "f19": {
+     "fromPoint": [
+      1106,
+      1540
+     ],
+     "toPoint": [
+      1105,
+      1629
+     ],
+     "routing": "straight"
+    },
+    "f20": {
+     "fromPoint": [
+      1914,
+      1711
+     ],
+     "toPoint": [
+      2291,
+      1712
+     ],
+     "routing": "straight"
+    },
+    "f21": {
+     "fromPoint": [
+      1310,
+      1716
+     ],
+     "toPoint": [
+      1530,
+      1716
+     ],
+     "routing": "straight"
+    },
+    "f22": {
+     "fromPoint": [
+      2682,
+      1716
+     ],
+     "toPoint": [
+      2928,
+      1717
+     ],
+     "routing": "straight"
+    },
+    "f23": {
+     "fromPoint": [
+      391,
+      1823
+     ],
+     "toPoint": [
+      396,
+      1927
+     ],
+     "routing": "straight"
+    },
+    "f24": {
+     "fromPoint": [
+      592,
+      2024
+     ],
+     "toPoint": [
+      1523,
+      2025
+     ],
+     "routing": "straight"
+    },
+    "f25": {
+     "fromPoint": [
+      1907,
+      2028
+     ],
+     "toPoint": [
+      2308,
+      2029
+     ],
+     "routing": "straight"
+    },
+    "f26": {
+     "fromPoint": [
+      2720,
+      2037
+     ],
+     "toPoint": [
+      2945,
+      2040
+     ],
+     "routing": "straight"
+    }
+   },
+   "texts": {
+    "t2": {
+     "x": 429,
+     "y": 565,
+     "w": 379,
+     "h": 76,
+     "lines": [
+      {
+       "x": 429,
+       "y": 565,
+       "w": 263,
+       "h": 31,
+       "text": "Update Transport"
+      },
+      {
+       "x": 429,
+       "y": 609,
+       "w": 379,
+       "h": 32,
+       "text": "Execution Plan Request?"
+      }
+     ]
+    },
+    "t3": {
+     "x": 308,
+     "y": 593,
+     "w": 54,
+     "h": 26,
+     "lines": [
+      {
+       "x": 308,
+       "y": 593,
+       "w": 54,
+       "h": 26,
+       "text": "[yes]"
+      }
+     ]
+    },
+    "t4": {
+     "x": 3039,
+     "y": 623,
+     "w": 304,
+     "h": 120,
+     "lines": [
+      {
+       "x": 3041,
+       "y": 623,
+       "w": 302,
+       "h": 31,
+       "text": "Transport Execution"
+      },
+      {
+       "x": 3042,
+       "y": 668,
+       "w": 203,
+       "h": 31,
+       "text": "Plan Request"
+      },
+      {
+       "x": 3039,
+       "y": 711,
+       "w": 187,
+       "h": 32,
+       "text": "Acceptable?"
+      }
+     ]
+    },
+    "t5": {
+     "x": 2771,
+     "y": 631,
+     "w": 48,
+     "h": 26,
+     "lines": [
+      {
+       "x": 2771,
+       "y": 631,
+       "w": 48,
+       "h": 26,
+       "text": "[no]"
+      }
+     ]
+    },
+    "t6": {
+     "x": 431,
+     "y": 750,
+     "w": 49,
+     "h": 26,
+     "lines": [
+      {
+       "x": 431,
+       "y": 750,
+       "w": 49,
+       "h": 26,
+       "text": "[no]"
+      }
+     ]
+    },
+    "t7": {
+     "x": 2853,
+     "y": 767,
+     "w": 54,
+     "h": 26,
+     "lines": [
+      {
+       "x": 2853,
+       "y": 767,
+       "w": 54,
+       "h": 26,
+       "text": "[yes]"
+      }
+     ]
+    },
+    "t8": {
+     "x": 1179,
+     "y": 1411,
+     "w": 382,
+     "h": 76,
+     "lines": [
+      {
+       "x": 1180,
+       "y": 1411,
+       "w": 381,
+       "h": 31,
+       "text": "Transport Execution Plan"
+      },
+      {
+       "x": 1179,
+       "y": 1455,
+       "w": 187,
+       "h": 32,
+       "text": "Acceptable?"
+      }
+     ]
+    },
+    "t9": {
+     "x": 999,
+     "y": 1503,
+     "w": 49,
+     "h": 25,
+     "lines": [
+      {
+       "x": 999,
+       "y": 1503,
+       "w": 49,
+       "h": 25,
+       "text": "[no]"
+      }
+     ]
+    },
+    "t10": {
+     "x": 1150,
+     "y": 1540,
+     "w": 54,
+     "h": 26,
+     "lines": [
+      {
+       "x": 1150,
+       "y": 1540,
+       "w": 54,
+       "h": 26,
+       "text": "[yes]"
+      }
+     ]
+    },
+    "t11": {
+     "x": 250,
+     "y": 1773,
+     "w": 54,
+     "h": 26,
+     "lines": [
+      {
+       "x": 250,
+       "y": 1773,
+       "w": 54,
+       "h": 26,
+       "text": "[yes]"
+      }
+     ]
+    },
+    "t12": {
+     "x": 2876,
+     "y": 1778,
+     "w": 377,
+     "h": 70,
+     "lines": [
+      {
+       "x": 2876,
+       "y": 1778,
+       "w": 377,
+       "h": 32,
+       "text": "Transport Service Ready"
+      },
+      {
+       "x": 2878,
+       "y": 1823,
+       "w": 206,
+       "h": 25,
+       "text": "For Execution"
+      }
+     ]
+    },
+    "t13": {
+     "x": 428,
+     "y": 1742,
+     "w": 65,
+     "h": 40,
+     "lines": [
+      {
+       "x": 424,
+       "y": 1738,
+       "w": 69,
+       "h": 44,
+       "text": "[no]"
+      }
+     ]
+    },
+    "t14": {
+     "x": 432,
+     "y": 1654,
+     "w": 421,
+     "h": 76,
+     "lines": [
+      {
+       "x": 432,
+       "y": 1654,
+       "w": 421,
+       "h": 32,
+       "text": "Update Transport Execution"
+      },
+      {
+       "x": 432,
+       "y": 1699,
+       "w": 219,
+       "h": 31,
+       "text": "Plan Request?"
+      }
+     ]
+    }
+   },
+   "offPage": {},
+   "marks": {},
+   "phases": {},
+   "rulesHaveSpans": {
+    "vertical": true,
+    "horizontal": true
+   }
+  }
+ },
+ "retexted": {
+  "n3": {
+   "section": "nodes",
+   "text": "Evaluate Transport\nExecution Plan\nRequest"
+  },
+  "n16": {
+   "section": "nodes",
+   "text": "Evaluate Transport\nExecution Plan"
+  }
+ },
+ "graphPatches": {
+  "edges": {},
+  "texts": {
+   "t13": {
+    "x": 410,
+    "y": 1840,
+    "w": 49,
+    "h": 26,
+    "lines": [
+     {
+      "x": 410,
+      "y": 1840,
+      "w": 49,
+      "h": 26,
+      "text": "[no]"
+     }
+    ],
+    "text": "[no]",
+    "wasAt": {
+     "x": 428,
+     "y": 1742,
+     "w": 65,
+     "h": 40
+    }
+   }
+  },
+  "addEdges": []
+ },
+ "corrections": [
+  "q13-26",
+  "q13-27",
+  "q13-28",
+  "q13-29",
+  "q13-30",
+  "text-31",
+  "text-32",
+  "draw-10",
+  "draw-11"
+ ],
+ "documentLanes": {
+  "object-notconfirmed-transport-execution-plan": "lane-transport-user",
+  "object-rejected-transport-execution-plan-between-transport-user-and-transport-service-provider": "lane-transport-user",
+  "object-confirmed-transport-execution-plan-between-transport-user-and-transport-service-provider": "lane-transport-user",
+  "object-confirmed-transport-execution-plan-between-transport-user-and-transport-service-provider-2": "lane-transport-service-provider",
+  "object-rejected-transport-execution-plan-between-transport-user-and-transport-service-provider-2": "lane-transport-user"
+ },
+ "formerIds": {
+  "lane-transport-user": "lane0",
+  "lane-transport-service-provider": "lane1",
+  "initial-transport-user": "n1",
+  "action-create-update-transport-execution-plan": "n2",
+  "action-evaluate-transport-execution-plan-in-transport-service-provider": "n3",
+  "object-notconfirmed-transport-execution-plan": "n4",
+  "action-request-transport-service": "n5",
+  "action-receive-transport-service-request": "n6",
+  "object-rejected-transport-execution-plan-between-transport-user-and-transport-service-provider": "n7",
+  "action-reject-transport-service-request": "n8",
+  "action-receive-rejected-transport-execution-in-transport-user": "n9",
+  "decision-transport-service-provider": "n10",
+  "decision-transport-user": "n11",
+  "final-transport-user": "n12",
+  "object-confirmed-transport-execution-plan-between-transport-user-and-transport-service-provider": "n13",
+  "action-receive-proposed-transport-execution": "n14",
+  "action-confirm-transport-service-request": "n15",
+  "action-evaluate-transport-execution-plan-in-transport-user": "n16",
+  "decision-transport-user-2": "n17",
+  "action-receive-confirmed-transport-execution": "n18",
+  "object-confirmed-transport-execution-plan-between-transport-user-and-transport-service-provider-2": "n19",
+  "action-confirm-transport-execution-plan": "n20",
+  "final-transport-service-provider": "n21",
+  "decision-transport-user-3": "n22",
+  "object-rejected-transport-execution-plan-between-transport-user-and-transport-service-provider-2": "n23",
+  "action-receive-rejected-transport-execution-in-transport-service-provider": "n24",
+  "action-reject-transport-execution-plan": "n25",
+  "final-transport-service-provider-2": "n26",
+  "flow-initial-transport-user-to-request-transport-service": "f0",
+  "flow-decision-transport-user-3-to-create-update-transport-execution-plan": "f1",
+  "flow-receive-transport-service-request-to-evaluate-transport-execution-plan-in-transport-service-provider": "f2",
+  "flow-create-update-transport-execution-plan-to-request-transport-service": "f3",
+  "flow-request-transport-service-to-notconfirmed-transport-execution-plan": "f4",
+  "flow-notconfirmed-transport-execution-plan-to-receive-transport-service-request": "f5",
+  "flow-decision-transport-user-to-create-update-transport-execution-plan": "f6",
+  "flow-evaluate-transport-execution-plan-in-transport-service-provider-to-decision-transport-service-provider": "f7",
+  "flow-receive-rejected-transport-execution-in-transport-user-to-decision-transport-user": "f8",
+  "flow-rejected-transport-execution-plan-between-transport-user-and-transport-service-provider-to-receive-rejected-transport-execution-in-transport-user": "f9",
+  "flow-reject-transport-service-request-to-rejected-transport-execution-plan-between-transport-user-and-transport-service-provider": "f10",
+  "flow-decision-transport-service-provider-to-reject-transport-service-request": "f11",
+  "flow-decision-transport-user-to-final-transport-user": "f12",
+  "flow-decision-transport-service-provider-to-confirm-transport-service-request": "f13",
+  "flow-confirmed-transport-execution-plan-between-transport-user-and-transport-service-provider-to-receive-proposed-transport-execution": "f14",
+  "flow-confirm-transport-service-request-to-confirmed-transport-execution-plan-between-transport-user-and-transport-service-provider": "f15",
+  "flow-receive-proposed-transport-execution-to-evaluate-transport-execution-plan-in-transport-user": "f16",
+  "flow-evaluate-transport-execution-plan-in-transport-user-to-decision-transport-user-2": "f17",
+  "flow-decision-transport-user-2-to-decision-transport-user-3": "f18",
+  "flow-decision-transport-user-2-to-confirm-transport-execution-plan": "f19",
+  "flow-confirmed-transport-execution-plan-between-transport-user-and-transport-service-provider-2-to-receive-confirmed-transport-execution": "f20",
+  "flow-confirm-transport-execution-plan-to-confirmed-transport-execution-plan-between-transport-user-and-transport-service-provider-2": "f21",
+  "flow-receive-confirmed-transport-execution-to-final-transport-service-provider": "f22",
+  "flow-decision-transport-user-3-to-reject-transport-execution-plan": "f23",
+  "flow-reject-transport-execution-plan-to-rejected-transport-execution-plan-between-transport-user-and-transport-service-provider-2": "f24",
+  "flow-rejected-transport-execution-plan-between-transport-user-and-transport-service-provider-2-to-receive-rejected-transport-execution-in-transport-service-provider": "f25",
+  "flow-receive-rejected-transport-execution-in-transport-service-provider-to-final-transport-service-provider-2": "f26",
+  "text-update-transport-execution-plan-request": "t2",
+  "text-yes": "t3",
+  "text-transport-execution-plan-request": "t4",
+  "text-no": "t5",
+  "text-no-2": "t6",
+  "text-yes-2": "t7",
+  "text-transport-execution-plan-acceptable": "t8",
+  "text-no-3": "t9",
+  "text-yes-3": "t10",
+  "text-yes-4": "t11",
+  "text-transport-service-ready-for-execution": "t12",
+  "text-no-4": "t13",
+  "text-update-transport-execution-plan-request-2": "t14"
+ }
+}

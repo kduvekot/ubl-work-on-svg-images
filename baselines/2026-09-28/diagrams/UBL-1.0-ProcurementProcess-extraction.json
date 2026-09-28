@@ -1,0 +1,2959 @@
+{
+ "schema": "ubl-activity-diagram-extraction/1",
+ "figure": "UBL-1.0-ProcurementProcess",
+ "nodes": {
+  "action-place-order": {
+   "area": 18842,
+   "fill": 0.9,
+   "solid": 0.946,
+   "stem": 0.13
+  },
+  "object-order": {
+   "area": 11141,
+   "fill": 0.874,
+   "solid": 0.993,
+   "stem": 0.207
+  },
+  "action-receive-order": {
+   "area": 21338,
+   "fill": 0.913,
+   "solid": 0.952,
+   "stem": 0.104
+  },
+  "decision-seller": {
+   "area": 497,
+   "fill": 0.591,
+   "solid": 0.591,
+   "keptOnOutline": true
+  },
+  "action-reject-order": {
+   "area": 19472,
+   "fill": 0.889,
+   "solid": 0.933,
+   "stem": 0.104
+  },
+  "object-orderresponsesimple-between-buyer-and-seller": {
+   "area": 27888,
+   "fill": 0.823,
+   "solid": 0.998,
+   "stem": 0.22
+  },
+  "action-accept-order": {
+   "area": 21975,
+   "fill": 0.899,
+   "solid": 0.942,
+   "stem": 0.104
+  },
+  "action-receive-response": {
+   "area": 25877,
+   "fill": 0.915,
+   "solid": 0.961,
+   "stem": 0.13
+  },
+  "object-orderresponsesimple-between-buyer-and-seller-2": {
+   "area": 27149,
+   "fill": 0.818,
+   "solid": 0.998,
+   "stem": 0.233
+  },
+  "action-add-detail": {
+   "area": 17019,
+   "fill": 0.885,
+   "solid": 0.932,
+   "stem": 0.13
+  },
+  "object-orderresponse-detailed": {
+   "area": 28819,
+   "fill": 0.812,
+   "solid": 0.999,
+   "stem": 0.207
+  },
+  "decision-buyer": {
+   "area": 516,
+   "fill": 0.614,
+   "solid": 0.614,
+   "keptOnOutline": true
+  },
+  "action-change-order-in-seller": {
+   "area": 21232,
+   "fill": 0.89,
+   "solid": 0.941,
+   "stem": 0.104
+  },
+  "decision-seller-2": {
+   "area": 516,
+   "fill": 0.614,
+   "solid": 0.614,
+   "keptOnOutline": true
+  },
+  "action-change-order-in-buyer": {
+   "area": 21258,
+   "fill": 0.903,
+   "solid": 0.951,
+   "stem": 0.104
+  },
+  "object-orderchange": {
+   "area": 18377,
+   "fill": 0.841,
+   "solid": 0.999,
+   "stem": 0.233
+  },
+  "decision-seller-3": {
+   "area": 503,
+   "fill": 0.598,
+   "solid": 0.598,
+   "keptOnOutline": true
+  },
+  "action-cancel-order-in-buyer": {
+   "area": 20078,
+   "fill": 0.898,
+   "solid": 0.948,
+   "stem": 0.104
+  },
+  "action-cancel-order-in-seller": {
+   "area": 20261,
+   "fill": 0.91,
+   "solid": 0.951,
+   "stem": 0.104
+  },
+  "object-ordercancellation": {
+   "area": 22399,
+   "fill": 0.831,
+   "solid": 0.999,
+   "stem": 0.207
+  },
+  "fork-seller": {
+   "area": 450,
+   "fill": 0.24,
+   "lumps": 3,
+   "band": 8,
+   "box": 34
+  },
+  "action-receive-advice-in-buyer": {
+   "area": 22408,
+   "fill": 0.892,
+   "solid": 0.932,
+   "stem": 0.13
+  },
+  "action-despatch-order-item-s": {
+   "area": 33440,
+   "fill": 0.918,
+   "solid": 0.969,
+   "stem": 0.104
+  },
+  "object-despatchadvice": {
+   "area": 18980,
+   "fill": 0.821,
+   "solid": 0.999,
+   "stem": 0.233
+  },
+  "action-receive-advice-in-delivery-recipient": {
+   "area": 22599,
+   "fill": 0.899,
+   "solid": 0.941,
+   "stem": 0.13
+  },
+  "action-decision-if-item-s-rejected": {
+   "area": 38451,
+   "fill": 0.914,
+   "solid": 0.962,
+   "stem": 0.104
+  },
+  "object-receiptadvice": {
+   "area": 18268,
+   "fill": 0.823,
+   "solid": 0.982,
+   "stem": 0.233
+  },
+  "action-receive-goods": {
+   "area": 22231,
+   "fill": 0.898,
+   "solid": 0.943,
+   "stem": 0.13
+  },
+  "fork-seller-2": {
+   "area": 587,
+   "fill": 0.331,
+   "lumps": 2,
+   "band": 9,
+   "box": 31
+  },
+  "action-advise-receipt": {
+   "area": 22284,
+   "fill": 0.9,
+   "solid": 0.943,
+   "stem": 0.104
+  },
+  "action-reconcile-invoice": {
+   "area": 26179,
+   "fill": 0.916,
+   "solid": 0.957,
+   "stem": 0.104
+  },
+  "action-raise-invoice": {
+   "area": 20913,
+   "fill": 0.914,
+   "solid": 0.951,
+   "stem": 0.13
+  },
+  "object-invoice": {
+   "area": 10782,
+   "fill": 0.834,
+   "solid": 0.967,
+   "stem": 0.233
+  },
+  "final-buyer": {
+   "area": 285,
+   "fill": 0.539,
+   "solid": 0.72
+  }
+ },
+ "flows": {
+  "flow-order-to-receive-order": {
+   "arrowInk": [
+    163,
+    160
+   ]
+  },
+  "flow-place-order-to-order": {
+   "arrowInk": [
+    122,
+    364
+   ]
+  },
+  "flow-receive-order-to-decision-seller": {
+   "arrowInk": [
+    278,
+    376
+   ]
+  },
+  "flow-decision-seller-to-reject-order": {
+   "arrowInk": [
+    337,
+    935
+   ],
+   "arrowPx": [
+    111,
+    27.5,
+    0.69
+   ],
+   "arrowFill": 0.625,
+   "arrowSaturated": true
+  },
+  "flow-decision-seller-to-add-detail": {
+   "arrowInk": [
+    401,
+    653
+   ],
+   "arrowPx": [
+    111,
+    22.4,
+    1.01
+   ],
+   "arrowSaturated": true
+  },
+  "flow-change-order-in-seller-to-decision-seller": {
+   "arrowInk": [
+    920,
+    639
+   ],
+   "arrowPx": [
+    177,
+    139.9,
+    0.74
+   ],
+   "arrowFill": 0.032
+  },
+  "flow-reject-order-to-orderresponsesimple-between-buyer-and-seller": {
+   "arrowInk": [
+    118,
+    260
+   ]
+  },
+  "flow-decision-seller-to-accept-order": {
+   "arrowInk": [
+    720,
+    410
+   ]
+  },
+  "flow-orderresponsesimple-between-buyer-and-seller-to-receive-response": {
+   "arrowInk": [
+    165,
+    321
+   ]
+  },
+  "flow-orderresponsesimple-between-buyer-and-seller-2-to-receive-response": {
+   "arrowInk": [
+    155,
+    540
+   ]
+  },
+  "flow-accept-order-to-orderresponsesimple-between-buyer-and-seller-2": {
+   "arrowInk": [
+    764,
+    320
+   ]
+  },
+  "flow-orderresponse-detailed-to-receive-response": {
+   "arrowInk": [
+    168,
+    451
+   ]
+  },
+  "flow-accept-order-to-decision-seller-2": {
+   "arrowInk": [
+    333,
+    625
+   ],
+   "arrowPx": [
+    101,
+    26.6,
+    0.69
+   ]
+  },
+  "flow-receive-response-to-receive-advice-in-buyer": {
+   "arrowInk": [
+    328,
+    408
+   ],
+   "arrowPx": [
+    111,
+    33.4,
+    0.78
+   ],
+   "arrowFill": 0.04,
+   "arrowSaturated": true
+  },
+  "flow-decision-buyer-to-cancel-order-in-buyer": {
+   "arrowInk": [
+    388,
+    382
+   ],
+   "arrowPx": [
+    29,
+    12.8,
+    0.99
+   ]
+  },
+  "flow-receive-response-to-decision-buyer": {
+   "arrowInk": [
+    338,
+    371
+   ],
+   "arrowPx": [
+    48,
+    21.5,
+    0.77
+   ]
+  },
+  "flow-add-detail-to-orderresponse-detailed": {
+   "arrowInk": [
+    122,
+    324
+   ]
+  },
+  "flow-decision-buyer-to-change-order-in-buyer": {
+   "arrowInk": [
+    296,
+    319
+   ],
+   "arrowPx": [
+    24,
+    19.2,
+    1.41
+   ]
+  },
+  "flow-add-detail-to-decision-seller-3": {
+   "arrowInk": [
+    305,
+    402
+   ],
+   "arrowPx": [
+    39,
+    57.5,
+    2.47
+   ],
+   "arrowFill": 0.144,
+   "arrowSaturated": true
+  },
+  "flow-decision-seller-2-to-cancel-order-in-seller": {
+   "arrowInk": [
+    378,
+    746
+   ]
+  },
+  "flow-decision-seller-2-to-fork-seller": {
+   "arrowInk": [
+    393,
+    480
+   ],
+   "arrowPx": [
+    111,
+    20.9,
+    0.73
+   ],
+   "arrowSaturated": true
+  },
+  "flow-decision-seller-3-to-cancel-order-in-seller": {
+   "arrowInk": [
+    392,
+    532
+   ],
+   "arrowPx": [
+    111,
+    33.8,
+    0.85
+   ],
+   "arrowFill": 0.5,
+   "arrowSaturated": true
+  },
+  "flow-orderchange-to-change-order-in-seller": {
+   "arrowInk": [
+    173,
+    223
+   ]
+  },
+  "flow-change-order-in-buyer-to-orderchange": {
+   "arrowInk": [
+    139,
+    318
+   ]
+  },
+  "flow-decision-seller-3-to-fork-seller": {
+   "arrowInk": [
+    492,
+    560
+   ],
+   "arrowPx": [
+    62,
+    23.2,
+    0.76
+   ],
+   "arrowFill": 0.5
+  },
+  "flow-cancel-order-in-buyer-to-ordercancellation": {
+   "arrowInk": [
+    143,
+    365
+   ]
+  },
+  "flow-change-order-in-buyer-to-receive-advice-in-buyer": {
+   "arrowInk": [
+    472,
+    571
+   ],
+   "arrowPx": [
+    63,
+    122.5,
+    2.04
+   ],
+   "arrowFill": 0.066
+  },
+  "flow-ordercancellation-to-cancel-order-in-seller": {
+   "arrowInk": [
+    157,
+    226
+   ]
+  },
+  "flow-fork-seller-to-despatch-order-item-s": {
+   "arrowInk": [
+    444,
+    545
+   ],
+   "arrowPx": [
+    67,
+    12.2,
+    0.85
+   ]
+  },
+  "flow-despatchadvice-to-receive-advice-in-buyer": {
+   "arrowInk": [
+    107,
+    316
+   ],
+   "arrowPx": [
+    16,
+    18.9,
+    3.59
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-receive-advice-in-buyer-to-reconcile-invoice": {
+   "arrowInk": [
+    301,
+    403
+   ]
+  },
+  "flow-despatch-order-item-s-to-despatchadvice": {
+   "arrowInk": [
+    112,
+    242
+   ]
+  },
+  "flow-despatchadvice-to-receive-advice-in-delivery-recipient": {
+   "arrowInk": [
+    205,
+    222
+   ]
+  },
+  "flow-despatch-order-item-s-to-fork-seller-2": {
+   "arrowInk": [
+    419,
+    469
+   ],
+   "arrowPx": [
+    111,
+    20.8,
+    0.89
+   ],
+   "arrowSaturated": true
+  },
+  "flow-receive-advice-in-delivery-recipient-to-receive-goods": {
+   "arrowInk": [
+    364,
+    405
+   ],
+   "arrowPx": [
+    22,
+    35.0,
+    0.85
+   ],
+   "arrowFill": 0.0,
+   "arrowSaturated": true
+  },
+  "flow-receiptadvice-to-decision-if-item-s-rejected": {
+   "arrowInk": [
+    157,
+    277
+   ]
+  },
+  "flow-decision-if-item-s-rejected-to-fork-seller-2": {
+   "arrowInk": [
+    305,
+    360
+   ],
+   "arrowPx": [
+    41,
+    60.7,
+    1.86
+   ],
+   "arrowFill": 0.02,
+   "arrowSaturated": true
+  },
+  "flow-receive-goods-to-advise-receipt": {
+   "arrowInk": [
+    336,
+    336
+   ]
+  },
+  "flow-advise-receipt-to-receiptadvice": {
+   "arrowInk": [
+    212,
+    229
+   ]
+  },
+  "flow-fork-seller-2-to-raise-invoice": {
+   "arrowInk": [
+    404,
+    450
+   ],
+   "arrowPx": [
+    27,
+    31.3,
+    0.61
+   ],
+   "arrowFill": 0.306
+  },
+  "flow-reconcile-invoice-to-final-buyer": {
+   "arrowInk": [
+    368,
+    440
+   ],
+   "arrowPx": [
+    23,
+    19.8,
+    2.25
+   ]
+  },
+  "flow-raise-invoice-to-invoice": {
+   "arrowInk": [
+    117,
+    347
+   ]
+  },
+  "flow-invoice-to-reconcile-invoice": {
+   "arrowInk": [
+    169,
+    267
+   ]
+  }
+ },
+ "offPage": {},
+ "marks": {},
+ "phases": {},
+ "greyRules": [
+  {
+   "coverage": 0.93
+  },
+  {
+   "coverage": 0.93
+  }
+ ],
+ "titleReadings": [
+  {
+   "position": 0,
+   "text": "Delivery Recipient",
+   "x": 123,
+   "y": 19,
+   "w": 458,
+   "h": 49,
+   "lines": [
+    {
+     "x": 123,
+     "y": 19,
+     "w": 458,
+     "h": 49,
+     "text": "Delivery Recipient"
+    }
+   ]
+  },
+  {
+   "position": 1,
+   "text": "Seller",
+   "x": 2632,
+   "y": 20,
+   "w": 143,
+   "h": 39,
+   "lines": [
+    {
+     "x": 2632,
+     "y": 20,
+     "w": 143,
+     "h": 39,
+     "text": "Seller"
+    }
+   ],
+   "attachedTo": "n4->n5"
+  },
+  {
+   "position": 2,
+   "text": "Buyer",
+   "x": 1293,
+   "y": 21,
+   "w": 145,
+   "h": 47,
+   "lines": [
+    {
+     "x": 1293,
+     "y": 21,
+     "w": 145,
+     "h": 47,
+     "text": "Buyer"
+    }
+   ]
+  }
+ ],
+ "findings": [
+  {
+   "kind": "guard-is-lane-title",
+   "flow": "flow-decision-seller-to-reject-order",
+   "lane": "lane-seller",
+   "detail": "the guard on n4->n5 is the title of lane2, 'Seller'",
+   "check": "a lane title does not label a flow: either the title was attached by mistake or the lane title is a misread guard",
+   "resolvedBy": [
+    "text-04",
+    "text-05",
+    "text-06",
+    "text-07",
+    "text-08",
+    "text-09",
+    "text-10",
+    "q13-47",
+    "fork-01",
+    "dec-01",
+    "dec-02",
+    "dec-03",
+    "dec-04",
+    "dec-05",
+    "dec-06",
+    "dec-07",
+    "dec-08",
+    "dec-09",
+    "dec-10",
+    "dec-11",
+    "dec-12",
+    "dec-13",
+    "dec-14",
+    "start-01",
+    "model-05",
+    "act-01",
+    "act-02",
+    "draw-13",
+    "draw-14"
+   ]
+  }
+ ],
+ "uncertain": [
+  {
+   "x": 2926,
+   "y": 234,
+   "w": 29,
+   "h": 29,
+   "shape": "rhombus",
+   "iou": 0.847,
+   "border": 0.868,
+   "kind": "kept-on-outline",
+   "reason": "every side has pass-through line-work, but the region carries a complete outline of its own",
+   "check": "confirm this is a node and not trapped whitespace"
+  },
+  {
+   "x": 2859,
+   "y": 260,
+   "w": 345,
+   "h": 469,
+   "shape": "ellipse",
+   "iou": 0.534,
+   "border": 0.182,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best ellipse 0.53, and 0.99 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "x": 2775,
+   "y": 265,
+   "w": 161,
+   "h": 111,
+   "shape": "rounded",
+   "iou": 0.487,
+   "border": 0.495,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best rounded 0.49, and 0.96 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "x": 1172,
+   "y": 468,
+   "w": 146,
+   "h": 161,
+   "shape": "ellipse",
+   "iou": 0.707,
+   "border": 0.444,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best ellipse 0.71, and 0.97 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "x": 1316,
+   "y": 564,
+   "w": 29,
+   "h": 29,
+   "shape": "rhombus",
+   "iou": 0.816,
+   "border": 0.875,
+   "kind": "kept-on-outline",
+   "reason": "every side has pass-through line-work, but the region carries a complete outline of its own",
+   "check": "confirm this is a node and not trapped whitespace"
+  },
+  {
+   "x": 1236,
+   "y": 593,
+   "w": 273,
+   "h": 238,
+   "shape": "rounded",
+   "iou": 0.551,
+   "border": 0.403,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best rounded 0.55, and 0.98 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "x": 2835,
+   "y": 616,
+   "w": 29,
+   "h": 29,
+   "shape": "rhombus",
+   "iou": 0.816,
+   "border": 0.91,
+   "kind": "kept-on-outline",
+   "reason": "every side has pass-through line-work, but the region carries a complete outline of its own",
+   "check": "confirm this is a node and not trapped whitespace"
+  },
+  {
+   "x": 2626,
+   "y": 647,
+   "w": 310,
+   "h": 169,
+   "shape": "rhombus",
+   "iou": 0.47,
+   "border": 0.186,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best rhombus 0.47, and 0.96 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "x": 3146,
+   "y": 660,
+   "w": 29,
+   "h": 29,
+   "shape": "rhombus",
+   "iou": 0.837,
+   "border": 0.847,
+   "kind": "kept-on-outline",
+   "reason": "every side has pass-through line-work, but the region carries a complete outline of its own",
+   "check": "confirm this is a node and not trapped whitespace"
+  },
+  {
+   "x": 2953,
+   "y": 681,
+   "w": 195,
+   "h": 151,
+   "shape": "rhombus",
+   "iou": 0.678,
+   "border": 0.25,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best rhombus 0.68, and 0.96 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "kind": "ring-stroke-unreadable",
+   "x": 822,
+   "y": 1499,
+   "w": 23,
+   "h": 23,
+   "reason": "line-work runs off this activity final on more than one side, so its ring thickness could not be measured",
+   "check": "confirm this is an activity final and how thick its ring is"
+  },
+  {
+   "kind": "edge-direction",
+   "reason": "arrowhead ink is ambiguous where several connectors meet",
+   "edge": [
+    "n3",
+    "n2"
+   ],
+   "check": "confirm which way this edge points"
+  },
+  {
+   "kind": "arrowhead-size-unreadable",
+   "x": 0,
+   "y": 0,
+   "w": 3425,
+   "h": 1609,
+   "reason": "only 8 of 43 connectors gave a usable arrowhead measurement; the head is drawn at 1.1x the type size"
+  }
+ ],
+ "present": [
+  "source",
+  "size",
+  "fontPx",
+  "arrowPx",
+  "arrowWidthPx",
+  "arrowStyle",
+  "rules",
+  "ruleSpan",
+  "greyRules",
+  "dashed",
+  "openEnds",
+  "crossMarks",
+  "partitions",
+  "nodes",
+  "edges",
+  "text",
+  "uncertain"
+ ],
+ "uncorrected": {
+  "model": {
+   "schema": "ubl-activity-diagram/1",
+   "figure": {
+    "name": "UBL-1.0-ProcurementProcess",
+    "source": "UBL-1.0-ProcurementProcess.png"
+   },
+   "lanes": [
+    {
+     "id": "lane0",
+     "axis": "column",
+     "index": 0,
+     "title": "Delivery Recipient"
+    },
+    {
+     "id": "lane1",
+     "axis": "column",
+     "index": 1,
+     "title": "Buyer"
+    },
+    {
+     "id": "lane2",
+     "axis": "column",
+     "index": 2,
+     "title": "Seller"
+    },
+    {
+     "id": "lane3",
+     "axis": "band",
+     "index": 0,
+     "title": ""
+    }
+   ],
+   "nodes": [
+    {
+     "id": "n1",
+     "kind": "action",
+     "label": "place order",
+     "lane": "lane1",
+     "band": "lane3"
+    },
+    {
+     "id": "n2",
+     "kind": "object",
+     "label": "Order",
+     "lane": "lane1",
+     "band": "lane3"
+    },
+    {
+     "id": "n3",
+     "kind": "action",
+     "label": "receive order",
+     "lane": "lane2",
+     "band": "lane3"
+    },
+    {
+     "id": "n4",
+     "kind": "decision",
+     "label": "",
+     "lane": "lane2",
+     "band": "lane3"
+    },
+    {
+     "id": "n5",
+     "kind": "action",
+     "label": "reject order",
+     "lane": "lane2",
+     "band": "lane3"
+    },
+    {
+     "id": "n6",
+     "kind": "object",
+     "label": "OrderResponseSimple",
+     "lane": "lane2",
+     "band": "lane3"
+    },
+    {
+     "id": "n7",
+     "kind": "action",
+     "label": "accept order",
+     "lane": "lane2",
+     "band": "lane3"
+    },
+    {
+     "id": "n8",
+     "kind": "action",
+     "label": "receive response",
+     "lane": "lane1",
+     "band": "lane3"
+    },
+    {
+     "id": "n9",
+     "kind": "object",
+     "label": "OrderResponseSimple",
+     "lane": "lane2",
+     "band": "lane3"
+    },
+    {
+     "id": "n10",
+     "kind": "action",
+     "label": "acd Cetail",
+     "lane": "lane2",
+     "band": "lane3"
+    },
+    {
+     "id": "n11",
+     "kind": "object",
+     "label": "OrderResponse (detailed)",
+     "lane": "lane2",
+     "band": "lane3"
+    },
+    {
+     "id": "n12",
+     "kind": "decision",
+     "label": "",
+     "lane": "lane1",
+     "band": "lane3"
+    },
+    {
+     "id": "n13",
+     "kind": "action",
+     "label": "change order",
+     "lane": "lane2",
+     "band": "lane3"
+    },
+    {
+     "id": "n14",
+     "kind": "decision",
+     "label": "",
+     "lane": "lane2",
+     "band": "lane3"
+    },
+    {
+     "id": "n15",
+     "kind": "action",
+     "label": "change order",
+     "lane": "lane1",
+     "band": "lane3"
+    },
+    {
+     "id": "n16",
+     "kind": "object",
+     "label": "OrderChange",
+     "lane": "lane2",
+     "band": "lane3"
+    },
+    {
+     "id": "n17",
+     "kind": "decision",
+     "label": "",
+     "lane": "lane2",
+     "band": "lane3"
+    },
+    {
+     "id": "n18",
+     "kind": "action",
+     "label": "cancel order",
+     "lane": "lane1",
+     "band": "lane3"
+    },
+    {
+     "id": "n19",
+     "kind": "action",
+     "label": "cancel order",
+     "lane": "lane2",
+     "band": "lane3"
+    },
+    {
+     "id": "n20",
+     "kind": "object",
+     "label": "OrderCancellation",
+     "lane": "lane2",
+     "band": "lane3"
+    },
+    {
+     "id": "n21",
+     "kind": "fork",
+     "label": "",
+     "lane": "lane2",
+     "band": "lane3"
+    },
+    {
+     "id": "n22",
+     "kind": "action",
+     "label": "receive advice",
+     "lane": "lane1",
+     "band": "lane3"
+    },
+    {
+     "id": "n23",
+     "kind": "action",
+     "label": "Gespatch order Rens)",
+     "lane": "lane2",
+     "band": "lane3"
+    },
+    {
+     "id": "n24",
+     "kind": "object",
+     "label": "DespatchAdvice",
+     "lane": "lane2",
+     "band": "lane3"
+    },
+    {
+     "id": "n25",
+     "kind": "action",
+     "label": "recerve dOvVCE",
+     "lane": "lane0",
+     "band": "lane3"
+    },
+    {
+     "id": "n26",
+     "kind": "action",
+     "label": "deoson if Rem(s) rejected",
+     "lane": "lane2",
+     "band": "lane3"
+    },
+    {
+     "id": "n27",
+     "kind": "object",
+     "label": "ReceiptAdvice",
+     "lane": "lane1",
+     "band": "lane3"
+    },
+    {
+     "id": "n28",
+     "kind": "action",
+     "label": "recive goods",
+     "lane": "lane0",
+     "band": "lane3"
+    },
+    {
+     "id": "n29",
+     "kind": "fork",
+     "label": "",
+     "lane": "lane2",
+     "band": "lane3"
+    },
+    {
+     "id": "n30",
+     "kind": "action",
+     "label": "Sdvise receipt",
+     "lane": "lane0",
+     "band": "lane3"
+    },
+    {
+     "id": "n31",
+     "kind": "action",
+     "label": "reconcile invoice",
+     "lane": "lane1",
+     "band": "lane3"
+    },
+    {
+     "id": "n32",
+     "kind": "action",
+     "label": "fase wwoce",
+     "lane": "lane2",
+     "band": "lane3"
+    },
+    {
+     "id": "n33",
+     "kind": "object",
+     "label": "Invoice",
+     "lane": "lane1",
+     "band": "lane3"
+    },
+    {
+     "id": "n34",
+     "kind": "final",
+     "label": "",
+     "lane": "lane1",
+     "band": "lane3"
+    }
+   ],
+   "flows": [
+    {
+     "id": "f0",
+     "from": "n2",
+     "to": "n3",
+     "kind": "object",
+     "direction": {
+      "confidence": "notation",
+      "checked": "confirmed"
+     }
+    },
+    {
+     "id": "f1",
+     "from": "n1",
+     "to": "n2",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f2",
+     "from": "n3",
+     "to": "n4",
+     "kind": "control",
+     "direction": {
+      "confidence": "checked",
+      "checked": "confirmed"
+     }
+    },
+    {
+     "id": "f3",
+     "from": "n4",
+     "to": "n5",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     },
+     "guard": "lane2"
+    },
+    {
+     "id": "f4",
+     "from": "n4",
+     "to": "n10",
+     "kind": "control",
+     "direction": {
+      "confidence": "checked",
+      "checked": "confirmed"
+     }
+    },
+    {
+     "id": "f5",
+     "from": "n4",
+     "to": "n13",
+     "kind": "control",
+     "direction": {
+      "confidence": "notation"
+     }
+    },
+    {
+     "id": "f6",
+     "from": "n5",
+     "to": "n6",
+     "kind": "object",
+     "direction": {
+      "confidence": "medium",
+      "checked": "confirmed"
+     }
+    },
+    {
+     "id": "f7",
+     "from": "n4",
+     "to": "n7",
+     "kind": "control",
+     "direction": {
+      "confidence": "notation",
+      "checked": "confirmed"
+     }
+    },
+    {
+     "id": "f8",
+     "from": "n6",
+     "to": "n8",
+     "kind": "object",
+     "direction": {
+      "confidence": "medium",
+      "checked": "confirmed"
+     }
+    },
+    {
+     "id": "f9",
+     "from": "n9",
+     "to": "n8",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f10",
+     "from": "n7",
+     "to": "n9",
+     "kind": "object",
+     "direction": {
+      "confidence": "notation",
+      "checked": "confirmed"
+     }
+    },
+    {
+     "id": "f11",
+     "from": "n11",
+     "to": "n8",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f12",
+     "from": "n7",
+     "to": "n14",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f13",
+     "from": "n8",
+     "to": "n22",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f14",
+     "from": "n12",
+     "to": "n18",
+     "kind": "control",
+     "direction": {
+      "confidence": "notation",
+      "checked": "confirmed"
+     }
+    },
+    {
+     "id": "f15",
+     "from": "n8",
+     "to": "n12",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f16",
+     "from": "n10",
+     "to": "n11",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f17",
+     "from": "n12",
+     "to": "n15",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f18",
+     "from": "n10",
+     "to": "n17",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f19",
+     "from": "n14",
+     "to": "n19",
+     "kind": "control",
+     "direction": {
+      "confidence": "medium",
+      "checked": "confirmed"
+     }
+    },
+    {
+     "id": "f20",
+     "from": "n14",
+     "to": "n21",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f21",
+     "from": "n17",
+     "to": "n19",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f22",
+     "from": "n16",
+     "to": "n13",
+     "kind": "object",
+     "direction": {
+      "confidence": "checked",
+      "checked": "confirmed"
+     }
+    },
+    {
+     "id": "f23",
+     "from": "n15",
+     "to": "n16",
+     "kind": "object",
+     "direction": {
+      "confidence": "medium",
+      "checked": "confirmed"
+     }
+    },
+    {
+     "id": "f24",
+     "from": "n17",
+     "to": "n21",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f25",
+     "from": "n18",
+     "to": "n20",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f26",
+     "from": "n15",
+     "to": "n22",
+     "kind": "control",
+     "direction": {
+      "confidence": "medium",
+      "checked": "confirmed"
+     }
+    },
+    {
+     "id": "f27",
+     "from": "n20",
+     "to": "n19",
+     "kind": "object",
+     "direction": {
+      "confidence": "checked",
+      "checked": "confirmed"
+     }
+    },
+    {
+     "id": "f28",
+     "from": "n23",
+     "to": "n21",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f29",
+     "from": "n24",
+     "to": "n22",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f30",
+     "from": "n22",
+     "to": "n31",
+     "kind": "control",
+     "direction": {
+      "confidence": "checked",
+      "checked": "confirmed"
+     }
+    },
+    {
+     "id": "f31",
+     "from": "n23",
+     "to": "n24",
+     "kind": "object",
+     "direction": {
+      "confidence": "medium",
+      "checked": "confirmed"
+     }
+    },
+    {
+     "id": "f32",
+     "from": "n24",
+     "to": "n25",
+     "kind": "object",
+     "direction": {
+      "confidence": "checked",
+      "checked": "confirmed"
+     }
+    },
+    {
+     "id": "f33",
+     "from": "n23",
+     "to": "n29",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f34",
+     "from": "n25",
+     "to": "n28",
+     "kind": "control",
+     "direction": {
+      "confidence": "checked",
+      "checked": "confirmed"
+     }
+    },
+    {
+     "id": "f35",
+     "from": "n27",
+     "to": "n26",
+     "kind": "object",
+     "direction": {
+      "confidence": "medium",
+      "checked": "confirmed"
+     }
+    },
+    {
+     "id": "f36",
+     "from": "n26",
+     "to": "n29",
+     "kind": "control",
+     "direction": {
+      "confidence": "checked",
+      "checked": "confirmed"
+     }
+    },
+    {
+     "id": "f37",
+     "from": "n28",
+     "to": "n30",
+     "kind": "control",
+     "direction": {
+      "confidence": "checked",
+      "checked": "confirmed"
+     }
+    },
+    {
+     "id": "f38",
+     "from": "n30",
+     "to": "n27",
+     "kind": "object",
+     "direction": {
+      "confidence": "checked",
+      "checked": "confirmed"
+     }
+    },
+    {
+     "id": "f39",
+     "from": "n29",
+     "to": "n32",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f40",
+     "from": "n31",
+     "to": "n34",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f41",
+     "from": "n32",
+     "to": "n33",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f42",
+     "from": "n33",
+     "to": "n31",
+     "kind": "object",
+     "direction": {
+      "confidence": "checked",
+      "checked": "confirmed"
+     }
+    }
+   ],
+   "texts": [],
+   "offPage": [],
+   "marks": [],
+   "phases": []
+  },
+  "layout": {
+   "schema": "ubl-activity-diagram-layout/1",
+   "figure": "UBL-1.0-ProcurementProcess",
+   "units": "px of the original PNG",
+   "size": [
+    3425,
+    1609
+   ],
+   "style": {
+    "fontPx": 38.6,
+    "arrowPx": 42.5,
+    "arrowWidthPx": 38.2,
+    "arrowStyle": "open"
+   },
+   "rules": {
+    "vertical": [
+     {
+      "at": 0,
+      "width": 12,
+      "span": [
+       15,
+       1593
+      ]
+     },
+     {
+      "at": 710,
+      "width": 8,
+      "span": [
+       15,
+       1593
+      ]
+     },
+     {
+      "at": 1976,
+      "width": 8,
+      "span": [
+       15,
+       1593
+      ]
+     },
+     {
+      "at": 3413,
+      "width": 12,
+      "span": [
+       15,
+       1593
+      ]
+     }
+    ],
+    "horizontal": [
+     {
+      "at": 0,
+      "width": 12,
+      "span": [
+       15,
+       3409
+      ]
+     },
+     {
+      "at": 1597,
+      "width": 12,
+      "span": [
+       15,
+       3409
+      ]
+     }
+    ]
+   },
+   "greyRules": [
+    {
+     "axis": "v",
+     "at": 706,
+     "w": 4,
+     "level": 182
+    },
+    {
+     "axis": "v",
+     "at": 719,
+     "w": 3,
+     "level": 211
+    }
+   ],
+   "lanes": {
+    "lane0": {
+     "x0": 0,
+     "x1": 714,
+     "titleBox": [
+      123,
+      19,
+      458,
+      49
+     ],
+     "titleBold": true
+    },
+    "lane1": {
+     "x0": 714,
+     "x1": 1980,
+     "titleBox": [
+      1293,
+      21,
+      145,
+      47
+     ],
+     "titleBold": true
+    },
+    "lane2": {
+     "x0": 1980,
+     "x1": 3425,
+     "titleBox": [
+      2632,
+      20,
+      143,
+      39
+     ],
+     "titleBold": true
+    },
+    "lane3": {
+     "y0": 0,
+     "y1": 1609
+    }
+   },
+   "nodes": {
+    "n1": {
+     "x": 1363,
+     "y": 111,
+     "w": 283,
+     "h": 74,
+     "shape": "rounded",
+     "stroke": 7,
+     "rx": 29,
+     "ry": 39,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 1424,
+       "y": 135,
+       "w": 170,
+       "h": 28,
+       "text": "place order"
+      }
+     ]
+    },
+    "n2": {
+     "x": 1889,
+     "y": 111,
+     "w": 182,
+     "h": 70,
+     "shape": "rect",
+     "stroke": 11,
+     "rx": 5,
+     "ry": 3,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 1933,
+       "y": 130,
+       "w": 100,
+       "h": 28,
+       "text": "Order"
+      }
+     ]
+    },
+    "n3": {
+     "x": 2768,
+     "y": 111,
+     "w": 316,
+     "h": 74,
+     "shape": "rounded",
+     "stroke": 7,
+     "rx": 28,
+     "ry": 40,
+     "bold": false,
+     "labelLines": [
+      {
+       "x": 2829,
+       "y": 137,
+       "w": 199,
+       "h": 23,
+       "text": "receive order"
+      }
+     ]
+    },
+    "n4": {
+     "x": 2926,
+     "y": 234,
+     "w": 29,
+     "h": 29,
+     "shape": "rhombus",
+     "stroke": 7,
+     "rx": 17,
+     "ry": 15
+    },
+    "n5": {
+     "x": 2382,
+     "y": 241,
+     "w": 292,
+     "h": 75,
+     "shape": "rounded",
+     "stroke": 6,
+     "rx": 32,
+     "ry": 39.5,
+     "bold": false,
+     "labelLines": [
+      {
+       "x": 2443,
+       "y": 267,
+       "w": 175,
+       "h": 31,
+       "text": "reject order"
+      }
+     ]
+    },
+    "n6": {
+     "x": 1742,
+     "y": 246,
+     "w": 484,
+     "h": 70,
+     "shape": "rect",
+     "stroke": 11,
+     "rx": 6,
+     "ry": 7,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 1782,
+       "y": 266,
+       "w": 391,
+       "h": 33,
+       "text": "OrderResponseSimple"
+      }
+     ]
+    },
+    "n7": {
+     "x": 2754,
+     "y": 382,
+     "w": 326,
+     "h": 75,
+     "shape": "rounded",
+     "stroke": 6,
+     "rx": 29.0,
+     "ry": 39.5,
+     "bold": false,
+     "labelLines": [
+      {
+       "x": 2823,
+       "y": 408,
+       "w": 193,
+       "h": 28,
+       "text": "accept order"
+      }
+     ]
+    },
+    "n8": {
+     "x": 1011,
+     "y": 387,
+     "w": 382,
+     "h": 74,
+     "shape": "rounded",
+     "stroke": 7,
+     "rx": 28,
+     "ry": 39.5,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 1072,
+       "y": 417,
+       "w": 256,
+       "h": 22,
+       "text": "receive response"
+      }
+     ]
+    },
+    "n9": {
+     "x": 1744,
+     "y": 387,
+     "w": 474,
+     "h": 70,
+     "shape": "rect",
+     "stroke": 11,
+     "rx": 6,
+     "ry": 6,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 1782,
+       "y": 407,
+       "w": 391,
+       "h": 34,
+       "text": "OrderResponseSimple"
+      }
+     ]
+    },
+    "n10": {
+     "x": 3110,
+     "y": 524,
+     "w": 260,
+     "h": 74,
+     "shape": "rounded",
+     "stroke": 7,
+     "rx": 29.0,
+     "ry": 40,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 3169,
+       "y": 549,
+       "w": 150,
+       "h": 24,
+       "text": "acd Cetail"
+      }
+     ]
+    },
+    "n11": {
+     "x": 1728,
+     "y": 526,
+     "w": 507,
+     "h": 70,
+     "shape": "rect",
+     "stroke": 11,
+     "rx": 5,
+     "ry": 3,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 1755,
+       "y": 546,
+       "w": 455,
+       "h": 34,
+       "text": "OrderResponse (detailed)"
+      }
+     ]
+    },
+    "n12": {
+     "x": 1316,
+     "y": 564,
+     "w": 29,
+     "h": 29,
+     "shape": "rhombus",
+     "stroke": 7,
+     "rx": 15,
+     "ry": 17
+    },
+    "n13": {
+     "x": 2300,
+     "y": 613,
+     "w": 318,
+     "h": 75,
+     "shape": "rounded",
+     "stroke": 7,
+     "rx": 29,
+     "ry": 41,
+     "bold": false,
+     "labelLines": []
+    },
+    "n14": {
+     "x": 2835,
+     "y": 616,
+     "w": 29,
+     "h": 29,
+     "shape": "rhombus",
+     "stroke": 16,
+     "rx": 17,
+     "ry": 17
+    },
+    "n15": {
+     "x": 1359,
+     "y": 655,
+     "w": 318,
+     "h": 74,
+     "shape": "rounded",
+     "stroke": 7,
+     "rx": 30,
+     "ry": 39.5,
+     "bold": false,
+     "labelLines": []
+    },
+    "n16": {
+     "x": 1825,
+     "y": 659,
+     "w": 312,
+     "h": 70,
+     "shape": "rect",
+     "stroke": 11,
+     "rx": 5,
+     "ry": 6,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 1867,
+       "y": 679,
+       "w": 232,
+       "h": 34,
+       "text": "OrderChange"
+      }
+     ]
+    },
+    "n17": {
+     "x": 3146,
+     "y": 660,
+     "w": 29,
+     "h": 29,
+     "shape": "rhombus",
+     "stroke": 7,
+     "rx": 15,
+     "ry": 17
+    },
+    "n18": {
+     "x": 814,
+     "y": 688,
+     "w": 302,
+     "h": 74,
+     "shape": "rounded",
+     "stroke": 7,
+     "rx": 28,
+     "ry": 39.5,
+     "bold": false,
+     "labelLines": [
+      {
+       "x": 872,
+       "y": 712,
+       "w": 189,
+       "h": 25,
+       "text": "cancel order"
+      }
+     ]
+    },
+    "n19": {
+     "x": 2325,
+     "y": 792,
+     "w": 301,
+     "h": 74,
+     "shape": "rounded",
+     "stroke": 7,
+     "rx": 28,
+     "ry": 39,
+     "bold": false,
+     "labelLines": [
+      {
+       "x": 2384,
+       "y": 815,
+       "w": 188,
+       "h": 26,
+       "text": "cancel order"
+      }
+     ]
+    },
+    "n20": {
+     "x": 1788,
+     "y": 798,
+     "w": 385,
+     "h": 70,
+     "shape": "rect",
+     "stroke": 11,
+     "rx": 5,
+     "ry": 5,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 1824,
+       "y": 818,
+       "w": 318,
+       "h": 28,
+       "text": "OrderCancellation"
+      }
+     ]
+    },
+    "n21": {
+     "x": 3018,
+     "y": 832,
+     "w": 73,
+     "h": 8
+    },
+    "n22": {
+     "x": 1226,
+     "y": 837,
+     "w": 335,
+     "h": 75,
+     "shape": "rounded",
+     "stroke": 6,
+     "rx": 31,
+     "ry": 40,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 1288,
+       "y": 862,
+       "w": 214,
+       "h": 23,
+       "text": "receive advice"
+      }
+     ]
+    },
+    "n23": {
+     "x": 2569,
+     "y": 1085,
+     "w": 492,
+     "h": 74,
+     "shape": "rounded",
+     "stroke": 7,
+     "rx": 28,
+     "ry": 39.5,
+     "bold": false,
+     "labelLines": [
+      {
+       "x": 2628,
+       "y": 1109,
+       "w": 350,
+       "h": 29,
+       "text": "Gespatch order Rens)"
+      }
+     ]
+    },
+    "n24": {
+     "x": 1817,
+     "y": 1093,
+     "w": 335,
+     "h": 69,
+     "shape": "rect",
+     "stroke": 11,
+     "rx": 3,
+     "ry": 5,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 1845,
+       "y": 1113,
+       "w": 278,
+       "h": 33,
+       "text": "DespatchAdvice"
+      }
+     ]
+    },
+    "n25": {
+     "x": 153,
+     "y": 1107,
+     "w": 335,
+     "h": 75,
+     "shape": "rounded",
+     "stroke": 7,
+     "rx": 29,
+     "ry": 39.5,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 214,
+       "y": 1135,
+       "w": 215,
+       "h": 22,
+       "text": "recerve dOvVCE"
+      }
+     ]
+    },
+    "n26": {
+     "x": 2063,
+     "y": 1246,
+     "w": 561,
+     "h": 75,
+     "shape": "rounded",
+     "stroke": 7,
+     "rx": 27,
+     "ry": 34,
+     "bold": false,
+     "labelLines": [
+      {
+       "x": 2119,
+       "y": 1269,
+       "w": 413,
+       "h": 32,
+       "text": "deoson if Rem(s) rejected"
+      }
+     ]
+    },
+    "n27": {
+     "x": 559,
+     "y": 1257,
+     "w": 317,
+     "h": 70,
+     "shape": "rect",
+     "stroke": 11,
+     "rx": 5,
+     "ry": 6,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 594,
+       "y": 1276,
+       "w": 248,
+       "h": 33,
+       "text": "ReceiptAdvice"
+      }
+     ]
+    },
+    "n28": {
+     "x": 151,
+     "y": 1258,
+     "w": 330,
+     "h": 75,
+     "shape": "rounded",
+     "stroke": 6,
+     "rx": 29.0,
+     "ry": 39.5,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 211,
+       "y": 1283,
+       "w": 212,
+       "h": 31,
+       "text": "recive goods"
+      }
+     ]
+    },
+    "n29": {
+     "x": 2602,
+     "y": 1376,
+     "w": 77,
+     "h": 9
+    },
+    "n30": {
+     "x": 149,
+     "y": 1397,
+     "w": 330,
+     "h": 75,
+     "shape": "rounded",
+     "stroke": 6,
+     "rx": 28,
+     "ry": 39.5,
+     "bold": false,
+     "labelLines": [
+      {
+       "x": 207,
+       "y": 1422,
+       "w": 212,
+       "h": 29,
+       "text": "Sdvise receipt"
+      }
+     ]
+    },
+    "n31": {
+     "x": 1168,
+     "y": 1470,
+     "w": 381,
+     "h": 75,
+     "shape": "rounded",
+     "stroke": 6,
+     "rx": 30,
+     "ry": 39.5,
+     "bold": false,
+     "labelLines": [
+      {
+       "x": 1229,
+       "y": 1494,
+       "w": 250,
+       "h": 25,
+       "text": "reconcile invoice"
+      }
+     ]
+    },
+    "n32": {
+     "x": 2574,
+     "y": 1470,
+     "w": 305,
+     "h": 75,
+     "shape": "rounded",
+     "stroke": 6,
+     "rx": 29,
+     "ry": 39,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 2633,
+       "y": 1500,
+       "w": 189,
+       "h": 19,
+       "text": "fase wwoce"
+      }
+     ]
+    },
+    "n33": {
+     "x": 1887,
+     "y": 1474,
+     "w": 182,
+     "h": 71,
+     "shape": "rect",
+     "stroke": 11,
+     "rx": 7,
+     "ry": 6,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 1918,
+       "y": 1494,
+       "w": 128,
+       "h": 28,
+       "text": "Invoice"
+      }
+     ]
+    },
+    "n34": {
+     "x": 822,
+     "y": 1499,
+     "w": 23,
+     "h": 23,
+     "shape": "rounded",
+     "stroke": 0,
+     "rx": 11,
+     "ry": 11,
+     "innerRatio": 0.435
+    }
+   },
+   "flows": {
+    "f0": {
+     "fromPoint": [
+      2087,
+      144
+     ],
+     "toPoint": [
+      2760,
+      144
+     ],
+     "routing": "straight",
+     "dash": 16.0,
+     "gap": 17.0
+    },
+    "f1": {
+     "fromPoint": [
+      1656,
+      146
+     ],
+     "toPoint": [
+      1857,
+      146
+     ],
+     "routing": "straight",
+     "dash": 16.0,
+     "gap": 18.0
+    },
+    "f2": {
+     "fromPoint": [
+      2938,
+      199
+     ],
+     "toPoint": [
+      2940,
+      219
+     ],
+     "routing": "straight"
+    },
+    "f3": {
+     "fromPoint": [
+      2911,
+      244
+     ],
+     "toPoint": [
+      2688,
+      272
+     ],
+     "routing": "diagonal"
+    },
+    "f4": {
+     "fromPoint": [
+      2969,
+      262
+     ],
+     "toPoint": [
+      3220,
+      509
+     ],
+     "routing": "diagonal"
+    },
+    "f5": {
+     "fromPoint": [
+      2911,
+      265
+     ],
+     "toPoint": [
+      2461,
+      598
+     ],
+     "routing": "diagonal"
+    },
+    "f6": {
+     "fromPoint": [
+      2372,
+      279
+     ],
+     "toPoint": [
+      2237,
+      279
+     ],
+     "routing": "straight",
+     "dash": 16.0,
+     "gap": 17.0
+    },
+    "f7": {
+     "fromPoint": [
+      2940,
+      277
+     ],
+     "toPoint": [
+      2917,
+      367
+     ],
+     "routing": "diagonal"
+    },
+    "f8": {
+     "fromPoint": [
+      1726,
+      284
+     ],
+     "toPoint": [
+      1407,
+      393
+     ],
+     "routing": "diagonal",
+     "dash": 17.0,
+     "gap": 16.0
+    },
+    "f9": {
+     "fromPoint": [
+      1728,
+      418
+     ],
+     "toPoint": [
+      1417,
+      419
+     ],
+     "routing": "straight",
+     "dash": 16.0,
+     "gap": 17.0
+    },
+    "f10": {
+     "fromPoint": [
+      2712,
+      420
+     ],
+     "toPoint": [
+      2240,
+      420
+     ],
+     "routing": "straight",
+     "dash": 16.0,
+     "gap": 18.0
+    },
+    "f11": {
+     "fromPoint": [
+      1712,
+      561
+     ],
+     "toPoint": [
+      1421,
+      449
+     ],
+     "routing": "diagonal",
+     "dash": 17.0,
+     "gap": 16.0
+    },
+    "f12": {
+     "fromPoint": [
+      2917,
+      471
+     ],
+     "toPoint": [
+      2849,
+      601
+     ],
+     "routing": "diagonal"
+    },
+    "f13": {
+     "fromPoint": [
+      1169,
+      476
+     ],
+     "toPoint": [
+      1309,
+      822
+     ],
+     "routing": "diagonal"
+    },
+    "f14": {
+     "fromPoint": [
+      1301,
+      593
+     ],
+     "toPoint": [
+      1130,
+      693
+     ],
+     "routing": "diagonal"
+    },
+    "f15": {
+     "fromPoint": [
+      1278,
+      475
+     ],
+     "toPoint": [
+      1328,
+      549
+     ],
+     "routing": "diagonal"
+    },
+    "f16": {
+     "fromPoint": [
+      3100,
+      559
+     ],
+     "toPoint": [
+      2257,
+      559
+     ],
+     "routing": "straight",
+     "dash": 14.8,
+     "gap": 18.9,
+     "dashOffset": 7.0
+    },
+    "f17": {
+     "fromPoint": [
+      1344,
+      607
+     ],
+     "toPoint": [
+      1379,
+      640
+     ],
+     "routing": "diagonal"
+    },
+    "f18": {
+     "fromPoint": [
+      3199,
+      612
+     ],
+     "toPoint": [
+      3163,
+      645
+     ],
+     "routing": "diagonal"
+    },
+    "f19": {
+     "fromPoint": [
+      2820,
+      652
+     ],
+     "toPoint": [
+      2640,
+      787
+     ],
+     "routing": "diagonal"
+    },
+    "f20": {
+     "fromPoint": [
+      2871,
+      659
+     ],
+     "toPoint": [
+      3033,
+      817
+     ],
+     "routing": "diagonal"
+    },
+    "f21": {
+     "fromPoint": [
+      3131,
+      678
+     ],
+     "toPoint": [
+      2640,
+      829
+     ],
+     "routing": "diagonal"
+    },
+    "f22": {
+     "fromPoint": [
+      2153,
+      693
+     ],
+     "toPoint": [
+      2284,
+      662
+     ],
+     "routing": "diagonal",
+     "dash": 17.0,
+     "gap": 16.5
+    },
+    "f23": {
+     "fromPoint": [
+      1689,
+      692
+     ],
+     "toPoint": [
+      1797,
+      694
+     ],
+     "routing": "straight",
+     "dash": 16.0,
+     "gap": 18.0
+    },
+    "f24": {
+     "fromPoint": [
+      3147,
+      703
+     ],
+     "toPoint": [
+      3070,
+      817
+     ],
+     "routing": "diagonal"
+    },
+    "f25": {
+     "fromPoint": [
+      1125,
+      735
+     ],
+     "toPoint": [
+      1761,
+      812
+     ],
+     "routing": "diagonal",
+     "dash": 15.2,
+     "gap": 18.5,
+     "dashOffset": 7.7
+    },
+    "f26": {
+     "fromPoint": [
+      1513,
+      743
+     ],
+     "toPoint": [
+      1446,
+      822
+     ],
+     "routing": "diagonal"
+    },
+    "f27": {
+     "fromPoint": [
+      2188,
+      829
+     ],
+     "toPoint": [
+      2297,
+      829
+     ],
+     "routing": "straight",
+     "dash": 16.0,
+     "gap": 18.0
+    },
+    "f28": {
+     "fromPoint": [
+      2977,
+      1070
+     ],
+     "toPoint": [
+      3047,
+      854
+     ],
+     "routing": "diagonal"
+    },
+    "f29": {
+     "fromPoint": [
+      1802,
+      1102
+     ],
+     "toPoint": [
+      1569,
+      908
+     ],
+     "routing": "diagonal",
+     "dash": 18.0,
+     "gap": 16.0
+    },
+    "f30": {
+     "fromPoint": [
+      1375,
+      926
+     ],
+     "toPoint": [
+      1372,
+      1455
+     ],
+     "routing": "straight"
+    },
+    "f31": {
+     "fromPoint": [
+      2561,
+      1126
+     ],
+     "toPoint": [
+      2156,
+      1126
+     ],
+     "routing": "straight",
+     "dash": 15.4,
+     "gap": 18.3,
+     "dashOffset": 7.6
+    },
+    "f32": {
+     "fromPoint": [
+      1800,
+      1138
+     ],
+     "toPoint": [
+      512,
+      1141
+     ],
+     "routing": "straight",
+     "dash": 17.0,
+     "gap": 17.0
+    },
+    "f33": {
+     "fromPoint": [
+      2864,
+      1179
+     ],
+     "toPoint": [
+      2646,
+      1361
+     ],
+     "routing": "diagonal"
+    },
+    "f34": {
+     "fromPoint": [
+      319,
+      1196
+     ],
+     "toPoint": [
+      316,
+      1243
+     ],
+     "routing": "straight"
+    },
+    "f35": {
+     "fromPoint": [
+      891,
+      1284
+     ],
+     "toPoint": [
+      2003,
+      1284
+     ],
+     "routing": "straight",
+     "dash": 16.0,
+     "gap": 18.0
+    },
+    "f36": {
+     "fromPoint": [
+      2557,
+      1335
+     ],
+     "toPoint": [
+      2614,
+      1361
+     ],
+     "routing": "diagonal"
+    },
+    "f37": {
+     "fromPoint": [
+      316,
+      1347
+     ],
+     "toPoint": [
+      314,
+      1382
+     ],
+     "routing": "straight"
+    },
+    "f38": {
+     "fromPoint": [
+      490,
+      1377
+     ],
+     "toPoint": [
+      550,
+      1332
+     ],
+     "routing": "diagonal",
+     "dash": 16.6,
+     "gap": 17.0,
+     "dashOffset": 0.8
+    },
+    "f39": {
+     "fromPoint": [
+      2655,
+      1399
+     ],
+     "toPoint": [
+      2687,
+      1455
+     ],
+     "routing": "diagonal"
+    },
+    "f40": {
+     "fromPoint": [
+      1153,
+      1509
+     ],
+     "toPoint": [
+      859,
+      1511
+     ],
+     "routing": "straight"
+    },
+    "f41": {
+     "fromPoint": [
+      2565,
+      1504
+     ],
+     "toPoint": [
+      2093,
+      1504
+     ],
+     "routing": "straight",
+     "dash": 16.0,
+     "gap": 17.0
+    },
+    "f42": {
+     "fromPoint": [
+      1871,
+      1508
+     ],
+     "toPoint": [
+      1567,
+      1508
+     ],
+     "routing": "straight",
+     "dash": 16.5,
+     "gap": 17.0
+    }
+   },
+   "texts": {},
+   "offPage": {},
+   "marks": {},
+   "phases": {},
+   "rulesHaveSpans": {
+    "vertical": true,
+    "horizontal": true
+   }
+  }
+ },
+ "retexted": {
+  "n10": {
+   "section": "nodes",
+   "text": "add detail"
+  },
+  "n23": {
+   "section": "nodes",
+   "text": "despatch order item(s)"
+  },
+  "n25": {
+   "section": "nodes",
+   "text": "receive advice"
+  },
+  "n26": {
+   "section": "nodes",
+   "text": "decision if item(s) rejected"
+  },
+  "n28": {
+   "section": "nodes",
+   "text": "receive goods"
+  },
+  "n30": {
+   "section": "nodes",
+   "text": "advise receipt"
+  },
+  "n32": {
+   "section": "nodes",
+   "text": "raise invoice"
+  }
+ },
+ "graphPatches": {
+  "edges": {
+   "f3": {
+    "guard": null
+   },
+   "f28": {
+    "reverse": true
+   },
+   "f5": {
+    "reverse": true
+   }
+  },
+  "texts": {},
+  "addEdges": []
+ },
+ "corrections": [
+  "text-04",
+  "text-05",
+  "text-06",
+  "text-07",
+  "text-08",
+  "text-09",
+  "text-10",
+  "q13-47",
+  "fork-01",
+  "dec-01",
+  "dec-02",
+  "dec-03",
+  "dec-04",
+  "dec-05",
+  "dec-06",
+  "dec-07",
+  "dec-08",
+  "dec-09",
+  "dec-10",
+  "dec-11",
+  "dec-12",
+  "dec-13",
+  "dec-14",
+  "start-01",
+  "model-05",
+  "act-01",
+  "act-02",
+  "draw-13",
+  "draw-14"
+ ],
+ "documentLanes": {
+  "object-order": "lane-buyer",
+  "object-orderresponsesimple-between-buyer-and-seller": "lane-seller",
+  "object-orderresponsesimple-between-buyer-and-seller-2": "lane-seller",
+  "object-orderresponse-detailed": "lane-seller",
+  "object-orderchange": "lane-seller",
+  "object-ordercancellation": "lane-seller",
+  "object-despatchadvice": "lane-seller",
+  "object-receiptadvice": "lane-buyer",
+  "object-invoice": "lane-buyer"
+ },
+ "formerIds": {
+  "lane-delivery-recipient": "lane0",
+  "lane-buyer": "lane1",
+  "lane-seller": "lane2",
+  "action-place-order": "n1",
+  "object-order": "n2",
+  "action-receive-order": "n3",
+  "decision-seller": "n4",
+  "action-reject-order": "n5",
+  "object-orderresponsesimple-between-buyer-and-seller": "n6",
+  "action-accept-order": "n7",
+  "action-receive-response": "n8",
+  "object-orderresponsesimple-between-buyer-and-seller-2": "n9",
+  "action-add-detail": "n10",
+  "object-orderresponse-detailed": "n11",
+  "decision-buyer": "n12",
+  "action-change-order-in-seller": "n13",
+  "decision-seller-2": "n14",
+  "action-change-order-in-buyer": "n15",
+  "object-orderchange": "n16",
+  "decision-seller-3": "n17",
+  "action-cancel-order-in-buyer": "n18",
+  "action-cancel-order-in-seller": "n19",
+  "object-ordercancellation": "n20",
+  "fork-seller": "n21",
+  "action-receive-advice-in-buyer": "n22",
+  "action-despatch-order-item-s": "n23",
+  "object-despatchadvice": "n24",
+  "action-receive-advice-in-delivery-recipient": "n25",
+  "action-decision-if-item-s-rejected": "n26",
+  "object-receiptadvice": "n27",
+  "action-receive-goods": "n28",
+  "fork-seller-2": "n29",
+  "action-advise-receipt": "n30",
+  "action-reconcile-invoice": "n31",
+  "action-raise-invoice": "n32",
+  "object-invoice": "n33",
+  "final-buyer": "n34",
+  "flow-order-to-receive-order": "f0",
+  "flow-place-order-to-order": "f1",
+  "flow-receive-order-to-decision-seller": "f2",
+  "flow-decision-seller-to-reject-order": "f3",
+  "flow-decision-seller-to-add-detail": "f4",
+  "flow-change-order-in-seller-to-decision-seller": "f5",
+  "flow-reject-order-to-orderresponsesimple-between-buyer-and-seller": "f6",
+  "flow-decision-seller-to-accept-order": "f7",
+  "flow-orderresponsesimple-between-buyer-and-seller-to-receive-response": "f8",
+  "flow-orderresponsesimple-between-buyer-and-seller-2-to-receive-response": "f9",
+  "flow-accept-order-to-orderresponsesimple-between-buyer-and-seller-2": "f10",
+  "flow-orderresponse-detailed-to-receive-response": "f11",
+  "flow-accept-order-to-decision-seller-2": "f12",
+  "flow-receive-response-to-receive-advice-in-buyer": "f13",
+  "flow-decision-buyer-to-cancel-order-in-buyer": "f14",
+  "flow-receive-response-to-decision-buyer": "f15",
+  "flow-add-detail-to-orderresponse-detailed": "f16",
+  "flow-decision-buyer-to-change-order-in-buyer": "f17",
+  "flow-add-detail-to-decision-seller-3": "f18",
+  "flow-decision-seller-2-to-cancel-order-in-seller": "f19",
+  "flow-decision-seller-2-to-fork-seller": "f20",
+  "flow-decision-seller-3-to-cancel-order-in-seller": "f21",
+  "flow-orderchange-to-change-order-in-seller": "f22",
+  "flow-change-order-in-buyer-to-orderchange": "f23",
+  "flow-decision-seller-3-to-fork-seller": "f24",
+  "flow-cancel-order-in-buyer-to-ordercancellation": "f25",
+  "flow-change-order-in-buyer-to-receive-advice-in-buyer": "f26",
+  "flow-ordercancellation-to-cancel-order-in-seller": "f27",
+  "flow-fork-seller-to-despatch-order-item-s": "f28",
+  "flow-despatchadvice-to-receive-advice-in-buyer": "f29",
+  "flow-receive-advice-in-buyer-to-reconcile-invoice": "f30",
+  "flow-despatch-order-item-s-to-despatchadvice": "f31",
+  "flow-despatchadvice-to-receive-advice-in-delivery-recipient": "f32",
+  "flow-despatch-order-item-s-to-fork-seller-2": "f33",
+  "flow-receive-advice-in-delivery-recipient-to-receive-goods": "f34",
+  "flow-receiptadvice-to-decision-if-item-s-rejected": "f35",
+  "flow-decision-if-item-s-rejected-to-fork-seller-2": "f36",
+  "flow-receive-goods-to-advise-receipt": "f37",
+  "flow-advise-receipt-to-receiptadvice": "f38",
+  "flow-fork-seller-2-to-raise-invoice": "f39",
+  "flow-reconcile-invoice-to-final-buyer": "f40",
+  "flow-raise-invoice-to-invoice": "f41",
+  "flow-invoice-to-reconcile-invoice": "f42"
+ }
+}

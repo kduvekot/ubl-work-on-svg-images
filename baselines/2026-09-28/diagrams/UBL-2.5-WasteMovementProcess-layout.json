@@ -1,0 +1,291 @@
+{
+ "schema": "ubl-activity-diagram-layout/1",
+ "figure": "UBL-2.5-WasteMovementProcess",
+ "units": "px of the original PNG",
+ "size": [
+  2501,
+  1733
+ ],
+ "style": {
+  "fontPx": 58.6,
+  "arrowPx": 36.0,
+  "arrowWidthPx": 36.0,
+  "arrowStyle": "open"
+ },
+ "rules": {
+  "vertical": [
+   {
+    "at": 0,
+    "width": 5,
+    "span": [
+     8,
+     1723
+    ]
+   },
+   {
+    "at": 1248,
+    "width": 5,
+    "span": [
+     8,
+     1723
+    ]
+   },
+   {
+    "at": 2495,
+    "width": 5,
+    "span": [
+     8,
+     1723
+    ]
+   }
+  ],
+  "horizontal": [
+   {
+    "at": 0,
+    "width": 5,
+    "span": [
+     8,
+     2491
+    ]
+   },
+   {
+    "at": 1727,
+    "width": 5,
+    "span": [
+     8,
+     2491
+    ]
+   }
+  ]
+ },
+ "greyRules": [],
+ "lanes": {
+  "lane-sender-party": {
+   "x0": 0,
+   "x1": 1250,
+   "title": {
+    "x": 362,
+    "y": 144,
+    "w": 332,
+    "h": 55,
+    "lines": [
+     {
+      "x": 362,
+      "y": 144,
+      "w": 332,
+      "h": 55,
+      "text": "Senderparty"
+     }
+    ],
+    "as": "text",
+    "bold": true
+   }
+  },
+  "lane-receiver-party": {
+   "x0": 1250,
+   "x1": 2501,
+   "title": {
+    "x": 1684,
+    "y": 145,
+    "w": 378,
+    "h": 54,
+    "lines": [
+     {
+      "x": 1684,
+      "y": 145,
+      "w": 378,
+      "h": 54,
+      "text": "ReceiverParty"
+     }
+    ],
+    "as": "text",
+    "bold": true
+   }
+  }
+ },
+ "nodes": {
+  "initial-sender-party": {
+   "x": 485,
+   "y": 288,
+   "w": 52,
+   "h": 52
+  },
+  "action-prepare-partial-waste-movement": {
+   "x": 202,
+   "y": 485,
+   "w": 619,
+   "h": 187,
+   "shape": "rounded",
+   "stroke": 5,
+   "rx": 71,
+   "ry": 70,
+   "bold": false,
+   "labelLines": [
+    {
+     "x": 241,
+     "y": 520,
+     "w": 537,
+     "h": 53,
+     "text": "Prepare partial waste"
+    },
+    {
+     "x": 378,
+     "y": 594,
+     "w": 264,
+     "h": 40,
+     "text": "movement"
+    }
+   ]
+  },
+  "object-waste-movement": {
+   "x": 1012,
+   "y": 941,
+   "w": 524,
+   "h": 235,
+   "shape": "rect",
+   "stroke": 5,
+   "rx": 0,
+   "ry": 0,
+   "bold": false,
+   "labelLines": [
+    {
+     "x": 1050,
+     "y": 1034,
+     "w": 443,
+     "h": 42,
+     "text": "Waste Movement"
+    }
+   ]
+  },
+  "action-issue-waste-movement": {
+   "x": 226,
+   "y": 964,
+   "w": 571,
+   "h": 188,
+   "shape": "rounded",
+   "stroke": 4,
+   "rx": 83,
+   "ry": 71,
+   "bold": false,
+   "labelLines": [
+    {
+     "x": 357,
+     "y": 1000,
+     "w": 306,
+     "h": 42,
+     "text": "Issue Waste"
+    },
+    {
+     "x": 378,
+     "y": 1072,
+     "w": 264,
+     "h": 42,
+     "text": "Movement"
+    }
+   ]
+  },
+  "action-receive-waste-movement": {
+   "x": 1732,
+   "y": 964,
+   "w": 571,
+   "h": 188,
+   "shape": "rounded",
+   "stroke": 4,
+   "rx": 83,
+   "ry": 77,
+   "bold": false,
+   "labelLines": [
+    {
+     "x": 1828,
+     "y": 1000,
+     "w": 377,
+     "h": 42,
+     "text": "Receive Waste"
+    },
+    {
+     "x": 1885,
+     "y": 1072,
+     "w": 263,
+     "h": 42,
+     "text": "Movement"
+    }
+   ]
+  },
+  "final-receiver-party": {
+   "x": 1972,
+   "y": 1588,
+   "w": 91,
+   "h": 91,
+   "shape": "ellipse",
+   "stroke": 5,
+   "rx": 48,
+   "ry": 47,
+   "innerRatio": 0.67
+  }
+ },
+ "flows": {
+  "flow-initial-sender-party-to-prepare-partial-waste-movement": {
+   "fromPoint": [
+    510,
+    354
+   ],
+   "toPoint": [
+    510,
+    470
+   ],
+   "routing": "straight"
+  },
+  "flow-prepare-partial-waste-movement-to-issue-waste-movement": {
+   "fromPoint": [
+    510,
+    686
+   ],
+   "toPoint": [
+    510,
+    949
+   ],
+   "routing": "straight"
+  },
+  "flow-issue-waste-movement-to-waste-movement": {
+   "fromPoint": [
+    811,
+    1058
+   ],
+   "toPoint": [
+    997,
+    1058
+   ],
+   "routing": "straight"
+  },
+  "flow-waste-movement-to-receive-waste-movement": {
+   "fromPoint": [
+    1550,
+    1058
+   ],
+   "toPoint": [
+    1717,
+    1058
+   ],
+   "routing": "straight"
+  },
+  "flow-receive-waste-movement-to-final-receiver-party": {
+   "fromPoint": [
+    2017,
+    1166
+   ],
+   "toPoint": [
+    2017,
+    1573
+   ],
+   "routing": "straight"
+  }
+ },
+ "texts": {},
+ "offPage": {},
+ "marks": {},
+ "phases": {},
+ "rulesHaveSpans": {
+  "vertical": true,
+  "horizontal": true
+ }
+}

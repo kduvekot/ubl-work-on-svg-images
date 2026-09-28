@@ -1,0 +1,11 @@
+== UBL-1.0-ProcurementProcess
+  UBL-1.0-ProcurementProcess -> diagram, layout, extraction  (34 nodes, 43 flows, 0 texts)
+  scale 0.43212   frame 12px  divider 8px  action 7px  object 11px
+  font 39px (16.7 model)   3 lanes, 0 bands, 34 nodes, 43 edges -> /tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-1.0-ProcurementProcess-spec.json
+  /tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-1.0-ProcurementProcess.svg + .drawio + -classified.svg   (34 nodes, 43 edges)
+  aligned on ink bounds: scale x 1.0000, y 1.0000
+  size 3425x1609  radius 2
+  ink: original 470205   candidate 499299
+  MISSING (red)    10542  = 2.2420% of original ink
+  EXTRA   (blue)   38373  = 8.1609% of original ink
+  RESULT: DIFFERENCES - inspect /tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-1.0-ProcurementProcess-diff-r2.png

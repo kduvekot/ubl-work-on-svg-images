@@ -1,0 +1,629 @@
+{
+ "source": "UBL-2.2-CRP-SalesAndInventoryMovement.png",
+ "size": [
+  3425,
+  1746
+ ],
+ "fontPx": 51.4,
+ "arrowPx": 53.0,
+ "arrowWidthPx": 42.0,
+ "arrowStyle": "open",
+ "rules": {
+  "v": [
+   [
+    0,
+    10
+   ],
+   [
+    1777,
+    4
+   ],
+   [
+    3415,
+    10
+   ]
+  ],
+  "h": [
+   [
+    0,
+    10
+   ],
+   [
+    1736,
+    10
+   ]
+  ]
+ },
+ "ruleSpan": {
+  "v": [
+   [
+    13,
+    1732
+   ],
+   [
+    486,
+    1732
+   ],
+   [
+    13,
+    1732
+   ]
+  ],
+  "h": [
+   [
+    13,
+    3411
+   ],
+   [
+    13,
+    3411
+   ]
+  ]
+ },
+ "greyRules": [],
+ "dashed": [],
+ "openEnds": [
+  {
+   "node": "n2",
+   "at": [
+    1774,
+    479
+   ],
+   "end": [
+    1771,
+    12
+   ],
+   "points": [],
+   "arrow": false,
+   "inward": false,
+   "headPx": null,
+   "x": 1771,
+   "y": 12,
+   "w": 4,
+   "h": 468
+  }
+ ],
+ "crossMarks": [],
+ "partitions": [
+  {
+   "axis": "column",
+   "index": 0,
+   "x0": 0,
+   "x1": 1779,
+   "title": "Producer",
+   "titleBox": [
+    792,
+    49,
+    198,
+    36
+   ]
+  },
+  {
+   "axis": "column",
+   "index": 1,
+   "x0": 1779,
+   "x1": 3425,
+   "title": "Retailer",
+   "titleBox": [
+    2520,
+    49,
+    168,
+    36
+   ]
+  },
+  {
+   "axis": "band",
+   "index": 0,
+   "y0": 0,
+   "y1": 1746,
+   "title": ""
+  }
+ ],
+ "nodes": [
+  {
+   "x": 2828,
+   "y": 171,
+   "w": 76,
+   "h": 76,
+   "area": 3751,
+   "fill": 0.766,
+   "kind": "initial",
+   "id": "n1",
+   "label": "",
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 1562,
+   "y": 494,
+   "w": 435,
+   "h": 126,
+   "area": 49027,
+   "fill": 0.894,
+   "solid": 1.0,
+   "rx": 0,
+   "ry": 0,
+   "shape": "rect",
+   "stroke": 8,
+   "kind": "object",
+   "id": "n2",
+   "label": "Product Activity",
+   "labelLines": [
+    {
+     "x": 1596,
+     "y": 535,
+     "w": 380,
+     "h": 46,
+     "text": "Product Activity"
+    }
+   ],
+   "stem": 0.136,
+   "bold": true,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 391,
+   "y": 500,
+   "w": 695,
+   "h": 118,
+   "area": 70536,
+   "fill": 0.86,
+   "solid": 0.985,
+   "rx": 59,
+   "ry": 42,
+   "shape": "rounded",
+   "stroke": 4,
+   "kind": "action",
+   "id": "n3",
+   "label": "Receive a report about sales",
+   "labelLines": [
+    {
+     "x": 406,
+     "y": 538,
+     "w": 667,
+     "h": 46,
+     "text": "Receive a report about sales"
+    }
+   ],
+   "stem": 0.136,
+   "bold": true,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 2503,
+   "y": 507,
+   "w": 729,
+   "h": 99,
+   "area": 61892,
+   "fill": 0.858,
+   "solid": 0.986,
+   "rx": 59.5,
+   "ry": 32,
+   "shape": "rounded",
+   "stroke": 4,
+   "kind": "action",
+   "id": "n4",
+   "label": "Send a report about sales",
+   "labelLines": [
+    {
+     "x": 2565,
+     "y": 540,
+     "w": 603,
+     "h": 46,
+     "text": "Send a report about sales"
+    }
+   ],
+   "stem": 0.136,
+   "bold": true,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 1558,
+   "y": 819,
+   "w": 447,
+   "h": 126,
+   "area": 50330,
+   "fill": 0.894,
+   "solid": 0.998,
+   "rx": 0,
+   "ry": 0,
+   "shape": "rect",
+   "stroke": 8,
+   "kind": "object",
+   "id": "n5",
+   "label": "Product Activity",
+   "labelLines": [
+    {
+     "x": 1596,
+     "y": 859,
+     "w": 381,
+     "h": 47,
+     "text": "Product Activity"
+    }
+   ],
+   "stem": 0.136,
+   "bold": true,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 2392,
+   "y": 821,
+   "w": 947,
+   "h": 145,
+   "area": 121029,
+   "fill": 0.881,
+   "solid": 0.989,
+   "rx": 60,
+   "ry": 57,
+   "shape": "rounded",
+   "stroke": 5,
+   "kind": "action",
+   "id": "n6",
+   "label": "Send a report about movement of\ngoods",
+   "labelLines": [
+    {
+     "x": 2468,
+     "y": 848,
+     "w": 792,
+     "h": 46,
+     "text": "Send a report about movement of"
+    },
+    {
+     "x": 2797,
+     "y": 904,
+     "w": 145,
+     "h": 47,
+     "text": "goods"
+    }
+   ],
+   "stem": 0.136,
+   "bold": true,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 219,
+   "y": 824,
+   "w": 1027,
+   "h": 146,
+   "area": 132483,
+   "fill": 0.884,
+   "solid": 0.989,
+   "rx": 59.5,
+   "ry": 56,
+   "shape": "rounded",
+   "stroke": 4,
+   "kind": "action",
+   "id": "n7",
+   "label": "Receive a report about movement of\ngoods",
+   "labelLines": [
+    {
+     "x": 295,
+     "y": 852,
+     "w": 857,
+     "h": 46,
+     "text": "Receive a report about movement of"
+    },
+    {
+     "x": 662,
+     "y": 908,
+     "w": 145,
+     "h": 47,
+     "text": "goods"
+    }
+   ],
+   "stem": 0.136,
+   "bold": true,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 82,
+   "y": 1405,
+   "w": 355,
+   "h": 23,
+   "area": 5918,
+   "fill": 0.997,
+   "kind": "fork",
+   "band": 23,
+   "box": 23,
+   "lumps": 0,
+   "id": "n8",
+   "label": "",
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 223,
+   "y": 1620,
+   "w": 69,
+   "h": 68,
+   "area": 2907,
+   "fill": 0.62,
+   "solid": 0.781,
+   "rx": 32,
+   "ry": 37,
+   "shape": "ellipse",
+   "stroke": 4,
+   "kind": "final",
+   "innerRatio": 0.435,
+   "id": "n9",
+   "label": "",
+   "col": 0,
+   "row": 0
+  }
+ ],
+ "edges": [
+  {
+   "from": "n1",
+   "to": "n4",
+   "routing": "straight",
+   "fromPoint": [
+    2867,
+    261
+   ],
+   "toPoint": [
+    2867,
+    492
+   ],
+   "arrowInk": [
+    180,
+    569
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    52,
+    42.0,
+    2.06
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n2",
+   "to": "n3",
+   "routing": "straight",
+   "fromPoint": [
+    1547,
+    558
+   ],
+   "toPoint": [
+    1100,
+    559
+   ],
+   "arrowInk": [
+    184,
+    579
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    55,
+    41.8,
+    2.29
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n4",
+   "to": "n2",
+   "routing": "straight",
+   "fromPoint": [
+    2488,
+    558
+   ],
+   "toPoint": [
+    2011,
+    558
+   ],
+   "arrowInk": [
+    184,
+    555
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    57,
+    42.0,
+    2.86
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n3",
+   "to": "n8",
+   "routing": "orthogonal",
+   "fromPoint": [
+    376,
+    558
+   ],
+   "toPoint": [
+    144,
+    1390
+   ],
+   "arrowInk": [
+    184,
+    531
+   ],
+   "directionConfidence": "high",
+   "points": [
+    [
+     144,
+     558
+    ]
+   ],
+   "arrowPx": [
+    54,
+    43.8,
+    3.05
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n4",
+   "to": "n6",
+   "routing": "straight",
+   "fromPoint": [
+    2867,
+    620
+   ],
+   "toPoint": [
+    2867,
+    806
+   ],
+   "arrowInk": [
+    180,
+    574
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    52,
+    42.0,
+    2.09
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n6",
+   "to": "n5",
+   "routing": "straight",
+   "fromPoint": [
+    2377,
+    888
+   ],
+   "toPoint": [
+    2019,
+    882
+   ],
+   "arrowInk": [
+    184,
+    557
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    55,
+    42.4,
+    2.64
+   ],
+   "arrowSaturated": true,
+   "arrowFill": 0.0,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n5",
+   "to": "n7",
+   "routing": "diagonal",
+   "fromPoint": [
+    1543,
+    882
+   ],
+   "toPoint": [
+    1260,
+    892
+   ],
+   "arrowInk": [
+    196,
+    595
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    59,
+    41.2,
+    1.88
+   ],
+   "arrowFill": 0.054,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n7",
+   "to": "n8",
+   "routing": "straight",
+   "fromPoint": [
+    378,
+    984
+   ],
+   "toPoint": [
+    377,
+    1390
+   ],
+   "arrowInk": [
+    180,
+    531
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    50,
+    41.8,
+    1.91
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n8",
+   "to": "n9",
+   "routing": "straight",
+   "fromPoint": [
+    259,
+    1442
+   ],
+   "toPoint": [
+    258,
+    1605
+   ],
+   "arrowInk": [
+    180,
+    577
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    52,
+    43.5,
+    2.03
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "control"
+  }
+ ],
+ "text": [
+  {
+   "text": "Producer",
+   "x": 792,
+   "y": 49,
+   "w": 198,
+   "h": 36,
+   "lines": [
+    {
+     "x": 792,
+     "y": 49,
+     "w": 198,
+     "h": 36,
+     "text": "Producer"
+    }
+   ]
+  },
+  {
+   "text": "Retailer",
+   "x": 2520,
+   "y": 49,
+   "w": 168,
+   "h": 36,
+   "lines": [
+    {
+     "x": 2520,
+     "y": 49,
+     "w": 168,
+     "h": 36,
+     "text": "Retailer"
+    }
+   ]
+  }
+ ],
+ "uncertain": []
+}

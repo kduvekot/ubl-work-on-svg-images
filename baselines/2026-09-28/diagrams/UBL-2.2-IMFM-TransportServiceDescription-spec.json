@@ -1,0 +1,374 @@
+{
+ "canvas": {
+  "w": 1480.0,
+  "h": 869.851
+ },
+ "stroke": {
+  "frame": 4.3,
+  "divider": 3.5,
+  "action": 3.5,
+  "object": 6.9,
+  "edge": 3.5
+ },
+ "font": {
+  "family": "Helvetica, Arial, sans-serif",
+  "node": 32.1,
+  "lane": 32.1,
+  "guard": 32.1
+ },
+ "arrow": 52.9,
+ "arrowWidth": 42.5,
+ "arrowStyle": "open",
+ "dashed": [],
+ "greyRules": [],
+ "crossMarks": [],
+ "openEnds": [],
+ "frameBox": [
+  2.2,
+  2.2,
+  1477.8,
+  867.7
+ ],
+ "dividers": [
+  [
+   741.5,
+   3.5,
+   5.6,
+   863.8
+  ]
+ ],
+ "bands": [],
+ "lanes": [
+  {
+   "id": "lane-transport-user",
+   "title": "Transport User",
+   "x": 0.0,
+   "w": 741.5,
+   "cx": 363.6,
+   "cy": 46.9,
+   "size": 30.3,
+   "textWidth": 203.5,
+   "baseline": 54.6
+  },
+  {
+   "id": "lane-transport-service-provider",
+   "title": "Transport Service Provider",
+   "x": 741.5,
+   "w": 738.5,
+   "cx": 1110.3,
+   "cy": 46.5,
+   "size": 31.3,
+   "textWidth": 363.4,
+   "baseline": 54.4
+  }
+ ],
+ "bandLabels": [],
+ "captions": [],
+ "nodes": [
+  {
+   "id": "initial-transport-user",
+   "kind": "initial",
+   "label": "",
+   "x": 210.0,
+   "y": 92.9,
+   "w": 60.9,
+   "h": 60.9
+  },
+  {
+   "id": "object-transport-service-description-request",
+   "kind": "object",
+   "label": "Transport Service\nDescription\nRequest",
+   "x": 588.1,
+   "y": 240.3,
+   "w": 306.8,
+   "h": 171.6,
+   "labelLines": [
+    {
+     "text": "Transport Service",
+     "cx": 736.5,
+     "cy": 284.195,
+     "w": 256.2,
+     "size": 30.3
+    },
+    {
+     "text": "Description",
+     "cx": 741.3,
+     "cy": 318.395,
+     "w": 166.4,
+     "size": 30.3
+    },
+    {
+     "text": "Request",
+     "cx": 743.5,
+     "cy": 352.09499999999997,
+     "w": 121.4,
+     "size": 30.3
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-receive-transport-service-description-in-transport-service-provider",
+   "kind": "action",
+   "label": "Receive Transport\nService Description\nRequest",
+   "x": 1029.3,
+   "y": 246.3,
+   "w": 410.5,
+   "h": 159.5,
+   "rx": 47.1,
+   "ry": 48.0,
+   "labelLines": [
+    {
+     "text": "Receive Transport",
+     "cx": 1232.8,
+     "cy": 283.395,
+     "w": 265.3,
+     "size": 30.3
+    },
+    {
+     "text": "Service Description",
+     "cx": 1228.5,
+     "cy": 322.695,
+     "w": 283.5,
+     "size": 30.3
+    },
+    {
+     "text": "Request",
+     "cx": 1239.3,
+     "cy": 362.895,
+     "w": 119.3,
+     "size": 30.3
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-request-transport-service-description",
+   "kind": "action",
+   "label": "Request Transport\nService Description",
+   "x": 37.2,
+   "y": 249.3,
+   "w": 410.1,
+   "h": 156.4,
+   "rx": 47.1,
+   "ry": 49.7,
+   "labelLines": [
+    {
+     "text": "Request Transport",
+     "cx": 249.1,
+     "cy": 303.695,
+     "w": 270.9,
+     "size": 30.3
+    },
+    {
+     "text": "Service Description",
+     "cx": 239.2,
+     "cy": 342.995,
+     "w": 283.0,
+     "size": 30.3
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "object-transport-service-description",
+   "kind": "object",
+   "label": "Transport Service\nDescription",
+   "x": 588.1,
+   "y": 503.0,
+   "w": 306.8,
+   "h": 171.6,
+   "labelLines": [
+    {
+     "text": "Transport Service",
+     "cx": 736.5,
+     "cy": 563.795,
+     "w": 256.2,
+     "size": 30.3
+    },
+    {
+     "text": "Description",
+     "cx": 741.3,
+     "cy": 597.895,
+     "w": 166.4,
+     "size": 30.3
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-receive-transport-service-description-in-transport-user",
+   "kind": "action",
+   "label": "Receive Transport\nService Description",
+   "x": 40.2,
+   "y": 509.0,
+   "w": 410.5,
+   "h": 153.4,
+   "rx": 45.4,
+   "ry": 49.3,
+   "labelLines": [
+    {
+     "text": "Receive Transport",
+     "cx": 243.5,
+     "cy": 562.895,
+     "w": 265.8,
+     "size": 30.3
+    },
+    {
+     "text": "Service Description",
+     "cx": 242.2,
+     "cy": 602.295,
+     "w": 283.0,
+     "size": 30.3
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-send-transport-service-description",
+   "kind": "action",
+   "label": "Send Transport Service\nDescription",
+   "x": 1032.8,
+   "y": 509.0,
+   "w": 410.1,
+   "h": 153.4,
+   "rx": 45.4,
+   "ry": 48.0,
+   "labelLines": [
+    {
+     "text": "Send Transport Service",
+     "cx": 1233.3,
+     "cy": 558.1949999999999,
+     "w": 341.4,
+     "size": 30.3
+    },
+    {
+     "text": "Description",
+     "cx": 1240.6,
+     "cy": 598.795,
+     "w": 164.2,
+     "size": 30.3
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "final-transport-user",
+   "kind": "final",
+   "label": "",
+   "x": 199.2,
+   "y": 769.6,
+   "w": 58.3,
+   "h": 57.9,
+   "innerRatio": 0.441
+  }
+ ],
+ "edges": [
+  {
+   "id": "flow-initial-transport-user-to-request-transport-service-description",
+   "from": "initial-transport-user",
+   "to": "action-request-transport-service-description",
+   "exitXY": [
+    0.5189,
+    1.0
+   ],
+   "entryXY": [
+    0.5004,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-request-transport-service-description-to-transport-service-description-request",
+   "from": "action-request-transport-service-description",
+   "to": "object-transport-service-description-request",
+   "exitXY": [
+    1.0,
+    0.5115
+   ],
+   "entryXY": [
+    0.0,
+    0.5134
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-transport-service-description-request-to-receive-transport-service-description-in-transport-service-provider",
+   "from": "object-transport-service-description-request",
+   "to": "action-receive-transport-service-description-in-transport-service-provider",
+   "exitXY": [
+    1.0,
+    0.4959
+   ],
+   "entryXY": [
+    0.0,
+    0.4984
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-receive-transport-service-description-in-transport-service-provider-to-send-transport-service-description",
+   "from": "action-receive-transport-service-description-in-transport-service-provider",
+   "to": "action-send-transport-service-description",
+   "exitXY": [
+    0.5065,
+    1.0
+   ],
+   "entryXY": [
+    0.5004,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-transport-service-description-to-receive-transport-service-description-in-transport-user",
+   "from": "object-transport-service-description",
+   "to": "action-receive-transport-service-description-in-transport-user",
+   "exitXY": [
+    0.0,
+    0.486
+   ],
+   "entryXY": [
+    1.0,
+    0.4961
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-send-transport-service-description-to-transport-service-description",
+   "from": "action-send-transport-service-description",
+   "to": "object-transport-service-description",
+   "exitXY": [
+    0.0,
+    0.4987
+   ],
+   "entryXY": [
+    1.0,
+    0.4837
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-receive-transport-service-description-in-transport-user-to-final-transport-user",
+   "from": "action-receive-transport-service-description-in-transport-user",
+   "to": "final-transport-user",
+   "exitXY": [
+    0.4643,
+    1.0
+   ],
+   "entryXY": [
+    0.5043,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  }
+ ],
+ "guards": []
+}

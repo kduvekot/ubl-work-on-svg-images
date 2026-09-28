@@ -1,0 +1,692 @@
+{
+ "schema": "ubl-activity-diagram-extraction/1",
+ "figure": "UBL-2.0-SourcingPunchoutProcess",
+ "nodes": {
+  "initial-originator-customer-party": {
+   "area": 10266,
+   "fill": 0.776
+  },
+  "note-transaction-accessing-seller-s-catalogue": {
+   "area": 192924,
+   "fill": 0.876,
+   "solid": 0.976,
+   "stem": 0.079
+  },
+  "action-build-shopping-basket": {
+   "area": 178234,
+   "fill": 0.898,
+   "solid": 0.966,
+   "stem": 0.127
+  },
+  "action-initiate-a-punchout-session": {
+   "area": 164612,
+   "fill": 0.89,
+   "solid": 0.963,
+   "stem": 0.127
+  },
+  "object-quotation": {
+   "area": 137234,
+   "fill": 0.937,
+   "solid": 1.0,
+   "stem": 0.159,
+   "keptOnOutline": true
+  },
+  "action-receive-quotation": {
+   "area": 160853,
+   "fill": 0.906,
+   "solid": 0.961,
+   "stem": 0.127
+  },
+  "action-send-shopping-basket": {
+   "area": 147462,
+   "fill": 0.883,
+   "solid": 0.96,
+   "stem": 0.127
+  },
+  "final-originator-customer-party": {
+   "area": 7292,
+   "fill": 0.637,
+   "solid": 0.793
+  }
+ },
+ "flows": {
+  "flow-initial-originator-customer-party-to-initiate-a-punchout-session": {
+   "arrowInk": [
+    315,
+    995
+   ],
+   "arrowPx": [
+    82,
+    67.2,
+    2.34
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-initiate-a-punchout-session-to-build-shopping-basket": {
+   "arrowInk": [
+    315,
+    1000
+   ],
+   "arrowPx": [
+    83,
+    66.0,
+    2.48
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-build-shopping-basket-to-send-shopping-basket": {
+   "arrowInk": [
+    315,
+    995
+   ],
+   "arrowPx": [
+    83,
+    66.0,
+    2.43
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-quotation-to-receive-quotation": {
+   "arrowInk": [
+    322,
+    920
+   ],
+   "arrowPx": [
+    89,
+    66.0,
+    2.83
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-send-shopping-basket-to-quotation": {
+   "arrowInk": [
+    322,
+    799
+   ]
+  },
+  "flow-receive-quotation-to-final-originator-customer-party": {
+   "arrowInk": [
+    315,
+    993
+   ],
+   "arrowPx": [
+    83,
+    67.1,
+    2.37
+   ],
+   "arrowFill": 0.0
+  }
+ },
+ "offPage": {},
+ "marks": {},
+ "phases": {},
+ "greyRules": [],
+ "titleReadings": [
+  {
+   "position": 0,
+   "text": "Originator Customer Party",
+   "x": 245,
+   "y": 74,
+   "w": 691,
+   "h": 56,
+   "lines": [
+    {
+     "x": 245,
+     "y": 74,
+     "w": 691,
+     "h": 56,
+     "text": "Originator Customer Party"
+    }
+   ]
+  },
+  {
+   "position": 1,
+   "text": "seller Supplier Party",
+   "x": 2313,
+   "y": 74,
+   "w": 542,
+   "h": 56,
+   "lines": [
+    {
+     "x": 2313,
+     "y": 74,
+     "w": 542,
+     "h": 56,
+     "text": "seller Supplier Party"
+    }
+   ]
+  }
+ ],
+ "findings": [],
+ "uncertain": [
+  {
+   "x": 1495,
+   "y": 1244,
+   "w": 521,
+   "h": 281,
+   "shape": "rect",
+   "iou": 1.0,
+   "border": 1.0,
+   "kind": "kept-on-outline",
+   "reason": "every side has pass-through line-work, but the region carries a complete outline of its own",
+   "check": "confirm this is a node and not trapped whitespace"
+  }
+ ],
+ "present": [
+  "source",
+  "size",
+  "fontPx",
+  "arrowPx",
+  "arrowWidthPx",
+  "arrowStyle",
+  "rules",
+  "ruleSpan",
+  "greyRules",
+  "dashed",
+  "openEnds",
+  "crossMarks",
+  "partitions",
+  "nodes",
+  "edges",
+  "text",
+  "uncertain"
+ ],
+ "uncorrected": {
+  "model": {
+   "schema": "ubl-activity-diagram/1",
+   "figure": {
+    "name": "UBL-2.0-SourcingPunchoutProcess",
+    "source": "UBL-2.0-SourcingPunchoutProcess.png"
+   },
+   "lanes": [
+    {
+     "id": "lane0",
+     "axis": "column",
+     "index": 0,
+     "title": "Originator Customer Party"
+    },
+    {
+     "id": "lane1",
+     "axis": "column",
+     "index": 1,
+     "title": "seller Supplier Party"
+    },
+    {
+     "id": "lane2",
+     "axis": "band",
+     "index": 0,
+     "title": ""
+    }
+   ],
+   "nodes": [
+    {
+     "id": "n1",
+     "kind": "initial",
+     "label": "",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n2",
+     "kind": "note",
+     "label": "Transaction\naccessing Seller's\ncatalogue\napplication",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n3",
+     "kind": "action",
+     "label": "Build shopping basket",
+     "lane": "lane1",
+     "band": "lane2"
+    },
+    {
+     "id": "n4",
+     "kind": "action",
+     "label": "Initiate a punchout\nsession",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n5",
+     "kind": "object",
+     "label": "Quotation",
+     "lane": "lane1",
+     "band": "lane2"
+    },
+    {
+     "id": "n6",
+     "kind": "action",
+     "label": "Receive quotation",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n7",
+     "kind": "action",
+     "label": "Send shopping basket",
+     "lane": "lane1",
+     "band": "lane2"
+    },
+    {
+     "id": "n8",
+     "kind": "final",
+     "label": "",
+     "lane": "lane0",
+     "band": "lane2"
+    }
+   ],
+   "flows": [
+    {
+     "id": "f0",
+     "from": "n1",
+     "to": "n4",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f1",
+     "from": "n4",
+     "to": "n3",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f2",
+     "from": "n3",
+     "to": "n7",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f3",
+     "from": "n5",
+     "to": "n6",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f4",
+     "from": "n7",
+     "to": "n5",
+     "kind": "object",
+     "direction": {
+      "confidence": "medium",
+      "checked": "confirmed"
+     }
+    },
+    {
+     "id": "f5",
+     "from": "n6",
+     "to": "n8",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    }
+   ],
+   "texts": [],
+   "offPage": [],
+   "marks": [],
+   "phases": []
+  },
+  "layout": {
+   "schema": "ubl-activity-diagram-layout/1",
+   "figure": "UBL-2.0-SourcingPunchoutProcess",
+   "units": "px of the original PNG",
+   "size": [
+    3425,
+    2060
+   ],
+   "style": {
+    "fontPx": 62.9,
+    "arrowPx": 83.0,
+    "arrowWidthPx": 66.0,
+    "arrowStyle": "open"
+   },
+   "rules": {
+    "vertical": [
+     {
+      "at": 0,
+      "width": 10,
+      "span": [
+       13,
+       2046
+      ]
+     },
+     {
+      "at": 1743,
+      "width": 7,
+      "span": [
+       13,
+       2046
+      ]
+     },
+     {
+      "at": 3415,
+      "width": 10,
+      "span": [
+       13,
+       2046
+      ]
+     }
+    ],
+    "horizontal": [
+     {
+      "at": 0,
+      "width": 10,
+      "span": [
+       13,
+       3411
+      ]
+     },
+     {
+      "at": 2050,
+      "width": 10,
+      "span": [
+       13,
+       3411
+      ]
+     }
+    ]
+   },
+   "greyRules": [],
+   "lanes": {
+    "lane0": {
+     "x0": 0,
+     "x1": 1746,
+     "titleBox": [
+      245,
+      74,
+      691,
+      56
+     ]
+    },
+    "lane1": {
+     "x0": 1746,
+     "x1": 3425,
+     "titleBox": [
+      2313,
+      74,
+      542,
+      56
+     ]
+    },
+    "lane2": {
+     "y0": 0,
+     "y1": 2060
+    }
+   },
+   "nodes": {
+    "n1": {
+     "x": 478,
+     "y": 190,
+     "w": 121,
+     "h": 121
+    },
+    "n2": {
+     "x": 1456,
+     "y": 335,
+     "w": 533,
+     "h": 413,
+     "shape": "rect",
+     "stroke": 7,
+     "rx": 0,
+     "ry": 0,
+     "fold": 59,
+     "bold": false,
+     "labelLines": [
+      {
+       "x": 1485,
+       "y": 433,
+       "w": 307,
+       "h": 44,
+       "text": "Transaction"
+      },
+      {
+       "x": 1485,
+       "y": 510,
+       "w": 474,
+       "h": 56,
+       "text": "accessing Seller's"
+      },
+      {
+       "x": 1485,
+       "y": 589,
+       "w": 256,
+       "h": 55,
+       "text": "catalogue"
+      },
+      {
+       "x": 1485,
+       "y": 667,
+       "w": 280,
+       "h": 55,
+       "text": "application"
+      }
+     ]
+    },
+    "n3": {
+     "x": 2530,
+     "y": 683,
+     "w": 772,
+     "h": 257,
+     "shape": "rounded",
+     "stroke": 7,
+     "rx": 88,
+     "ry": 86,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 2596,
+       "y": 778,
+       "w": 639,
+       "h": 56,
+       "text": "Build shopping basket"
+      }
+     ]
+    },
+    "n4": {
+     "x": 167,
+     "y": 689,
+     "w": 755,
+     "h": 245,
+     "shape": "rounded",
+     "stroke": 7,
+     "rx": 88,
+     "ry": 89,
+     "bold": true,
+     "labelLines": []
+    },
+    "n5": {
+     "x": 1495,
+     "y": 1244,
+     "w": 521,
+     "h": 281,
+     "shape": "rect",
+     "stroke": 13,
+     "rx": 0,
+     "ry": 0,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 1586,
+       "y": 1343,
+       "w": 333,
+       "h": 58,
+       "text": "Quotation"
+      }
+     ]
+    },
+    "n6": {
+     "x": 149,
+     "y": 1265,
+     "w": 725,
+     "h": 245,
+     "shape": "rounded",
+     "stroke": 7,
+     "rx": 87,
+     "ry": 88,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 252,
+       "y": 1359,
+       "w": 508,
+       "h": 55,
+       "text": "Receive quotation"
+      }
+     ]
+    },
+    "n7": {
+     "x": 2548,
+     "y": 1271,
+     "w": 736,
+     "h": 227,
+     "shape": "rounded",
+     "stroke": 7,
+     "rx": 86,
+     "ry": 85,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 2594,
+       "y": 1352,
+       "w": 638,
+       "h": 57,
+       "text": "Send shopping basket"
+      }
+     ]
+    },
+    "n8": {
+     "x": 455,
+     "y": 1865,
+     "w": 107,
+     "h": 107,
+     "shape": "ellipse",
+     "stroke": 7,
+     "rx": 48,
+     "ry": 50,
+     "innerRatio": 0.449
+    }
+   },
+   "flows": {
+    "f0": {
+     "fromPoint": [
+      540,
+      325
+     ],
+     "toPoint": [
+      542,
+      674
+     ],
+     "routing": "straight"
+    },
+    "f1": {
+     "fromPoint": [
+      936,
+      811
+     ],
+     "toPoint": [
+      2515,
+      811
+     ],
+     "routing": "straight"
+    },
+    "f2": {
+     "fromPoint": [
+      2916,
+      954
+     ],
+     "toPoint": [
+      2916,
+      1256
+     ],
+     "routing": "straight"
+    },
+    "f3": {
+     "fromPoint": [
+      1480,
+      1387
+     ],
+     "toPoint": [
+      888,
+      1387
+     ],
+     "routing": "straight"
+    },
+    "f4": {
+     "fromPoint": [
+      2533,
+      1387
+     ],
+     "toPoint": [
+      2031,
+      1387
+     ],
+     "routing": "straight"
+    },
+    "f5": {
+     "fromPoint": [
+      512,
+      1524
+     ],
+     "toPoint": [
+      510,
+      1850
+     ],
+     "routing": "straight"
+    }
+   },
+   "texts": {},
+   "offPage": {},
+   "marks": {},
+   "phases": {},
+   "rulesHaveSpans": {
+    "vertical": true,
+    "horizontal": true
+   }
+  }
+ },
+ "retexted": {
+  "lane1": {
+   "section": "lanes",
+   "text": "Seller Supplier Party"
+  }
+ },
+ "corrections": [
+  "q7-punchout-segment",
+  "q7-punchout-note-between",
+  "q10-punchout-note",
+  "text-20"
+ ],
+ "documentLanes": {
+  "object-quotation": "lane-seller-supplier-party"
+ },
+ "formerIds": {
+  "lane-originator-customer-party": "lane0",
+  "lane-seller-supplier-party": "lane1",
+  "initial-originator-customer-party": "n1",
+  "note-transaction-accessing-seller-s-catalogue": "n2",
+  "action-build-shopping-basket": "n3",
+  "action-initiate-a-punchout-session": "n4",
+  "object-quotation": "n5",
+  "action-receive-quotation": "n6",
+  "action-send-shopping-basket": "n7",
+  "final-originator-customer-party": "n8",
+  "flow-initial-originator-customer-party-to-initiate-a-punchout-session": "f0",
+  "flow-initiate-a-punchout-session-to-build-shopping-basket": "f1",
+  "flow-build-shopping-basket-to-send-shopping-basket": "f2",
+  "flow-quotation-to-receive-quotation": "f3",
+  "flow-send-shopping-basket-to-quotation": "f4",
+  "flow-receive-quotation-to-final-originator-customer-party": "f5"
+ }
+}

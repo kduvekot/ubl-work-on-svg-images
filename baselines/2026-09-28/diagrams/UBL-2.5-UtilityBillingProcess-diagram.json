@@ -1,0 +1,285 @@
+{
+ "schema": "ubl-activity-diagram/1",
+ "figure": {
+  "name": "UBL-2.5-UtilityBillingProcess",
+  "source": "UBL-2.5-UtilityBillingProcess.png"
+ },
+ "lanes": [
+  {
+   "id": "lane-accounting-customer",
+   "axis": "column",
+   "index": 0,
+   "title": "Accounting Customer"
+  },
+  {
+   "id": "lane-accounting-supplier",
+   "axis": "column",
+   "index": 1,
+   "title": "Accounting Supplier"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "initial-accounting-supplier",
+   "kind": "initial",
+   "label": "",
+   "lane": "lane-accounting-supplier"
+  },
+  {
+   "id": "object-invoice",
+   "kind": "object",
+   "label": "Invoice",
+   "lane": null,
+   "definedIn": "Business Processes",
+   "between": [
+    "lane-accounting-customer",
+    "lane-accounting-supplier"
+   ]
+  },
+  {
+   "id": "action-receive-invoice",
+   "kind": "action",
+   "label": "Receive Invoice",
+   "lane": "lane-accounting-customer"
+  },
+  {
+   "id": "action-raise-invoice",
+   "kind": "action",
+   "label": "Raise Invoice",
+   "lane": "lane-accounting-supplier"
+  },
+  {
+   "id": "object-utility-statement",
+   "kind": "object",
+   "label": "Utility Statement",
+   "lane": null,
+   "between": [
+    "lane-accounting-customer",
+    "lane-accounting-supplier"
+   ]
+  },
+  {
+   "id": "action-receive-utility-statement",
+   "kind": "action",
+   "label": "Receive Utility Statement",
+   "lane": "lane-accounting-customer"
+  },
+  {
+   "id": "action-report-usage",
+   "kind": "action",
+   "label": "Report usage",
+   "lane": "lane-accounting-supplier",
+   "unstated": {
+    "wayIn": "Not connected to the supplier's other steps: the artwork draws no start or step before it, though its Utility Statement goes with the invoice."
+   }
+  },
+  {
+   "id": "decision-reconcile-charges-in-accounting-supplier",
+   "kind": "decision",
+   "label": "Reconcile\nCharges",
+   "lane": "lane-accounting-supplier"
+  },
+  {
+   "id": "decision-reconcile-charges-in-accounting-customer",
+   "kind": "decision",
+   "label": "Reconcile\nCharges",
+   "lane": "lane-accounting-customer"
+  },
+  {
+   "id": "object-invoice-status-response",
+   "kind": "object",
+   "label": "Invoice Status\nResponse",
+   "lane": null,
+   "definedIn": "Business Processes",
+   "between": [
+    "lane-accounting-customer",
+    "lane-accounting-supplier"
+   ]
+  },
+  {
+   "id": "action-receive-account-response",
+   "kind": "action",
+   "label": "Receive Account Response",
+   "lane": "lane-accounting-supplier"
+  },
+  {
+   "id": "action-send-account-response",
+   "kind": "action",
+   "label": "Send Account Response",
+   "lane": "lane-accounting-customer"
+  },
+  {
+   "id": "final-accounting-customer",
+   "kind": "final",
+   "label": "",
+   "lane": "lane-accounting-customer"
+  },
+  {
+   "id": "final-accounting-supplier",
+   "kind": "final",
+   "label": "",
+   "lane": "lane-accounting-supplier"
+  }
+ ],
+ "flows": [
+  {
+   "id": "flow-initial-accounting-supplier-to-reconcile-charges-in-accounting-supplier",
+   "from": "initial-accounting-supplier",
+   "to": "decision-reconcile-charges-in-accounting-supplier",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-invoice-to-receive-invoice",
+   "from": "object-invoice",
+   "to": "action-receive-invoice",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-raise-invoice-to-invoice",
+   "from": "action-raise-invoice",
+   "to": "object-invoice",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-receive-invoice-to-reconcile-charges-in-accounting-customer",
+   "from": "action-receive-invoice",
+   "to": "decision-reconcile-charges-in-accounting-customer",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-reconcile-charges-in-accounting-supplier-to-raise-invoice",
+   "from": "decision-reconcile-charges-in-accounting-supplier",
+   "to": "action-raise-invoice",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   },
+   "unstated": {
+    "guard": "The artwork guards one branch of each 'Reconcile Charges'; the other ('Send Account Response', 'Raise Invoice') is the otherwise case, unlabelled."
+   }
+  },
+  {
+   "id": "flow-utility-statement-to-receive-utility-statement",
+   "from": "object-utility-statement",
+   "to": "action-receive-utility-statement",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-report-usage-to-utility-statement",
+   "from": "action-report-usage",
+   "to": "object-utility-statement",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-receive-utility-statement-to-reconcile-charges-in-accounting-customer",
+   "from": "action-receive-utility-statement",
+   "to": "decision-reconcile-charges-in-accounting-customer",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-receive-account-response-to-reconcile-charges-in-accounting-supplier",
+   "from": "action-receive-account-response",
+   "to": "decision-reconcile-charges-in-accounting-supplier",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-reconcile-charges-in-accounting-customer-to-send-account-response",
+   "from": "decision-reconcile-charges-in-accounting-customer",
+   "to": "action-send-account-response",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   },
+   "unstated": {
+    "guard": "The artwork guards one branch of each 'Reconcile Charges'; the other ('Send Account Response', 'Raise Invoice') is the otherwise case, unlabelled."
+   }
+  },
+  {
+   "id": "flow-invoice-status-response-to-receive-account-response",
+   "from": "object-invoice-status-response",
+   "to": "action-receive-account-response",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-send-account-response-to-invoice-status-response",
+   "from": "action-send-account-response",
+   "to": "object-invoice-status-response",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-reconcile-charges-in-accounting-customer-to-final-accounting-customer",
+   "from": "decision-reconcile-charges-in-accounting-customer",
+   "to": "final-accounting-customer",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   },
+   "guard": "text-agree-to-charges"
+  },
+  {
+   "id": "flow-reconcile-charges-in-accounting-supplier-to-final-accounting-supplier",
+   "from": "decision-reconcile-charges-in-accounting-supplier",
+   "to": "final-accounting-supplier",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   },
+   "guard": "text-no-action-required"
+  }
+ ],
+ "texts": [
+  {
+   "id": "text-from-business-processes",
+   "text": "(from Business\nProcesses)",
+   "labels": "object-invoice"
+  },
+  {
+   "id": "text-from-business-processes-2",
+   "text": "(from Business\nProcesses)",
+   "labels": "object-invoice-status-response"
+  },
+  {
+   "id": "text-agree-to-charges",
+   "text": "[agree to\ncharges]",
+   "labels": "flow-reconcile-charges-in-accounting-customer-to-final-accounting-customer"
+  },
+  {
+   "id": "text-no-action-required",
+   "text": "[no action\nrequired]",
+   "labels": "flow-reconcile-charges-in-accounting-supplier-to-final-accounting-supplier"
+  }
+ ],
+ "offPage": [],
+ "marks": [],
+ "phases": []
+}

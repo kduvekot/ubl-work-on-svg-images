@@ -55,12 +55,15 @@ this commit writes exactly the JSONs, SVGs and draw.io files in `diagrams/`
    or text absent or invented, nothing incoherent); the ink in error averages
    1.099% of each diagram's line-work (1.212% at the 2026-09-25 baseline); 9
    figures verdict `correct`; the 266 notes for a person are all settled.
-4. **Standing drawing rules the TC set during the review** (notes §16): lane
+4. **A new baseline, `baselines/2026-09-28/`**, holds this state: the complete
+   run `diagrams/` was taken from, its sweep table and its review PDF (78 pages:
+   original, SVG and difference per figure). Later changes are held against it.
+5. **Standing drawing rules the TC set during the review** (notes §16): lane
    dividers are one straight line; a line hop only where two solid flows cross
    (never at a divider, a phase boundary or a dashed line); a guard on its own
    flow's line is moved off it where it can stand clear; texts stay inside their
    boxes; no grey; fork bars black; small arrowhead differences are accepted.
-5. **Points for a future UBL release**, where the artwork itself is wrong (for
+6. **Points for a future UBL release**, where the artwork itself is wrong (for
    instance the guard overlap on Billing with Debit Note, for UBL 2.6), are
    listed in notes §16.
 
@@ -73,7 +76,8 @@ These were settled by correction along the way and are not to be relaxed:
 - **Fidelity is proved by measurement.** When a check shows a difference, fix the
   output; never widen a tolerance.
 - **Every change is checked over all 78**, never only on the diagram that
-  prompted it: a sweep, `tools/compare-to-baseline.sh`, and the red/blue PDF from
+  prompted it: a sweep, `tools/compare-to-baseline.sh` against
+  `baselines/2026-09-28/`, and the red/blue PDF from
   `comparison-pdf/build-compare-deck.sh`.
 - **Questions go to the TC one at a time**, with context, an overview and a
   close-up of the original, and a suggested answer; UBL.xml's own text is read
@@ -119,9 +123,18 @@ for n in $(cat tools/uml78-bycomplexity.txt); do
 ```
 
 What a correct run shows today: the sweep's tally `correct 9 improvable 0
-needs-human 69 failed 0`, and no file differing from `diagrams/`. Against the
-2026-09-25 baseline all 78 differ, as expected: the review changed every figure
-(misread words, bold titles, sizes, the drawing rules). A new baseline is due.
+needs-human 69 failed 0`, identical to `baselines/2026-09-28/sweep.txt` once
+sorted, and no file differing from `diagrams/` or from the baseline:
+
+```sh
+tools/compare-to-baseline.sh baselines/2026-09-28/diagrams out out-compare
+SAXON_JAR=/usr/share/java/Saxon-HE.jar \
+  comparison-pdf/build-compare-deck.sh ubl out-compare compare.pdf 2026-09-28 "this run"
+```
+
+Against the older `baselines/2026-09-25/` all 78 differ, as expected: the
+figure review changed every figure (misread words, bold titles, sizes, the
+drawing rules).
 
 A first run takes about 6 minutes on 4 cores, later ones under 2: the reading
 of each PNG and each render are cached outside the repository
@@ -129,20 +142,18 @@ of each PNG and each render are cached outside the repository
 
 ## Open work
 
-1. **A new baseline**, `baselines/2026-09-28/`, from this state, once the TC has
-   looked at the result. `baselines/2026-09-25/` is kept as it is.
-2. **How figures are changed from here** is not yet decided: in their JSONs
+1. **How figures are changed from here** is not yet decided: in their JSONs
    directly (the PNG pipeline then only a check), or still as corrections re-run
    from the PNG. Until it is, a change made by hand in `diagrams/` would be
    overwritten by copying in a new pipeline run - check with
    `tools/draw-from-json.sh --check` and the `cmp` loop above.
-3. **The draw.io file is poorer than the SVG** (`docs/running.md` section 8): no
+2. **The draw.io file is poorer than the SVG** (`docs/running.md` section 8): no
    bands, dividers, phase boxes or off-page flows; and every action is marked
    bold, even where the artwork sets actions in regular type.
-4. **Known limits of the checkers** (`docs/running.md` section 8): they read the
+3. **Known limits of the checkers** (`docs/running.md` section 8): they read the
    extractor's reading rather than the JSONs, and the text check forgives one
    wrong letter (the misreadings were found by eye and corrected).
-5. **Decisions not yet taken**: UML-in-draw.io or BPMN as the target; where in
+4. **Decisions not yet taken**: UML-in-draw.io or BPMN as the target; where in
    the UBL repository the sources and the pipeline should live.
 
 ## Map
@@ -153,7 +164,8 @@ of each PNG and each render are cached outside the repository
 | `tools/` | the pipeline: `extract_graph.py` (read a PNG), `model_io.py` (reading to JSONs, corrections, validation), `spec_from_model.py` + `build_diagram.py` (draw), `draw-from-json.sh` (draw from the committed JSONs), `render-svg.js`, `VisualDiff.java`, `verify_conversion.py` (the referee), `model_sheet.py`, the sweep and comparison scripts |
 | `tools/schema/` | JSON Schemas of the three JSON files |
 | `tools/*.json` | judgements the pixels cannot supply: `model-corrections.json`, `direction-verdicts.json`, `artwork-faults.json`, `reading-lexicon.json` |
-| `baselines/2026-09-25/` | the reference run before the figure review: every output of all 78, the sweep table, the review PDF |
+| `baselines/2026-09-28/` | **the current reference run**, after the figure review: every output of all 78 (the three JSONs included), the sweep table, the review PDF |
+| `baselines/2026-09-25/` | the reference run before the figure review, kept as it was |
 | `comparison-pdf/` | the review PDFs: against the original (`build-deck.sh`), against a baseline (`build-compare-deck.sh`) |
 | `docs/running.md` | how to run everything, what to install, the caches, known rough edges |
 | `docs/artwork-conversion-notes.md` | the working record: why each rule exists, what was measured and rejected, and every TC decision (§16) |

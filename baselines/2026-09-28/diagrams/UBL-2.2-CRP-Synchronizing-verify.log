@@ -1,0 +1,17 @@
+  verdict: CORRECT
+  structural: 0 element(s) absent, 0 invented, 0 text absent, 0 text differs, 0 incoherent
+  line-work  missing 1723 px (1.113%)   invented 1204 px (0.778%)   radius 3
+    line-work-missing      317 px at  3284,580     58x39    on node n4 (action 'Send information abo')
+    line-work-missing      308 px at  2287,581     54x38    on node n4 (action 'Send information abo')
+    line-work-missing      294 px at  3289,705     53x38    on node n4 (action 'Send information abo')
+    line-work-missing      286 px at  2288,707     48x35    on node n4 (action 'Send information abo')
+    line-work-missing      106 px at    85,579     31x25    on node n3 (action 'Synchronize stock in')
+    line-work-missing       94 px at  1059,579     30x22    on node n3 (action 'Synchronize stock in')
+    line-work-missing       89 px at    87,716     29x19    on node n3 (action 'Synchronize stock in')
+    line-work-missing       70 px at  1061,716     26x18    on node n3 (action 'Synchronize stock in')
+    line-work-missing       64 px at    81,625      1x64    on node n3 (action 'Synchronize stock in')
+    line-work-invented     249 px at  2296,589     49x33    on node n4 (action 'Send information abo')
+    line-work-invented     249 px at  3284,589     49x33    on node n4 (action 'Send information abo')
+    line-work-invented     233 px at  2296,702     45x32    on node n4 (action 'Send information abo')
+    ... and 3 more line-work findings
+/tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-2.2-CRP-Synchronizing-marked.png + /tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-2.2-CRP-Synchronizing-marked-lost.png  (0 finding(s) numbered)

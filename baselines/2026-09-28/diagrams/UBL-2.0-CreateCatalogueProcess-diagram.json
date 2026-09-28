@@ -1,0 +1,486 @@
+{
+ "schema": "ubl-activity-diagram/1",
+ "figure": {
+  "name": "UBL-2.0-CreateCatalogueProcess",
+  "source": "UBL-2.0-CreateCatalogueProcess.png"
+ },
+ "lanes": [
+  {
+   "id": "lane-receiver-party",
+   "axis": "column",
+   "index": 0,
+   "title": "Receiver Party"
+  },
+  {
+   "id": "lane-provider-party",
+   "axis": "column",
+   "index": 1,
+   "title": "Provider Party"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "initial-receiver-party",
+   "kind": "initial",
+   "label": "",
+   "lane": "lane-receiver-party"
+  },
+  {
+   "id": "object-catalogue-request",
+   "kind": "object",
+   "label": "Catalogue\nRequest",
+   "lane": null,
+   "between": [
+    "lane-receiver-party",
+    "lane-provider-party"
+   ]
+  },
+  {
+   "id": "action-request-catalogue",
+   "kind": "action",
+   "label": "Request Catalogue",
+   "lane": "lane-receiver-party"
+  },
+  {
+   "id": "action-respond-to-request",
+   "kind": "action",
+   "label": "Respond to Request",
+   "lane": "lane-provider-party"
+  },
+  {
+   "id": "object-application-response-negative-between-receiver-party-and-provider-party",
+   "kind": "object",
+   "label": "Application\nResponse\n(negative)",
+   "lane": null,
+   "between": [
+    "lane-receiver-party",
+    "lane-provider-party"
+   ]
+  },
+  {
+   "id": "action-send-rejection",
+   "kind": "action",
+   "label": "Send Rejection",
+   "lane": "lane-provider-party"
+  },
+  {
+   "id": "decision-provider-party",
+   "kind": "decision",
+   "label": "",
+   "lane": "lane-provider-party",
+   "unstated": {
+    "question": "The diamond after 'Respond to Request' carries no words; its question is the step before it, and both branches are guarded ([reject request], [accept request])."
+   }
+  },
+  {
+   "id": "final-receiver-party",
+   "kind": "final",
+   "label": "",
+   "lane": "lane-receiver-party"
+  },
+  {
+   "id": "fork-provider-party",
+   "kind": "fork",
+   "label": "",
+   "lane": "lane-provider-party"
+  },
+  {
+   "id": "object-application-response-positive-between-receiver-party-and-provider-party",
+   "kind": "object",
+   "label": "Application\nResponse\n(positive)",
+   "lane": null,
+   "between": [
+    "lane-receiver-party",
+    "lane-provider-party"
+   ]
+  },
+  {
+   "id": "action-prepare-catalogue-information",
+   "kind": "action",
+   "label": "Prepare Catalogue\nInformation",
+   "lane": "lane-provider-party"
+  },
+  {
+   "id": "action-send-acceptance-response",
+   "kind": "action",
+   "label": "Send Acceptance\nResponse",
+   "lane": "lane-provider-party"
+  },
+  {
+   "id": "action-produce-catalogue",
+   "kind": "action",
+   "label": "Produce Catalogue",
+   "lane": "lane-provider-party"
+  },
+  {
+   "id": "action-distribute-catalogue",
+   "kind": "action",
+   "label": "Distribute Catalogue",
+   "lane": "lane-provider-party"
+  },
+  {
+   "id": "object-catalogue",
+   "kind": "object",
+   "label": "Catalogue",
+   "lane": null,
+   "between": [
+    "lane-receiver-party",
+    "lane-provider-party"
+   ]
+  },
+  {
+   "id": "fork-receiver-party",
+   "kind": "fork",
+   "label": "",
+   "lane": "lane-receiver-party"
+  },
+  {
+   "id": "action-receive-catalogue",
+   "kind": "action",
+   "label": "Receive Catalogue",
+   "lane": "lane-receiver-party"
+  },
+  {
+   "id": "decision-decide-on-action",
+   "kind": "decision",
+   "label": "Decide on Action",
+   "lane": "lane-provider-party"
+  },
+  {
+   "id": "decision-review-catalogue-content",
+   "kind": "decision",
+   "label": "Review Catalogue\nContent",
+   "lane": "lane-receiver-party"
+  },
+  {
+   "id": "object-application-response-negative-between-receiver-party-and-provider-party-2",
+   "kind": "object",
+   "label": "Application\nResponse\n(negative)",
+   "lane": null,
+   "between": [
+    "lane-receiver-party",
+    "lane-provider-party"
+   ]
+  },
+  {
+   "id": "object-application-response-positive-between-receiver-party-and-provider-party-2",
+   "kind": "object",
+   "label": "Application\nResponse\n(positive)",
+   "lane": null,
+   "between": [
+    "lane-receiver-party",
+    "lane-provider-party"
+   ]
+  },
+  {
+   "id": "action-acknowledge-acceptance",
+   "kind": "action",
+   "label": "Acknowledge Acceptance",
+   "lane": "lane-receiver-party"
+  },
+  {
+   "id": "final-provider-party",
+   "kind": "final",
+   "label": "",
+   "lane": "lane-provider-party"
+  },
+  {
+   "id": "action-accept-catalogue",
+   "kind": "action",
+   "label": "Accept Catalogue",
+   "lane": "lane-receiver-party"
+  },
+  {
+   "id": "final-receiver-party-2",
+   "kind": "final",
+   "label": "",
+   "lane": "lane-receiver-party"
+  }
+ ],
+ "flows": [
+  {
+   "id": "flow-initial-receiver-party-to-request-catalogue",
+   "from": "initial-receiver-party",
+   "to": "action-request-catalogue",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-request-catalogue-to-catalogue-request",
+   "from": "action-request-catalogue",
+   "to": "object-catalogue-request",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-catalogue-request-to-respond-to-request",
+   "from": "object-catalogue-request",
+   "to": "action-respond-to-request",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-respond-to-request-to-decision-provider-party",
+   "from": "action-respond-to-request",
+   "to": "decision-provider-party",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-decision-provider-party-to-send-rejection",
+   "from": "decision-provider-party",
+   "to": "action-send-rejection",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   },
+   "guard": "text-reject-request"
+  },
+  {
+   "id": "flow-application-response-negative-between-receiver-party-and-provider-party-to-final-receiver-party",
+   "from": "object-application-response-negative-between-receiver-party-and-provider-party",
+   "to": "final-receiver-party",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-send-rejection-to-application-response-negative-between-receiver-party-and-provider-party",
+   "from": "action-send-rejection",
+   "to": "object-application-response-negative-between-receiver-party-and-provider-party",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-decision-provider-party-to-fork-provider-party",
+   "from": "decision-provider-party",
+   "to": "fork-provider-party",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   },
+   "guard": "text-accept-request"
+  },
+  {
+   "id": "flow-fork-provider-party-to-send-acceptance-response",
+   "from": "fork-provider-party",
+   "to": "action-send-acceptance-response",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-fork-provider-party-to-prepare-catalogue-information",
+   "from": "fork-provider-party",
+   "to": "action-prepare-catalogue-information",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-send-acceptance-response-to-application-response-positive-between-receiver-party-and-provider-party",
+   "from": "action-send-acceptance-response",
+   "to": "object-application-response-positive-between-receiver-party-and-provider-party",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-application-response-positive-between-receiver-party-and-provider-party-to-fork-receiver-party",
+   "from": "object-application-response-positive-between-receiver-party-and-provider-party",
+   "to": "fork-receiver-party",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-prepare-catalogue-information-to-produce-catalogue",
+   "from": "action-prepare-catalogue-information",
+   "to": "action-produce-catalogue",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-decide-on-action-to-prepare-catalogue-information",
+   "from": "decision-decide-on-action",
+   "to": "action-prepare-catalogue-information",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   },
+   "guard": "text-revise-content"
+  },
+  {
+   "id": "flow-produce-catalogue-to-distribute-catalogue",
+   "from": "action-produce-catalogue",
+   "to": "action-distribute-catalogue",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-catalogue-to-fork-receiver-party",
+   "from": "object-catalogue",
+   "to": "fork-receiver-party",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-distribute-catalogue-to-catalogue",
+   "from": "action-distribute-catalogue",
+   "to": "object-catalogue",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-fork-receiver-party-to-receive-catalogue",
+   "from": "fork-receiver-party",
+   "to": "action-receive-catalogue",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-receive-catalogue-to-review-catalogue-content",
+   "from": "action-receive-catalogue",
+   "to": "decision-review-catalogue-content",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-application-response-negative-between-receiver-party-and-provider-party-2-to-decide-on-action",
+   "from": "object-application-response-negative-between-receiver-party-and-provider-party-2",
+   "to": "decision-decide-on-action",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-review-catalogue-content-to-application-response-negative-between-receiver-party-and-provider-party-2",
+   "from": "decision-review-catalogue-content",
+   "to": "object-application-response-negative-between-receiver-party-and-provider-party-2",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   },
+   "guard": "text-query-catalogue-content"
+  },
+  {
+   "id": "flow-decide-on-action-to-final-provider-party",
+   "from": "decision-decide-on-action",
+   "to": "final-provider-party",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   },
+   "guard": "text-cancel-transaction"
+  },
+  {
+   "id": "flow-review-catalogue-content-to-acknowledge-acceptance",
+   "from": "decision-review-catalogue-content",
+   "to": "action-acknowledge-acceptance",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   },
+   "guard": "text-accept-content"
+  },
+  {
+   "id": "flow-acknowledge-acceptance-to-application-response-positive-between-receiver-party-and-provider-party-2",
+   "from": "action-acknowledge-acceptance",
+   "to": "object-application-response-positive-between-receiver-party-and-provider-party-2",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-application-response-positive-between-receiver-party-and-provider-party-2-to-final-provider-party",
+   "from": "object-application-response-positive-between-receiver-party-and-provider-party-2",
+   "to": "final-provider-party",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-acknowledge-acceptance-to-accept-catalogue",
+   "from": "action-acknowledge-acceptance",
+   "to": "action-accept-catalogue",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-accept-catalogue-to-final-receiver-party-2",
+   "from": "action-accept-catalogue",
+   "to": "final-receiver-party-2",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  }
+ ],
+ "texts": [
+  {
+   "id": "text-reject-request",
+   "text": "[reject request]",
+   "labels": "flow-decision-provider-party-to-send-rejection"
+  },
+  {
+   "id": "text-accept-request",
+   "text": "[accept request]",
+   "labels": "flow-decision-provider-party-to-fork-provider-party"
+  },
+  {
+   "id": "text-revise-content",
+   "text": "[revise content]",
+   "labels": "flow-decide-on-action-to-prepare-catalogue-information"
+  },
+  {
+   "id": "text-query-catalogue-content",
+   "text": "[query catalogue\ncontent]",
+   "labels": "flow-review-catalogue-content-to-application-response-negative-between-receiver-party-and-provider-party-2"
+  },
+  {
+   "id": "text-accept-content",
+   "text": "[accept content]",
+   "labels": "flow-review-catalogue-content-to-acknowledge-acceptance"
+  },
+  {
+   "id": "text-cancel-transaction",
+   "text": "[cancel transaction]",
+   "labels": "flow-decide-on-action-to-final-provider-party"
+  }
+ ],
+ "offPage": [],
+ "marks": [],
+ "phases": []
+}

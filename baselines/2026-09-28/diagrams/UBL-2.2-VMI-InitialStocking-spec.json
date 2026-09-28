@@ -1,0 +1,694 @@
+{
+ "canvas": {
+  "w": 1480.0,
+  "h": 1511.977
+ },
+ "stroke": {
+  "frame": 4.3,
+  "divider": 1.7,
+  "action": 2.2,
+  "object": 3.9,
+  "edge": 2.2
+ },
+ "font": {
+  "family": "Helvetica, Arial, sans-serif",
+  "node": 24.1,
+  "lane": 24.1,
+  "guard": 24.1
+ },
+ "arrow": 30.2,
+ "arrowWidth": 23.8,
+ "arrowStyle": "open",
+ "dashed": [],
+ "greyRules": [],
+ "crossMarks": [],
+ "openEnds": [],
+ "frameBox": [
+  2.2,
+  2.2,
+  1477.8,
+  1509.8
+ ],
+ "dividers": [
+  [
+   546.6,
+   1.7,
+   5.6,
+   1505.9
+  ]
+ ],
+ "bands": [],
+ "lanes": [
+  {
+   "id": "lane-producer",
+   "title": "Producer",
+   "x": 0.0,
+   "w": 546.6,
+   "cx": 255.6,
+   "cy": 33.7,
+   "size": 22.9,
+   "textWidth": 90.3,
+   "baseline": 41.9
+  },
+  {
+   "id": "lane-retailer",
+   "title": "Retailer",
+   "x": 546.6,
+   "w": 933.4,
+   "cx": 998.6,
+   "cy": 34.1,
+   "size": 22.9,
+   "textWidth": 76.9,
+   "baseline": 42.3
+  }
+ ],
+ "bandLabels": [],
+ "captions": [],
+ "nodes": [
+  {
+   "id": "initial-producer",
+   "kind": "initial",
+   "label": "",
+   "x": 187.5,
+   "y": 72.2,
+   "w": 35.0,
+   "h": 35.0
+  },
+  {
+   "id": "action-calculate-the-initial-delivery",
+   "kind": "action",
+   "label": "Calculate the initial delivery",
+   "x": 36.1,
+   "y": 227.1,
+   "w": 334.0,
+   "h": 49.3,
+   "rx": 24.4,
+   "ry": 14.5,
+   "labelLines": [
+    {
+     "text": "Calculate the initial delivery",
+     "cx": 196.6,
+     "cy": 253.78500000000003,
+     "w": 298.2,
+     "size": 22.9
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "object-catalogue",
+   "kind": "object",
+   "label": "Catalogue",
+   "x": 471.2,
+   "y": 367.1,
+   "w": 149.1,
+   "h": 61.4,
+   "labelLines": [
+    {
+     "text": "Catalogue",
+     "cx": 548.8,
+     "cy": 395.36,
+     "w": 108.0,
+     "size": 22.4
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-receive-catalogue",
+   "kind": "action",
+   "label": "Receive Catalogue",
+   "x": 798.3,
+   "y": 368.8,
+   "w": 234.6,
+   "h": 56.2,
+   "rx": 27.4,
+   "ry": 18.4,
+   "labelLines": [
+    {
+     "text": "Receive Catalogue",
+     "cx": 912.2,
+     "cy": 395.485,
+     "w": 199.6,
+     "size": 22.9
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-update-products-database",
+   "kind": "action",
+   "label": "Update products database",
+   "x": 1118.5,
+   "y": 368.8,
+   "w": 325.4,
+   "h": 56.2,
+   "rx": 27.4,
+   "ry": 16.2,
+   "labelLines": [
+    {
+     "text": "Update products database",
+     "cx": 1280.8,
+     "cy": 395.985,
+     "w": 283.5,
+     "size": 22.9
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-send-catalogue",
+   "kind": "action",
+   "label": "Send Catalogue",
+   "x": 86.6,
+   "y": 370.5,
+   "w": 234.6,
+   "h": 56.2,
+   "rx": 27.4,
+   "ry": 18.4,
+   "labelLines": [
+    {
+     "text": "Send Catalogue",
+     "cx": 200.5,
+     "cy": 397.285,
+     "w": 170.3,
+     "size": 22.9
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "object-despatch-advice",
+   "kind": "object",
+   "label": "Despatch Advice",
+   "x": 448.8,
+   "y": 522.6,
+   "w": 197.9,
+   "h": 61.8,
+   "labelLines": [
+    {
+     "text": "Despatch Advice",
+     "cx": 550.3,
+     "cy": 551.36,
+     "w": 181.9,
+     "size": 22.4
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-send-despatch-advice",
+   "kind": "action",
+   "label": "Send Despatch Advice",
+   "x": 69.4,
+   "y": 526.1,
+   "w": 269.2,
+   "h": 56.6,
+   "rx": 27.4,
+   "ry": 16.2,
+   "labelLines": [
+    {
+     "text": "Send Despatch Advice",
+     "cx": 202.2,
+     "cy": 553.285,
+     "w": 243.7,
+     "size": 22.9
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-receive-despatch-advice",
+   "kind": "action",
+   "label": "Receive Despatch Advice",
+   "x": 770.2,
+   "y": 526.1,
+   "w": 350.0,
+   "h": 56.6,
+   "rx": 27.4,
+   "ry": 22.7,
+   "labelLines": [
+    {
+     "text": "Receive Despatch Advice",
+     "cx": 943.7,
+     "cy": 553.285,
+     "w": 273.1,
+     "size": 22.9
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-despatch-item-s",
+   "kind": "action",
+   "label": "Despatch item(s)",
+   "x": 67.6,
+   "y": 701.1,
+   "w": 267.5,
+   "h": 56.2,
+   "rx": 27.4,
+   "ry": 16.2,
+   "labelLines": [
+    {
+     "text": "Despatch item(s)",
+     "cx": 203.1,
+     "cy": 727.785,
+     "w": 180.6,
+     "size": 22.9
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-receive-item-s",
+   "kind": "action",
+   "label": "Receive item(s)",
+   "x": 782.8,
+   "y": 702.8,
+   "w": 267.5,
+   "h": 56.2,
+   "rx": 27.4,
+   "ry": 17.1,
+   "labelLines": [
+    {
+     "text": "Receive item(s)",
+     "cx": 915.2,
+     "cy": 729.985,
+     "w": 164.2,
+     "size": 22.9
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "fork-retailer",
+   "kind": "fork",
+   "label": "",
+   "x": 829.2,
+   "y": 861.6,
+   "w": 536.7,
+   "h": 10.4
+  },
+  {
+   "id": "action-check-status-of-item-s",
+   "kind": "action",
+   "label": "Check status of item(s)",
+   "x": 960.8,
+   "y": 998.8,
+   "w": 269.6,
+   "h": 57.9,
+   "rx": 26.1,
+   "ry": 25.7,
+   "labelLines": [
+    {
+     "text": "Check status of item(s)",
+     "cx": 1098.4,
+     "cy": 1025.5849999999998,
+     "w": 248.0,
+     "size": 22.9
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "object-receipt-advice",
+   "kind": "object",
+   "label": "Receipt Advice",
+   "x": 448.8,
+   "y": 1137.1,
+   "w": 197.9,
+   "h": 63.1,
+   "labelLines": [
+    {
+     "text": "Receipt Advice",
+     "cx": 548.8,
+     "cy": 1165.8600000000001,
+     "w": 161.6,
+     "size": 22.4
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-send-receipt-advice",
+   "kind": "action",
+   "label": "Send Receipt Advice",
+   "x": 959.1,
+   "y": 1138.8,
+   "w": 269.6,
+   "h": 56.2,
+   "rx": 27.9,
+   "ry": 19.7,
+   "labelLines": [
+    {
+     "text": "Send Receipt Advice",
+     "cx": 1091.1,
+     "cy": 1165.5849999999998,
+     "w": 223.0,
+     "size": 22.9
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-receive-receipt-advice",
+   "kind": "action",
+   "label": "Receive Receipt Advice",
+   "x": 83.2,
+   "y": 1142.3,
+   "w": 269.6,
+   "h": 54.4,
+   "rx": 27.4,
+   "ry": 17.5,
+   "labelLines": [
+    {
+     "text": "Receive Receipt Advice",
+     "cx": 216.5,
+     "cy": 1169.485,
+     "w": 253.2,
+     "size": 22.9
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-adjust-supply-status",
+   "kind": "action",
+   "label": "Adjust supply status",
+   "x": 83.2,
+   "y": 1276.7,
+   "w": 269.6,
+   "h": 58.3,
+   "rx": 27.4,
+   "ry": 18.8,
+   "labelLines": [
+    {
+     "text": "Adjust supply status",
+     "cx": 220.8,
+     "cy": 1304.2849999999999,
+     "w": 222.1,
+     "size": 22.9
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "final-producer",
+   "kind": "final",
+   "label": "",
+   "x": 202.2,
+   "y": 1439.8,
+   "w": 33.3,
+   "h": 33.3,
+   "innerRatio": 0.438
+  }
+ ],
+ "edges": [
+  {
+   "id": "flow-initial-producer-to-calculate-the-initial-delivery",
+   "from": "initial-producer",
+   "to": "action-calculate-the-initial-delivery",
+   "exitXY": [
+    0.4829,
+    1.0
+   ],
+   "entryXY": [
+    0.5,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-calculate-the-initial-delivery-to-send-catalogue",
+   "from": "action-calculate-the-initial-delivery",
+   "to": "action-send-catalogue",
+   "exitXY": [
+    0.5012,
+    1.0
+   ],
+   "entryXY": [
+    0.5004,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-catalogue-to-receive-catalogue",
+   "from": "object-catalogue",
+   "to": "action-receive-catalogue",
+   "exitXY": [
+    1.0,
+    0.4821
+   ],
+   "entryXY": [
+    0.0,
+    0.4964
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-receive-catalogue-to-update-products-database",
+   "from": "action-receive-catalogue",
+   "to": "action-update-products-database",
+   "exitXY": [
+    1.0,
+    0.4964
+   ],
+   "entryXY": [
+    0.0,
+    0.4964
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-send-catalogue-to-catalogue",
+   "from": "action-send-catalogue",
+   "to": "object-catalogue",
+   "exitXY": [
+    1.0,
+    0.4964
+   ],
+   "entryXY": [
+    0.0,
+    0.5098
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-update-products-database-to-fork-retailer",
+   "from": "action-update-products-database",
+   "to": "fork-retailer",
+   "exitXY": [
+    0.4935,
+    1.0
+   ],
+   "entryXY": [
+    0.8383,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-send-catalogue-to-send-despatch-advice",
+   "from": "action-send-catalogue",
+   "to": "action-send-despatch-advice",
+   "exitXY": [
+    0.5004,
+    1.0
+   ],
+   "entryXY": [
+    0.5,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-send-despatch-advice-to-despatch-advice",
+   "from": "action-send-despatch-advice",
+   "to": "object-despatch-advice",
+   "exitXY": [
+    1.0,
+    0.5
+   ],
+   "entryXY": [
+    0.0,
+    0.5081
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-despatch-advice-to-receive-despatch-advice",
+   "from": "object-despatch-advice",
+   "to": "action-receive-despatch-advice",
+   "exitXY": [
+    1.0,
+    0.5081
+   ],
+   "entryXY": [
+    0.0,
+    0.5
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-send-despatch-advice-to-despatch-item-s",
+   "from": "action-send-despatch-advice",
+   "to": "action-despatch-item-s",
+   "exitXY": [
+    0.4952,
+    1.0
+   ],
+   "entryXY": [
+    0.5002,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-receive-despatch-advice-to-fork-retailer",
+   "from": "action-receive-despatch-advice",
+   "to": "fork-retailer",
+   "exitXY": [
+    0.934,
+    1.0
+   ],
+   "entryXY": [
+    0.5001,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-despatch-item-s-to-receive-item-s",
+   "from": "action-despatch-item-s",
+   "to": "action-receive-item-s",
+   "exitXY": [
+    1.0,
+    0.4964
+   ],
+   "entryXY": [
+    0.0,
+    0.4662
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-receive-item-s-to-fork-retailer",
+   "from": "action-receive-item-s",
+   "to": "fork-retailer",
+   "exitXY": [
+    0.495,
+    1.0
+   ],
+   "entryXY": [
+    0.1602,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-fork-retailer-to-check-status-of-item-s",
+   "from": "fork-retailer",
+   "to": "action-check-status-of-item-s",
+   "exitXY": [
+    0.5001,
+    1.0
+   ],
+   "entryXY": [
+    0.5041,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-check-status-of-item-s-to-send-receipt-advice",
+   "from": "action-check-status-of-item-s",
+   "to": "action-send-receipt-advice",
+   "exitXY": [
+    0.4944,
+    1.0
+   ],
+   "entryXY": [
+    0.4993,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-send-receipt-advice-to-receipt-advice",
+   "from": "action-send-receipt-advice",
+   "to": "object-receipt-advice",
+   "exitXY": [
+    0.0,
+    0.4964
+   ],
+   "entryXY": [
+    1.0,
+    0.4691
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-receipt-advice-to-receive-receipt-advice",
+   "from": "object-receipt-advice",
+   "to": "action-receive-receipt-advice",
+   "exitXY": [
+    0.0,
+    0.4897
+   ],
+   "entryXY": [
+    1.0,
+    0.4798
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-receive-receipt-advice-to-adjust-supply-status",
+   "from": "action-receive-receipt-advice",
+   "to": "action-adjust-supply-status",
+   "exitXY": [
+    0.4993,
+    1.0
+   ],
+   "entryXY": [
+    0.4993,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-adjust-supply-status-to-final-producer",
+   "from": "action-adjust-supply-status",
+   "to": "final-producer",
+   "exitXY": [
+    0.4993,
+    1.0
+   ],
+   "entryXY": [
+    0.4685,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  }
+ ],
+ "guards": []
+}

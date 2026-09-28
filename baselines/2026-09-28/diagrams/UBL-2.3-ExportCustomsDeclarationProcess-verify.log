@@ -1,0 +1,7 @@
+  verdict: NEEDS-HUMAN
+  structural: 0 element(s) absent, 0 invented, 0 text absent, 0 text differs, 0 incoherent
+  line-work  missing 58 px (0.122%)   invented 4 px (0.008%)   radius 3
+  needs a person (2):
+    no-weight-split     confirm the diagram really has no object nodes
+    ring-stroke-unreadable at 79,953  confirm this is an activity final and how thick its ring is
+/tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-2.3-ExportCustomsDeclarationProcess-marked.png + /tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-2.3-ExportCustomsDeclarationProcess-marked-lost.png  (2 finding(s) numbered)

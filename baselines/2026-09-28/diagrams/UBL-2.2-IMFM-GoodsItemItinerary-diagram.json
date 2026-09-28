@@ -1,0 +1,128 @@
+{
+ "schema": "ubl-activity-diagram/1",
+ "figure": {
+  "name": "UBL-2.2-IMFM-GoodsItemItinerary",
+  "source": "UBL-2.2-IMFM-GoodsItemItinerary.png"
+ },
+ "lanes": [
+  {
+   "id": "lane-transport-user",
+   "axis": "column",
+   "index": 0,
+   "title": "Transport User"
+  },
+  {
+   "id": "lane-transport-service-provider",
+   "axis": "column",
+   "index": 1,
+   "title": "Transport Service Provider"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "initial-transport-service-provider",
+   "kind": "initial",
+   "label": "",
+   "lane": "lane-transport-service-provider",
+   "trigger": "the Transport Execution Plan is confirmed"
+  },
+  {
+   "id": "object-goods-item-itinerary",
+   "kind": "object",
+   "label": "Goods Item\nItinerary",
+   "lane": null,
+   "between": [
+    "lane-transport-user",
+    "lane-transport-service-provider"
+   ]
+  },
+  {
+   "id": "action-send-goods-item-itinerary",
+   "kind": "action",
+   "label": "Send Goods Item Itinerary",
+   "lane": "lane-transport-service-provider"
+  },
+  {
+   "id": "action-receive-goods-item-itinerary",
+   "kind": "action",
+   "label": "Receive Goods Item\nItinerary",
+   "lane": "lane-transport-user"
+  },
+  {
+   "id": "initial-transport-service-provider-2",
+   "kind": "initial",
+   "label": "",
+   "lane": "lane-transport-service-provider",
+   "trigger": "the Transport Execution Plan is updated"
+  },
+  {
+   "id": "final-transport-user",
+   "kind": "final",
+   "label": "",
+   "lane": "lane-transport-user"
+  }
+ ],
+ "flows": [
+  {
+   "id": "flow-initial-transport-service-provider-to-send-goods-item-itinerary",
+   "from": "initial-transport-service-provider",
+   "to": "action-send-goods-item-itinerary",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-send-goods-item-itinerary-to-goods-item-itinerary",
+   "from": "action-send-goods-item-itinerary",
+   "to": "object-goods-item-itinerary",
+   "kind": "object",
+   "direction": {
+    "confidence": "medium",
+    "checked": "confirmed"
+   }
+  },
+  {
+   "id": "flow-goods-item-itinerary-to-receive-goods-item-itinerary",
+   "from": "object-goods-item-itinerary",
+   "to": "action-receive-goods-item-itinerary",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-initial-transport-service-provider-2-to-send-goods-item-itinerary",
+   "from": "initial-transport-service-provider-2",
+   "to": "action-send-goods-item-itinerary",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-receive-goods-item-itinerary-to-final-transport-user",
+   "from": "action-receive-goods-item-itinerary",
+   "to": "final-transport-user",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  }
+ ],
+ "texts": [
+  {
+   "id": "text-transport-execution-plan-confirmed",
+   "text": "Transport Execution\nPlan Confirmed",
+   "labels": "initial-transport-service-provider"
+  },
+  {
+   "id": "text-transport-execution-updates",
+   "text": "Transport\nExecution\nUpdates",
+   "labels": "initial-transport-service-provider-2"
+  }
+ ],
+ "offPage": [],
+ "marks": [],
+ "phases": []
+}

@@ -1,0 +1,910 @@
+{
+ "schema": "ubl-activity-diagram-layout/1",
+ "figure": "UBL-2.2-CPFR-CreateOrderForecast",
+ "units": "px of the original PNG",
+ "size": [
+  3425,
+  4004
+ ],
+ "style": {
+  "fontPx": 45.7,
+  "arrowPx": 63.0,
+  "arrowWidthPx": 50.3,
+  "arrowStyle": "open"
+ },
+ "rules": {
+  "vertical": [
+   {
+    "at": 0,
+    "width": 10,
+    "span": [
+     13,
+     3990
+    ]
+   },
+   {
+    "at": 1690,
+    "width": 1,
+    "span": [
+     13,
+     3990
+    ]
+   },
+   {
+    "at": 3415,
+    "width": 10,
+    "span": [
+     13,
+     3990
+    ]
+   }
+  ],
+  "horizontal": [
+   {
+    "at": 0,
+    "width": 10,
+    "span": [
+     13,
+     3411
+    ]
+   },
+   {
+    "at": 3994,
+    "width": 10,
+    "span": [
+     13,
+     3411
+    ]
+   }
+  ]
+ },
+ "greyRules": [],
+ "lanes": {
+  "lane-buyer-party": {
+   "x0": 0,
+   "x1": 1690
+  },
+  "lane-seller-party": {
+   "x0": 1690,
+   "x1": 3425
+  }
+ },
+ "nodes": {
+  "fork-buyer-party": {
+   "x": 622,
+   "y": 181,
+   "w": 230,
+   "h": 27
+  },
+  "action-send-product-activity": {
+   "x": 151,
+   "y": 488,
+   "w": 377,
+   "h": 279,
+   "shape": "rounded",
+   "stroke": 3,
+   "rx": 63,
+   "ry": 67,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 195,
+     "y": 578,
+     "w": 281,
+     "h": 32,
+     "text": "Send Product"
+    },
+    {
+     "x": 264,
+     "y": 636,
+     "w": 154,
+     "h": 41,
+     "text": "Activity"
+    }
+   ]
+  },
+  "action-send-retail-event": {
+   "x": 1061,
+   "y": 492,
+   "w": 350,
+   "h": 266,
+   "shape": "rounded",
+   "stroke": 3,
+   "rx": 67,
+   "ry": 63,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 1115,
+     "y": 572,
+     "w": 234,
+     "h": 32,
+     "text": "Send Retail"
+    },
+    {
+     "x": 1183,
+     "y": 629,
+     "w": 114,
+     "h": 32,
+     "text": "Event"
+    }
+   ]
+  },
+  "object-retail-event": {
+   "x": 1495,
+   "y": 846,
+   "w": 391,
+   "h": 216,
+   "shape": "rect",
+   "stroke": 5,
+   "rx": 0,
+   "ry": 0,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 1560,
+     "y": 927,
+     "w": 249,
+     "h": 32,
+     "text": "Retail Event"
+    }
+   ]
+  },
+  "fork-seller-party": {
+   "x": 2286,
+   "y": 1223,
+   "w": 27,
+   "h": 177
+  },
+  "action-receive": {
+   "x": 2619,
+   "y": 1229,
+   "w": 593,
+   "h": 169,
+   "shape": "rounded",
+   "stroke": 3,
+   "rx": 70,
+   "ry": 67,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 2828,
+     "y": 1293,
+     "w": 160,
+     "h": 33,
+     "text": "Receive"
+    }
+   ]
+  },
+  "object-product-activity": {
+   "x": 1499,
+   "y": 1381,
+   "w": 392,
+   "h": 215,
+   "shape": "rect",
+   "stroke": 6,
+   "rx": 0,
+   "ry": 0,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 1525,
+     "y": 1463,
+     "w": 334,
+     "h": 41,
+     "text": "Product Activity"
+    }
+   ]
+  },
+  "action-send-order-forecast-in-seller-party": {
+   "x": 2641,
+   "y": 1715,
+   "w": 593,
+   "h": 178,
+   "shape": "rounded",
+   "stroke": 3,
+   "rx": 66,
+   "ry": 68,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 2711,
+     "y": 1783,
+     "w": 431,
+     "h": 33,
+     "text": "Send Order Forecast"
+    }
+   ]
+  },
+  "object-forecast-order": {
+   "x": 1495,
+   "y": 1954,
+   "w": 391,
+   "h": 216,
+   "shape": "rect",
+   "stroke": 5,
+   "rx": 0,
+   "ry": 0,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 1520,
+     "y": 2033,
+     "w": 333,
+     "h": 41,
+     "text": "Forecast (order)"
+    }
+   ]
+  },
+  "action-receive-order-forecast-in-buyer-party": {
+   "x": 306,
+   "y": 1976,
+   "w": 592,
+   "h": 186,
+   "shape": "rounded",
+   "stroke": 4,
+   "rx": 61,
+   "ry": 62,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 349,
+     "y": 2044,
+     "w": 488,
+     "h": 32,
+     "text": "Receive Order Forecast"
+    }
+   ]
+  },
+  "action-revise-order-forecast-and-send-revision": {
+   "x": 310,
+   "y": 2377,
+   "w": 593,
+   "h": 209,
+   "shape": "rounded",
+   "stroke": 3,
+   "rx": 67,
+   "ry": 67,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 369,
+     "y": 2430,
+     "w": 463,
+     "h": 32,
+     "text": "Revise Order Forecast"
+    },
+    {
+     "x": 415,
+     "y": 2488,
+     "w": 383,
+     "h": 32,
+     "text": "and Send Revision"
+    }
+   ]
+  },
+  "object-forecast-revision-order": {
+   "x": 1464,
+   "y": 2383,
+   "w": 431,
+   "h": 215,
+   "shape": "rect",
+   "stroke": 6,
+   "rx": 0,
+   "ry": 0,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 1483,
+     "y": 2441,
+     "w": 371,
+     "h": 32,
+     "text": "Forecast Revision"
+    },
+    {
+     "x": 1615,
+     "y": 2490,
+     "w": 139,
+     "h": 41,
+     "text": "(order)"
+    }
+   ]
+  },
+  "action-receive-order-forecast-in-seller-party": {
+   "x": 2602,
+   "y": 2408,
+   "w": 592,
+   "h": 178,
+   "shape": "rounded",
+   "stroke": 3,
+   "rx": 66,
+   "ry": 62,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 2649,
+     "y": 2472,
+     "w": 490,
+     "h": 32,
+     "text": "Receive Order Forecast"
+    }
+   ]
+  },
+  "action-revise-order-forecast-and-resend": {
+   "x": 2602,
+   "y": 2735,
+   "w": 592,
+   "h": 200,
+   "shape": "rounded",
+   "stroke": 3,
+   "rx": 62,
+   "ry": 61,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 2651,
+     "y": 2781,
+     "w": 464,
+     "h": 32,
+     "text": "Revise Order Forecast"
+    },
+    {
+     "x": 2671,
+     "y": 2839,
+     "w": 434,
+     "h": 32,
+     "text": "and Resend Revision"
+    }
+   ]
+  },
+  "decision-buyer-party": {
+   "x": 664,
+   "y": 2992,
+   "w": 145,
+   "h": 145,
+   "shape": "rhombus",
+   "stroke": 2,
+   "rx": 79,
+   "ry": 79
+  },
+  "action-receive-revision": {
+   "x": 1025,
+   "y": 3004,
+   "w": 487,
+   "h": 142,
+   "shape": "rounded",
+   "stroke": 3,
+   "rx": 66,
+   "ry": 69,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 1086,
+     "y": 3053,
+     "w": 351,
+     "h": 32,
+     "text": "Receive Revision"
+    }
+   ]
+  },
+  "action-send-order-forecast-in-buyer-party": {
+   "x": 509,
+   "y": 3313,
+   "w": 593,
+   "h": 125,
+   "shape": "rounded",
+   "stroke": 3,
+   "rx": 66.0,
+   "ry": 59,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 579,
+     "y": 3355,
+     "w": 431,
+     "h": 32,
+     "text": "Send Order Forecast"
+    }
+   ]
+  },
+  "object-forecast-order-positive-response": {
+   "x": 1472,
+   "y": 3548,
+   "w": 489,
+   "h": 260,
+   "shape": "rect",
+   "stroke": 5,
+   "rx": 2,
+   "ry": 2,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 1525,
+     "y": 3624,
+     "w": 345,
+     "h": 41,
+     "text": "Forecast (order -"
+    },
+    {
+     "x": 1514,
+     "y": 3673,
+     "w": 382,
+     "h": 41,
+     "text": "positive response)"
+    }
+   ]
+  }
+ },
+ "flows": {
+  "flow-fork-buyer-party-to-send-product-activity": {
+   "fromPoint": [
+    701,
+    222
+   ],
+   "toPoint": [
+    317,
+    473
+   ],
+   "routing": "orthogonal",
+   "points": [
+    [
+     701,
+     344
+    ],
+    [
+     317,
+     344
+    ]
+   ]
+  },
+  "flow-fork-buyer-party-to-send-retail-event": {
+   "fromPoint": [
+    776,
+    222
+   ],
+   "toPoint": [
+    1218,
+    477
+   ],
+   "routing": "orthogonal",
+   "points": [
+    [
+     776,
+     349
+    ],
+    [
+     1218,
+     349
+    ]
+   ]
+  },
+  "flow-send-retail-event-to-retail-event": {
+   "fromPoint": [
+    1314,
+    772
+   ],
+   "toPoint": [
+    1475,
+    1006
+   ],
+   "routing": "orthogonal",
+   "points": [
+    [
+     1314,
+     1006
+    ]
+   ]
+  },
+  "flow-send-product-activity-to-product-activity": {
+   "fromPoint": [
+    334,
+    781
+   ],
+   "toPoint": [
+    1479,
+    1550
+   ],
+   "routing": "orthogonal",
+   "points": [
+    [
+     334,
+     1550
+    ]
+   ]
+  },
+  "flow-retail-event-to-fork-seller-party": {
+   "fromPoint": [
+    1905,
+    984
+   ],
+   "toPoint": [
+    2269,
+    1240
+   ],
+   "routing": "orthogonal",
+   "points": [
+    [
+     2092,
+     984
+    ],
+    [
+     2092,
+     1240
+    ]
+   ]
+  },
+  "flow-fork-seller-party-to-receive": {
+   "fromPoint": [
+    2327,
+    1311
+   ],
+   "toPoint": [
+    2604,
+    1311
+   ],
+   "routing": "straight"
+  },
+  "flow-product-activity-to-fork-seller-party": {
+   "fromPoint": [
+    1910,
+    1488
+   ],
+   "toPoint": [
+    2269,
+    1400
+   ],
+   "routing": "orthogonal",
+   "points": [
+    [
+     2096,
+     1488
+    ],
+    [
+     2096,
+     1400
+    ]
+   ]
+  },
+  "flow-receive-to-send-order-forecast-in-seller-party": {
+   "fromPoint": [
+    2926,
+    1412
+   ],
+   "toPoint": [
+    2927,
+    1700
+   ],
+   "routing": "straight"
+  },
+  "flow-send-order-forecast-in-seller-party-to-forecast-order": {
+   "fromPoint": [
+    2692,
+    1907
+   ],
+   "toPoint": [
+    1905,
+    2070
+   ],
+   "routing": "orthogonal",
+   "points": [
+    [
+     2692,
+     2070
+    ]
+   ]
+  },
+  "flow-forecast-order-to-receive-order-forecast-in-buyer-party": {
+   "fromPoint": [
+    1475,
+    2062
+   ],
+   "toPoint": [
+    912,
+    2062
+   ],
+   "routing": "straight"
+  },
+  "flow-receive-order-forecast-in-buyer-party-to-revise-order-forecast-and-send-revision": {
+   "fromPoint": [
+    600,
+    2176
+   ],
+   "toPoint": [
+    600,
+    2362
+   ],
+   "routing": "straight"
+  },
+  "flow-revise-order-forecast-and-send-revision-to-forecast-revision-order": {
+   "fromPoint": [
+    917,
+    2481
+   ],
+   "toPoint": [
+    1444,
+    2485
+   ],
+   "routing": "straight"
+  },
+  "flow-forecast-revision-order-to-receive-order-forecast-in-seller-party": {
+   "fromPoint": [
+    1914,
+    2490
+   ],
+   "toPoint": [
+    2587,
+    2490
+   ],
+   "routing": "straight"
+  },
+  "flow-decision-buyer-party-to-revise-order-forecast-and-send-revision": {
+   "fromPoint": [
+    736,
+    2977
+   ],
+   "toPoint": [
+    736,
+    2601
+   ],
+   "routing": "straight"
+  },
+  "flow-receive-order-forecast-in-seller-party-to-revise-order-forecast-and-resend": {
+   "fromPoint": [
+    2895,
+    2600
+   ],
+   "toPoint": [
+    2896,
+    2720
+   ],
+   "routing": "straight"
+  },
+  "flow-forecast-revision-order-to-receive-revision": {
+   "fromPoint": [
+    1460,
+    2617
+   ],
+   "toPoint": [
+    1314,
+    2989
+   ],
+   "routing": "orthogonal",
+   "points": [
+    [
+     1460,
+     2803
+    ],
+    [
+     1314,
+     2803
+    ]
+   ]
+  },
+  "flow-revise-order-forecast-and-resend-to-forecast-revision-order": {
+   "fromPoint": [
+    2587,
+    2838
+   ],
+   "toPoint": [
+    1822,
+    2617
+   ],
+   "routing": "orthogonal",
+   "points": [
+    [
+     1822,
+     2838
+    ]
+   ]
+  },
+  "flow-receive-revision-to-decision-buyer-party": {
+   "fromPoint": [
+    1010,
+    3068
+   ],
+   "toPoint": [
+    823,
+    3064
+   ],
+   "routing": "straight"
+  },
+  "flow-decision-buyer-party-to-send-order-forecast-in-buyer-party": {
+   "fromPoint": [
+    736,
+    3151
+   ],
+   "toPoint": [
+    733,
+    3298
+   ],
+   "routing": "straight"
+  },
+  "flow-send-order-forecast-in-buyer-party-to-forecast-order-positive-response": {
+   "fromPoint": [
+    988,
+    3452
+   ],
+   "toPoint": [
+    1453,
+    3580
+   ],
+   "routing": "orthogonal",
+   "points": [
+    [
+     988,
+     3580
+    ]
+   ]
+  }
+ },
+ "texts": {
+  "text-no-2": {
+   "x": 762,
+   "y": 100,
+   "w": 50,
+   "h": 32,
+   "lines": [
+    {
+     "x": 762,
+     "y": 100,
+     "w": 50,
+     "h": 32,
+     "text": "No"
+    }
+   ]
+  },
+  "text-no-3": {
+   "x": 647,
+   "y": 2626,
+   "w": 51,
+   "h": 32,
+   "lines": [
+    {
+     "x": 647,
+     "y": 2626,
+     "w": 51,
+     "h": 32,
+     "text": "No"
+    }
+   ]
+  },
+  "text-order-forecast-accepted": {
+   "x": 98,
+   "y": 3045,
+   "w": 520,
+   "h": 41,
+   "lines": [
+    {
+     "x": 98,
+     "y": 3045,
+     "w": 520,
+     "h": 41,
+     "text": "Order Forecast Accepted ?"
+    }
+   ]
+  },
+  "text-yes": {
+   "x": 622,
+   "y": 3230,
+   "w": 72,
+   "h": 32,
+   "lines": [
+    {
+     "x": 622,
+     "y": 3230,
+     "w": 72,
+     "h": 32,
+     "text": "Yes"
+    }
+   ]
+  },
+  "text-no": {
+   "as": "lane-title",
+   "box": [
+    567,
+    100,
+    51,
+    32
+   ]
+  }
+ },
+ "offPage": {
+  "offpage-fork-buyer-party": {
+   "at": [
+    657,
+    12
+   ],
+   "end": [
+    657,
+    173
+   ],
+   "points": [],
+   "x": 634,
+   "y": 12,
+   "w": 47,
+   "h": 155
+  },
+  "offpage-fork-buyer-party-2": {
+   "at": [
+    851,
+    12
+   ],
+   "end": [
+    851,
+    173
+   ],
+   "points": [],
+   "x": 828,
+   "y": 12,
+   "w": 47,
+   "h": 155
+  },
+  "offpage-object-forecast-order-positive-response": {
+   "at": [
+    1980,
+    3721
+   ],
+   "end": [
+    2733,
+    3991
+   ],
+   "points": [
+    [
+     2732,
+     3722
+    ]
+   ],
+   "x": 1980,
+   "y": 3720,
+   "w": 754,
+   "h": 272
+  },
+  "offpage-object-forecast-order-positive-response-2": {
+   "at": [
+    1453,
+    3752
+   ],
+   "end": [
+    664,
+    3991
+   ],
+   "points": [
+    [
+     666,
+     3752
+    ]
+   ],
+   "x": 660,
+   "y": 3751,
+   "w": 794,
+   "h": 241
+  }
+ },
+ "marks": {},
+ "phases": {
+  "phase-create-order-forecast": {
+   "x": 82,
+   "y": 102,
+   "w": 3260,
+   "h": 3788,
+   "rx": 144,
+   "dash": 12.0,
+   "gap": 9.0,
+   "weight": 3.0,
+   "title": {
+    "as": "lane-title",
+    "box": [
+     1471,
+     124,
+     462,
+     32
+    ],
+    "bold": true
+   }
+  }
+ },
+ "rulesHaveSpans": {
+  "vertical": true,
+  "horizontal": true
+ }
+}

@@ -1,0 +1,1010 @@
+{
+ "schema": "ubl-activity-diagram-layout/1",
+ "figure": "UBL-2.3-GoodsItemPassportApprovalProcess",
+ "units": "px of the original PNG",
+ "size": [
+  1712,
+  1642
+ ],
+ "style": {
+  "fontPx": 25.7,
+  "arrowPx": 23.5,
+  "arrowWidthPx": 19.3,
+  "arrowStyle": "filled"
+ },
+ "rules": {
+  "vertical": [
+   {
+    "at": 0,
+    "width": 5,
+    "span": [
+     8,
+     1633
+    ]
+   },
+   {
+    "at": 535,
+    "width": 3,
+    "span": [
+     8,
+     1633
+    ]
+   },
+   {
+    "at": 1138,
+    "width": 2,
+    "span": [
+     8,
+     1633
+    ]
+   },
+   {
+    "at": 1705,
+    "width": 7,
+    "span": [
+     8,
+     1633
+    ]
+   }
+  ],
+  "horizontal": [
+   {
+    "at": 0,
+    "width": 5,
+    "span": [
+     8,
+     1701
+    ]
+   },
+   {
+    "at": 62,
+    "width": 2,
+    "span": [
+     8,
+     1701
+    ]
+   },
+   {
+    "at": 1637,
+    "width": 5,
+    "span": [
+     8,
+     1701
+    ]
+   }
+  ]
+ },
+ "greyRules": [],
+ "lanes": {
+  "lane-exporting-customs-party": {
+   "x0": 0,
+   "x1": 536,
+   "titleBox": [
+    113,
+    27,
+    289,
+    23
+   ],
+   "titleBold": true
+  },
+  "lane-holder-party": {
+   "x0": 536,
+   "x1": 1139,
+   "titleBox": [
+    754,
+    28,
+    142,
+    22
+   ],
+   "titleBold": true
+  },
+  "lane-issuer-party": {
+   "x0": 1139,
+   "x1": 1712,
+   "titleBox": [
+    1364,
+    28,
+    137,
+    22
+   ],
+   "titleBold": true
+  }
+ },
+ "nodes": {
+  "initial-holder-party": {
+   "x": 817,
+   "y": 77,
+   "w": 46,
+   "h": 46
+  },
+  "action-draft-goodsitem-passport": {
+   "x": 719,
+   "y": 188,
+   "w": 241,
+   "h": 119,
+   "shape": "rounded",
+   "stroke": 2,
+   "rx": 15,
+   "ry": 19,
+   "bold": false,
+   "labelLines": [
+    {
+     "x": 815,
+     "y": 221,
+     "w": 51,
+     "h": 18,
+     "text": "Draft"
+    },
+    {
+     "x": 731,
+     "y": 251,
+     "w": 218,
+     "h": 23,
+     "text": "Goodsitem Passport"
+    }
+   ]
+  },
+  "object-goodsitem-passport-drafted": {
+   "x": 1022,
+   "y": 188,
+   "w": 239,
+   "h": 118,
+   "shape": "rect",
+   "stroke": 3,
+   "rx": 0,
+   "ry": 0,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 1078,
+     "y": 212,
+     "w": 125,
+     "h": 18,
+     "text": "Goodsitem"
+    },
+    {
+     "x": 1089,
+     "y": 236,
+     "w": 104,
+     "h": 23,
+     "text": "Passport"
+    },
+    {
+     "x": 1090,
+     "y": 260,
+     "w": 100,
+     "h": 23,
+     "text": "(Drafted)"
+    }
+   ]
+  },
+  "action-verify-goodsitem-passport": {
+   "x": 1325,
+   "y": 200,
+   "w": 227,
+   "h": 95,
+   "shape": "rounded",
+   "stroke": 2,
+   "rx": 13,
+   "ry": 14,
+   "bold": false,
+   "labelLines": [
+    {
+     "x": 1411,
+     "y": 221,
+     "w": 59,
+     "h": 22,
+     "text": "Verify"
+    },
+    {
+     "x": 1331,
+     "y": 251,
+     "w": 218,
+     "h": 23,
+     "text": "Goodsitem Passport"
+    }
+   ]
+  },
+  "decision-ok": {
+   "x": 1360,
+   "y": 349,
+   "w": 158,
+   "h": 114,
+   "shape": "rhombus",
+   "stroke": 2,
+   "rx": 86,
+   "ry": 63,
+   "bold": false,
+   "labelLines": [
+    {
+     "x": 1416,
+     "y": 397,
+     "w": 47,
+     "h": 19,
+     "text": "OK?"
+    }
+   ]
+  },
+  "final-holder-party": {
+   "x": 809,
+   "y": 399,
+   "w": 58,
+   "h": 59,
+   "shape": "ellipse",
+   "stroke": 2,
+   "rx": 28,
+   "ry": 27,
+   "innerRatio": 0.793
+  },
+  "object-application-response-between-holder-party-and-issuer-party": {
+   "x": 1022,
+   "y": 521,
+   "w": 239,
+   "h": 118,
+   "shape": "rect",
+   "stroke": 3,
+   "rx": 0,
+   "ry": 0,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 1025,
+     "y": 569,
+     "w": 233,
+     "h": 22,
+     "text": "Application response"
+    }
+   ]
+  },
+  "action-receive-declined": {
+   "x": 735,
+   "y": 528,
+   "w": 210,
+   "h": 104,
+   "shape": "rounded",
+   "stroke": 2,
+   "rx": 17,
+   "ry": 13,
+   "bold": false,
+   "labelLines": [
+    {
+     "x": 747,
+     "y": 571,
+     "w": 186,
+     "h": 18,
+     "text": "Receive Declined"
+    }
+   ]
+  },
+  "action-send-declined": {
+   "x": 1343,
+   "y": 528,
+   "w": 190,
+   "h": 104,
+   "shape": "rounded",
+   "stroke": 2,
+   "rx": 17,
+   "ry": 15,
+   "bold": false,
+   "labelLines": [
+    {
+     "x": 1363,
+     "y": 571,
+     "w": 155,
+     "h": 18,
+     "text": "Send Declined"
+    }
+   ]
+  },
+  "object-goodsitem-passport-authorized-between-holder-party-and-issuer-party": {
+   "x": 1022,
+   "y": 683,
+   "w": 239,
+   "h": 118,
+   "shape": "rect",
+   "stroke": 4,
+   "rx": 0,
+   "ry": 0,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 1081,
+     "y": 706,
+     "w": 125,
+     "h": 18,
+     "text": "GoodsItem"
+    },
+    {
+     "x": 1092,
+     "y": 731,
+     "w": 104,
+     "h": 22,
+     "text": "Passport"
+    },
+    {
+     "x": 1072,
+     "y": 755,
+     "w": 142,
+     "h": 22,
+     "text": "(Authorized)"
+    }
+   ]
+  },
+  "action-receive-goodsitem-passport-in-holder-party": {
+   "x": 719,
+   "y": 690,
+   "w": 226,
+   "h": 103,
+   "shape": "rounded",
+   "stroke": 2,
+   "rx": 15,
+   "ry": 15,
+   "bold": false,
+   "labelLines": [
+    {
+     "x": 789,
+     "y": 718,
+     "w": 84,
+     "h": 18,
+     "text": "Receive"
+    },
+    {
+     "x": 722,
+     "y": 742,
+     "w": 218,
+     "h": 23,
+     "text": "Goodsitem Passport"
+    }
+   ]
+  },
+  "action-apply-stamps-and-signature-in-issuer-party": {
+   "x": 1345,
+   "y": 690,
+   "w": 190,
+   "h": 103,
+   "shape": "rounded",
+   "stroke": 2,
+   "rx": 14,
+   "ry": 15,
+   "bold": false,
+   "labelLines": [
+    {
+     "x": 1362,
+     "y": 718,
+     "w": 149,
+     "h": 23,
+     "text": "Apply Stamps"
+    },
+    {
+     "x": 1360,
+     "y": 742,
+     "w": 152,
+     "h": 23,
+     "text": "And Signature"
+    }
+   ]
+  },
+  "object-goodsitem-passport-authorized-between-exporting-customs-party-and-holder-party": {
+   "x": 396,
+   "y": 875,
+   "w": 240,
+   "h": 118,
+   "shape": "rect",
+   "stroke": 3,
+   "rx": 2,
+   "ry": 2,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 452,
+     "y": 899,
+     "w": 125,
+     "h": 18,
+     "text": "Goodsitem"
+    },
+    {
+     "x": 463,
+     "y": 923,
+     "w": 104,
+     "h": 23,
+     "text": "Passport"
+    },
+    {
+     "x": 444,
+     "y": 947,
+     "w": 141,
+     "h": 23,
+     "text": "(Authorized)"
+    }
+   ]
+  },
+  "action-request-goods-to-leave-country": {
+   "x": 713,
+   "y": 875,
+   "w": 241,
+   "h": 119,
+   "shape": "rounded",
+   "stroke": 2,
+   "rx": 15,
+   "ry": 18,
+   "bold": false,
+   "labelLines": [
+    {
+     "x": 751,
+     "y": 908,
+     "w": 166,
+     "h": 22,
+     "text": "Request Goods"
+    },
+    {
+     "x": 739,
+     "y": 938,
+     "w": 189,
+     "h": 23,
+     "text": "To Leave Country"
+    }
+   ]
+  },
+  "action-receive-and-verify-goodsitem-passport": {
+   "x": 116,
+   "y": 887,
+   "w": 227,
+   "h": 95,
+   "shape": "rounded",
+   "stroke": 2,
+   "rx": 13,
+   "ry": 15,
+   "bold": false,
+   "labelLines": [
+    {
+     "x": 132,
+     "y": 908,
+     "w": 200,
+     "h": 23,
+     "text": "Receive and Verify"
+    },
+    {
+     "x": 122,
+     "y": 938,
+     "w": 218,
+     "h": 23,
+     "text": "Goodsitem Passport"
+    }
+   ]
+  },
+  "decision-valid": {
+   "x": 152,
+   "y": 1036,
+   "w": 157,
+   "h": 114,
+   "shape": "rhombus",
+   "stroke": 2,
+   "rx": 86,
+   "ry": 62,
+   "bold": false,
+   "labelLines": [
+    {
+     "x": 198,
+     "y": 1085,
+     "w": 64,
+     "h": 18,
+     "text": "Valid?"
+    }
+   ]
+  },
+  "final-holder-party-2": {
+   "x": 802,
+   "y": 1086,
+   "w": 59,
+   "h": 59,
+   "shape": "ellipse",
+   "stroke": 2,
+   "rx": 30,
+   "ry": 27,
+   "innerRatio": 0.78
+  },
+  "object-application-response-between-exporting-customs-party-and-holder-party": {
+   "x": 404,
+   "y": 1208,
+   "w": 240,
+   "h": 118,
+   "shape": "rect",
+   "stroke": 3,
+   "rx": 0,
+   "ry": 0,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 407,
+     "y": 1261,
+     "w": 234,
+     "h": 21,
+     "text": "Application response"
+    }
+   ]
+  },
+  "action-send-reject": {
+   "x": 134,
+   "y": 1216,
+   "w": 190,
+   "h": 103,
+   "shape": "rounded",
+   "stroke": 2,
+   "rx": 13,
+   "ry": 15,
+   "bold": false,
+   "labelLines": [
+    {
+     "x": 166,
+     "y": 1257,
+     "w": 131,
+     "h": 23,
+     "text": "Send Reject"
+    }
+   ]
+  },
+  "action-receive-reject": {
+   "x": 728,
+   "y": 1216,
+   "w": 211,
+   "h": 103,
+   "shape": "rounded",
+   "stroke": 2,
+   "rx": 13,
+   "ry": 17,
+   "bold": false,
+   "labelLines": [
+    {
+     "x": 754,
+     "y": 1256,
+     "w": 161,
+     "h": 22,
+     "text": "Receive Reject"
+    }
+   ]
+  },
+  "object-goodsitem-passport-approved": {
+   "x": 404,
+   "y": 1370,
+   "w": 240,
+   "h": 118,
+   "shape": "rect",
+   "stroke": 4,
+   "rx": 0,
+   "ry": 0,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 463,
+     "y": 1397,
+     "w": 125,
+     "h": 18,
+     "text": "GoodsItem"
+    },
+    {
+     "x": 474,
+     "y": 1422,
+     "w": 104,
+     "h": 22,
+     "text": "Passport"
+    },
+    {
+     "x": 461,
+     "y": 1446,
+     "w": 128,
+     "h": 23,
+     "text": "(Approved)"
+    }
+   ]
+  },
+  "action-apply-stamps-and-signature-in-exporting-customs-party": {
+   "x": 136,
+   "y": 1377,
+   "w": 190,
+   "h": 103,
+   "shape": "rounded",
+   "stroke": 2,
+   "rx": 15,
+   "ry": 17,
+   "bold": false,
+   "labelLines": [
+    {
+     "x": 153,
+     "y": 1403,
+     "w": 149,
+     "h": 23,
+     "text": "Apply Stamps"
+    },
+    {
+     "x": 151,
+     "y": 1427,
+     "w": 153,
+     "h": 23,
+     "text": "And Signature"
+    }
+   ]
+  },
+  "action-receive-goodsitem-passport-in-holder-party-2": {
+   "x": 713,
+   "y": 1377,
+   "w": 226,
+   "h": 103,
+   "shape": "rounded",
+   "stroke": 2,
+   "rx": 17,
+   "ry": 14,
+   "bold": false,
+   "labelLines": [
+    {
+     "x": 783,
+     "y": 1408,
+     "w": 84,
+     "h": 18,
+     "text": "Receive"
+    },
+    {
+     "x": 716,
+     "y": 1432,
+     "w": 218,
+     "h": 23,
+     "text": "Goodsitem Passport"
+    }
+   ]
+  },
+  "final-holder-party-3": {
+   "x": 802,
+   "y": 1558,
+   "w": 59,
+   "h": 58,
+   "shape": "ellipse",
+   "stroke": 2,
+   "rx": 27,
+   "ry": 26,
+   "innerRatio": 0.763
+  }
+ },
+ "flows": {
+  "flow-initial-holder-party-to-draft-goodsitem-passport": {
+   "fromPoint": [
+    840,
+    137
+   ],
+   "toPoint": [
+    839,
+    173
+   ],
+   "routing": "straight"
+  },
+  "flow-draft-goodsitem-passport-to-goodsitem-passport-drafted": {
+   "fromPoint": [
+    974,
+    247
+   ],
+   "toPoint": [
+    1007,
+    247
+   ],
+   "routing": "straight"
+  },
+  "flow-goodsitem-passport-drafted-to-verify-goodsitem-passport": {
+   "fromPoint": [
+    1277,
+    247
+   ],
+   "toPoint": [
+    1310,
+    247
+   ],
+   "routing": "straight"
+  },
+  "flow-verify-goodsitem-passport-to-ok": {
+   "fromPoint": [
+    1438,
+    309
+   ],
+   "toPoint": [
+    1439,
+    334
+   ],
+   "routing": "straight"
+  },
+  "flow-ok-to-apply-stamps-and-signature-in-issuer-party": {
+   "fromPoint": [
+    1532,
+    408
+   ],
+   "toPoint": [
+    1549,
+    741
+   ],
+   "routing": "orthogonal",
+   "points": [
+    [
+     1596,
+     408
+    ],
+    [
+     1596,
+     744
+    ]
+   ]
+  },
+  "flow-receive-declined-to-final-holder-party": {
+   "fromPoint": [
+    840,
+    513
+   ],
+   "toPoint": [
+    838,
+    472
+   ],
+   "routing": "straight"
+  },
+  "flow-ok-to-send-declined": {
+   "fromPoint": [
+    1439,
+    477
+   ],
+   "toPoint": [
+    1438,
+    513
+   ],
+   "routing": "straight"
+  },
+  "flow-application-response-between-holder-party-and-issuer-party-to-receive-declined": {
+   "fromPoint": [
+    1007,
+    577
+   ],
+   "toPoint": [
+    959,
+    579
+   ],
+   "routing": "straight"
+  },
+  "flow-send-declined-to-application-response-between-holder-party-and-issuer-party": {
+   "fromPoint": [
+    1328,
+    580
+   ],
+   "toPoint": [
+    1275,
+    580
+   ],
+   "routing": "straight"
+  },
+  "flow-goodsitem-passport-authorized-between-holder-party-and-issuer-party-to-receive-goodsitem-passport-in-holder-party": {
+   "fromPoint": [
+    1007,
+    742
+   ],
+   "toPoint": [
+    959,
+    741
+   ],
+   "routing": "straight"
+  },
+  "flow-apply-stamps-and-signature-in-issuer-party-to-goodsitem-passport-authorized-between-holder-party-and-issuer-party": {
+   "fromPoint": [
+    1330,
+    741
+   ],
+   "toPoint": [
+    1275,
+    742
+   ],
+   "routing": "straight"
+  },
+  "flow-receive-goodsitem-passport-in-holder-party-to-request-goods-to-leave-country": {
+   "fromPoint": [
+    838,
+    807
+   ],
+   "toPoint": [
+    836,
+    860
+   ],
+   "routing": "straight"
+  },
+  "flow-request-goods-to-leave-country-to-goodsitem-passport-authorized-between-exporting-customs-party-and-holder-party": {
+   "fromPoint": [
+    698,
+    933
+   ],
+   "toPoint": [
+    650,
+    933
+   ],
+   "routing": "straight"
+  },
+  "flow-goodsitem-passport-authorized-between-exporting-customs-party-and-holder-party-to-receive-and-verify-goodsitem-passport": {
+   "fromPoint": [
+    381,
+    934
+   ],
+   "toPoint": [
+    357,
+    934
+   ],
+   "routing": "straight"
+  },
+  "flow-receive-and-verify-goodsitem-passport-to-valid": {
+   "fromPoint": [
+    229,
+    996
+   ],
+   "toPoint": [
+    230,
+    1021
+   ],
+   "routing": "straight"
+  },
+  "flow-valid-to-apply-stamps-and-signature-in-exporting-customs-party": {
+   "fromPoint": [
+    137,
+    1094
+   ],
+   "toPoint": [
+    121,
+    1428
+   ],
+   "routing": "orthogonal",
+   "points": [
+    [
+     80,
+     1094
+    ],
+    [
+     80,
+     1432
+    ]
+   ]
+  },
+  "flow-receive-reject-to-final-holder-party-2": {
+   "fromPoint": [
+    833,
+    1201
+   ],
+   "toPoint": [
+    831,
+    1159
+   ],
+   "routing": "straight"
+  },
+  "flow-valid-to-send-reject": {
+   "fromPoint": [
+    230,
+    1164
+   ],
+   "toPoint": [
+    229,
+    1201
+   ],
+   "routing": "straight"
+  },
+  "flow-application-response-between-exporting-customs-party-and-holder-party-to-receive-reject": {
+   "fromPoint": [
+    658,
+    1264
+   ],
+   "toPoint": [
+    713,
+    1267
+   ],
+   "routing": "straight"
+  },
+  "flow-send-reject-to-application-response-between-exporting-customs-party-and-holder-party": {
+   "fromPoint": [
+    338,
+    1266
+   ],
+   "toPoint": [
+    389,
+    1267
+   ],
+   "routing": "straight"
+  },
+  "flow-goodsitem-passport-approved-to-receive-goodsitem-passport-in-holder-party-2": {
+   "fromPoint": [
+    658,
+    1426
+   ],
+   "toPoint": [
+    698,
+    1428
+   ],
+   "routing": "straight"
+  },
+  "flow-apply-stamps-and-signature-in-exporting-customs-party-to-goodsitem-passport-approved": {
+   "fromPoint": [
+    340,
+    1430
+   ],
+   "toPoint": [
+    389,
+    1429
+   ],
+   "routing": "straight"
+  },
+  "flow-receive-goodsitem-passport-in-holder-party-2-to-final-holder-party-3": {
+   "fromPoint": [
+    834,
+    1494
+   ],
+   "toPoint": [
+    831,
+    1543
+   ],
+   "routing": "straight"
+  }
+ },
+ "texts": {
+  "text-no": {
+   "x": 1385,
+   "y": 474,
+   "w": 26,
+   "h": 16,
+   "lines": [
+    {
+     "x": 1385,
+     "y": 474,
+     "w": 26,
+     "h": 16,
+     "text": "No"
+    }
+   ]
+  },
+  "text-yes": {
+   "x": 1605,
+   "y": 579,
+   "w": 35,
+   "h": 17,
+   "lines": [
+    {
+     "x": 1605,
+     "y": 579,
+     "w": 35,
+     "h": 17,
+     "text": "Yes"
+    }
+   ]
+  },
+  "text-no-2": {
+   "x": 176,
+   "y": 1161,
+   "w": 26,
+   "h": 16,
+   "lines": [
+    {
+     "x": 176,
+     "y": 1161,
+     "w": 26,
+     "h": 16,
+     "text": "No"
+    }
+   ]
+  },
+  "text-yes-2": {
+   "x": 35,
+   "y": 1266,
+   "w": 35,
+   "h": 17,
+   "lines": [
+    {
+     "x": 35,
+     "y": 1266,
+     "w": 35,
+     "h": 17,
+     "text": "Yes"
+    }
+   ]
+  }
+ },
+ "offPage": {},
+ "marks": {},
+ "phases": {},
+ "rulesHaveSpans": {
+  "vertical": true,
+  "horizontal": true
+ }
+}

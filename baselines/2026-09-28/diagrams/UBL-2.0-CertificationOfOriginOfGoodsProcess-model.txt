@@ -1,0 +1,52 @@
+MODEL  UBL-2.0-CertificationOfOriginOfGoodsProcess
+  13 action, 3 decision, 1 final, 1 initial, 5 object, 25 flows, 5 partitions
+
+FLOW
+  (start)   [Exporter]
+  Apply for CoO   [Exporter]
+  [Certificate Of Origin]   [Issuer]
+  Receive CoO   [Issuer]
+  <?>   [Issuer]
+    -> Reject CoO   [Issuer]
+    -> [Application Response]   [Issuer]
+    -> Receive Response   [Exporter]
+      -> Request Status   [Exporter]
+      -> [Certificate Of Origin]   [Issuer]
+      -> <?>   [Exporter]
+        -> Apply for Endorsement   [Exporter]
+        -> [Certificate Of Origin]   [Endorser]
+        -> Receive Certificate Of Origin   [Endorser]
+        -> <?>   [Endorser]
+          -> Reject CoO   [Endorser]
+          -> [Application Response]   [Endorser]
+          -> Receive Response   [Exporter]
+          -> Endorse CoO   [Endorser]
+        -> Send CoO   [Exporter]
+        -> [Certificate Of Origin]   [Endorser]
+        -> Receive CoO   [Importer]
+        -> (end)   [Importer]
+    -> Endorse CoO   [Issuer]
+    -> Query CoO   [Issuer]
+    -> [Application Response]   [Issuer]
+
+CHECKS
+  ok   every element is connected
+  ok   start events have a way out and no way in
+  ok   end events have a way in and no way out
+  ok   decisions have at least two ways out
+  note branches out of a decision are labelled   (informational: several diagrams draw an unlabelled branch, so read these against the artwork rather than treating them as errors)
+        - <?> -> Reject CoO
+        - <?> -> Endorse CoO
+        - <?> -> Query CoO
+        - <?> -> Apply for Endorsement
+        - <?> -> Send CoO
+        - <?> -> Reject CoO
+        - <?> -> Endorse CoO
+  ok   documents are both written and read
+  ok   no flow runs straight from one document to another
+  ok   work crossing between parties goes through a document   (informational: UBL draws the hand-over as a document on the divider, and each exception below is named)
+  ok   every flow's direction was read with confidence
+  note every action passes its work on   (informational: several diagrams do end on an action, so read these against the artwork rather than treating them as errors)
+        - Endorse CoO
+        - Endorse CoO
+  ok   every element is reachable from a start event

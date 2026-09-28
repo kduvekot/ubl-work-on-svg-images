@@ -1,0 +1,217 @@
+{
+ "schema": "ubl-activity-diagram-layout/1",
+ "figure": "UBL-2.0-ReportStateofAccountsProcess",
+ "units": "px of the original PNG",
+ "size": [
+  3425,
+  1173
+ ],
+ "style": {
+  "fontPx": 61.4,
+  "arrowPx": 85.5,
+  "arrowWidthPx": 66.3,
+  "arrowStyle": "open"
+ },
+ "rules": {
+  "vertical": [
+   {
+    "at": 0,
+    "width": 10,
+    "span": [
+     13,
+     1159
+    ]
+   },
+   {
+    "at": 1744,
+    "width": 7,
+    "span": [
+     13,
+     1159
+    ]
+   },
+   {
+    "at": 3415,
+    "width": 10,
+    "span": [
+     13,
+     1159
+    ]
+   }
+  ],
+  "horizontal": [
+   {
+    "at": 0,
+    "width": 10,
+    "span": [
+     13,
+     3411
+    ]
+   },
+   {
+    "at": 1163,
+    "width": 10,
+    "span": [
+     13,
+     3411
+    ]
+   }
+  ]
+ },
+ "greyRules": [],
+ "lanes": {
+  "lane-accounting-customer": {
+   "x0": 0,
+   "x1": 1748,
+   "titleBox": [
+    541,
+    48,
+    575,
+    56
+   ]
+  },
+  "lane-accounting-supplier": {
+   "x0": 1748,
+   "x1": 3425,
+   "titleBox": [
+    2361,
+    48,
+    535,
+    56
+   ]
+  }
+ },
+ "nodes": {
+  "initial-accounting-supplier": {
+   "x": 2895,
+   "y": 167,
+   "w": 120,
+   "h": 120
+  },
+  "object-statement": {
+   "x": 1394,
+   "y": 466,
+   "w": 641,
+   "h": 334,
+   "shape": "rect",
+   "stroke": 13,
+   "rx": 0,
+   "ry": 0,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 1568,
+     "y": 603,
+     "w": 291,
+     "h": 45,
+     "text": "Statement"
+    }
+   ]
+  },
+  "action-receive-statement": {
+   "x": 65,
+   "y": 523,
+   "w": 797,
+   "h": 202,
+   "shape": "rounded",
+   "stroke": 7,
+   "rx": 84,
+   "ry": 91,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 196,
+     "y": 595,
+     "w": 529,
+     "h": 45,
+     "text": "Receive Statement"
+    }
+   ]
+  },
+  "action-generate-statement": {
+   "x": 2579,
+   "y": 523,
+   "w": 785,
+   "h": 244,
+   "shape": "rounded",
+   "stroke": 7,
+   "rx": 84,
+   "ry": 87,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 2683,
+     "y": 609,
+     "w": 563,
+     "h": 45,
+     "text": "Generate Statement"
+    }
+   ]
+  },
+  "final-accounting-customer": {
+   "x": 413,
+   "y": 972,
+   "w": 107,
+   "h": 107,
+   "shape": "ellipse",
+   "stroke": 7,
+   "rx": 53,
+   "ry": 54,
+   "innerRatio": 0.449
+  }
+ },
+ "flows": {
+  "flow-initial-accounting-supplier-to-generate-statement": {
+   "fromPoint": [
+    2957,
+    301
+   ],
+   "toPoint": [
+    2961,
+    508
+   ],
+   "routing": "straight"
+  },
+  "flow-statement-to-receive-statement": {
+   "fromPoint": [
+    1379,
+    628
+   ],
+   "toPoint": [
+    876,
+    626
+   ],
+   "routing": "straight"
+  },
+  "flow-generate-statement-to-statement": {
+   "fromPoint": [
+    2564,
+    633
+   ],
+   "toPoint": [
+    2050,
+    633
+   ],
+   "routing": "straight"
+  },
+  "flow-receive-statement-to-final-accounting-customer": {
+   "fromPoint": [
+    462,
+    739
+   ],
+   "toPoint": [
+    464,
+    957
+   ],
+   "routing": "straight"
+  }
+ },
+ "texts": {},
+ "offPage": {},
+ "marks": {},
+ "phases": {},
+ "rulesHaveSpans": {
+  "vertical": true,
+  "horizontal": true
+ }
+}

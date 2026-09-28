@@ -1,0 +1,172 @@
+{
+ "schema": "ubl-activity-diagram/1",
+ "figure": {
+  "name": "UBL-2.2-VMI-SalesAndInventoryMovement",
+  "source": "UBL-2.2-VMI-SalesAndInventoryMovement.png"
+ },
+ "lanes": [
+  {
+   "id": "lane-retailer",
+   "axis": "column",
+   "index": 0,
+   "title": "Retailer"
+  },
+  {
+   "id": "lane-producer",
+   "axis": "column",
+   "index": 1,
+   "title": "Producer"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "initial-retailer",
+   "kind": "initial",
+   "label": "",
+   "lane": "lane-retailer"
+  },
+  {
+   "id": "object-product-activity-between-retailer-and-producer",
+   "kind": "object",
+   "label": "Product Activity",
+   "lane": null,
+   "between": [
+    "lane-retailer",
+    "lane-producer"
+   ]
+  },
+  {
+   "id": "action-receive-a-report-about-sales",
+   "kind": "action",
+   "label": "Receive a report about sales",
+   "lane": "lane-producer"
+  },
+  {
+   "id": "action-send-a-report-about-sales",
+   "kind": "action",
+   "label": "Send a report about sales",
+   "lane": "lane-retailer"
+  },
+  {
+   "id": "object-product-activity-between-retailer-and-producer-2",
+   "kind": "object",
+   "label": "Product Activity",
+   "lane": null,
+   "between": [
+    "lane-retailer",
+    "lane-producer"
+   ]
+  },
+  {
+   "id": "action-send-a-report-about-movement-of-goods",
+   "kind": "action",
+   "label": "Send a report about movement of goods",
+   "lane": "lane-retailer"
+  },
+  {
+   "id": "action-receive-a-report-about-movement-of-goods",
+   "kind": "action",
+   "label": "Receive a report about movement of goods",
+   "lane": "lane-producer"
+  },
+  {
+   "id": "fork-producer",
+   "kind": "fork",
+   "label": "",
+   "lane": "lane-producer"
+  },
+  {
+   "id": "final-producer",
+   "kind": "final",
+   "label": "",
+   "lane": "lane-producer"
+  }
+ ],
+ "flows": [
+  {
+   "id": "flow-initial-retailer-to-send-a-report-about-sales",
+   "from": "initial-retailer",
+   "to": "action-send-a-report-about-sales",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-send-a-report-about-sales-to-product-activity-between-retailer-and-producer",
+   "from": "action-send-a-report-about-sales",
+   "to": "object-product-activity-between-retailer-and-producer",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-product-activity-between-retailer-and-producer-to-receive-a-report-about-sales",
+   "from": "object-product-activity-between-retailer-and-producer",
+   "to": "action-receive-a-report-about-sales",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-receive-a-report-about-sales-to-fork-producer",
+   "from": "action-receive-a-report-about-sales",
+   "to": "fork-producer",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-send-a-report-about-sales-to-send-a-report-about-movement-of-goods",
+   "from": "action-send-a-report-about-sales",
+   "to": "action-send-a-report-about-movement-of-goods",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-send-a-report-about-movement-of-goods-to-product-activity-between-retailer-and-producer-2",
+   "from": "action-send-a-report-about-movement-of-goods",
+   "to": "object-product-activity-between-retailer-and-producer-2",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-product-activity-between-retailer-and-producer-2-to-receive-a-report-about-movement-of-goods",
+   "from": "object-product-activity-between-retailer-and-producer-2",
+   "to": "action-receive-a-report-about-movement-of-goods",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-receive-a-report-about-movement-of-goods-to-fork-producer",
+   "from": "action-receive-a-report-about-movement-of-goods",
+   "to": "fork-producer",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-fork-producer-to-final-producer",
+   "from": "fork-producer",
+   "to": "final-producer",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  }
+ ],
+ "texts": [],
+ "offPage": [],
+ "marks": [],
+ "phases": []
+}

@@ -1,0 +1,115 @@
+{
+ "schema": "ubl-activity-diagram/1",
+ "figure": {
+  "name": "UBL-2.2-BusinessCard",
+  "source": "UBL-2.2-BusinessCard.png"
+ },
+ "lanes": [
+  {
+   "id": "lane-business-party-1",
+   "axis": "column",
+   "index": 0,
+   "title": "Business Party 1"
+  },
+  {
+   "id": "lane-business-party-0-n",
+   "axis": "column",
+   "index": 1,
+   "title": "Business Party 0..n"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "initial-business-party-1",
+   "kind": "initial",
+   "label": "",
+   "lane": "lane-business-party-1"
+  },
+  {
+   "id": "object-business-card",
+   "kind": "object",
+   "label": "Business\nCard",
+   "lane": null,
+   "between": [
+    "lane-business-party-1",
+    "lane-business-party-0-n"
+   ]
+  },
+  {
+   "id": "action-publish-business-card",
+   "kind": "action",
+   "label": "Publish business card",
+   "lane": "lane-business-party-1"
+  },
+  {
+   "id": "action-download-business-card",
+   "kind": "action",
+   "label": "Download business card",
+   "lane": "lane-business-party-0-n"
+  },
+  {
+   "id": "final-business-party-0-n",
+   "kind": "final",
+   "label": "",
+   "lane": "lane-business-party-0-n"
+  }
+ ],
+ "flows": [
+  {
+   "id": "flow-initial-business-party-1-to-publish-business-card",
+   "from": "initial-business-party-1",
+   "to": "action-publish-business-card",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-publish-business-card-to-business-card",
+   "from": "action-publish-business-card",
+   "to": "object-business-card",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-download-business-card-to-final-business-party-0-n",
+   "from": "action-download-business-card",
+   "to": "final-business-party-0-n",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-business-card-to-download-business-card",
+   "from": "object-business-card",
+   "to": "action-download-business-card",
+   "kind": "object",
+   "direction": {
+    "confidence": "checked",
+    "checked": "confirmed"
+   }
+  }
+ ],
+ "texts": [],
+ "offPage": [],
+ "marks": [
+  {
+   "id": "mark-1",
+   "kind": "cross-mark",
+   "rule": "v",
+   "on": "flow-business-card-to-download-business-card",
+   "meaning": "break"
+  },
+  {
+   "id": "mark-2",
+   "kind": "cross-mark",
+   "rule": "v",
+   "on": "flow-business-card-to-download-business-card",
+   "meaning": "break"
+  }
+ ],
+ "phases": []
+}

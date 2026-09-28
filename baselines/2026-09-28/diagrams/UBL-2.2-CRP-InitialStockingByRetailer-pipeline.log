@@ -1,0 +1,11 @@
+== UBL-2.2-CRP-InitialStockingByRetailer
+  UBL-2.2-CRP-InitialStockingByRetailer -> diagram, layout, extraction  (16 nodes, 16 flows, 0 texts)
+  scale 0.43212   frame 10px  divider 6px  action 5px  object 11px
+  font 73px (31.5 model)   2 lanes, 0 bands, 16 nodes, 16 edges -> /tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-2.2-CRP-InitialStockingByRetailer-spec.json
+  /tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-2.2-CRP-InitialStockingByRetailer.svg + .drawio + -classified.svg   (16 nodes, 16 edges)
+  aligned on ink bounds: scale x 1.0000, y 1.0000
+  size 3425x4033  radius 2
+  ink: original 594692   candidate 569087
+  MISSING (red)    19180  = 3.2252% of original ink
+  EXTRA   (blue)   14219  = 2.3910% of original ink
+  RESULT: DIFFERENCES - inspect /tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-2.2-CRP-InitialStockingByRetailer-diff-r2.png

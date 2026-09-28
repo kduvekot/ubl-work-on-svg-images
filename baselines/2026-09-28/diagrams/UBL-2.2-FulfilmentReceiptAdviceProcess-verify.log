@@ -1,0 +1,17 @@
+  verdict: NEEDS-HUMAN
+  structural: 0 element(s) absent, 0 invented, 0 text absent, 0 text differs, 0 incoherent
+  line-work  missing 733 px (0.376%)   invented 409 px (0.210%)   radius 3
+    line-work-missing      188 px at   248,1568    77x78    near edge n12 -> n20
+    line-work-missing      177 px at   765,1375    25x31    near edge n12 -> n15
+    line-work-missing      139 px at   219,1636    20x34    near edge n12 -> n20
+    line-work-missing      100 px at   714,1357    36x27    near edge n12 -> n15
+    line-work-missing       62 px at  2748,843     28x4     near edge n5 -> n7
+    line-work-invented     109 px at   717,1368    38x26    near edge n12 -> n15
+    line-work-invented      91 px at   247,1624    32x31    near edge n12 -> n20
+  needs a person (5):
+    dropped-region     at 1690,782  a shape here would be missing from the SVG
+    dropped-region     at 615,1198  a shape here would be missing from the SVG
+    dropped-region     at 1114,1465  a shape here would be missing from the SVG
+    empty-box          at 1114,1718  confirm nothing is drawn here in the original
+    arrowhead-unmeasurable at 728,1350  confirm the arrowhead here is drawn and points the way the original does
+/tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-2.2-FulfilmentReceiptAdviceProcess-marked.png + /tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-2.2-FulfilmentReceiptAdviceProcess-marked-lost.png  (5 finding(s) numbered)

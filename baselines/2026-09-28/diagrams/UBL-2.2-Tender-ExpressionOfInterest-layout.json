@@ -1,0 +1,385 @@
+{
+ "schema": "ubl-activity-diagram-layout/1",
+ "figure": "UBL-2.2-Tender-ExpressionOfInterest",
+ "units": "px of the original PNG",
+ "size": [
+  3426,
+  1808
+ ],
+ "style": {
+  "fontPx": 70.0,
+  "arrowPx": 79.5,
+  "arrowWidthPx": 67.2,
+  "arrowStyle": "open"
+ },
+ "rules": {
+  "vertical": [
+   {
+    "at": 1,
+    "width": 8,
+    "span": [
+     12,
+     1790
+    ]
+   },
+   {
+    "at": 1702,
+    "width": 8,
+    "span": [
+     12,
+     1790
+    ]
+   },
+   {
+    "at": 3411,
+    "width": 14,
+    "span": [
+     12,
+     1790
+    ]
+   }
+  ],
+  "horizontal": [
+   {
+    "at": 1,
+    "width": 8,
+    "span": [
+     12,
+     3407
+    ]
+   },
+   {
+    "at": 1794,
+    "width": 8,
+    "span": [
+     12,
+     3407
+    ]
+   }
+  ]
+ },
+ "greyRules": [],
+ "lanes": {
+  "lane-economic-operator": {
+   "x0": 0,
+   "x1": 1706,
+   "titleBox": [
+    444,
+    49,
+    759,
+    54
+   ],
+   "titleWords": "ECONOMIC OPERATOR"
+  },
+  "lane-contracting-authority": {
+   "x0": 1706,
+   "x1": 3426,
+   "titleBox": [
+    2098,
+    49,
+    909,
+    54
+   ],
+   "titleWords": "CONTRACTING AUTHORITY"
+  }
+ },
+ "nodes": {
+  "initial-economic-operator": {
+   "x": 552,
+   "y": 158,
+   "w": 124,
+   "h": 124
+  },
+  "action-prepare-expression-of-interest": {
+   "x": 112,
+   "y": 395,
+   "w": 1001,
+   "h": 167,
+   "shape": "rounded",
+   "stroke": 8,
+   "rx": 84,
+   "ry": 82,
+   "bold": false,
+   "labelLines": [
+    {
+     "x": 178,
+     "y": 445,
+     "w": 884,
+     "h": 62,
+     "text": "Prepare expression of interest"
+    }
+   ]
+  },
+  "object-expression-of-interest-request": {
+   "x": 1453,
+   "y": 611,
+   "w": 517,
+   "h": 347,
+   "shape": "rect",
+   "stroke": 8,
+   "rx": 0,
+   "ry": 0,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 1487,
+     "y": 646,
+     "w": 400,
+     "h": 68,
+     "text": "Expression"
+    },
+    {
+     "x": 1487,
+     "y": 757,
+     "w": 373,
+     "h": 55,
+     "text": "Of Interest"
+    },
+    {
+     "x": 1488,
+     "y": 861,
+     "w": 297,
+     "h": 69,
+     "text": "Request"
+    }
+   ]
+  },
+  "action-submit-expression-of-interest-in-economic-operator": {
+   "x": 106,
+   "y": 698,
+   "w": 1012,
+   "h": 173,
+   "shape": "rounded",
+   "stroke": 8,
+   "rx": 87,
+   "ry": 83,
+   "bold": false,
+   "labelLines": [
+    {
+     "x": 194,
+     "y": 749,
+     "w": 856,
+     "h": 61,
+     "text": "Submit expression of interest"
+    }
+   ]
+  },
+  "action-receive-expression-of-interest-in-contracting-authority": {
+   "x": 2264,
+   "y": 698,
+   "w": 1036,
+   "h": 179,
+   "shape": "rounded",
+   "stroke": 8,
+   "rx": 87,
+   "ry": 88,
+   "bold": false,
+   "labelLines": [
+    {
+     "x": 2347,
+     "y": 749,
+     "w": 888,
+     "h": 61,
+     "text": "Receive expression of interest"
+    }
+   ]
+  },
+  "object-expression-of-interest-response": {
+   "x": 1453,
+   "y": 1150,
+   "w": 517,
+   "h": 328,
+   "shape": "rect",
+   "stroke": 8,
+   "rx": 2,
+   "ry": 2,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 1487,
+     "y": 1193,
+     "w": 400,
+     "h": 69,
+     "text": "Expression"
+    },
+    {
+     "x": 1487,
+     "y": 1292,
+     "w": 373,
+     "h": 55,
+     "text": "Of Interest"
+    },
+    {
+     "x": 1488,
+     "y": 1388,
+     "w": 355,
+     "h": 69,
+     "text": "Response"
+    }
+   ]
+  },
+  "action-receive-expression-of-interest-in-economic-operator": {
+   "x": 135,
+   "y": 1217,
+   "w": 954,
+   "h": 225,
+   "shape": "rounded",
+   "stroke": 8,
+   "rx": 88,
+   "ry": 85,
+   "bold": false,
+   "labelLines": [
+    {
+     "x": 167,
+     "y": 1268,
+     "w": 888,
+     "h": 61,
+     "text": "Receive expression of interest"
+    },
+    {
+     "x": 433,
+     "y": 1343,
+     "w": 356,
+     "h": 50,
+     "text": "confirmation"
+    }
+   ]
+  },
+  "action-submit-expression-of-interest-in-contracting-authority": {
+   "x": 2264,
+   "y": 1223,
+   "w": 1036,
+   "h": 213,
+   "shape": "rounded",
+   "stroke": 8,
+   "rx": 86,
+   "ry": 87,
+   "bold": false,
+   "labelLines": [
+    {
+     "x": 2356,
+     "y": 1273,
+     "w": 857,
+     "h": 62,
+     "text": "Submit expression of interest"
+    },
+    {
+     "x": 2607,
+     "y": 1349,
+     "w": 356,
+     "h": 50,
+     "text": "confirmation"
+    }
+   ]
+  },
+  "final-economic-operator": {
+   "x": 561,
+   "y": 1596,
+   "w": 108,
+   "h": 109,
+   "shape": "rounded",
+   "stroke": 8,
+   "rx": 50,
+   "ry": 54,
+   "innerRatio": 0.5
+  }
+ },
+ "flows": {
+  "flow-initial-economic-operator-to-prepare-expression-of-interest": {
+   "fromPoint": [
+    614,
+    296
+   ],
+   "toPoint": [
+    612,
+    380
+   ],
+   "routing": "straight"
+  },
+  "flow-prepare-expression-of-interest-to-submit-expression-of-interest-in-economic-operator": {
+   "fromPoint": [
+    612,
+    576
+   ],
+   "toPoint": [
+    612,
+    683
+   ],
+   "routing": "straight"
+  },
+  "flow-submit-expression-of-interest-in-economic-operator-to-expression-of-interest-request": {
+   "fromPoint": [
+    1132,
+    781
+   ],
+   "toPoint": [
+    1438,
+    781
+   ],
+   "routing": "straight"
+  },
+  "flow-expression-of-interest-request-to-receive-expression-of-interest-in-contracting-authority": {
+   "fromPoint": [
+    1984,
+    780
+   ],
+   "toPoint": [
+    2249,
+    782
+   ],
+   "routing": "straight"
+  },
+  "flow-receive-expression-of-interest-in-contracting-authority-to-submit-expression-of-interest-in-contracting-authority": {
+   "fromPoint": [
+    2784,
+    891
+   ],
+   "toPoint": [
+    2784,
+    1208
+   ],
+   "routing": "straight"
+  },
+  "flow-expression-of-interest-response-to-receive-expression-of-interest-in-economic-operator": {
+   "fromPoint": [
+    1438,
+    1321
+   ],
+   "toPoint": [
+    1103,
+    1326
+   ],
+   "routing": "straight"
+  },
+  "flow-submit-expression-of-interest-in-contracting-authority-to-expression-of-interest-response": {
+   "fromPoint": [
+    2249,
+    1326
+   ],
+   "toPoint": [
+    1984,
+    1321
+   ],
+   "routing": "straight"
+  },
+  "flow-receive-expression-of-interest-in-economic-operator-to-final-economic-operator": {
+   "fromPoint": [
+    612,
+    1456
+   ],
+   "toPoint": [
+    615,
+    1581
+   ],
+   "routing": "straight"
+  }
+ },
+ "texts": {},
+ "offPage": {},
+ "marks": {},
+ "phases": {},
+ "rulesHaveSpans": {
+  "vertical": true,
+  "horizontal": true
+ }
+}

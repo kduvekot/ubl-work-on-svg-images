@@ -1,0 +1,681 @@
+{
+ "source": "UBL-2.0-PaymentNotificationProcess.png",
+ "size": [
+  3425,
+  2113
+ ],
+ "fontPx": 51.4,
+ "arrowPx": 59.0,
+ "arrowWidthPx": 48.2,
+ "arrowStyle": "open",
+ "rules": {
+  "v": [
+   [
+    0,
+    10
+   ],
+   [
+    1240,
+    5
+   ],
+   [
+    2377,
+    5
+   ],
+   [
+    3415,
+    10
+   ]
+  ],
+  "h": [
+   [
+    0,
+    10
+   ],
+   [
+    2103,
+    10
+   ]
+  ]
+ },
+ "ruleSpan": {
+  "v": [
+   [
+    13,
+    2099
+   ],
+   [
+    13,
+    2099
+   ],
+   [
+    13,
+    2099
+   ],
+   [
+    13,
+    2099
+   ]
+  ],
+  "h": [
+   [
+    13,
+    3411
+   ],
+   [
+    13,
+    3411
+   ]
+  ]
+ },
+ "greyRules": [],
+ "dashed": [],
+ "openEnds": [],
+ "crossMarks": [],
+ "partitions": [
+  {
+   "axis": "column",
+   "index": 0,
+   "x0": 0,
+   "x1": 1242,
+   "title": "Accounting Customer",
+   "titleBox": [
+    406,
+    24,
+    415,
+    40
+   ]
+  },
+  {
+   "axis": "column",
+   "index": 1,
+   "x0": 1242,
+   "x1": 2380,
+   "title": "Accounting Supplier",
+   "titleBox": [
+    1605,
+    24,
+    386,
+    40
+   ]
+  },
+  {
+   "axis": "column",
+   "index": 2,
+   "x0": 2380,
+   "x1": 3425,
+   "title": "Payee Party",
+   "titleBox": [
+    2781,
+    25,
+    231,
+    39
+   ]
+  },
+  {
+   "axis": "band",
+   "index": 0,
+   "y0": 0,
+   "y1": 2113,
+   "title": ""
+  }
+ ],
+ "nodes": [
+  {
+   "x": 387,
+   "y": 157,
+   "w": 87,
+   "h": 87,
+   "area": 5070,
+   "fill": 0.773,
+   "kind": "initial",
+   "id": "n1",
+   "label": "",
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 145,
+   "y": 460,
+   "w": 575,
+   "h": 121,
+   "area": 60817,
+   "fill": 0.874,
+   "solid": 0.949,
+   "rx": 57.5,
+   "ry": 61.0,
+   "shape": "rounded",
+   "stroke": 5,
+   "kind": "action",
+   "id": "n2",
+   "label": "Authorize Payment",
+   "labelLines": [
+    {
+     "x": 238,
+     "y": 501,
+     "w": 392,
+     "h": 40,
+     "text": "Authorize Payment"
+    }
+   ],
+   "stem": 0.117,
+   "bold": true,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 1026,
+   "y": 778,
+   "w": 375,
+   "h": 203,
+   "area": 68406,
+   "fill": 0.899,
+   "solid": 1.0,
+   "rx": 0,
+   "ry": 0,
+   "shape": "rect",
+   "stroke": 9,
+   "kind": "object",
+   "id": "n3",
+   "label": "Remittance\nAdvice",
+   "labelLines": [
+    {
+     "x": 1068,
+     "y": 822,
+     "w": 277,
+     "h": 39,
+     "text": "Remittance"
+    },
+    {
+     "x": 1129,
+     "y": 887,
+     "w": 171,
+     "h": 39,
+     "text": "Advice"
+    }
+   ],
+   "stem": 0.156,
+   "bold": true,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 1534,
+   "y": 819,
+   "w": 575,
+   "h": 125,
+   "area": 64115,
+   "fill": 0.892,
+   "solid": 0.95,
+   "rx": 63,
+   "ry": 61.0,
+   "shape": "rounded",
+   "stroke": 5,
+   "kind": "action",
+   "id": "n4",
+   "label": "Receive Advice",
+   "labelLines": [
+    {
+     "x": 1656,
+     "y": 859,
+     "w": 312,
+     "h": 32,
+     "text": "Receive Advice"
+    }
+   ],
+   "stem": 0.117,
+   "bold": true,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 1564,
+   "y": 1105,
+   "w": 528,
+   "h": 142,
+   "area": 69886,
+   "fill": 0.932,
+   "solid": 0.982,
+   "rx": 41,
+   "ry": 43,
+   "shape": "rounded",
+   "stroke": 5,
+   "kind": "action",
+   "id": "n5",
+   "label": "Notify Payee",
+   "labelLines": [
+    {
+     "x": 1703,
+     "y": 1161,
+     "w": 255,
+     "h": 42,
+     "text": "Notify Payee"
+    }
+   ],
+   "stem": 0.117,
+   "bold": true,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 171,
+   "y": 1387,
+   "w": 575,
+   "h": 116,
+   "area": 58620,
+   "fill": 0.879,
+   "solid": 0.952,
+   "rx": 57,
+   "ry": 61,
+   "shape": "rounded",
+   "stroke": 6,
+   "kind": "action",
+   "id": "n6",
+   "label": "Notify of Payment",
+   "labelLines": [
+    {
+     "x": 280,
+     "y": 1425,
+     "w": 365,
+     "h": 42,
+     "text": "Notify of Payment"
+    }
+   ],
+   "stem": 0.117,
+   "bold": true,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 2185,
+   "y": 1605,
+   "w": 376,
+   "h": 202,
+   "area": 68238,
+   "fill": 0.898,
+   "solid": 1.0,
+   "rx": 0,
+   "ry": 0,
+   "shape": "rect",
+   "stroke": 9,
+   "kind": "object",
+   "id": "n8",
+   "label": "Remittance\nAdvice",
+   "labelLines": [
+    {
+     "x": 2227,
+     "y": 1649,
+     "w": 277,
+     "h": 38,
+     "text": "Remittance"
+    },
+    {
+     "x": 2289,
+     "y": 1714,
+     "w": 171,
+     "h": 38,
+     "text": "Advice"
+    }
+   ],
+   "stem": 0.136,
+   "bold": true,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 2810,
+   "y": 1638,
+   "w": 510,
+   "h": 145,
+   "area": 66455,
+   "fill": 0.899,
+   "solid": 0.954,
+   "rx": 58,
+   "ry": 66,
+   "shape": "rounded",
+   "stroke": 5,
+   "kind": "action",
+   "id": "n9",
+   "label": "Receive advice",
+   "labelLines": [
+    {
+     "x": 2902,
+     "y": 1689,
+     "w": 305,
+     "h": 32,
+     "text": "Receive advice"
+    }
+   ],
+   "stem": 0.117,
+   "bold": true,
+   "col": 2,
+   "row": 0
+  },
+  {
+   "x": 3027,
+   "y": 1961,
+   "w": 77,
+   "h": 78,
+   "area": 3803,
+   "fill": 0.633,
+   "solid": 0.789,
+   "rx": 40,
+   "ry": 34,
+   "shape": "ellipse",
+   "stroke": 5,
+   "kind": "final",
+   "innerRatio": 0.442,
+   "id": "n10",
+   "label": "",
+   "col": 2,
+   "row": 0
+  }
+ ],
+ "edges": [
+  {
+   "from": "n1",
+   "to": "n2",
+   "routing": "straight",
+   "fromPoint": [
+    431,
+    258
+   ],
+   "toPoint": [
+    432,
+    445
+   ],
+   "arrowInk": [
+    225,
+    744
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    58,
+    48.5,
+    2.15
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n2",
+   "to": "n6",
+   "routing": "straight",
+   "fromPoint": [
+    458,
+    595
+   ],
+   "toPoint": [
+    458,
+    1372
+   ],
+   "arrowInk": [
+    225,
+    740
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    59,
+    48.0,
+    2.23
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n3",
+   "to": "n4",
+   "routing": "straight",
+   "fromPoint": [
+    1415,
+    879
+   ],
+   "toPoint": [
+    1519,
+    881
+   ],
+   "arrowInk": [
+    225,
+    738
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    60,
+    49.9,
+    2.12
+   ],
+   "arrowSaturated": true,
+   "arrowFill": 0.0,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n4",
+   "to": "n5",
+   "routing": "straight",
+   "fromPoint": [
+    1830,
+    958
+   ],
+   "toPoint": [
+    1830,
+    1090
+   ],
+   "arrowInk": [
+    225,
+    741
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    59,
+    48.0,
+    2.17
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n6",
+   "to": "n3",
+   "routing": "diagonal",
+   "fromPoint": [
+    548,
+    1372
+   ],
+   "toPoint": [
+    1066,
+    995
+   ],
+   "arrowInk": [
+    278,
+    714
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    78,
+    52.7,
+    1.56
+   ],
+   "arrowFill": 0.078,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n5",
+   "to": "n8",
+   "routing": "diagonal",
+   "fromPoint": [
+    2035,
+    1261
+   ],
+   "toPoint": [
+    2285,
+    1590
+   ],
+   "arrowInk": [
+    296,
+    756
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    79,
+    53.7,
+    0.82
+   ],
+   "arrowSaturated": true,
+   "arrowFill": 0.149,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n6",
+   "to": "n8",
+   "routing": "diagonal",
+   "fromPoint": [
+    760,
+    1483
+   ],
+   "toPoint": [
+    2170,
+    1681
+   ],
+   "arrowInk": [
+    233,
+    724
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    114,
+    56.0,
+    0.38
+   ],
+   "arrowSaturated": true,
+   "arrowFill": 0.139,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n8",
+   "to": "n9",
+   "routing": "straight",
+   "fromPoint": [
+    2575,
+    1707
+   ],
+   "toPoint": [
+    2795,
+    1709
+   ],
+   "arrowInk": [
+    225,
+    732
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    58,
+    49.2,
+    2.05
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n9",
+   "to": "n10",
+   "routing": "straight",
+   "fromPoint": [
+    3067,
+    1797
+   ],
+   "toPoint": [
+    3067,
+    1946
+   ],
+   "arrowInk": [
+    225,
+    749
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    59,
+    48.0,
+    2.16
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "control"
+  }
+ ],
+ "text": [
+  {
+   "text": "Accounting Customer",
+   "x": 406,
+   "y": 24,
+   "w": 415,
+   "h": 40,
+   "lines": [
+    {
+     "x": 406,
+     "y": 24,
+     "w": 415,
+     "h": 40,
+     "text": "Accounting Customer"
+    }
+   ]
+  },
+  {
+   "text": "Accounting Supplier",
+   "x": 1605,
+   "y": 24,
+   "w": 386,
+   "h": 40,
+   "lines": [
+    {
+     "x": 1605,
+     "y": 24,
+     "w": 386,
+     "h": 40,
+     "text": "Accounting Supplier"
+    }
+   ]
+  },
+  {
+   "text": "Payee Party",
+   "x": 2781,
+   "y": 25,
+   "w": 231,
+   "h": 39,
+   "lines": [
+    {
+     "x": 2781,
+     "y": 25,
+     "w": 231,
+     "h": 39,
+     "text": "Payee Party"
+    }
+   ]
+  },
+  {
+   "text": "From Billing",
+   "x": 523,
+   "y": 167,
+   "w": 222,
+   "h": 40,
+   "lines": [
+    {
+     "x": 523,
+     "y": 167,
+     "w": 222,
+     "h": 40,
+     "text": "From Billing"
+    }
+   ]
+  }
+ ],
+ "uncertain": [
+  {
+   "kind": "empty-box",
+   "x": 1245,
+   "y": 1553,
+   "w": 1132,
+   "h": 550,
+   "reason": "a note carrying no text, with line-work passing its sides",
+   "check": "confirm nothing is drawn here in the original"
+  }
+ ]
+}

@@ -1,0 +1,1100 @@
+{
+ "canvas": {
+  "w": 1480.0,
+  "h": 1419.072
+ },
+ "stroke": {
+  "frame": 4.3,
+  "divider": 3.0,
+  "action": 2.6,
+  "object": 2.6,
+  "edge": 2.6
+ },
+ "font": {
+  "family": "Helvetica, Arial, sans-serif",
+  "node": 22.2,
+  "lane": 22.2,
+  "guard": 22.2
+ },
+ "arrow": 37.3,
+ "arrowWidth": 30.2,
+ "arrowStyle": "open",
+ "dashed": [],
+ "greyRules": [],
+ "crossMarks": [],
+ "openEnds": [],
+ "frameBox": [
+  2.2,
+  2.2,
+  1477.8,
+  1416.9
+ ],
+ "dividers": [
+  [
+   745.2,
+   3.0,
+   5.6,
+   1413.0
+  ]
+ ],
+ "bands": [],
+ "lanes": [
+  {
+   "id": "lane-participant-party-1",
+   "title": "PARTICIPANT PARTY 1",
+   "x": 0.0,
+   "w": 745.0,
+   "cx": 385.7,
+   "cy": 29.8,
+   "name": "Participant Party 1",
+   "size": 32.6,
+   "textWidth": 309.8,
+   "baseline": 41.5
+  },
+  {
+   "id": "lane-participant-party-2",
+   "title": "PARTICIPANT PARTY 2",
+   "x": 745.0,
+   "w": 735.0,
+   "cx": 1132.8,
+   "cy": 29.8,
+   "name": "Participant Party 2",
+   "size": 32.6,
+   "textWidth": 309.8,
+   "baseline": 41.5
+  }
+ ],
+ "bandLabels": [],
+ "captions": [],
+ "nodes": [
+  {
+   "id": "initial-participant-party-1",
+   "kind": "initial",
+   "label": "",
+   "x": 389.3,
+   "y": 73.0,
+   "w": 45.8,
+   "h": 45.8
+  },
+  {
+   "id": "object-digital-capabilities",
+   "kind": "object",
+   "label": "Digital\nCapabilities",
+   "x": 644.3,
+   "y": 169.0,
+   "w": 193.2,
+   "h": 81.7,
+   "labelLines": [
+    {
+     "text": "Digital",
+     "cx": 741.9,
+     "cy": 196.275,
+     "w": 65.7,
+     "size": 21.5
+    },
+    {
+     "text": "Capabilities",
+     "cx": 741.9,
+     "cy": 223.875,
+     "w": 118.4,
+     "size": 21.5
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-send-digital-capabilities",
+   "kind": "action",
+   "label": "Send digital capabilities",
+   "x": 268.3,
+   "y": 179.8,
+   "w": 285.6,
+   "h": 57.9,
+   "rx": 31.5,
+   "ry": 30.2,
+   "labelLines": [
+    {
+     "text": "Send digital capabilities",
+     "cx": 414.0,
+     "cy": 207.475,
+     "w": 242.8,
+     "size": 21.5
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-receive-digital-capabilities",
+   "kind": "action",
+   "label": "Receive digital capabilities",
+   "x": 906.1,
+   "y": 181.9,
+   "w": 358.7,
+   "h": 55.7,
+   "rx": 31.5,
+   "ry": 26.8,
+   "labelLines": [
+    {
+     "text": "Receive digital capabilities",
+     "cx": 1085.9,
+     "cy": 210.075,
+     "w": 271.4,
+     "size": 21.5
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "object-application-response-between-participant-party-1-and-participant-party-2",
+   "kind": "object",
+   "label": "Application\nResponse",
+   "x": 646.4,
+   "y": 306.4,
+   "w": 193.2,
+   "h": 81.7,
+   "labelLines": [
+    {
+     "text": "Application",
+     "cx": 742.2,
+     "cy": 334.07500000000005,
+     "w": 117.1,
+     "size": 21.5
+    },
+    {
+     "text": "Response",
+     "cx": 742.2,
+     "cy": 361.77500000000003,
+     "w": 101.5,
+     "size": 21.5
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-receive-application-response-in-participant-party-1",
+   "kind": "action",
+   "label": "Receive application response",
+   "x": 221.2,
+   "y": 317.2,
+   "w": 379.8,
+   "h": 60.1,
+   "rx": 31.5,
+   "ry": 30.2,
+   "labelLines": [
+    {
+     "text": "Receive application response",
+     "cx": 410.9,
+     "cy": 345.375,
+     "w": 299.9,
+     "size": 21.5
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-send-application-response-in-participant-party-2",
+   "kind": "action",
+   "label": "Send application response",
+   "x": 914.8,
+   "y": 319.3,
+   "w": 341.4,
+   "h": 55.7,
+   "rx": 31.5,
+   "ry": 29.4,
+   "labelLines": [
+    {
+     "text": "Send application response",
+     "cx": 1087.9,
+     "cy": 347.475,
+     "w": 271.8,
+     "size": 21.5
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "decision-match-digital-capabilities",
+   "kind": "decision",
+   "label": "Match\ndigital\ncapabilities",
+   "x": 1276.9,
+   "y": 351.7,
+   "w": 195.3,
+   "h": 143.0,
+   "labelLines": [
+    {
+     "text": "Match",
+     "cx": 1376.9,
+     "cy": 384.675,
+     "w": 55.7,
+     "size": 21.5
+    },
+    {
+     "text": "digital",
+     "cx": 1375.2,
+     "cy": 412.77500000000003,
+     "w": 54.0,
+     "size": 21.5
+    },
+    {
+     "text": "capabilities",
+     "cx": 1375.0,
+     "cy": 440.875,
+     "w": 104.6,
+     "size": 21.5
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "object-digital-agreement-between-participant-party-1-and-participant-party-2",
+   "kind": "object",
+   "label": "Digital\nAgreement",
+   "x": 646.4,
+   "y": 454.6,
+   "w": 193.2,
+   "h": 83.8,
+   "labelLines": [
+    {
+     "text": "Digital",
+     "cx": 741.9,
+     "cy": 481.875,
+     "w": 65.7,
+     "size": 21.5
+    },
+    {
+     "text": "Agreement",
+     "cx": 742.2,
+     "cy": 509.975,
+     "w": 113.6,
+     "size": 21.5
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-receive-digital-agreement-in-participant-party-1",
+   "kind": "action",
+   "label": "Receive digital agreement",
+   "x": 221.2,
+   "y": 465.4,
+   "w": 379.8,
+   "h": 57.9,
+   "rx": 31.5,
+   "ry": 29.4,
+   "labelLines": [
+    {
+     "text": "Receive digital agreement",
+     "cx": 412.0,
+     "cy": 493.57500000000005,
+     "w": 263.2,
+     "size": 21.5
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-send-digital-agreement-in-participant-party-2",
+   "kind": "action",
+   "label": "Send digital agreement",
+   "x": 942.9,
+   "y": 465.4,
+   "w": 285.6,
+   "h": 60.1,
+   "rx": 31.1,
+   "ry": 30.2,
+   "labelLines": [
+    {
+     "text": "Send digital agreement",
+     "cx": 1088.7,
+     "cy": 493.07500000000005,
+     "w": 235.5,
+     "size": 21.5
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "object-application-response-between-participant-party-1-and-participant-party-2-2",
+   "kind": "object",
+   "label": "Application\nResponse",
+   "x": 646.4,
+   "y": 587.7,
+   "w": 193.2,
+   "h": 83.8,
+   "labelLines": [
+    {
+     "text": "Application",
+     "cx": 742.2,
+     "cy": 615.375,
+     "w": 117.1,
+     "size": 21.5
+    },
+    {
+     "text": "Response",
+     "cx": 742.2,
+     "cy": 643.075,
+     "w": 101.5,
+     "size": 21.5
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-receive-application-response-in-participant-party-2",
+   "kind": "action",
+   "label": "Receive application response",
+   "x": 901.8,
+   "y": 596.3,
+   "w": 367.3,
+   "h": 62.2,
+   "rx": 32.0,
+   "ry": 29.4,
+   "labelLines": [
+    {
+     "text": "Receive application response",
+     "cx": 1085.5,
+     "cy": 624.475,
+     "w": 299.9,
+     "size": 21.5
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-send-application-response-in-participant-party-1",
+   "kind": "action",
+   "label": "Send application response",
+   "x": 244.6,
+   "y": 598.5,
+   "w": 333.2,
+   "h": 57.9,
+   "rx": 31.5,
+   "ry": 28.1,
+   "labelLines": [
+    {
+     "text": "Send application response",
+     "cx": 413.3,
+     "cy": 626.6750000000001,
+     "w": 271.8,
+     "size": 21.5
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "decision-reconcile-digital-agreement-with-own",
+   "kind": "decision",
+   "label": "Reconcile digital\nagreement with own\ndigital capabilities",
+   "x": 9.9,
+   "y": 643.9,
+   "w": 289.1,
+   "h": 192.7,
+   "labelLines": [
+    {
+     "text": "Reconcile digital",
+     "cx": 155.3,
+     "cy": 708.275,
+     "w": 153.4,
+     "size": 21.5
+    },
+    {
+     "text": "agreement with own",
+     "cx": 157.7,
+     "cy": 736.375,
+     "w": 190.1,
+     "size": 21.5
+    },
+    {
+     "text": "digital capabilities",
+     "cx": 154.7,
+     "cy": 764.075,
+     "w": 166.8,
+     "size": 21.5
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "object-digital-agreement-between-participant-party-1-and-participant-party-2-2",
+   "kind": "object",
+   "label": "Digital\nAgreement",
+   "x": 655.1,
+   "y": 808.9,
+   "w": 193.2,
+   "h": 81.7,
+   "labelLines": [
+    {
+     "text": "Digital",
+     "cx": 741.9,
+     "cy": 836.1750000000001,
+     "w": 65.7,
+     "size": 21.5
+    },
+    {
+     "text": "Agreement",
+     "cx": 742.2,
+     "cy": 864.275,
+     "w": 113.6,
+     "size": 21.5
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-send-digital-agreement-in-participant-party-1",
+   "kind": "action",
+   "label": "Send digital agreement",
+   "x": 259.7,
+   "y": 817.6,
+   "w": 302.9,
+   "h": 64.4,
+   "rx": 31.5,
+   "ry": 32.8,
+   "labelLines": [
+    {
+     "text": "Send digital agreement",
+     "cx": 414.6,
+     "cy": 845.275,
+     "w": 235.5,
+     "size": 21.5
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-receive-digital-agreement-in-participant-party-2",
+   "kind": "action",
+   "label": "Receive digital agreement",
+   "x": 914.8,
+   "y": 824.0,
+   "w": 341.4,
+   "h": 57.9,
+   "rx": 31.5,
+   "ry": 29.4,
+   "labelLines": [
+    {
+     "text": "Receive digital agreement",
+     "cx": 1086.3,
+     "cy": 852.1750000000001,
+     "w": 263.6,
+     "size": 21.5
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "decision-validate-digital-agreement",
+   "kind": "decision",
+   "label": "Validate\ndigital\nagreement",
+   "x": 982.6,
+   "y": 964.1,
+   "w": 207.8,
+   "h": 145.2,
+   "labelLines": [
+    {
+     "text": "Validate",
+     "cx": 1087.4,
+     "cy": 1004.775,
+     "w": 74.8,
+     "size": 21.5
+    },
+    {
+     "text": "digital",
+     "cx": 1088.3,
+     "cy": 1032.375,
+     "w": 54.0,
+     "size": 21.5
+    },
+    {
+     "text": "agreement",
+     "cx": 1090.7,
+     "cy": 1060.875,
+     "w": 102.0,
+     "size": 21.5
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "object-application-response-between-participant-party-1-and-participant-party-2-3",
+   "kind": "object",
+   "label": "Application\nResponse",
+   "x": 652.9,
+   "y": 1165.4,
+   "w": 193.2,
+   "h": 107.2,
+   "labelLines": [
+    {
+     "text": "Application",
+     "cx": 742.2,
+     "cy": 1201.7749999999999,
+     "w": 117.1,
+     "size": 21.5
+    },
+    {
+     "text": "Response",
+     "cx": 742.2,
+     "cy": 1229.475,
+     "w": 101.5,
+     "size": 21.5
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-send-application-response-in-participant-party-2-2",
+   "kind": "action",
+   "label": "Send application response",
+   "x": 897.5,
+   "y": 1189.2,
+   "w": 375.9,
+   "h": 57.9,
+   "rx": 31.5,
+   "ry": 28.1,
+   "labelLines": [
+    {
+     "text": "Send application response",
+     "cx": 1087.9,
+     "cy": 1216.875,
+     "w": 271.8,
+     "size": 21.5
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-receive-application-response-in-participant-party-1-2",
+   "kind": "action",
+   "label": "Receive application response",
+   "x": 208.3,
+   "y": 1191.3,
+   "w": 401.4,
+   "h": 55.7,
+   "rx": 31.5,
+   "ry": 28.1,
+   "labelLines": [
+    {
+     "text": "Receive application response",
+     "cx": 410.9,
+     "cy": 1219.475,
+     "w": 299.9,
+     "size": 21.5
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "final-participant-party-2",
+   "kind": "final",
+   "label": "",
+   "x": 1353.0,
+   "y": 1341.3,
+   "w": 42.8,
+   "h": 43.2,
+   "innerRatio": 0.484
+  },
+  {
+   "id": "final-participant-party-1",
+   "kind": "final",
+   "label": "",
+   "x": 133.1,
+   "y": 1341.7,
+   "w": 42.8,
+   "h": 42.8,
+   "innerRatio": 0.484
+  }
+ ],
+ "edges": [
+  {
+   "id": "flow-initial-participant-party-1-to-send-digital-capabilities",
+   "from": "initial-participant-party-1",
+   "to": "action-send-digital-capabilities",
+   "exitXY": [
+    0.5,
+    1.0
+   ],
+   "entryXY": [
+    0.4993,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-send-digital-capabilities-to-digital-capabilities",
+   "from": "action-send-digital-capabilities",
+   "to": "object-digital-capabilities",
+   "exitXY": [
+    1.0,
+    0.506
+   ],
+   "entryXY": [
+    0.0,
+    0.4969
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-digital-capabilities-to-receive-digital-capabilities",
+   "from": "object-digital-capabilities",
+   "to": "action-receive-digital-capabilities",
+   "exitXY": [
+    1.0,
+    0.4969
+   ],
+   "entryXY": [
+    0.0,
+    0.4973
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-receive-digital-capabilities-to-match-digital-capabilities",
+   "from": "action-receive-digital-capabilities",
+   "to": "decision-match-digital-capabilities",
+   "exitXY": [
+    1.0,
+    0.5583
+   ],
+   "entryXY": [
+    0.4956,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-receive-digital-capabilities-to-send-application-response-in-participant-party-2",
+   "from": "action-receive-digital-capabilities",
+   "to": "action-send-application-response-in-participant-party-2",
+   "exitXY": [
+    0.5024,
+    1.0
+   ],
+   "entryXY": [
+    0.5023,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-application-response-between-participant-party-1-and-participant-party-2-to-receive-application-response-in-participant-party-1",
+   "from": "object-application-response-between-participant-party-1-and-participant-party-2",
+   "to": "action-receive-application-response-in-participant-party-1",
+   "exitXY": [
+    0.0,
+    0.4969
+   ],
+   "entryXY": [
+    1.0,
+    0.4958
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-send-application-response-in-participant-party-2-to-application-response-between-participant-party-1-and-participant-party-2",
+   "from": "action-send-application-response-in-participant-party-2",
+   "to": "object-application-response-between-participant-party-1-and-participant-party-2",
+   "exitXY": [
+    0.0,
+    0.4901
+   ],
+   "entryXY": [
+    1.0,
+    0.492
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-match-digital-capabilities-to-send-digital-agreement-in-participant-party-2",
+   "from": "decision-match-digital-capabilities",
+   "to": "action-send-digital-agreement-in-participant-party-2",
+   "exitXY": [
+    0.0,
+    0.4986
+   ],
+   "entryXY": [
+    0.9244,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "notation",
+   "label": "Y"
+  },
+  {
+   "id": "flow-digital-agreement-between-participant-party-1-and-participant-party-2-to-receive-digital-agreement-in-participant-party-1",
+   "from": "object-digital-agreement-between-participant-party-1-and-participant-party-2",
+   "to": "action-receive-digital-agreement-in-participant-party-1",
+   "exitXY": [
+    0.0,
+    0.4952
+   ],
+   "entryXY": [
+    1.0,
+    0.4991
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-send-digital-agreement-in-participant-party-2-to-digital-agreement-between-participant-party-1-and-participant-party-2",
+   "from": "action-send-digital-agreement-in-participant-party-2",
+   "to": "object-digital-agreement-between-participant-party-1-and-participant-party-2",
+   "exitXY": [
+    0.0,
+    0.4892
+   ],
+   "entryXY": [
+    1.0,
+    0.4893
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-receive-digital-agreement-in-participant-party-1-to-reconcile-digital-agreement-with-own",
+   "from": "action-receive-digital-agreement-in-participant-party-1",
+   "to": "decision-reconcile-digital-agreement-with-own",
+   "exitXY": [
+    0.0,
+    0.5078
+   ],
+   "entryXY": [
+    0.4995,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-match-digital-capabilities-to-final-participant-party-2",
+   "from": "decision-match-digital-capabilities",
+   "to": "final-participant-party-2",
+   "exitXY": [
+    0.5003,
+    1.0
+   ],
+   "entryXY": [
+    0.5444,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high",
+   "label": "N"
+  },
+  {
+   "id": "flow-receive-digital-agreement-in-participant-party-1-to-send-application-response-in-participant-party-1",
+   "from": "action-receive-digital-agreement-in-participant-party-1",
+   "to": "action-send-application-response-in-participant-party-1",
+   "exitXY": [
+    0.5145,
+    1.0
+   ],
+   "entryXY": [
+    0.5135,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-send-application-response-in-participant-party-1-to-application-response-between-participant-party-1-and-participant-party-2-2",
+   "from": "action-send-application-response-in-participant-party-1",
+   "to": "object-application-response-between-participant-party-1-and-participant-party-2-2",
+   "exitXY": [
+    1.0,
+    0.4991
+   ],
+   "entryXY": [
+    0.0,
+    0.5
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-application-response-between-participant-party-1-and-participant-party-2-2-to-receive-application-response-in-participant-party-2",
+   "from": "object-application-response-between-participant-party-1-and-participant-party-2-2",
+   "to": "action-receive-application-response-in-participant-party-2",
+   "exitXY": [
+    1.0,
+    0.5
+   ],
+   "entryXY": [
+    0.0,
+    0.5
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-reconcile-digital-agreement-with-own-to-send-digital-agreement-in-participant-party-1",
+   "from": "decision-reconcile-digital-agreement-with-own",
+   "to": "action-send-digital-agreement-in-participant-party-1",
+   "exitXY": [
+    1.0,
+    0.5221
+   ],
+   "entryXY": [
+    0.2496,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high",
+   "label": "Y"
+  },
+  {
+   "id": "flow-send-digital-agreement-in-participant-party-1-to-digital-agreement-between-participant-party-1-and-participant-party-2-2",
+   "from": "action-send-digital-agreement-in-participant-party-1",
+   "to": "object-digital-agreement-between-participant-party-1-and-participant-party-2-2",
+   "exitXY": [
+    1.0,
+    0.4953
+   ],
+   "entryXY": [
+    0.0,
+    0.4969
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-digital-agreement-between-participant-party-1-and-participant-party-2-2-to-receive-digital-agreement-in-participant-party-2",
+   "from": "object-digital-agreement-between-participant-party-1-and-participant-party-2-2",
+   "to": "action-receive-digital-agreement-in-participant-party-2",
+   "exitXY": [
+    1.0,
+    0.4969
+   ],
+   "entryXY": [
+    0.0,
+    0.494
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-reconcile-digital-agreement-with-own-to-final-participant-party-1",
+   "from": "decision-reconcile-digital-agreement-with-own",
+   "to": "final-participant-party-1",
+   "exitXY": [
+    0.4995,
+    1.0
+   ],
+   "entryXY": [
+    0.4953,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high",
+   "label": "N"
+  },
+  {
+   "id": "flow-receive-digital-agreement-in-participant-party-2-to-validate-digital-agreement",
+   "from": "action-receive-digital-agreement-in-participant-party-2",
+   "to": "decision-validate-digital-agreement",
+   "exitXY": [
+    0.5012,
+    1.0
+   ],
+   "entryXY": [
+    0.5014,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-validate-digital-agreement-to-final-participant-party-2",
+   "from": "decision-validate-digital-agreement",
+   "to": "final-participant-party-2",
+   "exitXY": [
+    1.0,
+    0.5234
+   ],
+   "entryXY": [
+    0.1612,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high",
+   "label": "Y"
+  },
+  {
+   "id": "flow-validate-digital-agreement-to-send-application-response-in-participant-party-2-2",
+   "from": "decision-validate-digital-agreement",
+   "to": "action-send-application-response-in-participant-party-2-2",
+   "exitXY": [
+    0.499,
+    1.0
+   ],
+   "entryXY": [
+    0.4988,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high",
+   "label": "N"
+  },
+  {
+   "id": "flow-application-response-between-participant-party-1-and-participant-party-2-3-to-receive-application-response-in-participant-party-1-2",
+   "from": "object-application-response-between-participant-party-1-and-participant-party-2-3",
+   "to": "action-receive-application-response-in-participant-party-1-2",
+   "exitXY": [
+    0.0,
+    0.5
+   ],
+   "entryXY": [
+    1.0,
+    0.4973
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-send-application-response-in-participant-party-2-2-to-application-response-between-participant-party-1-and-participant-party-2-3",
+   "from": "action-send-application-response-in-participant-party-2-2",
+   "to": "object-application-response-between-participant-party-1-and-participant-party-2-3",
+   "exitXY": [
+    0.0,
+    0.4991
+   ],
+   "entryXY": [
+    1.0,
+    0.5
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-receive-application-response-in-participant-party-1-2-to-final-participant-party-1",
+   "from": "action-receive-application-response-in-participant-party-1-2",
+   "to": "final-participant-party-1",
+   "exitXY": [
+    0.4995,
+    1.0
+   ],
+   "entryXY": [
+    1.0,
+    0.264
+   ],
+   "straight": true,
+   "confidence": "high"
+  }
+ ],
+ "guards": [
+  {
+   "id": "text-y",
+   "text": "Y",
+   "x": 1260.9,
+   "y": 443.4,
+   "w": 13.0,
+   "h": 15.6,
+   "onFlow": "flow-match-digital-capabilities-to-send-digital-agreement-in-participant-party-2",
+   "labelLines": [
+    {
+     "text": "Y",
+     "cx": 1267.4,
+     "cy": 451.30499999999995,
+     "w": 13.0,
+     "size": 21.7
+    }
+   ]
+  },
+  {
+   "id": "text-n",
+   "text": "N",
+   "x": 1352.5,
+   "y": 499.1,
+   "w": 11.7,
+   "h": 15.6,
+   "onFlow": "flow-match-digital-capabilities-to-final-participant-party-2",
+   "labelLines": [
+    {
+     "text": "N",
+     "cx": 1358.4,
+     "cy": 507.105,
+     "w": 11.7,
+     "size": 21.7
+    }
+   ]
+  },
+  {
+   "id": "text-y-2",
+   "text": "Y",
+   "x": 285.6,
+   "y": 759.7,
+   "w": 13.0,
+   "h": 16.0,
+   "onFlow": "flow-reconcile-digital-agreement-with-own-to-send-digital-agreement-in-participant-party-1",
+   "labelLines": [
+    {
+     "text": "Y",
+     "cx": 292.1,
+     "cy": 767.7950000000001,
+     "w": 13.0,
+     "size": 22.3
+    }
+   ]
+  },
+  {
+   "id": "text-n-2",
+   "text": "N",
+   "x": 168.5,
+   "y": 837.0,
+   "w": 12.1,
+   "h": 15.6,
+   "onFlow": "flow-reconcile-digital-agreement-with-own-to-final-participant-party-1",
+   "labelLines": [
+    {
+     "text": "N",
+     "cx": 174.6,
+     "cy": 845.005,
+     "w": 12.1,
+     "size": 21.7
+    }
+   ]
+  },
+  {
+   "id": "text-y-3",
+   "text": "Y",
+   "x": 1179.2,
+   "y": 1056.5,
+   "w": 13.0,
+   "h": 15.6,
+   "onFlow": "flow-validate-digital-agreement-to-final-participant-party-2",
+   "labelLines": [
+    {
+     "text": "Y",
+     "cx": 1185.7,
+     "cy": 1064.5049999999999,
+     "w": 13.0,
+     "size": 21.7
+    }
+   ]
+  },
+  {
+   "id": "text-n-3",
+   "text": "N",
+   "x": 1094.6,
+   "y": 1111.8,
+   "w": 12.1,
+   "h": 16.0,
+   "onFlow": "flow-validate-digital-agreement-to-send-application-response-in-participant-party-2-2",
+   "labelLines": [
+    {
+     "text": "N",
+     "cx": 1100.6,
+     "cy": 1119.995,
+     "w": 12.1,
+     "size": 22.3
+    }
+   ]
+  }
+ ]
+}

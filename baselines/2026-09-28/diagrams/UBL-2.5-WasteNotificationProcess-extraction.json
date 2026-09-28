@@ -1,0 +1,824 @@
+{
+ "schema": "ubl-activity-diagram-extraction/1",
+ "figure": "UBL-2.5-WasteNotificationProcess",
+ "nodes": {
+  "initial-sender-party": {
+   "area": 1591,
+   "fill": 0.752
+  },
+  "action-prepare-notification-of-waste-movement": {
+   "area": 95804,
+   "fill": 0.828,
+   "solid": 0.959,
+   "stem": 0.085
+  },
+  "object-waste-notification": {
+   "area": 115852,
+   "fill": 0.941,
+   "solid": 1.0,
+   "stem": 0.102
+  },
+  "action-send-waste-notification": {
+   "area": 92898,
+   "fill": 0.865,
+   "solid": 0.955,
+   "stem": 0.102
+  },
+  "action-receive-waste-notification": {
+   "area": 91792,
+   "fill": 0.855,
+   "solid": 0.955,
+   "stem": 0.102
+  },
+  "object-application-response": {
+   "area": 102163,
+   "fill": 0.913,
+   "solid": 1.0,
+   "stem": 0.102
+  },
+  "action-receive-waste-notification-response": {
+   "area": 105116,
+   "fill": 0.838,
+   "solid": 0.961,
+   "stem": 0.102
+  },
+  "action-prepare-and-send-response": {
+   "area": 90952,
+   "fill": 0.847,
+   "solid": 0.955,
+   "stem": 0.102
+  },
+  "final-sender-party": {
+   "area": 3475,
+   "fill": 0.42,
+   "solid": 0.788
+  }
+ },
+ "flows": {
+  "flow-initial-sender-party-to-prepare-notification-of-waste-movement": {
+   "arrowInk": [
+    225,
+    495
+   ],
+   "arrowPx": [
+    36,
+    36.0,
+    2.03
+   ],
+   "arrowFill": 0.011
+  },
+  "flow-prepare-notification-of-waste-movement-to-send-waste-notification": {
+   "arrowInk": [
+    180,
+    558
+   ],
+   "arrowPx": [
+    44,
+    48.0,
+    2.15
+   ],
+   "arrowFill": 0.011
+  },
+  "flow-send-waste-notification-to-waste-notification": {
+   "arrowInk": [
+    180,
+    437
+   ],
+   "arrowPx": [
+    36,
+    36.0,
+    2.04
+   ],
+   "arrowFill": 0.016
+  },
+  "flow-waste-notification-to-receive-waste-notification": {
+   "arrowInk": [
+    180,
+    453
+   ],
+   "arrowPx": [
+    37,
+    36.0,
+    1.99
+   ],
+   "arrowFill": 0.021
+  },
+  "flow-receive-waste-notification-to-prepare-and-send-response": {
+   "arrowInk": [
+    225,
+    494
+   ],
+   "arrowPx": [
+    37,
+    36.0,
+    1.99
+   ],
+   "arrowFill": 0.005
+  },
+  "flow-application-response-to-receive-waste-notification-response": {
+   "arrowInk": [
+    184,
+    449
+   ],
+   "arrowPx": [
+    35,
+    37.6,
+    1.95
+   ],
+   "arrowFill": 0.005
+  },
+  "flow-prepare-and-send-response-to-application-response": {
+   "arrowInk": [
+    184,
+    435
+   ],
+   "arrowPx": [
+    34,
+    36.2,
+    2.04
+   ],
+   "arrowFill": 0.006
+  },
+  "flow-receive-waste-notification-response-to-final-sender-party": {
+   "arrowInk": [
+    225,
+    496
+   ],
+   "arrowPx": [
+    37,
+    36.0,
+    2.02
+   ],
+   "arrowFill": 0.005
+  }
+ },
+ "offPage": {},
+ "marks": {},
+ "phases": {},
+ "greyRules": [],
+ "titleReadings": [
+  {
+   "position": 0,
+   "text": "Senderparty",
+   "x": 362,
+   "y": 144,
+   "w": 332,
+   "h": 55,
+   "lines": [
+    {
+     "x": 362,
+     "y": 144,
+     "w": 332,
+     "h": 55,
+     "text": "Senderparty"
+    }
+   ]
+  },
+  {
+   "position": 1,
+   "text": "ReceiverParty",
+   "x": 1684,
+   "y": 145,
+   "w": 378,
+   "h": 54,
+   "lines": [
+    {
+     "x": 1684,
+     "y": 145,
+     "w": 378,
+     "h": 54,
+     "text": "ReceiverParty"
+    }
+   ]
+  }
+ ],
+ "findings": [],
+ "uncertain": [
+  {
+   "x": 1253,
+   "y": 1060,
+   "w": 763,
+   "h": 429,
+   "shape": "ellipse",
+   "iou": 0.763,
+   "border": 0.441,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best ellipse 0.76, and 0.99 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "kind": "no-weight-split",
+   "reason": "all 7 box strokes are one weight ([4, 5]), so no object node could be identified",
+   "check": "confirm the diagram really has no object nodes"
+  }
+ ],
+ "present": [
+  "source",
+  "size",
+  "fontPx",
+  "arrowPx",
+  "arrowWidthPx",
+  "arrowStyle",
+  "rules",
+  "ruleSpan",
+  "greyRules",
+  "dashed",
+  "openEnds",
+  "crossMarks",
+  "partitions",
+  "nodes",
+  "edges",
+  "text",
+  "uncertain"
+ ],
+ "uncorrected": {
+  "model": {
+   "schema": "ubl-activity-diagram/1",
+   "figure": {
+    "name": "UBL-2.5-WasteNotificationProcess",
+    "source": "UBL-2.5-WasteNotificationProcess.png"
+   },
+   "lanes": [
+    {
+     "id": "lane0",
+     "axis": "column",
+     "index": 0,
+     "title": "Senderparty"
+    },
+    {
+     "id": "lane1",
+     "axis": "column",
+     "index": 1,
+     "title": "ReceiverParty"
+    },
+    {
+     "id": "lane2",
+     "axis": "band",
+     "index": 0,
+     "title": ""
+    }
+   ],
+   "nodes": [
+    {
+     "id": "n1",
+     "kind": "initial",
+     "label": "",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n2",
+     "kind": "action",
+     "label": "Prepare notification of\nwaste movement",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n3",
+     "kind": "object",
+     "label": "Waste Notification",
+     "lane": "lane1",
+     "band": "lane2"
+    },
+    {
+     "id": "n4",
+     "kind": "action",
+     "label": "Send Waste\nNotification",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n5",
+     "kind": "action",
+     "label": "Receive Waste\nNotification",
+     "lane": "lane1",
+     "band": "lane2"
+    },
+    {
+     "id": "n6",
+     "kind": "object",
+     "label": "Application\nResponse",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n7",
+     "kind": "action",
+     "label": "Receive Waste\nNotification Response",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n8",
+     "kind": "action",
+     "label": "Prepare and send\nresponse",
+     "lane": "lane1",
+     "band": "lane2"
+    },
+    {
+     "id": "n9",
+     "kind": "final",
+     "label": "",
+     "lane": "lane0",
+     "band": "lane2"
+    }
+   ],
+   "flows": [
+    {
+     "id": "f0",
+     "from": "n1",
+     "to": "n2",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f1",
+     "from": "n2",
+     "to": "n4",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f2",
+     "from": "n4",
+     "to": "n3",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f3",
+     "from": "n3",
+     "to": "n5",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f4",
+     "from": "n5",
+     "to": "n8",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f5",
+     "from": "n6",
+     "to": "n7",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f6",
+     "from": "n8",
+     "to": "n6",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f7",
+     "from": "n7",
+     "to": "n9",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    }
+   ],
+   "texts": [],
+   "offPage": [],
+   "marks": [],
+   "phases": []
+  },
+  "layout": {
+   "schema": "ubl-activity-diagram-layout/1",
+   "figure": "UBL-2.5-WasteNotificationProcess",
+   "units": "px of the original PNG",
+   "size": [
+    2501,
+    2069
+   ],
+   "style": {
+    "fontPx": 58.6,
+    "arrowPx": 36.5,
+    "arrowWidthPx": 36.0,
+    "arrowStyle": "open"
+   },
+   "rules": {
+    "vertical": [
+     {
+      "at": 0,
+      "width": 5,
+      "span": [
+       8,
+       2059
+      ]
+     },
+     {
+      "at": 1248,
+      "width": 5,
+      "span": [
+       8,
+       2059
+      ]
+     },
+     {
+      "at": 2495,
+      "width": 5,
+      "span": [
+       8,
+       2059
+      ]
+     }
+    ],
+    "horizontal": [
+     {
+      "at": 0,
+      "width": 5,
+      "span": [
+       8,
+       2491
+      ]
+     },
+     {
+      "at": 2063,
+      "width": 5,
+      "span": [
+       8,
+       2491
+      ]
+     }
+    ]
+   },
+   "greyRules": [],
+   "lanes": {
+    "lane0": {
+     "x0": 0,
+     "x1": 1250,
+     "titleBox": [
+      362,
+      144,
+      332,
+      55
+     ],
+     "titleBold": true
+    },
+    "lane1": {
+     "x0": 1250,
+     "x1": 2501,
+     "titleBox": [
+      1684,
+      145,
+      378,
+      54
+     ],
+     "titleBold": true
+    },
+    "lane2": {
+     "y0": 0,
+     "y1": 2069
+    }
+   },
+   "nodes": {
+    "n1": {
+     "x": 528,
+     "y": 288,
+     "w": 52,
+     "h": 52
+    },
+    "n2": {
+     "x": 245,
+     "y": 552,
+     "w": 619,
+     "h": 187,
+     "shape": "rounded",
+     "stroke": 5,
+     "rx": 72,
+     "ry": 71,
+     "bold": false,
+     "labelLines": [
+      {
+       "x": 277,
+       "y": 587,
+       "w": 554,
+       "h": 54,
+       "text": "Prepare notification of"
+      },
+      {
+       "x": 335,
+       "y": 662,
+       "w": 433,
+       "h": 40,
+       "text": "waste movement"
+      }
+     ]
+    },
+    "n3": {
+     "x": 1012,
+     "y": 941,
+     "w": 524,
+     "h": 235,
+     "shape": "rect",
+     "stroke": 5,
+     "rx": 0,
+     "ry": 0,
+     "bold": false,
+     "labelLines": [
+      {
+       "x": 1042,
+       "y": 1033,
+       "w": 457,
+       "h": 43,
+       "text": "Waste Notification"
+      }
+     ]
+    },
+    "n4": {
+     "x": 235,
+     "y": 964,
+     "w": 571,
+     "h": 188,
+     "shape": "rounded",
+     "stroke": 4,
+     "rx": 83,
+     "ry": 75,
+     "bold": false,
+     "labelLines": [
+      {
+       "x": 365,
+       "y": 999,
+       "w": 306,
+       "h": 43,
+       "text": "Send Waste"
+      },
+      {
+       "x": 372,
+       "y": 1071,
+       "w": 277,
+       "h": 43,
+       "text": "Notification"
+      }
+     ]
+    },
+    "n5": {
+     "x": 1732,
+     "y": 964,
+     "w": 571,
+     "h": 188,
+     "shape": "rounded",
+     "stroke": 4,
+     "rx": 83,
+     "ry": 77,
+     "bold": false,
+     "labelLines": [
+      {
+       "x": 1828,
+       "y": 1000,
+       "w": 377,
+       "h": 42,
+       "text": "Receive Waste"
+      },
+      {
+       "x": 1869,
+       "y": 1071,
+       "w": 277,
+       "h": 43,
+       "text": "Notification"
+      }
+     ]
+    },
+    "n6": {
+     "x": 1012,
+     "y": 1372,
+     "w": 476,
+     "h": 235,
+     "shape": "rect",
+     "stroke": 4,
+     "rx": 0,
+     "ry": 0,
+     "bold": false,
+     "labelLines": [
+      {
+       "x": 1108,
+       "y": 1432,
+       "w": 277,
+       "h": 53,
+       "text": "Application"
+      },
+      {
+       "x": 1123,
+       "y": 1504,
+       "w": 252,
+       "h": 53,
+       "text": "Response"
+      }
+     ]
+    },
+    "n7": {
+     "x": 197,
+     "y": 1396,
+     "w": 667,
+     "h": 188,
+     "shape": "rounded",
+     "stroke": 4,
+     "rx": 78,
+     "ry": 72,
+     "bold": false,
+     "labelLines": [
+      {
+       "x": 340,
+       "y": 1432,
+       "w": 378,
+       "h": 42,
+       "text": "Receive Waste"
+      },
+      {
+       "x": 252,
+       "y": 1503,
+       "w": 553,
+       "h": 54,
+       "text": "Notification Response"
+      }
+     ]
+    },
+    "n8": {
+     "x": 1732,
+     "y": 1396,
+     "w": 571,
+     "h": 188,
+     "shape": "rounded",
+     "stroke": 4,
+     "rx": 78,
+     "ry": 77,
+     "bold": false,
+     "labelLines": [
+      {
+       "x": 1791,
+       "y": 1432,
+       "w": 450,
+       "h": 53,
+       "text": "Prepare and send"
+      },
+      {
+       "x": 1901,
+       "y": 1514,
+       "w": 230,
+       "h": 43,
+       "text": "response"
+      }
+     ]
+    },
+    "n9": {
+     "x": 485,
+     "y": 1828,
+     "w": 91,
+     "h": 91,
+     "shape": "ellipse",
+     "stroke": 5,
+     "rx": 46,
+     "ry": 43,
+     "innerRatio": 0.67
+    }
+   },
+   "flows": {
+    "f0": {
+     "fromPoint": [
+      554,
+      354
+     ],
+     "toPoint": [
+      554,
+      537
+     ],
+     "routing": "straight"
+    },
+    "f1": {
+     "fromPoint": [
+      555,
+      753
+     ],
+     "toPoint": [
+      549,
+      949
+     ],
+     "routing": "straight"
+    },
+    "f2": {
+     "fromPoint": [
+      820,
+      1058
+     ],
+     "toPoint": [
+      997,
+      1058
+     ],
+     "routing": "straight"
+    },
+    "f3": {
+     "fromPoint": [
+      1550,
+      1058
+     ],
+     "toPoint": [
+      1717,
+      1058
+     ],
+     "routing": "straight"
+    },
+    "f4": {
+     "fromPoint": [
+      2017,
+      1166
+     ],
+     "toPoint": [
+      2017,
+      1381
+     ],
+     "routing": "straight"
+    },
+    "f5": {
+     "fromPoint": [
+      997,
+      1489
+     ],
+     "toPoint": [
+      878,
+      1490
+     ],
+     "routing": "straight"
+    },
+    "f6": {
+     "fromPoint": [
+      1717,
+      1490
+     ],
+     "toPoint": [
+      1502,
+      1489
+     ],
+     "routing": "straight"
+    },
+    "f7": {
+     "fromPoint": [
+      530,
+      1598
+     ],
+     "toPoint": [
+      530,
+      1813
+     ],
+     "routing": "straight"
+    }
+   },
+   "texts": {},
+   "offPage": {},
+   "marks": {},
+   "phases": {},
+   "rulesHaveSpans": {
+    "vertical": true,
+    "horizontal": true
+   }
+  }
+ },
+ "corrections": [
+  "q15-14",
+  "q15-15"
+ ],
+ "documentLanes": {
+  "object-waste-notification": "lane-receiver-party",
+  "object-application-response": "lane-sender-party"
+ },
+ "formerIds": {
+  "lane-sender-party": "lane0",
+  "lane-receiver-party": "lane1",
+  "initial-sender-party": "n1",
+  "action-prepare-notification-of-waste-movement": "n2",
+  "object-waste-notification": "n3",
+  "action-send-waste-notification": "n4",
+  "action-receive-waste-notification": "n5",
+  "object-application-response": "n6",
+  "action-receive-waste-notification-response": "n7",
+  "action-prepare-and-send-response": "n8",
+  "final-sender-party": "n9",
+  "flow-initial-sender-party-to-prepare-notification-of-waste-movement": "f0",
+  "flow-prepare-notification-of-waste-movement-to-send-waste-notification": "f1",
+  "flow-send-waste-notification-to-waste-notification": "f2",
+  "flow-waste-notification-to-receive-waste-notification": "f3",
+  "flow-receive-waste-notification-to-prepare-and-send-response": "f4",
+  "flow-application-response-to-receive-waste-notification-response": "f5",
+  "flow-prepare-and-send-response-to-application-response": "f6",
+  "flow-receive-waste-notification-response-to-final-sender-party": "f7"
+ }
+}

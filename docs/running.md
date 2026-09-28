@@ -130,8 +130,9 @@ UBL-2.2-DigitalAgreement                  needs-human   0.645%    0.494%       1
 
 ### The baseline to compare against
 
-The result at the head of this branch, over all 78 (2026-09-28, after the figure
-review; the 2026-09-25 baseline had the same counts but 1.212% ink):
+The result at the head of this branch, over all 78, saved as
+`baselines/2026-09-28/` (after the figure review; the 2026-09-25 baseline had the
+same counts but 1.212% ink):
 
 | | |
 |---|---|
@@ -201,13 +202,14 @@ beside it. Each holds
 |---|---|
 | `sweep.txt` | the sweep's table, as printed |
 | `review-deck.pdf` | the review deck built from it |
-| `diagrams/` | everything the sweep wrote, per diagram |
+| `diagrams/` | everything the sweep wrote, per diagram (since the model split, the three JSONs included) |
 
 | baseline | artwork | result |
 |---|---|---|
-| `2026-09-25` | `ubl-2.5` at `3d81e8a` | the table above, exactly: every structural count 0, 1.212% ink, 9 `correct`, 266 notes |
+| `2026-09-25` | `ubl-2.5` at `3d81e8a` | before the figure review: every structural count 0, 1.212% ink, 9 `correct`, 266 notes |
+| `2026-09-28` | `ubl-2.5` at `3d81e8a` | after the figure review, the table above: every structural count 0, 1.099% ink, 9 `correct`, 266 notes, all settled; the source of `diagrams/`, file for file |
 
-That run used tesseract 5.3.4 and Chromium 1194 (Playwright's build), in a
+Both runs used tesseract 5.3.4 and Chromium 1194 (Playwright's build), in a
 container with no Helvetica or Arial: the SVGs rendered in Liberation Sans. A run
 elsewhere can differ in the renders and the text reading for that reason alone.
 

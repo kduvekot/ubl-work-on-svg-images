@@ -1,0 +1,11 @@
+== UBL-2.3-TransitDeclarationProcess
+  UBL-2.3-TransitDeclarationProcess -> diagram, layout, extraction  (10 nodes, 10 flows, 2 texts)
+  scale 0.43199   frame 8px  divider 10px  action 5px  object 10px
+  font 59px (25.3 model)   2 lanes, 0 bands, 10 nodes, 10 edges -> /tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-2.3-TransitDeclarationProcess-spec.json
+  /tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-2.3-TransitDeclarationProcess.svg + .drawio + -classified.svg   (10 nodes, 10 edges)
+  aligned on ink bounds: scale x 1.0000, y 1.0005
+  size 3426x2050  radius 2
+  ink: original 294014   candidate 303227
+  MISSING (red)     4512  = 1.5346% of original ink
+  EXTRA   (blue)    5711  = 1.9424% of original ink
+  RESULT: DIFFERENCES - inspect /tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-2.3-TransitDeclarationProcess-diff-r2.png

@@ -1,0 +1,11 @@
+== UBL-2.5-UtilityBillingProcess
+  UBL-2.5-UtilityBillingProcess -> diagram, layout, extraction  (14 nodes, 14 flows, 4 texts)
+  scale 0.43212   frame 10px  divider 5px  action 5px  object 9px
+  font 43px (18.5 model)   2 lanes, 0 bands, 14 nodes, 14 edges -> /tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-2.5-UtilityBillingProcess-spec.json
+  /tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-2.5-UtilityBillingProcess.svg + .drawio + -classified.svg   (14 nodes, 14 edges)
+  aligned on ink bounds: scale x 1.0000, y 1.0000
+  size 3425x1832  radius 2
+  ink: original 304994   candidate 310246
+  MISSING (red)     3355  = 1.1000% of original ink
+  EXTRA   (blue)    2997  = 0.9826% of original ink
+  RESULT: DIFFERENCES - inspect /tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-2.5-UtilityBillingProcess-diff-r2.png

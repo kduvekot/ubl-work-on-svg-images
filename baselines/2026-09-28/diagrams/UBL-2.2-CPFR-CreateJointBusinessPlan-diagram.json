@@ -1,0 +1,481 @@
+{
+ "schema": "ubl-activity-diagram/1",
+ "figure": {
+  "name": "UBL-2.2-CPFR-CreateJointBusinessPlan",
+  "source": "UBL-2.2-CPFR-CreateJointBusinessPlan.png"
+ },
+ "lanes": [
+  {
+   "id": "lane-buyer-party",
+   "axis": "column",
+   "index": 0,
+   "title": "Buyer Party",
+   "titleShown": false,
+   "titleSource": "text"
+  },
+  {
+   "id": "lane-seller-party",
+   "axis": "column",
+   "index": 1,
+   "title": "Seller Party",
+   "titleShown": false,
+   "titleSource": "text"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "action-create-retail-event",
+   "kind": "action",
+   "label": "Create Retail Event",
+   "lane": "lane-buyer-party"
+  },
+  {
+   "id": "action-receive-retail-event-in-seller-party",
+   "kind": "action",
+   "label": "Receive Retail Event",
+   "lane": "lane-seller-party"
+  },
+  {
+   "id": "object-retail-event",
+   "kind": "object",
+   "label": "Retail Event",
+   "lane": null,
+   "between": [
+    "lane-buyer-party",
+    "lane-seller-party"
+   ]
+  },
+  {
+   "id": "action-send-retail-event-in-buyer-party",
+   "kind": "action",
+   "label": "Send Retail Event",
+   "lane": "lane-buyer-party"
+  },
+  {
+   "id": "action-revise-retail-event-and-send-revision",
+   "kind": "action",
+   "label": "Revise Retail Event and\nSend Revision",
+   "lane": "lane-seller-party"
+  },
+  {
+   "id": "object-retail-event-revision",
+   "kind": "object",
+   "label": "Retail Event\n(revision)",
+   "lane": null,
+   "between": [
+    "lane-buyer-party",
+    "lane-seller-party"
+   ]
+  },
+  {
+   "id": "action-receive-retail-event-revision",
+   "kind": "action",
+   "label": "Receive Retail Event\nRevision",
+   "lane": "lane-buyer-party"
+  },
+  {
+   "id": "decision-buyer-party",
+   "kind": "decision",
+   "label": "",
+   "lane": "lane-buyer-party",
+   "question": "Retail Event Accepted ?"
+  },
+  {
+   "id": "object-retail-event-response-positive",
+   "kind": "object",
+   "label": "Retail Event (response\npositive)",
+   "lane": null,
+   "between": [
+    "lane-buyer-party",
+    "lane-seller-party"
+   ]
+  },
+  {
+   "id": "action-send-retail-event-in-buyer-party-2",
+   "kind": "action",
+   "label": "Send Retail Event",
+   "lane": "lane-buyer-party"
+  },
+  {
+   "id": "action-receive-retail-event-in-seller-party-2",
+   "kind": "action",
+   "label": "Receive Retail Event",
+   "lane": "lane-seller-party"
+  },
+  {
+   "id": "action-create-trade-item-location-profile",
+   "kind": "action",
+   "label": "Create Trade Item\nLocation Profile",
+   "lane": "lane-seller-party"
+  },
+  {
+   "id": "object-trade-item-location-profile",
+   "kind": "object",
+   "label": "Trade Item Location\nProfile",
+   "lane": null,
+   "between": [
+    "lane-buyer-party",
+    "lane-seller-party"
+   ]
+  },
+  {
+   "id": "action-receive-trade-item-location-profile",
+   "kind": "action",
+   "label": "Receive Trade Item\nLocation Profile",
+   "lane": "lane-buyer-party"
+  },
+  {
+   "id": "action-send-trade-item-location-profile",
+   "kind": "action",
+   "label": "Send Trade Item Location\nProfile",
+   "lane": "lane-seller-party"
+  },
+  {
+   "id": "action-revise-trade-item-location-profile-and",
+   "kind": "action",
+   "label": "Revise Trade Item\nLocation Profile and Send\nRevision",
+   "lane": "lane-buyer-party"
+  },
+  {
+   "id": "object-trade-item-location-profile-revision",
+   "kind": "object",
+   "label": "Trade Item Location\nProfile (revision)",
+   "lane": null,
+   "between": [
+    "lane-buyer-party",
+    "lane-seller-party"
+   ]
+  },
+  {
+   "id": "action-receive-tilp-in-seller-party",
+   "kind": "action",
+   "label": "Receive TILP",
+   "lane": "lane-seller-party"
+  },
+  {
+   "id": "decision-seller-party",
+   "kind": "decision",
+   "label": "",
+   "lane": "lane-seller-party",
+   "question": "TILP Accepted ?"
+  },
+  {
+   "id": "object-tilp-response-positive",
+   "kind": "object",
+   "label": "TILP (response\npositive)",
+   "lane": null,
+   "between": [
+    "lane-buyer-party",
+    "lane-seller-party"
+   ]
+  },
+  {
+   "id": "action-send-tilp",
+   "kind": "action",
+   "label": "Send TILP",
+   "lane": "lane-seller-party"
+  },
+  {
+   "id": "action-receive-tilp-in-buyer-party",
+   "kind": "action",
+   "label": "Receive TILP",
+   "lane": "lane-buyer-party"
+  }
+ ],
+ "flows": [
+  {
+   "id": "flow-decision-buyer-party-to-create-retail-event",
+   "from": "decision-buyer-party",
+   "to": "action-create-retail-event",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   },
+   "guard": "text-no"
+  },
+  {
+   "id": "flow-create-retail-event-to-send-retail-event-in-buyer-party",
+   "from": "action-create-retail-event",
+   "to": "action-send-retail-event-in-buyer-party",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-retail-event-to-receive-retail-event-in-seller-party",
+   "from": "object-retail-event",
+   "to": "action-receive-retail-event-in-seller-party",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-send-retail-event-in-buyer-party-to-retail-event",
+   "from": "action-send-retail-event-in-buyer-party",
+   "to": "object-retail-event",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-receive-retail-event-in-seller-party-to-revise-retail-event-and-send-revision",
+   "from": "action-receive-retail-event-in-seller-party",
+   "to": "action-revise-retail-event-and-send-revision",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-retail-event-revision-to-receive-retail-event-revision",
+   "from": "object-retail-event-revision",
+   "to": "action-receive-retail-event-revision",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-revise-retail-event-and-send-revision-to-retail-event-revision",
+   "from": "action-revise-retail-event-and-send-revision",
+   "to": "object-retail-event-revision",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-receive-retail-event-revision-to-decision-buyer-party",
+   "from": "action-receive-retail-event-revision",
+   "to": "decision-buyer-party",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-decision-buyer-party-to-send-retail-event-in-buyer-party-2",
+   "from": "decision-buyer-party",
+   "to": "action-send-retail-event-in-buyer-party-2",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   },
+   "guard": "text-yes"
+  },
+  {
+   "id": "flow-retail-event-response-positive-to-receive-retail-event-in-seller-party-2",
+   "from": "object-retail-event-response-positive",
+   "to": "action-receive-retail-event-in-seller-party-2",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-send-retail-event-in-buyer-party-2-to-retail-event-response-positive",
+   "from": "action-send-retail-event-in-buyer-party-2",
+   "to": "object-retail-event-response-positive",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-receive-retail-event-in-seller-party-2-to-create-trade-item-location-profile",
+   "from": "action-receive-retail-event-in-seller-party-2",
+   "to": "action-create-trade-item-location-profile",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-trade-item-location-profile-to-receive-trade-item-location-profile",
+   "from": "object-trade-item-location-profile",
+   "to": "action-receive-trade-item-location-profile",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-create-trade-item-location-profile-to-send-trade-item-location-profile",
+   "from": "action-create-trade-item-location-profile",
+   "to": "action-send-trade-item-location-profile",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-decision-seller-party-to-create-trade-item-location-profile",
+   "from": "decision-seller-party",
+   "to": "action-create-trade-item-location-profile",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   },
+   "guard": "text-no-2"
+  },
+  {
+   "id": "flow-send-trade-item-location-profile-to-trade-item-location-profile",
+   "from": "action-send-trade-item-location-profile",
+   "to": "object-trade-item-location-profile",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-receive-trade-item-location-profile-to-revise-trade-item-location-profile-and",
+   "from": "action-receive-trade-item-location-profile",
+   "to": "action-revise-trade-item-location-profile-and",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-revise-trade-item-location-profile-and-to-trade-item-location-profile-revision",
+   "from": "action-revise-trade-item-location-profile-and",
+   "to": "object-trade-item-location-profile-revision",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-trade-item-location-profile-revision-to-receive-tilp-in-seller-party",
+   "from": "object-trade-item-location-profile-revision",
+   "to": "action-receive-tilp-in-seller-party",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-receive-tilp-in-seller-party-to-decision-seller-party",
+   "from": "action-receive-tilp-in-seller-party",
+   "to": "decision-seller-party",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-decision-seller-party-to-send-tilp",
+   "from": "decision-seller-party",
+   "to": "action-send-tilp",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   },
+   "guard": "text-yes-2"
+  },
+  {
+   "id": "flow-send-tilp-to-tilp-response-positive",
+   "from": "action-send-tilp",
+   "to": "object-tilp-response-positive",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-tilp-response-positive-to-receive-tilp-in-buyer-party",
+   "from": "object-tilp-response-positive",
+   "to": "action-receive-tilp-in-buyer-party",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  }
+ ],
+ "texts": [
+  {
+   "id": "text-no",
+   "text": "No",
+   "labels": "flow-decision-buyer-party-to-create-retail-event"
+  },
+  {
+   "id": "text-retail-event-accepted",
+   "text": "Retail Event Accepted ?",
+   "labels": "decision-buyer-party"
+  },
+  {
+   "id": "text-yes",
+   "text": "Yes",
+   "labels": "flow-decision-buyer-party-to-send-retail-event-in-buyer-party-2"
+  },
+  {
+   "id": "text-no-2",
+   "text": "No",
+   "labels": "flow-decision-seller-party-to-create-trade-item-location-profile"
+  },
+  {
+   "id": "text-tilp-accepted",
+   "text": "TILP Accepted ?",
+   "labels": "decision-seller-party"
+  },
+  {
+   "id": "text-yes-2",
+   "text": "Yes",
+   "labels": "flow-decision-seller-party-to-send-tilp"
+  }
+ ],
+ "offPage": [
+  {
+   "id": "offpage-action-create-retail-event",
+   "node": "action-create-retail-event",
+   "direction": "in",
+   "arrow": true,
+   "continues": "UBL-2.2-CPFR-EstablishingCollaborativeRelationships",
+   "port": 1,
+   "counterpart": "offpage-action-receive-exception-criteria-in-seller-party"
+  },
+  {
+   "id": "offpage-action-receive-tilp-in-buyer-party",
+   "node": "action-receive-tilp-in-buyer-party",
+   "direction": "out",
+   "arrow": false,
+   "continues": "UBL-2.2-CPFR-CreatingSalesForecast",
+   "port": 1,
+   "counterpart": "offpage-action-create-product-activity-pos-data"
+  }
+ ],
+ "marks": [],
+ "phases": [
+  {
+   "id": "phase-creating-joint-business-plan",
+   "title": "Creating Joint Business Plan",
+   "members": [
+    "action-create-retail-event",
+    "action-receive-retail-event-in-seller-party",
+    "object-retail-event",
+    "action-send-retail-event-in-buyer-party",
+    "action-revise-retail-event-and-send-revision",
+    "object-retail-event-revision",
+    "action-receive-retail-event-revision",
+    "decision-buyer-party",
+    "object-retail-event-response-positive",
+    "action-send-retail-event-in-buyer-party-2",
+    "action-receive-retail-event-in-seller-party-2",
+    "action-create-trade-item-location-profile",
+    "object-trade-item-location-profile",
+    "action-receive-trade-item-location-profile",
+    "action-send-trade-item-location-profile",
+    "action-revise-trade-item-location-profile-and",
+    "object-trade-item-location-profile-revision",
+    "action-receive-tilp-in-seller-party",
+    "decision-seller-party",
+    "object-tilp-response-positive",
+    "action-send-tilp",
+    "action-receive-tilp-in-buyer-party"
+   ]
+  }
+ ]
+}

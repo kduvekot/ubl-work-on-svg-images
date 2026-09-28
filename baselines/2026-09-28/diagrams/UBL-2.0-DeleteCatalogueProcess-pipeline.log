@@ -1,0 +1,11 @@
+== UBL-2.0-DeleteCatalogueProcess
+  UBL-2.0-DeleteCatalogueProcess -> diagram, layout, extraction  (13 nodes, 14 flows, 4 texts)
+  scale 0.43212   frame 10px  divider 5px  action 5px  object 10px
+  font 50px (21.6 model)   2 lanes, 0 bands, 13 nodes, 14 edges -> /tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-2.0-DeleteCatalogueProcess-spec.json
+  /tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-2.0-DeleteCatalogueProcess.svg + .drawio + -classified.svg   (13 nodes, 14 edges)
+  aligned on ink bounds: scale x 1.0000, y 1.0000
+  size 3425x2747  radius 2
+  ink: original 390577   candidate 379704
+  MISSING (red)     8516  = 2.1804% of original ink
+  EXTRA   (blue)    6986  = 1.7886% of original ink
+  RESULT: DIFFERENCES - inspect /tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-2.0-DeleteCatalogueProcess-diff-r2.png

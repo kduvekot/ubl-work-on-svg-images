@@ -1,0 +1,11 @@
+== UBL-2.2-Tender-AwardNotification
+  UBL-2.2-Tender-AwardNotification -> diagram, layout, extraction  (7 nodes, 7 flows, 0 texts)
+  scale 0.43212   frame 10px  divider 14px  action 13px  object 12px
+  font 76px (32.7 model)   2 lanes, 0 bands, 7 nodes, 4 edges -> /tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-2.2-Tender-AwardNotification-spec.json
+  /tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-2.2-Tender-AwardNotification.svg + .drawio + -classified.svg   (7 nodes, 4 edges)
+  aligned on ink bounds: scale x 1.0000, y 1.0000
+  size 3425x1438  radius 2
+  ink: original 388564   candidate 391701
+  MISSING (red)     5755  = 1.4811% of original ink
+  EXTRA   (blue)    5447  = 1.4018% of original ink
+  RESULT: DIFFERENCES - inspect /tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-2.2-Tender-AwardNotification-diff-r2.png

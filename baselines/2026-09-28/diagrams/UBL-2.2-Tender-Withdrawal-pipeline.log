@@ -1,0 +1,11 @@
+== UBL-2.2-Tender-Withdrawal
+  UBL-2.2-Tender-Withdrawal -> diagram, layout, extraction  (6 nodes, 5 flows, 0 texts)
+  scale 0.43212   frame 8px  divider 9px  action 9px  object 8px
+  font 70px (30.2 model)   2 lanes, 0 bands, 6 nodes, 5 edges -> /tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-2.2-Tender-Withdrawal-spec.json
+  /tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-2.2-Tender-Withdrawal.svg + .drawio + -classified.svg   (6 nodes, 5 edges)
+  aligned on ink bounds: scale x 1.0000, y 1.0000
+  size 3425x1264  radius 2
+  ink: original 281062   candidate 277112
+  MISSING (red)    16416  = 5.8407% of original ink
+  EXTRA   (blue)   14209  = 5.0555% of original ink
+  RESULT: DIFFERENCES - inspect /tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-2.2-Tender-Withdrawal-diff-r2.png

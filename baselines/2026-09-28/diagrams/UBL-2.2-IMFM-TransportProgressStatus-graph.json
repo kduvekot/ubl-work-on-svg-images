@@ -1,0 +1,592 @@
+{
+ "source": "UBL-2.2-IMFM-TransportProgressStatus.png",
+ "size": [
+  3425,
+  2366
+ ],
+ "fontPx": 74.3,
+ "arrowPx": 97.0,
+ "arrowWidthPx": 79.0,
+ "arrowStyle": "open",
+ "rules": {
+  "v": [
+   [
+    0,
+    10
+   ],
+   [
+    1704,
+    8
+   ],
+   [
+    3415,
+    10
+   ]
+  ],
+  "h": [
+   [
+    0,
+    10
+   ],
+   [
+    2356,
+    10
+   ]
+  ]
+ },
+ "ruleSpan": {
+  "v": [
+   [
+    13,
+    2352
+   ],
+   [
+    13,
+    2352
+   ],
+   [
+    13,
+    2352
+   ]
+  ],
+  "h": [
+   [
+    13,
+    3411
+   ],
+   [
+    13,
+    3411
+   ]
+  ]
+ },
+ "greyRules": [],
+ "dashed": [],
+ "openEnds": [],
+ "crossMarks": [],
+ "partitions": [
+  {
+   "axis": "column",
+   "index": 0,
+   "x0": 0,
+   "x1": 1708,
+   "title": "Transport Service Provider",
+   "titleBox": [
+    438,
+    65,
+    837,
+    66
+   ]
+  },
+  {
+   "axis": "column",
+   "index": 1,
+   "x0": 1708,
+   "x1": 3425,
+   "title": "Transportation Network Manager",
+   "titleBox": [
+    2057,
+    66,
+    1030,
+    65
+   ]
+  },
+  {
+   "axis": "band",
+   "index": 0,
+   "y0": 0,
+   "y1": 2366,
+   "title": ""
+  }
+ ],
+ "nodes": [
+  {
+   "x": 477,
+   "y": 185,
+   "w": 140,
+   "h": 140,
+   "area": 15488,
+   "fill": 1.0,
+   "kind": "initial",
+   "id": "n1",
+   "label": "",
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 1356,
+   "y": 655,
+   "w": 705,
+   "h": 330,
+   "area": 206430,
+   "fill": 0.887,
+   "solid": 1.0,
+   "rx": 0,
+   "ry": 0,
+   "shape": "rect",
+   "keptOnOutline": true,
+   "stroke": 15,
+   "kind": "object",
+   "id": "n2",
+   "label": "Transport\nProgress Status\nRequest",
+   "labelLines": [
+    {
+     "x": 1567,
+     "y": 714,
+     "w": 324,
+     "h": 65,
+     "text": "Transport"
+    },
+    {
+     "x": 1434,
+     "y": 790,
+     "w": 536,
+     "h": 67,
+     "text": "Progress Status"
+    },
+    {
+     "x": 1582,
+     "y": 869,
+     "w": 280,
+     "h": 65,
+     "text": "Request"
+    }
+   ],
+   "stem": 0.135,
+   "bold": true,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 89,
+   "y": 666,
+   "w": 938,
+   "h": 316,
+   "area": 260887,
+   "fill": 0.88,
+   "solid": 0.968,
+   "rx": 104,
+   "ry": 110,
+   "shape": "rounded",
+   "stroke": 9,
+   "kind": "action",
+   "id": "n3",
+   "label": "Request Transport\nProgress Status",
+   "labelLines": [
+    {
+     "x": 248,
+     "y": 741,
+     "w": 624,
+     "h": 65,
+     "text": "Request Transport"
+    },
+    {
+     "x": 298,
+     "y": 831,
+     "w": 532,
+     "h": 67,
+     "text": "Progress Status"
+    }
+   ],
+   "stem": 0.135,
+   "bold": true,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 2390,
+   "y": 666,
+   "w": 937,
+   "h": 316,
+   "area": 254589,
+   "fill": 0.86,
+   "solid": 0.969,
+   "rx": 104,
+   "ry": 106,
+   "shape": "rounded",
+   "stroke": 9,
+   "kind": "action",
+   "id": "n4",
+   "label": "Receive Transport\nProgress Status Request",
+   "labelLines": [
+    {
+     "x": 2549,
+     "y": 741,
+     "w": 611,
+     "h": 65,
+     "text": "Receive Transport"
+    },
+    {
+     "x": 2443,
+     "y": 831,
+     "w": 835,
+     "h": 67,
+     "text": "Progress Status Request"
+    }
+   ],
+   "stem": 0.135,
+   "bold": true,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 89,
+   "y": 1533,
+   "w": 938,
+   "h": 324,
+   "area": 268952,
+   "fill": 0.885,
+   "solid": 0.968,
+   "rx": 101,
+   "ry": 110,
+   "shape": "rounded",
+   "stroke": 8,
+   "kind": "action",
+   "id": "n5",
+   "label": "Receive Transport\nProgress Status",
+   "labelLines": [
+    {
+     "x": 248,
+     "y": 1618,
+     "w": 612,
+     "h": 65,
+     "text": "Receive Transport"
+    },
+    {
+     "x": 298,
+     "y": 1709,
+     "w": 532,
+     "h": 67,
+     "text": "Progress Status"
+    }
+   ],
+   "stem": 0.135,
+   "bold": true,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 2397,
+   "y": 1533,
+   "w": 937,
+   "h": 324,
+   "area": 270372,
+   "fill": 0.891,
+   "solid": 0.969,
+   "rx": 101,
+   "ry": 107,
+   "shape": "rounded",
+   "stroke": 8,
+   "kind": "action",
+   "id": "n6",
+   "label": "Send Transport Progress\nStatus",
+   "labelLines": [
+    {
+     "x": 2441,
+     "y": 1617,
+     "w": 841,
+     "h": 67,
+     "text": "Send Transport Progress"
+    },
+    {
+     "x": 2772,
+     "y": 1709,
+     "w": 210,
+     "h": 53,
+     "text": "Status"
+    }
+   ],
+   "stem": 0.135,
+   "bold": true,
+   "col": 1,
+   "row": 0
+  },
+  {
+   "x": 1349,
+   "y": 1537,
+   "w": 705,
+   "h": 330,
+   "area": 213185,
+   "fill": 0.916,
+   "solid": 1.0,
+   "rx": 0,
+   "ry": 0,
+   "shape": "rect",
+   "keptOnOutline": true,
+   "stroke": 15,
+   "kind": "object",
+   "id": "n7",
+   "label": "Transport\nProgress Status",
+   "labelLines": [
+    {
+     "x": 1560,
+     "y": 1625,
+     "w": 324,
+     "h": 65,
+     "text": "Transport"
+    },
+    {
+     "x": 1441,
+     "y": 1702,
+     "w": 536,
+     "h": 67,
+     "text": "Progress Status"
+    }
+   ],
+   "stem": 0.135,
+   "bold": true,
+   "col": 0,
+   "row": 0
+  },
+  {
+   "x": 456,
+   "y": 2147,
+   "w": 126,
+   "h": 126,
+   "area": 10080,
+   "fill": 0.635,
+   "solid": 0.791,
+   "rx": 57,
+   "ry": 65,
+   "shape": "ellipse",
+   "stroke": 8,
+   "kind": "final",
+   "innerRatio": 0.444,
+   "id": "n8",
+   "label": "",
+   "col": 0,
+   "row": 0
+  }
+ ],
+ "edges": [
+  {
+   "from": "n1",
+   "to": "n3",
+   "routing": "straight",
+   "fromPoint": [
+    548,
+    339
+   ],
+   "toPoint": [
+    553,
+    651
+   ],
+   "arrowInk": [
+    360,
+    1131
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    96,
+    79.2,
+    2.38
+   ],
+   "arrowFill": 0.041,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n3",
+   "to": "n2",
+   "routing": "straight",
+   "fromPoint": [
+    1041,
+    824
+   ],
+   "toPoint": [
+    1341,
+    822
+   ],
+   "arrowInk": [
+    360,
+    1076
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    102,
+    78.7,
+    3.02
+   ],
+   "arrowFill": 0.04,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n2",
+   "to": "n4",
+   "routing": "straight",
+   "fromPoint": [
+    2078,
+    823
+   ],
+   "toPoint": [
+    2375,
+    824
+   ],
+   "arrowInk": [
+    441,
+    1131
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    97,
+    79.4,
+    2.54
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n4",
+   "to": "n6",
+   "routing": "straight",
+   "fromPoint": [
+    2864,
+    996
+   ],
+   "toPoint": [
+    2866,
+    1518
+   ],
+   "arrowInk": [
+    360,
+    1138
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    97,
+    79.3,
+    2.58
+   ],
+   "arrowFill": 0.0,
+   "edgeKind": "control"
+  },
+  {
+   "from": "n7",
+   "to": "n5",
+   "routing": "straight",
+   "fromPoint": [
+    1334,
+    1701
+   ],
+   "toPoint": [
+    1041,
+    1696
+   ],
+   "arrowInk": [
+    451,
+    1015
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    104,
+    78.8,
+    2.74
+   ],
+   "arrowFill": 0.041,
+   "edgeKind": "object"
+  },
+  {
+   "from": "n6",
+   "to": "n7",
+   "routing": "straight",
+   "fromPoint": [
+    2382,
+    1697
+   ],
+   "toPoint": [
+    2071,
+    1699
+   ],
+   "arrowInk": [
+    368,
+    972
+   ],
+   "directionConfidence": "high",
+   "edgeKind": "object"
+  },
+  {
+   "from": "n5",
+   "to": "n8",
+   "routing": "straight",
+   "fromPoint": [
+    525,
+    1871
+   ],
+   "toPoint": [
+    520,
+    2132
+   ],
+   "arrowInk": [
+    360,
+    1137
+   ],
+   "directionConfidence": "high",
+   "arrowPx": [
+    97,
+    78.8,
+    2.28
+   ],
+   "arrowFill": 0.038,
+   "edgeKind": "control"
+  }
+ ],
+ "text": [
+  {
+   "text": "Transport Service Provider",
+   "x": 438,
+   "y": 65,
+   "w": 837,
+   "h": 66,
+   "lines": [
+    {
+     "x": 438,
+     "y": 65,
+     "w": 837,
+     "h": 66,
+     "text": "Transport Service Provider"
+    }
+   ]
+  },
+  {
+   "text": "Transportation Network Manager",
+   "x": 2057,
+   "y": 66,
+   "w": 1030,
+   "h": 65,
+   "lines": [
+    {
+     "x": 2057,
+     "y": 66,
+     "w": 1030,
+     "h": 65,
+     "text": "Transportation Network Manager"
+    }
+   ]
+  }
+ ],
+ "uncertain": [
+  {
+   "x": 1356,
+   "y": 655,
+   "w": 705,
+   "h": 330,
+   "shape": "rect",
+   "iou": 1.0,
+   "border": 1.0,
+   "kind": "kept-on-outline",
+   "reason": "every side has pass-through line-work, but the region carries a complete outline of its own",
+   "check": "confirm this is a node and not trapped whitespace"
+  },
+  {
+   "x": 1349,
+   "y": 1537,
+   "w": 705,
+   "h": 330,
+   "shape": "rect",
+   "iou": 1.0,
+   "border": 1.0,
+   "kind": "kept-on-outline",
+   "reason": "every side has pass-through line-work, but the region carries a complete outline of its own",
+   "check": "confirm this is a node and not trapped whitespace"
+  }
+ ]
+}

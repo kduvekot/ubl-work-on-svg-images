@@ -1,0 +1,569 @@
+{
+ "schema": "ubl-activity-diagram-layout/1",
+ "figure": "UBL-2.2-CRP-InitialStockingByRetailer",
+ "units": "px of the original PNG",
+ "size": [
+  3425,
+  4033
+ ],
+ "style": {
+  "fontPx": 72.9,
+  "arrowPx": 74.0,
+  "arrowWidthPx": 59.7,
+  "arrowStyle": "open"
+ },
+ "rules": {
+  "vertical": [
+   {
+    "at": 0,
+    "width": 10,
+    "span": [
+     13,
+     4019
+    ]
+   },
+   {
+    "at": 1645,
+    "width": 6,
+    "span": [
+     13,
+     3557
+    ]
+   },
+   {
+    "at": 3415,
+    "width": 10,
+    "span": [
+     13,
+     4019
+    ]
+   }
+  ],
+  "horizontal": [
+   {
+    "at": 0,
+    "width": 10,
+    "span": [
+     13,
+     3411
+    ]
+   },
+   {
+    "at": 4023,
+    "width": 10,
+    "span": [
+     13,
+     3411
+    ]
+   }
+  ],
+  "pieces": [
+   {
+    "points": [
+     [
+      1653,
+      3139
+     ],
+     [
+      1658,
+      4020
+     ]
+    ]
+   }
+  ]
+ },
+ "greyRules": [],
+ "lanes": {
+  "lane-producer": {
+   "x0": 0,
+   "x1": 1648,
+   "titleBox": [
+    620,
+    75,
+    276,
+    50
+   ]
+  },
+  "lane-retailer": {
+   "x0": 1648,
+   "x1": 3425,
+   "titleBox": [
+    2364,
+    79,
+    233,
+    51
+   ]
+  }
+ },
+ "nodes": {
+  "initial-retailer": {
+   "x": 2714,
+   "y": 255,
+   "w": 107,
+   "h": 107
+  },
+  "object-order": {
+   "x": 1422,
+   "y": 669,
+   "w": 442,
+   "h": 175,
+   "shape": "rect",
+   "stroke": 11,
+   "rx": 0,
+   "ry": 0,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 1557,
+     "y": 724,
+     "w": 189,
+     "h": 52,
+     "text": "Order"
+    }
+   ]
+  },
+  "action-send-order": {
+   "x": 2421,
+   "y": 671,
+   "w": 709,
+   "h": 165,
+   "shape": "rounded",
+   "stroke": 5,
+   "rx": 81.0,
+   "ry": 60,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 2586,
+     "y": 724,
+     "w": 376,
+     "h": 52,
+     "text": "Send Order"
+    }
+   ]
+  },
+  "action-receive-order": {
+   "x": 87,
+   "y": 687,
+   "w": 1012,
+   "h": 144,
+   "shape": "rounded",
+   "stroke": 5,
+   "rx": 81.0,
+   "ry": 43,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 355,
+     "y": 730,
+     "w": 466,
+     "h": 51,
+     "text": "Receive Order"
+    }
+   ]
+  },
+  "action-receive-despatch-advice": {
+   "x": 2389,
+   "y": 1140,
+   "w": 927,
+   "h": 165,
+   "shape": "rounded",
+   "stroke": 5,
+   "rx": 81.0,
+   "ry": 61,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 2434,
+     "y": 1195,
+     "w": 832,
+     "h": 63,
+     "text": "Receive Despatch Advice"
+    }
+   ]
+  },
+  "object-despatch-advice": {
+   "x": 1278,
+   "y": 1143,
+   "w": 741,
+   "h": 176,
+   "shape": "rect",
+   "stroke": 11,
+   "rx": 0,
+   "ry": 0,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 1379,
+     "y": 1200,
+     "w": 554,
+     "h": 64,
+     "text": "Despatch Advice"
+    }
+   ]
+  },
+  "action-send-despatch-advice": {
+   "x": 172,
+   "y": 1156,
+   "w": 847,
+   "h": 165,
+   "shape": "rounded",
+   "stroke": 5,
+   "rx": 81.0,
+   "ry": 57,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 219,
+     "y": 1210,
+     "w": 743,
+     "h": 64,
+     "text": "Send Despatch Advice"
+    }
+   ]
+  },
+  "action-despatch-order-item-s": {
+   "x": 178,
+   "y": 1673,
+   "w": 847,
+   "h": 165,
+   "shape": "rounded",
+   "stroke": 5,
+   "rx": 81.0,
+   "ry": 50,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 227,
+     "y": 1726,
+     "w": 747,
+     "h": 66,
+     "text": "Despatch order item(s)"
+    }
+   ]
+  },
+  "action-receive-order-item-s": {
+   "x": 2208,
+   "y": 1673,
+   "w": 847,
+   "h": 165,
+   "shape": "rounded",
+   "stroke": 5,
+   "rx": 81.0,
+   "ry": 59,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 2279,
+     "y": 1726,
+     "w": 697,
+     "h": 66,
+     "text": "Receive order item(s)"
+    }
+   ]
+  },
+  "fork-retailer": {
+   "x": 2517,
+   "y": 2163,
+   "w": 805,
+   "h": 32
+  },
+  "action-check-status-of-item-s": {
+   "x": 2491,
+   "y": 2462,
+   "w": 847,
+   "h": 164,
+   "shape": "rounded",
+   "stroke": 6,
+   "rx": 81.0,
+   "ry": 46,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 2544,
+     "y": 2515,
+     "w": 756,
+     "h": 65,
+     "text": "Check status of item(s)"
+    }
+   ]
+  },
+  "object-receipt-advice": {
+   "x": 1278,
+   "y": 2949,
+   "w": 741,
+   "h": 175,
+   "shape": "rect",
+   "stroke": 11,
+   "rx": 0,
+   "ry": 0,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 1405,
+     "y": 3006,
+     "w": 493,
+     "h": 63,
+     "text": "Receipt Advice"
+    }
+   ]
+  },
+  "action-receive-receipt-advice": {
+   "x": 178,
+   "y": 2963,
+   "w": 847,
+   "h": 164,
+   "shape": "rounded",
+   "stroke": 6,
+   "rx": 80,
+   "ry": 47,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 206,
+     "y": 3016,
+     "w": 771,
+     "h": 64,
+     "text": "Receive Receipt Advice"
+    }
+   ]
+  },
+  "action-send-receipt-advice": {
+   "x": 2491,
+   "y": 2963,
+   "w": 847,
+   "h": 164,
+   "shape": "rounded",
+   "stroke": 6,
+   "rx": 82,
+   "ry": 46,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 2564,
+     "y": 3016,
+     "w": 681,
+     "h": 64,
+     "text": "Send Receipt Advice"
+    }
+   ]
+  },
+  "action-adjust-supply-status": {
+   "x": 183,
+   "y": 3431,
+   "w": 847,
+   "h": 165,
+   "shape": "rounded",
+   "stroke": 6,
+   "rx": 81.0,
+   "ry": 50,
+   "bold": true,
+   "labelLines": [
+    {
+     "x": 276,
+     "y": 3485,
+     "w": 678,
+     "h": 64,
+     "text": "Adjust supply status"
+    }
+   ]
+  },
+  "final-producer": {
+   "x": 556,
+   "y": 3868,
+   "w": 96,
+   "h": 96,
+   "shape": "rounded",
+   "stroke": 5,
+   "rx": 48,
+   "ry": 46,
+   "innerRatio": 0.448
+  }
+ },
+ "flows": {
+  "flow-initial-retailer-to-send-order": {
+   "fromPoint": [
+    2767,
+    376
+   ],
+   "toPoint": [
+    2772,
+    656
+   ],
+   "routing": "straight"
+  },
+  "flow-send-order-to-order": {
+   "fromPoint": [
+    2406,
+    753
+   ],
+   "toPoint": [
+    1878,
+    754
+   ],
+   "routing": "straight"
+  },
+  "flow-order-to-receive-order": {
+   "fromPoint": [
+    1407,
+    757
+   ],
+   "toPoint": [
+    1113,
+    759
+   ],
+   "routing": "straight"
+  },
+  "flow-receive-order-to-send-despatch-advice": {
+   "fromPoint": [
+    595,
+    845
+   ],
+   "toPoint": [
+    595,
+    1141
+   ],
+   "routing": "straight"
+  },
+  "flow-despatch-advice-to-receive-despatch-advice": {
+   "fromPoint": [
+    2033,
+    1229
+   ],
+   "toPoint": [
+    2374,
+    1222
+   ],
+   "routing": "straight"
+  },
+  "flow-send-despatch-advice-to-despatch-advice": {
+   "fromPoint": [
+    1033,
+    1234
+   ],
+   "toPoint": [
+    1263,
+    1232
+   ],
+   "routing": "straight"
+  },
+  "flow-receive-despatch-advice-to-fork-retailer": {
+   "fromPoint": [
+    3180,
+    1319
+   ],
+   "toPoint": [
+    3180,
+    2101
+   ],
+   "routing": "straight"
+  },
+  "flow-send-despatch-advice-to-despatch-order-item-s": {
+   "fromPoint": [
+    595,
+    1335
+   ],
+   "toPoint": [
+    597,
+    1658
+   ],
+   "routing": "straight"
+  },
+  "flow-despatch-order-item-s-to-receive-order-item-s": {
+   "fromPoint": [
+    1039,
+    1756
+   ],
+   "toPoint": [
+    2193,
+    1756
+   ],
+   "routing": "straight"
+  },
+  "flow-receive-order-item-s-to-fork-retailer": {
+   "fromPoint": [
+    2631,
+    1852
+   ],
+   "toPoint": [
+    2631,
+    2093
+   ],
+   "routing": "straight"
+  },
+  "flow-fork-retailer-to-check-status-of-item-s": {
+   "fromPoint": [
+    2914,
+    2209
+   ],
+   "toPoint": [
+    2914,
+    2447
+   ],
+   "routing": "straight"
+  },
+  "flow-check-status-of-item-s-to-send-receipt-advice": {
+   "fromPoint": [
+    2914,
+    2640
+   ],
+   "toPoint": [
+    2914,
+    2948
+   ],
+   "routing": "straight"
+  },
+  "flow-receipt-advice-to-receive-receipt-advice": {
+   "fromPoint": [
+    1263,
+    3036
+   ],
+   "toPoint": [
+    1039,
+    3041
+   ],
+   "routing": "straight"
+  },
+  "flow-send-receipt-advice-to-receipt-advice": {
+   "fromPoint": [
+    2476,
+    3039
+   ],
+   "toPoint": [
+    2033,
+    3038
+   ],
+   "routing": "straight"
+  },
+  "flow-receive-receipt-advice-to-adjust-supply-status": {
+   "fromPoint": [
+    600,
+    3141
+   ],
+   "toPoint": [
+    602,
+    3416
+   ],
+   "routing": "straight"
+  },
+  "flow-adjust-supply-status-to-final-producer": {
+   "fromPoint": [
+    606,
+    3610
+   ],
+   "toPoint": [
+    606,
+    3853
+   ],
+   "routing": "straight"
+  }
+ },
+ "texts": {},
+ "offPage": {},
+ "marks": {},
+ "phases": {},
+ "rulesHaveSpans": {
+  "vertical": true,
+  "horizontal": true
+ }
+}

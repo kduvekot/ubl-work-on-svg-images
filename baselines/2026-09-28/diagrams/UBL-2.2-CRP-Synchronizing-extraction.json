@@ -1,0 +1,527 @@
+{
+ "schema": "ubl-activity-diagram-extraction/1",
+ "figure": "UBL-2.2-CRP-Synchronizing",
+ "nodes": {
+  "initial-retailer": {
+   "area": 6864,
+   "fill": 0.761
+  },
+  "object-inventory-report": {
+   "area": 87825,
+   "fill": 0.889,
+   "solid": 1.0,
+   "stem": 0.131
+  },
+  "action-synchronize-stock-information": {
+   "area": 135389,
+   "fill": 0.867,
+   "solid": 0.986,
+   "stem": 0.131
+  },
+  "action-send-information-about-stock": {
+   "area": 142397,
+   "fill": 0.872,
+   "solid": 0.986,
+   "stem": 0.131
+  },
+  "final-producer": {
+   "area": 5059,
+   "fill": 0.625,
+   "solid": 0.786
+  }
+ },
+ "flows": {
+  "flow-initial-retailer-to-send-information-about-stock": {
+   "arrowInk": [
+    270,
+    809
+   ],
+   "arrowPx": [
+    70,
+    56.0,
+    2.29
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-inventory-report-to-synchronize-stock-information": {
+   "arrowInk": [
+    276,
+    762
+   ],
+   "arrowPx": [
+    74,
+    55.2,
+    2.55
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-send-information-about-stock-to-inventory-report": {
+   "arrowInk": [
+    276,
+    694
+   ],
+   "arrowPx": [
+    74,
+    56.3,
+    3.09
+   ],
+   "arrowFill": 0.01
+  },
+  "flow-synchronize-stock-information-to-final-producer": {
+   "arrowInk": [
+    225,
+    773
+   ],
+   "arrowPx": [
+    69,
+    55.3,
+    2.19
+   ],
+   "arrowFill": 0.0
+  }
+ },
+ "offPage": {
+  "o0": {
+   "headPx": null
+  }
+ },
+ "marks": {},
+ "phases": {},
+ "greyRules": [],
+ "titleReadings": [
+  {
+   "position": 0,
+   "text": "Producer",
+   "x": 701,
+   "y": 47,
+   "w": 261,
+   "h": 47,
+   "lines": [
+    {
+     "x": 701,
+     "y": 47,
+     "w": 261,
+     "h": 47,
+     "text": "Producer"
+    }
+   ]
+  },
+  {
+   "position": 1,
+   "text": "Retailer",
+   "x": 2440,
+   "y": 47,
+   "w": 221,
+   "h": 47,
+   "lines": [
+    {
+     "x": 2440,
+     "y": 47,
+     "w": 221,
+     "h": 47,
+     "text": "Retailer"
+    }
+   ]
+  }
+ ],
+ "findings": [],
+ "uncertain": [],
+ "present": [
+  "source",
+  "size",
+  "fontPx",
+  "arrowPx",
+  "arrowWidthPx",
+  "arrowStyle",
+  "rules",
+  "ruleSpan",
+  "greyRules",
+  "dashed",
+  "openEnds",
+  "crossMarks",
+  "partitions",
+  "nodes",
+  "edges",
+  "text",
+  "uncertain"
+ ],
+ "uncorrected": {
+  "model": {
+   "schema": "ubl-activity-diagram/1",
+   "figure": {
+    "name": "UBL-2.2-CRP-Synchronizing",
+    "source": "UBL-2.2-CRP-Synchronizing.png"
+   },
+   "lanes": [
+    {
+     "id": "lane0",
+     "axis": "column",
+     "index": 0,
+     "title": "Producer"
+    },
+    {
+     "id": "lane1",
+     "axis": "column",
+     "index": 1,
+     "title": "Retailer"
+    },
+    {
+     "id": "lane2",
+     "axis": "band",
+     "index": 0,
+     "title": ""
+    }
+   ],
+   "nodes": [
+    {
+     "id": "n1",
+     "kind": "initial",
+     "label": "",
+     "lane": "lane1",
+     "band": "lane2"
+    },
+    {
+     "id": "n2",
+     "kind": "object",
+     "label": "Inventory Report",
+     "lane": "lane1",
+     "band": "lane2"
+    },
+    {
+     "id": "n3",
+     "kind": "action",
+     "label": "Synchronize stock information",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n4",
+     "kind": "action",
+     "label": "Send information about stock",
+     "lane": "lane1",
+     "band": "lane2"
+    },
+    {
+     "id": "n5",
+     "kind": "final",
+     "label": "",
+     "lane": "lane0",
+     "band": "lane2"
+    }
+   ],
+   "flows": [
+    {
+     "id": "f0",
+     "from": "n1",
+     "to": "n4",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f1",
+     "from": "n2",
+     "to": "n3",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f2",
+     "from": "n4",
+     "to": "n2",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f3",
+     "from": "n3",
+     "to": "n5",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    }
+   ],
+   "texts": [],
+   "offPage": [
+    {
+     "id": "o0",
+     "node": "n2",
+     "direction": "out",
+     "arrow": false
+    }
+   ],
+   "marks": [],
+   "phases": []
+  },
+  "layout": {
+   "schema": "ubl-activity-diagram-layout/1",
+   "figure": "UBL-2.2-CRP-Synchronizing",
+   "units": "px of the original PNG",
+   "size": [
+    3425,
+    1206
+   ],
+   "style": {
+    "fontPx": 68.6,
+    "arrowPx": 72.0,
+    "arrowWidthPx": 55.6,
+    "arrowStyle": "open"
+   },
+   "rules": {
+    "vertical": [
+     {
+      "at": 0,
+      "width": 10,
+      "span": [
+       13,
+       1192
+      ]
+     },
+     {
+      "at": 1707,
+      "width": 5,
+      "span": [
+       13,
+       747
+      ]
+     },
+     {
+      "at": 3415,
+      "width": 10,
+      "span": [
+       13,
+       1192
+      ]
+     }
+    ],
+    "horizontal": [
+     {
+      "at": 0,
+      "width": 10,
+      "span": [
+       13,
+       3411
+      ]
+     },
+     {
+      "at": 1196,
+      "width": 10,
+      "span": [
+       13,
+       3411
+      ]
+     }
+    ]
+   },
+   "greyRules": [],
+   "lanes": {
+    "lane0": {
+     "x0": 0,
+     "x1": 1710,
+     "titleBox": [
+      701,
+      47,
+      261,
+      47
+     ]
+    },
+    "lane1": {
+     "x0": 1710,
+     "x1": 3425,
+     "titleBox": [
+      2440,
+      47,
+      221,
+      47
+     ]
+    },
+    "lane2": {
+     "y0": 0,
+     "y1": 1206
+    }
+   },
+   "nodes": {
+    "n1": {
+     "x": 2764,
+     "y": 176,
+     "w": 101,
+     "h": 101
+    },
+    "n2": {
+     "x": 1413,
+     "y": 572,
+     "w": 599,
+     "h": 165,
+     "shape": "rect",
+     "stroke": 11,
+     "rx": 0,
+     "ry": 0,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 1463,
+       "y": 625,
+       "w": 524,
+       "h": 61,
+       "text": "Inventory Report"
+      }
+     ]
+    },
+    "n3": {
+     "x": 87,
+     "y": 579,
+     "w": 1001,
+     "h": 156,
+     "shape": "rounded",
+     "stroke": 5,
+     "rx": 79,
+     "ry": 46,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 106,
+       "y": 629,
+       "w": 950,
+       "h": 62,
+       "text": "Synchronize stock information"
+      }
+     ]
+    },
+    "n4": {
+     "x": 2291,
+     "y": 584,
+     "w": 1047,
+     "h": 156,
+     "shape": "rounded",
+     "stroke": 5,
+     "rx": 94,
+     "ry": 57,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 2351,
+       "y": 634,
+       "w": 921,
+       "h": 49,
+       "text": "Send information about stock"
+      }
+     ]
+    },
+    "n5": {
+     "x": 545,
+     "y": 1062,
+     "w": 90,
+     "h": 90,
+     "shape": "ellipse",
+     "stroke": 6,
+     "rx": 47,
+     "ry": 43,
+     "innerRatio": 0.444
+    }
+   },
+   "flows": {
+    "f0": {
+     "fromPoint": [
+      2816,
+      291
+     ],
+     "toPoint": [
+      2816,
+      569
+     ],
+     "routing": "straight"
+    },
+    "f1": {
+     "fromPoint": [
+      1398,
+      655
+     ],
+     "toPoint": [
+      1102,
+      657
+     ],
+     "routing": "straight"
+    },
+    "f2": {
+     "fromPoint": [
+      2276,
+      658
+     ],
+     "toPoint": [
+      2026,
+      655
+     ],
+     "routing": "straight"
+    },
+    "f3": {
+     "fromPoint": [
+      586,
+      749
+     ],
+     "toPoint": [
+      588,
+      1047
+     ],
+     "routing": "straight"
+    }
+   },
+   "texts": {},
+   "offPage": {
+    "o0": {
+     "at": [
+      1714,
+      751
+     ],
+     "end": [
+      1717,
+      1193
+     ],
+     "points": [],
+     "x": 1714,
+     "y": 751,
+     "w": 4,
+     "h": 443
+    }
+   },
+   "marks": {},
+   "phases": {},
+   "rulesHaveSpans": {
+    "vertical": true,
+    "horizontal": true
+   }
+  }
+ },
+ "graphPatches": {
+  "edges": {},
+  "texts": {},
+  "addEdges": [],
+  "dropOpenEnds": [
+   "o0"
+  ]
+ },
+ "corrections": [
+  "div-04"
+ ],
+ "documentLanes": {
+  "object-inventory-report": "lane-retailer"
+ },
+ "formerIds": {
+  "lane-producer": "lane0",
+  "lane-retailer": "lane1",
+  "initial-retailer": "n1",
+  "object-inventory-report": "n2",
+  "action-synchronize-stock-information": "n3",
+  "action-send-information-about-stock": "n4",
+  "final-producer": "n5",
+  "flow-initial-retailer-to-send-information-about-stock": "f0",
+  "flow-inventory-report-to-synchronize-stock-information": "f1",
+  "flow-send-information-about-stock-to-inventory-report": "f2",
+  "flow-synchronize-stock-information-to-final-producer": "f3"
+ }
+}

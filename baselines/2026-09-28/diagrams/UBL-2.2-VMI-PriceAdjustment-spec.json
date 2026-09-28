@@ -1,0 +1,324 @@
+{
+ "canvas": {
+  "w": 1480.0,
+  "h": 896.642
+ },
+ "stroke": {
+  "frame": 4.3,
+  "divider": 2.6,
+  "action": 2.2,
+  "object": 5.2,
+  "edge": 2.2
+ },
+ "font": {
+  "family": "Helvetica, Arial, sans-serif",
+  "node": 31.5,
+  "lane": 31.5,
+  "guard": 31.5
+ },
+ "arrow": 41.1,
+ "arrowWidth": 32.9,
+ "arrowStyle": "open",
+ "dashed": [],
+ "greyRules": [],
+ "crossMarks": [],
+ "openEnds": [],
+ "frameBox": [
+  2.2,
+  2.2,
+  1477.8,
+  894.5
+ ],
+ "dividers": [
+  [
+   783.9,
+   2.6,
+   5.6,
+   890.6
+  ]
+ ],
+ "bands": [],
+ "lanes": [
+  {
+   "id": "lane-producer",
+   "title": "Producer",
+   "x": 0.0,
+   "w": 783.9,
+   "cx": 371.6,
+   "cy": 40.2,
+   "size": 31.4,
+   "textWidth": 122.7,
+   "baseline": 51.4
+  },
+  {
+   "id": "lane-retailer",
+   "title": "Retailer",
+   "x": 783.9,
+   "w": 696.1,
+   "cx": 1145.5,
+   "cy": 40.6,
+   "size": 31.4,
+   "textWidth": 103.7,
+   "baseline": 51.9
+  }
+ ],
+ "bandLabels": [],
+ "captions": [],
+ "nodes": [
+  {
+   "id": "initial-producer",
+   "kind": "initial",
+   "label": "",
+   "x": 290.8,
+   "y": 92.0,
+   "w": 49.7,
+   "h": 49.7
+  },
+  {
+   "id": "decision-producer",
+   "kind": "decision",
+   "label": "",
+   "x": 283.7,
+   "y": 226.2,
+   "w": 59.2,
+   "h": 50.6
+  },
+  {
+   "id": "final-producer",
+   "kind": "final",
+   "label": "",
+   "x": 36.7,
+   "y": 230.3,
+   "w": 44.9,
+   "h": 44.9,
+   "innerRatio": 0.439
+  },
+  {
+   "id": "object-catalogue",
+   "kind": "object",
+   "label": "Catalogue",
+   "x": 684.5,
+   "y": 490.5,
+   "w": 200.9,
+   "h": 83.0,
+   "labelLines": [
+    {
+     "text": "Catalogue",
+     "cx": 789.0,
+     "cy": 529.145,
+     "w": 146.1,
+     "size": 31.3
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-send-price-list",
+   "kind": "action",
+   "label": "Send Price List",
+   "x": 145.4,
+   "y": 492.8,
+   "w": 316.7,
+   "h": 73.0,
+   "rx": 35.2,
+   "ry": 25.3,
+   "labelLines": [
+    {
+     "text": "Send Price List",
+     "cx": 301.6,
+     "cy": 529.4,
+     "w": 221.2,
+     "size": 32.0
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-receive-price-list",
+   "kind": "action",
+   "label": "Receive Price List",
+   "x": 1126.7,
+   "y": 492.8,
+   "w": 316.3,
+   "h": 75.6,
+   "rx": 35.6,
+   "ry": 27.9,
+   "labelLines": [
+    {
+     "text": "Receive Price List",
+     "cx": 1283.0,
+     "cy": 529.8,
+     "w": 261.0,
+     "size": 32.0
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "final-retailer",
+   "kind": "final",
+   "label": "",
+   "x": 1259.2,
+   "y": 819.3,
+   "w": 44.9,
+   "h": 44.5,
+   "innerRatio": 0.439
+  }
+ ],
+ "edges": [
+  {
+   "id": "flow-initial-producer-to-decision-producer",
+   "from": "initial-producer",
+   "to": "decision-producer",
+   "exitXY": [
+    0.4527,
+    1.0
+   ],
+   "entryXY": [
+    0.4932,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-decision-producer-to-final-producer",
+   "from": "decision-producer",
+   "to": "final-producer",
+   "exitXY": [
+    0.0,
+    0.5
+   ],
+   "entryXY": [
+    1.0,
+    0.4722
+   ],
+   "straight": true,
+   "confidence": "high",
+   "label": "False"
+  },
+  {
+   "id": "flow-decision-producer-to-send-price-list",
+   "from": "decision-producer",
+   "to": "action-send-price-list",
+   "exitXY": [
+    0.5,
+    1.0
+   ],
+   "entryXY": [
+    0.5273,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high",
+   "label": "True"
+  },
+  {
+   "id": "flow-send-price-list-to-catalogue",
+   "from": "action-send-price-list",
+   "to": "object-catalogue",
+   "exitXY": [
+    1.0,
+    0.5068
+   ],
+   "entryXY": [
+    0.0,
+    0.4892
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-catalogue-to-receive-price-list",
+   "from": "object-catalogue",
+   "to": "action-receive-price-list",
+   "exitXY": [
+    1.0,
+    0.4831
+   ],
+   "entryXY": [
+    0.0,
+    0.5
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-receive-price-list-to-final-retailer",
+   "from": "action-receive-price-list",
+   "to": "final-retailer",
+   "exitXY": [
+    0.4926,
+    1.0
+   ],
+   "entryXY": [
+    0.51,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  }
+ ],
+ "guards": [
+  {
+   "id": "text-change-of-prices",
+   "text": "Change of\nprices?",
+   "x": 401.9,
+   "y": 215.6,
+   "w": 108.9,
+   "h": 52.7,
+   "labelLines": [
+    {
+     "text": "Change of",
+     "cx": 456.3,
+     "cy": 224.36999999999998,
+     "w": 108.9,
+     "size": 23.8
+    },
+    {
+     "text": "prices?",
+     "cx": 439.0,
+     "cy": 254.97,
+     "w": 73.5,
+     "size": 23.8
+    }
+   ]
+  },
+  {
+   "id": "text-false",
+   "text": "False",
+   "x": 180.2,
+   "y": 227.7,
+   "w": 55.3,
+   "h": 16.9,
+   "onFlow": "flow-decision-producer-to-final-producer",
+   "labelLines": [
+    {
+     "text": "False",
+     "cx": 207.8,
+     "cy": 236.375,
+     "w": 55.3,
+     "size": 23.5
+    }
+   ]
+  },
+  {
+   "id": "text-true",
+   "text": "True",
+   "x": 325.4,
+   "y": 298.6,
+   "w": 47.5,
+   "h": 16.9,
+   "onFlow": "flow-decision-producer-to-send-price-list",
+   "labelLines": [
+    {
+     "text": "True",
+     "cx": 349.2,
+     "cy": 307.17499999999995,
+     "w": 47.5,
+     "size": 23.5
+    }
+   ]
+  }
+ ]
+}

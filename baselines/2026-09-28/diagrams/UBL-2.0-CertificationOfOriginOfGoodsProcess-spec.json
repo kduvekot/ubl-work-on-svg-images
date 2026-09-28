@@ -1,0 +1,1072 @@
+{
+ "canvas": {
+  "w": 1480.0,
+  "h": 1096.28
+ },
+ "stroke": {
+  "frame": 4.3,
+  "divider": 1.7,
+  "action": 1.7,
+  "object": 3.0,
+  "edge": 1.7
+ },
+ "font": {
+  "family": "Helvetica, Arial, sans-serif",
+  "node": 15.4,
+  "lane": 15.4,
+  "guard": 15.4
+ },
+ "arrow": 25.9,
+ "arrowWidth": 20.5,
+ "arrowStyle": "open",
+ "dashed": [],
+ "greyRules": [],
+ "crossMarks": [],
+ "openEnds": [],
+ "frameBox": [
+  2.2,
+  2.2,
+  1477.8,
+  1094.1
+ ],
+ "dividers": [
+  [
+   348.3,
+   1.7,
+   5.6,
+   1090.2
+  ],
+  [
+   778.0,
+   1.3,
+   5.6,
+   1090.2
+  ],
+  [
+   1178.0,
+   1.7,
+   5.6,
+   1090.2
+  ]
+ ],
+ "bands": [],
+ "lanes": [
+  {
+   "id": "lane-exporter",
+   "title": "Exporter",
+   "x": 0.0,
+   "w": 348.3,
+   "cx": 174.6,
+   "cy": 15.1,
+   "size": 14.9,
+   "textWidth": 54.4,
+   "baseline": 18.9
+  },
+  {
+   "id": "lane-issuer",
+   "title": "Issuer",
+   "x": 348.3,
+   "w": 429.5,
+   "cx": 565.6,
+   "cy": 13.6,
+   "size": 15.1,
+   "textWidth": 38.9,
+   "baseline": 19.0
+  },
+  {
+   "id": "lane-endorser",
+   "title": "Endorser",
+   "x": 777.8,
+   "w": 400.1,
+   "cx": 979.8,
+   "cy": 13.6,
+   "size": 15.1,
+   "textWidth": 58.3,
+   "baseline": 19.0
+  },
+  {
+   "id": "lane-importer",
+   "title": "Importer",
+   "x": 1178.0,
+   "w": 302.0,
+   "cx": 1328.8,
+   "cy": 15.1,
+   "size": 14.9,
+   "textWidth": 53.6,
+   "baseline": 18.9
+  }
+ ],
+ "bandLabels": [],
+ "captions": [],
+ "nodes": [
+  {
+   "id": "object-certificate-of-origin-between-exporter-and-issuer",
+   "kind": "object",
+   "label": "Certificate Of\nOrigin",
+   "x": 305.7,
+   "y": 107.4,
+   "w": 111.9,
+   "h": 64.8,
+   "labelLines": [
+    {
+     "text": "Certificate Of",
+     "cx": 361.0,
+     "cy": 128.585,
+     "w": 92.9,
+     "size": 14.9
+    },
+    {
+     "text": "Origin",
+     "cx": 361.9,
+     "cy": 145.085,
+     "w": 41.9,
+     "size": 14.9
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-apply-for-coo",
+   "kind": "action",
+   "label": "Apply for CoO",
+   "x": 141.7,
+   "y": 111.9,
+   "w": 110.6,
+   "h": 50.1,
+   "rx": 21.2,
+   "ry": 21.2,
+   "labelLines": [
+    {
+     "text": "Apply for CoO",
+     "cx": 197.3,
+     "cy": 135.31,
+     "w": 99.0,
+     "size": 15.4
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-receive-coo-in-issuer",
+   "kind": "action",
+   "label": "Receive CoO",
+   "x": 503.4,
+   "y": 113.2,
+   "w": 110.6,
+   "h": 50.1,
+   "rx": 23.8,
+   "ry": 21.6,
+   "labelLines": [
+    {
+     "text": "Receive CoO",
+     "cx": 556.4,
+     "cy": 136.11,
+     "w": 89.4,
+     "size": 15.4
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "initial-exporter",
+   "kind": "initial",
+   "label": "",
+   "x": 15.6,
+   "y": 121.4,
+   "w": 31.1,
+   "h": 31.1
+  },
+  {
+   "id": "action-endorse-coo-in-issuer",
+   "kind": "action",
+   "label": "Endorse CoO",
+   "x": 609.7,
+   "y": 267.0,
+   "w": 112.4,
+   "h": 51.4,
+   "rx": 21.2,
+   "ry": 21.2,
+   "labelLines": [
+    {
+     "text": "Endorse CoO",
+     "cx": 665.9,
+     "cy": 291.71000000000004,
+     "w": 92.5,
+     "size": 15.4
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-request-status",
+   "kind": "action",
+   "label": "Request\nStatus",
+   "x": 44.1,
+   "y": 270.1,
+   "w": 112.4,
+   "h": 48.4,
+   "rx": 21.2,
+   "ry": 24.2,
+   "labelLines": [
+    {
+     "text": "Request",
+     "cx": 99.0,
+     "cy": 286.51,
+     "w": 57.0,
+     "size": 15.4
+    },
+    {
+     "text": "Status",
+     "cx": 100.7,
+     "cy": 305.51,
+     "w": 44.1,
+     "size": 15.4
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "decision-issuer",
+   "kind": "decision",
+   "label": "",
+   "x": 537.6,
+   "y": 272.2,
+   "w": 37.6,
+   "h": 48.4
+  },
+  {
+   "id": "action-reject-coo-in-issuer",
+   "kind": "action",
+   "label": "Reject CoO",
+   "x": 391.5,
+   "y": 272.7,
+   "w": 111.9,
+   "h": 50.6,
+   "rx": 22.9,
+   "ry": 20.7,
+   "labelLines": [
+    {
+     "text": "Reject CoO",
+     "cx": 445.9,
+     "cy": 292.61,
+     "w": 77.8,
+     "size": 15.4
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "object-application-response-between-exporter-and-issuer",
+   "kind": "object",
+   "label": "Application\nResponse",
+   "x": 310.0,
+   "y": 428.0,
+   "w": 89.9,
+   "h": 67.8,
+   "labelLines": [
+    {
+     "text": "Application",
+     "cx": 353.3,
+     "cy": 449.285,
+     "w": 79.9,
+     "size": 14.9
+    },
+    {
+     "text": "Response",
+     "cx": 354.6,
+     "cy": 465.685,
+     "w": 69.6,
+     "size": 14.9
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-query-coo",
+   "kind": "action",
+   "label": "Query CoO",
+   "x": 504.7,
+   "y": 435.1,
+   "w": 111.1,
+   "h": 50.6,
+   "rx": 22.9,
+   "ry": 24.2,
+   "labelLines": [
+    {
+     "text": "Query CoO",
+     "cx": 560.2,
+     "cy": 460.21000000000004,
+     "w": 76.5,
+     "size": 15.4
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-receive-response",
+   "kind": "action",
+   "label": "Receive Response",
+   "x": 33.7,
+   "y": 439.9,
+   "w": 167.2,
+   "h": 58.8,
+   "rx": 21.2,
+   "ry": 24.2,
+   "labelLines": [
+    {
+     "text": "Receive Response",
+     "cx": 114.1,
+     "cy": 466.71000000000004,
+     "w": 128.8,
+     "size": 15.4
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "object-application-response-between-exporter-and-endorser",
+   "kind": "object",
+   "label": "Application\nResponse",
+   "x": 724.9,
+   "y": 619.9,
+   "w": 131.4,
+   "h": 72.2,
+   "labelLines": [
+    {
+     "text": "Application",
+     "cx": 788.6,
+     "cy": 643.685,
+     "w": 80.4,
+     "size": 14.9
+    },
+    {
+     "text": "Response",
+     "cx": 790.1,
+     "cy": 660.0849999999999,
+     "w": 69.6,
+     "size": 14.9
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-reject-coo-in-endorser",
+   "kind": "action",
+   "label": "Reject CoO",
+   "x": 959.3,
+   "y": 631.3,
+   "w": 161.2,
+   "h": 51.9,
+   "rx": 17.3,
+   "ry": 16.0,
+   "labelLines": [
+    {
+     "text": "Reject CoO",
+     "cx": 1039.2,
+     "cy": 659.01,
+     "w": 77.8,
+     "size": 15.4
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "decision-exporter",
+   "kind": "decision",
+   "label": "",
+   "x": 72.6,
+   "y": 701.8,
+   "w": 37.6,
+   "h": 48.4
+  },
+  {
+   "id": "decision-endorser",
+   "kind": "decision",
+   "label": "",
+   "x": 1008.6,
+   "y": 739.8,
+   "w": 48.0,
+   "h": 49.3
+  },
+  {
+   "id": "action-endorse-coo-in-endorser",
+   "kind": "action",
+   "label": "Endorse CoO",
+   "x": 853.4,
+   "y": 740.6,
+   "w": 101.5,
+   "h": 48.8,
+   "rx": 15.6,
+   "ry": 13.4,
+   "labelLines": [
+    {
+     "text": "Endorse CoO",
+     "cx": 905.1,
+     "cy": 766.61,
+     "w": 92.9,
+     "size": 15.4
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "final-importer",
+   "kind": "final",
+   "label": "",
+   "x": 1355.1,
+   "y": 859.0,
+   "w": 31.1,
+   "h": 31.1,
+   "innerRatio": 0.485
+  },
+  {
+   "id": "action-apply-for-endorsement",
+   "kind": "action",
+   "label": "Apply for Endorsement",
+   "x": 141.7,
+   "y": 872.0,
+   "w": 196.2,
+   "h": 56.6,
+   "rx": 23.3,
+   "ry": 22.5,
+   "labelLines": [
+    {
+     "text": "Apply for Endorsement",
+     "cx": 239.6,
+     "cy": 897.51,
+     "w": 162.9,
+     "size": 15.4
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "object-certificate-of-origin-between-exporter-and-endorser",
+   "kind": "object",
+   "label": "Certificate Of\nOrigin",
+   "x": 718.8,
+   "y": 876.5,
+   "w": 133.1,
+   "h": 73.9,
+   "labelLines": [
+    {
+     "text": "Certificate Of",
+     "cx": 784.7,
+     "cy": 903.385,
+     "w": 93.3,
+     "size": 14.9
+    },
+    {
+     "text": "Origin",
+     "cx": 785.6,
+     "cy": 919.885,
+     "w": 42.3,
+     "size": 14.9
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-receive-certificate-of-origin",
+   "kind": "action",
+   "label": "Receive Certificate Of\nOrigin",
+   "x": 931.2,
+   "y": 881.1,
+   "w": 205.7,
+   "h": 57.9,
+   "rx": 21.2,
+   "ry": 24.2,
+   "labelLines": [
+    {
+     "text": "Receive Certificate Of",
+     "cx": 1029.1,
+     "cy": 901.41,
+     "w": 151.7,
+     "size": 15.4
+    },
+    {
+     "text": "Origin",
+     "cx": 1034.3,
+     "cy": 920.41,
+     "w": 41.9,
+     "size": 15.4
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "object-certificate-of-origin-between-exporter-and-importer",
+   "kind": "object",
+   "label": "Certificate Of\nOrigin",
+   "x": 1108.6,
+   "y": 1001.0,
+   "w": 133.1,
+   "h": 70.9,
+   "labelLines": [
+    {
+     "text": "Certificate Of",
+     "cx": 1174.5,
+     "cy": 1025.6850000000002,
+     "w": 93.3,
+     "size": 14.9
+    },
+    {
+     "text": "Origin",
+     "cx": 1175.4,
+     "cy": 1042.085,
+     "w": 42.3,
+     "size": 14.9
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-send-coo",
+   "kind": "action",
+   "label": "Send CoO",
+   "x": 16.0,
+   "y": 1011.2,
+   "w": 199.6,
+   "h": 44.5,
+   "rx": 21.2,
+   "ry": 20.3,
+   "labelLines": [
+    {
+     "text": "Send CoO",
+     "cx": 115.4,
+     "cy": 1031.01,
+     "w": 70.0,
+     "size": 15.4
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-receive-coo-in-importer",
+   "kind": "action",
+   "label": "Receive CoO",
+   "x": 1319.7,
+   "y": 1014.2,
+   "w": 102.0,
+   "h": 50.1,
+   "rx": 14.7,
+   "ry": 14.3,
+   "labelLines": [
+    {
+     "text": "Receive CoO",
+     "cx": 1370.2,
+     "cy": 1038.4099999999999,
+     "w": 88.2,
+     "size": 15.4
+    }
+   ],
+   "bold": true
+  }
+ ],
+ "edges": [
+  {
+   "id": "flow-initial-exporter-to-apply-for-coo",
+   "from": "initial-exporter",
+   "to": "action-apply-for-coo",
+   "exitXY": [
+    1.0,
+    0.4855
+   ],
+   "entryXY": [
+    0.0,
+    0.491
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-apply-for-coo-to-certificate-of-origin-between-exporter-and-issuer",
+   "from": "action-apply-for-coo",
+   "to": "object-certificate-of-origin-between-exporter-and-issuer",
+   "exitXY": [
+    1.0,
+    0.501
+   ],
+   "entryXY": [
+    0.0,
+    0.483
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-certificate-of-origin-between-exporter-and-issuer-to-receive-coo-in-issuer",
+   "from": "object-certificate-of-origin-between-exporter-and-issuer",
+   "to": "action-receive-coo-in-issuer",
+   "exitXY": [
+    1.0,
+    0.4769
+   ],
+   "entryXY": [
+    0.0,
+    0.501
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-receive-coo-in-issuer-to-decision-issuer",
+   "from": "action-receive-coo-in-issuer",
+   "to": "decision-issuer",
+   "exitXY": [
+    0.481,
+    1.0
+   ],
+   "entryXY": [
+    0.492,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-request-status-to-certificate-of-origin-between-exporter-and-issuer",
+   "from": "action-request-status",
+   "to": "object-certificate-of-origin-between-exporter-and-issuer",
+   "exitXY": [
+    0.9297,
+    0.0
+   ],
+   "entryXY": [
+    0.0,
+    1.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-decision-issuer-to-reject-coo-in-issuer",
+   "from": "decision-issuer",
+   "to": "action-reject-coo-in-issuer",
+   "exitXY": [
+    0.0,
+    0.5
+   ],
+   "entryXY": [
+    1.0,
+    0.4941
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-decision-issuer-to-endorse-coo-in-issuer",
+   "from": "decision-issuer",
+   "to": "action-endorse-coo-in-issuer",
+   "exitXY": [
+    1.0,
+    0.5
+   ],
+   "entryXY": [
+    0.0,
+    0.4961
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-receive-response-to-request-status",
+   "from": "action-receive-response",
+   "to": "action-request-status",
+   "exitXY": [
+    0.372,
+    0.0
+   ],
+   "entryXY": [
+    0.4653,
+    1.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-decision-issuer-to-query-coo",
+   "from": "decision-issuer",
+   "to": "action-query-coo",
+   "exitXY": [
+    0.492,
+    1.0
+   ],
+   "entryXY": [
+    0.4743,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-reject-coo-in-issuer-to-application-response-between-exporter-and-issuer",
+   "from": "action-reject-coo-in-issuer",
+   "to": "object-application-response-between-exporter-and-issuer",
+   "exitXY": [
+    0.3628,
+    1.0
+   ],
+   "entryXY": [
+    0.782,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-application-response-between-exporter-and-issuer-to-receive-response",
+   "from": "object-application-response-between-exporter-and-issuer",
+   "to": "action-receive-response",
+   "exitXY": [
+    0.0,
+    0.5767
+   ],
+   "entryXY": [
+    1.0,
+    0.4847
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-query-coo-to-application-response-between-exporter-and-issuer",
+   "from": "action-query-coo",
+   "to": "object-application-response-between-exporter-and-issuer",
+   "exitXY": [
+    0.0,
+    0.666
+   ],
+   "entryXY": [
+    1.0,
+    0.6018
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-application-response-between-exporter-and-endorser-to-receive-response",
+   "from": "object-application-response-between-exporter-and-endorser",
+   "to": "action-receive-response",
+   "exitXY": [
+    0.0,
+    0.1884
+   ],
+   "entryXY": [
+    1.0,
+    0.8605
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-receive-response-to-decision-exporter",
+   "from": "action-receive-response",
+   "to": "decision-exporter",
+   "exitXY": [
+    0.3463,
+    1.0
+   ],
+   "entryXY": [
+    0.4947,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-reject-coo-in-endorser-to-application-response-between-exporter-and-endorser",
+   "from": "action-reject-coo-in-endorser",
+   "to": "object-application-response-between-exporter-and-endorser",
+   "exitXY": [
+    0.0,
+    0.4836
+   ],
+   "entryXY": [
+    1.0,
+    0.5
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-decision-endorser-to-reject-coo-in-endorser",
+   "from": "decision-endorser",
+   "to": "action-reject-coo-in-endorser",
+   "exitXY": [
+    0.4771,
+    0.0
+   ],
+   "entryXY": [
+    0.4529,
+    1.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-decision-exporter-to-apply-for-endorsement",
+   "from": "decision-exporter",
+   "to": "action-apply-for-endorsement",
+   "exitXY": [
+    1.0,
+    0.6054
+   ],
+   "entryXY": [
+    0.37,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-decision-exporter-to-send-coo",
+   "from": "decision-exporter",
+   "to": "action-send-coo",
+   "exitXY": [
+    0.4947,
+    1.0
+   ],
+   "entryXY": [
+    0.3808,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-decision-endorser-to-endorse-coo-in-endorser",
+   "from": "decision-endorser",
+   "to": "action-endorse-coo-in-endorser",
+   "exitXY": [
+    0.0,
+    0.499
+   ],
+   "entryXY": [
+    1.0,
+    0.4959
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-receive-certificate-of-origin-to-decision-endorser",
+   "from": "action-receive-certificate-of-origin",
+   "to": "decision-endorser",
+   "exitXY": [
+    0.4895,
+    0.0
+   ],
+   "entryXY": [
+    0.4854,
+    1.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-apply-for-endorsement-to-certificate-of-origin-between-exporter-and-endorser",
+   "from": "action-apply-for-endorsement",
+   "to": "object-certificate-of-origin-between-exporter-and-endorser",
+   "exitXY": [
+    1.0,
+    0.4965
+   ],
+   "entryXY": [
+    0.0,
+    0.3424
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-receive-coo-in-importer-to-final-importer",
+   "from": "action-receive-coo-in-importer",
+   "to": "final-importer",
+   "exitXY": [
+    0.5,
+    0.0
+   ],
+   "entryXY": [
+    0.5016,
+    1.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-certificate-of-origin-between-exporter-and-endorser-to-receive-certificate-of-origin",
+   "from": "object-certificate-of-origin-between-exporter-and-endorser",
+   "to": "action-receive-certificate-of-origin",
+   "exitXY": [
+    1.0,
+    0.4885
+   ],
+   "entryXY": [
+    0.0,
+    0.4991
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-send-coo-to-certificate-of-origin-between-exporter-and-importer",
+   "from": "action-send-coo",
+   "to": "object-certificate-of-origin-between-exporter-and-importer",
+   "exitXY": [
+    1.0,
+    0.4944
+   ],
+   "entryXY": [
+    0.0,
+    0.4542
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-certificate-of-origin-between-exporter-and-importer-to-receive-coo-in-importer",
+   "from": "object-certificate-of-origin-between-exporter-and-importer",
+   "to": "action-receive-coo-in-importer",
+   "exitXY": [
+    1.0,
+    0.4965
+   ],
+   "entryXY": [
+    0.0,
+    0.4651
+   ],
+   "straight": true,
+   "confidence": "high"
+  }
+ ],
+ "guards": [
+  {
+   "id": "text-initiate-transport-process",
+   "text": "Initiate\nTransport\nProcess",
+   "x": 38.0,
+   "y": 48.4,
+   "w": 54.4,
+   "h": 49.3,
+   "labelLines": [
+    {
+     "text": "Initiate",
+     "cx": 60.5,
+     "cy": 53.915000000000006,
+     "w": 41.5,
+     "size": 15.1
+    },
+    {
+     "text": "Transport",
+     "cx": 64.4,
+     "cy": 72.725,
+     "w": 56.2,
+     "size": 14.5
+    },
+    {
+     "text": "Process",
+     "cx": 64.0,
+     "cy": 92.205,
+     "w": 51.9,
+     "size": 15.7
+    }
+   ]
+  },
+  {
+   "id": "text-accept-application",
+   "text": "Accept\napplication?",
+   "x": 571.7,
+   "y": 222.5,
+   "w": 68.7,
+   "h": 32.8,
+   "labelLines": [
+    {
+     "text": "Accept",
+     "cx": 604.1,
+     "cy": 227.82500000000002,
+     "w": 44.9,
+     "size": 14.5
+    },
+    {
+     "text": "application?",
+     "cx": 606.0,
+     "cy": 246.98499999999999,
+     "w": 68.7,
+     "size": 14.9
+    }
+   ]
+  },
+  {
+   "id": "text-endorsement-required",
+   "text": "Endorsement\nRequired?",
+   "x": 132.7,
+   "y": 709.5,
+   "w": 86.4,
+   "h": 32.8,
+   "labelLines": [
+    {
+     "text": "Endorsement",
+     "cx": 175.9,
+     "cy": 715.015,
+     "w": 86.4,
+     "size": 15.1
+    },
+    {
+     "text": "Required?",
+     "cx": 165.7,
+     "cy": 734.2249999999999,
+     "w": 66.1,
+     "size": 14.5
+    }
+   ]
+  },
+  {
+   "id": "text-endorse-application",
+   "text": "Endorse\nApplication?",
+   "x": 1060.0,
+   "y": 731.6,
+   "w": 79.5,
+   "h": 32.8,
+   "labelLines": [
+    {
+     "text": "Endorse",
+     "cx": 1087.9,
+     "cy": 737.115,
+     "w": 53.2,
+     "size": 15.1
+    },
+    {
+     "text": "Application?",
+     "cx": 1099.7,
+     "cy": 756.3249999999999,
+     "w": 79.5,
+     "size": 14.5
+    }
+   ]
+  },
+  {
+   "id": "text-end-of-coo-process",
+   "text": "End of CoO\nProcess",
+   "x": 1366.8,
+   "y": 817.1,
+   "w": 75.2,
+   "h": 30.2,
+   "labelLines": [
+    {
+     "text": "End of CoO",
+     "cx": 1404.4,
+     "cy": 822.905,
+     "w": 75.2,
+     "size": 15.7
+    },
+    {
+     "text": "Process",
+     "cx": 1407.2,
+     "cy": 842.115,
+     "w": 51.4,
+     "size": 15.1
+    }
+   ]
+  }
+ ]
+}

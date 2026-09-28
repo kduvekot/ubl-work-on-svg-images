@@ -1,0 +1,211 @@
+{
+ "canvas": {
+  "w": 1480.0,
+  "h": 557.7
+ },
+ "stroke": {
+  "frame": 3.7,
+  "divider": 4.3,
+  "action": 2.2,
+  "object": 4.3,
+  "edge": 2.2
+ },
+ "font": {
+  "family": "Helvetica, Arial, sans-serif",
+  "node": 25.3,
+  "lane": 25.3,
+  "guard": 25.3
+ },
+ "arrow": 21.6,
+ "arrowWidth": 22.7,
+ "arrowStyle": "filled",
+ "dashed": [],
+ "greyRules": [],
+ "crossMarks": [],
+ "openEnds": [],
+ "frameBox": [
+  3.0,
+  3.0,
+  1478.1,
+  555.8
+ ],
+ "dividers": [
+  [
+   740.9,
+   4.3,
+   6.5,
+   552.5
+  ]
+ ],
+ "bands": [],
+ "lanes": [
+  {
+   "id": "lane-sending-logistics-operator-party",
+   "title": "Sending Logistics\nOperator Party",
+   "x": 0.0,
+   "w": 740.9,
+   "cx": 442.6,
+   "cy": 46.7,
+   "name": "Sending Logistics Operator Party"
+  },
+  {
+   "id": "lane-authority-party",
+   "title": "Authority Party",
+   "x": 740.9,
+   "w": 739.1,
+   "cx": 1159.9,
+   "cy": 46.7,
+   "size": 24.3,
+   "textWidth": 160.7,
+   "baseline": 52.8
+  }
+ ],
+ "bandLabels": [],
+ "captions": [],
+ "nodes": [
+  {
+   "id": "initial-sending-logistics-operator-party",
+   "kind": "initial",
+   "label": "",
+   "x": 340.4,
+   "y": 104.5,
+   "w": 42.8,
+   "h": 42.8
+  },
+  {
+   "id": "object-manifest",
+   "kind": "object",
+   "label": "Manifest",
+   "x": 617.7,
+   "y": 187.5,
+   "w": 266.5,
+   "h": 123.1,
+   "labelLines": [
+    {
+     "text": "Manifest",
+     "cx": 750.8,
+     "cy": 249.655,
+     "w": 90.7,
+     "size": 24.7
+    }
+   ],
+   "bold": false,
+   "italic": false
+  },
+  {
+   "id": "action-send-report",
+   "kind": "action",
+   "label": "Send report",
+   "x": 249.0,
+   "y": 208.0,
+   "w": 225.5,
+   "h": 82.1,
+   "rx": 11.4,
+   "ry": 11.4,
+   "labelLines": [
+    {
+     "text": "Send report",
+     "cx": 361.1,
+     "cy": 249.25499999999997,
+     "w": 127.0,
+     "size": 24.7
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "action-receive-manifest",
+   "kind": "action",
+   "label": "Receive Manifest",
+   "x": 1048.2,
+   "y": 208.0,
+   "w": 225.5,
+   "h": 82.1,
+   "rx": 11.4,
+   "ry": 11.4,
+   "labelLines": [
+    {
+     "text": "Receive Manifest",
+     "cx": 1161.0,
+     "cy": 249.655,
+     "w": 186.2,
+     "size": 24.7
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "final-authority-party",
+   "kind": "final",
+   "label": "",
+   "x": 1130.3,
+   "y": 427.0,
+   "w": 61.3,
+   "h": 61.8,
+   "innerRatio": 0.715
+  }
+ ],
+ "edges": [
+  {
+   "id": "flow-initial-sending-logistics-operator-party-to-send-report",
+   "from": "initial-sending-logistics-operator-party",
+   "to": "action-send-report",
+   "exitXY": [
+    0.4953,
+    1.0
+   ],
+   "entryXY": [
+    0.4993,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-send-report-to-manifest",
+   "from": "action-send-report",
+   "to": "object-manifest",
+   "exitXY": [
+    1.0,
+    0.497
+   ],
+   "entryXY": [
+    0.0,
+    0.498
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-manifest-to-receive-manifest",
+   "from": "object-manifest",
+   "to": "action-receive-manifest",
+   "exitXY": [
+    1.0,
+    0.498
+   ],
+   "entryXY": [
+    0.0,
+    0.497
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-receive-manifest-to-final-authority-party",
+   "from": "action-receive-manifest",
+   "to": "final-authority-party",
+   "exitXY": [
+    0.4993,
+    1.0
+   ],
+   "entryXY": [
+    0.4976,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  }
+ ],
+ "guards": []
+}

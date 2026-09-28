@@ -1,0 +1,11 @@
+== UBL-2.3-ExportCustomsDeclarationProcess
+  UBL-2.3-ExportCustomsDeclarationProcess -> diagram, layout, extraction  (12 nodes, 12 flows, 2 texts)
+  scale 1.29597   frame 5px  divider 2px  action 2px  object 3px
+  font 26px (33.3 model)   2 lanes, 0 bands, 12 nodes, 12 edges -> /tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-2.3-ExportCustomsDeclarationProcess-spec.json
+  /tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-2.3-ExportCustomsDeclarationProcess.svg + .drawio + -classified.svg   (12 nodes, 12 edges)
+  aligned on ink bounds: scale x 1.0000, y 1.0000
+  size 1142x1057  radius 2
+  ink: original 69098   candidate 66849
+  MISSING (red)      252  = 0.3647% of original ink
+  EXTRA   (blue)      47  = 0.0680% of original ink
+  RESULT: DIFFERENCES - inspect /tmp/claude-0/-home-user-ubl-work-on-svg-images/8457b536-8537-5862-8dc2-83913b4ddf1e/scratchpad/final/UBL-2.3-ExportCustomsDeclarationProcess-diff-r2.png

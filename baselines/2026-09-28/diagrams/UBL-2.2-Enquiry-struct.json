@@ -1,0 +1,80 @@
+{
+ "name": "UBL-2.2-Enquiry.png",
+ "verdict": "needs-human",
+ "radius": 3,
+ "lineWorkInk": 278408,
+ "missingPx": 211,
+ "inventedPx": 116,
+ "structural": {
+  "absent": 0,
+  "invented": 0,
+  "coherence": 0,
+  "textAbsent": 0,
+  "textDiffers": 0
+ },
+ "blocking": [],
+ "findings": [
+  {
+   "kind": "line-work-missing",
+   "detail": "on node n5 (action 'Receive enquiry')",
+   "x": 2522,
+   "y": 749,
+   "w": 2,
+   "h": 47,
+   "area": 94
+  }
+ ],
+ "text": [],
+ "coherence": [],
+ "human": [
+  {
+   "x": 1709,
+   "y": 785,
+   "w": 1071,
+   "h": 534,
+   "shape": "ellipse",
+   "iou": 0.735,
+   "border": 0.446,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best ellipse 0.73, and 0.99 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "kind": "no-weight-split",
+   "reason": "all 7 box strokes are one weight ([8, 9]), so no object node could be identified",
+   "check": "confirm the diagram really has no object nodes"
+  },
+  {
+   "kind": "edge-direction",
+   "reason": "arrowhead ink is ambiguous where several connectors meet",
+   "edge": [
+    "n1",
+    "n2"
+   ],
+   "check": "confirm which way this edge points"
+  }
+ ],
+ "review": [
+  {
+   "n": 1,
+   "what": "check",
+   "where": "1709,785 1071x534",
+   "detail": "outline matches no UML node shape (best ellipse 0.73, and 0.99 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "n": 2,
+   "what": "check",
+   "where": "",
+   "detail": "all 7 box strokes are one weight ([8, 9]), so no object node could be identified",
+   "check": "confirm the diagram really has no object nodes"
+  },
+  {
+   "n": 3,
+   "what": "check",
+   "where": "",
+   "detail": "arrowhead ink is ambiguous where several connectors meet",
+   "check": "confirm which way this edge points"
+  }
+ ]
+}

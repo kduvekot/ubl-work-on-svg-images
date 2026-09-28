@@ -2092,7 +2092,9 @@ work can always be started over from the PNGs.
 What the committed set measures against the originals: every structural count
 zero, 1.099% of the line-work ink in error on average (1.212% at the 2026-09-25
 baseline), 9 figures `correct`, the 266 notes for a person settled. Against the
-2026-09-25 baseline every figure differs, as the review meant it to: a new
-baseline is the next step. Whether later changes are made in the JSONs directly
+2026-09-25 baseline every figure differs, as the review meant it to, so this
+state is saved as a new baseline, `baselines/2026-09-28/` (the TC, 2026-09-28):
+the complete run `diagrams/` was taken from, its sweep table, and its review PDF,
+which was looked through page by page before it was committed. Whether later changes are made in the JSONs directly
 or still as corrections re-run from the PNGs is not yet decided (README, open
 work).

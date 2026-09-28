@@ -1,0 +1,792 @@
+{
+ "canvas": {
+  "w": 1480.0,
+  "h": 934.236
+ },
+ "stroke": {
+  "frame": 4.3,
+  "divider": 2.2,
+  "action": 1.7,
+  "object": 5.6,
+  "edge": 1.7
+ },
+ "font": {
+  "family": "Helvetica, Arial, sans-serif",
+  "node": 17.9,
+  "lane": 17.9,
+  "guard": 17.9
+ },
+ "arrow": 32.1,
+ "arrowWidth": 24.8,
+ "arrowStyle": "open",
+ "dashed": [],
+ "greyRules": [],
+ "crossMarks": [],
+ "openEnds": [],
+ "frameBox": [
+  2.2,
+  2.2,
+  1477.8,
+  932.1
+ ],
+ "dividers": [
+  [
+   683.8,
+   2.2,
+   5.6,
+   928.2
+  ]
+ ],
+ "bands": [],
+ "lanes": [
+  {
+   "id": "lane-accounting-customer",
+   "title": "Accounting Customer",
+   "x": 0.0,
+   "w": 683.6,
+   "cx": 351.5,
+   "cy": 17.9,
+   "size": 14.5,
+   "textWidth": 148.2,
+   "baseline": 21.6
+  },
+  {
+   "id": "lane-accounting-supplier",
+   "title": "Accounting Supplier",
+   "x": 683.6,
+   "w": 796.4,
+   "cx": 1092.8,
+   "cy": 17.9,
+   "size": 14.5,
+   "textWidth": 142.6,
+   "baseline": 21.6
+  }
+ ],
+ "bandLabels": [],
+ "captions": [],
+ "nodes": [
+  {
+   "id": "initial-accounting-customer",
+   "kind": "initial",
+   "label": "",
+   "x": 133.5,
+   "y": 51.0,
+   "w": 37.2,
+   "h": 37.2
+  },
+  {
+   "id": "object-self-billed-invoice",
+   "kind": "object",
+   "label": "Self Billed Invoice",
+   "x": 609.5,
+   "y": 170.0,
+   "w": 168.1,
+   "h": 86.9,
+   "labelLines": [
+    {
+     "text": "Self Billed Invoice",
+     "cx": 692.5,
+     "cy": 211.86499999999998,
+     "w": 149.9,
+     "size": 18.1
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-receive-self-billed-invoice",
+   "kind": "action",
+   "label": "Receive Self Billed\nInvoice",
+   "x": 1118.8,
+   "y": 182.8,
+   "w": 236.4,
+   "h": 66.5,
+   "rx": 25.5,
+   "ry": 25.9,
+   "labelLines": [
+    {
+     "text": "Receive Self Billed",
+     "cx": 1240.2,
+     "cy": 205.32500000000002,
+     "w": 135.7,
+     "size": 14.5
+    },
+    {
+     "text": "Invoice",
+     "cx": 1237.4,
+     "cy": 223.525,
+     "w": 52.3,
+     "size": 14.5
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-raise-self-billed-invoice",
+   "kind": "action",
+   "label": "Raise Self Billed Invoice",
+   "x": 33.7,
+   "y": 194.9,
+   "w": 236.4,
+   "h": 44.1,
+   "rx": 25.9,
+   "ry": 29.8,
+   "labelLines": [
+    {
+     "text": "Raise Self Billed Invoice",
+     "cx": 155.8,
+     "cy": 217.025,
+     "w": 175.9,
+     "size": 14.5
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "decision-reconcile-charges-in-accounting-supplier",
+   "kind": "decision",
+   "label": "Reconcile\nCharges",
+   "x": 1160.7,
+   "y": 421.3,
+   "w": 150.8,
+   "h": 98.1,
+   "labelLines": [
+    {
+     "text": "Reconcile",
+     "cx": 1234.8,
+     "cy": 463.08500000000004,
+     "w": 66.1,
+     "size": 14.9
+    },
+    {
+     "text": "Charges",
+     "cx": 1228.9,
+     "cy": 480.38500000000005,
+     "w": 55.3,
+     "size": 14.9
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "action-receive-account-response",
+   "kind": "action",
+   "label": "Receive Account\nResponse",
+   "x": 295.1,
+   "y": 433.4,
+   "w": 203.1,
+   "h": 68.7,
+   "rx": 26.8,
+   "ry": 29.8,
+   "labelLines": [
+    {
+     "text": "Receive Account",
+     "cx": 398.4,
+     "cy": 457.725,
+     "w": 123.6,
+     "size": 14.5
+    },
+    {
+     "text": "Response",
+     "cx": 394.5,
+     "cy": 475.425,
+     "w": 70.0,
+     "size": 14.5
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "object-application-response",
+   "kind": "object",
+   "label": "Application\nResponse",
+   "x": 609.5,
+   "y": 431.5,
+   "w": 157.3,
+   "h": 86.9,
+   "labelLines": [
+    {
+     "text": "Application",
+     "cx": 686.2,
+     "cy": 459.46500000000003,
+     "w": 95.9,
+     "size": 18.1
+    },
+    {
+     "text": "Response",
+     "cx": 687.7,
+     "cy": 478.96500000000003,
+     "w": 83.4,
+     "size": 18.1
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-send-account-response",
+   "kind": "action",
+   "label": "Send Account\nResponse",
+   "x": 825.3,
+   "y": 433.4,
+   "w": 165.9,
+   "h": 72.2,
+   "rx": 26.8,
+   "ry": 29.8,
+   "labelLines": [
+    {
+     "text": "Send Account",
+     "cx": 908.3,
+     "cy": 458.125,
+     "w": 94.2,
+     "size": 14.5
+    },
+    {
+     "text": "Response",
+     "cx": 912.6,
+     "cy": 476.325,
+     "w": 70.0,
+     "size": 14.5
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "final-accounting-supplier",
+   "kind": "final",
+   "label": "",
+   "x": 1408.5,
+   "y": 452.6,
+   "w": 33.3,
+   "h": 33.7,
+   "innerRatio": 0.444
+  },
+  {
+   "id": "decision-reconcile-charges-in-accounting-customer",
+   "kind": "decision",
+   "label": "Reconcile\nCharges",
+   "x": 117.1,
+   "y": 566.1,
+   "w": 193.6,
+   "h": 89.4,
+   "labelLines": [
+    {
+     "text": "Reconcile",
+     "cx": 217.6,
+     "cy": 598.385,
+     "w": 66.1,
+     "size": 14.9
+    },
+    {
+     "text": "Charges",
+     "cx": 211.3,
+     "cy": 615.5849999999999,
+     "w": 55.3,
+     "size": 14.9
+    }
+   ],
+   "bold": false
+  },
+  {
+   "id": "object-self-billed-credit-note",
+   "kind": "object",
+   "label": "Self Billed Credit\nNote",
+   "x": 602.6,
+   "y": 737.0,
+   "w": 157.3,
+   "h": 86.9,
+   "labelLines": [
+    {
+     "text": "Self Billed Credit",
+     "cx": 678.6,
+     "cy": 768.4649999999999,
+     "w": 140.4,
+     "size": 18.1
+    },
+    {
+     "text": "Note",
+     "cx": 683.0,
+     "cy": 787.865,
+     "w": 38.5,
+     "size": 18.1
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-raise-self-billed-credit-note",
+   "kind": "action",
+   "label": "Raise Self Billed Credit\nNote",
+   "x": 282.6,
+   "y": 745.8,
+   "w": 236.8,
+   "h": 68.7,
+   "rx": 25.9,
+   "ry": 30.2,
+   "labelLines": [
+    {
+     "text": "Raise Self Billed Credit",
+     "cx": 407.5,
+     "cy": 771.025,
+     "w": 165.9,
+     "size": 14.5
+    },
+    {
+     "text": "Note",
+     "cx": 399.5,
+     "cy": 789.125,
+     "w": 29.8,
+     "size": 14.5
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "action-receive-self-billed-credit-note",
+   "kind": "action",
+   "label": "Receive Self Billed Credit\nNote",
+   "x": 1083.3,
+   "y": 745.8,
+   "w": 236.4,
+   "h": 65.2,
+   "rx": 25.5,
+   "ry": 30.2,
+   "labelLines": [
+    {
+     "text": "Receive Self Billed Credit",
+     "cx": 1212.3,
+     "cy": 768.8249999999999,
+     "w": 185.4,
+     "size": 14.5
+    },
+    {
+     "text": "Note",
+     "cx": 1201.9,
+     "cy": 787.025,
+     "w": 29.8,
+     "size": 14.5
+    }
+   ],
+   "bold": true
+  },
+  {
+   "id": "final-accounting-customer",
+   "kind": "final",
+   "label": "",
+   "x": 70.9,
+   "y": 855.6,
+   "w": 33.3,
+   "h": 33.3,
+   "innerRatio": 0.438
+  },
+  {
+   "id": "final-accounting-customer-2",
+   "kind": "final",
+   "label": "",
+   "x": 198.1,
+   "y": 871.4,
+   "w": 33.3,
+   "h": 33.7,
+   "innerRatio": 0.444
+  }
+ ],
+ "edges": [
+  {
+   "id": "flow-initial-accounting-customer-to-raise-self-billed-invoice",
+   "from": "initial-accounting-customer",
+   "to": "action-raise-self-billed-invoice",
+   "exitXY": [
+    0.4892,
+    1.0
+   ],
+   "entryXY": [
+    0.4992,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-self-billed-invoice-to-receive-self-billed-invoice",
+   "from": "object-self-billed-invoice",
+   "to": "action-receive-self-billed-invoice",
+   "exitXY": [
+    1.0,
+    0.5052
+   ],
+   "entryXY": [
+    0.0,
+    0.4677
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-raise-self-billed-invoice-to-self-billed-invoice",
+   "from": "action-raise-self-billed-invoice",
+   "to": "object-self-billed-invoice",
+   "exitXY": [
+    1.0,
+    0.5193
+   ],
+   "entryXY": [
+    0.0,
+    0.5501
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-raise-self-billed-invoice-to-final-accounting-customer",
+   "from": "action-raise-self-billed-invoice",
+   "to": "final-accounting-customer",
+   "exitXY": [
+    0.2305,
+    1.0
+   ],
+   "entryXY": [
+    0.5195,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high",
+   "label": "[accept charges]"
+  },
+  {
+   "id": "flow-reconcile-charges-in-accounting-customer-to-raise-self-billed-invoice",
+   "from": "decision-reconcile-charges-in-accounting-customer",
+   "to": "action-raise-self-billed-invoice",
+   "exitXY": [
+    0.4979,
+    0.0
+   ],
+   "entryXY": [
+    0.7585,
+    1.0
+   ],
+   "straight": true,
+   "confidence": "high",
+   "label": "[under charged]"
+  },
+  {
+   "id": "flow-receive-self-billed-invoice-to-reconcile-charges-in-accounting-supplier",
+   "from": "action-receive-self-billed-invoice",
+   "to": "decision-reconcile-charges-in-accounting-supplier",
+   "exitXY": [
+    0.4915,
+    1.0
+   ],
+   "entryXY": [
+    0.4927,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-application-response-to-receive-account-response",
+   "from": "object-application-response",
+   "to": "action-receive-account-response",
+   "exitXY": [
+    0.0,
+    0.4051
+   ],
+   "entryXY": [
+    1.0,
+    0.4847
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-reconcile-charges-in-accounting-supplier-to-send-account-response",
+   "from": "decision-reconcile-charges-in-accounting-supplier",
+   "to": "action-send-account-response",
+   "exitXY": [
+    0.0,
+    0.4975
+   ],
+   "entryXY": [
+    1.0,
+    0.5083
+   ],
+   "straight": true,
+   "confidence": "high",
+   "label": "[discrepancy in charges]"
+  },
+  {
+   "id": "flow-reconcile-charges-in-accounting-supplier-to-final-accounting-supplier",
+   "from": "decision-reconcile-charges-in-accounting-supplier",
+   "to": "final-accounting-supplier",
+   "exitXY": [
+    1.0,
+    0.4975
+   ],
+   "entryXY": [
+    0.0,
+    0.5074
+   ],
+   "straight": true,
+   "confidence": "high",
+   "label": "[no action required]"
+  },
+  {
+   "id": "flow-send-account-response-to-application-response",
+   "from": "action-send-account-response",
+   "to": "object-application-response",
+   "exitXY": [
+    0.0,
+    0.5263
+   ],
+   "entryXY": [
+    1.0,
+    0.4741
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-receive-account-response-to-reconcile-charges-in-accounting-customer",
+   "from": "action-receive-account-response",
+   "to": "decision-reconcile-charges-in-accounting-customer",
+   "exitXY": [
+    0.2088,
+    1.0
+   ],
+   "entryXY": [
+    0.4979,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-receive-self-billed-credit-note-to-reconcile-charges-in-accounting-supplier",
+   "from": "action-receive-self-billed-credit-note",
+   "to": "decision-reconcile-charges-in-accounting-supplier",
+   "exitXY": [
+    0.6417,
+    0.0
+   ],
+   "entryXY": [
+    0.4927,
+    1.0
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-reconcile-charges-in-accounting-customer-to-final-accounting-customer-2",
+   "from": "decision-reconcile-charges-in-accounting-customer",
+   "to": "final-accounting-customer-2",
+   "exitXY": [
+    0.4979,
+    1.0
+   ],
+   "entryXY": [
+    0.4625,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "high",
+   "label": "[accept charges]"
+  },
+  {
+   "id": "flow-reconcile-charges-in-accounting-customer-to-raise-self-billed-credit-note",
+   "from": "decision-reconcile-charges-in-accounting-customer",
+   "to": "action-raise-self-billed-credit-note",
+   "exitXY": [
+    0.4979,
+    0.9911
+   ],
+   "entryXY": [
+    0.3395,
+    0.0
+   ],
+   "straight": true,
+   "confidence": "checked",
+   "label": "[over charged]"
+  },
+  {
+   "id": "flow-self-billed-credit-note-to-receive-self-billed-credit-note",
+   "from": "object-self-billed-credit-note",
+   "to": "action-receive-self-billed-credit-note",
+   "exitXY": [
+    1.0,
+    0.4845
+   ],
+   "entryXY": [
+    0.0,
+    0.5107
+   ],
+   "straight": true,
+   "confidence": "high"
+  },
+  {
+   "id": "flow-raise-self-billed-credit-note-to-self-billed-credit-note",
+   "from": "action-raise-self-billed-credit-note",
+   "to": "object-self-billed-credit-note",
+   "exitXY": [
+    1.0,
+    0.5167
+   ],
+   "entryXY": [
+    0.0,
+    0.5098
+   ],
+   "straight": true,
+   "confidence": "high"
+  }
+ ],
+ "guards": [
+  {
+   "id": "text-under-charged",
+   "text": "[under\ncharged]",
+   "x": 239.0,
+   "y": 324.1,
+   "w": 59.2,
+   "h": 31.1,
+   "onFlow": "flow-reconcile-charges-in-accounting-customer-to-raise-self-billed-invoice",
+   "labelLines": [
+    {
+     "text": "[under",
+     "cx": 261.9,
+     "cy": 329.325,
+     "w": 44.9,
+     "size": 14.5
+    },
+    {
+     "text": "charged]",
+     "cx": 268.6,
+     "cy": 347.125,
+     "w": 59.2,
+     "size": 14.5
+    }
+   ]
+  },
+  {
+   "id": "text-discrepancy-in-charges",
+   "text": "[discrepancy\nin charges]",
+   "x": 1047.0,
+   "y": 479.6,
+   "w": 83.4,
+   "h": 30.7,
+   "onFlow": "flow-reconcile-charges-in-accounting-supplier-to-send-account-response",
+   "labelLines": [
+    {
+     "text": "[discrepancy",
+     "cx": 1088.7,
+     "cy": 484.8,
+     "w": 83.4,
+     "size": 14.0
+    },
+    {
+     "text": "in charges]",
+     "cx": 1083.3,
+     "cy": 502.225,
+     "w": 72.6,
+     "size": 14.5
+    }
+   ]
+  },
+  {
+   "id": "text-no-action-required",
+   "text": "[no action\nrequired]",
+   "x": 1333.5,
+   "y": 479.6,
+   "w": 66.1,
+   "h": 30.7,
+   "onFlow": "flow-reconcile-charges-in-accounting-supplier-to-final-accounting-supplier",
+   "labelLines": [
+    {
+     "text": "[no action",
+     "cx": 1366.6,
+     "cy": 484.8,
+     "w": 66.1,
+     "size": 14.0
+    },
+    {
+     "text": "required]",
+     "cx": 1363.5,
+     "cy": 502.225,
+     "w": 60.1,
+     "size": 14.5
+    }
+   ]
+  },
+  {
+   "id": "text-accept-charges",
+   "text": "[accept\ncharges]",
+   "x": 23.8,
+   "y": 557.4,
+   "w": 55.3,
+   "h": 30.7,
+   "onFlow": "flow-raise-self-billed-invoice-to-final-accounting-customer",
+   "labelLines": [
+    {
+     "text": "[accept",
+     "cx": 48.2,
+     "cy": 562.6,
+     "w": 48.8,
+     "size": 14.0
+    },
+    {
+     "text": "charges]",
+     "cx": 51.4,
+     "cy": 580.025,
+     "w": 55.3,
+     "size": 14.5
+    }
+   ]
+  },
+  {
+   "id": "text-over-charged",
+   "text": "[over\ncharged]",
+   "x": 306.4,
+   "y": 659.8,
+   "w": 58.8,
+   "h": 30.7,
+   "onFlow": "flow-reconcile-charges-in-accounting-customer-to-raise-self-billed-credit-note",
+   "labelLines": [
+    {
+     "text": "[over",
+     "cx": 322.1,
+     "cy": 665.0,
+     "w": 30.7,
+     "size": 14.0
+    },
+    {
+     "text": "charged]",
+     "cx": 335.8,
+     "cy": 682.7,
+     "w": 58.8,
+     "size": 14.0
+    }
+   ]
+  },
+  {
+   "id": "text-accept-charges-2",
+   "text": "[accept\ncharges]",
+   "x": 157.7,
+   "y": 770.9,
+   "w": 53.6,
+   "h": 31.1,
+   "onFlow": "flow-reconcile-charges-in-accounting-customer-to-final-accounting-customer-2",
+   "labelLines": [
+    {
+     "text": "[accept",
+     "cx": 185.6,
+     "cy": 776.9,
+     "w": 54.9,
+     "size": 14.5
+    },
+    {
+     "text": "charges]",
+     "cx": 185.4,
+     "cy": 794.5949999999999,
+     "w": 55.3,
+     "size": 16.3
+    }
+   ]
+  }
+ ]
+}

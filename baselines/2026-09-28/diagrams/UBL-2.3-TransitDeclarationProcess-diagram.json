@@ -1,0 +1,204 @@
+{
+ "schema": "ubl-activity-diagram/1",
+ "figure": {
+  "name": "UBL-2.3-TransitDeclarationProcess",
+  "source": "UBL-2.3-TransitDeclarationProcess.png"
+ },
+ "lanes": [
+  {
+   "id": "lane-transit-exporter-party",
+   "axis": "column",
+   "index": 0,
+   "title": "Transit Exporter Party"
+  },
+  {
+   "id": "lane-customs-party",
+   "axis": "column",
+   "index": 1,
+   "title": "Customs Party"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "initial-transit-exporter-party",
+   "kind": "initial",
+   "label": "",
+   "lane": "lane-transit-exporter-party"
+  },
+  {
+   "id": "object-transit-customs-declarations",
+   "kind": "object",
+   "label": "Transit Customs\nDeclarations",
+   "lane": null,
+   "between": [
+    "lane-transit-exporter-party",
+    "lane-customs-party"
+   ]
+  },
+  {
+   "id": "action-issue-transit-declaration",
+   "kind": "action",
+   "label": "Issue Transit\nDeclaration",
+   "lane": "lane-transit-exporter-party"
+  },
+  {
+   "id": "action-receive-transit-declaration",
+   "kind": "action",
+   "label": "Receive Transit\nDeclaration",
+   "lane": "lane-customs-party"
+  },
+  {
+   "id": "object-application-response-approved",
+   "kind": "object",
+   "label": "Application response\n(approved)",
+   "lane": null,
+   "between": [
+    "lane-transit-exporter-party",
+    "lane-customs-party"
+   ]
+  },
+  {
+   "id": "decision-is-valid",
+   "kind": "decision",
+   "label": "Is valid?",
+   "lane": "lane-customs-party"
+  },
+  {
+   "id": "action-receive-accept",
+   "kind": "action",
+   "label": "Receive accept",
+   "lane": "lane-transit-exporter-party"
+  },
+  {
+   "id": "object-application-response-rejected",
+   "kind": "object",
+   "label": "Application response\n(rejected)",
+   "lane": null,
+   "between": [
+    "lane-transit-exporter-party",
+    "lane-customs-party"
+   ]
+  },
+  {
+   "id": "action-receive-reject",
+   "kind": "action",
+   "label": "Receive reject",
+   "lane": "lane-transit-exporter-party"
+  },
+  {
+   "id": "final-transit-exporter-party",
+   "kind": "final",
+   "label": "",
+   "lane": "lane-transit-exporter-party"
+  }
+ ],
+ "flows": [
+  {
+   "id": "flow-initial-transit-exporter-party-to-issue-transit-declaration",
+   "from": "initial-transit-exporter-party",
+   "to": "action-issue-transit-declaration",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-issue-transit-declaration-to-transit-customs-declarations",
+   "from": "action-issue-transit-declaration",
+   "to": "object-transit-customs-declarations",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-transit-customs-declarations-to-receive-transit-declaration",
+   "from": "object-transit-customs-declarations",
+   "to": "action-receive-transit-declaration",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-receive-transit-declaration-to-is-valid",
+   "from": "action-receive-transit-declaration",
+   "to": "decision-is-valid",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-application-response-approved-to-receive-accept",
+   "from": "object-application-response-approved",
+   "to": "action-receive-accept",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-is-valid-to-application-response-approved",
+   "from": "decision-is-valid",
+   "to": "object-application-response-approved",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   },
+   "guard": "text-yes"
+  },
+  {
+   "id": "flow-receive-accept-to-final-transit-exporter-party",
+   "from": "action-receive-accept",
+   "to": "final-transit-exporter-party",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-is-valid-to-application-response-rejected",
+   "from": "decision-is-valid",
+   "to": "object-application-response-rejected",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   },
+   "guard": "text-no"
+  },
+  {
+   "id": "flow-application-response-rejected-to-receive-reject",
+   "from": "object-application-response-rejected",
+   "to": "action-receive-reject",
+   "kind": "object",
+   "direction": {
+    "confidence": "high"
+   }
+  },
+  {
+   "id": "flow-receive-reject-to-final-transit-exporter-party",
+   "from": "action-receive-reject",
+   "to": "final-transit-exporter-party",
+   "kind": "control",
+   "direction": {
+    "confidence": "high"
+   }
+  }
+ ],
+ "texts": [
+  {
+   "id": "text-yes",
+   "text": "Yes",
+   "labels": "flow-is-valid-to-application-response-approved"
+  },
+  {
+   "id": "text-no",
+   "text": "No",
+   "labels": "flow-is-valid-to-application-response-rejected"
+  }
+ ],
+ "offPage": [],
+ "marks": [],
+ "phases": []
+}

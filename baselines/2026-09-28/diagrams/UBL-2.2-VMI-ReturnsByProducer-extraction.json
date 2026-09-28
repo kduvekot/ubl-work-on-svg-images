@@ -1,0 +1,1454 @@
+{
+ "schema": "ubl-activity-diagram-extraction/1",
+ "figure": "UBL-2.2-VMI-ReturnsByProducer",
+ "nodes": {
+  "initial-producer": {
+   "area": 5336,
+   "fill": 0.756
+  },
+  "decision-producer": {
+   "area": 4529,
+   "fill": 0.505,
+   "solid": 0.505
+  },
+  "final-producer": {
+   "area": 3629,
+   "fill": 0.628,
+   "solid": 0.79
+  },
+  "object-instruction-for-returns": {
+   "area": 78000,
+   "fill": 0.889,
+   "solid": 1.0,
+   "stem": 0.14
+  },
+  "action-receive-instruction-for-returns": {
+   "area": 115123,
+   "fill": 0.883,
+   "solid": 0.986,
+   "stem": 0.14
+  },
+  "action-send-instruction-for-returns": {
+   "area": 83855,
+   "fill": 0.859,
+   "solid": 0.984,
+   "stem": 0.14
+  },
+  "object-despatch-advice": {
+   "area": 79497,
+   "fill": 0.906,
+   "solid": 1.0,
+   "stem": 0.14
+  },
+  "action-receive-the-advice": {
+   "area": 84630,
+   "fill": 0.895,
+   "solid": 0.984,
+   "stem": 0.14
+  },
+  "action-send-an-advice-to-notify-the-return": {
+   "area": 126619,
+   "fill": 0.887,
+   "solid": 0.987,
+   "stem": 0.14
+  },
+  "action-receive-the-return-item-s": {
+   "area": 81520,
+   "fill": 0.869,
+   "solid": 0.986,
+   "stem": 0.14
+  },
+  "action-send-item-s": {
+   "area": 87307,
+   "fill": 0.924,
+   "solid": 0.984,
+   "stem": 0.123
+  },
+  "fork-producer": {
+   "area": 14490,
+   "fill": 0.589,
+   "lumps": 2,
+   "band": 26,
+   "box": 40
+  },
+  "action-check-status-of-item-s": {
+   "area": 82634,
+   "fill": 0.881,
+   "solid": 0.986,
+   "stem": 0.14
+  },
+  "object-receipt-advice": {
+   "area": 81179,
+   "fill": 0.918,
+   "solid": 1.0,
+   "stem": 0.14
+  },
+  "action-receive-receipt-advice": {
+   "area": 81974,
+   "fill": 0.867,
+   "solid": 0.984,
+   "stem": 0.14
+  },
+  "action-send-receipt-advice": {
+   "area": 83121,
+   "fill": 0.879,
+   "solid": 0.984,
+   "stem": 0.14
+  },
+  "final-retailer": {
+   "area": 3632,
+   "fill": 0.629,
+   "solid": 0.791
+  }
+ },
+ "flows": {
+  "flow-initial-producer-to-decision-producer": {
+   "arrowInk": [
+    225,
+    681
+   ],
+   "arrowPx": [
+    60,
+    46.5,
+    2.11
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-decision-producer-to-final-producer": {
+   "arrowInk": [
+    184,
+    619
+   ],
+   "arrowPx": [
+    63,
+    46.0,
+    2.52
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-decision-producer-to-send-instruction-for-returns": {
+   "arrowInk": [
+    351,
+    689
+   ],
+   "arrowPx": [
+    58,
+    47.5,
+    2.1
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-send-instruction-for-returns-to-instruction-for-returns": {
+   "arrowInk": [
+    225,
+    663
+   ],
+   "arrowPx": [
+    61,
+    46.0,
+    2.62
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-instruction-for-returns-to-receive-instruction-for-returns": {
+   "arrowInk": [
+    223,
+    645
+   ],
+   "arrowPx": [
+    68,
+    47.7,
+    1.18
+   ],
+   "arrowFill": 0.046,
+   "arrowSaturated": true
+  },
+  "flow-receive-instruction-for-returns-to-send-an-advice-to-notify-the-return": {
+   "arrowInk": [
+    225,
+    688
+   ],
+   "arrowPx": [
+    57,
+    47.5,
+    2.08
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-despatch-advice-to-receive-the-advice": {
+   "arrowInk": [
+    230,
+    660
+   ],
+   "arrowPx": [
+    62,
+    47.6,
+    2.34
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-send-an-advice-to-notify-the-return-to-despatch-advice": {
+   "arrowInk": [
+    210,
+    613
+   ],
+   "arrowPx": [
+    63,
+    46.4,
+    2.76
+   ],
+   "arrowFill": 0.058,
+   "arrowSaturated": true
+  },
+  "flow-receive-the-advice-to-fork-producer": {
+   "arrowInk": [
+    180,
+    638
+   ],
+   "arrowPx": [
+    57,
+    47.9,
+    1.95
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-send-an-advice-to-notify-the-return-to-send-item-s": {
+   "arrowInk": [
+    225,
+    691
+   ],
+   "arrowPx": [
+    58,
+    47.2,
+    2.1
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-send-item-s-to-receive-the-return-item-s": {
+   "arrowInk": [
+    208,
+    631
+   ],
+   "arrowPx": [
+    62,
+    47.9,
+    2.37
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-receive-the-return-item-s-to-fork-producer": {
+   "arrowInk": [
+    225,
+    680
+   ],
+   "arrowPx": [
+    61,
+    46.0,
+    3.56
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-fork-producer-to-check-status-of-item-s": {
+   "arrowInk": [
+    225,
+    690
+   ],
+   "arrowPx": [
+    57,
+    46.9,
+    2.09
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-check-status-of-item-s-to-send-receipt-advice": {
+   "arrowInk": [
+    180,
+    643
+   ],
+   "arrowPx": [
+    59,
+    48.0,
+    2.2
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-receipt-advice-to-receive-receipt-advice": {
+   "arrowInk": [
+    225,
+    688
+   ],
+   "arrowPx": [
+    58,
+    46.0,
+    2.19
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-send-receipt-advice-to-receipt-advice": {
+   "arrowInk": [
+    225,
+    665
+   ],
+   "arrowPx": [
+    60,
+    47.3,
+    2.44
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-receive-receipt-advice-to-final-retailer": {
+   "arrowInk": [
+    180,
+    647
+   ],
+   "arrowPx": [
+    59,
+    48.0,
+    2.18
+   ],
+   "arrowFill": 0.0
+  }
+ },
+ "offPage": {
+  "o0": {
+   "headPx": null
+  },
+  "o1": {
+   "headPx": null
+  }
+ },
+ "marks": {},
+ "phases": {},
+ "greyRules": [],
+ "titleReadings": [
+  {
+   "position": 0,
+   "text": "Producer",
+   "x": 767,
+   "y": 60,
+   "w": 221,
+   "h": 41,
+   "lines": [
+    {
+     "x": 767,
+     "y": 60,
+     "w": 221,
+     "h": 41,
+     "text": "Producer"
+    }
+   ]
+  },
+  {
+   "position": 1,
+   "text": "Retailer",
+   "x": 2523,
+   "y": 66,
+   "w": 187,
+   "h": 40,
+   "lines": [
+    {
+     "x": 2523,
+     "y": 66,
+     "w": 187,
+     "h": 40,
+     "text": "Retailer"
+    }
+   ]
+  }
+ ],
+ "findings": [],
+ "uncertain": [
+  {
+   "x": 845,
+   "y": 1763,
+   "w": 980,
+   "h": 917,
+   "shape": "rounded",
+   "iou": 0.777,
+   "border": 0.701,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best rounded 0.78, and 1.00 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  }
+ ],
+ "present": [
+  "source",
+  "size",
+  "fontPx",
+  "arrowPx",
+  "arrowWidthPx",
+  "arrowStyle",
+  "rules",
+  "ruleSpan",
+  "greyRules",
+  "dashed",
+  "openEnds",
+  "crossMarks",
+  "partitions",
+  "nodes",
+  "edges",
+  "text",
+  "uncertain"
+ ],
+ "uncorrected": {
+  "model": {
+   "schema": "ubl-activity-diagram/1",
+   "figure": {
+    "name": "UBL-2.2-VMI-ReturnsByProducer",
+    "source": "UBL-2.2-VMI-ReturnsByProducer.png"
+   },
+   "lanes": [
+    {
+     "id": "lane0",
+     "axis": "column",
+     "index": 0,
+     "title": "Producer"
+    },
+    {
+     "id": "lane1",
+     "axis": "column",
+     "index": 1,
+     "title": "Retailer"
+    },
+    {
+     "id": "lane2",
+     "axis": "band",
+     "index": 0,
+     "title": ""
+    }
+   ],
+   "nodes": [
+    {
+     "id": "n1",
+     "kind": "initial",
+     "label": "",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n2",
+     "kind": "decision",
+     "label": "",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n3",
+     "kind": "final",
+     "label": "",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n4",
+     "kind": "object",
+     "label": "Instruction for Returns",
+     "lane": "lane1",
+     "band": "lane2"
+    },
+    {
+     "id": "n5",
+     "kind": "action",
+     "label": "Receive Instruction for\nReturns",
+     "lane": "lane1",
+     "band": "lane2"
+    },
+    {
+     "id": "n6",
+     "kind": "action",
+     "label": "Send Instruction for Returns",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n7",
+     "kind": "object",
+     "label": "Despatch Advice",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n8",
+     "kind": "action",
+     "label": "Receive the advice",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n9",
+     "kind": "action",
+     "label": "Send an advice to notify the\nreturn",
+     "lane": "lane1",
+     "band": "lane2"
+    },
+    {
+     "id": "n10",
+     "kind": "action",
+     "label": "Receive the return item(s)",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n11",
+     "kind": "action",
+     "label": "Send item(s)",
+     "lane": "lane1",
+     "band": "lane2"
+    },
+    {
+     "id": "n12",
+     "kind": "fork",
+     "label": "",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n13",
+     "kind": "action",
+     "label": "Check status of item(s)",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n14",
+     "kind": "object",
+     "label": "Receipt Advice",
+     "lane": "lane1",
+     "band": "lane2"
+    },
+    {
+     "id": "n15",
+     "kind": "action",
+     "label": "Receive Receipt Advice",
+     "lane": "lane1",
+     "band": "lane2"
+    },
+    {
+     "id": "n16",
+     "kind": "action",
+     "label": "Send Receipt Advice",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n17",
+     "kind": "final",
+     "label": "",
+     "lane": "lane1",
+     "band": "lane2"
+    }
+   ],
+   "flows": [
+    {
+     "id": "f0",
+     "from": "n1",
+     "to": "n2",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f1",
+     "from": "n2",
+     "to": "n3",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     },
+     "guard": "t2"
+    },
+    {
+     "id": "f2",
+     "from": "n2",
+     "to": "n6",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     },
+     "guard": "t4"
+    },
+    {
+     "id": "f3",
+     "from": "n6",
+     "to": "n4",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f4",
+     "from": "n4",
+     "to": "n5",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f5",
+     "from": "n5",
+     "to": "n9",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f6",
+     "from": "n7",
+     "to": "n8",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f7",
+     "from": "n9",
+     "to": "n7",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f8",
+     "from": "n8",
+     "to": "n12",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f9",
+     "from": "n9",
+     "to": "n11",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f10",
+     "from": "n11",
+     "to": "n10",
+     "kind": "goods",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f11",
+     "from": "n10",
+     "to": "n12",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f12",
+     "from": "n12",
+     "to": "n13",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f13",
+     "from": "n13",
+     "to": "n16",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f14",
+     "from": "n14",
+     "to": "n15",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f15",
+     "from": "n16",
+     "to": "n14",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f16",
+     "from": "n15",
+     "to": "n17",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    }
+   ],
+   "texts": [
+    {
+     "id": "t2",
+     "text": "False",
+     "labels": "f1"
+    },
+    {
+     "id": "t3",
+     "text": "Wrong despatching?"
+    },
+    {
+     "id": "t4",
+     "text": "True",
+     "labels": "f2"
+    }
+   ],
+   "offPage": [
+    {
+     "id": "o0",
+     "node": "n4",
+     "direction": "out",
+     "arrow": false
+    },
+    {
+     "id": "o1",
+     "node": "n14",
+     "direction": "out",
+     "arrow": false
+    }
+   ],
+   "marks": [],
+   "phases": []
+  },
+  "layout": {
+   "schema": "ubl-activity-diagram-layout/1",
+   "figure": "UBL-2.2-VMI-ReturnsByProducer",
+   "units": "px of the original PNG",
+   "size": [
+    3425,
+    3172
+   ],
+   "style": {
+    "fontPx": 57.1,
+    "arrowPx": 59.0,
+    "arrowWidthPx": 47.3,
+    "arrowStyle": "open"
+   },
+   "rules": {
+    "vertical": [
+     {
+      "at": 0,
+      "width": 10,
+      "span": [
+       13,
+       3158
+      ]
+     },
+     {
+      "at": 1825,
+      "width": 5,
+      "span": [
+       893,
+       2758
+      ]
+     },
+     {
+      "at": 3415,
+      "width": 10,
+      "span": [
+       13,
+       3158
+      ]
+     }
+    ],
+    "horizontal": [
+     {
+      "at": 0,
+      "width": 10,
+      "span": [
+       13,
+       3411
+      ]
+     },
+     {
+      "at": 3162,
+      "width": 10,
+      "span": [
+       13,
+       3411
+      ]
+     }
+    ]
+   },
+   "greyRules": [],
+   "lanes": {
+    "lane0": {
+     "x0": 0,
+     "x1": 1828,
+     "titleBox": [
+      767,
+      60,
+      221,
+      41
+     ]
+    },
+    "lane1": {
+     "x0": 1828,
+     "x1": 3425,
+     "titleBox": [
+      2523,
+      66,
+      187,
+      40
+     ]
+    },
+    "lane2": {
+     "y0": 0,
+     "y1": 3172
+    }
+   },
+   "nodes": {
+    "n1": {
+     "x": 542,
+     "y": 175,
+     "w": 90,
+     "h": 90
+    },
+    "n2": {
+     "x": 531,
+     "y": 420,
+     "w": 103,
+     "h": 87,
+     "shape": "rhombus",
+     "stroke": 5,
+     "rx": 57,
+     "ry": 47
+    },
+    "n3": {
+     "x": 86,
+     "y": 427,
+     "w": 76,
+     "h": 76,
+     "shape": "ellipse",
+     "stroke": 5,
+     "rx": 39,
+     "ry": 40,
+     "innerRatio": 0.434
+    },
+    "n4": {
+     "x": 1516,
+     "y": 903,
+     "w": 627,
+     "h": 140,
+     "shape": "rect",
+     "stroke": 9,
+     "rx": 0,
+     "ry": 0,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 1536,
+       "y": 947,
+       "w": 596,
+       "h": 42,
+       "text": "Instruction for Returns"
+      }
+     ]
+    },
+    "n5": {
+     "x": 2491,
+     "y": 905,
+     "w": 805,
+     "h": 162,
+     "shape": "rounded",
+     "stroke": 5,
+     "rx": 74,
+     "ry": 48,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 2586,
+       "y": 936,
+       "w": 598,
+       "h": 41,
+       "text": "Receive Instruction for"
+      },
+      {
+       "x": 2795,
+       "y": 999,
+       "w": 203,
+       "h": 40,
+       "text": "Returns"
+      }
+     ]
+    },
+    "n6": {
+     "x": 205,
+     "y": 909,
+     "w": 763,
+     "h": 128,
+     "shape": "rounded",
+     "stroke": 4,
+     "rx": 67.0,
+     "ry": 53,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 218,
+       "y": 952,
+       "w": 747,
+       "h": 41,
+       "text": "Send Instruction for Returns"
+      }
+     ]
+    },
+    "n7": {
+     "x": 1512,
+     "y": 1278,
+     "w": 627,
+     "h": 140,
+     "shape": "rect",
+     "stroke": 9,
+     "rx": 0,
+     "ry": 0,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 1610,
+       "y": 1323,
+       "w": 443,
+       "h": 51,
+       "text": "Despatch Advice"
+      }
+     ]
+    },
+    "n8": {
+     "x": 240,
+     "y": 1289,
+     "w": 716,
+     "h": 132,
+     "shape": "rounded",
+     "stroke": 5,
+     "rx": 67,
+     "ry": 38,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 344,
+       "y": 1332,
+       "w": 490,
+       "h": 41,
+       "text": "Receive the advice"
+      }
+     ]
+    },
+    "n9": {
+     "x": 2452,
+     "y": 1289,
+     "w": 887,
+     "h": 161,
+     "shape": "rounded",
+     "stroke": 5,
+     "rx": 71,
+     "ry": 57,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 2512,
+       "y": 1320,
+       "w": 732,
+       "h": 52,
+       "text": "Send an advice to notify the"
+      },
+      {
+       "x": 2821,
+       "y": 1384,
+       "w": 152,
+       "h": 39,
+       "text": "return"
+      }
+     ]
+    },
+    "n10": {
+     "x": 734,
+     "y": 1699,
+     "w": 716,
+     "h": 131,
+     "shape": "rounded",
+     "stroke": 5,
+     "rx": 62,
+     "ry": 44,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 755,
+       "y": 1741,
+       "w": 674,
+       "h": 52,
+       "text": "Receive the return item(s)"
+      }
+     ]
+    },
+    "n11": {
+     "x": 2533,
+     "y": 1703,
+     "w": 716,
+     "h": 132,
+     "shape": "rounded",
+     "stroke": 5,
+     "rx": 63,
+     "ry": 45,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 2725,
+       "y": 1745,
+       "w": 328,
+       "h": 53,
+       "text": "Send item(s)"
+      }
+     ]
+    },
+    "n12": {
+     "x": 478,
+     "y": 2031,
+     "w": 729,
+     "h": 26
+    },
+    "n13": {
+     "x": 487,
+     "y": 2262,
+     "w": 716,
+     "h": 131,
+     "shape": "rounded",
+     "stroke": 5,
+     "rx": 67,
+     "ry": 41,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 547,
+       "y": 2304,
+       "w": 605,
+       "h": 53,
+       "text": "Check status of item(s)"
+      }
+     ]
+    },
+    "n14": {
+     "x": 1516,
+     "y": 2609,
+     "w": 627,
+     "h": 141,
+     "shape": "rect",
+     "stroke": 9,
+     "rx": 2,
+     "ry": 2,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 1636,
+       "y": 2655,
+       "w": 394,
+       "h": 51,
+       "text": "Receipt Advice"
+      }
+     ]
+    },
+    "n15": {
+     "x": 2559,
+     "y": 2611,
+     "w": 716,
+     "h": 132,
+     "shape": "rounded",
+     "stroke": 4,
+     "rx": 67.0,
+     "ry": 40,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 2603,
+       "y": 2655,
+       "w": 617,
+       "h": 51,
+       "text": "Receive Receipt Advice"
+      }
+     ]
+    },
+    "n16": {
+     "x": 487,
+     "y": 2616,
+     "w": 716,
+     "h": 132,
+     "shape": "rounded",
+     "stroke": 5,
+     "rx": 63,
+     "ry": 41,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 567,
+       "y": 2658,
+       "w": 545,
+       "h": 52,
+       "text": "Send Receipt Advice"
+      }
+     ]
+    },
+    "n17": {
+     "x": 2879,
+     "y": 3013,
+     "w": 76,
+     "h": 76,
+     "shape": "ellipse",
+     "stroke": 5,
+     "rx": 35,
+     "ry": 35,
+     "innerRatio": 0.434
+    }
+   },
+   "flows": {
+    "f0": {
+     "fromPoint": [
+      583,
+      279
+     ],
+     "toPoint": [
+      581,
+      405
+     ],
+     "routing": "straight"
+    },
+    "f1": {
+     "fromPoint": [
+      516,
+      463
+     ],
+     "toPoint": [
+      176,
+      463
+     ],
+     "routing": "straight"
+    },
+    "f2": {
+     "fromPoint": [
+      581,
+      521
+     ],
+     "toPoint": [
+      583,
+      894
+     ],
+     "routing": "straight"
+    },
+    "f3": {
+     "fromPoint": [
+      982,
+      975
+     ],
+     "toPoint": [
+      1501,
+      975
+     ],
+     "routing": "straight"
+    },
+    "f4": {
+     "fromPoint": [
+      2157,
+      973
+     ],
+     "toPoint": [
+      2476,
+      981
+     ],
+     "routing": "straight"
+    },
+    "f5": {
+     "fromPoint": [
+      2893,
+      1081
+     ],
+     "toPoint": [
+      2894,
+      1274
+     ],
+     "routing": "straight"
+    },
+    "f6": {
+     "fromPoint": [
+      1497,
+      1349
+     ],
+     "toPoint": [
+      970,
+      1351
+     ],
+     "routing": "straight"
+    },
+    "f7": {
+     "fromPoint": [
+      2437,
+      1359
+     ],
+     "toPoint": [
+      2153,
+      1353
+     ],
+     "routing": "straight"
+    },
+    "f8": {
+     "fromPoint": [
+      599,
+      1435
+     ],
+     "toPoint": [
+      600,
+      2016
+     ],
+     "routing": "straight"
+    },
+    "f9": {
+     "fromPoint": [
+      2894,
+      1464
+     ],
+     "toPoint": [
+      2892,
+      1688
+     ],
+     "routing": "straight"
+    },
+    "f10": {
+     "fromPoint": [
+      2518,
+      1764
+     ],
+     "toPoint": [
+      1464,
+      1763
+     ],
+     "routing": "straight"
+    },
+    "f11": {
+     "fromPoint": [
+      1094,
+      1844
+     ],
+     "toPoint": [
+      1094,
+      2016
+     ],
+     "routing": "straight"
+    },
+    "f12": {
+     "fromPoint": [
+      841,
+      2071
+     ],
+     "toPoint": [
+      843,
+      2247
+     ],
+     "routing": "straight"
+    },
+    "f13": {
+     "fromPoint": [
+      846,
+      2407
+     ],
+     "toPoint": [
+      846,
+      2601
+     ],
+     "routing": "straight"
+    },
+    "f14": {
+     "fromPoint": [
+      2157,
+      2677
+     ],
+     "toPoint": [
+      2544,
+      2677
+     ],
+     "routing": "straight"
+    },
+    "f15": {
+     "fromPoint": [
+      1217,
+      2682
+     ],
+     "toPoint": [
+      1501,
+      2680
+     ],
+     "routing": "straight"
+    },
+    "f16": {
+     "fromPoint": [
+      2918,
+      2757
+     ],
+     "toPoint": [
+      2918,
+      2998
+     ],
+     "routing": "straight"
+    }
+   },
+   "texts": {
+    "t2": {
+     "x": 343,
+     "y": 420,
+     "w": 100,
+     "h": 31,
+     "lines": [
+      {
+       "x": 343,
+       "y": 420,
+       "w": 100,
+       "h": 31,
+       "text": "False"
+      }
+     ]
+    },
+    "t3": {
+     "x": 660,
+     "y": 432,
+     "w": 389,
+     "h": 40,
+     "lines": [
+      {
+       "x": 660,
+       "y": 432,
+       "w": 389,
+       "h": 40,
+       "text": "Wrong despatching?"
+      }
+     ]
+    },
+    "t4": {
+     "x": 605,
+     "y": 548,
+     "w": 85,
+     "h": 31,
+     "lines": [
+      {
+       "x": 605,
+       "y": 548,
+       "w": 85,
+       "h": 31,
+       "text": "True"
+      }
+     ]
+    }
+   },
+   "offPage": {
+    "o0": {
+     "at": [
+      1832,
+      888
+     ],
+     "end": [
+      1833,
+      12
+     ],
+     "points": [],
+     "x": 1832,
+     "y": 12,
+     "w": 2,
+     "h": 877
+    },
+    "o1": {
+     "at": [
+      1832,
+      2764
+     ],
+     "end": [
+      1833,
+      3159
+     ],
+     "points": [],
+     "x": 1832,
+     "y": 2764,
+     "w": 2,
+     "h": 396
+    }
+   },
+   "marks": {},
+   "phases": {},
+   "rulesHaveSpans": {
+    "vertical": true,
+    "horizontal": true
+   }
+  }
+ },
+ "graphPatches": {
+  "edges": {},
+  "texts": {},
+  "addEdges": [],
+  "dropOpenEnds": [
+   "o0",
+   "o1"
+  ]
+ },
+ "corrections": [
+  "q13-37",
+  "div-10",
+  "div-11"
+ ],
+ "documentLanes": {
+  "object-instruction-for-returns": "lane-retailer",
+  "object-despatch-advice": "lane-producer",
+  "object-receipt-advice": "lane-retailer"
+ },
+ "formerIds": {
+  "lane-producer": "lane0",
+  "lane-retailer": "lane1",
+  "initial-producer": "n1",
+  "decision-producer": "n2",
+  "final-producer": "n3",
+  "object-instruction-for-returns": "n4",
+  "action-receive-instruction-for-returns": "n5",
+  "action-send-instruction-for-returns": "n6",
+  "object-despatch-advice": "n7",
+  "action-receive-the-advice": "n8",
+  "action-send-an-advice-to-notify-the-return": "n9",
+  "action-receive-the-return-item-s": "n10",
+  "action-send-item-s": "n11",
+  "fork-producer": "n12",
+  "action-check-status-of-item-s": "n13",
+  "object-receipt-advice": "n14",
+  "action-receive-receipt-advice": "n15",
+  "action-send-receipt-advice": "n16",
+  "final-retailer": "n17",
+  "flow-initial-producer-to-decision-producer": "f0",
+  "flow-decision-producer-to-final-producer": "f1",
+  "flow-decision-producer-to-send-instruction-for-returns": "f2",
+  "flow-send-instruction-for-returns-to-instruction-for-returns": "f3",
+  "flow-instruction-for-returns-to-receive-instruction-for-returns": "f4",
+  "flow-receive-instruction-for-returns-to-send-an-advice-to-notify-the-return": "f5",
+  "flow-despatch-advice-to-receive-the-advice": "f6",
+  "flow-send-an-advice-to-notify-the-return-to-despatch-advice": "f7",
+  "flow-receive-the-advice-to-fork-producer": "f8",
+  "flow-send-an-advice-to-notify-the-return-to-send-item-s": "f9",
+  "flow-send-item-s-to-receive-the-return-item-s": "f10",
+  "flow-receive-the-return-item-s-to-fork-producer": "f11",
+  "flow-fork-producer-to-check-status-of-item-s": "f12",
+  "flow-check-status-of-item-s-to-send-receipt-advice": "f13",
+  "flow-receipt-advice-to-receive-receipt-advice": "f14",
+  "flow-send-receipt-advice-to-receipt-advice": "f15",
+  "flow-receive-receipt-advice-to-final-retailer": "f16",
+  "text-false": "t2",
+  "text-wrong-despatching": "t3",
+  "text-true": "t4"
+ }
+}

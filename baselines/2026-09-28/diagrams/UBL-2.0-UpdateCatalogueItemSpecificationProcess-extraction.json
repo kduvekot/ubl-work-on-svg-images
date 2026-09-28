@@ -1,0 +1,2272 @@
+{
+ "schema": "ubl-activity-diagram-extraction/1",
+ "figure": "UBL-2.0-UpdateCatalogueItemSpecificationProcess",
+ "nodes": {
+  "initial-provider-party": {
+   "area": 5422,
+   "fill": 0.768
+  },
+  "decision-respond-to-request": {
+   "area": 96104,
+   "fill": 0.475,
+   "solid": 0.502,
+   "stem": 0.085
+  },
+  "object-catalogue-request": {
+   "area": 74471,
+   "fill": 0.925,
+   "solid": 1.0,
+   "stem": 0.127
+  },
+  "action-request-catalogue-update": {
+   "area": 67037,
+   "fill": 0.846,
+   "solid": 0.954,
+   "stem": 0.127
+  },
+  "initial-receiver-party": {
+   "area": 5409,
+   "fill": 0.776
+  },
+  "object-application-response-negative-between-receiver-party-and-provider-party": {
+   "area": 69235,
+   "fill": 0.873,
+   "solid": 1.0,
+   "stem": 0.127
+  },
+  "action-send-rejection": {
+   "area": 78497,
+   "fill": 0.902,
+   "solid": 0.956,
+   "stem": 0.127
+  },
+  "final-receiver-party": {
+   "area": 4029,
+   "fill": 0.637,
+   "solid": 0.794
+  },
+  "fork-provider-party": {
+   "area": 6387,
+   "fill": 0.614,
+   "lumps": 1,
+   "band": 28,
+   "box": 42
+  },
+  "object-application-response-positive-between-receiver-party-and-provider-party": {
+   "area": 70936,
+   "fill": 0.877,
+   "solid": 1.0,
+   "stem": 0.127
+  },
+  "action-send-acceptance-response": {
+   "area": 88203,
+   "fill": 0.88,
+   "solid": 0.964,
+   "stem": 0.127
+  },
+  "action-prepare-catalogue-item-update": {
+   "area": 90889,
+   "fill": 0.845,
+   "solid": 0.964,
+   "stem": 0.127
+  },
+  "object-catalogue-item-specification-update": {
+   "area": 70178,
+   "fill": 0.865,
+   "solid": 1.0,
+   "stem": 0.127
+  },
+  "action-distribute-item-modifications": {
+   "area": 99045,
+   "fill": 0.887,
+   "solid": 0.966,
+   "stem": 0.127
+  },
+  "fork-receiver-party": {
+   "area": 3866,
+   "fill": 0.621,
+   "lumps": 1,
+   "band": 28,
+   "box": 42
+  },
+  "action-receive-item-update": {
+   "area": 77971,
+   "fill": 0.886,
+   "solid": 0.957,
+   "stem": 0.127
+  },
+  "decision-review-item-details": {
+   "area": 99533,
+   "fill": 0.479,
+   "solid": 0.502,
+   "stem": 0.085
+  },
+  "decision-decide-on-action": {
+   "area": 82846,
+   "fill": 0.476,
+   "solid": 0.501,
+   "stem": 0.085
+  },
+  "object-application-response-negative-between-receiver-party-and-provider-party-2": {
+   "area": 70380,
+   "fill": 0.874,
+   "solid": 1.0,
+   "stem": 0.127
+  },
+  "action-acknowledge-acceptance": {
+   "area": 90011,
+   "fill": 0.886,
+   "solid": 0.963,
+   "stem": 0.127
+  },
+  "object-application-response-positive-between-receiver-party-and-provider-party-2": {
+   "area": 71141,
+   "fill": 0.877,
+   "solid": 1.0,
+   "stem": 0.127
+  },
+  "action-activate-changes": {
+   "area": 95771,
+   "fill": 0.915,
+   "solid": 0.964,
+   "stem": 0.127
+  },
+  "final-provider-party": {
+   "area": 4042,
+   "fill": 0.64,
+   "solid": 0.797
+  },
+  "action-apply-changes": {
+   "area": 93154,
+   "fill": 0.916,
+   "solid": 0.962,
+   "stem": 0.127
+  },
+  "final-receiver-party-2": {
+   "area": 4021,
+   "fill": 0.636,
+   "solid": 0.794
+  }
+ },
+ "flows": {
+  "flow-initial-provider-party-to-prepare-catalogue-item-update": {
+   "arrowInk": [
+    225,
+    748
+   ],
+   "arrowPx": [
+    61,
+    48.0,
+    2.18
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-request-catalogue-update-to-catalogue-request": {
+   "arrowInk": [
+    225,
+    718
+   ],
+   "arrowPx": [
+    63,
+    49.1,
+    2.58
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-catalogue-request-to-respond-to-request": {
+   "arrowInk": [
+    225,
+    738
+   ],
+   "arrowPx": [
+    66,
+    48.0,
+    2.46
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-initial-receiver-party-to-request-catalogue-update": {
+   "arrowInk": [
+    270,
+    794
+   ],
+   "arrowPx": [
+    60,
+    50.7,
+    2.06
+   ],
+   "arrowFill": 0.042
+  },
+  "flow-respond-to-request-to-send-rejection": {
+   "arrowInk": [
+    470,
+    523
+   ],
+   "arrowPx": [
+    114,
+    99.8,
+    2.27
+   ],
+   "arrowFill": 0.04
+  },
+  "flow-respond-to-request-to-fork-provider-party": {
+   "arrowInk": [
+    369,
+    760
+   ]
+  },
+  "flow-send-rejection-to-application-response-negative-between-receiver-party-and-provider-party": {
+   "arrowInk": [
+    276,
+    694
+   ],
+   "arrowPx": [
+    66,
+    50.6,
+    2.84
+   ],
+   "arrowFill": 0.037
+  },
+  "flow-application-response-negative-between-receiver-party-and-provider-party-to-final-receiver-party": {
+   "arrowInk": [
+    230,
+    724
+   ],
+   "arrowPx": [
+    67,
+    50.0,
+    2.51
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-fork-provider-party-to-send-acceptance-response": {
+   "arrowInk": [
+    518,
+    709
+   ],
+   "arrowPx": [
+    119,
+    99.5,
+    0.2
+   ],
+   "arrowFill": 0.09,
+   "arrowSaturated": true
+  },
+  "flow-fork-provider-party-to-prepare-catalogue-item-update": {
+   "arrowInk": [
+    372,
+    788
+   ],
+   "arrowPx": [
+    114,
+    60.8,
+    0.32
+   ],
+   "arrowFill": 0.143
+  },
+  "flow-send-acceptance-response-to-application-response-positive-between-receiver-party-and-provider-party": {
+   "arrowInk": [
+    230,
+    662
+   ],
+   "arrowPx": [
+    66,
+    51.0,
+    2.96
+   ],
+   "arrowFill": 0.0,
+   "arrowSaturated": true
+  },
+  "flow-application-response-positive-between-receiver-party-and-provider-party-to-fork-receiver-party": {
+   "arrowInk": [
+    297,
+    769
+   ],
+   "arrowPx": [
+    71,
+    100.4,
+    3.75
+   ],
+   "arrowFill": 0.001
+  },
+  "flow-prepare-catalogue-item-update-to-distribute-item-modifications": {
+   "arrowInk": [
+    225,
+    751
+   ],
+   "arrowPx": [
+    61,
+    52.3,
+    2.03
+   ],
+   "arrowFill": 0.066
+  },
+  "flow-catalogue-item-specification-update-to-fork-receiver-party": {
+   "arrowInk": [
+    230,
+    819
+   ],
+   "arrowPx": [
+    63,
+    48.0,
+    2.17
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-distribute-item-modifications-to-catalogue-item-specification-update": {
+   "arrowInk": [
+    230,
+    672
+   ],
+   "arrowPx": [
+    66,
+    48.0,
+    3.06
+   ],
+   "arrowFill": 0.0,
+   "arrowSaturated": true
+  },
+  "flow-fork-receiver-party-to-receive-item-update": {
+   "arrowInk": [
+    225,
+    751
+   ],
+   "arrowPx": [
+    60,
+    51.2,
+    2.09
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-decide-on-action-to-distribute-item-modifications": {
+   "arrowInk": [
+    276,
+    755
+   ],
+   "arrowPx": [
+    65,
+    51.4,
+    2.28
+   ],
+   "arrowFill": 0.069
+  },
+  "flow-receive-item-update-to-review-item-details": {
+   "arrowInk": [
+    226,
+    754
+   ],
+   "arrowPx": [
+    63,
+    50.6,
+    2.28
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-application-response-negative-between-receiver-party-and-provider-party-2-to-decide-on-action": {
+   "arrowInk": [
+    270,
+    788
+   ],
+   "arrowPx": [
+    63,
+    48.1,
+    2.28
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-review-item-details-to-application-response-negative-between-receiver-party-and-provider-party-2": {
+   "arrowInk": [
+    225,
+    715
+   ],
+   "arrowPx": [
+    64,
+    50.0,
+    2.74
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-decide-on-action-to-final-provider-party": {
+   "arrowInk": [
+    270,
+    795
+   ],
+   "arrowPx": [
+    62,
+    50.0,
+    2.15
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-review-item-details-to-acknowledge-acceptance": {
+   "arrowInk": [
+    225,
+    745
+   ],
+   "arrowPx": [
+    61,
+    48.6,
+    2.16
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-activate-changes-to-final-provider-party": {
+   "arrowInk": [
+    225,
+    750
+   ],
+   "arrowPx": [
+    61,
+    50.0,
+    2.16
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-acknowledge-acceptance-to-application-response-positive-between-receiver-party-and-provider-party-2": {
+   "arrowInk": [
+    225,
+    722
+   ],
+   "arrowPx": [
+    63,
+    49.5,
+    2.57
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-application-response-positive-between-receiver-party-and-provider-party-2-to-activate-changes": {
+   "arrowInk": [
+    270,
+    790
+   ],
+   "arrowPx": [
+    61,
+    51.1,
+    2.07
+   ],
+   "arrowFill": 0.068
+  },
+  "flow-acknowledge-acceptance-to-apply-changes": {
+   "arrowInk": [
+    225,
+    748
+   ],
+   "arrowPx": [
+    60,
+    51.2,
+    2.1
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-apply-changes-to-final-receiver-party-2": {
+   "arrowInk": [
+    270,
+    792
+   ],
+   "arrowPx": [
+    60,
+    51.3,
+    2.08
+   ],
+   "arrowFill": 0.069
+  }
+ },
+ "offPage": {},
+ "marks": {},
+ "phases": {},
+ "greyRules": [],
+ "titleReadings": [
+  {
+   "position": 0,
+   "text": "Receiver Party",
+   "x": 660,
+   "y": 27,
+   "w": 287,
+   "h": 41,
+   "lines": [
+    {
+     "x": 660,
+     "y": 27,
+     "w": 287,
+     "h": 41,
+     "text": "Receiver Party"
+    }
+   ]
+  },
+  {
+   "position": 1,
+   "text": "Provider Party",
+   "x": 2373,
+   "y": 27,
+   "w": 277,
+   "h": 41,
+   "lines": [
+    {
+     "x": 2373,
+     "y": 27,
+     "w": 277,
+     "h": 41,
+     "text": "Provider Party"
+    }
+   ]
+  }
+ ],
+ "findings": [],
+ "uncertain": [
+  {
+   "x": 1025,
+   "y": 1443,
+   "w": 583,
+   "h": 460,
+   "shape": "ellipse",
+   "iou": 0.589,
+   "border": 0.445,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best ellipse 0.59, and 0.99 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "x": 645,
+   "y": 1908,
+   "w": 963,
+   "h": 874,
+   "shape": "rounded",
+   "iou": 0.734,
+   "border": 0.596,
+   "kind": "dropped-region",
+   "reason": "outline matches no UML node shape (best rounded 0.73, and 1.00 is the most this shape can reach at this size)",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "x": 645,
+   "y": 2787,
+   "w": 963,
+   "h": 739,
+   "shape": "rounded",
+   "iou": 0.915,
+   "border": 0.638,
+   "kind": "dropped-region",
+   "reason": "4 of 4 sides are pass-through line-work",
+   "check": "a shape here would be missing from the SVG"
+  },
+  {
+   "kind": "ring-stroke-unreadable",
+   "x": 3023,
+   "y": 3478,
+   "w": 80,
+   "h": 79,
+   "reason": "line-work runs off this activity final on more than one side, so its ring thickness could not be measured",
+   "check": "confirm this is an activity final and how thick its ring is"
+  },
+  {
+   "kind": "unexplained-line-work",
+   "x": 196,
+   "y": 439,
+   "w": 81,
+   "h": 192,
+   "reason": "line-work that is neither a connector between two nodes nor the size of text",
+   "check": "decide what this is; the SVG does not draw it"
+  }
+ ],
+ "present": [
+  "source",
+  "size",
+  "fontPx",
+  "arrowPx",
+  "arrowWidthPx",
+  "arrowStyle",
+  "rules",
+  "ruleSpan",
+  "greyRules",
+  "dashed",
+  "openEnds",
+  "crossMarks",
+  "partitions",
+  "nodes",
+  "edges",
+  "text",
+  "uncertain"
+ ],
+ "uncorrected": {
+  "model": {
+   "schema": "ubl-activity-diagram/1",
+   "figure": {
+    "name": "UBL-2.0-UpdateCatalogueItemSpecificationProcess",
+    "source": "UBL-2.0-UpdateCatalogueItemSpecificationProcess.png"
+   },
+   "lanes": [
+    {
+     "id": "lane0",
+     "axis": "column",
+     "index": 0,
+     "title": "Receiver Party"
+    },
+    {
+     "id": "lane1",
+     "axis": "column",
+     "index": 1,
+     "title": "Provider Party"
+    },
+    {
+     "id": "lane2",
+     "axis": "band",
+     "index": 0,
+     "title": ""
+    }
+   ],
+   "nodes": [
+    {
+     "id": "n1",
+     "kind": "initial",
+     "label": "",
+     "lane": "lane1",
+     "band": "lane2"
+    },
+    {
+     "id": "n2",
+     "kind": "decision",
+     "label": "Respond to Request",
+     "lane": "lane1",
+     "band": "lane2"
+    },
+    {
+     "id": "n3",
+     "kind": "object",
+     "label": "Catalogue\nRequest",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n4",
+     "kind": "action",
+     "label": "Request Catalogue Update",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n5",
+     "kind": "initial",
+     "label": "",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n6",
+     "kind": "object",
+     "label": "Application\nResponse\n(negative)",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n7",
+     "kind": "action",
+     "label": "Send Rejection",
+     "lane": "lane1",
+     "band": "lane2"
+    },
+    {
+     "id": "n8",
+     "kind": "final",
+     "label": "",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n9",
+     "kind": "fork",
+     "label": "",
+     "lane": "lane1",
+     "band": "lane2"
+    },
+    {
+     "id": "n10",
+     "kind": "object",
+     "label": "Application\nResponse\n(positive)",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n11",
+     "kind": "action",
+     "label": "Send Acceptance\nResponse",
+     "lane": "lane1",
+     "band": "lane2"
+    },
+    {
+     "id": "n12",
+     "kind": "action",
+     "label": "Prepare Catalogue Item\nUpdate Information",
+     "lane": "lane1",
+     "band": "lane2"
+    },
+    {
+     "id": "n13",
+     "kind": "object",
+     "label": "Catalogue Item\nSpecification\nUpdate",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n14",
+     "kind": "action",
+     "label": "Distribute Item\nModifications",
+     "lane": "lane1",
+     "band": "lane2"
+    },
+    {
+     "id": "n15",
+     "kind": "fork",
+     "label": "",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n16",
+     "kind": "action",
+     "label": "Receive Item Update",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n17",
+     "kind": "decision",
+     "label": "Review Item\nDetails",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n18",
+     "kind": "decision",
+     "label": "Decide on Action",
+     "lane": "lane1",
+     "band": "lane2"
+    },
+    {
+     "id": "n19",
+     "kind": "object",
+     "label": "Application\nResponse\n(negative)",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n20",
+     "kind": "action",
+     "label": "Acknowledge\nAcceptance",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n21",
+     "kind": "object",
+     "label": "Application\nResponse\n(positive)",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n22",
+     "kind": "action",
+     "label": "Activate Changes",
+     "lane": "lane1",
+     "band": "lane2"
+    },
+    {
+     "id": "n23",
+     "kind": "final",
+     "label": "",
+     "lane": "lane1",
+     "band": "lane2"
+    },
+    {
+     "id": "n24",
+     "kind": "action",
+     "label": "Apply Changes",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n25",
+     "kind": "final",
+     "label": "",
+     "lane": "lane0",
+     "band": "lane2"
+    }
+   ],
+   "flows": [
+    {
+     "id": "f0",
+     "from": "n1",
+     "to": "n12",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f1",
+     "from": "n4",
+     "to": "n3",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f2",
+     "from": "n3",
+     "to": "n2",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f3",
+     "from": "n5",
+     "to": "n4",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f4",
+     "from": "n2",
+     "to": "n7",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     },
+     "guard": "t4"
+    },
+    {
+     "id": "f5",
+     "from": "n2",
+     "to": "n9",
+     "kind": "control",
+     "direction": {
+      "confidence": "medium",
+      "checked": "confirmed"
+     },
+     "guard": "t5"
+    },
+    {
+     "id": "f6",
+     "from": "n7",
+     "to": "n6",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f7",
+     "from": "n6",
+     "to": "n8",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f8",
+     "from": "n9",
+     "to": "n11",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f9",
+     "from": "n9",
+     "to": "n12",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f10",
+     "from": "n11",
+     "to": "n10",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f11",
+     "from": "n10",
+     "to": "n15",
+     "kind": "object",
+     "direction": {
+      "confidence": "mark-at-head"
+     }
+    },
+    {
+     "id": "f12",
+     "from": "n12",
+     "to": "n14",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f13",
+     "from": "n13",
+     "to": "n15",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f14",
+     "from": "n14",
+     "to": "n13",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f15",
+     "from": "n15",
+     "to": "n16",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f16",
+     "from": "n18",
+     "to": "n14",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     },
+     "guard": "t6"
+    },
+    {
+     "id": "f17",
+     "from": "n16",
+     "to": "n17",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f18",
+     "from": "n19",
+     "to": "n18",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f19",
+     "from": "n17",
+     "to": "n19",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     },
+     "guard": "t7"
+    },
+    {
+     "id": "f20",
+     "from": "n18",
+     "to": "n23",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     },
+     "guard": "t9"
+    },
+    {
+     "id": "f21",
+     "from": "n17",
+     "to": "n20",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     },
+     "guard": "t8"
+    },
+    {
+     "id": "f22",
+     "from": "n22",
+     "to": "n23",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f23",
+     "from": "n20",
+     "to": "n21",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f24",
+     "from": "n21",
+     "to": "n22",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f25",
+     "from": "n20",
+     "to": "n24",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f26",
+     "from": "n24",
+     "to": "n25",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    }
+   ],
+   "texts": [
+    {
+     "id": "t2",
+     "text": "oupplier Initiated\nUpdate"
+    },
+    {
+     "id": "t3",
+     "text": "Customer\nInitiated\nUpdate"
+    },
+    {
+     "id": "t4",
+     "text": "[reject request]",
+     "labels": "f4"
+    },
+    {
+     "id": "t5",
+     "text": "[accept request]",
+     "labels": "f5"
+    },
+    {
+     "id": "t6",
+     "text": "[revise catalogue item]",
+     "labels": "f16"
+    },
+    {
+     "id": "t7",
+     "text": "[query changes]",
+     "labels": "f19"
+    },
+    {
+     "id": "t8",
+     "text": "[accept changes]",
+     "labels": "f21"
+    },
+    {
+     "id": "t9",
+     "text": "[cancel transaction]",
+     "labels": "f20"
+    }
+   ],
+   "offPage": [],
+   "marks": [],
+   "phases": []
+  },
+  "layout": {
+   "schema": "ubl-activity-diagram-layout/1",
+   "figure": "UBL-2.0-UpdateCatalogueItemSpecificationProcess",
+   "units": "px of the original PNG",
+   "size": [
+    3425,
+    4173
+   ],
+   "style": {
+    "fontPx": 47.1,
+    "arrowPx": 63.0,
+    "arrowWidthPx": 50.3,
+    "arrowStyle": "open"
+   },
+   "rules": {
+    "vertical": [
+     {
+      "at": 0,
+      "width": 10,
+      "span": [
+       13,
+       4159
+      ]
+     },
+     {
+      "at": 1608,
+      "width": 6,
+      "span": [
+       13,
+       4159
+      ]
+     },
+     {
+      "at": 3415,
+      "width": 10,
+      "span": [
+       13,
+       4159
+      ]
+     }
+    ],
+    "horizontal": [
+     {
+      "at": 0,
+      "width": 10,
+      "span": [
+       13,
+       3411
+      ]
+     },
+     {
+      "at": 4163,
+      "width": 10,
+      "span": [
+       13,
+       3411
+      ]
+     }
+    ]
+   },
+   "greyRules": [],
+   "lanes": {
+    "lane0": {
+     "x0": 0,
+     "x1": 1611,
+     "titleBox": [
+      660,
+      27,
+      287,
+      41
+     ]
+    },
+    "lane1": {
+     "x0": 1611,
+     "x1": 3425,
+     "titleBox": [
+      2373,
+      27,
+      277,
+      41
+     ]
+    },
+    "lane2": {
+     "y0": 0,
+     "y1": 4173
+    }
+   },
+   "nodes": {
+    "n1": {
+     "x": 3121,
+     "y": 155,
+     "w": 90,
+     "h": 90
+    },
+    "n2": {
+     "x": 2464,
+     "y": 170,
+     "w": 586,
+     "h": 345,
+     "shape": "rhombus",
+     "stroke": 5,
+     "rx": 309,
+     "ry": 182,
+     "bold": false,
+     "labelLines": [
+      {
+       "x": 2538,
+       "y": 317,
+       "w": 403,
+       "h": 41,
+       "text": "Respond to Request"
+      }
+     ]
+    },
+    "n3": {
+     "x": 1411,
+     "y": 234,
+     "w": 387,
+     "h": 208,
+     "shape": "rect",
+     "stroke": 9,
+     "rx": 0,
+     "ry": 0,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 1491,
+       "y": 281,
+       "w": 212,
+       "h": 42,
+       "text": "Catalogue"
+      },
+      {
+       "x": 1516,
+       "y": 330,
+       "w": 177,
+       "h": 41,
+       "text": "Request"
+      }
+     ]
+    },
+    "n4": {
+     "x": 512,
+     "y": 281,
+     "w": 619,
+     "h": 128,
+     "shape": "rounded",
+     "stroke": 5,
+     "rx": 62,
+     "ry": 58,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 538,
+       "y": 321,
+       "w": 563,
+       "h": 43,
+       "text": "Request Catalogue Update"
+      }
+     ]
+    },
+    "n5": {
+     "x": 163,
+     "y": 307,
+     "w": 90,
+     "h": 89
+    },
+    "n6": {
+     "x": 1375,
+     "y": 675,
+     "w": 387,
+     "h": 205,
+     "shape": "rect",
+     "stroke": 10,
+     "rx": 0,
+     "ry": 0,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 1441,
+       "y": 711,
+       "w": 243,
+       "h": 41,
+       "text": "Application"
+      },
+      {
+       "x": 1457,
+       "y": 760,
+       "w": 212,
+       "h": 41,
+       "text": "Response"
+      },
+      {
+       "x": 1467,
+       "y": 809,
+       "w": 208,
+       "h": 42,
+       "text": "(negative)"
+      }
+     ]
+    },
+    "n7": {
+     "x": 2055,
+     "y": 682,
+     "w": 544,
+     "h": 160,
+     "shape": "rounded",
+     "stroke": 5,
+     "rx": 68,
+     "ry": 63,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 2161,
+       "y": 741,
+       "w": 318,
+       "h": 42,
+       "text": "Send Rejection"
+      }
+     ]
+    },
+    "n8": {
+     "x": 766,
+     "y": 735,
+     "w": 79,
+     "h": 80,
+     "shape": "ellipse",
+     "stroke": 5,
+     "rx": 39,
+     "ry": 37,
+     "innerRatio": 0.443
+    },
+    "n9": {
+     "x": 2621,
+     "y": 953,
+     "w": 295,
+     "h": 28
+    },
+    "n10": {
+     "x": 1384,
+     "y": 1313,
+     "w": 387,
+     "h": 209,
+     "shape": "rect",
+     "stroke": 10,
+     "rx": 0,
+     "ry": 0,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 1451,
+       "y": 1348,
+       "w": 242,
+       "h": 41,
+       "text": "Application"
+      },
+      {
+       "x": 1466,
+       "y": 1397,
+       "w": 212,
+       "h": 41,
+       "text": "Response"
+      },
+      {
+       "x": 1480,
+       "y": 1446,
+       "w": 196,
+       "h": 41,
+       "text": "(positive)"
+      }
+     ]
+    },
+    "n11": {
+     "x": 2046,
+     "y": 1338,
+     "w": 539,
+     "h": 186,
+     "shape": "rounded",
+     "stroke": 6,
+     "rx": 59,
+     "ry": 62,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 2121,
+       "y": 1378,
+       "w": 369,
+       "h": 41,
+       "text": "Send Acceptance"
+      },
+      {
+       "x": 2211,
+       "y": 1437,
+       "w": 209,
+       "h": 40,
+       "text": "Response"
+      }
+     ]
+    },
+    "n12": {
+     "x": 2671,
+     "y": 1364,
+     "w": 588,
+     "h": 183,
+     "shape": "rounded",
+     "stroke": 5,
+     "rx": 63,
+     "ry": 65,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 2707,
+       "y": 1405,
+       "w": 492,
+       "h": 42,
+       "text": "Prepare Catalogue Item"
+      },
+      {
+       "x": 2765,
+       "y": 1463,
+       "w": 403,
+       "h": 41,
+       "text": "Update Information"
+      }
+     ]
+    },
+    "n13": {
+     "x": 1397,
+     "y": 1799,
+     "w": 388,
+     "h": 209,
+     "shape": "rect",
+     "stroke": 10,
+     "rx": 0,
+     "ry": 0,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 1428,
+       "y": 1842,
+       "w": 315,
+       "h": 42,
+       "text": "Catalogue Item"
+      },
+      {
+       "x": 1444,
+       "y": 1891,
+       "w": 275,
+       "h": 42,
+       "text": "Specification"
+      },
+      {
+       "x": 1522,
+       "y": 1941,
+       "w": 147,
+       "h": 41,
+       "text": "Update"
+      }
+     ]
+    },
+    "n14": {
+     "x": 2702,
+     "y": 1810,
+     "w": 597,
+     "h": 187,
+     "shape": "rounded",
+     "stroke": 5,
+     "rx": 69,
+     "ry": 65,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 2841,
+       "y": 1852,
+       "w": 306,
+       "h": 32,
+       "text": "Distribute Item"
+      },
+      {
+       "x": 2858,
+       "y": 1909,
+       "w": 283,
+       "h": 33,
+       "text": "Modifications"
+      }
+     ]
+    },
+    "n15": {
+     "x": 908,
+     "y": 1889,
+     "w": 179,
+     "h": 28
+    },
+    "n16": {
+     "x": 529,
+     "y": 2211,
+     "w": 620,
+     "h": 142,
+     "shape": "rounded",
+     "stroke": 5,
+     "rx": 66,
+     "ry": 63,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 614,
+       "y": 2262,
+       "w": 432,
+       "h": 41,
+       "text": "Receive Item Update"
+      }
+     ]
+    },
+    "n17": {
+     "x": 384,
+     "y": 2582,
+     "w": 516,
+     "h": 403,
+     "shape": "rhombus",
+     "stroke": 5,
+     "rx": 273,
+     "ry": 214,
+     "bold": false,
+     "labelLines": [
+      {
+       "x": 535,
+       "y": 2725,
+       "w": 238,
+       "h": 33,
+       "text": "Review Item"
+      },
+      {
+       "x": 535,
+       "y": 2783,
+       "w": 130,
+       "h": 33,
+       "text": "Details"
+      }
+     ]
+    },
+    "n18": {
+     "x": 2820,
+     "y": 2591,
+     "w": 485,
+     "h": 359,
+     "shape": "rhombus",
+     "stroke": 5,
+     "rx": 254,
+     "ry": 191,
+     "bold": false,
+     "labelLines": [
+      {
+       "x": 2881,
+       "y": 2743,
+       "w": 331,
+       "h": 33,
+       "text": "Decide on Action"
+      }
+     ]
+    },
+    "n19": {
+     "x": 1402,
+     "y": 2682,
+     "w": 387,
+     "h": 208,
+     "shape": "rect",
+     "stroke": 10,
+     "rx": 0,
+     "ry": 0,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 1468,
+       "y": 2711,
+       "w": 243,
+       "h": 41,
+       "text": "Application"
+      },
+      {
+       "x": 1484,
+       "y": 2760,
+       "w": 211,
+       "h": 41,
+       "text": "Response"
+      },
+      {
+       "x": 1494,
+       "y": 2809,
+       "w": 208,
+       "h": 42,
+       "text": "(negative)"
+      }
+     ]
+    },
+    "n20": {
+     "x": 378,
+     "y": 3433,
+     "w": 543,
+     "h": 187,
+     "shape": "rounded",
+     "stroke": 5,
+     "rx": 66,
+     "ry": 59,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 495,
+       "y": 3474,
+       "w": 286,
+       "h": 42,
+       "text": "Acknowledge"
+      },
+      {
+       "x": 522,
+       "y": 3532,
+       "w": 248,
+       "h": 41,
+       "text": "Acceptance"
+      }
+     ]
+    },
+    "n21": {
+     "x": 1379,
+     "y": 3440,
+     "w": 388,
+     "h": 209,
+     "shape": "rect",
+     "stroke": 10,
+     "rx": 0,
+     "ry": 0,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 1446,
+       "y": 3473,
+       "w": 243,
+       "h": 41,
+       "text": "Application"
+      },
+      {
+       "x": 1462,
+       "y": 3522,
+       "w": 211,
+       "h": 41,
+       "text": "Response"
+      },
+      {
+       "x": 1476,
+       "y": 3571,
+       "w": 196,
+       "h": 41,
+       "text": "(positive)"
+      }
+     ]
+    },
+    "n22": {
+     "x": 2149,
+     "y": 3455,
+     "w": 619,
+     "h": 169,
+     "shape": "rounded",
+     "stroke": 5,
+     "rx": 66,
+     "ry": 65,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 2267,
+       "y": 3518,
+       "w": 371,
+       "h": 42,
+       "text": "Activate Changes"
+      }
+     ]
+    },
+    "n23": {
+     "x": 3023,
+     "y": 3478,
+     "w": 80,
+     "h": 79,
+     "shape": "ellipse",
+     "stroke": 0,
+     "rx": 34,
+     "ry": 37,
+     "innerRatio": 0.45
+    },
+    "n24": {
+     "x": 355,
+     "y": 3910,
+     "w": 544,
+     "h": 187,
+     "shape": "rounded",
+     "stroke": 5,
+     "rx": 63,
+     "ry": 63,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 463,
+       "y": 3977,
+       "w": 321,
+       "h": 42,
+       "text": "Apply Changes"
+      }
+     ]
+    },
+    "n25": {
+     "x": 1324,
+     "y": 3968,
+     "w": 79,
+     "h": 80,
+     "shape": "ellipse",
+     "stroke": 5,
+     "rx": 35,
+     "ry": 33,
+     "innerRatio": 0.443
+    }
+   },
+   "flows": {
+    "f0": {
+     "fromPoint": [
+      3172,
+      259
+     ],
+     "toPoint": [
+      3172,
+      1349
+     ],
+     "routing": "straight"
+    },
+    "f1": {
+     "fromPoint": [
+      1145,
+      341
+     ],
+     "toPoint": [
+      1396,
+      339
+     ],
+     "routing": "straight"
+    },
+    "f2": {
+     "fromPoint": [
+      1812,
+      340
+     ],
+     "toPoint": [
+      2449,
+      340
+     ],
+     "routing": "straight"
+    },
+    "f3": {
+     "fromPoint": [
+      267,
+      350
+     ],
+     "toPoint": [
+      497,
+      347
+     ],
+     "routing": "straight"
+    },
+    "f4": {
+     "fromPoint": [
+      2740,
+      529
+     ],
+     "toPoint": [
+      2433,
+      667
+     ],
+     "routing": "diagonal"
+    },
+    "f5": {
+     "fromPoint": [
+      2757,
+      529
+     ],
+     "toPoint": [
+      2757,
+      938
+     ],
+     "routing": "straight"
+    },
+    "f6": {
+     "fromPoint": [
+      2040,
+      771
+     ],
+     "toPoint": [
+      1776,
+      774
+     ],
+     "routing": "straight"
+    },
+    "f7": {
+     "fromPoint": [
+      1360,
+      777
+     ],
+     "toPoint": [
+      859,
+      777
+     ],
+     "routing": "straight"
+    },
+    "f8": {
+     "fromPoint": [
+      2748,
+      995
+     ],
+     "toPoint": [
+      2411,
+      1323
+     ],
+     "routing": "diagonal"
+    },
+    "f9": {
+     "fromPoint": [
+      2777,
+      995
+     ],
+     "toPoint": [
+      2928,
+      1349
+     ],
+     "routing": "diagonal"
+    },
+    "f10": {
+     "fromPoint": [
+      2031,
+      1420
+     ],
+     "toPoint": [
+      1785,
+      1418
+     ],
+     "routing": "straight"
+    },
+    "f11": {
+     "fromPoint": [
+      1369,
+      1440
+     ],
+     "toPoint": [
+      1024,
+      1874
+     ],
+     "routing": "diagonal"
+    },
+    "f12": {
+     "fromPoint": [
+      2965,
+      1561
+     ],
+     "toPoint": [
+      2969,
+      1795
+     ],
+     "routing": "straight"
+    },
+    "f13": {
+     "fromPoint": [
+      1382,
+      1905
+     ],
+     "toPoint": [
+      1101,
+      1905
+     ],
+     "routing": "straight"
+    },
+    "f14": {
+     "fromPoint": [
+      2687,
+      1905
+     ],
+     "toPoint": [
+      1799,
+      1905
+     ],
+     "routing": "straight"
+    },
+    "f15": {
+     "fromPoint": [
+      1000,
+      1931
+     ],
+     "toPoint": [
+      998,
+      2196
+     ],
+     "routing": "straight"
+    },
+    "f16": {
+     "fromPoint": [
+      3062,
+      2576
+     ],
+     "toPoint": [
+      3059,
+      2011
+     ],
+     "routing": "straight"
+    },
+    "f17": {
+     "fromPoint": [
+      647,
+      2367
+     ],
+     "toPoint": [
+      642,
+      2567
+     ],
+     "routing": "straight"
+    },
+    "f18": {
+     "fromPoint": [
+      1803,
+      2771
+     ],
+     "toPoint": [
+      2805,
+      2770
+     ],
+     "routing": "straight"
+    },
+    "f19": {
+     "fromPoint": [
+      914,
+      2784
+     ],
+     "toPoint": [
+      1387,
+      2784
+     ],
+     "routing": "straight"
+    },
+    "f20": {
+     "fromPoint": [
+      3061,
+      2964
+     ],
+     "toPoint": [
+      3061,
+      3463
+     ],
+     "routing": "straight"
+    },
+    "f21": {
+     "fromPoint": [
+      641,
+      2999
+     ],
+     "toPoint": [
+      647,
+      3418
+     ],
+     "routing": "straight"
+    },
+    "f22": {
+     "fromPoint": [
+      2782,
+      3515
+     ],
+     "toPoint": [
+      3008,
+      3515
+     ],
+     "routing": "straight"
+    },
+    "f23": {
+     "fromPoint": [
+      935,
+      3527
+     ],
+     "toPoint": [
+      1364,
+      3529
+     ],
+     "routing": "straight"
+    },
+    "f24": {
+     "fromPoint": [
+      1781,
+      3543
+     ],
+     "toPoint": [
+      2134,
+      3540
+     ],
+     "routing": "straight"
+    },
+    "f25": {
+     "fromPoint": [
+      652,
+      3634
+     ],
+     "toPoint": [
+      650,
+      3895
+     ],
+     "routing": "straight"
+    },
+    "f26": {
+     "fromPoint": [
+      913,
+      4004
+     ],
+     "toPoint": [
+      1309,
+      4007
+     ],
+     "routing": "straight"
+    }
+   },
+   "texts": {
+    "t2": {
+     "x": 2942,
+     "y": 67,
+     "w": 328,
+     "h": 100,
+     "lines": [
+      {
+       "x": 2942,
+       "y": 67,
+       "w": 328,
+       "h": 42,
+       "text": "oupplier Initiated"
+      },
+      {
+       "x": 2944,
+       "y": 126,
+       "w": 256,
+       "h": 45,
+       "text": "Update"
+      }
+     ]
+    },
+    "t3": {
+     "x": 154,
+     "y": 437,
+     "w": 191,
+     "h": 158,
+     "lines": [
+      {
+       "x": 154,
+       "y": 437,
+       "w": 191,
+       "h": 34,
+       "text": "Customer"
+      },
+      {
+       "x": 155,
+       "y": 496,
+       "w": 150,
+       "h": 33,
+       "text": "Initiated"
+      },
+      {
+       "x": 155,
+       "y": 554,
+       "w": 139,
+       "h": 41,
+       "text": "Update"
+      }
+     ]
+    },
+    "t4": {
+     "x": 2283,
+     "y": 549,
+     "w": 289,
+     "h": 41,
+     "lines": [
+      {
+       "x": 2283,
+       "y": 549,
+       "w": 289,
+       "h": 41,
+       "text": "[reject request]"
+      }
+     ]
+    },
+    "t5": {
+     "x": 2742,
+     "y": 701,
+     "w": 313,
+     "h": 41,
+     "lines": [
+      {
+       "x": 2742,
+       "y": 701,
+       "w": 313,
+       "h": 41,
+       "text": "[accept request]"
+      }
+     ]
+    },
+    "t6": {
+     "x": 2551,
+     "y": 2471,
+     "w": 440,
+     "h": 41,
+     "lines": [
+      {
+       "x": 2551,
+       "y": 2471,
+       "w": 440,
+       "h": 41,
+       "text": "[revise catalogue item]"
+      }
+     ]
+    },
+    "t7": {
+     "x": 989,
+     "y": 2806,
+     "w": 312,
+     "h": 40,
+     "lines": [
+      {
+       "x": 989,
+       "y": 2806,
+       "w": 312,
+       "h": 40,
+       "text": "[query changes]"
+      }
+     ]
+    },
+    "t8": {
+     "x": 721,
+     "y": 3194,
+     "w": 332,
+     "h": 41,
+     "lines": [
+      {
+       "x": 721,
+       "y": 3194,
+       "w": 332,
+       "h": 41,
+       "text": "[accept changes]"
+      }
+     ]
+    },
+    "t9": {
+     "x": 2626,
+     "y": 3212,
+     "w": 380,
+     "h": 40,
+     "lines": [
+      {
+       "x": 2626,
+       "y": 3212,
+       "w": 380,
+       "h": 40,
+       "text": "[cancel transaction]"
+      }
+     ]
+    }
+   },
+   "offPage": {},
+   "marks": {},
+   "phases": {},
+   "rulesHaveSpans": {
+    "vertical": true,
+    "horizontal": true
+   }
+  }
+ },
+ "retexted": {
+  "t2": {
+   "section": "texts",
+   "text": "Supplier Initiated\nUpdate"
+  }
+ },
+ "graphPatches": {
+  "edges": {},
+  "texts": {
+   "t2": {
+    "x": 2942,
+    "y": 67,
+    "w": 328,
+    "h": 100,
+    "lines": [
+     {
+      "x": 2942,
+      "y": 67,
+      "w": 328,
+      "h": 42,
+      "text": "Supplier Initiated"
+     },
+     {
+      "x": 2944,
+      "y": 126,
+      "w": 138,
+      "h": 45,
+      "text": "Update"
+     }
+    ],
+    "text": "Supplier Initiated\nUpdate"
+   }
+  },
+  "addEdges": []
+ },
+ "corrections": [
+  "text-12",
+  "draw-02",
+  "q13-06",
+  "q13-07"
+ ],
+ "documentLanes": {
+  "object-catalogue-request": "lane-receiver-party",
+  "object-application-response-negative-between-receiver-party-and-provider-party": "lane-receiver-party",
+  "object-application-response-positive-between-receiver-party-and-provider-party": "lane-receiver-party",
+  "object-catalogue-item-specification-update": "lane-receiver-party",
+  "object-application-response-negative-between-receiver-party-and-provider-party-2": "lane-receiver-party",
+  "object-application-response-positive-between-receiver-party-and-provider-party-2": "lane-receiver-party"
+ },
+ "formerIds": {
+  "lane-receiver-party": "lane0",
+  "lane-provider-party": "lane1",
+  "initial-provider-party": "n1",
+  "decision-respond-to-request": "n2",
+  "object-catalogue-request": "n3",
+  "action-request-catalogue-update": "n4",
+  "initial-receiver-party": "n5",
+  "object-application-response-negative-between-receiver-party-and-provider-party": "n6",
+  "action-send-rejection": "n7",
+  "final-receiver-party": "n8",
+  "fork-provider-party": "n9",
+  "object-application-response-positive-between-receiver-party-and-provider-party": "n10",
+  "action-send-acceptance-response": "n11",
+  "action-prepare-catalogue-item-update": "n12",
+  "object-catalogue-item-specification-update": "n13",
+  "action-distribute-item-modifications": "n14",
+  "fork-receiver-party": "n15",
+  "action-receive-item-update": "n16",
+  "decision-review-item-details": "n17",
+  "decision-decide-on-action": "n18",
+  "object-application-response-negative-between-receiver-party-and-provider-party-2": "n19",
+  "action-acknowledge-acceptance": "n20",
+  "object-application-response-positive-between-receiver-party-and-provider-party-2": "n21",
+  "action-activate-changes": "n22",
+  "final-provider-party": "n23",
+  "action-apply-changes": "n24",
+  "final-receiver-party-2": "n25",
+  "flow-initial-provider-party-to-prepare-catalogue-item-update": "f0",
+  "flow-request-catalogue-update-to-catalogue-request": "f1",
+  "flow-catalogue-request-to-respond-to-request": "f2",
+  "flow-initial-receiver-party-to-request-catalogue-update": "f3",
+  "flow-respond-to-request-to-send-rejection": "f4",
+  "flow-respond-to-request-to-fork-provider-party": "f5",
+  "flow-send-rejection-to-application-response-negative-between-receiver-party-and-provider-party": "f6",
+  "flow-application-response-negative-between-receiver-party-and-provider-party-to-final-receiver-party": "f7",
+  "flow-fork-provider-party-to-send-acceptance-response": "f8",
+  "flow-fork-provider-party-to-prepare-catalogue-item-update": "f9",
+  "flow-send-acceptance-response-to-application-response-positive-between-receiver-party-and-provider-party": "f10",
+  "flow-application-response-positive-between-receiver-party-and-provider-party-to-fork-receiver-party": "f11",
+  "flow-prepare-catalogue-item-update-to-distribute-item-modifications": "f12",
+  "flow-catalogue-item-specification-update-to-fork-receiver-party": "f13",
+  "flow-distribute-item-modifications-to-catalogue-item-specification-update": "f14",
+  "flow-fork-receiver-party-to-receive-item-update": "f15",
+  "flow-decide-on-action-to-distribute-item-modifications": "f16",
+  "flow-receive-item-update-to-review-item-details": "f17",
+  "flow-application-response-negative-between-receiver-party-and-provider-party-2-to-decide-on-action": "f18",
+  "flow-review-item-details-to-application-response-negative-between-receiver-party-and-provider-party-2": "f19",
+  "flow-decide-on-action-to-final-provider-party": "f20",
+  "flow-review-item-details-to-acknowledge-acceptance": "f21",
+  "flow-activate-changes-to-final-provider-party": "f22",
+  "flow-acknowledge-acceptance-to-application-response-positive-between-receiver-party-and-provider-party-2": "f23",
+  "flow-application-response-positive-between-receiver-party-and-provider-party-2-to-activate-changes": "f24",
+  "flow-acknowledge-acceptance-to-apply-changes": "f25",
+  "flow-apply-changes-to-final-receiver-party-2": "f26",
+  "text-supplier-initiated-update": "t2",
+  "text-customer-initiated-update": "t3",
+  "text-reject-request": "t4",
+  "text-accept-request": "t5",
+  "text-revise-catalogue-item": "t6",
+  "text-query-changes": "t7",
+  "text-accept-changes": "t8",
+  "text-cancel-transaction": "t9"
+ }
+}

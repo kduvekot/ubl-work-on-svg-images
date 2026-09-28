@@ -1,0 +1,774 @@
+{
+ "schema": "ubl-activity-diagram-extraction/1",
+ "figure": "UBL-2.2-IMFM-TransportServiceDescription",
+ "nodes": {
+  "initial-transport-user": {
+   "area": 15660,
+   "fill": 1.0
+  },
+  "object-transport-service-description-request": {
+   "area": 235297,
+   "fill": 0.89,
+   "solid": 1.0,
+   "stem": 0.135,
+   "keptOnOutline": true
+  },
+  "action-receive-transport-service-description-in-transport-service-provider": {
+   "area": 295128,
+   "fill": 0.868,
+   "solid": 0.971,
+   "stem": 0.135
+  },
+  "action-request-transport-service-description": {
+   "area": 294463,
+   "fill": 0.884,
+   "solid": 0.971,
+   "stem": 0.135
+  },
+  "object-transport-service-description": {
+   "area": 242418,
+   "fill": 0.917,
+   "solid": 1.0,
+   "stem": 0.135,
+   "keptOnOutline": true
+  },
+  "action-receive-transport-service-description-in-transport-user": {
+   "area": 288800,
+   "fill": 0.884,
+   "solid": 0.97,
+   "stem": 0.135
+  },
+  "action-send-transport-service-description": {
+   "area": 290770,
+   "fill": 0.89,
+   "solid": 0.971,
+   "stem": 0.135
+  },
+  "final-transport-user": {
+   "area": 10157,
+   "fill": 0.635,
+   "solid": 0.791
+  }
+ },
+ "flows": {
+  "flow-initial-transport-user-to-request-transport-service-description": {
+   "arrowInk": [
+    405,
+    1168
+   ],
+   "arrowPx": [
+    97,
+    78.2,
+    2.56
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-request-transport-service-description-to-transport-service-description-request": {
+   "arrowInk": [
+    405,
+    1102
+   ],
+   "arrowPx": [
+    103,
+    78.7,
+    3.09
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-transport-service-description-request-to-receive-transport-service-description-in-transport-service-provider": {
+   "arrowInk": [
+    437,
+    1141
+   ],
+   "arrowPx": [
+    97,
+    78.6,
+    2.54
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-receive-transport-service-description-in-transport-service-provider-to-send-transport-service-description": {
+   "arrowInk": [
+    405,
+    1168
+   ],
+   "arrowPx": [
+    97,
+    78.4,
+    2.53
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-transport-service-description-to-receive-transport-service-description-in-transport-user": {
+   "arrowInk": [
+    495,
+    1040
+   ],
+   "arrowPx": [
+    104,
+    78.1,
+    2.95
+   ],
+   "arrowFill": 0.0
+  },
+  "flow-send-transport-service-description-to-transport-service-description": {
+   "arrowInk": [
+    414,
+    985
+   ],
+   "arrowPx": [
+    107,
+    79.3,
+    3.48
+   ],
+   "arrowFill": 0.041
+  },
+  "flow-receive-transport-service-description-in-transport-user-to-final-transport-user": {
+   "arrowInk": [
+    360,
+    1132
+   ],
+   "arrowPx": [
+    98,
+    80.2,
+    2.27
+   ],
+   "arrowFill": 0.018
+  }
+ },
+ "offPage": {},
+ "marks": {},
+ "phases": {},
+ "greyRules": [],
+ "titleReadings": [
+  {
+   "position": 0,
+   "text": "Transport Service Provider",
+   "x": 2149,
+   "y": 74,
+   "w": 841,
+   "h": 67,
+   "lines": [
+    {
+     "x": 2149,
+     "y": 74,
+     "w": 841,
+     "h": 67,
+     "text": "Transport Service Provider"
+    }
+   ]
+  },
+  {
+   "position": 1,
+   "text": "Transport User",
+   "x": 606,
+   "y": 76,
+   "w": 471,
+   "h": 65,
+   "lines": [
+    {
+     "x": 606,
+     "y": 76,
+     "w": 471,
+     "h": 65,
+     "text": "Transport User"
+    }
+   ]
+  }
+ ],
+ "findings": [],
+ "uncertain": [
+  {
+   "x": 1369,
+   "y": 564,
+   "w": 694,
+   "h": 381,
+   "shape": "rect",
+   "iou": 1.0,
+   "border": 1.0,
+   "kind": "kept-on-outline",
+   "reason": "every side has pass-through line-work, but the region carries a complete outline of its own",
+   "check": "confirm this is a node and not trapped whitespace"
+  },
+  {
+   "x": 1369,
+   "y": 1172,
+   "w": 694,
+   "h": 381,
+   "shape": "rect",
+   "iou": 1.0,
+   "border": 1.0,
+   "kind": "kept-on-outline",
+   "reason": "every side has pass-through line-work, but the region carries a complete outline of its own",
+   "check": "confirm this is a node and not trapped whitespace"
+  }
+ ],
+ "present": [
+  "source",
+  "size",
+  "fontPx",
+  "arrowPx",
+  "arrowWidthPx",
+  "arrowStyle",
+  "rules",
+  "ruleSpan",
+  "greyRules",
+  "dashed",
+  "openEnds",
+  "crossMarks",
+  "partitions",
+  "nodes",
+  "edges",
+  "text",
+  "uncertain"
+ ],
+ "uncorrected": {
+  "model": {
+   "schema": "ubl-activity-diagram/1",
+   "figure": {
+    "name": "UBL-2.2-IMFM-TransportServiceDescription",
+    "source": "UBL-2.2-IMFM-TransportServiceDescription.png"
+   },
+   "lanes": [
+    {
+     "id": "lane0",
+     "axis": "column",
+     "index": 0,
+     "title": "Transport User"
+    },
+    {
+     "id": "lane1",
+     "axis": "column",
+     "index": 1,
+     "title": "Transport Service Provider"
+    },
+    {
+     "id": "lane2",
+     "axis": "band",
+     "index": 0,
+     "title": ""
+    }
+   ],
+   "nodes": [
+    {
+     "id": "n1",
+     "kind": "initial",
+     "label": "",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n2",
+     "kind": "object",
+     "label": "Transport Service\nDescription\nRequest",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n3",
+     "kind": "action",
+     "label": "Receive Transport\nService Description\nRequest",
+     "lane": "lane1",
+     "band": "lane2"
+    },
+    {
+     "id": "n4",
+     "kind": "action",
+     "label": "Request Transport\nService Description",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n5",
+     "kind": "object",
+     "label": "Transport Service\nDescription",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n6",
+     "kind": "action",
+     "label": "Receive Transport\nService Description",
+     "lane": "lane0",
+     "band": "lane2"
+    },
+    {
+     "id": "n7",
+     "kind": "action",
+     "label": "Send Transport Service\nDescription",
+     "lane": "lane1",
+     "band": "lane2"
+    },
+    {
+     "id": "n8",
+     "kind": "final",
+     "label": "",
+     "lane": "lane0",
+     "band": "lane2"
+    }
+   ],
+   "flows": [
+    {
+     "id": "f0",
+     "from": "n1",
+     "to": "n4",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f1",
+     "from": "n4",
+     "to": "n2",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f2",
+     "from": "n2",
+     "to": "n3",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f3",
+     "from": "n3",
+     "to": "n7",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f4",
+     "from": "n5",
+     "to": "n6",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f5",
+     "from": "n7",
+     "to": "n5",
+     "kind": "object",
+     "direction": {
+      "confidence": "high"
+     }
+    },
+    {
+     "id": "f6",
+     "from": "n6",
+     "to": "n8",
+     "kind": "control",
+     "direction": {
+      "confidence": "high"
+     }
+    }
+   ],
+   "texts": [],
+   "offPage": [],
+   "marks": [],
+   "phases": []
+  },
+  "layout": {
+   "schema": "ubl-activity-diagram-layout/1",
+   "figure": "UBL-2.2-IMFM-TransportServiceDescription",
+   "units": "px of the original PNG",
+   "size": [
+    3425,
+    2013
+   ],
+   "style": {
+    "fontPx": 74.3,
+    "arrowPx": 98.0,
+    "arrowWidthPx": 78.6,
+    "arrowStyle": "open"
+   },
+   "rules": {
+    "vertical": [
+     {
+      "at": 0,
+      "width": 10,
+      "span": [
+       13,
+       1999
+      ]
+     },
+     {
+      "at": 1712,
+      "width": 8,
+      "span": [
+       13,
+       1999
+      ]
+     },
+     {
+      "at": 3415,
+      "width": 10,
+      "span": [
+       13,
+       1999
+      ]
+     }
+    ],
+    "horizontal": [
+     {
+      "at": 0,
+      "width": 10,
+      "span": [
+       13,
+       3411
+      ]
+     },
+     {
+      "at": 2003,
+      "width": 10,
+      "span": [
+       13,
+       3411
+      ]
+     }
+    ]
+   },
+   "greyRules": [],
+   "lanes": {
+    "lane0": {
+     "x0": 0,
+     "x1": 1716,
+     "titleBox": [
+      606,
+      76,
+      471,
+      65
+     ]
+    },
+    "lane1": {
+     "x0": 1716,
+     "x1": 3425,
+     "titleBox": [
+      2149,
+      74,
+      841,
+      67
+     ]
+    },
+    "lane2": {
+     "y0": 0,
+     "y1": 2013
+    }
+   },
+   "nodes": {
+    "n1": {
+     "x": 486,
+     "y": 215,
+     "w": 141,
+     "h": 141
+    },
+    "n2": {
+     "x": 1369,
+     "y": 564,
+     "w": 694,
+     "h": 381,
+     "shape": "rect",
+     "stroke": 16,
+     "rx": 0,
+     "ry": 0,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 1408,
+       "y": 632,
+       "w": 593,
+       "h": 66,
+       "text": "Transport Service"
+      },
+      {
+       "x": 1523,
+       "y": 711,
+       "w": 385,
+       "h": 65,
+       "text": "Description"
+      },
+      {
+       "x": 1580,
+       "y": 789,
+       "w": 281,
+       "h": 65,
+       "text": "Request"
+      }
+     ]
+    },
+    "n3": {
+     "x": 2386,
+     "y": 574,
+     "w": 942,
+     "h": 361,
+     "shape": "rounded",
+     "stroke": 8,
+     "rx": 105,
+     "ry": 107,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 2546,
+       "y": 630,
+       "w": 614,
+       "h": 65,
+       "text": "Receive Transport"
+      },
+      {
+       "x": 2515,
+       "y": 721,
+       "w": 656,
+       "h": 66,
+       "text": "Service Description"
+      },
+      {
+       "x": 2730,
+       "y": 814,
+       "w": 276,
+       "h": 65,
+       "text": "Request"
+      }
+     ]
+    },
+    "n4": {
+     "x": 90,
+     "y": 581,
+     "w": 941,
+     "h": 354,
+     "shape": "rounded",
+     "stroke": 8,
+     "rx": 105,
+     "ry": 111,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 263,
+       "y": 677,
+       "w": 627,
+       "h": 65,
+       "text": "Request Transport"
+      },
+      {
+       "x": 226,
+       "y": 768,
+       "w": 655,
+       "h": 66,
+       "text": "Service Description"
+      }
+     ]
+    },
+    "n5": {
+     "x": 1369,
+     "y": 1172,
+     "w": 694,
+     "h": 381,
+     "shape": "rect",
+     "stroke": 16,
+     "rx": 0,
+     "ry": 0,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 1408,
+       "y": 1279,
+       "w": 593,
+       "h": 66,
+       "text": "Transport Service"
+      },
+      {
+       "x": 1523,
+       "y": 1358,
+       "w": 385,
+       "h": 65,
+       "text": "Description"
+      }
+     ]
+    },
+    "n6": {
+     "x": 97,
+     "y": 1182,
+     "w": 942,
+     "h": 347,
+     "shape": "rounded",
+     "stroke": 8,
+     "rx": 101,
+     "ry": 110,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 256,
+       "y": 1277,
+       "w": 615,
+       "h": 65,
+       "text": "Receive Transport"
+      },
+      {
+       "x": 233,
+       "y": 1368,
+       "w": 655,
+       "h": 66,
+       "text": "Service Description"
+      }
+     ]
+    },
+    "n7": {
+     "x": 2394,
+     "y": 1182,
+     "w": 941,
+     "h": 347,
+     "shape": "rounded",
+     "stroke": 8,
+     "rx": 101,
+     "ry": 107,
+     "bold": true,
+     "labelLines": [
+      {
+       "x": 2459,
+       "y": 1266,
+       "w": 790,
+       "h": 66,
+       "text": "Send Transport Service"
+      },
+      {
+       "x": 2681,
+       "y": 1360,
+       "w": 380,
+       "h": 65,
+       "text": "Description"
+      }
+     ]
+    },
+    "n8": {
+     "x": 465,
+     "y": 1785,
+     "w": 127,
+     "h": 126,
+     "shape": "ellipse",
+     "stroke": 8,
+     "rx": 57,
+     "ry": 65,
+     "innerRatio": 0.441
+    }
+   },
+   "flows": {
+    "f0": {
+     "fromPoint": [
+      559,
+      370
+     ],
+     "toPoint": [
+      561,
+      566
+     ],
+     "routing": "straight"
+    },
+    "f1": {
+     "fromPoint": [
+      1045,
+      762
+     ],
+     "toPoint": [
+      1354,
+      760
+     ],
+     "routing": "straight"
+    },
+    "f2": {
+     "fromPoint": [
+      2080,
+      753
+     ],
+     "toPoint": [
+      2371,
+      754
+     ],
+     "routing": "straight"
+    },
+    "f3": {
+     "fromPoint": [
+      2863,
+      949
+     ],
+     "toPoint": [
+      2865,
+      1167
+     ],
+     "routing": "straight"
+    },
+    "f4": {
+     "fromPoint": [
+      1354,
+      1357
+     ],
+     "toPoint": [
+      1053,
+      1354
+     ],
+     "routing": "straight"
+    },
+    "f5": {
+     "fromPoint": [
+      2379,
+      1355
+     ],
+     "toPoint": [
+      2080,
+      1356
+     ],
+     "routing": "straight"
+    },
+    "f6": {
+     "fromPoint": [
+      534,
+      1543
+     ],
+     "toPoint": [
+      529,
+      1770
+     ],
+     "routing": "straight"
+    }
+   },
+   "texts": {},
+   "offPage": {},
+   "marks": {},
+   "phases": {},
+   "rulesHaveSpans": {
+    "vertical": true,
+    "horizontal": true
+   }
+  }
+ },
+ "documentLanes": {
+  "object-transport-service-description-request": "lane-transport-user",
+  "object-transport-service-description": "lane-transport-user"
+ },
+ "formerIds": {
+  "lane-transport-user": "lane0",
+  "lane-transport-service-provider": "lane1",
+  "initial-transport-user": "n1",
+  "object-transport-service-description-request": "n2",
+  "action-receive-transport-service-description-in-transport-service-provider": "n3",
+  "action-request-transport-service-description": "n4",
+  "object-transport-service-description": "n5",
+  "action-receive-transport-service-description-in-transport-user": "n6",
+  "action-send-transport-service-description": "n7",
+  "final-transport-user": "n8",
+  "flow-initial-transport-user-to-request-transport-service-description": "f0",
+  "flow-request-transport-service-description-to-transport-service-description-request": "f1",
+  "flow-transport-service-description-request-to-receive-transport-service-description-in-transport-service-provider": "f2",
+  "flow-receive-transport-service-description-in-transport-service-provider-to-send-transport-service-description": "f3",
+  "flow-transport-service-description-to-receive-transport-service-description-in-transport-user": "f4",
+  "flow-send-transport-service-description-to-transport-service-description": "f5",
+  "flow-receive-transport-service-description-in-transport-user-to-final-transport-user": "f6"
+ }
+}
