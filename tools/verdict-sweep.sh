@@ -52,7 +52,7 @@ if [ "${1:-}" = "--check" ]; then
   rep="$OUT/$n-struct.json"
   python3 "$HERE/verify_conversion.py" "$ART/$n.png" "$OUT/$n-render.png" \
       "$G" --radius "$RADIUS" --json "$rep" \
-      --diff "$OUT/$n-lwdiff.png" \
+      --diff "$OUT/$n-lwdiff.png" --svg "$OUT/$n.svg" \
       > "$OUT/$n-verify.log" 2>&1 || fail VERIFY-FAIL
 
   # number each finding on a copy of the difference image, and write the same

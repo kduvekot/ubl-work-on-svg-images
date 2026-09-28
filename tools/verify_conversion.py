@@ -637,7 +637,30 @@ def straight_dividers(a, b, graph):
                 a[lo:hi, :] |= sb & both[None, :]
 
 
-def verify(orig_png, render_png, graph_path, radius=3, diff_out=None):
+def drawn_hops(a, b, svg_path, radius):
+    """Where the SVG hops one flow over another (the TC, 2026-09-28: a half
+    circle where two solid flows cross), the artwork mostly draws a plain
+    crossing, and where it draws a hop it may bow the other way. The hop is a
+    deliberate difference, so the line-work within it - the disc the half
+    circle spans, and the checker's own radius round that - is not counted on
+    either side. The SVG says where its hops are (data-hops on the flow)."""
+    if not svg_path or not os.path.exists(svg_path):
+        return
+    svg = open(svg_path, encoding="utf-8").read()
+    m = re.search(r'viewBox="0 0 ([0-9.]+) ([0-9.]+)"', svg)
+    if not m:
+        return
+    k = a.shape[1] / float(m.group(1))
+    yy, xx = np.ogrid[:a.shape[0], :a.shape[1]]
+    for spec in re.findall(r'data-hops="([^"]+)"', svg):
+        for h in spec.split():
+            x, y, r = (float(v) * k for v in h.split(","))
+            disc = (xx - x) ** 2 + (yy - y) ** 2 <= (1.3 * r + radius) ** 2
+            a &= ~disc
+            b &= ~disc
+
+
+def verify(orig_png, render_png, graph_path, radius=3, diff_out=None, svg_path=None):
     graph = json.load(open(graph_path))
     a, bg_orig = ink_of(orig_png)
     b, bg_render = ink_of(render_png)
@@ -653,6 +676,7 @@ def verify(orig_png, render_png, graph_path, radius=3, diff_out=None):
                 a[lo:hi, :] |= tone[lo:hi, :] < 245
     if a.shape == b.shape:
         straight_dividers(a, b, graph)
+        drawn_hops(a, b, svg_path, radius)
     if a.shape != b.shape:
         return dict(verdict="improvable", name=graph_path,
                     findings=[dict(kind="size-mismatch", detail="original %s, render %s"
@@ -740,9 +764,10 @@ def main(argv):
     radius = int(argv[argv.index("--radius") + 1]) if "--radius" in argv else 3
     oj = argv[argv.index("--json") + 1] if "--json" in argv else None
     od = argv[argv.index("--diff") + 1] if "--diff" in argv else None
+    osvg = argv[argv.index("--svg") + 1] if "--svg" in argv else None
     pos = [x for i, x in enumerate(argv)
            if not x.startswith("--") and (i == 0 or not argv[i - 1].startswith("--"))]
-    rep = verify(pos[0], pos[1], pos[2], radius, od)
+    rep = verify(pos[0], pos[1], pos[2], radius, od, osvg)
 
     lw = max(1, rep.get("lineWorkInk", 1))
     print("  verdict: %s" % rep["verdict"].upper())

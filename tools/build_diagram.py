@@ -11,7 +11,7 @@ Shapes follow UML 2.5.1 notation and the TC's own draw.io style vocabulary:
 action = rounded rect, object node = plain rect (heavier stroke), initial = filled
 disc, activity final = ring + disc, decision = rhombus, edges = open "V" arrowhead.
 """
-import html, json, sys, xml.sax.saxutils as su
+import html, json, math, sys, xml.sax.saxutils as su
 
 SIDE = {"l": (0, .5), "r": (1, .5), "t": (.5, 0), "b": (.5, 1)}
 # what each kind is called in the drawing, for the <title> a reader sees
@@ -45,6 +45,78 @@ def side_of(e, which):
     fx, fy = f
     return ("l" if fx < 0.5 else "r") if min(fx, 1 - fx) < min(fy, 1 - fy) \
         else ("t" if fy < 0.5 else "b")
+
+
+def _cross(p, q, r, t):
+    """where segment p-q crosses segment r-t, as (point, fraction along p-q,
+    fraction along r-t), or None"""
+    (x1, y1), (x2, y2), (x3, y3), (x4, y4) = p, q, r, t
+    den = (x1 - x2) * (y3 - y4) - (y1 - y2) * (x3 - x4)
+    if abs(den) < 1e-9:
+        return None
+    a = ((x1 - x3) * (y3 - y4) - (y1 - y3) * (x3 - x4)) / den
+    b = -((x1 - x2) * (y1 - y3) - (y1 - y2) * (x1 - x3)) / den
+    if 0 < a < 1 and 0 < b < 1:
+        return (x1 + a * (x2 - x1), y1 + a * (y2 - y1)), a, b
+    return None
+
+
+def line_hops(spec):
+    """Where one flow hops over another (the TC, 2026-09-28).
+
+    A hop - a half circle in the line - shows that two crossing lines do not
+    meet. It is drawn only where two solid flows cross: never at a lane divider
+    or a phase boundary, which no one reads as joining a flow, and never where
+    either line is dashed, whose gaps already show it. The steeper line hops
+    (at a right angle, the vertical one), as on the three hops the artwork
+    draws between flows (Self Billing with Credit Note, Billing with Credit
+    and with Debit Note); the half circle bows up, or right on an upright line.
+    Returns {edge index: [(segment index, crossing point), ...]}."""
+    r = hop_radius(spec)
+    lines = [(i, polyline(spec, e)) for i, e in enumerate(spec["edges"]) if not e.get("dash")]
+    out = {}
+    for n, (i, pa) in enumerate(lines):
+        for j, pb in lines[n + 1:]:
+            for si, (p, q) in enumerate(zip(pa, pa[1:])):
+                for sj, (u, v) in enumerate(zip(pb, pb[1:])):
+                    c = _cross(p, q, u, v)
+                    if not c:
+                        continue
+                    pt = c[0]
+                    la, lb = math.dist(p, q), math.dist(u, v)
+                    # a crossing at a line's end is a corner or a meeting, not a crossing
+                    if min(c[1] * la, (1 - c[1]) * la, c[2] * lb, (1 - c[2]) * lb) < 2 * r:
+                        continue
+                    steep_a = abs(q[1] - p[1]) / la
+                    steep_b = abs(v[1] - u[1]) / lb
+                    k, seg = (i, si) if steep_a >= steep_b else (j, sj)
+                    out.setdefault(k, []).append((seg, pt))
+    return out
+
+
+def hop_radius(spec):
+    """half the arrowhead's length: the artwork's hops are about that size"""
+    return spec.get("arrow", 20) * 0.8 / 2
+
+
+def hop_path(pts, hops, r):
+    """the polyline as a path, with a half circle of radius r at each hop"""
+    d = ["M %.1f %.1f" % pts[0]]
+    for si, (p, q) in enumerate(zip(pts, pts[1:])):
+        L = math.dist(p, q)
+        ux, uy = (q[0] - p[0]) / L, (q[1] - p[1]) / L
+        here = sorted((math.dist(p, pt), pt) for s, pt in hops if s == si)
+        for _, pt in here:
+            a = (pt[0] - ux * r, pt[1] - uy * r)
+            b = (pt[0] + ux * r, pt[1] + uy * r)
+            # bow up on a line nearer horizontal, right on one nearer vertical
+            nx, ny = (-uy, ux)
+            if (abs(ux) >= abs(uy) and ny > 0) or (abs(ux) < abs(uy) and nx < 0):
+                nx, ny = -nx, -ny
+            sweep = 1 if ux * ny - uy * nx < 0 else 0
+            d.append("L %.1f %.1f A %.1f %.1f 0 0 %d %.1f %.1f" % (a[0], a[1], r, r, sweep, b[0], b[1]))
+        d.append("L %.1f %.1f" % q)
+    return " ".join(d)
 
 
 def polyline(spec, e):
@@ -265,12 +337,15 @@ def svg_body(spec):
                      % (x + w - f, y, y + f, x + w, S["action"]))
             o.append(lines_of(n, cx, cy, F["node"], F["family"]))
         o.append("</g>")
+    hops = line_hops(spec)
     for i, e in enumerate(spec["edges"]):
         pts = polyline(spec, e)
         o.append(group("edge", e.get("id") or "e%d" % i, "%s to %s" % (e["from"], e["to"]),
                        source=e["from"], target=e["to"],
                        routing="straight" if e.get("straight") else "orthogonal",
-                       confidence=e.get("confidence")))
+                       confidence=e.get("confidence"),
+                       hops=" ".join("%.1f,%.1f,%.1f" % (pt[0], pt[1], hop_radius(spec))
+                                     for _, pt in hops.get(i, []))))
         at = ' marker-end="url(#arrow)"'
         if e.get("arrowBoth"):
             at += ' marker-start="url(#arrowback)"'
@@ -280,8 +355,12 @@ def svg_body(spec):
             # the original's dashes rather than in the gaps between them
             if e.get("dashOffset") is not None:
                 at += ' stroke-dashoffset="%.1f"' % e["dashOffset"]
-        o.append('<polyline points="%s" fill="none" stroke="#000" stroke-width="%.2f"%s/>'
-                 % (" ".join("%.1f,%.1f" % p for p in pts), S["edge"], at))
+        if hops.get(i):
+            o.append('<path d="%s" fill="none" stroke="#000" stroke-width="%.2f"%s/>'
+                     % (hop_path(pts, hops[i], hop_radius(spec)), S["edge"], at))
+        else:
+            o.append('<polyline points="%s" fill="none" stroke="#000" stroke-width="%.2f"%s/>'
+                     % (" ".join("%.1f,%.1f" % p for p in pts), S["edge"], at))
         o.append("</g>")
     for i, oe in enumerate(spec.get("openEnds", [])):
         # a flow that leaves the diagram, drawn along the route it actually takes

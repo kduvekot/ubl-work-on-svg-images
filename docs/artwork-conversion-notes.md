@@ -1703,6 +1703,28 @@ differences shown.
   with a dash (`draw-17`, `draw-18`; the upper one also straight down, its
   ends read 7px apart); and two of the three branches left the diamond from
   its edges instead of from its bottom corner (`draw-19`, `draw-20`).
+- *VMI Returns by Producer (19 of 78).* Model correct and complete (17
+  flows); SVG faithful. It raised the line jumps. Every crossing in the 78
+  was found from the models and looked at on the originals: 35 flows cross a
+  lane divider, 20 a CPFR phase boundary, and 13 cross another flow. The
+  artwork draws most of them plain, and jumps at eight, in two ways: a curl
+  on the divider (three goods lines: CRP Initial Stocking by Retailer, ROCD
+  and VMI Initial Stocking) and a clean half circle, the "hop" (two goods
+  lines over the divider, on VMI Permanent Replenishment and this figure;
+  three flows over another flow, on Self Billing with Credit Note and Billing
+  with Credit and with Debit Note). Standing rule (the TC, 2026-09-28): **a
+  hop is drawn only where two solid flows cross** - never at a lane divider
+  or a phase boundary, which no one reads as joining a flow, and never where
+  either line is dashed, whose gaps already show it. The steeper line hops
+  (at a right angle, the vertical one), as on all three of the artwork's hops
+  between flows; the half circle bows up, or right on an upright line; its
+  radius is half the arrowhead's length. That is five hops in four figures:
+  the artwork's three, and two on Procurement, where diagonals cross near the
+  diamonds with nothing to show they do not meet. The hops are worked out
+  from the drawn lines (build_diagram.py) and carried on the flow in the SVG
+  (`data-hops`); the checker leaves the disc of each out on both sides
+  (verify_conversion.py), since it is a deliberate difference. draw.io's own
+  line jumps are not used: it jumps every crossing, dashed or not.
 
 **The notes for a person, all 266 settled by eye (2026-09-27).** The sweep
 leaves, per diagram, notes where the reading could not be sure; each was looked at
