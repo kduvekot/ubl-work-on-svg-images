@@ -14,7 +14,7 @@ lines - without changing it. Where draw.io has a native way to say something
 measured sizes; where draw.io cannot say what the SVG says, the nearest native
 setting is taken and the difference is written up in poc-drawio/README.md.
 """
-import json, math, os, statistics, sys, xml.etree.ElementTree as ET, xml.sax.saxutils as su
+import collections, json, math, os, statistics, sys, xml.etree.ElementTree as ET, xml.sax.saxutils as su
 
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "tools"))
 import build_diagram as bd          # noqa: E402  (read only: geometry helpers)
@@ -171,6 +171,105 @@ def free_edge(cells, ident, kind, pts, kv, props=None, value="", src=None, dst=N
     cells.append(cell(ident, value, kind, props or {},
                       'style="%s" edge="1" parent="%s"%s' % (style(**kv), esc(parent), ends),
                       '<mxGeometry relative="1" as="geometry">%s</mxGeometry>' % geo))
+
+
+def straighten(body, lo=0.05, hi=8.0):
+    """Make the flows the artwork draws almost level or upright (off by less
+    than 8px) exactly so, by moving their elements, never their contact
+    points: a level flow by moving an element up or down, an upright one left
+    or right (which leaves the other kind as it is). Elements tied by such
+    flows move together; in each group the element with the most of them
+    (then the largest: mostly a document) stays where it was measured. A
+    flow in a loop whose ends cannot all agree (IMFM, Fulfilment Receipt
+    Advice) stays as it is. A bent flow or a flow leaving the page keeps its
+    first or last stretch square: the bend (or free end) next to a moved
+    element moves with it. Returns the flows left tilted."""
+    info = {}
+    for el in body:
+        c = el if el.tag == "mxCell" else el.find("mxCell")
+        if c is None:
+            continue
+        info[el.get("id")] = (el, c, c.find("mxGeometry"))
+
+    def box(i):
+        el, c, g = info[i]
+        if g is None or g.get("relative") == "1" or c.get("edge") == "1":
+            return (0.0, 0.0, 0.0, 0.0)
+        px, py = box(c.get("parent"))[:2] if c.get("parent") in info else (0.0, 0.0)
+        return (px + float(g.get("x", 0)), py + float(g.get("y", 0)),
+                float(g.get("width", 0)), float(g.get("height", 0)))
+
+    def kv(c):
+        return dict(p.split("=", 1) for p in (c.get("style") or "").split(";") if "=" in p)
+
+    def contact(i, fx, fy):
+        b = box(i)
+        return (b[0] + float(fx) * b[2], b[1] + float(fy) * b[3])
+    edges = [(i, c, g, kv(c)) for i, (el, c, g) in info.items() if c.get("edge") == "1" and g is not None]
+    shift = collections.defaultdict(lambda: [0.0, 0.0])
+    tilted = []
+    for k in (1, 0):            # level flows (moved in y), then upright ones (in x)
+        adj = collections.defaultdict(list)
+        for i, c, g, st in edges:
+            a, b = c.get("source"), c.get("target")
+            if not a or not b or g.find("Array") is not None:
+                continue
+            p, q = contact(a, st["exitX"], st["exitY"]), contact(b, st["entryX"], st["entryY"])
+            d, other = q[k] - p[k], q[1 - k] - p[1 - k]
+            if abs(d) < hi and abs(d) <= abs(other):
+                adj[a].append((b, d, i))
+                adj[b].append((a, -d, i))
+        seen = set()
+        for start in sorted(adj):
+            if start in seen:
+                continue
+            comp, stack = {start}, [start]
+            while stack:
+                for v, _, _ in adj[stack.pop()]:
+                    if v not in comp:
+                        comp.add(v)
+                        stack.append(v)
+            seen |= comp
+            b = {c: box(c) for c in comp}
+            anchor = max(sorted(comp), key=lambda c: (len(adj[c]), b[c][2] * b[c][3]))
+            by, stack = {anchor: 0.0}, [anchor]
+            while stack:
+                u = stack.pop()
+                for v, d, i in adj[u]:
+                    if v not in by:
+                        by[v] = by[u] + d if abs(d) >= lo else by[u]
+                        stack.append(v)
+                    elif abs(by[v] - by[u] - d) >= lo and i not in tilted:
+                        tilted.append(i)
+            for c, dv in by.items():
+                if abs(dv) >= lo:
+                    # moved against the measurement by -dv: the flow's end
+                    # comes to the other end's level
+                    shift[c][k] -= dv
+    for c, (dx, dy) in shift.items():
+        g = info[c][2]
+        g.set("x", num(float(g.get("x", 0)) + dx))
+        g.set("y", num(float(g.get("y", 0)) + dy))
+    # the bend or free end next to a moved element keeps its stretch square
+    for i, c, g, st in edges:
+        for end, key, pick in ((c.get("source"), "exit", 0), (c.get("target"), "entry", -1)):
+            if not end or end not in shift:
+                continue
+            arr = g.find("Array")
+            near = arr.findall("mxPoint")[pick] if arr is not None and len(arr) else \
+                g.find('mxPoint[@as="%s"]' % ("targetPoint" if pick == 0 else "sourcePoint"))
+            if near is None:
+                continue
+            dx, dy = shift[end]
+            old = contact(end, st[key + "X"], st[key + "Y"])
+            old = (old[0] - dx, old[1] - dy)
+            ox, oy = box(c.get("parent"))[:2] if c.get("parent") in info else (0.0, 0.0)
+            nx, ny = float(near.get("x", 0)) + ox, float(near.get("y", 0)) + oy
+            if abs(ny - old[1]) < 0.5 <= abs(nx - old[0]):
+                near.set("y", num(float(near.get("y", 0)) + dy))
+            elif abs(nx - old[0]) < 0.5 <= abs(ny - old[1]):
+                near.set("x", num(float(near.get("x", 0)) + dx))
+    return tilted
 
 
 def touching(n, p, tol=4.0):
@@ -773,6 +872,7 @@ def mxfile(spec, model=None):
     # offset (ubl-offset), and a reader of the file takes it off again.
     M = math.ceil(end_size + 2 * S["edge"]) + 2
     body = ET.fromstring('<root><mxCell id="0"/><mxCell id="1" parent="0"/>%s</root>' % "".join(cells))
+    straighten(body)
     for c in body.iter("mxCell"):
         geo = c.find("mxGeometry")
         if geo is None:
