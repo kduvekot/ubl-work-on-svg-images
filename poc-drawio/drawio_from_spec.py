@@ -244,16 +244,25 @@ def mxfile(spec, model=None):
     # lanes' borders are hidden.
     dividers = [d if isinstance(d, (list, tuple)) else [d, S["divider"], 0.0, H]
                 for d in spec.get("dividers", [])]
-    bounds = {round(l["x"] + l["w"], 1) for l in spec["lanes"][:-1]}
+    # a divider on a lane boundary: within 1.5 px of it (the two are
+    # measured apart and differ by a few tenths of a pixel in 37 figures)
+    bounds = [l["x"] + l["w"] for l in spec["lanes"][:-1]]
+    on_bound = {i: min(bounds, key=lambda b: abs(b - d[0])) for i, d in enumerate(dividers)
+                if bounds and min(abs(b - d[0]) for b in bounds) <= 1.5}
     reach = S["frame"] + 3.0
-    as_border = [d for d in dividers
-                 if round(d[0], 1) in bounds and d[2] <= fb[1] + reach and d[3] >= fb[3] - reach]
+    as_border = [d for i, d in enumerate(dividers)
+                 if i in on_bound and d[2] <= fb[1] + reach and d[3] >= fb[3] - reach]
     # ... and only when the frame's line is at least as heavy: a lane's outer
     # borders lie on the frame, and a heavier one would show beside it (the
-    # Tender figures draw 9.5px dividers inside a 4.3px frame)
+    # Tender figures draw 5-6 px dividers inside a 4.3 px frame); and not for
+    # a hairline (CPFR's 0.4 px): two lanes draw their shared border twice,
+    # which leaves a normal line as it is but turns a pale hairline dark
     lane_stroke = as_border[0][1] if as_border and len(as_border) == len(dividers) \
-        and len(as_border) == len(bounds) and max(d[1] for d in as_border) <= S["frame"] \
+        and len(as_border) == len(bounds) and len(set(on_bound.values())) == len(bounds) \
+        and max(d[1] for d in as_border) <= S["frame"] and min(d[1] for d in as_border) >= 1.0 \
         and len({d[1] for d in as_border}) == 1 else None
+    # the lanes' edges then where the dividers were measured
+    at_divider = {round(b, 3): dividers[i][0] for i, b in on_bound.items()} if lane_stroke else {}
     # A lane runs from the frame to the frame, not from the page's edge: its
     # outer borders then lie under the frame's heavier line, and no stroke
     # reaches past the page, which draw.io answers by adding a ring of pages
@@ -274,7 +283,8 @@ def mxfile(spec, model=None):
     # the lanes edge to edge, from the frame's left to its right, as the
     # pool's layout keeps them
     order = sorted(range(len(spec["lanes"])), key=lambda i: spec["lanes"][i]["x"])
-    edges_x = [fb[0]] + [min(max(spec["lanes"][i]["x"] + spec["lanes"][i]["w"], fb[0]), fb[2])
+    edges_x = [fb[0]] + [at_divider.get(round(spec["lanes"][i]["x"] + spec["lanes"][i]["w"], 3),
+                                        min(max(spec["lanes"][i]["x"] + spec["lanes"][i]["w"], fb[0]), fb[2]))
                          for i in order[:-1]] + [fb[2]]
     span = {i: (edges_x[k], edges_x[k + 1]) for k, i in enumerate(order)}
     for i, l in enumerate(spec["lanes"]):
