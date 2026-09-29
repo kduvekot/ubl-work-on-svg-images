@@ -213,10 +213,6 @@ def mxfile(spec, model=None):
             tb = caption_block(c, F)
             title = html_lines(tb["lines"])
             dx = tb["x"] - (d["x"] + d["w"] / 2)
-            if spec.get("house"):
-                # the house style: the title on a white ground, where a lane
-                # divider runs through it
-                kv.update(labelBackgroundColor="#ffffff")
             kv.update(fontFamily=fam, fontSize=float(tb["size"]), fontStyle=1 if c.get("bold") else 0,
                       align="center", verticalAlign="top", spacing=0,
                       spacingTop=tb["cy"] - 0.6 * tb["size"] - d["y"],
@@ -399,12 +395,6 @@ def mxfile(spec, model=None):
                   html=1, endArrow=head, endFill=fill, endSize=end_size,
                   strokeColor="#000000", strokeWidth=float(S["edge"]),
                   exitX=fx, exitY=fy, exitPerimeter=0, entryX=tx, entryY=ty, entryPerimeter=0)
-        if e.get("autoRoute"):
-            # draw.io routes it itself, across and down, from the sides it
-            # finds best (house style, right angles: house_style.py)
-            for k in ("exitX", "exitY", "exitPerimeter", "entryX", "entryY", "entryPerimeter"):
-                kv.pop(k, None)
-            kv.update(edgeStyle="orthogonalEdgeStyle")
         if e.get("arrowBoth"):
             kv.update(startArrow=head, startFill=fill, startSize=end_size)
         if e.get("dash"):

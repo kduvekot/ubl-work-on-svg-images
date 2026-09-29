@@ -1,7 +1,5 @@
 // Render a .drawio file to PNG with draw.io's own drawing code, headlessly.
-//   node render-drawio.js <in.drawio> <out.png> <width> <height> [scale]
-//
-// scale (default 1) draws the model that many times larger, for print.
+//   node render-drawio.js <in.drawio> <out.png> <width> <height>
 //
 // The drawing code is draw.io's viewer (viewer-static.min.js), fetched once
 // from viewer.diagrams.net into DRAWIO_VIEWER_CACHE (default
@@ -34,9 +32,8 @@ async function viewer() {
 }
 
 (async () => {
-  const [inp, out, W, H, Z] = process.argv.slice(2);
-  const z = +(Z || 1);
-  const w = Math.ceil(+W * z), h = Math.ceil(+H * z);
+  const [inp, out, W, H] = process.argv.slice(2);
+  const w = Math.ceil(+W), h = Math.ceil(+H);
   const js = await viewer();
   const browser = await chromium.launch({ executablePath: CHROME });
   const page = await browser.newPage({ viewport: { width: w, height: h } });
@@ -44,7 +41,7 @@ async function viewer() {
     '#g{position:absolute;left:0;top:0;width:' + w + 'px;height:' + h + 'px;overflow:hidden}' +
     '</style></head><body><div id="g"></div></body></html>');
   await page.addScriptTag({ path: js });
-  const version = await page.evaluate(([xml, z]) => {
+  const version = await page.evaluate(xml => {
     const doc = mxUtils.parseXml(xml);
     const model = doc.getElementsByTagName('mxGraphModel')[0];
     const graph = new Graph(document.getElementById('g'));
@@ -57,9 +54,9 @@ async function viewer() {
     // with the SVG's
     const frame = doc.querySelector('object[ubl-kind="frame"]');
     const m = frame ? +(frame.getAttribute('ubl-offset') || 0) : 0;
-    graph.view.scaleAndTranslate(z, -m, -m);
+    graph.view.scaleAndTranslate(1, -m, -m);
     return (typeof EditorUi !== 'undefined' && EditorUi.VERSION) || mxClient.VERSION;
-  }, [fs.readFileSync(inp, 'utf8'), z]);
+  }, fs.readFileSync(inp, 'utf8'));
   await page.waitForTimeout(200);
   await page.screenshot({ path: out, clip: { x: 0, y: 0, width: w, height: h } });
   await browser.close();
