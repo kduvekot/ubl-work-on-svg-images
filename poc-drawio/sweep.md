@@ -72,12 +72,12 @@ Figures with nothing left undrawn: 78. Their red: at most 5.95 %, mean 2.09 %.
 | UBL-2.2-CRP-SalesAndInventoryMovement | 1.06 | 1.57 | action |  |
 | UBL-2.2-CRP-InitialStockingByRetailer | 0.85 | 1.63 | action |  |
 | UBL-2.3-ManifestProcess | 0.04 | 2.16 | final |  |
-| UBL-2.2-IMFM-BasicTransportExecutionPlan | 0.43 | 1.61 | final |  |
+| UBL-2.2-IMFM-BasicTransportExecutionPlan | 0.45 | 1.62 | final |  |
 | UBL-2.2-ROCD-InitialStocking | 0.68 | 1.25 | action |  |
 | UBL-2.0-PaymentNotificationProcess | 0.34 | 1.45 | final |  |
 | UBL-2.3-TransitDeclarationProcess | 0.12 | 1.51 | final |  |
 | UBL-2.3-ImportDeclarationProcess | 0.06 | 1.47 | final |  |
-| UBL-2.2-InitiateFreightMgmtProcess | 0.54 | 0.97 | action |  |
+| UBL-2.2-InitiateFreightMgmtProcess | 0.54 | 0.96 | action |  |
 | UBL-2.2-FulfilmentDespatchAdviceProcess | 0.49 | 1.01 | lines (flows, frame, dividers) |  |
 | UBL-2.2-VMI-PermanentReplenishment | 0.43 | 0.96 | action |  |
 | UBL-2.0-CertificationOfOriginOfGoodsProcess | 0.26 | 1.03 | action |  |

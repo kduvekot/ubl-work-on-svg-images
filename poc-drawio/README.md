@@ -86,10 +86,10 @@ into `~/.cache/ubl-drawio-viewer`, and is not committed.
 | element | in draw.io | difference from the SVG, and why |
 |---|---|---|
 | **page** | the figure's size plus a margin of about one arrowhead all round; the drawing sits that far in. The frame records the offset (`ubl-offset`), and a reader takes it off. | none in the drawing. draw.io grows an edge's bounds by its arrowhead's size on every side, so a flow running off the page with a head on it (CPFR) reached past the page, and draw.io opened the figure among a ring of extra pages. |
-| **frame** | a plain rectangle at the measured weight, `connectable=0`, `pointerEvents=0` (a click inside goes to what is there) | none |
-| **lanes** | real `swimlane` containers from frame to frame, with `collapsible=0` and `expand=0`. An action inside a lane is its child, so moving it between lanes changes its party. Title at the measured size and weight, with its measured centre (`startSize`, `spacingLeft/Right`). | none measurable |
-| **lane dividers** | the lanes' own border, when every divider runs frame to frame on a lane boundary and is no heavier than the frame. Otherwise a line cell of its own, as measured (weight and span), with the lanes' borders hidden. | none. With the Tender figures' 9.5 px dividers in a 4.3 px frame, lane borders showed beside the frame, so those figures take the second way. |
-| **documents on a divider** | top-level cells, above both lanes: a document passed between two parties belongs to neither. So the divider runs under it, as in the SVG. | none |
+| **frame** | draw.io's pool: the "Vertical Pool 1" style of its BPMN palette (a `swimlane` with `childLayout=stackLayout`, which lays its lanes out side by side), at the measured weight, with no title bar of its own (`startSize=0`) and `collapsible=0`. Tested in the editor: widening a lane moves the lanes to its right along and grows the pool, as in a pool drawn by hand. | none |
+| **lanes** | the pool's lanes: `swimlane` containers edge to edge from the frame's left to its right, with `collapsible=0` and `expand=0`. An action inside a lane is its child, so moving it between lanes changes its party. Title at the measured size and weight, with its measured centre (`startSize`, `spacingLeft/Right`), and no rule under it (`swimlaneLine=0`), as the artwork has none. Nothing but lanes goes into the pool, which would lay it out as one more lane. | none measurable |
+| **lane dividers** | the lanes' own border, when every divider runs frame to frame on a lane boundary and is no heavier than the frame. Otherwise a line cell of its own, as measured (weight and span), with the lanes' borders hidden; it is a child of the lane to its right, so it moves with that lane. | none. With the Tender figures' 9.5 px dividers in a 4.3 px frame, lane borders showed beside the frame, so those figures take the second way. |
+| **documents on a divider** | a child of the lane to the divider's right, reaching over the divider: drawn after that lane, so the divider runs under it, as in the SVG, and moved with that lane when a lane to its left is widened. (A document passed between two parties belongs to neither party; the model says so, draw.io only needs it to go with the divider.) | none |
 | **action** | rounded rectangle, measured weight, `absoluteArcSize` | draw.io's corners are circular; the artwork's are a little elliptical (e.g. rx 21.6, ry 19.0). The mean radius is used. |
 | **document (object node)** | rectangle, measured weight, bold italic as measured | text only (below) |
 | **decision** | `rhombus`, its question inside or beside it as the artwork has it | text only |
@@ -102,10 +102,10 @@ into `~/.cache/ubl-drawio-viewer`, and is not committed.
 | **dashed flows** | `dashed=1`, `dashPattern` in stroke widths, from the measured dash and gap. Never jumped (`noJump=1`). | Same dash and gap. The SVG also starts the pattern where the artwork's first dash begins (`stroke-dashoffset`), which draw.io cannot say, so the dashes can fall in the gaps. |
 | **line hops** | draw.io's own line jump, `jumpStyle=arc`, set only on the flows the TC's rule hops. draw.io jumps an edge only over edges drawn before it, so those flows are drawn last. `jumpSize` gives the SVG's radius. | none |
 | **guards** | the flow's own label, so it moves with the flow. Placed where the SVG has it: at the nearest point of the line (`x`) plus an `offset`, including where the TC's rule moved it off its line. | White ground (`labelBackgroundColor`) only where the SVG draws one, i.e. where the flow's line runs through the words. Alignment is read from the measurements (flush left where the artwork sets it so). |
-| **free texts** | text cells: a decision's question beside its diamond, a remark, a guard the reading took for a title | text only |
+| **free texts** | text cells: a decision's question beside its diamond, a remark, a guard the reading took for a title; each a child of the lane it stands in, so it moves with it | text only |
 | **flows leaving the page** | an edge attached at one end to its node (so it follows the node), the other end free where the artwork runs it off the page. Its guard is its label. Where it continues is kept as custom properties: `ubl-continues` (the figure), `ubl-counterpart` (the flow there), `ubl-port`, `ubl-direction`. | none. An arrow tip the artwork stops a few pixels short of its node (5.9 px on CPFR Exception Handling) still counts as meeting it, and draw.io runs the line on to the outline. |
 | **phase boxes** (CPFR) | a dashed rounded rectangle at the measured dash, gap, corner and weight; the phase's title is its own label, at the measured place. Drawn under the lanes, with `pointerEvents=0`. | none. On top of the lanes it had caught a drag meant for an action inside it, and was dropped into a lane. |
-| **bands** (2.3 customs, IMFM) | line cells across the lanes, where and as heavy as measured | none |
+| **bands** (2.3 customs, IMFM) | line cells across the lanes, where and as heavy as measured; on the page, under the pool, so under the actions | none. They run across all lanes, so no lane can carry them: widening a lane in draw.io leaves them, and the phase boxes, as they are. |
 | **band titles** (IMFM) | text cells with draw.io's vertical text (`horizontal=0`), reading upwards as the SVG's | text only |
 | **grey rules** | a line cell of its own, black at its measured width (the TC: no grey). The artwork's tone is kept as `ubl-artwork-tone`. | none |
 | **break marks** (Business Card, Digital Capability) | plain lines, both ends free | none |
@@ -131,6 +131,11 @@ arrow keys. What draw.io saved was then compared with the file as written.
 - text;
 - plain edges with `open` or `classic` heads, `dashed` lines and `jumpStyle`
   hops.
+
+Style values that equal draw.io's own defaults are left out, as its palettes
+leave them out: a vertex's white fill, black line and Helvetica type. The
+drawings then also follow draw.io's dark theme on screen; print is black on
+white either way.
 
 There are no custom stencils and no embedded images. The model's ids and
 kinds are draw.io custom properties (`<object>`, Edit Data).
@@ -217,7 +222,8 @@ This is how draw.io treats small shapes, not a fault in the file.
 
 ## Not tried yet
 
-- In the editor: reconnecting a flow to another element, resizing, adding a
-  new action or lane, editing a label. Only moving has been tried.
+- In the editor: reconnecting a flow to another element, resizing an action,
+  adding a new action or lane, editing a label. Moving has been tried, and
+  widening a lane.
 - Reading a draw.io file back into the JSONs, the step toward draw.io as the
   source of truth.

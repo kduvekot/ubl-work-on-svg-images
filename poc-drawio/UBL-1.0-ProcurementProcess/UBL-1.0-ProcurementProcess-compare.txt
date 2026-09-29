@@ -1,4 +1,4 @@
-SVG ink 96446 px, draw.io ink 95175 px (radius 2)
+SVG ink 96446 px, draw.io ink 96623 px (radius 2)
   SVG ink draw.io lacks (red):      512 px  0.531% of the SVG's ink
   draw.io ink the SVG lacks (blue):    332 px  0.344%
   by element kind (red / blue px):

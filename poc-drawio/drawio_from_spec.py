@@ -25,11 +25,19 @@ def num(v, places=2):
     return ("%.*f" % (places, v)).rstrip("0").rstrip(".")
 
 
+# draw.io's own defaults, left out of a style as its palettes leave them out:
+# a vertex is filled white and drawn black, and all text is Helvetica. (A
+# drawing then also follows draw.io's dark theme on screen; print is black on
+# white either way.)
+DEFAULTS = {"fillColor": "#ffffff", "strokeColor": "#000000", "fontFamily": "Helvetica"}
+
+
 def style(**kv):
     # a contact point is a fraction of the node's box: four places keep it
     # within a hundredth of a pixel
     return "".join("%s=%s;" % (k, num(v, 4 if k[:4] in ("exit", "entr") else 2)
-                               if isinstance(v, float) else v) for k, v in kv.items())
+                               if isinstance(v, float) else v) for k, v in kv.items()
+                   if DEFAULTS.get(k) != v)
 
 
 def esc(s):
@@ -122,8 +130,8 @@ def cell(ident, value, kind, props, attrs, geometry):
 def lane_of(spec, n):
     """The lane a node lies wholly inside, or None. A node across a lane
     boundary - a document passed between the parties, drawn on the divider -
-    belongs to neither lane: it is a top-level cell, drawn over both lanes, so
-    the divider runs under it as in the SVG."""
+    lies wholly in neither: the writer puts it in the lane to the boundary's
+    right, drawn after that lane, so the divider runs under it as in the SVG."""
     for l in spec["lanes"]:
         if l["x"] <= n["x"] and n["x"] + n["w"] <= l["x"] + l["w"]:
             return l
@@ -188,10 +196,6 @@ def mxfile(spec, model=None):
                           '<mxGeometry x="%s" y="%s" width="%s" height="%s" as="geometry"/>'
                           % (num(x), num(y), num(w), num(h))))
 
-    # the activity's frame: a plain box at the measured weight, under everything
-    vertex("frame", "", style(rounded=0, fillColor="none", strokeColor="#000000",
-                              strokeWidth=float(S["frame"]), connectable=0, pointerEvents=0, html=1),
-           fb[0], fb[1], fb[2] - fb[0], fb[3] - fb[1], kind="frame")
 
     phase_titles = {c["id"]: c for c in spec.get("captions", []) if c.get("role") == "phase-title"}
     for i, d in enumerate(spec.get("dashed", [])):
@@ -254,9 +258,27 @@ def mxfile(spec, model=None):
     # outer borders then lie under the frame's heavier line, and no stroke
     # reaches past the page, which draw.io answers by adding a ring of pages
     # round the drawing and opening it at a quarter of its size.
+    #
+    # The frame is draw.io's pool (its BPMN palette's "Vertical Pool 1": a
+    # swimlane that lays its lanes out side by side), at the frame's measured
+    # weight and with no title bar of its own; the lanes are its lanes. So a
+    # lane added, removed or widened in draw.io moves its neighbours along, as
+    # in a pool drawn by hand. Nothing but lanes goes into the pool, which
+    # would lay it out as one more lane: a document on a divider stays on the
+    # page, over the pool.
+    vertex("frame", "", style(swimlane="", html=1, childLayout="stackLayout", resizeParent=1, resizeParentMax=0,
+                              startSize=0, whiteSpace="wrap", collapsible=0, fillColor="none",
+                              strokeColor="#000000", strokeWidth=float(S["frame"])).replace("swimlane=;", "swimlane;"),
+           fb[0], fb[1], fb[2] - fb[0], fb[3] - fb[1], kind="frame")
     lane_box = {}
+    # the lanes edge to edge, from the frame's left to its right, as the
+    # pool's layout keeps them
+    order = sorted(range(len(spec["lanes"])), key=lambda i: spec["lanes"][i]["x"])
+    edges_x = [fb[0]] + [min(max(spec["lanes"][i]["x"] + spec["lanes"][i]["w"], fb[0]), fb[2])
+                         for i in order[:-1]] + [fb[2]]
+    span = {i: (edges_x[k], edges_x[k + 1]) for k, i in enumerate(order)}
     for i, l in enumerate(spec["lanes"]):
-        x0, x1 = max(l["x"], fb[0]), min(l["x"] + l["w"], fb[2])
+        x0, x1 = span[i]
         lane_box[l.get("id")] = (x0, fb[1])
         size = l.get("size") or F["lane"]
         # the title's middle where it was measured: its baseline less 0.35 of
@@ -271,13 +293,30 @@ def mxfile(spec, model=None):
         # a title on two lines (Manifest's "Sending Logistics / Operator Party")
         # keeps its break: the label is html, where only <br> breaks a line
         vertex(l.get("id") or "lane%d" % i, html_lines(l["title"].split("\n")), st.replace("swimlane=;", "swimlane;"),
-               x0, fb[1], x1 - x0, fb[3] - fb[1], kind="lane")
+               x0 - fb[0], 0, x1 - x0, fb[3] - fb[1], parent="frame", kind="lane")
+    # What stands at a place in the frame belongs to the lane there, and moves
+    # with it when a lane beside it is widened in draw.io; on a lane's left
+    # edge (a divider), to that lane - drawn after the lane, so over its border
+    lanes_lr = [(span[i][0], span[i][1], spec["lanes"][i].get("id") or "lane%d" % i) for i in order]
+
+    def lane_at(x):
+        for x0, x1, ident in lanes_lr:
+            if x0 - 0.01 <= x < x1 - 0.01:
+                return ident, x0
+        return lanes_lr[-1][2], lanes_lr[-1][0]
+
+    def in_lane(x, y, w, h, at=None):
+        """the parent and the place within it of a box at (x, y, w, h)"""
+        ident, x0 = lane_at(x + w / 2 if at is None else at)
+        return dict(parent=ident), x - x0, y - fb[1]
+
     if not lane_stroke:
         for i, d in enumerate(dividers):
+            p, x, y = in_lane(d[0] - 5, d[2], 10, d[3] - d[2])
             vertex("divider%d" % i, "", style(shape="line", direction="south", html=1,
                                                strokeWidth=float(d[1]), strokeColor="#000000",
                                                connectable=0),
-                   d[0] - 5, d[2], 10, d[3] - d[2], kind="lane-divider")
+                   x, y, 10, d[3] - d[2], kind="lane-divider", **p)
 
     for i, gr in enumerate(spec.get("greyRules", [])):
         # a rule the artwork draws in grey beside a divider: black at its own
@@ -286,14 +325,16 @@ def mxfile(spec, model=None):
         c = gr["at"] + gr["w"] / 2
         # (frame to frame: the frame's line covers the rest, and nothing
         # reaches past the page)
+        p = {}
         if gr["axis"] == "v":
-            geo = (c - 5, fb[1], 10, fb[3] - fb[1])
+            p, x, y = in_lane(c - 5, fb[1], 10, fb[3] - fb[1])
+            geo = (x, y, 10, fb[3] - fb[1])
         else:
             geo = (fb[0], c - 5, fb[2] - fb[0], 10)
         vertex("greyrule%d" % i, "", style(shape="line", direction="south" if gr["axis"] == "v" else "east",
                                            html=1, strokeWidth=float(gr["w"]), strokeColor="#000000",
                                            connectable=0),
-               *geo, kind="lane-divider", **{"ubl-artwork-tone": gr.get("colour")})
+               *geo, kind="lane-divider", **dict(p, **{"ubl-artwork-tone": gr.get("colour")}))
 
     for i, b in enumerate(spec.get("bandLabels", [])):
         # a band's title, running up the gutter: draw.io's vertical text
@@ -311,7 +352,16 @@ def mxfile(spec, model=None):
     for n in spec["nodes"]:
         k = n["kind"]
         lane = lane_of(spec, n)
-        parent, (ox, oy) = (lane["id"], lane_box[lane["id"]]) if lane and lane.get("id") else ("1", (0.0, 0.0))
+        if lane and lane.get("id"):
+            parent, (ox, oy) = lane["id"], lane_box[lane["id"]]
+        else:
+            # across a lane boundary (a document passed between the parties,
+            # on the divider): in the lane to the boundary's right
+            cuts = [x0 for x0, x1, ident in lanes_lr[1:] if n["x"] < x0 < n["x"] + n["w"]]
+            at = min(cuts, key=lambda c: abs(c - (n["x"] + n["w"] / 2))) if cuts else None
+            p, _, _ = in_lane(n["x"], n["y"], n["w"], n["h"], at)
+            parent = p["parent"]
+            ox, oy = lane_box[parent]
         x, y, w, h = n["x"] - ox, n["y"] - oy, n["w"], n["h"]
         value, st = "", ""
         if k in ("action", "object", "decision", "note"):
@@ -520,20 +570,22 @@ def mxfile(spec, model=None):
         g, tb = guard_text[c["id"]]
         box = dict(x=tb["x"] - (c.get("textWidth") or 40) / 2 - 4, y=tb["cy"] - tb["size"],
                    w=(c.get("textWidth") or 40) + 8, h=2 * tb["size"])
+        p, x, y = in_lane(box["x"], box["y"], box["w"], box["h"])
         vertex(c["id"], html_lines(tb["lines"]),
                style(text="", html=1, whiteSpace="nowrap", fontFamily=fam, fontSize=float(tb["size"]),
                      align="center", verticalAlign="middle", **placed_label(box, tb)).replace("text=;", "text;"),
-               box["x"], box["y"], box["w"], box["h"], kind=c.get("role", "text"))
+               x, y, box["w"], box["h"], kind=c.get("role", "text"), **p)
     for g in spec.get("guards", []):
         if g.get("onFlow") or g["id"] in used:
             continue
         # a text that labels no flow - a decision's question, a remark - is a
         # free text cell
         tb = text_block(g, F["guard"])
+        p, x, y = in_lane(g["x"], g["y"], g["w"], g["h"])
         vertex(g.get("id"), html_lines(tb["lines"]),
                style(text="", html=1, fontFamily=fam, fontSize=float(tb["size"]), align=tb["align"],
                      verticalAlign="middle", **placed_label(g, tb)).replace("text=;", "text;"),
-               g["x"], g["y"], g["w"], g["h"], kind=g.get("role", "text"))
+               x, y, g["w"], g["h"], kind=g.get("role", "text"), **p)
 
     # A margin round the drawing. draw.io grows an edge's bounds by its
     # arrowhead's size on every side, so a flow that runs off the page with a
