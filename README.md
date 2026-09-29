@@ -9,6 +9,8 @@ replace them as the figures' source.
 
 ```
 diagrams/<figure>/<figure>.drawio        78 figures, e.g. diagrams/UBL-2.5-BillingwithDebitNoteProcess/
+tools/ubl-library.xml                    the UBL shapes, as a draw.io library, for editing
+tools/check_drawio.py                    the check, run by hand after an edit
 ```
 
 **Edit a figure by opening its `.drawio` file in draw.io** (the desktop app, or
@@ -49,17 +51,47 @@ it is, anything else as JSON.
 | `ubl-question`, `ubl-unstated`, `ubl-passes-to`, `ubl-linked-process`, `ubl-reference`, `ubl-scope`, `ubl-same-as`, `ubl-trigger`, `ubl-annotates`, `ubl-also-in`, `ubl-defined-in`, `ubl-implied-choice`, `ubl-both-ends`, `ubl-title-shown`, `ubl-title-source`, `ubl-mark`, `ubl-rule`, `ubl-on`, `ubl-meaning`, `ubl-labels`, `ubl-draws`, `ubl-segments` | as the model has them | the model's other facts, as recorded with the TC (see the schema in `history/tools/schema/diagram.schema.json` for each) |
 | `ubl-offset` | frame | the margin between page and drawing |
 
+### Editing a drawing
+
+1. Open the figure's `.drawio` file in draw.io.
+2. **Open the UBL shape library once:** `tools/ubl-library.xml`, with
+   *File › Open Library* in the desktop app (*File › Open Library from ›
+   Device* on diagrams.net). It stays in the left panel. Its shapes carry their
+   `ubl-kind` already, in the drawings' style:
+   - action, document (object node), decision, start, end, fork/join bar
+     (horizontal and upright), note, text;
+   - a lane: drop it on the pool, and the pool places it after the last lane;
+   - a control flow and an object flow: drop one, then drag its ends onto the
+     two elements.
+3. Draw new elements from that library, not from draw.io's own palettes: a shape
+   from those has no `ubl-kind`, and the check below reports it.
+4. Tell the model what the drawing cannot show, in *Edit Data* (Ctrl+M) on the
+   element: for a document drawn on a lane divider, the parties it passes between
+   (`ubl-between`, e.g. `["lane-buyer", "lane-seller"]`); for a new flow, its kind
+   if it is neither a control nor an object flow (`ubl-flow`). The check warns
+   where these are missing.
+5. Save, and run the check.
+
+Tested in the draw.io editor (web, 31.5.3) on Billing with Debit Note: a flow
+reconnected to another element, an action resized, another relabelled, an action
+and a flow from the library added and connected, and a lane added to the pool.
+The saved file passed the check, and the model read back out of it changed
+exactly as edited. Moving the pool and widening a lane were tried too: all that
+belongs to the pool and its lanes moves with them.
+
 ### Checking a drawing
 
 ```sh
 python3 tools/check_drawio.py diagrams/*/*.drawio
 ```
 
-checks the conventions a drawing must keep after an edit: every element has a
-known `ubl-kind` and a unique id; the lanes are in the pool and every node in a
-lane; every flow is attached at both ends (a flow leaving the page at one); a
-guard is used once. When you add an element in draw.io, give it an id and a
-`ubl-kind` (Edit Data).
+Run it by hand after an edit. It checks the conventions a drawing must keep:
+every element has a known `ubl-kind` and a unique id; the lanes are in the pool
+and every node in a lane; every flow is attached at both ends (a flow leaving
+the page at one); a guard is used once. A finding makes it fail (exit status 1).
+It also **warns** where the model is poorer than it should be: a flow without
+its kind (`ubl-flow`), a document across a lane divider without the parties it
+passes between (`ubl-between`).
 
 With `--against history/diagrams` it also reads the model back out of each
 drawing and compares it, field by field, with the JSON model it was drawn from.

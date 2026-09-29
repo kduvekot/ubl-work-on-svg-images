@@ -274,9 +274,9 @@ This is how draw.io treats small shapes, not a fault in the file.
 - Widening a lane: the pool grows and the lanes stay edge to edge; the phase
   parts are not taken for lanes.
 - A decision's question moves with its diamond; the break marks with their flow.
-- Opening, editing and saving a drawing keeps its whole model (the check above).
-
-## Not tried yet
-
-- In the editor: reconnecting a flow to another element, resizing an action,
-  adding a new action or lane, editing a label.
+- Opening, editing and saving a drawing keeps its whole model.
+- With the UBL shape library (`tools/ubl-library.xml`): reconnecting a flow to
+  another element, resizing an action, relabelling another, adding an action and a
+  flow and connecting it, adding a lane to the pool. The saved file passed
+  `tools/check_drawio.py`, and the model read back changed exactly as edited
+  (see the top README, "Editing a drawing").

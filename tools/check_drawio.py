@@ -19,6 +19,10 @@ Conventions checked (after an edit in draw.io, too):
     exactly one;
   - a flow's guard names a text of its own, and no text is used twice.
 
+Warned about (not a fault, but the model is poorer without it): a flow
+without its kind (ubl-flow), a document across a lane divider without the
+parties it passes between (ubl-between).
+
 With --against, the model read from the drawing must equal the diagram JSON,
 field for field - all but what records how the PNG was read (a flow's
 direction, the figure's source PNG). Exit status 1 on any finding.
@@ -91,7 +95,8 @@ def conventions(cells):
         if i in ("0", "1"):
             continue
         if c["kind"] not in KINDS:
-            out.append("%s: no known ubl-kind (%r)" % (i, c["kind"]))
+            out.append("%s: no known ubl-kind (%r): take the element from tools/ubl-library.xml, "
+                       "or give it one in Edit Data" % (i, c["kind"]))
     if "frame" not in cells or "childLayout=stackLayout" not in cells["frame"]["style"]:
         out.append("frame: missing, or not a pool")
     for i in lanes:
@@ -110,6 +115,23 @@ def conventions(cells):
     guards = [c["attrs"].get("ubl-guard") for c in cells.values() if c["attrs"].get("ubl-guard")]
     for g in {g for g in guards if guards.count(g) > 1}:
         out.append("text %s: the guard of more than one flow" % g)
+    return out
+
+
+def warnings(cells):
+    """model facts an edit may have left out: not wrong in the drawing, but the
+    model is poorer without them"""
+    out = []
+    lanes = {i: c for i, c in cells.items() if c["kind"] == "lane"}
+    for i, c in cells.items():
+        if c["kind"] == "flow" and not c["attrs"].get("ubl-flow") and not c["attrs"].get("ubl-draws"):
+            out.append("%s: a flow without its kind (ubl-flow: control, object, ...)" % i)
+        if c["kind"] == "object" and c["parent"] in lanes and not c["attrs"].get("ubl-between"):
+            g, lg = c["geo"], lanes[c["parent"]]["geo"]
+            x, w, lw = float(g.get("x", 0)), float(g.get("width", 0)), float(lg.get("width", 0))
+            if x < 0 or x + w > lw:
+                out.append("%s: a document across a lane divider without the parties it passes between "
+                           "(ubl-between: [\"lane-...\", \"lane-...\"])" % i)
     return out
 
 
@@ -204,18 +226,23 @@ def main(argv):
     bad = 0
     for path in argv:
         name = os.path.basename(path)[:-len(".drawio")]
+        warned = []
         try:
             cells, order = read(path)
             found = conventions(cells)
+            warned = warnings(cells)
             if against:
                 want = json.load(open(os.path.join(against, name, name + "-diagram.json")))
                 found += compare(model_of(cells, order), want)
         except (ValueError, ET.ParseError) as e:
             found = [str(e)]
         bad += bool(found)
-        print("%-55s %s" % (name, "ok" if not found else "%d finding(s)" % len(found)))
+        print("%-55s %s" % (name, "ok" if not found else "%d finding(s)" % len(found))
+              + (", %d warning(s)" % len(warned) if warned else ""))
         for f in found:
             print("    " + f)
+        for w in warned:
+            print("    warning: " + w)
     return 1 if bad else 0
 
 
