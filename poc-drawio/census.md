@@ -203,10 +203,11 @@ steps (`house_style.py --avoid`):
    since libavoid cannot tell a flow in from a flow out:
    - a flow in and a flow out never share a corner of a diamond; flows in
      may merge at one, and flows out may split from one;
-   - a busy decision also sends flows out of the middles of its slanted
-     sides, at 45 degrees; each branch out of a decision leaves by its own
-     corner or side where it can, and not by a way out that runs into
-     another box first;
+   - a diamond's flows use its four corners; only a diamond with more flows
+     than corners (five or more) also uses the middles of its slanted sides,
+     at 45 degrees (7 flows in 5 figures). Each branch out of a decision
+     leaves by its own corner where it can, and not by a way out that runs
+     into another box first;
    - every flow leaves or meets a diamond straight for a lead of an
      arrowhead and a label size more (at a corner square, at a slanted side
      at 45 degrees) before it may turn, so an arrowhead is never pressed

@@ -434,10 +434,10 @@ def assign_corners(s):
     since libavoid cannot tell a flow in from a flow out.
 
     A diamond (a decision or merge) offers its four corners, where a flow
-    leaves or arrives square, and the middles of its four slanted sides,
-    where it leaves or arrives at 45 degrees and turns square a little way
-    out - so a decision with four flows out need not crowd them into its
-    corners. Every assignment of the node's flows to these eight places is
+    leaves or arrives square; only a diamond with more flows than corners
+    also offers the middles of its four slanted sides, where a flow leaves
+    or arrives at 45 degrees and turns square a little way out - so such a
+    decision need not crowd its flows into its corners. Every assignment of the node's flows to these eight places is
     tried, and the cheapest kept: a flow should leave towards the box at its
     other end; a corner costs less than a slanted side; a flow in and a flow
     out never share a place; flows in may share one (they merge) at a small
@@ -486,7 +486,8 @@ def assign_corners(s):
         if n["kind"] not in ("decision", "initial", "final"):
             continue
         places = dict((k, (v, CORNER_OUT[k], 0.0)) for k, v in CORNERS.items())
-        if n["kind"] == "decision":
+        # the slanted sides only when a diamond has more flows than corners
+        if n["kind"] == "decision" and len(ends) > len(CORNERS):
             places.update((k, (v, FACET_OUT[k], 0.35)) for k, v in FACETS.items())
         names = list(places)
         # a way out that runs into another box before the one the flow goes

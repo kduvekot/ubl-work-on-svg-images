@@ -103,7 +103,7 @@ What the TC has to choose is which of the two kinds of uniform it wants on paper
 <tr><td>fork bar</td><td>0.5 label sizes thick</td></tr>
 <tr><td>grey rules</td><td>none: one line per divider</td></tr>
 <tr><td>rows and columns</td><td>a document level with the actions that send and receive it; boxes one above the other in a lane stacked in one column; a lane&#8217;s columns evenly spaced</td></tr>
-<tr><td>flows</td><td>across and down, routed round the boxes by libavoid; a busy decision also sends flows out of its slanted sides, at 45 degrees; every flow leaves or meets a diamond straight for an arrowhead&#8217;s length and more</td></tr>
+<tr><td>flows</td><td>across and down, routed round the boxes by libavoid; a decision&#8217;s flows use its corners, and only a decision with more flows than corners also its slanted sides, at 45 degrees; every flow leaves or meets a diamond straight for an arrowhead&#8217;s length and more</td></tr>
 </table>
 <p class="note">Each figure keeps its layout in its order: every element keeps its place above,
 below, left or right of the others, scaled so its labels come out at the house size; boxes keep their
@@ -140,8 +140,9 @@ the most by about 45 %%. Flows are then routed across and down (section 4).</p>
                  'every flow runs across and down: the boxes are first put in rows and columns with the '
                  'boxes their flows join them to, and the flows are then routed round the boxes by libavoid, '
                  'the router of Inkscape and Dunnart. It chooses where a flow meets a box, keeps a margin from '
-                 'every box, avoids bends and crossings, and spaces parallel flows apart. A decision with many '
-                 'flows also sends them from its slanted sides, at 45 degrees; a flow in and a flow out never '
+                 'every box, avoids bends and crossings, and spaces parallel flows apart. A decision uses its '
+                 'corners; only one with more flows than corners also its slanted sides, at 45 degrees. A '
+                 'flow in and a flow out never '
                  'share a corner, and every flow leaves or meets a diamond straight for a stretch, so no '
                  'arrowhead is pressed into a bend. Above, the flows at an angle kept as drawn; below, the '
                  'house style.</p>' % esc(n))
