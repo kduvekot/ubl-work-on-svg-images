@@ -177,6 +177,13 @@ steps (`house_style.py --avoid`):
      *reject order*, *change order* and *cancel order* in the Seller's lane.
      A column is not formed where a box would stand between two boxes of it
      joined by a flow, or in the way of an off-page flow leaving one of them.
+     Flows down a column are kept together first. Where a decision (or fork)
+     has two branches down its column, the branch that goes further down
+     continues the column, and the nearer one steps aside, to the side where
+     its own flows go. In GoodsItemPassportApproval, *Valid?* now sits under
+     *Receive and Verify*: *Yes* runs straight down to *Apply Stamps*, and
+     *No* leaves the right corner for *Send Reject*, beside it towards its
+     document. No line crosses another there.
    - *Even spacing.* The columns of a lane are spaced evenly: the same gap
      between them and at the lane's edges, clear of the documents on its
      dividers. A lane is widened where they do not fit with at least 3 label
@@ -221,7 +228,9 @@ steps (`house_style.py --avoid`):
    - a document on a lane divider is not met at the middle of its top or
      bottom, so no flow runs along the divider;
    - guards are not obstacles: a guard a route then runs through is put
-     beside the start of its flow, in free space.
+     beside the start of its flow, in free space. A decision's question
+     moves with its decision, and where a route then runs through it, it
+     goes to the first clear place round the diamond.
 
    Where libavoid finds no way, the flow is tried again, free to meet both
    boxes anywhere; if there is still none, it is drawn as before.
@@ -231,8 +240,8 @@ through a box, every route ends on its boxes' outline, no off-page flow runs
 through a box, and none is left unrouted. Every flow at a diamond has its full
 lead (before: 35 in 20 figures turned within an arrowhead's length of it); 3
 flows into an ordinary box still turn close to it, where there was no room to
-move the stretch before. 71 figures end with nothing too close; in 7 a guard
-is still close to a box, to be looked at one by one.
+move the stretch before. 74 figures end with nothing too close; in 4 a box or
+a guard is still close to a fork bar or a box, to be looked at one by one.
 
 Two simpler ways were tried first and set aside:
 

@@ -579,8 +579,15 @@ def grid(s):
         if not g.get("onFlow") and g.get("labelLines"):
             p = (sum(l["cx"] for l in g["labelLines"]) / len(g["labelLines"]),
                  sum(l["cy"] for l in g["labelLines"]) / len(g["labelLines"]))
-            g["near"] = min(s["nodes"], key=lambda n: max(n["x"] - p[0], p[0] - n["x"] - n["w"], 0) +
-                            max(n["y"] - p[1], p[1] - n["y"] - n["h"], 0))["id"]
+            dist = lambda n: max(n["x"] - p[0], p[0] - n["x"] - n["w"], 0) + max(n["y"] - p[1], p[1] - n["y"] - n["h"], 0)  # noqa: E731
+            near = min(s["nodes"], key=dist)
+            # a question goes with its decision, when one is close by
+            dec = [n for n in s["nodes"] if n["kind"] == "decision"]
+            if dec:
+                d = min(dec, key=dist)
+                if dist(d) <= dist(near) + 6 * EM:
+                    near = d
+            g["near"] = near["id"]
     for o in s.get("openEnds", []):
         # the box an off-page flow starts or ends at: the one nearest its ends
         dist = lambda n, p: max(n["x"] - p[0], p[0] - n["x"] - n["w"], 0) + max(n["y"] - p[1], p[1] - n["y"] - n["h"], 0)  # noqa: E731
@@ -684,11 +691,11 @@ def grid(s):
         for e in flows:
             a, b = e["from"], e["to"]
             if a in mset and b in mset and way(e) == "down":
-                pairs.append((abs(cx(byid[a]) - cx(byid[b])), a, b))
+                pairs.append(((0, abs(cx(byid[a]) - cx(byid[b]))), a, b))
         for i, a in enumerate(mem):
             for b in mem[i + 1:]:
                 if spans(byid[a], byid[b], "x", 0):
-                    pairs.append((abs(cx(byid[a]) - cx(byid[b])), a, b))
+                    pairs.append(((1, abs(cx(byid[a]) - cx(byid[b]))), a, b))
 
         # every flow between two boxes of a column (not only one down it):
         # a box between them sends it round
@@ -716,8 +723,50 @@ def grid(s):
                     if any(lo < cy(byid[c]) < hi for c in m if c != a):
                         return False
             return True
-        cols = union(mem, pairs, col_ok)
+        # a decision (or fork) with two branches down its column: the branch
+        # that goes further down continues the column, and the nearer one,
+        # which would stand in its way, steps aside - to the side its own
+        # flows go (GoodsItemPassportApproval: Valid? above Apply Stamps,
+        # Send Reject beside, towards its document)
+        apart, evicted = set(), {}
+        plain_ok = col_ok
+
+        def col_ok(g1, g2):
+            if any(frozenset((a, b)) in apart for a in g1 for b in g2):
+                return False
+            return plain_ok(g1, g2)
+        for _ in range(4):
+            cols = union(mem, pairs, col_ok)
+            gc = {i: k for k, g in enumerate(cols) for i in g}
+            new = False
+            for a in mem:
+                if byid[a]["kind"] not in ("decision", "fork"):
+                    continue
+                outs = [e["to"] for e in flows if e["from"] == a and e["to"] in mset]
+                for b in outs:
+                    for c in outs:
+                        if b == c or gc[b] != gc[a] or gc[c] == gc[a] or b in evicted:
+                            continue
+                        if cy(byid[a]) < cy(byid[b]) < cy(byid[c]) and spans(byid[c], byid[a], "x", 0):
+                            apart.add(frozenset((a, b)))
+                            evicted[b] = a
+                            new = True
+            if not new:
+                break
         cols.sort(key=lambda g: sum(cx(byid[i]) for i in g) / len(g))
+        for b, a in evicted.items():
+            cb = next(g for g in cols if b in g)
+            ca = next(g for g in cols if a in g)
+            if cb is ca:
+                continue
+            others = [cx(byid[e["to"] if e["from"] in cb else e["from"]]) for e in s["edges"]
+                      if (e["from"] in cb) != (e["to"] in cb) and a not in (e["from"], e["to"])]
+            if not others:
+                continue
+            side = sum(others) / len(others) - cx(byid[a])
+            cols.remove(cb)
+            k = cols.index(ca)
+            cols.insert(k + 1 if side > 0 else k, cb)
         ncols += sum(1 for g in cols if len(g) > 1)
         # the lane's room for its columns: clear of the documents on its dividers
         half = lambda r: max([byid[i]["w"] / 2 for i in onr if byid[i]["x"] < r < byid[i]["x"] + byid[i]["w"]] + [0])  # noqa: E731
@@ -1085,7 +1134,8 @@ def _items(s):
             x0 = min(l["cx"] - l["w"] / 2 for l in ll)
             y0 = min(l["cy"] for l in ll) - EM * 0.6
             out.append(dict(id=g["id"], x=x0, y=y0, w=max(l["cx"] + l["w"] / 2 for l in ll) - x0,
-                            h=max(l["cy"] for l in ll) + EM * 0.6 - y0, kind="guard", flow=g.get("onFlow")))
+                            h=max(l["cy"] for l in ll) + EM * 0.6 - y0, kind="guard", flow=g.get("onFlow"),
+                            near=None if g.get("onFlow") else g.get("near")))
     for t in s["lanes"]:
         if t.get("title"):
             out.append(dict(id=t.get("id"), x=t["cx"] - t["textWidth"] / 2, y=t["cy"] - EM * 0.7,
@@ -1120,6 +1170,9 @@ def conflicts(s):
             ov_x = min(a["x"] + a["w"], b["x"] + b["w"]) - max(a["x"], b["x"])
             ov_y = min(a["y"] + a["h"], b["y"] + b["h"]) - max(a["y"], b["y"])
             e = flows.get(frozenset((a["id"], b["id"])))
+            if (a.get("near") and a["near"] == b["id"]) or (b.get("near") and b["near"] == a["id"]):
+                if ov_x <= 0 or ov_y <= 0:
+                    continue                      # a decision's question, beside it as it should be
             need = (need_decision(s) if e and "decision" in (a["kind"], b["kind"]) else need_flow) if e else max(gap.get(a["kind"], 0.5 * EM), gap.get(b["kind"], 0.5 * EM))
             if not e and (ov_x <= 0 and ov_y <= 0):
                 continue                          # side by side at a slant: nothing between them

@@ -294,17 +294,10 @@ def simplify(pts):
     return out
 
 
-def place_guard(s, g, e, em=12.0):
-    """a re-routed flow's guard beside the start of its new route: the first
-    free place along its first stretch, on either side, clear of boxes, flows
-    and other words"""
+def _clear_test(s, g, em=12.0):
+    """a test: is a box for g's words inside the frame and clear of boxes,
+    flows, lane titles and other words"""
     sp = dict(s, byid={n["id"]: n for n in s["nodes"]})
-    pts = bd.polyline(sp, e)
-    ll = g.get("labelLines") or []
-    if not ll:
-        return
-    w = max(l["w"] for l in ll)
-    h = len(ll) * 1.2 * em
     boxes = [(n["x"], n["y"], n["x"] + n["w"], n["y"] + n["h"]) for n in s["nodes"]]
     for o in s.get("guards", []):
         if o is not g and o.get("labelLines"):
@@ -329,6 +322,51 @@ def place_guard(s, g, e, em=12.0):
     def fits(bx):
         return fb[0] + pad <= bx[0] and bx[2] <= fb[2] - pad and fb[1] + pad <= bx[1] and bx[3] <= fb[3] - pad \
             and free(bx)
+    return fits
+
+
+def place_question(s, g, em=12.0):
+    """a decision's question (words on no flow) that a route or box now runs
+    through: put at the first clear place round its diamond - above left,
+    above right, below left, below right, then beside the side corners"""
+    n = next((m for m in s["nodes"] if m["id"] == g.get("near")), None)
+    ll = g.get("labelLines") or []
+    if n is None or not ll:
+        return False
+    w = max(l["w"] for l in ll)
+    h = len(ll) * 1.2 * em
+    fits = _clear_test(s, g, em)
+    pad = 0.3 * em
+    cx, cy = n["x"] + n["w"] / 2, n["y"] + n["h"] / 2
+    x0, x1, y0, y1 = n["x"], n["x"] + n["w"], n["y"], n["y"] + n["h"]
+    spots = [(cx - pad - w, y0 - h + n["h"] / 4), (cx + pad, y0 - h + n["h"] / 4),
+             (cx - pad - w, y1 - n["h"] / 4), (cx + pad, y1 - n["h"] / 4),
+             (x0 - pad - w, cy - h - pad), (x1 + pad, cy - h - pad),
+             (x0 - pad - w, cy + pad), (x1 + pad, cy + pad)]
+    for px, py in spots:
+        bx = (px, py, px + w, py + h)
+        if fits(bx):
+            for i, l in enumerate(ll):
+                l["cx"] = bx[0] + l["w"] / 2
+                l["cy"] = bx[1] + (i + 0.5) * 1.2 * em
+            g["x"], g["y"], g["w"], g["h"] = bx[0], bx[1], w, h
+            return True
+    return False
+
+
+def place_guard(s, g, e, em=12.0):
+    """a re-routed flow's guard beside the start of its new route: the first
+    free place along its first stretch, on either side, clear of boxes, flows
+    and other words"""
+    sp = dict(s, byid={n["id"]: n for n in s["nodes"]})
+    pts = bd.polyline(sp, e)
+    ll = g.get("labelLines") or []
+    if not ll:
+        return
+    w = max(l["w"] for l in ll)
+    h = len(ll) * 1.2 * em
+    fits = _clear_test(s, g, em)
+    pad = 0.3 * em
     for a, b in zip(pts, pts[1:]):                 # the first stretch first
         L = math.dist(a, b)
         if L < 1:
@@ -780,6 +818,9 @@ def route_libavoid(s, em=12.0):
         if e is None or e.get("id") in failed:
             continue
         if (e.get("id") in anew or guard_blocked(s, g, em)) and place_guard(s, g, e, em):
+            placed += 1
+    for g in s.get("guards", []):
+        if not g.get("onFlow") and g.get("near") and guard_blocked(s, g, em) and place_question(s, g, em):
             placed += 1
     s["unrouted"] = failed
     return len(anew) - len([f for f in failed if f in anew]), placed
