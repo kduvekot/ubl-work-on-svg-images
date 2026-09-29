@@ -198,6 +198,15 @@ def mxfile(spec, model=None):
 
 
     phase_titles = {c["id"]: c for c in spec.get("captions", []) if c.get("role") == "phase-title"}
+    # a phase's or a lane's title the reading kept as a free text (CPFR
+    # Establishing Collaborative Relationships and Exception Monitor; Waste
+    # Movement's and Freight Status Reporting's lane names) is still that
+    # phase box's or lane's own label, as draw.io has it, in its own weight
+    phase_titles.update({g["id"]: g for g in spec.get("guards", []) if g.get("role") == "phase-title"
+                         and g["id"] not in phase_titles})
+    lane_titles = {g["id"][:-len("-title")]: g for g in spec.get("guards", [])
+                   if g.get("role") == "lane-title" and g["id"].endswith("-title")}
+    taken = set()
     for i, d in enumerate(spec.get("dashed", [])):
         # a CPFR phase: the dashed rounded box the diagram is drawn inside, at
         # the artwork's dash, gap and corner; its title is the box's own label,
@@ -214,8 +223,9 @@ def mxfile(spec, model=None):
         title = ""
         c = phase_titles.get(ident)
         if c:
-            tb = caption_block(c, F)
+            tb = text_block(c, F["guard"]) if c.get("labelLines") else caption_block(c, F)
             title = html_lines(tb["lines"])
+            taken.add(ident)
             dx = tb["x"] - (d["x"] + d["w"] / 2)
             kv.update(fontFamily=fam, fontSize=float(tb["size"]), fontStyle=1 if c.get("bold") else 0,
                       align="center", verticalAlign="top", spacing=0,
@@ -223,7 +233,17 @@ def mxfile(spec, model=None):
                       **{"spacingLeft" if dx > 0 else "spacingRight": 2 * abs(dx)})
         vertex(ident, title, style(**kv), d["x"], d["y"], d["w"], d["h"], kind="phase-boundary")
 
+    # the rule under the lane titles, across the whole frame and above every
+    # node (the 2.3 customs figures, IMFM's top rule), is the lanes' own
+    # header line (swimlaneLine), under a header as deep as the rule is low
+    bands = [b if isinstance(b, (list, tuple)) else [b, S["divider"], 0.0, W] for b in spec.get("bands", [])]
+    top = min((n["y"] for n in spec["nodes"]), default=H)
+    header = next((b for b in sorted(bands) if b[0] < top and len(b) > 3
+                   and b[3] - b[2] >= 0.9 * (fb[2] - fb[0])
+                   and all(b[0] > (l.get("baseline") or l.get("cy", 0)) for l in spec["lanes"])), None)
     for i, b in enumerate(spec.get("bands", [])):
+        if header is not None and bands[i] is header:
+            continue
         # a band's rule across the lanes (the 2.3 customs figures' rule under
         # the lane titles; IMFM's planning, execution and completion): a line
         # cell, where and as heavy as measured - drawn before the lanes, so
@@ -291,12 +311,24 @@ def mxfile(spec, model=None):
     for i, l in enumerate(spec["lanes"]):
         x0, x1 = span[i]
         lane_box[l.get("id")] = (x0, fb[1])
+        g = lane_titles.get(l.get("id")) if not l.get("title") else None
+        if g:
+            tb = text_block(g, F["lane"])
+            l = dict(l, title="\n".join(tb["lines"]), size=tb["size"], cy=tb["cy"], cx=tb["x"],
+                     bold=g.get("bold"), baseline=None)
+            taken.add(g["id"])
         size = l.get("size") or F["lane"]
         # the title's middle where it was measured: its baseline less 0.35 of
         # its size, as the SVG sets it; startSize is twice its depth in the lane
         cy = (l["baseline"] - size * 0.35 if l.get("baseline") else l.get("cy", size)) - fb[1]
         d = l.get("cx", (x0 + x1) / 2) - (x0 + x1) / 2
-        st = style(swimlane="", expand=0, horizontal=1, startSize=2 * cy, swimlaneLine=0, collapsible=0, html=1,
+        head = dict(startSize=2 * cy, swimlaneLine=0)
+        if header is not None:
+            # the title's middle where it was measured, within the header
+            dy = cy - (header[0] - fb[1]) / 2
+            head = dict(startSize=header[0] - fb[1], swimlaneLine=1,
+                        **{"spacingTop" if dy > 0 else "spacingBottom": 2 * abs(dy)})
+        st = style(swimlane="", expand=0, horizontal=1, **head, collapsible=0, html=1,
                    fillColor="none", strokeColor="#000000" if lane_stroke else "none",
                    strokeWidth=float(lane_stroke or S["divider"]), fontFamily=fam,
                    fontSize=float(size), fontStyle=1 if l.get("bold") else 0,
@@ -363,6 +395,30 @@ def mxfile(spec, model=None):
 
     grow = {n["id"]: min(4.0, (n["w"] + 8) / 5, (n["h"] + 8) / 5)
             for n in spec["nodes"] if n["kind"] == "initial"}
+    # A text beside a decision, a start or an end - the decision's question,
+    # where the flow comes from or goes to - is that node's own label, placed
+    # beside it where the SVG has it, as draw.io labels a node outside its
+    # shape; it then moves with the node. The nearest such node within 60px
+    # takes it, one text to a node; any other text stays a text of its own.
+    def gap(a, b):
+        dx = max(b["x"] - a["x"] - a["w"], a["x"] - b["x"] - b["w"], 0)
+        dy = max(b["y"] - a["y"] - a["h"], a["y"] - b["y"] - b["h"], 0)
+        return math.hypot(dx, dy)
+    loose = [(g, text_block(g, F["guard"])) for g in spec.get("guards", [])
+             if not g.get("onFlow") and g["id"] not in taken and g["id"] not in offpage_guard
+             and g.get("role") not in ("lane-title", "phase-title")]
+    for c in spec.get("captions", []):
+        if c.get("role") != "phase-title" and c["id"] not in offpage_guard:
+            tb = caption_block(c, F)
+            w = (c.get("textWidth") or 40) + 8
+            loose.append((dict(c, x=tb["x"] - w / 2, y=tb["cy"] - tb["size"], w=w, h=2 * tb["size"]), tb))
+    beside = sorted((gap(t, n), n["id"], t["id"], tb) for t, tb in loose for n in spec["nodes"]
+                    if n["kind"] in ("decision", "initial", "final") and not (n.get("labelLines") or n.get("label")))
+    node_text = {}
+    for d, nid, tid, tb in beside:
+        if d <= 60 and nid not in node_text and tid not in taken:
+            node_text[nid] = tb
+            taken.add(tid)
     for n in spec["nodes"]:
         k = n["kind"]
         lane = lane_of(spec, n)
@@ -390,6 +446,22 @@ def mxfile(spec, model=None):
             text = dict(html=1, whiteSpace="nowrap", fontFamily=fam, fontSize=float(tb["size"]),
                         fontStyle=font_style(bold, italic), align=tb["align"],
                         verticalAlign="middle", **placed_label(n, tb))
+        if n["id"] in node_text:
+            tb = node_text[n["id"]]
+            value = html_lines(tb["lines"])
+            g = grow.get(n["id"], 0.0)
+            box = dict(x=n["x"] - g, y=n["y"] - g, w=n["w"] + 2 * g, h=n["h"] + 2 * g)
+            sp = placed_label(box, tb)
+            if k in ("initial", "final"):
+                # draw.io sets a left- or right-aligned label on its start and
+                # end states in from the side by the disc's inset, min(4, w/5,
+                # h/5) (measured: 4px on a 58.6px state)
+                inset = min(4.0, box["w"] / 5, box["h"] / 5)
+                for key in ("spacingLeft", "spacingRight"):
+                    if key in sp and tb["align"] != "center":
+                        sp[key] -= inset
+            text = dict(html=1, whiteSpace="nowrap", fontFamily=fam, fontSize=float(tb["size"]),
+                        fontStyle=0, align=tb["align"], verticalAlign="middle", **sp)
         if k == "action":
             # draw.io rounds a corner with one radius; the artwork's are a
             # little elliptical (rx, ry), so their mean is taken
@@ -413,12 +485,13 @@ def mxfile(spec, model=None):
             g = grow[n["id"]]
             x, y, w, h = x - g, y - g, w + 2 * g, h + 2 * g
             st = style(ellipse="", shape="startState", fillColor="#000000",
-                       strokeColor="none", html=1).replace("ellipse=;", "ellipse;")
+                       strokeColor="none", **(text if n["id"] in node_text else dict(html=1))).replace("ellipse=;", "ellipse;")
         elif k == "final":
             # draw.io's end state insets its disc by at most 4px; the artwork's
             # ring is wider (innerRatio), which draw.io cannot say
             st = style(ellipse="", shape="endState", fillColor="#000000", strokeColor="#000000",
-                       strokeWidth=float(S["action"]), html=1).replace("ellipse=;", "ellipse;")
+                       strokeWidth=float(S["action"]),
+                       **(text if n["id"] in node_text else dict(html=1))).replace("ellipse=;", "ellipse;")
         elif k == "fork":
             # the fork/join bar of draw.io's UML palette, horizontal or upright
             # as measured. The palette fills it with "strokeColor"; inside a
@@ -434,6 +507,31 @@ def mxfile(spec, model=None):
     # before it, so the hopping flows go last; a dashed flow is never jumped
     # (noJump=1). jumpSize is chosen so draw.io's radius, (jumpSize-2)/2 plus
     # the stroke, is the SVG's.
+    # A flow the reading found only in part (BusinessCard, DigitalCapability:
+    # the document's flow runs down the lane divider, and only its last
+    # stretch was read as a line of its own) is still that flow, when the
+    # model names both its ends: attached to the document and the action, with
+    # its bend where the stretch begins, so it moves with them
+    model_flows = {f["id"]: f for f in model.get("flows", [])}
+    spec_ids = {e.get("id") for e in spec["edges"]}
+    joined = set()
+    for oe in spec.get("openEnds", []):
+        f = model_flows.get(oe.get("id"))
+        if not f or oe["id"] in offpage or oe["id"] in spec_ids or oe.get("role") == "lane-divider" \
+                or f["from"] not in spec["byid"] or f["to"] not in spec["byid"]:
+            continue
+        a, b = spec["byid"][f["from"]], spec["byid"][f["to"]]
+        p, q = oe["points"][0], oe["points"][-1]
+        if math.dist(q, (b["x"] + b["w"] / 2, b["y"] + b["h"] / 2)) > math.dist(p, (b["x"] + b["w"] / 2, b["y"] + b["h"] / 2)):
+            p, q = q, p
+
+        def side_point(n, pt):
+            """pt carried straight onto n's outline, as a fraction"""
+            return [min(max((pt[0] - n["x"]) / n["w"], 0.0), 1.0), min(max((pt[1] - n["y"]) / n["h"], 0.0), 1.0)]
+        spec["edges"].append(dict(id=oe["id"], **{"from": f["from"], "to": f["to"]},
+                                  exitXY=side_point(a, p), entryXY=side_point(b, q),
+                                  points=[list(p)], confidence="joined"))
+        joined.add(oe["id"])
     hops = bd.line_hops(spec)
     r = bd.hop_radius(spec)
     mw = spec.get("arrow", 20)
@@ -449,9 +547,11 @@ def mxfile(spec, model=None):
     head, fill = ("classic", 1) if spec.get("arrowStyle") == "filled" else ("open", 0)
     guards = {g["onFlow"]: g for g in spec.get("guards", []) if g.get("onFlow")}
     order = [i for i in range(len(spec["edges"])) if i not in hops] + sorted(hops)
+    edge_pts = {}
     for i in order:
         e = spec["edges"][i]
         pts = bd.polyline(spec, e)
+        edge_pts[e.get("id") or "e%d" % i] = pts
         fx, fy = e.get("exitXY") or bd.SIDE[e["exit"]]
         tx, ty = e.get("entryXY") or bd.SIDE[e["entry"]]
 
@@ -531,6 +631,8 @@ def mxfile(spec, model=None):
                     strokeWidth=float(S["edge"]), endArrow=head if oe.get("arrow") else "none",
                     endFill=fill, endSize=end_size)
         ident = oe.get("id") or "open%d" % i
+        if ident in joined:
+            continue
         if oe.get("role") == "lane-divider" or ident not in offpage:
             # a piece of a divider the reading took for a flow, or the stretch
             # of a flow run down a divider after it leaves it: a plain stroke,
@@ -572,14 +674,32 @@ def mxfile(spec, model=None):
                                   '<mxGeometry x="%s" relative="1" as="geometry"><mxPoint x="%s" y="%s" as="offset"/>'
                                   % (num(2 * t - 1), num(tb["x"] - q[0]), num(tb["cy"] - q[1])), 1)
     for i, m in enumerate(spec.get("crossMarks", [])):
-        # a short stroke across a partition rule: a plain line, both ends free
+        # a short stroke across a flow (BusinessCard's "//"): a line that
+        # belongs to the flow, as a label does - a child of the flow, placed a
+        # fraction along it, so it goes where the flow goes
+        mid = ((m["x1"] + m["x2"]) / 2, (m["y1"] + m["y2"]) / 2)
+        near = min(((math.dist(mid, along(p, mid)[1]), k) for k, p in edge_pts.items()), default=None)
+        if near and near[0] <= 40:
+            k = near[1]
+            t, q = along(edge_pts[k], mid)
+            ln = math.dist((m["x1"], m["y1"]), (m["x2"], m["y2"]))
+            ang = math.degrees(math.atan2(m["y2"] - m["y1"], m["x2"] - m["x1"]))
+            cells.append(cell(m.get("id") or "mark%d" % i, "", "mark", {},
+                              'style="%s" vertex="1" connectable="0" parent="%s"'
+                              % (style(shape="line", html=1, rotation=num(ang), strokeColor="#000000",
+                                       strokeWidth=float(m.get("weight") or S["divider"]), resizable=0), esc(k)),
+                              '<mxGeometry x="%s" y="0" width="%s" height="10" relative="1" as="geometry">'
+                              '<mxPoint x="%s" y="%s" as="offset"/></mxGeometry>'
+                              % (num(2 * t - 1), num(ln), num(mid[0] - q[0] - ln / 2), num(mid[1] - q[1] - 5))))
+            continue
+        # otherwise a short stroke across a partition rule: a plain line, both ends free
         free_edge(cells, m.get("id") or "mark%d" % i, "mark", [(m["x1"], m["y1"]), (m["x2"], m["y2"])],
                   dict(edgeStyle="none", rounded=0, html=1, endArrow="none", strokeColor="#000000",
                        strokeWidth=float(m.get("weight") or S["divider"])))
 
     for c in spec.get("captions", []):
         # a guard the reading took for a title, labelling no flow: a free text
-        if c.get("role") == "phase-title" or c["id"] in used:
+        if c.get("role") == "phase-title" or c["id"] in used or c["id"] in taken:
             continue
         g, tb = guard_text[c["id"]]
         box = dict(x=tb["x"] - (c.get("textWidth") or 40) / 2 - 4, y=tb["cy"] - tb["size"],
@@ -590,7 +710,7 @@ def mxfile(spec, model=None):
                      align="center", verticalAlign="middle", **placed_label(box, tb)).replace("text=;", "text;"),
                x, y, box["w"], box["h"], kind=c.get("role", "text"), **p)
     for g in spec.get("guards", []):
-        if g.get("onFlow") or g["id"] in used:
+        if g.get("onFlow") or g["id"] in used or g["id"] in taken:
             continue
         # a text that labels no flow - a decision's question, a remark - is a
         # free text cell
