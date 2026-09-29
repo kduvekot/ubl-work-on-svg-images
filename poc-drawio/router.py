@@ -440,8 +440,9 @@ def assign_corners(s):
     corners. Every assignment of the node's flows to these eight places is
     tried, and the cheapest kept: a flow should leave towards the box at its
     other end; a corner costs less than a slanted side; a flow in and a flow
-    out never share a place; flows in may share one (they merge), and so may
-    flows out (they split), at a small cost. A disc offers its four corners
+    out never share a place; flows in may share one (they merge) at a small
+    cost, flows out (a split) only at a larger one, since the branches of a
+    decision read best each from its own place. A disc offers its four corners
     only. A fork or join bar takes its flows in on one long side and its
     flows out on the other - the side facing most of where the flows in come
     from - spread along it in the order of where they go.
@@ -488,6 +489,29 @@ def assign_corners(s):
         if n["kind"] == "decision":
             places.update((k, (v, FACET_OUT[k], 0.35)) for k, v in FACETS.items())
         names = list(places)
+        # a way out that runs into another box before the one the flow goes
+        # to is a detour; on a tie, the side of the lane with more room
+        rules = sorted(d[0] if isinstance(d, list) else d for d in s.get("dividers", []))
+        fb = s.get("frameBox") or [0, 0, s["canvas"]["w"], s["canvas"]["h"]]
+        left = max([r for r in rules if r < c[0]] + [fb[0]])
+        right = min([r for r in rules if r > c[0]] + [fb[2]])
+        roomy = 1 if right - c[0] > c[0] - left else -1
+
+        def blocked(p, o):
+            f, v = places[p][0], places[p][1]
+            vl = math.hypot(*v)
+            x, y = n["x"] + n["w"] * f[0], n["y"] + n["h"] * f[1]
+            far = math.hypot(centre(o)[0] - x, centre(o)[1] - y)
+            for k in range(1, 60):
+                d = far * k / 60
+                px, py = x + v[0] / vl * d, y + v[1] / vl * d
+                if o["x"] <= px <= o["x"] + o["w"] and o["y"] <= py <= o["y"] + o["h"]:
+                    return False
+                if any(m is not n and m is not o and m["x"] <= px <= m["x"] + m["w"] and m["y"] <= py <= m["y"] + m["h"]
+                       for m in s["nodes"]):
+                    return True
+            return False
+        blocked_ = {}
         best = None
         for combo in itertools.product(names, repeat=len(ends)):
             cost = 0.0
@@ -497,16 +521,65 @@ def assign_corners(s):
                 vx, vy = places[p][1]
                 vl = math.hypot(vx, vy)
                 cost += 1 - (vx * (ox - c[0]) + vy * (oy - c[1])) / (d * vl) + places[p][2]
+                if (p, o["id"]) not in blocked_:
+                    blocked_[(p, o["id"])] = blocked(p, o)
+                if blocked_[(p, o["id"])]:
+                    cost += 0.8
+                if vx and vx * roomy < 0:
+                    cost += 0.01
             for i in range(len(ends)):
                 for j in range(i + 1, len(ends)):
                     if combo[i] == combo[j]:
-                        cost += 0.3 if ends[i][1] == ends[j][1] else 100
+                        # flows in may merge at one place; the branches out of
+                        # a decision each leave by their own, where there is one
+                        cost += 100 if ends[i][1] != ends[j][1] else 0.3 if ends[i][1] == "entry" else 1.2
             if best is None or cost < best[0]:
                 best = (cost, combo)
         for (e, w, o), p in zip(ends, best[1]):
             f, v, _ = places[p]
-            out[(e.get("id"), w)] = (f[0], f[1], v if p in FACETS else None)
+            # a diamond's flows run straight out of it for a stretch (see
+            # route_libavoid); a disc's meet it at its corner
+            out[(e.get("id"), w)] = (f[0], f[1], v if p in FACETS or n["kind"] == "decision" else None)
     return out
+
+
+def room_for_head(s, pts, B, head):
+    """A route whose last stretch into B is shorter than the arrowhead needs
+    (the head pressed into the bend): the stretch before it, parallel to B's
+    side, moved out from B by what is missing - where it then runs clear of
+    every box. Returns the route."""
+    if len(pts) < 3:
+        return pts
+    pts = [tuple(p) for p in pts]
+    (x2, y2), (x1, y1), (x0, y0) = pts[-3], pts[-2], pts[-1]
+    last = abs(x0 - x1) + abs(y0 - y1)
+    if last >= head - 0.5:
+        return pts
+    if abs(y0 - y1) < 0.5 and abs(x2 - x1) < 0.5:          # into a left or right side, after a run up or down
+        d = (head - last) * (1 if x1 > x0 else -1)
+        new = [(x2 + d, y2), (x1 + d, y1)]
+    elif abs(x0 - x1) < 0.5 and abs(y2 - y1) < 0.5:        # into a top or bottom, after a run across
+        d = (head - last) * (1 if y1 > y0 else -1)
+        new = [(x2, y2 + d), (x1, y1 + d)]
+    else:
+        return pts
+    if len(pts) == 3:
+        return pts                                        # the run starts at the other box: not moved
+    seg = [pts[-4], new[0], new[1], (x0, y0)]
+    for m in s["nodes"]:
+        if m is B:
+            continue
+        # a box shrunk by a pixel: a route may start on the other box's side
+        n = dict(x=m["x"] + 1, y=m["y"] + 1, w=m["w"] - 2, h=m["h"] - 2)
+        for a, b in zip(seg, seg[1:]):
+            if min(a[0], b[0]) < n["x"] + n["w"] and n["x"] < max(a[0], b[0]) and \
+               min(a[1], b[1]) < n["y"] + n["h"] and n["y"] < max(a[1], b[1]):
+                return pts
+            if (abs(a[0] - b[0]) < 0.5 and n["x"] < a[0] < n["x"] + n["w"] and min(a[1], b[1]) < n["y"] + n["h"]
+                    and n["y"] < max(a[1], b[1])) or (abs(a[1] - b[1]) < 0.5 and n["y"] < a[1] < n["y"] + n["h"]
+                                                      and min(a[0], b[0]) < n["x"] + n["w"] and n["x"] < max(a[0], b[0])):
+                return pts
+    return pts[:-3] + new + [(x0, y0)]
 
 
 def route_libavoid(s, em=12.0):
@@ -523,6 +596,10 @@ def route_libavoid(s, em=12.0):
         pts = bd.polyline(sp, e)
         if not all(abs(a[0] - b[0]) < 1 or abs(a[1] - b[1]) < 1 for a, b in zip(pts, pts[1:])):
             anew.add(e.get("id"))
+        # a flow that bends on its way from (or to) a decision: its place on
+        # the diamond is chosen anew (assign_corners), so its other end is too
+        elif len(pts) > 2 and "decision" in (sp["byid"][e["from"]]["kind"], sp["byid"][e["to"]]["kind"]):
+            anew.add(e.get("id"))
     # a document on a lane divider is not met at the middle of its top or
     # bottom: a flow leaving there would run down the divider itself
     rules = [d[0] if isinstance(d, list) else d for d in s.get("dividers", [])]
@@ -538,8 +615,13 @@ def route_libavoid(s, em=12.0):
               for n in s["nodes"]}
     conns, cls = [], 100
     placed_at = assign_corners(s)
-    slanted = {}                                   # (edge id, which): (point on the side, point 45 degrees out)
-    stub = 0.9 * em
+    slanted = {}                                   # (edge id, which): (point on the diamond, point out along the lead)
+    # a flow leaves (or meets) a diamond straight for a stretch before it may
+    # turn - at a corner square, at a slanted side at 45 degrees - long
+    # enough for an arrowhead and a label size more: the head is never
+    # pressed into the first bend
+    stub = s.get("arrow", 1.35 * em) + em
+    corner_pin = {}
     for e in s["edges"]:
         end = {}
         for which, node, key in (("src", e["from"], "exitXY"), ("dst", e["to"], "entryXY")):
@@ -547,14 +629,62 @@ def route_libavoid(s, em=12.0):
             if at is not None:
                 e[key] = [at[0], at[1]]
                 if at[2] is not None:
-                    # a slanted side of a diamond: the route starts (or ends)
-                    # a little way out along 45 degrees, and the slanted stretch
-                    # is put back in afterwards
+                    # a diamond: the route starts (or ends) a lead's length
+                    # out - from a slanted side along 45 degrees, from a
+                    # corner square - and the lead is put back in afterwards
                     n = sp["byid"][node]
                     p = (n["x"] + n["w"] * at[0], n["y"] + n["h"] * at[1])
-                    q = (p[0] + at[2][0] * stub / math.sqrt(2), p[1] + at[2][1] * stub / math.sqrt(2))
-                    slanted[(e.get("id"), which)] = (p, q)
-                    end[which] = dict(point=list(q))
+                    k = math.hypot(at[2][0], at[2][1])
+                    # as long as there is room: the lead's end clear of every
+                    # other box and the margin libavoid keeps round it
+                    buf = 0.75 * em
+                    def clear_at(q):
+                        return not any(o["id"] != node and o["x"] - buf <= q[0] <= o["x"] + o["w"] + buf
+                                       and o["y"] - buf <= q[1] <= o["y"] + o["h"] + buf for o in s["nodes"])
+                    ln = stub
+                    while ln > 0.9 * em and not clear_at((p[0] + at[2][0] * ln / k, p[1] + at[2][1] * ln / k)):
+                        ln -= 2
+                    q = (p[0] + at[2][0] * ln / k, p[1] + at[2][1] * ln / k)
+                    other = sp["byid"][e["to"] if which == "src" else e["from"]]
+                    straight_on = (at[2][0] == 0 and other["x"] < p[0] < other["x"] + other["w"]) or \
+                                  (at[2][1] == 0 and other["y"] < p[1] < other["y"] + other["h"])
+                    if not clear_at(q) or straight_on:
+                        # no room for a lead, or none needed: the flow runs
+                        # straight on to the box it joins - met at the corner
+                        if at[2][0] and at[2][1]:
+                            ln = 0.9 * em               # a slanted side: the short lead, as before
+                            q = (p[0] + at[2][0] * ln / k, p[1] + at[2][1] * ln / k)
+                        else:
+                            ln = 0
+                    if ln:
+                        slanted[(e.get("id"), which)] = (p, q)
+                    dirs = (UP if at[2][1] < 0 else 0) | (DOWN if at[2][1] > 0 else 0) | \
+                           (LEFT if at[2][0] < 0 else 0) | (RIGHT if at[2][0] > 0 else 0)
+                    if ln == 0:
+                        f = [at[0], at[1]]
+                        sh = shapes[node]
+                        same = [pp for pp in sh["pins"] if pp["cls"] >= 100 and pp["fx"] == f[0] and pp["fy"] == f[1]
+                                and not pp.get("offset")]
+                        if same:
+                            end[which] = dict(shape=node, cls=same[0]["cls"])
+                        else:
+                            sh["pins"].append(dict(cls=cls, fx=f[0], fy=f[1], dir=dirs, exclusive=False))
+                            end[which] = dict(shape=node, cls=cls)
+                            cls += 1
+                    elif at[2][0] == 0 or at[2][1] == 0:
+                        # at a corner: a pin moved out along the lead (libavoid
+                        # starts there, square); flows merging at a corner
+                        # share one pin, as two pins on one point find nothing
+                        key_ = (node, at[0], at[1], round(ln))
+                        if key_ not in corner_pin:
+                            shapes[node]["pins"].append(dict(cls=cls, fx=at[0], fy=at[1], dir=dirs, exclusive=False,
+                                                             offset=-ln))
+                            corner_pin[key_] = cls
+                            cls += 1
+                        end[which] = dict(shape=node, cls=corner_pin[key_])
+                    else:
+                        # at a slanted side: the route starts at the lead's end
+                        end[which] = dict(point=list(q))
                     continue
             if at is None and e.get("id") in anew:
                 end[which] = dict(shape=node, cls=1)
@@ -601,8 +731,8 @@ def route_libavoid(s, em=12.0):
     routes = json.loads(out)
     # a flow libavoid found no route for (it runs a line from centre to
     # centre): tried again on its own, free to meet both boxes anywhere
-    lost = [c for c in conns if c["id"] in routes and len(routes[c["id"]]) >= 2 and "shape" in c["src"]
-            and "shape" in c["dst"] and (lambda n, p: n["x"] + 2 < p[0] < n["x"] + n["w"] - 2 and n["y"] + 2 < p[1]
+    lost = [c for c in conns if c["id"] in routes and len(routes[c["id"]]) >= 2 and c["src"].get("shape") in sp["byid"]
+            and c["dst"].get("shape") in sp["byid"] and (lambda n, p: n["x"] + 2 < p[0] < n["x"] + n["w"] - 2 and n["y"] + 2 < p[1]
                                          < n["y"] + n["h"] - 2)(sp["byid"][c["src"]["shape"]], routes[c["id"]][0])]
     if lost:
         again = dict(job, conns=[dict(c, src=dict(shape=c["src"]["shape"], cls=1), dst=dict(shape=c["dst"]["shape"], cls=1))
@@ -619,8 +749,8 @@ def route_libavoid(s, em=12.0):
         pts = [tuple(p) for p in routes.get(e.get("id")) or []]
         if len(pts) < 2:
             continue
-        pts = simplify(pts)
         A, B = byid[e["from"]], byid[e["to"]]
+        pts = simplify(pts)
         # no route found: libavoid runs a line from centre to centre. The
         # flow then stays as it was drawn.
         inner = lambda n, p: n["x"] + 2 < p[0] < n["x"] + n["w"] - 2 and n["y"] + 2 < p[1] < n["y"] + n["h"] - 2  # noqa: E731
@@ -633,12 +763,15 @@ def route_libavoid(s, em=12.0):
             pts = [sa[0]] + pts
         if sb:
             pts = pts + [sb[0]]
+        pts = simplify(pts)
+        pts = room_for_head(s, pts, B, s.get("arrow", 1.35 * em) + 0.5 * em)
         e["exitXY"] = [min(1, max(0, (pts[0][0] - A["x"]) / A["w"])), min(1, max(0, (pts[0][1] - A["y"]) / A["h"]))]
         e["entryXY"] = [min(1, max(0, (pts[-1][0] - B["x"]) / B["w"])), min(1, max(0, (pts[-1][1] - B["y"]) / B["h"]))]
         e["points"] = [list(p) for p in pts[1:-1]]
         # a route with a slanted stretch is drawn point for point as routed;
         # one across and down stays an orthogonal flow in draw.io
-        e["straight"] = len(pts) == 2 or bool(sa or sb)
+        slant = any(abs(a[0] - b[0]) > 0.5 and abs(a[1] - b[1]) > 0.5 for a, b in zip(pts, pts[1:]))
+        e["straight"] = len(pts) == 2 or slant
     placed = 0
     eby = {e.get("id"): e for e in s["edges"]}
     for g in s.get("guards", []):

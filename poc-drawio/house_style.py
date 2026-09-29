@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """A figure's spec in a house style: one look for the same element everywhere.
 
-    python3 house_style.py <spec.json> <out-spec.json> [--no-space] [--right-angles | --drawio-routing]
+    python3 house_style.py <spec.json> <out-spec.json> [--avoid] [--no-grid] [--no-space]
+                           [--right-angles | --drawio-routing]
 
 A proposal, for the TC to see what a uniform set looks like; nothing of it is
 decided. The figure keeps its layout: it is scaled so its labels come out at
@@ -34,6 +35,10 @@ lane titles. The values are the medians of the census over all 78 figures
                                made exactly so; at an angle: kept (or, with
                                --right-angles / --drawio-routing, routed
                                across and down, as a trial)
+    grid                       boxes joined across in rows, boxes one above
+                               the other in a lane in columns, a lane's
+                               columns evenly spaced (grid; --no-grid for
+                               the smaller step of align_boxes)
     room                       where boxes come too close, or out of their
                                lane, the figure is opened up at a line
                                between them (make_space; --no-space to skip)
@@ -414,6 +419,505 @@ def align_boxes(s, tol=1.5):
     return moves
 
 
+
+def _ink(o):
+    """the box of a node, or of a text's words"""
+    if "w" in o and "h" in o and "x" in o and not o.get("labelLines") or o.get("kind"):
+        return o["x"], o["y"], o["x"] + o["w"], o["y"] + o["h"]
+    ll = o["labelLines"]
+    return (min(l["cx"] - l["w"] / 2 for l in ll), min(l["cy"] for l in ll) - 0.6 * EM,
+            max(l["cx"] + l["w"] / 2 for l in ll), max(l["cy"] for l in ll) + 0.6 * EM)
+
+
+def phase_contents(s):
+    """what each phase box holds, by id: so that it goes on holding it"""
+    out = []
+    for p in s.get("dashed", []):
+        inn = [o["id"] for o in s["nodes"] + [g for g in s.get("guards", []) if g.get("labelLines")]
+               if p["x"] <= _ink(o)[0] and _ink(o)[2] <= p["x"] + p["w"]
+               and p["y"] <= _ink(o)[1] and _ink(o)[3] <= p["y"] + p["h"]]
+        out.append(inn)
+    return out
+
+
+def hold_phases(s, held):
+    """each phase box grown round what it held, a label size clear"""
+    every = {o["id"]: o for o in s["nodes"] + s.get("guards", [])}
+    for p, inn in zip(s.get("dashed", []), held):
+        for i in inn:
+            if i not in every:
+                continue
+            x0, y0, x1, y1 = _ink(every[i])
+            if x0 - EM < p["x"]:
+                p["w"] += p["x"] - (x0 - EM)
+                p["x"] = x0 - EM
+            if y0 - EM < p["y"]:
+                p["h"] += p["y"] - (y0 - EM)
+                p["y"] = y0 - EM
+            p["w"] = max(p["w"], x1 + EM - p["x"])
+            p["h"] = max(p["h"], y1 + EM - p["y"])
+
+
+def _monotone(pairs):
+    """a map from old to new positions, through the (old, new) pairs of the
+    boxes, made monotone: for what is not a box - the frame, dividers, phase
+    boxes, captions - so that it keeps its place among the boxes"""
+    pairs = sorted(pairs)
+    xs, ys, top = [], [], None
+    for o, n in pairs:
+        top = n if top is None else max(top, n - 0.0)
+        if xs and o - xs[-1] < 0.5:
+            ys[-1] = max(ys[-1], top)
+            continue
+        xs.append(o)
+        ys.append(top)
+
+    def f(v):
+        if not xs:
+            return v
+        if v <= xs[0]:
+            return v + ys[0] - xs[0]
+        if v >= xs[-1]:
+            return v + ys[-1] - xs[-1]
+        for i in range(1, len(xs)):
+            if v <= xs[i]:
+                t = (v - xs[i - 1]) / (xs[i] - xs[i - 1])
+                return ys[i - 1] + t * (ys[i] - ys[i - 1])
+        return v
+    return f
+
+
+def _shift_rest(s, axis, old):
+    """after boxes have moved along one axis (old: id -> old centre), move
+    what hangs on them: flows' bends (kept where both ends moved alike, else
+    dropped for the router), guards with their flow, off-page flows with their
+    box; and map the rest (frame, dividers, phase boxes, captions) through the
+    boxes' monotone map"""
+    X = axis == "x"
+    k, kw = ("x", "w") if X else ("y", "h")
+    byid = {n["id"]: n for n in s["nodes"]}
+    d = {i: byid[i][k] + byid[i][kw] / 2 - c for i, c in old.items()}
+    f = _monotone([(c, byid[i][k] + byid[i][kw] / 2) for i, c in old.items()])
+    for e in s["edges"]:
+        a, b = d.get(e["from"], 0), d.get(e["to"], 0)
+        if e.get("points"):
+            if abs(a - b) < 0.5:
+                for p in e["points"]:
+                    p[0 if X else 1] += a
+            else:
+                e["points"] = []
+    eby = {e.get("id"): e for e in s["edges"]}
+    for g in s.get("guards", []):
+        e = eby.get(g.get("onFlow"))
+        if e is not None:
+            m = (d.get(e["from"], 0) + d.get(e["to"], 0)) / 2
+        elif g.get("near") in d:
+            m = d[g["near"]]                     # a question beside its decision
+        else:
+            continue
+        for l in g.get("labelLines", []):
+            l["cx" if X else "cy"] += m
+            if not X and l.get("baseline") is not None:
+                l["baseline"] += m
+        for key in ("x", "cx") if X else ("y", "cy", "baseline"):
+            if g.get(key) is not None and isinstance(g[key], (int, float)):
+                g[key] += m
+    fb = s.get("frameBox")
+    for o in s.get("openEnds", []):
+        # an off-page flow goes with the box it starts or ends at; its other
+        # end stays at the frame's edge, where it was
+        m = d.get(o.get("near"), 0)
+        if not m:
+            continue
+        free = o["points"][-1 if o.get("nearEnd", 0) == 0 else 0]
+        at_edge = fb and any(abs(free[i] - fb[j]) < 3 for i, j in ((0, 0), (0, 2), (1, 1), (1, 3)) if i == (0 if X else 1))
+        keep = list(free)
+        o["points"] = [[p[0] + m, p[1]] if X else [p[0], p[1] + m] for p in o["points"]]
+        if at_edge:
+            j = -1 if o.get("nearEnd", 0) == 0 else 0
+            o["points"][j][0 if X else 1] = keep[0 if X else 1]
+    if X:
+        return
+    for p in s.get("dashed", []):
+        a, b = p[k], p[k] + p[kw]
+        p[k], p[kw] = f(a), f(b) - f(a)
+    for c in s.get("captions", []) + s.get("bandLabels", []):
+        kk = "cx" if X else "cy"
+        m = f(c[kk]) - c[kk]
+        c[kk] += m
+        if not X and c.get("baseline") is not None:
+            c["baseline"] += m
+    for b in s.get("bands", []):
+        b[0] = f(b[0])
+    for m in s.get("crossMarks", []):
+        m["y1"], m["y2"] = f(m["y1"]), f(m["y2"])
+
+
+def grid(s):
+    """Boxes on a grid: rows and columns, the columns of a lane evenly spaced.
+
+    Columns: in each lane, boxes one above the other - joined by a flow down,
+    or overlapping across - are stacked in one column, as long as none of
+    them overlaps another up and down (Procurement's reject order, change
+    order and cancel order, in the Seller's lane). The columns of a lane are
+    then spaced evenly, with the same gap between them and at the lane's
+    edges, clear of the documents on its dividers; the lane is widened where
+    they would not fit with at least 3 label sizes between.
+
+    Rows: boxes joined by a flow across - a document, the action that sends
+    it and the action that receives it - are put level with each other, as
+    long as none of them overlaps another across (the decision if item(s)
+    rejected, level with the ReceiptAdvice it receives). Each row keeps the
+    order of the boxes above and below it, at least a flow's length apart:
+    the figure grows down where a row needs room.
+
+    Returns (columns, rows) of more than one box."""
+    byid = {n["id"]: n for n in s["nodes"]}
+    # a text that is on no flow (a decision's question) goes with the box
+    # nearest to it
+    for g in s.get("guards", []):
+        if not g.get("onFlow") and g.get("labelLines"):
+            p = (sum(l["cx"] for l in g["labelLines"]) / len(g["labelLines"]),
+                 sum(l["cy"] for l in g["labelLines"]) / len(g["labelLines"]))
+            g["near"] = min(s["nodes"], key=lambda n: max(n["x"] - p[0], p[0] - n["x"] - n["w"], 0) +
+                            max(n["y"] - p[1], p[1] - n["y"] - n["h"], 0))["id"]
+    for o in s.get("openEnds", []):
+        # the box an off-page flow starts or ends at: the one nearest its ends
+        dist = lambda n, p: max(n["x"] - p[0], p[0] - n["x"] - n["w"], 0) + max(n["y"] - p[1], p[1] - n["y"] - n["h"], 0)  # noqa: E731
+        best = min(((dist(n, p), k, n["id"]) for n in s["nodes"] for k, p in ((0, o["points"][0]), (1, o["points"][-1]))))
+        o["near"], o["nearEnd"] = best[2], best[1]
+    if not s.get("frameBox"):
+        s["frameBox"] = [0, 0, s["canvas"]["w"], s["canvas"]["h"]]
+    fb = s["frameBox"]
+    need = 1.5 * s["arrow"] + 0.5 * EM
+    need_at = lambda a, b: need_decision(s) if "decision" in (a["kind"], b["kind"]) else need   # noqa: E731
+    gap_min = 3 * EM                             # between columns, at the least
+    gap_row = 1.5 * EM                           # between boxes one above the other, not joined
+    pad = 0.5 * EM
+    cx = lambda n: n["x"] + n["w"] / 2           # noqa: E731
+    cy = lambda n: n["y"] + n["h"] / 2           # noqa: E731
+    wide_bar = lambda n: n["kind"] == "fork" and n["w"] > n["h"] and n["w"] > 4 * EM   # noqa: E731
+    flat_bar = lambda n: n["kind"] == "fork" and n["w"] > n["h"]                       # noqa: E731
+
+    def rules():
+        return sorted(d[0] if isinstance(d, list) else d for d in s.get("dividers", []))
+
+    def on_rule():
+        return {n["id"] for n in s["nodes"] if n["kind"] == "object"
+                and any(n["x"] < r < n["x"] + n["w"] for r in rules())}
+
+    def spans(n, other, axis, p=pad):
+        k, kw = ("x", "w") if axis == "x" else ("y", "h")
+        return n[k] - p < other[k] + other[kw] and other[k] - p < n[k] + n[kw]
+
+    # flows by the way they leave and meet their boxes, as drawn: from a side
+    # to a side runs across, from a top or bottom to a top or bottom runs down,
+    # and one that turns a corner is neither (it keeps its boxes in order)
+    sp = dict(s, byid=byid)
+
+    def side(n, p, q):
+        """'h' where p lies on a left or right side (or corner) of n, else 'v';
+        at a box's corner, the way the flow goes on to q"""
+        if n["kind"] == "decision":
+            return "h" if abs(p[1] - cy(n)) < abs(p[0] - cx(n)) * n["h"] / n["w"] else "v"
+        dx = min(abs(p[0] - n["x"]), abs(p[0] - n["x"] - n["w"]))
+        dy = min(abs(p[1] - n["y"]), abs(p[1] - n["y"] - n["h"]))
+        if dx < 1.5 and dy < 1.5:
+            return "h" if abs(q[0] - p[0]) >= abs(q[1] - p[1]) else "v"
+        return "h" if dx < dy else "v"
+    ways = {}
+    for e in s["edges"]:
+        A, B = byid[e["from"]], byid[e["to"]]
+        pts = bd.polyline(sp, e)
+        a, b = side(A, pts[0], pts[1]), side(B, pts[-1], pts[-2])
+        if flat_bar(A) or flat_bar(B):
+            ways[id(e)] = "down"
+        elif a == b == "h":
+            ways[id(e)] = "across"
+        elif a == b == "v":
+            ways[id(e)] = "down"
+        else:
+            ways[id(e)] = "corner"
+    way = lambda e: ways[id(e)]                  # noqa: E731
+    flows = [e for e in s["edges"] if e["from"] != e["to"]]
+
+    def union(items, pairs, ok, check_all=None):
+        grp = {i: [i] for i in items}
+        for _, a, b in sorted(pairs):
+            if grp[a] is grp[b]:
+                continue
+            if not ok(grp[a], grp[b]):
+                continue
+            if check_all is not None:
+                gs = []
+                for g in grp.values():
+                    if not any(g is o for o in gs) and g is not grp[a] and g is not grp[b]:
+                        gs.append(g)
+                if not check_all(gs + [grp[a] + grp[b]]):
+                    continue
+            m = grp[a] + grp[b]
+            for i in m:
+                grp[i] = m
+        out = []
+        for g in grp.values():
+            if not any(g is o for o in out):
+                out.append(g)
+        return out
+
+    # ---- columns, lane by lane
+    ncols = 0
+    lanes_done = 0
+    while True:
+        rs = rules()
+        edges = [fb[0]] + rs + [fb[2]]
+        if lanes_done >= len(edges) - 1:
+            break
+        L0, R0 = edges[lanes_done], edges[lanes_done + 1]
+        onr = on_rule()
+        mem = [n["id"] for n in s["nodes"] if n["id"] not in onr and L0 < cx(n) < R0 and not wide_bar(n)
+               and not any(n["x"] < r < n["x"] + n["w"] for r in rs)]
+        if not mem:
+            lanes_done += 1
+            continue
+        pairs = []
+        mset = set(mem)
+        for e in flows:
+            a, b = e["from"], e["to"]
+            if a in mset and b in mset and way(e) == "down":
+                pairs.append((abs(cx(byid[a]) - cx(byid[b])), a, b))
+        for i, a in enumerate(mem):
+            for b in mem[i + 1:]:
+                if spans(byid[a], byid[b], "x", 0):
+                    pairs.append((abs(cx(byid[a]) - cx(byid[b])), a, b))
+
+        # every flow between two boxes of a column (not only one down it):
+        # a box between them sends it round
+        down = [(e["from"], e["to"]) for e in flows]
+        # an off-page flow leaving a box up or down: nothing stacked in its way
+        off = []
+        for o in s.get("openEnds", []):
+            pts = o["points"] if o.get("nearEnd", 0) == 0 else o["points"][::-1]
+            if o.get("near") in mset and len(pts) >= 2 and abs(pts[1][0] - pts[0][0]) < 1:
+                off.append((o["near"], pts[1][1]))
+
+        def col_ok(g1, g2):
+            if any(spans(byid[a], byid[b], "y") for a in g1 for b in g2):
+                return False
+            # nothing in the column between two boxes joined down it
+            m = set(g1) | set(g2)
+            for a, b in down:
+                if a in m and b in m:
+                    lo, hi = sorted((cy(byid[a]), cy(byid[b])))
+                    if any(lo < cy(byid[c]) < hi for c in m if c not in (a, b)):
+                        return False
+            for a, y in off:
+                if a in m:
+                    lo, hi = sorted((cy(byid[a]), y))
+                    if any(lo < cy(byid[c]) < hi for c in m if c != a):
+                        return False
+            return True
+        cols = union(mem, pairs, col_ok)
+        cols.sort(key=lambda g: sum(cx(byid[i]) for i in g) / len(g))
+        ncols += sum(1 for g in cols if len(g) > 1)
+        # the lane's room for its columns: clear of the documents on its dividers
+        half = lambda r: max([byid[i]["w"] / 2 for i in onr if byid[i]["x"] < r < byid[i]["x"] + byid[i]["w"]] + [0])  # noqa: E731
+        L = L0 + (half(L0) if L0 in rs else 0)
+        R = R0 - (half(R0) if R0 in rs else 0)
+        widths = [max(byid[i]["w"] for i in g) for g in cols]
+        want = sum(widths) + (len(cols) + 1) * gap_min
+        if R - L < want - 0.5:
+            _stretch(s, "x", R0 - 0.01, want - (R - L))
+            continue                                   # this lane again, now wide enough
+        g = (R - L - sum(widths)) / (len(cols) + 1)
+        old = {i: cx(byid[i]) for i in mem}
+        at = L + g
+        for grp, w in zip(cols, widths):
+            c = at + w / 2
+            for i in grp:
+                n = byid[i]
+                dx = c - cx(n)
+                n["x"] += dx
+                for l in n.get("labelLines", []):
+                    l["cx"] += dx
+            at += w + g
+        _shift_rest(s, "x", old)
+        lanes_done += 1
+    # flows down a column meet both boxes in the middle
+    for e in flows:
+        A, B = byid[e["from"]], byid[e["to"]]
+        if way(e) == "down" and abs(cx(A) - cx(B)) < 0.5 and not e.get("points"):
+            e["exitXY"] = [0.5, (e.get("exitXY") or [0.5, 1])[1]]
+            e["entryXY"] = [0.5, (e.get("entryXY") or [0.5, 0])[1]]
+    # ---- rows, over the whole figure
+    old = {n["id"]: cy(n) for n in s["nodes"]}
+    band_rules = sorted(b[0] for b in s.get("bands", []))
+    band_old = {id(b): b[0] for b in s.get("bands", [])}
+    band_label_old = {id(c): c["cy"] for c in s.get("bandLabels", [])}
+    band = lambda n: sum(1 for r in band_rules if r < cy(n))     # noqa: E731
+    # a box the artwork draws across a band's rule belongs to neither band
+    astride = {n["id"] for n in s["nodes"] if any(n["y"] < r < n["y"] + n["h"] for r in band_rules)}
+    # a box much taller than the one it is joined to across (IMFM's actions,
+    # with a document beside them at every flow) is not lined up with it by
+    # the middle: the flow meets it level, where along its side it can
+    tall = lambda a, b: "decision" not in (a["kind"], b["kind"]) and max(a["h"], b["h"]) > 3 * EM and max(a["h"], b["h"]) > 1.8 * min(a["h"], b["h"])  # noqa: E731
+    pairs = [(abs(cy(byid[e["to"]]) - cy(byid[e["from"]])), e["from"], e["to"]) for e in flows
+             if way(e) == "across" and not wide_bar(byid[e["from"]]) and not wide_bar(byid[e["to"]])
+             and not tall(byid[e["from"]], byid[e["to"]])]
+
+    across = [(e["from"], e["to"]) for e in flows if way(e) == "across"]
+    joined_any = [(e["from"], e["to"]) for e in flows]
+
+    # what must stay above what, box by box (as below, for the rows): a merge
+    # of two rows that would put a row both above and below another is refused
+    kinds = {}
+    for e in flows:
+        kinds[frozenset((e["from"], e["to"]))] = way(e)
+    order = []
+    nl = s["nodes"]
+    for i, a in enumerate(nl):
+        for b in nl[i + 1:]:
+            j = kinds.get(frozenset((a["id"], b["id"])))
+            if (spans(a, b, "x") or j == "down" or (band(a) != band(b) and a["id"] not in astride
+                                                    and b["id"] not in astride)) and abs(cy(a) - cy(b)) >= 0.5:
+                order.append((a["id"], b["id"]) if cy(a) < cy(b) else (b["id"], a["id"]))
+
+    def acyclic(groups):
+        rep = {i: k for k, g in enumerate(groups) for i in g}
+        nxt = {}
+        for a, b in order:
+            if rep[a] == rep[b]:
+                return False                    # two boxes that must be one above the other, in one row
+            nxt.setdefault(rep[a], set()).add(rep[b])
+        state = {}
+
+        def visit(k):
+            state[k] = 1
+            for m in nxt.get(k, ()):
+                if state.get(m) == 1 or (m not in state and not visit(m)):
+                    return False
+            state[k] = 2
+            return True
+        return all(visit(k) for k in list(nxt) if k not in state)
+
+    def row_ok(g1, g2):
+        if band(byid[g1[0]]) != band(byid[g2[0]]):
+            return False
+        if any(spans(byid[a], byid[b], "x") for a in g1 for b in g2):
+            return False
+        # nothing in the row between two boxes joined across: the flow
+        # between them would have to go round it
+        m = set(g1) | set(g2)
+        for a, b in joined_any:
+            if a in m and b in m:
+                lo, hi = sorted((cx(byid[a]), cx(byid[b])))
+                if any(lo < cx(byid[c]) < hi for c in m if c not in (a, b)):
+                    return False
+        return True
+    rows = union([n["id"] for n in s["nodes"]], pairs, row_ok, acyclic)
+    gid = {i: k for k, g in enumerate(rows) for i in g}
+    desired = [sum(old[i] for i in g) / len(g) for g in rows]
+    # what must stay above what, and how far apart (centre to centre)
+    joined = {}
+    for e in flows:
+        joined[frozenset((e["from"], e["to"]))] = way(e)
+    above = {}
+    nodes = list(s["nodes"])
+    # a flow across a row keeps clear of the boxes of other rows, as a box
+    # would: the stretch between its two boxes, as a box of no height
+    for a, b in across:
+        if gid[a] == gid[b]:
+            l, r = sorted((byid[a], byid[b]), key=cx)
+            i = "flow %s %s" % (a, b)
+            byid[i] = dict(id=i, x=l["x"] + l["w"], y=cy(l), w=max(0, r["x"] - l["x"] - l["w"]), h=0, kind="flow")
+            gid[i] = gid[a]
+            old[i] = old[a]
+            nodes.append(byid[i])
+    for i, a in enumerate(nodes):
+        for b in nodes[i + 1:]:
+            ga, gb = gid[a["id"]], gid[b["id"]]
+            if ga == gb:
+                continue
+            j = joined.get(frozenset((a["id"], b["id"])))
+            other_band = a["kind"] != "flow" and b["kind"] != "flow" and band(a) != band(b) \
+                and a["id"] not in astride and b["id"] not in astride
+            if not (spans(a, b, "x") or j == "down" or other_band):
+                continue
+            if abs(old[a["id"]] - old[b["id"]]) < 0.5:
+                continue
+            t, u = (a, b) if old[a["id"]] < old[b["id"]] else (b, a)
+            d = t["h"] / 2 + u["h"] / 2 + ((need_at(t, u)) if j else gap_row)
+            if other_band:
+                d = max(d, t["h"] / 2 + u["h"] / 2 + 2 * EM)     # room for the band's rule between
+            key = (gid[t["id"]], gid[u["id"]])
+            above[key] = max(above.get(key, 0), d)
+    # the lane titles stay at the top: nothing moves up into them
+    tb = max([t["cy"] + 0.7 * EM + pad for t in s["lanes"] if t.get("title")] + [fb[1] + pad])
+    floor = [max(byid[i]["h"] / 2 + min(tb, byid[i]["y"]) for i in g) for g in rows]
+    # rows placed top-down, in order of what must be above what (ties: where
+    # they want to be); a cycle is broken at the row that wants to be highest
+    preds = {k: [] for k in range(len(rows))}
+    for (a, b), d in above.items():
+        preds[b].append((a, d))
+    y = {}
+    todo = set(range(len(rows)))
+    while todo:
+        ready = [k for k in todo if all(a in y or a == k for a, _ in preds[k])]
+        k = min(ready or todo, key=lambda k: desired[k])
+        y[k] = max([desired[k], floor[k]] + [y[a] + d for a, d in preds[k] if a in y])
+        todo.discard(k)
+    for i in [i for i in byid if i.startswith("flow ")]:
+        del byid[i], old[i]
+    nodes = s["nodes"]
+    for k, g in enumerate(rows):
+        for i in g:
+            n = byid[i]
+            dy = y[k] - cy(n)
+            n["y"] += dy
+            for l in n.get("labelLines", []):
+                l["cy"] += dy
+                if l.get("baseline") is not None:
+                    l["baseline"] += dy
+    for e in flows:
+        A, B = byid[e["from"]], byid[e["to"]]
+        if way(e) == "across" and gid[A["id"]] == gid[B["id"]] and not e.get("points"):
+            e["exitXY"] = [(e.get("exitXY") or [1, 0.5])[0], 0.5]
+            e["entryXY"] = [(e.get("entryXY") or [0, 0.5])[0], 0.5]
+    # the frame, dividers and canvas grow with the lowest box
+    low = max(n["y"] + n["h"] for n in nodes) + pad
+    if low > fb[3]:
+        grow = low - fb[3]
+        s["canvas"]["h"] += grow
+        fb[3] = low
+        for dv in s.get("dividers", []):
+            dv[3] += grow
+    _shift_rest(s, "y", old)
+    # a band's rule between the rows above and below it, its title in the
+    # middle of the band
+    for b in s.get("bands", []):
+        r = band_old[id(b)]
+        up = [n["y"] + n["h"] for n in nodes if old[n["id"]] < r and n["id"] not in astride]
+        dn = [n["y"] for n in nodes if old[n["id"]] > r and n["id"] not in astride]
+        if up and dn and max(up) < min(dn):
+            b[0] = (max(up) + min(dn)) / 2
+    rs = sorted([fb[1]] + [b[0] for b in s.get("bands", [])] + [fb[3]])
+    for c in s.get("bandLabels", []):
+        k = sum(1 for r in sorted(band_old.values()) if r < band_label_old[id(c)])
+        c["cy"] = (rs[k] + rs[k + 1]) / 2
+    # a flow across between boxes not lined up by their middles (a tall box
+    # and a document beside it) meets the taller level with the other's middle
+    for e in flows:
+        A, B = byid[e["from"]], byid[e["to"]]
+        if way(e) != "across" or gid[A["id"]] == gid[B["id"]] or e.get("points"):
+            continue
+        big, small, key = (A, B, "exitXY") if A["h"] > B["h"] else (B, A, "entryXY")
+        if big["y"] + 0.5 * EM <= cy(small) <= big["y"] + big["h"] - 0.5 * EM:
+            f = e.get(key) or [0.5, 0.5]
+            e[key] = [f[0], (cy(small) - big["y"]) / big["h"]]
+            k2 = "entryXY" if key == "exitXY" else "exitXY"
+            e[k2] = [(e.get(k2) or [0.5, 0.5])[0], 0.5]
+    return ncols, sum(1 for g in rows if len(g) > 1)
+
+
 def straighten(s, tol=0.75):
     """A flow that runs almost level or almost upright - its ends within tol
     label sizes of each other - made exactly so: 432 flows in 71 figures are
@@ -495,6 +999,19 @@ def _stretch(s, axis, cut, d):
     i0 = 0 if X else 1
     mv = lambda v: v + d if v > cut else v                      # noqa: E731
     def box(o, kx, kw):
+        ll = o.get("labelLines")
+        if "kind" not in o and ll:
+            # a text: where its words are (its stored box may be stale)
+            c = sum(l["cx" if X else "cy"] for l in ll) / len(ll)
+            if c > cut:
+                for l in ll:
+                    l["cx" if X else "cy"] += d
+                    if not X and l.get("baseline") is not None:
+                        l["baseline"] += d
+                if isinstance(o.get(kx), (int, float)):
+                    o[kx] += d
+                return True
+            return False
         c = o[kx] + o[kw] / 2
         if c > cut:
             o[kx] += d
@@ -505,6 +1022,7 @@ def _stretch(s, axis, cut, d):
     def span(o, kx, kw):
         a, b = o[kx], o[kx] + o[kw]
         o[kx], o[kw] = mv(a), mv(b) - mv(a)
+    moved = {n["id"]: (n["x"] + n["w"] / 2 if X else n["y"] + n["h"] / 2) > cut for n in s["nodes"]}
     s["canvas"]["w" if X else "h"] += d
     if s.get("frameBox"):
         fb = s["frameBox"]
@@ -537,7 +1055,21 @@ def _stretch(s, axis, cut, d):
     for e in s["edges"]:
         e["points"] = [[mv(p[0]), p[1]] if X else [p[0], mv(p[1])] for p in e.get("points", [])]
     for o in s.get("openEnds", []):
-        o["points"] = [[mv(p[0]), p[1]] if X else [p[0], mv(p[1])] for p in o["points"]]
+        pts = [list(p) for p in o["points"]]
+        o["points"] = [[mv(p[0]), p[1]] if X else [p[0], mv(p[1])] for p in pts]
+        # the end at a box goes with the box, and the stretch leading up to
+        # it with that end, as long as it keeps the same line
+        if o.get("near") in moved and moved[o["near"]]:
+            seq = range(len(pts)) if o.get("nearEnd", 0) == 0 else range(len(pts) - 1, -1, -1)
+            i0 = 0 if X else 1
+            first = None
+            for i in seq:
+                if first is None:
+                    first = pts[i][i0]
+                elif abs(pts[i][i0] - first) > 0.5:
+                    break
+                if pts[i][i0] <= cut:
+                    o["points"][i][i0] = pts[i][i0] + d
     for m in s.get("crossMarks", []):
         for k in (("x1", "x2") if X else ("y1", "y2")):
             m[k] = mv(m[k])
@@ -561,6 +1093,13 @@ def _items(s):
     return out
 
 
+def need_decision(s):
+    """the room a flow at a diamond needs: the straight lead it leaves or
+    meets the diamond by (router.route_libavoid: an arrowhead and a label size
+    more), and the margin the router keeps round the next box"""
+    return s["arrow"] + EM + 0.75 * EM + 0.5 * EM
+
+
 def conflicts(s):
     """Where two things are too close, as (axis, cut, how much more room, what):
     a flow too short for its arrowhead, boxes, guards or titles touching."""
@@ -581,7 +1120,7 @@ def conflicts(s):
             ov_x = min(a["x"] + a["w"], b["x"] + b["w"]) - max(a["x"], b["x"])
             ov_y = min(a["y"] + a["h"], b["y"] + b["h"]) - max(a["y"], b["y"])
             e = flows.get(frozenset((a["id"], b["id"])))
-            need = need_flow if e else max(gap.get(a["kind"], 0.5 * EM), gap.get(b["kind"], 0.5 * EM))
+            need = (need_decision(s) if e and "decision" in (a["kind"], b["kind"]) else need_flow) if e else max(gap.get(a["kind"], 0.5 * EM), gap.get(b["kind"], 0.5 * EM))
             if not e and (ov_x <= 0 and ov_y <= 0):
                 continue                          # side by side at a slant: nothing between them
             # the axis along which they face each other, or along which the
@@ -617,6 +1156,12 @@ def conflicts(s):
     fb = s.get("frameBox") or [0, 0, s["canvas"]["w"], s["canvas"]["h"]]
     rules = [d[0] if isinstance(d, list) else d for d in s.get("dividers", [])]
     m = 0.5 * EM
+    mg = 2.5 * EM if s.get("dashed") else m          # room for a phase box's edge between
+    for g in (i for i in it if i["kind"] == "guard"):
+        if g["x"] < fb[0] + mg:
+            out.append(("x", (fb[0] + g["x"] + g["w"] / 2) / 2, fb[0] + mg - g["x"], g["id"], "frame"))
+        if g["x"] + g["w"] > fb[2] - mg:
+            out.append(("x", (g["x"] + g["w"] / 2 + fb[2]) / 2, g["x"] + g["w"] - (fb[2] - mg), g["id"], "frame"))
     for n in s["nodes"]:
         x0, x1, cx = n["x"], n["x"] + n["w"], n["x"] + n["w"] / 2
         if n["kind"] == "object" and any(x0 < r < x1 for r in rules):
@@ -638,6 +1183,21 @@ def make_space(s, limit=300):
     ends. Returns the cuts made."""
     made = []
     stuck = set()
+    # a text whose middle lies past the frame's edge cannot be brought in by
+    # widening the figure (every cut beyond it moves it too): moved in first
+    fb = s.get("frameBox") or [0, 0, s["canvas"]["w"], s["canvas"]["h"]]
+    for g in s.get("guards", []):
+        ll = g.get("labelLines") or []
+        if not ll:
+            continue
+        x0 = min(l["cx"] - l["w"] / 2 for l in ll)
+        x1 = max(l["cx"] + l["w"] / 2 for l in ll)
+        c = (x0 + x1) / 2
+        d = (fb[0] + EM - x0) if c < fb[0] else (fb[2] - EM - x1) if c > fb[2] else 0
+        for l in ll:
+            l["cx"] += d
+        if d and isinstance(g.get("x"), (int, float)):
+            g["x"] += d
     for _ in range(limit):
         c = [t for t in conflicts(s) if (t[0], t[3], t[4]) not in stuck]
         if not c:
@@ -651,6 +1211,11 @@ def make_space(s, limit=300):
         if len(ends) == 2 and (ends[0] > cut) == (ends[1] > cut):
             stuck.add((ax, a, b))
             continue
+        # a cut that parted nothing the last time (what moves with the cut is
+        # not what the conflict measures): left be
+        if made and made[-1][0] == ax and made[-1][3:] == (a, b) and abs(made[-1][2] - round(d, 1)) < 0.2:
+            stuck.add((ax, a, b))
+            continue
         _stretch(s, ax, cut, d)
         made.append((ax, round(cut), round(d, 1), a, b))
     return made
@@ -660,12 +1225,19 @@ def main(src, out, *opts):
     spec = bd.load(src)
     bd.clear_guards(spec)
     s = house(spec)
-    aligned = align_boxes(s) if "--no-align" not in opts else 0
+    held = phase_contents(s)
+    if "--no-grid" in opts:
+        aligned = align_boxes(s) if "--no-align" not in opts else 0
+    else:
+        cols, rows = grid(s)
+        aligned = 0
+        print("  grid: %d columns, %d rows of more than one box" % (cols, rows))
     straight = straighten(s)
     routed = route_right_angles(s) if "--right-angles" in opts else \
         route_by_drawio(s) if "--drawio-routing" in opts else 0
     before = (s["canvas"]["w"], s["canvas"]["h"])
     made = make_space(s) if "--no-space" not in opts else []
+    hold_phases(s, held)
     # opening a row or a column can put two lined-up boxes a little out of
     # line again; straighten once more
     straight += straighten(s)

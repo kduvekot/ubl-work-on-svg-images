@@ -36,7 +36,7 @@ for n in "$@"; do
   cp "$work/$n-house-spec.json" "$work/$n-spec.json"
 done
 for n in $ROUTING; do
-  draw "$n" house --avoid; draw "$n" angled
+  draw "$n" house --avoid; draw "$n" angled --no-grid
 done
 for n in $SPACE; do
   draw "$n" house --avoid; draw "$n" nospace --no-space --avoid

@@ -108,11 +108,12 @@ of its lane:
   between two boxes; half a label size between boxes that face each other or
   a box and its lane's edge; a little room around guards and lane titles;
 - **all 78 figures end with nothing too close and every box in its lane;**
-- 19 needed nothing;
-- the median figure needs 2 openings and grows by 0 % in width and 1 % in
-  height;
-- the most, Tender Qualification Application, grows 19 % wider, and the CPFR
-  figures up to 16 %.
+- after the grid below, 37 need no opening, and the median figure one.
+
+Together with the grid, the figures grow: compared with the figure as
+scaled, the median by 5 % in width and 0 % in height; 16 figures grow more
+than 20 % wider, the most CertificationOfOriginOfGoods (44 %), and one more
+than 20 % taller (Procurement, 22 %).
 
 The demonstration shows two figures before and after (section 5 of the PDF).
 
@@ -161,15 +162,34 @@ bends, and most of the Tender, VMI and CRP figures only straight lines.
 **Right angles, done properly.** Every flow runs across and down, in three
 steps (`house_style.py --avoid`):
 
-1. **Boxes lined up.** A document moves level with the action that sends it,
-   as far as 8 label sizes where the room is free: Procurement's ReceiptAdvice
-   now sits level with *advise receipt*. Two boxes joined by a flow are then
-   lined up where a small move does it (at most 1.5 label sizes, staying in
-   their lane, clear of other boxes), so the flow is straight and meets both
-   in the middle. Procurement's Seller decision, *reject order* and
-   OrderResponseSimple are now one straight row. Once a flow is lined up,
-   both its boxes stay put on that axis, so a later move lines others up with
-   them rather than pulling them apart. Over all 78: 619 moves.
+1. **Boxes on a grid: rows and columns** (`grid()` in `house_style.py`).
+   - *Rows.* Boxes joined by a flow across (from a side to a side) are put
+     level with each other: a document, the action that sends it and the
+     action that receives it. Procurement's *decision if item(s) rejected* is
+     now level with the ReceiptAdvice it receives, and with *advise receipt*
+     that sends it. A row is not formed where it would put two boxes that
+     overlap across in one row, a box between two boxes joined by a flow, or
+     one row both above and below another. A box much taller than the one it
+     is joined to (IMFM's actions) is not lined up by its middle: the flow
+     meets it level, where along its side the other box is.
+   - *Columns.* In each lane, boxes one above the other (joined by a flow
+     down, or overlapping across) are stacked in one column: Procurement's
+     *reject order*, *change order* and *cancel order* in the Seller's lane.
+     A column is not formed where a box would stand between two boxes of it
+     joined by a flow, or in the way of an off-page flow leaving one of them.
+   - *Even spacing.* The columns of a lane are spaced evenly: the same gap
+     between them and at the lane's edges, clear of the documents on its
+     dividers. A lane is widened where they do not fit with at least 3 label
+     sizes between.
+   - *Order kept.* Each row keeps the boxes above and below it in their
+     order, at least a flow's length apart (more at a decision, see below);
+     the figure grows down where a row needs room. A band's rule is put back
+     between its rows; a phase box grows to hold what it held.
+
+   Over all 78: 321 columns and 203 rows of more than one box; 50 figures
+   have a lane widened. (`--no-grid` gives the earlier, smaller step: a
+   document level with its sender, and boxes lined up where a move of at
+   most 1.5 label sizes does it.)
 2. **Room made**, as above, and flows straightened once more.
 3. **Flows routed by libavoid**, the orthogonal connector router of the
    adaptagrams project (Wybrow, Marriott and Stuckey; the router in Inkscape
@@ -184,7 +204,17 @@ steps (`house_style.py --avoid`):
    - a flow in and a flow out never share a corner of a diamond; flows in
      may merge at one, and flows out may split from one;
    - a busy decision also sends flows out of the middles of its slanted
-     sides, at 45 degrees, turning square a little way out;
+     sides, at 45 degrees; each branch out of a decision leaves by its own
+     corner or side where it can, and not by a way out that runs into
+     another box first;
+   - every flow leaves or meets a diamond straight for a lead of an
+     arrowhead and a label size more (at a corner square, at a slanted side
+     at 45 degrees) before it may turn, so an arrowhead is never pressed
+     into the first bend; a lead is shortened only where the next box is
+     too close, and left out where the flow runs straight on. Rows around a
+     decision are kept that far apart;
+   - where a route's last stretch into a box is shorter than its arrowhead
+     needs, the stretch before it is moved out, where that runs clear;
    - a fork bar takes its flows in on one side and its flows out on the
      other;
    - a document on a lane divider is not met at the middle of its top or
@@ -195,10 +225,13 @@ steps (`house_style.py --avoid`):
    Where libavoid finds no way, the flow is tried again, free to meet both
    boxes anywhere; if there is still none, it is drawn as before.
 
-Result over all 78: 110 flows that ran at an angle now run across and down.
-No route runs through a box, and every route ends on its boxes' outline. 70
-figures end with nothing too close; in 8 a guard or a flow is still close to
-a box after routing, to be looked at one by one.
+Result over all 78: 167 flows are routed anew across and down. No route runs
+through a box, every route ends on its boxes' outline, no off-page flow runs
+through a box, and none is left unrouted. Every flow at a diamond has its full
+lead (before: 35 in 20 figures turned within an arrowhead's length of it); 3
+flows into an ordinary box still turn close to it, where there was no room to
+move the stretch before. 71 figures end with nothing too close; in 7 a guard
+is still close to a box, to be looked at one by one.
 
 Two simpler ways were tried first and set aside:
 
@@ -211,7 +244,7 @@ demonstration shows the result that replaced them).
 The choices are:
 
 1. **Across and down, routed as above** (proposed): uniform routing, the
-   layout kept, boxes lined up.
+   layout kept in its order, boxes on a grid of rows and columns.
 2. **Keep each figure's routing**, flows almost level or upright made exactly
    so: a uniform look, but not uniform routing.
 3. **Across and down with each figure laid out anew**, by hand: the most

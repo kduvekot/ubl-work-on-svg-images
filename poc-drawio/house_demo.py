@@ -102,14 +102,15 @@ What the TC has to choose is which of the two kinds of uniform it wants on paper
 <tr><td>start, end</td><td>draw.io's UML start and end states, 1.8 label sizes across</td></tr>
 <tr><td>fork bar</td><td>0.5 label sizes thick</td></tr>
 <tr><td>grey rules</td><td>none: one line per divider</td></tr>
-<tr><td>boxes lined up</td><td>a document level with the action that sends it; boxes joined by a flow lined up, so the flow is straight and meets both in the middle</td></tr>
-<tr><td>flows</td><td>across and down, routed round the boxes by libavoid; a busy decision also sends flows out of its slanted sides, at 45 degrees</td></tr>
+<tr><td>rows and columns</td><td>a document level with the actions that send and receive it; boxes one above the other in a lane stacked in one column; a lane&#8217;s columns evenly spaced</td></tr>
+<tr><td>flows</td><td>across and down, routed round the boxes by libavoid; a busy decision also sends flows out of its slanted sides, at 45 degrees; every flow leaves or meets a diamond straight for an arrowhead&#8217;s length and more</td></tr>
 </table>
-<p class="note">Each figure keeps its layout: every element stays near where its artwork puts it,
-scaled so its labels come out at the house size; boxes keep their size. Boxes joined by a flow are lined
-up where a small move does it; where a box grown to its words comes too close to another, or out of its
-lane, the figure is opened up there (section 5). The median figure grows by 1 %%, the most by about
-20 %%. Flows are then routed across and down (section 4).</p>
+<p class="note">Each figure keeps its layout in its order: every element keeps its place above,
+below, left or right of the others, scaled so its labels come out at the house size; boxes keep their
+size. The boxes are then put on a grid: boxes joined by a flow across in one row, boxes one above the
+other in one column, a lane&#8217;s columns evenly spaced. Where a box comes too close to another, or
+out of its lane, the figure is opened up there (section 5). The median figure grows by 5 %% in width,
+the most by about 45 %%. Flows are then routed across and down (section 4).</p>
 </div>""" % LABEL_PT)
     o.append('<div class="sec col"><h2>1. As published today: faithful, each at the column&#8217;s width</h2>')
     for it in items:
@@ -136,21 +137,22 @@ lane, the figure is opened up there (section 5). The median figure grows by 1 %%
     for n in routing:
         o.append('<div class="sec col"><h2>4. The routing of flows: %s</h2>'
                  '<p>Half the figures mix flows at an angle with flows across and down. In the house style '
-                 'every flow runs across and down: the boxes are first lined up with the boxes their flows '
-                 'join them to, and the flows are then routed round the boxes by libavoid, the router of '
-                 'Inkscape and Dunnart. It chooses where a flow meets a box, keeps a margin from every box, '
-                 'avoids bends and crossings, and spaces parallel flows apart. A decision with many flows '
-                 'also sends them from its slanted sides, at 45 degrees; a flow in and a flow out never share '
-                 'a corner. Above, the flows at an angle kept as drawn; below, routed.</p>' % esc(n))
-        for v, cap in (("angled", "<b>As drawn:</b> flows at an angle kept."),
+                 'every flow runs across and down: the boxes are first put in rows and columns with the '
+                 'boxes their flows join them to, and the flows are then routed round the boxes by libavoid, '
+                 'the router of Inkscape and Dunnart. It chooses where a flow meets a box, keeps a margin from '
+                 'every box, avoids bends and crossings, and spaces parallel flows apart. A decision with many '
+                 'flows also sends them from its slanted sides, at 45 degrees; a flow in and a flow out never '
+                 'share a corner, and every flow leaves or meets a diamond straight for a stretch, so no '
+                 'arrowhead is pressed into a bend. Above, the flows at an angle kept as drawn; below, the '
+                 'house style.</p>' % esc(n))
+        for v, cap in (("angled", "<b>As drawn:</b> the layout of the artwork, flows at an angle kept."),
                        ("house", "<b>Routed across and down</b> (house style).")):
             o.append('<div class="fig"><img src="%s" style="width:145mm"><p class="cap">%s</p></div>'
                      % (rel(n + "-" + v + ".png"), cap))
         o.append('<p class="note">Two simpler ways were tried first and set aside: each angled flow as an '
                  'L or a Z between its measured contact points, and draw.io&#8217;s own router. Both ran '
-                 'routes through boxes and over each other. Over all 78 figures, libavoid routes 110 '
-                 'angled flows across and down with none through a box; where it finds no way, the flow '
-                 'is drawn as before.</p></div>')
+                 'routes through boxes and over each other. Over all 78 figures, libavoid routes 167 '
+                 'flows anew across and down with none through a box, and none is left unrouted.</p></div>')
     if space:
         o.append('<div class="sec col"><h2>5. Making room</h2><p>In the house style some boxes grow to fit '
                  'their words, and in tightly drawn figures a flow is then too short for its arrowhead, or '

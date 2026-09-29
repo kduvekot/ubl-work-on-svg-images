@@ -5,7 +5,7 @@
 //   node avoid_route.mjs < job.json > routes.json
 //
 // job: { params: {...}, shapes: [{id, x, y, w, h, pins: [{cls, fx, fy, dir,
-//        exclusive}]}], conns: [{id, src: {shape, cls} | {point: [x, y]},
+//        exclusive, offset?}]}], conns: [{id, src: {shape, cls} | {point: [x, y]},
 //        dst: likewise}] }
 // routes: { <conn id>: [[x, y], ...] }
 //
@@ -31,7 +31,8 @@ for (const s of job.shapes) {
   const ref = new A.ShapeRef(router, new A.Rectangle(new A.Point(s.x, s.y), new A.Point(s.x + s.w, s.y + s.h)));
   shapes[s.id] = ref;
   for (const p of s.pins || []) {
-    const pin = new A.ShapeConnectionPin(ref, p.cls, p.fx, p.fy, true, 0, p.dir);
+    // offset: how far inside the outline the pin sits; less than 0, outside
+    const pin = new A.ShapeConnectionPin(ref, p.cls, p.fx, p.fy, true, p.offset || 0, p.dir);
     pin.setExclusive(!!p.exclusive);
     if (p.cost) pin.setConnectionCost(p.cost);
   }
