@@ -65,6 +65,7 @@ Two figures were done first, and are kept in this directory with their renders:
 ## How to run
 
 ```sh
+(cd poc-drawio && npm install)             # once: libavoid-js, for routing flows in the house style
 poc-drawio/sweep.sh <out-dir>              # all 78: about 1.5 minutes, 4 at a time (JOBS)
 poc-drawio/run-poc.sh [<figure> ...]       # one or more, into poc-drawio/<figure>/
 ```

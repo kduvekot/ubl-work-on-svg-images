@@ -134,10 +134,8 @@ The demonstration shows two figures before and after (section 5 of the PDF).
   0.7 to 2.9 label sizes below the top, and 7 figures (IMFM and six 2.3
   customs figures) draw a rule under the titles that the other 71 do not. The
   house style puts every title at the same place, with no rule.
-- **Is the routing of flows consistent?** No. The house style makes the flows
-  that are almost level or upright exactly so, and keeps the flows drawn at an
-  angle as they are. Making those run at right angles was tried, and does not
-  read better: see section 2a.
+- **Is the routing of flows consistent?** Not in the artwork. In the house
+  style every flow runs across and down: see section 2a.
 
 ## 2a. The routing of flows: for the TC to choose
 
@@ -160,36 +158,64 @@ So half the figures mix routing styles. The families differ: Procurement (Fig
 C.1) and the billing figures use angled lines, the CPFR figures right-angled
 bends, and most of the Tender, VMI and CRP figures only straight lines.
 
-**Tried: right angles only.** After straightening, 99 flows in 25 figures run
-at an angle on purpose. Two ways of routing them across and down were tried
-on all 78, and shown on Procurement (Fig C.1, 24 angled flows) in section 4
-of the demonstration PDF:
+**Right angles, done properly.** Every flow runs across and down, in three
+steps (`house_style.py --avoid`):
 
-- **Simple:** each angled flow as an L or a Z between the same contact points,
-  on the same sides of its boxes (`house_style.py --right-angles`). 6 flows
-  then run through another element (one each in Utility Billing, both billing
-  figures, CPFR Exception Monitor, Certification of Origin, Procurement).
-  Parallel stretches crowd each other, and some guards no longer sit clearly
-  by their flow.
-- **draw.io's own router:** draw.io chooses the sides and the route
-  (`orthogonalEdgeStyle` without fixed contact points,
-  `house_style.py --drawio-routing`). It is worse: routes run through
-  actions, and lie on top of other flows.
+1. **Boxes lined up.** A document moves level with the action that sends it,
+   as far as 8 label sizes where the room is free: Procurement's ReceiptAdvice
+   now sits level with *advise receipt*. Two boxes joined by a flow are then
+   lined up where a small move does it (at most 1.5 label sizes, staying in
+   their lane, clear of other boxes), so the flow is straight and meets both
+   in the middle. Procurement's Seller decision, *reject order* and
+   OrderResponseSimple are now one straight row. Once a flow is lined up,
+   both its boxes stay put on that axis, so a later move lines others up with
+   them rather than pulling them apart. Over all 78: 619 moves.
+2. **Room made**, as above, and flows straightened once more.
+3. **Flows routed by libavoid**, the orthogonal connector router of the
+   adaptagrams project (Wybrow, Marriott and Stuckey; the router in Inkscape
+   and Dunnart). It is used through its WebAssembly build `libavoid-js`
+   (LGPL-2.1), from `avoid_route.mjs`. All flows of a figure are routed
+   together. It keeps a margin round every box, charges for bends and
+   crossings, and spaces parallel stretches apart. Flows that already run
+   straight keep their contact points. A flow that ran at an angle may meet
+   a box at the middle, a third or a quarter of any side, and libavoid
+   chooses. Diamonds, discs and fork bars are met where the writer decides,
+   since libavoid cannot tell a flow in from a flow out:
+   - a flow in and a flow out never share a corner of a diamond; flows in
+     may merge at one, and flows out may split from one;
+   - a busy decision also sends flows out of the middles of its slanted
+     sides, at 45 degrees, turning square a little way out;
+   - a fork bar takes its flows in on one side and its flows out on the
+     other;
+   - a document on a lane divider is not met at the middle of its top or
+     bottom, so no flow runs along the divider;
+   - guards are not obstacles: a guard a route then runs through is put
+     beside the start of its flow, in free space.
 
-Neither reads better than the angled flows as drawn. These figures were laid
-out for their angled flows; right angles would need each of them laid out
-anew, by hand or with a layout engine that knows about lanes.
+   Where libavoid finds no way, the flow is tried again, free to meet both
+   boxes anywhere; if there is still none, it is drawn as before.
+
+Result over all 78: 110 flows that ran at an angle now run across and down.
+No route runs through a box, and every route ends on its boxes' outline. 70
+figures end with nothing too close; in 8 a guard or a flow is still close to
+a box after routing, to be looked at one by one.
+
+Two simpler ways were tried first and set aside:
+
+- each angled flow as an L or a Z between its measured contact points;
+- draw.io's own router.
+
+Both ran routes through boxes and over each other (section 4 of the
+demonstration shows the result that replaced them).
 
 The choices are:
 
-1. **Keep each figure's routing**, flows almost level or upright made exactly
-   so (as the house style does now): a uniform look, but not uniform routing.
-   Proposed.
-2. **Right angles only**, with the 25 figures that have angled flows laid out
-   anew. The most regular result, and the most work.
-3. **A rule for when a flow may run at an angle**, for instance only where a
-   right-angled route would cross other flows or run through a box, applied
-   when a figure is next revised.
+1. **Across and down, routed as above** (proposed): uniform routing, the
+   layout kept, boxes lined up.
+2. **Keep each figure's routing**, flows almost level or upright made exactly
+   so: a uniform look, but not uniform routing.
+3. **Across and down with each figure laid out anew**, by hand: the most
+   regular result, and the most work.
 
 ## 3. Is a draw.io page a fixed size?
 
@@ -239,8 +265,8 @@ ways, on A4, the column at 145 mm as in the specification:
 1. as published today;
 2. in the house style, fitted to the column;
 3. in the house style at one scale, each on the page it needs;
-4. the routing of flows: Procurement as drawn, with simple right angles, and
-   with draw.io's own router;
+4. the routing of flows: Procurement with its angled flows kept, and routed
+   across and down;
 5. making room: Tender Qualification Application and Goods Certificate Export,
    before and after.
 
@@ -255,8 +281,8 @@ poc-drawio/house-demo.sh poc-drawio/house-style-demo.pdf [<figure> ...]
 1. **A house style at all?** If yes: the values above, or others. It is one
    list, applied by the writer to every figure; changing it later changes
    one list, not 78 drawings.
-2. **The routing of flows:** kept per figure (proposed), right angles only
-   with new layouts, or a rule (section 2a).
+2. **The routing of flows:** across and down, routed by libavoid (proposed),
+   kept per figure, or laid out anew by hand (section 2a).
 3. **Which uniform:** the same look (1), or the same size on paper as well (2)?
    The second means new layouts for most figures, or larger pages.
 4. **The faithful drawings** stay as the record of the artwork (and the

@@ -29,15 +29,17 @@ draw() {   # <figure> <variant> [house_style.py options]
   read W H < <(python3 -c "import json,sys; c=json.load(open(sys.argv[1]))['canvas']; print(c['w'], c['h'])" "$work/$n-$v-spec.json")
   node "$here/render-drawio.js" "$work/$n-$v.drawio" "$work/$n-$v.png" "$W" "$H" 4 > /dev/null
 }
+# the house style: boxes lined up, room made, flows routed across and down
+# (libavoid, avoid_route.mjs: run `npm install` in poc-drawio/ once)
 for n in "$@"; do
-  draw "$n" house
+  draw "$n" house --avoid
   cp "$work/$n-house-spec.json" "$work/$n-spec.json"
 done
 for n in $ROUTING; do
-  draw "$n" house; draw "$n" right --right-angles; draw "$n" auto --drawio-routing
+  draw "$n" house --avoid; draw "$n" angled
 done
 for n in $SPACE; do
-  draw "$n" house; draw "$n" nospace --no-space
+  draw "$n" house --avoid; draw "$n" nospace --no-space --avoid
 done
 python3 "$here/house_demo.py" "$work" "$work/demo.html" "$@"
 node -e '

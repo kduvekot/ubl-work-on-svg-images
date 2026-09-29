@@ -94,8 +94,7 @@ What the TC has to choose is which of the two kinds of uniform it wants on paper
 <tr><th>element</th><th>house style</th></tr>
 <tr><td>labels</td><td>12 px Helvetica; actions bold, documents bold italic, decisions, guards and lane titles plain</td></tr>
 <tr><td>lines</td><td>flows and outlines 0.10 of the label size, documents 0.16, dividers 0.11, frame 0.18</td></tr>
-<tr><td>arrowheads</td><td>open, 1.35 label sizes long</td></tr>
-<tr><td>arrowheads</td><td>the same head on every flow</td></tr>
+<tr><td>arrowheads</td><td>open, 1.35 label sizes long, the same on every flow</td></tr>
 <tr><td>action</td><td>its measured size, grown only where its words would not fit; one corner radius in every action (16 px)</td></tr>
 <tr><td>document</td><td>its measured size, grown only where its words would not fit; centred exactly on the lane divider it sits on</td></tr>
 <tr><td>decision</td><td>its measured size, grown only around its question; 2 label sizes across when the question stands beside it</td></tr>
@@ -103,12 +102,14 @@ What the TC has to choose is which of the two kinds of uniform it wants on paper
 <tr><td>start, end</td><td>draw.io's UML start and end states, 1.8 label sizes across</td></tr>
 <tr><td>fork bar</td><td>0.5 label sizes thick</td></tr>
 <tr><td>grey rules</td><td>none: one line per divider</td></tr>
+<tr><td>boxes lined up</td><td>a document level with the action that sends it; boxes joined by a flow lined up, so the flow is straight and meets both in the middle</td></tr>
+<tr><td>flows</td><td>across and down, routed round the boxes by libavoid; a busy decision also sends flows out of its slanted sides, at 45 degrees</td></tr>
 </table>
-<p class="note">Flows almost level or upright are made exactly so. Each figure keeps its layout: every element stays where its artwork puts it, scaled
-so its labels come out at the house size; boxes keep their size. Where a box grown to its words
-comes too close to another, or out of its lane, the figure is opened up there (section 5): over all
-78, 19 need nothing, the median figure grows by 1 %%, the most by 19 %%. The routing of flows is left
-as drawn (section 4).</p>
+<p class="note">Each figure keeps its layout: every element stays near where its artwork puts it,
+scaled so its labels come out at the house size; boxes keep their size. Boxes joined by a flow are lined
+up where a small move does it; where a box grown to its words comes too close to another, or out of its
+lane, the figure is opened up there (section 5). The median figure grows by 1 %%, the most by about
+20 %%. Flows are then routed across and down (section 4).</p>
 </div>""" % LABEL_PT)
     o.append('<div class="sec col"><h2>1. As published today: faithful, each at the column&#8217;s width</h2>')
     for it in items:
@@ -133,21 +134,23 @@ as drawn (section 4).</p>
     space = os.environ.get("SPACE", "").split()
     rel = lambda f: esc(os.path.relpath(os.path.join(work, f), os.path.dirname(out)))    # noqa: E731
     for n in routing:
-        o.append('<div class="sec col"><h2>4. The routing of flows: %s three ways</h2>'
-                 '<p>Half the figures mix flows at an angle with flows across and down. Could the house '
-                 'style make them all run at right angles? Here the angled flows of the densest figure, '
-                 'first as drawn, then re-routed.</p>' % esc(n))
-        for v, cap in (("house", "<b>As drawn</b> (house style): flows at an angle kept, the ones almost "
-                        "level or upright made exactly so."),
-                       ("right", "<b>Right angles, simple:</b> each angled flow as an L or a Z between the "
-                        "same points on the same sides."),
-                       ("auto", "<b>Right angles, draw.io&#8217;s own router:</b> draw.io chooses the sides "
-                        "and the route.")):
+        o.append('<div class="sec col"><h2>4. The routing of flows: %s</h2>'
+                 '<p>Half the figures mix flows at an angle with flows across and down. In the house style '
+                 'every flow runs across and down: the boxes are first lined up with the boxes their flows '
+                 'join them to, and the flows are then routed round the boxes by libavoid, the router of '
+                 'Inkscape and Dunnart. It chooses where a flow meets a box, keeps a margin from every box, '
+                 'avoids bends and crossings, and spaces parallel flows apart. A decision with many flows '
+                 'also sends them from its slanted sides, at 45 degrees; a flow in and a flow out never share '
+                 'a corner. Above, the flows at an angle kept as drawn; below, routed.</p>' % esc(n))
+        for v, cap in (("angled", "<b>As drawn:</b> flows at an angle kept."),
+                       ("house", "<b>Routed across and down</b> (house style).")):
             o.append('<div class="fig"><img src="%s" style="width:145mm"><p class="cap">%s</p></div>'
                      % (rel(n + "-" + v + ".png"), cap))
-        o.append('<p class="note">Neither re-routing reads better than the flows as drawn: routes run '
-                 'through boxes and over each other. These figures were laid out for angled flows; right '
-                 'angles would need each of them laid out anew.</p></div>')
+        o.append('<p class="note">Two simpler ways were tried first and set aside: each angled flow as an '
+                 'L or a Z between its measured contact points, and draw.io&#8217;s own router. Both ran '
+                 'routes through boxes and over each other. Over all 78 figures, libavoid routes 110 '
+                 'angled flows across and down with none through a box; where it finds no way, the flow '
+                 'is drawn as before.</p></div>')
     if space:
         o.append('<div class="sec col"><h2>5. Making room</h2><p>In the house style some boxes grow to fit '
                  'their words, and in tightly drawn figures a flow is then too short for its arrowhead, or '

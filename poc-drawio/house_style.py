@@ -296,6 +296,124 @@ def overlaps(s):
     return out
 
 
+def align_boxes(s, tol=1.5):
+    """Line boxes up with the boxes their flows connect them to, so the flows
+    run straight and meet each box in the middle of its side: a document level
+    with the action that sends it, an action straight under the one before it.
+
+    For every flow almost level (the two boxes' middles within tol label sizes
+    of each other, one above the other's side) or almost upright, the box with
+    fewer flows moves - at most tol label sizes, only if it stays in its lane
+    and clear of every other box, and only once along each axis, so the moves
+    cannot undo each other. A document on a divider moves only up and down.
+    Returns the number of moves."""
+    byid = {n["id"]: n for n in s["nodes"]}
+    deg = {}
+    for e in s["edges"]:
+        deg[e["from"]] = deg.get(e["from"], 0) + 1
+        deg[e["to"]] = deg.get(e["to"], 0) + 1
+    rules = [d[0] if isinstance(d, list) else d for d in s.get("dividers", [])]
+    fb = s.get("frameBox") or [0, 0, s["canvas"]["w"], s["canvas"]["h"]]
+    on_rule = {n["id"] for n in s["nodes"] if n["kind"] == "object"
+               and any(n["x"] < r < n["x"] + n["w"] for r in rules)}
+    locked = {"x": set(), "y": set()}
+    pad = 0.5 * EM
+
+    def clear(n, dx, dy):
+        x0, y0, x1, y1 = n["x"] + dx, n["y"] + dy, n["x"] + n["w"] + dx, n["y"] + n["h"] + dy
+        for o in s["nodes"]:
+            if o is n:
+                continue
+            if x0 < o["x"] + o["w"] + pad and o["x"] < x1 + pad and y0 < o["y"] + o["h"] + pad and o["y"] < y1 + pad:
+                return False
+        if n["id"] not in on_rule:
+            cx = (x0 + x1) / 2
+            left = max([r for r in rules if r <= n["x"] + n["w"] / 2] + [fb[0]])
+            right = min([r for r in rules if r > n["x"] + n["w"] / 2] + [fb[2]])
+            if x0 < left + pad or x1 > right - pad or not (left < cx < right):
+                return False
+        return fb[1] + pad <= y0 and y1 <= fb[3] - pad
+
+    def inside(n, dx, dy):
+        """the box, moved, still in the frame and on no other box (it may come
+        close: making room will then open the figure there)"""
+        x0, y0, x1, y1 = n["x"] + dx, n["y"] + dy, n["x"] + n["w"] + dx, n["y"] + n["h"] + dy
+        if any(o is not n and x0 < o["x"] + o["w"] and o["x"] < x1 and y0 < o["y"] + o["h"] and o["y"] < y1
+               for o in s["nodes"]):
+            return False
+        return fb[1] + pad <= y0 and y1 <= fb[3] - pad
+
+    def move(n, dx, dy):
+        n["x"] += dx
+        n["y"] += dy
+        for l in n.get("labelLines", []):
+            l["cx"] += dx
+            l["cy"] += dy
+    moves = 0
+    # first, a document level with the action that sends it - the reading
+    # order: action, document, next action - as far as 8 label sizes, where
+    # the space there is free (Procurement's ReceiptAdvice, level with
+    # "advise receipt")
+    for n in s["nodes"]:
+        if n["kind"] != "object":
+            continue
+        senders = [byid[e["from"]] for e in s["edges"] if e["to"] == n["id"] and not e.get("points")
+                   and byid[e["from"]]["kind"] == "action"]
+        if len(senders) != 1:
+            continue
+        a = senders[0]
+        if abs((a["x"] + a["w"] / 2) - (n["x"] + n["w"] / 2)) < abs((a["y"] + a["h"] / 2) - (n["y"] + n["h"] / 2)):
+            continue                            # sent from above or below: nothing to line up across
+        dy = (a["y"] + a["h"] / 2) - (n["y"] + n["h"] / 2)
+        # a box in the way here is no reason not to: making room opens the
+        # figure where the move brings two things too close
+        if 0.05 < abs(dy) <= 8 * EM and inside(n, 0, dy):
+            move(n, 0, dy)
+            locked["y"] |= {n["id"], a["id"]}
+            moves += 1
+            for e in s["edges"]:
+                if e["to"] == n["id"] and e["from"] == a["id"]:
+                    e["exitXY"] = [(e.get("exitXY") or [1, 0.5])[0], 0.5]
+                    e["entryXY"] = [(e.get("entryXY") or [0, 0.5])[0], 0.5]
+    for _ in range(2):
+        for e in s["edges"]:
+            if e.get("points"):
+                continue
+            A, B = byid[e["from"]], byid[e["to"]]
+            ax, ay = A["x"] + A["w"] / 2, A["y"] + A["h"] / 2
+            bx, by = B["x"] + B["w"] / 2, B["y"] + B["h"] / 2
+            dx, dy = bx - ax, by - ay
+            if abs(dx) >= abs(dy):              # a flow across: line up the middles' heights
+                axis, off = "y", dy
+            else:                               # a flow down: line up the middles' x
+                axis, off = "x", dx
+            if abs(off) < 0.05 or abs(off) > tol * EM:
+                continue
+            # the box with fewer flows moves; a document on a divider only up and down
+            cand = sorted([(deg.get(B["id"], 0), 0, B, -off), (deg.get(A["id"], 0), 1, A, off)], key=lambda t: t[:2])
+            if A["id"] in locked[axis] and B["id"] in locked[axis]:
+                continue
+            for _, _, n, d in cand:
+                if n["id"] in locked[axis] or (axis == "x" and n["id"] in on_rule) or n["kind"] == "fork":
+                    continue
+                mx, my = (d, 0) if axis == "x" else (0, d)
+                if clear(n, mx, my):
+                    move(n, mx, my)
+                    # both ends of a flow lined up stay so: a later move may
+                    # line others up with them, not pull them apart
+                    locked[axis] |= {A["id"], B["id"]}
+                    moves += 1
+                    # the flow now meets both boxes in the middle of their sides
+                    fx, fy = e.get("exitXY") or [0.5, 0.5]
+                    tx, ty = e.get("entryXY") or [0.5, 0.5]
+                    if axis == "y":
+                        e["exitXY"], e["entryXY"] = [fx, 0.5], [tx, 0.5]
+                    else:
+                        e["exitXY"], e["entryXY"] = [0.5, fy], [0.5, ty]
+                    break
+    return moves
+
+
 def straighten(s, tol=0.75):
     """A flow that runs almost level or almost upright - its ends within tol
     label sizes of each other - made exactly so: 432 flows in 71 figures are
@@ -519,11 +637,20 @@ def make_space(s, limit=300):
     largest first, until nothing is: each cut only moves things apart, so it
     ends. Returns the cuts made."""
     made = []
+    stuck = set()
     for _ in range(limit):
-        c = conflicts(s)
+        c = [t for t in conflicts(s) if (t[0], t[3], t[4]) not in stuck]
         if not c:
             break
         ax, cut, d, a, b = max(c, key=lambda t: t[2])
+        # an opening that moves only one of the two apart: two things whose
+        # middles coincide cannot be parted by a line between them; left be
+        pos = {n["id"]: n for n in s["nodes"]}
+        k, kw = ("x", "w") if ax == "x" else ("y", "h")
+        ends = [pos[i][k] + pos[i][kw] / 2 for i in (a, b) if i in pos]
+        if len(ends) == 2 and (ends[0] > cut) == (ends[1] > cut):
+            stuck.add((ax, a, b))
+            continue
         _stretch(s, ax, cut, d)
         made.append((ax, round(cut), round(d, 1), a, b))
     return made
@@ -533,15 +660,27 @@ def main(src, out, *opts):
     spec = bd.load(src)
     bd.clear_guards(spec)
     s = house(spec)
+    aligned = align_boxes(s) if "--no-align" not in opts else 0
     straight = straighten(s)
     routed = route_right_angles(s) if "--right-angles" in opts else \
         route_by_drawio(s) if "--drawio-routing" in opts else 0
     before = (s["canvas"]["w"], s["canvas"]["h"])
     made = make_space(s) if "--no-space" not in opts else []
+    # opening a row or a column can put two lined-up boxes a little out of
+    # line again; straighten once more
+    straight += straighten(s)
+    if "--avoid" in opts:
+        import router
+        routed, placed = router.route_libavoid(s, EM)
+        print("  routed with libavoid: %d flows anew; %d guards placed anew" % (routed, placed))
+    if "--route" in opts:
+        import router
+        routed, asked, placed = router.route_figure(s, EM, "all" if "--route-all" in opts else "angled")
+        print("  routed %d of %d flows across and down; %d guards placed anew" % (routed, asked, placed))
     json.dump(s, open(out, "w", encoding="utf-8"), indent=1)
     left = conflicts(s)
     print("  %s: scale %.2f, %.0f x %.0f px%s; %d flows re-routed; %d cuts made (+%.0f x +%.0f px); %d conflicts left%s"
-          % (os.path.basename(out), EM / label_em(spec), s["canvas"]["w"], s["canvas"]["h"], ", %d flows straightened" % straight,
+          % (os.path.basename(out), EM / label_em(spec), s["canvas"]["w"], s["canvas"]["h"], ", %d boxes aligned, %d flows straightened" % (aligned, straight),
              routed, len(made), s["canvas"]["w"] - before[0], s["canvas"]["h"] - before[1], len(left),
              "".join("\n    %s %s / %s" % (c[0], c[3], c[4]) for c in left)))
 
