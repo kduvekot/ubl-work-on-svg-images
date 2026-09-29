@@ -25,7 +25,9 @@ one() {
   read W H < <(python3 -c "import json,sys; c=json.load(open(sys.argv[1]))['canvas']; print(c['w'], c['h'])" "$d/$n-spec.json")
   read NW NH < <(python3 -c "import json,sys; c=json.load(open(sys.argv[1]))['canvas']; print(c['w'], c['h'])" "$d/$n-natural-spec.json")
   node "$root/tools/render-svg.js" "$root/diagrams/$n/$n.svg" "$d/$n-svg.png" "$W" > /dev/null
-  node "$here/render-drawio.js" "$d/$n.drawio" "$d/$n-drawio.png" "$NW" "$NH" "$(python3 -c "print($W / $NW)")" > /dev/null
+  # the drawing is rendered onto the SVG render's own canvas
+  read PW PH < <(python3 -c "import sys; from PIL import Image; print(*Image.open(sys.argv[1]).size)" "$d/$n-svg.png")
+  node "$here/render-drawio.js" "$d/$n.drawio" "$d/$n-drawio.png" "$PW" "$PH" "$(python3 -c "print($PW / $NW)")" > /dev/null
   python3 "$here/compare.py" "$d/$n-svg.png" "$d/$n-drawio.png" "$d/$n-spec.json" "$d/$n-overlay.png" > "$d/$n-compare.txt"
   echo "  $n"
 }

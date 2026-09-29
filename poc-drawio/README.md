@@ -97,8 +97,11 @@ fixed, not measured: draw.io's own 1 (left out of the style) for every line,
 2 for a document and the frame (`WEIGHT` in the writer). The Tender figures,
 drawn with heavy lines, change most; mean red rose from 4.57 % to 5.82 %.
 
-The comparison stays at 1480 px: the SVG is rendered at 1480 px wide and the
-drawing at 1480 / its width, so they line up pixel for pixel. Text drawn at
+The comparison stays at 1480 px: the SVG is rendered at 1480 px wide, and the
+drawing onto exactly that render's canvas (its width and height, as
+`tools/render-svg.js` rounds them), at the SVG's width / its own, so they are
+the same size and line up: the frame lines within 1.5 px in every figure
+(whole natural pixels, scaled up). Text drawn at
 about 12 px and scaled up lands 1-3 px from the SVG's (font rounding at the
 small size), which the comparison counts; mean red rose from 4.08 % to
 4.57 %. The end states improved (Tender Award Notification: blue 870 to 179

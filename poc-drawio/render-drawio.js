@@ -6,9 +6,9 @@
 // ~/.cache/ubl-drawio-viewer) and loaded into the same Chromium that renders
 // the SVGs (tools/render-svg.js). The model is drawn at scale 1 with its
 // frame where the SVG has it, so the PNG lines up with the SVG's render
-// pixel for pixel: the canvas is the figure's own width and height. A figure
-// drawn at its natural scale is drawn at <scale> (1480 / its width), so it
-// still lines up with the SVG's render.
+// pixel for pixel: the canvas is <width> x <height>, the size of the SVG's
+// render. A figure drawn at its natural scale is drawn at <scale> (the SVG's
+// width / its own), so it lines up with the SVG's render.
 const { chromium } = require('playwright');
 const fs = require('fs'), path = require('path'), os = require('os'), https = require('https');
 const CHROME = process.env.CHROMIUM_PATH || '/opt/pw-browsers/chromium-1194/chrome-linux/chrome';
@@ -36,7 +36,8 @@ async function viewer() {
 (async () => {
   const [inp, out, W, H, SC] = process.argv.slice(2);
   const s = +(SC || 1);
-  const w = Math.ceil(+W * s), h = Math.ceil(+H * s);
+  // rounded as tools/render-svg.js rounds the SVG's height, so the two match
+  const w = Math.round(+W), h = Math.round(+H);
   const js = await viewer();
   const browser = await chromium.launch({ executablePath: CHROME });
   const page = await browser.newPage({ viewport: { width: w, height: h } });
