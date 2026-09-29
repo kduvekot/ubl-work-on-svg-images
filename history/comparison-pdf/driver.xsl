@@ -8,7 +8,7 @@
   exclude-result-prefixes="xs file"
   version="3.0">
 
-<xsl:import href="file:///home/user/ubl-work-on-svg-images/imageSummary.xsl"/>
+<xsl:import href="../imageSummary.xsl"/>
 
 <!-- accept either a native path or a file: URI, as EXPath implementations do -->
 <xsl:function name="file:as-uri" as="xs:string">
