@@ -304,6 +304,192 @@ def straighten(body, lo=0.05, hi=8.0):
     return tilted
 
 
+# Fixed line weights, as a drawing made in draw.io has them: draw.io's own 1
+# (left out of the style) for every line, 2 for a document and the frame.
+WEIGHT = {"object": 2, "frame": 2}
+OFFICIAL = (0.0, 0.25, 0.5, 0.75, 1.0)
+
+
+def whole(body):
+    """Whole numbers, as in a drawing made in draw.io: every element's edges
+    on whole pixels (rounded where they lie on the page, so lanes still tile
+    the pool edge to edge), bends and free ends too; font sizes in whole
+    points; arrowheads, corner radii, header depths and label offsets in whole
+    pixels; line weights fixed (WEIGHT). A flow that was level or upright
+    stays so: where rounding put its ends a pixel apart, the end that is not
+    on one of draw.io's connection points of its side moves to the other's
+    level, and a bent flow's end meets its bend's whole pixel. Returns the
+    flows that left a connection point to do so: (level or upright flows
+    with both ends on one, bent flows)."""
+    info, order = {}, []
+    for el in body:
+        c = el if el.tag == "mxCell" else el.find("mxCell")
+        if c is None:
+            continue
+        info[el.get("id")] = (el, c, c.find("mxGeometry"))
+        order.append(el.get("id"))
+
+    def kv(c):
+        return [p.split("=", 1) if "=" in p else [p, None] for p in (c.get("style") or "").split(";") if p]
+
+    def put(c, pairs):
+        c.set("style", "".join((k if v is None else "%s=%s" % (k, v)) + ";" for k, v in pairs))
+    # the page places, before rounding
+    absb = {}
+
+    def place(i):
+        if i in absb:
+            return absb[i]
+        el, c, g = info[i]
+        if g is None or c.get("edge") == "1" or g.get("relative") == "1":
+            absb[i] = None
+            return None
+        px, py = (place(c.get("parent")) or (0, 0, 0, 0))[:2] if c.get("parent") in info else (0.0, 0.0)
+        x, y = px + float(g.get("x", 0)), py + float(g.get("y", 0))
+        absb[i] = (x, y, float(g.get("width", 0)), float(g.get("height", 0)))
+        return absb[i]
+    for i in order:
+        place(i)
+    edges = [i for i in order if info[i][1].get("edge") == "1" and info[i][2] is not None]
+
+    def fr(c, key):
+        st = dict(kv(c))
+        return (float(st[key + "X"]), float(st[key + "Y"])) if key + "X" in st else None
+
+    def at(b, f):
+        return (b[0] + f[0] * b[2], b[1] + f[1] * b[3])
+    before = {}
+    for i in edges:
+        c = info[i][1]
+        a, t = c.get("source"), c.get("target")
+        pa = at(absb[a], fr(c, "exit")) if a and fr(c, "exit") else None
+        pt = at(absb[t], fr(c, "entry")) if t and fr(c, "entry") else None
+        before[i] = (pa, pt)
+    # rounded page places, and the geometry relative to the parent's
+    newb = {}
+    for i in order:
+        b = absb.get(i)
+        if b is None:
+            continue
+        x0, y0, x1, y1 = round(b[0]), round(b[1]), round(b[0] + b[2]), round(b[1] + b[3])
+        newb[i] = (x0, y0, x1 - x0, y1 - y0)
+    for i, b in newb.items():
+        el, c, g = info[i]
+        p = newb.get(c.get("parent"), (0, 0, 0, 0))
+        g.set("x", str(b[0] - p[0]))
+        g.set("y", str(b[1] - p[1]))
+        g.set("width", str(b[2]))
+        g.set("height", str(b[3]))
+    # bends, free ends and offsets on whole pixels (a flow's points are
+    # relative to its container, which is now on whole pixels itself)
+    for i in edges:
+        g = info[i][2]
+        for pt in g.iter("mxPoint"):
+            for k in ("x", "y"):
+                if pt.get(k) is not None:
+                    pt.set(k, str(round(float(pt.get(k)))))
+    for i in order:
+        el, c, g = info[i]
+        if g is not None and g.get("relative") == "1" and c.get("vertex") == "1":
+            g.set("width", str(round(float(g.get("width", 0)))))
+            for pt in g.iter("mxPoint"):
+                for k in ("x", "y"):
+                    pt.set(k, str(round(float(pt.get(k, 0)))))
+    # keep level and upright flows so, and bent flows square at their ends
+    kept = [[], []]
+    own = collections.defaultdict(dict)
+
+    def setf(c, key, f, node):
+        old = fr(c, key)
+        pairs = [[k, v] for k, v in kv(c) if k not in (key + "X", key + "Y")]
+        # six places: a fraction of an 800px action to within a hundredth of a pixel
+        pairs += [[key + "X", num(f[0], 6)], [key + "Y", num(f[1], 6)]]
+        put(c, pairs)
+        own[node][(round(old[0], 4), round(old[1], 4))] = (round(f[0], 6), round(f[1], 6))
+
+    def official(f):
+        return all(round(v, 4) in OFFICIAL for v in f)
+    for i in edges:
+        el, c, g = info[i]
+        a, t = c.get("source"), c.get("target")
+        pa, pt = before[i]
+        arr = g.find("Array")
+        pts = arr.findall("mxPoint") if arr is not None else []
+        if a and t and pa and pt and not pts:
+            for k in (0, 1):
+                if abs(pa[k] - pt[k]) < 0.05 and abs(pa[1 - k] - pt[1 - k]) >= 0.05:
+                    fa, ft = fr(c, "exit"), fr(c, "entry")
+                    qa, qt = at(newb[a], fa), at(newb[t], ft)
+                    if abs(qa[k] - qt[k]) < 1e-6:
+                        continue
+                    if official(fa) and official(ft):
+                        kept[0].append(i)
+                        # the end on the larger element moves: the smaller change
+                        mover, key, level = (a, "exit", qt[k]) if newb[a][2 + k] >= newb[t][2 + k] else (t, "entry", qa[k])
+                    elif official(fa):
+                        mover, key, level = t, "entry", qa[k]
+                    else:
+                        mover, key, level = a, "exit", qt[k]
+                    f = list(fr(c, key))
+                    f[k] = (level - newb[mover][k]) / newb[mover][2 + k]
+                    setf(c, key, f, mover)
+        elif pts or g.find('mxPoint[@as="sourcePoint"]') is not None or g.find('mxPoint[@as="targetPoint"]') is not None:
+            ox, oy = newb.get(c.get("parent"), (0, 0, 0, 0))[:2]
+            for end, key, near, was in ((a, "exit", pts[0] if pts else g.find('mxPoint[@as="targetPoint"]'), pa),
+                                        (t, "entry", pts[-1] if pts else g.find('mxPoint[@as="sourcePoint"]'), pt)):
+                if not end or near is None or was is None:
+                    continue
+                f = fr(c, key)
+                q = at(newb[end], f)
+                n = (float(near.get("x")) + ox, float(near.get("y")) + oy)
+                for k in (0, 1):
+                    # a stretch that was level (k=1) or upright (k=0)
+                    if abs(q[k] - n[k]) < 1.5 and abs(q[1 - k] - n[1 - k]) >= 1.5 and abs(q[k] - n[k]) > 1e-6:
+                        # the end meets the bend's whole pixel (off a
+                        # connection point, if it was on one: whole pixels win)
+                        if official(f):
+                            kept[1].append(i)
+                        f2 = list(f)
+                        f2[k] = (n[k] - newb[end][k]) / newb[end][2 + k]
+                        setf(c, key, f2, end)
+    # an element's own connection points follow its flows' ends
+    for node, moved in own.items():
+        c = info[node][1]
+        pairs = kv(c)
+        for pr in pairs:
+            if pr[0] == "points" and pr[1] and pr[1] != "[]":
+                pts = [tuple(round(float(v), 4) for v in p.split(",")) for p in pr[1][2:-2].split("],[")]
+                pr[1] = "[%s]" % ",".join("[%s,%s]" % (num(x, 6), num(y, 6)) for x, y in (moved.get(p, p) for p in pts))
+        put(c, pairs)
+    # styles: whole sizes, fixed weights
+    for i in order:
+        el, c, g = info[i]
+        kind = el.get("ubl-kind")
+        pairs = kv(c)
+        st = dict(pairs)
+        old_w = float(st.get("strokeWidth", 1))
+        new_w = WEIGHT.get(kind, 1)
+        out = []
+        for k, v in pairs:
+            if k == "strokeWidth":
+                continue
+            if k in ("fontSize", "arcSize", "spacing", "spacingLeft", "spacingRight", "spacingTop",
+                     "spacingBottom", "size", "jumpSize") and v is not None:
+                v = str(round(float(v)))
+            elif k in ("endSize", "startSize") and v is not None:
+                # an arrowhead's size is drawn plus its line's weight
+                v = str(round(float(v) + (1.5 * (old_w - new_w) if c.get("edge") == "1" else 0)))
+            elif k == "dashPattern" and v:
+                v = " ".join(str(max(1, round(float(x) * old_w / new_w))) for x in v.split())
+            if k in ("spacingLeft", "spacingRight", "spacingTop", "spacingBottom") and v == "0":
+                continue
+            out.append([k, v])
+        if "strokeWidth" in st and new_w != 1:
+            out.append(["strokeWidth", str(new_w)])
+        put(c, out)
+    return kept
+
+
 def touching(n, p, tol=4.0):
     """the fraction of n's box at point p, when p lies on (or within tol of) its
     outline; else None"""
@@ -908,6 +1094,7 @@ def mxfile(spec, model=None):
     M = math.ceil(end_size + 2 * S["edge"]) + 2
     body = ET.fromstring('<root><mxCell id="0"/><mxCell id="1" parent="0"/>%s</root>' % "".join(cells))
     straighten(body, 0.05 * u, 8.0 * u)
+    whole(body)
     for c in body.iter("mxCell"):
         geo = c.find("mxGeometry")
         if geo is None:
