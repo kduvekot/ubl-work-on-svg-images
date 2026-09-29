@@ -239,9 +239,8 @@ def mxfile(spec, model=None):
     # Lanes are draw.io swimlanes, so a node dropped in a lane belongs to it;
     # expand=0 keeps a lane its size when something is dropped across its
     # edge (draw.io widened the lane over its neighbour otherwise). A
-    # measured divider that runs from frame to frame on a lane boundary is drawn
-    # as the lanes' own border; any other divider is a line of its own and the
-    # lanes' borders are hidden.
+    # measured divider on a lane boundary is drawn as the lanes' own border;
+    # any other divider is a line of its own.
     dividers = [d if isinstance(d, (list, tuple)) else [d, S["divider"], 0.0, H]
                 for d in spec.get("dividers", [])]
     # a divider on a lane boundary: within 1.5 px of it (the two are
@@ -249,20 +248,22 @@ def mxfile(spec, model=None):
     bounds = [l["x"] + l["w"] for l in spec["lanes"][:-1]]
     on_bound = {i: min(bounds, key=lambda b: abs(b - d[0])) for i, d in enumerate(dividers)
                 if bounds and min(abs(b - d[0]) for b in bounds) <= 1.5}
-    reach = S["frame"] + 3.0
-    as_border = [d for i, d in enumerate(dividers)
-                 if i in on_bound and d[2] <= fb[1] + reach and d[3] >= fb[3] - reach]
-    # ... and only when the frame's line is at least as heavy: a lane's outer
-    # borders lie on the frame, and a heavier one would show beside it (the
-    # Tender figures draw 5-6 px dividers inside a 4.3 px frame); and not for
-    # a hairline (CPFR's 0.4 px): two lanes draw their shared border twice,
-    # which leaves a normal line as it is but turns a pale hairline dark
-    lane_stroke = as_border[0][1] if as_border and len(as_border) == len(dividers) \
-        and len(as_border) == len(bounds) and len(set(on_bound.values())) == len(bounds) \
-        and max(d[1] for d in as_border) <= S["frame"] and min(d[1] for d in as_border) >= 1.0 \
-        and len({d[1] for d in as_border}) == 1 else None
+    # Every divider on a lane boundary is the lanes' own border, as a lane in
+    # draw.io has it: full height, and one weight for the figure - the median
+    # of its dividers, never heavier than the frame. The artwork's heavier,
+    # lighter or shorter dividers are its rendering, not a line of their own
+    # (the Tender figures' 5-6 px inside a 4.3 px frame, CPFR's 0.4 px, GIP
+    # Approval's that stop short of the frame).
+    # A rule the artwork draws in grey on a lane boundary (within 3 px) is
+    # that boundary's divider too: Procurement's grey edges either side of
+    # its dividers, CPFR Creating Sales Forecast's only divider
+    grey_on = [g for g in spec.get("greyRules", []) if g["axis"] == "v" and bounds
+               and min(abs(b - g["at"] - g["w"] / 2) for b in bounds) <= 3.0]
+    wts = sorted(dividers[i][1] for i in on_bound) or sorted(g["w"] for g in grey_on)
+    lane_stroke = min(wts[len(wts) // 2] if len(wts) % 2 else (wts[len(wts) // 2 - 1] + wts[len(wts) // 2]) / 2,
+                      S["frame"]) if wts else None
     # the lanes' edges then where the dividers were measured
-    at_divider = {round(b, 3): dividers[i][0] for i, b in on_bound.items()} if lane_stroke else {}
+    at_divider = {round(b, 3): dividers[i][0] for i, b in on_bound.items()}
     # A lane runs from the frame to the frame, not from the page's edge: its
     # outer borders then lie under the frame's heavier line, and no stroke
     # reaches past the page, which draw.io answers by adding a ring of pages
@@ -320,8 +321,9 @@ def mxfile(spec, model=None):
         ident, x0 = lane_at(x + w / 2 if at is None else at)
         return dict(parent=ident), x - x0, y - fb[1]
 
-    if not lane_stroke:
-        for i, d in enumerate(dividers):
+    # a divider not on a lane boundary: a line of its own
+    for i, d in enumerate(dividers):
+        if i not in on_bound:
             p, x, y = in_lane(d[0] - 5, d[2], 10, d[3] - d[2])
             vertex("divider%d" % i, "", style(shape="line", direction="south", html=1,
                                                strokeWidth=float(d[1]), strokeColor="#000000",
@@ -329,6 +331,8 @@ def mxfile(spec, model=None):
                    x, y, 10, d[3] - d[2], kind="lane-divider", **p)
 
     for i, gr in enumerate(spec.get("greyRules", [])):
+        if any(gr is g for g in grey_on):
+            continue
         # a rule the artwork draws in grey beside a divider: black at its own
         # width, the whole height or width, as the SVG draws it (the diagrams
         # use no grey, the TC 2026-09-27); a line cell of its own
