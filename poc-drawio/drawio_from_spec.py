@@ -14,7 +14,7 @@ lines - without changing it. Where draw.io has a native way to say something
 measured sizes; where draw.io cannot say what the SVG says, the nearest native
 setting is taken and the difference is written up in poc-drawio/README.md.
 """
-import collections, json, math, os, statistics, sys, xml.etree.ElementTree as ET, xml.sax.saxutils as su
+import collections, html, json, math, os, re, statistics, sys, xml.etree.ElementTree as ET, xml.sax.saxutils as su
 
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "tools"))
 import build_diagram as bd          # noqa: E402  (read only: geometry helpers)
@@ -538,6 +538,126 @@ def fork_points(body):
             "[%s,%s]" % (num(x, 6), num(y, 6)) for x, y in pts)))
 
 
+# What the model says that the drawing does not show by itself, kept on the
+# element as custom properties (draw.io's Edit Data), so the drawing holds the
+# whole model: `ubl-` and the field's name (linkedProcess: ubl-linked-process),
+# a string as it is, anything else as JSON. Not kept: what the drawing shows
+# (id, kind, label, lane, the flow's ends, a lane's place), and how the
+# reading went - a flow's direction (its confidence and check) and the PNG
+# the figure was read from; that stays in the history.
+SHOWN = {
+    "lanes": {"id", "axis", "index", "title"},
+    "nodes": {"id", "kind", "label", "lane"},
+    "flows": {"id", "from", "to", "direction", "guard"},
+    "texts": {"id", "text"},
+    "offPage": {"id", "node", "arrow", "continues", "counterpart", "port", "direction", "guard"},
+    "marks": {"id"},
+    "phases": {"id", "title"},
+}
+RENAMED = {("flows", "kind"): "ubl-flow", ("marks", "kind"): "ubl-mark"}
+
+
+def words(label):
+    """a label's words, a newline where it breaks the line"""
+    t = re.sub(r"<br\s*/?>", "\n", label or "")
+    return html.unescape(re.sub(r"<[^>]+>", "", t))
+
+
+def prop(field):
+    return "ubl-" + "".join("-" + ch.lower() if ch.isupper() else ch for ch in field)
+
+
+def carry_model(body, model, text_home):
+    if not model:
+        return
+    cells = {el.get("id"): el for el in body.iter("object")}
+    for el in body.iter("object"):
+        c = el.find("mxCell")
+        if c is not None and c.get("edge") == "1" and el.get("ubl-guard"):
+            text_home.setdefault(el.get("ubl-guard"), el.get("id"))
+
+    def put(el, key, value):
+        el.set(key, value if isinstance(value, str) else json.dumps(value, ensure_ascii=False))
+    lanes = {l["id"] for l in model.get("lanes", [])}
+
+    def lane_of_cell(el):
+        c = el.find("mxCell")
+        while c is not None:
+            p = c.get("parent")
+            if p in lanes:
+                return p
+            el = cells.get(p)
+            c = el.find("mxCell") if el is not None else None
+        return None
+    for group, shown in SHOWN.items():
+        for item in model.get(group, []):
+            ident = item["id"]
+            if group == "texts":
+                ident = ident if ident in cells else text_home.get(ident)
+                if ident is None:
+                    continue
+                el = cells[ident]
+                second = False
+                if el.get("id") != item["id"]:
+                    have = el.get("ubl-text")
+                    second = bool(have)
+                    el.set("ubl-text", (have + " " if have else "") + item["id"])
+                # a text keeps its own words where the label does not show
+                # them as they are: a second text on one element, or a line
+                # broken where the model's words run on
+                if second or item["text"] != words(el.get("label", "")):
+                    put(el, "ubl-text-" + item["id"], item["text"])
+            el = cells.get(ident)
+            if el is None:
+                continue
+            for field, value in item.items():
+                if field in shown:
+                    continue
+                key = RENAMED.get((group, field)) or prop(field)
+                if group == "texts" and el.get("id") != item["id"]:
+                    key = "ubl-text-%s-%s" % (item["id"], field)
+                put(el, key, value)
+            # the element's own words where its label shows another text's
+            # (a decision's question beside it, a title the reading kept apart)
+            own = item.get("title", item.get("label")) if group in ("lanes", "nodes", "phases") else None
+            if own is not None and own != words(el.get("label", "")):
+                put(el, "ubl-label", own)
+            if group == "nodes" and item.get("lane") != lane_of_cell(el):
+                # drawn in a lane it does not belong to: a document between
+                # two parties, a note annotating something
+                put(el, "ubl-lane", item.get("lane"))
+    # a text the reading put on a flow that is not its guard (Tender Contract
+    # Info Prep's "purpose"): the flow's label, but not its guard
+    guarded = {f["id"] for f in model.get("flows", []) if f.get("guard")} | \
+        {o["id"] for o in model.get("offPage", []) if o.get("guard")}
+    for el in body.iter("object"):
+        if el.get("ubl-guard") and el.get("id") not in guarded:
+            del el.attrib["ubl-guard"]
+    # one line the artwork draws for several flows (Tender Award
+    # Notification: an arrow between two stacked documents, which the model
+    # reads as a flow through each): the line keeps the flows it stands for
+    drawn = {el.get("id") for el in body.iter("object")}
+    kinds = {n["id"]: n["kind"] for n in model.get("nodes", [])}
+    loose = [f for f in model.get("flows", []) if f["id"] not in drawn]
+    for el in body.iter("object"):
+        c = el.find("mxCell")
+        if el.get("ubl-kind") != "flow" or el.get("id") in {f["id"] for f in model.get("flows", [])}:
+            continue
+        a, b = c.get("source"), c.get("target")
+        via = {f["to"] for f in loose if f["from"] == a and kinds.get(f["to"]) == "object"} & \
+            {f["from"] for f in loose if f["to"] == b and kinds.get(f["from"]) == "object"}
+        stands = [{k: v for k, v in f.items() if k != "direction"} for f in loose
+                  if (f["from"] == a and f["to"] in via) or (f["to"] == b and f["from"] in via)]
+        if stands:
+            put(el, "ubl-draws", stands)
+    frame = cells.get("frame")
+    if frame is not None:
+        if model.get("figure", {}).get("unstated"):
+            put(frame, "ubl-unstated", model["figure"]["unstated"])
+        if model.get("segments"):
+            put(frame, "ubl-segments", model["segments"])
+
+
 def touching(n, p, tol=4.0):
     """the fraction of n's box at point p, when p lies on (or within tol of) its
     outline; else None"""
@@ -577,6 +697,8 @@ def mxfile(spec, model=None):
     lane_titles = {g["id"][:-len("-title")]: g for g in spec.get("guards", [])
                    if g.get("role") == "lane-title" and g["id"].endswith("-title")}
     taken = set()
+    # where a text of the model ended up as another element's label
+    text_home = {}
     for i, d in enumerate(spec.get("dashed", [])):
         # a CPFR phase: the dashed rounded box the diagram is drawn inside, at
         # the artwork's dash, gap and corner; its title is the box's own label,
@@ -596,6 +718,7 @@ def mxfile(spec, model=None):
             tb = text_block(c, F["guard"]) if c.get("labelLines") else caption_block(c, F)
             title = html_lines(tb["lines"])
             taken.add(ident)
+            text_home[c["id"]] = ident
             dx = tb["x"] - (d["x"] + d["w"] / 2)
             kv.update(fontFamily=fam, fontSize=float(tb["size"]), fontStyle=1 if c.get("bold") else 0,
                       align="center", verticalAlign="top", spacing=0,
@@ -687,6 +810,7 @@ def mxfile(spec, model=None):
             l = dict(l, title="\n".join(tb["lines"]), size=tb["size"], cy=tb["cy"], cx=tb["x"],
                      bold=g.get("bold"), baseline=None)
             taken.add(g["id"])
+            text_home[g["id"]] = l.get("id")
         size = l.get("size") or F["lane"]
         # the title's middle where it was measured: its baseline less 0.35 of
         # its size, as the SVG sets it; startSize is twice its depth in the lane
@@ -790,6 +914,7 @@ def mxfile(spec, model=None):
         if d <= 60 * u and nid not in node_text and tid not in taken:
             node_text[nid] = tb
             taken.add(tid)
+            text_home[tid] = nid
     for n in spec["nodes"]:
         k = n["kind"]
         lane = lane_of(spec, n)
@@ -1142,6 +1267,7 @@ def mxfile(spec, model=None):
     M = math.ceil(end_size + 2 * S["edge"]) + 2
     body = ET.fromstring('<root><mxCell id="0"/><mxCell id="1" parent="0"/>%s</root>' % "".join(cells))
     into_pool(body)
+    carry_model(body, model, text_home)
     straighten(body, 0.05 * u, 8.0 * u)
     whole(body)
     fork_points(body)
