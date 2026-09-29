@@ -146,14 +146,16 @@ def caption_block(c, F):
     return dict(lines=c["text"].split("\n"), size=size, align="center", x=c["cx"], cy=cy)
 
 
-def free_edge(cells, ident, kind, pts, kv, props=None, value="", src=None, dst=None):
+def free_edge(cells, ident, kind, pts, kv, props=None, value="", src=None, dst=None, parent="1", at=(0.0, 0.0)):
     """An edge that is not a flow between two nodes: a flow leaving the page
     (one end on its node, one end free) or a plain stroke (both ends free). A
     free end is a sourcePoint or targetPoint, the points between are
     waypoints; `src`/`dst` is (node id, fraction of its box) for an attached
-    end."""
+    end. `parent` is the container it belongs to and `at` that container's
+    place on the page: its points are relative to it."""
     kv = dict(kv)
     geo = ""
+    pts = [(p[0] - at[0], p[1] - at[1]) for p in pts]
     if src:
         kv.update(exitX=src[1][0], exitY=src[1][1], exitPerimeter=0)
     else:
@@ -167,7 +169,7 @@ def free_edge(cells, ident, kind, pts, kv, props=None, value="", src=None, dst=N
             '<mxPoint x="%s" y="%s"/>' % (num(p[0]), num(p[1])) for p in pts[1:-1])
     ends = (' source="%s"' % esc(src[0]) if src else "") + (' target="%s"' % esc(dst[0]) if dst else "")
     cells.append(cell(ident, value, kind, props or {},
-                      'style="%s" edge="1" parent="1"%s' % (style(**kv), ends),
+                      'style="%s" edge="1" parent="%s"%s' % (style(**kv), esc(parent), ends),
                       '<mxGeometry relative="1" as="geometry">%s</mxGeometry>' % geo))
 
 
@@ -395,6 +397,7 @@ def mxfile(spec, model=None):
 
     grow = {n["id"]: min(4.0, (n["w"] + 8) / 5, (n["h"] + 8) / 5)
             for n in spec["nodes"] if n["kind"] == "initial"}
+    home = {}
     # A text beside a decision, a start or an end - the decision's question,
     # where the flow comes from or goes to - is that node's own label, placed
     # beside it where the SVG has it, as draw.io labels a node outside its
@@ -501,6 +504,7 @@ def mxfile(spec, model=None):
             st = style(html=1, points="[]", perimeter="orthogonalPerimeter",
                        fillColor="#000000", strokeColor="none")
         vertex(n["id"], value, st, x, y, w, h, parent, kind=k)
+        home[n["id"]] = parent
 
     # Edges. A hop is draw.io's own line jump (jumpStyle=arc), set only on the
     # flows the TC's rule hops. draw.io jumps an edge only over edges drawn
@@ -548,6 +552,16 @@ def mxfile(spec, model=None):
     guards = {g["onFlow"]: g for g in spec.get("guards", []) if g.get("onFlow")}
     order = [i for i in range(len(spec["edges"])) if i not in hops] + sorted(hops)
     edge_pts = {}
+    # A flow belongs to the container its two ends share, as draw.io files a
+    # line drawn by hand: the lane when both are in one lane, else the pool;
+    # its bends and free ends are relative to that container, so they move
+    # with it (on the page, moving the pool had left them behind)
+    origin = dict(lane_box, frame=(fb[0], fb[1]))
+    origin["1"] = (0.0, 0.0)
+
+    def shared(a, b=None):
+        pa, pb = home.get(a, "1"), home.get(b, home.get(a, "1"))
+        return pa if pa == pb else ("frame" if "1" not in (pa, pb) else "1")
     for i in order:
         e = spec["edges"][i]
         pts = bd.polyline(spec, e)
@@ -576,6 +590,33 @@ def mxfile(spec, model=None):
                 return f
             fx, fy = square(pts[0], pts[1], (fx, fy), e["from"])
             tx, ty = square(pts[-1], pts[-2], (tx, ty), e["to"])
+        if not e.get("points"):
+            # a contact point within 2px of one of draw.io's own connection
+            # points on that side (a quarter, the middle, three quarters of a
+            # box's side; the tip of a diamond) is that point, as a line drawn
+            # in draw.io would have it - unless that tilts a level or upright
+            # line
+            def snapped(ident, f):
+                n = spec["byid"][ident]
+                marks = {"action": (0.25, 0.5, 0.75), "object": (0.25, 0.5, 0.75), "note": (0.25, 0.5, 0.75),
+                         "decision": (0.5,)}.get(n["kind"])
+                if not marks:
+                    return f
+                f = list(f)
+                for a, size in ((0, n["w"]), (1, n["h"])):
+                    if f[1 - a] in (0.0, 1.0):
+                        c = min(marks, key=lambda m: abs(m - f[a]))
+                        if abs(c - f[a]) * size <= 2.0:
+                            f[a] = c
+                return tuple(f)
+
+            def at(ident, f):
+                n = spec["byid"][ident]
+                return (n["x"] + f[0] * n["w"], n["y"] + f[1] * n["h"])
+            sf, st = snapped(e["from"], (fx, fy)), snapped(e["to"], (tx, ty))
+            a0, a1, b0, b1 = at(e["from"], (fx, fy)), at(e["to"], (tx, ty)), at(e["from"], sf), at(e["to"], st)
+            if all(abs(b0[k] - b1[k]) < 0.5 for k in (0, 1) if abs(a0[k] - a1[k]) < 0.5):
+                (fx, fy), (tx, ty) = sf, st
         fx, fy = regrown(e["from"], (fx, fy))
         tx, ty = regrown(e["to"], (tx, ty))
         kv = dict(edgeStyle="none" if e.get("straight") else "orthogonalEdgeStyle", rounded=0,
@@ -607,13 +648,15 @@ def mxfile(spec, model=None):
         inner = e.get("points") or []
         if inner and not e.get("straight"):
             inner = pts[1:-1]
+        box = shared(e["from"], e["to"])
+        ox, oy = origin[box]
         if inner:
             geo += '<Array as="points">%s</Array>' % "".join(
-                '<mxPoint x="%s" y="%s"/>' % (num(p[0]), num(p[1])) for p in inner)
+                '<mxPoint x="%s" y="%s"/>' % (num(p[0] - ox), num(p[1] - oy)) for p in inner)
         cells.append(cell(e.get("id") or "e%d" % i, value, "flow",
                           {"ubl-guard": g and g.get("id")},
-                          'style="%s" edge="1" parent="1" source="%s" target="%s"'
-                          % (style(**kv), esc(e["from"]), esc(e["to"])), geo + "</mxGeometry>"))
+                          'style="%s" edge="1" parent="%s" source="%s" target="%s"'
+                          % (style(**kv), esc(box), esc(e["from"]), esc(e["to"])), geo + "</mxGeometry>"))
 
     # Flows that leave the page. One end lies on its node and is attached
     # there, so the flow moves with it; the other end is free, where the
@@ -666,7 +709,8 @@ def mxfile(spec, model=None):
         props = {"ubl-continues": om.get("continues"), "ubl-counterpart": om.get("counterpart"),
                  "ubl-port": str(om["port"]) if om.get("port") is not None else None,
                  "ubl-direction": om.get("direction"), "ubl-guard": om.get("guard")}
-        free_edge(cells, ident, "off-page-flow", pts, base, props, value, src, dst)
+        box = shared((src or dst)[0]) if (src or dst) else "1"
+        free_edge(cells, ident, "off-page-flow", pts, base, props, value, src, dst, box, origin[box])
         if value:
             # the label's place: as for a guard, a fraction along the flow and an offset
             c = cells[-1]
@@ -736,7 +780,7 @@ def mxfile(spec, model=None):
         if c.get("vertex") == "1" and c.get("parent") == "1":
             geo.set("x", num(float(geo.get("x", 0)) + M))
             geo.set("y", num(float(geo.get("y", 0)) + M))
-        if c.get("edge") == "1":
+        if c.get("edge") == "1" and c.get("parent") == "1":
             for p in geo.iter("mxPoint"):
                 if p.get("as") != "offset":
                     p.set("x", num(float(p.get("x", 0)) + M))
