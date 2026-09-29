@@ -2,12 +2,11 @@
 
 78 figures. Red: the SVG's ink draw.io lacks; blue: draw.io's ink the SVG lacks; both as a share of the SVG's ink, within 2 px. Worst first.
 
-Figures with nothing left undrawn: 78. Their red: at most 5.95 %, mean 2.20 %.
+Figures with nothing left undrawn: 78. Their red: at most 5.95 %, mean 2.09 %.
 
 | figure | red % | blue % | most difference in | not drawn yet |
 |---|---:|---:|---|---|
 | UBL-2.2-Tender-QualificationApplication | 5.95 | 7.74 | object |  |
-| UBL-2.3-ManifestProcess | 5.79 | 7.75 | lane title |  |
 | UBL-2.3-ExportCustomsDeclarationProcess | 5.21 | 6.68 | action |  |
 | UBL-2.2-Tender-UnsubscribeFromProcedure | 4.81 | 6.72 | lane title |  |
 | UBL-2.2-Tender-ContractInfoNotify | 4.87 | 6.51 | action |  |
@@ -26,12 +25,12 @@ Figures with nothing left undrawn: 78. Their red: at most 5.95 %, mean 2.20 %.
 | UBL-2.2-Tender-GuaranteeDeposit | 3.54 | 5.64 | action |  |
 | UBL-2.2-IMFM-TransportProgressStatus | 3.60 | 5.40 | action |  |
 | UBL-2.2-Tender-SubmissionOfTenders | 3.56 | 4.94 | action |  |
-| UBL-2.3-GoodsItemPassportReturnProcess | 3.49 | 4.48 | object |  |
-| UBL-2.3-GoodsItemPassportPresentationProcess | 3.36 | 4.40 | object |  |
+| UBL-2.3-GoodsItemPassportReturnProcess | 3.34 | 4.31 | object |  |
 | UBL-2.2-CRP-Synchronizing | 2.91 | 4.71 | action |  |
 | UBL-2.2-CPFR-ExceptionMonitor | 2.97 | 4.57 | action |  |
+| UBL-2.3-GoodsItemPassportPresentationProcess | 3.20 | 4.20 | object |  |
 | UBL-2.2-IMFM-GoodsItemItinerary | 2.57 | 4.79 | guard |  |
-| UBL-2.3-GoodsItemPassportApprovalProcess | 3.19 | 4.16 | object |  |
+| UBL-2.3-GoodsItemPassportApprovalProcess | 3.03 | 3.99 | object |  |
 | UBL-2.2-CPFR-ExceptionHandling | 2.95 | 3.91 | action |  |
 | UBL-2.2-CPFR-IdentifyResolve | 3.06 | 3.60 | lines (flows, frame, dividers) |  |
 | UBL-2.5-WasteMovementProcess | 2.64 | 3.78 | action |  |
@@ -50,15 +49,13 @@ Figures with nothing left undrawn: 78. Their red: at most 5.95 %, mean 2.20 %.
 | UBL-2.2-Tender-AwardPublication | 1.75 | 2.86 | lane title |  |
 | UBL-2.2-CPFR-CreatingSalesForecast | 2.17 | 2.30 | lines (flows, frame, dividers) |  |
 | UBL-2.2-Tender-AwardNotification | 1.45 | 3.01 | object |  |
-| UBL-2.3-TransitDeclarationProcess | 1.56 | 2.90 | lane title |  |
 | UBL-2.2-CRP-ChangeArticleCatalogue | 1.27 | 3.14 | action |  |
-| UBL-2.3-ImportDeclarationProcess | 1.51 | 2.87 | lane title |  |
 | UBL-2.0-CreateCatalogueProcess | 1.58 | 2.77 | final |  |
 | UBL-2.0-SourcingPunchoutProcess | 1.59 | 2.74 | note |  |
 | UBL-2.0-DeleteCatalogueProcess | 1.31 | 2.95 | final |  |
-| UBL-2.2-IMFM-IntermodalFreightManagementProcess | 2.80 | 1.40 | action |  |
 | UBL-2.3-CommonTransportationReportProcess | 0.89 | 3.28 | object |  |
 | UBL-2.0-UpdateCatalogueItemSpecificationProcess | 1.33 | 2.74 | final |  |
+| UBL-2.2-IMFM-IntermodalFreightManagementProcess | 2.80 | 1.03 | action |  |
 | UBL-2.0-SelfBillingwithSelfBilledCreditNoteProcess | 1.34 | 2.42 | final |  |
 | UBL-2.0-ReminderForPaymentProcess | 0.72 | 2.96 | final |  |
 | UBL-2.5-BillingwithCreditNoteProcess | 0.74 | 2.86 | final |  |
@@ -74,9 +71,12 @@ Figures with nothing left undrawn: 78. Their red: at most 5.95 %, mean 2.20 %.
 | UBL-2.2-VMI-SalesAndInventoryMovement | 0.90 | 1.73 | action |  |
 | UBL-2.2-CRP-SalesAndInventoryMovement | 1.06 | 1.57 | action |  |
 | UBL-2.2-CRP-InitialStockingByRetailer | 0.85 | 1.63 | action |  |
+| UBL-2.3-ManifestProcess | 0.04 | 2.16 | final |  |
 | UBL-2.2-IMFM-BasicTransportExecutionPlan | 0.43 | 1.61 | final |  |
 | UBL-2.2-ROCD-InitialStocking | 0.68 | 1.25 | action |  |
 | UBL-2.0-PaymentNotificationProcess | 0.34 | 1.45 | final |  |
+| UBL-2.3-TransitDeclarationProcess | 0.12 | 1.51 | final |  |
+| UBL-2.3-ImportDeclarationProcess | 0.06 | 1.47 | final |  |
 | UBL-2.2-InitiateFreightMgmtProcess | 0.54 | 0.97 | action |  |
 | UBL-2.2-FulfilmentDespatchAdviceProcess | 0.49 | 1.01 | lines (flows, frame, dividers) |  |
 | UBL-2.2-VMI-PermanentReplenishment | 0.43 | 0.96 | action |  |

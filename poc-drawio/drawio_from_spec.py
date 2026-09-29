@@ -219,6 +219,19 @@ def mxfile(spec, model=None):
                       **{"spacingLeft" if dx > 0 else "spacingRight": 2 * abs(dx)})
         vertex(ident, title, style(**kv), d["x"], d["y"], d["w"], d["h"], kind="phase-boundary")
 
+    for i, b in enumerate(spec.get("bands", [])):
+        # a band's rule across the lanes (the 2.3 customs figures' rule under
+        # the lane titles; IMFM's planning, execution and completion): a line
+        # cell, where and as heavy as measured - drawn before the lanes, so
+        # under the actions in them, as the SVG has it (IMFM's Provide
+        # Transportation Network Information spans two bands, and the rule
+        # ran through it)
+        at, wt, a, z = (b, S["divider"], 0.0, W) if not isinstance(b, (list, tuple)) else \
+            (b[0], b[1] if len(b) > 1 else S["divider"], b[2] if len(b) > 3 else 0.0, b[3] if len(b) > 3 else W)
+        vertex("band%d" % i, "", style(shape="line", html=1, strokeWidth=float(wt), strokeColor="#000000",
+                                       connectable=0),
+               a, at - 5, z - a, 10, kind="band-divider")
+
     # Lanes are draw.io swimlanes, so a node dropped in a lane belongs to it;
     # expand=0 keeps a lane its size when something is dropped across its
     # edge (draw.io widened the lane over its neighbour otherwise). A
@@ -255,7 +268,9 @@ def mxfile(spec, model=None):
                    strokeWidth=float(lane_stroke or S["divider"]), fontFamily=fam,
                    fontSize=float(size), fontStyle=1 if l.get("bold") else 0,
                    spacing=0, **{"spacingLeft" if d > 0 else "spacingRight": 2 * abs(d)})
-        vertex(l.get("id") or "lane%d" % i, l["title"], st.replace("swimlane=;", "swimlane;"),
+        # a title on two lines (Manifest's "Sending Logistics / Operator Party")
+        # keeps its break: the label is html, where only <br> breaks a line
+        vertex(l.get("id") or "lane%d" % i, html_lines(l["title"].split("\n")), st.replace("swimlane=;", "swimlane;"),
                x0, fb[1], x1 - x0, fb[3] - fb[1], kind="lane")
     if not lane_stroke:
         for i, d in enumerate(dividers):
@@ -280,15 +295,6 @@ def mxfile(spec, model=None):
                                            connectable=0),
                *geo, kind="lane-divider", **{"ubl-artwork-tone": gr.get("colour")})
 
-    for i, b in enumerate(spec.get("bands", [])):
-        # a band's rule across the lanes (the 2.3 customs figures' rule under
-        # the lane titles; IMFM's planning, execution and completion): a line
-        # cell, where and as heavy as measured
-        at, wt, a, z = (b, S["divider"], 0.0, W) if not isinstance(b, (list, tuple)) else \
-            (b[0], b[1] if len(b) > 1 else S["divider"], b[2] if len(b) > 3 else 0.0, b[3] if len(b) > 3 else W)
-        vertex("band%d" % i, "", style(shape="line", html=1, strokeWidth=float(wt), strokeColor="#000000",
-                                       connectable=0),
-               a, at - 5, z - a, 10, kind="band-divider")
     for i, b in enumerate(spec.get("bandLabels", [])):
         # a band's title, running up the gutter: draw.io's vertical text
         # (horizontal=0), which reads upwards as the SVG's rotate(-90) does
@@ -389,6 +395,23 @@ def mxfile(spec, model=None):
             """a contact point as a fraction of a grown box"""
             n, g = spec["byid"][ident], grow.get(ident, 0.0)
             return ((f[0] * n["w"] + g) / (n["w"] + 2 * g), (f[1] * n["h"] + g) / (n["h"] + 2 * g))
+        if e.get("points") and not e.get("straight") and len(pts) > 2:
+            # a bent flow drawn square in draw.io: its first and last stretch
+            # must be level or upright, or draw.io adds a step of its own - a
+            # stub of a few pixels at the box, and the arrowhead turned along
+            # it (GoodsItemPassport's "Yes" into Apply Stamps: 2px off,
+            # the head pointing up). The contact point moves onto the line of
+            # the bend next to it, when they are a few pixels apart.
+            def square(end, near, f, ident):
+                n = spec["byid"][ident]
+                dx, dy = near[0] - end[0], near[1] - end[1]
+                if abs(dx) > abs(dy) and 0 < abs(dy) <= 6 and f[0] in (0.0, 1.0) and n["y"] < near[1] < n["y"] + n["h"]:
+                    return (f[0], (near[1] - n["y"]) / n["h"])
+                if abs(dy) > abs(dx) and 0 < abs(dx) <= 6 and f[1] in (0.0, 1.0) and n["x"] < near[0] < n["x"] + n["w"]:
+                    return ((near[0] - n["x"]) / n["w"], f[1])
+                return f
+            fx, fy = square(pts[0], pts[1], (fx, fy), e["from"])
+            tx, ty = square(pts[-1], pts[-2], (tx, ty), e["to"])
         fx, fy = regrown(e["from"], (fx, fy))
         tx, ty = regrown(e["to"], (tx, ty))
         kv = dict(edgeStyle="none" if e.get("straight") else "orthogonalEdgeStyle", rounded=0,
