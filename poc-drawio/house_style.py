@@ -1078,6 +1078,17 @@ def _stretch(s, axis, cut, d):
         fb[2 if X else 3] = mv(fb[2 if X else 3])
     for n in s["nodes"] + s.get("guards", []):
         box(n, "x" if X else "y", "w" if X else "h")
+    if X:
+        # a lane's edge is its divider (or the frame), even where the two
+        # were measured a fraction of a pixel apart: it moves with it
+        edges = [dv[0] if isinstance(dv, list) else dv for dv in s.get("dividers", [])]
+        if s.get("frameBox"):
+            edges += [s["frameBox"][0], s["frameBox"][2] - d if s["frameBox"][2] > cut else s["frameBox"][2]]
+        for l in s["lanes"]:
+            a, b = l["x"], l["x"] + l["w"]
+            a = next((r for r in edges if abs(r - a) < 1.5), a)
+            b = next((r for r in edges if abs(r - b) < 1.5), b)
+            l["x"], l["w"] = a, b - a
     for l in s["lanes"]:
         if X:
             span(l, "x", "w")
