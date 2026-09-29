@@ -17,11 +17,15 @@ out="$1"; shift || true
 mkdir -p "$out"
 one() {
   n="$1"; d="$out/$n"; mkdir -p "$d"
+  # built at its natural scale, as run-poc.sh; compared at 1480px wide
   python3 "$root/tools/spec_from_model.py" "$root/diagrams/$n/$n-diagram.json" "$d/$n-spec.json" 1480 > /dev/null
-  python3 "$here/drawio_from_spec.py" "$d/$n-spec.json" "$d/$n.drawio" "$root/diagrams/$n/$n-diagram.json" > /dev/null 2> "$d/$n-missing.txt"
+  nat=$(python3 -c "import json,statistics,sys; s=json.load(open(sys.argv[1])); z=[l['size'] for x in s['nodes'] if x['kind'] in ('action','object') for l in x.get('labelLines',[])]; print(round(1480*12/statistics.median(z),2) if z else 1480)" "$d/$n-spec.json")
+  python3 "$root/tools/spec_from_model.py" "$root/diagrams/$n/$n-diagram.json" "$d/$n-natural-spec.json" "$nat" > /dev/null
+  python3 "$here/drawio_from_spec.py" "$d/$n-natural-spec.json" "$d/$n.drawio" "$root/diagrams/$n/$n-diagram.json" > /dev/null 2> "$d/$n-missing.txt"
   read W H < <(python3 -c "import json,sys; c=json.load(open(sys.argv[1]))['canvas']; print(c['w'], c['h'])" "$d/$n-spec.json")
+  read NW NH < <(python3 -c "import json,sys; c=json.load(open(sys.argv[1]))['canvas']; print(c['w'], c['h'])" "$d/$n-natural-spec.json")
   node "$root/tools/render-svg.js" "$root/diagrams/$n/$n.svg" "$d/$n-svg.png" "$W" > /dev/null
-  node "$here/render-drawio.js" "$d/$n.drawio" "$d/$n-drawio.png" "$W" "$H" > /dev/null
+  node "$here/render-drawio.js" "$d/$n.drawio" "$d/$n-drawio.png" "$NW" "$NH" "$(python3 -c "print($W / $NW)")" > /dev/null
   python3 "$here/compare.py" "$d/$n-svg.png" "$d/$n-drawio.png" "$d/$n-spec.json" "$d/$n-overlay.png" > "$d/$n-compare.txt"
   echo "  $n"
 }

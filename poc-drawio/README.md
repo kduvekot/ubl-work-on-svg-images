@@ -76,8 +76,21 @@ For each figure:
 `sweep.sh` writes the same files into `<out-dir>/<figure>/`, which is not
 committed, plus the table `sweep.md`, kept here.
 
-Both renders are at the figure's own size and scale 1, so they line up pixel
-for pixel. Ink with ink of the other render within 2 px (the pipeline's radius)
+**Natural scale.** The drawing is built at its natural scale: the size at
+which the labels of its actions and documents (their median) are 12 px,
+draw.io's own font size. That is the scale the artwork was drawn at before it
+was scaled up to its 1480-px-wide render. The figures come out 483-1410 px
+wide (median 728), with labels about 12 pt and lines 1.3-2 pt, as a drawing
+made in draw.io would have them; draw.io's fixed sizes (the end state's 4 px
+inset, for one) then fit as they do in its palettes. The writer's tolerances
+(1.5 px, 2 px, 8 px, ...) are for a 1480-px figure and scale with it.
+
+The comparison stays at 1480 px: the SVG is rendered at 1480 px wide and the
+drawing at 1480 / its width, so they line up pixel for pixel. Text drawn at
+about 12 px and scaled up lands 1-3 px from the SVG's (font rounding at the
+small size), which the comparison counts; mean red rose from 4.08 % to
+4.57 %. The end states improved (Tender Award Notification: blue 870 to 179
+px). Ink with ink of the other render within 2 px (the pipeline's radius)
 counts as agreeing. The draw.io viewer is fetched once from viewer.diagrams.net
 into `~/.cache/ubl-drawio-viewer`, and is not committed.
 
@@ -95,7 +108,7 @@ into `~/.cache/ubl-drawio-viewer`, and is not committed.
 | **decision** | `rhombus`, its question inside or beside it as the artwork has it | text only |
 | **note** | draw.io's `note` shape, the fold at its measured size | text only |
 | **start** | `startState` from draw.io's UML palette | none. draw.io insets the disc by 4 px, so its box is grown by 4 px and the contact points are recalculated. The disc is exactly the one measured. |
-| **end** | `endState` from draw.io's UML palette | **Visible.** draw.io always insets the inner disc by at most 4 px, so the disc is larger and the ring thinner than the artwork's (inner disc 45-61 % of the ring there). Open decision 1. |
+| **end** | `endState` from draw.io's UML palette | Small. draw.io always insets the inner disc by at most 4 px; at the natural scale that is close to the artwork's ring (at 1480 px wide the disc was larger and the ring thinner, inner disc 45-61 % of the ring). |
 | **fork bar** | the fork/join bar of the UML palette, horizontal or upright, at the measured size, filled black | none. The palette fills it with "strokeColor"; inside a lane with no stroke of its own, draw.io resolved that to nothing and the bar vanished (the CPFR figures), so it is filled black outright. |
 | **flows** | edges with `source` and `target`, filed in the container their two ends share (the lane, or the pool between lanes), as draw.io files a line drawn by hand; waypoints and free ends are relative to it, so moving the pool or a lane takes them along. Exit and entry at the measured contact points (`exitX/Y`, `entryX/Y` to 4 places, `exitPerimeter=0`); on a straight flow, a point within 2 px of one of draw.io's own connection points (a quarter, the middle or three quarters of a box's side, a diamond's tip) is that point (798 of 4180), unless that would tilt a level or upright line. A straight flow is `edgeStyle=none`; a bent one carries its corners as waypoints. | at most 2 px at a snapped contact point |
 | **almost-straight flows** | a flow without bends that the artwork draws almost level or upright (off by 0.05-8 px; 631 in 78 figures) is made exactly so by moving its elements, never its contact points: up or down for a level flow, left or right for an upright one. Elements tied by such flows move together; in each group the element with the most of them (mostly a document) stays put. 550 elements move: 165 by less than 0.5 px, 209 by 0.5-2, 150 by 2-4, 26 by 4-7 px. A bend or free end next to a moved element moves with it, so its stretch stays square. No element comes to overlap another or leaves its lane. 8 flows in loops (7 in IMFM, 1 in Fulfilment Receipt Advice) cannot be straightened this way: there the end on the element with the most flows moves by the loop's mismatch (0.6-2.9 px), and that point becomes one of the element's own connection points (`points=` in its style: draw.io's sixteen points of a box plus this one; draw.io shows it and snaps to it). | **by design:** the moved elements are up to 7 px from the SVG, which the comparison (radius 2 px) counts as difference; mean red rose from 2.13 % to 4.08 % |

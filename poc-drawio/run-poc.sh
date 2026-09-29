@@ -13,14 +13,22 @@ here="$(cd "$(dirname "$0")" && pwd)"
 root="$(cd "$here/.." && pwd)"
 [ $# -gt 0 ] || set -- UBL-2.5-BillingwithDebitNoteProcess
 tmp="$(mktemp -d)"; trap 'rm -rf "$tmp"' EXIT
+NATURAL() { python3 -c "import json,statistics,sys; s=json.load(open(sys.argv[1])); z=[l['size'] for x in s['nodes'] if x['kind'] in ('action','object') for l in x.get('labelLines',[])]; print(round(1480*12/statistics.median(z),2) if z else 1480)" "$1"; }
 for n in "$@"; do
   src="$root/diagrams/$n"
   out="$here/$n"; mkdir -p "$out"
+  # the drawing is built at its natural scale: the size at which its actions'
+  # and documents' labels (their median) are 12px, draw.io's own font size -
+  # the scale the artwork was drawn at before it was scaled up. The SVG and
+  # the comparison stay at 1480px wide; the drawing is rendered at that width.
   python3 "$root/tools/spec_from_model.py" "$src/$n-diagram.json" "$tmp/$n-spec.json" 1480 > /dev/null
-  python3 "$here/drawio_from_spec.py" "$tmp/$n-spec.json" "$out/$n.drawio" "$src/$n-diagram.json"
+  NAT=$(NATURAL "$tmp/$n-spec.json")
+  python3 "$root/tools/spec_from_model.py" "$src/$n-diagram.json" "$tmp/$n-natural-spec.json" "$NAT" > /dev/null
+  python3 "$here/drawio_from_spec.py" "$tmp/$n-natural-spec.json" "$out/$n.drawio" "$src/$n-diagram.json"
   read W H < <(python3 -c "import json,sys; c=json.load(open(sys.argv[1]))['canvas']; print(c['w'], c['h'])" "$tmp/$n-spec.json")
+  read NW NH < <(python3 -c "import json,sys; c=json.load(open(sys.argv[1]))['canvas']; print(c['w'], c['h'])" "$tmp/$n-natural-spec.json")
   node "$root/tools/render-svg.js" "$src/$n.svg" "$out/$n-svg.png" "$W" > /dev/null
-  node "$here/render-drawio.js" "$out/$n.drawio" "$out/$n-drawio.png" "$W" "$H"
+  node "$here/render-drawio.js" "$out/$n.drawio" "$out/$n-drawio.png" "$NW" "$NH" "$(python3 -c "print($W / $NW)")"
   python3 "$here/compare.py" "$out/$n-svg.png" "$out/$n-drawio.png" "$tmp/$n-spec.json" \
       "$out/$n-overlay.png" | tee "$out/$n-compare.txt"
 done

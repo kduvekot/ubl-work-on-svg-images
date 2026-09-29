@@ -319,6 +319,9 @@ def mxfile(spec, model=None):
     offpage = {o["id"]: o for o in model.get("offPage", [])}
     offpage_guard = {o["guard"]: o["id"] for o in offpage.values() if o.get("guard")}
     W, H = spec["canvas"]["w"], spec["canvas"]["h"]
+    # the tolerances below are pixels of a figure 1480px wide; a figure drawn
+    # at another scale (its natural scale, see run-poc.sh) scales them along
+    u = W / 1480.0
     fam = F["family"].split(",")[0].strip()
     fb = spec.get("frameBox") or [S["frame"] / 2, S["frame"] / 2, W - S["frame"] / 2, H - S["frame"] / 2]
     cells = []
@@ -400,7 +403,7 @@ def mxfile(spec, model=None):
     # measured apart and differ by a few tenths of a pixel in 37 figures)
     bounds = [l["x"] + l["w"] for l in spec["lanes"][:-1]]
     on_bound = {i: min(bounds, key=lambda b: abs(b - d[0])) for i, d in enumerate(dividers)
-                if bounds and min(abs(b - d[0]) for b in bounds) <= 1.5}
+                if bounds and min(abs(b - d[0]) for b in bounds) <= 1.5 * u}
     # Every divider on a lane boundary is the lanes' own border, as a lane in
     # draw.io has it: full height, and one weight for the figure - the median
     # of its dividers, never heavier than the frame. The artwork's heavier,
@@ -411,7 +414,7 @@ def mxfile(spec, model=None):
     # that boundary's divider too: Procurement's grey edges either side of
     # its dividers, CPFR Creating Sales Forecast's only divider
     grey_on = [g for g in spec.get("greyRules", []) if g["axis"] == "v" and bounds
-               and min(abs(b - g["at"] - g["w"] / 2) for b in bounds) <= 3.0]
+               and min(abs(b - g["at"] - g["w"] / 2) for b in bounds) <= 3.0 * u]
     wts = sorted(dividers[i][1] for i in on_bound) or sorted(g["w"] for g in grey_on)
     lane_stroke = min(wts[len(wts) // 2] if len(wts) % 2 else (wts[len(wts) // 2 - 1] + wts[len(wts) // 2]) / 2,
                       S["frame"]) if wts else None
@@ -550,7 +553,7 @@ def mxfile(spec, model=None):
                     if n["kind"] in ("decision", "initial", "final") and not (n.get("labelLines") or n.get("label")))
     node_text = {}
     for d, nid, tid, tb in beside:
-        if d <= 60 and nid not in node_text and tid not in taken:
+        if d <= 60 * u and nid not in node_text and tid not in taken:
             node_text[nid] = tb
             taken.add(tid)
     for n in spec["nodes"]:
@@ -714,9 +717,9 @@ def mxfile(spec, model=None):
             def square(end, near, f, ident):
                 n = spec["byid"][ident]
                 dx, dy = near[0] - end[0], near[1] - end[1]
-                if abs(dx) > abs(dy) and 0 < abs(dy) <= 6 and f[0] in (0.0, 1.0) and n["y"] < near[1] < n["y"] + n["h"]:
+                if abs(dx) > abs(dy) and 0 < abs(dy) <= 6 * u and f[0] in (0.0, 1.0) and n["y"] < near[1] < n["y"] + n["h"]:
                     return (f[0], (near[1] - n["y"]) / n["h"])
-                if abs(dy) > abs(dx) and 0 < abs(dx) <= 6 and f[1] in (0.0, 1.0) and n["x"] < near[0] < n["x"] + n["w"]:
+                if abs(dy) > abs(dx) and 0 < abs(dx) <= 6 * u and f[1] in (0.0, 1.0) and n["x"] < near[0] < n["x"] + n["w"]:
                     return ((near[0] - n["x"]) / n["w"], f[1])
                 return f
             fx, fy = square(pts[0], pts[1], (fx, fy), e["from"])
@@ -737,7 +740,7 @@ def mxfile(spec, model=None):
                 for a, size in ((0, n["w"]), (1, n["h"])):
                     if f[1 - a] in (0.0, 1.0):
                         c = min(marks, key=lambda m: abs(m - f[a]))
-                        if abs(c - f[a]) * size <= 2.0:
+                        if abs(c - f[a]) * size <= 2.0 * u:
                             f[a] = c
                 return tuple(f)
 
@@ -854,7 +857,7 @@ def mxfile(spec, model=None):
         # fraction along it, so it goes where the flow goes
         mid = ((m["x1"] + m["x2"]) / 2, (m["y1"] + m["y2"]) / 2)
         near = min(((math.dist(mid, along(p, mid)[1]), k) for k, p in edge_pts.items()), default=None)
-        if near and near[0] <= 40:
+        if near and near[0] <= 40 * u:
             k = near[1]
             t, q = along(edge_pts[k], mid)
             ln = math.dist((m["x1"], m["y1"]), (m["x2"], m["y2"]))
@@ -904,7 +907,7 @@ def mxfile(spec, model=None):
     # offset (ubl-offset), and a reader of the file takes it off again.
     M = math.ceil(end_size + 2 * S["edge"]) + 2
     body = ET.fromstring('<root><mxCell id="0"/><mxCell id="1" parent="0"/>%s</root>' % "".join(cells))
-    straighten(body)
+    straighten(body, 0.05 * u, 8.0 * u)
     for c in body.iter("mxCell"):
         geo = c.find("mxGeometry")
         if geo is None:
