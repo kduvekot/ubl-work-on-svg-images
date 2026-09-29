@@ -2,11 +2,11 @@
 
 78 figures. Red: the SVG's ink draw.io lacks; blue: draw.io's ink the SVG lacks; both as a share of the SVG's ink, within 2 px. Worst first.
 
-Figures with nothing left undrawn: 78. Their red: at most 12.30 %, mean 4.08 %.
+Figures with nothing left undrawn: 78. Their red: at most 12.29 %, mean 4.08 %.
 
 | figure | red % | blue % | most difference in | not drawn yet |
 |---|---:|---:|---|---|
-| UBL-2.2-IMFM-IntermodalFreightManagementProcess | 12.30 | 11.10 | lines (flows, frame, dividers) |  |
+| UBL-2.2-IMFM-IntermodalFreightManagementProcess | 12.29 | 11.08 | lines (flows, frame, dividers) |  |
 | UBL-2.2-Tender-ExpressionOfInterest | 10.54 | 12.37 | action |  |
 | UBL-2.2-Tender-Invitation | 10.14 | 11.65 | action |  |
 | UBL-2.2-Tender-UnsubscribeFromProcedure | 10.08 | 11.13 | action |  |

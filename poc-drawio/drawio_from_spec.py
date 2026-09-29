@@ -269,6 +269,38 @@ def straighten(body, lo=0.05, hi=8.0):
                 near.set("y", num(float(near.get("y", 0)) + dy))
             elif abs(nx - old[0]) < 0.5 <= abs(ny - old[1]):
                 near.set("x", num(float(near.get("x", 0)) + dx))
+    # A flow left tilted in a loop is straightened at one end after all: the
+    # end on the element with the most flows (then the larger one) moves by
+    # the loop's mismatch (0.6-2.9px). That point is then one of the
+    # element's own connection points: its style lists draw.io's sixteen
+    # points of a box and this one (`points`), so draw.io shows it and snaps
+    # to it, as to its standard ones.
+    degree = collections.Counter()
+    for i, c, g, st in edges:
+        degree[c.get("source")] += 1
+        degree[c.get("target")] += 1
+    own = collections.defaultdict(list)
+    for i in tilted:
+        el, c, g = info[i]
+        st = kv(c)
+        a, b = c.get("source"), c.get("target")
+        p, q = contact(a, st["exitX"], st["exitY"]), contact(b, st["entryX"], st["entryY"])
+        k = 1 if abs(q[0] - p[0]) >= abs(q[1] - p[1]) else 0
+        end, key, to = (b, "entry", p[k]) if (degree[b], box(b)[2] * box(b)[3]) >= (degree[a], box(a)[2] * box(a)[3]) \
+            else (a, "exit", q[k])
+        bx = box(end)
+        f = round((to - bx[k]) / bx[2 + k], 4)
+        st[key + ("Y" if k else "X")] = str(f)
+        c.set("style", ";".join(x for x in (c.get("style") or "").split(";")
+                                if x and not x.startswith(key + ("Y=" if k else "X=")))
+              + ";%s%s=%s;" % (key, "Y" if k else "X", num(f, 4)))
+        own[end].append((float(st[key + "X"]), float(st[key + "Y"])))
+    box16 = [(0, 0), (0.25, 0), (0.5, 0), (0.75, 0), (1, 0), (0, 0.25), (0, 0.5), (0, 0.75),
+             (1, 0.25), (1, 0.5), (1, 0.75), (0, 1), (0.25, 1), (0.5, 1), (0.75, 1), (1, 1)]
+    for end, pts in own.items():
+        c = info[end][1]
+        c.set("style", (c.get("style") or "") + "points=[%s];" % ",".join(
+            "[%s,%s]" % (num(x, 4), num(y, 4)) for x, y in box16 + pts))
     return tilted
 
 
