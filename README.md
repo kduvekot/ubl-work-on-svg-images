@@ -91,10 +91,10 @@ repository as it was before the switch and still runs from there:
 4. **JSON to SVG** - `history/diagrams/<figure>/<figure>.svg`, drawn by
    `history/tools/draw-from-json.sh`; the comparison decks in
    `history/comparison-pdf/`.
-5. **JSON to draw.io** - `history/poc-drawio/`: the writer that drew the drawings
-   in `diagrams/` from the JSONs, with its README (every element, the draw.io
-   construct chosen for it, and what differs from the SVG) and its comparison
-   against the SVGs (`sweep.md`).
+5. **JSON to draw.io** - `history/drawio-writer/`: the writer that drew the
+   drawings in `diagrams/` from the JSONs, with its README (every element, the
+   draw.io construct chosen for it, what differs from the SVG and why, and the
+   decisions taken) and its comparison against the SVGs (`sweep.md`).
 6. **draw.io as the source** - `diagrams/` (2026-09-29).
 
 `history/README.md` is the repository's former README, describing steps 1-4.

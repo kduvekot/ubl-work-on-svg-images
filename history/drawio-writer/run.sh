@@ -1,10 +1,10 @@
 #!/bin/bash
 # Draw a figure as a native draw.io model and hold it against its SVG.
 #
-#   poc-drawio/run-poc.sh [<figure> ...]      (default: UBL-2.5-BillingwithDebitNoteProcess)
+#   history/drawio-writer/run.sh [<figure> ...]      (default: UBL-2.5-BillingwithDebitNoteProcess)
 #
 # Reads diagrams/<figure>/ (the JSONs and the committed SVG) and writes only to
-# poc-drawio/<figure>/: the .drawio, both renders, the overlay and the
+# history/drawio-writer/<figure>/: the .drawio, both renders, the overlay and the
 # comparison. Nothing in diagrams/, tools/ or baselines/ is written.
 # Needs Python 3 with jsonschema, numpy, scipy and pillow, and Node with
 # playwright (as tools/render-svg.js); the draw.io viewer is fetched once.

@@ -1,18 +1,20 @@
 #!/usr/bin/env python3
-"""A native draw.io model of a figure, as close to its SVG as draw.io allows.
+"""The figure's draw.io drawing, drawn from its JSONs.
 
     python3 drawio_from_spec.py <spec.json> <out.drawio> [<figure>-diagram.json]
 
 The diagram JSON, when given, adds what the spec does not carry: where a flow
-leaving the page continues, and which guard labels it.
+leaving the page continues, which guard labels it, and the rest of the model,
+kept on each element as custom properties (carry_model).
 
-Proof of concept, kept apart from the pipeline: it reads the same spec as
+This drew the 78 drawings in diagrams/, the figures' source of truth since
+2026-09-29, which are edited directly from then on. It reads the same spec as
 tools/build_diagram.py (made by tools/spec_from_model.py from the JSONs) and
 reuses its geometry - the guards moved off their lines, the hops, the routed
 lines - without changing it. Where draw.io has a native way to say something
-(a swimlane, a fork bar, an edge label, a line jump) that is used, set to the
-measured sizes; where draw.io cannot say what the SVG says, the nearest native
-setting is taken and the difference is written up in poc-drawio/README.md.
+(a pool and lanes, a fork bar, an edge label, a line jump) that is used; where
+draw.io cannot say what the SVG says, the nearest native setting is taken and
+the difference is written up in history/drawio-writer/README.md.
 """
 import collections, html, json, math, os, re, statistics, sys, xml.etree.ElementTree as ET, xml.sax.saxutils as su
 
@@ -674,7 +676,7 @@ def mxfile(spec, model=None):
     offpage_guard = {o["guard"]: o["id"] for o in offpage.values() if o.get("guard")}
     W, H = spec["canvas"]["w"], spec["canvas"]["h"]
     # the tolerances below are pixels of a figure 1480px wide; a figure drawn
-    # at another scale (its natural scale, see run-poc.sh) scales them along
+    # at another scale (its natural scale, see run.sh) scales them along
     u = W / 1480.0
     fam = F["family"].split(",")[0].strip()
     fb = spec.get("frameBox") or [S["frame"] / 2, S["frame"] / 2, W - S["frame"] / 2, H - S["frame"] / 2]
@@ -1291,7 +1293,7 @@ def mxfile(spec, model=None):
              '%s</mxGraphModel>'
              % (round(W), round(H), math.ceil(W) + 2 * M, math.ceil(H) + 2 * M,
                 ET.tostring(body, encoding="unicode")))
-    return ('<mxfile host="UBL-TC" agent="UBL artwork pipeline, draw.io proof of concept" type="device">'
+    return ('<mxfile host="UBL-TC" agent="UBL artwork pipeline, JSON to draw.io" type="device">'
             '<diagram id="%s" name="%s">%s</diagram></mxfile>'
             % (esc(spec.get("name", "figure")), esc(spec.get("name", "figure")), model))
 

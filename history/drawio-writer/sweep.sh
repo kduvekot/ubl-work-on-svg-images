@@ -1,9 +1,9 @@
 #!/bin/bash
 # Draw every figure as a native draw.io model and hold each against its SVG.
 #
-#   poc-drawio/sweep.sh <out-dir> [<figure> ...]     (default: all of tools/uml78-bycomplexity.txt)
+#   history/drawio-writer/sweep.sh <out-dir> [<figure> ...]     (default: all of tools/uml78-bycomplexity.txt)
 #
-# For each figure, <out-dir>/<figure>/ gets what run-poc.sh writes (the
+# For each figure, <out-dir>/<figure>/ gets what run.sh writes (the
 # .drawio, both renders, the overlay, the comparison), and <out-dir>/sweep.md
 # gets one row per figure: the ink each render lacks, and the kinds of element
 # the writer does not draw yet. Nothing in diagrams/, tools/ or baselines/ is
@@ -17,7 +17,7 @@ out="$1"; shift || true
 mkdir -p "$out"
 one() {
   n="$1"; d="$out/$n"; mkdir -p "$d"
-  # built at its natural scale, as run-poc.sh; compared at 1480px wide
+  # built at its natural scale, as run.sh; compared at 1480px wide
   python3 "$root/tools/spec_from_model.py" "$root/diagrams/$n/$n-diagram.json" "$d/$n-spec.json" 1480 > /dev/null
   nat=$(python3 -c "import json,statistics,sys; s=json.load(open(sys.argv[1])); z=[l['size'] for x in s['nodes'] if x['kind'] in ('action','object') for l in x.get('labelLines',[])]; print(round(1480*12/statistics.median(z),2) if z else 1480)" "$d/$n-spec.json")
   python3 "$root/tools/spec_from_model.py" "$root/diagrams/$n/$n-diagram.json" "$d/$n-natural-spec.json" "$nat" > /dev/null
