@@ -490,6 +490,54 @@ def whole(body):
     return kept
 
 
+def into_pool(body):
+    """The parts drawn across the lanes - CPFR's dashed phase boxes, IMFM's
+    phase rules and their names - belong to the pool, so they move with it
+    (on the page, moving the pool left them behind). They are its first
+    children, under the lanes, and not movable on their own (movable=0),
+    which also keeps the pool's stack layout from laying them out as lanes."""
+    frame = next((el for el in body if el.get("id") == "frame"), None)
+    if frame is None:
+        return
+    fg = frame.find("mxCell").find("mxGeometry")
+    fx, fy = float(fg.get("x")), float(fg.get("y"))
+    parts = [el for el in body if el.get("ubl-kind") in ("phase-boundary", "band-divider", "band-title")
+             and el.find("mxCell") is not None and el.find("mxCell").get("parent") == "1"]
+    for el in parts:
+        body.remove(el)
+        c = el.find("mxCell")
+        c.set("parent", "frame")
+        c.set("style", (c.get("style") or "") + ("" if (c.get("style") or "").endswith(";") else ";") + "movable=0;")
+        g = c.find("mxGeometry")
+        g.set("x", num(float(g.get("x", 0)) - fx))
+        g.set("y", num(float(g.get("y", 0)) - fy))
+    at = list(body).index(frame) + 1
+    for k, el in enumerate(parts):
+        body.insert(at + k, el)
+
+
+def fork_points(body):
+    """A fork or join bar's own connection points: where its flows meet it.
+    The UML palette gives the bar none (points=[]), so a flow could not be
+    reattached to it in draw.io."""
+    ends = collections.defaultdict(set)
+    for el in body:
+        c = el if el.tag == "mxCell" else el.find("mxCell")
+        if c is None or c.get("edge") != "1":
+            continue
+        st = dict(p.split("=", 1) for p in (c.get("style") or "").split(";") if "=" in p)
+        for end, key in ((c.get("source"), "exit"), (c.get("target"), "entry")):
+            if end and key + "X" in st:
+                ends[end].add((float(st[key + "X"]), float(st[key + "Y"])))
+    for el in body:
+        if el.get("ubl-kind") != "fork":
+            continue
+        c = el.find("mxCell")
+        pts = sorted(ends.get(el.get("id"), ()))
+        c.set("style", (c.get("style") or "").replace("points=[];", "points=[%s];" % ",".join(
+            "[%s,%s]" % (num(x, 6), num(y, 6)) for x, y in pts)))
+
+
 def touching(n, p, tol=4.0):
     """the fraction of n's box at point p, when p lies on (or within tol of) its
     outline; else None"""
@@ -1093,8 +1141,10 @@ def mxfile(spec, model=None):
     # offset (ubl-offset), and a reader of the file takes it off again.
     M = math.ceil(end_size + 2 * S["edge"]) + 2
     body = ET.fromstring('<root><mxCell id="0"/><mxCell id="1" parent="0"/>%s</root>' % "".join(cells))
+    into_pool(body)
     straighten(body, 0.05 * u, 8.0 * u)
     whole(body)
+    fork_points(body)
     for c in body.iter("mxCell"):
         geo = c.find("mxGeometry")
         if geo is None:
