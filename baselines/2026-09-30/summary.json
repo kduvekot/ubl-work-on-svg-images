@@ -542,6 +542,74 @@
   "red_space_inserted": 2.01,
   "blue_space_inserted": 1.64
  },
+ "UBL-2.2-Fulfilment-1simple": {
+  "canvas": [
+   3425,
+   1830
+  ],
+  "scale": 3.625,
+  "page": [
+   945,
+   505
+  ],
+  "png_size": [
+   3425,
+   1830
+  ],
+  "red": 0.53,
+  "blue": 0.98
+ },
+ "UBL-2.2-Fulfilment-2split": {
+  "canvas": [
+   3425,
+   2172
+  ],
+  "scale": 3.585,
+  "page": [
+   956,
+   606
+  ],
+  "png_size": [
+   3425,
+   2172
+  ],
+  "red": 2.46,
+  "blue": 2.52
+ },
+ "UBL-2.2-Fulfilment-3intermediary": {
+  "canvas": [
+   3425,
+   2436
+  ],
+  "scale": 3.655,
+  "page": [
+   938,
+   667
+  ],
+  "png_size": [
+   3425,
+   2436
+  ],
+  "red": 1.42,
+  "blue": 1.61
+ },
+ "UBL-2.2-Fulfilment-4consolidated": {
+  "canvas": [
+   3425,
+   2385
+  ],
+  "scale": 3.355,
+  "page": [
+   1021,
+   711
+  ],
+  "png_size": [
+   3425,
+   2385
+  ],
+  "red": 0.92,
+  "blue": 1.35
+ },
  "UBL-2.2-FulfilmentDespatchAdviceProcess": {
   "canvas": [
    3425,

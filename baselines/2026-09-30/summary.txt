@@ -30,6 +30,10 @@ UBL-2.2-DigitalAgreement                                  3425x3284   3450x3284 
 UBL-2.2-DigitalCapability                                 3425x1234   3425x1234    5.93    1.96                    
 UBL-2.2-Enquiry                                           3424x1802   3424x1908   56.27   48.80      2.70      1.23
 UBL-2.2-FreightStatusReporting                            3425x1230   3425x1282   55.44   54.30      2.01      1.64
+UBL-2.2-Fulfilment-1simple                                3425x1830   3425x1830    0.53    0.98                    
+UBL-2.2-Fulfilment-2split                                 3425x2172   3425x2172    2.46    2.52                    
+UBL-2.2-Fulfilment-3intermediary                          3425x2436   3425x2436    1.42    1.61                    
+UBL-2.2-Fulfilment-4consolidated                          3425x2385   3425x2385    0.92    1.35                    
 UBL-2.2-FulfilmentDespatchAdviceProcess                   3425x2354   3425x2354    1.76    0.63                    
 UBL-2.2-FulfilmentReceiptAdviceProcess                    3425x2019   3425x2019    1.48    1.39                    
 UBL-2.2-IMFM-BasicTransportExecutionPlan                  3425x2204   3425x2204    1.44    1.13                    
