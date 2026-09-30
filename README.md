@@ -157,6 +157,39 @@ SVG, PNG and PDF exports of the drawings are the work of a later session. Until
 then, the latest images are the SVGs in `history/diagrams/<figure>/<figure>.svg`,
 drawn from the JSONs; they are no longer maintained.
 
+Decided for that export (2026-09-30), from how the [UBL repository](https://github.com/oasis-tcs/ubl)
+publishes its artwork (its README, "Artwork"; `build.xml`; `realta-user-parameters.xml`):
+
+- **What it makes:** a commit for the UBL repository that adds or replaces, per
+  figure, `images/<figure>.drawio` (the source), `images/<figure>.svg` (the
+  revisable vector file ISO asks for), `art/<figure>.png` (print: 600 dpi, at
+  most 3425 px wide, i.e. 5.7 in / 14.5 cm; white background, no border) and
+  `htmlart/<figure>.png` (web: at most 750 px wide). Both PNGs are rendered from
+  the SVG, so they cannot drift from it. `UBL.xml` keeps pointing at
+  `art/<figure>.png`: nothing changes in how UBL is published. Publishing the
+  SVG itself (as `ubl-2.4-os-iso-pub` did, with SVGs that only wrapped the
+  PNGs) is for a wider discussion with the TC.
+- **The SVG is real vector:** text as `<text>`, not in `<foreignObject>` (draw.io
+  writes its HTML labels there by default) and not as outlines, which ISO does
+  not accept; no embedded bitmap.
+- **Scale:** as now, each figure is fitted to the page width (5.7 in), or kept
+  at its natural size where it is narrower. The export reports per figure the
+  scale and the size its 12 pt text prints at (about 4.7 pt in the widest,
+  Fulfilment Receipt Advice); changing the drawings to even that out is for later.
+- **Font:** Helvetica, draw.io's own (no drawing sets `fontFamily`), named in the
+  SVG as `Helvetica, Arial, "Liberation Sans", sans-serif`: the three have the
+  same widths, so labels fit wherever one of them is present. The renders use
+  Liberation Sans, as the baseline's did. No font is embedded (both Helvetica
+  and Cambria are licensed).
+
+**If ISO requires its own font** (ISO/CS asks for Cambria in graphics): do it for
+the ISO deliverables only, never in the drawings. Export the ISO SVGs with the
+font set at export time (`fontFamily=Cambria` on every cell), render them with
+Cambria or its metric-compatible stand-in Caladea, and check that every label
+still fits its box: Cambria's widths differ from Helvetica's. Where one does not
+fit, widen the box in the ISO export as the 12 pt edit did (`history/drawio-edits/twelve.py`),
+not in the drawing. The OASIS outputs and the drawings keep Helvetica.
+
 ## How we got here: `history/`
 
 The drawings are the end of a path, kept whole in `history/`: the repository
