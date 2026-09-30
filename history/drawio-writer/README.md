@@ -43,7 +43,7 @@ in the rest documents, lane titles, guards and a note. Most of it is by design:
 - **straightened flows:** elements moved up to 7 px to make flows that the
   artwork draws almost level or upright exactly so;
 - **text width:** the SVG fits each line to its measured width, draw.io cannot
-  (open decision 1).
+  (since decided: one size, 12 pt; see Decisions taken).
 
 Against the original PNGs, at each PNG's own size, the drawings differ by 4.1 %
 of the PNG's ink on average (red; blue 3.9 %), worst 11.2 % (IMFM). Part of that
