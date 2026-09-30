@@ -206,7 +206,9 @@ publishes its artwork (its README, "Artwork"; `build.xml`; `realta-user-paramete
   the SVG, so they cannot drift from it. `UBL.xml` keeps pointing at
   `art/<figure>.png`: nothing changes in how UBL is published. Publishing the
   SVG itself (as `ubl-2.4-os-iso-pub` did, with SVGs that only wrapped the
-  PNGs) is for a wider discussion with the TC.
+  PNGs) is for a wider discussion with the TC. A test build with these files
+  through Réalta, the UBL publishing server, is done on the UBL repository's
+  side, in a test branch there, not from here.
 - **It replaces what is there:** for 20 of the 78 figures the UBL repository
   has a source in `images/` under the same name (16 `.svg`, 4 `.drawio`); the
   commit replaces them, and removes the 3 older sources of our figures under
