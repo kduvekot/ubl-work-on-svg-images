@@ -157,7 +157,7 @@ into `~/.cache/ubl-drawio-viewer`, and is not committed.
 | **band titles** (IMFM) | text cells with draw.io's vertical text (`horizontal=0`), reading upwards as the SVG's; children of the pool, as the bands | text only |
 | **grey rules** | on a lane boundary: that boundary's lane border (see lane dividers); all of them are. (Otherwise a line cell of its own, black (the TC: no grey), with the artwork's tone kept as `ubl-artwork-tone`.) | none |
 | **break marks** (Business Card, Digital Capability) | the `//` across the document's flow: two short lines, each a child of that flow (as a label is), a fraction along it, so they go where the flow goes. The flow itself runs from the document down the lane divider to the action, attached at both ends (the reading had found only its last stretch, as a loose line). | none |
-| **text (all labels)** | html labels, Helvetica, the measured size (the median of its lines) in whole points, bold and italic as measured, `whiteSpace=nowrap`: lines break only where the artwork breaks them. The block is placed at the lines' measured left edge or centre, and at their middle. | draw.io cannot fit a line to a measured width, which the SVG does (`textLength`), so letters come out at their natural width, a few pixels longer or shorter at the ends. Over all 1,526 measured lines, draw.io's Helvetica (Liberation Sans in Chromium) is 2.7 % wider than the artwork's (median), between 10 % narrower and 30 % wider. draw.io also sets one size and one line spacing per label (1.2), where the SVG sets each line at its measured place (about 1.25 apart). Open decision 1. |
+| **text (all labels)** | html labels, Helvetica, the measured size (the median of its lines) in whole points, bold and italic as measured, `whiteSpace=nowrap`: lines break only where the artwork breaks them. The block is placed at the lines' measured left edge or centre, and at their middle. | draw.io cannot fit a line to a measured width, which the SVG does (`textLength`), so letters come out at their natural width, a few pixels longer or shorter at the ends. Over all 1,526 measured lines, draw.io's Helvetica (Liberation Sans in Chromium) is 2.7 % wider than the artwork's (median), between 10 % narrower and 30 % wider. draw.io also sets one size and one line spacing per label (1.2), where the SVG sets each line at its measured place (about 1.25 apart). Since 2026-09-30 every label in the drawings is 12 pt (Decisions taken, text width). |
 | **ids, kinds and the model** | each cell is draw.io's `<object>` with the model's id, and the kind as a custom property (`ubl-kind`, shown in draw.io's Edit Data). Everything else the diagram JSON says that the drawing does not show by itself is kept on the element as `ubl-` properties (`carry_model`; the list is in the top README): a flow's kind and guard, a document between parties, linked processes, references, phase members, a text's own words, the flows one drawn line stands for. Not kept: how the PNG was read (a flow's direction confidence, the source PNG). | none. `tools/check_drawio.py --against history/diagrams` reads the model back out of the drawing: all 78 equal to their JSON. |
 
 ## Editing in draw.io: tested in the editor itself
@@ -260,12 +260,21 @@ This is how draw.io treats small shapes, not a fault in the file.
 - **Embedding in the SVG:** not taken up here. Images made from the drawings
   (SVG, PNG, PDF) are the work of a later session.
 
+- **Text width** (2026-09-30): one text size, draw.io's own 12 pt, for every
+  label - not the measured sizes (9-20 pt), and not sizes chosen to match the
+  artwork's widths. Done on the drawings in `diagrams/` directly, after the
+  switch, not by this writer: every label lost its `fontSize`; a box that no
+  longer held its words was made wider or taller about its centre (89 boxes, by
+  2-18 px), keeping every flow end's point on the page, so no flow tilted; where
+  widening would have taken a box out of its lane, its label was broken over one
+  more line (10 labels, Tender Qualification Application and Unsubscribe From
+  Procedure). The measured widths of the SVG (`textLength`) are no longer aimed
+  at: draw.io cannot fit a line to a width, and the width depends on the font of
+  the computer that shows it anyway.
+
 ## Open decisions
 
-1. **Text width.** Keep the measured size, with letters at their natural
-   width (as now)? Or choose each label's size so its width matches? That
-   would be closer to the SVG, but the sizes would no longer be the ones
-   measured.
+None.
 
 ## Tried in the editor since
 

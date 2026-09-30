@@ -26,9 +26,14 @@ Each drawing is built from draw.io's own parts:
   own label, a decision's question the diamond's own label;
 - CPFR's dashed phase boxes and IMFM's phase rules and names are part of the
   pool, so they move with it;
-- drawn at the figures' **natural scale** (labels about 12 pt), with **whole
-  pixels** only and **fixed line weights** (1, and 2 for documents and the frame);
-  flows that the artwork draws almost level or upright are exactly so.
+- drawn at the figures' **natural scale**, with **whole pixels** only and
+  **fixed line weights** (1, and 2 for documents and the frame); flows that the
+  artwork draws almost level or upright are exactly so;
+- **one text size: draw.io's own 12 pt** for every label (no `fontSize` in the
+  style). Where a box no longer held its words at 12 pt it was made wider or
+  taller about its centre (89 boxes, by 2-18 px), and where that would have taken
+  it out of its lane, its label was broken over one more line (10 labels, in the
+  two Tender figures with long one-line labels).
 
 ### The model inside each drawing
 
