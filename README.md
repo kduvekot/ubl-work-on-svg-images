@@ -128,8 +128,9 @@ drawn from the JSONs; they are no longer maintained.
 
 ## How we got here: `history/`
 
-The drawings are the end of a path, kept whole in `history/`, which is the
-repository as it was before the switch and still runs from there:
+The drawings are the end of a path, kept whole in `history/`: the repository
+as it was before the switch, which still runs from there, and the edits made
+since:
 
 1. **The original PNGs** - `art/` in the [UBL repository](https://github.com/oasis-tcs/ubl),
    branch `ubl-2.5` (not copied here).
@@ -147,6 +148,9 @@ repository as it was before the switch and still runs from there:
    drawings in `diagrams/` from the JSONs, with its README (every element, the
    draw.io construct chosen for it, what differs from the SVG and why, and the
    decisions taken) and its comparison against the SVGs (`sweep.md`).
-6. **draw.io as the source** - `diagrams/` (2026-09-29).
+6. **draw.io as the source** - `diagrams/` (2026-09-29). The changes made to
+   all 78 drawings since (12 pt text, one arrowhead, the 3x arrow rule), and the
+   comparison of the drawings with the original PNGs, are scripts in
+   `history/drawio-edits/`, with a README saying which commit each made.
 
 `history/README.md` is the repository's former README, describing steps 1-4.
