@@ -31,7 +31,14 @@ Each drawing is built from draw.io's own parts:
   artwork draws almost level or upright are exactly so;
 - **one arrowhead everywhere:** UML's open head, 10 px (`endArrow=open;endSize=10`),
   where the artwork had sizes of 6-17 px and a filled head in the 2.3 customs
-  figures;
+  figures; and every arrow at least **3 times its head long** (30 px, the
+  stretch after its last bend). Where one was shorter, space was inserted across
+  the whole figure, as draw.io's own "insert space" does: a band of height or a
+  column of width, everything beyond it moved along, lanes and pool grown (109
+  insertions in 35 figures, 1-20 px each; a figure grew by at most 58 px in
+  height (Tender Contract Post) and 30 px in width).
+  Nothing tilted or came to overlap; 13 shapes the space ran through grew with
+  it (most by 2-7 px; two Tender documents by 15 and 20 px);
 - **one text size: draw.io's own 12 pt** for every label (no `fontSize` in the
   style). Where a box no longer held its words at 12 pt it was made wider or
   taller about its centre (83 boxes, by 2-18 px), and where that would have taken
@@ -99,9 +106,10 @@ Run it by hand after an edit. It checks the conventions a drawing must keep:
 every element has a known `ubl-kind` and a unique id; the lanes are in the pool
 and every node in a lane; every flow is attached at both ends (a flow leaving
 the page at one); a guard is used once. A finding makes it fail (exit status 1).
-It also **warns** where the model is poorer than it should be: a flow without
+It also **warns** where the model is poorer than it should be - a flow without
 its kind (`ubl-flow`), a document across a lane divider without the parties it
-passes between (`ubl-between`).
+passes between (`ubl-between`) - and where an arrow is shorter than 3 times its
+head: make room in draw.io by Ctrl+Shift+dragging on the background.
 
 With `--against history/diagrams` it also reads the model back out of each
 drawing and compares it, field by field, with the JSON model it was drawn from.

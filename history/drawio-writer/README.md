@@ -276,6 +276,12 @@ This is how draw.io treats small shapes, not a fault in the file.
   at: draw.io cannot fit a line to a width, and the width depends on the font of
   the computer that shows it anyway.
 
+- **Arrowheads and arrow length** (2026-09-30): one arrowhead everywhere, UML's
+  open head at 10 px, in place of the measured sizes (6-17 px) and the 2.3
+  customs figures' filled head; every arrow at least 3 times its head long (30
+  px), made so by inserting space across the figure (109 insertions in 35
+  figures). Done on the drawings in `diagrams/` directly (see the top README).
+
 ## Open decisions
 
 None.

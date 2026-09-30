@@ -21,7 +21,8 @@ Conventions checked (after an edit in draw.io, too):
 
 Warned about (not a fault, but the model is poorer without it): a flow
 without its kind (ubl-flow), a document across a lane divider without the
-parties it passes between (ubl-between).
+parties it passes between (ubl-between), an arrow shorter than 3 times its
+head (the stretch after its last bend).
 
 With --against, the model read from the drawing must equal the diagram JSON,
 field for field - all but what records how the PNG was read (a flow's
@@ -132,6 +133,33 @@ def warnings(cells):
             if x < 0 or x + w > lw:
                 out.append("%s: a document across a lane divider without the parties it passes between "
                            "(ubl-between: [\"lane-...\", \"lane-...\"])" % i)
+    # an arrow at least 3 times its head long: the stretch after its last bend
+    def at(i):
+        c = cells[i]; x = y = 0.0
+        while c is not None and c["geo"] is not None and c["geo"].get("relative") != "1" and not c["edge"]:
+            x += float(c["geo"].get("x", 0)); y += float(c["geo"].get("y", 0)); c = cells.get(c["parent"])
+        return x, y
+    for i, c in cells.items():
+        if not c["edge"] or not c["target"] or c["target"] not in cells:
+            continue
+        st = dict(p.split("=", 1) for p in c["style"].split(";") if "=" in p)
+        if st.get("endArrow") in (None, "none") or "entryX" not in st:
+            continue
+        t = cells[c["target"]]; tx, ty = at(c["target"])
+        q = (tx + float(st["entryX"]) * float(t["geo"].get("width")), ty + float(st["entryY"]) * float(t["geo"].get("height")))
+        pts = c["geo"].find("Array")
+        if pts is not None and len(pts):
+            ox, oy = at(c["parent"]) if c["parent"] in cells and not cells[c["parent"]]["edge"] else (0.0, 0.0)
+            m = pts.findall("mxPoint")[-1]; p = (float(m.get("x", 0)) + ox, float(m.get("y", 0)) + oy)
+        elif c["source"] in cells and "exitX" in st:
+            s_ = cells[c["source"]]; sx, sy = at(c["source"])
+            p = (sx + float(st["exitX"]) * float(s_["geo"].get("width")), sy + float(st["exitY"]) * float(s_["geo"].get("height")))
+        else:
+            continue
+        head = float(st.get("endSize", 6))
+        if ((p[0] - q[0]) ** 2 + (p[1] - q[1]) ** 2) ** 0.5 + 0.01 < 3 * head:
+            out.append("%s: an arrow shorter than 3 times its head (%d px): make room in draw.io by Ctrl+Shift+dragging on the background (insert space)"
+                       % (i, 3 * head))
     return out
 
 
