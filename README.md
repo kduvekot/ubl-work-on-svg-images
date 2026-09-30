@@ -12,6 +12,8 @@ diagrams/<figure>/<figure>.drawio        78 figures, e.g. diagrams/UBL-2.5-Billi
 tools/ubl-library.xml                    the UBL shapes, as a draw.io library, for editing
 tools/check_drawio.py                    the check, run by hand after an edit
 tools/drawio_baseline.py                 holds the drawings against the baseline
+tools/export_drawio.js                   exports them for the UBL repository: SVG, PNG
+tools/check_svg.py                       checks an export
 baselines/2026-09-30/                    the baseline: the drawings as they are now
 ```
 
@@ -151,11 +153,34 @@ tolerance; where the baseline no longer renders as it did, it says so.
 A new baseline is made with `tools/drawio_baseline.py make <baseline dir> <diff
 dir>`, from a run of `history/drawio-edits/diff/run.sh` on the same drawings.
 
-### Not yet: images made from the drawings
+### Images made from the drawings: for the UBL repository
 
-SVG, PNG and PDF exports of the drawings are the work of a later session. Until
-then, the latest images are the SVGs in `history/diagrams/<figure>/<figure>.svg`,
-drawn from the JSONs; they are no longer maintained.
+```sh
+node tools/export_drawio.js <out dir> diagrams/*/*.drawio
+python3 tools/check_svg.py <out dir>
+```
+
+The export writes, per figure, what the UBL repository keeps of it, laid out
+as there, so `<out dir>` can be copied over a clone of it:
+`images/<figure>.drawio` and `images/<figure>.svg`, `art/<figure>.png` and
+`htmlart/<figure>.png`; and `export.json`, per figure its size, the scale it
+is fitted to the page at, and the size its text prints at. It needs Node with
+playwright (as `tools/drawio_baseline.py`: a global install is found with
+`NODE_PATH=$(npm root -g)`); the check needs Python 3 with pillow.
+
+The SVG is draw.io's own (`getSvg`, the viewer of the pinned release), with
+each label made SVG text: draw.io writes a label as HTML, which the browser
+lays out as draw.io does; the export reads where each line of it lands and
+writes the lines as `<text>` there, turned where the label is (the IMFM phase
+names), and checks that every word of the label is in them. The PNGs are
+renders of that SVG. Tried on all 78 (2026-09-30): all pass the check; the
+SVG's render and draw.io's own agree to 1 px everywhere in all 78 (to the
+pixel but for 0.29% of the ink in the median figure: the edges of filled
+shapes, half a pixel apart). The SVG rendered by librsvg agrees with Chromium's
+render to 1 px but for 0.2% of the ink (tried on three).
+
+The SVGs in `history/diagrams/<figure>/<figure>.svg`, drawn from the JSONs,
+are no longer maintained.
 
 Decided for that export (2026-09-30), from how the [UBL repository](https://github.com/oasis-tcs/ubl)
 publishes its artwork (its README, "Artwork"; `build.xml`; `realta-user-parameters.xml`):
