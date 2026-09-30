@@ -169,6 +169,20 @@ publishes its artwork (its README, "Artwork"; `build.xml`; `realta-user-paramete
   `art/<figure>.png`: nothing changes in how UBL is published. Publishing the
   SVG itself (as `ubl-2.4-os-iso-pub` did, with SVGs that only wrapped the
   PNGs) is for a wider discussion with the TC.
+- **It replaces what is there:** for 20 of the 78 figures the UBL repository
+  has a source in `images/` under the same name (16 `.svg`, 4 `.drawio`); the
+  commit replaces them, and removes the 3 older sources of our figures under
+  other names (`UBL 2.3-Common Transportation Report-Process.drawio`,
+  `UBL 2.3-ImportDeclaration-Process.drawio`, `UBL 2.3-Transit Declaration Process.drawio`).
+  The UBL repository's history keeps them; the commit message names each.
+- **Only the 78:** the other 19 figures of the UBL repository are left as they
+  are, for a later session. One is no longer used (`UBL-2.0-BillingwithCreditNoteProcess`);
+  4 have a source in `images/` (`UBL-2.3-Pre-awardProcess`, `UBL-2.3-ProcurementProcess`,
+  `UBL-2.4-BusinessInformation`: `.drawio`; `UBL-2.3-OrderingProcess`: `.svg`);
+  14 have none, and most are not activity diagrams (Fulfilment 1-4, CPFR Steps
+  1-2, 3-4-5 and 6-9, IMFM Generic Intermodal Freight Process, Open-edi
+  Application and Overview, Default Validation, Schema Dependencies, UDT-QDT,
+  Model Realization).
 - **The SVG is real vector:** text as `<text>`, not in `<foreignObject>` (draw.io
   writes its HTML labels there by default) and not as outlines, which ISO does
   not accept; no embedded bitmap.
