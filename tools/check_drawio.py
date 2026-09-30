@@ -24,6 +24,10 @@ without its kind (ubl-flow), a document across a lane divider without the
 parties it passes between (ubl-between), an arrow shorter than 3 times its
 head (the stretch after its last bend).
 
+An illustration (its frame of ubl-kind "illustration": the Fulfilment figures,
+history/illustrations) is not a UML diagram and holds no model: it is not
+checked, and said so.
+
 With --against, the model read from the drawing must equal the diagram JSON,
 field for field - all but what records how the PNG was read (a flow's
 direction, the figure's source PNG). Exit status 1 on any finding.
@@ -247,6 +251,11 @@ def compare(have, want):
     return out
 
 
+def is_illustration(path):
+    """an illustration: a picture for the reader, not a UML diagram (its frame says so)"""
+    return 'ubl-kind="illustration"' in open(path, encoding="utf-8").read()
+
+
 def main(argv):
     against = None
     if argv[:1] == ["--against"]:
@@ -254,6 +263,9 @@ def main(argv):
     bad = 0
     for path in argv:
         name = os.path.basename(path)[:-len(".drawio")]
+        if is_illustration(path):
+            print("%-55s illustration, not checked" % name)
+            continue
         warned = []
         try:
             cells, order = read(path)

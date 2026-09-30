@@ -10,7 +10,7 @@ import json, os, re, subprocess, sys
 import numpy as np
 from PIL import Image
 from scipy import ndimage
-from common import ART, BEFORE_SPACE, NODE, RENDER, ROOT, natural_width
+from common import ART, BEFORE_SPACE, NODE, RENDER, ROOT, illustration, natural_width
 
 n, out = sys.argv[1], sys.argv[2]
 d = os.path.join(out, n); os.makedirs(d, exist_ok=True)
@@ -20,7 +20,8 @@ if im.mode in ('RGBA', 'LA', 'P'):
 png = im.convert('RGB'); PW, PH = png.size; R = max(1, round(2 * PW / 1480))
 page = lambda t: [int(v) for v in re.search(r'pageWidth="(\d+)" pageHeight="(\d+)"', t).groups()]
 now = page(open(f'{ROOT}/diagrams/{n}/{n}.drawio').read())
-was = page(subprocess.run(['git', '-C', ROOT, 'show', f'{BEFORE_SPACE}:diagrams/{n}/{n}.drawio'], capture_output=True, text=True).stdout)
+# (an illustration was made after, and had no space inserted)
+was = now if illustration(n) else page(subprocess.run(['git', '-C', ROOT, 'show', f'{BEFORE_SPACE}:diagrams/{n}/{n}.drawio'], capture_output=True, text=True).stdout)
 s = PW / natural_width(n)
 c = Image.new('RGB', (PW + round((now[0] - was[0]) * s), PH + round((now[1] - was[1]) * s)), 'white'); c.paste(png, (0, 0)); png = c
 W, H = png.size

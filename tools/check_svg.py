@@ -18,8 +18,9 @@ the SVG
   - names the drawing it was made from, in a comment, and that drawing is there,
     the same, byte for byte, as its source in diagrams/ (else: export again).
 art/<figure>.png
-  - 600 dpi, black and white (1 bit), at most 3425 px wide, the SVG's width at
-    600 dpi (to a pixel);
+  - 600 dpi, black and white (1 bit; an illustration, whose pictures are grey:
+    greyscale, 8 bit), at most 3425 px wide, the SVG's width at 600 dpi (to a
+    pixel);
   - opaque, on white (its most common colour).
 htmlart/<figure>.png
   - greyscale (8 bit), at most 750 px wide, the art's width scaled by 750/3425
@@ -117,7 +118,9 @@ def check(out_dir, name):
             out.append('images/%s.drawio is not diagrams/%s/%s.drawio: export again' % (name, name, name))
 
     art_w = round(wmm / 25.4 * ART_DPI)
-    check_png(os.path.join(out_dir, 'art', name + '.png'), ART_MAX, ART_DPI, art_w, '1', out)
+    drawing = os.path.join(out_dir, 'images', name + '.drawio')
+    illustration = os.path.exists(drawing) and 'ubl-kind="illustration"' in open(drawing, encoding='utf-8').read()
+    check_png(os.path.join(out_dir, 'art', name + '.png'), ART_MAX, ART_DPI, art_w, 'L' if illustration else '1', out)
     check_png(os.path.join(out_dir, 'htmlart', name + '.png'), HTML_MAX, None, round(art_w * HTML_MAX / ART_MAX), 'L', out)
     return out
 

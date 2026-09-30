@@ -1,14 +1,18 @@
 # ubl-work-on-svg-images
 
 Editable sources for the artwork of the UBL specification: the **78 UML activity
-diagrams** of UBL 2.5 (of its 97 figures), as **draw.io drawings**. UBL publishes
-these diagrams as PNG and most of their original sources are lost; these drawings
-replace them as the figures' source.
+diagrams** of UBL 2.5 (of its 97 figures), and **4 illustrations** (the
+Fulfilment figures: shipments and consignments), as **draw.io drawings**. UBL
+publishes these figures as PNG and most of their original sources are lost; these
+drawings replace them as the figures' source.
 
 ## The source of truth: the draw.io drawings
 
 ```
-diagrams/<figure>/<figure>.drawio        78 figures, e.g. diagrams/UBL-2.5-BillingwithDebitNoteProcess/
+diagrams/<figure>/<figure>.drawio        82 figures, e.g. diagrams/UBL-2.5-BillingwithDebitNoteProcess/
+                                         (78 diagrams, and 4 illustrations: UBL-2.2-Fulfilment-1simple ...)
+illustrations/parts/*.svg                the pictures the illustrations are made of, to edit
+tools/embed_parts.py                     puts an edited picture into the illustrations
 tools/ubl-library.xml                    the UBL shapes, as a draw.io library, for editing
 tools/check_drawio.py                    the check, run by hand after an edit
 tools/drawio_baseline.py                 holds the drawings against the baseline
@@ -20,6 +24,9 @@ baselines/2026-09-30/                    the baseline: the drawings as they are 
 
 **Edit a figure by opening its `.drawio` file in draw.io** (the desktop app, or
 diagrams.net) and saving it back. Nothing is generated over these files any more.
+
+The rest of this section is about the 78 diagrams; the 4 illustrations are
+pictures, not diagrams, and have a section of their own (below).
 
 Each drawing is built from draw.io's own parts:
 
@@ -103,11 +110,50 @@ The saved file passed the check, and the model read back out of it changed
 exactly as edited. Moving the pool and widening a lane were tried too: all that
 belongs to the pool and its lanes moves with them.
 
+### The illustrations: the Fulfilment figures
+
+`UBL-2.2-Fulfilment-1simple`, `-2split`, `-3intermediary` and `-4consolidated`
+are not UML diagrams but pictures for the reader: parties, documents and
+consignments, with the shipments and consignments between them. Their drawings
+are made of
+
+- **pictures**: SVG parts, embedded in the drawing as images, each element
+  naming its part (`ubl-part`, under Edit Data): the Supplier, the Buyer, the
+  forwarder, Supplier B, Buyer B, two parcels (the clip art of the deck they
+  come from), the document and the pallet of boxes; the parts are kept as files
+  in `illustrations/parts/`;
+- **arrows**: draw.io lines, 6 pt, solid (a consignment) or dotted (a shipment);
+- **labels**: the grey SHIPMENT and CONSIGNMENT boxes, and the texts, in
+  Helvetica at the sizes the figure has them (not 12 pt);
+- **the frame**, an element of `ubl-kind` `illustration`: this is what tells
+  the tools a figure is an illustration. Its `ubl-png-scale` is the PNG's px per
+  the drawing's: the drawing's origin is the frame's outer corner, so that the
+  drawing lands on the UBL PNG at that multiple.
+
+**Edit** in draw.io: move, resize, relabel, add an arrow or a label. A picture
+is one image in draw.io; **to change a picture**, edit its part in
+`illustrations/parts/` with an SVG editor (Inkscape, say), then put it into
+every drawing that uses it:
+
+```sh
+python3 tools/embed_parts.py
+```
+
+They were made from Tim McGrath's deck, placed where the UBL PNGs have them, and
+match those PNGs within 0.5-2.5 % (the baseline's `summary.txt`): see
+`history/illustrations/README.md`, which also says how to make them again. They
+are held against the baseline like the diagrams, and exported like them, with
+these differences: they are not checked by `tools/check_drawio.py` (they hold
+no model); the export puts each picture in the SVG as the SVG it is, and prints
+`art/` in grey (8 bit), not black and white; and their page is the frame.
+
 ### Checking a drawing
 
 ```sh
 python3 tools/check_drawio.py diagrams/*/*.drawio
 ```
+
+(An illustration is not checked: it says so.)
 
 Run it by hand after an edit. It checks the conventions a drawing must keep:
 every element has a known `ubl-kind` and a unique id; the lanes are in the pool
@@ -130,7 +176,9 @@ JSONs, as they should: the JSONs are history now.
 The drawings as they were made the source of truth (commit `3bd91c6`, all edits
 of `history/drawio-edits/` done), for later edits to be held against:
 
-- `diagrams/<figure>.drawio`: the 78 drawings;
+- `diagrams/<figure>.drawio`: the 78 drawings, and the 4 illustrations, added
+  on the same day, when they were made (`make` with the four named, from their
+  `history/drawio-edits/diff/one.py`);
 - `renders/<figure>.png`: each rendered with draw.io's own code (viewer
   31.5.3), at the size of the original PNG (grown where the drawing grew);
 - `summary.txt`, `summary.json`: per figure, how it compares with the original
@@ -152,7 +200,8 @@ with `--out`, a picture shows where: red only in the baseline, blue only in the
 drawing). Both are rendered afresh, the same way, and compared with no
 tolerance; where the baseline no longer renders as it did, it says so.
 A new baseline is made with `tools/drawio_baseline.py make <baseline dir> <diff
-dir>`, from a run of `history/drawio-edits/diff/run.sh` on the same drawings.
+dir>`, from a run of `history/drawio-edits/diff/run.sh` on the same drawings;
+with figures named, only those are added to (or replaced in) the baseline.
 
 ### Images made from the drawings: `to-ubl-repo/`
 
@@ -209,20 +258,21 @@ publishes its artwork (its README, "Artwork"; `build.xml`; `realta-user-paramete
   PNGs) is for a wider discussion with the TC. A test build with these files
   through Réalta, the UBL publishing server, is done on the UBL repository's
   side, in a test branch there, not from here.
-- **It replaces what is there:** for 20 of the 78 figures the UBL repository
+- **It replaces what is there:** for 20 of the 78 diagrams the UBL repository
   has a source in `images/` under the same name (16 `.svg`, 4 `.drawio`); the
   commit replaces them, and removes the 3 older sources of our figures under
   other names (`UBL 2.3-Common Transportation Report-Process.drawio`,
   `UBL 2.3-ImportDeclaration-Process.drawio`, `UBL 2.3-Transit Declaration Process.drawio`).
-  The UBL repository's history keeps them; the commit message names each.
-- **Only the 78:** the other 19 figures of the UBL repository are left as they
-  are, for a later session. One is no longer used (`UBL-2.0-BillingwithCreditNoteProcess`);
-  4 have a source in `images/` (`UBL-2.3-Pre-awardProcess`, `UBL-2.3-ProcurementProcess`,
+  The UBL repository's history keeps them; the commit message names each. The
+  4 illustrations have no source there: the commit adds theirs.
+- **Only the 78 and the 4 illustrations:** the other 15 figures of the UBL
+  repository are left as they are, for a later session. One is no longer used
+  (`UBL-2.0-BillingwithCreditNoteProcess`); 4 have a source in `images/`
+  (`UBL-2.3-Pre-awardProcess`, `UBL-2.3-ProcurementProcess`,
   `UBL-2.4-BusinessInformation`: `.drawio`; `UBL-2.3-OrderingProcess`: `.svg`);
-  14 have none, and most are not activity diagrams (Fulfilment 1-4, CPFR Steps
-  1-2, 3-4-5 and 6-9, IMFM Generic Intermodal Freight Process, Open-edi
-  Application and Overview, Default Validation, Schema Dependencies, UDT-QDT,
-  Model Realization).
+  10 have none, and most are not activity diagrams (CPFR Steps 1-2, 3-4-5 and
+  6-9, IMFM Generic Intermodal Freight Process, Open-edi Application and
+  Overview, Default Validation, Schema Dependencies, UDT-QDT, Model Realization).
 - **The PNGs:** the drawings are black and white only (`#000000`, `#ffffff`),
   and so is `art/<figure>.png`: 1 bit, a pixel black where the drawing covers
   at least half of it, as line art is printed (at 600 dpi a pixel is 0.04 mm;
@@ -231,10 +281,12 @@ publishes its artwork (its README, "Artwork"; `build.xml`; `realta-user-paramete
   white, none at most 1/4 ink turned black. `htmlart/<figure>.png`, for the
   screen, is 8 bit grey, its edges smoothed. No coloured edges (LCD text) in
   either. All 78: `art/` 2.2 MB, `htmlart/` 1.5 MB, where the UBL repository's
-  PNGs of these figures are 13 MB and 3 MB.
+  PNGs of these figures are 13 MB and 3 MB. The 4 illustrations have grey
+  pictures, and their `art/` is 8 bit grey, as the UBL PNGs of them are.
 - **The SVG is real vector:** text as `<text>`, not in `<foreignObject>` (draw.io
   writes its HTML labels there by default) and not as outlines, which ISO does
-  not accept; no embedded bitmap.
+  not accept; no embedded bitmap. An illustration's pictures are SVG, each put
+  in as a nested `<svg>`, not as an image.
 - **The drawing is the truth; the SVG and PNGs are exports of it.** The SVG does
   not carry the drawing (no draw.io `content` attribute): only the picture, and
   a comment naming `<figure>.drawio` as the file to edit. An SVG edited
@@ -293,5 +345,9 @@ since:
    all 78 drawings since (12 pt text, one arrowhead, the 3x arrow rule), and the
    comparison of the drawings with the original PNGs, are scripts in
    `history/drawio-edits/`, with a README saying which commit each made.
+7. **The illustrations** - `history/illustrations/` (2026-09-30): the four
+   Fulfilment figures, from Tim McGrath's deck (linked there, not kept) and
+   fitted to the UBL PNGs; their pictures (`illustrations/parts/`) and drawings,
+   and how to make them again.
 
 `history/README.md` is the repository's former README, describing steps 1-4.
