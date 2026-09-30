@@ -35,10 +35,13 @@ render also uses here.
 ## The comparison with the original PNGs: `diff/`
 
 These scripts hold each drawing against the PNG that OASIS publishes. The
-result is one PDF: an introduction with a table of all 78 figures, then one
+result is one PDF: an introduction with a table of all figures, then one
 page per figure with the PNG, the drawing, and the diff (grey where both have
 ink, red for the PNG only, blue for draw.io only), in the order and with the
-titles of the UBL 2.5 specification.
+titles of the UBL 2.5 specification. It covers the 4 illustrations too (the
+Fulfilment figures, `history/illustrations/`), made after these edits: they
+had no space inserted, and are drawn at the scale they were matched to their
+PNG at (their frame's `ubl-png-scale`).
 
 ```sh
 UBL=<clone of oasis-tcs/ubl, branch ubl-2.5> history/drawio-edits/diff/run.sh <out dir>
@@ -49,8 +52,8 @@ titles). The scripts write only to `<out dir>`. They need Python 3 with numpy,
 scipy and pillow, Node with playwright, and `pdfunite`.
 
 - `common.py`: shared locations, each figure's natural width (as
-  `history/drawio-writer/run.sh` builds it), and the figures in the
-  specification's order.
+  `history/drawio-writer/run.sh` builds it; an illustration's: its PNG's width
+  at its `ubl-png-scale`), and the figures in the specification's order.
 - `one.py`: compares one figure. It uses the PNG at its own pixel size, and
   renders the drawing onto exactly that canvas with draw.io's own code. The
   tolerance is 2 px per 1480 px of width. Where the drawing grew, the PNG gets

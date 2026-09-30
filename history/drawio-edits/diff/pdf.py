@@ -1,4 +1,4 @@
-"""The comparison deck: an introduction with the table of all 78, then a page
+"""The comparison deck: an introduction with the table of all figures, then a page
 per figure (the PNG, the drawing, the diff), in the order of the UBL 2.5
 specification, with its titles. For a figure that grew, the pictures are those
 of cutpng.py (the same space inserted in the PNG). Writes one HTML page per
@@ -8,7 +8,7 @@ PDF page; print.js prints them, and pdfunite joins them (see run.sh).
 """
 import html, json, os, subprocess, sys
 from PIL import Image, ImageDraw, ImageFont
-from common import ROOT, figures
+from common import ROOT, figures, illustration
 d = sys.argv[1]; out = d + '/pages/p'; os.makedirs(d + '/pages', exist_ok=True)
 C = subprocess.run(['git', '-C', ROOT, 'rev-parse', '--short', 'HEAD'], capture_output=True, text=True).stdout.strip()
 order, titles = [n for n, t in figures()], dict(figures())
@@ -46,8 +46,9 @@ body { font-family: "Liberation Sans", Helvetica, Arial, sans-serif; font-size: 
 h1 { font-size: 16pt; margin: 0 0 3mm; } h2 { font-size: 11pt; margin: 0 0 2mm; } img { display: block; }
 table { border-collapse: collapse; font-size: 7.5pt; } td, th { border-bottom: 0.2mm solid #ccc; padding: 0.4mm 1.5mm; text-align: left; }
 td.n { text-align: right; }</style>'''
-o = ['<!doctype html><html><head><meta charset="utf-8"><title>78 figures: original PNG vs draw.io, space inserted</title>' + style + '</head><body>',
-     '''<h1>The 78 figures: original PNG vs draw.io render</h1>
+N = len(order); NI = sum(1 for n in order if illustration(n))
+o = ['<!doctype html><html><head><meta charset="utf-8"><title>%d figures: original PNG vs draw.io, space inserted</title>' % N + style + '</head><body>',
+     '''<h1>The '''+str(N)+''' figures: original PNG vs draw.io render</h1>
 <p>Per figure: (1) the original PNG as OASIS publishes it (UBL repository, art/), at its own pixel size (1142&#8211;3426&#160;px
 wide), not resampled; (2) the current draw.io drawing, the figure's source of truth (diagrams/, commit '''+C+''': natural scale, whole pixels,
 fixed line weights, every label draw.io's own 12&#160;pt), rendered with draw.io&#8217;s own code (viewer 31.5.3) onto exactly the PNG&#8217;s canvas: the drawing, built at
@@ -57,7 +58,7 @@ in every figure; (3) the overlay: grey where both have ink, <b style="color:#c00
 comparison: 5&#160;px for a 3425-px PNG, 2&#160;px for the 1142-px one). Percentages are of the PNG&#8217;s ink, measured at the
 PNG&#8217;s own size; in this PDF, pictures wider than 2000&#160;px are shown at half size to keep the file small. The PNG draws with its
 own line weights and fonts; the drawing&#8217;s weights are fixed (1, and 2 for documents and the frame) and some elements moved up to
-7&#160;px (at 1480) to make flows straight, and every label is 12&#160;pt where the PNG sets its own sizes (in two Tender figures long one-line labels are broken over two lines), all of which counts as difference. <b>Arrows at least 3 times their head long:</b> in 35 figures, where an arrow was shorter than 30&#160;px, space was inserted across the whole figure (a band of height or a column of width), and everything beyond it moved along. For those figures <b>the PNG gets the same space inserted</b>, at the same places (marked <b style="background:#ffd966">yellow</b> on all three pictures): at each cut, in order, a line of pixels next to it (the one with the least ink) is repeated to fill the inserted width, so lines that cross it (frame, lane dividers, flows) run on unbroken. Where the drawing kept a shape whole that the space ran through (it stayed, or moved whole past the space; '''+'%d times in %d figures' % (KEPT, KEPTF)+'''), the cut in the PNG steps round that shape the same way. So both pictures are compared with the same things moved, and what differs is what differed before the arrows were lengthened. The table gives both numbers: with the space inserted in the PNG (used on the pages) and without (everything after a band counts as moved). The other 43 figures differ as before. In the order of the UBL 2.5 specification, with its titles.</p>
+7&#160;px (at 1480) to make flows straight, and every label is 12&#160;pt where the PNG sets its own sizes (in two Tender figures long one-line labels are broken over two lines), all of which counts as difference. <b>Arrows at least 3 times their head long:</b> in 35 figures, where an arrow was shorter than 30&#160;px, space was inserted across the whole figure (a band of height or a column of width), and everything beyond it moved along. For those figures <b>the PNG gets the same space inserted</b>, at the same places (marked <b style="background:#ffd966">yellow</b> on all three pictures): at each cut, in order, a line of pixels next to it (the one with the least ink) is repeated to fill the inserted width, so lines that cross it (frame, lane dividers, flows) run on unbroken. Where the drawing kept a shape whole that the space ran through (it stayed, or moved whole past the space; '''+'%d times in %d figures' % (KEPT, KEPTF)+'''), the cut in the PNG steps round that shape the same way. So both pictures are compared with the same things moved, and what differs is what differed before the arrows were lengthened. The table gives both numbers: with the space inserted in the PNG (used on the pages) and without (everything after a band counts as moved). The other '''+str(N - NI - len(_ins))+''' diagrams differ as before. '''+('''<b>'''+str(NI)+''' illustrations</b> (the Fulfilment figures) are not UML diagrams but pictures for the reader (history/illustrations): drawn from the deck they come from, placed where the PNG has them, at the PNG&#8217;s own scale (not 12&#160;pt), in grey; where a picture was drawn again (the pallet of boxes), it differs from the PNG&#8217;s photo. ''' if NI else '')+'''In the order of the UBL 2.5 specification, with its titles.</p>
 <table><tr><th>#</th><th>title in the specification</th><th>figure</th><th>PNG size</th><th>red %</th><th>blue %</th><th>space inserted</th><th>without: red %</th><th>blue %</th></tr>''']
 for i, n in enumerate(order, 1):
     r = res[n]

@@ -16,10 +16,24 @@ RENDER = os.path.join(ROOT, 'history', 'drawio-writer', 'render-drawio.js')
 BEFORE_SPACE = 'f438cc7'     # the drawings before space was inserted for short arrows
 
 
+def illustration(n):
+    """an illustration's scale: the PNG's px per the drawing's px (its frame's
+    ubl-png-scale; history/illustrations); None for a UML diagram"""
+    t = open(os.path.join(ROOT, 'diagrams', n, n + '.drawio'), encoding='utf-8').read()
+    if 'ubl-kind="illustration"' not in t:
+        return None
+    return float(re.search(r'ubl-png-scale="([\d.]+)"', t)[1])
+
+
 @functools.lru_cache(None)
 def natural_width(n):
     """the canvas width the drawing was built at (history/drawio-writer/run.sh):
-    the scale at which the median action or document label is 12 px"""
+    the scale at which the median action or document label is 12 px. An
+    illustration was built to match its PNG at its ubl-png-scale"""
+    s = illustration(n)
+    if s:
+        from PIL import Image
+        return Image.open(os.path.join(ART, n + '.png')).width / s
     tools, src = os.path.join(ROOT, 'history', 'tools'), os.path.join(ROOT, 'history', 'diagrams', n, n + '-diagram.json')
     with tempfile.TemporaryDirectory() as t:
         def spec(w):

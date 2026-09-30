@@ -2,7 +2,8 @@
 //
 //   <out>/images/<figure>.drawio    the drawing itself (the source)
 //   <out>/images/<figure>.svg       the vector picture: the revisable file for ISO
-//   <out>/art/<figure>.png          print: 600 dpi, black and white, at most 3425 px (5.7 in) wide
+//   <out>/art/<figure>.png          print: 600 dpi, black and white (an illustration: greyscale),
+//                                   at most 3425 px (5.7 in) wide
 //   <out>/htmlart/<figure>.png      web: greyscale (smooth edges), at most 750 px wide
 //
 // and, with --report, a JSON file (not in <out>: it is not for the UBL
@@ -22,6 +23,12 @@
 // lands, and writes those lines as SVG <text> in its place. The rest of the
 // picture is draw.io's, cleaned of what only draw.io's editor needs (dark-mode
 // colours, the "Text is not SVG" notice, pointer events).
+//
+// An illustration (its frame of ubl-kind "illustration": the Fulfilment
+// figures) differs: its pictures, SVG parts embedded as images, are put in the
+// SVG as the SVGs they are (nested <svg>, their ids their own), so it stays
+// vector only; its page is its frame (to the frame line's outer edge, as the
+// UBL PNG it was matched to); and art/ is 8 bit grey, as its pictures are.
 //
 // Both PNGs are renders of that SVG, as an image, so they show what the SVG
 // shows. Scale: the page is 5.7 in wide, 548 px at 96 px/in; a figure wider is
@@ -66,6 +73,63 @@ function toSvg([xml, name, font, drawioVersion]) {
   const svg = graph.getSvg('#ffffff', 1, 0, false, null, true);
   document.body.appendChild(svg);            // laid out, so the labels can be measured
   const NS = 'http://www.w3.org/2000/svg';
+
+  // an illustration (not a UML diagram: its frame says so) has pictures, SVG
+  // parts embedded as images (illustrations/parts/). Each is put in as the SVG
+  // it is, a nested <svg> where the picture is, its ids made its own; so the
+  // SVG stays vector only, and each part in it can still be edited. draw.io
+  // writes a picture as an <image> in a <symbol> (in <defs>) and a <use> of it
+  // where each is: each <use> gets the part, and the symbol goes.
+  const illustration = !!doc.querySelector('object[ubl-kind="illustration"]');
+  let parts = 0;
+  const hrefOf = e => e.getAttribute('xlink:href') || e.getAttribute('href') || '';
+  function partOf(img, at) {                       // the part of an <image>, at `at`'s place and size
+    const m = hrefOf(img).match(/^data:image\/svg\+xml(;base64)?,(.*)$/s);
+    if (!m) return null;
+    const text = m[1] ? decodeURIComponent(escape(atob(m[2]))) : decodeURIComponent(m[2]);
+    const part = new DOMParser().parseFromString(text, 'image/svg+xml').documentElement;
+    if (part.localName !== 'svg') throw new Error(name + ': an embedded image that is not SVG');
+    const pre = 'p' + (++parts) + '-';
+    for (const e of part.querySelectorAll('[id]')) e.setAttribute('id', pre + e.getAttribute('id'));
+    for (const e of [part, ...part.querySelectorAll('*')])
+      for (const a of [...e.attributes]) {
+        if (/url\(#/.test(a.value)) e.setAttribute(a.name, a.value.replace(/url\(#/g, 'url(#' + pre));
+        if ((a.localName === 'href') && a.value.startsWith('#')) e.setAttributeNS(a.namespaceURI, a.name, '#' + pre + a.value.slice(1));
+      }
+    const box = document.importNode(part, true);
+    for (const a of ['x', 'y', 'width', 'height'])
+      box.setAttribute(a, at.getAttribute(a) !== null ? at.getAttribute(a) : img.getAttribute(a) || '0');
+    box.setAttribute('preserveAspectRatio', img.getAttribute('preserveAspectRatio') || 'none');
+    if (at.getAttribute('transform')) box.setAttribute('transform', at.getAttribute('transform'));
+    return box;
+  }
+  const used = new Set();
+  for (const use of [...svg.querySelectorAll('use')]) {
+    const ref = hrefOf(use);
+    let target = ref.startsWith('#') && svg.querySelector('[id="' + ref.slice(1) + '"]');
+    const img = target && (target.localName === 'image' ? target : target.localName === 'symbol' ? target.querySelector('image') : null);
+    if (!img) continue;
+    const box = partOf(img, use);
+    if (box) { use.parentNode.replaceChild(box, use); used.add(target); }
+  }
+  for (const t of used) {                                               // its uses have it now
+    const defs = t.closest('defs');
+    if (!defs) continue;
+    t.remove();
+    if (!defs.children.length) defs.remove();
+  }
+  for (const img of [...svg.querySelectorAll('image')]) {
+    const box = partOf(img, img);
+    if (box) img.parentNode.replaceChild(box, img);
+  }
+  // an illustration's page is its frame, to the frame line's outer edge (as the
+  // PNG it was matched to: its border), not draw.io's bounds of the drawing
+  const frameRect = illustration && svg.querySelector('g[data-cell-id="frame"] rect');
+  if (frameRect) {
+    const sw = +(frameRect.getAttribute('stroke-width') || 1), r2 = v => Math.round(v * 100) / 100;
+    svg.setAttribute('viewBox', [+frameRect.getAttribute('x') - sw / 2, +frameRect.getAttribute('y') - sw / 2,
+                                 +frameRect.getAttribute('width') + sw, +frameRect.getAttribute('height') + sw].map(r2).join(' '));
+  }
   const W = +svg.getAttribute('viewBox').split(' ')[2], H = +svg.getAttribute('viewBox').split(' ')[3];
 
   const hex = c => '#' + c.match(/\d+/g).slice(0, 3).map(v => (+v).toString(16).padStart(2, '0')).join('');
@@ -201,6 +265,8 @@ function toSvg([xml, name, font, drawioVersion]) {
   }
   svg.removeAttribute('id');
   const bg = svg.querySelector('rect');
+  const vb = svg.getAttribute('viewBox').split(' ');
+  if (+vb[0] || +vb[1]) { bg.setAttribute('x', vb[0]); bg.setAttribute('y', vb[1]); }   // an illustration's page
   bg.setAttribute('width', String(W)); bg.setAttribute('height', String(H));
 
   // the page: fitted to 5.7 in, in millimetres
@@ -216,7 +282,7 @@ function toSvg([xml, name, font, drawioVersion]) {
     '). Edit ' + name + '.drawio, not this file. '), svg.firstChild);
   const text = '<?xml version="1.0" encoding="UTF-8"?>\n' + new XMLSerializer().serializeToString(svg) + '\n';
   document.body.removeChild(svg);
-  return { svg: text, width: W, height: H, scale, ...report };
+  return { svg: text, width: W, height: H, scale, illustration, parts, ...report };
 }
 
 // A greyscale PNG, its resolution recorded (pHYs), as the print tools size an
@@ -322,13 +388,16 @@ async function png(browser, svgText, pxW, pxH, dpi, bits, out) {
     const artW = Math.round(r.width * r.scale * ART_DPI / 96);   // 3425 at the page's width
     const htmlW = Math.round(artW * HTML_MAX / ART_MAX);          // 750 at the page's width
     const tall = w => Math.round(w * r.height / r.width);
-    await png(browser, r.svg, artW, tall(artW), ART_DPI, 1, path.join(outDir, 'art', name + '.png'));
+    // print: black and white, as line art is printed; an illustration's pictures, in grey
+    await png(browser, r.svg, artW, tall(artW), ART_DPI, r.illustration ? 8 : 1, path.join(outDir, 'art', name + '.png'));
     await png(browser, r.svg, htmlW, tall(htmlW), 96, 8, path.join(outDir, 'htmlart', name + '.png'));
-    const textPt = Math.round(12 * r.scale * 72 / 96 * 10) / 10;
+    const textPt = Math.round(12 * r.scale * 72 / 96 * 10) / 10;   // the drawings' one text size (12 px)
     report[name] = { width: r.width, height: r.height, scale: Math.round(r.scale * 1000) / 1000,
-                     textPt, labels: r.labels, lines: r.lines, art: [artW, tall(artW)], htmlart: [htmlW, tall(htmlW)], drawio: version };
+                     ...(r.illustration ? { illustration: true, parts: r.parts } : { textPt }),
+                     labels: r.labels, lines: r.lines, art: [artW, tall(artW)], htmlart: [htmlW, tall(htmlW)], drawio: version };
     console.log(name + ': ' + r.width + 'x' + r.height + ' px, scale ' + report[name].scale +
-                ', text ' + textPt + ' pt, ' + r.labels + ' labels in ' + r.lines + ' lines');
+                (r.illustration ? ', an illustration, ' + r.parts + ' pictures' : ', text ' + textPt + ' pt') +
+                ', ' + r.labels + ' labels in ' + r.lines + ' lines');
   }
   if (reportFile) fs.writeFileSync(reportFile, JSON.stringify(report, null, 1) + '\n');
   await browser.close();

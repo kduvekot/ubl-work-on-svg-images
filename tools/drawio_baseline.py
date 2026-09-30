@@ -1,12 +1,15 @@
 """A baseline of the draw.io drawings, and the drawings held against it.
 
-    python3 tools/drawio_baseline.py make <baseline dir> <diff dir>
+    python3 tools/drawio_baseline.py make <baseline dir> <diff dir> [<figure> ...]
     python3 tools/drawio_baseline.py compare <baseline dir> [--out <dir>] [<figure> ...]
 
-make copies the 78 drawings into <baseline dir>/diagrams/, with each one's
+make copies the drawings (the 78 diagrams, and the illustrations) into <baseline dir>/diagrams/, with each one's
 render in <baseline dir>/renders/ and the table of how it compares with the
 original PNG (summary.json, summary.txt). The renders and numbers come from
 <diff dir>, a run of history/drawio-edits/diff/run.sh on the same drawings.
+With figures named, only those are added (or replaced) in the baseline, the
+others kept as they are (a run of history/drawio-edits/diff/one.py on those
+figures is enough).
 
 compare holds every drawing in diagrams/ against its baseline copy, and prints
 one line per figure:
@@ -50,6 +53,8 @@ def render(path, canvas, scale, out):
 
 
 def model(path):
+    if check_drawio.is_illustration(path):     # a picture, no model: its pixels are compared
+        return {}
     cells, order = check_drawio.read(path)
     return check_drawio.model_of(cells, order)
 
@@ -73,13 +78,13 @@ def model_diff(base, now):
     return out
 
 
-def make(base, diff):
+def make(base, diff, figs=()):
     sys.path.insert(0, os.path.join(ROOT, 'history', 'drawio-edits', 'diff'))
     from common import natural_width
     os.makedirs(os.path.join(base, 'diagrams'), exist_ok=True)
     os.makedirs(os.path.join(base, 'renders'), exist_ok=True)
-    summary = {}
-    for n in sorted(os.listdir(os.path.join(ROOT, 'diagrams'))):
+    summary = json.load(open(os.path.join(base, 'summary.json'))) if figs else {}
+    for n in figs or sorted(os.listdir(os.path.join(ROOT, 'diagrams'))):
         shutil.copyfile(os.path.join(ROOT, 'diagrams', n, n + '.drawio'), os.path.join(base, 'diagrams', n + '.drawio'))
         r = json.load(open(os.path.join(diff, n, 'result.json')))
         im = Image.open(os.path.join(diff, n, 'drawio.png')).convert('L')
@@ -87,6 +92,7 @@ def make(base, diff):
         summary[n] = dict(canvas=list(im.size), scale=r['png_size'][0] / natural_width(n), page=page(os.path.join(ROOT, 'diagrams', n, n + '.drawio')),
                           png_size=r['png_size'], red=round(r['red'], 2), blue=round(r['blue'], 2),
                           **({'red_space_inserted': round(r['cut_red'], 2), 'blue_space_inserted': round(r['cut_blue'], 2)} if 'cut_red' in r else {}))
+    summary = dict(sorted(summary.items()))
     json.dump(summary, open(os.path.join(base, 'summary.json'), 'w'), indent=1)
     with open(os.path.join(base, 'summary.txt'), 'w') as f:
         f.write('%-55s %11s %11s %7s %7s %9s %9s\n' % ('figure', 'PNG', 'canvas', 'red %', 'blue %', 'red % *', 'blue % *'))
@@ -141,8 +147,8 @@ def compare(base, figs, out):
 
 if __name__ == '__main__':
     a = sys.argv[1:]
-    if a[:1] == ['make'] and len(a) == 3:
-        make(a[1], a[2])
+    if a[:1] == ['make'] and len(a) >= 3:
+        make(a[1], a[2], a[3:])
     elif a[:1] == ['compare'] and len(a) >= 2:
         out = None
         if '--out' in a:
