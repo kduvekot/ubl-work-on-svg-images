@@ -29,6 +29,9 @@ Each drawing is built from draw.io's own parts:
 - drawn at the figures' **natural scale**, with **whole pixels** only and
   **fixed line weights** (1, and 2 for documents and the frame); flows that the
   artwork draws almost level or upright are exactly so;
+- **one arrowhead everywhere:** UML's open head, 10 px (`endArrow=open;endSize=10`),
+  where the artwork had sizes of 6-17 px and a filled head in the 2.3 customs
+  figures;
 - **one text size: draw.io's own 12 pt** for every label (no `fontSize` in the
   style). Where a box no longer held its words at 12 pt it was made wider or
   taller about its centre (83 boxes, by 2-18 px), and where that would have taken
