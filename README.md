@@ -12,6 +12,9 @@ diagrams/<figure>/<figure>.drawio        78 figures, e.g. diagrams/UBL-2.5-Billi
 tools/ubl-library.xml                    the UBL shapes, as a draw.io library, for editing
 tools/check_drawio.py                    the check, run by hand after an edit
 tools/drawio_baseline.py                 holds the drawings against the baseline
+tools/export_drawio.js                   exports them for the UBL repository: SVG, PNG
+tools/check_svg.py                       checks an export
+to-ubl-repo/                             what goes to the UBL repository: the export
 baselines/2026-09-30/                    the baseline: the drawings as they are now
 ```
 
@@ -151,11 +154,118 @@ tolerance; where the baseline no longer renders as it did, it says so.
 A new baseline is made with `tools/drawio_baseline.py make <baseline dir> <diff
 dir>`, from a run of `history/drawio-edits/diff/run.sh` on the same drawings.
 
-### Not yet: images made from the drawings
+### Images made from the drawings: `to-ubl-repo/`
 
-SVG, PNG and PDF exports of the drawings are the work of a later session. Until
-then, the latest images are the SVGs in `history/diagrams/<figure>/<figure>.svg`,
-drawn from the JSONs; they are no longer maintained.
+`to-ubl-repo/` holds everything that is to be committed to the UBL repository,
+and nothing else, laid out as there: copied over a clone of it (branch
+`ubl-2.5`), it adds or replaces, per figure, `images/<figure>.drawio` and
+`images/<figure>.svg`, `art/<figure>.png` and `htmlart/<figure>.png`. Nothing
+in it is edited by hand: after an edit of a drawing, export it again and check.
+
+```sh
+NODE_PATH=$(npm root -g) node tools/export_drawio.js [--report <file.json>] to-ubl-repo diagrams/*/*.drawio
+python3 tools/check_svg.py to-ubl-repo
+```
+
+The check also fails where a drawing in `to-ubl-repo/images/` is no longer its
+source in `diagrams/`: the export is out of date. An export of unchanged
+drawings is the same, byte for byte, so it changes nothing in git. `--report`
+writes, per figure, its size, the scale it is fitted to the page at and the
+size its text prints at (kept out of `to-ubl-repo/`: it is not for UBL). The
+export needs Node with playwright (as `tools/drawio_baseline.py`); the check
+Python 3 with pillow.
+
+**The commit to the UBL repository also removes** 3 older sources of our
+figures, under other names, which a folder of files cannot say:
+`images/UBL 2.3-Common Transportation Report-Process.drawio`,
+`images/UBL 2.3-ImportDeclaration-Process.drawio`,
+`images/UBL 2.3-Transit Declaration Process.drawio`.
+
+The SVG is draw.io's own (`getSvg`, the viewer of the pinned release), with
+each label made SVG text: draw.io writes a label as HTML, which the browser
+lays out as draw.io does; the export reads where each line of it lands and
+writes the lines as `<text>` there, turned where the label is (the IMFM phase
+names), and checks that every word of the label is in them. The PNGs are
+renders of that SVG. Tried on all 78 (2026-09-30): all pass the check; the
+SVG's render and draw.io's own agree to 1 px everywhere in all 78 (to the
+pixel but for 0.29% of the ink in the median figure: the edges of filled
+shapes, half a pixel apart). The SVG rendered by librsvg agrees with Chromium's
+render to 1 px but for 0.2% of the ink (tried on three).
+
+The SVGs in `history/diagrams/<figure>/<figure>.svg`, drawn from the JSONs,
+are no longer maintained.
+
+Decided for that export (2026-09-30), from how the [UBL repository](https://github.com/oasis-tcs/ubl)
+publishes its artwork (its README, "Artwork"; `build.xml`; `realta-user-parameters.xml`):
+
+- **What it makes:** a commit for the UBL repository that adds or replaces, per
+  figure, `images/<figure>.drawio` (the source), `images/<figure>.svg` (the
+  revisable vector file ISO asks for), `art/<figure>.png` (print: 600 dpi, at
+  most 3425 px wide, i.e. 5.7 in / 14.5 cm; white background, no border) and
+  `htmlart/<figure>.png` (web: at most 750 px wide). Both PNGs are rendered from
+  the SVG, so they cannot drift from it. `UBL.xml` keeps pointing at
+  `art/<figure>.png`: nothing changes in how UBL is published. Publishing the
+  SVG itself (as `ubl-2.4-os-iso-pub` did, with SVGs that only wrapped the
+  PNGs) is for a wider discussion with the TC. A test build with these files
+  through Réalta, the UBL publishing server, is done on the UBL repository's
+  side, in a test branch there, not from here.
+- **It replaces what is there:** for 20 of the 78 figures the UBL repository
+  has a source in `images/` under the same name (16 `.svg`, 4 `.drawio`); the
+  commit replaces them, and removes the 3 older sources of our figures under
+  other names (`UBL 2.3-Common Transportation Report-Process.drawio`,
+  `UBL 2.3-ImportDeclaration-Process.drawio`, `UBL 2.3-Transit Declaration Process.drawio`).
+  The UBL repository's history keeps them; the commit message names each.
+- **Only the 78:** the other 19 figures of the UBL repository are left as they
+  are, for a later session. One is no longer used (`UBL-2.0-BillingwithCreditNoteProcess`);
+  4 have a source in `images/` (`UBL-2.3-Pre-awardProcess`, `UBL-2.3-ProcurementProcess`,
+  `UBL-2.4-BusinessInformation`: `.drawio`; `UBL-2.3-OrderingProcess`: `.svg`);
+  14 have none, and most are not activity diagrams (Fulfilment 1-4, CPFR Steps
+  1-2, 3-4-5 and 6-9, IMFM Generic Intermodal Freight Process, Open-edi
+  Application and Overview, Default Validation, Schema Dependencies, UDT-QDT,
+  Model Realization).
+- **The PNGs:** the drawings are black and white only (`#000000`, `#ffffff`),
+  and so is `art/<figure>.png`: 1 bit, a pixel black where the drawing covers
+  at least half of it, as line art is printed (at 600 dpi a pixel is 0.04 mm;
+  the thinnest line, 1 px at the smallest scale, is 2.4 pixels wide). Checked
+  on all 78 against an antialiased render: no pixel at least 3/4 ink turned
+  white, none at most 1/4 ink turned black. `htmlart/<figure>.png`, for the
+  screen, is 8 bit grey, its edges smoothed. No coloured edges (LCD text) in
+  either. All 78: `art/` 2.2 MB, `htmlart/` 1.5 MB, where the UBL repository's
+  PNGs of these figures are 13 MB and 3 MB.
+- **The SVG is real vector:** text as `<text>`, not in `<foreignObject>` (draw.io
+  writes its HTML labels there by default) and not as outlines, which ISO does
+  not accept; no embedded bitmap.
+- **The drawing is the truth; the SVG and PNGs are exports of it.** The SVG does
+  not carry the drawing (no draw.io `content` attribute): only the picture, and
+  a comment naming `<figure>.drawio` as the file to edit. An SVG edited
+  elsewhere would otherwise disagree, unseen, with the drawing inside it.
+- **Scale:** as now, each figure is fitted to the page width (5.7 in), or kept
+  at its natural size where it is narrower. The export reports per figure the
+  scale and the size its text prints at. draw.io's "12 pt" is 12 px, and the
+  page is 548 px wide at 96 px/in, so at natural size it prints at 9 pt, and in
+  the widest figure (Fulfilment Receipt Advice, scale 0.39) at 3.5 pt. Changing
+  the drawings to even that out is for later.
+- **draw.io's code is pinned:** the export draws with draw.io's viewer of one
+  release (31.5.3, the baseline's), fetched from that release's tag in
+  [jgraph/drawio](https://github.com/jgraph/drawio), so an export can be made
+  again the same. **Maintenance, for a separate session:** from time to time
+  move to a newer release. Export all 78 with both releases, compare the SVGs
+  and the renders, and check with `tools/drawio_baseline.py` that the drawings
+  still render as the baseline. Then change the pin, and make a new baseline
+  if the renders changed.
+- **Font:** Helvetica, draw.io's own (no drawing sets `fontFamily`), named in the
+  SVG as `Helvetica, Arial, "Liberation Sans", sans-serif`: the three have the
+  same widths, so labels fit wherever one of them is present. The renders use
+  Liberation Sans, as the baseline's did. No font is embedded (both Helvetica
+  and Cambria are licensed).
+
+**If ISO requires its own font** (ISO/CS asks for Cambria in graphics): do it for
+the ISO deliverables only, never in the drawings. Export the ISO SVGs with the
+font set at export time (`fontFamily=Cambria` on every cell), render them with
+Cambria or its metric-compatible stand-in Caladea, and check that every label
+still fits its box: Cambria's widths differ from Helvetica's. Where one does not
+fit, widen the box in the ISO export as the 12 pt edit did (`history/drawio-edits/twelve.py`),
+not in the drawing. The OASIS outputs and the drawings keep Helvetica.
 
 ## How we got here: `history/`
 
