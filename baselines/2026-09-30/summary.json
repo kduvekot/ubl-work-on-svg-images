@@ -1,0 +1,1398 @@
+{
+ "UBL-1.0-ProcurementProcess": {
+  "canvas": [
+   3425,
+   1692
+  ],
+  "scale": 2.6805979494404006,
+  "page": [
+   1316,
+   670
+  ],
+  "png_size": [
+   3425,
+   1609
+  ],
+  "red": 52.92,
+  "blue": 23.71,
+  "red_space_inserted": 5.31,
+  "blue_space_inserted": 1.61
+ },
+ "UBL-2.0-CertificationOfOriginOfGoodsProcess": {
+  "canvas": [
+   3443,
+   2537
+  ],
+  "scale": 2.969867765011923,
+  "page": [
+   1196,
+   891
+  ],
+  "png_size": [
+   3425,
+   2537
+  ],
+  "red": 21.7,
+  "blue": 16.47,
+  "red_space_inserted": 3.67,
+  "blue_space_inserted": 2.41
+ },
+ "UBL-2.0-CreateCatalogueProcess": {
+  "canvas": [
+   3425,
+   4862
+  ],
+  "scale": 3.9534132095943852,
+  "page": [
+   903,
+   1266
+  ],
+  "png_size": [
+   3425,
+   4862
+  ],
+  "red": 7.73,
+  "blue": 4.71
+ },
+ "UBL-2.0-DeleteCatalogueProcess": {
+  "canvas": [
+   3425,
+   2747
+  ],
+  "scale": 3.9534132095943852,
+  "page": [
+   903,
+   731
+  ],
+  "png_size": [
+   3425,
+   2747
+  ],
+  "red": 3.27,
+  "blue": 2.12
+ },
+ "UBL-2.0-PaymentNotificationProcess": {
+  "canvas": [
+   3425,
+   2113
+  ],
+  "scale": 3.7219765053629064,
+  "page": [
+   957,
+   604
+  ],
+  "png_size": [
+   3425,
+   2113
+  ],
+  "red": 2.08,
+  "blue": 0.63
+ },
+ "UBL-2.0-ReminderForPaymentProcess": {
+  "canvas": [
+   3425,
+   1980
+  ],
+  "scale": 5.129779681579223,
+  "page": [
+   704,
+   422
+  ],
+  "png_size": [
+   3425,
+   1980
+  ],
+  "red": 1.98,
+  "blue": 1.71
+ },
+ "UBL-2.0-ReportStateofAccountsProcess": {
+  "canvas": [
+   3425,
+   1173
+  ],
+  "scale": 5.2455049468557595,
+  "page": [
+   689,
+   260
+  ],
+  "png_size": [
+   3425,
+   1173
+  ],
+  "red": 1.14,
+  "blue": 1.86
+ },
+ "UBL-2.0-SelfBillingwithCreditNoteProcess": {
+  "canvas": [
+   3425,
+   1844
+  ],
+  "scale": 3.2591422508540377,
+  "page": [
+   1085,
+   600
+  ],
+  "png_size": [
+   3425,
+   1844
+  ],
+  "red": 3.11,
+  "blue": 2.62
+ },
+ "UBL-2.0-SelfBillingwithSelfBilledCreditNoteProcess": {
+  "canvas": [
+   3425,
+   2162
+  ],
+  "scale": 2.7963064261979214,
+  "page": [
+   1269,
+   818
+  ],
+  "png_size": [
+   3425,
+   2162
+  ],
+  "red": 5.67,
+  "blue": 1.88
+ },
+ "UBL-2.0-SourcingBuyerInitiatedProcess": {
+  "canvas": [
+   3425,
+   2020
+  ],
+  "scale": 5.033359786027099,
+  "page": [
+   719,
+   440
+  ],
+  "png_size": [
+   3425,
+   2020
+  ],
+  "red": 3.6,
+  "blue": 1.55
+ },
+ "UBL-2.0-SourcingPunchoutProcess": {
+  "canvas": [
+   3425,
+   2060
+  ],
+  "scale": 5.033359786027099,
+  "page": [
+   717,
+   446
+  ],
+  "png_size": [
+   3425,
+   2060
+  ],
+  "red": 3.02,
+  "blue": 2.04
+ },
+ "UBL-2.0-UpdateCatalogueItemSpecificationProcess": {
+  "canvas": [
+   3425,
+   4173
+  ],
+  "scale": 3.6834294072098426,
+  "page": [
+   968,
+   1171
+  ],
+  "png_size": [
+   3425,
+   4173
+  ],
+  "red": 4.32,
+  "blue": 2.3
+ },
+ "UBL-2.0-UpdateCataloguePricingProcess": {
+  "canvas": [
+   3425,
+   4484
+  ],
+  "scale": 3.779852558160067,
+  "page": [
+   943,
+   1223
+  ],
+  "png_size": [
+   3425,
+   4484
+  ],
+  "red": 2.24,
+  "blue": 1.49
+ },
+ "UBL-2.2-BusinessCard": {
+  "canvas": [
+   3425,
+   1234
+  ],
+  "scale": 4.242694513607591,
+  "page": [
+   844,
+   327
+  ],
+  "png_size": [
+   3425,
+   1234
+  ],
+  "red": 4.96,
+  "blue": 1.85
+ },
+ "UBL-2.2-CPFR-CreateJointBusinessPlan": {
+  "canvas": [
+   3425,
+   3322
+  ],
+  "scale": 3.7219765053629064,
+  "page": [
+   955,
+   927
+  ],
+  "png_size": [
+   3425,
+   3289
+  ],
+  "red": 32.62,
+  "blue": 33.95,
+  "red_space_inserted": 5.46,
+  "blue_space_inserted": 5.39
+ },
+ "UBL-2.2-CPFR-CreateOrderForecast": {
+  "canvas": [
+   3425,
+   4004
+  ],
+  "scale": 3.7219765053629064,
+  "page": [
+   957,
+   1112
+  ],
+  "png_size": [
+   3425,
+   4004
+  ],
+  "red": 2.21,
+  "blue": 2.04
+ },
+ "UBL-2.2-CPFR-CreatingSalesForecast": {
+  "canvas": [
+   3425,
+   3604
+  ],
+  "scale": 3.374849732968094,
+  "page": [
+   1051,
+   1104
+  ],
+  "png_size": [
+   3425,
+   3604
+  ],
+  "red": 4.59,
+  "blue": 3.55
+ },
+ "UBL-2.2-CPFR-EstablishingCollaborativeRelationships": {
+  "canvas": [
+   3444,
+   2976
+  ],
+  "scale": 3.779852558160067,
+  "page": [
+   946,
+   822
+  ],
+  "png_size": [
+   3425,
+   2976
+  ],
+  "red": 18.79,
+  "blue": 20.54,
+  "red_space_inserted": 2.4,
+  "blue_space_inserted": 2.69
+ },
+ "UBL-2.2-CPFR-ExceptionHandling": {
+  "canvas": [
+   3425,
+   1786
+  ],
+  "scale": 3.7219765053629064,
+  "page": [
+   953,
+   512
+  ],
+  "png_size": [
+   3425,
+   1786
+  ],
+  "red": 3.86,
+  "blue": 4.03
+ },
+ "UBL-2.2-CPFR-ExceptionMonitor": {
+  "canvas": [
+   3432,
+   2410
+  ],
+  "scale": 3.6834294072098426,
+  "page": [
+   968,
+   691
+  ],
+  "png_size": [
+   3425,
+   2410
+  ],
+  "red": 8.09,
+  "blue": 9.4,
+  "red_space_inserted": 3.43,
+  "blue_space_inserted": 4.04
+ },
+ "UBL-2.2-CPFR-IdentifyResolve": {
+  "canvas": [
+   3425,
+   2222
+  ],
+  "scale": 3.6834294072098426,
+  "page": [
+   966,
+   640
+  ],
+  "png_size": [
+   3425,
+   2222
+  ],
+  "red": 3.65,
+  "blue": 3.46
+ },
+ "UBL-2.2-CRP-BaseArticleCatalogue": {
+  "canvas": [
+   3425,
+   1516
+  ],
+  "scale": 6.653327635106259,
+  "page": [
+   543,
+   256
+  ],
+  "png_size": [
+   3425,
+   1516
+  ],
+  "red": 2.98,
+  "blue": 4.46
+ },
+ "UBL-2.2-CRP-ChangeArticleCatalogue": {
+  "canvas": [
+   3425,
+   1894
+  ],
+  "scale": 4.763361751248209,
+  "page": [
+   748,
+   426
+  ],
+  "png_size": [
+   3425,
+   1894
+  ],
+  "red": 4.66,
+  "blue": 7.02
+ },
+ "UBL-2.2-CRP-InitialStockingByRetailer": {
+  "canvas": [
+   3425,
+   4033
+  ],
+  "scale": 5.843313884055004,
+  "page": [
+   615,
+   719
+  ],
+  "png_size": [
+   3425,
+   4033
+  ],
+  "red": 4.0,
+  "blue": 4.3
+ },
+ "UBL-2.2-CRP-Invoicing": {
+  "canvas": [
+   3425,
+   1507
+  ],
+  "scale": 6.518346528623629,
+  "page": [
+   554,
+   260
+  ],
+  "png_size": [
+   3425,
+   1507
+  ],
+  "red": 1.39,
+  "blue": 2.12
+ },
+ "UBL-2.2-CRP-SalesAndInventoryMovement": {
+  "canvas": [
+   3425,
+   1746
+  ],
+  "scale": 4.146238121179105,
+  "page": [
+   855,
+   450
+  ],
+  "png_size": [
+   3425,
+   1746
+  ],
+  "red": 6.61,
+  "blue": 7.14
+ },
+ "UBL-2.2-CRP-Synchronizing": {
+  "canvas": [
+   3425,
+   1206
+  ],
+  "scale": 5.708333333333333,
+  "page": [
+   628,
+   240
+  ],
+  "png_size": [
+   3425,
+   1206
+  ],
+  "red": 6.18,
+  "blue": 9.09
+ },
+ "UBL-2.2-DigitalAgreement": {
+  "canvas": [
+   3450,
+   3284
+  ],
+  "scale": 4.146238121179105,
+  "page": [
+   869,
+   829
+  ],
+  "png_size": [
+   3425,
+   3284
+  ],
+  "red": 25.09,
+  "blue": 18.86,
+  "red_space_inserted": 5.59,
+  "blue_space_inserted": 2.15
+ },
+ "UBL-2.2-DigitalCapability": {
+  "canvas": [
+   3425,
+   1234
+  ],
+  "scale": 4.18484170912601,
+  "page": [
+   855,
+   331
+  ],
+  "png_size": [
+   3425,
+   1234
+  ],
+  "red": 5.93,
+  "blue": 1.96
+ },
+ "UBL-2.2-Enquiry": {
+  "canvas": [
+   3424,
+   1908
+  ],
+  "scale": 5.571737750801426,
+  "page": [
+   647,
+   375
+  ],
+  "png_size": [
+   3424,
+   1802
+  ],
+  "red": 56.27,
+  "blue": 48.8,
+  "red_space_inserted": 2.7,
+  "blue_space_inserted": 1.23
+ },
+ "UBL-2.2-FreightStatusReporting": {
+  "canvas": [
+   3425,
+   1282
+  ],
+  "scale": 4.763361751248209,
+  "page": [
+   750,
+   300
+  ],
+  "png_size": [
+   3425,
+   1230
+  ],
+  "red": 55.44,
+  "blue": 54.3,
+  "red_space_inserted": 2.01,
+  "blue_space_inserted": 1.64
+ },
+ "UBL-2.2-FulfilmentDespatchAdviceProcess": {
+  "canvas": [
+   3425,
+   2354
+  ],
+  "scale": 2.5648898407896117,
+  "page": [
+   1372,
+   954
+  ],
+  "png_size": [
+   3425,
+   2354
+  ],
+  "red": 1.76,
+  "blue": 0.63
+ },
+ "UBL-2.2-FulfilmentReceiptAdviceProcess": {
+  "canvas": [
+   3425,
+   2019
+  ],
+  "scale": 2.4299052159600434,
+  "page": [
+   1446,
+   867
+  ],
+  "png_size": [
+   3425,
+   2019
+  ],
+  "red": 1.48,
+  "blue": 1.39
+ },
+ "UBL-2.2-IMFM-BasicTransportExecutionPlan": {
+  "canvas": [
+   3425,
+   2204
+  ],
+  "scale": 2.87344267796468,
+  "page": [
+   1228,
+   804
+  ],
+  "png_size": [
+   3425,
+   2204
+  ],
+  "red": 1.44,
+  "blue": 1.13
+ },
+ "UBL-2.2-IMFM-GoodsItemItinerary": {
+  "canvas": [
+   3425,
+   1258
+  ],
+  "scale": 4.956226032848564,
+  "page": [
+   728,
+   290
+  ],
+  "png_size": [
+   3425,
+   1258
+  ],
+  "red": 3.23,
+  "blue": 3.28
+ },
+ "UBL-2.2-IMFM-IntermodalFreightManagementProcess": {
+  "canvas": [
+   3428,
+   3247
+  ],
+  "scale": 2.5648898407896117,
+  "page": [
+   1375,
+   1304
+  ],
+  "png_size": [
+   3425,
+   3221
+  ],
+  "red": 46.3,
+  "blue": 33.95,
+  "red_space_inserted": 11.76,
+  "blue_space_inserted": 6.61
+ },
+ "UBL-2.2-IMFM-TransportProgressStatus": {
+  "canvas": [
+   3425,
+   2366
+  ],
+  "scale": 6.036199573500643,
+  "page": [
+   604,
+   428
+  ],
+  "png_size": [
+   3425,
+   2366
+  ],
+  "red": 5.52,
+  "blue": 5.49
+ },
+ "UBL-2.2-IMFM-TransportServiceDescription": {
+  "canvas": [
+   3425,
+   2013
+  ],
+  "scale": 5.843313884055004,
+  "page": [
+   623,
+   381
+  ],
+  "png_size": [
+   3425,
+   2013
+  ],
+  "red": 4.41,
+  "blue": 3.44
+ },
+ "UBL-2.2-InitiateFreightMgmtProcess": {
+  "canvas": [
+   3431,
+   2543
+  ],
+  "scale": 3.0663037834159965,
+  "page": [
+   1155,
+   866
+  ],
+  "png_size": [
+   3425,
+   2543
+  ],
+  "red": 10.91,
+  "blue": 6.39,
+  "red_space_inserted": 7.28,
+  "blue_space_inserted": 4.91
+ },
+ "UBL-2.2-ROCD-ArticleAvailability": {
+  "canvas": [
+   3425,
+   1323
+  ],
+  "scale": 5.303335294664148,
+  "page": [
+   674,
+   278
+  ],
+  "png_size": [
+   3425,
+   1323
+  ],
+  "red": 4.69,
+  "blue": 5.41
+ },
+ "UBL-2.2-ROCD-BaseArticleCatalogue": {
+  "canvas": [
+   3425,
+   1492
+  ],
+  "scale": 6.653327635106259,
+  "page": [
+   543,
+   253
+  ],
+  "png_size": [
+   3425,
+   1492
+  ],
+  "red": 2.51,
+  "blue": 3.9
+ },
+ "UBL-2.2-ROCD-InitialStocking": {
+  "canvas": [
+   3425,
+   3241
+  ],
+  "scale": 3.8762760587609497,
+  "page": [
+   912,
+   865
+  ],
+  "png_size": [
+   3425,
+   3241
+  ],
+  "red": 3.97,
+  "blue": 5.6
+ },
+ "UBL-2.2-Tender-AwardNotification": {
+  "canvas": [
+   3425,
+   1553
+  ],
+  "scale": 6.402587206041798,
+  "page": [
+   563,
+   271
+  ],
+  "png_size": [
+   3425,
+   1438
+  ],
+  "red": 51.11,
+  "blue": 42.39,
+  "red_space_inserted": 9.66,
+  "blue_space_inserted": 9.87
+ },
+ "UBL-2.2-Tender-AwardPublication": {
+  "canvas": [
+   3431,
+   2321
+  ],
+  "scale": 5.939787034788942,
+  "page": [
+   606,
+   419
+  ],
+  "png_size": [
+   3425,
+   2238
+  ],
+  "red": 62.57,
+  "blue": 44.59,
+  "red_space_inserted": 9.19,
+  "blue_space_inserted": 5.91
+ },
+ "UBL-2.2-Tender-ContractInfoNotify": {
+  "canvas": [
+   3524,
+   2757
+  ],
+  "scale": 7.096827666231532,
+  "page": [
+   525,
+   417
+  ],
+  "png_size": [
+   3425,
+   2672
+  ],
+  "red": 44.31,
+  "blue": 34.65,
+  "red_space_inserted": 12.1,
+  "blue_space_inserted": 6.18
+ },
+ "UBL-2.2-Tender-ContractInfoPrep": {
+  "canvas": [
+   3529,
+   4566
+  ],
+  "scale": 6.479747242560115,
+  "page": [
+   573,
+   733
+  ],
+  "png_size": [
+   3425,
+   4268
+  ],
+  "red": 54.28,
+  "blue": 42.99,
+  "red_space_inserted": 10.09,
+  "blue_space_inserted": 5.21
+ },
+ "UBL-2.2-Tender-ExpressionOfInterest": {
+  "canvas": [
+   3426,
+   1925
+  ],
+  "scale": 5.574992270515679,
+  "page": [
+   647,
+   378
+  ],
+  "png_size": [
+   3426,
+   1808
+  ],
+  "red": 54.88,
+  "blue": 47.98,
+  "red_space_inserted": 12.9,
+  "blue_space_inserted": 7.59
+ },
+ "UBL-2.2-Tender-GuaranteeDeposit": {
+  "canvas": [
+   3425,
+   1780
+  ],
+  "scale": 6.749699465936188,
+  "page": [
+   536,
+   292
+  ],
+  "png_size": [
+   3425,
+   1578
+  ],
+  "red": 53.5,
+  "blue": 43.33,
+  "red_space_inserted": 6.03,
+  "blue_space_inserted": 3.3
+ },
+ "UBL-2.2-Tender-Invitation": {
+  "canvas": [
+   3425,
+   2081
+  ],
+  "scale": 6.286826116485251,
+  "page": [
+   573,
+   360
+  ],
+  "png_size": [
+   3425,
+   2056
+  ],
+  "red": 49.54,
+  "blue": 38.47,
+  "red_space_inserted": 11.39,
+  "blue_space_inserted": 6.8
+ },
+ "UBL-2.2-Tender-QualificationApplication": {
+  "canvas": [
+   3424,
+   2040
+  ],
+  "scale": 6.111557340473003,
+  "page": [
+   591,
+   364
+  ],
+  "png_size": [
+   3424,
+   1802
+  ],
+  "red": 56.03,
+  "blue": 64.64,
+  "red_space_inserted": 37.1,
+  "blue_space_inserted": 40.15
+ },
+ "UBL-2.2-Tender-QualificationInfo": {
+  "canvas": [
+   3496,
+   2321
+  ],
+  "scale": 6.479747242560115,
+  "page": [
+   568,
+   387
+  ],
+  "png_size": [
+   3425,
+   2282
+  ],
+  "red": 70.88,
+  "blue": 59.04,
+  "red_space_inserted": 8.75,
+  "blue_space_inserted": 8.44
+ },
+ "UBL-2.2-Tender-Status": {
+  "canvas": [
+   3424,
+   1922
+  ],
+  "scale": 5.986223294520787,
+  "page": [
+   602,
+   352
+  ],
+  "png_size": [
+   3424,
+   1802
+  ],
+  "red": 59.87,
+  "blue": 61.81,
+  "red_space_inserted": 4.8,
+  "blue_space_inserted": 5.33
+ },
+ "UBL-2.2-Tender-SubmissionOfTenders": {
+  "canvas": [
+   3425,
+   2186
+  ],
+  "scale": 6.402587206041798,
+  "page": [
+   563,
+   370
+  ],
+  "png_size": [
+   3425,
+   2135
+  ],
+  "red": 61.53,
+  "blue": 47.69,
+  "red_space_inserted": 7.91,
+  "blue_space_inserted": 3.95
+ },
+ "UBL-2.2-Tender-UnsubscribeFromProcedure": {
+  "canvas": [
+   3426,
+   2154
+  ],
+  "scale": 6.40445657456911,
+  "page": [
+   565,
+   367
+  ],
+  "png_size": [
+   3426,
+   1808
+  ],
+  "red": 61.27,
+  "blue": 78.38,
+  "red_space_inserted": 34.76,
+  "blue_space_inserted": 42.88
+ },
+ "UBL-2.2-Tender-Withdrawal": {
+  "canvas": [
+   3425,
+   1357
+  ],
+  "scale": 5.496180756146094,
+  "page": [
+   658,
+   281
+  ],
+  "png_size": [
+   3425,
+   1264
+  ],
+  "red": 48.47,
+  "blue": 44.46,
+  "red_space_inserted": 6.59,
+  "blue_space_inserted": 3.31
+ },
+ "UBL-2.2-VMI-InitialStocking": {
+  "canvas": [
+   3425,
+   3499
+  ],
+  "scale": 4.416220746566953,
+  "page": [
+   804,
+   821
+  ],
+  "png_size": [
+   3425,
+   3499
+  ],
+  "red": 0.81,
+  "blue": 0.93
+ },
+ "UBL-2.2-VMI-Invoicing": {
+  "canvas": [
+   3425,
+   1525
+  ],
+  "scale": 6.633997055861161,
+  "page": [
+   545,
+   258
+  ],
+  "png_size": [
+   3425,
+   1525
+  ],
+  "red": 2.29,
+  "blue": 3.23
+ },
+ "UBL-2.2-VMI-PermanentReplenishment": {
+  "canvas": [
+   3425,
+   3211
+  ],
+  "scale": 4.146238121179105,
+  "page": [
+   855,
+   803
+  ],
+  "png_size": [
+   3425,
+   3211
+  ],
+  "red": 1.87,
+  "blue": 3.12
+ },
+ "UBL-2.2-VMI-PriceAdjustment": {
+  "canvas": [
+   3425,
+   2075
+  ],
+  "scale": 6.171171171171171,
+  "page": [
+   583,
+   365
+  ],
+  "png_size": [
+   3425,
+   2075
+  ],
+  "red": 3.31,
+  "blue": 6.43
+ },
+ "UBL-2.2-VMI-ReturnsByProducer": {
+  "canvas": [
+   3425,
+   3172
+  ],
+  "scale": 4.686260022439318,
+  "page": [
+   759,
+   705
+  ],
+  "png_size": [
+   3425,
+   3172
+  ],
+  "red": 3.41,
+  "blue": 4.29
+ },
+ "UBL-2.2-VMI-SalesAndInventoryMovement": {
+  "canvas": [
+   3425,
+   1987
+  ],
+  "scale": 4.58979925491142,
+  "page": [
+   775,
+   461
+  ],
+  "png_size": [
+   3425,
+   1987
+  ],
+  "red": 4.96,
+  "blue": 5.84
+ },
+ "UBL-2.3-CommonTransportationReportProcess": {
+  "canvas": [
+   3426,
+   1301
+  ],
+  "scale": 4.880480925382489,
+  "page": [
+   724,
+   289
+  ],
+  "png_size": [
+   3426,
+   1291
+  ],
+  "red": 23.28,
+  "blue": 27.23,
+  "red_space_inserted": 0.52,
+  "blue_space_inserted": 1.31
+ },
+ "UBL-2.3-ExportCustomsDeclarationProcess": {
+  "canvas": [
+   1148,
+   1080
+  ],
+  "scale": 2.070528510561146,
+  "page": [
+   581,
+   548
+  ],
+  "png_size": [
+   1142,
+   1057
+  ],
+  "red": 47.58,
+  "blue": 49.9,
+  "red_space_inserted": 6.82,
+  "blue_space_inserted": 8.26
+ },
+ "UBL-2.3-GoodsCertificateExportProcess": {
+  "canvas": [
+   1754,
+   1294
+  ],
+  "scale": 2.091809928766052,
+  "page": [
+   865,
+   645
+  ],
+  "png_size": [
+   1712,
+   1279
+  ],
+  "red": 52.91,
+  "blue": 56.9,
+  "red_space_inserted": 6.64,
+  "blue_space_inserted": 9.22
+ },
+ "UBL-2.3-GoodsItemPassportApprovalProcess": {
+  "canvas": [
+   1753,
+   1663
+  ],
+  "scale": 2.0725137703528844,
+  "page": [
+   873,
+   829
+  ],
+  "png_size": [
+   1712,
+   1642
+  ],
+  "red": 65.38,
+  "blue": 65.28,
+  "red_space_inserted": 6.33,
+  "blue_space_inserted": 8.15
+ },
+ "UBL-2.3-GoodsItemPassportPresentationProcess": {
+  "canvas": [
+   1774,
+   1663
+  ],
+  "scale": 2.0725137703528844,
+  "page": [
+   883,
+   829
+  ],
+  "png_size": [
+   1712,
+   1642
+  ],
+  "red": 62.76,
+  "blue": 63.79,
+  "red_space_inserted": 6.32,
+  "blue_space_inserted": 7.84
+ },
+ "UBL-2.3-GoodsItemPassportReturnProcess": {
+  "canvas": [
+   1774,
+   1663
+  ],
+  "scale": 2.0725137703528844,
+  "page": [
+   883,
+   829
+  ],
+  "png_size": [
+   1712,
+   1642
+  ],
+  "red": 64.21,
+  "blue": 65.75,
+  "red_space_inserted": 6.74,
+  "blue_space_inserted": 8.0
+ },
+ "UBL-2.3-ImportDeclarationProcess": {
+  "canvas": [
+   3426,
+   2055
+  ],
+  "scale": 4.68762827354076,
+  "page": [
+   755,
+   463
+  ],
+  "png_size": [
+   3426,
+   2050
+  ],
+  "red": 6.73,
+  "blue": 6.72,
+  "red_space_inserted": 1.87,
+  "blue_space_inserted": 2.16
+ },
+ "UBL-2.3-ManifestProcess": {
+  "canvas": [
+   3426,
+   1296
+  ],
+  "scale": 4.764752513803319,
+  "page": [
+   744,
+   296
+  ],
+  "png_size": [
+   3426,
+   1291
+  ],
+  "red": 1.7,
+  "blue": 4.86,
+  "red_space_inserted": 1.07,
+  "blue_space_inserted": 1.59
+ },
+ "UBL-2.3-RequestForProofOfReexportationProcess": {
+  "canvas": [
+   1754,
+   1317
+  ],
+  "scale": 2.091809928766052,
+  "page": [
+   865,
+   656
+  ],
+  "png_size": [
+   1712,
+   1279
+  ],
+  "red": 55.2,
+  "blue": 59.92,
+  "red_space_inserted": 9.27,
+  "blue_space_inserted": 11.86
+ },
+ "UBL-2.3-Tender-Contract-Post": {
+  "canvas": [
+   3223,
+   3012
+  ],
+  "scale": 5.934231845632641,
+  "page": [
+   574,
+   538
+  ],
+  "png_size": [
+   3223,
+   2668
+  ],
+  "red": 61.91,
+  "blue": 61.17,
+  "red_space_inserted": 7.03,
+  "blue_space_inserted": 5.38
+ },
+ "UBL-2.3-Tender-Contract-Pre": {
+  "canvas": [
+   3223,
+   2671
+  ],
+  "scale": 5.934231845632641,
+  "page": [
+   574,
+   481
+  ],
+  "png_size": [
+   3223,
+   2374
+  ],
+  "red": 58.41,
+  "blue": 59.04,
+  "red_space_inserted": 10.77,
+  "blue_space_inserted": 8.04
+ },
+ "UBL-2.3-TransitDeclarationProcess": {
+  "canvas": [
+   3426,
+   2050
+  ],
+  "scale": 4.7261691267761075,
+  "page": [
+   749,
+   458
+  ],
+  "png_size": [
+   3426,
+   2050
+  ],
+  "red": 1.21,
+  "blue": 1.91
+ },
+ "UBL-2.5-BillingwithCreditNoteProcess": {
+  "canvas": [
+   3425,
+   1813
+  ],
+  "scale": 3.143441908275742,
+  "page": [
+   1126,
+   613
+  ],
+  "png_size": [
+   3425,
+   1813
+  ],
+  "red": 5.75,
+  "blue": 3.3
+ },
+ "UBL-2.5-BillingwithDebitNoteProcess": {
+  "canvas": [
+   3425,
+   1813
+  ],
+  "scale": 3.143441908275742,
+  "page": [
+   1126,
+   613
+  ],
+  "png_size": [
+   3425,
+   1813
+  ],
+  "red": 5.74,
+  "blue": 3.21
+ },
+ "UBL-2.5-UtilityBillingProcess": {
+  "canvas": [
+   3425,
+   1832
+  ],
+  "scale": 3.509868623311676,
+  "page": [
+   1012,
+   558
+  ],
+  "png_size": [
+   3425,
+   1832
+  ],
+  "red": 1.15,
+  "blue": 0.65
+ },
+ "UBL-2.5-WasteMovementProcess": {
+  "canvas": [
+   2501,
+   1738
+  ],
+  "scale": 4.886483529365793,
+  "page": [
+   532,
+   376
+  ],
+  "png_size": [
+   2501,
+   1733
+  ],
+  "red": 15.07,
+  "blue": 26.17,
+  "red_space_inserted": 6.25,
+  "blue_space_inserted": 6.71
+ },
+ "UBL-2.5-WasteNotificationProcess": {
+  "canvas": [
+   2501,
+   2069
+  ],
+  "scale": 4.886483529365793,
+  "page": [
+   532,
+   444
+  ],
+  "png_size": [
+   2501,
+   2069
+  ],
+  "red": 8.16,
+  "blue": 9.54
+ }
+}

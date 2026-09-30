@@ -11,6 +11,8 @@ replace them as the figures' source.
 diagrams/<figure>/<figure>.drawio        78 figures, e.g. diagrams/UBL-2.5-BillingwithDebitNoteProcess/
 tools/ubl-library.xml                    the UBL shapes, as a draw.io library, for editing
 tools/check_drawio.py                    the check, run by hand after an edit
+tools/drawio_baseline.py                 holds the drawings against the baseline
+baselines/2026-09-30/                    the baseline: the drawings as they are now
 ```
 
 **Edit a figure by opening its `.drawio` file in draw.io** (the desktop app, or
@@ -119,6 +121,35 @@ At the switch (2026-09-29) all 78 were equal - all but what records how the PNG
 was read (a flow's direction confidence, the figure's source PNG), which stays
 in the history. After the drawings have been edited, they will differ from the
 JSONs, as they should: the JSONs are history now.
+
+### The baseline: `baselines/2026-09-30/`
+
+The drawings as they were made the source of truth (commit `3bd91c6`, all edits
+of `history/drawio-edits/` done), for later edits to be held against:
+
+- `diagrams/<figure>.drawio`: the 78 drawings;
+- `renders/<figure>.png`: each rendered with draw.io's own code (viewer
+  31.5.3), at the size of the original PNG (grown where the drawing grew);
+- `summary.txt`, `summary.json`: per figure, how it compares with the original
+  PNG (red: ink only the PNG has; blue: only the drawing; in %, of the PNG's
+  ink), and for the 35 figures that grew, the same with the space inserted in
+  the PNG too.
+
+The PDF of that comparison is not kept: `history/drawio-edits/diff/run.sh` makes
+it again from the baseline's commit.
+
+```sh
+python3 tools/drawio_baseline.py compare baselines/2026-09-30 [--out <dir>] [<figure> ...]
+```
+
+Run it by hand after an edit. Per figure it says `same` (the baseline's file,
+byte for byte), `same-drawing` (the file differs, not the model, not a pixel),
+`model` (the model differs; what, is listed) or `DRAWING` (pixels differ;
+with `--out`, a picture shows where: red only in the baseline, blue only in the
+drawing). Both are rendered afresh, the same way, and compared with no
+tolerance; where the baseline no longer renders as it did, it says so.
+A new baseline is made with `tools/drawio_baseline.py make <baseline dir> <diff
+dir>`, from a run of `history/drawio-edits/diff/run.sh` on the same drawings.
 
 ### Not yet: images made from the drawings
 

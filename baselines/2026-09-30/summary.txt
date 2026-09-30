@@ -1,0 +1,81 @@
+figure                                                          PNG      canvas   red %  blue %   red % *  blue % *
+UBL-1.0-ProcurementProcess                                3425x1609   3425x1692   52.92   23.71      5.31      1.61
+UBL-2.0-CertificationOfOriginOfGoodsProcess               3425x2537   3443x2537   21.70   16.47      3.67      2.41
+UBL-2.0-CreateCatalogueProcess                            3425x4862   3425x4862    7.73    4.71                    
+UBL-2.0-DeleteCatalogueProcess                            3425x2747   3425x2747    3.27    2.12                    
+UBL-2.0-PaymentNotificationProcess                        3425x2113   3425x2113    2.08    0.63                    
+UBL-2.0-ReminderForPaymentProcess                         3425x1980   3425x1980    1.98    1.71                    
+UBL-2.0-ReportStateofAccountsProcess                      3425x1173   3425x1173    1.14    1.86                    
+UBL-2.0-SelfBillingwithCreditNoteProcess                  3425x1844   3425x1844    3.11    2.62                    
+UBL-2.0-SelfBillingwithSelfBilledCreditNoteProcess        3425x2162   3425x2162    5.67    1.88                    
+UBL-2.0-SourcingBuyerInitiatedProcess                     3425x2020   3425x2020    3.60    1.55                    
+UBL-2.0-SourcingPunchoutProcess                           3425x2060   3425x2060    3.02    2.04                    
+UBL-2.0-UpdateCatalogueItemSpecificationProcess           3425x4173   3425x4173    4.32    2.30                    
+UBL-2.0-UpdateCataloguePricingProcess                     3425x4484   3425x4484    2.24    1.49                    
+UBL-2.2-BusinessCard                                      3425x1234   3425x1234    4.96    1.85                    
+UBL-2.2-CPFR-CreateJointBusinessPlan                      3425x3289   3425x3322   32.62   33.95      5.46      5.39
+UBL-2.2-CPFR-CreateOrderForecast                          3425x4004   3425x4004    2.21    2.04                    
+UBL-2.2-CPFR-CreatingSalesForecast                        3425x3604   3425x3604    4.59    3.55                    
+UBL-2.2-CPFR-EstablishingCollaborativeRelationships       3425x2976   3444x2976   18.79   20.54      2.40      2.69
+UBL-2.2-CPFR-ExceptionHandling                            3425x1786   3425x1786    3.86    4.03                    
+UBL-2.2-CPFR-ExceptionMonitor                             3425x2410   3432x2410    8.09    9.40      3.43      4.04
+UBL-2.2-CPFR-IdentifyResolve                              3425x2222   3425x2222    3.65    3.46                    
+UBL-2.2-CRP-BaseArticleCatalogue                          3425x1516   3425x1516    2.98    4.46                    
+UBL-2.2-CRP-ChangeArticleCatalogue                        3425x1894   3425x1894    4.66    7.02                    
+UBL-2.2-CRP-InitialStockingByRetailer                     3425x4033   3425x4033    4.00    4.30                    
+UBL-2.2-CRP-Invoicing                                     3425x1507   3425x1507    1.39    2.12                    
+UBL-2.2-CRP-SalesAndInventoryMovement                     3425x1746   3425x1746    6.61    7.14                    
+UBL-2.2-CRP-Synchronizing                                 3425x1206   3425x1206    6.18    9.09                    
+UBL-2.2-DigitalAgreement                                  3425x3284   3450x3284   25.09   18.86      5.59      2.15
+UBL-2.2-DigitalCapability                                 3425x1234   3425x1234    5.93    1.96                    
+UBL-2.2-Enquiry                                           3424x1802   3424x1908   56.27   48.80      2.70      1.23
+UBL-2.2-FreightStatusReporting                            3425x1230   3425x1282   55.44   54.30      2.01      1.64
+UBL-2.2-FulfilmentDespatchAdviceProcess                   3425x2354   3425x2354    1.76    0.63                    
+UBL-2.2-FulfilmentReceiptAdviceProcess                    3425x2019   3425x2019    1.48    1.39                    
+UBL-2.2-IMFM-BasicTransportExecutionPlan                  3425x2204   3425x2204    1.44    1.13                    
+UBL-2.2-IMFM-GoodsItemItinerary                           3425x1258   3425x1258    3.23    3.28                    
+UBL-2.2-IMFM-IntermodalFreightManagementProcess           3425x3221   3428x3247   46.30   33.95     11.76      6.61
+UBL-2.2-IMFM-TransportProgressStatus                      3425x2366   3425x2366    5.52    5.49                    
+UBL-2.2-IMFM-TransportServiceDescription                  3425x2013   3425x2013    4.41    3.44                    
+UBL-2.2-InitiateFreightMgmtProcess                        3425x2543   3431x2543   10.91    6.39      7.28      4.91
+UBL-2.2-ROCD-ArticleAvailability                          3425x1323   3425x1323    4.69    5.41                    
+UBL-2.2-ROCD-BaseArticleCatalogue                         3425x1492   3425x1492    2.51    3.90                    
+UBL-2.2-ROCD-InitialStocking                              3425x3241   3425x3241    3.97    5.60                    
+UBL-2.2-Tender-AwardNotification                          3425x1438   3425x1553   51.11   42.39      9.66      9.87
+UBL-2.2-Tender-AwardPublication                           3425x2238   3431x2321   62.57   44.59      9.19      5.91
+UBL-2.2-Tender-ContractInfoNotify                         3425x2672   3524x2757   44.31   34.65     12.10      6.18
+UBL-2.2-Tender-ContractInfoPrep                           3425x4268   3529x4566   54.28   42.99     10.09      5.21
+UBL-2.2-Tender-ExpressionOfInterest                       3426x1808   3426x1925   54.88   47.98     12.90      7.59
+UBL-2.2-Tender-GuaranteeDeposit                           3425x1578   3425x1780   53.50   43.33      6.03      3.30
+UBL-2.2-Tender-Invitation                                 3425x2056   3425x2081   49.54   38.47     11.39      6.80
+UBL-2.2-Tender-QualificationApplication                   3424x1802   3424x2040   56.03   64.64     37.10     40.15
+UBL-2.2-Tender-QualificationInfo                          3425x2282   3496x2321   70.88   59.04      8.75      8.44
+UBL-2.2-Tender-Status                                     3424x1802   3424x1922   59.87   61.81      4.80      5.33
+UBL-2.2-Tender-SubmissionOfTenders                        3425x2135   3425x2186   61.53   47.69      7.91      3.95
+UBL-2.2-Tender-UnsubscribeFromProcedure                   3426x1808   3426x2154   61.27   78.38     34.76     42.88
+UBL-2.2-Tender-Withdrawal                                 3425x1264   3425x1357   48.47   44.46      6.59      3.31
+UBL-2.2-VMI-InitialStocking                               3425x3499   3425x3499    0.81    0.93                    
+UBL-2.2-VMI-Invoicing                                     3425x1525   3425x1525    2.29    3.23                    
+UBL-2.2-VMI-PermanentReplenishment                        3425x3211   3425x3211    1.87    3.12                    
+UBL-2.2-VMI-PriceAdjustment                               3425x2075   3425x2075    3.31    6.43                    
+UBL-2.2-VMI-ReturnsByProducer                             3425x3172   3425x3172    3.41    4.29                    
+UBL-2.2-VMI-SalesAndInventoryMovement                     3425x1987   3425x1987    4.96    5.84                    
+UBL-2.3-CommonTransportationReportProcess                 3426x1291   3426x1301   23.28   27.23      0.52      1.31
+UBL-2.3-ExportCustomsDeclarationProcess                   1142x1057   1148x1080   47.58   49.90      6.82      8.26
+UBL-2.3-GoodsCertificateExportProcess                     1712x1279   1754x1294   52.91   56.90      6.64      9.22
+UBL-2.3-GoodsItemPassportApprovalProcess                  1712x1642   1753x1663   65.38   65.28      6.33      8.15
+UBL-2.3-GoodsItemPassportPresentationProcess              1712x1642   1774x1663   62.76   63.79      6.32      7.84
+UBL-2.3-GoodsItemPassportReturnProcess                    1712x1642   1774x1663   64.21   65.75      6.74      8.00
+UBL-2.3-ImportDeclarationProcess                          3426x2050   3426x2055    6.73    6.72      1.87      2.16
+UBL-2.3-ManifestProcess                                   3426x1291   3426x1296    1.70    4.86      1.07      1.59
+UBL-2.3-RequestForProofOfReexportationProcess             1712x1279   1754x1317   55.20   59.92      9.27     11.86
+UBL-2.3-Tender-Contract-Post                              3223x2668   3223x3012   61.91   61.17      7.03      5.38
+UBL-2.3-Tender-Contract-Pre                               3223x2374   3223x2671   58.41   59.04     10.77      8.04
+UBL-2.3-TransitDeclarationProcess                         3426x2050   3426x2050    1.21    1.91                    
+UBL-2.5-BillingwithCreditNoteProcess                      3425x1813   3425x1813    5.75    3.30                    
+UBL-2.5-BillingwithDebitNoteProcess                       3425x1813   3425x1813    5.74    3.21                    
+UBL-2.5-UtilityBillingProcess                             3425x1832   3425x1832    1.15    0.65                    
+UBL-2.5-WasteMovementProcess                              2501x1733   2501x1738   15.07   26.17      6.25      6.71
+UBL-2.5-WasteNotificationProcess                          2501x2069   2501x2069    8.16    9.54                    
+
+* with the same space inserted in the PNG as in the drawing (history/drawio-edits/diff/cutpng.py)
