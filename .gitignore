@@ -1,3 +1,7 @@
 # Generated review output: the three-panel PDF is rebuilt from the artwork and
 # the current run by comparison-pdf/imageTriptych.xsl, and is ~19MB a time.
 review/
+
+# Python bytecode caches
+__pycache__/
+*.pyc

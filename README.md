@@ -1,205 +1,187 @@
 # ubl-work-on-svg-images
 
-Recovering **editable sources** for the UBL specification's artwork. UBL publishes
-its process diagrams as PNG; most of their original sources are lost, so a
-change means editing a bitmap. This work turns each of the **78 UML activity
-diagrams** of UBL 2.5 (of its 97 figures) into a **model** - lanes, steps,
-documents, flows, guards, each with an identity - from which an editable SVG and
-draw.io file are drawn.
+Editable sources for the artwork of the UBL specification: the **78 UML activity
+diagrams** of UBL 2.5 (of its 97 figures), as **draw.io drawings**. UBL publishes
+these diagrams as PNG and most of their original sources are lost; these drawings
+replace them as the figures' source.
 
-## What there is now: originals, JSONs, SVGs
+## The source of truth: the draw.io drawings
 
 ```
- original PNG  ──(reading + recorded corrections)──▶  JSONs  ──(drawing)──▶  SVG + draw.io
- UBL repository, art/                                 diagrams/<figure>/     diagrams/<figure>/
- (not copied here)                                    the basis              generated, never edited
+diagrams/<figure>/<figure>.drawio        78 figures, e.g. diagrams/UBL-2.5-BillingwithDebitNoteProcess/
+tools/ubl-library.xml                    the UBL shapes, as a draw.io library, for editing
+tools/check_drawio.py                    the check, run by hand after an edit
+tools/drawio_baseline.py                 holds the drawings against the baseline
+baselines/2026-09-30/                    the baseline: the drawings as they are now
 ```
 
-| | where | what it is |
+**Edit a figure by opening its `.drawio` file in draw.io** (the desktop app, or
+diagrams.net) and saving it back. Nothing is generated over these files any more.
+
+Each drawing is built from draw.io's own parts:
+
+- the frame is a **pool** (BPMN palette, "Vertical Pool 1") and each party a
+  **lane** in it: widening a lane moves the lanes beside it and grows the pool;
+- actions, documents, decisions, starts, ends, fork/join bars and notes are the
+  shapes of draw.io's **UML palette**, standing in their lane (a child of it);
+- **flows** are attached to their elements at both ends; a guard is the flow's
+  own label, a decision's question the diamond's own label;
+- CPFR's dashed phase boxes and IMFM's phase rules and names are part of the
+  pool, so they move with it;
+- drawn at the figures' **natural scale**, with **whole pixels** only and
+  **fixed line weights** (1, and 2 for documents and the frame); flows that the
+  artwork draws almost level or upright are exactly so;
+- **one arrowhead everywhere:** UML's open head, 10 px (`endArrow=open;endSize=10`),
+  where the artwork had sizes of 6-17 px and a filled head in the 2.3 customs
+  figures; and every arrow at least **3 times its head long** (30 px, the
+  stretch after its last bend). Where one was shorter, space was inserted across
+  the whole figure, as draw.io's own "insert space" does: a band of height or a
+  column of width, everything beyond it moved along, lanes and pool grown (109
+  insertions in 35 figures, 1-20 px each; a figure grew by at most 58 px in
+  height (Tender Contract Post) and 30 px in width).
+  Nothing tilted or came to overlap. A shape the space ran through kept its
+  size: it stayed, or moved whole past the space, wherever its flows still met
+  it (12 shapes); only one grew, as its flows meet it on both sides of the space
+  (CPFR Exception Monitor's "Ordering", 2 px wider);
+- **one text size: draw.io's own 12 pt** for every label (no `fontSize` in the
+  style). Where a box no longer held its words at 12 pt it was made wider or
+  taller about its centre (83 boxes, by 2-18 px), and where that would have taken
+  it out of its lane, its label was broken over one more line (10 labels, in the
+  two Tender figures with long one-line labels). Words beside a shape (a
+  decision's question, "From Order") and guards kept their gap to the shape or
+  line: the shape keeps its size, and the words move out by what they grew.
+
+### The model inside each drawing
+
+Each drawing also holds the figure's **model**: what it says, not only how it
+looks. Every element carries the model's id and its kind (`ubl-kind`); what the
+drawing does not show by itself is kept on the element as a custom property,
+visible and editable in draw.io under **Edit Data** (Ctrl+M). A string is kept as
+it is, anything else as JSON.
+
+| property | on | what it says |
 |---|---|---|
-| **The originals** | `art/` in the [UBL repository](https://github.com/oasis-tcs/ubl), branch `ubl-2.5` at `3d81e8a` - not copied here | The 600-dpi PNGs as OASIS publishes them. Everything was read from them and checked back against them, pixel for pixel. |
-| **The JSONs** | `diagrams/<figure>/<figure>-diagram.json`, `-layout.json`, `-extraction.json` | **The basis of the SVGs.** What the diagram says (lanes, nodes, flows, texts), where each element is drawn, and how the reading went. Each has a schema in `tools/schema/`. |
-| **The SVG** | `diagrams/<figure>/<figure>.svg` | Drawn from the diagram and layout JSONs alone, by `tools/draw-from-json.sh`. Never edited by hand. **This is the drawing to use.** |
-| **The draw.io file** | `diagrams/<figure>/<figure>.drawio` | Drawn from the same JSONs - but **incomplete: not to be trusted** (below). |
+| `ubl-kind` | every element | `frame`, `lane`, `action`, `object` (a document), `decision`, `initial`, `final`, `fork`, `note`, `flow`, `off-page-flow`, `text`, `mark`, `phase-boundary`, `band-divider`, `band-title`, `lane-divider` |
+| `ubl-flow` | flow | its kind: `control`, `object`, `goods`, `information`, `precondition` |
+| `ubl-guard` | flow | the id of the text that is its guard (the label) |
+| `ubl-between`, `ubl-lane` | node | a document passed between parties (the parties, left to right); the lane a node belongs to where it is drawn in another (`null`: none) |
+| `ubl-continues`, `ubl-counterpart`, `ubl-port`, `ubl-direction` | off-page flow | the figure where it continues, the flow there, which port, in or out |
+| `ubl-text`, `ubl-text-<id>` | element | the id(s) of the text(s) shown as its label; a text's own words where the label shows them otherwise |
+| `ubl-label` | node, lane, phase | its own words, where its label shows a text's |
+| `ubl-members` | phase | the elements in the phase |
+| `ubl-question`, `ubl-unstated`, `ubl-passes-to`, `ubl-linked-process`, `ubl-reference`, `ubl-scope`, `ubl-same-as`, `ubl-trigger`, `ubl-annotates`, `ubl-also-in`, `ubl-defined-in`, `ubl-implied-choice`, `ubl-both-ends`, `ubl-title-shown`, `ubl-title-source`, `ubl-mark`, `ubl-rule`, `ubl-on`, `ubl-meaning`, `ubl-labels`, `ubl-draws`, `ubl-segments` | as the model has them | the model's other facts, as recorded with the TC (see the schema in `history/tools/schema/diagram.schema.json` for each) |
+| `ubl-offset` | frame | the margin between page and drawing |
 
-> **Warning - the draw.io files are incomplete and are not to be trusted** until
-> the work to build proper draw.io drawings is done (open work, item 2). They
-> have the same actions, documents, starts, ends, decisions, flows and notes, in
-> the same places, as the SVG, but not the rest:
->
-> - decision questions and other texts not attached to a flow are missing (134
->   of the 183 texts are there);
-> - band dividers and titles, the CPFR phase boxes and their titles, off-page
->   flows and the break marks across a divider are missing;
-> - lane dividers are only the swimlane edges, not the lines as measured;
-> - fork bars are a stub shape, not the black bar;
-> - there are no line hops, and a guard moved off its line sits back on it;
-> - every action is bold, and sizes and line weights are fixed rather than
->   measured.
->
-> The same draw.io model is embedded in each SVG (its `content` attribute), so
-> **opening an SVG in draw.io also gives this incomplete drawing, and saving it
-> from draw.io loses what is missing.** Do not edit the figures in draw.io yet.
-> The SVGs themselves are complete and checked; the draw.io files are kept only
-> because they are generated alongside, and nothing checks them.
+### Editing a drawing
 
-That the committed SVG and draw.io files are exactly what their JSONs give is
-checked, without any PNG, by
+1. Open the figure's `.drawio` file in draw.io.
+2. **Open the UBL shape library once:** `tools/ubl-library.xml`, with
+   *File › Open Library* in the desktop app (*File › Open Library from ›
+   Device* on diagrams.net). It stays in the left panel. Its shapes carry their
+   `ubl-kind` already, in the drawings' style:
+   - action, document (object node), decision, start, end, fork/join bar
+     (horizontal and upright), note, text;
+   - a lane: drop it on the pool, and the pool places it after the last lane;
+   - a control flow and an object flow: drop one, then drag its ends onto the
+     two elements.
+3. Draw new elements from that library, not from draw.io's own palettes: a shape
+   from those has no `ubl-kind`, and the check below reports it.
+4. Tell the model what the drawing cannot show, in *Edit Data* (Ctrl+M) on the
+   element: for a document drawn on a lane divider, the parties it passes between
+   (`ubl-between`, e.g. `["lane-buyer", "lane-seller"]`); for a new flow, its kind
+   if it is neither a control nor an object flow (`ubl-flow`). The check warns
+   where these are missing.
+5. Save, and run the check.
 
-```sh
-tools/draw-from-json.sh --check diagrams     # all 78, about 20 s
-tools/draw-from-json.sh diagrams <figure>     # redraw one figure after its JSONs change
-```
+Tested in the draw.io editor (web, 31.5.3) on Billing with Debit Note: a flow
+reconnected to another element, an action resized, another relabelled, an action
+and a flow from the library added and connected, and a lane added to the pool.
+The saved file passed the check, and the model read back out of it changed
+exactly as edited. Moving the pool and widening a lane were tried too: all that
+belongs to the pool and its lanes moves with them.
 
-`-extraction.json` is not drawn from: it records the reading's measurements and
-open questions, for review.
-
-**Starting over from the PNGs is still possible.** The whole pipeline that made
-the JSONs is kept in `tools/`: `extract_graph.py` reads a PNG, `model_io.py`
-applies the corrections in `tools/model-corrections.json` and splits the result
-into the three JSONs, and `run-pipeline.sh` / `verdict-sweep.sh` run it end to end
-and check the drawing against the original (`verify_conversion.py`). A run at
-this commit writes exactly the JSONs, SVGs and draw.io files in `diagrams/`
-(section "Resuming" below, and `docs/running.md` section 10).
-
-## Where we are (2026-09-28)
-
-1. **All 78 figures have been reviewed with the TC**, figure by figure, hardest
-   first: the model checked against the PNG, the SVG checked for faithfulness.
-   Every decision is recorded - as a correction in
-   `tools/model-corrections.json` (361 over 68 figures, each with its question
-   and answer), a fault of the artwork itself in `tools/artwork-faults.json`, or
-   a drawing rule in the code - and written up in
-   [`docs/artwork-conversion-notes.md`](docs/artwork-conversion-notes.md) §16.
-2. **The result is committed** in `diagrams/`: per figure the three JSONs, the SVG
-   and the draw.io file.
-3. **Measured against the originals**: every structural count is zero (no element
-   or text absent or invented, nothing incoherent); the ink in error averages
-   1.099% of each diagram's line-work (1.212% at the 2026-09-25 baseline); 9
-   figures verdict `correct`; the 266 notes for a person are all settled.
-4. **A new baseline, `baselines/2026-09-28/`**, holds this state: the complete
-   run `diagrams/` was taken from, its sweep table and its review PDF (78 pages:
-   original, SVG and difference per figure). Later changes are held against it.
-5. **Standing drawing rules the TC set during the review** (notes §16): lane
-   dividers are one straight line; a line hop only where two solid flows cross
-   (never at a divider, a phase boundary or a dashed line); a guard on its own
-   flow's line is moved off it where it can stand clear; texts stay inside their
-   boxes; no grey; fork bars black; small arrowhead differences are accepted.
-6. **Points for a future UBL release**, where the artwork itself is wrong (for
-   instance the guard overlap on Billing with Debit Note, for UBL 2.6), are
-   listed in notes §16.
-
-## Working method
-
-These were settled by correction along the way and are not to be relaxed:
-
-- **The PNG in `art/` is the source of truth for what a figure shows**, never the
-  draft SVGs in `svg-images/`. The JSONs record what was read from it.
-- **Fidelity is proved by measurement.** When a check shows a difference, fix the
-  output; never widen a tolerance.
-- **Every change is checked over all 78**, never only on the diagram that
-  prompted it: a sweep, `tools/compare-to-baseline.sh` against
-  `baselines/2026-09-28/`, and the red/blue PDF from
-  `comparison-pdf/build-compare-deck.sh`.
-- **Questions go to the TC one at a time**, with context, an overview and a
-  close-up of the original, and a suggested answer; UBL.xml's own text is read
-  first, since it often settles the question. Each answer becomes a correction,
-  is checked, committed and pushed.
-- **Faults in the artwork itself are recorded, not corrected**: the SVG stays
-  faithful to the drawing (`tools/artwork-faults.json`); what should change in
-  the specification goes into the future-release points.
-- **A step that involves a party the diagram does not draw** (a bank, goods
-  sent, an authority without a column) is an ordinary step of the party that
-  takes it; only what the specification itself puts outside its scope becomes
-  an external segment (q7, q8).
-- **The drawing may depart from the artwork only by a rule the TC set** (the
-  standing drawing rules above); each departure is marked in the SVG and left
-  out of the pixel check on both sides.
-
-## Resuming
-
-To draw from the JSONs, only Python 3 with `jsonschema` is needed:
+### Checking a drawing
 
 ```sh
-tools/draw-from-json.sh --check diagrams
+python3 tools/check_drawio.py diagrams/*/*.drawio
 ```
 
-To start over from the PNGs, the artwork and the tools are needed as well:
+Run it by hand after an edit. It checks the conventions a drawing must keep:
+every element has a known `ubl-kind` and a unique id; the lanes are in the pool
+and every node in a lane; every flow is attached at both ends (a flow leaving
+the page at one); a guard is used once. A finding makes it fail (exit status 1).
+It also **warns** where the model is poorer than it should be - a flow without
+its kind (`ubl-flow`), a document across a lane divider without the parties it
+passes between (`ubl-between`) - and where an arrow is shorter than 3 times its
+head: make room in draw.io by Ctrl+Shift+dragging on the background.
+
+With `--against history/diagrams` it also reads the model back out of each
+drawing and compares it, field by field, with the JSON model it was drawn from.
+At the switch (2026-09-29) all 78 were equal - all but what records how the PNG
+was read (a flow's direction confidence, the figure's source PNG), which stays
+in the history. After the drawings have been edited, they will differ from the
+JSONs, as they should: the JSONs are history now.
+
+### The baseline: `baselines/2026-09-30/`
+
+The drawings as they were made the source of truth (commit `3bd91c6`, all edits
+of `history/drawio-edits/` done), for later edits to be held against:
+
+- `diagrams/<figure>.drawio`: the 78 drawings;
+- `renders/<figure>.png`: each rendered with draw.io's own code (viewer
+  31.5.3), at the size of the original PNG (grown where the drawing grew);
+- `summary.txt`, `summary.json`: per figure, how it compares with the original
+  PNG (red: ink only the PNG has; blue: only the drawing; in %, of the PNG's
+  ink), and for the 35 figures that grew, the same with the space inserted in
+  the PNG too.
+
+The PDF of that comparison is not kept: `history/drawio-edits/diff/run.sh` makes
+it again from the baseline's commit.
 
 ```sh
-# the artwork (the conversion was run against ubl-2.5 at 3d81e8a)
-git clone --branch ubl-2.5 https://github.com/oasis-tcs/ubl.git
-
-# the tools (Debian/Ubuntu; details in docs/running.md section 2)
-apt-get install -y tesseract-ocr default-jdk-headless fop libsaxonhe-java
-pip install numpy scipy pillow pytesseract jsonschema
-npm install -g playwright && npx playwright install chromium   # if no Chromium yet
-export CHROMIUM_PATH=/path/to/chrome   # unless it is at /opt/pw-browsers/chromium-1194/chrome-linux/chrome
-
-# a full run over the 78: PNG -> JSONs -> SVG, checked against the PNG
-JOBS=4 tools/verdict-sweep.sh ubl/art out tools/uml78-bycomplexity.txt
-# the same files as committed?
-for n in $(cat tools/uml78-bycomplexity.txt); do
-  for s in -diagram.json -layout.json -extraction.json .svg .drawio; do
-    cmp -s out/$n$s diagrams/$n/$n$s || echo "differs: $n$s"; done; done
+python3 tools/drawio_baseline.py compare baselines/2026-09-30 [--out <dir>] [<figure> ...]
 ```
 
-What a correct run shows today: the sweep's tally `correct 9 improvable 0
-needs-human 69 failed 0`, identical to `baselines/2026-09-28/sweep.txt` once
-sorted, and no file differing from `diagrams/` or from the baseline:
+Run it by hand after an edit. Per figure it says `same` (the baseline's file,
+byte for byte), `same-drawing` (the file differs, not the model, not a pixel),
+`model` (the model differs; what, is listed) or `DRAWING` (pixels differ;
+with `--out`, a picture shows where: red only in the baseline, blue only in the
+drawing). Both are rendered afresh, the same way, and compared with no
+tolerance; where the baseline no longer renders as it did, it says so.
+A new baseline is made with `tools/drawio_baseline.py make <baseline dir> <diff
+dir>`, from a run of `history/drawio-edits/diff/run.sh` on the same drawings.
 
-```sh
-tools/compare-to-baseline.sh baselines/2026-09-28/diagrams out out-compare
-SAXON_JAR=/usr/share/java/Saxon-HE.jar \
-  comparison-pdf/build-compare-deck.sh ubl out-compare compare.pdf 2026-09-28 "this run"
-```
+### Not yet: images made from the drawings
 
-Against the older `baselines/2026-09-25/` all 78 differ, as expected: the
-figure review changed every figure (misread words, bold titles, sizes, the
-drawing rules).
+SVG, PNG and PDF exports of the drawings are the work of a later session. Until
+then, the latest images are the SVGs in `history/diagrams/<figure>/<figure>.svg`,
+drawn from the JSONs; they are no longer maintained.
 
-A first run takes about 6 minutes on 4 cores, later ones under 2: the reading
-of each PNG and each render are cached outside the repository
-(`docs/running.md` section 6).
+## How we got here: `history/`
 
-## Open work
+The drawings are the end of a path, kept whole in `history/`: the repository
+as it was before the switch, which still runs from there, and the edits made
+since:
 
-1. **How figures are changed from here** is not yet decided: in their JSONs
-   directly (the PNG pipeline then only a check), or still as corrections re-run
-   from the PNG. Until it is, a change made by hand in `diagrams/` would be
-   overwritten by copying in a new pipeline run - check with
-   `tools/draw-from-json.sh --check` and the `cmp` loop above.
-2. **Proper draw.io drawings.** The draw.io files are incomplete and not to be
-   trusted (the warning above; `docs/running.md` section 8). Each missing kind of
-   element has to be written as a draw.io shape of its own, with measured
-   weights, sizes and label positions, and a render of the draw.io file checked
-   against the SVG over all 78. Until then, figures are not edited in draw.io.
-   Where to start: the draw.io model is written by `mxfile()` and styled by
-   `MXSTYLE` in `tools/build_diagram.py`, from the same spec as the SVG
-   (`svg_body()`); the missing kinds are listed in `docs/running.md` section 8,
-   which also describes rendering a draw.io file with draw.io's own viewer in
-   the same Chromium - tried once, not yet part of the pipeline. Check the
-   result over all 78 with `tools/draw-from-json.sh --check diagrams` and hold
-   the SVGs against `baselines/2026-09-28/`, which must not change.
-3. **Known limits of the checkers** (`docs/running.md` section 8): they read the
-   extractor's reading rather than the JSONs, and the text check forgives one
-   wrong letter (the misreadings were found by eye and corrected).
-4. **Decisions not yet taken**: UML-in-draw.io or BPMN as the target; where in
-   the UBL repository the sources and the pipeline should live.
+1. **The original PNGs** - `art/` in the [UBL repository](https://github.com/oasis-tcs/ubl),
+   branch `ubl-2.5` (not copied here).
+2. **Ken Holman's SVGs** - `history/svg-images/`: the first conversion, by hand.
+3. **The reading: PNG to JSON** - `history/tools/` reads each PNG into three JSONs
+   (`history/diagrams/<figure>/`: the model, its layout, the reading's
+   measurements), with every decision taken with the TC recorded
+   (`history/tools/model-corrections.json`, `direction-verdicts.json`,
+   `artwork-faults.json`) and written up in `history/docs/`. The baselines of the
+   reading are in `history/baselines/`.
+4. **JSON to SVG** - `history/diagrams/<figure>/<figure>.svg`, drawn by
+   `history/tools/draw-from-json.sh`; the comparison decks in
+   `history/comparison-pdf/`.
+5. **JSON to draw.io** - `history/drawio-writer/`: the writer that drew the
+   drawings in `diagrams/` from the JSONs, with its README (every element, the
+   draw.io construct chosen for it, what differs from the SVG and why, and the
+   decisions taken) and its comparison against the SVGs (`sweep.md`).
+6. **draw.io as the source** - `diagrams/` (2026-09-29). The changes made to
+   all 78 drawings since (12 pt text, one arrowhead, the 3x arrow rule), and the
+   comparison of the drawings with the original PNGs, are scripts in
+   `history/drawio-edits/`, with a README saying which commit each made.
 
-## Map
-
-| | |
-|---|---|
-| `diagrams/` | **the result**: per figure the three JSONs (the basis) and the SVG and draw.io file drawn from them |
-| `tools/` | the pipeline: `extract_graph.py` (read a PNG), `model_io.py` (reading to JSONs, corrections, validation), `spec_from_model.py` + `build_diagram.py` (draw), `draw-from-json.sh` (draw from the committed JSONs), `render-svg.js`, `VisualDiff.java`, `verify_conversion.py` (the referee), `model_sheet.py`, the sweep and comparison scripts |
-| `tools/schema/` | JSON Schemas of the three JSON files |
-| `tools/*.json` | judgements the pixels cannot supply: `model-corrections.json`, `direction-verdicts.json`, `artwork-faults.json`, `reading-lexicon.json` |
-| `baselines/2026-09-28/` | **the current reference run**, after the figure review: every output of all 78 (the three JSONs included), the sweep table, the review PDF |
-| `baselines/2026-09-25/` | the reference run before the figure review, kept as it was |
-| `comparison-pdf/` | the review PDFs: against the original (`build-deck.sh`), against a baseline (`build-compare-deck.sh`) |
-| `docs/running.md` | how to run everything, what to install, the caches, known rough edges |
-| `docs/artwork-conversion-notes.md` | the working record: why each rule exists, what was measured and rejected, and every TC decision (§16) |
-| `docs/review-questions/` | the pictures each review question was asked with |
-| `svg-images/` | earlier hand-made draft SVGs under TC review - not a reference |
-| `imageSummary.xsl` | from before this work: run from the UBL repository to compare its `art/` with a directory of new images (`xslt2pe UBL.xml utilities/images/imageSummary.xsl ~/t/compare.fo new-dir=...`) |
+`history/README.md` is the repository's former README, describing steps 1-4.
