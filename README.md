@@ -37,8 +37,10 @@ Each drawing is built from draw.io's own parts:
   column of width, everything beyond it moved along, lanes and pool grown (109
   insertions in 35 figures, 1-20 px each; a figure grew by at most 58 px in
   height (Tender Contract Post) and 30 px in width).
-  Nothing tilted or came to overlap; 13 shapes the space ran through grew with
-  it (most by 2-7 px; two Tender documents by 15 and 20 px);
+  Nothing tilted or came to overlap. A shape the space ran through kept its
+  size: it stayed, or moved whole past the space, wherever its flows still met
+  it (12 shapes); only one grew, as its flows meet it on both sides of the space
+  (CPFR Exception Monitor's "Ordering", 2 px wider);
 - **one text size: draw.io's own 12 pt** for every label (no `fontSize` in the
   style). Where a box no longer held its words at 12 pt it was made wider or
   taller about its centre (83 boxes, by 2-18 px), and where that would have taken
