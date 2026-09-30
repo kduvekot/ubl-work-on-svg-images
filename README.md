@@ -192,8 +192,18 @@ publishes its artwork (its README, "Artwork"; `build.xml`; `realta-user-paramete
   elsewhere would otherwise disagree, unseen, with the drawing inside it.
 - **Scale:** as now, each figure is fitted to the page width (5.7 in), or kept
   at its natural size where it is narrower. The export reports per figure the
-  scale and the size its 12 pt text prints at (about 4.7 pt in the widest,
-  Fulfilment Receipt Advice); changing the drawings to even that out is for later.
+  scale and the size its text prints at. draw.io's "12 pt" is 12 px, and the
+  page is 548 px wide at 96 px/in, so at natural size it prints at 9 pt, and in
+  the widest figure (Fulfilment Receipt Advice, scale 0.39) at 3.5 pt. Changing
+  the drawings to even that out is for later.
+- **draw.io's code is pinned:** the export draws with draw.io's viewer of one
+  release (31.5.3, the baseline's), fetched from that release's tag in
+  [jgraph/drawio](https://github.com/jgraph/drawio), so an export can be made
+  again the same. **Maintenance, for a separate session:** from time to time
+  move to a newer release. Export all 78 with both releases, compare the SVGs
+  and the renders, and check with `tools/drawio_baseline.py` that the drawings
+  still render as the baseline. Then change the pin, and make a new baseline
+  if the renders changed.
 - **Font:** Helvetica, draw.io's own (no drawing sets `fontFamily`), named in the
   SVG as `Helvetica, Arial, "Liberation Sans", sans-serif`: the three have the
   same widths, so labels fit wherever one of them is present. The renders use
