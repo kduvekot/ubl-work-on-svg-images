@@ -186,6 +186,10 @@ publishes its artwork (its README, "Artwork"; `build.xml`; `realta-user-paramete
 - **The SVG is real vector:** text as `<text>`, not in `<foreignObject>` (draw.io
   writes its HTML labels there by default) and not as outlines, which ISO does
   not accept; no embedded bitmap.
+- **The drawing is the truth; the SVG and PNGs are exports of it.** The SVG does
+  not carry the drawing (no draw.io `content` attribute): only the picture, and
+  a comment naming `<figure>.drawio` as the file to edit. An SVG edited
+  elsewhere would otherwise disagree, unseen, with the drawing inside it.
 - **Scale:** as now, each figure is fitted to the page width (5.7 in), or kept
   at its natural size where it is narrower. The export reports per figure the
   scale and the size its 12 pt text prints at (about 4.7 pt in the widest,
