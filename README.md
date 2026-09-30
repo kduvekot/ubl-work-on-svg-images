@@ -14,6 +14,7 @@ tools/check_drawio.py                    the check, run by hand after an edit
 tools/drawio_baseline.py                 holds the drawings against the baseline
 tools/export_drawio.js                   exports them for the UBL repository: SVG, PNG
 tools/check_svg.py                       checks an export
+to-ubl-repo/                             what goes to the UBL repository: the export
 baselines/2026-09-30/                    the baseline: the drawings as they are now
 ```
 
@@ -153,20 +154,32 @@ tolerance; where the baseline no longer renders as it did, it says so.
 A new baseline is made with `tools/drawio_baseline.py make <baseline dir> <diff
 dir>`, from a run of `history/drawio-edits/diff/run.sh` on the same drawings.
 
-### Images made from the drawings: for the UBL repository
+### Images made from the drawings: `to-ubl-repo/`
+
+`to-ubl-repo/` holds everything that is to be committed to the UBL repository,
+and nothing else, laid out as there: copied over a clone of it (branch
+`ubl-2.5`), it adds or replaces, per figure, `images/<figure>.drawio` and
+`images/<figure>.svg`, `art/<figure>.png` and `htmlart/<figure>.png`. Nothing
+in it is edited by hand: after an edit of a drawing, export it again and check.
 
 ```sh
-node tools/export_drawio.js <out dir> diagrams/*/*.drawio
-python3 tools/check_svg.py <out dir>
+NODE_PATH=$(npm root -g) node tools/export_drawio.js [--report <file.json>] to-ubl-repo diagrams/*/*.drawio
+python3 tools/check_svg.py to-ubl-repo
 ```
 
-The export writes, per figure, what the UBL repository keeps of it, laid out
-as there, so `<out dir>` can be copied over a clone of it:
-`images/<figure>.drawio` and `images/<figure>.svg`, `art/<figure>.png` and
-`htmlart/<figure>.png`; and `export.json`, per figure its size, the scale it
-is fitted to the page at, and the size its text prints at. It needs Node with
-playwright (as `tools/drawio_baseline.py`: a global install is found with
-`NODE_PATH=$(npm root -g)`); the check needs Python 3 with pillow.
+The check also fails where a drawing in `to-ubl-repo/images/` is no longer its
+source in `diagrams/`: the export is out of date. An export of unchanged
+drawings is the same, byte for byte, so it changes nothing in git. `--report`
+writes, per figure, its size, the scale it is fitted to the page at and the
+size its text prints at (kept out of `to-ubl-repo/`: it is not for UBL). The
+export needs Node with playwright (as `tools/drawio_baseline.py`); the check
+Python 3 with pillow.
+
+**The commit to the UBL repository also removes** 3 older sources of our
+figures, under other names, which a folder of files cannot say:
+`images/UBL 2.3-Common Transportation Report-Process.drawio`,
+`images/UBL 2.3-ImportDeclaration-Process.drawio`,
+`images/UBL 2.3-Transit Declaration Process.drawio`.
 
 The SVG is draw.io's own (`getSvg`, the viewer of the pinned release), with
 each label made SVG text: draw.io writes a label as HTML, which the browser
@@ -208,6 +221,15 @@ publishes its artwork (its README, "Artwork"; `build.xml`; `realta-user-paramete
   1-2, 3-4-5 and 6-9, IMFM Generic Intermodal Freight Process, Open-edi
   Application and Overview, Default Validation, Schema Dependencies, UDT-QDT,
   Model Realization).
+- **The PNGs:** the drawings are black and white only (`#000000`, `#ffffff`),
+  and so is `art/<figure>.png`: 1 bit, a pixel black where the drawing covers
+  at least half of it, as line art is printed (at 600 dpi a pixel is 0.04 mm;
+  the thinnest line, 1 px at the smallest scale, is 2.4 pixels wide). Checked
+  on all 78 against an antialiased render: no pixel at least 3/4 ink turned
+  white, none at most 1/4 ink turned black. `htmlart/<figure>.png`, for the
+  screen, is 8 bit grey, its edges smoothed. No coloured edges (LCD text) in
+  either. All 78: `art/` 2.2 MB, `htmlart/` 1.5 MB, where the UBL repository's
+  PNGs of these figures are 13 MB and 3 MB.
 - **The SVG is real vector:** text as `<text>`, not in `<foreignObject>` (draw.io
   writes its HTML labels there by default) and not as outlines, which ISO does
   not accept; no embedded bitmap.

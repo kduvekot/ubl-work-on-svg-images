@@ -15,12 +15,15 @@ the SVG
   - has its text as <text>, each with words in it and the font named;
   - has no dark-mode colours (light-dark), and a white background: a white
     <rect> first, covering the whole picture;
-  - names the drawing it was made from, in a comment, and that drawing is there.
+  - names the drawing it was made from, in a comment, and that drawing is there,
+    the same, byte for byte, as its source in diagrams/ (else: export again).
 art/<figure>.png
-  - 600 dpi, at most 3425 px wide, the SVG's width at 600 dpi (to a pixel);
+  - 600 dpi, black and white (1 bit), at most 3425 px wide, the SVG's width at
+    600 dpi (to a pixel);
   - opaque, on white (its most common colour).
 htmlart/<figure>.png
-  - at most 750 px wide, the art's width scaled by 750/3425 (to a pixel);
+  - greyscale (8 bit), at most 750 px wide, the art's width scaled by 750/3425
+    (to a pixel);
   - opaque, on white.
 
 Prints one line per figure, "ok" or what is wrong. Exits 1 when any is wrong.
@@ -29,17 +32,21 @@ import os, re, sys
 import xml.etree.ElementTree as ET
 from PIL import Image
 
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SVG = '{http://www.w3.org/2000/svg}'
 PAGE_MM = 3425 / 600 * 25.4   # 5.7 in, as the UBL README rounds it: 144.99 mm
 ART_DPI, ART_MAX, HTML_MAX = 600, 3425, 750
 FORBIDDEN = ('foreignObject', 'image', 'script', 'switch', 'a', 'iframe', 'use')
 
 
-def check_png(path, max_w, dpi, want_w, out):
+def check_png(path, max_w, dpi, want_w, mode, out):
     if not os.path.exists(path):
         return out.append('missing ' + path)
     im = Image.open(path)
     name = os.path.join(os.path.basename(os.path.dirname(path)), os.path.basename(path))
+    if im.mode != mode:
+        out.append('%s: %s, not %s' % (name, {'1': 'black and white', 'L': 'greyscale'}.get(im.mode, im.mode),
+                                           {'1': 'black and white', 'L': 'greyscale'}[mode]))
     if im.width > max_w:
         out.append('%s: %d px wide, more than %d' % (name, im.width, max_w))
     if abs(im.width - want_w) > 1:
@@ -102,10 +109,16 @@ def check(out_dir, name):
         out.append('does not name its drawing (%s.drawio) in a comment' % name)
     elif not os.path.exists(os.path.join(out_dir, 'images', m.group(1))):
         out.append('its drawing is not there: images/' + m.group(1))
+    else:
+        src = os.path.join(ROOT, 'diagrams', name, name + '.drawio')
+        if not os.path.exists(src):
+            out.append('no source for it in diagrams/')
+        elif open(src, 'rb').read() != open(os.path.join(out_dir, 'images', m.group(1)), 'rb').read():
+            out.append('images/%s.drawio is not diagrams/%s/%s.drawio: export again' % (name, name, name))
 
     art_w = round(wmm / 25.4 * ART_DPI)
-    check_png(os.path.join(out_dir, 'art', name + '.png'), ART_MAX, ART_DPI, art_w, out)
-    check_png(os.path.join(out_dir, 'htmlart', name + '.png'), HTML_MAX, None, round(art_w * HTML_MAX / ART_MAX), out)
+    check_png(os.path.join(out_dir, 'art', name + '.png'), ART_MAX, ART_DPI, art_w, '1', out)
+    check_png(os.path.join(out_dir, 'htmlart', name + '.png'), HTML_MAX, None, round(art_w * HTML_MAX / ART_MAX), 'L', out)
     return out
 
 

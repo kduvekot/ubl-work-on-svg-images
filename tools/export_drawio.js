@@ -2,13 +2,14 @@
 //
 //   <out>/images/<figure>.drawio    the drawing itself (the source)
 //   <out>/images/<figure>.svg       the vector picture: the revisable file for ISO
-//   <out>/art/<figure>.png          print: 600 dpi, at most 3425 px (5.7 in) wide
-//   <out>/htmlart/<figure>.png      web: at most 750 px wide
+//   <out>/art/<figure>.png          print: 600 dpi, black and white, at most 3425 px (5.7 in) wide
+//   <out>/htmlart/<figure>.png      web: greyscale (smooth edges), at most 750 px wide
 //
-// and <out>/export.json, per figure: its natural size, the scale it is fitted
-// to the page at, and the size its text prints at.
+// and, with --report, a JSON file (not in <out>: it is not for the UBL
+// repository), per figure: its natural size, the scale it is fitted to the
+// page at, and the size its text prints at.
 //
-//   node tools/export_drawio.js <out dir> <figure.drawio> ...
+//   node tools/export_drawio.js [--report <file.json>] <out dir> <figure.drawio> ...
 //
 // Needs Node with playwright (a global install is found through NODE_PATH, see
 // tools/drawio_baseline.py) and the Chromium of this environment (CHROMIUM_PATH).
@@ -218,57 +219,100 @@ function toSvg([xml, name, font, drawioVersion]) {
   return { svg: text, width: W, height: H, scale, ...report };
 }
 
-// PNG with its resolution recorded (pHYs), as the print tools size an image by it
-function withDpi(png, dpi) {
+// A greyscale PNG, its resolution recorded (pHYs), as the print tools size an
+// image by it: 8 bit, or with bits 1 black and white only, a pixel black where
+// the drawing covers at least half of it (as drawn without antialiasing). Each
+// row is filtered as PNG's encoders do: the filter that leaves the smallest sum
+// of differences.
+function greyPng(grey, w, h, dpi, bits) {
   const zlib = require('zlib');
-  const ppm = Math.round(dpi / 0.0254);
-  const data = Buffer.alloc(9);
-  data.writeUInt32BE(ppm, 0); data.writeUInt32BE(ppm, 4); data.writeUInt8(1, 8);
-  const type = Buffer.from('pHYs');
-  const chunk = Buffer.alloc(21);
-  chunk.writeUInt32BE(9, 0); type.copy(chunk, 4); data.copy(chunk, 8);
-  chunk.writeUInt32BE(zlib.crc32(Buffer.concat([type, data])) >>> 0, 17);
-  // drop any pHYs there is, put ours after IHDR (8 byte signature + 25 byte IHDR)
-  const parts = [png.subarray(0, 33)];
-  for (let o = 33; o < png.length;) {
-    const len = png.readUInt32BE(o), t = png.toString('latin1', o + 4, o + 8);
-    if (t !== 'pHYs') parts.push(png.subarray(o, o + 12 + len));
-    o += 12 + len;
+  const chunk = (type, data) => {
+    const c = Buffer.alloc(12 + data.length);
+    c.writeUInt32BE(data.length, 0); c.write(type, 4, 'latin1'); data.copy(c, 8);
+    c.writeUInt32BE(zlib.crc32(c.subarray(4, 8 + data.length)) >>> 0, 8 + data.length);
+    return c;
+  };
+  const ihdr = Buffer.alloc(13);
+  ihdr.writeUInt32BE(w, 0); ihdr.writeUInt32BE(h, 4); ihdr[8] = bits; ihdr[9] = 0;   // grey
+  if (bits === 1) {                                 // 8 pixels a byte, white is 1
+    const rowBytes = Math.ceil(w / 8), packed = Buffer.alloc(rowBytes * h);
+    for (let y = 0; y < h; y++)
+      for (let x = 0; x < w; x++)
+        if (grey[y * w + x] >= 128) packed[y * rowBytes + (x >> 3)] |= 0x80 >> (x & 7);
+    grey = packed; w = rowBytes;
   }
-  parts.splice(1, 0, chunk);
-  return Buffer.concat(parts);
+  const phys = Buffer.alloc(9);
+  const ppm = Math.round(dpi / 0.0254);
+  phys.writeUInt32BE(ppm, 0); phys.writeUInt32BE(ppm, 4); phys[8] = 1;
+  const raw = Buffer.alloc((w + 1) * h), cand = [0, 1, 2, 3, 4].map(() => Buffer.alloc(w));
+  const zero = Buffer.alloc(w);
+  for (let y = 0; y < h; y++) {
+    const cur = grey.subarray(y * w, y * w + w), up = y ? grey.subarray((y - 1) * w, y * w) : zero;
+    let best = 0, bestSum = Infinity;
+    for (let f = 0; f < 5; f++) {
+      const o = cand[f];
+      let sum = 0;
+      for (let x = 0; x < w; x++) {
+        const a = x ? cur[x - 1] : 0, b = up[x], c = x ? up[x - 1] : 0;
+        let pred = 0;
+        if (f === 1) pred = a; else if (f === 2) pred = b; else if (f === 3) pred = (a + b) >> 1;
+        else if (f === 4) { const p = a + b - c, pa = Math.abs(p - a), pb = Math.abs(p - b), pc = Math.abs(p - c);
+                            pred = pa <= pb && pa <= pc ? a : pb <= pc ? b : c; }
+        const v = (cur[x] - pred) & 255;
+        o[x] = v; sum += v < 128 ? v : 256 - v;
+      }
+      if (sum < bestSum) { bestSum = sum; best = f; }
+    }
+    raw[y * (w + 1)] = best; cand[best].copy(raw, y * (w + 1) + 1);
+  }
+  return Buffer.concat([Buffer.from([137, 80, 78, 71, 13, 10, 26, 10]), chunk('IHDR', ihdr), chunk('pHYs', phys),
+                        chunk('IDAT', zlib.deflateSync(raw, { level: 9 })), chunk('IEND', Buffer.alloc(0))]);
 }
 
-// the SVG drawn as an image at exactly pxW x pxH pixels: at the size of the
-// canvas itself, as a screenshot's clip is cut to whole CSS pixels before it is
-// scaled, which would lose the drawing's last rows
-async function png(browser, svgText, pxW, pxH, dpi, out) {
-  const page = await browser.newPage({ viewport: { width: pxW, height: pxH }, deviceScaleFactor: 1 });
-  await page.setContent('<!doctype html><html><head><style>html,body{margin:0;background:#fff}' +
-    'img{display:block;width:' + pxW + 'px;height:' + pxH + 'px}</style></head><body>' +
-    '<img src="data:image/svg+xml;base64,' + Buffer.from(svgText).toString('base64') + '"></body></html>');
-  await page.waitForFunction(() => document.images[0].complete);
-  const shot = await page.screenshot({ clip: { x: 0, y: 0, width: pxW, height: pxH } });
+// the SVG drawn as an image at exactly pxW x pxH pixels, on white, and read back
+// as grey (the drawings are black on white; the browser draws with grey edges,
+// not the coloured ones of LCD text, see --disable-lcd-text)
+async function png(browser, svgText, pxW, pxH, dpi, bits, out) {
+  const page = await browser.newPage({ viewport: { width: 64, height: 64 }, deviceScaleFactor: 1 });
+  await page.setContent('<!doctype html><html><body><img></body></html>');
+  const b64 = await page.evaluate(async ([src, w, h]) => {
+    const img = document.images[0];
+    img.src = src;
+    await img.decode();
+    const canvas = document.createElement('canvas');
+    canvas.width = w; canvas.height = h;
+    const ctx = canvas.getContext('2d');
+    ctx.fillStyle = '#ffffff'; ctx.fillRect(0, 0, w, h);
+    ctx.drawImage(img, 0, 0, w, h);
+    const px = ctx.getImageData(0, 0, w, h).data, grey = new Uint8Array(w * h);
+    for (let i = 0; i < grey.length; i++)
+      grey[i] = Math.round(0.299 * px[4 * i] + 0.587 * px[4 * i + 1] + 0.114 * px[4 * i + 2]);
+    let s = '';
+    for (let i = 0; i < grey.length; i += 0x8000) s += String.fromCharCode.apply(null, grey.subarray(i, i + 0x8000));
+    return btoa(s);
+  }, ['data:image/svg+xml;base64,' + Buffer.from(svgText).toString('base64'), pxW, pxH]);
   await page.close();
-  fs.writeFileSync(out, withDpi(shot, dpi));
+  fs.writeFileSync(out, greyPng(Buffer.from(b64, 'base64'), pxW, pxH, dpi, bits));
 }
 
 (async () => {
-  const [outDir, ...files] = process.argv.slice(2);
+  const args = process.argv.slice(2);
+  let reportFile = null;
+  if (args[0] === '--report') { reportFile = args[1]; args.splice(0, 2); }
+  const [outDir, ...files] = args;
   if (!outDir || !files.length) {
-    console.error('usage: node tools/export_drawio.js <out dir> <figure.drawio> ...');
+    console.error('usage: node tools/export_drawio.js [--report <file.json>] <out dir> <figure.drawio> ...');
     process.exit(2);
   }
   for (const d of ['images', 'art', 'htmlart']) fs.mkdirSync(path.join(outDir, d), { recursive: true });
   const js = await viewer();
-  const browser = await chromium.launch({ executablePath: CHROME });
+  const browser = await chromium.launch({ executablePath: CHROME, args: ['--disable-lcd-text'] });
   const draw = await browser.newPage();
   await draw.setContent('<!doctype html><html><body><div id="g"></div></body></html>');
   await draw.addScriptTag({ path: js });
   const version = await draw.evaluate(() => (typeof EditorUi !== 'undefined' && EditorUi.VERSION) || mxClient.VERSION);
   if (version !== DRAWIO_VERSION) throw new Error('draw.io ' + version + ', expected ' + DRAWIO_VERSION);
-  const reportFile = path.join(outDir, 'export.json');
-  const report = fs.existsSync(reportFile) ? JSON.parse(fs.readFileSync(reportFile, 'utf8')) : {};
+  const report = reportFile && fs.existsSync(reportFile) ? JSON.parse(fs.readFileSync(reportFile, 'utf8')) : {};
 
   for (const file of files) {
     const name = path.basename(file, '.drawio');
@@ -278,14 +322,14 @@ async function png(browser, svgText, pxW, pxH, dpi, out) {
     const artW = Math.round(r.width * r.scale * ART_DPI / 96);   // 3425 at the page's width
     const htmlW = Math.round(artW * HTML_MAX / ART_MAX);          // 750 at the page's width
     const tall = w => Math.round(w * r.height / r.width);
-    await png(browser, r.svg, artW, tall(artW), ART_DPI, path.join(outDir, 'art', name + '.png'));
-    await png(browser, r.svg, htmlW, tall(htmlW), 96, path.join(outDir, 'htmlart', name + '.png'));
+    await png(browser, r.svg, artW, tall(artW), ART_DPI, 1, path.join(outDir, 'art', name + '.png'));
+    await png(browser, r.svg, htmlW, tall(htmlW), 96, 8, path.join(outDir, 'htmlart', name + '.png'));
     const textPt = Math.round(12 * r.scale * 72 / 96 * 10) / 10;
     report[name] = { width: r.width, height: r.height, scale: Math.round(r.scale * 1000) / 1000,
                      textPt, labels: r.labels, lines: r.lines, art: [artW, tall(artW)], htmlart: [htmlW, tall(htmlW)], drawio: version };
     console.log(name + ': ' + r.width + 'x' + r.height + ' px, scale ' + report[name].scale +
                 ', text ' + textPt + ' pt, ' + r.labels + ' labels in ' + r.lines + ' lines');
   }
-  fs.writeFileSync(reportFile, JSON.stringify(report, null, 1) + '\n');
+  if (reportFile) fs.writeFileSync(reportFile, JSON.stringify(report, null, 1) + '\n');
   await browser.close();
 })().catch(e => { console.error(e.message || e); process.exit(1); });
