@@ -264,8 +264,12 @@ This is how draw.io treats small shapes, not a fault in the file.
   label - not the measured sizes (9-20 pt), and not sizes chosen to match the
   artwork's widths. Done on the drawings in `diagrams/` directly, after the
   switch, not by this writer: every label lost its `fontSize`; a box that no
-  longer held its words was made wider or taller about its centre (89 boxes, by
-  2-18 px), keeping every flow end's point on the page, so no flow tilted; where
+  longer held its words was made wider or taller about its centre (83 boxes, by
+  2-18 px), keeping every flow end's point on the page, so no flow tilted; words
+  beside a shape (a decision's question) and guards kept their gap to the shape
+  or line, the shape keeping its size (two questions of two lines moved up 6 px
+  to stay clear of a guard: CRP Change Article Catalogue, VMI Permanent
+  Replenishment); where
   widening would have taken a box out of its lane, its label was broken over one
   more line (10 labels, Tender Qualification Application and Unsubscribe From
   Procedure). The measured widths of the SVG (`textLength`) are no longer aimed

@@ -31,9 +31,11 @@ Each drawing is built from draw.io's own parts:
   artwork draws almost level or upright are exactly so;
 - **one text size: draw.io's own 12 pt** for every label (no `fontSize` in the
   style). Where a box no longer held its words at 12 pt it was made wider or
-  taller about its centre (89 boxes, by 2-18 px), and where that would have taken
+  taller about its centre (83 boxes, by 2-18 px), and where that would have taken
   it out of its lane, its label was broken over one more line (10 labels, in the
-  two Tender figures with long one-line labels).
+  two Tender figures with long one-line labels). Words beside a shape (a
+  decision's question, "From Order") and guards kept their gap to the shape or
+  line: the shape keeps its size, and the words move out by what they grew.
 
 ### The model inside each drawing
 
