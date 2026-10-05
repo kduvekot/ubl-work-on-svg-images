@@ -68,7 +68,11 @@ async function viewer() {
 // Runs in the page: the drawing's SVG, drawn by draw.io, its labels made SVG text.
 function toSvg([xml, name, font, drawioVersion]) {
   const doc = mxUtils.parseXml(xml);
-  const graph = new Graph(document.getElementById('g'));
+  // each drawing on a clean page: what an earlier drawing left in the container (its graph's DOM)
+  // moves the page's layout, and the labels' measured places with it (by 0.01 px)
+  const box = document.getElementById('g');
+  box.innerHTML = ''; window.scrollTo(0, 0);
+  const graph = new Graph(box);
   new mxCodec(doc).decode(doc.getElementsByTagName('mxGraphModel')[0], graph.getModel());
   const svg = graph.getSvg('#ffffff', 1, 0, false, null, true);
   document.body.appendChild(svg);            // laid out, so the labels can be measured
@@ -314,6 +318,7 @@ function toSvg([xml, name, font, drawioVersion]) {
     '). Edit ' + name + '.drawio, not this file. '), svg.firstChild);
   const text = '<?xml version="1.0" encoding="UTF-8"?>\n' + new XMLSerializer().serializeToString(svg) + '\n';
   document.body.removeChild(svg);
+  graph.destroy(); box.innerHTML = '';
   return { svg: text, width: W, height: H, scale, illustration, parts, ...report };
 }
 

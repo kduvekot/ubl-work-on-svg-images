@@ -228,7 +228,9 @@ python3 tools/check_svg.py to-ubl-repo
 
 The check also fails where a drawing in `to-ubl-repo/images/` is no longer its
 source in `diagrams/`: the export is out of date. An export of unchanged
-drawings is the same, byte for byte, so it changes nothing in git. `--report`
+drawings is the same, byte for byte, so it changes nothing in git - whether a
+figure is exported alone or with others (each is drawn on a clean page; tried
+2026-10-05: all 85 at once, and each CPFR step figure alone, gave the same files). `--report`
 writes, per figure, its size, the scale it is fitted to the page at and the
 size its text prints at (kept out of `to-ubl-repo/`: it is not for UBL). The
 export needs Node with playwright (as `tools/drawio_baseline.py`); the check

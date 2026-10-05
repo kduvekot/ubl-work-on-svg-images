@@ -101,3 +101,17 @@ has, blue: only the drawing, % of the PNG's ink):
 
 What remains is mostly the text's own shapes and the clip art, drawn with
 crisper lines than the PNGs' blurred ones.
+
+## Open work
+
+- **Shading of the handshake people** (`cpfr-agreement`): the render's
+  darker upper arm of the person on the left and the darker strips on both
+  people's legs are not there yet; each larger area of them has one gradient.
+  The way to do it is the one used for the person at the head of the meeting
+  table (`made/lines/`): their lines traced one by one, so that they split the
+  bodies into the areas the render shades. A future improvement; the figures
+  are complete without it.
+- **One grey balance** over the five parts: at their real size in the figures
+  they are a little paler than the UBL PNGs' pictures. Left as it is for now.
+- **The baseline:** the three drawings are not yet in `baselines/` (to be added
+  when they are taken as final).
