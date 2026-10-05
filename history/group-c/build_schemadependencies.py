@@ -6,14 +6,16 @@ titles at the left (italic) say the kind of construct, the legend at the bottom 
 (qdt, udt, ccts-cct) and the dashed "Core Component Parameters" box are the data type constructs and the
 documentation namespace; the two dashed outlines at the right and bottom hold the customization replacement schemas.
 Drawn from the UBL repository's art/<figure>.png (3425 x 1957, RGBA: grey 230 in the grey boxes, otherwise black
-and white). Scale 1/4.4: the 53 px text is draw.io's 12 px, the 6.5 px box lines 1.5, the 3 px arrows 0.7, the
-10 px frame 2.3, the legend's words (42 px) 9.6 px. Where draw.io has no shape the PNG's own is built here from
-draw.io's: the replace arrows are flexArrow edges, the dashed L-shaped outline a closed dashed polyline, the
+and white). Scale S = 3425 / 778 = 1/4.4023 (the page is then a whole 778 px wide, which keeps the export's page rounding off
+the picture): the 53 px text (capital height 38) is draw.io's 12 px, the 6.5 px box lines 1.5, the 3 px arrows 0.7,
+the 10 px frame 2.3, the legend's words (42 px) 9.6 px. draw.io multiplies a dash pattern by the stroke width, so
+the patterns are given in stroke widths (D() and the outline's). Where draw.io has no shape the PNG's own is built here from
+draw.io's: the replace arrows are open dotted polylines round the block arrow's outline (draw.io's flexArrow closes its tail), the dashed L-shaped outline a closed dashed polyline, the
 legend's samples sit between invisible 1 px anchors (kind 'anchor'), and the plain lines between a box and the
 next (no arrowhead) are edges of kind 'line'."""
 from lib_c import Figure, n
 
-S = 4.4
+S = 3425 / 778          # 4.4023 PNG px per drawing px
 NAME = 'UBL-2.2-SchemaDependencies'
 f = Figure(NAME, 3425, 1957, S, __file__, grey=True)
 f.frame(10)
@@ -44,7 +46,7 @@ f.edge('outline', 'line', '', 'html=1;rounded=0;endArrow=none;startArrow=none;da
 
 # ---- arrows
 AS = 3          # the arrows' stroke in PNG px
-HEADSIZE = 5.7     # draw.io's block head grows with the stroke: this one is 30 x 28 px in the PNG
+HEADSIZE = 5.5     # draw.io's block head grows with the stroke: this one is 30 x 28 px in the PNG
 HEAD = dict(head='block', size=HEADSIZE, stroke=AS)
 
 
@@ -115,35 +117,35 @@ replace('f-legend-replace', (1843, 1818), (1843, 1884), [(1491, 1818), (1490, 17
 # ---- text
 P = 64
 CAP = dict(pitch=P, bold=True)
-f.label('t-doc', ['Document Schema', 'e.g. Invoice, Order, etc.', '(document namespace)'], 74, cx=1103, **CAP)
-f.label('t-sig', ['Common', 'Signature', 'Components', '(sig:)'], 76.5, cx=2657.5, **CAP)
-f.label('t-xxx', ['Extension', 'Signature', 'Components', '(xxx:)'], 79.5, cx=3169.5, **CAP)
-f.label('t-cac', ['Common', 'Aggregate', 'Components', '(cac:)'], 413.5, cx=684, **CAP)
-f.label('t-ext', ['Common', 'Extension', 'Components', '(ext:)'], 413.5, cx=1549, **CAP)
-f.label('t-ecd1', ['Extension', 'Content', 'Datatype', '(ext:)'], 414, cx=2133.8, **CAP)
-f.label('t-sac', ['Signature', 'Aggregate', 'Components', '(sac:)'], 414.5, cx=2655.8, **CAP)
-f.label('t-xac', ['Extension', 'Aggregate', 'Components', '(xac:)'], 420, cx=3168.5, **CAP)
-f.label('t-cbc', ['Common', 'Basic', 'Components', '(cbc:)'], 777.5, cx=901.5, **CAP)
-f.label('t-sbc', ['Signature', 'Basic', 'Components', '(sbc:)'], 777.5, cx=2674, **CAP)
-f.label('t-xbc', ['Extension', 'Basic', 'Components', '(xbc:)'], 779.5, cx=3187.2, **CAP)
-f.label('t-qdt', ['Qualified/', 'Specialized', 'Datatypes', '(qdt:)'], 1207.5, cx=710.2, **CAP)
-f.label('t-udt', ['Unqualified', 'Datatypes', '(udt:)'], 1377, cx=1202.5, **CAP)
-f.label('t-ds', ['W3C Digital Signature', 'Schema (ds:)'], 1230, cx=2637.8, **CAP)
-f.label('t-xades', ['XAdES Schemas', 'v2.3.1 and v1.4.1'], 1406, cx=2545.2, **CAP)
-f.label('t-ccts', ['CCTS CCT', 'Schema', '(ccts-cct:)'], 1697, cx=1212, **CAP)
-f.label('t-ecd2', ['Extension', 'Content', 'Datatype', '(ext:)'], 1626, cx=2137, **CAP)
-f.label('t-core', ['Core', 'Component', 'Parameters', '(ccts:)'], 1651, cx=712, **CAP)
-f.label('t-custom', ['Customization', 'Extension', 'Replacement', 'Schemas'], 1630, cx=3187.5, **CAP)
+f.label('t-doc', ['Document Schema', 'e.g. Invoice, Order, etc.', '(document namespace)'], 73.4, cx=1098.5, **CAP)
+f.label('t-sig', ['Common', 'Signature', 'Components', '(sig:)'], 76.5, cx=2652.5, **CAP)
+f.label('t-xxx', ['Extension', 'Signature', 'Components', '(xxx:)'], 79.5, cx=3164.4, **CAP)
+f.label('t-cac', ['Common', 'Aggregate', 'Components', '(cac:)'], 415, cx=683, **CAP)
+f.label('t-ext', ['Common', 'Extension', 'Components', '(ext:)'], 415, cx=1544, **CAP)
+f.label('t-ecd1', ['Extension', 'Content', 'Datatype', '(ext:)'], 415.5, cx=2128.8, **CAP)
+f.label('t-sac', ['Signature', 'Aggregate', 'Components', '(sac:)'], 414.4, cx=2652.4, **CAP)
+f.label('t-xac', ['Extension', 'Aggregate', 'Components', '(xac:)'], 420, cx=3164.5, **CAP)
+f.label('t-cbc', ['Common', 'Basic', 'Components', '(cbc:)'], 775, cx=900, **CAP)
+f.label('t-sbc', ['Signature', 'Basic', 'Components', '(sbc:)'], 773, cx=2665.5, **CAP)
+f.label('t-xbc', ['Extension', 'Basic', 'Components', '(xbc:)'], 778, cx=3181.4, **CAP)
+f.label('t-qdt', ['Qualified/', 'Specialized', 'Datatypes', '(qdt:)'], 1204.4, cx=707.3, **CAP)
+f.label('t-udt', ['Unqualified', 'Datatypes', '(udt:)'], 1371.4, cx=1197.8, **CAP)
+f.label('t-ds', ['W3C Digital Signature', 'Schema (ds:)'], 1229, cx=2632.7, **CAP)
+f.label('t-xades', ['XAdES Schemas', 'v2.3.1 and v1.4.1'], 1403, cx=2540.2, **CAP)
+f.label('t-ccts', ['CCTS CCT', 'Schema', '(ccts-cct:)'], 1692, cx=1207.8, **CAP)
+f.label('t-ecd2', ['Extension', 'Content', 'Datatype', '(ext:)'], 1623.8, cx=2132, **CAP)
+f.label('t-core', ['Core', 'Component', 'Parameters', '(ccts:)'], 1650, cx=709, **CAP)
+f.label('t-custom', ['Customization', 'Extension', 'Replacement', 'Schemas'], 1625.8, cx=3182.5, **CAP)
 IT = dict(pitch=66.5, bold=True, italic=True)
-f.label('r-apex', ['Apex', 'Constructs'], 104.5, cx=229.8, **IT)
-f.label('r-aggregate', ['Aggregate', 'Constructs'], 482.5, cx=243, **IT)
-f.label('r-basic', ['Basic', 'Constructs'], 846, cx=243.2, **IT)
-f.label('r-datatype', ['Data Type', 'Constructs'], 1278.5, cx=243.2, **IT)
-f.label('r-foreign', ['Foreign', 'Constructs'], 1272.5, cx=1896.2, **IT)
-f.label('r-documentation', ['Documentation', 'Namespace'], 1523, cx=714.2, **IT)
-f.label('r-legend', ['Legend'], 1611, cx=1655, **IT)
+f.label('r-apex', ['Apex', 'Constructs'], 108.5, cx=228.9, **IT)
+f.label('r-aggregate', ['Aggregate', 'Constructs'], 483, cx=242.6, **IT)
+f.label('r-basic', ['Basic', 'Constructs'], 842.5, cx=242.6, **IT)
+f.label('r-datatype', ['Data Type', 'Constructs'], 1274.5, cx=242.6, **IT)
+f.label('r-foreign', ['Foreign', 'Constructs'], 1271, cx=1892.4, **IT)
+f.label('r-documentation', ['Documentation', 'Namespace'], 1520.5, cx=715, **IT)
+f.label('r-legend', ['Legend'], 1607, cx=1651, **IT)
 LG = dict(font=9.6, bold=True)
-f.label('lg-include', ['include'], 1690, cx=1650, white=170, **LG)
-f.label('lg-import', ['import'], 1755, cx=1647, white=165, **LG)
-f.label('lg-replace', ['replace'], 1833, cx=1655.5, white=175, **LG)
+f.label('lg-include', ['include'], 1681, cx=1647, white=170, **LG)
+f.label('lg-import', ['import'], 1752, cx=1647, white=165, **LG)
+f.label('lg-replace', ['replace'], 1828, cx=1651, white=175, **LG)
 print(f.write())
