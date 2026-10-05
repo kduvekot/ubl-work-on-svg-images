@@ -107,7 +107,7 @@ it is, anything else as JSON.
    where these are missing.
 5. Save, and run the check.
 
-Tested in the draw.io editor (web, 31.5.3) on Billing with Debit Note: a flow
+Tested in the draw.io editor (web, 31.5.3; all 85 drawings opened and saved again in 32.x, see "Upgrading draw.io") on Billing with Debit Note: a flow
 reconnected to another element, an action resized, another relabelled, an action
 and a flow from the library added and connected, and a lane added to the pool.
 The saved file passed the check, and the model read back out of it changed

@@ -121,7 +121,7 @@ pixel or so from a clean run.
 | `camera.py`, `epal.py`, `backproject.py`, `pallet.py` | the pallet of boxes |
 | `Recycle001.svg` | the recycling symbol (Wikimedia Commons, public domain) |
 | `pptshapes.py` | the slides' shapes, text and styles, read from the deck |
-| `build.py` | a slide, or a fitted figure, as a draw.io drawing |
+| `build.py` | a slide, or a fitted figure, as a draw.io drawing (not in the editor's form: run `python3 tools/drawio_format.py <file>` after, as `tools/check_drawio.py` says) |
 | `register.py`, `fit.py` | the figures fitted to the PNGs |
 | `tones.py` | the PNGs' greys for the clip art |
-| `render.js`, `render_many.js` | draw.io's own rendering (the viewer tools/export_drawio.js pins) |
+| `render.js`, `render_many.js` | draw.io's own rendering, with the viewer 31.5.3, the pin when the illustrations were fitted; not moved with the pin (tools/drawio-version.json), so that fitting them again gives what it gave |

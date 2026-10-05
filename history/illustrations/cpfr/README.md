@@ -185,8 +185,8 @@ completed by his symmetry, and only then the areas filled.
 `tools/check_svg.py` judges "on white" by the page round the drawing, not the
 commonest grey; `tools/export_drawio.js` makes a part's own `<use>` a copy, and
 draws each figure on a clean page (an export is the same alone or in a batch);
-`history/drawio-writer/render-drawio.js` is pinned to draw.io 31.5.3, as the
-export.
+`history/drawio-writer/render-drawio.js` follows the same pin as the export
+(`tools/drawio-version.json`: 31.5.3 then, 32.0.2 since 2026-10-05).
 
 **How the editor was tried.** draw.io's editor (embed.diagrams.net) in
 Chromium (playwright), the drawing sent to it with draw.io's embed protocol
@@ -213,9 +213,11 @@ the browser.
   drawings closely. If that is not acceptable, the people would have to be
   drawn freely (pictograms). The document, the clipboard, the desk's things and
   the stack of documents are this work's own drawing.
-- **Tried in the editor only on the web** (embed.diagrams.net 32.1.0); the
-  export pins 31.5.3. Opening and saving one in the draw.io desktop app would
-  settle it.
+- **Tried in the editor only on the web** (embed.diagrams.net 32.1.0; since
+  2026-10-05 all 85 drawings, these three too, opened and saved in the live
+  editor 32.1.0/32.2.0 with `tools/drawio_upgrade.py --editor`: nothing of them
+  changed); the export pins 32.0.2. Opening and saving one in the draw.io desktop
+  app would settle that.
 - **`made/` cannot be run as it is:** its scripts read the renders traced from
   and the prd1 crops from a working folder that is not kept. They are the
   record of how the parts were made; the parts themselves are the source.
