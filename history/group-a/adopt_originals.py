@@ -10,7 +10,9 @@ sources here too, at the place and under the name of the others: diagrams/<figur
         - uncompressed, and in the form draw.io's editor writes (tools/drawio_format.py);
           `host` and `agent` of <mxfile>, the page and the window size are the file's own;
         - one element carries `ubl-notation` (bpmn, phase-map): the sign that this figure is not a
-          UML activity diagram, which tools/check_drawio.py and the export look for;
+          UML activity diagram, which tools/check_drawio.py and the export look for; Business
+          Information's also `ubl-art="grey"`: its print PNG is 8 bit grey, not 1 bit (the grey
+          footer of its tasks, which the UBL repository's PNG has);
         - Procurement only: a stray dashed line, 4000 px right of the figure and not in its PNG,
           is taken out: it made the export's page three times too wide.
   UBL-2.3-OrderingProcess (.svg)
@@ -26,14 +28,15 @@ ROOT = os.path.abspath(os.path.join(HERE, '..', '..'))
 sys.path.insert(0, os.path.join(ROOT, 'tools'))
 import drawio_format  # noqa: E402
 
-FIGURES = {   # figure: notation, a cell to take out
-    'UBL-2.3-Pre-awardProcess': ('phase-map', None),
-    'UBL-2.3-ProcurementProcess': ('phase-map', 'H2ljDLKrGr7yGGcZbY4q-120'),
-    'UBL-2.4-BusinessInformation': ('bpmn', None),
+FIGURES = {   # figure: notation, a cell to take out, more properties for the marker
+    'UBL-2.3-Pre-awardProcess': ('phase-map', None, {}),
+    'UBL-2.3-ProcurementProcess': ('phase-map', 'H2ljDLKrGr7yGGcZbY4q-120', {}),
+    # its tasks have a grey (#C0C0C0) footer, which the UBL repository's PNG shows: the print PNG is greyscale too
+    'UBL-2.4-BusinessInformation': ('bpmn', None, {'ubl-art': 'grey'}),
 }
 
 
-def adopt(name, notation, drop):
+def adopt(name, notation, drop, more):
     src = open(os.path.join(HERE, 'sources', name + '.drawio'), encoding='utf-8').read()
     top = ET.fromstring(src)
     diagram = top.find('diagram')
@@ -48,12 +51,14 @@ def adopt(name, notation, drop):
         root.remove(cell[0])
     first = next(el for el in root if el.get('id') not in ('0', '1') and el.tag in ('mxCell', 'object', 'UserObject'))
     if first.tag == 'mxCell':     # an object holds its label (value) and id; the cell keeps the rest
-        obj = ET.Element('object', {'label': first.attrib.pop('value', ''), 'ubl-notation': notation, 'id': first.attrib.pop('id')})
+        obj = ET.Element('object', {'label': first.attrib.pop('value', ''), 'ubl-notation': notation, **more, 'id': first.attrib.pop('id')})
         obj.append(first)
         root.insert(list(root).index(first), obj)
         root.remove(first)
     else:
         first.set('ubl-notation', notation)
+        for k, v in more.items():
+            first.set(k, v)
     d = os.path.join(ROOT, 'diagrams', name)
     os.makedirs(d, exist_ok=True)
     out = os.path.join(d, name + '.drawio')
@@ -61,8 +66,8 @@ def adopt(name, notation, drop):
     return out
 
 
-for name, (notation, drop) in FIGURES.items():
-    print(adopt(name, notation, drop))
+for name, (notation, drop, more) in FIGURES.items():
+    print(adopt(name, notation, drop, more))
 name = 'UBL-2.3-OrderingProcess'
 d = os.path.join(ROOT, 'diagrams', name)
 os.makedirs(d, exist_ok=True)

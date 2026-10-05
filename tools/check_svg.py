@@ -147,7 +147,8 @@ def check(out_dir, name):
 
     art_w = round(wmm / 25.4 * ART_DPI)
     drawing = os.path.join(out_dir, 'images', name + '.drawio')
-    illustration = os.path.exists(drawing) and 'ubl-kind="illustration"' in open(drawing, encoding='utf-8').read()
+    illustration = os.path.exists(drawing) and ('ubl-kind="illustration"' in open(drawing, encoding='utf-8').read()
+                                                or 'ubl-art="grey"' in open(drawing, encoding='utf-8').read())   # grey print on purpose
     check_png(os.path.join(out_dir, 'art', name + '.png'), ART_MAX, ART_DPI, art_w, 'L' if illustration else '1', out)
     check_png(os.path.join(out_dir, 'htmlart', name + '.png'), HTML_MAX, None, round(art_w * HTML_MAX / ART_MAX), 'L', out)
     return out

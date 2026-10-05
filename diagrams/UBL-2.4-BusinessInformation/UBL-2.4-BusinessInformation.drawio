@@ -4,7 +4,7 @@
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <object label="Economic Operator" ubl-notation="bpmn" id="dNxyNK7c78bLwvsdeMH5-19">
+        <object label="Economic Operator" ubl-notation="bpmn" ubl-art="grey" id="dNxyNK7c78bLwvsdeMH5-19">
           <mxCell parent="1" style="swimlane;html=1;childLayout=stackLayout;resizeParent=1;resizeParentMax=0;horizontal=0;startSize=20;horizontalStack=0;" vertex="1">
             <mxGeometry height="200" width="830" y="-720" as="geometry" />
           </mxCell>

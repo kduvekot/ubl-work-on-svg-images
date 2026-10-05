@@ -57,9 +57,10 @@ commits of 2023-02-06 for Business Information).
   print as the PNGs do (the captions of Pre-award at 4.8 pt); the export's report line
   ("text 1.4 pt") assumes the others' 12 px and is wrong for these two. A rescale is a change to
   the TC's drawing; it was made in an experiment (`redrawn/`, below) at 0.3 and could be adopted.
-- **Business Information's grey bars** (`#C0C0C0`, the foot of each task): in the SVG and the
-  web PNG; the print PNG is black and white, where they are white. The drawings of the others
-  are black and white only.
+- **Business Information's grey bars** (`#C0C0C0`, the foot of each task): kept everywhere, as in the
+  UBL repository's PNG. The print PNG of this figure is therefore 8 bit grey, not 1 bit (the only
+  figure but the illustrations: its drawing says `ubl-art="grey"`, which `export_drawio.js` and
+  `check_svg.py` read). Decided 2026-10-05 by looking at both (1 bit lost the grey, the rules stayed).
 - **Business Information's envelopes** on the message flows are draw.io shapes (`shape=message`):
   BPMN 2.0 has no envelope on a message flow (below).
 - **Procurement's and Pre-award's shapes** are loose lines and groups (a phase's outline is five

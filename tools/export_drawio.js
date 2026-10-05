@@ -439,7 +439,9 @@ async function png(browser, svgText, pxW, pxH, dpi, bits, out) {
     const htmlW = Math.round(artW * HTML_MAX / ART_MAX);          // 750 at the page's width
     const tall = w => Math.round(w * r.height / r.width);
     // print: black and white, as line art is printed; an illustration's pictures, in grey
-    await png(browser, r.svg, artW, tall(artW), ART_DPI, r.illustration ? 8 : 1, path.join(outDir, 'art', name + '.png'));
+    // (a figure whose drawing says ubl-art="grey", as an illustration, has greyscale print: its grey is meant)
+    const grey = r.illustration || (!file.endsWith('.svg') && /ubl-art="grey"/.test(fs.readFileSync(file, 'utf8')));
+    await png(browser, r.svg, artW, tall(artW), ART_DPI, grey ? 8 : 1, path.join(outDir, 'art', name + '.png'));
     await png(browser, r.svg, htmlW, tall(htmlW), 96, 8, path.join(outDir, 'htmlart', name + '.png'));
     const textPt = Math.round(12 * r.scale * 72 / 96 * 10) / 10;   // the drawings' one text size (12 px)
     report[name] = { width: r.width, height: r.height, scale: Math.round(r.scale * 1000) / 1000,
