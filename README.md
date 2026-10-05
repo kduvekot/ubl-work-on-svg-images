@@ -354,10 +354,14 @@ red/blue image. It ends in `VERDICT: SAFE` (nothing changed, exit 0) or
 Node with playwright and Python with numpy and Pillow, and never changes the pin
 or the baseline. Run it from a session as it is; the report says what to do.
 
-What it cannot show is how the newer *editor* saves a file. After a move, open
-and save a few drawings in the editor (a UML diagram, Billing with Credit Note,
-a CPFR step figure) and run `drawio_baseline.py compare`: the files should
-still render as the baseline.
+`python3 tools/drawio_upgrade.py --editor` is the other half: what the editor does
+to a drawing. It opens each drawing in the live editor (embed.diagrams.net in
+headless Chromium, through `tools/drawio_editor_roundtrip.js`: the newest
+version, which can be ahead of every tag), saves it again, and compares what
+came back with what went in: every cell (attributes, style, geometry as numbers,
+place in its parent's stacking order) and the render. About 5 minutes. It needs
+the proxy's CA in the browser's trust store, once per environment:
+`apt-get install libnss3-tools; certutil -d sql:$HOME/.pki/nssdb -A -t "C,," -n ccr-agent-proxy -i /root/.ccr/agent-proxy-ca.crt`.
 
 To move: change `version` in `tools/drawio-version.json`; export all again
 (`to-ubl-repo/`: every SVG changes by the version in its comment, which names
@@ -370,6 +374,16 @@ drawing.
 figures (SVG, art and htmlart PNGs, pixel for pixel), and so is the render when
 draw.io draws at scale 1 and the browser enlarges it (`DRAWIO_RENDER_DEVICE=1`
 in `render-drawio.js`; what `drawio_upgrade.py` does): `VERDICT: SAFE`.
+
+**Opened and saved in the live editor (32.1.0, later 32.2.0):** all 85 come back
+the same in every cell, style, geometry and stacking order, and render the same.
+What the editor writes differently is the file's form only: it pretty-prints
+(ours is one line), omits `x="0"` and `y="0"` (378 attributes), drops trailing
+zeros (`554.30` is `554.3`), writes the cells parent by parent, names its own
+`host` and drops `type="device"`, and records its window size (`dx`, `dy`). It
+adds nothing and removes no style key, even those equal to draw.io's defaults. So
+the first save of a drawing in draw.io shows as a change of form in git, not of
+content; the files could be written in the editor's form to avoid that: not done.
 
 The baseline's renders (drawn zoomed in draw.io's own view, 3-5 times) differ
 in 35 figures, and the reason is draw.io's, not the drawings': zoomed, 31.5.3

@@ -2,6 +2,7 @@
 
     python3 tools/drawio_upgrade.py --check
     python3 tools/drawio_upgrade.py [--to <version>] [--out <dir>] [<figure> ...]
+    python3 tools/drawio_upgrade.py --editor [--out <dir>] [<figure> ...]
 
 The export and every render use the viewer of one draw.io release, the pin in
 tools/drawio-version.json. This tool asks where draw.io is now:
@@ -39,11 +40,22 @@ where only the pin has, blue where only the candidate has. The verdict:
 Exit 0 for SAFE, 1 for REVIEW, 2 when something could not be done. The tool
 never changes the pin or the baseline.
 
-What it cannot show is how the newer *editor* saves a drawing: that is the manual
-check in the README. And where live is ahead of the candidate, it says so: what
-was compared is the candidate, not what people edit in.
+--editor is the other half: what the editor does to a drawing. It opens each
+drawing in the live editor (tools/drawio_editor_roundtrip.js: embed.diagrams.net in
+headless Chromium, so the newest version, which can be ahead of any tag), saves it
+again, and compares what came back with what went in:
+
+  structure  every cell: its attributes, style (as keys and values), geometry
+             (numbers as numbers: 554.30 is 554.3) and place in the stacking order of
+             its parent; not the file's layout, its host, the size of the editor window;
+  render     both drawn as above, with the pin's viewer, pixel for pixel.
+
+It needs the proxy's CA in the browser's trust store (README). Same verdicts and exit
+codes. Where live is ahead of the candidate, the report says so: what was compared is
+the candidate, not what people edit in.
 """
 import json, os, re, subprocess, sys, tempfile, urllib.request, concurrent.futures as cf
+import xml.etree.ElementTree as ET
 import numpy as np
 from PIL import Image
 
@@ -51,6 +63,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
 PIN_FILE = os.path.join(HERE, 'drawio-version.json')
 EXPORT = os.path.join(HERE, 'export_drawio.js')
+ROUNDTRIP = os.path.join(HERE, 'drawio_editor_roundtrip.js')
 RENDER = os.path.join(ROOT, 'history', 'drawio-writer', 'render-drawio.js')
 BASELINE = os.path.join(ROOT, 'baselines', '2026-10-05')   # canvas and scale of each figure's render
 RAW = 'https://raw.githubusercontent.com/jgraph/drawio/%s/'
@@ -194,14 +207,116 @@ def compare(pin, cand, figs, outdir):
             return list(pool.map(one, figs))
 
 
+# --- what the editor does to a drawing -------------------------------------------------------------------------
+
+def num(v):
+    try: return repr(float(v))
+    except (TypeError, ValueError): return v
+def nums(d): return {k:(nums(v) if isinstance(v,dict) else [nums(x) for x in v] if isinstance(v,list) else num(v)) for k,v in d.items()}
+def style(s):
+    out={}
+    for t in (s or '').split(';'):
+        if t.strip():
+            k,_,v=t.partition('='); out[k.strip()]=v.strip()
+    return out
+def cells(path):
+    root=ET.parse(path).getroot()
+    m=root.find('.//mxGraphModel'); out={}
+    for el in m.find('root'):
+        if el.tag=='mxCell': obj,cell=None,el
+        else: obj,cell=el,el.find('mxCell')
+        cid=(obj if obj is not None else cell).get('id')
+        d={'tag':el.tag}
+        if obj is not None: d['obj']={k:v for k,v in obj.attrib.items() if k!='id'}
+        d['parent']=cell.get('parent')
+        d['cell']={k:v for k,v in cell.attrib.items() if k not in('id','style')}
+        d['style']=style(cell.get('style'))
+        g=cell.find('mxGeometry')
+        if g is not None:
+            d['geo']={k:v for k,v in g.attrib.items() if not(k in('x','y') and float(v)==0)}
+            for sub in g:
+                if sub.tag=='Array': d['geo']['Array:'+sub.get('as','')]=[{k:v for k,v in p.attrib.items() if not(k in('x','y') and float(v)==0)} for p in sub]
+                else: d['geo'][sub.tag+':'+sub.get('as','')]={k:v for k,v in sub.attrib.items() if not(k in('x','y') and float(v)==0)}
+        for k in ('geo','cell'):
+            if k in d: d[k]=nums(d[k])
+        out[cid]=d
+    return out, dict(m.attrib)
+def file_diff(a,b):
+    (ca,pa),(cb,pb)=cells(a),cells(b); out=[]
+    for k in sorted((set(pa)|set(pb))-{'dx','dy'}):
+        if pa.get(k)!=pb.get(k): out.append(f'page {k}: {pa.get(k)} -> {pb.get(k)}')
+    for i in ca.keys()-cb.keys(): out.append(f'{i}: lost')
+    for i in cb.keys()-ca.keys(): out.append(f'{i}: added')
+    def sib(c):
+        o={}
+        for i,x in c.items(): o.setdefault(x['parent'],[]).append(i)
+        return o
+    sa,sb=sib(ca),sib(cb)
+    for p in sa:
+        if [i for i in sa[p] if i in cb]!=[i for i in sb.get(p,[]) if i in ca]: out.append('stacking order among the children of %s differs'%p)
+    for i in ca.keys()&cb.keys():
+        if ca[i]['parent']!=cb[i]['parent']: out.append('%s: parent %s -> %s'%(i,ca[i]['parent'],cb[i]['parent']))
+    for i in ca.keys()&cb.keys():
+        x,y=ca[i],cb[i]
+        for part in ('obj','cell','geo'):
+            if x.get(part)!=y.get(part): out.append(f'{i}: {part} {x.get(part)} -> {y.get(part)}')
+        if x['style']!=y['style']:
+            sa,sb=x['style'],y['style']
+            out.append(f'{i}: style '+', '.join(f'{k}:{sa.get(k)}->{sb.get(k)}' for k in sorted(set(sa)|set(sb)) if sa.get(k)!=sb.get(k)))
+    return out
+
+
+def editor_check(figs, outdir):
+    """Each drawing opened and saved in the live editor: [(figure, [what differs])]."""
+    summary = json.load(open(os.path.join(BASELINE, 'summary.json')))
+    files = [os.path.join(ROOT, 'diagrams', n, n + '.drawio') for n in figs]
+    pin = pinned()
+    with tempfile.TemporaryDirectory() as t:
+        print('opening and saving %d drawings in the live editor ...' % len(figs), flush=True)
+        r = subprocess.run(['node', ROUNDTRIP, t] + files, capture_output=True, text=True, env=NODE)
+        if r.returncode:
+            raise RuntimeError((r.stdout + r.stderr).strip()[-800:])
+        print('saved by draw.io %s' % open(os.path.join(t, 'editor-version.txt')).read().strip(), flush=True)
+
+        def one(n):
+            a, b = os.path.join(ROOT, 'diagrams', n, n + '.drawio'), os.path.join(t, n + '.drawio')
+            diffs = file_diff(a, b)
+            s = summary.get(n)
+            if s:
+                ra, rb = (render(pin, f, s['canvas'], s['scale'], os.path.join(t, '%s-%s.png' % (n, k))) for k, f in (('before', a), ('after', b)))
+                d = pixels(ra, rb, os.path.join(outdir, n + '-saved.png'))
+                if d:
+                    diffs.append('render: %s pixels differ' % d if isinstance(d, int) else 'render: %s' % d)
+            return n, diffs
+
+        with cf.ThreadPoolExecutor(4) as pool:
+            return list(pool.map(one, figs))
+
+
 def main(a):
-    check = '--check' in a
+    check, editor = '--check' in a, '--editor' in a
     out, to = None, None
     if '--out' in a:
         i = a.index('--out'); out = a[i + 1]; del a[i:i + 2]
     if '--to' in a:
         i = a.index('--to'); to = a[i + 1]; del a[i:i + 2]
     figs = [x for x in a if not x.startswith('--')]
+    if editor:
+        figs = figs or sorted(os.listdir(os.path.join(ROOT, 'diagrams')))
+        out = out or tempfile.mkdtemp(prefix='drawio-editor-')
+        os.makedirs(out, exist_ok=True)
+        try:
+            res = editor_check(figs, out)
+        except Exception as e:
+            print('could not open and save: %s' % e); return 2
+        bad = [(n, d) for n, d in res if d]
+        for n, d in bad:
+            print('DIFFERENT %s' % n)
+            for x in d[:6]:
+                print('    ' + x[:300])
+        print('\n%d figures: %d the same after the editor saved them, %d different' % (len(res), len(res) - len(bad), len(bad)))
+        print('VERDICT: ' + ('REVIEW (diff images in %s)' % out if bad else 'SAFE: the editor changes nothing of the drawings'))
+        return 1 if bad else 0
 
     pin, tag, live, notes = where_is_draw_io()
     print('pin   %s   (tools/drawio-version.json)' % pin)
