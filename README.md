@@ -274,14 +274,13 @@ publishes its artwork (its README, "Artwork"; `build.xml`; `realta-user-paramete
   other names (`UBL 2.3-Common Transportation Report-Process.drawio`,
   `UBL 2.3-ImportDeclaration-Process.drawio`, `UBL 2.3-Transit Declaration Process.drawio`).
   The UBL repository's history keeps them; the commit message names each. The
-  4 illustrations have no source there: the commit adds theirs.
-- **Only the 78 and the 4 illustrations:** the other 15 figures of the UBL
+  7 illustrations have no source there: the commit adds theirs.
+- **Only the 78 and the 7 illustrations:** the other 12 figures of the UBL
   repository are left as they are, for a later session. One is no longer used
   (`UBL-2.0-BillingwithCreditNoteProcess`); 4 have a source in `images/`
   (`UBL-2.3-Pre-awardProcess`, `UBL-2.3-ProcurementProcess`,
   `UBL-2.4-BusinessInformation`: `.drawio`; `UBL-2.3-OrderingProcess`: `.svg`);
-  10 have none, and most are not activity diagrams (CPFR Steps 1-2, 3-4-5 and
-  6-9, IMFM Generic Intermodal Freight Process, Open-edi Application and
+  7 have none, and most are not activity diagrams (IMFM Generic Intermodal Freight Process, Open-edi Application and
   Overview, Default Validation, Schema Dependencies, UDT-QDT, Model Realization).
 - **The PNGs:** the drawings are black and white only (`#000000`, `#ffffff`),
   and so is `art/<figure>.png`: 1 bit, a pixel black where the drawing covers
@@ -291,8 +290,10 @@ publishes its artwork (its README, "Artwork"; `build.xml`; `realta-user-paramete
   white, none at most 1/4 ink turned black. `htmlart/<figure>.png`, for the
   screen, is 8 bit grey, its edges smoothed. No coloured edges (LCD text) in
   either. All 78: `art/` 2.2 MB, `htmlart/` 1.5 MB, where the UBL repository's
-  PNGs of these figures are 13 MB and 3 MB. The 4 illustrations have grey
-  pictures, and their `art/` is 8 bit grey, as the UBL PNGs of them are.
+  PNGs of these figures are 13 MB and 3 MB. The 7 illustrations have grey
+  pictures, and their `art/` is 8 bit grey, as the UBL PNGs of them are. A PNG
+  is on white when the page round the drawing is (its outer band, 2 % of the
+  width): the CPFR step figures are mostly grey panel, as the UBL PNGs are.
 - **The SVG is real vector:** text as `<text>`, not in `<foreignObject>` (draw.io
   writes its HTML labels there by default) and not as outlines, which ISO does
   not accept; no embedded bitmap. An illustration's pictures are SVG, each put

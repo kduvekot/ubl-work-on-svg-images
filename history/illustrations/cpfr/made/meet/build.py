@@ -102,10 +102,10 @@ svg=f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 561 595" width="561
  <!-- A meeting at a table (the Visio work-flow shape of the UBL CPFR figures), in grey. The people on the far side
       are the person at the head of the table mirrored; the table, the chairs and the people on the near side are the
       areas of a clean render, each filled with its own gradient. Isometric, 30 degrees. -->
- <defs>{''.join(P['defs'])}{''.join(d.replace('id="p','id="f') for d in F['defs'])}{''.join(defs)}<g id="far">{person(P=F)}</g><clipPath id="farclip"><path d="{far_clip}"/></clipPath></defs>
+ <defs>{''.join(P['defs'])}{''.join(d.replace('id="p','id="f') for d in F['defs'])}{''.join(defs)}<clipPath id="farclip"><path d="{far_clip}"/></clipPath></defs>
  <g transform="matrix(0.755 0 0 0.755 6 -8)">   <!-- the render placed as the original: fitted on the outlines -->
  <g stroke="#262626" stroke-width="{I}" stroke-linejoin="round">{''.join(behind)}</g>
- <g clip-path="url(#farclip)">{''.join(f'<use href="#far" transform="{t}"/>' for t in farT)}</g>
+ <g clip-path="url(#farclip)">{''.join(f'<g transform="{t}">{person(P=F)}</g>' for t in farT)}</g>   <!-- copies, not <use>: the UBL export allows no <use> -->
  {person()}
  <g stroke="#262626" stroke-width="{I}" stroke-linejoin="round">{''.join(front)}</g>
  <path d="{outline}" fill="none" stroke="#262626" stroke-width="{O}" stroke-linejoin="round"/>
