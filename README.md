@@ -226,7 +226,10 @@ byte for byte), `same-drawing` (the file differs, not the model, not a pixel),
 `model` (the model differs; what, is listed) or `DRAWING` (pixels differ;
 with `--out`, a picture shows where: red only in the baseline, blue only in the
 drawing). Both are rendered afresh, the same way, and compared with no
-tolerance; where the baseline no longer renders as it did, it says so.
+tolerance; where the baseline no longer renders as it did, it says so. A figure that is not in the
+baseline at all says `new` and is not compared (the 4 of Group A and the 3 of Group B were made after it,
+and the baseline's tools - the model JSONs, the diff against the PNG - do not cover them); it is not a
+difference, and `drawio_upgrade.py` likewise compares those figures' exports (SVG and PNGs) but not a render.
 A new baseline is made with `tools/drawio_baseline.py make <baseline dir> <diff
 dir>`, from a run of `history/drawio-edits/diff/run.sh` on the same drawings;
 with figures named, only those are added to (or replaced in) the baseline.

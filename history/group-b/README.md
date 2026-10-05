@@ -77,3 +77,10 @@ existing database, it hangs.)
 `tools/check_drawio.py` (all 92 drawings), `tools/check_svg.py to-ubl-repo` (92 of 92: SVG is vector,
 words as text, 1 bit PNGs, export up to date), and every earlier figure's export is unchanged byte
 for byte.
+
+**The tools with the 92:** the full export of all 92 drawings (and Ordering's SVG) is byte for byte `to-ubl-repo/`;
+`check_drawio.py`, `drawio_format.py --check` and `check_svg.py` pass. `drawio_baseline.py compare` and
+`drawio_upgrade.py` did not know figures outside the baseline (they reported the 4 of Group A, and now the 3 of
+Group B, as differences, so `compare` exited 1 and the upgrade's verdict was always REVIEW): a figure not in the
+baseline is now `new` / "render not compared", not a difference. Putting Groups A and B into the baseline is not
+done: it needs the diff scripts (`history/drawio-edits/diff/`), which assume the model JSONs of the 78.

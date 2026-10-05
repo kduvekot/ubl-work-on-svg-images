@@ -19,6 +19,8 @@ one line per figure:
                   of its render
   model           the model differs (listed below the line), not a pixel
   DRAWING         pixels differ (and the model, where listed)
+  new             not in the baseline (the figures of Group A and B were made after it): not compared,
+                  and not a difference
 
 Both drawings are rendered the same way, on the baseline render's canvas (grown
 by what the drawing grew), and compared pixel for pixel, with no tolerance. The
@@ -115,8 +117,12 @@ def compare(base, figs, out):
     with tempfile.TemporaryDirectory() as t:
         for n in figs:
             b, d = os.path.join(base, 'diagrams', n + '.drawio'), os.path.join(ROOT, 'diagrams', n, n + '.drawio')
-            if not os.path.exists(b) or not os.path.exists(d):
-                state, notes = 'DRAWING', ['not in the baseline' if os.path.exists(d) else 'removed']
+            if not os.path.exists(d):
+                state, notes = 'DRAWING', ['removed']
+            elif not os.path.exists(b):
+                # drawn after the baseline (Group A, Group B: the TC's own sources and figures drawn from the
+                # PNGs, which the baseline's tools - the model JSONs, the diff against the PNG - do not cover)
+                state, notes = 'new', ['not in the baseline; not compared']
             elif open(b, 'rb').read() == open(d, 'rb').read():
                 state, notes = 'same', []
             else:

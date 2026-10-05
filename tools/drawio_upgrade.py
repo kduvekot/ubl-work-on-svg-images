@@ -176,6 +176,9 @@ def svg_diff(a, b):
     return '%d of %d elements' % (n, len(ea))
 
 
+NOT_IN_BASELINE = []
+
+
 def compare(pin, cand, figs, outdir):
     summary = json.load(open(os.path.join(BASELINE, 'summary.json')))
     files = [os.path.join(ROOT, 'diagrams', n, n + '.drawio') for n in figs]
@@ -205,7 +208,7 @@ def compare(pin, cand, figs, outdir):
                 if d:
                     diffs.append('render: %s pixels differ' % d if isinstance(d, int) else 'render: %s' % d)
             else:
-                diffs.append('render: not in the baseline, not compared')
+                NOT_IN_BASELINE.append(n)       # made after the baseline (Group A, B): its export is compared, its render is not
             return n, diffs
 
         with cf.ThreadPoolExecutor(4) as pool:
@@ -358,6 +361,8 @@ def main(a):
         for x in d:
             print('    ' + x)
     print('\n%d figures: %d same, %d different (draw.io %s -> %s)' % (len(res), len(res) - len(bad), len(bad), pin, cand))
+    if NOT_IN_BASELINE:
+        print('%d figures made after the baseline (SVG and PNGs compared, render not): %s' % (len(NOT_IN_BASELINE), ', '.join(sorted(NOT_IN_BASELINE))))
     if bad:
         print('diff images (red: only %s has ink, blue: only %s): %s' % (pin, cand, out))
         print('VERDICT: REVIEW')
