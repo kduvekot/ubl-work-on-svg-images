@@ -50,6 +50,29 @@ commits of 2023-02-06 for Business Information).
   78 diagrams, no change of colour, no redraw. `tools/check_drawio.py` checks them for the
   form and for what it can without kinds, and says so as a warning.
 
+## Ordering: the SVG is all there is
+
+- **No draw.io version exists, and none is made:** the figure was drawn in bpmn.io, not draw.io. The
+  SVG in `diagrams/UBL-2.3-OrderingProcess/` is its source here, because it is what the UBL repository
+  has and what the PNG was rendered from (0.00 % difference). The earlier redraw as draw.io shapes
+  (`redrawn/UBL-2.3-OrderingProcess.drawio`) is an experiment, not a source.
+- **The SVG is a picture, not the BPMN model.** It holds the BPMN ids (`Task_1bnlp2b`,
+  `MessageFlow_0w3w0y5`, ...) and the places, bends and styles of every element, but no `collaboration`,
+  `process`, `sourceRef` or `targetRef`: which task a flow joins, and what kind of flow it is, are not
+  in it. Editing the SVG (Inkscape, a text editor) edits a picture, and nothing checks that the
+  result is still a sound BPMN diagram. **Do not hand-edit it**; the way to change this figure is the
+  future BPMN session (below), which makes the `.bpmn` and renders the SVG and PNGs from that.
+  (`tools/check_svg.py` does catch an export that differs from `diagrams/`, not an edit of `diagrams/`.)
+- **The BPMN files come later** (decided 2026-10-05): not in this pull request, and not asked for before the
+  real `.bpmn` is looked for once more.
+- **The original `UBL-2.3-OrderingProcess.bpmn` is not found yet.** Looked for in the UBL repository
+  (all branches), docs.oasis-open.org, the UBL JIRA and, from here, the `ubl` list (blocked, below); and by
+  the editor, Kees Duvekot, who sent it in 2019: not found (2026-10-05). Still to try: the Sent folder of the
+  2019-05-07 mail, other list members' mailboxes (Ken Holman, Kenneth Bengtsson), the 2019 download folders
+  and backups, bpmn.io's local storage in the browser profile of 2019. If it is not found, the `.bpmn` is
+  written from the SVG and **says it is a reconstruction** (it would be one: the SVG came from the model,
+  so little is lost).
+
 ## What is as the TC made it, and may be for them to decide
 
 - **Scale.** Pre-award and Procurement are drawn 3425 px wide with 60, 70 and 40 px text and

@@ -501,9 +501,11 @@ since:
   requires them as the sources of BPMN diagrams; what is needed, and the decisions it takes, is in
   `history/group-a/README.md` ("Future session").
 - **The BPMN 2.0 XML of the Ordering Process** (`UBL-2.3-OrderingProcess.bpmn`, attached to
-  the `ubl` list's mail of 2019-05-07, UBL-171): not reachable from a script;
-  with it the drawing could be made from the model, not from the SVG
-  (`history/group-a/README.md`, "Where the originals might still be").
+  the `ubl` list's mail of 2019-05-07, UBL-171): not found yet (not by the editor either,
+  2026-10-05; the list archives are not reachable from a script). Ordering's source here is the
+  bpmn-js SVG, a picture without the BPMN model: **do not hand-edit it**; there is no draw.io
+  version, on purpose. If the `.bpmn` stays lost, the BPMN session writes it from the SVG as a
+  reconstruction (`history/group-a/README.md`, "Ordering: the SVG is all there is").
 - **The CPFR step figures:** what is still open on them is in
   `history/illustrations/cpfr/README.md` ("Open work").
 
