@@ -1,17 +1,19 @@
 # ubl-work-on-svg-images
 
 Editable sources for the artwork of the UBL specification: the **78 UML activity
-diagrams** of UBL 2.5 (of its 97 figures), and **7 illustrations** (the
-4 Fulfilment figures: shipments and consignments; the 3 CPFR step figures), as
-**draw.io drawings**. UBL
+diagrams** of UBL 2.5 (of its 97 figures), **7 illustrations** (the
+4 Fulfilment figures: shipments and consignments; the 3 CPFR step figures), and
+**4 figures of other notations** (2 BPMN collaborations, 2 phase maps: `history/group-a/`),
+as **draw.io drawings**: 89 of the 97. UBL
 publishes these figures as PNG and most of their original sources are lost; these
 drawings replace them as the figures' source.
 
 ## The source of truth: the draw.io drawings
 
 ```
-diagrams/<figure>/<figure>.drawio        85 figures, e.g. diagrams/UBL-2.5-BillingwithDebitNoteProcess/
-                                         (78 diagrams, and 7 illustrations: UBL-2.2-Fulfilment-1simple ...)
+diagrams/<figure>/<figure>.drawio        89 figures, e.g. diagrams/UBL-2.5-BillingwithDebitNoteProcess/
+                                         (78 diagrams, 7 illustrations: UBL-2.2-Fulfilment-1simple ...,
+                                         and 4 of BPMN or phase maps: UBL-2.3-OrderingProcess ...)
 illustrations/parts/*.svg                the pictures the illustrations are made of, to edit
 tools/embed_parts.py                     puts an edited picture into the illustrations
 tools/ubl-library.xml                    the UBL shapes, as a draw.io library, for editing
@@ -30,7 +32,11 @@ baselines/2026-10-05/                    the baseline: the drawings as they are 
 diagrams.net) and saving it back. Nothing is generated over these files any more.
 
 The rest of this section is about the 78 diagrams; the 7 illustrations are
-pictures, not diagrams, and have sections of their own (below).
+pictures, not diagrams, and have sections of their own (below), and so have the
+4 figures of other notations (BPMN: Ordering, Business Information; phase maps:
+Pre-award, Procurement), which have no pool of lanes: `history/group-a/README.md`
+says how they were made and what was decided; `tools/check_drawio.py` checks them
+for ids, kinds and attached flows (they carry `ubl-notation`).
 
 Each drawing is built from draw.io's own parts:
 
@@ -285,13 +291,15 @@ publishes its artwork (its README, "Artwork"; `build.xml`; `realta-user-paramete
   `UBL 2.3-ImportDeclaration-Process.drawio`, `UBL 2.3-Transit Declaration Process.drawio`).
   The UBL repository's history keeps them; the commit message names each. The
   7 illustrations have no source there: the commit adds theirs.
-- **Only the 78 and the 7 illustrations:** the other 12 figures of the UBL
-  repository are left as they are, for a later session. One is no longer used
-  (`UBL-2.0-BillingwithCreditNoteProcess`); 4 have a source in `images/`
-  (`UBL-2.3-Pre-awardProcess`, `UBL-2.3-ProcurementProcess`,
-  `UBL-2.4-BusinessInformation`: `.drawio`; `UBL-2.3-OrderingProcess`: `.svg`);
-  7 have none, and most are not activity diagrams (IMFM Generic Intermodal Freight Process, Open-edi Application and
+- **The 78, the 7 illustrations and (2026-10-05) the 4 of Group A:** the other 8
+  figures of the UBL repository are left as they are, for later sessions
+  (`history/remaining-figures.md`). One is no longer used
+  (`UBL-2.0-BillingwithCreditNoteProcess`); 7 have no source, and are not
+  activity diagrams (IMFM Generic Intermodal Freight Process, Open-edi Application and
   Overview, Default Validation, Schema Dependencies, UDT-QDT, Model Realization).
+  The 4 of Group A had a source in `images/` (`UBL-2.3-Pre-awardProcess`,
+  `UBL-2.3-ProcurementProcess`, `UBL-2.4-BusinessInformation`: `.drawio`;
+  `UBL-2.3-OrderingProcess`: `.svg`, from bpmn.io): the commit replaces those too.
 - **The PNGs:** the drawings are black and white only (`#000000`, `#ffffff`),
   and so is `art/<figure>.png`: 1 bit, a pixel black where the drawing covers
   at least half of it, as line art is printed (at 600 dpi a pixel is 0.04 mm;
@@ -347,7 +355,7 @@ API is not needed), and the live version of app.diagrams.net, the editor people
 use, which can be ahead of every tag. Exit 1: a newer release can be pinned.
 
 `python3 tools/drawio_upgrade.py [--to <version>] [--out <dir>]` then exports
-all 85 drawings with the pin and with the candidate and compares, per figure,
+all 89 drawings with the pin and with the candidate and compares, per figure,
 the SVG (but for the version in its comment), both PNGs and the viewer render
 at the baseline's canvas, pixel for pixel; where pixels differ it writes a
 red/blue image. It ends in `VERDICT: SAFE` (nothing changed, exit 0) or
@@ -476,13 +484,21 @@ since:
 8. **The CPFR step illustrations** - `history/illustrations/cpfr/` (2026-10-05):
    the three CPFR step figures, their clip art redrawn (the originals are lost),
    drawn from the UBL PNGs.
+9. **Four figures of other notations** - `history/group-a/` (2026-10-05): Ordering and
+   Business Information (BPMN), Pre-award and Procurement (phase maps), from the
+   sources the UBL repository has; and `history/remaining-figures.md`: the 8 still to do.
 
 `history/README.md` is the repository's former README, describing steps 1-4.
 
 ## Open work
 
-- **The other 12 figures** of the UBL repository (see "Only the 78 and the 7
-  illustrations" above).
+- **The other 8 figures** of the UBL repository: 3 phase and overview figures
+  (Group B), 4 reference figures (Group C), and one that is no longer used;
+  what they are and how to go about them is in `history/remaining-figures.md`.
+- **The BPMN 2.0 XML of the Ordering Process** (`UBL-2.3-OrderingProcess.bpmn`, attached to
+  the `ubl` list's mail of 2019-05-07, UBL-171): not reachable from a script;
+  with it the drawing could be made from the model, not from the SVG
+  (`history/group-a/README.md`, "Where the originals might still be").
 - **The CPFR step figures:** what is still open on them is in
   `history/illustrations/cpfr/README.md` ("Open work").
 

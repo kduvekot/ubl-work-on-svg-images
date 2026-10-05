@@ -27,6 +27,9 @@ without its kind (ubl-flow), a document across a lane divider without the
 parties it passes between (ubl-between), an arrow shorter than 3 times its
 head (the stretch after its last bend).
 
+A figure of another notation (a BPMN drawing, a phase map: history/group-a, marked by ubl-notation on
+one element) is checked for ids, kinds and attached flows only: it has no pool of lanes.
+
 An illustration (its frame of ubl-kind "illustration": the Fulfilment figures,
 history/illustrations) is not a UML diagram and holds no model: it is not
 checked, and said so.
@@ -259,6 +262,34 @@ def is_illustration(path):
     return 'ubl-kind="illustration"' in open(path, encoding="utf-8").read()
 
 
+def notation(path):
+    """the notation of a figure that is not a UML activity diagram (BPMN, a phase map: history/group-a),
+    which says so on one element (ubl-notation), or None"""
+    m = re.search(r'ubl-notation="([^"]*)"', open(path, encoding="utf-8").read())
+    return m.group(1) if m else None
+
+
+def other_notation(cells):
+    """the conventions of a figure that is not a UML diagram with a pool of lanes: every element has
+    its id and kind, ids are unique, a flow is attached at both ends (a dashed line round a list of
+    documents, a `bracket`, is not a flow), and what a text or a bracket is for is an element"""
+    out = []
+    for i, c in cells.items():
+        if i in ("0", "1"):
+            continue
+        if not c["kind"] and not (c["style"].find("part=1") >= 0):
+            out.append("%s: no ubl-kind (Edit Data)" % i)
+        if c["kind"] in ("flow", "message-flow"):
+            for end in ("source", "target"):
+                if not c[end] or c[end] not in cells:
+                    out.append("%s: %s not attached to an element" % (i, end))
+        for k in ("ubl-for", "ubl-steps"):
+            for ref in (json.loads(c["attrs"][k]) if k == "ubl-steps" else [c["attrs"][k]]) if k in c["attrs"] else []:
+                if ref not in cells:
+                    out.append("%s: %s names %s, which is not in the drawing" % (i, k, ref))
+    return out
+
+
 def in_editor_form(path):
     import drawio_format
     text = open(path, encoding="utf-8").read()
@@ -285,16 +316,19 @@ def main(argv):
         warned = []
         try:
             cells, order = read(path)
-            found = conventions(cells)
-            warned = warnings(cells)
-            if against:
+            if notation(path):
+                found, warned = other_notation(cells), []
+            else:
+                found = conventions(cells)
+                warned = warnings(cells)
+            if against and not notation(path):
                 want = json.load(open(os.path.join(against, name, name + "-diagram.json")))
                 found += compare(model_of(cells, order), want)
         except (ValueError, ET.ParseError) as e:
             found = [str(e)]
         found += form
         bad += bool(found)
-        print("%-55s %s" % (name, "ok" if not found else "%d finding(s)" % len(found))
+        print("%-55s %s" % (name, "ok" if not found else "%d finding(s)" % len(found)) + (" (%s)" % notation(path) if notation(path) else "")
               + (", %d warning(s)" % len(warned) if warned else ""))
         for f in found:
             print("    " + f)
