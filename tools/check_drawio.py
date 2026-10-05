@@ -17,7 +17,10 @@ Conventions checked (after an edit in draw.io, too):
   - every node stands in a lane (a child of one);
   - a flow is attached at both ends, to nodes; a flow leaving the page at
     exactly one;
-  - a flow's guard names a text of its own, and no text is used twice.
+  - a flow's guard names a text of its own, and no text is used twice;
+  - the file is in the form draw.io's editor writes (tools/drawio_format.py): so that a
+    text diff against a drawing saved from the editor shows only what differs; it
+    is checked for illustrations too. Rewrite with `python3 tools/drawio_format.py <file>`.
 
 Warned about (not a fault, but the model is poorer without it): a flow
 without its kind (ubl-flow), a document across a lane divider without the
@@ -256,6 +259,15 @@ def is_illustration(path):
     return 'ubl-kind="illustration"' in open(path, encoding="utf-8").read()
 
 
+def in_editor_form(path):
+    import drawio_format
+    text = open(path, encoding="utf-8").read()
+    try:
+        return drawio_format.format_text(text) == text
+    except (ValueError, ET.ParseError):
+        return True        # not readable: said by the other checks
+
+
 def main(argv):
     against = None
     if argv[:1] == ["--against"]:
@@ -263,8 +275,12 @@ def main(argv):
     bad = 0
     for path in argv:
         name = os.path.basename(path)[:-len(".drawio")]
+        form = [] if in_editor_form(path) else ["not in the form draw.io's editor writes: python3 tools/drawio_format.py " + path]
         if is_illustration(path):
-            print("%-55s illustration, not checked" % name)
+            print("%-55s illustration, not checked" % name + ("" if not form else ", %d finding(s)" % len(form)))
+            for f in form:
+                print("    " + f)
+            bad += bool(form)
             continue
         warned = []
         try:
@@ -276,6 +292,7 @@ def main(argv):
                 found += compare(model_of(cells, order), want)
         except (ValueError, ET.ParseError) as e:
             found = [str(e)]
+        found += form
         bad += bool(found)
         print("%-55s %s" % (name, "ok" if not found else "%d finding(s)" % len(found))
               + (", %d warning(s)" % len(warned) if warned else ""))

@@ -40,7 +40,9 @@ sys.path.insert(0, HERE)
 import check_drawio  # noqa: E402
 
 _g = subprocess.run(['npm', 'root', '-g'], capture_output=True, text=True).stdout.strip()
-NODE = dict(os.environ, NODE_PATH=os.pathsep.join(p for p in (os.environ.get('NODE_PATH'), _g) if p))
+# the renders are drawn by draw.io at scale 1 and enlarged by the browser (render-drawio.js): zoomed in draw.io's own
+# view, 31.5.3 and 32.x round label and edge positions differently, so a render would change with the version
+NODE = dict(os.environ, NODE_PATH=os.pathsep.join(p for p in (os.environ.get('NODE_PATH'), _g) if p), DRAWIO_RENDER_DEVICE='1')
 
 
 def page(path):

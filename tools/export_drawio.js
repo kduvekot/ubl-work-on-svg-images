@@ -37,7 +37,8 @@
 const { chromium } = require('playwright');
 const fs = require('fs'), path = require('path'), os = require('os'), https = require('https');
 
-const DRAWIO_VERSION = '31.5.3';
+// the pin: tools/drawio-version.json (DRAWIO_VERSION in the environment overrides it, for a trial)
+const DRAWIO_VERSION = process.env.DRAWIO_VERSION || require('./drawio-version.json').version;
 const VIEWER_URL = 'https://raw.githubusercontent.com/jgraph/drawio/v' + DRAWIO_VERSION +
                    '/src/main/webapp/js/viewer-static.min.js';
 const CHROME = process.env.CHROMIUM_PATH || '/opt/pw-browsers/chromium-1194/chrome-linux/chrome';
