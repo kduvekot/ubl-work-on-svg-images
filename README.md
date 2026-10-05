@@ -1,16 +1,17 @@
 # ubl-work-on-svg-images
 
 Editable sources for the artwork of the UBL specification: the **78 UML activity
-diagrams** of UBL 2.5 (of its 97 figures), and **4 illustrations** (the
-Fulfilment figures: shipments and consignments), as **draw.io drawings**. UBL
+diagrams** of UBL 2.5 (of its 97 figures), and **7 illustrations** (the
+4 Fulfilment figures: shipments and consignments; the 3 CPFR step figures), as
+**draw.io drawings**. UBL
 publishes these figures as PNG and most of their original sources are lost; these
 drawings replace them as the figures' source.
 
 ## The source of truth: the draw.io drawings
 
 ```
-diagrams/<figure>/<figure>.drawio        82 figures, e.g. diagrams/UBL-2.5-BillingwithDebitNoteProcess/
-                                         (78 diagrams, and 4 illustrations: UBL-2.2-Fulfilment-1simple ...)
+diagrams/<figure>/<figure>.drawio        85 figures, e.g. diagrams/UBL-2.5-BillingwithDebitNoteProcess/
+                                         (78 diagrams, and 7 illustrations: UBL-2.2-Fulfilment-1simple ...)
 illustrations/parts/*.svg                the pictures the illustrations are made of, to edit
 tools/embed_parts.py                     puts an edited picture into the illustrations
 tools/ubl-library.xml                    the UBL shapes, as a draw.io library, for editing
@@ -19,14 +20,14 @@ tools/drawio_baseline.py                 holds the drawings against the baseline
 tools/export_drawio.js                   exports them for the UBL repository: SVG, PNG
 tools/check_svg.py                       checks an export
 to-ubl-repo/                             what goes to the UBL repository: the export
-baselines/2026-09-30/                    the baseline: the drawings as they are now
+baselines/2026-10-05/                    the baseline: the drawings as they are now (2026-09-30: the one before)
 ```
 
 **Edit a figure by opening its `.drawio` file in draw.io** (the desktop app, or
 diagrams.net) and saving it back. Nothing is generated over these files any more.
 
-The rest of this section is about the 78 diagrams; the 4 illustrations are
-pictures, not diagrams, and have a section of their own (below).
+The rest of this section is about the 78 diagrams; the 7 illustrations are
+pictures, not diagrams, and have sections of their own (below).
 
 Each drawing is built from draw.io's own parts:
 
@@ -147,6 +148,15 @@ these differences: they are not checked by `tools/check_drawio.py` (they hold
 no model); the export puts each picture in the SVG as the SVG it is, and prints
 `art/` in grey (8 bit), not black and white; and their page is the frame.
 
+### The CPFR step illustrations
+
+`UBL-2.2-CPFR-Steps1-2`, `-Steps3-4-5` and `-Steps6-9` are drawn the same way:
+illustrations (frame of `ubl-kind` `illustration`), their flowcharts in
+draw.io's shapes, their pictures the parts `illustrations/parts/cpfr-*.svg`:
+the CPFR figures' clip art, redrawn (the originals are Visio stencil art, and
+lost). How the parts and the drawings were made:
+`history/illustrations/cpfr/README.md`.
+
 ### Checking a drawing
 
 ```sh
@@ -171,26 +181,31 @@ was read (a flow's direction confidence, the figure's source PNG), which stays
 in the history. After the drawings have been edited, they will differ from the
 JSONs, as they should: the JSONs are history now.
 
-### The baseline: `baselines/2026-09-30/`
+### The baseline: `baselines/2026-10-05/`
 
-The drawings as they were made the source of truth (commit `3bd91c6`, all edits
-of `history/drawio-edits/` done), for later edits to be held against:
+The drawings as they are now, for later edits to be held against:
 
-- `diagrams/<figure>.drawio`: the 78 drawings, and the 4 illustrations, added
-  on the same day, when they were made (`make` with the four named, from their
-  `history/drawio-edits/diff/one.py`);
+- `diagrams/<figure>.drawio`: the 85 drawings: the 78 diagrams, the 4
+  Fulfilment illustrations and the 3 CPFR step illustrations;
 - `renders/<figure>.png`: each rendered with draw.io's own code (viewer
-  31.5.3), at the size of the original PNG (grown where the drawing grew);
+  31.5.3, pinned in `history/drawio-writer/render-drawio.js` as in the export),
+  at the size of the original PNG (grown where the drawing grew);
 - `summary.txt`, `summary.json`: per figure, how it compares with the original
   PNG (red: ink only the PNG has; blue: only the drawing; in %, of the PNG's
   ink), and for the 35 figures that grew, the same with the space inserted in
   the PNG too.
 
+It is `baselines/2026-09-30/` with the 3 CPFR step figures added: its other 82
+drawings, renders and numbers are those of 2026-09-30, byte for byte.
+`baselines/2026-09-30/` is the baseline as the drawings were made the source of
+truth (commit `3bd91c6`, all edits of `history/drawio-edits/` done; the
+Fulfilment figures added on the same day), kept as it was.
+
 The PDF of that comparison is not kept: `history/drawio-edits/diff/run.sh` makes
 it again from the baseline's commit.
 
 ```sh
-python3 tools/drawio_baseline.py compare baselines/2026-09-30 [--out <dir>] [<figure> ...]
+python3 tools/drawio_baseline.py compare baselines/2026-10-05 [--out <dir>] [<figure> ...]
 ```
 
 Run it by hand after an edit. Per figure it says `same` (the baseline's file,
@@ -218,7 +233,9 @@ python3 tools/check_svg.py to-ubl-repo
 
 The check also fails where a drawing in `to-ubl-repo/images/` is no longer its
 source in `diagrams/`: the export is out of date. An export of unchanged
-drawings is the same, byte for byte, so it changes nothing in git. `--report`
+drawings is the same, byte for byte, so it changes nothing in git - whether a
+figure is exported alone or with others (each is drawn on a clean page; tried
+2026-10-05: all 85 at once, and each CPFR step figure alone, gave the same files). `--report`
 writes, per figure, its size, the scale it is fitted to the page at and the
 size its text prints at (kept out of `to-ubl-repo/`: it is not for UBL). The
 export needs Node with playwright (as `tools/drawio_baseline.py`); the check
@@ -264,14 +281,13 @@ publishes its artwork (its README, "Artwork"; `build.xml`; `realta-user-paramete
   other names (`UBL 2.3-Common Transportation Report-Process.drawio`,
   `UBL 2.3-ImportDeclaration-Process.drawio`, `UBL 2.3-Transit Declaration Process.drawio`).
   The UBL repository's history keeps them; the commit message names each. The
-  4 illustrations have no source there: the commit adds theirs.
-- **Only the 78 and the 4 illustrations:** the other 15 figures of the UBL
+  7 illustrations have no source there: the commit adds theirs.
+- **Only the 78 and the 7 illustrations:** the other 12 figures of the UBL
   repository are left as they are, for a later session. One is no longer used
   (`UBL-2.0-BillingwithCreditNoteProcess`); 4 have a source in `images/`
   (`UBL-2.3-Pre-awardProcess`, `UBL-2.3-ProcurementProcess`,
   `UBL-2.4-BusinessInformation`: `.drawio`; `UBL-2.3-OrderingProcess`: `.svg`);
-  10 have none, and most are not activity diagrams (CPFR Steps 1-2, 3-4-5 and
-  6-9, IMFM Generic Intermodal Freight Process, Open-edi Application and
+  7 have none, and most are not activity diagrams (IMFM Generic Intermodal Freight Process, Open-edi Application and
   Overview, Default Validation, Schema Dependencies, UDT-QDT, Model Realization).
 - **The PNGs:** the drawings are black and white only (`#000000`, `#ffffff`),
   and so is `art/<figure>.png`: 1 bit, a pixel black where the drawing covers
@@ -281,12 +297,15 @@ publishes its artwork (its README, "Artwork"; `build.xml`; `realta-user-paramete
   white, none at most 1/4 ink turned black. `htmlart/<figure>.png`, for the
   screen, is 8 bit grey, its edges smoothed. No coloured edges (LCD text) in
   either. All 78: `art/` 2.2 MB, `htmlart/` 1.5 MB, where the UBL repository's
-  PNGs of these figures are 13 MB and 3 MB. The 4 illustrations have grey
-  pictures, and their `art/` is 8 bit grey, as the UBL PNGs of them are.
+  PNGs of these figures are 13 MB and 3 MB. The 7 illustrations have grey
+  pictures, and their `art/` is 8 bit grey, as the UBL PNGs of them are. A PNG
+  is on white when the page round the drawing is (its outer band, 2 % of the
+  width): the CPFR step figures are mostly grey panel, as the UBL PNGs are.
 - **The SVG is real vector:** text as `<text>`, not in `<foreignObject>` (draw.io
   writes its HTML labels there by default) and not as outlines, which ISO does
   not accept; no embedded bitmap. An illustration's pictures are SVG, each put
-  in as a nested `<svg>`, not as an image.
+  in as a nested `<svg>`, not as an image. A `<use>` inside a part (an Inkscape clone,
+  a figure repeated) is made a copy of what it uses, as the SVG may hold no `<use>`.
 - **The drawing is the truth; the SVG and PNGs are exports of it.** The SVG does
   not carry the drawing (no draw.io `content` attribute): only the picture, and
   a comment naming `<figure>.drawio` as the file to edit. An SVG edited
@@ -349,5 +368,25 @@ since:
    Fulfilment figures, from Tim McGrath's deck (linked there, not kept) and
    fitted to the UBL PNGs; their pictures (`illustrations/parts/`) and drawings,
    and how to make them again.
+8. **The CPFR step illustrations** - `history/illustrations/cpfr/` (2026-10-05):
+   the three CPFR step figures, their clip art redrawn (the originals are lost),
+   drawn from the UBL PNGs.
 
 `history/README.md` is the repository's former README, describing steps 1-4.
+
+## Open work
+
+- **A newer draw.io.** The export (`tools/export_drawio.js`, `DRAWIO_VERSION`)
+  and the renders of the baseline and the comparisons
+  (`history/drawio-writer/render-drawio.js`) use draw.io's viewer 31.5.3; the
+  editor people use is newer (32.1.0 on 2026-10-05). To move to it, for all
+  figures: change the pinned version in both; export all again and check
+  (`tools/check_svg.py`), looking at what changed; make a new baseline from the
+  new renders, so that `drawio_baseline.py compare` does not report the change
+  of version as a change of every drawing; and try editing and saving a few
+  drawings in that version again.
+- **The other 12 figures** of the UBL repository (see "Only the 78 and the 7
+  illustrations" above).
+- **The CPFR step figures:** what is still open on them is in
+  `history/illustrations/cpfr/README.md` ("Open work").
+

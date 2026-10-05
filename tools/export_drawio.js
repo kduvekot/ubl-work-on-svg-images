@@ -68,7 +68,11 @@ async function viewer() {
 // Runs in the page: the drawing's SVG, drawn by draw.io, its labels made SVG text.
 function toSvg([xml, name, font, drawioVersion]) {
   const doc = mxUtils.parseXml(xml);
-  const graph = new Graph(document.getElementById('g'));
+  // each drawing on a clean page: what an earlier drawing left in the container (its graph's DOM)
+  // moves the page's layout, and the labels' measured places with it (by 0.01 px)
+  const box = document.getElementById('g');
+  box.innerHTML = ''; window.scrollTo(0, 0);
+  const graph = new Graph(box);
   new mxCodec(doc).decode(doc.getElementsByTagName('mxGraphModel')[0], graph.getModel());
   const svg = graph.getSvg('#ffffff', 1, 0, false, null, true);
   document.body.appendChild(svg);            // laid out, so the labels can be measured
@@ -96,12 +100,44 @@ function toSvg([xml, name, font, drawioVersion]) {
         if (/url\(#/.test(a.value)) e.setAttribute(a.name, a.value.replace(/url\(#/g, 'url(#' + pre));
         if ((a.localName === 'href') && a.value.startsWith('#')) e.setAttributeNS(a.namespaceURI, a.name, '#' + pre + a.value.slice(1));
       }
+    expandUses(part);
     const box = document.importNode(part, true);
     for (const a of ['x', 'y', 'width', 'height'])
       box.setAttribute(a, at.getAttribute(a) !== null ? at.getAttribute(a) : img.getAttribute(a) || '0');
     box.setAttribute('preserveAspectRatio', img.getAttribute('preserveAspectRatio') || 'none');
     if (at.getAttribute('transform')) box.setAttribute('transform', at.getAttribute('transform'));
     return box;
+  }
+  // a part may have <use>s of its own (a clone made in Inkscape, a figure repeated): each is
+  // made a copy of what it uses, in a <g> at its place, as the SVG check allows no <use>. A
+  // <symbol> used becomes a nested <svg> with the symbol's viewBox, sized as the <use> is.
+  function expandUses(part) {
+    for (let round = 0; round < 10; round++) {
+      const uses = [...part.querySelectorAll('use')];
+      if (!uses.length) return;
+      for (const u of uses) {
+        const ref = hrefOf(u);
+        const t = ref.startsWith('#') && part.querySelector('[id="' + CSS.escape(ref.slice(1)) + '"]');
+        if (!t) throw new Error(name + ': a part has a <use> of ' + ref + ', which it does not hold');
+        const NSs = 'http://www.w3.org/2000/svg';
+        const g = part.ownerDocument.createElementNS(NSs, 'g');
+        for (const a of [...u.attributes])
+          if (!['x', 'y', 'width', 'height', 'href', 'xlink:href', 'transform', 'id'].includes(a.name)) g.setAttribute(a.name, a.value);
+        const x = +(u.getAttribute('x') || 0), y = +(u.getAttribute('y') || 0);
+        g.setAttribute('transform', ((u.getAttribute('transform') || '') + ((x || y) ? ' translate(' + x + ',' + y + ')' : '')).trim());
+        let copy;
+        if (t.localName === 'symbol') {
+          copy = part.ownerDocument.createElementNS(NSs, 'svg');
+          for (const a of ['viewBox', 'preserveAspectRatio']) if (t.getAttribute(a)) copy.setAttribute(a, t.getAttribute(a));
+          copy.setAttribute('width', u.getAttribute('width') || '100%'); copy.setAttribute('height', u.getAttribute('height') || '100%');
+          for (const c of t.childNodes) copy.appendChild(c.cloneNode(true));
+        } else copy = t.cloneNode(true);
+        for (const e of [copy, ...copy.querySelectorAll('[id]')]) e.removeAttribute('id');     // ids stay the original's
+        g.appendChild(copy);
+        u.parentNode.replaceChild(g, u);
+      }
+    }
+    throw new Error(name + ': a part\'s <use>s go too deep (or round in a circle)');
   }
   const used = new Set();
   for (const use of [...svg.querySelectorAll('use')]) {
@@ -282,6 +318,7 @@ function toSvg([xml, name, font, drawioVersion]) {
     '). Edit ' + name + '.drawio, not this file. '), svg.firstChild);
   const text = '<?xml version="1.0" encoding="UTF-8"?>\n' + new XMLSerializer().serializeToString(svg) + '\n';
   document.body.removeChild(svg);
+  graph.destroy(); box.innerHTML = '';
   return { svg: text, width: W, height: H, scale, illustration, parts, ...report };
 }
 

@@ -57,7 +57,11 @@ def check_png(path, max_w, dpi, want_w, mode, out):
         out.append('%s: %s dpi, not %d' % (name, got and round(got[0], 1), dpi))
     if im.mode in ('RGBA', 'LA', 'P') and im.convert('RGBA').getchannel('A').getextrema()[0] < 255:
         out.append(name + ': transparent')
-    grey = im.convert('L').histogram()
+    # on white: the page round the drawing is white - its outer band (2 % of the width), where only the
+    # frame and the margin are; not the whole picture, which may be mostly grey (the CPFR step panels)
+    g = im.convert('L'); w, h = g.size; b = max(2, round(0.02 * w))
+    band = [g.crop(box).histogram() for box in ((0, 0, w, b), (0, h - b, w, h), (0, b, b, h - b), (w - b, b, w, h - b))]
+    grey = [sum(v) for v in zip(*band)]
     if grey.index(max(grey)) < 250:
         out.append(name + ': not on white')
 
