@@ -102,6 +102,101 @@ has, blue: only the drawing, % of the PNG's ink):
 What remains is mostly the text's own shapes and the clip art, drawn with
 crisper lines than the PNGs' blurred ones.
 
+## How it was found, and decided (2026-10-03 to 05)
+
+So that none of it has to be searched or decided again.
+
+**The sources.** A dossier on the CPFR figures was put together before this
+work, from primary sources only (outside this repository, not to be kept in
+it). What it found:
+
+- The figures were first published in Mehmet Olduz's METU MSc thesis
+  (September 2008, figures 3.1-3.4), then in iSURF deliverable D6.1.1
+  (2008-2009), where they are embedded as PNGs of 613-950 px. They reached UBL
+  2.1 through iSURF (FP7 ICT-213031).
+- Every copy in UBL is that PNG enlarged: prd1
+  (`docs.oasis-open.org/ubl/prd1-UBL-2.1/art/`, 600 dpi, colour) is the D6.1.1
+  figure times 5.09 (Steps3-4-5, 6-9) or 6.25 (Steps1-2); UBL 2.2 to 2.5
+  (`art/` in the UBL repository) are greyscale copies, 1712 px wide.
+- **So a picture is judged at its real size**, as it is in the D6.1.1 figure
+  (the person at a desk is 74 x 68 px there, the meeting 93 x 100), not on the
+  enlarged crops: at that size the outlines of the original are about 1 px,
+  which is why the parts' outer lines are heavy (5 px at a part's own scale).
+
+**What was searched, and not found.**
+
+- No Visio (or other) source of the figures: not in any UBL distribution, not in
+  the OASIS archives. The UBL TC's minutes of May-June 2010 show the CPFR
+  artwork sources went privately to Peter Borresen and Jon Bosak:
+  <https://lists.oasis-open.org/archives/ubl/201005/msg00022.html>,
+  [201005/msg00028](https://lists.oasis-open.org/archives/ubl/201005/msg00028.html),
+  [201006/msg00001](https://lists.oasis-open.org/archives/ubl/201006/msg00001.html),
+  [201006/msg00016](https://lists.oasis-open.org/archives/ubl/201006/msg00016.html),
+  [201006/msg00018](https://lists.oasis-open.org/archives/ubl/201006/msg00018.html),
+  [201006/msg00028](https://lists.oasis-open.org/archives/ubl/201006/msg00028.html),
+  [201006/msg00029](https://lists.oasis-open.org/archives/ubl/201006/msg00029.html),
+  [201008/msg00014](https://lists.oasis-open.org/archives/ubl/201008/msg00014.html).
+  Peter Borresen looked for them (October 2026): they are not there any more.
+- The clip art is the shapes of Visio's *Work Flow Diagram* template: the
+  stencils *Work Flow Steps* (`WFSTEP_M.VSS`: meeting, agreement, issue) and
+  *Work Flow Objects* (`WFOBJ`: document; the person at a desk). Microsoft's,
+  and not to be republished; no free copy of the stencils was found.
+- **Higher-resolution copies of the shapes**, by reverse image search on crops
+  of the prd1 PNGs (Yandex: upload the crop to
+  `yandex.com/images/search?rpt=imageview&format=json`, then fetch the result's
+  `cbir_page=similar` and `cbir_page=sites` pages; TinEye was blocked, Google
+  asks for a captcha):
+  - the meeting, 730 x 792:
+    <https://i.pinimg.com/originals/17/29/4a/17294a135d317eb66ad2760e1900367a.png>;
+  - the agreement (two people shaking hands), 551 x 763:
+    <https://i.pinimg.com/originals/b8/6c/e6/b86ce626dfe8dd2bca2ff0ef311edf9d.png>;
+  - the person at a desk, 196 x 191: an image in a PDF of the Pontificia
+    Universidad Javeriana, *Guía de usuario radicación PQRSFD*
+    (<https://www.javeriana.edu.co/recursosdb/d/institucional/guia-de-usuario-radicacion-pqrsfd>);
+  - the document and the clipboard: none found; drawn from the prd1 master.
+
+  These copies were used to trace from, and are not kept.
+
+**Tried and dropped.** Pictograms drawn freely (not like the original); a 3D
+model of the person (over-fitted); a plain automatic trace of the renders (1.4
+MB, and the people's open lines leave whole bodies one area). What worked: the
+person's lines traced and numbered, corrected line by line, his hidden side
+completed by his symmetry, and only then the areas filled.
+
+**Decided on the way** (with the repository's owner, in the sessions that made them):
+
+- grey, as the UBL 2.2 PNGs; isometric, as the stencil;
+- the people are one person throughout (seated, standing, from behind,
+  mirrored), in the same pose where the original has it;
+- at the desk: the chair is the back of it behind him, across his back; the
+  paper an open book (two pages, the fold across), near him and the edge he
+  sits at; the calculator a printing calculator (keys towards him, the roll and
+  tape at the back);
+- the documents of the agreement: the top sheet's corner folded over as on a
+  UML note, standing up a little (165 degrees, `made/hs/docs.py`, `FOLD`);
+- the Resolve Exception box over the people at their desks, see-through, as in
+  the PNG;
+- the drawings edit as draw.io diagrams (panels as containers, flows attached),
+  not as loose shapes;
+- the shading of the handshake people and one grey balance left for later
+  (below).
+
+**Tools changed for these figures** (they hold for all figures):
+`tools/check_svg.py` judges "on white" by the page round the drawing, not the
+commonest grey; `tools/export_drawio.js` makes a part's own `<use>` a copy, and
+draws each figure on a clean page (an export is the same alone or in a batch);
+`history/drawio-writer/render-drawio.js` is pinned to draw.io 31.5.3, as the
+export.
+
+**How the editor was tried.** draw.io's editor (embed.diagrams.net) in
+Chromium (playwright), the drawing sent to it with draw.io's embed protocol
+from a page that frames it (opened directly with `setFileData` its labels
+stayed hidden), edited with the mouse and keys as a person would, and saved
+with its own Save; the saved file compared cell by cell with the one written.
+In this environment the browser reaches the web only through node
+(`context.route` with `route.fetch()`), as the proxy's certificate is not in
+the browser.
+
 ## Open work
 
 - **Shading of the handshake people** (`cpfr-agreement`): the render's
@@ -113,5 +208,16 @@ crisper lines than the PNGs' blurred ones.
   are complete without it.
 - **One grey balance** over the five parts: at their real size in the figures
   they are a little paler than the UBL PNGs' pictures. Left as it is for now.
+- **The clip art's origin, for the TC to decide:** the people were traced from
+  copies of the stencil's own pictures; they are drawn anew, but follow those
+  drawings closely. If that is not acceptable, the people would have to be
+  drawn freely (pictograms). The document, the clipboard, the desk's things and
+  the stack of documents are this work's own drawing.
+- **Tried in the editor only on the web** (embed.diagrams.net 32.1.0); the
+  export pins 31.5.3. Opening and saving one in the draw.io desktop app would
+  settle it.
+- **`made/` cannot be run as it is:** its scripts read the renders traced from
+  and the prd1 crops from a working folder that is not kept. They are the
+  record of how the parts were made; the parts themselves are the source.
 
 The three drawings are in the baseline `baselines/2026-10-05/` (the numbers above are its).
