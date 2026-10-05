@@ -297,7 +297,8 @@ publishes its artwork (its README, "Artwork"; `build.xml`; `realta-user-paramete
 - **The SVG is real vector:** text as `<text>`, not in `<foreignObject>` (draw.io
   writes its HTML labels there by default) and not as outlines, which ISO does
   not accept; no embedded bitmap. An illustration's pictures are SVG, each put
-  in as a nested `<svg>`, not as an image.
+  in as a nested `<svg>`, not as an image. A `<use>` inside a part (an Inkscape clone,
+  a figure repeated) is made a copy of what it uses, as the SVG may hold no `<use>`.
 - **The drawing is the truth; the SVG and PNGs are exports of it.** The SVG does
   not carry the drawing (no draw.io `content` attribute): only the picture, and
   a comment naming `<figure>.drawio` as the file to edit. An SVG edited
