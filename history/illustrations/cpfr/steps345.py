@@ -76,10 +76,11 @@ fit = json.load(open(os.path.join(HERE, 'parts_fit.json')))
 for k in ('doc1', 'doc2', 'doc3', 'doc4', 'doc5'):
     x, y, w, h = fit[k]; picture('cpfr-document', (x, y, x + w, y + h))
 x, y, w, h = fit['clipboard']; picture('cpfr-exception', (x, y, x + w, y + h))
-vertex('rounded=0;whiteSpace=wrap;html=1;fillColor=#acacac;strokeColor=#000000;strokeWidth=1;dashed=1;dashPattern=8 3.5 1.5 3.5;'
-       'fontSize=15.25;' + FONT, (1082.5, 860, 1504.5, 1012), 'Resolve Exception')
 x, y, w, h = fit['desk-left']; picture('cpfr-person-at-desk', (x, y, x + w, y + h))
 x, y, w, h = fit['desk-right']; picture('cpfr-person-at-desk', (x, y, x + w, y + h), flip=True)
+# the Resolve Exception box over the people at their desks, see-through as in the PNG
+vertex('rounded=0;whiteSpace=wrap;html=1;fillColor=#7f7f7f;fillOpacity=55;strokeColor=#000000;strokeWidth=1;dashed=1;dashPattern=8 3.5 1.5 3.5;'
+       'fontSize=15.25;' + FONT, (1082.5, 860, 1504.5, 1012), 'Resolve Exception')
 # the flows, over the arrows and the documents
 # (a document's top and bottom slope: they meet the flow at x 410 16 and 113 px below its top-left corner)
 for y0, y1 in ((255, 455), (552, 775), (872, 1102), (1199, 1394), (1491, 1664)):

@@ -71,12 +71,12 @@ python3 history/illustrations/cpfr/steps345.py                                  
 `steps345.py` writes the drawing from shapes measured on the UBL 2.2 PNG
 (`art/UBL-2.2-CPFR-Steps3-4-5.png`, 1712 x 1976, grey): the two step panels and
 the dashed Step 6, the five block arrows with their documents, the two
-decisions, the flows and their guards, the Resolve Exception box. The drawing
+decisions, the flows and their guards, the Resolve Exception box (over the people at their desks, see-through, as the PNG has it). The drawing
 is the figure at its source's size (iSURF's 613 x 708, framed): the PNG is it
 times 2.7733 with a 6 px frame (`ubl-png-scale`). The pictures are where
 `parts_fit.py` found them in the PNG. Text is Helvetica at the sizes the PNG
 has (10-15 px).
 
-Against the PNG (`history/drawio-edits/diff/one.py`): red 2.9 %, blue 3.9 %
+Against the PNG (`history/drawio-edits/diff/one.py`): red 2.8 %, blue 4.0 %
 (of the PNG's ink); what remains is mostly the text's own shapes and the
 people at the desks, drawn with heavier lines than the PNG's blurred ones.
