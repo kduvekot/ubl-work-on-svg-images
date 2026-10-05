@@ -14,7 +14,9 @@
 const { chromium } = require('playwright');
 const fs = require('fs'), path = require('path'), os = require('os'), https = require('https');
 const CHROME = process.env.CHROMIUM_PATH || '/opt/pw-browsers/chromium-1194/chrome-linux/chrome';
-const DRAWIO_VERSION = '31.5.3';   // as tools/export_drawio.js; not the live viewer.diagrams.net, which moves on
+// the pin, as tools/export_drawio.js (tools/drawio-version.json; DRAWIO_VERSION in the environment overrides it);
+// not the live viewer.diagrams.net, which moves on
+const DRAWIO_VERSION = process.env.DRAWIO_VERSION || require('../../tools/drawio-version.json').version;
 const VIEWER_URL = 'https://raw.githubusercontent.com/jgraph/drawio/v' + DRAWIO_VERSION +
                    '/src/main/webapp/js/viewer-static.min.js';
 

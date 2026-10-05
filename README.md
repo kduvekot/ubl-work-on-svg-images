@@ -19,6 +19,8 @@ tools/check_drawio.py                    the check, run by hand after an edit
 tools/drawio_baseline.py                 holds the drawings against the baseline
 tools/export_drawio.js                   exports them for the UBL repository: SVG, PNG
 tools/check_svg.py                       checks an export
+tools/drawio_upgrade.py                  is there a newer draw.io, and does it change anything
+tools/drawio-version.json                the pinned draw.io release (the one place)
 to-ubl-repo/                             what goes to the UBL repository: the export
 baselines/2026-10-05/                    the baseline: the drawings as they are now (2026-09-30: the one before)
 ```
@@ -317,13 +319,10 @@ publishes its artwork (its README, "Artwork"; `build.xml`; `realta-user-paramete
   the widest figure (Fulfilment Receipt Advice, scale 0.39) at 3.5 pt. Changing
   the drawings to even that out is for later.
 - **draw.io's code is pinned:** the export draws with draw.io's viewer of one
-  release (31.5.3, the baseline's), fetched from that release's tag in
-  [jgraph/drawio](https://github.com/jgraph/drawio), so an export can be made
-  again the same. **Maintenance, for a separate session:** from time to time
-  move to a newer release. Export all 78 with both releases, compare the SVGs
-  and the renders, and check with `tools/drawio_baseline.py` that the drawings
-  still render as the baseline. Then change the pin, and make a new baseline
-  if the renders changed.
+  release (`tools/drawio-version.json`, now 31.5.3, the baseline's), fetched from
+  that release's tag in [jgraph/drawio](https://github.com/jgraph/drawio), so an
+  export can be made again the same. To move to a newer one, see "Upgrading
+  draw.io" below.
 - **Font:** Helvetica, draw.io's own (no drawing sets `fontFamily`), named in the
   SVG as `Helvetica, Arial, "Liberation Sans", sans-serif`: the three have the
   same widths, so labels fit wherever one of them is present. The renders use
@@ -337,6 +336,42 @@ Cambria or its metric-compatible stand-in Caladea, and check that every label
 still fits its box: Cambria's widths differ from Helvetica's. Where one does not
 fit, widen the box in the ISO export as the 12 pt edit did (`history/drawio-edits/twelve.py`),
 not in the drawing. The OASIS outputs and the drawings keep Helvetica.
+
+## Upgrading draw.io
+
+`python3 tools/drawio_upgrade.py --check` says where draw.io is: the pin
+(`tools/drawio-version.json`), the newest release that can be pinned (the
+`VERSION` on jgraph/drawio's `dev` branch, if its tag has a viewer; the GitHub
+API is not needed), and the live version of app.diagrams.net, the editor people
+use, which can be ahead of every tag. Exit 1: a newer release can be pinned.
+
+`python3 tools/drawio_upgrade.py [--to <version>] [--out <dir>]` then exports
+all 85 drawings with the pin and with the candidate and compares, per figure,
+the SVG (but for the version in its comment), both PNGs and the viewer render
+at the baseline's canvas, pixel for pixel; where pixels differ it writes a
+red/blue image. It ends in `VERDICT: SAFE` (nothing changed, exit 0) or
+`VERDICT: REVIEW` (exit 1, with what differs). It takes about 4 minutes, needs
+Node with playwright and Python with numpy and Pillow, and never changes the pin
+or the baseline. Run it from a session as it is; the report says what to do.
+
+What it cannot show is how the newer *editor* saves a file. After a move, open
+and save a few drawings in the editor (a UML diagram, Billing with Credit Note,
+a CPFR step figure) and run `drawio_baseline.py compare`: the files should
+still render as the baseline.
+
+To move: change `version` in `tools/drawio-version.json`; export all again
+(`to-ubl-repo/`: every SVG changes by the version in its comment, which names
+the release it was made with); `python3 tools/check_svg.py to-ubl-repo`; and,
+if the renders changed, make a new baseline from them, so that
+`drawio_baseline.py compare` does not report the version as a change of every
+drawing.
+
+**Tried 2026-10-05, 31.5.3 -> 32.0.2:** the export is the same in all 85
+figures (SVG, art and htmlart PNGs, pixel for pixel). The viewer render
+(the baseline's) differs in 35 figures, in edge labels only as far as looked at
+(Billing with Credit Note: its labels sit about 3 px right at 3425 px wide, the
+same text and line breaks): the baseline's renders would be made again.
+32.1.0 has no tag, so it is not tried.
 
 ## How we got here: `history/`
 
@@ -376,15 +411,9 @@ since:
 
 ## Open work
 
-- **A newer draw.io.** The export (`tools/export_drawio.js`, `DRAWIO_VERSION`)
-  and the renders of the baseline and the comparisons
-  (`history/drawio-writer/render-drawio.js`) use draw.io's viewer 31.5.3; the
-  editor people use is newer (32.1.0 on 2026-10-05). To move to it, for all
-  figures: change the pinned version in both; export all again and check
-  (`tools/check_svg.py`), looking at what changed; make a new baseline from the
-  new renders, so that `drawio_baseline.py compare` does not report the change
-  of version as a change of every drawing; and try editing and saving a few
-  drawings in that version again.
+- **A newer draw.io:** 32.0.2 is the newest release that can be pinned and
+  changes no export (see "Upgrading draw.io"); whether to move to it is open. The
+  editor people use is ahead of it (32.1.0 on 2026-10-05, no tag yet).
 - **The other 12 figures** of the UBL repository (see "Only the 78 and the 7
   illustrations" above).
 - **The CPFR step figures:** what is still open on them is in
