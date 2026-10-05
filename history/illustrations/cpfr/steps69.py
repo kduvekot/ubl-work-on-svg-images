@@ -25,15 +25,15 @@ d.arrow('Termination Message', 1218, 1640, 822, 904, 28, 42, 'east', cx=1428)
 # the documents, the exceptions, the people resolving them
 for k in ('doc1', 'doc2', 'doc3', 'doc4', 'doc5', 'doc6', 'doc7'):
     d.picture('cpfr-document', k)
-d.picture('cpfr-exception', 'clipboard1')
-d.picture('cpfr-exception', 'clipboard2')
+clip1 = d.picture('cpfr-exception', 'clipboard1')
+clip2 = d.picture('cpfr-exception', 'clipboard2')
 for k in ('desk1', 'desk2'):
     d.picture('cpfr-person-at-desk', k + '-left')
     d.picture('cpfr-person-at-desk', k + '-right', flip=True)
 d.resolve((716, 550, 990, 648))
 d.resolve((1293, 553, 1566, 651))
 # the end
-d.vertex('ellipse;html=1;shape=endState;fillColor=#000000;strokeColor=#000000;strokeWidth=1;', (1414, 1261, 1456, 1303))
+d.end((1414, 1261, 1456, 1303))
 d.text('<b>Finalize CPFR Process</b>', (1330, 1308, 1540, 1336), 9.8)
 # the flows (a document's top and bottom slope: they meet the flow 0.12 and 0.85 of its height below its top)
 tops = [d.fit['doc%d' % i][1] for i in range(1, 8)]; h = d.fit['doc1'][3]
@@ -42,11 +42,11 @@ for a, b in zip(tops[:5], tops[1:6]):
 d.edge([(X, tops[5] + 0.85 * h), (X, 1139)])
 d.edge([(361, 1187), (495, 1187), (495, 852), (303, 852)])
 d.edge([(X, 1257), (X, 1295), (552, 1295), (552, 38), (857, 38), (857, 63)])
-d.edge([(854, 230), (854, 321)])
+d.edge([(854, 211), (854, 321)], src=clip1)
 d.edge([(854, 422), (854, 550)])
 d.edge([(775, 373), (632, 373), (632, 767), (858, 767), (858, 843)])
 d.edge([(1098.5, 890), (1130, 890), (1130, 35), (1429.5, 35), (1429.5, 64)])
-d.edge([(1428, 230), (1428, 319)])
+d.edge([(1428, 211), (1428, 319)], src=clip2)
 d.edge([(1428, 437), (1428, 553)])
 d.edge([(1332, 377), (1205, 377), (1205, 693), (1430, 693), (1430, tops[6] + 0.12 * h)])
 d.edge([(1428, tops[6] + 0.85 * h), (1428, 903)])

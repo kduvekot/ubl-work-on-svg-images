@@ -18,7 +18,7 @@ d.arrow('Wait for Exception Notification', 964, 1615, 325, 465, 48, 70, None, si
 # the documents, the exception, the people resolving it
 for k in ('doc1', 'doc2', 'doc3', 'doc4', 'doc5'):
     d.picture('cpfr-document', k)
-d.picture('cpfr-exception', 'clipboard')
+clip = d.picture('cpfr-exception', 'clipboard')
 d.picture('cpfr-person-at-desk', 'desk-left')
 d.picture('cpfr-person-at-desk', 'desk-right', flip=True)
 d.resolve((1082.5, 860, 1504.5, 1012))
@@ -28,7 +28,7 @@ for y0, y1 in ((255, 455), (552, 775), (872, 1102), (1199, 1394), (1491, 1664)):
     d.edge([(410, y0), (410, y1)])
 d.edge([(532, 1741.5), (678.5, 1741.5), (678.5, 1160), (443, 1160)])
 d.edge([(410, 1816), (410, 1863), (872.5, 1863), (872.5, 48), (1293, 48), (1293, 96.5)])
-d.edge([(1293, 360), (1293, 508)])
+d.edge([(1293, 335), (1293, 508)], src=clip)        # from the exception, under the double arrow
 d.edge([(1293, 660), (1293, 858)])
 d.edge([(1168, 585), (946, 585), (946, 1190.5), (1298, 1190.5), (1298, 1309.5)])
 # the decisions, the guards

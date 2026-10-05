@@ -79,6 +79,17 @@ the figure at its source's size (iSURF's, framed): the PNG is it times
 `parts_fit.py` found them in the PNG. Text is Helvetica at the sizes the PNG
 has. Steps3-4-5 was the pilot; the other two were drawn the same way.
 
+They edit as draw.io diagrams: each step panel is a container, and what is in
+it is its child, so dragging the panel takes its contents along; every flow is
+attached to the shapes at its two ends, at the points the PNG has (`exitX/Y`,
+`entryX/Y`), so it follows a shape that is moved; a guard (Yes, No) is its
+flow's own label. Flows run straight between their bends (`edgeStyle=none`,
+as in the UML diagrams), so a bend may want tidying after a move. Tried in the
+draw.io editor (embed.diagrams.net, 32.1.0, 2026-10-05) on all three: a
+document dragged (its flows followed), a step panel dragged (its contents came
+along, the flows from outside followed), a decision relabelled; draw.io's Save
+kept every cell, id, picture and `ubl-part`, and changed only what was edited.
+
 Against the PNGs (`history/drawio-edits/diff/one.py`; red: ink only the PNG
 has, blue: only the drawing, % of the PNG's ink):
 
