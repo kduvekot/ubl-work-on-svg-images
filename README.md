@@ -413,3 +413,76 @@ are not remade, which only means that for a drawing that differs, the note
 "renderer changed" appears (the stored render was drawn the old way). The
 export is unchanged. 32.1.0 has no tag, so it is not tried.
 
+### Before a pull request
+
+Whatever changed (a drawing, a tool, the pin), in this order, from the repository's
+root (Node with playwright, Python with numpy and Pillow, and Chromium as
+`tools/export_drawio.js` says):
+
+1. **A drawing edited, or written by a script:** it is in the editor's form (saved
+   from draw.io it is; a script's file: `python3 tools/drawio_format.py <file>`).
+2. `python3 tools/check_drawio.py diagrams/*/*.drawio`: conventions, and the form.
+3. `python3 tools/drawio_baseline.py compare baselines/2026-10-05`: only the
+   drawings edited may differ, and each says how. The baseline itself is history:
+   it is never edited; a new baseline is a new dated folder, made only when
+   asked for.
+4. `NODE_PATH=$(npm root -g) node tools/export_drawio.js to-ubl-repo diagrams/*/*.drawio`
+   and `python3 tools/check_svg.py to-ubl-repo`: every figure `ok`. The export goes
+   in the same commit as the drawing (the check fails on a stale one), and
+   nothing in `to-ubl-repo/` is edited by hand.
+5. `python3 tools/drawio_upgrade.py --check`: the pin is the newest tag, or it
+   says so. Do this at the start of a session and before anything goes to the UBL
+   repository. A newer tag: `python3 tools/drawio_upgrade.py` (exports and renders
+   with both, ends in `SAFE` or `REVIEW`), then `python3 tools/drawio_upgrade.py --editor`
+   (the live editor opens and saves every drawing; needs the proxy's CA in the
+   browser's trust store, above). `SAFE` twice: change `version` in
+   `tools/drawio-version.json`, export all again (step 4), and expect only the
+   version in each SVG's comment to change. `REVIEW`: look at the diff images, and
+   do not move the pin until what differs is understood.
+6. A pin move is a pull request of its own, with the report's numbers in it, and
+   the README's account ("Tried ...") brought up to date. The live editor can be
+   ahead of every tag: that is said by `--check`, and is not a reason to wait.
+
+## How we got here: `history/`
+
+The drawings are the end of a path, kept whole in `history/`: the repository
+as it was before the switch, which still runs from there, and the edits made
+since:
+
+1. **The original PNGs** - `art/` in the [UBL repository](https://github.com/oasis-tcs/ubl),
+   branch `ubl-2.5` (not copied here).
+2. **Ken Holman's SVGs** - `history/svg-images/`: the first conversion, by hand.
+3. **The reading: PNG to JSON** - `history/tools/` reads each PNG into three JSONs
+   (`history/diagrams/<figure>/`: the model, its layout, the reading's
+   measurements), with every decision taken with the TC recorded
+   (`history/tools/model-corrections.json`, `direction-verdicts.json`,
+   `artwork-faults.json`) and written up in `history/docs/`. The baselines of the
+   reading are in `history/baselines/`.
+4. **JSON to SVG** - `history/diagrams/<figure>/<figure>.svg`, drawn by
+   `history/tools/draw-from-json.sh`; the comparison decks in
+   `history/comparison-pdf/`.
+5. **JSON to draw.io** - `history/drawio-writer/`: the writer that drew the
+   drawings in `diagrams/` from the JSONs, with its README (every element, the
+   draw.io construct chosen for it, what differs from the SVG and why, and the
+   decisions taken) and its comparison against the SVGs (`sweep.md`).
+6. **draw.io as the source** - `diagrams/` (2026-09-29). The changes made to
+   all 78 drawings since (12 pt text, one arrowhead, the 3x arrow rule), and the
+   comparison of the drawings with the original PNGs, are scripts in
+   `history/drawio-edits/`, with a README saying which commit each made.
+7. **The illustrations** - `history/illustrations/` (2026-09-30): the four
+   Fulfilment figures, from Tim McGrath's deck (linked there, not kept) and
+   fitted to the UBL PNGs; their pictures (`illustrations/parts/`) and drawings,
+   and how to make them again.
+8. **The CPFR step illustrations** - `history/illustrations/cpfr/` (2026-10-05):
+   the three CPFR step figures, their clip art redrawn (the originals are lost),
+   drawn from the UBL PNGs.
+
+`history/README.md` is the repository's former README, describing steps 1-4.
+
+## Open work
+
+- **The other 12 figures** of the UBL repository (see "Only the 78 and the 7
+  illustrations" above).
+- **The CPFR step figures:** what is still open on them is in
+  `history/illustrations/cpfr/README.md` ("Open work").
+
