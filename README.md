@@ -376,12 +376,12 @@ in 35 figures, and the reason is draw.io's, not the drawings': zoomed, 31.5.3
 rounds an edge label's place along its flow, and the corners of an orthogonal
 flow, to whole device pixels, 32.0.2 to whole model pixels (its `getPoint`
 and `mxEdgeStyle` now `unscale`), so a label sits up to 3 px apart and a line
-a fraction of a pixel. At scale 1, as the export draws, they agree. To move the
-pin and have `drawio_baseline.py compare` stay quiet, the baseline's renders
-must be made again in the scale-1 mode (a pixel's difference in where thin
-lines fall: about 15 % of the ink, no change of the drawing), and `render()` in
-`drawio_baseline.py` made to use it: not done yet. 32.1.0 has no tag, so it is
-not tried.
+a fraction of a pixel. At scale 1, as the export draws, they agree. So
+`drawio_baseline.py compare` now draws both drawings at scale 1 too, itself,
+and the baseline stays as it is: its stored renders (`renders/`) are history and
+are not remade, which only means that for a drawing that differs, the note
+"renderer changed" appears (the stored render was drawn the old way). The
+export is unchanged. 32.1.0 has no tag, so it is not tried.
 
 ## How we got here: `history/`
 
