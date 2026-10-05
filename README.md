@@ -3,17 +3,19 @@
 Editable sources for the artwork of the UBL specification: the **78 UML activity
 diagrams** of UBL 2.5 (of its 97 figures), **7 illustrations** (the
 4 Fulfilment figures: shipments and consignments; the 3 CPFR step figures), and
-**4 figures of other notations** (2 BPMN-style drawings, 2 phase maps, the TC's own files: `history/group-a/`),
-as **draw.io drawings**: 89 of the 97. UBL
+**4 figures of other notations** (2 BPMN-style drawings, 2 phase maps, the TC's own files: `history/group-a/`)
+and **3 phase and overview figures** drawn from the UBL PNGs (`history/group-b/`),
+as **draw.io drawings**: 92 of the 97. UBL
 publishes these figures as PNG and most of their original sources are lost; these
 drawings replace them as the figures' source.
 
 ## The source of truth: the draw.io drawings
 
 ```
-diagrams/<figure>/<figure>.drawio        89 figures, e.g. diagrams/UBL-2.5-BillingwithDebitNoteProcess/
+diagrams/<figure>/<figure>.drawio        92 figures, e.g. diagrams/UBL-2.5-BillingwithDebitNoteProcess/
                                          (78 diagrams, 7 illustrations: UBL-2.2-Fulfilment-1simple ...,
-                                         and 4 of BPMN or phase maps: UBL-2.3-OrderingProcess ...)
+                                         4 of BPMN or phase maps: UBL-2.3-OrderingProcess ...,
+                                         and 3 phase or overview figures: UBL-2.2-Open-edi-Overview ...)
 illustrations/parts/*.svg                the pictures the illustrations are made of, to edit
 tools/embed_parts.py                     puts an edited picture into the illustrations
 tools/ubl-library.xml                    the UBL shapes, as a draw.io library, for editing
@@ -293,12 +295,13 @@ publishes its artwork (its README, "Artwork"; `build.xml`; `realta-user-paramete
   `UBL 2.3-ImportDeclaration-Process.drawio`, `UBL 2.3-Transit Declaration Process.drawio`).
   The UBL repository's history keeps them; the commit message names each. The
   7 illustrations have no source there: the commit adds theirs.
-- **The 78, the 7 illustrations and (2026-10-05) the 4 of Group A:** the other 8
+- **The 78, the 7 illustrations, the 4 of Group A and (2026-10-05) the 3 of Group B:** the other 5
   figures of the UBL repository are left as they are, for later sessions
   (`history/remaining-figures.md`). One is no longer used
-  (`UBL-2.0-BillingwithCreditNoteProcess`); 7 have no source, and are not
-  activity diagrams (IMFM Generic Intermodal Freight Process, Open-edi Application and
-  Overview, Default Validation, Schema Dependencies, UDT-QDT, Model Realization).
+  (`UBL-2.0-BillingwithCreditNoteProcess`); 4 have no source, and are not
+  activity diagrams (Default Validation, Schema Dependencies, UDT-QDT, Model Realization).
+  The 3 of Group B (IMFM Generic Intermodal Freight Process, Open-edi Overview and
+  Application) had no source either: they are drawn from the UBL repository's PNGs.
   The 4 of Group A had a source in `images/` (`UBL-2.3-Pre-awardProcess`,
   `UBL-2.3-ProcurementProcess`, `UBL-2.4-BusinessInformation`: `.drawio`;
   `UBL-2.3-OrderingProcess`: `.svg`, from bpmn.io): the commit replaces those too.
@@ -357,7 +360,7 @@ API is not needed), and the live version of app.diagrams.net, the editor people
 use, which can be ahead of every tag. Exit 1: a newer release can be pinned.
 
 `python3 tools/drawio_upgrade.py [--to <version>] [--out <dir>]` then exports
-all 89 drawings with the pin and with the candidate and compares, per figure,
+all 92 drawings with the pin and with the candidate and compares, per figure,
 the SVG (but for the version in its comment), both PNGs and the viewer render
 at the baseline's canvas, pixel for pixel; where pixels differ it writes a
 red/blue image. It ends in `VERDICT: SAFE` (nothing changed, exit 0) or
@@ -489,13 +492,16 @@ since:
 9. **Four figures of other notations** - `history/group-a/` (2026-10-05): Ordering and
    Business Information (BPMN), Pre-award and Procurement (phase maps): the TC's own
    sources from the UBL repository, adopted as they are; and `history/remaining-figures.md`: the 8 still to do.
+10. **Three phase and overview figures** - `history/group-b/` (2026-10-05): the IMFM Generic
+    Intermodal Freight Process and the two Open-edi figures, drawn from the UBL repository's
+    PNGs (no source exists); `history/remaining-figures.md`: the 5 still to do.
 
 `history/README.md` is the repository's former README, describing steps 1-4.
 
 ## Open work
 
-- **The other 8 figures** of the UBL repository: 3 phase and overview figures
-  (Group B), 4 reference figures (Group C), and one that is no longer used;
+- **The other 5 figures** of the UBL repository: 4 reference figures (Group C), and one that is
+  no longer used (Group B is done: `history/group-b/`);
   what they are and how to go about them is in `history/remaining-figures.md`.
 - **Official BPMN 2.0 files for the BPMN figures** (Ordering, Business Information): the editor
   requires them as the sources of BPMN diagrams; what is needed, and the decisions it takes, is in

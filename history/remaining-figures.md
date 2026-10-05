@@ -6,14 +6,15 @@ export" first: the same rules (draw.io as the source, an SVG that is real vector
 white print PNGs, one text size) apply, and `history/group-a/README.md` is the worked example
 of a figure that is not a UML activity diagram.
 
-**State:** 89 of the UBL repository's 97 figures are drawings in `diagrams/` (78 UML activity
-diagrams, 7 illustrations, 4 of Group A: the TC's own sources, as they are). **8 are left**, in two groups, and 1 that is no longer used.
+**State:** 92 of the UBL repository's 97 figures are drawings in `diagrams/` (78 UML activity
+diagrams, 7 illustrations, 4 of Group A: the TC's own sources, as they are; 3 of Group B, done
+2026-10-05: `history/group-b/`). **5 are left**: Group C, and 1 that is no longer used.
 
 How the figures were found: the 97 files of `history/svg-images/` (Ken Holman's conversion) against
 `diagrams/`; the PNGs are in the UBL repository's `art/` (clone `ubl-2.5`, see `history/docs/running.md`),
 and `UBL.xml` there says which figures the specification uses. Sizes below are the PNGs'.
 
-## Group B: phase and overview figures (3 figures, one session)
+## Group B: phase and overview figures (3 figures, one session) - DONE 2026-10-05, `history/group-b/README.md`
 
 | figure | PNG | what it is | source |
 |---|---|---|---|
@@ -21,15 +22,22 @@ and `UBL.xml` there says which figures the specification uses. Sizes below are t
 | `UBL-2.2-Open-edi-Overview` | 3425x2667, RGB | Open-edi's overview: boxes, arrows and text (ISO/IEC 14662); likely coloured | none; `history/svg-images/` has the PNG in an SVG |
 | `UBL-2.2-Open-edi-Application` | 3425x3184, RGB | the Open-edi application figure; the biggest | none; the same |
 
-**Approach:** no source exists, so these are drawn from the PNG (for Group A the TC's own
-sources existed and were adopted unchanged). Read the PNG (the measuring
+**Approach:** no source exists, so these are drawn from the PNG (for Group A
+the TC's own sources existed and were adopted unchanged). **The basis is always the PNG of the
+UBL repository's `art/`** (`ubl-2.5`, `3d81e8a`), never Ken Holman's `history/svg-images/`: his
+two Open-edi SVGs only wrap that very PNG (checked byte for byte, 2026-10-05), and his IMFM SVG is
+a hand-made copy that is **not** the figure (it has 3 captions where the PNG has 7 lines, and
+the chevrons differ). Read the PNG (the measuring
 tools of `history/tools/` and `history/illustrations/` help: `extract.py`, `fit.py`), draw
 with draw.io's shapes at a scale where the text is 12 px (the Group A rule: the PNG's text
 height in pixels over 12 is the scale), compare with `history/group-a/compare_png.py`.
-Open-edi is probably coloured: **ask the TC** whether the print PNG may be greyscale (the
-illustrations' are) or must stay black and white, and what the colours mean (if they carry a
-meaning, grey and a legend; if they do not, white). The three are one session because
-they are all boxes, chevrons and plain arrows.
+
+**Colour (checked 2026-10-05): there is none.** IMFM's PNG is 8 bit greyscale; the two
+Open-edi PNGs are stored as RGB but every pixel is a pure grey (largest difference from its
+greyscale value: 0), and the only tones are black, white and the grey of antialiased edges. So
+nothing carries a meaning and nothing is asked of the TC: the drawings are black and white, as
+the 78 are, with 1 bit print PNGs. The three are one session because they are all boxes,
+chevrons and plain arrows.
 
 ## Group C: reference figures (4 figures, one or two sessions)
 
