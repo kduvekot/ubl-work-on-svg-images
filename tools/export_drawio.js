@@ -10,7 +10,11 @@
 // repository), per figure: its natural size, the scale it is fitted to the
 // page at, and the size its text prints at.
 //
-//   node tools/export_drawio.js [--report <file.json>] <out dir> <figure.drawio> ...
+//   node tools/export_drawio.js [--report <file.json>] <out dir> <figure.drawio | figure.svg> ...
+//
+// A figure whose source is an SVG (UBL-2.3-OrderingProcess: bpmn-js, the BPMN 2.0 XML it was made from
+// is lost) is not drawn again: images/<figure>.svg is the SVG as it is, byte for byte, and the PNGs are
+// rendered from it, at the page's width as for the others (history/group-a/README.md).
 //
 // Needs Node with playwright (a global install is found through NODE_PATH, see
 // tools/drawio_baseline.py) and the Chromium of this environment (CHROMIUM_PATH).
@@ -419,15 +423,25 @@ async function png(browser, svgText, pxW, pxH, dpi, bits, out) {
   const report = reportFile && fs.existsSync(reportFile) ? JSON.parse(fs.readFileSync(reportFile, 'utf8')) : {};
 
   for (const file of files) {
-    const name = path.basename(file, '.drawio');
-    const r = await draw.evaluate(toSvg, [fs.readFileSync(file, 'utf8'), name, FONT, version]);
-    fs.copyFileSync(file, path.join(outDir, 'images', name + '.drawio'));
-    fs.writeFileSync(path.join(outDir, 'images', name + '.svg'), r.svg);
+    const name = path.basename(file).replace(/\.(drawio|svg)$/, '');
+    let r;
+    if (file.endsWith('.svg')) {
+      const text = fs.readFileSync(file, 'utf8');
+      const W = +text.match(/<svg[^>]*\swidth="([\d.]+)"/)[1], H = +text.match(/<svg[^>]*\sheight="([\d.]+)"/)[1];
+      r = { svg: text, width: W, height: H, scale: Math.min(1, PAGE_PX / W), illustration: false, labels: 0, lines: 0 };
+      fs.copyFileSync(file, path.join(outDir, 'images', name + '.svg'));
+    } else {
+      r = await draw.evaluate(toSvg, [fs.readFileSync(file, 'utf8'), name, FONT, version]);
+      fs.copyFileSync(file, path.join(outDir, 'images', name + '.drawio'));
+      fs.writeFileSync(path.join(outDir, 'images', name + '.svg'), r.svg);
+    }
     const artW = Math.round(r.width * r.scale * ART_DPI / 96);   // 3425 at the page's width
     const htmlW = Math.round(artW * HTML_MAX / ART_MAX);          // 750 at the page's width
     const tall = w => Math.round(w * r.height / r.width);
     // print: black and white, as line art is printed; an illustration's pictures, in grey
-    await png(browser, r.svg, artW, tall(artW), ART_DPI, r.illustration ? 8 : 1, path.join(outDir, 'art', name + '.png'));
+    // (a figure whose drawing says ubl-art="grey", as an illustration, has greyscale print: its grey is meant)
+    const grey = r.illustration || (!file.endsWith('.svg') && /ubl-art="grey"/.test(fs.readFileSync(file, 'utf8')));
+    await png(browser, r.svg, artW, tall(artW), ART_DPI, grey ? 8 : 1, path.join(outDir, 'art', name + '.png'));
     await png(browser, r.svg, htmlW, tall(htmlW), 96, 8, path.join(outDir, 'htmlart', name + '.png'));
     const textPt = Math.round(12 * r.scale * 72 / 96 * 10) / 10;   // the drawings' one text size (12 px)
     report[name] = { width: r.width, height: r.height, scale: Math.round(r.scale * 1000) / 1000,
