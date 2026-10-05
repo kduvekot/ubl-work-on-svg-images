@@ -28,7 +28,8 @@ parties it passes between (ubl-between), an arrow shorter than 3 times its
 head (the stretch after its last bend).
 
 A figure of another notation (a BPMN drawing, a phase map: history/group-a, marked by ubl-notation on
-one element) is checked for ids, kinds and attached flows only: it has no pool of lanes.
+one element) is checked for ids, kinds and attached flows only: it has no pool of lanes. A drawing of the TC's own, adopted as it is (history/group-a), has no
+kinds at all: said as a warning, not a finding.
 
 An illustration (its frame of ubl-kind "illustration": the Fulfilment figures,
 history/illustrations) is not a UML diagram and holds no model: it is not
@@ -277,8 +278,6 @@ def other_notation(cells):
     for i, c in cells.items():
         if i in ("0", "1"):
             continue
-        if not c["kind"] and not (c["style"].find("part=1") >= 0):
-            out.append("%s: no ubl-kind (Edit Data)" % i)
         if c["kind"] in ("flow", "message-flow"):
             for end in ("source", "target"):
                 if not c[end] or c[end] not in cells:
@@ -318,6 +317,8 @@ def main(argv):
             cells, order = read(path)
             if notation(path):
                 found, warned = other_notation(cells), []
+                if not any(x["kind"] for x in cells.values()):
+                    warned = ["the TC's own drawing, as it is: its elements have no ubl-kind (the model is not in it)"]
             else:
                 found = conventions(cells)
                 warned = warnings(cells)

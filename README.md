@@ -3,7 +3,7 @@
 Editable sources for the artwork of the UBL specification: the **78 UML activity
 diagrams** of UBL 2.5 (of its 97 figures), **7 illustrations** (the
 4 Fulfilment figures: shipments and consignments; the 3 CPFR step figures), and
-**4 figures of other notations** (2 BPMN collaborations, 2 phase maps: `history/group-a/`),
+**4 figures of other notations** (2 BPMN-style drawings, 2 phase maps, the TC's own files: `history/group-a/`),
 as **draw.io drawings**: 89 of the 97. UBL
 publishes these figures as PNG and most of their original sources are lost; these
 drawings replace them as the figures' source.
@@ -34,9 +34,11 @@ diagrams.net) and saving it back. Nothing is generated over these files any more
 The rest of this section is about the 78 diagrams; the 7 illustrations are
 pictures, not diagrams, and have sections of their own (below), and so have the
 4 figures of other notations (BPMN: Ordering, Business Information; phase maps:
-Pre-award, Procurement), which have no pool of lanes: `history/group-a/README.md`
-says how they were made and what was decided; `tools/check_drawio.py` checks them
-for ids, kinds and attached flows (they carry `ubl-notation`).
+Pre-award, Procurement), which have no pool of lanes, are **the TC's own files, adopted
+as they are** (Ordering is the bpmn-js SVG, kept as it is: it has no drawing);
+`history/group-a/README.md` says how and what was decided, and that real BPMN 2.0 files
+for the BPMN figures are a future session. `tools/check_drawio.py` checks them for
+the form and what it can without kinds (they carry `ubl-notation`).
 
 Each drawing is built from draw.io's own parts:
 
@@ -485,8 +487,8 @@ since:
    the three CPFR step figures, their clip art redrawn (the originals are lost),
    drawn from the UBL PNGs.
 9. **Four figures of other notations** - `history/group-a/` (2026-10-05): Ordering and
-   Business Information (BPMN), Pre-award and Procurement (phase maps), from the
-   sources the UBL repository has; and `history/remaining-figures.md`: the 8 still to do.
+   Business Information (BPMN), Pre-award and Procurement (phase maps): the TC's own
+   sources from the UBL repository, adopted as they are; and `history/remaining-figures.md`: the 8 still to do.
 
 `history/README.md` is the repository's former README, describing steps 1-4.
 
@@ -495,6 +497,9 @@ since:
 - **The other 8 figures** of the UBL repository: 3 phase and overview figures
   (Group B), 4 reference figures (Group C), and one that is no longer used;
   what they are and how to go about them is in `history/remaining-figures.md`.
+- **Official BPMN 2.0 files for the BPMN figures** (Ordering, Business Information): the editor
+  requires them as the sources of BPMN diagrams; what is needed, and the decisions it takes, is in
+  `history/group-a/README.md` ("Future session").
 - **The BPMN 2.0 XML of the Ordering Process** (`UBL-2.3-OrderingProcess.bpmn`, attached to
   the `ubl` list's mail of 2019-05-07, UBL-171): not reachable from a script;
   with it the drawing could be made from the model, not from the SVG

@@ -1,0 +1,340 @@
+<mxfile host="UBL-TC" agent="UBL artwork, Group A (history/group-a/build_preaward.py)">
+  <diagram id="UBL-2.3-Pre-awardProcess" name="UBL-2.3-Pre-awardProcess">
+    <mxGraphModel grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1028" pageHeight="719" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <object label="" ubl-kind="frame" ubl-notation="phase-map" id="frame">
+          <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeWidth=2;" vertex="1">
+            <mxGeometry height="719" width="1028" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="Pre-award Process" ubl-kind="title" id="title">
+          <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;gradientColor=none;strokeWidth=2;fontSize=18;" vertex="1">
+            <mxGeometry height="33" width="872" x="132" y="14" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="Contracting&lt;br&gt;Authority" ubl-kind="party" ubl-party="Contracting Authority" id="party-authority">
+          <mxCell parent="1" style="shape=umlActor;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;html=1;outlineConnect=0;fillColor=none;gradientColor=none;strokeWidth=2;fontSize=18;" vertex="1">
+            <mxGeometry height="65" width="31" x="51" y="142" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="Publication&lt;br&gt;Body" ubl-kind="party" ubl-party="Publication Body" id="party-publisher">
+          <mxCell parent="1" style="shape=umlActor;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;html=1;outlineConnect=0;fillColor=none;gradientColor=none;strokeWidth=2;fontSize=18;" vertex="1">
+            <mxGeometry height="65" width="31" x="50" y="341" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="Economic&lt;br&gt;Operator" ubl-kind="party" ubl-party="Economic Operator" id="party-operator">
+          <mxCell parent="1" style="shape=umlActor;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;html=1;outlineConnect=0;fillColor=none;gradientColor=none;strokeWidth=2;fontSize=18;" vertex="1">
+            <mxGeometry height="65" width="31" x="46" y="522" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="Prepare" ubl-kind="step" ubl-party="Contracting Authority" id="step-prepare">
+          <mxCell parent="1" style="shape=singleArrow;arrowWidth=1;arrowSize=0.08;whiteSpace=wrap;html=1;fillColor=#ffffff;align=left;spacingLeft=18;verticalAlign=middle;strokeWidth=2;fontSize=21;" vertex="1">
+            <mxGeometry height="82" width="188" x="130" y="134" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="Notify" ubl-kind="step" ubl-party="Contracting Authority" id="step-notify">
+          <mxCell parent="1" style="shape=step;perimeter=stepPerimeter;whiteSpace=wrap;html=1;fixedSize=1;size=15;fillColor=#ffffff;gradientColor=none;align=left;spacingLeft=18;strokeWidth=2;fontSize=21;" vertex="1">
+            <mxGeometry height="82" width="216" x="277" y="134" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="Receive" ubl-kind="step" ubl-party="Contracting Authority" id="step-receive">
+          <mxCell parent="1" style="shape=step;perimeter=stepPerimeter;whiteSpace=wrap;html=1;fixedSize=1;size=15;fillColor=#ffffff;gradientColor=none;align=left;spacingLeft=18;strokeWidth=2;fontSize=21;" vertex="1">
+            <mxGeometry height="82" width="153" x="419" y="134" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="Evaluate" ubl-kind="step" ubl-party="Contracting Authority" id="step-evaluate">
+          <mxCell parent="1" style="shape=step;perimeter=stepPerimeter;whiteSpace=wrap;html=1;fixedSize=1;size=15;fillColor=#ffffff;gradientColor=none;align=left;spacingLeft=18;strokeWidth=2;fontSize=21;" vertex="1">
+            <mxGeometry height="82" width="197" x="530" y="134" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="Award" ubl-kind="step" ubl-party="Contracting Authority" id="step-award">
+          <mxCell parent="1" style="shape=step;perimeter=stepPerimeter;whiteSpace=wrap;html=1;fixedSize=1;size=15;fillColor=#ffffff;gradientColor=none;align=left;spacingLeft=18;strokeWidth=2;fontSize=21;" vertex="1">
+            <mxGeometry height="82" width="176" x="695" y="134" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="Contract" ubl-kind="step" ubl-party="Contracting Authority" id="step-contract">
+          <mxCell parent="1" style="shape=step;perimeter=stepPerimeter;whiteSpace=wrap;html=1;fixedSize=1;size=15;fillColor=#ffffff;gradientColor=none;align=left;spacingLeft=18;strokeWidth=2;fontSize=21;" vertex="1">
+            <mxGeometry height="82" width="176" x="840" y="134" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="Publish Notices" ubl-kind="step" ubl-party="Publication Body" id="step-publish-notices">
+          <mxCell parent="1" style="shape=singleArrow;arrowWidth=1;arrowSize=0.175;whiteSpace=wrap;html=1;fillColor=#ffffff;align=left;spacingLeft=18;verticalAlign=middle;strokeWidth=2;fontSize=21;" vertex="1">
+            <mxGeometry height="82" width="283" x="130" y="332" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="Publish Notice" ubl-kind="step" ubl-party="Publication Body" id="step-publish-notice">
+          <mxCell parent="1" style="shape=singleArrow;arrowWidth=1;arrowSize=0.276;whiteSpace=wrap;html=1;fillColor=#ffffff;align=left;spacingLeft=18;verticalAlign=middle;strokeWidth=2;fontSize=21;" vertex="1">
+            <mxGeometry height="82" width="179" x="828" y="332" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="Register" ubl-kind="step" ubl-party="Economic Operator" id="step-register">
+          <mxCell parent="1" style="shape=singleArrow;arrowWidth=1;arrowSize=0.107;whiteSpace=wrap;html=1;fillColor=#ffffff;align=left;spacingLeft=18;verticalAlign=middle;strokeWidth=2;fontSize=21;" vertex="1">
+            <mxGeometry height="82" width="140" x="130" y="506" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="Receive&lt;br&gt;Call for&lt;br&gt;Tenders" ubl-kind="step" ubl-party="Economic Operator" id="step-receive-call-for-tenders">
+          <mxCell parent="1" style="shape=step;perimeter=stepPerimeter;whiteSpace=wrap;html=1;fixedSize=1;size=15;fillColor=#ffffff;gradientColor=none;align=left;spacingLeft=18;strokeWidth=2;fontSize=21;" vertex="1">
+            <mxGeometry height="82" width="151" x="238" y="506" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="Create&lt;br&gt;Tender" ubl-kind="step" ubl-party="Economic Operator" id="step-create-tender">
+          <mxCell parent="1" style="shape=step;perimeter=stepPerimeter;whiteSpace=wrap;html=1;fixedSize=1;size=15;fillColor=#ffffff;gradientColor=none;align=left;spacingLeft=18;strokeWidth=2;fontSize=21;" vertex="1">
+            <mxGeometry height="82" width="132" x="352" y="506" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="Submit&lt;br&gt;Tender" ubl-kind="step" ubl-party="Economic Operator" id="step-submit-tender">
+          <mxCell parent="1" style="shape=step;perimeter=stepPerimeter;whiteSpace=wrap;html=1;fixedSize=1;size=15;fillColor=#ffffff;gradientColor=none;align=left;spacingLeft=18;strokeWidth=2;fontSize=21;" vertex="1">
+            <mxGeometry height="82" width="152" x="448" y="506" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="Contract" ubl-kind="step" ubl-party="Economic Operator" id="step-operator-contract">
+          <mxCell parent="1" style="shape=singleArrow;arrowWidth=1;arrowSize=0.276;whiteSpace=wrap;html=1;fillColor=#ffffff;align=left;spacingLeft=18;verticalAlign=middle;strokeWidth=2;fontSize=21;" vertex="1">
+            <mxGeometry height="82" width="179" x="827" y="509" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="Tender Status&lt;br&gt;Unsubscribe from Procedure Response&lt;br&gt;Enquiry&lt;br&gt;Enquiry Response" ubl-kind="documents" ubl-steps="[&quot;step-prepare&quot;]" ubl-placement="above" ubl-documents="[&quot;Tender Status&quot;, &quot;Unsubscribe from Procedure Response&quot;, &quot;Enquiry&quot;, &quot;Enquiry Response&quot;]" id="d-authority-prepare-above">
+          <mxCell parent="1" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=0;spacing=0;spacingLeft=2;" vertex="1">
+            <mxGeometry height="52" width="213" x="146" y="74" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="" ubl-kind="bracket" ubl-for="d-authority-prepare-above" id="d-authority-prepare-above-line">
+          <mxCell edge="1" parent="1" style="endArrow=none;dashed=1;html=1;strokeWidth=2;">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points">
+                <mxPoint x="140" y="70" />
+              </Array>
+              <mxPoint x="236" y="70" as="sourcePoint" />
+              <mxPoint x="140" y="130" as="targetPoint" />
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object label="Prior Information Notice" ubl-kind="documents" ubl-steps="[&quot;step-prepare&quot;]" ubl-placement="below" ubl-documents="[&quot;Prior Information Notice&quot;]" id="d-authority-prepare">
+          <mxCell parent="1" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=0;spacing=0;spacingLeft=2;" vertex="1">
+            <mxGeometry height="16" width="129" x="141" y="220" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="" ubl-kind="bracket" ubl-for="d-authority-prepare" id="d-authority-prepare-line">
+          <mxCell edge="1" parent="1" style="endArrow=none;dashed=1;html=1;strokeWidth=2;">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points">
+                <mxPoint x="135" y="255" />
+              </Array>
+              <mxPoint x="238" y="255" as="sourcePoint" />
+              <mxPoint x="135" y="216" as="targetPoint" />
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object label="Contract Notice&lt;br&gt;Call for Tenders&lt;br&gt;Expression of Interest&lt;br&gt;  Response&lt;br&gt;Qualification Application&lt;br&gt;  Request" ubl-kind="documents" ubl-steps="[&quot;step-notify&quot;]" ubl-placement="below" ubl-documents="[&quot;Contract Notice&quot;, &quot;Call for Tenders&quot;, &quot;Expression of Interest Response&quot;, &quot;Qualification Application Request&quot;]" id="d-authority-notify">
+          <mxCell parent="1" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=0;spacing=0;spacingLeft=2;" vertex="1">
+            <mxGeometry height="112" width="130" x="285" y="207" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="" ubl-kind="bracket" ubl-for="d-authority-notify" id="d-authority-notify-line">
+          <mxCell edge="1" parent="1" style="endArrow=none;dashed=1;html=1;strokeWidth=2;">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points">
+                <mxPoint x="277" y="320" />
+              </Array>
+              <mxPoint x="380" y="320" as="sourcePoint" />
+              <mxPoint x="277" y="216" as="targetPoint" />
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object label="Tender Receipt" ubl-kind="documents" ubl-steps="[&quot;step-receive&quot;]" ubl-placement="below" ubl-documents="[&quot;Tender Receipt&quot;]" id="d-authority-receive">
+          <mxCell parent="1" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=0;spacing=0;spacingLeft=2;" vertex="1">
+            <mxGeometry height="16" width="84" x="435" y="223" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="" ubl-kind="bracket" ubl-for="d-authority-receive" id="d-authority-receive-line">
+          <mxCell edge="1" parent="1" style="endArrow=none;dashed=1;html=1;strokeWidth=2;">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points">
+                <mxPoint x="428" y="254" />
+              </Array>
+              <mxPoint x="530" y="254" as="sourcePoint" />
+              <mxPoint x="428" y="216" as="targetPoint" />
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object label="Tenderer Qualification&lt;br&gt;  Response" ubl-kind="documents" ubl-steps="[&quot;step-evaluate&quot;]" ubl-placement="below" ubl-documents="[&quot;Tenderer Qualification Response&quot;]" id="d-authority-evaluate">
+          <mxCell parent="1" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=0;spacing=0;spacingLeft=2;" vertex="1">
+            <mxGeometry height="54" width="120" x="550" y="209" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="" ubl-kind="bracket" ubl-for="d-authority-evaluate" id="d-authority-evaluate-line">
+          <mxCell edge="1" parent="1" style="endArrow=none;dashed=1;html=1;strokeWidth=2;">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points">
+                <mxPoint x="544" y="266" />
+              </Array>
+              <mxPoint x="647" y="266" as="sourcePoint" />
+              <mxPoint x="544" y="216" as="targetPoint" />
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object label="Contract Award Notice&lt;br&gt;Awarded Notification&lt;br&gt;Unawarded Notification" ubl-kind="documents" ubl-steps="[&quot;step-award&quot;]" ubl-placement="below" ubl-documents="[&quot;Contract Award Notice&quot;, &quot;Awarded Notification&quot;, &quot;Unawarded Notification&quot;]" id="d-authority-award">
+          <mxCell parent="1" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=0;spacing=0;spacingLeft=2;" vertex="1">
+            <mxGeometry height="68" width="127" x="710" y="209" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="" ubl-kind="bracket" ubl-for="d-authority-award" id="d-authority-award-line">
+          <mxCell edge="1" parent="1" style="endArrow=none;dashed=1;html=1;strokeWidth=2;">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points">
+                <mxPoint x="705" y="288" />
+              </Array>
+              <mxPoint x="808" y="288" as="sourcePoint" />
+              <mxPoint x="705" y="216" as="targetPoint" />
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object label="Tender Contract" ubl-kind="documents" ubl-steps="[&quot;step-contract&quot;]" ubl-placement="below" ubl-documents="[&quot;Tender Contract&quot;]" id="d-authority-contract">
+          <mxCell parent="1" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=0;spacing=0;spacingLeft=2;" vertex="1">
+            <mxGeometry height="16" width="88" x="871" y="220" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="" ubl-kind="bracket" ubl-for="d-authority-contract" id="d-authority-contract-line">
+          <mxCell edge="1" parent="1" style="endArrow=none;dashed=1;html=1;strokeWidth=2;">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points">
+                <mxPoint x="867" y="251" />
+              </Array>
+              <mxPoint x="970" y="251" as="sourcePoint" />
+              <mxPoint x="867" y="216" as="targetPoint" />
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object label="Prior Information Notice&lt;br&gt;Contract  Notice" ubl-kind="documents" ubl-steps="[&quot;step-publish-notices&quot;]" ubl-placement="below" ubl-documents="[&quot;Prior Information Notice&quot;, &quot;Contract\u00a0 Notice&quot;]" id="d-publisher-publish-notices">
+          <mxCell parent="1" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=0;spacing=0;spacingLeft=2;" vertex="1">
+            <mxGeometry height="30" width="129" x="136" y="418" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="" ubl-kind="bracket" ubl-for="d-publisher-publish-notices" id="d-publisher-publish-notices-line">
+          <mxCell edge="1" parent="1" style="endArrow=none;dashed=1;html=1;strokeWidth=2;">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points">
+                <mxPoint x="130" y="454" />
+              </Array>
+              <mxPoint x="231" y="454" as="sourcePoint" />
+              <mxPoint x="130" y="413" as="targetPoint" />
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object label="Contract Award Notice" ubl-kind="documents" ubl-steps="[&quot;step-publish-notice&quot;]" ubl-placement="below" ubl-documents="[&quot;Contract Award Notice&quot;]" id="d-publisher-publish-notice">
+          <mxCell parent="1" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=0;spacing=0;spacingLeft=2;" vertex="1">
+            <mxGeometry height="16" width="122" x="843" y="420" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="" ubl-kind="bracket" ubl-for="d-publisher-publish-notice" id="d-publisher-publish-notice-line">
+          <mxCell edge="1" parent="1" style="endArrow=none;dashed=1;html=1;strokeWidth=2;">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points">
+                <mxPoint x="836" y="444" />
+              </Array>
+              <mxPoint x="938" y="444" as="sourcePoint" />
+              <mxPoint x="836" y="413" as="targetPoint" />
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object label="Expression of Interest  Request" ubl-kind="documents" ubl-steps="[&quot;step-register&quot;]" ubl-placement="above" ubl-documents="[&quot;Expression of Interest\u00a0 Request&quot;]" id="d-operator-register-above">
+          <mxCell parent="1" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=0;spacing=0;spacingLeft=2;" vertex="1">
+            <mxGeometry height="40" width="170" x="142" y="475" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="" ubl-kind="bracket" ubl-for="d-operator-register-above" id="d-operator-register-above-line">
+          <mxCell edge="1" parent="1" style="endArrow=none;dashed=1;html=1;strokeWidth=2;">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points">
+                <mxPoint x="135" y="483" />
+              </Array>
+              <mxPoint x="238" y="483" as="sourcePoint" />
+              <mxPoint x="135" y="506" as="targetPoint" />
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object label="Tender&lt;br&gt;Tenderer Qualification&lt;br&gt;Qualification Application&lt;br&gt;  Response" ubl-kind="documents" ubl-steps="[&quot;step-submit-tender&quot;]" ubl-placement="above" ubl-documents="[&quot;Tender&quot;, &quot;Tenderer Qualification&quot;, &quot;Qualification Application Response&quot;]" id="d-operator-submit-tender-above">
+          <mxCell parent="1" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=0;spacing=0;spacingLeft=2;" vertex="1">
+            <mxGeometry height="83" width="130" x="471" y="430" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="" ubl-kind="bracket" ubl-for="d-operator-submit-tender-above" id="d-operator-submit-tender-above-line">
+          <mxCell edge="1" parent="1" style="endArrow=none;dashed=1;html=1;strokeWidth=2;">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points">
+                <mxPoint x="461" y="432" />
+              </Array>
+              <mxPoint x="564" y="432" as="sourcePoint" />
+              <mxPoint x="461" y="506" as="targetPoint" />
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object label="Guarantee Certificate" ubl-kind="documents" ubl-steps="[&quot;step-operator-contract&quot;]" ubl-placement="above" ubl-documents="[&quot;Guarantee Certificate&quot;]" id="d-operator-contract-above">
+          <mxCell parent="1" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=0;spacing=0;spacingLeft=2;" vertex="1">
+            <mxGeometry height="16" width="117" x="838" y="486" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="" ubl-kind="bracket" ubl-for="d-operator-contract-above" id="d-operator-contract-above-line">
+          <mxCell edge="1" parent="1" style="endArrow=none;dashed=1;html=1;strokeWidth=2;">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points">
+                <mxPoint x="834" y="479" />
+              </Array>
+              <mxPoint x="937" y="479" as="sourcePoint" />
+              <mxPoint x="834" y="509" as="targetPoint" />
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object label="Tender Status Request&lt;br&gt;Unsubscribe From Procedure Request&lt;br&gt;Enquiry&lt;br&gt;Enquiry Response" ubl-kind="documents" ubl-steps="[&quot;step-register&quot;, &quot;step-receive-call-for-tenders&quot;]" ubl-placement="below" ubl-documents="[&quot;Tender Status Request&quot;, &quot;Unsubscribe From Procedure Request&quot;, &quot;Enquiry&quot;, &quot;Enquiry Response&quot;]" id="d-operator-register">
+          <mxCell parent="1" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=0;spacing=0;spacingLeft=2;" vertex="1">
+            <mxGeometry height="83" width="208" x="138" y="592" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="" ubl-kind="bracket" ubl-for="d-operator-register" id="d-operator-register-line">
+          <mxCell edge="1" parent="1" style="endArrow=none;dashed=1;html=1;strokeWidth=2;">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points">
+                <mxPoint x="135" y="665" />
+              </Array>
+              <mxPoint x="258" y="665" as="sourcePoint" />
+              <mxPoint x="135" y="588" as="targetPoint" />
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object label="Tender Withdrawal" ubl-kind="documents" ubl-steps="[&quot;step-submit-tender&quot;]" ubl-placement="below" ubl-documents="[&quot;Tender Withdrawal&quot;]" id="d-operator-submit-tender">
+          <mxCell parent="1" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=0;spacing=0;spacingLeft=2;" vertex="1">
+            <mxGeometry height="54" width="102" x="458" y="588" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="" ubl-kind="bracket" ubl-for="d-operator-submit-tender" id="d-operator-submit-tender-line">
+          <mxCell edge="1" parent="1" style="endArrow=none;dashed=1;html=1;strokeWidth=2;">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points">
+                <mxPoint x="456" y="621" />
+              </Array>
+              <mxPoint x="579" y="621" as="sourcePoint" />
+              <mxPoint x="456" y="588" as="targetPoint" />
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object label="Tender Contract" ubl-kind="documents" ubl-steps="[&quot;step-operator-contract&quot;]" ubl-placement="below" ubl-documents="[&quot;Tender Contract&quot;]" id="d-operator-contract">
+          <mxCell parent="1" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=0;spacing=0;spacingLeft=2;" vertex="1">
+            <mxGeometry height="16" width="88" x="841" y="596" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="" ubl-kind="bracket" ubl-for="d-operator-contract" id="d-operator-contract-line">
+          <mxCell edge="1" parent="1" style="endArrow=none;dashed=1;html=1;strokeWidth=2;">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points">
+                <mxPoint x="836" y="627" />
+              </Array>
+              <mxPoint x="939" y="627" as="sourcePoint" />
+              <mxPoint x="836" y="591" as="targetPoint" />
+            </mxGeometry>
+          </mxCell>
+        </object>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

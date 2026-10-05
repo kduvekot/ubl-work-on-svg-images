@@ -13,7 +13,7 @@ from lib import Fig, ROOT, drawio_format, q
 import os
 
 NAME = 'UBL-2.4-BusinessInformation'
-src = open(os.path.join(os.path.dirname(__file__), 'sources', NAME + '.drawio'), encoding='utf-8').read()
+src = open(os.path.join(os.path.dirname(__file__), '..', 'sources', NAME + '.drawio'), encoding='utf-8').read()
 data = re.search(r'<diagram[^>]*>(.*?)</diagram>', src, re.S).group(1)
 model = ET.fromstring(urllib.parse.unquote(zlib.decompress(base64.b64decode(data), -15).decode()))
 root = model.find('root')

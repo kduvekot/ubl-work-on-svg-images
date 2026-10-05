@@ -10,7 +10,11 @@
 // repository), per figure: its natural size, the scale it is fitted to the
 // page at, and the size its text prints at.
 //
-//   node tools/export_drawio.js [--report <file.json>] <out dir> <figure.drawio> ...
+//   node tools/export_drawio.js [--report <file.json>] <out dir> <figure.drawio | figure.svg> ...
+//
+// A figure whose source is an SVG (UBL-2.3-OrderingProcess: bpmn-js, the BPMN 2.0 XML it was made from
+// is lost) is not drawn again: images/<figure>.svg is the SVG as it is, byte for byte, and the PNGs are
+// rendered from it, at the page's width as for the others (history/group-a/README.md).
 //
 // Needs Node with playwright (a global install is found through NODE_PATH, see
 // tools/drawio_baseline.py) and the Chromium of this environment (CHROMIUM_PATH).
@@ -419,10 +423,18 @@ async function png(browser, svgText, pxW, pxH, dpi, bits, out) {
   const report = reportFile && fs.existsSync(reportFile) ? JSON.parse(fs.readFileSync(reportFile, 'utf8')) : {};
 
   for (const file of files) {
-    const name = path.basename(file, '.drawio');
-    const r = await draw.evaluate(toSvg, [fs.readFileSync(file, 'utf8'), name, FONT, version]);
-    fs.copyFileSync(file, path.join(outDir, 'images', name + '.drawio'));
-    fs.writeFileSync(path.join(outDir, 'images', name + '.svg'), r.svg);
+    const name = path.basename(file).replace(/\.(drawio|svg)$/, '');
+    let r;
+    if (file.endsWith('.svg')) {
+      const text = fs.readFileSync(file, 'utf8');
+      const W = +text.match(/<svg[^>]*\swidth="([\d.]+)"/)[1], H = +text.match(/<svg[^>]*\sheight="([\d.]+)"/)[1];
+      r = { svg: text, width: W, height: H, scale: Math.min(1, PAGE_PX / W), illustration: false, labels: 0, lines: 0 };
+      fs.copyFileSync(file, path.join(outDir, 'images', name + '.svg'));
+    } else {
+      r = await draw.evaluate(toSvg, [fs.readFileSync(file, 'utf8'), name, FONT, version]);
+      fs.copyFileSync(file, path.join(outDir, 'images', name + '.drawio'));
+      fs.writeFileSync(path.join(outDir, 'images', name + '.svg'), r.svg);
+    }
     const artW = Math.round(r.width * r.scale * ART_DPI / 96);   // 3425 at the page's width
     const htmlW = Math.round(artW * HTML_MAX / ART_MAX);          // 750 at the page's width
     const tall = w => Math.round(w * r.height / r.width);

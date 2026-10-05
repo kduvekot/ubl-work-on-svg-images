@@ -1,111 +1,141 @@
 # Group A: the four figures that had a source
 
-Done 2026-10-05. The four of the UBL repository's other 12 figures
-(`history/../remaining-figures.md`) that are not UML activity diagrams but already
-had a source in the UBL repository's `images/`: two BPMN collaborations, and two
-maps of phases. They are drawings in `diagrams/`, exported to `to-ubl-repo/` like
-the other 85: **89 figures now**.
+Done 2026-10-05. Four of the UBL repository's other 12 figures
+(`history/remaining-figures.md`) already had a source in its `images/`: **the TC's own
+files, which are the sources of the PNGs it publishes**. They are the figures' sources here
+too, at the place and under the name of the others, exported to `to-ubl-repo/` like the
+rest: **89 figures now**.
 
-| figure | notation | the source it came from | how the drawing was made |
+| figure | the TC's source | here | notation |
 |---|---|---|---|
-| `UBL-2.3-OrderingProcess` | BPMN: 2 pools, 14 tasks, 2 gateways, 7 events, 11 sequence flows, 6 message flows | `images/UBL-2.3-OrderingProcess.svg`, made with bpmn.io (bpmn-js), 2019 | **redrawn** from that SVG's elements and places, as draw.io's BPMN shapes: `build_ordering.py` |
-| `UBL-2.4-BusinessInformation` | BPMN: 3 pools, 8 tasks, events, message flows | `images/UBL-2.4-BusinessInformation.drawio`, draw.io 20.8.4, 2023 | **adopted**: the same drawing, uncompressed, in the editor's form, with ids and kinds: `adopt_businessinformation.py` |
-| `UBL-2.3-Pre-awardProcess` | phase map: 13 steps of 3 parties, 15 lists of documents | `images/UBL-2.3-Pre-awardProcess.drawio`, draw.io 13.0.3, 2020 | **rebuilt** from its places at 0.3 of its scale: `build_preaward.py` |
-| `UBL-2.3-ProcurementProcess` | phase map: 2 phases and a milestone | `images/UBL-2.3-ProcurementProcess.drawio`, draw.io 13.0.3, 2020 | **rebuilt** at 0.3 of its scale: `build_procurement.py` |
+| `UBL-2.3-Pre-awardProcess` | `images/UBL-2.3-Pre-awardProcess.drawio` (draw.io 13.0.3, 2020) | `diagrams/<figure>/<figure>.drawio` | phase map |
+| `UBL-2.3-ProcurementProcess` | `images/UBL-2.3-ProcurementProcess.drawio` (draw.io 13.0.3, 2020) | `diagrams/<figure>/<figure>.drawio` | phase map |
+| `UBL-2.4-BusinessInformation` | `images/UBL-2.4-BusinessInformation.drawio` (draw.io 20.8.4, 2023-02-06, Kees Duvekot) | `diagrams/<figure>/<figure>.drawio` | BPMN-style |
+| `UBL-2.3-OrderingProcess` | `images/UBL-2.3-OrderingProcess.svg` (bpmn.io / bpmn-js, 2019) | `diagrams/<figure>/<figure>.svg`, as it is | BPMN |
 
-The four sources are in `sources/`, as the UBL repository has them (`ubl-2.5` at
-`3d81e8a`, identical on `main`, `ubl-2.4-os`, `ubl-2.3-os-iso`, `review` and
-`tsc-ubl-2.5-experimental`). The PNGs they replace are not copied (`art/` in the UBL repository).
+The files as the UBL repository has them are in `sources/` (`ubl-2.5` at `3d81e8a`; the
+same on `main`, `ubl-2.4-os`, `ubl-2.3-os-iso`, `review` and `tsc-ubl-2.5-experimental`).
 
-## Why one was adopted and two rebuilt
+## They are the sources of the current PNGs (checked 2026-10-05)
 
-- **BusinessInformation** was already a proper draw.io BPMN drawing (pools and lanes
-  with stack layout, tasks as containers, flows attached). Nothing to improve but
-  the form, so it is kept as drawn, and only given the model's ids and kinds.
-- **Pre-award** and **Procurement** were drawn in a way that does not edit well: at
-  3425 px wide with 60 px text and 8 px lines (so, not at the scale the 85 others are
-  drawn at), the outline of each arrow-shaped phase as five loose lines, each
-  dashed list of documents as two loose lines, groups nested five deep. They are
-  rebuilt with draw.io's own shapes (a chevron `step`, a pentagon as a `singleArrow`
-  of full arrow width, a rhombus) and one dashed corner line per list of documents.
-  The scale is 0.3: the 70, 60 and 40 px text becomes 21, 18 and 12 px, and 12 px is
-  draw.io's own size, which the lists of documents (the most text) now use without
-  setting it. The 8 px lines become 2 px: line weights stay whole (README, "drawn at").
-- **Ordering** has no draw.io source, only the bpmn-js SVG. The SVG says where
-  everything is (it is an export of the model), so it is read and drawn again as
-  draw.io BPMN shapes: same places, sizes and bends; the BPMN ids (`Task_1bnlp2b`,
-  `MessageFlow_0w3w0y5`, ...) are kept as `ubl-bpmn-id`. Its original BPMN 2.0 XML
-  would be better still (below).
+Each source drawn (the draw.io files by the pinned draw.io; Ordering's SVG by Chromium), put where
+the PNG has its ink, and held against `art/<figure>.png` of the UBL repository
+(`compare_png.py`: the share of ink with no ink of the other within 4 px, at the PNG's size):
 
-## Decisions to show the TC
-
-- **The grey bars of BusinessInformation's tasks are white.** The drawings are black
-  and white only, and the print PNG is 1 bit, where the light grey (`#C0C0C0`) would
-  vanish; the rules that bound the bars stay. The htmlart PNG and the SVG show them white.
-- **BPMN arrowheads stay BPMN's:** a filled head for a sequence flow, an open
-  triangle for a message flow with a circle at its sender (which the UML figures'
-  one open 10 px head would take away). The "3 times its head" rule is not applied
-  to these four.
-- **BPMN line weights:** Ordering's lines are 2 px as in its SVG (its message flows
-  1.5 there, 2 here); BusinessInformation's are the 1 px of its source.
-- **Flow names are texts beside the flow** (a `text` with `ubl-for` naming the flow), as in
-  BusinessInformation's source, not the flow's own label.
-
-## How they are checked
-
-`tools/check_drawio.py` knows a figure of another notation: it is marked by
-`ubl-notation` (`bpmn`, `phase-map`) on one element, and is checked for ids and kinds,
-flows attached at both ends, and that what a text, a bracket or a list of documents
-is for (`ubl-for`, `ubl-steps`) is in the drawing. `check_svg.py` checks the export
-as it does the others (89 of 89 `ok`).
-
-Against the UBL PNGs (`compare_png.py`: the export put where the PNG has its ink, then
-the share of ink with no ink of the other within 4 px at the PNG's size), 2026-10-05:
-
-| figure | PNG ink not in the export | export ink not in the PNG |
+| figure | PNG ink not in the render | render ink not in the PNG |
 |---|---|---|
-| Ordering | 2.1 % | 3.6 % |
-| Pre-award | 8.2 % | 6.0 % |
-| Procurement | 1.8 % | 1.3 % |
-| BusinessInformation | 0.7 % | 13.2 % |
+| Pre-award | 0.07 % | 0.07 % |
+| Procurement | 0.00 % (with its stray line taken out, below) | 0.00 % |
+| Ordering | 0.00 % | 0.00 % |
+| Business Information | 0.65 % | 13.2 % (the 1 bit print draws its 1 px lines 2 px wide) |
 
-All of it is letter shapes (Helvetica of the Mac that made the PNGs, against Liberation
-Sans here) and dash phases, but for BusinessInformation, where the 1 px lines of the PNG
-are antialiased and the 1 bit print of the export draws them 2 px wide, which is where
-the 13 % is. Nothing is missing, moved or misdrawn in any of the four: each
-`<figure>-diff.png` that `compare_png.py` writes was looked at.
+The git history says the same: the sources and their PNGs arrived together (Ken Holman's
+"Initial load of files - copy of 2.3 CSD05", 2021-05-15, for three; Kees Duvekot's two
+commits of 2023-02-06 for Business Information).
 
-## Run again
+## What `adopt_originals.py` does
 
-```sh
-python3 history/group-a/build_ordering.py        # each writes diagrams/<figure>/<figure>.drawio
-python3 history/group-a/build_preaward.py
-python3 history/group-a/build_procurement.py
-python3 history/group-a/adopt_businessinformation.py
-python3 tools/check_drawio.py diagrams/UBL-2.3-*/*.drawio diagrams/UBL-2.4-BusinessInformation/*.drawio
-NODE_PATH=$(npm root -g) node tools/export_drawio.js to-ubl-repo diagrams/UBL-2.3-OrderingProcess/*.drawio ...
-python3 history/group-a/compare_png.py <ubl>/art to-ubl-repo/art <out> <figure> ...
-```
+- **The three `.drawio` files:** the TC's drawing, with only what this repository's tools
+  need, nothing of what it shows changed. Uncompressed, and in the form draw.io's editor
+  writes (`tools/drawio_format.py`; the file's own `host`, `agent`, page and window stay);
+  one element carries `ubl-notation` (`phase-map` or `bpmn`), the sign that the figure is not
+  a UML activity diagram. **Procurement only:** a stray dashed line, 4000 px right of
+  the figure and not in its PNG (cell `H2ljDLKrGr7yGGcZbY4q-120`), is taken out: it made the
+  export's page three times too wide.
+- **Ordering:** its source is a bpmn-js SVG, not a drawing: it is kept as it is, byte for byte
+  (`diagrams/UBL-2.3-OrderingProcess/UBL-2.3-OrderingProcess.svg`), published as it is, and the
+  PNGs are rendered from it (`tools/export_drawio.js` takes an `.svg`; `tools/check_svg.py` knows
+  such a figure: the SVG is the source's, vector, words as text).
+- **Not done to them, on purpose:** no rescale (below), no ids or kinds (`ubl-kind`) as in the
+  78 diagrams, no change of colour, no redraw. `tools/check_drawio.py` checks them for the
+  form and for what it can without kinds, and says so as a warning.
 
-After that the drawings are the source: edit them in draw.io; the scripts are how they
-were made, and need not be run again (they would overwrite an edit).
+## What is as the TC made it, and may be for them to decide
+
+- **Scale.** Pre-award and Procurement are drawn 3425 px wide with 60, 70 and 40 px text and
+  8 px lines (the others: natural scale, 12 px text, 1 and 2 px lines). Fitted to the page they
+  print as the PNGs do (the captions of Pre-award at 4.8 pt); the export's report line
+  ("text 1.4 pt") assumes the others' 12 px and is wrong for these two. A rescale is a change to
+  the TC's drawing; it was made in an experiment (`redrawn/`, below) at 0.3 and could be adopted.
+- **Business Information's grey bars** (`#C0C0C0`, the foot of each task): in the SVG and the
+  web PNG; the print PNG is black and white, where they are white. The drawings of the others
+  are black and white only.
+- **Business Information's envelopes** on the message flows are draw.io shapes (`shape=message`):
+  BPMN 2.0 has no envelope on a message flow (below).
+- **Procurement's and Pre-award's shapes** are loose lines and groups (a phase's outline is five
+  lines, a list of documents two), as drawn in 2020: they edit badly.
+- **None of the BPMN-style drawings is an official BPMN file** (next section).
+
+## Future session: real BPMN 2.0 files for the BPMN figures
+
+Said by the editor, Kees Duvekot (2026-10-05): for BPMN diagrams it is **very important that the
+sources are official BPMN 2.0 files** (the OMG standard, ISO/IEC 19510:2013), not drawings in BPMN
+style. That is a different requirement and its own session, not done here.
+
+- **Which:** Ordering and Business Information. Pre-award and Procurement are phase maps
+  with no BPMN semantics (chevrons, a milestone): they stay draw.io. (Whether the 78 UML activity
+  diagrams, whose drawings use BPMN pools and lanes, should be BPMN too is for the TC.)
+- **What an official file is:** BPMN 2.0.2 XML: a `collaboration` with participants and message
+  flows, a `process` for each participant, with tasks, gateways, events and sequence flows, and a
+  `BPMNDiagram` (BPMN DI) with every shape's and edge's place and size and the labels. Valid against
+  OMG's normative XSDs (`BPMN20.xsd`, `Semantic.xsd`, `BPMNDI.xsd`, `DI.xsd`, `DC.xsd` at
+  <https://www.omg.org/spec/BPMN/20100501/>, the specification at <https://www.omg.org/spec/BPMN/2.0.2/PDF>;
+  `xmllint` is installed here), and opening in bpmn.io (bpmn-js, `bpmn-moddle` on npm) and a second
+  modeler.
+- **Ordering:** the real source is `UBL-2.3-OrderingProcess.bpmn`, attached to the `ubl` list's mail of
+  2019-05-07 ("UBL-171 - BPMN diagram + SVG", see below). If it is found: validate it, render
+  the SVG and PNGs from it with bpmn-js (the tool that made the original), and check them against the
+  PNG as `compare_png.py` does. If not: write it from the SVG, which carries the BPMN ids
+  (`Task_1bnlp2b`, `MessageFlow_0w3w0y5`, ...), the places and the bends of every element, as
+  `redrawn/build_ordering.py` already reads them.
+- **Business Information:** a draw.io drawing in BPMN style, made in draw.io 20.8.4, so no BPMN
+  XML exists; write it from the drawing. Its **envelopes** need a decision: a message flow joins two
+  elements directly; the envelope can become a message event or a send/receive task (which changes
+  what the figure says) or be dropped. Its message flows that end at an end event (not a message end
+  event) need the same look.
+- **Then:** the `.bpmn` is the source, the SVG and PNGs are exports of it (as the `.drawio` is for the
+  rest), `tools/check_svg.py` and a new check (XSD validity) apply, and the README's section on
+  sources says so.
 
 ## Where the originals might still be (searched 2026-10-05)
 
 - **UBL repository, all 31 branches:** the four above, nothing else, and no `.bpmn` file.
 - **docs.oasis-open.org** (`UBL-2.x/art/`, the release directories): the PNGs only.
-- **The UBL JIRA** (issues.oasis-open.org, reachable; its REST API answers): UBL-171
-  ("Accepted order are canceled") is where the Ordering diagram was redrawn in 2019. It has
-  no attachment ("we can not attach documents to Jira Issues directly") and says, 2019-05-06,
-  that the sources of the original swim-lane diagrams are not available. No issue mentions
-  draw.io, Visio or the other figures' sources.
+- **The UBL JIRA** (issues.oasis-open.org; its REST API answers): UBL-171 ("Accepted order are
+  canceled") is where the Ordering diagram was redrawn in 2019. No attachment ("we can not attach
+  documents to Jira Issues directly"), and Ken Holman says on 2019-05-06 that the sources of the original
+  swim-lane diagrams are not available. No issue mentions draw.io, Visio or the other figures' sources.
 - **The `ubl` mailing list, 2019-05-07,** "UBL-171 - BPMN diagram + SVG"
-  (<https://lists.oasis-open.org/archives/ubl/201905/msg00011.html>, also on
-  groups.oasis-open.org): **attaches `UBL-2.3-OrderingProcess.bpmn`**, the BPMN 2.0 XML
-  made in bpmn.io, and the SVG. The attachments could not be fetched from here:
-  lists.oasis-open.org and lists-archive.oasis-open.org (the new archive) answer a script, and
-  headless Chromium too, with Cloudflare's "verify you are not a bot" check (403), and
-  groups.oasis-open.org lists the attachment names only, without a link, for a visitor
-  who is not logged in. **If the `.bpmn` is found (its author has it, or a TC member's
-  mail), put it in `sources/`:** it has the model, and `build_ordering.py` can read the
-  elements from it instead of from the SVG (the SVG's ids are the BPMN ids).
+  (<https://lists.oasis-open.org/archives/ubl/201905/msg00011.html>, also on groups.oasis-open.org):
+  **attaches `UBL-2.3-OrderingProcess.bpmn`**, the BPMN XML made in bpmn.io, and the SVG. The
+  attachments could not be fetched from here: lists.oasis-open.org and lists-archive.oasis-open.org
+  answer a script, and headless Chromium too, with Cloudflare's "verify you are not a bot" check (403),
+  groups.oasis-open.org lists the attachment names only, without a link, for a visitor who is not logged
+  in, and markmail.org and web.archive.org are not reachable from this environment (network policy: they
+  would have to be added to the environment's allowed domains). **If the `.bpmn` is found (its author
+  has it, or a TC member's mail), put it in `sources/`.**
+
+## `redrawn/`: an experiment, not the sources
+
+Before the originals were chosen, all four were drawn again as draw.io drawings made for this
+repository: the BPMN pair as draw.io's BPMN shapes with the model's ids and kinds (Ordering from the
+bpmn-js SVG, Business Information with white bars), Pre-award and Procurement rebuilt with draw.io's
+own shapes at 0.3 of the TC's scale (text 12, 18, 21 px, lines 2 px; one dashed corner line per list of
+documents). They matched the PNGs to 1-8 %, the originals to 0-0.07 %. Kept as a record of what a
+cleaner, rescaled version looks like (`redrawn/*.drawio`, built by `redrawn/build_*.py`), in case the TC
+wants the 12 px convention for these too. The scripts write beside themselves and cannot overwrite a
+source.
+
+## Run again
+
+```sh
+python3 history/group-a/adopt_originals.py            # sources/ -> diagrams/
+python3 tools/check_drawio.py diagrams/UBL-2.3-*/*.drawio diagrams/UBL-2.4-BusinessInformation/*.drawio
+NODE_PATH=$(npm root -g) node tools/export_drawio.js to-ubl-repo diagrams/UBL-2.3-OrderingProcess/*.svg \
+    diagrams/UBL-2.3-Pre-awardProcess/*.drawio diagrams/UBL-2.3-ProcurementProcess/*.drawio diagrams/UBL-2.4-BusinessInformation/*.drawio
+python3 tools/check_svg.py to-ubl-repo
+python3 history/group-a/compare_png.py <ubl>/art to-ubl-repo/art <out> <figure> ...
+```
+
+After that the drawings are the source: edit them in draw.io. `adopt_originals.py` would overwrite an
+edit; it is how they were adopted, and need not be run again.

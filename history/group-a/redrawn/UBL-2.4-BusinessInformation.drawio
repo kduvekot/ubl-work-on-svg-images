@@ -1,0 +1,424 @@
+<mxfile host="UBL-TC" agent="UBL artwork, Group A (history/group-a/adopt_businessinformation.py)">
+  <diagram id="UBL-2.4-BusinessInformation" name="UBL-2.4-BusinessInformation">
+    <mxGraphModel grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <object label="Economic Operator" ubl-kind="pool" id="pool-economic-operator">
+          <mxCell parent="1" style="swimlane;html=1;childLayout=stackLayout;resizeParent=1;resizeParentMax=0;horizontal=0;startSize=20;horizontalStack=0;" vertex="1">
+            <mxGeometry height="200" width="830" y="-720" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="Data entry Agent&lt;br&gt;" ubl-kind="lane" id="lane-economic-operator-data-entry-agent">
+          <mxCell parent="pool-economic-operator" style="swimlane;html=1;startSize=20;horizontal=0;" vertex="1">
+            <mxGeometry height="200" width="810" x="20" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="" ubl-kind="task" ubl-label="Prepare Business Registration Request" id="task-prepare-business-registration-request">
+          <mxCell parent="lane-economic-operator-data-entry-agent" style="rounded=1;whiteSpace=wrap;html=1;container=1;collapsible=0;absoluteArcSize=1;arcSize=20;childLayout=stackLayout;horizontal=1;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;" vertex="1">
+            <mxGeometry height="100" width="120" x="140" y="50" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="" id="task-prepare-business-registration-request-part-1">
+          <mxCell parent="task-prepare-business-registration-request" style="whiteSpace=wrap;connectable=0;html=1;shape=mxgraph.basic.rect;size=10;rectStyle=rounded;bottomRightStyle=square;bottomLeftStyle=square;part=1;" vertex="1">
+            <mxGeometry height="20" width="120" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="Prepare Business Registration Request" id="task-prepare-business-registration-request-part-2">
+          <mxCell parent="task-prepare-business-registration-request" style="shape=mxgraph.bpmn.task;part=1;taskMarker=abstract;connectable=0;whiteSpace=wrap;" vertex="1">
+            <mxGeometry height="60" width="120" y="20" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="" id="task-prepare-business-registration-request-part-3">
+          <mxCell parent="task-prepare-business-registration-request" style="whiteSpace=wrap;connectable=0;html=1;shape=mxgraph.basic.rect;size=10;rectStyle=rounded;topRightStyle=square;topLeftStyle=square;part=1;" vertex="1">
+            <mxGeometry height="20" width="120" y="80" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="" ubl-kind="task" ubl-label="Receives Registration Information" id="task-receives-registration-information">
+          <mxCell parent="lane-economic-operator-data-entry-agent" style="rounded=1;whiteSpace=wrap;html=1;container=1;collapsible=0;absoluteArcSize=1;arcSize=20;childLayout=stackLayout;horizontal=1;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;" vertex="1">
+            <mxGeometry height="100" width="120" x="421" y="50" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="" id="task-receives-registration-information-part-1">
+          <mxCell parent="task-receives-registration-information" style="whiteSpace=wrap;connectable=0;html=1;shape=mxgraph.basic.rect;size=10;rectStyle=rounded;bottomRightStyle=square;bottomLeftStyle=square;part=1;" vertex="1">
+            <mxGeometry height="20" width="120" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="Receives Registration Information" id="task-receives-registration-information-part-2">
+          <mxCell parent="task-receives-registration-information" style="shape=mxgraph.bpmn.task;part=1;taskMarker=abstract;connectable=0;whiteSpace=wrap;" vertex="1">
+            <mxGeometry height="60" width="120" y="20" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="" id="task-receives-registration-information-part-3">
+          <mxCell parent="task-receives-registration-information" style="whiteSpace=wrap;connectable=0;html=1;shape=mxgraph.basic.rect;size=10;rectStyle=rounded;topRightStyle=square;topLeftStyle=square;part=1;" vertex="1">
+            <mxGeometry height="20" width="120" y="80" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="" ubl-kind="task" ubl-label="Submit Business Registration Information Notice" id="task-submit-business-registration-information-notice">
+          <mxCell parent="lane-economic-operator-data-entry-agent" style="rounded=1;whiteSpace=wrap;html=1;container=1;collapsible=0;absoluteArcSize=1;arcSize=20;childLayout=stackLayout;horizontal=1;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;" vertex="1">
+            <mxGeometry height="100" width="120" x="561" y="50" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="" id="task-submit-business-registration-information-notice-part-1">
+          <mxCell parent="task-submit-business-registration-information-notice" style="whiteSpace=wrap;connectable=0;html=1;shape=mxgraph.basic.rect;size=10;rectStyle=rounded;bottomRightStyle=square;bottomLeftStyle=square;part=1;" vertex="1">
+            <mxGeometry height="20" width="120" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="Submit Business Registration Information Notice" id="task-submit-business-registration-information-notice-part-2">
+          <mxCell parent="task-submit-business-registration-information-notice" style="shape=mxgraph.bpmn.task;part=1;taskMarker=abstract;connectable=0;whiteSpace=wrap;" vertex="1">
+            <mxGeometry height="60" width="120" y="20" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="" id="task-submit-business-registration-information-notice-part-3">
+          <mxCell parent="task-submit-business-registration-information-notice" style="whiteSpace=wrap;connectable=0;html=1;shape=mxgraph.basic.rect;size=10;rectStyle=rounded;topRightStyle=square;topLeftStyle=square;part=1;" vertex="1">
+            <mxGeometry height="20" width="120" y="80" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="" ubl-kind="flow" ubl-flow="sequence" id="flow-task-receives-registration-information-to-task-submit-business-registration-information-notice">
+          <mxCell edge="1" parent="lane-economic-operator-data-entry-agent" source="task-receives-registration-information" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="task-submit-business-registration-information-notice">
+            <mxGeometry relative="1" as="geometry">
+              <mxPoint x="515" y="85" as="sourcePoint" />
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object label="" ubl-kind="start" id="start-economic-operator-data-entry-agent">
+          <mxCell parent="lane-economic-operator-data-entry-agent" style="ellipse;whiteSpace=wrap;html=1;" vertex="1">
+            <mxGeometry height="40" width="40" x="40" y="80" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="" ubl-kind="flow" ubl-flow="sequence" id="flow-start-economic-operator-data-entry-agent-to-task-prepare-business-registration-request">
+          <mxCell edge="1" parent="lane-economic-operator-data-entry-agent" source="start-economic-operator-data-entry-agent" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="task-prepare-business-registration-request">
+            <mxGeometry relative="1" as="geometry">
+              <mxPoint x="184" y="340" as="targetPoint" />
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object label="" ubl-kind="end" id="end-economic-operator-data-entry-agent">
+          <mxCell parent="lane-economic-operator-data-entry-agent" style="points=[[0.145,0.145,0],[0.5,0,0],[0.855,0.145,0],[1,0.5,0],[0.855,0.855,0],[0.5,1,0],[0.145,0.855,0],[0,0.5,0]];shape=mxgraph.bpmn.event;html=1;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;align=center;perimeter=ellipsePerimeter;outlineConnect=0;aspect=fixed;outline=end;symbol=terminate;" vertex="1">
+            <mxGeometry height="50" width="50" x="736" y="75" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="" ubl-kind="flow" ubl-flow="sequence" id="flow-task-submit-business-registration-information-notice-to-end-economic-operator-data-entry-agent">
+          <mxCell edge="1" parent="lane-economic-operator-data-entry-agent" source="task-submit-business-registration-information-notice" style="endArrow=classic;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" target="end-economic-operator-data-entry-agent">
+            <mxGeometry height="50" relative="1" width="50" as="geometry">
+              <mxPoint x="445" y="270" as="sourcePoint" />
+              <mxPoint x="495" y="220" as="targetPoint" />
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object label="" ubl-kind="task" ubl-label="Submit Business Registration Request" id="task-submit-business-registration-request">
+          <mxCell parent="lane-economic-operator-data-entry-agent" style="rounded=1;whiteSpace=wrap;html=1;container=1;collapsible=0;absoluteArcSize=1;arcSize=20;childLayout=stackLayout;horizontal=1;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;" vertex="1">
+            <mxGeometry height="100" width="120" x="280" y="50" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="" id="task-submit-business-registration-request-part-1">
+          <mxCell parent="task-submit-business-registration-request" style="whiteSpace=wrap;connectable=0;html=1;shape=mxgraph.basic.rect;size=10;rectStyle=rounded;bottomRightStyle=square;bottomLeftStyle=square;part=1;" vertex="1">
+            <mxGeometry height="20" width="120" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="Submit Business Registration Request" id="task-submit-business-registration-request-part-2">
+          <mxCell parent="task-submit-business-registration-request" style="shape=mxgraph.bpmn.task;part=1;taskMarker=abstract;connectable=0;whiteSpace=wrap;" vertex="1">
+            <mxGeometry height="60" width="120" y="20" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="" id="task-submit-business-registration-request-part-3">
+          <mxCell parent="task-submit-business-registration-request" style="whiteSpace=wrap;connectable=0;html=1;shape=mxgraph.basic.rect;size=10;rectStyle=rounded;topRightStyle=square;topLeftStyle=square;part=1;" vertex="1">
+            <mxGeometry height="20" width="120" y="80" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="" ubl-kind="flow" ubl-flow="sequence" id="flow-task-prepare-business-registration-request-to-task-submit-business-registration-request">
+          <mxCell edge="1" parent="lane-economic-operator-data-entry-agent" source="task-prepare-business-registration-request" style="endArrow=classic;html=1;rounded=0;" target="task-submit-business-registration-request">
+            <mxGeometry height="50" relative="1" width="50" as="geometry">
+              <mxPoint x="200" y="140" as="sourcePoint" />
+              <mxPoint x="250" y="90" as="targetPoint" />
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object label="" ubl-kind="flow" ubl-flow="sequence" id="flow-task-submit-business-registration-request-to-task-receives-registration-information">
+          <mxCell edge="1" parent="lane-economic-operator-data-entry-agent" source="task-submit-business-registration-request" style="endArrow=classic;html=1;rounded=0;" target="task-receives-registration-information">
+            <mxGeometry height="50" relative="1" width="50" as="geometry">
+              <mxPoint x="260" y="-620" as="sourcePoint" />
+              <mxPoint x="300" y="-620" as="targetPoint" />
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object label="Registration Authority" ubl-kind="pool" id="pool-registration-authority">
+          <mxCell parent="1" style="swimlane;html=1;childLayout=stackLayout;resizeParent=1;resizeParentMax=0;horizontal=0;startSize=20;horizontalStack=0;" vertex="1">
+            <mxGeometry height="200" width="830" y="-360" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="System" ubl-kind="lane" id="lane-registration-authority-system">
+          <mxCell parent="pool-registration-authority" style="swimlane;html=1;startSize=20;horizontal=0;" vertex="1">
+            <mxGeometry height="200" width="810" x="20" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="" ubl-kind="task" ubl-label="Check Business Registration Request" id="task-check-business-registration-request">
+          <mxCell parent="lane-registration-authority-system" style="rounded=1;whiteSpace=wrap;html=1;container=1;collapsible=0;absoluteArcSize=1;arcSize=20;childLayout=stackLayout;horizontal=1;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;" vertex="1">
+            <mxGeometry height="100" width="120" x="140" y="50" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="" id="task-check-business-registration-request-part-1">
+          <mxCell parent="task-check-business-registration-request" style="whiteSpace=wrap;connectable=0;html=1;shape=mxgraph.basic.rect;size=10;rectStyle=rounded;bottomRightStyle=square;bottomLeftStyle=square;part=1;" vertex="1">
+            <mxGeometry height="20" width="120" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="Check Business Registration Request" id="task-check-business-registration-request-part-2">
+          <mxCell parent="task-check-business-registration-request" style="shape=mxgraph.bpmn.task;part=1;taskMarker=abstract;connectable=0;whiteSpace=wrap;" vertex="1">
+            <mxGeometry height="60" width="120" y="20" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="" id="task-check-business-registration-request-part-3">
+          <mxCell parent="task-check-business-registration-request" style="whiteSpace=wrap;connectable=0;html=1;shape=mxgraph.basic.rect;size=10;rectStyle=rounded;topRightStyle=square;topLeftStyle=square;part=1;" vertex="1">
+            <mxGeometry height="20" width="120" y="80" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="" ubl-kind="task" ubl-label="Process Business Registration Request" id="task-process-business-registration-request">
+          <mxCell parent="lane-registration-authority-system" style="rounded=1;whiteSpace=wrap;html=1;container=1;collapsible=0;absoluteArcSize=1;arcSize=20;childLayout=stackLayout;horizontal=1;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;" vertex="1">
+            <mxGeometry height="100" width="120" x="421" y="50" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="" id="task-process-business-registration-request-part-1">
+          <mxCell parent="task-process-business-registration-request" style="whiteSpace=wrap;connectable=0;html=1;shape=mxgraph.basic.rect;size=10;rectStyle=rounded;bottomRightStyle=square;bottomLeftStyle=square;part=1;" vertex="1">
+            <mxGeometry height="20" width="120" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="Process Business Registration Request" id="task-process-business-registration-request-part-2">
+          <mxCell parent="task-process-business-registration-request" style="shape=mxgraph.bpmn.task;part=1;taskMarker=abstract;connectable=0;whiteSpace=wrap;" vertex="1">
+            <mxGeometry height="60" width="120" y="20" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="" id="task-process-business-registration-request-part-3">
+          <mxCell parent="task-process-business-registration-request" style="whiteSpace=wrap;connectable=0;html=1;shape=mxgraph.basic.rect;size=10;rectStyle=rounded;topRightStyle=square;topLeftStyle=square;part=1;" vertex="1">
+            <mxGeometry height="20" width="120" y="80" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="" ubl-kind="flow" ubl-flow="sequence" id="flow-task-check-business-registration-request-to-task-process-business-registration-request">
+          <mxCell edge="1" parent="lane-registration-authority-system" source="task-check-business-registration-request" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="task-process-business-registration-request">
+            <mxGeometry relative="1" as="geometry">
+              <mxPoint x="420" y="110" as="sourcePoint" />
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object label="" ubl-kind="flow" ubl-flow="sequence" id="flow-task-process-business-registration-request-to-end-registration-authority-system">
+          <mxCell edge="1" parent="lane-registration-authority-system" source="task-process-business-registration-request" style="endArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" target="end-registration-authority-system">
+            <mxGeometry height="50" relative="1" width="50" as="geometry">
+              <mxPoint x="445" y="100" as="sourcePoint" />
+              <mxPoint x="625.0000000000002" y="110" as="targetPoint" />
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object label="" ubl-kind="start" id="start-registration-authority-system">
+          <mxCell parent="lane-registration-authority-system" style="ellipse;whiteSpace=wrap;html=1;" vertex="1">
+            <mxGeometry height="40" width="40" x="40" y="80" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="" ubl-kind="end" id="end-registration-authority-system">
+          <mxCell parent="lane-registration-authority-system" style="points=[[0.145,0.145,0],[0.5,0,0],[0.855,0.145,0],[1,0.5,0],[0.855,0.855,0],[0.5,1,0],[0.145,0.855,0],[0,0.5,0]];shape=mxgraph.bpmn.event;html=1;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;align=center;perimeter=ellipsePerimeter;outlineConnect=0;aspect=fixed;outline=end;symbol=terminate;" vertex="1">
+            <mxGeometry height="50" width="50" x="730" y="75" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="" ubl-kind="flow" ubl-flow="sequence" id="flow-start-registration-authority-system-to-task-check-business-registration-request">
+          <mxCell edge="1" parent="lane-registration-authority-system" source="start-registration-authority-system" style="endArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" target="task-check-business-registration-request">
+            <mxGeometry height="50" relative="1" width="50" as="geometry">
+              <mxPoint x="205" y="30" as="sourcePoint" />
+              <mxPoint x="245" y="106" as="targetPoint" />
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object label="" ubl-kind="message-flow" ubl-flow="message" id="message-flow-task-submit-business-registration-request-to-message-1">
+          <mxCell edge="1" parent="1" source="task-submit-business-registration-request" style="edgeStyle=orthogonalEdgeStyle;html=1;elbow=horizontal;endArrow=none;labelBackgroundColor=none;endSize=12;endFill=0;dashed=1;dashPattern=1 2;exitX=0.5;exitY=1;rounded=0;exitDx=0;exitDy=0;" target="message-1">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="" ubl-kind="message" id="message-1">
+          <mxCell parent="1" style="shape=message;" vertex="1">
+            <mxGeometry height="30" width="40" x="340" y="-470" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="Business Registration&amp;nbsp;Information Notification" ubl-kind="title" ubl-notation="bpmn" id="title">
+          <mxCell parent="1" style="text;strokeColor=none;fillColor=none;html=1;fontSize=24;fontStyle=1;verticalAlign=middle;align=center;" vertex="1">
+            <mxGeometry height="40" width="760" x="31" y="-1150" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="" ubl-kind="message" id="message-2">
+          <mxCell parent="1" style="shape=message;" vertex="1">
+            <mxGeometry height="30" width="40" x="481" y="-470" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="" ubl-kind="message-flow" ubl-flow="message" id="message-flow-task-process-business-registration-request-to-message-2">
+          <mxCell edge="1" parent="1" source="task-process-business-registration-request" style="endArrow=classic;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="message-2">
+            <mxGeometry height="50" relative="1" width="50" as="geometry">
+              <mxPoint x="440" y="-565" as="sourcePoint" />
+              <mxPoint x="490" y="-615" as="targetPoint" />
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object label="" ubl-kind="message-flow" ubl-flow="message" id="message-flow-message-2-to-task-receives-registration-information">
+          <mxCell edge="1" parent="1" source="message-2" style="endArrow=classic;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" target="task-receives-registration-information">
+            <mxGeometry height="50" relative="1" width="50" as="geometry">
+              <mxPoint x="491" y="-555" as="sourcePoint" />
+              <mxPoint x="541" y="-605" as="targetPoint" />
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object label="Publisher" ubl-kind="pool" id="pool-publisher">
+          <mxCell parent="1" style="swimlane;html=1;childLayout=stackLayout;resizeParent=1;resizeParentMax=0;horizontal=0;startSize=20;horizontalStack=0;" vertex="1">
+            <mxGeometry height="200" width="830" y="-1080" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="System" ubl-kind="lane" id="lane-publisher-system">
+          <mxCell parent="pool-publisher" style="swimlane;html=1;startSize=20;horizontal=0;" vertex="1">
+            <mxGeometry height="200" width="810" x="20" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="" ubl-kind="task" ubl-label="Check conformance" id="task-check-conformance">
+          <mxCell parent="lane-publisher-system" style="rounded=1;whiteSpace=wrap;html=1;container=1;collapsible=0;absoluteArcSize=1;arcSize=20;childLayout=stackLayout;horizontal=1;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;" vertex="1">
+            <mxGeometry height="100" width="120" x="280" y="50" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="" id="task-check-conformance-part-1">
+          <mxCell parent="task-check-conformance" style="whiteSpace=wrap;connectable=0;html=1;shape=mxgraph.basic.rect;size=10;rectStyle=rounded;bottomRightStyle=square;bottomLeftStyle=square;part=1;" vertex="1">
+            <mxGeometry height="20" width="120" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="Check conformance " id="task-check-conformance-part-2">
+          <mxCell parent="task-check-conformance" style="shape=mxgraph.bpmn.task;part=1;taskMarker=abstract;connectable=0;whiteSpace=wrap;" vertex="1">
+            <mxGeometry height="60" width="120" y="20" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="" id="task-check-conformance-part-3">
+          <mxCell parent="task-check-conformance" style="whiteSpace=wrap;connectable=0;html=1;shape=mxgraph.basic.rect;size=10;rectStyle=rounded;topRightStyle=square;topLeftStyle=square;part=1;" vertex="1">
+            <mxGeometry height="20" width="120" y="80" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="" ubl-kind="task" ubl-label="Publish Business Registration Information" id="task-publish-business-registration-information">
+          <mxCell parent="lane-publisher-system" style="rounded=1;whiteSpace=wrap;html=1;container=1;collapsible=0;absoluteArcSize=1;arcSize=20;childLayout=stackLayout;horizontal=1;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;" vertex="1">
+            <mxGeometry height="100" width="110" x="560" y="50" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="" id="task-publish-business-registration-information-part-1">
+          <mxCell parent="task-publish-business-registration-information" style="whiteSpace=wrap;connectable=0;html=1;shape=mxgraph.basic.rect;size=10;rectStyle=rounded;bottomRightStyle=square;bottomLeftStyle=square;part=1;" vertex="1">
+            <mxGeometry height="20" width="110" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="Publish Business Registration Information" id="task-publish-business-registration-information-part-2">
+          <mxCell parent="task-publish-business-registration-information" style="shape=mxgraph.bpmn.task;part=1;taskMarker=abstract;connectable=0;whiteSpace=wrap;" vertex="1">
+            <mxGeometry height="60" width="110" y="20" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="" id="task-publish-business-registration-information-part-3">
+          <mxCell parent="task-publish-business-registration-information" style="whiteSpace=wrap;connectable=0;html=1;shape=mxgraph.basic.rect;size=10;rectStyle=rounded;topRightStyle=square;topLeftStyle=square;part=1;" vertex="1">
+            <mxGeometry height="20" width="110" y="80" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="" ubl-kind="flow" ubl-flow="sequence" id="flow-task-check-conformance-to-task-publish-business-registration-information">
+          <mxCell edge="1" parent="lane-publisher-system" source="task-check-conformance" style="endArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" target="task-publish-business-registration-information">
+            <mxGeometry height="50" relative="1" width="50" as="geometry">
+              <mxPoint x="534" y="110" as="sourcePoint" />
+              <mxPoint x="595" y="144" as="targetPoint" />
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object label="" ubl-kind="start" id="start-publisher-system">
+          <mxCell parent="lane-publisher-system" style="ellipse;whiteSpace=wrap;html=1;" vertex="1">
+            <mxGeometry height="40" width="40" x="40" y="80" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="" ubl-kind="end" id="end-publisher-system">
+          <mxCell parent="lane-publisher-system" style="points=[[0.145,0.145,0],[0.5,0,0],[0.855,0.145,0],[1,0.5,0],[0.855,0.855,0],[0.5,1,0],[0.145,0.855,0],[0,0.5,0]];shape=mxgraph.bpmn.event;html=1;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;align=center;perimeter=ellipsePerimeter;outlineConnect=0;aspect=fixed;outline=end;symbol=terminate;" vertex="1">
+            <mxGeometry height="50" width="50" x="733" y="75" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="" ubl-kind="flow" ubl-flow="sequence" id="flow-start-publisher-system-to-task-check-conformance">
+          <mxCell edge="1" parent="lane-publisher-system" source="start-publisher-system" style="endArrow=classic;html=1;" target="task-check-conformance">
+            <mxGeometry height="50" relative="1" width="50" as="geometry">
+              <mxPoint x="297" y="-41" as="sourcePoint" />
+              <mxPoint x="332" y="105" as="targetPoint" />
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object label="" ubl-kind="flow" ubl-flow="sequence" id="flow-task-publish-business-registration-information-to-end-publisher-system">
+          <mxCell edge="1" parent="lane-publisher-system" source="task-publish-business-registration-information" style="endArrow=classic;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" target="end-publisher-system">
+            <mxGeometry height="50" relative="1" width="50" as="geometry">
+              <mxPoint x="695" y="104" as="sourcePoint" />
+              <mxPoint x="591" y="120" as="targetPoint" />
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object label="" ubl-kind="message" id="message-3">
+          <mxCell parent="1" style="shape=message;" vertex="1">
+            <mxGeometry height="30" width="40" x="400" y="-820" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="" ubl-kind="message-flow" ubl-flow="message" id="message-flow-message-4-to-end-economic-operator-data-entry-agent">
+          <mxCell edge="1" parent="1" source="message-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" target="end-economic-operator-data-entry-agent">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points">
+                <mxPoint x="730" y="-750" />
+                <mxPoint x="781" y="-750" />
+              </Array>
+              <mxPoint x="690" y="-850" as="sourcePoint" />
+              <mxPoint x="810" y="-760" as="targetPoint" />
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object label="" ubl-kind="message" id="message-4">
+          <mxCell parent="1" style="shape=message;" vertex="1">
+            <mxGeometry height="30" width="40" x="710" y="-807.5" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="" ubl-kind="message-flow" ubl-flow="message" id="message-flow-task-publish-business-registration-information-to-message-4">
+          <mxCell edge="1" parent="1" source="task-publish-business-registration-information" style="edgeStyle=orthogonalEdgeStyle;html=1;elbow=horizontal;endArrow=none;labelBackgroundColor=none;endSize=12;endFill=0;dashed=1;dashPattern=1 2;rounded=0;" target="message-4">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points">
+                <mxPoint x="635" y="-850" />
+                <mxPoint x="730" y="-850" />
+              </Array>
+              <mxPoint x="710" y="-910" as="sourcePoint" />
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object label="" ubl-kind="message-flow" ubl-flow="message" id="message-flow-message-3-to-start-publisher-system">
+          <mxCell edge="1" parent="1" source="message-3" style="endArrow=classic;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="start-publisher-system">
+            <mxGeometry height="50" relative="1" width="50" as="geometry">
+              <Array as="points">
+                <mxPoint x="80" y="-805" />
+              </Array>
+              <mxPoint x="311" y="-860" as="sourcePoint" />
+              <mxPoint x="161" y="-950" as="targetPoint" />
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object label="" ubl-kind="message-flow" ubl-flow="message" id="message-flow-task-submit-business-registration-information-notice-to-message-3">
+          <mxCell edge="1" parent="1" source="task-submit-business-registration-information-notice" style="edgeStyle=orthogonalEdgeStyle;html=1;elbow=horizontal;endArrow=none;labelBackgroundColor=none;endSize=12;endFill=0;dashed=1;dashPattern=1 2;rounded=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" target="message-3">
+            <mxGeometry relative="1" as="geometry">
+              <mxPoint x="341" y="-790" as="sourcePoint" />
+              <mxPoint x="356" y="-570" as="targetPoint" />
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object label="Business Registration Information Notice" ubl-kind="text" id="text-business-registration-information-notice">
+          <mxCell parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1">
+            <mxGeometry height="15" width="270" x="90" y="-800" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="" ubl-kind="message-flow" ubl-flow="message" id="message-flow-message-1-to-start-registration-authority-system">
+          <mxCell edge="1" parent="1" source="message-1" style="endArrow=none;html=1;exitX=0.363;exitY=0.448;exitDx=0;exitDy=0;exitPerimeter=0;" target="start-registration-authority-system">
+            <mxGeometry height="50" relative="1" width="50" as="geometry">
+              <Array as="points">
+                <mxPoint x="80" y="-457" />
+              </Array>
+              <mxPoint x="354.52" y="-456.55999999999995" as="sourcePoint" />
+              <mxPoint x="80" y="-280" as="targetPoint" />
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object label="Business Registration Request" ubl-kind="text" id="text-business-registration-request">
+          <mxCell parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1">
+            <mxGeometry height="20" width="220" x="100" y="-450" as="geometry" />
+          </mxCell>
+        </object>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

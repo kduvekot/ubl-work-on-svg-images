@@ -66,10 +66,34 @@ def check_png(path, max_w, dpi, want_w, mode, out):
         out.append(name + ': not on white')
 
 
+def check_original(out_dir, name, text):
+    """a figure whose source is an SVG (history/group-a: Ordering, made by bpmn-js): the SVG as it is, which
+    must be the source in diagrams/ byte for byte, vector and with its words as text; the PNGs from it"""
+    out = []
+    src = os.path.join(ROOT, 'diagrams', name, name + '.svg')
+    if not os.path.exists(src) or open(src, 'rb').read() != text.encode('utf-8'):
+        out.append('images/%s.svg is not diagrams/%s/%s.svg: export again' % (name, name, name))
+    try:
+        root = ET.fromstring(text.encode('utf-8'))
+    except ET.ParseError as e:
+        return out + ['not XML: %s' % e]
+    w = float(root.get('width', '0').replace('px', ''))
+    for tag in sorted({e.tag.replace(SVG, '') for e in root.iter() if isinstance(e.tag, str)} & set(FORBIDDEN)):
+        out.append('<%s> in the SVG' % tag)
+    if not list(root.iter(SVG + 'text')):
+        out.append('no <text>: the words are not text')
+    art_w = round(w * min(1, 548 / w) * ART_DPI / 96)
+    check_png(os.path.join(out_dir, 'art', name + '.png'), ART_MAX, ART_DPI, art_w, '1', out)
+    check_png(os.path.join(out_dir, 'htmlart', name + '.png'), HTML_MAX, None, round(art_w * HTML_MAX / ART_MAX), 'L', out)
+    return out
+
+
 def check(out_dir, name):
     out = []
     svg_path = os.path.join(out_dir, 'images', name + '.svg')
     text = open(svg_path, encoding='utf-8').read()
+    if not os.path.exists(os.path.join(out_dir, 'images', name + '.drawio')):
+        return check_original(out_dir, name, text)
     try:
         root = ET.fromstring(text.encode('utf-8'))
     except ET.ParseError as e:

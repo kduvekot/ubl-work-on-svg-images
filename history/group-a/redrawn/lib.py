@@ -3,7 +3,8 @@ model's id and kind, written as draw.io's editor writes them (tools/drawio_forma
 import os, sys
 from xml.sax.saxutils import escape
 
-ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
+HERE = os.path.dirname(os.path.abspath(__file__))
+ROOT = os.path.abspath(os.path.join(HERE, '..', '..', '..'))
 sys.path.insert(0, os.path.join(ROOT, 'tools'))
 import drawio_format  # noqa: E402
 
@@ -61,9 +62,8 @@ class Fig:
                 '<root><mxCell id="0"/><mxCell id="1" parent="0"/>%s</root></mxGraphModel></diagram></mxfile>'
                 % (q(self.agent), q(self.name), q(self.name), n(self.w), n(self.h), body))
 
-    def write(self, root=ROOT):
-        d = os.path.join(root, 'diagrams', self.name)
-        os.makedirs(d, exist_ok=True)
-        path = os.path.join(d, self.name + '.drawio')
+    def write(self):
+        # beside the scripts: these drawings are not the figures' sources (history/group-a/README.md)
+        path = os.path.join(HERE, self.name + '.drawio')
         open(path, 'w', encoding='utf-8').write(drawio_format.format_text(self.text()))
         return path

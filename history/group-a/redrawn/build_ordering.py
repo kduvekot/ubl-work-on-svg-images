@@ -12,7 +12,7 @@ from lib import Fig
 
 NS = '{http://www.w3.org/2000/svg}'
 NAME = 'UBL-2.3-OrderingProcess'
-svg = ET.parse(os.path.join(os.path.dirname(__file__), 'sources', 'UBL-2.3-OrderingProcess.svg')).getroot()
+svg = ET.parse(os.path.join(os.path.dirname(__file__), '..', 'sources', 'UBL-2.3-OrderingProcess.svg')).getroot()
 LINE = 'strokeWidth=2;'
 
 shapes, flows, labels = {}, {}, {}

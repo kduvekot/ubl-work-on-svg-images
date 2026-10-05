@@ -7,7 +7,7 @@ white print PNGs, one text size) apply, and `history/group-a/README.md` is the w
 of a figure that is not a UML activity diagram.
 
 **State:** 89 of the UBL repository's 97 figures are drawings in `diagrams/` (78 UML activity
-diagrams, 7 illustrations, 4 of Group A). **8 are left**, in two groups, and 1 that is no longer used.
+diagrams, 7 illustrations, 4 of Group A: the TC's own sources, as they are). **8 are left**, in two groups, and 1 that is no longer used.
 
 How the figures were found: the 97 files of `history/svg-images/` (Ken Holman's conversion) against
 `diagrams/`; the PNGs are in the UBL repository's `art/` (clone `ubl-2.5`, see `history/docs/running.md`),
@@ -21,7 +21,8 @@ and `UBL.xml` there says which figures the specification uses. Sizes below are t
 | `UBL-2.2-Open-edi-Overview` | 3425x2667, RGB | Open-edi's overview: boxes, arrows and text (ISO/IEC 14662); likely coloured | none; `history/svg-images/` has the PNG in an SVG |
 | `UBL-2.2-Open-edi-Application` | 3425x3184, RGB | the Open-edi application figure; the biggest | none; the same |
 
-**Approach:** the same as Pre-award and Procurement in Group A: read the PNG (the measuring
+**Approach:** no source exists, so these are drawn from the PNG (for Group A the TC's own
+sources existed and were adopted unchanged). Read the PNG (the measuring
 tools of `history/tools/` and `history/illustrations/` help: `extract.py`, `fit.py`), draw
 with draw.io's shapes at a scale where the text is 12 px (the Group A rule: the PNG's text
 height in pixels over 12 is the scale), compare with `history/group-a/compare_png.py`.
@@ -73,7 +74,8 @@ a source. Worth an hour by someone with a browser; search the archive for `svg`,
 
 The export (`to-ubl-repo/`) adds or replaces per figure `images/<figure>.drawio`, `.svg`,
 `art/<figure>.png`, `htmlart/<figure>.png` (README, "Decided for that export"). For Group A
-that **replaces three sources the UBL repository already has** (`UBL-2.3-Pre-awardProcess.drawio`,
-`UBL-2.3-ProcurementProcess.drawio`, `UBL-2.4-BusinessInformation.drawio`) and the SVG of
-`UBL-2.3-OrderingProcess` (a bpmn-js export): the commit message names each. The BPMN XML of
-Ordering (UBL-171's mail) is not kept in the UBL repository; the drawing is now its source.
+the sources are the UBL repository's own, so the commit **changes them only in form** (the three
+`.drawio` uncompressed and in the editor's form with one added property; Procurement's stray line out;
+Ordering's SVG as it is) and replaces the PNGs by black and white print ones: say so in the message.
+**Future session, required by the editor:** real BPMN 2.0 files for the BPMN figures (Ordering,
+Business Information) - `history/group-a/README.md`, "Future session".
