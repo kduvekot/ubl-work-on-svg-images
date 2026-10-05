@@ -10,9 +10,18 @@ solid 'import', the hollow block arrow 'replace'). Stacked pages (Genericode Fil
 Extension Datatype Definition) are boxes with offset copies behind. Drawn from the UBL repository's
 art/<figure>.png (3425 x 2013, RGBA, `ubl-2.5`; black, white and the grey 230 of the qdt / udt / ccts boxes and the
 Core Component Parameters box: the print PNG is greyscale on purpose).
-Scale 1/4.5: the 54 px text (cap height 38.6) is draw.io's 12 px, the abbreviations 9, the legend labels 10 and the
-italic notes as the PNG; box lines (6.3 px) 1.4, arrows and dotted / dashed lines (3 px) 0.67, the thick rule (11 px)
-2.4, the 10 px frame 2.2. All numbers are PNG px, measured (rows and columns of the PNG, line fits for the diagonals)."""
+Scale 1/4.5 (4.5 PNG px per drawing px): the main text (cap height 38.6 px, font 54 px) is draw.io's 12 px (set
+11.85: the PNG's lines are 1.5 % narrower than draw.io's), the abbreviations and the legend labels 9.5 (font 42.5 px),
+the italic notes the same as the main text; box lines (6.3 px) 1.4, arrows and dotted / dashed lines (3 px) 0.67, the
+thick rule (11 px) 2.4, the dashed Core Component Parameters box (7 px) 1.6, the frame (10 px) 2.2.
+All numbers are PNG px, measured (rows and columns of the PNG; line fits for the diagonal arrows), then nudged against
+the diff of export_check.sh. Choices worth knowing: the export puts every text line on a whole drawing px, so each
+label's position was picked in the middle of the step that is nearest the PNG (the numbers look odd, 1 px apart, for
+that reason); dash patterns are in stroke widths in draw.io (dash lengths in PNG px / stroke); the two arrows from
+Extension Content Datatype to XAdES run behind the signature stack and the W3C box as in the PNG (so there are no
+separate W3C to XAdES flows); the legend samples are plain 'line' edges in two pieces round their labels (so the PNG's
+gap is exact), not flows; the 'replace' arrows are open polylines (the PNG's has no tail); the thick rule is a line
+with round ends."""
 from lib_c import Figure, n
 
 S = 4.5
@@ -27,7 +36,7 @@ f.edge('rule', 'line', '', 'endArrow=none;html=1;rounded=0;strokeWidth=%s;stroke
        [(r(1262.5), r(30.5)), (r(1262.5), r(1968.5))])
 
 BW = 6.3
-HEAD = dict(head='block', stroke=3, size=5.6)
+HEAD = dict(head='block', stroke=3, size=5.0)
 DOT, LONG, SHORT, INCL = (3.5, 4.1), (26.5, 21.5), (12.5, 4.2), (12, 6)
 
 
@@ -61,7 +70,7 @@ box('ext-content', 2366, 891, 2775, 1185)
 box('xades', 2277, 1828, 2855, 1978)
 # the double arrows Extension Content to XAdES run behind the signature stack and the W3C box (z-order: first)
 for i, x in (('f-ext-xades-1', 2667), ('f-ext-xades-2', 2705)):
-    f.flow(i, 'ext-content', 'xades', (x, 1185), (x, 1828), **HEAD)
+    f.flow(i, 'ext-content', 'xades', (x, 1185), (x, 1818), **HEAD)
 box('w3c', 2280, 1628, 2859, 1778)
 # the signature stack: pages behind, down and to the right
 box('sig-p3', 2388, 1289, 2796, 1583)
@@ -70,7 +79,7 @@ box('sig', 2363, 1257, 2772, 1551)
 # the customization frame (dotted) and what is in it
 box('custom-frame', 2866, 606, 3394, 1581, stroke=3, fill=None, dashed=(3.5 * S / 3, 4.2 * S / 3), kind='frame')
 box('ext-content-r', 2960, 891, 3368, 1185)
-box('def-p3', 2918, 1243, 3326, 1553)
+box('def-p3', 2918, 1259, 3326, 1553)
 box('def-p2', 2905, 1227 + 16, 3314, 1537)
 box('definition', 2893, 1227, 3302, 1521)
 box('parameters', 2888, 239, 3273, 509, stroke=7, fill='grey', dashed=(36 * S / 7, 14 * S / 7))
@@ -80,40 +89,37 @@ def thin(i, s, t, p0, p1, via=(), dash=None, **kw):
     a = dict(HEAD); a.update(kw)
     f.flow(i, s, t, p0, p1, via=via, dash=dash and (dash[0] * S / 3, dash[1] * S / 3), **a)   # draw.io's dash pattern is in stroke widths
 
-thin('f-models-schema', 'doc-models', 'doc-schema', (931, 206), (1564, 206), dash=SHORT)
+thin('f-models-schema', 'doc-models', 'doc-schema', (931, 207), (1564, 207), dash=SHORT)
 thin('f-models-context', 'doc-models', 'context', (381, 306), (393, 1192), dash=LONG)
-thin('f-models-aggregates', 'doc-models', 'aggregates', (416, 306), (728, 663), dash=DOT)
-thin('f-models-basics', 'doc-models', 'basics', (459, 306), (730, 926), dash=DOT)
-thin('f-aggregates-loop', 'aggregates', 'aggregates', (884, 835), (791, 835), via=[(884, 894), (791, 894)], dash=DOT)
-thin('f-aggregates-basics', 'aggregates', 'basics', (947, 835), (947, 925), dash=DOT)
-thin('f-aggregates-cac', 'aggregates', 'cac', (1142, 615), (1329, 579), dash=SHORT)
-thin('f-basics-cbc', 'basics', 'cbc', (1149, 1034), (1522, 1000), dash=SHORT)
-thin('f-basics-context', 'basics', 'context', (728, 1153), (431, 1344), dash=LONG)
+thin('f-models-aggregates', 'doc-models', 'aggregates', (459, 306), (728, 665), dash=DOT)
+thin('f-models-basics', 'doc-models', 'basics', (416, 306), (728, 927), dash=DOT)
+thin('f-aggregates-loop', 'aggregates', 'aggregates', (885, 835), (792, 835), via=[(885, 895), (792, 895)], dash=DOT)
+thin('f-aggregates-basics', 'aggregates', 'basics', (948, 835), (948, 925), dash=DOT)
+thin('f-aggregates-cac', 'aggregates', 'cac', (1142, 614), (1329, 579), dash=SHORT)
+thin('f-basics-cbc', 'basics', 'cbc', (1149, 1035), (1522, 997), dash=SHORT)
+thin('f-basics-context', 'basics', 'context', (728, 1154), (431, 1344), dash=LONG)
 thin('f-basics-types', 'basics', 'cc-types', (919, 1219), (919, 1316), dash=DOT)
-thin('f-context-genericode', 'context', 'genericode', (197, 1192), (197, 1060), dash=DOT)
-thin('f-types-cct', 'cc-types', 'ccts-cct', (1049, 1505), (1841, 1757), dash=SHORT,
-     via=[(1127, 1522), (1213, 1545), (1300, 1584), (1337, 1592), (1423, 1624), (1510, 1656), (1597, 1682), (1683, 1706), (1770, 1744)])
-thin('f-context-dtq', 'context', 'dtq', (431, 1463), (1326, 1792), dash=LONG)
-thin('f-schema-cac', 'doc-schema', 'cac', (1650, 320), (1507, 443))
-thin('f-schema-cbc', 'doc-schema', 'cbc', (1916, 320), (1724, 845))
-thin('f-schema-ext', 'doc-schema', 'ext', (2187, 320), (2362, 443))
-thin('f-cac-ext', 'cac', 'ext', (1719, 509), (2160, 574))
-thin('f-cac-cbc', 'cac', 'cbc', (1543, 737), (1653, 845))
-thin('f-ext-cbc', 'ext', 'cbc', (2297, 738), (1793, 845))
-thin('f-ext-udt', 'ext', 'udt', (2364, 738), (2082, 1399))
-thin('f-ext-content', 'ext', 'ext-content', (2452, 738), (2571, 891), dash=SHORT)
-thin('f-cbc-qdt', 'cbc', 'qdt', (1714, 1139), (1542, 1238))
-thin('f-cbc-udt', 'cbc', 'udt', (1844, 1139), (1956, 1399))
-thin('f-qdt-udt', 'qdt', 'udt', (1716, 1381), (1827, 1513))
-thin('f-udt-cct', 'udt', 'ccts-cct', (2030, 1628), (2030, 1728))
+thin('f-context-genericode', 'context', 'genericode', (195, 1192), (197, 1060), dash=DOT)
+thin('f-types-cct', 'cc-types', 'ccts-cct', (1049, 1505), (1841, 1759), dash=SHORT)
+thin('f-context-dtq', 'context', 'dtq', (431, 1460), (1326, 1791), dash=LONG)
+thin('f-schema-cac', 'doc-schema', 'cac', (1648, 320), (1508, 443))
+thin('f-schema-cbc', 'doc-schema', 'cbc', (1914, 320), (1722, 845))
+thin('f-schema-ext', 'doc-schema', 'ext', (2189, 320), (2360, 443))
+thin('f-cac-ext', 'cac', 'ext', (1719, 508), (2160, 571))
+thin('f-cac-cbc', 'cac', 'cbc', (1545, 737), (1647, 845))
+thin('f-ext-cbc', 'ext', 'cbc', (2276, 738), (1794, 845))
+thin('f-ext-udt', 'ext', 'udt', (2362, 738), (2081, 1399))
+thin('f-ext-content', 'ext', 'ext-content', (2458, 738), (2566, 891), dash=SHORT)
+thin('f-cbc-qdt', 'cbc', 'qdt', (1712, 1139), (1522, 1238))
+thin('f-cbc-udt', 'cbc', 'udt', (1843, 1139), (1955, 1399))
+thin('f-qdt-udt', 'qdt', 'udt', (1716, 1384), (1827, 1513))
+thin('f-udt-cct', 'udt', 'ccts-cct', (2028, 1628), (2030, 1728))
 thin('f-content-sig', 'ext-content', 'sig', (2512, 1185), (2512, 1257))
-thin('f-sig-cbc', 'sig', 'cbc', (2363, 1309), (1925, 975))
-thin('f-sig-qdt', 'sig', 'qdt', (2363, 1357), (1716, 1299))
-thin('f-sig-udt', 'sig', 'udt', (2363, 1422), (2214, 1511))
-thin('f-sig-w3c', 'sig-p3', 'w3c', (2438, 1583), (2438, 1628))
-thin('f-w3c-xades-1', 'w3c', 'xades', (2667, 1778), (2667, 1828))
-thin('f-w3c-xades-2', 'w3c', 'xades', (2705, 1778), (2705, 1828))
-thin('f-content-def', 'ext-content-r', 'definition', (3163, 1185), (3104, 1227))
+thin('f-sig-cbc', 'sig', 'cbc', (2363, 1309), (1925, 980))
+thin('f-sig-qdt', 'sig', 'qdt', (2363, 1357), (1716, 1301))
+thin('f-sig-udt', 'sig', 'udt', (2363, 1421), (2214, 1515))
+thin('f-sig-w3c', 'sig-p3', 'w3c', (2437, 1583), (2437, 1628))
+thin('f-content-def', 'ext-content-r', 'definition', (3163, 1185), (3099, 1228))
 
 # ---- 'replace': a hollow block arrow, open at the tail
 def hollow(i, tip, head_x, head_y0, head_y1, y0, y1, tail):
@@ -129,7 +135,7 @@ def sample(i, y, x0, x1, x2, x3, dash=None):
     if dash:
         st += 'dashed=1;dashPattern=%s %s;' % (n(dash[0] / 3), n(dash[1] / 3))
     f.edge(i + '-a', 'line', '', st, [(r(x0), r(y)), (r(x1), r(y))])
-    f.edge(i + '-b', 'line', '', st.replace('endArrow=none', 'endArrow=block;endFill=1;endSize=5.6'), [(r(x2), r(y)), (r(x3), r(y))])
+    f.edge(i + '-b', 'line', '', st.replace('endArrow=none', 'endArrow=block;endFill=1;endSize=5.0'), [(r(x2), r(y)), (r(x3), r(y))])
 sample('legend-referenced', 1614, 57, 207, 434, 586, DOT)
 sample('legend-generated', 1682, 57, 216, 441, 585, LONG)
 sample('legend-related', 1742, 58, 248, 406, 584, SHORT)
@@ -145,42 +151,40 @@ f.label('t-legend-replace', ['replace'], 1855, cx=3128, **ls)
 
 # ---- texts
 def t(i, lines, top, **kw):
-    import os
-    top += float(os.environ.get('JIT', 0))
     kw.setdefault('font', 11.85)
     kw.setdefault('shift', -2)
     f.label(i, lines, top, pitch=P, **kw)
 kw = dict(bold=True)
 t('t-modeling', ['Modeling Artefacts'], 36, cx=572)
-t('t-validation', ['Validation Artefacts'], 36, cx=2395.5)
-t('t-doc-models', ['Document Models (CCTS)', 'e.g. Invoice, Order, etc.'], 126, cx=573.5)
+t('t-validation', ['Validation Artefacts'], 36, cx=2393.5)
+t('t-doc-models', ['Document Models (CCTS)', 'e.g. Invoice, Order, etc.'], 126, cx=571.5)
 t('t-doc-models-i', ['(Document ABIEs)'], 252, cx=573, italic=True)
 t('t-library', ['Common Library Model', '(CCTS)'], 394, cx=864)
 t('t-aggregates', ['Model', 'Aggregates'], 566, cx=931)
 t('t-aggregates-i', ['(Library ABIEs', 'and ASBIEs)'], 697, cx=931, italic=True)
-t('t-basics', ['Model', 'Basics'], 953, cx=933)
+t('t-basics', ['Model', 'Basics'], 953, cx=931)
 t('t-basics-i', ['(Document and', 'Library BBIEs)'], 1080, cx=936, italic=True)
-t('t-context', ['Context', 'Value', 'Association', 'File'], 1221, cx=236)
+t('t-context', ['Context', 'Value', 'Association', 'File'], 1221, cx=234)
 t('t-cc-types', ['Core Component', 'Types (CCTS)'], 1354, cx=918)
-t('t-genericode', ['Genericode', 'Files'], 912, cx=174)
-t('t-doc-schema', ['Document Schema', 'e.g. Invoice, Order, etc.', '(document namespace)'], 130, cx=1920)
-t('t-cac', ['Common', 'Aggregate', 'Components', '(cac:)'], 470, cx=1520)
+t('t-genericode', ['Genericode', 'Files'], 912, cx=176)
+t('t-doc-schema', ['Document Schema', 'e.g. Invoice, Order, etc.', '(document namespace)'], 130, cx=1918)
+t('t-cac', ['Common', 'Aggregate', 'Components', '(cac:)'], 470, cx=1521)
 t('t-ext', ['Common', 'Extension', 'Components', '(ext:)'], 471, cx=2363)
-t('t-cbc', ['Common', 'Basic', 'Components', '(cbc:)'], 875, cx=1722)
-t('t-qdt', ['Qualified/', 'Specialized', 'Datatypes', '(qdt:)'], 1262, cx=1523)
+t('t-cbc', ['Common', 'Basic', 'Components', '(cbc:)'], 875, cx=1720)
+t('t-qdt', ['Qualified/', 'Specialized', 'Datatypes', '(qdt:)'], 1262, cx=1525)
 t('t-udt', ['Unqualified', 'Datatypes', '(udt:)'], 1430, cx=2016)
-t('t-ccts-cct', ['CCTS CCT', 'Schema', '(ccts-cct:)'], 1749, cx=2026)
+t('t-ccts-cct', ['CCTS CCT', 'Schema', '(ccts-cct:)'], 1749, cx=2025)
 t('t-dtq', ['Data Type', 'Qualifications', 'XSLT'], 1777, cx=1521)
 t('t-ext-content', ['Extension', 'Content', 'Datatype', '(ext:)'], 921, cx=2569)
 t('t-ext-content-r', ['Extension', 'Content', 'Datatype', '(ext:)'], 921, cx=3163.5)
 t('t-sig', ['Common', 'Signature', 'Components', '(sig: sac: sbc:)'], 1286, cx=2569)
-t('t-definition', ['Extension', 'Datatype', 'Definition', '(xxx: xac: xbc:)'], 1258, cx=3095)
-t('t-w3c', ['W3C Digital Signature', 'Schema (ds:)'], 1646, cx=2568)
-t('t-xades', ['XAdES Schemas', 'v2.3.1 and v1.4.1'], 1854, cx=2566)
-t('t-custom', ['Customization', 'Extension', 'Replacement', 'Schemas'], 628, cx=3126)
+t('t-definition', ['Extension', 'Datatype', 'Definition', '(xxx: xac: xbc:)'], 1258, cx=3096)
+t('t-w3c', ['W3C Digital Signature', 'Schema (ds:)'], 1646, cx=2570)
+t('t-xades', ['XAdES Schemas', 'v2.3.1 and v1.4.1'], 1854, cx=2565)
+t('t-custom', ['Customization', 'Extension', 'Replacement', 'Schemas'], 628, cx=3128)
 t('t-doc-namespace', ['Documentation', 'Namespace'], 129, cx=3082, italic=True)
-t('t-parameters', ['Core', 'Component', 'Parameters', '(ccts:)'], 258, cx=3080)
-t('t-legend-left', ['Legend'], 1529, cx=323, italic=True)
+t('t-parameters', ['Core', 'Component', 'Parameters', '(ccts:)'], 258, cx=3078)
+t('t-legend-left', ['Legend'], 1529, cx=321, italic=True)
 t('t-legend-right', ['Legend'], 1629, cx=3127, italic=True)
 ab = dict(font=9.5, pitch=53.5, left=51, shift=-2)
 f.label('t-abbr-1', ['CCTS: Core Component Technical Specification V2.01'], 1787, **ab)
