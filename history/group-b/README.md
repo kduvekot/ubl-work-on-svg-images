@@ -67,6 +67,13 @@ build scripts carry the corrections found that way (a `+3`, a `+7` and the like,
 
 ## Checked
 
+**In the live editor** (draw.io 32.2.0, 2026-10-05, `python3 tools/drawio_upgrade.py --editor <3 figures>`): opened and saved, all
+three come back the same in every cell, style, geometry and the render (`VERDICT: SAFE`); the editor's own PNG
+export of each shows the custom arrows, the rotated labels, the line heights and the brace as the export has them.
+(Needs the proxy's CA in the browser's trust store: `certutil -d sql:$HOME/.pki/nssdb -A ...` only; do not run `-N` on the
+existing database, it hangs.)
+
+
 `tools/check_drawio.py` (all 92 drawings), `tools/check_svg.py to-ubl-repo` (92 of 92: SVG is vector,
 words as text, 1 bit PNGs, export up to date), and every earlier figure's export is unchanged byte
 for byte.
