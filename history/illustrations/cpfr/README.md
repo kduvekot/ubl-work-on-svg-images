@@ -95,8 +95,8 @@ has, blue: only the drawing, % of the PNG's ink):
 
 | figure | red | blue |
 |---|---|---|
-| Steps1-2 | 2.0 | 3.7 |
-| Steps3-4-5 | 2.6 | 3.6 |
+| Steps1-2 | 2.0 | 3.6 |
+| Steps3-4-5 | 2.6 | 3.7 |
 | Steps6-9 | 1.7 | 2.6 |
 
 What remains is mostly the text's own shapes and the clip art, drawn with
@@ -113,5 +113,5 @@ crisper lines than the PNGs' blurred ones.
   are complete without it.
 - **One grey balance** over the five parts: at their real size in the figures
   they are a little paler than the UBL PNGs' pictures. Left as it is for now.
-- **The baseline:** the three drawings are not yet in `baselines/` (to be added
-  when they are taken as final).
+
+The three drawings are in the baseline `baselines/2026-10-05/` (the numbers above are its).

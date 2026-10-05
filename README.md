@@ -20,7 +20,7 @@ tools/drawio_baseline.py                 holds the drawings against the baseline
 tools/export_drawio.js                   exports them for the UBL repository: SVG, PNG
 tools/check_svg.py                       checks an export
 to-ubl-repo/                             what goes to the UBL repository: the export
-baselines/2026-09-30/                    the baseline: the drawings as they are now
+baselines/2026-10-05/                    the baseline: the drawings as they are now (2026-09-30: the one before)
 ```
 
 **Edit a figure by opening its `.drawio` file in draw.io** (the desktop app, or
@@ -181,26 +181,31 @@ was read (a flow's direction confidence, the figure's source PNG), which stays
 in the history. After the drawings have been edited, they will differ from the
 JSONs, as they should: the JSONs are history now.
 
-### The baseline: `baselines/2026-09-30/`
+### The baseline: `baselines/2026-10-05/`
 
-The drawings as they were made the source of truth (commit `3bd91c6`, all edits
-of `history/drawio-edits/` done), for later edits to be held against:
+The drawings as they are now, for later edits to be held against:
 
-- `diagrams/<figure>.drawio`: the 78 drawings, and the 4 illustrations, added
-  on the same day, when they were made (`make` with the four named, from their
-  `history/drawio-edits/diff/one.py`);
+- `diagrams/<figure>.drawio`: the 85 drawings: the 78 diagrams, the 4
+  Fulfilment illustrations and the 3 CPFR step illustrations;
 - `renders/<figure>.png`: each rendered with draw.io's own code (viewer
-  31.5.3), at the size of the original PNG (grown where the drawing grew);
+  31.5.3, pinned in `history/drawio-writer/render-drawio.js` as in the export),
+  at the size of the original PNG (grown where the drawing grew);
 - `summary.txt`, `summary.json`: per figure, how it compares with the original
   PNG (red: ink only the PNG has; blue: only the drawing; in %, of the PNG's
   ink), and for the 35 figures that grew, the same with the space inserted in
   the PNG too.
 
+It is `baselines/2026-09-30/` with the 3 CPFR step figures added: its other 82
+drawings, renders and numbers are those of 2026-09-30, byte for byte.
+`baselines/2026-09-30/` is the baseline as the drawings were made the source of
+truth (commit `3bd91c6`, all edits of `history/drawio-edits/` done; the
+Fulfilment figures added on the same day), kept as it was.
+
 The PDF of that comparison is not kept: `history/drawio-edits/diff/run.sh` makes
 it again from the baseline's commit.
 
 ```sh
-python3 tools/drawio_baseline.py compare baselines/2026-09-30 [--out <dir>] [<figure> ...]
+python3 tools/drawio_baseline.py compare baselines/2026-10-05 [--out <dir>] [<figure> ...]
 ```
 
 Run it by hand after an edit. Per figure it says `same` (the baseline's file,
@@ -363,5 +368,25 @@ since:
    Fulfilment figures, from Tim McGrath's deck (linked there, not kept) and
    fitted to the UBL PNGs; their pictures (`illustrations/parts/`) and drawings,
    and how to make them again.
+8. **The CPFR step illustrations** - `history/illustrations/cpfr/` (2026-10-05):
+   the three CPFR step figures, their clip art redrawn (the originals are lost),
+   drawn from the UBL PNGs.
 
 `history/README.md` is the repository's former README, describing steps 1-4.
+
+## Open work
+
+- **A newer draw.io.** The export (`tools/export_drawio.js`, `DRAWIO_VERSION`)
+  and the renders of the baseline and the comparisons
+  (`history/drawio-writer/render-drawio.js`) use draw.io's viewer 31.5.3; the
+  editor people use is newer (32.1.0 on 2026-10-05). To move to it, for all
+  figures: change the pinned version in both; export all again and check
+  (`tools/check_svg.py`), looking at what changed; make a new baseline from the
+  new renders, so that `drawio_baseline.py compare` does not report the change
+  of version as a change of every drawing; and try editing and saving a few
+  drawings in that version again.
+- **The other 12 figures** of the UBL repository (see "Only the 78 and the 7
+  illustrations" above).
+- **The CPFR step figures:** what is still open on them is in
+  `history/illustrations/cpfr/README.md` ("Open work").
+

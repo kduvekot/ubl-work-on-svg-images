@@ -1,8 +1,10 @@
 // Render a .drawio file to PNG with draw.io's own drawing code, headlessly.
 //   node render-drawio.js <in.drawio> <out.png> <width> <height> [<scale>]
 //
-// The drawing code is draw.io's viewer (viewer-static.min.js), fetched once
-// from viewer.diagrams.net into DRAWIO_VIEWER_CACHE (default
+// The drawing code is draw.io's viewer (viewer-static.min.js) of the release
+// pinned in DRAWIO_VERSION - the one tools/export_drawio.js pins, so the renders
+// the baselines are made and held with are of the same draw.io as the export -
+// fetched once from that release's tag into DRAWIO_VIEWER_CACHE (default
 // ~/.cache/ubl-drawio-viewer) and loaded into the same Chromium that renders
 // the SVGs (tools/render-svg.js). The model is drawn at scale 1 with its
 // frame where the SVG has it, so the PNG lines up with the SVG's render
@@ -12,7 +14,9 @@
 const { chromium } = require('playwright');
 const fs = require('fs'), path = require('path'), os = require('os'), https = require('https');
 const CHROME = process.env.CHROMIUM_PATH || '/opt/pw-browsers/chromium-1194/chrome-linux/chrome';
-const VIEWER_URL = 'https://viewer.diagrams.net/js/viewer-static.min.js';
+const DRAWIO_VERSION = '31.5.3';   // as tools/export_drawio.js; not the live viewer.diagrams.net, which moves on
+const VIEWER_URL = 'https://raw.githubusercontent.com/jgraph/drawio/v' + DRAWIO_VERSION +
+                   '/src/main/webapp/js/viewer-static.min.js';
 
 function fetch(url, dest) {
   return new Promise((ok, fail) => {
@@ -28,7 +32,7 @@ function fetch(url, dest) {
 async function viewer() {
   const dir = process.env.DRAWIO_VIEWER_CACHE || path.join(os.homedir(), '.cache', 'ubl-drawio-viewer');
   fs.mkdirSync(dir, { recursive: true });
-  const file = path.join(dir, 'viewer-static.min.js');
+  const file = path.join(dir, 'viewer-' + DRAWIO_VERSION + '.min.js');
   if (!fs.existsSync(file)) await fetch(VIEWER_URL, file);
   return file;
 }
@@ -61,6 +65,7 @@ async function viewer() {
     graph.view.scaleAndTranslate(s, -m, -m);
     return (typeof EditorUi !== 'undefined' && EditorUi.VERSION) || mxClient.VERSION;
   }, [fs.readFileSync(inp, 'utf8'), s]);
+  if (version !== DRAWIO_VERSION) throw new Error('draw.io ' + version + ', expected ' + DRAWIO_VERSION);
   await page.waitForTimeout(200);
   await page.screenshot({ path: out, clip: { x: 0, y: 0, width: w, height: h } });
   await browser.close();
