@@ -17,6 +17,7 @@ tools/embed_parts.py                     puts an edited picture into the illustr
 tools/ubl-library.xml                    the UBL shapes, as a draw.io library, for editing
 tools/check_drawio.py                    the check, run by hand after an edit
 tools/drawio_baseline.py                 holds the drawings against the baseline
+tools/drawio_format.py                   writes a drawing as draw.io's editor does (a text diff against the editor's)
 tools/export_drawio.js                   exports them for the UBL repository: SVG, PNG
 tools/check_svg.py                       checks an export
 tools/drawio_upgrade.py                  is there a newer draw.io, and does it change anything
@@ -190,7 +191,7 @@ The drawings as they are now, for later edits to be held against:
 - `diagrams/<figure>.drawio`: the 85 drawings: the 78 diagrams, the 4
   Fulfilment illustrations and the 3 CPFR step illustrations;
 - `renders/<figure>.png`: each rendered with draw.io's own code (viewer
-  31.5.3, pinned in `history/drawio-writer/render-drawio.js` as in the export),
+  31.5.3, the pin then; the baseline is not remade for a newer pin),
   at the size of the original PNG (grown where the drawing grew);
 - `summary.txt`, `summary.json`: per figure, how it compares with the original
   PNG (red: ink only the PNG has; blue: only the drawing; in %, of the PNG's
@@ -319,7 +320,7 @@ publishes its artwork (its README, "Artwork"; `build.xml`; `realta-user-paramete
   the widest figure (Fulfilment Receipt Advice, scale 0.39) at 3.5 pt. Changing
   the drawings to even that out is for later.
 - **draw.io's code is pinned:** the export draws with draw.io's viewer of one
-  release (`tools/drawio-version.json`, now 31.5.3, the baseline's), fetched from
+  release (`tools/drawio-version.json`, now 32.0.2; the baseline's was 31.5.3), fetched from
   that release's tag in [jgraph/drawio](https://github.com/jgraph/drawio), so an
   export can be made again the same. To move to a newer one, see "Upgrading
   draw.io" below.
@@ -383,7 +384,22 @@ zeros (`554.30` is `554.3`), writes the cells parent by parent, names its own
 `host` and drops `type="device"`, and records its window size (`dx`, `dy`). It
 adds nothing and removes no style key, even those equal to draw.io's defaults. So
 the first save of a drawing in draw.io shows as a change of form in git, not of
-content; the files could be written in the editor's form to avoid that: not done.
+content. So the drawings are written in the editor's form (next paragraph).
+
+**The drawings are in the editor's form** (2026-10-05): `tools/drawio_format.py`
+writes a `.drawio` as the editor does: pretty-printed, cells parent by parent,
+attributes in its order, no `x="0"` or `y="0"`, numbers as JavaScript writes them,
+no `type` on `<mxfile>`, `'` as `&#39;`. It reproduces the editor's file byte for
+byte for all 85 drawings, but for two things the editor decides itself: the
+`host` of `<mxfile>` (ours stays `UBL-TC`) and the window size `dx`, `dy` (some
+of ours have none). So a drawing can be compared with the same drawing saved from
+the editor by text: `python3 tools/drawio_format.py --diff <ours> <saved>`
+shows what differs, and nothing if nothing does. `check_drawio.py` reports a
+file that is not in this form; after a script writes one, run
+`python3 tools/drawio_format.py <file>`. `drawio_upgrade.py --editor` includes
+the text comparison. The rewrite changed no cell, no style, no pixel of any
+export or render (`drawio_baseline.py compare`: 85 `same-drawing`); in
+`to-ubl-repo/` only the copied `.drawio` files changed.
 
 The baseline's renders (drawn zoomed in draw.io's own view, 3-5 times) differ
 in 35 figures, and the reason is draw.io's, not the drawings': zoomed, 31.5.3
@@ -396,50 +412,4 @@ and the baseline stays as it is: its stored renders (`renders/`) are history and
 are not remade, which only means that for a drawing that differs, the note
 "renderer changed" appears (the stored render was drawn the old way). The
 export is unchanged. 32.1.0 has no tag, so it is not tried.
-
-## How we got here: `history/`
-
-The drawings are the end of a path, kept whole in `history/`: the repository
-as it was before the switch, which still runs from there, and the edits made
-since:
-
-1. **The original PNGs** - `art/` in the [UBL repository](https://github.com/oasis-tcs/ubl),
-   branch `ubl-2.5` (not copied here).
-2. **Ken Holman's SVGs** - `history/svg-images/`: the first conversion, by hand.
-3. **The reading: PNG to JSON** - `history/tools/` reads each PNG into three JSONs
-   (`history/diagrams/<figure>/`: the model, its layout, the reading's
-   measurements), with every decision taken with the TC recorded
-   (`history/tools/model-corrections.json`, `direction-verdicts.json`,
-   `artwork-faults.json`) and written up in `history/docs/`. The baselines of the
-   reading are in `history/baselines/`.
-4. **JSON to SVG** - `history/diagrams/<figure>/<figure>.svg`, drawn by
-   `history/tools/draw-from-json.sh`; the comparison decks in
-   `history/comparison-pdf/`.
-5. **JSON to draw.io** - `history/drawio-writer/`: the writer that drew the
-   drawings in `diagrams/` from the JSONs, with its README (every element, the
-   draw.io construct chosen for it, what differs from the SVG and why, and the
-   decisions taken) and its comparison against the SVGs (`sweep.md`).
-6. **draw.io as the source** - `diagrams/` (2026-09-29). The changes made to
-   all 78 drawings since (12 pt text, one arrowhead, the 3x arrow rule), and the
-   comparison of the drawings with the original PNGs, are scripts in
-   `history/drawio-edits/`, with a README saying which commit each made.
-7. **The illustrations** - `history/illustrations/` (2026-09-30): the four
-   Fulfilment figures, from Tim McGrath's deck (linked there, not kept) and
-   fitted to the UBL PNGs; their pictures (`illustrations/parts/`) and drawings,
-   and how to make them again.
-8. **The CPFR step illustrations** - `history/illustrations/cpfr/` (2026-10-05):
-   the three CPFR step figures, their clip art redrawn (the originals are lost),
-   drawn from the UBL PNGs.
-
-`history/README.md` is the repository's former README, describing steps 1-4.
-
-## Open work
-
-- **A newer draw.io:** 32.0.2 is the newest release that can be pinned and
-  changes no export (see "Upgrading draw.io"); whether to move to it is open. The
-  editor people use is ahead of it (32.1.0 on 2026-10-05, no tag yet).
-- **The other 12 figures** of the UBL repository (see "Only the 78 and the 7
-  illustrations" above).
-- **The CPFR step figures:** what is still open on them is in
-  `history/illustrations/cpfr/README.md` ("Open work").
 

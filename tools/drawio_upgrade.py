@@ -45,6 +45,8 @@ drawing in the live editor (tools/drawio_editor_roundtrip.js: embed.diagrams.net
 headless Chromium, so the newest version, which can be ahead of any tag), saves it
 again, and compares what came back with what went in:
 
+  text       the file, as it is, against the file the editor wrote (tools/drawio_format.py:
+             but for the host and the window size, which the editor decides itself);
   structure  every cell: its attributes, style (as keys and values), geometry
              (numbers as numbers: 554.30 is 554.3) and place in the stacking order of
              its parent; not the file's layout, its host, the size of the editor window;
@@ -55,11 +57,14 @@ codes. Where live is ahead of the candidate, the report says so: what was compar
 the candidate, not what people edit in.
 """
 import json, os, re, subprocess, sys, tempfile, urllib.request, concurrent.futures as cf
+import difflib
 import xml.etree.ElementTree as ET
 import numpy as np
 from PIL import Image
 
 HERE = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, HERE)
+import drawio_format  # noqa: E402
 ROOT = os.path.dirname(HERE)
 PIN_FILE = os.path.join(HERE, 'drawio-version.json')
 EXPORT = os.path.join(HERE, 'export_drawio.js')
@@ -281,6 +286,10 @@ def editor_check(figs, outdir):
         def one(n):
             a, b = os.path.join(ROOT, 'diagrams', n, n + '.drawio'), os.path.join(t, n + '.drawio')
             diffs = file_diff(a, b)
+            ta, tb = (drawio_format.neutral(open(f, encoding='utf8').read()) for f in (a, b))
+            if ta != tb:
+                n_lines = sum(1 for l in difflib.unified_diff(ta.splitlines(), tb.splitlines(), lineterm='', n=0) if l[:1] in '+-' and l[:3] not in ('+++', '---'))
+                diffs.insert(0, "text: %d lines differ from the file the editor wrote (tools/drawio_format.py --diff)" % n_lines)
             s = summary.get(n)
             if s:
                 ra, rb = (render(pin, f, s['canvas'], s['scale'], os.path.join(t, '%s-%s.png' % (n, k))) for k, f in (('before', a), ('after', b)))
