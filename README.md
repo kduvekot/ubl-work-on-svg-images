@@ -147,6 +147,15 @@ these differences: they are not checked by `tools/check_drawio.py` (they hold
 no model); the export puts each picture in the SVG as the SVG it is, and prints
 `art/` in grey (8 bit), not black and white; and their page is the frame.
 
+### The CPFR step illustrations (pilot: Steps3-4-5)
+
+`UBL-2.2-CPFR-Steps3-4-5` is drawn the same way: an illustration (frame of
+`ubl-kind` `illustration`), its flowchart in draw.io's shapes, its pictures the
+parts `illustrations/parts/cpfr-*.svg`: the CPFR figures' clip art, redrawn
+(the originals are Visio stencil art, and lost). It is the pilot for the other
+two, `Steps1-2` and `Steps6-9`; how the parts and the drawing were made:
+`history/illustrations/cpfr/README.md`.
+
 ### Checking a drawing
 
 ```sh
