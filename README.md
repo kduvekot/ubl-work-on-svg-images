@@ -1,16 +1,17 @@
 # ubl-work-on-svg-images
 
 Editable sources for the artwork of the UBL specification: the **78 UML activity
-diagrams** of UBL 2.5 (of its 97 figures), and **4 illustrations** (the
-Fulfilment figures: shipments and consignments), as **draw.io drawings**. UBL
+diagrams** of UBL 2.5 (of its 97 figures), and **7 illustrations** (the
+4 Fulfilment figures: shipments and consignments; the 3 CPFR step figures), as
+**draw.io drawings**. UBL
 publishes these figures as PNG and most of their original sources are lost; these
 drawings replace them as the figures' source.
 
 ## The source of truth: the draw.io drawings
 
 ```
-diagrams/<figure>/<figure>.drawio        82 figures, e.g. diagrams/UBL-2.5-BillingwithDebitNoteProcess/
-                                         (78 diagrams, and 4 illustrations: UBL-2.2-Fulfilment-1simple ...)
+diagrams/<figure>/<figure>.drawio        85 figures, e.g. diagrams/UBL-2.5-BillingwithDebitNoteProcess/
+                                         (78 diagrams, and 7 illustrations: UBL-2.2-Fulfilment-1simple ...)
 illustrations/parts/*.svg                the pictures the illustrations are made of, to edit
 tools/embed_parts.py                     puts an edited picture into the illustrations
 tools/ubl-library.xml                    the UBL shapes, as a draw.io library, for editing
@@ -25,8 +26,8 @@ baselines/2026-09-30/                    the baseline: the drawings as they are 
 **Edit a figure by opening its `.drawio` file in draw.io** (the desktop app, or
 diagrams.net) and saving it back. Nothing is generated over these files any more.
 
-The rest of this section is about the 78 diagrams; the 4 illustrations are
-pictures, not diagrams, and have a section of their own (below).
+The rest of this section is about the 78 diagrams; the 7 illustrations are
+pictures, not diagrams, and have sections of their own (below).
 
 Each drawing is built from draw.io's own parts:
 
@@ -147,13 +148,13 @@ these differences: they are not checked by `tools/check_drawio.py` (they hold
 no model); the export puts each picture in the SVG as the SVG it is, and prints
 `art/` in grey (8 bit), not black and white; and their page is the frame.
 
-### The CPFR step illustrations (pilot: Steps3-4-5)
+### The CPFR step illustrations
 
-`UBL-2.2-CPFR-Steps3-4-5` is drawn the same way: an illustration (frame of
-`ubl-kind` `illustration`), its flowchart in draw.io's shapes, its pictures the
-parts `illustrations/parts/cpfr-*.svg`: the CPFR figures' clip art, redrawn
-(the originals are Visio stencil art, and lost). It is the pilot for the other
-two, `Steps1-2` and `Steps6-9`; how the parts and the drawing were made:
+`UBL-2.2-CPFR-Steps1-2`, `-Steps3-4-5` and `-Steps6-9` are drawn the same way:
+illustrations (frame of `ubl-kind` `illustration`), their flowcharts in
+draw.io's shapes, their pictures the parts `illustrations/parts/cpfr-*.svg`:
+the CPFR figures' clip art, redrawn (the originals are Visio stencil art, and
+lost). How the parts and the drawings were made:
 `history/illustrations/cpfr/README.md`.
 
 ### Checking a drawing

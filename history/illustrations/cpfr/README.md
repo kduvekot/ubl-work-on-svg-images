@@ -10,7 +10,7 @@ person at a desk), which is Microsoft's, not ours to republish. So the clip art 
 **redrawn**, and the figures are drawn again in draw.io from the UBL PNGs, as
 the Fulfilment illustrations were (`../README.md`).
 
-`UBL-2.2-CPFR-Steps3-4-5` is the pilot: `diagrams/UBL-2.2-CPFR-Steps3-4-5/`.
+The drawings: `diagrams/UBL-2.2-CPFR-Steps1-2/`, `-Steps3-4-5/` (the pilot) and `-Steps6-9/`.
 
 ## The parts (`illustrations/parts/cpfr-*.svg`)
 
@@ -19,8 +19,8 @@ the Fulfilment illustrations were (`../README.md`).
 | `cpfr-meeting` | Steps1-2 | people meeting at a table |
 | `cpfr-agreement` | Steps1-2 | two people shaking hands over a stack of documents |
 | `cpfr-document` | all three | a document |
-| `cpfr-exception` | Steps3-4-5 | a clipboard with an exclamation mark |
-| `cpfr-person-at-desk` | Steps3-4-5 (twice, once mirrored) | a person writing at a desk, a printing calculator beside |
+| `cpfr-exception` | Steps3-4-5, Steps6-9 | a clipboard with an exclamation mark |
+| `cpfr-person-at-desk` | Steps3-4-5, Steps6-9 (in pairs, one mirrored) | a person writing at a desk, a printing calculator beside |
 
 All in grey, isometric (30 degrees), each in the frame of its crop of the
 prd1 master (`docs.oasis-open.org/ubl/prd1-UBL-2.1/art/UBL-2.1-CPFR-*.png`,
@@ -61,22 +61,32 @@ read those renders and the prd1 crops (`made/ref.py`) from a working folder.
 **The parts are the source now**: edit one in an SVG editor, then
 `python3 tools/embed_parts.py`.
 
-## The pilot: Steps3-4-5
+## The drawings
 
 ```sh
 UBL=<clone of oasis-tcs/ubl, branch ubl-2.5> python3 history/illustrations/cpfr/parts_fit.py   # parts_fit.json
-python3 history/illustrations/cpfr/steps345.py                                                  # the drawing
+cd history/illustrations/cpfr && python3 steps12.py && python3 steps345.py && python3 steps69.py
 ```
 
-`steps345.py` writes the drawing from shapes measured on the UBL 2.2 PNG
-(`art/UBL-2.2-CPFR-Steps3-4-5.png`, 1712 x 1976, grey): the two step panels and
-the dashed Step 6, the five block arrows with their documents, the two
-decisions, the flows and their guards, the Resolve Exception box (over the people at their desks, see-through, as the PNG has it). The drawing
-is the figure at its source's size (iSURF's 613 x 708, framed): the PNG is it
-times 2.7733 with a 6 px frame (`ubl-png-scale`). The pictures are where
+Each `steps*.py` writes its drawing from shapes measured on the UBL 2.2 PNG
+(`art/UBL-2.2-CPFR-<figure>.png`, grey), with what they share in `cpfr.py`:
+the step panels (grey, rounded; the next step dashed), the block arrows with
+their documents (each label centred on the flow), the decisions, the flows and
+their guards, the Manual marks, the Resolve Exception boxes (over the people
+at their desks, see-through, as the PNG has it), the final node. A drawing is
+the figure at its source's size (iSURF's, framed): the PNG is it times
+`ubl-png-scale` with a frame of 4.5-6 px. The pictures are where
 `parts_fit.py` found them in the PNG. Text is Helvetica at the sizes the PNG
-has (10-15 px).
+has. Steps3-4-5 was the pilot; the other two were drawn the same way.
 
-Against the PNG (`history/drawio-edits/diff/one.py`): red 2.8 %, blue 4.0 %
-(of the PNG's ink); what remains is mostly the text's own shapes and the
-people at the desks, drawn with heavier lines than the PNG's blurred ones.
+Against the PNGs (`history/drawio-edits/diff/one.py`; red: ink only the PNG
+has, blue: only the drawing, % of the PNG's ink):
+
+| figure | red | blue |
+|---|---|---|
+| Steps1-2 | 2.0 | 3.7 |
+| Steps3-4-5 | 2.6 | 3.6 |
+| Steps6-9 | 1.7 | 2.6 |
+
+What remains is mostly the text's own shapes and the clip art, drawn with
+crisper lines than the PNGs' blurred ones.
