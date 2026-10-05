@@ -23,8 +23,10 @@ with the candidate, into scratch directories, and compares, per figure:
   svg      the exported SVG, but for the "(draw.io <version>)" in its comment;
   art      the 600 dpi PNG, pixel for pixel;
   htmlart  the web PNG, pixel for pixel;
-  render   the drawing as draw.io's viewer draws it (what tools/drawio_baseline.py
-           holds the drawings to), at the baseline's canvas, pixel for pixel.
+  render   the drawing as draw.io's viewer draws it, at the baseline's canvas, pixel
+           for pixel: drawn at scale 1 and enlarged by the browser
+           (DRAWIO_RENDER_DEVICE=1 in history/drawio-writer/render-drawio.js), as zoomed
+           in the viewer the versions differ in rounding, not in the drawing.
 
 A figure is "same" when all four are, else "DIFFERENT", with what differs. Where
 pixels differ, <out>/<figure>-<kind>.png shows it: grey where both have ink, red
@@ -113,7 +115,10 @@ def run_export(version, out, files, scratch):
 
 
 def render(version, path, canvas, scale, out):
-    env = dict(NODE, DRAWIO_VERSION=version)
+    # draw.io draws at scale 1 and the browser enlarges: draw.io 32 rounds label and edge positions in model
+    # units, 31.5.3 in device pixels, so a view zoomed to the render scale differs between them for no reason
+    # of the drawing (README, "Upgrading draw.io")
+    env = dict(NODE, DRAWIO_VERSION=version, DRAWIO_RENDER_DEVICE='1')
     subprocess.run(['node', RENDER, path, out, str(canvas[0]), str(canvas[1]), str(scale)], check=True, capture_output=True, env=env)
     return out
 

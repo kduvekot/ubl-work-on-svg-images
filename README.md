@@ -367,11 +367,21 @@ if the renders changed, make a new baseline from them, so that
 drawing.
 
 **Tried 2026-10-05, 31.5.3 -> 32.0.2:** the export is the same in all 85
-figures (SVG, art and htmlart PNGs, pixel for pixel). The viewer render
-(the baseline's) differs in 35 figures, in edge labels only as far as looked at
-(Billing with Credit Note: its labels sit about 3 px right at 3425 px wide, the
-same text and line breaks): the baseline's renders would be made again.
-32.1.0 has no tag, so it is not tried.
+figures (SVG, art and htmlart PNGs, pixel for pixel), and so is the render when
+draw.io draws at scale 1 and the browser enlarges it (`DRAWIO_RENDER_DEVICE=1`
+in `render-drawio.js`; what `drawio_upgrade.py` does): `VERDICT: SAFE`.
+
+The baseline's renders (drawn zoomed in draw.io's own view, 3-5 times) differ
+in 35 figures, and the reason is draw.io's, not the drawings': zoomed, 31.5.3
+rounds an edge label's place along its flow, and the corners of an orthogonal
+flow, to whole device pixels, 32.0.2 to whole model pixels (its `getPoint`
+and `mxEdgeStyle` now `unscale`), so a label sits up to 3 px apart and a line
+a fraction of a pixel. At scale 1, as the export draws, they agree. To move the
+pin and have `drawio_baseline.py compare` stay quiet, the baseline's renders
+must be made again in the scale-1 mode (a pixel's difference in where thin
+lines fall: about 15 % of the ink, no change of the drawing), and `render()` in
+`drawio_baseline.py` made to use it: not done yet. 32.1.0 has no tag, so it is
+not tried.
 
 ## How we got here: `history/`
 
