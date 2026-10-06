@@ -437,7 +437,7 @@ if the renders changed, make a new baseline from them, so that
 `drawio_baseline.py compare` does not report the version as a change of every
 drawing.
 
-What was tried with each version (31.5.3 to 32.0.2, the live editor 32.1.0 and 32.2.0), and how the
+What was tried with each version (31.5.3 to 32.2.0, the pin since 2026-10-06; the live editor 32.1.0 and 32.2.0), and how the
 drawings came to be in the editor's form: `history/README.md`, "draw.io upgrades tried".
 
 **draw.io itself** (checked 2026-10-06): the editor's code is Apache 2.0 and, at the pinned release,

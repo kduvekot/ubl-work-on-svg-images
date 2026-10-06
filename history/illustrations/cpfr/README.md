@@ -188,7 +188,7 @@ completed by his symmetry, and only then the areas filled.
 commonest grey; `tools/export_drawio.js` makes a part's own `<use>` a copy, and
 draws each figure on a clean page (an export is the same alone or in a batch);
 `history/drawio-writer/render-drawio.js` follows the same pin as the export
-(`tools/drawio-version.json`: 31.5.3 then, 32.0.2 since 2026-10-05).
+(`tools/drawio-version.json`: 31.5.3 then, 32.0.2 since 2026-10-05, 32.2.0 since 2026-10-06).
 
 **How the editor was tried.** draw.io's editor (embed.diagrams.net) in
 Chromium (playwright), the drawing sent to it with draw.io's embed protocol

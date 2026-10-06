@@ -152,7 +152,8 @@ no model); the export puts each picture in the SVG as the SVG it is, and prints
 - `renders/<figure>.png`: each rendered with draw.io's own code (the pinned viewer,
   32.0.2), as `compare` draws it again (draw.io at scale 1, the browser enlarging), on
   the canvas of its original PNG (grown where the drawing grew), so that `compare` finds
-  it as stored (checked 2026-10-06: all 96, pixel for pixel);
+  it as stored (checked 2026-10-06: all 96, pixel for pixel; with the pin at 32.2.0 since,
+  three render a few pixels otherwise, "draw.io upgrades tried");
 - `summary.txt`, `summary.json`: per figure, how it compares with the original
   PNG (red: ink only the PNG has; blue: only the drawing; in %, of the PNG's
   ink, within 2 px per 1480 px of width), and for the 35 figures that grew, the
@@ -282,7 +283,7 @@ publishes its artwork (its README, "Artwork"; `build.xml`; `realta-user-paramete
   text is 40-70 px: `history/group-a/README.md`). Whether to change the drawings to even
   that out: README, "Questions for the TC", B3 (answered 2026-10-06: not now).
 - **draw.io's code is pinned:** the export draws with draw.io's viewer of one
-  release (`tools/drawio-version.json`, now 32.0.2; the baseline's was 31.5.3), fetched from
+  release (`tools/drawio-version.json`, now 32.2.0; the baseline's was 31.5.3), fetched from
   that release's tag in [jgraph/drawio](https://github.com/jgraph/drawio), so an
   export can be made again the same. To move to a newer one, see "Upgrading
   draw.io" in the README.
@@ -342,6 +343,21 @@ label puts them. The comparison deck now makes this check for every figure
 again, it shows.
 
 ## draw.io upgrades tried
+
+**Moved 2026-10-06, 32.0.2 -> 32.2.0** (the pin, `tools/drawio-version.json`; agreed with the UBL
+editor). `python3 tools/drawio_upgrade.py`: 91 of the 96 figures the same in all four (SVG but for
+the version in its comment, both PNGs, the render), 5 not (`VERDICT: REVIEW`), all for one reason:
+32.2.0 writes numbers to two decimals where 32.0.2 wrote them in full, an ellipse's radii and a
+rotated label's centre (`ry="23.985"` is `23.98`, `rotate(-90 16 199.99999999999997)` is
+`rotate(-90 16 200)`), at most 0.005 of a unit. CPFR Steps 6-9 and Ordering change in the SVG only;
+Default Validation (39 pixels in the print PNG, 54 in the web one, 652 in the render), Open-edi
+Application (83, 101, 1543: its rotated labels) and Pre-award (the web PNG, 7; the render, 319)
+change single pixels on the edge of a curve or a letter, nowhere else. The live editor at 32.2.0 had
+opened and saved all 96 the same (above). In `to-ubl-repo/`: every SVG (the version in its comment;
+the five, their numbers too) and the PNGs that changed (two print, three web); the others are the
+same picture under 32.2.0. The baseline 2026-10-06 keeps its renders of 32.0.2: should Default
+Validation, Open-edi Application or Pre-award be edited, `compare` notes "renderer changed" for it,
+which is the version, not the drawing.
 
 **Tried 2026-10-05, 31.5.3 -> 32.0.2:** the export is the same in all 85
 figures (SVG, art and htmlart PNGs, pixel for pixel), and so is the render when
