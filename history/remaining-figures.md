@@ -6,9 +6,9 @@ export" first: the same rules (draw.io as the source, an SVG that is real vector
 white print PNGs, one text size) apply, and `history/group-a/README.md` is the worked example
 of a figure that is not a UML activity diagram.
 
-**State:** 92 of the UBL repository's 97 figures are drawings in `diagrams/` (78 UML activity
-diagrams, 7 illustrations, 4 of Group A: the TC's own sources, as they are; 3 of Group B, done
-2026-10-05: `history/group-b/`). **5 are left**: Group C, and 1 that is no longer used.
+**State:** 96 of the UBL repository's 97 figures are drawings in `diagrams/` (78 UML activity
+diagrams, 7 illustrations, 4 of Group A: the TC's own sources, as they are; 3 of Group B and 4 of
+Group C, done 2026-10-05: `history/group-b/`, `history/group-c/`). **1 is left**: the one that is no longer used.
 
 How the figures were found: the 97 files of `history/svg-images/` (Ken Holman's conversion) against
 `diagrams/`; the PNGs are in the UBL repository's `art/` (clone `ubl-2.5`, see `history/docs/running.md`),
@@ -39,7 +39,7 @@ nothing carries a meaning and nothing is asked of the TC: the drawings are black
 the 78 are, with 1 bit print PNGs. The three are one session because they are all boxes,
 chevrons and plain arrows.
 
-## Group C: reference figures (4 figures, one or two sessions)
+## Group C: reference figures (4 figures) - DONE 2026-10-05, `history/group-c/README.md`
 
 | figure | PNG | what it is | source |
 |---|---|---|---|

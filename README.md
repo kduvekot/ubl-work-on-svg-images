@@ -4,15 +4,16 @@ Editable sources for the artwork of the UBL specification: the **78 UML activity
 diagrams** of UBL 2.5 (of its 97 figures), **7 illustrations** (the
 4 Fulfilment figures: shipments and consignments; the 3 CPFR step figures), and
 **4 figures of other notations** (2 BPMN-style drawings, 2 phase maps, the TC's own files: `history/group-a/`)
-and **3 phase and overview figures** drawn from the UBL PNGs (`history/group-b/`),
-as **draw.io drawings**: 92 of the 97. UBL
+**3 phase and overview figures** (`history/group-b/`) and **4 reference figures** (`history/group-c/`),
+the last two groups drawn from the UBL PNGs,
+as **draw.io drawings**: 96 of the 97. UBL
 publishes these figures as PNG and most of their original sources are lost; these
 drawings replace them as the figures' source.
 
 ## The source of truth: the draw.io drawings
 
 ```
-diagrams/<figure>/<figure>.drawio        92 figures, e.g. diagrams/UBL-2.5-BillingwithDebitNoteProcess/
+diagrams/<figure>/<figure>.drawio        96 figures, e.g. diagrams/UBL-2.5-BillingwithDebitNoteProcess/
                                          (78 diagrams, 7 illustrations: UBL-2.2-Fulfilment-1simple ...,
                                          4 of BPMN or phase maps: UBL-2.3-OrderingProcess ...,
                                          and 3 phase or overview figures: UBL-2.2-Open-edi-Overview ...)
@@ -227,7 +228,7 @@ byte for byte), `same-drawing` (the file differs, not the model, not a pixel),
 with `--out`, a picture shows where: red only in the baseline, blue only in the
 drawing). Both are rendered afresh, the same way, and compared with no
 tolerance; where the baseline no longer renders as it did, it says so. A figure that is not in the
-baseline at all says `new` and is not compared (the 4 of Group A and the 3 of Group B were made after it,
+baseline at all says `new` and is not compared (the 4 of Group A, the 3 of Group B and the 4 of Group C were made after it,
 and the baseline's tools - the model JSONs, the diff against the PNG - do not cover them); it is not a
 difference, and `drawio_upgrade.py` likewise compares those figures' exports (SVG and PNGs) but not a render.
 A new baseline is made with `tools/drawio_baseline.py make <baseline dir> <diff
@@ -298,11 +299,11 @@ publishes its artwork (its README, "Artwork"; `build.xml`; `realta-user-paramete
   `UBL 2.3-ImportDeclaration-Process.drawio`, `UBL 2.3-Transit Declaration Process.drawio`).
   The UBL repository's history keeps them; the commit message names each. The
   7 illustrations have no source there: the commit adds theirs.
-- **The 78, the 7 illustrations, the 4 of Group A and (2026-10-05) the 3 of Group B:** the other 5
-  figures of the UBL repository are left as they are, for later sessions
-  (`history/remaining-figures.md`). One is no longer used
-  (`UBL-2.0-BillingwithCreditNoteProcess`); 4 have no source, and are not
-  activity diagrams (Default Validation, Schema Dependencies, UDT-QDT, Model Realization).
+- **The 78, the 7 illustrations, the 4 of Group A and (2026-10-05) the 3 of Group B and the 4 of Group C:**
+  the one other figure of the UBL repository is left as it is
+  (`history/remaining-figures.md`): it is no longer used (`UBL-2.0-BillingwithCreditNoteProcess`).
+  The 4 of Group C (Default Validation, Schema Dependencies, UDT-QDT, Model Realization)
+  had no source either: they are drawn from the UBL repository's PNGs (`history/group-c/`).
   The 3 of Group B (IMFM Generic Intermodal Freight Process, Open-edi Overview and
   Application) had no source either: they are drawn from the UBL repository's PNGs.
   The 4 of Group A had a source in `images/` (`UBL-2.3-Pre-awardProcess`,
@@ -363,7 +364,7 @@ API is not needed), and the live version of app.diagrams.net, the editor people
 use, which can be ahead of every tag. Exit 1: a newer release can be pinned.
 
 `python3 tools/drawio_upgrade.py [--to <version>] [--out <dir>]` then exports
-all 92 drawings with the pin and with the candidate and compares, per figure,
+all 96 drawings with the pin and with the candidate and compares, per figure,
 the SVG (but for the version in its comment), both PNGs and the viewer render
 at the baseline's canvas, pixel for pixel; where pixels differ it writes a
 red/blue image. It ends in `VERDICT: SAFE` (nothing changed, exit 0) or
@@ -503,9 +504,9 @@ since:
 
 ## Open work
 
-- **The other 5 figures** of the UBL repository: 4 reference figures (Group C), and one that is
-  no longer used (Group B is done: `history/group-b/`);
-  what they are and how to go about them is in `history/remaining-figures.md`.
+- **The other figure** of the UBL repository: one that is no longer used
+  (`UBL-2.0-BillingwithCreditNoteProcess`; Groups B and C are done: `history/group-b/`, `history/group-c/`);
+  what it is and how to go about it is in `history/remaining-figures.md`.
 - **Official BPMN 2.0 files for the BPMN figures** (Ordering, Business Information): the editor
   requires them as the sources of BPMN diagrams; what is needed, and the decisions it takes, is in
   `history/group-a/README.md` ("Future session").
