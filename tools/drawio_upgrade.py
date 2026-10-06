@@ -24,7 +24,8 @@ with the candidate, into scratch directories, and compares, per figure:
   svg      the exported SVG, but for the "(draw.io <version>)" in its comment;
   art      the 600 dpi PNG, pixel for pixel;
   htmlart  the web PNG, pixel for pixel;
-  render   the drawing as draw.io's viewer draws it, at the baseline's canvas, pixel
+  render   the drawing as draw.io's viewer draws it, its picture (as the export
+           makes it: tools/drawio_picture.js) at the baseline's scale, pixel
            for pixel: drawn at scale 1 and enlarged by the browser
            (DRAWIO_RENDER_DEVICE=1 in history/drawio-writer/render-drawio.js), as zoomed
            in the viewer the versions differ in rounding, not in the drawing.
@@ -70,7 +71,7 @@ PIN_FILE = os.path.join(HERE, 'drawio-version.json')
 EXPORT = os.path.join(HERE, 'export_drawio.js')
 ROUNDTRIP = os.path.join(HERE, 'drawio_editor_roundtrip.js')
 RENDER = os.path.join(ROOT, 'history', 'drawio-writer', 'render-drawio.js')
-BASELINE = os.path.join(ROOT, 'baselines', '2026-10-06')   # canvas and scale of each figure's render (all 96)
+BASELINE = os.path.join(ROOT, 'baselines', '2026-10-06')   # the scale of each figure's render (all 96)
 RAW = 'https://raw.githubusercontent.com/jgraph/drawio/%s/'
 VIEWER = 'src/main/webapp/js/viewer-static.min.js'
 LIVE = 'https://viewer.diagrams.net/js/viewer-static.min.js'
@@ -132,12 +133,12 @@ def run_export(version, out, files, scratch):
         raise RuntimeError('export with %s failed: %s' % (version, (r.stderr or r.stdout).strip()[-600:]))
 
 
-def render(version, path, canvas, scale, out):
+def render(version, path, scale, out):
     # draw.io draws at scale 1 and the browser enlarges: draw.io 32 rounds label and edge positions in model
     # units, 31.5.3 in device pixels, so a view zoomed to the render scale differs between them for no reason
     # of the drawing (README, "Upgrading draw.io")
     env = dict(NODE, DRAWIO_VERSION=version, DRAWIO_RENDER_DEVICE='1')
-    subprocess.run(['node', RENDER, path, out, str(canvas[0]), str(canvas[1]), str(scale)], check=True, capture_output=True, env=env)
+    subprocess.run(['node', RENDER, path, out, 'auto', 'auto', str(scale), 'picture'], check=True, capture_output=True, env=env)
     return out
 
 
@@ -209,7 +210,7 @@ def compare(pin, cand, figs, outdir):
                     diffs.append('%s: %s pixels differ' % (kind, d) if isinstance(d, int) else '%s: %s' % (kind, d))
             s = summary.get(n)
             if s:
-                ra, rb = (render(v, os.path.join(ROOT, 'diagrams', n, n + '.drawio'), s['canvas'], s['scale'], os.path.join(t, '%s-%s.png' % (n, v))) for v in (pin, cand))
+                ra, rb = (render(v, os.path.join(ROOT, 'diagrams', n, n + '.drawio'), s['scale'], os.path.join(t, '%s-%s.png' % (n, v))) for v in (pin, cand))
                 d = pixels(ra, rb, os.path.join(outdir, n + '-render.png'))
                 if d:
                     diffs.append('render: %s pixels differ' % d if isinstance(d, int) else 'render: %s' % d)
@@ -305,7 +306,7 @@ def editor_check(figs, outdir):
                 diffs.insert(0, "text: %d lines differ from the file the editor wrote (tools/drawio_format.py --diff)" % n_lines)
             s = summary.get(n)
             if s:
-                ra, rb = (render(pin, f, s['canvas'], s['scale'], os.path.join(t, '%s-%s.png' % (n, k))) for k, f in (('before', a), ('after', b)))
+                ra, rb = (render(pin, f, s['scale'], os.path.join(t, '%s-%s.png' % (n, k))) for k, f in (('before', a), ('after', b)))
                 d = pixels(ra, rb, os.path.join(outdir, n + '-saved.png'))
                 if d:
                     diffs.append('render: %s pixels differ' % d if isinstance(d, int) else 'render: %s' % d)

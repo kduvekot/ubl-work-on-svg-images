@@ -8,9 +8,10 @@ PDF page; print.js prints them, and pdfunite joins them (see run.sh).
 """
 import html, json, os, subprocess, sys
 from PIL import Image, ImageDraw, ImageFont
-from common import ROOT, drawn_later, figures, illustration
+from common import ROOT, UBL, drawn_later, figures, illustration
 d = sys.argv[1]; out = d + '/pages/p'; os.makedirs(d + '/pages', exist_ok=True)
 C = subprocess.run(['git', '-C', ROOT, 'rev-parse', '--short', 'HEAD'], capture_output=True, text=True).stdout.strip()
+U = subprocess.run(['git', '-C', UBL, 'log', '-1', '--format=%h, %cs'], capture_output=True, text=True).stdout.strip()
 order, titles = [n for n, t in figures()], dict(figures())
 esc = lambda s: html.escape(s, quote=True)
 font = ImageFont.truetype('/usr/share/fonts/truetype/liberation/LiberationSans-Bold.ttf', 26)
@@ -50,7 +51,7 @@ N = len(order); NI = sum(1 for n in order if illustration(n)); NL = sum(1 for n 
 PIN = json.load(open(ROOT + '/tools/drawio-version.json'))['version']
 o = ['<!doctype html><html><head><meta charset="utf-8"><title>%d figures: original PNG vs draw.io, space inserted</title>' % N + style + '</head><body>',
      '''<h1>The '''+str(N)+''' figures: original PNG vs draw.io render</h1>
-<p>Per figure: (1) the original PNG as OASIS publishes it (UBL repository, art/), at its own pixel size (1142&#8211;3426&#160;px
+<p>Per figure: (1) the original PNG as OASIS publishes it (UBL repository, art/'''+(' at '+U if U else '')+'''), at its own pixel size (1142&#8211;3426&#160;px
 wide), not resampled; (2) the current draw.io drawing, the figure's source of truth (diagrams/, commit '''+C+''': natural scale, whole pixels,
 fixed line weights, every label draw.io's own 12&#160;pt), rendered with draw.io&#8217;s own code (viewer '''+PIN+''') onto exactly the PNG&#8217;s canvas: the drawing, built at
 its natural scale, is drawn at the PNG&#8217;s width / its own; the frame lines of the two agree within 1&#160;px per 1480&#160;px of width
@@ -60,10 +61,16 @@ comparison: 5&#160;px for a 3425-px PNG, 2&#160;px for the 1142-px one). Percent
 PNG&#8217;s own size; in this PDF, pictures wider than 2000&#160;px are shown at half size to keep the file small. The PNG draws with its
 own line weights and fonts; the drawing&#8217;s weights are fixed (1, and 2 for documents and the frame) and some elements moved up to
 7&#160;px (at 1480) to make flows straight, and every label is 12&#160;pt where the PNG sets its own sizes (in two Tender figures long one-line labels are broken over two lines), all of which counts as difference. <b>Arrows at least 3 times their head long:</b> in 35 figures, where an arrow was shorter than 30&#160;px, space was inserted across the whole figure (a band of height or a column of width), and everything beyond it moved along. For those figures <b>the PNG gets the same space inserted</b>, at the same places (marked <b style="background:#ffd966">yellow</b> on all three pictures): at each cut, in order, a line of pixels next to it (the one with the least ink) is repeated to fill the inserted width, so lines that cross it (frame, lane dividers, flows) run on unbroken. Where the drawing kept a shape whole that the space ran through (it stayed, or moved whole past the space; '''+'%d times in %d figures' % (KEPT, KEPTF)+'''), the cut in the PNG steps round that shape the same way. So both pictures are compared with the same things moved, and what differs is what differed before the arrows were lengthened. The table gives both numbers: with the space inserted in the PNG (used on the pages) and without (everything after a band counts as moved). The other '''+str(N - NI - NL - len(_ins))+''' diagrams differ as before. '''+('''<b>'''+str(NL)+''' figures drawn later</b> (Groups A, B and C: history/group-a, -b, -c) are not of the 78 and had no space inserted: those drawn on their PNG&#8217;s pixels at one scale (Groups B and C, Ordering) are rendered at that scale; the TC&#8217;s own drawings of Group A are placed by their ink (the scale that makes the drawing&#8217;s ink as wide as the PNG&#8217;s, then moved onto it). ''' if NL else '')+''''''+('''<b>'''+str(NI)+''' illustrations</b> (the Fulfilment figures) are not UML diagrams but pictures for the reader (history/illustrations): drawn from the deck they come from, placed where the PNG has them, at the PNG&#8217;s own scale (not 12&#160;pt), in grey; where a picture was drawn again (the pallet of boxes), it differs from the PNG&#8217;s photo. ''' if NI else '')+'''In the order of the UBL 2.5 specification, with its titles.</p>
-<table><tr><th>#</th><th>title in the specification</th><th>figure</th><th>PNG size</th><th>red %</th><th>blue %</th><th>space inserted</th><th>without: red %</th><th>blue %</th></tr>''']
+'''+('''<p><b>The render is the picture UBL will publish.</b> For every figure the PNG that goes to the UBL repository
+(to-ubl-repo/art: 600&#160;dpi, rendered from the exported SVG) was compared with draw.io&#8217;s render of the drawing&#8217;s
+picture at that PNG&#8217;s size: the last column gives the ink found in only one of the two (at most %.2f&#160;%%, within
+the same tolerance). Both start where draw.io&#8217;s export crops the drawing (tools/drawio_picture.js); what differs is only
+where a label&#8217;s text, made SVG text by the export, sits up to a unit from draw.io&#8217;s own.</p>''' % max(max(res[n]['export']) for n in order) if all('export' in res[n] for n in order) else '')+'''
+<table><tr><th>#</th><th>title in the specification</th><th>figure</th><th>PNG size</th><th>red %</th><th>blue %</th><th>space inserted</th><th>without: red %</th><th>blue %</th><th>published PNG vs render %</th></tr>''']
 for i, n in enumerate(order, 1):
     r = res[n]
-    o.append('<tr><td>%d</td><td>%s</td><td>%s</td><td>%d&#215;%d</td><td class="n">%.2f</td><td class="n">%.2f</td>' % (i, esc(titles.get(n, '')), esc(n), r['png_size'][0], r['png_size'][1], *R(n)) + '<td>%s</td>' % ('%d&#215;, %d&#160;px' % (len(r.get('bands', [])), sum(w for ax, w in r.get('bands', []))) if r.get('bands') else '') + ('<td class="n">%.2f</td><td class="n">%.2f</td></tr>' % (r['red'], r['blue']) if cut(n) else '<td></td><td></td></tr>'))
+    o.append('<tr><td>%d</td><td>%s</td><td>%s</td><td>%d&#215;%d</td><td class="n">%.2f</td><td class="n">%.2f</td>' % (i, esc(titles.get(n, '')), esc(n), r['png_size'][0], r['png_size'][1], *R(n)) + '<td>%s</td>' % ('%d&#215;, %d&#160;px' % (len(r.get('bands', [])), sum(w for ax, w in r.get('bands', []))) if r.get('bands') else '') + ('<td class="n">%.2f</td><td class="n">%.2f</td>' % (r['red'], r['blue']) if cut(n) else '<td></td><td></td>')
+             + ('<td class="n">%.2f</td></tr>' % max(r['export']) if 'export' in r else '<td></td></tr>'))
 o.append('</table></body></html>')
 open(out + '-00.html', 'w').write('\n'.join(o))
 for i, n in enumerate(order, 1):
@@ -71,5 +78,6 @@ for i, n in enumerate(order, 1):
     page = style.replace('size: A4;', 'size: A4%s;' % ('' if wide else ' landscape'))
     open('%s-%02d.html' % (out, i), 'w').write('<!doctype html><html><head><meta charset="utf-8">' + page + '</head><body>'
         + '<h2>%d. %s</h2><div style="margin:0 0 2mm">%s &#8212; PNG %d&#215;%d &#8212; red %.2f %%, blue %.2f %%%s</div><img src="%s" style="width:%.1fmm;height:%.1fmm">' % (
-            i, esc(titles.get(n, n)), esc(n), r['png_size'][0], r['png_size'][1], *R(n), (' (without the space in the PNG: red %.2f %%, blue %.2f %%)' % (r['red'], r['blue']) if cut(n) else ''), esc(p), mw, mh) + ('<div style="margin:1mm 0 0">space inserted: %s</div>' % ', '.join('%d&#160;px %s' % (w, 'wide' if ax == 0 else 'high') for ax, w in r.get('bands', [])) if r.get('bands') else '') + '</body></html>')
+            i, esc(titles.get(n, n)), esc(n), r['png_size'][0], r['png_size'][1], *R(n), (' (without the space in the PNG: red %.2f %%, blue %.2f %%)' % (r['red'], r['blue']) if cut(n) else ''), esc(p), mw, mh) + ('<div style="margin:1mm 0 0">space inserted: %s</div>' % ', '.join('%d&#160;px %s' % (w, 'wide' if ax == 0 else 'high') for ax, w in r.get('bands', [])) if r.get('bands') else '')
+        + ('<div style="margin:1mm 0 0">the published PNG (to-ubl-repo/art) against this render: %.2f&#160;%% of its ink in one only</div>' % max(r['export']) if 'export' in r else '') + '</body></html>')
 print('ok')

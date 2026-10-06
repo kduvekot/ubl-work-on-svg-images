@@ -60,6 +60,8 @@ since:
     UBL repository's drawings are the source (A3), and its build renders them before Ant
     (`render.sh`), with the tools copied there; tested on a checkout of `ubl-2.6` (README, "In the
     UBL repository: the build renders the drawings").
+15. **One picture, one origin** - `tools/drawio_picture.js` (2026-10-06): the render and the export
+    of a drawing start at the same point, said once (below, "One picture, one origin").
 
 `history/former-README.md` is the repository's README until 2026-09-29, describing steps 1-4.
 
@@ -299,6 +301,44 @@ Cambria or its metric-compatible stand-in Caladea, and check that every label
 still fits its box: Cambria's widths differ from Helvetica's. Where one does not
 fit, widen the box in the ISO export as the 12 pt edit did (`history/drawio-edits/twelve.py`),
 not in the drawing. The OASIS outputs and the drawings keep Helvetica.
+
+## One picture, one origin (2026-10-06)
+
+**What kept coming back.** Holding a render of a drawing against another picture of it went wrong
+again and again, each time by a different amount: Business Information's cells left of its page fell
+off the render's canvas (fixed in `render-drawio.js` by moving it in); a comparison of the published
+PNGs with the renders found them 30-92 % apart for most figures, though they are pictures of the same
+drawing; Pre-award came out 1,588 px apart.
+
+**What caused it.** Two rules for where a drawing's picture starts. The export takes draw.io's own:
+`getSvg` crops to the drawing's bounds (every shape with its line, every label) and rounds their
+corner down to a whole unit; an illustration it crops again, to its frame line's outer edge. The
+render (`history/drawio-writer/render-drawio.js`) had a rule of its own, made for its first use, the
+comparison with the UBL PNGs in `history/drawio-writer/`: the frame's `ubl-offset` (the 78), else the
+page's corner, else (cells left of or above the page) the drawing's bounds. The two differ by an
+amount that depends on the drawing: one unit for the 78 (the frame line's outer half: the frame at
+10, its picture from 9), the page's empty margin for a drawing with no frame (Pre-award: 1,592
+units), a fraction for an illustration. Every tool written since used the render as it was, beside
+an export that did not.
+
+**What was done.** Where a picture starts and how large it is, is said once,
+`tools/drawio_picture.js`: draw.io's export crop, read from draw.io itself (the translation `getSvg`
+draws the model with), not worked out again; an illustration's frame. The export takes its crop from
+it (its output the same, byte for byte, in all 384 files of the 96 figures), and `render-drawio.js`
+starts there by default (origin `picture`). The PNG coordinates are kept, by name (origin `png`), for
+what compares a drawing with its UBL PNG: `history/drawio-edits/diff/` (one.py, cutpng.py) and
+`history/drawio-writer/` (run.sh, sweep.sh). `tools/drawio_baseline.py` and `tools/drawio_upgrade.py`
+render pictures; a baseline made before (2026-10-06 and earlier) is read as it was made, in PNG
+coordinates (its renders are reproduced exactly: four drawings of four kinds, touched, came back
+`same-drawing`).
+
+**Checked.** The published PNG of every figure (`to-ubl-repo/art`) against the render of the
+drawing's picture at its size: at most 1.2 % of the ink is in one only (VMI Invoicing; most below
+0.3 %), within the comparison's tolerance (2 px per 1480 px), where it was 30-92 % before. What is
+left is text: a few labels, made SVG text by the export, sit up to a unit from where draw.io's own
+label puts them. The comparison deck now makes this check for every figure
+(`history/drawio-edits/diff/one.py`, "published PNG vs render"), so that should the two ever part
+again, it shows.
 
 ## draw.io upgrades tried
 

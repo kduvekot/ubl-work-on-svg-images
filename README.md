@@ -36,6 +36,7 @@ tools/check_drawio.py                    the check, run by hand after an edit
 tools/drawio_baseline.py                 holds the drawings against the baseline
 tools/drawio_format.py                   writes a drawing as draw.io's editor does (a text diff against the editor's)
 tools/export_drawio.js                   exports them for the UBL repository: SVG, PNG
+tools/drawio_picture.js                  a drawing's picture, where it starts and how large: the export's and every render's
 tools/check_svg.py                       checks an export
 tools/drawio_upgrade.py                  is there a newer draw.io, and does it change anything
 tools/drawio_editor_roundtrip.js         opens and saves drawings in the live editor (for drawio_upgrade.py --editor)
@@ -206,7 +207,9 @@ from: `history/README.md`, "The drawings against their JSON models".)
 
 All 96 drawings as they are now, for later edits to be held against: `diagrams/` (the drawings,
 byte for byte), `renders/` (each drawn as `compare` draws it again: the pinned draw.io at scale 1,
-the browser enlarging, on the canvas of its original PNG) and `summary.txt`, `summary.json` (per
+the browser enlarging, on the canvas of its original PNG, in that PNG's coordinates; a baseline made
+from now on holds each drawing's picture, as the export makes it, and `compare` reads each as it was
+made: "One picture, one origin" in "The export's rules") and `summary.txt`, `summary.json` (per
 figure, how it compares with the original PNG: red, ink only the PNG has; blue, only the drawing;
 in % of the PNG's ink). The baselines before, `2026-10-05` and `2026-09-30`, are kept as they were;
 what they hold, and how the 11 figures drawn later are placed on their PNGs: `history/README.md`,
@@ -308,7 +311,7 @@ rendered files are committed too, so that the repository shows them; the build r
 
 `to-ubl-repo/utilities/artwork/` is that: `render.sh`, the build's step; `README.md`, the editors'
 guide (editing a figure, the build, the draw.io pin); and copies of the tools and the pictures
-here: `export_drawio.js`, `check_svg.py`, `drawio-version.json`, `check_drawio.py`,
+here: `export_drawio.js`, `drawio_picture.js`, `check_svg.py`, `drawio-version.json`, `check_drawio.py`,
 `drawio_format.py`, `ubl-library.xml`, `embed_parts.py` (from `tools/`) and `parts/` (from
 `illustrations/parts/`). The tools work in either layout (`diagrams/<figure>/` here, `images/`
 there). `check_svg.py to-ubl-repo` also fails where a copy is behind: "utilities/artwork/X is not
@@ -374,6 +377,14 @@ artwork (the reasons and the measurements: `history/README.md`, "Decided for tha
   bitmap and no `<use>`; an illustration's pictures as nested `<svg>`;
 - **the drawing is the truth:** the SVG does not carry the drawing, only the picture and a comment
   naming the `.drawio` to edit;
+- **one picture, one origin:** where a drawing's picture starts and how large it is, is draw.io's own
+  export crop (the drawing's bounds, every line and label included, the corner rounded down to a whole
+  unit; an illustration's: its frame, to the line's outer edge), read from draw.io and said once,
+  `tools/drawio_picture.js`, for the export and for every render (the baselines, the upgrade check, the
+  comparison deck). A comparison with an original UBL PNG asks for that PNG's coordinates by name
+  (`history/drawio-writer/render-drawio.js`, origin `png`: the frame's `ubl-offset`, or the page's
+  corner). Until 2026-10-06 the render had only those and used them for everything, so a render and the
+  export of a drawing were a unit or more apart (`history/README.md`, "One picture, one origin");
 - **scale:** each figure fitted to the page width (5.7 in), or kept at its natural size where it is
   narrower: 12 px text prints at 9 pt at natural size, smaller in a wide figure ("Questions for the
   TC", B3);
@@ -394,8 +405,8 @@ use, which can be ahead of every tag. Exit 1: a newer release can be pinned.
 
 `python3 tools/drawio_upgrade.py [--to <version>] [--out <dir>]` then exports
 all 96 drawings with the pin and with the candidate and compares, per figure,
-the SVG (but for the version in its comment), both PNGs and the viewer render
-at the baseline's canvas, pixel for pixel; where pixels differ it writes a
+the SVG (but for the version in its comment), both PNGs and the viewer's render
+of the drawing's picture at the baseline's scale, pixel for pixel; where pixels differ it writes a
 red/blue image. It ends in `VERDICT: SAFE` (nothing changed, exit 0) or
 `VERDICT: REVIEW` (exit 1, with what differs). It takes about 4 minutes, needs
 Node with playwright and Python with numpy and Pillow, and never changes the pin
@@ -462,7 +473,7 @@ root (Node with playwright, Python with numpy and Pillow, and Chromium as
    nothing in `to-ubl-repo/` is edited by hand. **A tool or a picture changed**
    (in `tools/`, `illustrations/parts/`, the pin): copy it again into
    `to-ubl-repo/utilities/artwork/` (the check fails on a copy behind):
-   `cp tools/{export_drawio.js,check_svg.py,drawio-version.json,check_drawio.py,drawio_format.py,ubl-library.xml,embed_parts.py} to-ubl-repo/utilities/artwork/`
+   `cp tools/{export_drawio.js,drawio_picture.js,check_svg.py,drawio-version.json,check_drawio.py,drawio_format.py,ubl-library.xml,embed_parts.py} to-ubl-repo/utilities/artwork/`
    and `cp illustrations/parts/*.svg to-ubl-repo/utilities/artwork/parts/`.
 5. `python3 tools/drawio_upgrade.py --check`: the pin is the newest tag, or it
    says so. Do this at the start of a session and before anything goes to the UBL

@@ -30,7 +30,7 @@ for n in "$@"; do
   node "$root/tools/render-svg.js" "$src/$n.svg" "$out/$n-svg.png" "$W" > /dev/null
   # the drawing is rendered onto the SVG render's own canvas
   read PW PH < <(python3 -c "import sys; from PIL import Image; print(*Image.open(sys.argv[1]).size)" "$out/$n-svg.png")
-  node "$here/render-drawio.js" "$out/$n.drawio" "$out/$n-drawio.png" "$PW" "$PH" "$(python3 -c "print($PW / $NW)")"
+  node "$here/render-drawio.js" "$out/$n.drawio" "$out/$n-drawio.png" "$PW" "$PH" "$(python3 -c "print($PW / $NW)")" png
   python3 "$here/compare.py" "$out/$n-svg.png" "$out/$n-drawio.png" "$tmp/$n-spec.json" \
       "$out/$n-overlay.png" | tee "$out/$n-compare.txt"
 done

@@ -164,7 +164,7 @@ def check(out_dir, name):
 
 # the tools the UBL repository gets (utilities/artwork/: README.md, "In the UBL repository: the build
 # renders the drawings"), copies of this repository's
-COPIED = ['export_drawio.js', 'check_svg.py', 'drawio-version.json', 'check_drawio.py', 'drawio_format.py',
+COPIED = ['export_drawio.js', 'drawio_picture.js', 'check_svg.py', 'drawio-version.json', 'check_drawio.py', 'drawio_format.py',
           'ubl-library.xml', 'embed_parts.py']
 
 

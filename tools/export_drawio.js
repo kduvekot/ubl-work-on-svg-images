@@ -48,6 +48,8 @@ const fs = require('fs'), path = require('path'), os = require('os'), https = re
 
 // the pin: tools/drawio-version.json (DRAWIO_VERSION in the environment overrides it, for a trial)
 const DRAWIO_VERSION = process.env.DRAWIO_VERSION || require('./drawio-version.json').version;
+// the picture of a drawing, where it starts and how large: one definition, the render's too (drawio_picture.js)
+const PICTURE = require('./drawio_picture.js').source;
 const VIEWER_URL = 'https://raw.githubusercontent.com/jgraph/drawio/v' + DRAWIO_VERSION +
                    '/src/main/webapp/js/viewer-static.min.js';
 // the browser: CHROMIUM_PATH, or the Chromium of this environment where it is there, or else playwright's own
@@ -96,7 +98,8 @@ function toSvg([xml, name, font, drawioVersion]) {
   box.innerHTML = ''; window.scrollTo(0, 0);
   const graph = new Graph(box);
   new mxCodec(doc).decode(doc.getElementsByTagName('mxGraphModel')[0], graph.getModel());
-  const svg = graph.getSvg('#ffffff', 1, 0, false, null, true);
+  // draw.io's SVG, cropped to the picture (drawio_picture.js: draw.io's export crop; an illustration's: its frame)
+  const svg = drawioPicture(graph, doc).svg;
   document.body.appendChild(svg);            // laid out, so the labels can be measured
   const NS = 'http://www.w3.org/2000/svg';
 
@@ -179,14 +182,6 @@ function toSvg([xml, name, font, drawioVersion]) {
   for (const img of [...svg.querySelectorAll('image')]) {
     const box = partOf(img, img);
     if (box) img.parentNode.replaceChild(box, img);
-  }
-  // an illustration's page is its frame, to the frame line's outer edge (as the
-  // PNG it was matched to: its border), not draw.io's bounds of the drawing
-  const frameRect = illustration && svg.querySelector('g[data-cell-id="frame"] rect');
-  if (frameRect) {
-    const sw = +(frameRect.getAttribute('stroke-width') || 1), r2 = v => Math.round(v * 100) / 100;
-    svg.setAttribute('viewBox', [+frameRect.getAttribute('x') - sw / 2, +frameRect.getAttribute('y') - sw / 2,
-                                 +frameRect.getAttribute('width') + sw, +frameRect.getAttribute('height') + sw].map(r2).join(' '));
   }
   const W = +svg.getAttribute('viewBox').split(' ')[2], H = +svg.getAttribute('viewBox').split(' ')[3];
 
@@ -435,6 +430,7 @@ async function png(browser, svgText, pxW, pxH, dpi, bits, out) {
   const draw = await browser.newPage();
   await draw.setContent('<!doctype html><html><body><div id="g"></div></body></html>');
   await draw.addScriptTag({ path: js });
+  await draw.addScriptTag({ content: PICTURE });
   const version = await draw.evaluate(() => (typeof EditorUi !== 'undefined' && EditorUi.VERSION) || mxClient.VERSION);
   if (version !== DRAWIO_VERSION) throw new Error('draw.io ' + version + ', expected ' + DRAWIO_VERSION);
   const report = reportFile && fs.existsSync(reportFile) ? JSON.parse(fs.readFileSync(reportFile, 'utf8')) : {};

@@ -22,8 +22,12 @@ one line per figure:
   new             not in the baseline (a figure made after it: 2026-10-06 has all 96): not compared,
                   and not a difference
 
-Both drawings are rendered the same way, on the baseline render's canvas (grown
-by what the drawing grew), and compared pixel for pixel, with no tolerance. The
+Both drawings are rendered the same way, each its picture (render-drawio.js,
+origin "picture": as the export makes it, tools/drawio_picture.js), at the
+baseline's scale, and compared pixel for pixel, with no tolerance (the smaller
+padded with white). A baseline made before that (2026-10-06 and earlier) holds
+renders in the coordinates of the UBL PNGs (origin "png"), on the PNG's canvas:
+its drawings are rendered so, on that canvas grown by what the drawing grew. The
 baseline copy is rendered again, not taken from renders/, so a change of
 renderer cannot pass for a change of drawing; where the fresh render of the
 baseline differs from the stored one, the line says so ("renderer changed").
@@ -52,9 +56,17 @@ def page(path):
     return [float(v) for v in re.search(r'pageWidth="([\d.]+)" pageHeight="([\d.]+)"', open(path).read()).groups()]
 
 
-def render(path, canvas, scale, out):
-    subprocess.run(['node', RENDER, path, out, str(canvas[0]), str(canvas[1]), str(scale)], check=True, capture_output=True, env=NODE)
+def render(path, canvas, scale, out, origin='picture'):
+    # canvas: [w, h], or 'auto' (the picture's size at the scale)
+    w, h = canvas if canvas != 'auto' else ('auto', 'auto')
+    subprocess.run(['node', RENDER, path, out, str(w), str(h), str(scale), origin], check=True, capture_output=True, env=NODE)
     return np.asarray(Image.open(out).convert('L'))
+
+
+def padded(a, shape):
+    out = np.full(shape, 255, a.dtype)
+    out[:a.shape[0], :a.shape[1]] = a
+    return out
 
 
 def model(path):
@@ -97,7 +109,7 @@ def make(base, diff, figs=()):
         im = Image.open(kept if os.path.exists(kept) else os.path.join(diff, n, 'drawio.png')).convert('L')
         im.save(os.path.join(base, 'renders', n + '.png'), optimize=True)
         scale = r['scale'] if 'scale' in r else r['png_size'][0] / natural_width(n)
-        summary[n] = dict(canvas=list(im.size), scale=scale, page=page(os.path.join(ROOT, 'diagrams', n, n + '.drawio')),
+        summary[n] = dict(origin='picture', canvas=list(im.size), scale=scale, page=page(os.path.join(ROOT, 'diagrams', n, n + '.drawio')),
                           png_size=r['png_size'], red=round(r['red'], 2), blue=round(r['blue'], 2),
                           **({'red_space_inserted': round(r['cut_red'], 2), 'blue_space_inserted': round(r['cut_blue'], 2)} if 'cut_red' in r else {}))
     summary = dict(sorted(summary.items()))
@@ -131,9 +143,15 @@ def compare(base, figs, out):
                 state, notes = 'same', []
             else:
                 s = summary[n]
-                pb, pd = s['page'], page(d)
-                canvas = [s['canvas'][0] + max(0, round((pd[0] - pb[0]) * s['scale'])), s['canvas'][1] + max(0, round((pd[1] - pb[1]) * s['scale']))]
-                A, B = render(b, canvas, s['scale'], t + '/b.png'), render(d, canvas, s['scale'], t + '/d.png')
+                if s.get('origin') == 'picture':
+                    A, B = render(b, 'auto', s['scale'], t + '/b.png'), render(d, 'auto', s['scale'], t + '/d.png')
+                    shape = (max(A.shape[0], B.shape[0]), max(A.shape[1], B.shape[1]))
+                    A, B = padded(A, shape), padded(B, shape)
+                else:
+                    # a baseline made before 2026-10-06's fix: its renders are in the UBL PNG's coordinates
+                    pb, pd = s['page'], page(d)
+                    canvas = [s['canvas'][0] + max(0, round((pd[0] - pb[0]) * s['scale'])), s['canvas'][1] + max(0, round((pd[1] - pb[1]) * s['scale']))]
+                    A, B = render(b, canvas, s['scale'], t + '/b.png', 'png'), render(d, canvas, s['scale'], t + '/d.png', 'png')
                 stored = np.asarray(Image.open(os.path.join(base, 'renders', n + '.png')).convert('L'))
                 notes = model_diff(model(b), model(d))
                 if A[:stored.shape[0], :stored.shape[1]].shape != stored.shape or (A[:stored.shape[0], :stored.shape[1]] != stored).any():

@@ -10,13 +10,20 @@ Ordering) is rendered at that scale, as the others are at theirs. One that is no
 of Group A) is placed by its ink: rendered at the scale that makes its ink as wide as the PNG's, on a
 canvas that holds it whole, then moved onto the PNG's ink for the diff (drawio.png).
 
-render.png is what a baseline keeps (tools/drawio_baseline.py make): the drawing on that canvas, at that
-scale, drawn as the baseline's check draws it again (common.NODE_DEVICE), so that the check finds it as
-stored. The diff is of the zoomed render, which puts each line where it is to the device pixel.
+The renders for the diff are in the PNG's coordinates (render-drawio.js, origin "png": the frame's
+ubl-offset, or the page's corner). render.png is what a baseline keeps (tools/drawio_baseline.py make): the
+drawing's picture (origin "picture", as the export makes it: tools/drawio_picture.js), at that scale, its size
+the picture's, drawn as the baseline's check draws it again (common.NODE_DEVICE), so that the check finds it
+as stored. The diff is of the zoomed render, which puts each line where it is to the device pixel.
+
+And the published PNG (to-ubl-repo/art) against the drawing's picture rendered at its size: the two are one
+picture (tools/drawio_picture.js), so what differs is only where the export's text (each label made SVG
+text) sits otherwise than draw.io's own; result.json's "export". A large number means the export and the
+render no longer start where the other does: the fault of 2026-10-06, fixed then (render-drawio.js).
 
     python3 one.py <figure> <out dir>      writes <out>/<figure>/{png,drawio,overlay,render}.png, result.json
 """
-import json, math, os, subprocess, sys
+import json, math, os, re, subprocess, sys
 import numpy as np
 from PIL import Image
 from scipy import ndimage
@@ -33,8 +40,8 @@ now = page(open(src).read())
 later = drawn_later(n)
 
 
-def render(w, h, s, path, env=NODE):
-    subprocess.run(['node', RENDER, src, path, str(w), str(h), str(s)], check=True, capture_output=True, env=env)
+def render(w, h, s, path, env=NODE, origin='png'):
+    subprocess.run(['node', RENDER, src, path, str(w), str(h), str(s), origin], check=True, capture_output=True, env=env)
     return Image.open(path).convert('RGB')
 
 
@@ -69,7 +76,7 @@ else:
     c = Image.new('RGB', (PW + round((now[0] - was[0]) * s), PH + round((now[1] - was[1]) * s)), 'white'); c.paste(png, (0, 0)); png = c
     dr = render(png.width, png.height, s, f'{d}/drawio.png')
     extra = dict(placed='page' if later else 'natural', canvas=[png.width, png.height])
-render(*extra['canvas'], s, f'{d}/render.png', NODE_DEVICE)
+render('auto', 'auto', s, f'{d}/render.png', NODE_DEVICE, 'picture')
 png.save(f'{d}/png.png')
 A = np.asarray(png.convert('L')) < 128; B = np.asarray(dr.convert('L')) < 128
 assert A.shape == B.shape, (A.shape, B.shape)
@@ -78,6 +85,15 @@ red = A & ~ndimage.binary_dilation(B, k); blue = B & ~ndimage.binary_dilation(A,
 o = np.full(A.shape + (3,), 255, np.uint8); o[A | B] = (185, 185, 185)
 o[ndimage.binary_dilation(red, iterations=1)] = (220, 0, 0); o[ndimage.binary_dilation(blue, iterations=1)] = (0, 60, 230)
 Image.fromarray(o).save(f'{d}/overlay.png')
+# the published PNG against the drawing's picture, at the PNG's size (ink in one only, the same tolerance)
+art = f'{ROOT}/to-ubl-repo/art/{n}.png'
+if os.path.exists(art):
+    E = np.asarray(Image.open(art).convert('L')) < 128; EH, EW = E.shape
+    vw = float(re.search(r'viewBox="[-\d.]+ [-\d.]+ ([\d.]+) ', open(f'{ROOT}/to-ubl-repo/images/{n}.svg').read())[1])
+    F = np.asarray(render(EW, EH, EW / vw, f'{d}/export-render.png', NODE, 'picture').convert('L')) < 128
+    os.remove(f'{d}/export-render.png')
+    ke = np.ones((2 * max(1, round(2 * EW / 1480)) + 1,) * 2, bool)
+    extra['export'] = [100 * (E & ~ndimage.binary_dilation(F, ke)).sum() / E.sum(), 100 * (F & ~ndimage.binary_dilation(E, ke)).sum() / E.sum()]
 json.dump(dict(png_size=[PW, PH], scale=s, red=100 * red.sum() / A.sum(), blue=100 * blue.sum() / A.sum(), tol=R, **extra),
           open(f'{d}/result.json', 'w'))
 print(n, 'red %.2f blue %.2f' % (100 * red.sum() / A.sum(), 100 * blue.sum() / A.sum()))
