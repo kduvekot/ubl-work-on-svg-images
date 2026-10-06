@@ -25,7 +25,7 @@ one line per figure:
 Both drawings are rendered the same way, each its picture (render-drawio.js,
 origin "picture": as the export makes it, tools/drawio_picture.js), at the
 baseline's scale, and compared pixel for pixel, with no tolerance (the smaller
-padded with white). A baseline made before that (2026-10-06 and earlier) holds
+padded with white). A baseline made before that (2026-10-05 and earlier) holds
 renders in the coordinates of the UBL PNGs (origin "png"), on the PNG's canvas:
 its drawings are rendered so, on that canvas grown by what the drawing grew. The
 baseline copy is rendered again, not taken from renders/, so a change of

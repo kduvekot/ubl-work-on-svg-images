@@ -149,11 +149,13 @@ no model); the export puts each picture in the SVG as the SVG it is, and prints
 `baselines/2026-10-06/`, all 96 drawings as they are now, for later edits to be held against:
 
 - `diagrams/<figure>.drawio`: the 96 drawings, byte for byte as `diagrams/` has them;
-- `renders/<figure>.png`: each rendered with draw.io's own code (the pinned viewer,
-  32.0.2), as `compare` draws it again (draw.io at scale 1, the browser enlarging), on
-  the canvas of its original PNG (grown where the drawing grew), so that `compare` finds
-  it as stored (checked 2026-10-06: all 96, pixel for pixel; with the pin at 32.2.0 since,
-  three render a few pixels otherwise, "draw.io upgrades tried");
+- `renders/<figure>.png`: each drawing's picture (as the export makes it:
+  `tools/drawio_picture.js`), rendered with draw.io's own code (the pinned viewer, 32.2.0), as
+  `compare` draws it again (draw.io at scale 1, the browser enlarging), so that `compare` finds
+  it as stored (checked 2026-10-06: all 96; five drawings of five kinds, touched, came back
+  `same-drawing`). Made first that morning with 32.0.2, on the canvas of each original PNG in
+  its coordinates; made again the same day, its drawings unchanged, when the renders became
+  pictures ("One picture, one origin") and the pin moved to 32.2.0 ("draw.io upgrades tried");
 - `summary.txt`, `summary.json`: per figure, how it compares with the original
   PNG (red: ink only the PNG has; blue: only the drawing; in %, of the PNG's
   ink, within 2 px per 1480 px of width), and for the 35 figures that grew, the
@@ -329,9 +331,9 @@ it (its output the same, byte for byte, in all 384 files of the 96 figures), and
 starts there by default (origin `picture`). The PNG coordinates are kept, by name (origin `png`), for
 what compares a drawing with its UBL PNG: `history/drawio-edits/diff/` (one.py, cutpng.py) and
 `history/drawio-writer/` (run.sh, sweep.sh). `tools/drawio_baseline.py` and `tools/drawio_upgrade.py`
-render pictures; a baseline made before (2026-10-06 and earlier) is read as it was made, in PNG
-coordinates (its renders are reproduced exactly: four drawings of four kinds, touched, came back
-`same-drawing`).
+render pictures; a baseline made before (2026-10-05 and earlier; 2026-10-06 as first made) is read
+as it was made, in PNG coordinates (its renders are reproduced exactly: four drawings of four kinds,
+touched, came back `same-drawing`). The baseline 2026-10-06 was then made again with pictures.
 
 **Checked.** The published PNG of every figure (`to-ubl-repo/art`) against the render of the
 drawing's picture at its size: at most 1.45 % of the ink is in one only (VMI Invoicing; the median
@@ -355,9 +357,10 @@ Application (83, 101, 1543: its rotated labels) and Pre-award (the web PNG, 7; t
 change single pixels on the edge of a curve or a letter, nowhere else. The live editor at 32.2.0 had
 opened and saved all 96 the same (above). In `to-ubl-repo/`: every SVG (the version in its comment;
 the five, their numbers too) and the PNGs that changed (two print, three web); the others are the
-same picture under 32.2.0. The baseline 2026-10-06 keeps its renders of 32.0.2: should Default
-Validation, Open-edi Application or Pre-award be edited, `compare` notes "renderer changed" for it,
-which is the version, not the drawing.
+same picture under 32.2.0. The baseline 2026-10-06 was made again with 32.2.0, from a run of the
+comparison deck (its drawings unchanged). Its numbers against the PNGs moved in 10 figures: by 0.01
+in nine, by 0.05 in Open-edi Application, as the comparison draws zoomed, where the versions round
+otherwise (below); at scale 1, as the export and `compare` draw, only the five above differ.
 
 **Tried 2026-10-05, 31.5.3 -> 32.0.2:** the export is the same in all 85
 figures (SVG, art and htmlart PNGs, pixel for pixel), and so is the render when

@@ -206,12 +206,14 @@ from: `history/README.md`, "The drawings against their JSON models".)
 ### The baseline: `baselines/2026-10-06/`
 
 All 96 drawings as they are now, for later edits to be held against: `diagrams/` (the drawings,
-byte for byte), `renders/` (each drawn as `compare` draws it again: the pinned draw.io at scale 1,
-the browser enlarging, on the canvas of its original PNG, in that PNG's coordinates; a baseline made
-from now on holds each drawing's picture, as the export makes it, and `compare` reads each as it was
-made: "One picture, one origin" in "The export's rules") and `summary.txt`, `summary.json` (per
+byte for byte), `renders/` (each drawing's picture, as the export makes it: "One picture, one
+origin" in "The export's rules"; drawn as `compare` draws it again, the pinned draw.io at scale 1,
+the browser enlarging) and `summary.txt`, `summary.json` (per
 figure, how it compares with the original PNG: red, ink only the PNG has; blue, only the drawing;
-in % of the PNG's ink). The baselines before, `2026-10-05` and `2026-09-30`, are kept as they were;
+in % of the PNG's ink). It was made again the same day, its drawings unchanged, when its renders
+became pictures and the pin moved to 32.2.0 (`history/README.md`, "The baselines"). The baselines
+before, `2026-10-05` and `2026-09-30`, are kept as they were, their renders in the coordinates of
+their PNGs, and `compare` reads them so;
 what they hold, and how the 11 figures drawn later are placed on their PNGs: `history/README.md`,
 "The baselines".
 
@@ -463,8 +465,8 @@ root (Node with playwright, Python with numpy and Pillow, and Chromium as
 2. `python3 tools/check_drawio.py diagrams/*/*.drawio`: conventions, and the form.
 3. `python3 tools/drawio_baseline.py compare baselines/2026-10-06`: only the
    drawings edited may differ, and each says how. The baseline itself is history:
-   it is never edited; a new baseline is a new dated folder, made only when
-   asked for.
+   it is not edited once its day is over; a new baseline is a new dated folder,
+   made only when asked for.
 4. `NODE_PATH=$(npm root -g) node tools/export_drawio.js to-ubl-repo diagrams/*/*.drawio`
    and `python3 tools/check_svg.py to-ubl-repo`: every figure `ok`. In another
    container than the one the PNGs were made in, export only the figures edited (see

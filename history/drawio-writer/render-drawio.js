@@ -10,7 +10,7 @@
 //   png      the coordinates of the UBL PNG the drawing was read from, to compare the two: the frame's
 //            ubl-offset (the 78, drawio_from_spec.py), else the page's corner, or, where the drawing reaches
 //            above or left of it, its bounds. Used by the comparisons with the original PNGs
-//            (history/drawio-edits/diff/, run.sh and sweep.sh here) and by a baseline made before 2026-10-06.
+//            (history/drawio-edits/diff/, run.sh and sweep.sh here) and by a baseline made before (2026-10-05 and earlier).
 //
 // Until 2026-10-06 this script had only "png", and used it for every render, while the export cropped as
 // draw.io does: the two pictures of a drawing were a unit or more apart, by an amount that differed from
