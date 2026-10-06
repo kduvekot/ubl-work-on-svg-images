@@ -208,9 +208,8 @@ the browser (how to put it there: README, "Upgrading draw.io").
   table (`made/lines/`): their lines traced one by one, so that they split the
   bodies into the areas the render shades. A future improvement; the figures
   are complete without it.
-- **The clip art's origin**, for the TC to decide: README, "Questions for the
-  TC", A4. If the traced people are not acceptable, they would have to be
-  drawn freely (pictograms).
+- **The clip art's origin:** decided 2026-10-06 (README, "Questions for the
+  TC", A4): the traced people are published as they are.
 - **The draw.io desktop app:** these drawings, as all 96, were tried in the web
   editor only (README, "Open work").
 

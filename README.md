@@ -12,8 +12,8 @@ sources are lost; these drawings are now the figures' source. They are:
   Group B and the 4 reference figures of Group C.
 
 How they came to be, and the measurements behind the rules below: `history/README.md`. What the
-TC still has to decide is in one place, near the end: "Questions for the TC" (questions A4 and
-A5 before the commit to the UBL repository).
+TC still has to decide is in one place, near the end: "Questions for the TC" (question A5
+before the commit to the UBL repository).
 
 **Once committed to the UBL repository, its drawings are the figures' source** (A3, answered
 2026-10-06): `images/<figure>.drawio` there, which its build renders into the SVG and the PNGs, so
@@ -503,7 +503,8 @@ the drawings (`utilities/artwork/`), and the README's "Artwork" (draw.io's PNG e
 `htmlart/` copy scaled in GIMP) points to their guide ("In the UBL repository: the build renders
 the drawings").
 
-**A4. May the illustrations' clip art be published as it is?** The published SVGs carry it
+**A4. May the illustrations' clip art be published as it is?** *Answered 2026-10-06 by the UBL
+editor:* yes; these pictures have been in UBL's figures for years. The published SVGs carry it
 as vector art.
 
 - *The CPFR step figures:* the people were traced from copies of the Visio stencil's own
@@ -679,9 +680,9 @@ themselves are next revised. Figure numbers are as in that review.
 
 ## Open work
 
-- **The TC's answers** ("Questions for the TC"): questions A4 and A5 before the
+- **The TC's answers** ("Questions for the TC"): question A5 before the
   commit to the UBL repository, the rest after it.
-- **The commit to the UBL repository**, once A4 and A5 are answered: `to-ubl-repo/`
+- **The commit to the UBL repository**, once A5 is answered: `to-ubl-repo/`
   copied over a clone of `ubl-2.6` (A1), 8 files removed from `images/` (A2: the 3 older
   sources and the 5 more files), and three of its files edited with it, `build-common.sh`,
   `.github/workflows/build.yml` and its README's "Artwork" (A3; "In the UBL repository: the build
