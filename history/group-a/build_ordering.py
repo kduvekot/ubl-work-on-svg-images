@@ -18,7 +18,7 @@ Places, sizes and bends are the SVG's (its viewBox origin is the drawing's), and
 drawing looks as the figure. Where the palette differs it is said below. Prints the links it made.
 
 It writes the figure's source, diagrams/UBL-2.3-OrderingProcess/UBL-2.3-OrderingProcess.drawio, as the
-Group B and C scripts write theirs. Since then the drawing is the source and is edited in draw.io: this
+Group B and C scripts write theirs. Since 2026-10-06 the drawing is the source and is edited in draw.io: this
 is how it was made, and need not be run again (it would overwrite an edit)."""
 import math, os, re, sys
 import xml.etree.ElementTree as ET

@@ -1,8 +1,9 @@
 """Group A: the TC's own sources, adopted as they are (README: history/group-a/README.md).
 
 The UBL repository has, for four of its figures, the source of the PNG it publishes (checked
-2026-10-05: a render of each matches its PNG to 0.07 % of the ink or better). They are the figures'
-sources here too, at the place and under the name of the others: diagrams/<figure>/<figure>.<ext>.
+2026-10-05: a render of each matches its PNG to 0.07 % of the ink or better). Three of them, its
+draw.io files, are the figures' sources here too, at the place and under the name of the others:
+diagrams/<figure>/<figure>.drawio. The fourth, Ordering's SVG, is not adopted any more (below).
 
   UBL-2.3-Pre-awardProcess, UBL-2.3-ProcurementProcess, UBL-2.4-BusinessInformation (.drawio)
       the file as the TC made it (sources/, byte for byte as the UBL repository has it), with

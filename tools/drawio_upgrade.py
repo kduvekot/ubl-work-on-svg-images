@@ -70,7 +70,7 @@ PIN_FILE = os.path.join(HERE, 'drawio-version.json')
 EXPORT = os.path.join(HERE, 'export_drawio.js')
 ROUNDTRIP = os.path.join(HERE, 'drawio_editor_roundtrip.js')
 RENDER = os.path.join(ROOT, 'history', 'drawio-writer', 'render-drawio.js')
-BASELINE = os.path.join(ROOT, 'baselines', '2026-10-05')   # canvas and scale of each figure's render
+BASELINE = os.path.join(ROOT, 'baselines', '2026-10-06')   # canvas and scale of each figure's render (all 96)
 RAW = 'https://raw.githubusercontent.com/jgraph/drawio/%s/'
 VIEWER = 'src/main/webapp/js/viewer-static.min.js'
 LIVE = 'https://viewer.diagrams.net/js/viewer-static.min.js'
@@ -214,7 +214,7 @@ def compare(pin, cand, figs, outdir):
                 if d:
                     diffs.append('render: %s pixels differ' % d if isinstance(d, int) else 'render: %s' % d)
             else:
-                NOT_IN_BASELINE.append(n)       # made after the baseline (Group A, B): its export is compared, its render is not
+                NOT_IN_BASELINE.append(n)       # made after the baseline (none in 2026-10-06): its export is compared, its render is not
             return n, diffs
 
         with cf.ThreadPoolExecutor(4) as pool:

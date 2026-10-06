@@ -27,13 +27,15 @@ without its kind (ubl-flow), a document across a lane divider without the
 parties it passes between (ubl-between), an arrow shorter than 3 times its
 head (the stretch after its last bend).
 
-A figure of another notation (a BPMN drawing, a phase map: history/group-a, marked by ubl-notation on
-one element) is checked for ids, kinds and attached flows only: it has no pool of lanes. A drawing of the TC's own, adopted as it is (history/group-a), has no
-kinds at all: said as a warning, not a finding.
+A figure of another notation (Groups A, B, C: a BPMN drawing, a phase map, an overview, a reference
+figure; history/group-*, marked by ubl-notation) has no pool of lanes: it is checked for unique ids,
+attached flows, a kind on every element (where the drawing has kinds) and, in a BPMN drawing that has
+them (Ordering), a BPMN type on every element (ubl-bpmn-type). A drawing of the TC's own, adopted as it
+is (history/group-a), has no kinds at all: said as a warning, not a finding.
 
-An illustration (its frame of ubl-kind "illustration": the Fulfilment figures,
-history/illustrations) is not a UML diagram and holds no model: it is not
-checked, and said so.
+An illustration (its frame of ubl-kind "illustration": the Fulfilment and the
+CPFR step figures, history/illustrations) is not a UML diagram and holds no
+model: it is not checked, and said so.
 
 With --against, the model read from the drawing must equal the diagram JSON,
 field for field - all but what records how the PNG was read (a flow's
@@ -271,13 +273,19 @@ def notation(path):
 
 
 def other_notation(cells):
-    """the conventions of a figure that is not a UML diagram with a pool of lanes: every element has
-    its id and kind, ids are unique, a flow is attached at both ends (a dashed line round a list of
-    documents, a `bracket`, is not a flow), and what a text or a bracket is for is an element"""
+    """the conventions of a figure that is not a UML diagram with a pool of lanes: ids are unique; in a
+    drawing that has kinds (all but the TC's own, adopted as they are), every element has its kind, and
+    in a BPMN drawing that has BPMN types (Ordering), every element its `ubl-bpmn-type`; a flow is
+    attached at both ends (a dashed line round a list of documents, a `bracket`, is not a flow), and
+    what a text or a bracket is for is an element"""
     out = []
-    for i, c in cells.items():
-        if i in ("0", "1"):
-            continue
+    els = {i: c for i, c in cells.items() if i not in ("0", "1")}
+    kinds, bpmn = any(c["kind"] for c in els.values()), any("ubl-bpmn-type" in c["attrs"] for c in els.values())
+    for i, c in els.items():
+        if kinds and not c["kind"]:
+            out.append("%s: no ubl-kind (draw it from the drawing's own kinds, Edit Data)" % i)
+        if bpmn and "ubl-bpmn-type" not in c["attrs"]:
+            out.append("%s: no ubl-bpmn-type (its BPMN type, Edit Data: README, \"Editing a drawing\")" % i)
         if c["kind"] in ("flow", "message-flow"):
             for end in ("source", "target"):
                 if not c[end] or c[end] not in cells:

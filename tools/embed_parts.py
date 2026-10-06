@@ -2,7 +2,7 @@
 
     python3 tools/embed_parts.py [<figure>.drawio ...]      default: every drawing in diagrams/
 
-An illustration (the Fulfilment figures) is made of pictures: each an SVG part,
+An illustration (the Fulfilment and the CPFR step figures) is made of pictures: each an SVG part,
 embedded in the drawing as an image, the element's `ubl-part` (draw.io's Edit
 Data) naming the part. The parts are kept as files, to be edited with an SVG
 editor (Inkscape, say); after an edit, this puts the part as it now is into

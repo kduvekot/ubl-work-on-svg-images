@@ -2,7 +2,8 @@
 //
 //   <out>/images/<figure>.drawio    the drawing itself (the source)
 //   <out>/images/<figure>.svg       the vector picture: the revisable file for ISO
-//   <out>/art/<figure>.png          print: 600 dpi, black and white (an illustration: greyscale),
+//   <out>/art/<figure>.png          print: 600 dpi, black and white (an illustration, or a drawing
+//                                   marked ubl-art="grey": greyscale),
 //                                   at most 3425 px (5.7 in) wide
 //   <out>/htmlart/<figure>.png      web: greyscale (smooth edges), at most 750 px wide
 //
@@ -28,8 +29,8 @@
 // picture is draw.io's, cleaned of what only draw.io's editor needs (dark-mode
 // colours, the "Text is not SVG" notice, pointer events).
 //
-// An illustration (its frame of ubl-kind "illustration": the Fulfilment
-// figures) differs: its pictures, SVG parts embedded as images, are put in the
+// An illustration (its frame of ubl-kind "illustration": the Fulfilment and
+// the CPFR step figures) differs: its pictures, SVG parts embedded as images, are put in the
 // SVG as the SVGs they are (nested <svg>, their ids their own), so it stays
 // vector only; its page is its frame (to the frame line's outer edge, as the
 // UBL PNG it was matched to); and art/ is 8 bit grey, as its pictures are.

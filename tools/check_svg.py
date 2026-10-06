@@ -18,10 +18,10 @@ the SVG
   - names the drawing it was made from, in a comment, and that drawing is there,
     the same, byte for byte, as its source in diagrams/ (else: export again).
 art/<figure>.png
-  - 600 dpi, black and white (1 bit; an illustration, whose pictures are grey:
-    greyscale, 8 bit), at most 3425 px wide, the SVG's width at 600 dpi (to a
-    pixel);
-  - opaque, on white (its most common colour).
+  - 600 dpi, black and white (1 bit; greyscale, 8 bit, for an illustration, whose
+    pictures are grey, and for a drawing marked ubl-art="grey"), at most 3425 px
+    wide, the SVG's width at 600 dpi (to a pixel);
+  - opaque, on white (the page round the drawing: its outer band, 2 % of the width).
 htmlart/<figure>.png
   - greyscale (8 bit), at most 750 px wide, the art's width scaled by 750/3425
     (to a pixel);

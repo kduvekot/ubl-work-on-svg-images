@@ -112,8 +112,10 @@ def format_text(text):
 
 
 def neutral(text):
-    """The text with what the editor decides itself (host, window size) left out."""
+    """The text with what the editor decides itself left out: the host and the window size, and the
+    stamps of an older save that it drops (modified, etag, version: the TC's files of Group A carry them)."""
     text = re.sub(r'(<mxfile )host="[^"]*"', r'\1host=""', text)
+    text = re.sub(r'<mxfile [^>]*>', lambda m: re.sub(r' (?:modified|etag|version)="[^"]*"', '', m.group(0)), text, count=1)
     return re.sub(r'(<mxGraphModel) dx="[^"]*" dy="[^"]*"', r'\1', text)
 
 
@@ -121,7 +123,7 @@ def main(a):
     if a[:1] == ['--diff'] and len(a) == 3:
         ours, theirs = format_text(open(a[1], encoding='utf8').read()), open(a[2], encoding='utf8').read()
         d = list(difflib.unified_diff(neutral(ours).splitlines(), neutral(theirs).splitlines(), a[1], a[2], lineterm='', n=1))
-        print('\n'.join(d) if d else 'no difference (but the host and the window size)')
+        print('\n'.join(d) if d else 'no difference (but what the editor decides itself: the host, the window size, the stamps of an older save)')
         return 1 if d else 0
     check = a[:1] == ['--check']
     files = a[1:] if check else a

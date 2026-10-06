@@ -1,14 +1,16 @@
-# The figures still to do
+# The figures that were still to do
 
-Written 2026-10-05, after Group A. For a session that carries on: what is left, what each
-figure is, what source it has, and how to go about it. Read the README's "Decided for that
-export" first: the same rules (draw.io as the source, an SVG that is real vector, black and
-white print PNGs, one text size) apply, and `history/group-a/README.md` is the worked example
+Written 2026-10-05, after Group A, for the sessions that carried on: what was left then (the 8:
+the 3 of Group B, the 4 of Group C and the one no longer used), what each figure is, what source
+it had, and how to go about it. All but that one are done. The same rules as for the others
+(README, "Decided for that export": draw.io as the source, an SVG that is real vector, black and
+white print PNGs, one text size) applied, and `history/group-a/README.md` is the worked example
 of a figure that is not a UML activity diagram.
 
 **State:** 96 of the UBL repository's 97 figures are drawings in `diagrams/` (78 UML activity
-diagrams, 7 illustrations, 4 of Group A: the TC's own sources, as they are; 3 of Group B and 4 of
-Group C, done 2026-10-05: `history/group-b/`, `history/group-c/`). **1 is left**: the one that is no longer used.
+diagrams, 7 illustrations, 4 of Group A: three the TC's own drawings as they are, and Ordering
+redrawn from the TC's bpmn-js SVG; 3 of Group B and 4 of Group C, done 2026-10-05:
+`history/group-b/`, `history/group-c/`). **1 is left**: the one that is no longer used.
 
 How the figures were found: the 97 files of `history/svg-images/` (Ken Holman's conversion) against
 `diagrams/`; the PNGs are in the UBL repository's `art/` (clone `ubl-2.5`, see `history/docs/running.md`),
@@ -29,7 +31,7 @@ two Open-edi SVGs only wrap that very PNG (checked byte for byte, 2026-10-05), a
 a hand-made copy that is **not** the figure (it has 3 captions where the PNG has 7 lines, and
 the chevrons differ). Read the PNG (the measuring
 tools of `history/tools/` and `history/illustrations/` help: `extract.py`, `fit.py`), draw
-with draw.io's shapes at a scale where the text is 12 px (the Group A rule: the PNG's text
+with draw.io's shapes at a scale where the text is 12 px (the 12 px rule: the PNG's text
 height in pixels over 12 is the scale), compare with `history/group-a/compare_png.py`.
 
 **Colour (checked 2026-10-05): there is none.** IMFM's PNG is 8 bit greyscale; the two
@@ -55,9 +57,8 @@ the text live: do not trace them. In `history/svg-images/` each is only the PNG 
 them were really a screenshot (a schema fragment, a generated diagram), whether to redraw it
 or keep it as an image with an SVG wrapper (the ISO would not accept it: README, "The SVG is
 real vector"), did not arise: all four are boxes and arrows, and are drawn
-(`history/group-c/README.md`). Start with `UDT-QDT` and
-`SchemaDependencies` (most likely to be pure boxes and arrows), then `DefaultValidation`
-and `ModelRealization`.
+(`history/group-c/README.md`). (The order advised then: `UDT-QDT` and `SchemaDependencies`
+first, as the most likely to be pure boxes and arrows, then `DefaultValidation` and `ModelRealization`.)
 
 ## Not to do
 
@@ -89,6 +90,6 @@ the sources are the UBL repository's own, so the commit **changes three of them 
 and **replaces Ordering's bpmn-js SVG** by a draw.io BPMN drawing made from it, with that drawing's
 export (`history/group-a/README.md`, "Ordering as a draw.io BPMN diagram"); and it replaces the PNGs
 by black and white print ones (Business Information's: grey): say so in the message.
-**Future session, required by the editor:** real BPMN 2.0 files for the BPMN figures (Ordering,
+**Future session, required by the UBL editor, Kees Duvekot:** real BPMN 2.0 files for the BPMN figures (Ordering,
 Business Information) - `history/group-a/README.md`, "Future session".
 **To decide with the TC first:** README, "Questions for the TC", A.

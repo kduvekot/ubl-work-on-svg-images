@@ -11,14 +11,14 @@ TC's bpmn-js SVG). UBL publishes these figures as PNG and most of their original
 are lost; these drawings replace them as the figures' source.
 
 Checked 2026-10-06 against the UBL repository: the `UBL.xml` of the OASIS Standard
-(`ubl-2.5-os`, 2026-08-15), of `ubl-2.5-iso` and of `ubl-2.6` cites these 96 and no
+(`ubl-2.5-os`, published 2026-08-12), of `ubl-2.5-iso` and of `ubl-2.6` cites these 96 and no
 other, as at `3d81e8a` (CSD03), which this work was read from; `art/`, `htmlart/` and
 `images/` have not changed since. `art/` has a 97th PNG, no longer used
 (`history/remaining-figures.md`); two more figures, `UBL-2.2-UseCase` and
 `UBL-2.2-UseCaseOverview`, are named only inside an XML comment and have no PNG.
 
-What is still to be decided by the TC is in one place: "Questions for the TC", near the
-end; A before the commit to the UBL repository.
+What the TC still has to decide is in one place, near the end: "Questions for the TC"
+(questions A1-A5 before the commit to the UBL repository).
 
 ## The source of truth: the draw.io drawings
 
@@ -37,24 +37,27 @@ tools/drawio_format.py                   writes a drawing as draw.io's editor do
 tools/export_drawio.js                   exports them for the UBL repository: SVG, PNG
 tools/check_svg.py                       checks an export
 tools/drawio_upgrade.py                  is there a newer draw.io, and does it change anything
+tools/drawio_editor_roundtrip.js         opens and saves drawings in the live editor (for drawio_upgrade.py --editor)
 tools/drawio-version.json                the pinned draw.io release (the one place)
 to-ubl-repo/                             what goes to the UBL repository: the export
-baselines/2026-10-05/                    the baseline: the drawings as they are now (2026-09-30: the one before)
+baselines/2026-10-06/                    the baseline: all 96 drawings as they are now (2026-10-05, 2026-09-30: the ones before)
 ```
 
 **Edit a figure by opening its `.drawio` file in draw.io** (the desktop app, or
 diagrams.net) and saving it back. Nothing is generated over these files any more.
 
-The rest of this section is about the 78 diagrams; the 7 illustrations are
-pictures, not diagrams, and have sections of their own (below), and so have the
-4 figures of other notations (BPMN: Ordering, Business Information; phase maps:
-Pre-award, Procurement), which have no pool of lanes: three are **the TC's own files,
-adopted as they are**, and Ordering, whose source in the UBL repository is a bpmn-js SVG,
-is redrawn from that SVG as a draw.io BPMN diagram, every element linked as in a BPMN
-model (2026-10-06); `history/group-a/README.md` says how and what was decided, and that real BPMN 2.0 files
-for the BPMN figures are a future session. `tools/check_drawio.py` checks them for
-the form, their ids and attached flows (they carry `ubl-notation`); the TC's three
-have no kinds, which it says.
+The rest of this section is about the 78 diagrams. The 7 illustrations are
+pictures, not diagrams, and have sections of their own (below). The 11 figures of
+other notations, which have no pool of lanes, are described in their own READMEs:
+the 4 of Group A (`history/group-a/README.md`: BPMN, Ordering and Business Information;
+phase maps, Pre-award and Procurement), three of them **the TC's own files, adopted as
+they are**, and Ordering, whose source in the UBL repository is a bpmn-js SVG, redrawn
+from that SVG as a draw.io BPMN diagram (2026-10-06; "Ordering, a BPMN drawing", below);
+the 3 phase and overview figures of Group B (`history/group-b/README.md`) and the 4
+reference figures of Group C (`history/group-c/README.md`), drawn from the UBL PNGs.
+Real BPMN 2.0 files for the BPMN figures are a future session (`history/group-a/README.md`).
+`tools/check_drawio.py` checks them for the form, their ids, attached flows and their
+kinds (they carry `ubl-notation`); the TC's three have no kinds, which it says.
 
 Each drawing is built from draw.io's own parts:
 
@@ -131,13 +134,30 @@ it is, anything else as JSON.
    where these are missing.
 5. Save, and run the check.
 
-Tested in the draw.io editor (web, 31.5.3; all 96 drawings opened and saved again in 32.x: the 85 in
-"Upgrading draw.io", the 11 of Groups A, B and C in their READMEs) on Billing with Debit Note: a flow
+Tested by editing Billing with Debit Note in the draw.io editor (web, 31.5.3): a flow
 reconnected to another element, an action resized, another relabelled, an action
 and a flow from the library added and connected, and a lane added to the pool.
 The saved file passed the check, and the model read back out of it changed
 exactly as edited. Moving the pool and widening a lane were tried too: all that
-belongs to the pool and its lanes moves with them.
+belongs to the pool and its lanes moves with them. (Since then all 96 drawings have
+been opened and saved again, unchanged, in the live web editor 32.x: the 85 in
+"Upgrading draw.io", the 11 of Groups A, B and C in their READMEs. The desktop app is
+not tried yet: "Open work".)
+
+### Ordering, a BPMN drawing
+
+`UBL-2.3-OrderingProcess` is drawn with draw.io's BPMN shapes, and holds its BPMN model
+as the 78 hold theirs (`history/group-a/README.md`, "Ordering as a draw.io BPMN
+diagram"): every element's id is its BPMN id (`Task_1bnlp2b`, `MessageFlow_0w3w0y5`, ...),
+its kind is `ubl-kind` (`pool`, `task`, `gateway`, `event`, `flow`, `message-flow`) and its
+BPMN type `ubl-bpmn-type` (`participant`, `task`, `exclusiveGateway`, `startEvent`,
+`endEvent`, `sequenceFlow`, `messageFlow`; an end event also `ubl-bpmn-event-definition`,
+`terminateEventDefinition`). Edit it with draw.io's BPMN palette (*More Shapes › BPMN*):
+put a new task, gateway or event in its pool, attach a flow at both ends, and give a
+flow its name as its own label; then give the new element, in *Edit Data* (Ctrl+M), its
+`ubl-kind` and `ubl-bpmn-type`. `tools/check_drawio.py` reports an element without them,
+and a flow not attached. This model is what an official `.bpmn` will be written from
+("Questions for the TC", C3).
 
 ### The illustrations: the Fulfilment figures
 
@@ -209,31 +229,42 @@ was read (a flow's direction confidence, the figure's source PNG), which stays
 in the history. After the drawings have been edited, they will differ from the
 JSONs, as they should: the JSONs are history now.
 
-### The baseline: `baselines/2026-10-05/`
+### The baseline: `baselines/2026-10-06/`
 
-The drawings as they are now, for later edits to be held against:
+All 96 drawings as they are now, for later edits to be held against:
 
-- `diagrams/<figure>.drawio`: the 85 drawings: the 78 diagrams, the 4
-  Fulfilment illustrations and the 3 CPFR step illustrations;
-- `renders/<figure>.png`: each rendered with draw.io's own code (viewer
-  31.5.3, the pin then; the baseline is not remade for a newer pin),
-  at the size of the original PNG (grown where the drawing grew);
+- `diagrams/<figure>.drawio`: the 96 drawings, byte for byte as `diagrams/` has them;
+- `renders/<figure>.png`: each rendered with draw.io's own code (the pinned viewer,
+  32.0.2), as `compare` draws it again (draw.io at scale 1, the browser enlarging), on
+  the canvas of its original PNG (grown where the drawing grew), so that `compare` finds
+  it as stored (checked 2026-10-06: all 96, pixel for pixel);
 - `summary.txt`, `summary.json`: per figure, how it compares with the original
   PNG (red: ink only the PNG has; blue: only the drawing; in %, of the PNG's
-  ink), and for the 35 figures that grew, the same with the space inserted in
-  the PNG too.
+  ink, within 2 px per 1480 px of width), and for the 35 figures that grew, the
+  same with the space inserted in the PNG too. That comparison draws zoomed, which
+  puts each line where it is to the device pixel: for the 85 of the baseline before,
+  its numbers are those of 2026-10-05 within the newer draw.io (a median 0.13 points
+  apart).
 
-It is `baselines/2026-09-30/` with the 3 CPFR step figures added: its other 82
-drawings, renders and numbers are those of 2026-09-30, byte for byte.
-`baselines/2026-09-30/` is the baseline as the drawings were made the source of
-truth (commit `3bd91c6`, all edits of `history/drawio-edits/` done; the
-Fulfilment figures added on the same day), kept as it was.
+The 11 figures drawn after the 78 were read (Groups A, B, C) are in it too, placed on
+their PNG by `history/drawio-edits/diff/one.py`: those drawn on their PNG's pixels at one
+scale (Groups B and C, Ordering) are rendered at that scale (red and blue 0.2-5.4 %;
+Ordering 0.69 and 0.32 %); the TC's three drawings of Group A, whose page has nothing to
+do with their PNG, by their ink (the scale that makes their ink as wide as the PNG's, then
+moved onto it; their render is on a canvas that holds the drawing whole): Pre-award and
+Procurement 0.00 %, Business Information 3.31 and 30.18 % (its PNG draws its thin lines
+too faint to count as ink).
 
-The PDF of that comparison is not kept: `history/drawio-edits/diff/run.sh` makes
-it again from the baseline's commit.
+The baselines before are kept as they were. `baselines/2026-10-05/`: the 85 then (the 78
+diagrams, the 4 Fulfilment and the 3 CPFR step illustrations), its renders drawn zoomed
+with the viewer 31.5.3, so that `compare` against it says "renderer changed" on every
+figure, which is not a difference ("Upgrading draw.io"); it is `baselines/2026-09-30/`
+with the 3 CPFR step figures added. `baselines/2026-09-30/`: the drawings as they were
+made the source of truth (commit `3bd91c6`, all edits of `history/drawio-edits/` done;
+the Fulfilment figures added on the same day).
 
 ```sh
-python3 tools/drawio_baseline.py compare baselines/2026-10-05 [--out <dir>] [<figure> ...]
+python3 tools/drawio_baseline.py compare baselines/2026-10-06 [--out <dir>] [<figure> ...]
 ```
 
 Run it by hand after an edit. Per figure it says `same` (the baseline's file,
@@ -241,13 +272,21 @@ byte for byte), `same-drawing` (the file differs, not the model, not a pixel),
 `model` (the model differs; what, is listed) or `DRAWING` (pixels differ;
 with `--out`, a picture shows where: red only in the baseline, blue only in the
 drawing). Both are rendered afresh, the same way, and compared with no
-tolerance; where the baseline no longer renders as it did, it says so. A figure that is not in the
-baseline at all says `new` and is not compared (the 4 of Group A, the 3 of Group B and the 4 of Group C were made after it,
-and the baseline's tools - the model JSONs, the diff against the PNG - do not cover them); it is not a
-difference, and `drawio_upgrade.py` likewise compares those figures' exports (SVG and PNGs) but not a render.
-A new baseline is made with `tools/drawio_baseline.py make <baseline dir> <diff
-dir>`, from a run of `history/drawio-edits/diff/run.sh` on the same drawings;
-with figures named, only those are added to (or replaced in) the baseline.
+tolerance; where the baseline no longer renders as it did (a newer pin), it says so.
+A figure that is not in the baseline says `new` and is not compared: it is not a
+difference (none in 2026-10-06; against 2026-10-05, the 11 of Groups A, B and C).
+
+A new baseline is a new dated folder, made only when asked for, from a run of the
+comparison of the drawings with the original PNGs (it also makes the PDF of it, which
+is not kept, about 36 MB):
+
+```sh
+UBL=<clone of the UBL repository at 3d81e8a> history/drawio-edits/diff/run.sh <diff dir>
+python3 tools/drawio_baseline.py make <baseline dir> <diff dir> [<figure> ...]
+```
+
+With figures named, only those are added to (or replaced in) the baseline, and a run of
+`history/drawio-edits/diff/one.py` on those figures is enough.
 
 ### Images made from the drawings: `to-ubl-repo/`
 
@@ -306,7 +345,9 @@ render to 1 px but for 0.2% of the ink (tried on three).
 The SVGs in `history/diagrams/<figure>/<figure>.svg`, drawn from the JSONs,
 are no longer maintained.
 
-Decided for that export (2026-09-30), from how the [UBL repository](https://github.com/oasis-tcs/ubl)
+#### Decided for that export
+
+Decided 2026-09-30, from how the [UBL repository](https://github.com/oasis-tcs/ubl)
 publishes its artwork (its README, "Artwork"; `build.xml`; `realta-user-parameters.xml`):
 
 - **What it makes:** a commit for the UBL repository that adds or replaces, per
@@ -327,20 +368,19 @@ publishes its artwork (its README, "Artwork"; `build.xml`; `realta-user-paramete
   The UBL repository's history keeps them; the commit message names each (5 more
   files there: "Questions for the TC", A2). The 7 illustrations have no source
   there: the commit adds theirs.
-- **The 78, the 7 illustrations, the 4 of Group A and (2026-10-05) the 3 of Group B and the 4 of Group C:**
-  the one other figure of the UBL repository is left as it is
-  (`history/remaining-figures.md`): it is no longer used (`UBL-2.0-BillingwithCreditNoteProcess`).
-  The 4 of Group C (Default Validation, Schema Dependencies, UDT-QDT, Model Realization)
-  had no source either: they are drawn from the UBL repository's PNGs (`history/group-c/`).
-  The 3 of Group B (IMFM Generic Intermodal Freight Process, Open-edi Overview and
-  Application) had no source either: they are drawn from the UBL repository's PNGs.
-  The 4 of Group A had a source in `images/` (`UBL-2.3-Pre-awardProcess`,
-  `UBL-2.3-ProcurementProcess`, `UBL-2.4-BusinessInformation`: `.drawio`;
-  `UBL-2.3-OrderingProcess`: `.svg`, from bpmn.io): the commit replaces those too.
+- **The other 11 of the 96** (2026-10-05): the 4 of Group A had a source in `images/`
+  (`UBL-2.3-Pre-awardProcess`, `UBL-2.3-ProcurementProcess`, `UBL-2.4-BusinessInformation`:
+  `.drawio`; `UBL-2.3-OrderingProcess`: `.svg`, from bpmn.io): the commit replaces those too.
   Ordering's bpmn-js SVG is replaced by the export of its draw.io drawing, and the
   drawing is added (`images/UBL-2.3-OrderingProcess.drawio`): against the UBL PNG,
   0.98 % of its ink is not in the new export and 0.85 % of the export's not in it
-  (within 4 px; how draw.io draws the BPMN symbols, `history/group-a/README.md`).
+  (within 4 px; how draw.io draws the BPMN symbols, `history/group-a/README.md`). The
+  3 of Group B (IMFM Generic Intermodal Freight Process, Open-edi Overview and
+  Application) and the 4 of Group C (Default Validation, Schema Dependencies, UDT-QDT,
+  Model Realization) had no source, as the 78 and the 7 illustrations had none: they are
+  drawn from the UBL repository's PNGs (`history/group-b/`, `history/group-c/`). The one
+  other figure of the UBL repository, no longer used (`UBL-2.0-BillingwithCreditNoteProcess`),
+  is left as it is: whether it stays is "Questions for the TC", A5.
 - **The PNGs:** the drawings are black and white only (`#000000`, `#ffffff`),
   and so is `art/<figure>.png`: 1 bit, a pixel black where the drawing covers
   at least half of it, as line art is printed (at 600 dpi a pixel is 0.04 mm;
@@ -369,8 +409,10 @@ publishes its artwork (its README, "Artwork"; `build.xml`; `realta-user-paramete
   at its natural size where it is narrower. The export reports per figure the
   scale and the size its text prints at. draw.io's "12 pt" is 12 px, and the
   page is 548 px wide at 96 px/in, so at natural size it prints at 9 pt, and in
-  the widest figure (Fulfilment Receipt Advice, scale 0.39) at 3.5 pt. Whether
-  to change the drawings to even that out: "Questions for the TC", B3.
+  Fulfilment Receipt Advice, the widest of the figures drawn at 12 px (scale 0.39),
+  at 3.5 pt, the smallest of all (Pre-award and Procurement are wider still, but their
+  text is 40-70 px: `history/group-a/README.md`). Whether to change the drawings to even
+  that out: "Questions for the TC", B3.
 - **draw.io's code is pinned:** the export draws with draw.io's viewer of one
   release (`tools/drawio-version.json`, now 32.0.2; the baseline's was 31.5.3), fetched from
   that release's tag in [jgraph/drawio](https://github.com/jgraph/drawio), so an
@@ -414,8 +456,17 @@ headless Chromium, through `tools/drawio_editor_roundtrip.js`: the newest
 version, which can be ahead of every tag), saves it again, and compares what
 came back with what went in: every cell (attributes, style, geometry as numbers,
 place in its parent's stacking order) and the render. About 5 minutes. It needs
-the proxy's CA in the browser's trust store, once per environment:
-`apt-get install libnss3-tools; certutil -d sql:$HOME/.pki/nssdb -A -t "C,," -n ccr-agent-proxy -i /root/.ccr/agent-proxy-ca.crt`.
+the proxy's CA in the browser's trust store, once per environment. The environment may have
+put it there already: `certutil -d sql:$HOME/.pki/nssdb -L` then lists `ccr-agent-proxy` and
+`ccr-agent-proxy-2`. If not (`apt-get install libnss3-tools` for `certutil`), import both
+certificates of `/root/.ccr/agent-proxy-ca.crt` (`certutil -A` takes only the first of a
+file; do not run `-N` on an existing database, it hangs):
+
+```sh
+csplit -s -z -f /tmp/proxy-ca- /root/.ccr/agent-proxy-ca.crt '/BEGIN CERTIFICATE/' '{*}'
+i=0; for f in /tmp/proxy-ca-*; do i=$((i + 1))
+  certutil -d sql:$HOME/.pki/nssdb -A -t "C,," -n ccr-agent-proxy$([ $i -gt 1 ] && echo -$i) -i $f; done
+```
 
 To move: change `version` in `tools/drawio-version.json`; export all again
 (`to-ubl-repo/`: every SVG changes by the version in its comment, which names
@@ -427,10 +478,12 @@ drawing.
 **Tried 2026-10-05, 31.5.3 -> 32.0.2:** the export is the same in all 85
 figures (SVG, art and htmlart PNGs, pixel for pixel), and so is the render when
 draw.io draws at scale 1 and the browser enlarges it (`DRAWIO_RENDER_DEVICE=1`
-in `render-drawio.js`; what `drawio_upgrade.py` does): `VERDICT: SAFE`.
+in `history/drawio-writer/render-drawio.js`; what `drawio_upgrade.py` does): `VERDICT: SAFE`.
 
 **Opened and saved in the live editor (32.1.0, later 32.2.0):** all 85 come back
-the same in every cell, style, geometry and stacking order, and render the same.
+the same in every cell, style, geometry and stacking order, and render the same
+(2026-10-06, 32.2.0: all 96, each held against the baseline 2026-10-06's render too,
+`python3 tools/drawio_upgrade.py --editor`: `VERDICT: SAFE`).
 What the editor writes differently is the file's form only: it pretty-prints
 (ours is one line), omits `x="0"` and `y="0"` (378 attributes), drops trailing
 zeros (`554.30` is `554.3`), writes the cells parent by parent, names its own
@@ -460,11 +513,12 @@ rounds an edge label's place along its flow, and the corners of an orthogonal
 flow, to whole device pixels, 32.0.2 to whole model pixels (its `getPoint`
 and `mxEdgeStyle` now `unscale`), so a label sits up to 3 px apart and a line
 a fraction of a pixel. At scale 1, as the export draws, they agree. So
-`drawio_baseline.py compare` now draws both drawings at scale 1 too, itself,
-and the baseline stays as it is: its stored renders (`renders/`) are history and
-are not remade, which only means that for a drawing that differs, the note
-"renderer changed" appears (the stored render was drawn the old way). The
-export is unchanged. 32.1.0 has no tag, so it is not tried.
+`drawio_baseline.py compare` now draws both drawings at scale 1 too, itself.
+The baseline 2026-10-05 stays as it is: its stored renders (`renders/`) were drawn
+the old way, so against it every figure carries the note "renderer changed", which
+is not a difference. The baseline 2026-10-06 is drawn as `compare` draws, so against
+it the note means that the renderer itself changed (a newer pin). The export is
+unchanged. 32.1.0 has no tag, so it is not tried.
 
 ### Before a pull request
 
@@ -475,7 +529,7 @@ root (Node with playwright, Python with numpy and Pillow, and Chromium as
 1. **A drawing edited, or written by a script:** it is in the editor's form (saved
    from draw.io it is; a script's file: `python3 tools/drawio_format.py <file>`).
 2. `python3 tools/check_drawio.py diagrams/*/*.drawio`: conventions, and the form.
-3. `python3 tools/drawio_baseline.py compare baselines/2026-10-05`: only the
+3. `python3 tools/drawio_baseline.py compare baselines/2026-10-06`: only the
    drawings edited may differ, and each says how. The baseline itself is history:
    it is never edited; a new baseline is a new dated folder, made only when
    asked for.
@@ -555,7 +609,7 @@ the lost originals; D is what the diagrams say, for when they are next revised.
 ### A. Before the commit to the UBL repository
 
 **A1. Which branch?** This work was read from `ubl-2.5` at `3d81e8a` (CSD03). Since then
-UBL 2.5 has become an OASIS Standard (`ubl-2.5-os`, 2026-08-15; `ubl-2.5-iso` for ISO) and
+UBL 2.5 has become an OASIS Standard (`ubl-2.5-os`, published 2026-08-12; `ubl-2.5-iso` for ISO) and
 the work goes on in `ubl-2.6` (2.6 CSD01). `art/`, `htmlart/` and `images/` are the same on
 all of them as at `3d81e8a` (checked 2026-10-06), so `to-ubl-repo/` applies to any of them
 as it is. Suggested: `ubl-2.6`, unless the SVGs are wanted for the ISO submission of 2.5.
@@ -610,9 +664,10 @@ is done for the ISO deliverables only, at export time, never in the drawings ("D
 that export", "If ISO requires its own font").
 
 **B3. Even out the printed text size?** Each figure is fitted to the page width, so
-draw.io's 12 px text prints at 9 pt at natural size and at 3.5 pt in the widest figure
-(Fulfilment Receipt Advice, scale 0.39); the export reports it per figure. Evening it out
-means changing the drawings. With it: Pre-award and Procurement are the TC's drawings at
+draw.io's 12 px text prints at 9 pt at natural size and at 3.5 pt in Fulfilment Receipt
+Advice, the widest of the figures drawn at 12 px (scale 0.39); the export reports it per
+figure. Evening it out means changing the drawings. A related question: Pre-award and
+Procurement are the TC's drawings at
 3425 px wide (text 40-70 px, 8 px lines), not at the others' 12 px convention; a version
 rescaled to 0.3 exists as an experiment and could be adopted (`history/group-a/README.md`,
 "`redrawn/`").
@@ -620,7 +675,7 @@ rescaled to 0.3 exists as an experiment and could be adopted (`history/group-a/R
 ### C. BPMN, and the lost originals
 
 **C1. Should the 78 UML activity diagrams become BPMN too?** Their drawings use BPMN pools
-and lanes. Official BPMN 2.0 files are required (by the editor) for the two BPMN figures,
+and lanes. Official BPMN 2.0 files are required (by the UBL editor, Kees Duvekot) for the two BPMN figures,
 Ordering and Business Information: a session of its own (`history/group-a/README.md`,
 "Future session"). The two phase maps stay draw.io.
 
@@ -636,7 +691,8 @@ reconstruction would be written from the figure's draw.io BPMN drawing
 (`diagrams/UBL-2.3-OrderingProcess/`, made 2026-10-06 from the bpmn-js SVG, which came
 from the model): the original's BPMN ids, places and bends, with every flow's `sourceRef`
 and `targetRef` and every element's participant made explicit. Little would be lost, and
-the file would say it is a reconstruction.
+the file would say it is a reconstruction. The drawing is the source now: an edit made to
+it before then becomes part of the reconstruction.
 
 **C4. Can someone with a browser search the `ubl` list's archive?** The archives
 (`lists.oasis-open.org`, `lists-archive.oasis-open.org`) refuse a script. Wanted: the
@@ -754,21 +810,38 @@ themselves are next revised. Figure numbers are as in that review.
 
 ## Open work
 
-- **The TC's answers** ("Questions for the TC"): A before the commit to the UBL
-  repository, the rest after it.
-- **The other figure** of the UBL repository: one that is no longer used
-  (`UBL-2.0-BillingwithCreditNoteProcess`; Groups B and C are done: `history/group-b/`, `history/group-c/`);
-  whether it stays is A5; what it is is in `history/remaining-figures.md`.
-- **Official BPMN 2.0 files for the BPMN figures** (Ordering, Business Information): the editor
-  requires them as the sources of BPMN diagrams; what is needed is in
-  `history/group-a/README.md` ("Future session"), the decisions it takes are C1-C3.
+- **The TC's answers** ("Questions for the TC"): questions A1-A5 before the commit to
+  the UBL repository, the rest after it.
+- **The commit to the UBL repository**, once A1-A5 are answered: `to-ubl-repo/` copied
+  over a clone of the branch chosen (A1), the 3 older sources removed and the 5 more files
+  if the TC so decides (A2), and its README's "Artwork" changed with it (A3). Its message
+  names each file removed and what it was, and says that Group A's three drawings change
+  only in form, that Ordering's bpmn-js SVG is replaced by its draw.io drawing and that
+  drawing's export, and that the PNGs are replaced by print PNGs in black and white (grey:
+  the illustrations, Business Information and three of Group C) ("Images made from the
+  drawings"; `history/remaining-figures.md`, "Before the UBL repository gets any of it").
+  A test build through Réalta is done on the UBL repository's side.
+- **Official BPMN 2.0 files for the BPMN figures** (Ordering, Business Information): the
+  UBL editor, Kees Duvekot, requires them as the sources of BPMN diagrams; what is needed
+  is in `history/group-a/README.md` ("Future session"), the decisions it takes are C1-C3.
 - **The BPMN 2.0 XML of the Ordering Process** (`UBL-2.3-OrderingProcess.bpmn`, attached to
-  the `ubl` list's mail of 2019-05-07, UBL-171): not found yet (not by the editor either,
-  2026-10-05; the list archives are not reachable from a script: C4). Until then Ordering's
-  source is its draw.io BPMN drawing, made from the bpmn-js SVG (2026-10-06), every element
-  linked as in a BPMN model. If the `.bpmn` is found, it is held against that drawing; if it
-  stays lost, the BPMN session writes it from the drawing as a reconstruction, if the TC agrees
-  (C3; `history/group-a/README.md`, "Ordering as a draw.io BPMN diagram").
-- **The CPFR step figures:** what is still open on them is in
-  `history/illustrations/cpfr/README.md` ("Open work").
-
+  the `ubl` list's mail of 2019-05-07, UBL-171): not found yet (not by the UBL editor either,
+  2026-10-05). Still to look in: the Sent folder of that mail, other list members' mailboxes
+  (Ken Holman, Kenneth Bengtsson), the 2019 download folders and backups, bpmn.io's local
+  storage in a browser profile of 2019, and the list archive, which refuses a script (C4).
+  Until then Ordering's source is its draw.io BPMN drawing, made from the bpmn-js SVG
+  (2026-10-06), every element linked as in a BPMN model ("Ordering, a BPMN drawing"). If the
+  `.bpmn` is found, it is held against that drawing; if it stays lost, the BPMN session
+  writes it from the drawing as a reconstruction, if the TC agrees (C3;
+  `history/group-a/README.md`, "Ordering as a draw.io BPMN diagram").
+- **The draw.io desktop app:** this README says to edit in it or in diagrams.net, but
+  the drawings are tried in the web editor only (all 96 opened and saved again in the
+  live editor, unchanged). Open and save one in the desktop app, and hold the file
+  against the drawing with `python3 tools/drawio_format.py --diff` and
+  `tools/check_drawio.py`: that shows whether the desktop app writes them the same.
+- **Smaller:** the export's report of the size text prints at assumes 12 px text, which
+  is wrong for Pre-award and Procurement (`history/group-a/README.md`);
+  `history/group-c/lib_c.py` does not allow for draw.io multiplying `dashPattern` by the
+  stroke width: fix it before a fifth figure is drawn with it (`history/group-c/README.md`).
+- **The CPFR step figures:** what is still open on them (the shading of the handshake
+  people) is in `history/illustrations/cpfr/README.md` ("Open work").

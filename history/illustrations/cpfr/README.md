@@ -195,9 +195,9 @@ Chromium (playwright), the drawing sent to it with draw.io's embed protocol
 from a page that frames it (opened directly with `setFileData` its labels
 stayed hidden), edited with the mouse and keys as a person would, and saved
 with its own Save; the saved file compared cell by cell with the one written.
-In this environment the browser reaches the web only through node
-(`context.route` with `route.fetch()`), as the proxy's certificate is not in
-the browser.
+In that environment the browser reached the web only through node
+(`context.route` with `route.fetch()`), as the proxy's certificate was not in
+the browser (how to put it there: README, "Upgrading draw.io").
 
 ## Open work
 
@@ -211,13 +211,12 @@ the browser.
 - **The clip art's origin**, for the TC to decide: README, "Questions for the
   TC", A4. If the traced people are not acceptable, they would have to be
   drawn freely (pictograms).
-- **Tried in the editor only on the web** (embed.diagrams.net 32.1.0; since
-  2026-10-05 all 85 drawings, these three too, opened and saved in the live
-  editor 32.1.0/32.2.0 with `tools/drawio_upgrade.py --editor`: nothing of them
-  changed); the export pins 32.0.2. Opening and saving one in the draw.io desktop
-  app would settle that.
-- **`made/` cannot be run as it is:** its scripts read the renders traced from
-  and the prd1 crops from a working folder that is not kept. They are the
-  record of how the parts were made; the parts themselves are the source.
+- **The draw.io desktop app:** these drawings, as all 96, were tried in the web
+  editor only (README, "Open work").
 
-The three drawings are in the baseline `baselines/2026-10-05/` (the numbers above are its).
+**`made/` cannot be run as it is** (a limitation, not work): its scripts read the
+renders traced from and the prd1 crops from a working folder that is not kept. They
+are the record of how the parts were made; the parts themselves are the source.
+
+The three drawings are in the baselines `baselines/2026-10-05/` (the numbers above are its) and
+`baselines/2026-10-06/` (with all 96).

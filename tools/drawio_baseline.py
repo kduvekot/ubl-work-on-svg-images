@@ -19,7 +19,7 @@ one line per figure:
                   of its render
   model           the model differs (listed below the line), not a pixel
   DRAWING         pixels differ (and the model, where listed)
-  new             not in the baseline (the figures of Group A and B were made after it): not compared,
+  new             not in the baseline (a figure made after it: 2026-10-06 has all 96): not compared,
                   and not a difference
 
 Both drawings are rendered the same way, on the baseline render's canvas (grown
@@ -122,9 +122,8 @@ def compare(base, figs, out):
         for n in figs:
             b, d = os.path.join(base, 'diagrams', n + '.drawio'), os.path.join(ROOT, 'diagrams', n, n + '.drawio')
             if not os.path.exists(b):
-                # drawn after the baseline (Group A, B, C: the TC's own sources and figures drawn from the
-                # PNGs, which the baseline's tools - the model JSONs, the diff against the PNG - do not cover;
-                # Ordering, redrawn as a BPMN diagram), or a figure whose source is an SVG (none now)
+                # drawn after the baseline (in 2026-10-05: the 11 of Groups A, B, C; 2026-10-06 has all 96),
+                # or a figure whose source is an SVG (none now)
                 state, notes = 'new', ['not in the baseline; not compared']
             elif not os.path.exists(d):
                 state, notes = 'DRAWING', ['removed']

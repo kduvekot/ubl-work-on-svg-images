@@ -5,8 +5,8 @@
 // (deviceScaleFactor), and the PNG is cut to <width> x <height>. Zoomed in draw.io's own view, 31.5.3 rounds
 // an edge label's place along its flow, and the corners of an orthogonal flow, to device pixels, and 32.0.2
 // to model units, so the two draw the same drawing a pixel or so apart; at scale 1 they agree, and so do
-// they in this mode. tools/drawio_upgrade.py renders so; the baseline's renders (2026-10-05) were made
-// without it.
+// they in this mode. tools/drawio_upgrade.py and tools/drawio_baseline.py compare render so, and so are the
+// renders of the baseline 2026-10-06 made (history/drawio-edits/diff/one.py); those of 2026-10-05 were not.
 //
 // The drawing code is draw.io's viewer (viewer-static.min.js) of the release
 // pinned in DRAWIO_VERSION - the one tools/export_drawio.js pins, so the renders

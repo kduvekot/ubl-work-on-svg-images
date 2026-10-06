@@ -3,7 +3,7 @@
 Done 2026-10-05. Three of the UBL repository's other 8 figures (`history/remaining-figures.md`)
 had no source anywhere, so they are **drawn from the UBL repository's PNGs**
 (`art/<figure>.png`, `ubl-2.5` at `3d81e8a`), as draw.io drawings in `diagrams/<figure>/`,
-exported to `to-ubl-repo/` like the rest: **92 figures now**.
+exported to `to-ubl-repo/` like the rest: **92 figures then** (96 since Group C).
 
 **The basis is the PNG of the UBL repository, never Ken Holman's `history/svg-images/`.** His two
 Open-edi SVGs only wrap that PNG (byte for byte the same, checked); his IMFM SVG is a hand-made
@@ -44,7 +44,7 @@ python3 history/group-b/align.py <ubl>/art to-ubl-repo/art UBL-2.2-Open-edi-Over
 `align.py` says, per window of the PNG, how many pixels the export lies right of / below it; the
 build scripts carry the corrections found that way (a `+3`, a `+7` and the like, commented).
 
-- **Scale** is the Group A rule: the PNG's text height over draw.io's 12 px. All three figures have
+- **Scale** is the 12 px rule (`history/remaining-figures.md`): the PNG's text height over draw.io's 12 px. All three figures have
   an 80 px (IMFM, Overview: 1/6.6) or 66 px (Application: 1/5.5) text, lines of 6-7 px (1 px), the
   frames and dashes 10 px (1.5-1.8). So the export prints them at 9, 9 and 7.9 pt. The IMFM
   titles (100 px) are 15 px, and the Overview's stacked "BUSINESS TRANSACTIONS" 16 px, as in the PNGs:
@@ -68,19 +68,19 @@ build scripts carry the corrections found that way (a `+3`, a `+7` and the like,
 ## Checked
 
 **In the live editor** (draw.io 32.2.0, 2026-10-05, `python3 tools/drawio_upgrade.py --editor <3 figures>`): opened and saved, all
-three come back the same in every cell, style, geometry and the render (`VERDICT: SAFE`); the editor's own PNG
-export of each shows the custom arrows, the rotated labels, the line heights and the brace as the export has them.
-(Needs the proxy's CA in the browser's trust store: `certutil -d sql:$HOME/.pki/nssdb -A ...` only; do not run `-N` on the
-existing database, it hangs.)
+three come back the same in every cell, style and geometry (`VERDICT: SAFE`; the render was not compared: they were
+not in the baseline then); the editor's own PNG export of each shows the custom arrows, the rotated labels, the line
+heights and the brace as the export has them. (The proxy's CA in the browser's trust store: README, "Upgrading draw.io".)
 
 
 `tools/check_drawio.py` (all 92 drawings), `tools/check_svg.py to-ubl-repo` (92 of 92: SVG is vector,
 words as text, 1 bit PNGs, export up to date), and every earlier figure's export is unchanged byte
 for byte.
 
-**The tools with the 92:** the full export of all 92 drawings (and Ordering's SVG) is byte for byte `to-ubl-repo/`;
+**The tools with the 92:** the full export of all 92 figures (91 drawings and Ordering's SVG, its source then) is byte for byte `to-ubl-repo/`;
 `check_drawio.py`, `drawio_format.py --check` and `check_svg.py` pass. `drawio_baseline.py compare` and
 `drawio_upgrade.py` did not know figures outside the baseline (they reported the 4 of Group A, and now the 3 of
 Group B, as differences, so `compare` exited 1 and the upgrade's verdict was always REVIEW): a figure not in the
-baseline is now `new` / "render not compared", not a difference. Putting Groups A and B into the baseline is not
-done: it needs the diff scripts (`history/drawio-edits/diff/`), which assume the model JSONs of the 78.
+baseline is now `new` / "render not compared", not a difference. Putting Groups A and B into a baseline needed the
+diff scripts (`history/drawio-edits/diff/`) to know figures without the model JSONs of the 78: done 2026-10-06,
+`baselines/2026-10-06/` has all 96 (README, "The baseline").

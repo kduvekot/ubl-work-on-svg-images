@@ -1,10 +1,10 @@
 # Group A: the four figures that had a source
 
-Done 2026-10-05. Four of the UBL repository's other 12 figures
+Done 2026-10-05. Four of the 12 figures of the UBL repository then still without a drawing here
 (`history/remaining-figures.md`) already had a source in its `images/`: **the TC's own
 files, which are the sources of the PNGs it publishes**. They are the figures' sources here
 too, at the place and under the name of the others, exported to `to-ubl-repo/` like the
-rest: **89 figures now**. (Ordering's, a bpmn-js SVG, was so until 2026-10-06; since then the
+rest: **89 figures then**. (Ordering's, a bpmn-js SVG, was so until 2026-10-06; since then the
 figure's source is a draw.io BPMN diagram made from it: "Ordering as a draw.io BPMN diagram", below.)
 
 | figure | the TC's source | here | notation |
@@ -27,7 +27,7 @@ the PNG has its ink, and held against `art/<figure>.png` of the UBL repository
 |---|---|---|
 | Pre-award | 0.07 % | 0.07 % |
 | Procurement | 0.00 % (with its stray line taken out, below) | 0.00 % |
-| Ordering | 0.00 % | 0.00 % |
+| Ordering | 0.00 % (its draw.io drawing since 2026-10-06: 0.98 %) | 0.00 % (0.85 %) |
 | Business Information | 0.65 % | 13.2 % (the 1 bit print draws its 1 px lines 2 px wide) |
 
 The git history says the same: the sources and their PNGs arrived together (Ken Holman's
@@ -65,7 +65,7 @@ commits of 2023-02-06 for Business Information).
   `process`, `sourceRef` or `targetRef`: which task a flow joins, and what kind of flow it is, are not
   in it. The drawing has them, inferred from the SVG and checked (below), and is edited in draw.io as
   the other figures are; an official BPMN file is still the future BPMN session's (below).
-- **The BPMN files come later** (decided 2026-10-05): not in this pull request, and not asked for before the
+- **The BPMN files come later** (decided 2026-10-05): not in the pull request of Group A, and not asked for before the
   real `.bpmn` is looked for once more.
 - **The original `UBL-2.3-OrderingProcess.bpmn` is not found yet.** Looked for in the UBL repository
   (all branches), docs.oasis-open.org, the UBL JIRA and, from here, the `ubl` list (blocked, below); and by
@@ -94,17 +94,18 @@ What the TC may want changed of it: README, "Questions for the TC", B3 (the scal
   BPMN 2.0 has no envelope on a message flow (below).
 - **Procurement's and Pre-award's shapes** are loose lines and groups (a phase's outline is five
   lines, a list of documents two), as drawn in 2020: they edit badly.
-- **None of the BPMN-style drawings is an official BPMN file** (next section).
+- **None of the BPMN-style drawings is an official BPMN file** ("Future session", below).
 
 ## Checked in the live editor
 
 draw.io 32.2.0 (2026-10-06, `tools/drawio_editor_roundtrip.js` and `python3 tools/drawio_upgrade.py --editor`):
 the three drawings opened and saved again come back the same in every cell, style and geometry,
-and exported, the same SVG and PNGs, byte for byte (`--editor` compares renders only of the
-baseline's figures). The file differs in its first line only: the editor drops the `modified`, `etag` and
-`version` that the TC's files carry (2020, 2023), so the first save in draw.io shows that line as
-changed in git, and `--editor` says `REVIEW` for it ("text: 2 lines differ"). Ordering's drawing:
-below.
+and exported, the same SVG and PNGs, byte for byte (`--editor` then compared renders only of the
+baseline's figures, which these were not; since `baselines/2026-10-06/` it does for all 96). The file
+differs in its first line only: the editor drops the `modified`, `etag` and `version` that the TC's files
+carry (2020, 2023), so the first save in draw.io shows that line as changed in git. `--editor` said
+`REVIEW` for it ("text: 2 lines differ") until `tools/drawio_format.py` counted those stamps among what
+the editor decides itself (2026-10-06): it says `SAFE` now. Ordering's drawing: below.
 
 ## Future session: real BPMN 2.0 files for the BPMN figures
 
@@ -186,19 +187,24 @@ backup, it was made the figure's source the same day, so that all 96 figures are
   in the SVG's, 0.86 % only in the drawing's; against the UBL repository's PNG: 0.98 % and 0.85 %
   (the SVG's own export: 0.00 %). Places and bends are the SVG's, the labels within 2 px; what differs
   is how draw.io draws the symbols (the terminate disc, the gateway's cross, the message flow's
-  circle) and the dashes. `tools/drawio_baseline.py compare` says `new`: it is not in the baseline.
+  circle) and the dashes. In the baseline `baselines/2026-10-06/` with the other 95 (against 2026-10-05,
+  `tools/drawio_baseline.py compare` says `new`).
 - **Made once:** `build_ordering.py` writes the source, as the Group B and C scripts write theirs.
   Since then the drawing is edited in draw.io; running the script again would overwrite an edit.
 
-## `redrawn/`: experiments, not the sources
+## `redrawn/`: experiments, not the sources (but `lib.py`)
+
+`redrawn/lib.py`, the writer of these drawings, is also what the sources' scripts write with
+(`build_ordering.py`, `history/group-b/lib_b.py` and through it `history/group-c/lib_c.py`): keep it.
 
 Before the originals were chosen, all four were drawn again as draw.io drawings made for this
 repository: the BPMN pair as draw.io's BPMN shapes with the model's ids and kinds (Ordering from the
 bpmn-js SVG, since redrawn properly as the figure's source, above, which replaced its experiment;
 Business Information with white bars), Pre-award and Procurement rebuilt with draw.io's
 own shapes at 0.3 of the TC's scale (text 12, 18, 21 px, lines 2 px; one dashed corner line per list of
-documents). They matched the PNGs to 1-8 %, the originals to 0-0.07 %. Kept as a record of what a
-cleaner, rescaled version looks like (`redrawn/*.drawio`, built by `redrawn/build_*.py`), in case the TC
+documents). The redraws matched the PNGs to 1-8 %, and the TC's originals they were drawn from to 0-0.07 %.
+Kept as a record of what a cleaner, rescaled version looks like (`redrawn/*.drawio`, built by `redrawn/build_*.py`
+and `redrawn/adopt_businessinformation.py`), in case the TC
 wants the 12 px convention for these too (README, "Questions for the TC", B3). The scripts write beside themselves and cannot overwrite a
 source.
 
@@ -207,7 +213,8 @@ source.
 ```sh
 python3 history/group-a/adopt_originals.py            # sources/ -> diagrams/ (the three .drawio)
 python3 history/group-a/build_ordering.py             # sources/UBL-2.3-OrderingProcess.svg -> diagrams/
-python3 tools/check_drawio.py diagrams/UBL-2.3-*/*.drawio diagrams/UBL-2.4-BusinessInformation/*.drawio
+python3 tools/check_drawio.py diagrams/UBL-2.3-OrderingProcess/*.drawio diagrams/UBL-2.3-Pre-awardProcess/*.drawio \
+    diagrams/UBL-2.3-ProcurementProcess/*.drawio diagrams/UBL-2.4-BusinessInformation/*.drawio
 NODE_PATH=$(npm root -g) node tools/export_drawio.js to-ubl-repo diagrams/UBL-2.3-OrderingProcess/*.drawio \
     diagrams/UBL-2.3-Pre-awardProcess/*.drawio diagrams/UBL-2.3-ProcurementProcess/*.drawio diagrams/UBL-2.4-BusinessInformation/*.drawio
 python3 tools/check_svg.py to-ubl-repo
