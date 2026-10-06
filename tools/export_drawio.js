@@ -12,9 +12,9 @@
 //
 //   node tools/export_drawio.js [--report <file.json>] <out dir> <figure.drawio | figure.svg> ...
 //
-// A figure whose source is an SVG (UBL-2.3-OrderingProcess: bpmn-js, the BPMN 2.0 XML it was made from
-// is lost) is not drawn again: images/<figure>.svg is the SVG as it is, byte for byte, and the PNGs are
-// rendered from it, at the page's width as for the others (history/group-a/README.md).
+// A figure whose source is an SVG (none now; Ordering's was, its bpmn-js SVG, until 2026-10-06:
+// history/group-a/README.md) is not drawn again: images/<figure>.svg is the SVG as it is, byte for byte,
+// and the PNGs are rendered from it, at the page's width as for the others.
 //
 // Needs Node with playwright (a global install is found through NODE_PATH, see
 // tools/drawio_baseline.py) and the Chromium of this environment (CHROMIUM_PATH).

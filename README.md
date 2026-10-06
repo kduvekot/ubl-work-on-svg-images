@@ -3,12 +3,12 @@
 Editable sources for the artwork of the UBL specification, for all **96 figures** UBL 2.5
 uses: the **78 UML activity diagrams**, **7 illustrations** (the 4 Fulfilment figures:
 shipments and consignments; the 3 CPFR step figures), **4 figures of other notations**
-(2 BPMN-style drawings, 2 phase maps, the TC's own files: `history/group-a/`),
-**3 phase and overview figures** (`history/group-b/`) and **4 reference figures**
-(`history/group-c/`), the last two groups drawn from the UBL PNGs. 95 are **draw.io
-drawings**; the 96th, the Ordering Process, is the TC's own **SVG** (bpmn-js), kept as it
-is. UBL publishes these figures as PNG and most of their original sources are lost;
-these files replace them as the figures' source.
+(2 BPMN-style drawings, 2 phase maps: `history/group-a/`), **3 phase and overview
+figures** (`history/group-b/`) and **4 reference figures** (`history/group-c/`), the last
+two groups drawn from the UBL PNGs: all of them **draw.io drawings**, one set of the same
+kind (the Ordering Process since 2026-10-06, redrawn as a draw.io BPMN diagram from the
+TC's bpmn-js SVG). UBL publishes these figures as PNG and most of their original sources
+are lost; these drawings replace them as the figures' source.
 
 Checked 2026-10-06 against the UBL repository: the `UBL.xml` of the OASIS Standard
 (`ubl-2.5-os`, 2026-08-15), of `ubl-2.5-iso` and of `ubl-2.6` cites these 96 and no
@@ -23,12 +23,11 @@ end; A before the commit to the UBL repository.
 ## The source of truth: the draw.io drawings
 
 ```
-diagrams/<figure>/<figure>.drawio        95 figures, e.g. diagrams/UBL-2.5-BillingwithDebitNoteProcess/
+diagrams/<figure>/<figure>.drawio        96 figures, e.g. diagrams/UBL-2.5-BillingwithDebitNoteProcess/
                                          (78 diagrams, 7 illustrations: UBL-2.2-Fulfilment-1simple ...,
-                                         3 of BPMN or phase maps: UBL-2.3-Pre-awardProcess ...,
+                                         4 of BPMN or phase maps: UBL-2.3-OrderingProcess ...,
                                          3 phase or overview figures: UBL-2.2-Open-edi-Overview ...,
                                          and 4 reference figures: UBL-2.2-UDT-QDT ...)
-diagrams/UBL-2.3-OrderingProcess/*.svg   the 96th: its source is an SVG, not a drawing
 illustrations/parts/*.svg                the pictures the illustrations are made of, to edit
 tools/embed_parts.py                     puts an edited picture into the illustrations
 tools/ubl-library.xml                    the UBL shapes, as a draw.io library, for editing
@@ -49,12 +48,13 @@ diagrams.net) and saving it back. Nothing is generated over these files any more
 The rest of this section is about the 78 diagrams; the 7 illustrations are
 pictures, not diagrams, and have sections of their own (below), and so have the
 4 figures of other notations (BPMN: Ordering, Business Information; phase maps:
-Pre-award, Procurement), which have no pool of lanes, are **the TC's own files, adopted
-as they are** (Ordering is the bpmn-js SVG, kept as it is: its source is no drawing; a
-draw.io BPMN diagram of it is kept as a backup, `history/group-a/redrawn/`);
-`history/group-a/README.md` says how and what was decided, and that real BPMN 2.0 files
+Pre-award, Procurement), which have no pool of lanes: three are **the TC's own files,
+adopted as they are**, and Ordering, whose source in the UBL repository is a bpmn-js SVG,
+is redrawn from that SVG as a draw.io BPMN diagram, every element linked as in a BPMN
+model (2026-10-06); `history/group-a/README.md` says how and what was decided, and that real BPMN 2.0 files
 for the BPMN figures are a future session. `tools/check_drawio.py` checks them for
-the form and what it can without kinds (they carry `ubl-notation`).
+the form, their ids and attached flows (they carry `ubl-notation`); the TC's three
+have no kinds, which it says.
 
 Each drawing is built from draw.io's own parts:
 
@@ -131,8 +131,8 @@ it is, anything else as JSON.
    where these are missing.
 5. Save, and run the check.
 
-Tested in the draw.io editor (web, 31.5.3; all 95 drawings opened and saved again in 32.x: the 85 in
-"Upgrading draw.io", the 10 of Groups A, B and C in their READMEs) on Billing with Debit Note: a flow
+Tested in the draw.io editor (web, 31.5.3; all 96 drawings opened and saved again in 32.x: the 85 in
+"Upgrading draw.io", the 11 of Groups A, B and C in their READMEs) on Billing with Debit Note: a flow
 reconnected to another element, an action resized, another relabelled, an action
 and a flow from the library added and connected, and a lane added to the pool.
 The saved file passed the check, and the model read back out of it changed
@@ -253,7 +253,7 @@ with figures named, only those are added to (or replaced in) the baseline.
 
 `to-ubl-repo/` holds everything that is to be committed to the UBL repository,
 and nothing else, laid out as there: copied over a clone of it, it adds or
-replaces, per figure, `images/<figure>.drawio` (Ordering: none) and
+replaces, per figure, `images/<figure>.drawio` and
 `images/<figure>.svg`, `art/<figure>.png` and `htmlart/<figure>.png`. Nothing
 in it is edited by hand: after an edit of a drawing, export it again and check.
 
@@ -261,7 +261,7 @@ Which branch it goes to is for the TC ("Questions for the TC", A1); the artwork 
 the same on all of them, so `to-ubl-repo/` applies to any as it is.
 
 ```sh
-NODE_PATH=$(npm root -g) node tools/export_drawio.js [--report <file.json>] to-ubl-repo diagrams/*/*.drawio diagrams/*/*.svg
+NODE_PATH=$(npm root -g) node tools/export_drawio.js [--report <file.json>] to-ubl-repo diagrams/*/*.drawio
 python3 tools/check_svg.py to-ubl-repo
 ```
 
@@ -336,8 +336,11 @@ publishes its artwork (its README, "Artwork"; `build.xml`; `realta-user-paramete
   Application) had no source either: they are drawn from the UBL repository's PNGs.
   The 4 of Group A had a source in `images/` (`UBL-2.3-Pre-awardProcess`,
   `UBL-2.3-ProcurementProcess`, `UBL-2.4-BusinessInformation`: `.drawio`;
-  `UBL-2.3-OrderingProcess`: `.svg`, from bpmn.io): the commit replaces those too
-  (Ordering's SVG with the same file, byte for byte: only its PNGs change).
+  `UBL-2.3-OrderingProcess`: `.svg`, from bpmn.io): the commit replaces those too.
+  Ordering's bpmn-js SVG is replaced by the export of its draw.io drawing, and the
+  drawing is added (`images/UBL-2.3-OrderingProcess.drawio`): against the UBL PNG,
+  0.98 % of its ink is not in the new export and 0.85 % of the export's not in it
+  (within 4 px; how draw.io draws the BPMN symbols, `history/group-a/README.md`).
 - **The PNGs:** the drawings are black and white only (`#000000`, `#ffffff`),
   and so is `art/<figure>.png`: 1 bit, a pixel black where the drawing covers
   at least half of it, as line art is printed (at 600 dpi a pixel is 0.04 mm;
@@ -397,7 +400,7 @@ API is not needed), and the live version of app.diagrams.net, the editor people
 use, which can be ahead of every tag. Exit 1: a newer release can be pinned.
 
 `python3 tools/drawio_upgrade.py [--to <version>] [--out <dir>]` then exports
-all 96 figures (the 95 drawings and Ordering's SVG) with the pin and with the candidate and compares, per figure,
+all 96 drawings with the pin and with the candidate and compares, per figure,
 the SVG (but for the version in its comment), both PNGs and the viewer render
 at the baseline's canvas, pixel for pixel; where pixels differ it writes a
 red/blue image. It ends in `VERDICT: SAFE` (nothing changed, exit 0) or
@@ -476,7 +479,7 @@ root (Node with playwright, Python with numpy and Pillow, and Chromium as
    drawings edited may differ, and each says how. The baseline itself is history:
    it is never edited; a new baseline is a new dated folder, made only when
    asked for.
-4. `NODE_PATH=$(npm root -g) node tools/export_drawio.js to-ubl-repo diagrams/*/*.drawio diagrams/*/*.svg`
+4. `NODE_PATH=$(npm root -g) node tools/export_drawio.js to-ubl-repo diagrams/*/*.drawio`
    and `python3 tools/check_svg.py to-ubl-repo`: every figure `ok`. In another
    container than the one the PNGs were made in, export only the figures edited (see
    "Images made from the drawings"). The export goes
@@ -530,7 +533,8 @@ since:
    drawn from the UBL PNGs.
 9. **Four figures of other notations** - `history/group-a/` (2026-10-05): Ordering and
    Business Information (BPMN), Pre-award and Procurement (phase maps): the TC's own
-   sources from the UBL repository, adopted as they are; and `history/remaining-figures.md`:
+   sources from the UBL repository, adopted as they are (Ordering's bpmn-js SVG too, until it
+   was redrawn as a draw.io BPMN diagram, 2026-10-06); and `history/remaining-figures.md`:
    the figures then still to do.
 10. **Three phase and overview figures** - `history/group-b/` (2026-10-05): the IMFM Generic
     Intermodal Freight Process and the two Open-edi figures, drawn from the UBL repository's
@@ -628,11 +632,11 @@ a message end event) need the same decision.
 **C3. If Ordering's `.bpmn` stays lost, is a reconstruction acceptable?** The original,
 `UBL-2.3-OrderingProcess.bpmn`, is attached to the `ubl` list's mail of 2019-05-07
 ("UBL-171 - BPMN diagram + SVG") and is not found yet (`history/group-a/README.md`). The
-reconstruction would be written from the draw.io BPMN backup of the figure
-(`history/group-a/redrawn/UBL-2.3-OrderingProcess.drawio`, made 2026-10-06 from the bpmn-js
-SVG, which came from the model): the original's BPMN ids, places and bends, with every
-flow's `sourceRef` and `targetRef` and every element's participant made explicit. Little
-would be lost, and the file would say it is a reconstruction.
+reconstruction would be written from the figure's draw.io BPMN drawing
+(`diagrams/UBL-2.3-OrderingProcess/`, made 2026-10-06 from the bpmn-js SVG, which came
+from the model): the original's BPMN ids, places and bends, with every flow's `sourceRef`
+and `targetRef` and every element's participant made explicit. Little would be lost, and
+the file would say it is a reconstruction.
 
 **C4. Can someone with a browser search the `ubl` list's archive?** The archives
 (`lists.oasis-open.org`, `lists-archive.oasis-open.org`) refuse a script. Wanted: the
@@ -760,12 +764,11 @@ themselves are next revised. Figure numbers are as in that review.
   `history/group-a/README.md` ("Future session"), the decisions it takes are C1-C3.
 - **The BPMN 2.0 XML of the Ordering Process** (`UBL-2.3-OrderingProcess.bpmn`, attached to
   the `ubl` list's mail of 2019-05-07, UBL-171): not found yet (not by the editor either,
-  2026-10-05; the list archives are not reachable from a script: C4). Ordering's source here is the
-  bpmn-js SVG, a picture without the BPMN model: **do not hand-edit it**. Its model is kept a
-  second time, as the backup: the same figure as a draw.io BPMN diagram, every element linked as
-  in a BPMN model (`history/group-a/redrawn/UBL-2.3-OrderingProcess.drawio`, 2026-10-06; not the
-  source, not exported). If the `.bpmn` stays lost, the BPMN session writes it from that backup
-  as a reconstruction, if the TC agrees (C3; `history/group-a/README.md`, "The BPMN backup of Ordering").
+  2026-10-05; the list archives are not reachable from a script: C4). Until then Ordering's
+  source is its draw.io BPMN drawing, made from the bpmn-js SVG (2026-10-06), every element
+  linked as in a BPMN model. If the `.bpmn` is found, it is held against that drawing; if it
+  stays lost, the BPMN session writes it from the drawing as a reconstruction, if the TC agrees
+  (C3; `history/group-a/README.md`, "Ordering as a draw.io BPMN diagram").
 - **The CPFR step figures:** what is still open on them is in
   `history/illustrations/cpfr/README.md` ("Open work").
 

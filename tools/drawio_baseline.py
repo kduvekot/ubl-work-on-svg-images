@@ -119,8 +119,8 @@ def compare(base, figs, out):
             b, d = os.path.join(base, 'diagrams', n + '.drawio'), os.path.join(ROOT, 'diagrams', n, n + '.drawio')
             if not os.path.exists(b):
                 # drawn after the baseline (Group A, B, C: the TC's own sources and figures drawn from the
-                # PNGs, which the baseline's tools - the model JSONs, the diff against the PNG - do not cover);
-                # Ordering among them, whose source is an SVG, not a drawing
+                # PNGs, which the baseline's tools - the model JSONs, the diff against the PNG - do not cover;
+                # Ordering, redrawn as a BPMN diagram), or a figure whose source is an SVG (none now)
                 state, notes = 'new', ['not in the baseline; not compared']
             elif not os.path.exists(d):
                 state, notes = 'DRAWING', ['removed']

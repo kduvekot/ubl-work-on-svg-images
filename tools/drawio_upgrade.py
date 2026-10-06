@@ -180,7 +180,7 @@ NOT_IN_BASELINE = []
 
 
 def source(n):
-    """a figure's source: its drawing, or its SVG where it has none (Ordering: history/group-a)"""
+    """a figure's source: its drawing, or its SVG where it has none (none now; Ordering until 2026-10-06)"""
     d = os.path.join(ROOT, 'diagrams', n, n + '.drawio')
     return d if os.path.exists(d) else os.path.join(ROOT, 'diagrams', n, n + '.svg')
 

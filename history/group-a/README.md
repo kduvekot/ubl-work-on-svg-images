@@ -4,14 +4,15 @@ Done 2026-10-05. Four of the UBL repository's other 12 figures
 (`history/remaining-figures.md`) already had a source in its `images/`: **the TC's own
 files, which are the sources of the PNGs it publishes**. They are the figures' sources here
 too, at the place and under the name of the others, exported to `to-ubl-repo/` like the
-rest: **89 figures now**.
+rest: **89 figures now**. (Ordering's, a bpmn-js SVG, was so until 2026-10-06; since then the
+figure's source is a draw.io BPMN diagram made from it: "Ordering as a draw.io BPMN diagram", below.)
 
 | figure | the TC's source | here | notation |
 |---|---|---|---|
 | `UBL-2.3-Pre-awardProcess` | `images/UBL-2.3-Pre-awardProcess.drawio` (draw.io 13.0.3, 2020) | `diagrams/<figure>/<figure>.drawio` | phase map |
 | `UBL-2.3-ProcurementProcess` | `images/UBL-2.3-ProcurementProcess.drawio` (draw.io 13.0.3, 2020) | `diagrams/<figure>/<figure>.drawio` | phase map |
 | `UBL-2.4-BusinessInformation` | `images/UBL-2.4-BusinessInformation.drawio` (draw.io 20.8.4, 2023-02-06, Kees Duvekot) | `diagrams/<figure>/<figure>.drawio` | BPMN-style |
-| `UBL-2.3-OrderingProcess` | `images/UBL-2.3-OrderingProcess.svg` (bpmn.io / bpmn-js, 2019) | `diagrams/<figure>/<figure>.svg`, as it is | BPMN |
+| `UBL-2.3-OrderingProcess` | `images/UBL-2.3-OrderingProcess.svg` (bpmn.io / bpmn-js, 2019) | `diagrams/<figure>/<figure>.drawio`, redrawn from it as a draw.io BPMN diagram (2026-10-06; until then the SVG as it is) | BPMN |
 
 The files as the UBL repository has them are in `sources/` (`ubl-2.5` at `3d81e8a`; the
 same on `main`, `ubl-2.4-os`, `ubl-2.3-os-iso`, `review` and `tsc-ubl-2.5-experimental`).
@@ -42,29 +43,28 @@ commits of 2023-02-06 for Business Information).
   a UML activity diagram. **Procurement only:** a stray dashed line, 4000 px right of
   the figure and not in its PNG (cell `H2ljDLKrGr7yGGcZbY4q-120`), is taken out: it made the
   export's page three times too wide.
-- **Ordering:** its source is a bpmn-js SVG, not a drawing: it is kept as it is, byte for byte
-  (`diagrams/UBL-2.3-OrderingProcess/UBL-2.3-OrderingProcess.svg`), published as it is, and the
-  PNGs are rendered from it (`tools/export_drawio.js` takes an `.svg`; `tools/check_svg.py` knows
-  such a figure: the SVG is the source's, vector, words as text).
+- **Ordering:** its source in the UBL repository is a bpmn-js SVG, not a drawing. Until 2026-10-06
+  it was kept as it is, byte for byte, published as it is, and the PNGs rendered from it
+  (`tools/export_drawio.js` takes an `.svg`; `tools/check_svg.py` knows such a figure, and both still
+  do). Since then the figure's source is a draw.io BPMN diagram made from it (below), and
+  `adopt_originals.py` leaves Ordering alone.
 - **Not done to them, on purpose:** no rescale (below), no ids or kinds (`ubl-kind`) as in the
   78 diagrams, no change of colour, no redraw. `tools/check_drawio.py` checks them for the
   form and for what it can without kinds, and says so as a warning.
 
-## Ordering: the SVG is all there is
+## Ordering: the SVG and the model
 
-- **The SVG is the source; a draw.io BPMN diagram is its backup.** The figure was drawn in bpmn.io,
-  not draw.io. The SVG in `diagrams/UBL-2.3-OrderingProcess/` is its source here, because it is what
-  the UBL repository has and what the PNG was rendered from (0.00 % difference). The same figure as a
-  draw.io BPMN diagram, linked as a BPMN model is, is kept as the backup of the model while the `.bpmn`
-  is lost (`redrawn/UBL-2.3-OrderingProcess.drawio`: "The BPMN backup of Ordering", below). It is not
-  the source and is not exported.
+- **The source is a draw.io BPMN diagram, made from the SVG** (2026-10-06). The figure was drawn in
+  bpmn.io, not draw.io; the UBL repository has only the SVG bpmn-js exported, and its PNG was
+  rendered from that (0.00 % difference). Until 2026-10-06 that SVG was the source here too; since
+  then it is the same figure redrawn as a draw.io BPMN diagram, linked as a BPMN model is
+  (`diagrams/UBL-2.3-OrderingProcess/`: "Ordering as a draw.io BPMN diagram", below), so that all 96
+  figures are draw.io drawings. The SVG stays in `sources/`.
 - **The SVG is a picture, not the BPMN model.** It holds the BPMN ids (`Task_1bnlp2b`,
   `MessageFlow_0w3w0y5`, ...) and the places, bends and styles of every element, but no `collaboration`,
   `process`, `sourceRef` or `targetRef`: which task a flow joins, and what kind of flow it is, are not
-  in it. Editing the SVG (Inkscape, a text editor) edits a picture, and nothing checks that the
-  result is still a sound BPMN diagram. **Do not hand-edit it**; the way to change this figure is the
-  future BPMN session (below), which makes the `.bpmn` and renders the SVG and PNGs from that.
-  (`tools/check_svg.py` does catch an export that differs from `diagrams/`, not an edit of `diagrams/`.)
+  in it. The drawing has them, inferred from the SVG and checked (below), and is edited in draw.io as
+  the other figures are; an official BPMN file is still the future BPMN session's (below).
 - **The BPMN files come later** (decided 2026-10-05): not in this pull request, and not asked for before the
   real `.bpmn` is looked for once more.
 - **The original `UBL-2.3-OrderingProcess.bpmn` is not found yet.** Looked for in the UBL repository
@@ -72,9 +72,9 @@ commits of 2023-02-06 for Business Information).
   the editor, Kees Duvekot, who sent it in 2019: not found (2026-10-05). Still to try: the Sent folder of the
   2019-05-07 mail, other list members' mailboxes (Ken Holman, Kenneth Bengtsson), the 2019 download folders
   and backups, bpmn.io's local storage in the browser profile of 2019, and the list archive (README,
-  "Questions for the TC", C4). If it is not found, the `.bpmn` is written from the SVG and **says it is
-  a reconstruction** (it would be one: the SVG came from the model, so little is lost), if the TC
-  agrees (C3).
+  "Questions for the TC", C4). If it is found, it is held against the drawing. If not, the `.bpmn` is
+  written from the drawing and **says it is a reconstruction** (it would be one: the drawing came from
+  the SVG, the SVG from the model, so little is lost), if the TC agrees (C3).
 
 ## What is as the TC made it
 
@@ -103,8 +103,8 @@ the three drawings opened and saved again come back the same in every cell, styl
 and exported, the same SVG and PNGs, byte for byte (`--editor` compares renders only of the
 baseline's figures). The file differs in its first line only: the editor drops the `modified`, `etag` and
 `version` that the TC's files carry (2020, 2023), so the first save in draw.io shows that line as
-changed in git, and `--editor` says `REVIEW` for it ("text: 2 lines differ"). Ordering has no
-drawing: `--editor` passes it by.
+changed in git, and `--editor` says `REVIEW` for it ("text: 2 lines differ"). Ordering's drawing:
+below.
 
 ## Future session: real BPMN 2.0 files for the BPMN figures
 
@@ -125,7 +125,7 @@ style. That is a different requirement and its own session, not done here.
 - **Ordering:** the real source is `UBL-2.3-OrderingProcess.bpmn`, attached to the `ubl` list's mail of
   2019-05-07 ("UBL-171 - BPMN diagram + SVG", see below). If it is found: validate it, render
   the SVG and PNGs from it with bpmn-js (the tool that made the original), and check them against the
-  PNG as `compare_png.py` does. If not: write it from the backup (`redrawn/UBL-2.3-OrderingProcess.drawio`,
+  PNG as `compare_png.py` does. If not: write it from the figure's drawing (`diagrams/UBL-2.3-OrderingProcess/`,
   below), which has the SVG's BPMN ids (`Task_1bnlp2b`, `MessageFlow_0w3w0y5`, ...), places and bends,
   and what the SVG lacks, made explicit and checked: each flow's `sourceRef` and `targetRef`, each
   element's participant and type.
@@ -155,12 +155,13 @@ style. That is a different requirement and its own session, not done here.
   README, "Questions for the TC", C4. **If the `.bpmn` is found (its author has it, or a TC member's
   mail), put it in `sources/`.**
 
-## The BPMN backup of Ordering (2026-10-06)
+## Ordering as a draw.io BPMN diagram (2026-10-06)
 
 Ordering's `.bpmn` is lost (above), and its SVG is a picture: which element a flow joins is said only
-by where its line ends. So the model is kept a second time, in a form draw.io edits:
-`redrawn/UBL-2.3-OrderingProcess.drawio`, made from `sources/UBL-2.3-OrderingProcess.svg` by
-`redrawn/build_ordering.py`.
+by where its line ends. So the figure is redrawn as a draw.io BPMN diagram, which holds the model and
+is edited as the other 95 figures are: `diagrams/UBL-2.3-OrderingProcess/UBL-2.3-OrderingProcess.drawio`,
+made from `sources/UBL-2.3-OrderingProcess.svg` by `build_ordering.py`. First kept beside the SVG as a
+backup, it was made the figure's source the same day, so that all 96 figures are drawings of one kind.
 
 - **draw.io's own BPMN shapes,** styled as its BPMN palette makes them (`Sidebar-BPMN.js`, 32.0.2):
   Generic Task (`mxgraph.bpmn.task2`), the Exclusive gateway (`mxgraph.bpmn.gateway2`,
@@ -179,21 +180,22 @@ by where its line ends. So the model is kept a second time, in a form draw.io ed
   agrees with the SVG's order), and BPMN's rules hold (a sequence flow in one pool, a message flow
   between two). It prints the 25 links.
 - **Checked:** `tools/check_drawio.py` ok (bpmn). Opened and saved in the live editor (32.2.0,
-  `tools/drawio_editor_roundtrip.js`): the same file back (but the host and the window size, which the
-  editor decides), every cell, link and label. Exported
-  (`tools/export_drawio.js`, to a scratch folder) and compared with the SVG's export (`compare_png.py`,
-  within 4 px on the print PNG): 1.02 % of the ink only in the SVG's, 0.86 % only in the backup's.
-  Places and bends are the SVG's, the labels within 2 px; what differs is how draw.io draws the
-  symbols (the terminate disc, the gateway's cross, the message flow's circle) and the dashes.
-- **Not in `diagrams/`:** a second drawing there would be taken for the figure's source and exported.
-  Until the TC decides (README, "Questions for the TC", C3), the SVG stays the source and is not
-  edited by hand. Made again with `python3 history/group-a/redrawn/build_ordering.py`.
+  `tools/drawio_editor_roundtrip.js`; `tools/drawio_upgrade.py --editor`: `SAFE`): the same file back
+  (but the host and the window size, which the editor decides), every cell, link and label. Its
+  export against the SVG's (`compare_png.py`, within 4 px on the print PNG): 1.02 % of the ink only
+  in the SVG's, 0.86 % only in the drawing's; against the UBL repository's PNG: 0.98 % and 0.85 %
+  (the SVG's own export: 0.00 %). Places and bends are the SVG's, the labels within 2 px; what differs
+  is how draw.io draws the symbols (the terminate disc, the gateway's cross, the message flow's
+  circle) and the dashes. `tools/drawio_baseline.py compare` says `new`: it is not in the baseline.
+- **Made once:** `build_ordering.py` writes the source, as the Group B and C scripts write theirs.
+  Since then the drawing is edited in draw.io; running the script again would overwrite an edit.
 
-## `redrawn/`: experiments, not the sources (but Ordering's backup)
+## `redrawn/`: experiments, not the sources
 
 Before the originals were chosen, all four were drawn again as draw.io drawings made for this
 repository: the BPMN pair as draw.io's BPMN shapes with the model's ids and kinds (Ordering from the
-bpmn-js SVG, since made the backup above; Business Information with white bars), Pre-award and Procurement rebuilt with draw.io's
+bpmn-js SVG, since redrawn properly as the figure's source, above, which replaced its experiment;
+Business Information with white bars), Pre-award and Procurement rebuilt with draw.io's
 own shapes at 0.3 of the TC's scale (text 12, 18, 21 px, lines 2 px; one dashed corner line per list of
 documents). They matched the PNGs to 1-8 %, the originals to 0-0.07 %. Kept as a record of what a
 cleaner, rescaled version looks like (`redrawn/*.drawio`, built by `redrawn/build_*.py`), in case the TC
@@ -203,13 +205,15 @@ source.
 ## Run again
 
 ```sh
-python3 history/group-a/adopt_originals.py            # sources/ -> diagrams/
+python3 history/group-a/adopt_originals.py            # sources/ -> diagrams/ (the three .drawio)
+python3 history/group-a/build_ordering.py             # sources/UBL-2.3-OrderingProcess.svg -> diagrams/
 python3 tools/check_drawio.py diagrams/UBL-2.3-*/*.drawio diagrams/UBL-2.4-BusinessInformation/*.drawio
-NODE_PATH=$(npm root -g) node tools/export_drawio.js to-ubl-repo diagrams/UBL-2.3-OrderingProcess/*.svg \
+NODE_PATH=$(npm root -g) node tools/export_drawio.js to-ubl-repo diagrams/UBL-2.3-OrderingProcess/*.drawio \
     diagrams/UBL-2.3-Pre-awardProcess/*.drawio diagrams/UBL-2.3-ProcurementProcess/*.drawio diagrams/UBL-2.4-BusinessInformation/*.drawio
 python3 tools/check_svg.py to-ubl-repo
 python3 history/group-a/compare_png.py <ubl>/art to-ubl-repo/art <out> <figure> ...
 ```
 
-After that the drawings are the source: edit them in draw.io. `adopt_originals.py` would overwrite an
-edit; it is how they were adopted, and need not be run again.
+After that the drawings are the source: edit them in draw.io. `adopt_originals.py` and
+`build_ordering.py` would overwrite an edit; they are how the drawings were made, and need not be
+run again.

@@ -1,7 +1,7 @@
-"""UBL-2.3-OrderingProcess as a BPMN diagram in draw.io: the backup of the figure's BPMN model.
+"""UBL-2.3-OrderingProcess as a BPMN diagram in draw.io: the figure's source since 2026-10-06.
 
 The figure was made in bpmn.io; its BPMN 2.0 XML (UBL-2.3-OrderingProcess.bpmn) is lost, and the UBL
-repository has only the SVG bpmn-js exported (../sources/). That SVG keeps every element's BPMN id and
+repository has only the SVG bpmn-js exported (sources/). That SVG keeps every element's BPMN id and
 kind, its place and size, and every bend of every flow, but not which elements a flow joins. This
 reads the SVG and draws the same collaboration with draw.io's BPMN shapes, styled as draw.io's BPMN
 palette makes them (Sidebar-BPMN.js of the pinned release, 32.0.2), and links it as a BPMN model does:
@@ -15,14 +15,33 @@ palette makes them (Sidebar-BPMN.js of the pinned release, 32.0.2), and links it
 
 Places, sizes and bends are the SVG's (its viewBox origin is the drawing's), and so are the line weights
 (2 px; a message flow 1.5 px, dashed 10 12) and the text sizes (12 px; a flow's name 11 px), so the
-drawing looks as the figure. Where the palette differs it is said below. Prints the links it made."""
-import math, os, re
+drawing looks as the figure. Where the palette differs it is said below. Prints the links it made.
+
+It writes the figure's source, diagrams/UBL-2.3-OrderingProcess/UBL-2.3-OrderingProcess.drawio, as the
+Group B and C scripts write theirs. Since then the drawing is the source and is edited in draw.io: this
+is how it was made, and need not be run again (it would overwrite an edit)."""
+import math, os, re, sys
 import xml.etree.ElementTree as ET
-from lib import Fig
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+ROOT = os.path.abspath(os.path.join(HERE, '..', '..'))
+sys.path.insert(0, os.path.join(HERE, 'redrawn'))
+from lib import Fig as _Fig  # noqa: E402
+import drawio_format  # noqa: E402
+
+
+class Fig(_Fig):
+    def write(self):
+        d = os.path.join(ROOT, 'diagrams', self.name)
+        os.makedirs(d, exist_ok=True)
+        path = os.path.join(d, self.name + '.drawio')
+        open(path, 'w', encoding='utf-8').write(drawio_format.format_text(self.text()))
+        return path
+
 
 NS = '{http://www.w3.org/2000/svg}'
 NAME = 'UBL-2.3-OrderingProcess'
-svg = ET.parse(os.path.join(os.path.dirname(__file__), '..', 'sources', 'UBL-2.3-OrderingProcess.svg')).getroot()
+svg = ET.parse(os.path.join(HERE, 'sources', 'UBL-2.3-OrderingProcess.svg')).getroot()
 OX, OY = 150, 75      # the SVG's viewBox: its origin is the drawing's
 
 shapes, flows, labels = {}, {}, {}
@@ -115,7 +134,7 @@ BPMN_TYPE = {'Participant': 'participant', 'Task': 'task', 'ExclusiveGateway': '
 KIND = {'Participant': 'pool', 'Task': 'task', 'ExclusiveGateway': 'gateway', 'StartEvent': 'event', 'EndEvent': 'event',
         'SequenceFlow': 'flow', 'MessageFlow': 'message-flow'}
 
-f = Fig(NAME, 1231, 818, 'UBL artwork, Group A, the BPMN backup (history/group-a/redrawn/build_ordering.py)')
+f = Fig(NAME, 1231, 818, 'UBL artwork, Group A (history/group-a/build_ordering.py)')
 for i, s in shapes.items():
     if s['kind'] == 'Participant':
         f.vertex(i, KIND['Participant'], ' '.join(s['text']), STYLE['Participant'], s['x'] - OX, s['y'] - OY, s['w'], s['h'],

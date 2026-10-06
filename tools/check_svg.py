@@ -67,7 +67,7 @@ def check_png(path, max_w, dpi, want_w, mode, out):
 
 
 def check_original(out_dir, name, text):
-    """a figure whose source is an SVG (history/group-a: Ordering, made by bpmn-js): the SVG as it is, which
+    """a figure whose source is an SVG (none now; Ordering's was until 2026-10-06, history/group-a): the SVG as it is, which
     must be the source in diagrams/ byte for byte, vector and with its words as text; the PNGs from it"""
     out = []
     src = os.path.join(ROOT, 'diagrams', name, name + '.svg')

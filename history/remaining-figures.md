@@ -84,10 +84,11 @@ found, put it in `history/<group>/sources/` and say so here.
 
 The export (`to-ubl-repo/`) adds or replaces per figure `images/<figure>.drawio`, `.svg`,
 `art/<figure>.png`, `htmlart/<figure>.png` (README, "Decided for that export"). For Group A
-the sources are the UBL repository's own, so the commit **changes them only in form** (the three
-`.drawio` uncompressed and in the editor's form with one added property; Procurement's stray line out;
-Ordering's SVG as it is) and replaces the PNGs by black and white print ones (Business
-Information's: grey): say so in the message.
+the sources are the UBL repository's own, so the commit **changes three of them only in form** (the
+`.drawio` uncompressed and in the editor's form with one added property; Procurement's stray line out)
+and **replaces Ordering's bpmn-js SVG** by a draw.io BPMN drawing made from it, with that drawing's
+export (`history/group-a/README.md`, "Ordering as a draw.io BPMN diagram"); and it replaces the PNGs
+by black and white print ones (Business Information's: grey): say so in the message.
 **Future session, required by the editor:** real BPMN 2.0 files for the BPMN figures (Ordering,
 Business Information) - `history/group-a/README.md`, "Future session".
 **To decide with the TC first:** README, "Questions for the TC", A.
