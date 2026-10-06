@@ -278,7 +278,7 @@ publishes its artwork (its README, "Artwork"; `build.xml`; `realta-user-paramete
   Fulfilment Receipt Advice, the widest of the figures drawn at 12 px (scale 0.39),
   at 3.5 pt, the smallest of all (Pre-award and Procurement are wider still, but their
   text is 40-70 px: `history/group-a/README.md`). Whether to change the drawings to even
-  that out: README, "Questions for the TC", B3.
+  that out: README, "Questions for the TC", B3 (answered 2026-10-06: not now).
 - **draw.io's code is pinned:** the export draws with draw.io's viewer of one
   release (`tools/drawio-version.json`, now 32.0.2; the baseline's was 31.5.3), fetched from
   that release's tag in [jgraph/drawio](https://github.com/jgraph/drawio), so an

@@ -13,8 +13,8 @@ sources are lost; these drawings are now the figures' source. They are:
 
 How they came to be, and the measurements behind the rules below: `history/README.md`. What the
 TC still has to decide is in one place, near the end: "Questions for the TC" (the questions to
-settle before the commit to the UBL repository, A1-A5, are answered, and so are B1 and B2; B3,
-C and D are for after it).
+settle before the commit to the UBL repository, A1-A5, are answered, and so is B; C and D are
+for after it).
 
 **Once committed to the UBL repository, its drawings are the figures' source** (A3, answered
 2026-10-06): `images/<figure>.drawio` there, which its build renders into the SVG and the PNGs, so
@@ -571,13 +571,18 @@ throughout a document"; SVG among the formats recommended; text editable, not ou
 colour that carries meaning; words allowed in flowcharts; text at 10 pt, or smaller in the same
 ratio (8 pt, say: B3).
 
-**B3. Even out the printed text size?** Each figure is fitted to the page width, so
-draw.io's 12 px text prints at 9 pt at natural size and at 3.5 pt in Fulfilment Receipt
-Advice, the widest of the figures drawn at 12 px (scale 0.39); the export reports it per
-figure. Evening it out means changing the drawings. A related question: Pre-award and
-Procurement are the TC's drawings at
-3425 px wide (text 40-70 px, 8 px lines), not at the others' 12 px convention; a version
-rescaled to 0.3 exists as an experiment and could be adopted (`history/group-a/README.md`,
+**B3. Even out the printed text size?** *Answered 2026-10-06 by the UBL editor:* no change now;
+the figures print as they do today. Every figure is drawn with one text size, draw.io's 12 pt (12
+px), and fitted to the page width (5.7 in), as UBL's PNGs always were: at natural size its text
+prints at 9 pt, and a figure twice the page's width prints it at 4.5 pt. Of the 87 drawn at 12 px
+(2026-10-06): 18 at 9 pt, 22 at 7-8.9 pt, 34 at 5-6.9 pt, 13 at 3.5-4.9 pt; the smallest are
+Fulfilment Receipt Advice (3.5 pt), Fulfilment Despatch Advice and Intermodal Freight Management
+(3.7 pt) and Procurement 1.0 (3.9 pt); the export reports it per figure. It shows most in the HTML,
+whose 750 px bitmap cannot be zoomed: 9 pt text is about 16 px high there, 3.5 pt about 6 px. A way
+to even it out, for when a wide figure is revised anyway (D): draw it narrower, so that it is
+scaled less. Pre-award and Procurement are the TC's drawings at 3425 px wide (text 40-70 px, 8 px
+lines, printing at about 5-8 and 6-10 pt), not at the others' 12 px convention; a version rescaled
+to 0.3 exists as an experiment and could be adopted then (`history/group-a/README.md`,
 "`redrawn/`").
 
 ### C. BPMN, and the lost originals
@@ -718,8 +723,8 @@ themselves are next revised. Figure numbers are as in that review.
 
 ## Open work
 
-- **The TC's answers** ("Questions for the TC"): B3, C and D, after the commit to the UBL
-  repository (A1-A5, before it, B1 and B2 are answered).
+- **The TC's answers** ("Questions for the TC"): C and D, after the commit to the UBL
+  repository (A1-A5, before it, and B1-B3 are answered).
 - **The commit to the UBL repository:** `to-ubl-repo/` copied over a clone of `ubl-2.6` (A1),
   9 files removed (A2: the 3 older sources and the 5 more files in `images/`; A5: the unused PNG
   in `art/`), and three of its files edited with it, `build-common.sh`,
