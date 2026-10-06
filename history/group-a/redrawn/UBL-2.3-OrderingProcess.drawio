@@ -1,76 +1,76 @@
-<mxfile host="UBL-TC" agent="UBL artwork, Group A (history/group-a/build_ordering.py)">
+<mxfile host="UBL-TC" agent="UBL artwork, Group A, the BPMN backup (history/group-a/redrawn/build_ordering.py)">
   <diagram id="UBL-2.3-OrderingProcess" name="UBL-2.3-OrderingProcess">
     <mxGraphModel grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1231" pageHeight="818" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <object label="Buyer Party" ubl-kind="pool" ubl-bpmn-id="Participant_0z7vdd2" ubl-notation="bpmn" id="pool-buyer-party">
-          <mxCell parent="1" style="swimlane;html=1;horizontal=0;startSize=30;whiteSpace=wrap;fillColor=none;strokeWidth=2;" vertex="1">
+        <object label="Buyer Party" ubl-kind="pool" ubl-bpmn-type="participant" ubl-notation="bpmn" id="Participant_0z7vdd2">
+          <mxCell parent="1" style="swimlane;startSize=30;horizontal=0;html=1;whiteSpace=wrap;fontStyle=0;strokeWidth=2;" vertex="1">
             <mxGeometry height="398" width="1216" x="6" y="6" as="geometry" />
           </mxCell>
         </object>
-        <object label="" ubl-kind="event" ubl-bpmn-id="StartEvent_0a7il09" ubl-event="start" id="start-buyer-party">
-          <mxCell parent="pool-buyer-party" style="shape=mxgraph.bpmn.shape;perimeter=ellipsePerimeter;outline=standard;symbol=general;html=1;fillColor=#ffffff;strokeWidth=2;" vertex="1">
+        <object label="" ubl-kind="event" ubl-bpmn-type="startEvent" id="StartEvent_0a7il09">
+          <mxCell parent="Participant_0z7vdd2" style="points=[[0.145,0.145,0],[0.5,0,0],[0.855,0.145,0],[1,0.5,0],[0.855,0.855,0],[0.5,1,0],[0.145,0.855,0],[0,0.5,0]];shape=mxgraph.bpmn.event;html=1;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;align=center;perimeter=ellipsePerimeter;outlineConnect=0;aspect=fixed;outline=standard;symbol=general;strokeWidth=2;" vertex="1">
             <mxGeometry height="36" width="36" x="51" y="207" as="geometry" />
           </mxCell>
         </object>
-        <object label="Receive&lt;br&gt;Response" ubl-kind="task" ubl-bpmn-id="Task_12bpmk2" id="task-buyer-party-receive-response-1">
-          <mxCell parent="pool-buyer-party" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=20;fillColor=#ffffff;strokeWidth=2;" vertex="1">
+        <object label="Receive&lt;br&gt;Response" ubl-kind="task" ubl-bpmn-type="task" id="Task_12bpmk2">
+          <mxCell parent="Participant_0z7vdd2" style="points=[[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];shape=mxgraph.bpmn.task2;whiteSpace=wrap;rectStyle=rounded;size=10;html=1;container=1;expand=0;collapsible=0;taskMarker=abstract;strokeWidth=2;" vertex="1">
             <mxGeometry height="80" width="100" x="397" y="185" as="geometry" />
           </mxCell>
         </object>
-        <object label="Receive&lt;br&gt;Response" ubl-kind="task" ubl-bpmn-id="Task_038qlrr" id="task-buyer-party-receive-response-2">
-          <mxCell parent="pool-buyer-party" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=20;fillColor=#ffffff;strokeWidth=2;" vertex="1">
+        <object label="Receive&lt;br&gt;Response" ubl-kind="task" ubl-bpmn-type="task" id="Task_038qlrr">
+          <mxCell parent="Participant_0z7vdd2" style="points=[[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];shape=mxgraph.bpmn.task2;whiteSpace=wrap;rectStyle=rounded;size=10;html=1;container=1;expand=0;collapsible=0;taskMarker=abstract;strokeWidth=2;" vertex="1">
             <mxGeometry height="80" width="100" x="735" y="185" as="geometry" />
           </mxCell>
         </object>
-        <object label="" ubl-kind="gateway" ubl-bpmn-id="ExclusiveGateway_09rarth" ubl-gateway="exclusive" id="gateway-buyer-party">
-          <mxCell parent="pool-buyer-party" style="shape=mxgraph.bpmn.gateway2;perimeter=rhombusPerimeter;gwType=exclusive;outlineConnect=0;html=1;fillColor=#ffffff;strokeWidth=2;" vertex="1">
+        <object label="" ubl-kind="gateway" ubl-bpmn-type="exclusiveGateway" id="ExclusiveGateway_09rarth">
+          <mxCell parent="Participant_0z7vdd2" style="points=[[0.25,0.25,0],[0.5,0,0],[0.75,0.25,0],[1,0.5,0],[0.75,0.75,0],[0.5,1,0],[0.25,0.75,0],[0,0.5,0]];shape=mxgraph.bpmn.gateway2;html=1;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;align=center;perimeter=rhombusPerimeter;outlineConnect=0;outline=none;symbol=none;gwType=exclusive;strokeWidth=2;" vertex="1">
             <mxGeometry height="50" width="50" x="885" y="200" as="geometry" />
           </mxCell>
         </object>
-        <object label="" ubl-kind="event" ubl-bpmn-id="EndEvent_1vnw2be" ubl-event="end" id="end-buyer-party-1">
-          <mxCell parent="pool-buyer-party" style="shape=mxgraph.bpmn.shape;perimeter=ellipsePerimeter;outline=end;symbol=terminate;html=1;fillColor=#ffffff;strokeWidth=2;" vertex="1">
+        <object label="" ubl-kind="event" ubl-bpmn-type="endEvent" ubl-bpmn-event-definition="terminateEventDefinition" id="EndEvent_1vnw2be">
+          <mxCell parent="Participant_0z7vdd2" style="points=[[0.145,0.145,0],[0.5,0,0],[0.855,0.145,0],[1,0.5,0],[0.855,0.855,0],[0.5,1,0],[0.145,0.855,0],[0,0.5,0]];shape=mxgraph.bpmn.event;html=1;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;align=center;perimeter=ellipsePerimeter;outlineConnect=0;aspect=fixed;outline=end;symbol=terminate;strokeWidth=2;" vertex="1">
             <mxGeometry height="36" width="36" x="547" y="207" as="geometry" />
           </mxCell>
         </object>
-        <object label="Place Order" ubl-kind="task" ubl-bpmn-id="Task_1bnlp2b" id="task-buyer-party-place-order">
-          <mxCell parent="pool-buyer-party" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=20;fillColor=#ffffff;strokeWidth=2;" vertex="1">
+        <object label="Place Order" ubl-kind="task" ubl-bpmn-type="task" id="Task_1bnlp2b">
+          <mxCell parent="Participant_0z7vdd2" style="points=[[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];shape=mxgraph.bpmn.task2;whiteSpace=wrap;rectStyle=rounded;size=10;html=1;container=1;expand=0;collapsible=0;taskMarker=abstract;strokeWidth=2;" vertex="1">
             <mxGeometry height="80" width="100" x="116" y="185" as="geometry" />
           </mxCell>
         </object>
-        <object label="Accept Order" ubl-kind="task" ubl-bpmn-id="Task_1jgt0g6" id="task-buyer-party-accept-order">
-          <mxCell parent="pool-buyer-party" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=20;fillColor=#ffffff;strokeWidth=2;" vertex="1">
+        <object label="Accept Order" ubl-kind="task" ubl-bpmn-type="task" id="Task_1jgt0g6">
+          <mxCell parent="Participant_0z7vdd2" style="points=[[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];shape=mxgraph.bpmn.task2;whiteSpace=wrap;rectStyle=rounded;size=10;html=1;container=1;expand=0;collapsible=0;taskMarker=abstract;strokeWidth=2;" vertex="1">
             <mxGeometry height="80" width="100" x="974" y="185" as="geometry" />
           </mxCell>
         </object>
-        <object label="" ubl-kind="event" ubl-bpmn-id="EndEvent_1wx8f0t" ubl-event="end" id="end-buyer-party-2">
-          <mxCell parent="pool-buyer-party" style="shape=mxgraph.bpmn.shape;perimeter=ellipsePerimeter;outline=end;symbol=terminate;html=1;fillColor=#ffffff;strokeWidth=2;" vertex="1">
+        <object label="" ubl-kind="event" ubl-bpmn-type="endEvent" ubl-bpmn-event-definition="terminateEventDefinition" id="EndEvent_1wx8f0t">
+          <mxCell parent="Participant_0z7vdd2" style="points=[[0.145,0.145,0],[0.5,0,0],[0.855,0.145,0],[1,0.5,0],[0.855,0.855,0],[0.5,1,0],[0.145,0.855,0],[0,0.5,0]];shape=mxgraph.bpmn.event;html=1;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;align=center;perimeter=ellipsePerimeter;outlineConnect=0;aspect=fixed;outline=end;symbol=terminate;strokeWidth=2;" vertex="1">
             <mxGeometry height="36" width="36" x="1135" y="207" as="geometry" />
           </mxCell>
         </object>
-        <object label="Cancel Order" ubl-kind="task" ubl-bpmn-id="Task_1me0nw2" id="task-buyer-party-cancel-order">
-          <mxCell parent="pool-buyer-party" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=20;fillColor=#ffffff;strokeWidth=2;" vertex="1">
+        <object label="Cancel Order" ubl-kind="task" ubl-bpmn-type="task" id="Task_1me0nw2">
+          <mxCell parent="Participant_0z7vdd2" style="points=[[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];shape=mxgraph.bpmn.task2;whiteSpace=wrap;rectStyle=rounded;size=10;html=1;container=1;expand=0;collapsible=0;taskMarker=abstract;strokeWidth=2;" vertex="1">
             <mxGeometry height="80" width="100" x="974" y="287" as="geometry" />
           </mxCell>
         </object>
-        <object label="Change Order" ubl-kind="task" ubl-bpmn-id="Task_0c5jg3a" id="task-buyer-party-change-order">
-          <mxCell parent="pool-buyer-party" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=20;fillColor=#ffffff;strokeWidth=2;" vertex="1">
+        <object label="Change Order" ubl-kind="task" ubl-bpmn-type="task" id="Task_0c5jg3a">
+          <mxCell parent="Participant_0z7vdd2" style="points=[[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];shape=mxgraph.bpmn.task2;whiteSpace=wrap;rectStyle=rounded;size=10;html=1;container=1;expand=0;collapsible=0;taskMarker=abstract;strokeWidth=2;" vertex="1">
             <mxGeometry height="80" width="100" x="974" y="76" as="geometry" />
           </mxCell>
         </object>
-        <object label="" ubl-kind="event" ubl-bpmn-id="EndEvent_0ijc47u" ubl-event="end" id="end-buyer-party-3">
-          <mxCell parent="pool-buyer-party" style="shape=mxgraph.bpmn.shape;perimeter=ellipsePerimeter;outline=end;symbol=terminate;html=1;fillColor=#ffffff;strokeWidth=2;" vertex="1">
+        <object label="" ubl-kind="event" ubl-bpmn-type="endEvent" ubl-bpmn-event-definition="terminateEventDefinition" id="EndEvent_0ijc47u">
+          <mxCell parent="Participant_0z7vdd2" style="points=[[0.145,0.145,0],[0.5,0,0],[0.855,0.145,0],[1,0.5,0],[0.855,0.855,0],[0.5,1,0],[0.145,0.855,0],[0,0.5,0]];shape=mxgraph.bpmn.event;html=1;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;align=center;perimeter=ellipsePerimeter;outlineConnect=0;aspect=fixed;outline=end;symbol=terminate;strokeWidth=2;" vertex="1">
             <mxGeometry height="36" width="36" x="1135" y="309" as="geometry" />
           </mxCell>
         </object>
-        <object label="" ubl-kind="flow" ubl-bpmn-id="SequenceFlow_1wbpqu6" ubl-flow="sequence" id="flow-start-buyer-party-to-task-buyer-party-place-order">
-          <mxCell edge="1" parent="pool-buyer-party" source="start-buyer-party" style="html=1;rounded=0;endArrow=block;endFill=1;endSize=8;strokeWidth=2;edgeStyle=orthogonalEdgeStyle;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="task-buyer-party-place-order">
+        <object label="" ubl-kind="flow" ubl-bpmn-type="sequenceFlow" id="SequenceFlow_1wbpqu6">
+          <mxCell edge="1" parent="Participant_0z7vdd2" source="StartEvent_0a7il09" style="edgeStyle=orthogonalEdgeStyle;fontSize=11;html=1;endArrow=blockThin;endFill=1;rounded=0;strokeWidth=2;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="Task_1bnlp2b">
             <mxGeometry relative="1" as="geometry" />
           </mxCell>
         </object>
-        <object label="" ubl-kind="flow" ubl-bpmn-id="SequenceFlow_1v396rb" ubl-flow="sequence" id="flow-gateway-buyer-party-to-task-buyer-party-change-order">
-          <mxCell edge="1" parent="pool-buyer-party" source="gateway-buyer-party" style="html=1;rounded=0;endArrow=block;endFill=1;endSize=8;strokeWidth=2;edgeStyle=orthogonalEdgeStyle;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="task-buyer-party-change-order">
+        <object label="" ubl-kind="flow" ubl-bpmn-type="sequenceFlow" id="SequenceFlow_1v396rb">
+          <mxCell edge="1" parent="Participant_0z7vdd2" source="ExclusiveGateway_09rarth" style="edgeStyle=orthogonalEdgeStyle;fontSize=11;html=1;endArrow=blockThin;endFill=1;rounded=0;strokeWidth=2;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="Task_0c5jg3a">
             <mxGeometry relative="1" as="geometry">
               <Array as="points">
                 <mxPoint x="910" y="116" />
@@ -78,18 +78,18 @@
             </mxGeometry>
           </mxCell>
         </object>
-        <object label="" ubl-kind="flow" ubl-bpmn-id="SequenceFlow_1eagoug" ubl-flow="sequence" id="flow-task-buyer-party-receive-response-2-to-gateway-buyer-party">
-          <mxCell edge="1" parent="pool-buyer-party" source="task-buyer-party-receive-response-2" style="html=1;rounded=0;endArrow=block;endFill=1;endSize=8;strokeWidth=2;edgeStyle=orthogonalEdgeStyle;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="gateway-buyer-party">
+        <object label="" ubl-kind="flow" ubl-bpmn-type="sequenceFlow" id="SequenceFlow_1eagoug">
+          <mxCell edge="1" parent="Participant_0z7vdd2" source="Task_038qlrr" style="edgeStyle=orthogonalEdgeStyle;fontSize=11;html=1;endArrow=blockThin;endFill=1;rounded=0;strokeWidth=2;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="ExclusiveGateway_09rarth">
             <mxGeometry relative="1" as="geometry" />
           </mxCell>
         </object>
-        <object label="" ubl-kind="flow" ubl-bpmn-id="SequenceFlow_1leupuy" ubl-flow="sequence" id="flow-gateway-buyer-party-to-task-buyer-party-accept-order">
-          <mxCell edge="1" parent="pool-buyer-party" source="gateway-buyer-party" style="html=1;rounded=0;endArrow=block;endFill=1;endSize=8;strokeWidth=2;edgeStyle=orthogonalEdgeStyle;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="task-buyer-party-accept-order">
+        <object label="" ubl-kind="flow" ubl-bpmn-type="sequenceFlow" id="SequenceFlow_1leupuy">
+          <mxCell edge="1" parent="Participant_0z7vdd2" source="ExclusiveGateway_09rarth" style="edgeStyle=orthogonalEdgeStyle;fontSize=11;html=1;endArrow=blockThin;endFill=1;rounded=0;strokeWidth=2;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="Task_1jgt0g6">
             <mxGeometry relative="1" as="geometry" />
           </mxCell>
         </object>
-        <object label="" ubl-kind="flow" ubl-bpmn-id="SequenceFlow_1sjqdlk" ubl-flow="sequence" id="flow-gateway-buyer-party-to-task-buyer-party-cancel-order">
-          <mxCell edge="1" parent="pool-buyer-party" source="gateway-buyer-party" style="html=1;rounded=0;endArrow=block;endFill=1;endSize=8;strokeWidth=2;edgeStyle=orthogonalEdgeStyle;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="task-buyer-party-cancel-order">
+        <object label="" ubl-kind="flow" ubl-bpmn-type="sequenceFlow" id="SequenceFlow_1sjqdlk">
+          <mxCell edge="1" parent="Participant_0z7vdd2" source="ExclusiveGateway_09rarth" style="edgeStyle=orthogonalEdgeStyle;fontSize=11;html=1;endArrow=blockThin;endFill=1;rounded=0;strokeWidth=2;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="Task_1me0nw2">
             <mxGeometry relative="1" as="geometry">
               <Array as="points">
                 <mxPoint x="910" y="327" />
@@ -97,98 +97,98 @@
             </mxGeometry>
           </mxCell>
         </object>
-        <object label="" ubl-kind="flow" ubl-bpmn-id="SequenceFlow_1ema8uk" ubl-flow="sequence" id="flow-task-buyer-party-accept-order-to-end-buyer-party-2">
-          <mxCell edge="1" parent="pool-buyer-party" source="task-buyer-party-accept-order" style="html=1;rounded=0;endArrow=block;endFill=1;endSize=8;strokeWidth=2;edgeStyle=orthogonalEdgeStyle;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="end-buyer-party-2">
+        <object label="" ubl-kind="flow" ubl-bpmn-type="sequenceFlow" id="SequenceFlow_1ema8uk">
+          <mxCell edge="1" parent="Participant_0z7vdd2" source="Task_1jgt0g6" style="edgeStyle=orthogonalEdgeStyle;fontSize=11;html=1;endArrow=blockThin;endFill=1;rounded=0;strokeWidth=2;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="EndEvent_1wx8f0t">
             <mxGeometry relative="1" as="geometry" />
           </mxCell>
         </object>
-        <object label="" ubl-kind="flow" ubl-bpmn-id="SequenceFlow_0194e97" ubl-flow="sequence" id="flow-task-buyer-party-cancel-order-to-end-buyer-party-3">
-          <mxCell edge="1" parent="pool-buyer-party" source="task-buyer-party-cancel-order" style="html=1;rounded=0;endArrow=block;endFill=1;endSize=8;strokeWidth=2;edgeStyle=orthogonalEdgeStyle;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="end-buyer-party-3">
+        <object label="" ubl-kind="flow" ubl-bpmn-type="sequenceFlow" id="SequenceFlow_0194e97">
+          <mxCell edge="1" parent="Participant_0z7vdd2" source="Task_1me0nw2" style="edgeStyle=orthogonalEdgeStyle;fontSize=11;html=1;endArrow=blockThin;endFill=1;rounded=0;strokeWidth=2;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="EndEvent_0ijc47u">
             <mxGeometry relative="1" as="geometry" />
           </mxCell>
         </object>
-        <object label="" ubl-kind="flow" ubl-bpmn-id="SequenceFlow_0zznq6t" ubl-flow="sequence" id="flow-task-buyer-party-receive-response-1-to-end-buyer-party-1">
-          <mxCell edge="1" parent="pool-buyer-party" source="task-buyer-party-receive-response-1" style="html=1;rounded=0;endArrow=block;endFill=1;endSize=8;strokeWidth=2;edgeStyle=orthogonalEdgeStyle;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="end-buyer-party-1">
+        <object label="" ubl-kind="flow" ubl-bpmn-type="sequenceFlow" id="SequenceFlow_0zznq6t">
+          <mxCell edge="1" parent="Participant_0z7vdd2" source="Task_12bpmk2" style="edgeStyle=orthogonalEdgeStyle;fontSize=11;html=1;endArrow=blockThin;endFill=1;rounded=0;strokeWidth=2;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="EndEvent_1vnw2be">
             <mxGeometry relative="1" as="geometry" />
           </mxCell>
         </object>
-        <object label="Seller Party" ubl-kind="pool" ubl-bpmn-id="Participant_0aphwi9" ubl-notation="bpmn" id="pool-seller-party">
-          <mxCell parent="1" style="swimlane;html=1;horizontal=0;startSize=30;whiteSpace=wrap;fillColor=none;strokeWidth=2;" vertex="1">
+        <object label="Seller Party" ubl-kind="pool" ubl-bpmn-type="participant" ubl-notation="bpmn" id="Participant_0aphwi9">
+          <mxCell parent="1" style="swimlane;startSize=30;horizontal=0;html=1;whiteSpace=wrap;fontStyle=0;strokeWidth=2;" vertex="1">
             <mxGeometry height="299" width="1219" x="6" y="513" as="geometry" />
           </mxCell>
         </object>
-        <object label="Receive Order" ubl-kind="task" ubl-bpmn-id="Task_1mebme0" id="task-seller-party-receive-order">
-          <mxCell parent="pool-seller-party" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=20;fillColor=#ffffff;strokeWidth=2;" vertex="1">
+        <object label="Receive Order" ubl-kind="task" ubl-bpmn-type="task" id="Task_1mebme0">
+          <mxCell parent="Participant_0aphwi9" style="points=[[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];shape=mxgraph.bpmn.task2;whiteSpace=wrap;rectStyle=rounded;size=10;html=1;container=1;expand=0;collapsible=0;taskMarker=abstract;strokeWidth=2;" vertex="1">
             <mxGeometry height="80" width="100" x="147" y="27" as="geometry" />
           </mxCell>
         </object>
-        <object label="" ubl-kind="gateway" ubl-bpmn-id="ExclusiveGateway_14vj4fv" ubl-gateway="exclusive" id="gateway-seller-party-1">
-          <mxCell parent="pool-seller-party" style="shape=mxgraph.bpmn.gateway2;perimeter=rhombusPerimeter;gwType=exclusive;outlineConnect=0;html=1;fillColor=#ffffff;strokeWidth=2;" vertex="1">
+        <object label="" ubl-kind="gateway" ubl-bpmn-type="exclusiveGateway" id="ExclusiveGateway_14vj4fv">
+          <mxCell parent="Participant_0aphwi9" style="points=[[0.25,0.25,0],[0.5,0,0],[0.75,0.25,0],[1,0.5,0],[0.75,0.75,0],[0.5,1,0],[0.25,0.75,0],[0,0.5,0]];shape=mxgraph.bpmn.gateway2;html=1;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;align=center;perimeter=rhombusPerimeter;outlineConnect=0;outline=none;symbol=none;gwType=exclusive;strokeWidth=2;" vertex="1">
             <mxGeometry height="50" width="50" x="297" y="42" as="geometry" />
           </mxCell>
         </object>
-        <object label="Reject Order" ubl-kind="task" ubl-bpmn-id="Task_0lcoulg" id="task-seller-party-reject-order">
-          <mxCell parent="pool-seller-party" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=20;fillColor=#ffffff;strokeWidth=2;" vertex="1">
+        <object label="Reject Order" ubl-kind="task" ubl-bpmn-type="task" id="Task_0lcoulg">
+          <mxCell parent="Participant_0aphwi9" style="points=[[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];shape=mxgraph.bpmn.task2;whiteSpace=wrap;rectStyle=rounded;size=10;html=1;container=1;expand=0;collapsible=0;taskMarker=abstract;strokeWidth=2;" vertex="1">
             <mxGeometry height="80" width="100" x="397" y="27" as="geometry" />
           </mxCell>
         </object>
-        <object label="Accept Order" ubl-kind="task" ubl-bpmn-id="Task_0iugz5l" id="task-seller-party-accept-order">
-          <mxCell parent="pool-seller-party" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=20;fillColor=#ffffff;strokeWidth=2;" vertex="1">
+        <object label="Accept Order" ubl-kind="task" ubl-bpmn-type="task" id="Task_0iugz5l">
+          <mxCell parent="Participant_0aphwi9" style="points=[[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];shape=mxgraph.bpmn.task2;whiteSpace=wrap;rectStyle=rounded;size=10;html=1;container=1;expand=0;collapsible=0;taskMarker=abstract;strokeWidth=2;" vertex="1">
             <mxGeometry height="80" width="100" x="397" y="185" as="geometry" />
           </mxCell>
         </object>
-        <object label="Add Detail" ubl-kind="task" ubl-bpmn-id="Task_0bivuiv" id="task-seller-party-add-detail">
-          <mxCell parent="pool-seller-party" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=20;fillColor=#ffffff;strokeWidth=2;" vertex="1">
+        <object label="Add Detail" ubl-kind="task" ubl-bpmn-type="task" id="Task_0bivuiv">
+          <mxCell parent="Participant_0aphwi9" style="points=[[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];shape=mxgraph.bpmn.task2;whiteSpace=wrap;rectStyle=rounded;size=10;html=1;container=1;expand=0;collapsible=0;taskMarker=abstract;strokeWidth=2;" vertex="1">
             <mxGeometry height="80" width="100" x="588" y="114" as="geometry" />
           </mxCell>
         </object>
-        <object label="" ubl-kind="gateway" ubl-bpmn-id="ExclusiveGateway_172g7im" ubl-gateway="exclusive" id="gateway-seller-party-2">
-          <mxCell parent="pool-seller-party" style="shape=mxgraph.bpmn.gateway2;perimeter=rhombusPerimeter;gwType=exclusive;outlineConnect=0;html=1;fillColor=#ffffff;strokeWidth=2;" vertex="1">
+        <object label="" ubl-kind="gateway" ubl-bpmn-type="exclusiveGateway" id="ExclusiveGateway_172g7im">
+          <mxCell parent="Participant_0aphwi9" style="points=[[0.25,0.25,0],[0.5,0,0],[0.75,0.25,0],[1,0.5,0],[0.75,0.75,0],[0.5,1,0],[0.25,0.75,0],[0,0.5,0]];shape=mxgraph.bpmn.gateway2;html=1;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;align=center;perimeter=rhombusPerimeter;outlineConnect=0;outline=none;symbol=none;gwType=exclusive;strokeWidth=2;" vertex="1">
             <mxGeometry height="50" width="50" x="727" y="200" as="geometry" />
           </mxCell>
         </object>
-        <object label="" ubl-kind="event" ubl-bpmn-id="EndEvent_1z0vw81" ubl-event="end" id="end-seller-party-1">
-          <mxCell parent="pool-seller-party" style="shape=mxgraph.bpmn.shape;perimeter=ellipsePerimeter;outline=end;symbol=terminate;html=1;fillColor=#ffffff;strokeWidth=2;" vertex="1">
+        <object label="" ubl-kind="event" ubl-bpmn-type="endEvent" ubl-bpmn-event-definition="terminateEventDefinition" id="EndEvent_1z0vw81">
+          <mxCell parent="Participant_0aphwi9" style="points=[[0.145,0.145,0],[0.5,0,0],[0.855,0.145,0],[1,0.5,0],[0.855,0.855,0],[0.5,1,0],[0.145,0.855,0],[0,0.5,0]];shape=mxgraph.bpmn.event;html=1;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;align=center;perimeter=ellipsePerimeter;outlineConnect=0;aspect=fixed;outline=end;symbol=terminate;strokeWidth=2;" vertex="1">
             <mxGeometry height="36" width="36" x="544" y="49" as="geometry" />
           </mxCell>
         </object>
-        <object label="Cancel Order" ubl-kind="task" ubl-bpmn-id="Task_1spnpcs" id="task-seller-party-cancel-order">
-          <mxCell parent="pool-seller-party" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=20;fillColor=#ffffff;strokeWidth=2;" vertex="1">
+        <object label="Cancel Order" ubl-kind="task" ubl-bpmn-type="task" id="Task_1spnpcs">
+          <mxCell parent="Participant_0aphwi9" style="points=[[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];shape=mxgraph.bpmn.task2;whiteSpace=wrap;rectStyle=rounded;size=10;html=1;container=1;expand=0;collapsible=0;taskMarker=abstract;strokeWidth=2;" vertex="1">
             <mxGeometry height="80" width="100" x="974" y="27" as="geometry" />
           </mxCell>
         </object>
-        <object label="" ubl-kind="event" ubl-bpmn-id="EndEvent_16wa8qg" ubl-event="end" id="end-seller-party-2">
-          <mxCell parent="pool-seller-party" style="shape=mxgraph.bpmn.shape;perimeter=ellipsePerimeter;outline=end;symbol=terminate;html=1;fillColor=#ffffff;strokeWidth=2;" vertex="1">
+        <object label="" ubl-kind="event" ubl-bpmn-type="endEvent" ubl-bpmn-event-definition="terminateEventDefinition" id="EndEvent_16wa8qg">
+          <mxCell parent="Participant_0aphwi9" style="points=[[0.145,0.145,0],[0.5,0,0],[0.855,0.145,0],[1,0.5,0],[0.855,0.855,0],[0.5,1,0],[0.145,0.855,0],[0,0.5,0]];shape=mxgraph.bpmn.event;html=1;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;align=center;perimeter=ellipsePerimeter;outlineConnect=0;aspect=fixed;outline=end;symbol=terminate;strokeWidth=2;" vertex="1">
             <mxGeometry height="36" width="36" x="1134" y="49" as="geometry" />
           </mxCell>
         </object>
-        <object label="" ubl-kind="event" ubl-bpmn-id="EndEvent_0nbyi1l" ubl-event="end" id="end-seller-party-3">
-          <mxCell parent="pool-seller-party" style="shape=mxgraph.bpmn.shape;perimeter=ellipsePerimeter;outline=end;symbol=terminate;html=1;fillColor=#ffffff;strokeWidth=2;" vertex="1">
+        <object label="" ubl-kind="event" ubl-bpmn-type="endEvent" ubl-bpmn-event-definition="terminateEventDefinition" id="EndEvent_0nbyi1l">
+          <mxCell parent="Participant_0aphwi9" style="points=[[0.145,0.145,0],[0.5,0,0],[0.855,0.145,0],[1,0.5,0],[0.855,0.855,0],[0.5,1,0],[0.145,0.855,0],[0,0.5,0]];shape=mxgraph.bpmn.event;html=1;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;align=center;perimeter=ellipsePerimeter;outlineConnect=0;aspect=fixed;outline=end;symbol=terminate;strokeWidth=2;" vertex="1">
             <mxGeometry height="36" width="36" x="1134" y="207" as="geometry" />
           </mxCell>
         </object>
-        <object label="Create&lt;br&gt;Response" ubl-kind="task" ubl-bpmn-id="Task_0s1bzy5" id="task-seller-party-create-response">
-          <mxCell parent="pool-seller-party" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=20;fillColor=#ffffff;strokeWidth=2;" vertex="1">
+        <object label="Create&lt;br&gt;Response" ubl-kind="task" ubl-bpmn-type="task" id="Task_0s1bzy5">
+          <mxCell parent="Participant_0aphwi9" style="points=[[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];shape=mxgraph.bpmn.task2;whiteSpace=wrap;rectStyle=rounded;size=10;html=1;container=1;expand=0;collapsible=0;taskMarker=abstract;strokeWidth=2;" vertex="1">
             <mxGeometry height="80" width="100" x="812" y="73" as="geometry" />
           </mxCell>
         </object>
-        <object label="Register Order" ubl-kind="task" ubl-bpmn-id="Task_129th6z" id="task-seller-party-register-order">
-          <mxCell parent="pool-seller-party" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=20;fillColor=#ffffff;strokeWidth=2;" vertex="1">
+        <object label="Register Order" ubl-kind="task" ubl-bpmn-type="task" id="Task_129th6z">
+          <mxCell parent="Participant_0aphwi9" style="points=[[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];shape=mxgraph.bpmn.task2;whiteSpace=wrap;rectStyle=rounded;size=10;html=1;container=1;expand=0;collapsible=0;taskMarker=abstract;strokeWidth=2;" vertex="1">
             <mxGeometry height="80" width="100" x="974" y="185" as="geometry" />
           </mxCell>
         </object>
-        <object label="" ubl-kind="flow" ubl-bpmn-id="SequenceFlow_0mujrxj" ubl-flow="sequence" id="flow-task-seller-party-receive-order-to-gateway-seller-party-1">
-          <mxCell edge="1" parent="pool-seller-party" source="task-seller-party-receive-order" style="html=1;rounded=0;endArrow=block;endFill=1;endSize=8;strokeWidth=2;edgeStyle=orthogonalEdgeStyle;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="gateway-seller-party-1">
+        <object label="" ubl-kind="flow" ubl-bpmn-type="sequenceFlow" id="SequenceFlow_0mujrxj">
+          <mxCell edge="1" parent="Participant_0aphwi9" source="Task_1mebme0" style="edgeStyle=orthogonalEdgeStyle;fontSize=11;html=1;endArrow=blockThin;endFill=1;rounded=0;strokeWidth=2;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="ExclusiveGateway_14vj4fv">
             <mxGeometry relative="1" as="geometry" />
           </mxCell>
         </object>
-        <object label="" ubl-kind="flow" ubl-bpmn-id="SequenceFlow_16jzlyy" ubl-flow="sequence" id="flow-gateway-seller-party-1-to-task-seller-party-reject-order">
-          <mxCell edge="1" parent="pool-seller-party" source="gateway-seller-party-1" style="html=1;rounded=0;endArrow=block;endFill=1;endSize=8;strokeWidth=2;edgeStyle=orthogonalEdgeStyle;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="task-seller-party-reject-order">
+        <object label="" ubl-kind="flow" ubl-bpmn-type="sequenceFlow" id="SequenceFlow_16jzlyy">
+          <mxCell edge="1" parent="Participant_0aphwi9" source="ExclusiveGateway_14vj4fv" style="edgeStyle=orthogonalEdgeStyle;fontSize=11;html=1;endArrow=blockThin;endFill=1;rounded=0;strokeWidth=2;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="Task_0lcoulg">
             <mxGeometry relative="1" as="geometry" />
           </mxCell>
         </object>
-        <object label="" ubl-kind="flow" ubl-bpmn-id="SequenceFlow_0h89nno" ubl-flow="sequence" id="flow-gateway-seller-party-1-to-task-seller-party-add-detail">
-          <mxCell edge="1" parent="pool-seller-party" source="gateway-seller-party-1" style="html=1;rounded=0;endArrow=block;endFill=1;endSize=8;strokeWidth=2;edgeStyle=orthogonalEdgeStyle;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="task-seller-party-add-detail">
+        <object label="" ubl-kind="flow" ubl-bpmn-type="sequenceFlow" id="SequenceFlow_0h89nno">
+          <mxCell edge="1" parent="Participant_0aphwi9" source="ExclusiveGateway_14vj4fv" style="edgeStyle=orthogonalEdgeStyle;fontSize=11;html=1;endArrow=blockThin;endFill=1;rounded=0;strokeWidth=2;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="Task_0bivuiv">
             <mxGeometry relative="1" as="geometry">
               <Array as="points">
                 <mxPoint x="322" y="154" />
@@ -196,8 +196,8 @@
             </mxGeometry>
           </mxCell>
         </object>
-        <object label="" ubl-kind="flow" ubl-bpmn-id="SequenceFlow_0q73g0h" ubl-flow="sequence" id="flow-gateway-seller-party-1-to-task-seller-party-accept-order">
-          <mxCell edge="1" parent="pool-seller-party" source="gateway-seller-party-1" style="html=1;rounded=0;endArrow=block;endFill=1;endSize=8;strokeWidth=2;edgeStyle=orthogonalEdgeStyle;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="task-seller-party-accept-order">
+        <object label="" ubl-kind="flow" ubl-bpmn-type="sequenceFlow" id="SequenceFlow_0q73g0h">
+          <mxCell edge="1" parent="Participant_0aphwi9" source="ExclusiveGateway_14vj4fv" style="edgeStyle=orthogonalEdgeStyle;fontSize=11;html=1;endArrow=blockThin;endFill=1;rounded=0;strokeWidth=2;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="Task_0iugz5l">
             <mxGeometry relative="1" as="geometry">
               <Array as="points">
                 <mxPoint x="322" y="225" />
@@ -205,42 +205,45 @@
             </mxGeometry>
           </mxCell>
         </object>
-        <object label="" ubl-kind="flow" ubl-bpmn-id="SequenceFlow_08mxde1" ubl-flow="sequence" id="flow-task-seller-party-accept-order-to-gateway-seller-party-2">
-          <mxCell edge="1" parent="pool-seller-party" source="task-seller-party-accept-order" style="html=1;rounded=0;endArrow=block;endFill=1;endSize=8;strokeWidth=2;edgeStyle=orthogonalEdgeStyle;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="gateway-seller-party-2">
+        <object label="" ubl-kind="flow" ubl-bpmn-type="sequenceFlow" id="SequenceFlow_08mxde1">
+          <mxCell edge="1" parent="Participant_0aphwi9" source="Task_0iugz5l" style="edgeStyle=orthogonalEdgeStyle;fontSize=11;html=1;endArrow=blockThin;endFill=1;rounded=0;strokeWidth=2;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="ExclusiveGateway_172g7im">
             <mxGeometry relative="1" as="geometry" />
           </mxCell>
         </object>
-        <object label="" ubl-kind="flow" ubl-bpmn-id="SequenceFlow_1az0dxf" ubl-flow="sequence" ubl-name="response not required" id="flow-gateway-seller-party-2-to-task-seller-party-register-order">
-          <mxCell edge="1" parent="pool-seller-party" source="gateway-seller-party-2" style="html=1;rounded=0;endArrow=block;endFill=1;endSize=8;strokeWidth=2;edgeStyle=orthogonalEdgeStyle;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="task-seller-party-register-order">
-            <mxGeometry relative="1" as="geometry" />
-          </mxCell>
-        </object>
-        <object label="" ubl-kind="flow" ubl-bpmn-id="SequenceFlow_1wslf28" ubl-flow="sequence" id="flow-task-seller-party-register-order-to-end-seller-party-3">
-          <mxCell edge="1" parent="pool-seller-party" source="task-seller-party-register-order" style="html=1;rounded=0;endArrow=block;endFill=1;endSize=8;strokeWidth=2;edgeStyle=orthogonalEdgeStyle;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="end-seller-party-3">
-            <mxGeometry relative="1" as="geometry" />
-          </mxCell>
-        </object>
-        <object label="" ubl-kind="flow" ubl-bpmn-id="SequenceFlow_1mcki8f" ubl-flow="sequence" ubl-name="response required" id="flow-gateway-seller-party-2-to-task-seller-party-create-response">
-          <mxCell edge="1" parent="pool-seller-party" source="gateway-seller-party-2" style="html=1;rounded=0;endArrow=block;endFill=1;endSize=8;strokeWidth=2;edgeStyle=orthogonalEdgeStyle;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="task-seller-party-create-response">
+        <object label="response not&lt;br&gt;required" ubl-kind="flow" ubl-bpmn-type="sequenceFlow" id="SequenceFlow_1az0dxf">
+          <mxCell edge="1" parent="Participant_0aphwi9" source="ExclusiveGateway_172g7im" style="edgeStyle=orthogonalEdgeStyle;fontSize=11;html=1;endArrow=blockThin;endFill=1;rounded=0;strokeWidth=2;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="Task_129th6z">
             <mxGeometry relative="1" as="geometry">
+              <mxPoint x="-14" y="-16.5" as="offset" />
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object label="" ubl-kind="flow" ubl-bpmn-type="sequenceFlow" id="SequenceFlow_1wslf28">
+          <mxCell edge="1" parent="Participant_0aphwi9" source="Task_129th6z" style="edgeStyle=orthogonalEdgeStyle;fontSize=11;html=1;endArrow=blockThin;endFill=1;rounded=0;strokeWidth=2;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="EndEvent_0nbyi1l">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="response required" ubl-kind="flow" ubl-bpmn-type="sequenceFlow" id="SequenceFlow_1mcki8f">
+          <mxCell edge="1" parent="Participant_0aphwi9" source="ExclusiveGateway_172g7im" style="edgeStyle=orthogonalEdgeStyle;fontSize=11;html=1;endArrow=blockThin;endFill=1;rounded=0;strokeWidth=2;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="Task_0s1bzy5">
+            <mxGeometry relative="1" as="geometry">
+              <mxPoint x="15.5" y="34.5" as="offset" />
               <Array as="points">
                 <mxPoint x="752" y="113" />
               </Array>
             </mxGeometry>
           </mxCell>
         </object>
-        <object label="" ubl-kind="flow" ubl-bpmn-id="SequenceFlow_0ydac8w" ubl-flow="sequence" id="flow-task-seller-party-cancel-order-to-end-seller-party-2">
-          <mxCell edge="1" parent="pool-seller-party" source="task-seller-party-cancel-order" style="html=1;rounded=0;endArrow=block;endFill=1;endSize=8;strokeWidth=2;edgeStyle=orthogonalEdgeStyle;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="end-seller-party-2">
+        <object label="" ubl-kind="flow" ubl-bpmn-type="sequenceFlow" id="SequenceFlow_0ydac8w">
+          <mxCell edge="1" parent="Participant_0aphwi9" source="Task_1spnpcs" style="edgeStyle=orthogonalEdgeStyle;fontSize=11;html=1;endArrow=blockThin;endFill=1;rounded=0;strokeWidth=2;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="EndEvent_16wa8qg">
             <mxGeometry relative="1" as="geometry" />
           </mxCell>
         </object>
-        <object label="" ubl-kind="flow" ubl-bpmn-id="SequenceFlow_0px9rlv" ubl-flow="sequence" id="flow-task-seller-party-reject-order-to-end-seller-party-1">
-          <mxCell edge="1" parent="pool-seller-party" source="task-seller-party-reject-order" style="html=1;rounded=0;endArrow=block;endFill=1;endSize=8;strokeWidth=2;edgeStyle=orthogonalEdgeStyle;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="end-seller-party-1">
+        <object label="" ubl-kind="flow" ubl-bpmn-type="sequenceFlow" id="SequenceFlow_0px9rlv">
+          <mxCell edge="1" parent="Participant_0aphwi9" source="Task_0lcoulg" style="edgeStyle=orthogonalEdgeStyle;fontSize=11;html=1;endArrow=blockThin;endFill=1;rounded=0;strokeWidth=2;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="EndEvent_1z0vw81">
             <mxGeometry relative="1" as="geometry" />
           </mxCell>
         </object>
-        <object label="" ubl-kind="flow" ubl-bpmn-id="SequenceFlow_1278fsl" ubl-flow="sequence" id="flow-task-seller-party-create-response-to-task-seller-party-register-order">
-          <mxCell edge="1" parent="pool-seller-party" source="task-seller-party-create-response" style="html=1;rounded=0;endArrow=block;endFill=1;endSize=8;strokeWidth=2;edgeStyle=orthogonalEdgeStyle;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="task-seller-party-register-order">
+        <object label="" ubl-kind="flow" ubl-bpmn-type="sequenceFlow" id="SequenceFlow_1278fsl">
+          <mxCell edge="1" parent="Participant_0aphwi9" source="Task_0s1bzy5" style="edgeStyle=orthogonalEdgeStyle;fontSize=11;html=1;endArrow=blockThin;endFill=1;rounded=0;strokeWidth=2;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="Task_129th6z">
             <mxGeometry relative="1" as="geometry">
               <Array as="points">
                 <mxPoint x="943" y="113" />
@@ -249,14 +252,17 @@
             </mxGeometry>
           </mxCell>
         </object>
-        <object label="" ubl-kind="message-flow" ubl-bpmn-id="MessageFlow_0s1b7kf" ubl-flow="message" ubl-name="OrderResponse Simple" id="message-flow-task-seller-party-reject-order-to-task-buyer-party-receive-response-1">
-          <mxCell edge="1" parent="1" source="task-seller-party-reject-order" style="html=1;rounded=0;dashed=1;dashPattern=8 8;startArrow=oval;startFill=0;startSize=8;endArrow=block;endFill=0;endSize=8;strokeWidth=2;edgeStyle=orthogonalEdgeStyle;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="task-buyer-party-receive-response-1">
-            <mxGeometry relative="1" as="geometry" />
+        <object label="OrderResponse&lt;br&gt;Simple" ubl-kind="message-flow" ubl-bpmn-type="messageFlow" id="MessageFlow_0s1b7kf">
+          <mxCell edge="1" parent="1" source="Task_0lcoulg" style="edgeStyle=orthogonalEdgeStyle;fontSize=11;html=1;dashed=1;dashPattern=10 12;fixDash=1;endArrow=blockThin;endFill=0;startArrow=oval;startFill=0;endSize=6;startSize=4;rounded=0;strokeWidth=1.5;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="Task_12bpmk2">
+            <mxGeometry relative="1" as="geometry">
+              <mxPoint x="14" y="64" as="offset" />
+            </mxGeometry>
           </mxCell>
         </object>
-        <object label="" ubl-kind="message-flow" ubl-bpmn-id="MessageFlow_1tw9ssh" ubl-flow="message" ubl-name="OrderResponse" id="message-flow-task-seller-party-add-detail-to-task-buyer-party-receive-response-2">
-          <mxCell edge="1" parent="1" source="task-seller-party-add-detail" style="html=1;rounded=0;dashed=1;dashPattern=8 8;startArrow=oval;startFill=0;startSize=8;endArrow=block;endFill=0;endSize=8;strokeWidth=2;edgeStyle=orthogonalEdgeStyle;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.38;entryY=1;entryDx=0;entryDy=0;" target="task-buyer-party-receive-response-2">
+        <object label="OrderResponse" ubl-kind="message-flow" ubl-bpmn-type="messageFlow" id="MessageFlow_1tw9ssh">
+          <mxCell edge="1" parent="1" source="Task_0bivuiv" style="edgeStyle=orthogonalEdgeStyle;fontSize=11;html=1;dashed=1;dashPattern=10 12;fixDash=1;endArrow=blockThin;endFill=0;startArrow=oval;startFill=0;endSize=6;startSize=4;rounded=0;strokeWidth=1.5;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.38;entryY=1;entryDx=0;entryDy=0;" target="Task_038qlrr">
             <mxGeometry relative="1" as="geometry">
+              <mxPoint x="-24.5" y="-15" as="offset" />
               <Array as="points">
                 <mxPoint x="644" y="479" />
                 <mxPoint x="779" y="479" />
@@ -264,9 +270,10 @@
             </mxGeometry>
           </mxCell>
         </object>
-        <object label="" ubl-kind="message-flow" ubl-bpmn-id="MessageFlow_02j4qq6" ubl-flow="message" ubl-name="OrderResponse Simple" id="message-flow-task-seller-party-create-response-to-task-buyer-party-receive-response-2">
-          <mxCell edge="1" parent="1" source="task-seller-party-create-response" style="html=1;rounded=0;dashed=1;dashPattern=8 8;startArrow=oval;startFill=0;startSize=8;endArrow=block;endFill=0;endSize=8;strokeWidth=2;edgeStyle=orthogonalEdgeStyle;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.75;entryY=1;entryDx=0;entryDy=0;" target="task-buyer-party-receive-response-2">
+        <object label="OrderResponse&lt;br&gt;Simple" ubl-kind="message-flow" ubl-bpmn-type="messageFlow" id="MessageFlow_02j4qq6">
+          <mxCell edge="1" parent="1" source="Task_0s1bzy5" style="edgeStyle=orthogonalEdgeStyle;fontSize=11;html=1;dashed=1;dashPattern=10 12;fixDash=1;endArrow=blockThin;endFill=0;startArrow=oval;startFill=0;endSize=6;startSize=4;rounded=0;strokeWidth=1.5;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.75;entryY=1;entryDx=0;entryDy=0;" target="Task_038qlrr">
             <mxGeometry relative="1" as="geometry">
+              <mxPoint x="27" y="14" as="offset" />
               <Array as="points">
                 <mxPoint x="868" y="480" />
                 <mxPoint x="816" y="480" />
@@ -274,64 +281,29 @@
             </mxGeometry>
           </mxCell>
         </object>
-        <object label="" ubl-kind="message-flow" ubl-bpmn-id="MessageFlow_0w3w0y5" ubl-flow="message" ubl-name="Order" id="message-flow-task-buyer-party-place-order-to-task-seller-party-receive-order">
-          <mxCell edge="1" parent="1" source="task-buyer-party-place-order" style="html=1;rounded=0;dashed=1;dashPattern=8 8;startArrow=oval;startFill=0;startSize=8;endArrow=block;endFill=0;endSize=8;strokeWidth=2;edgeStyle=orthogonalEdgeStyle;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.19;entryY=0;entryDx=0;entryDy=0;" target="task-seller-party-receive-order">
-            <mxGeometry relative="1" as="geometry" />
-          </mxCell>
-        </object>
-        <object label="" ubl-kind="message-flow" ubl-bpmn-id="MessageFlow_1yhvtn4" ubl-flow="message" ubl-name="Order Cancellation" id="message-flow-task-buyer-party-cancel-order-to-task-seller-party-cancel-order">
-          <mxCell edge="1" parent="1" source="task-buyer-party-cancel-order" style="html=1;rounded=0;dashed=1;dashPattern=8 8;startArrow=oval;startFill=0;startSize=8;endArrow=block;endFill=0;endSize=8;strokeWidth=2;edgeStyle=orthogonalEdgeStyle;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="task-seller-party-cancel-order">
-            <mxGeometry relative="1" as="geometry" />
-          </mxCell>
-        </object>
-        <object label="" ubl-kind="message-flow" ubl-bpmn-id="MessageFlow_1rjk340" ubl-flow="message" ubl-name="OrderChange" id="message-flow-task-buyer-party-change-order-to-task-seller-party-receive-order">
-          <mxCell edge="1" parent="1" source="task-buyer-party-change-order" style="html=1;rounded=0;dashed=1;dashPattern=8 8;startArrow=oval;startFill=0;startSize=8;endArrow=block;endFill=0;endSize=8;strokeWidth=2;edgeStyle=orthogonalEdgeStyle;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.86;entryY=0;entryDx=0;entryDy=0;" target="task-seller-party-receive-order">
+        <object label="Order" ubl-kind="message-flow" ubl-bpmn-type="messageFlow" id="MessageFlow_0w3w0y5">
+          <mxCell edge="1" parent="1" source="Task_1bnlp2b" style="edgeStyle=orthogonalEdgeStyle;fontSize=11;html=1;dashed=1;dashPattern=10 12;fixDash=1;endArrow=blockThin;endFill=0;startArrow=oval;startFill=0;endSize=6;startSize=4;rounded=0;strokeWidth=1.5;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.19;entryY=0;entryDx=0;entryDy=0;" target="Task_1mebme0">
             <mxGeometry relative="1" as="geometry">
+              <mxPoint x="17" y="52.5" as="offset" />
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object label="Order&lt;br&gt;Cancellation" ubl-kind="message-flow" ubl-bpmn-type="messageFlow" id="MessageFlow_1yhvtn4">
+          <mxCell edge="1" parent="1" source="Task_1me0nw2" style="edgeStyle=orthogonalEdgeStyle;fontSize=11;html=1;dashed=1;dashPattern=10 12;fixDash=1;endArrow=blockThin;endFill=0;startArrow=oval;startFill=0;endSize=6;startSize=4;rounded=0;strokeWidth=1.5;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="Task_1spnpcs">
+            <mxGeometry relative="1" as="geometry">
+              <mxPoint x="15.5" y="-3" as="offset" />
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object label="OrderChange" ubl-kind="message-flow" ubl-bpmn-type="messageFlow" id="MessageFlow_1rjk340">
+          <mxCell edge="1" parent="1" source="Task_0c5jg3a" style="edgeStyle=orthogonalEdgeStyle;fontSize=11;html=1;dashed=1;dashPattern=10 12;fixDash=1;endArrow=blockThin;endFill=0;startArrow=oval;startFill=0;endSize=6;startSize=4;rounded=0;strokeWidth=1.5;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.86;entryY=0;entryDx=0;entryDy=0;" target="Task_1mebme0">
+            <mxGeometry relative="1" as="geometry">
+              <mxPoint x="-155" y="416" as="offset" />
               <Array as="points">
                 <mxPoint x="1030" y="40" />
                 <mxPoint x="239" y="40" />
               </Array>
             </mxGeometry>
-          </mxCell>
-        </object>
-        <object label="response not&lt;br&gt;required" ubl-kind="text" ubl-for="flow-gateway-seller-party-2-to-task-seller-party-register-order" id="text-flow-gateway-seller-party-2-to-task-seller-party-register-order">
-          <mxCell parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;" vertex="1">
-            <mxGeometry height="27" width="85" x="825" y="708" as="geometry" />
-          </mxCell>
-        </object>
-        <object label="response required" ubl-kind="text" ubl-for="flow-gateway-seller-party-2-to-task-seller-party-create-response" id="text-flow-gateway-seller-party-2-to-task-seller-party-create-response">
-          <mxCell parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;" vertex="1">
-            <mxGeometry height="14" width="109" x="719" y="667" as="geometry" />
-          </mxCell>
-        </object>
-        <object label="Order" ubl-kind="text" ubl-for="message-flow-task-buyer-party-place-order-to-task-seller-party-receive-order" id="text-message-flow-task-buyer-party-place-order-to-task-seller-party-receive-order">
-          <mxCell parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;" vertex="1">
-            <mxGeometry height="14" width="50" x="164" y="451" as="geometry" />
-          </mxCell>
-        </object>
-        <object label="OrderResponse&lt;br&gt;Simple" ubl-kind="text" ubl-for="message-flow-task-seller-party-reject-order-to-task-buyer-party-receive-response-1" id="text-message-flow-task-seller-party-reject-order-to-task-buyer-party-receive-response-1">
-          <mxCell parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;" vertex="1">
-            <mxGeometry height="27" width="98" x="418" y="456" as="geometry" />
-          </mxCell>
-        </object>
-        <object label="Order&lt;br&gt;Cancellation" ubl-kind="text" ubl-for="message-flow-task-buyer-party-cancel-order-to-task-seller-party-cancel-order" id="text-message-flow-task-buyer-party-cancel-order-to-task-seller-party-cancel-order">
-          <mxCell parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;" vertex="1">
-            <mxGeometry height="27" width="81" x="1005" y="440" as="geometry" />
-          </mxCell>
-        </object>
-        <object label="OrderChange" ubl-kind="text" ubl-for="message-flow-task-buyer-party-change-order-to-task-seller-party-receive-order" id="text-message-flow-task-buyer-party-change-order-to-task-seller-party-receive-order">
-          <mxCell parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;" vertex="1">
-            <mxGeometry height="14" width="87" x="207" y="449" as="geometry" />
-          </mxCell>
-        </object>
-        <object label="OrderResponse" ubl-kind="text" ubl-for="message-flow-task-seller-party-add-detail-to-task-buyer-party-receive-response-2" id="text-message-flow-task-seller-party-add-detail-to-task-buyer-party-receive-response-2">
-          <mxCell parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;" vertex="1">
-            <mxGeometry height="14" width="98" x="668" y="457" as="geometry" />
-          </mxCell>
-        </object>
-        <object label="OrderResponse&lt;br&gt;Simple" ubl-kind="text" ubl-for="message-flow-task-seller-party-create-response-to-task-buyer-party-receive-response-2" id="text-message-flow-task-seller-party-create-response-to-task-buyer-party-receive-response-2">
-          <mxCell parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;" vertex="1">
-            <mxGeometry height="27" width="98" x="794" y="455" as="geometry" />
           </mxCell>
         </object>
       </root>

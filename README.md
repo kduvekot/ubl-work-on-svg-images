@@ -50,7 +50,8 @@ The rest of this section is about the 78 diagrams; the 7 illustrations are
 pictures, not diagrams, and have sections of their own (below), and so have the
 4 figures of other notations (BPMN: Ordering, Business Information; phase maps:
 Pre-award, Procurement), which have no pool of lanes, are **the TC's own files, adopted
-as they are** (Ordering is the bpmn-js SVG, kept as it is: it has no drawing);
+as they are** (Ordering is the bpmn-js SVG, kept as it is: its source is no drawing; a
+draw.io BPMN diagram of it is kept as a backup, `history/group-a/redrawn/`);
 `history/group-a/README.md` says how and what was decided, and that real BPMN 2.0 files
 for the BPMN figures are a future session. `tools/check_drawio.py` checks them for
 the form and what it can without kinds (they carry `ubl-notation`).
@@ -626,9 +627,12 @@ a message end event) need the same decision.
 
 **C3. If Ordering's `.bpmn` stays lost, is a reconstruction acceptable?** The original,
 `UBL-2.3-OrderingProcess.bpmn`, is attached to the `ubl` list's mail of 2019-05-07
-("UBL-171 - BPMN diagram + SVG") and is not found yet (`history/group-a/README.md`). Written
-from the bpmn-js SVG, which came from the model, little would be lost, and the file would
-say it is a reconstruction.
+("UBL-171 - BPMN diagram + SVG") and is not found yet (`history/group-a/README.md`). The
+reconstruction would be written from the draw.io BPMN backup of the figure
+(`history/group-a/redrawn/UBL-2.3-OrderingProcess.drawio`, made 2026-10-06 from the bpmn-js
+SVG, which came from the model): the original's BPMN ids, places and bends, with every
+flow's `sourceRef` and `targetRef` and every element's participant made explicit. Little
+would be lost, and the file would say it is a reconstruction.
 
 **C4. Can someone with a browser search the `ubl` list's archive?** The archives
 (`lists.oasis-open.org`, `lists-archive.oasis-open.org`) refuse a script. Wanted: the
@@ -757,9 +761,11 @@ themselves are next revised. Figure numbers are as in that review.
 - **The BPMN 2.0 XML of the Ordering Process** (`UBL-2.3-OrderingProcess.bpmn`, attached to
   the `ubl` list's mail of 2019-05-07, UBL-171): not found yet (not by the editor either,
   2026-10-05; the list archives are not reachable from a script: C4). Ordering's source here is the
-  bpmn-js SVG, a picture without the BPMN model: **do not hand-edit it**; there is no draw.io
-  version, on purpose. If the `.bpmn` stays lost, the BPMN session writes it from the SVG as a
-  reconstruction, if the TC agrees (C3; `history/group-a/README.md`, "Ordering: the SVG is all there is").
+  bpmn-js SVG, a picture without the BPMN model: **do not hand-edit it**. Its model is kept a
+  second time, as the backup: the same figure as a draw.io BPMN diagram, every element linked as
+  in a BPMN model (`history/group-a/redrawn/UBL-2.3-OrderingProcess.drawio`, 2026-10-06; not the
+  source, not exported). If the `.bpmn` stays lost, the BPMN session writes it from that backup
+  as a reconstruction, if the TC agrees (C3; `history/group-a/README.md`, "The BPMN backup of Ordering").
 - **The CPFR step figures:** what is still open on them is in
   `history/illustrations/cpfr/README.md` ("Open work").
 

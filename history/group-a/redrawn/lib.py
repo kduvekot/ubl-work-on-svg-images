@@ -33,9 +33,10 @@ class Fig:
                   '<mxCell parent="%s" style="%s" vertex="1"><mxGeometry x="%s" y="%s" width="%s" height="%s" as="geometry"/></mxCell>'
                   % (q(parent), q(style), n(x), n(y), n(w), n(h)))
 
-    def edge(self, ident, kind, label, style, points, parent='1', source=None, target=None, via=(), **extra):
+    def edge(self, ident, kind, label, style, points, parent='1', source=None, target=None, via=(), offset=None, **extra):
         """points: [(x, y), ...] first = sourcePoint, last = targetPoint, the others the waypoints
-        (ignored where an end is attached: then `via` are the waypoints)"""
+        (ignored where an end is attached: then `via` are the waypoints); offset: where the label
+        stands, from the middle of the line"""
         ends = ''
         if source or target:
             pts = ''.join('<mxPoint x="%s" y="%s"/>' % (n(x), n(y)) for x, y in via)
@@ -51,6 +52,8 @@ class Fig:
             mid = points[1:-1]
             if mid:
                 geo += '<Array as="points">%s</Array>' % ''.join('<mxPoint x="%s" y="%s"/>' % (n(x), n(y)) for x, y in mid)
+        if offset:
+            geo += '<mxPoint x="%s" y="%s" as="offset"/>' % (n(offset[0]), n(offset[1]))
         self._obj(ident, kind, label, extra,
                   '<mxCell parent="%s" style="%s" edge="1"%s><mxGeometry relative="1" as="geometry">%s</mxGeometry></mxCell>'
                   % (q(parent), q(style), ends, geo))

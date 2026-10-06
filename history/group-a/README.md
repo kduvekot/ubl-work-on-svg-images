@@ -52,10 +52,12 @@ commits of 2023-02-06 for Business Information).
 
 ## Ordering: the SVG is all there is
 
-- **No draw.io version exists, and none is made:** the figure was drawn in bpmn.io, not draw.io. The
-  SVG in `diagrams/UBL-2.3-OrderingProcess/` is its source here, because it is what the UBL repository
-  has and what the PNG was rendered from (0.00 % difference). The earlier redraw as draw.io shapes
-  (`redrawn/UBL-2.3-OrderingProcess.drawio`) is an experiment, not a source.
+- **The SVG is the source; a draw.io BPMN diagram is its backup.** The figure was drawn in bpmn.io,
+  not draw.io. The SVG in `diagrams/UBL-2.3-OrderingProcess/` is its source here, because it is what
+  the UBL repository has and what the PNG was rendered from (0.00 % difference). The same figure as a
+  draw.io BPMN diagram, linked as a BPMN model is, is kept as the backup of the model while the `.bpmn`
+  is lost (`redrawn/UBL-2.3-OrderingProcess.drawio`: "The BPMN backup of Ordering", below). It is not
+  the source and is not exported.
 - **The SVG is a picture, not the BPMN model.** It holds the BPMN ids (`Task_1bnlp2b`,
   `MessageFlow_0w3w0y5`, ...) and the places, bends and styles of every element, but no `collaboration`,
   `process`, `sourceRef` or `targetRef`: which task a flow joins, and what kind of flow it is, are not
@@ -123,9 +125,10 @@ style. That is a different requirement and its own session, not done here.
 - **Ordering:** the real source is `UBL-2.3-OrderingProcess.bpmn`, attached to the `ubl` list's mail of
   2019-05-07 ("UBL-171 - BPMN diagram + SVG", see below). If it is found: validate it, render
   the SVG and PNGs from it with bpmn-js (the tool that made the original), and check them against the
-  PNG as `compare_png.py` does. If not: write it from the SVG, which carries the BPMN ids
-  (`Task_1bnlp2b`, `MessageFlow_0w3w0y5`, ...), the places and the bends of every element, as
-  `redrawn/build_ordering.py` already reads them.
+  PNG as `compare_png.py` does. If not: write it from the backup (`redrawn/UBL-2.3-OrderingProcess.drawio`,
+  below), which has the SVG's BPMN ids (`Task_1bnlp2b`, `MessageFlow_0w3w0y5`, ...), places and bends,
+  and what the SVG lacks, made explicit and checked: each flow's `sourceRef` and `targetRef`, each
+  element's participant and type.
 - **Business Information:** a draw.io drawing in BPMN style, made in draw.io 20.8.4, so no BPMN
   XML exists; write it from the drawing. Its **envelopes**, and its message flows that end at an end
   event, need a decision of the TC first: README, "Questions for the TC", C2.
@@ -152,11 +155,45 @@ style. That is a different requirement and its own session, not done here.
   README, "Questions for the TC", C4. **If the `.bpmn` is found (its author has it, or a TC member's
   mail), put it in `sources/`.**
 
-## `redrawn/`: an experiment, not the sources
+## The BPMN backup of Ordering (2026-10-06)
+
+Ordering's `.bpmn` is lost (above), and its SVG is a picture: which element a flow joins is said only
+by where its line ends. So the model is kept a second time, in a form draw.io edits:
+`redrawn/UBL-2.3-OrderingProcess.drawio`, made from `sources/UBL-2.3-OrderingProcess.svg` by
+`redrawn/build_ordering.py`.
+
+- **draw.io's own BPMN shapes,** styled as its BPMN palette makes them (`Sidebar-BPMN.js`, 32.0.2):
+  Generic Task (`mxgraph.bpmn.task2`), the Exclusive gateway (`mxgraph.bpmn.gateway2`,
+  `gwType=exclusive`), the None Start and the Terminate end event (`mxgraph.bpmn.event`), Sequence Flow
+  and Message Flow. A pool is the palette's plain swimlane (its pools are made for lanes, and this figure
+  has none). Not as the palette has it, to look as the figure: the line weights (2 px; a message flow
+  1.5 px, dashed 10 12) and text sizes (12 px; a flow's name 11 px), pool names not bold, flows
+  orthogonal (the palette's elbow keeps one bend, these have up to four), a message flow's head open
+  (as BPMN has it; the palette fills it).
+- **Linked as a BPMN model is:** every element's id is its BPMN id and `ubl-bpmn-type` its BPMN type
+  (all 50: 2 participants, 13 tasks, 3 exclusive gateways, a start event, 6 terminate end events, 19
+  sequence flows, 6 message flows); every task, gateway and event is in its pool; every flow is
+  attached at both ends (BPMN's `sourceRef` and `targetRef`); the 8 named flows carry their names as
+  their own labels. What the SVG does not say the script infers, and stops where it cannot be sure:
+  a flow's end is the one element its line ends on, an element's pool the one pool it lies in (which
+  agrees with the SVG's order), and BPMN's rules hold (a sequence flow in one pool, a message flow
+  between two). It prints the 25 links.
+- **Checked:** `tools/check_drawio.py` ok (bpmn). Opened and saved in the live editor (32.2.0,
+  `tools/drawio_editor_roundtrip.js`): the same file back (but the host and the window size, which the
+  editor decides), every cell, link and label. Exported
+  (`tools/export_drawio.js`, to a scratch folder) and compared with the SVG's export (`compare_png.py`,
+  within 4 px on the print PNG): 1.02 % of the ink only in the SVG's, 0.86 % only in the backup's.
+  Places and bends are the SVG's, the labels within 2 px; what differs is how draw.io draws the
+  symbols (the terminate disc, the gateway's cross, the message flow's circle) and the dashes.
+- **Not in `diagrams/`:** a second drawing there would be taken for the figure's source and exported.
+  Until the TC decides (README, "Questions for the TC", C3), the SVG stays the source and is not
+  edited by hand. Made again with `python3 history/group-a/redrawn/build_ordering.py`.
+
+## `redrawn/`: experiments, not the sources (but Ordering's backup)
 
 Before the originals were chosen, all four were drawn again as draw.io drawings made for this
 repository: the BPMN pair as draw.io's BPMN shapes with the model's ids and kinds (Ordering from the
-bpmn-js SVG, Business Information with white bars), Pre-award and Procurement rebuilt with draw.io's
+bpmn-js SVG, since made the backup above; Business Information with white bars), Pre-award and Procurement rebuilt with draw.io's
 own shapes at 0.3 of the TC's scale (text 12, 18, 21 px, lines 2 px; one dashed corner line per list of
 documents). They matched the PNGs to 1-8 %, the originals to 0-0.07 %. Kept as a record of what a
 cleaner, rescaled version looks like (`redrawn/*.drawio`, built by `redrawn/build_*.py`), in case the TC
