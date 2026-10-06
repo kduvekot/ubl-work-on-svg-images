@@ -55,9 +55,12 @@ scipy and pillow, Node with playwright, and `pdfunite`.
   `history/drawio-writer/run.sh` builds it; an illustration's: its PNG's width
   at its `ubl-png-scale`), and the figures in the specification's order.
 - `one.py`: compares one figure. It uses the PNG at its own pixel size, and
-  renders the drawing onto exactly that canvas with draw.io's own code. The
+  renders the drawing onto exactly that canvas with draw.io's own code, in the
+  PNG's coordinates (`render-drawio.js`, origin `png`). The
   tolerance is 2 px per 1480 px of width. Where the drawing grew, the PNG gets
-  white at its right and bottom.
+  white at its right and bottom. It also holds the published PNG
+  (`to-ubl-repo/art`) against the drawing's picture rendered at its size (the
+  deck's last column: they are one picture, `tools/drawio_picture.js`).
 - `insertions.py`: records where `insert_space.py` inserted space, by
   replaying it on the drawings as they were before (`f438cc7`).
 - `cutpng.py`: for a figure that grew, inserts the same space in the PNG, so

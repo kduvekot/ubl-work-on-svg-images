@@ -1,0 +1,70 @@
+<mxfile host="UBL-TC" agent="UBL artwork pipeline, JSON to draw.io">
+  <diagram id="UBL-2.3-ManifestProcess" name="UBL-2.3-ManifestProcess">
+    <mxGraphModel dx="719" dy="271" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="744" pageHeight="296" math="0" shadow="0">
+      <root>
+        <mxCell id="0" style="" />
+        <mxCell id="1" parent="0" style="" />
+        <object label="" ubl-kind="frame" ubl-offset="12" id="frame">
+          <mxCell parent="1" style="swimlane;html=1;childLayout=stackLayout;resizeParent=1;resizeParentMax=0;startSize=0;whiteSpace=wrap;collapsible=0;fillColor=none;strokeWidth=2;" vertex="1">
+            <mxGeometry height="269" width="716" x="14" y="14" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="Sending Logistics&lt;br&gt;Operator Party" ubl-kind="lane" ubl-label="Sending Logistics Operator Party" id="lane-sending-logistics-operator-party">
+          <mxCell parent="frame" style="swimlane;expand=0;horizontal=1;startSize=42;swimlaneLine=0;collapsible=0;html=1;fillColor=none;fontStyle=0;spacing=0;spacingLeft=69;" vertex="1">
+            <mxGeometry height="269" width="358" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="" ubl-kind="initial" id="initial-sending-logistics-operator-party">
+          <mxCell parent="lane-sending-logistics-operator-party" style="ellipse;shape=startState;fillColor=#000000;strokeColor=none;html=1;" vertex="1">
+            <mxGeometry height="29" width="28" x="160" y="45" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="Send report" ubl-kind="action" id="action-send-report">
+          <mxCell parent="lane-sending-logistics-operator-party" style="rounded=1;absoluteArcSize=1;arcSize=11;html=1;whiteSpace=nowrap;fontStyle=0;align=center;verticalAlign=middle;spacing=0;spacingRight=1;" vertex="1">
+            <mxGeometry height="40" width="110" x="119" y="100" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="" ubl-kind="flow" ubl-flow="control" id="flow-initial-sending-logistics-operator-party-to-send-report">
+          <mxCell edge="1" parent="lane-sending-logistics-operator-party" source="initial-sending-logistics-operator-party" style="edgeStyle=none;rounded=0;html=1;endArrow=open;endFill=0;endSize=10;exitPerimeter=0;entryX=0.5;entryY=0;entryPerimeter=0;exitX=0.5;exitY=0.8611;" target="action-send-report">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="Authority Party" ubl-kind="lane" id="lane-authority-party">
+          <mxCell parent="frame" style="swimlane;expand=0;horizontal=1;startSize=40;swimlaneLine=0;collapsible=0;html=1;fillColor=none;fontStyle=0;spacing=0;spacingLeft=49;" vertex="1">
+            <mxGeometry height="269" width="358" x="358" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="Manifest" ubl-kind="object" ubl-between="[&quot;lane-sending-logistics-operator-party&quot;, &quot;lane-authority-party&quot;]" ubl-lane="null" id="object-manifest">
+          <mxCell parent="lane-authority-party" style="rounded=0;html=1;whiteSpace=nowrap;fontStyle=0;align=center;verticalAlign=middle;spacing=0;spacingTop=1;strokeWidth=2;" vertex="1">
+            <mxGeometry height="60" width="130" x="-60" y="90" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="Receive Manifest" ubl-kind="action" id="action-receive-manifest">
+          <mxCell parent="lane-authority-party" style="rounded=1;absoluteArcSize=1;arcSize=11;html=1;whiteSpace=nowrap;fontStyle=0;align=center;verticalAlign=middle;spacing=0;" vertex="1">
+            <mxGeometry height="40" width="110" x="149" y="100" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="" ubl-kind="final" id="final-authority-party">
+          <mxCell parent="lane-authority-party" style="ellipse;shape=endState;fillColor=#000000;html=1;" vertex="1">
+            <mxGeometry height="30" width="30" x="189" y="207" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="" ubl-kind="flow" ubl-flow="object" id="flow-manifest-to-receive-manifest">
+          <mxCell edge="1" parent="lane-authority-party" source="object-manifest" style="edgeStyle=none;rounded=0;html=1;endArrow=open;endFill=0;endSize=10;exitX=1;exitY=0.5;exitPerimeter=0;entryX=0;entryY=0.5;entryPerimeter=0;" target="action-receive-manifest">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="" ubl-kind="flow" ubl-flow="control" id="flow-receive-manifest-to-final-authority-party">
+          <mxCell edge="1" parent="lane-authority-party" source="action-receive-manifest" style="edgeStyle=none;rounded=0;html=1;endArrow=open;endFill=0;endSize=10;exitX=0.5;exitY=1;exitPerimeter=0;entryPerimeter=0;entryX=0.5;entryY=0;" target="final-authority-party">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="" ubl-kind="flow" ubl-flow="object" id="flow-send-report-to-manifest">
+          <mxCell edge="1" parent="frame" source="action-send-report" style="edgeStyle=none;rounded=0;html=1;endArrow=open;endFill=0;endSize=10;exitX=1;exitY=0.5;exitPerimeter=0;entryX=0;entryY=0.5;entryPerimeter=0;" target="object-manifest">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

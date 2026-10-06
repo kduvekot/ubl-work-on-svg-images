@@ -1,8 +1,9 @@
 """Group A: the TC's own sources, adopted as they are (README: history/group-a/README.md).
 
 The UBL repository has, for four of its figures, the source of the PNG it publishes (checked
-2026-10-05: a render of each matches its PNG to 0.07 % of the ink or better). They are the figures'
-sources here too, at the place and under the name of the others: diagrams/<figure>/<figure>.<ext>.
+2026-10-05: a render of each matches its PNG to 0.07 % of the ink or better). Three of them, its
+draw.io files, are the figures' sources here too, at the place and under the name of the others:
+diagrams/<figure>/<figure>.drawio. The fourth, Ordering's SVG, is not adopted any more (below).
 
   UBL-2.3-Pre-awardProcess, UBL-2.3-ProcurementProcess, UBL-2.4-BusinessInformation (.drawio)
       the file as the TC made it (sources/, byte for byte as the UBL repository has it), with
@@ -16,11 +17,11 @@ sources here too, at the place and under the name of the others: diagrams/<figur
         - Procurement only: a stray dashed line, 4000 px right of the figure and not in its PNG,
           is taken out: it made the export's page three times too wide.
   UBL-2.3-OrderingProcess (.svg)
-      the bpmn-js SVG (bpmn.io, 2019), byte for byte. It has no draw.io drawing; its source is the
-      BPMN 2.0 XML of the UBL-171 mail, which is not available (README), and a future session
-      makes the .bpmn from it. The export renders the PNGs from this SVG and publishes it as it is.
+      the bpmn-js SVG (bpmn.io, 2019) was adopted so too, byte for byte, until 2026-10-06; since then
+      the figure's source is a draw.io BPMN diagram made from that SVG (history/group-a/build_ordering.py),
+      and this script leaves it alone. The SVG stays in sources/.
 """
-import base64, os, re, shutil, sys, urllib.parse, zlib
+import base64, os, re, sys, urllib.parse, zlib
 import xml.etree.ElementTree as ET
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -68,8 +69,3 @@ def adopt(name, notation, drop, more):
 
 for name, (notation, drop, more) in FIGURES.items():
     print(adopt(name, notation, drop, more))
-name = 'UBL-2.3-OrderingProcess'
-d = os.path.join(ROOT, 'diagrams', name)
-os.makedirs(d, exist_ok=True)
-shutil.copyfile(os.path.join(HERE, 'sources', name + '.svg'), os.path.join(d, name + '.svg'))
-print(os.path.join(d, name + '.svg'))

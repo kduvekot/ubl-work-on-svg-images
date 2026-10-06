@@ -178,24 +178,26 @@ completed by his symmetry, and only then the areas filled.
   the PNG;
 - the drawings edit as draw.io diagrams (panels as containers, flows attached),
   not as loose shapes;
-- the shading of the handshake people and one grey balance left for later
-  (below).
+- the shading of the handshake people left for later (below); the greys of
+  the five parts accepted as they are (2026-10-06): at their real size in the
+  figures they are a little paler than the UBL PNGs' pictures, which is good
+  enough.
 
 **Tools changed for these figures** (they hold for all figures):
 `tools/check_svg.py` judges "on white" by the page round the drawing, not the
 commonest grey; `tools/export_drawio.js` makes a part's own `<use>` a copy, and
 draws each figure on a clean page (an export is the same alone or in a batch);
 `history/drawio-writer/render-drawio.js` follows the same pin as the export
-(`tools/drawio-version.json`: 31.5.3 then, 32.0.2 since 2026-10-05).
+(`tools/drawio-version.json`: 31.5.3 then, 32.0.2 since 2026-10-05, 32.2.0 since 2026-10-06).
 
 **How the editor was tried.** draw.io's editor (embed.diagrams.net) in
 Chromium (playwright), the drawing sent to it with draw.io's embed protocol
 from a page that frames it (opened directly with `setFileData` its labels
 stayed hidden), edited with the mouse and keys as a person would, and saved
 with its own Save; the saved file compared cell by cell with the one written.
-In this environment the browser reaches the web only through node
-(`context.route` with `route.fetch()`), as the proxy's certificate is not in
-the browser.
+In that environment the browser reached the web only through node
+(`context.route` with `route.fetch()`), as the proxy's certificate was not in
+the browser (how to put it there: README, "Upgrading draw.io").
 
 ## Open work
 
@@ -206,20 +208,14 @@ the browser.
   table (`made/lines/`): their lines traced one by one, so that they split the
   bodies into the areas the render shades. A future improvement; the figures
   are complete without it.
-- **One grey balance** over the five parts: at their real size in the figures
-  they are a little paler than the UBL PNGs' pictures. Left as it is for now.
-- **The clip art's origin, for the TC to decide:** the people were traced from
-  copies of the stencil's own pictures; they are drawn anew, but follow those
-  drawings closely. If that is not acceptable, the people would have to be
-  drawn freely (pictograms). The document, the clipboard, the desk's things and
-  the stack of documents are this work's own drawing.
-- **Tried in the editor only on the web** (embed.diagrams.net 32.1.0; since
-  2026-10-05 all 85 drawings, these three too, opened and saved in the live
-  editor 32.1.0/32.2.0 with `tools/drawio_upgrade.py --editor`: nothing of them
-  changed); the export pins 32.0.2. Opening and saving one in the draw.io desktop
-  app would settle that.
-- **`made/` cannot be run as it is:** its scripts read the renders traced from
-  and the prd1 crops from a working folder that is not kept. They are the
-  record of how the parts were made; the parts themselves are the source.
+- **The clip art's origin:** decided 2026-10-06 (README, "Questions for the
+  TC", A4): the traced people are published as they are.
+- **The draw.io desktop app:** these drawings, as all 96, were tried in the web
+  editor only (README, "Open work").
 
-The three drawings are in the baseline `baselines/2026-10-05/` (the numbers above are its).
+**`made/` cannot be run as it is** (a limitation, not work): its scripts read the
+renders traced from and the prd1 crops from a working folder that is not kept. They
+are the record of how the parts were made; the parts themselves are the source.
+
+The three drawings are in the baselines `baselines/2026-10-05/` (the numbers above are its) and
+`baselines/2026-10-06/` (with all 96).

@@ -56,7 +56,7 @@ for axis, cut, extra, kept in ins:
     a, marked = (A_, K_) if axis == 1 else (A_.transpose(1, 0, 2), K_.T)
 a = np.ascontiguousarray(a)
 png = Image.fromarray(a); W, H = png.size; png.save(f'{d}/png_cut.png')
-subprocess.run(['node', RENDER, f'{ROOT}/diagrams/{n}/{n}.drawio', f'{d}/drawio_cut.png', str(W), str(H), str(s)], check=True, capture_output=True, env=NODE)
+subprocess.run(['node', RENDER, f'{ROOT}/diagrams/{n}/{n}.drawio', f'{d}/drawio_cut.png', str(W), str(H), str(s), 'png'], check=True, capture_output=True, env=NODE)
 dr = Image.open(f'{d}/drawio_cut.png').convert('RGB')
 A = np.asarray(png.convert('L')) < 128; B = np.asarray(dr.convert('L')) < 128
 k = np.ones((2 * R + 1, 2 * R + 1), bool)

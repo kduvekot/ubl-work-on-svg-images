@@ -6,7 +6,7 @@ extent across and along, and whether they moved whole past the cut).
     python3 insertions.py <out dir>          writes <out>/insertions.json
 """
 import collections, json, os, subprocess, sys, tempfile
-from common import BEFORE_SPACE, ROOT, illustration
+from common import BEFORE_SPACE, ROOT, drawn_later, illustration
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..'))
 import insert_space as m
 
@@ -31,7 +31,7 @@ def insert(self, axis, cut, extra):
 m.Figure.insert = insert
 with tempfile.TemporaryDirectory() as t:
     for n in sorted(os.listdir(os.path.join(ROOT, 'diagrams'))):
-        if illustration(n):      # made after, no space inserted
+        if illustration(n) or drawn_later(n):      # made after, no space inserted
             continue
         os.makedirs(f'{t}/{n}')
         open(f'{t}/{n}/{n}.drawio', 'w').write(subprocess.run(['git', '-C', ROOT, 'show', f'{BEFORE_SPACE}:diagrams/{n}/{n}.drawio'], capture_output=True, text=True, check=True).stdout)
