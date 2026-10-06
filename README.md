@@ -128,8 +128,8 @@ BPMN type `ubl-bpmn-type` (`participant`, `task`, `exclusiveGateway`, `startEven
 put a new task, gateway or event in its pool, attach a flow at both ends, and give a
 flow its name as its own label; then give the new element, in *Edit Data* (Ctrl+M), its
 `ubl-kind` and `ubl-bpmn-type`. `tools/check_drawio.py` reports an element without them,
-and a flow not attached. This model is what an official `.bpmn` will be written from
-("Questions for the TC", C3).
+and a flow not attached. The drawing is Ordering's source, and enough: no `.bpmn` is written
+for it ("Questions for the TC", C3).
 
 ### The other figures of Groups A, B and C
 
@@ -588,26 +588,24 @@ to 0.3 exists as an experiment and could be adopted then (`history/group-a/READM
 ### C. BPMN, and the lost originals
 
 **C1. Should the 78 UML activity diagrams become BPMN too?** Their drawings use BPMN pools
-and lanes. Official BPMN 2.0 files are required (by the UBL editor, Kees Duvekot) for the two BPMN figures,
-Ordering and Business Information: a session of its own (`history/group-a/README.md`,
-"Future session"). The two phase maps stay draw.io.
+and lanes. An official BPMN 2.0 file is required (by the UBL editor, Kees Duvekot) for Business
+Information: a session of its own (`history/group-a/README.md`, "Future session"). For Ordering
+its draw.io BPMN drawing is enough (C3). The two phase maps stay draw.io.
 
 **C2. Business Information's envelopes, in its BPMN version.** A message flow joins two
 elements directly; the envelope can become a message event or a send/receive task (which
 changes what the figure says) or be dropped. Its message flows that end at an end event (not
 a message end event) need the same decision.
 
-**C3. If Ordering's `.bpmn` stays lost, is a reconstruction acceptable?** The original,
-`UBL-2.3-OrderingProcess.bpmn`, is attached to the `ubl` list's mail of 2019-05-07
-("UBL-171 - BPMN diagram + SVG") and is not found yet (`history/group-a/README.md`). The
-reconstruction would be written from the figure's draw.io BPMN drawing
-(`diagrams/UBL-2.3-OrderingProcess/`, made 2026-10-06 from the bpmn-js SVG, which came
-from the model): the original's BPMN ids, places and bends, with every flow's `sourceRef`
-and `targetRef` and every element's participant made explicit. Little would be lost, and
-the file would say it is a reconstruction. The drawing is the source now: an edit made to
-it before then becomes part of the reconstruction.
+**C3. If Ordering's `.bpmn` stays lost, is a reconstruction acceptable?** *Answered 2026-10-06 by
+the UBL editor:* no longer relevant: Ordering's draw.io BPMN drawing, made 2026-10-06 with every
+element linked as in a BPMN model, is its source, and enough; no `.bpmn` is written for it. The
+original, `UBL-2.3-OrderingProcess.bpmn`, attached to the `ubl` list's mail of 2019-05-07
+("UBL-171 - BPMN diagram + SVG"), is not found yet; if it turns up (C4), it is held against the
+drawing (`history/group-a/README.md`).
 
-**C4. Can someone with a browser search the `ubl` list's archive?** The archives
+**C4. Can someone with a browser search the `ubl` list's archive?** *2026-10-06:* ongoing, and no
+longer critical (C3). The archives
 (`lists.oasis-open.org`, `lists-archive.oasis-open.org`) refuse a script. Wanted: the
 2019-05-07 attachment above, and the posts of 2016-2020 around the figures' creation (UBL
 2.2: the IMFM, Open-edi, Schema Dependencies and UDT/QDT figures; UBL 2.3: Model
@@ -738,19 +736,18 @@ themselves are next revised. Figure numbers are as in that review.
   GitHub: the artwork step on the runner (its annotations), then Ant and Réalta.
 - **A second commit to `ubl-2.6`, of its own:** the figures commented out in `UBL.xml` removed
   (one line; "Images made from the drawings").
-- **Official BPMN 2.0 files for the BPMN figures** (Ordering, Business Information): the
-  UBL editor, Kees Duvekot, requires them as the sources of BPMN diagrams; what is needed
-  is in `history/group-a/README.md` ("Future session"), the decisions it takes are C1-C3.
-- **The BPMN 2.0 XML of the Ordering Process** (`UBL-2.3-OrderingProcess.bpmn`, attached to
-  the `ubl` list's mail of 2019-05-07, UBL-171): not found yet (not by the UBL editor either,
-  2026-10-05). Still to look in: the Sent folder of that mail, other list members' mailboxes
+- **An official BPMN 2.0 file for Business Information:** the UBL editor, Kees Duvekot,
+  requires one as the source of a BPMN diagram; what is needed is in `history/group-a/README.md`
+  ("Future session"), the decisions it takes are C1 and C2. Ordering needs none: its draw.io
+  BPMN drawing is enough (C3).
+- **The original BPMN 2.0 XML of the Ordering Process** (`UBL-2.3-OrderingProcess.bpmn`, attached
+  to the `ubl` list's mail of 2019-05-07, UBL-171): not found yet; the search goes on, no longer
+  critical (C3, C4). Still to look in: the Sent folder of that mail, other list members' mailboxes
   (Ken Holman, Kenneth Bengtsson), the 2019 download folders and backups, bpmn.io's local
   storage in a browser profile of 2019, and the list archive, which refuses a script (C4).
-  Until then Ordering's source is its draw.io BPMN drawing, made from the bpmn-js SVG
-  (2026-10-06), every element linked as in a BPMN model ("Ordering, a BPMN drawing"). If the
-  `.bpmn` is found, it is held against that drawing; if it stays lost, the BPMN session
-  writes it from the drawing as a reconstruction, if the TC agrees (C3;
-  `history/group-a/README.md`, "Ordering as a draw.io BPMN diagram").
+  Ordering's source is its draw.io BPMN drawing, made from the bpmn-js SVG (2026-10-06),
+  every element linked as in a BPMN model ("Ordering, a BPMN drawing"). A find goes in
+  `history/group-a/sources/` and is held against that drawing.
 - **The draw.io desktop app:** this README says to edit in it or in diagrams.net, but
   the drawings are tried in the web editor only (all 96 opened and saved again in the
   live editor, unchanged). Open and save one in the desktop app, and hold the file

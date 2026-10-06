@@ -64,7 +64,8 @@ commits of 2023-02-06 for Business Information).
   `MessageFlow_0w3w0y5`, ...) and the places, bends and styles of every element, but no `collaboration`,
   `process`, `sourceRef` or `targetRef`: which task a flow joins, and what kind of flow it is, are not
   in it. The drawing has them, inferred from the SVG and checked (below), and is edited in draw.io as
-  the other figures are; an official BPMN file is still the future BPMN session's (below).
+  the other figures are; no official BPMN file is written for it (decided 2026-10-06: the drawing is
+  enough; README, "Questions for the TC", C3).
 - **The BPMN files come later** (decided 2026-10-05): not in the pull request of Group A, and not asked for before the
   real `.bpmn` is looked for once more.
 - **The original `UBL-2.3-OrderingProcess.bpmn` is not found yet.** Looked for in the UBL repository
@@ -72,9 +73,9 @@ commits of 2023-02-06 for Business Information).
   the editor, Kees Duvekot, who sent it in 2019: not found (2026-10-05). Still to try: the Sent folder of the
   2019-05-07 mail, other list members' mailboxes (Ken Holman, Kenneth Bengtsson), the 2019 download folders
   and backups, bpmn.io's local storage in the browser profile of 2019, and the list archive (README,
-  "Questions for the TC", C4). If it is found, it is held against the drawing. If not, the `.bpmn` is
-  written from the drawing and **says it is a reconstruction** (it would be one: the drawing came from
-  the SVG, the SVG from the model, so little is lost), if the TC agrees (C3).
+  "Questions for the TC", C4; ongoing, no longer critical). If it is found, it is held against the
+  drawing. If not, nothing is lost: the drawing is Ordering's source, and enough (decided 2026-10-06,
+  C3).
 
 ## What is as the TC made it
 
@@ -113,7 +114,8 @@ Said by the editor, Kees Duvekot (2026-10-05): for BPMN diagrams it is **very im
 sources are official BPMN 2.0 files** (the OMG standard, ISO/IEC 19510:2013), not drawings in BPMN
 style. That is a different requirement and its own session, not done here.
 
-- **Which:** Ordering and Business Information. Pre-award and Procurement are phase maps
+- **Which:** Business Information (Ordering: its draw.io BPMN drawing is enough, decided
+  2026-10-06: README, "Questions for the TC", C3). Pre-award and Procurement are phase maps
   with no BPMN semantics (chevrons, a milestone): they stay draw.io. (Whether the 78 UML activity
   diagrams should be BPMN too: README, "Questions for the TC", C1.)
 - **What an official file is:** BPMN 2.0.2 XML: a `collaboration` with participants and message
@@ -123,13 +125,13 @@ style. That is a different requirement and its own session, not done here.
   <https://www.omg.org/spec/BPMN/20100501/>, the specification at <https://www.omg.org/spec/BPMN/2.0.2/PDF>;
   `xmllint` is installed here), and opening in bpmn.io (bpmn-js, `bpmn-moddle` on npm) and a second
   modeler.
-- **Ordering:** the real source is `UBL-2.3-OrderingProcess.bpmn`, attached to the `ubl` list's mail of
-  2019-05-07 ("UBL-171 - BPMN diagram + SVG", see below). If it is found: validate it, render
-  the SVG and PNGs from it with bpmn-js (the tool that made the original), and check them against the
-  PNG as `compare_png.py` does. If not: write it from the figure's drawing (`diagrams/UBL-2.3-OrderingProcess/`,
-  below), which has the SVG's BPMN ids (`Task_1bnlp2b`, `MessageFlow_0w3w0y5`, ...), places and bends,
-  and what the SVG lacks, made explicit and checked: each flow's `sourceRef` and `targetRef`, each
-  element's participant and type.
+- **Ordering** (decided 2026-10-06): no `.bpmn`; its draw.io BPMN drawing
+  (`diagrams/UBL-2.3-OrderingProcess/`, below) is its source, with the SVG's BPMN ids
+  (`Task_1bnlp2b`, `MessageFlow_0w3w0y5`, ...), places and bends, and each flow's ends and each
+  element's participant and type made explicit and checked. The original,
+  `UBL-2.3-OrderingProcess.bpmn` (attached to the `ubl` list's mail of 2019-05-07, "UBL-171 - BPMN
+  diagram + SVG", see below), is still looked for, no longer critically; if it is found, it is held
+  against the drawing.
 - **Business Information:** a draw.io drawing in BPMN style, made in draw.io 20.8.4, so no BPMN
   XML exists; write it from the drawing. Its **envelopes**, and its message flows that end at an end
   event, need a decision of the TC first: README, "Questions for the TC", C2.
