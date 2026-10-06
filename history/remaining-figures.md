@@ -92,6 +92,7 @@ the sources are the UBL repository's own, so the commit **changes three of them 
 and **replaces Ordering's bpmn-js SVG** by a draw.io BPMN drawing made from it, with that drawing's
 export (`history/group-a/README.md`, "Ordering as a draw.io BPMN diagram"); and it replaces the PNGs
 by black and white print ones (Business Information's: grey): say so in the message.
-**Future session, required by the UBL editor, Kees Duvekot:** real BPMN 2.0 files for the BPMN figures (Ordering,
-Business Information) - `history/group-a/README.md`, "Future session".
+**Real BPMN 2.0 files for the BPMN figures** (Ordering, Business Information): asked for by the UBL editor,
+Kees Duvekot, on 2026-10-05; on 2026-10-06 made a possible option for the distant future only (README,
+"Questions for the TC", C1) - `history/group-a/README.md`, "Future session".
 **To decide with the TC first:** README, "Questions for the TC", A.

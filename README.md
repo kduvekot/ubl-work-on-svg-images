@@ -13,8 +13,8 @@ sources are lost; these drawings are now the figures' source. They are:
 
 How they came to be, and the measurements behind the rules below: `history/README.md`. What the
 TC still has to decide is in one place, near the end: "Questions for the TC" (the questions to
-settle before the commit to the UBL repository, A1-A5, are answered, and so is B; C and D are
-for after it).
+settle before the commit to the UBL repository, A1-A5, are answered, and so are B and C; D is for
+the diagrams' next revision).
 
 **Once committed to the UBL repository, its drawings are the figures' source** (A3, answered
 2026-10-06): `images/<figure>.drawio` there, which its build renders into the SVG and the PNGs, so
@@ -137,8 +137,8 @@ Their own READMEs say how they are drawn: `history/group-a/README.md` (Ordering,
 TC's own three drawings, adopted as they are: Pre-award, Procurement, Business Information),
 `history/group-b/README.md` and `history/group-c/README.md` (drawn from the UBL PNGs). They have
 no pool of lanes: `tools/check_drawio.py` checks their form, ids, attached flows and kinds (they
-carry `ubl-notation`); the TC's three have no kinds, which it says. Real BPMN 2.0 files for the
-BPMN figures are a future session (`history/group-a/README.md`).
+carry `ubl-notation`); the TC's three have no kinds, which it says. Real BPMN 2.0 files are a
+possible option for the distant future only ("Questions for the TC", C1).
 
 ### The illustrations: the Fulfilment figures
 
@@ -587,12 +587,14 @@ to 0.3 exists as an experiment and could be adopted then (`history/group-a/READM
 
 ### C. BPMN, and the lost originals
 
-**C1. Should the 78 UML activity diagrams become BPMN too?** Their drawings use BPMN pools
-and lanes. An official BPMN 2.0 file is required (by the UBL editor, Kees Duvekot) for Business
-Information: a session of its own (`history/group-a/README.md`, "Future session"). For Ordering
-its draw.io BPMN drawing is enough (C3). The two phase maps stay draw.io.
+**C1. Should the 78 UML activity diagrams become BPMN too?** *Answered 2026-10-06 by the UBL
+editor:* BPMN is strictly a possible option for the distant future: not for the 78, and no
+official BPMN 2.0 file for Business Information or Ordering either (C3). The draw.io drawings are
+the sources. Their drawings use BPMN pools and lanes; what an official BPMN file would take, should
+the option be taken: `history/group-a/README.md`, "Future session". The two phase maps stay draw.io.
 
-**C2. Business Information's envelopes, in its BPMN version.** A message flow joins two
+**C2. Business Information's envelopes, in its BPMN version.** *2026-10-06:* only if that
+version is ever made (C1: a possible option for the distant future). A message flow joins two
 elements directly; the envelope can become a message event or a send/receive task (which
 changes what the figure says) or be dropped. Its message flows that end at an end event (not
 a message end event) need the same decision.
@@ -721,8 +723,9 @@ themselves are next revised. Figure numbers are as in that review.
 
 ## Open work
 
-- **The TC's answers** ("Questions for the TC"): C and D, after the commit to the UBL
-  repository (A1-A5, before it, and B1-B3 are answered).
+- **The TC's answers** ("Questions for the TC"): D, for the diagrams' next revision. A and B
+  are answered, and C: BPMN is a possible option for the distant future (C1, C2), Ordering's
+  drawing is enough (C3), and the archive search goes on (C4).
 - **The commit to the UBL repository:** `to-ubl-repo/` copied over a clone of `ubl-2.6` (A1),
   9 files removed (A2: the 3 older sources and the 5 more files in `images/`; A5: the unused PNG
   in `art/`), and three of its files edited with it, `build-common.sh`,
@@ -736,10 +739,6 @@ themselves are next revised. Figure numbers are as in that review.
   GitHub: the artwork step on the runner (its annotations), then Ant and Réalta.
 - **A second commit to `ubl-2.6`, of its own:** the figures commented out in `UBL.xml` removed
   (one line; "Images made from the drawings").
-- **An official BPMN 2.0 file for Business Information:** the UBL editor, Kees Duvekot,
-  requires one as the source of a BPMN diagram; what is needed is in `history/group-a/README.md`
-  ("Future session"), the decisions it takes are C1 and C2. Ordering needs none: its draw.io
-  BPMN drawing is enough (C3).
 - **The original BPMN 2.0 XML of the Ordering Process** (`UBL-2.3-OrderingProcess.bpmn`, attached
   to the `ubl` list's mail of 2019-05-07, UBL-171): not found yet; the search goes on, no longer
   critical (C3, C4). Still to look in: the Sent folder of that mail, other list members' mailboxes

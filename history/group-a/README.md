@@ -110,6 +110,10 @@ the editor decides itself (2026-10-06): it says `SAFE` now. Ordering's drawing: 
 
 ## Future session: real BPMN 2.0 files for the BPMN figures
 
+**Decided 2026-10-06 by the editor:** BPMN is strictly a possible option for the distant future
+(README, "Questions for the TC", C1); the draw.io drawings are the sources. This section is kept
+for then.
+
 Said by the editor, Kees Duvekot (2026-10-05): for BPMN diagrams it is **very important that the
 sources are official BPMN 2.0 files** (the OMG standard, ISO/IEC 19510:2013), not drawings in BPMN
 style. That is a different requirement and its own session, not done here.
