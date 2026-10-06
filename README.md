@@ -622,8 +622,13 @@ be wrong, raised in the review of the figures with the TC (2026-09, the question
 `q15`: `history/docs/artwork-conversion-notes.md`, §11 and §16), kept for when the diagrams
 themselves are next revised. Figure numbers are as in that review.
 
-- **D1. Billing with Debit Note: the supplier's guards** (decided: to be fixed in UBL 2.6; to
-  confirm: the new guard). The supplier's Reconcile Charges sends [initial charges or under
+**Decided 2026-10-06 by the UBL editor:** a change to what an existing diagram says is future
+work, made in the UBL repository once its drawings are the source, and not part of this
+transition to draw.io sources. The transition changes no diagram's content: every figure says what
+it said in UBL 2.5. D1 too, which the TC wants fixed in UBL 2.6, comes after it.
+
+- **D1. Billing with Debit Note: the supplier's guards** (decided: to be fixed in UBL 2.6, after
+  the transition; to confirm: the new guard). The supplier's Reconcile Charges sends [initial charges or under
   charged] to *Raise Invoice* and [under charged] to *Raise Debit Note*: the two guards
   overlap, so "under charged" does not say which way to go (on the credit-note twin the
   second branch is [over charged]). The fault is new in 2.5: UBL 2.0 to 2.4 draw a different
@@ -723,7 +728,8 @@ themselves are next revised. Figure numbers are as in that review.
 
 ## Open work
 
-- **The TC's answers** ("Questions for the TC"): D, for the diagrams' next revision. A and B
+- **The TC's answers** ("Questions for the TC"): D, changes to what the diagrams say: future
+  work, not part of this transition (D1, for UBL 2.6, after it). A and B
   are answered, and C: BPMN is a possible option for the distant future (C1, C2), Ordering's
   drawing is enough (C3), and the archive search goes on (C4).
 - **The commit to the UBL repository:** `to-ubl-repo/` copied over a clone of `ubl-2.6` (A1),
