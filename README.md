@@ -228,7 +228,7 @@ byte for byte), `same-drawing` (the file differs, not the model, not a pixel),
 with `--out`, a picture shows where: red only in the baseline, blue only in the
 drawing). Both are rendered afresh, the same way, and compared with no
 tolerance; where the baseline no longer renders as it did, it says so. A figure that is not in the
-baseline at all says `new` and is not compared (the 4 of Group A and the 3 of Group B were made after it,
+baseline at all says `new` and is not compared (the 4 of Group A, the 3 of Group B and the 4 of Group C were made after it,
 and the baseline's tools - the model JSONs, the diff against the PNG - do not cover them); it is not a
 difference, and `drawio_upgrade.py` likewise compares those figures' exports (SVG and PNGs) but not a render.
 A new baseline is made with `tools/drawio_baseline.py make <baseline dir> <diff
@@ -364,7 +364,7 @@ API is not needed), and the live version of app.diagrams.net, the editor people
 use, which can be ahead of every tag. Exit 1: a newer release can be pinned.
 
 `python3 tools/drawio_upgrade.py [--to <version>] [--out <dir>]` then exports
-all 92 drawings with the pin and with the candidate and compares, per figure,
+all 96 drawings with the pin and with the candidate and compares, per figure,
 the SVG (but for the version in its comment), both PNGs and the viewer render
 at the baseline's canvas, pixel for pixel; where pixels differ it writes a
 red/blue image. It ends in `VERDICT: SAFE` (nothing changed, exit 0) or
