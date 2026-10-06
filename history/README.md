@@ -222,7 +222,8 @@ publishes its artwork (its README, "Artwork"; `build.xml`; `realta-user-paramete
   `htmlart/<figure>.png` (web: at most 750 px wide). Both PNGs are rendered from
   the SVG, so they cannot drift from it. `UBL.xml` keeps pointing at
   `art/<figure>.png`: nothing changes in how UBL is published. Publishing the
-  SVG itself: README, "Questions for the TC", B1. A test build with these files
+  SVG itself: README, "Questions for the TC", B1 (answered 2026-10-06: not now;
+  the SVGs go to ISO in a submission of their own). A test build with these files
   through Réalta, the UBL publishing server, is done on the UBL repository's
   side, in a test branch there, not from here.
 - **It replaces what is there:** for 20 of the 78 diagrams the UBL repository

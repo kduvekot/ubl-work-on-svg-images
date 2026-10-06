@@ -13,7 +13,8 @@ sources are lost; these drawings are now the figures' source. They are:
 
 How they came to be, and the measurements behind the rules below: `history/README.md`. What the
 TC still has to decide is in one place, near the end: "Questions for the TC" (the questions to
-settle before the commit to the UBL repository, A1-A5, are answered; B, C and D are for after it).
+settle before the commit to the UBL repository, A1-A5, are answered, and so is B1; B2, B3, C and
+D are for after it).
 
 **Once committed to the UBL repository, its drawings are the figures' source** (A3, answered
 2026-10-06): `images/<figure>.drawio` there, which its build renders into the SVG and the PNGs, so
@@ -494,7 +495,8 @@ revised.
 ### A. Before the commit to the UBL repository
 
 **A1. Which branch?** *Answered 2026-10-06 by the UBL editor:* `ubl-2.6`; everything goes there.
-The SVGs are taken from it separately for the ISO submission of 2.5 when they are needed. This
+The SVGs are taken from it separately for ISO when they are needed, in a submission of their own
+(B1). This
 work was read from `ubl-2.5` at `3d81e8a` (CSD03); `art/`, `htmlart/` and `images/` are the same
 on `ubl-2.5-os`, `ubl-2.5-iso` and `ubl-2.6` as there (checked 2026-10-06), so the figures' files
 fit any of them; `build-common.sh` and `build.yml` are another version on the 2.5 branches than
@@ -545,9 +547,16 @@ not need to be run again for it, the drawing is made like the others
 
 ### B. How UBL publishes the figures (after the commit)
 
-**B1. Publish the SVG itself?** `UBL.xml` keeps pointing at `art/<figure>.png`: the commit
-changes nothing in how UBL is published. Publishing the SVG (as `ubl-2.4-os-iso-pub` did,
-with SVGs that only wrapped the PNGs) is for a wider discussion.
+**B1. Should the published specification show the SVGs instead of the PNGs?** *Answered
+2026-10-06 by the UBL editor:* no, not now: `UBL.xml` keeps pointing at `art/<figure>.png`, so the
+HTML and PDF that the build and Réalta make show the PNGs, as before, and the commit changes nothing
+in how UBL is published. The SVGs go to ISO in a submission of their own, apart from the normal
+one, taken from `ubl-2.6` (A1). Showing the SVGs in the specification (sharp at any zoom, its text
+selectable and searchable) would change every output, and each step of the build would have to
+handle SVG well (Réalta, the DocBook stylesheets, the PDF engine, browsers; and the font, B2): a
+question for later. `ubl-2.4-os-iso-pub` did switch, for ISO (`8801d64`, 2024-11-12, "Change PNGs
+to SVGs for ISO use": its `UBL.xml` points at `art/*.svg`), but those 95 SVGs, made in Inkscape,
+only wrap the PNG: each holds it as an embedded image, with no text and no vector drawing.
 
 **B2. Does ISO require its own font in graphics?** ISO/CS asks for Cambria. If it does, it
 is done for the ISO deliverables only, at export time, never in the drawings ("Decided for
@@ -700,8 +709,8 @@ themselves are next revised. Figure numbers are as in that review.
 
 ## Open work
 
-- **The TC's answers** ("Questions for the TC"): B, C and D, after the commit to the UBL
-  repository (A1-A5, before it, are answered).
+- **The TC's answers** ("Questions for the TC"): B2, B3, C and D, after the commit to the UBL
+  repository (A1-A5, before it, and B1 are answered).
 - **The commit to the UBL repository:** `to-ubl-repo/` copied over a clone of `ubl-2.6` (A1),
   9 files removed (A2: the 3 older sources and the 5 more files in `images/`; A5: the unused PNG
   in `art/`), and three of its files edited with it, `build-common.sh`,
