@@ -208,11 +208,9 @@ the browser.
   are complete without it.
 - **One grey balance** over the five parts: at their real size in the figures
   they are a little paler than the UBL PNGs' pictures. Left as it is for now.
-- **The clip art's origin, for the TC to decide:** the people were traced from
-  copies of the stencil's own pictures; they are drawn anew, but follow those
-  drawings closely. If that is not acceptable, the people would have to be
-  drawn freely (pictograms). The document, the clipboard, the desk's things and
-  the stack of documents are this work's own drawing.
+- **The clip art's origin**, for the TC to decide: README, "Questions for the
+  TC", A4. If the traced people are not acceptable, they would have to be
+  drawn freely (pictograms).
 - **Tried in the editor only on the web** (embed.diagrams.net 32.1.0; since
   2026-10-05 all 85 drawings, these three too, opened and saved in the live
   editor 32.1.0/32.2.0 with `tools/drawio_upgrade.py --editor`: nothing of them

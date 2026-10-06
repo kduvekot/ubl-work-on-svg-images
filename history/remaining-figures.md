@@ -51,20 +51,19 @@ chevrons and plain arrows.
 **Approach:** these are not process flows; they are tables, class-like boxes and dependency
 arrows, so draw them with draw.io's own shapes (UML class, rectangles, plain arrows) with
 the text live: do not trace them. In `history/svg-images/` each is only the PNG in an SVG
-(`<image>`), so the PNG is the only reference. **Open question for the TC before the
-session:** if one of them is really a screenshot (a schema fragment, a generated diagram),
-should it be redrawn at all, or kept as an image with an SVG wrapper (the ISO would not
-accept it: README, "The SVG is real vector")? Start with `UDT-QDT` and
+(`<image>`), so the PNG is the only reference. The question before the session, if one of
+them were really a screenshot (a schema fragment, a generated diagram), whether to redraw it
+or keep it as an image with an SVG wrapper (the ISO would not accept it: README, "The SVG is
+real vector"), did not arise: all four are boxes and arrows, and are drawn
+(`history/group-c/README.md`). Start with `UDT-QDT` and
 `SchemaDependencies` (most likely to be pure boxes and arrows), then `DefaultValidation`
 and `ModelRealization`.
 
 ## Not to do
 
 `UBL-2.0-BillingwithCreditNoteProcess` (3425x1813) is in the UBL repository's `art/` and not
-used: `UBL.xml` does not cite it. Ken Holman's SVG of it is real vector (34 texts). Ask the TC
-to remove it from the repository; if they keep it, it is a UML activity diagram, and would be
-the 79th: the pipeline of `history/` does not need to be run again for it, the drawing is made like
-the others (`history/drawio-writer/README.md`).
+used: `UBL.xml` does not cite it. Ken Holman's SVG of it is real vector (34 texts). Whether it
+stays, and what then: README, "Questions for the TC", A5.
 
 `UBL-2.2-UseCase` and `UBL-2.2-UseCaseOverview` (checked 2026-10-06): `UBL.xml` names them only inside
 an XML comment, and no branch of the UBL repository has ever had a PNG or a source of them. Nothing to do.
@@ -78,8 +77,8 @@ because the OASIS mailing-list archives (`lists.oasis-open.org`, `lists-archive.
 refuse a script (Cloudflare's bot check) and need a person in a browser:** the `ubl` list's
 posts of 2016-2020 around the figures' creation (UBL 2.2: the IMFM, Open-edi, Schema
 Dependencies and UDT/QDT figures; UBL 2.3: Model Realization), where an attachment may be
-a source. Worth an hour by someone with a browser; search the archive for `svg`, `visio`,
-`vsd`, `png` and the figure names. If one is found, put it in `history/<group>/sources/` and say so here.
+a source. The search, by someone with a browser: README, "Questions for the TC", C4. If one is
+found, put it in `history/<group>/sources/` and say so here.
 
 ## Before the UBL repository gets any of it
 
@@ -91,5 +90,4 @@ Ordering's SVG as it is) and replaces the PNGs by black and white print ones (Bu
 Information's: grey): say so in the message.
 **Future session, required by the editor:** real BPMN 2.0 files for the BPMN figures (Ordering,
 Business Information) - `history/group-a/README.md`, "Future session".
-**To decide with the TC first** (README, "Open work"): the branch, 5 more files in its `images/`,
-its README's "Artwork", the clip art in the illustrations.
+**To decide with the TC first:** README, "Questions for the TC", A.

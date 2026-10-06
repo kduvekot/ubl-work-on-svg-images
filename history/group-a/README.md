@@ -69,17 +69,20 @@ commits of 2023-02-06 for Business Information).
   (all branches), docs.oasis-open.org, the UBL JIRA and, from here, the `ubl` list (blocked, below); and by
   the editor, Kees Duvekot, who sent it in 2019: not found (2026-10-05). Still to try: the Sent folder of the
   2019-05-07 mail, other list members' mailboxes (Ken Holman, Kenneth Bengtsson), the 2019 download folders
-  and backups, bpmn.io's local storage in the browser profile of 2019. If it is not found, the `.bpmn` is
-  written from the SVG and **says it is a reconstruction** (it would be one: the SVG came from the model,
-  so little is lost).
+  and backups, bpmn.io's local storage in the browser profile of 2019, and the list archive (README,
+  "Questions for the TC", C4). If it is not found, the `.bpmn` is written from the SVG and **says it is
+  a reconstruction** (it would be one: the SVG came from the model, so little is lost), if the TC
+  agrees (C3).
 
-## What is as the TC made it, and may be for them to decide
+## What is as the TC made it
+
+What the TC may want changed of it: README, "Questions for the TC", B3 (the scale) and C2 (the envelopes).
 
 - **Scale.** Pre-award and Procurement are drawn 3425 px wide with 60, 70 and 40 px text and
   8 px lines (the others: natural scale, 12 px text, 1 and 2 px lines). Fitted to the page they
   print as the PNGs do (the captions of Pre-award at 4.8 pt); the export's report line
   ("text 1.4 pt") assumes the others' 12 px and is wrong for these two. A rescale is a change to
-  the TC's drawing; it was made in an experiment (`redrawn/`, below) at 0.3 and could be adopted.
+  the TC's drawing; it was made in an experiment (`redrawn/`, below) at 0.3 (whether to adopt it: B3).
 - **Business Information's grey bars** (`#C0C0C0`, the foot of each task): kept everywhere, as in the
   UBL repository's PNG. The print PNG of this figure is therefore 8 bit grey, not 1 bit (as the
   illustrations' are, and three of Group C's since: its drawing says `ubl-art="grey"`, which
@@ -109,7 +112,7 @@ style. That is a different requirement and its own session, not done here.
 
 - **Which:** Ordering and Business Information. Pre-award and Procurement are phase maps
   with no BPMN semantics (chevrons, a milestone): they stay draw.io. (Whether the 78 UML activity
-  diagrams, whose drawings use BPMN pools and lanes, should be BPMN too is for the TC.)
+  diagrams should be BPMN too: README, "Questions for the TC", C1.)
 - **What an official file is:** BPMN 2.0.2 XML: a `collaboration` with participants and message
   flows, a `process` for each participant, with tasks, gateways, events and sequence flows, and a
   `BPMNDiagram` (BPMN DI) with every shape's and edge's place and size and the labels. Valid against
@@ -124,10 +127,8 @@ style. That is a different requirement and its own session, not done here.
   (`Task_1bnlp2b`, `MessageFlow_0w3w0y5`, ...), the places and the bends of every element, as
   `redrawn/build_ordering.py` already reads them.
 - **Business Information:** a draw.io drawing in BPMN style, made in draw.io 20.8.4, so no BPMN
-  XML exists; write it from the drawing. Its **envelopes** need a decision: a message flow joins two
-  elements directly; the envelope can become a message event or a send/receive task (which changes
-  what the figure says) or be dropped. Its message flows that end at an end event (not a message end
-  event) need the same look.
+  XML exists; write it from the drawing. Its **envelopes**, and its message flows that end at an end
+  event, need a decision of the TC first: README, "Questions for the TC", C2.
 - **Then:** the `.bpmn` is the source, the SVG and PNGs are exports of it (as the `.drawio` is for the
   rest), `tools/check_svg.py` and a new check (XSD validity) apply, and the README's section on
   sources says so.
@@ -147,8 +148,9 @@ style. That is a different requirement and its own session, not done here.
   answer a script, and headless Chromium too, with Cloudflare's "verify you are not a bot" check (403),
   groups.oasis-open.org lists the attachment names only, without a link, for a visitor who is not logged
   in, and markmail.org and web.archive.org are not reachable from this environment (network policy: they
-  would have to be added to the environment's allowed domains). **If the `.bpmn` is found (its author
-  has it, or a TC member's mail), put it in `sources/`.**
+  would have to be added to the environment's allowed domains). The search by someone with a browser:
+  README, "Questions for the TC", C4. **If the `.bpmn` is found (its author has it, or a TC member's
+  mail), put it in `sources/`.**
 
 ## `redrawn/`: an experiment, not the sources
 
@@ -158,7 +160,7 @@ bpmn-js SVG, Business Information with white bars), Pre-award and Procurement re
 own shapes at 0.3 of the TC's scale (text 12, 18, 21 px, lines 2 px; one dashed corner line per list of
 documents). They matched the PNGs to 1-8 %, the originals to 0-0.07 %. Kept as a record of what a
 cleaner, rescaled version looks like (`redrawn/*.drawio`, built by `redrawn/build_*.py`), in case the TC
-wants the 12 px convention for these too. The scripts write beside themselves and cannot overwrite a
+wants the 12 px convention for these too (README, "Questions for the TC", B3). The scripts write beside themselves and cannot overwrite a
 source.
 
 ## Run again

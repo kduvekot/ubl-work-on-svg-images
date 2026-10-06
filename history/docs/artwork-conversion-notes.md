@@ -519,7 +519,8 @@ Walked through one at a time with a crop of the original beside the render.
 ### 11.4 Faults in the original artwork - do NOT correct, record a remark
 
 The TC's instruction: keep the SVG faithful, note the discrepancy in the
-conceptual model.
+conceptual model. (For the next revision of the diagrams, the faults below
+are among the TC's open questions: README, "Questions for the TC", D.)
 
 7. **Fig 28 Award Notification** - *Unawarded Notification* and *Awarded
    Notification* have no connector at all; the one flow runs straight past them.
@@ -1608,11 +1609,8 @@ differences shown.
   *Request Logistic Service*), invisible at normal size: accepted.
 - *Update Catalogue Pricing, Create Catalogue, Update Catalogue Item
   Specification (3-5 of 78).* Models correct and complete; SVGs faithful, a
-  few line ends some pixels off (accepted). For a future release: on all
-  three a document runs straight into an end with no step that receives it,
-  and the preparing step has two ways in (a start or a loop, and the fork)
-  where "either" is meant - in UML two ways into a step mean "both"; a merge
-  diamond would say it. The fork and join bars stay black (the TC,
+  few line ends some pixels off (accepted). For a future release: README,
+  "Questions for the TC", D2. The fork and join bars stay black (the TC,
   2026-09-27), though the artwork fills most of them dark grey.
 - *Tender Contract Information Preparation (6 of 78).* Model correct and
   complete (the kind 8 text and the "Above Thresholds?" question settled
@@ -1634,8 +1632,7 @@ differences shown.
   touch it. Standing rule (the TC, 2026-09-27): small arrowhead and line-end
   differences are not blocking, and are not raised figure by figure.
 - *Certification of Origin (9 of 78).* Model correct and complete, as drawn.
-  For a future release: *Receive Response* has two ways out with no
-  decision; the accepted outcomes (*Endorse CoO*) never reach the Exporter.
+  For a future release: README, "Questions for the TC", D3.
 - *IMFM Basic Transport Execution Plan (10 of 78).* Model correct and
   complete. "EvaluateTransport" (twice) is the artwork's typo, put right in
   model and drawing and recorded in artwork-faults.json (`text-31`,
@@ -1777,24 +1774,9 @@ differences shown.
   flows); SVG faithful. The two debit-note steps are set in regular type
   where every other step (and both credit-note steps on the twin figure) is
   bold: the artwork's own inconsistency, kept, and recorded in
-  `tools/artwork-faults.json` (`drawn`). For a future release: the supplier's
-  Reconcile Charges sends [initial charges or under charged] to *Raise
-  Invoice* and [under charged] to *Raise Debit Note* - the two guards overlap,
-  so "under charged" does not say which way to go (on the credit-note twin
-  the second branch is [over charged]). The fault is new in 2.5: UBL 2.0 to
-  2.4 draw a different process, the Customer raising the Debit Note when
-  [over charged] (os-UBL-2.4 art/UBL-2.0-BillingwithDebitNoteProcess.png,
-  the same drawing since 2.1, and in 2.0 as a JPEG), with the Supplier's
-  diamond sending only [initial charges or under charged] to *Raise
-  Invoice*. The 2.5 figure moves the Debit Note to the Supplier (the text
-  after it now says the Supplier specifies the tax requirements) and was
-  redrawn from the credit-note figure, keeping that guard; most likely the
-  invoice branch should read [initial charges]. The figure is published
-  unchanged in the OASIS Standard (os-UBL-2.5, 12 August 2026, the same
-  guards; the file there is a different export of the same drawing). The TC
-  (2026-09-28): to be fixed in UBL 2.6. (Approved Errata, TC Process 2.9, are
-  limited to corrections that are not a Material Change, which a changed
-  guard in a process diagram arguably is.)
+  `tools/artwork-faults.json` (`drawn`). The supplier's two guards overlap;
+  the TC (2026-09-28): to be fixed in UBL 2.6. The fault, its history and
+  the guard to confirm: README, "Questions for the TC", D1.
 - *Tender Qualification Information (30 of 78).* Model correct and complete
   (8 flows). The document names came out a fifth too tall, squeezed into
   their width: every node's words were set at one size, the steps', where
@@ -1981,89 +1963,8 @@ which would otherwise report a correct render as a text error.
 
 **Points for a future UBL release, not for this conversion.** Some questions go
 beyond what a drawing says into whether it says the right thing. The model
-stays faithful to the artwork, and these are kept here for the TC to take up
-when the diagrams themselves are next revised.
-
-- *Fig 37, Punch-out Sourcing (raised 2026-09-27 with `q7`):*
-  - **Who builds the basket?** The artwork puts *Build shopping basket* in the
-    Seller Supplier Party's column. But in punch-out it is the Originator who
-    browses the catalogue and fills the basket, on the Seller's system. UBL.xml
-    says so itself: "The Originators leave ... their system and interact with the
-    Seller's catalogue to locate and order products". The column may be showing
-    whose system it is rather than who acts. A revised diagram could say this
-    plainly, for instance with the action in the Originator's column and the
-    Seller's catalogue application named as where it happens.
-  - **UBL.xml's text reads "Seller" where "Originator" seems meant.** It says
-    punch-out lets an Originator access a Seller's catalogue application "from
-    within the Seller's own procurement application", which by the rest of the
-    paragraph should be the Originator's own. Whose procurement application
-    "transparently gathers pertinent information" is unclear for the same
-    reason.
-- *Fig 14, CPFR Exception Monitor (with `q9`):* redraw the connector from the
-  Buyer's *Send Exception* to *Exception Notification (positive)* like its mirror
-  on the Seller's side. A layout matter, for the session that re-lays diagrams.
-- *Goods Item Passport figures (found 2026-09-27):* the artwork writes the name
-  both "GoodsItem" and "Goodsitem". The model follows the artwork in each place;
-  a revision could make them all "GoodsItem".
-- *Utility Billing (with `q12`):* drop "(from Business Processes)" in a redraw:
-  the package means nothing to a reader of the specification; if the link
-  matters, refer to the billing section instead.
-- *Documents across an intermediate lane (with `q14`):* the artwork puts such a
-  box next to the receiver 5 times and next to the sender 4 times. A redraw
-  could agree a convention - simplest, always on the divider next to the
-  receiver.
-- *Freight Status Reporting (with `q15`):* "Receiver Party" is a questionable
-  name for a party that both receives a request and sends the status report;
-  and the divider marking off the self-initiated start could go - in BPMN it
-  would be a timer start inside the Receiver Party's lane.
-- *Waste Movement and Waste Notification (with `q15`):* the column titles read
-  "Senderparty" and "ReceiverParty"; UBL.xml says "Sender Party" and "Receiver
-  Party".
-- *CPFR phase boxes:* size each to its steps and the words that belong to it,
-  with the same margin on every figure (Fig 9 is far too wide; Fig 7's "Retail
-  Event Accepted ?" pokes out of its box).
-- *Decisions (completeness sweep):* guard every branch and give every diamond its
-  question. Fig C.1, Certification of Origin and Fulfilment Despatch Advice can
-  take their guards from the step each branch leads to; Create Catalogue's
-  diamond can say "Respond to Request" as its Update Catalogue siblings do; the
-  2.5 billing figures' unlabelled branch out of *Reconcile Charges* can read
-  [otherwise] or [dispute charges].
-- *Intermodal Freight Management:* split *Provide Transportation Network
-  Information* into one step per phase (Planning, Execution).
-- *Party names:* one style across the figures, and one name per role (Buyer /
-  Buyer Party / Originator Customer Party ...), checked against the party roles
-  UBL.xml gives for each document.
-- *Self Billing (text sweep):* the choice after *Raise Self Billed Invoice*
-  - accepted, or a reply comes - drawn as a branch, in BPMN an event-based
-  gateway: an Application Response, a Credit Note, or no reply meaning the
-  charges are accepted.
-- *Tender Contract Information Preparation (text sweep):* "Publish Official
-  Journal" would read "Publish in Official Journal"; and the box says *Prior
-  Information Notice* where both steps call it a *Simplified Notice*.
-- *Ends and starts (actions sweep):* an end after each of the 19 steps a path
-  stops at, and a start before the 4 it begins at. On Fulfilment Despatch
-  Advice a goods flow from *Despatch Order Item(s)* to *Receive Order
-  Item(s)* (as in 11.6), and on Fig C.1 one into *receive goods*; on Utility
-  Billing connect *Report usage*, for
-  instance alongside *Raise Invoice*.
-- *Tender Award Notification (documents sweep):* draw the two notifications as
-  two exchanges, or with a decision (won / not won), rather than two boxes on
-  one line.
-- *CPFR two-way documents (documents sweep):* draw one box per direction, or
-  say plainly that either party may send it to the other.
-- *Document names (documents sweep):* use UBL's document type names as they
-  are ("Import Customs Declaration", "Proof Of Reexportation Request",
-  "Digital Capability", "Trade Item Location Profile"), one spelling of
-  "GoodsItem"; and on Initiate Freight Management "Send Bill of Lading to
-  Consignor" and "Send Waybill to Consignor" send to the Consignee as well.
-- *Export Customs Declaration (documents sweep):* the stamped declaration is
-  returned from the Customs Party to the Exporter; UBL lists the document as
-  sent by the Exporter only. Either the roles in UBL.xml grow a second
-  direction, or the return is drawn as a different document.
-- *Tender Guarantee Deposit (with `q8`):* obtaining the guarantee from a
-  financial institution is shown as one step with no document. Should UBL ever
-  cover that exchange, the financial institution would become a party with its
-  own column.
+stays faithful to the artwork; these questions are kept with the TC's other open
+questions, in the README ("Questions for the TC", D).
 
 ---
 

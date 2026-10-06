@@ -17,6 +17,9 @@ other, as at `3d81e8a` (CSD03), which this work was read from; `art/`, `htmlart/
 (`history/remaining-figures.md`); two more figures, `UBL-2.2-UseCase` and
 `UBL-2.2-UseCaseOverview`, are named only inside an XML comment and have no PNG.
 
+What is still to be decided by the TC is in one place: "Questions for the TC", near the
+end; A before the commit to the UBL repository.
+
 ## The source of truth: the draw.io drawings
 
 ```
@@ -253,11 +256,8 @@ replaces, per figure, `images/<figure>.drawio` (Ordering: none) and
 `images/<figure>.svg`, `art/<figure>.png` and `htmlart/<figure>.png`. Nothing
 in it is edited by hand: after an edit of a drawing, export it again and check.
 
-**Which branch** is for the TC. This work was read from `ubl-2.5` at `3d81e8a`
-(CSD03); since then UBL 2.5 has become an OASIS Standard (`ubl-2.5-os`, 2026-08-15;
-`ubl-2.5-iso` for ISO) and the work goes on in `ubl-2.6` (2.6 CSD01). `art/`,
-`htmlart/` and `images/` are the same on all of them as at `3d81e8a` (checked
-2026-10-06), so `to-ubl-repo/` applies to any of them as it is.
+Which branch it goes to is for the TC ("Questions for the TC", A1); the artwork is
+the same on all of them, so `to-ubl-repo/` applies to any as it is.
 
 ```sh
 NODE_PATH=$(npm root -g) node tools/export_drawio.js [--report <file.json>] to-ubl-repo diagrams/*/*.drawio diagrams/*/*.svg
@@ -288,17 +288,8 @@ figures, under other names, which a folder of files cannot say:
 `images/UBL 2.3-ImportDeclaration-Process.drawio`,
 `images/UBL 2.3-Transit Declaration Process.drawio`.
 
-**5 more files in its `images/`, not decided yet** (found 2026-10-06): none is a
-source of the 96 under its name, and `UBL.xml` uses none; all came with the TC's
-initial load of 2021-05-15. Two are older sources of our figures, as the 3 above:
-`UBL-2.3-GoodsCertificateProcess.svg` (Goods Certificate Export, under its former
-name: the same words) and `UBL-2.3-RequestForProofOfReexportationProcess-old.svg` (an
-earlier, smaller version of that figure). Three are of figures UBL does not
-have, none ever with a PNG in `art/` on any branch: `UBL-2.2-Tender-Contract.svg` (an
-earlier, smaller Tender Contract, 7 labels; `-Pre` and `-Post` have its place), and
-`UBL-2.2-Tender-TenderingProcess.svg` with `UBL-2.3-Tender-TenderingProcess.drawio`
-(one overview of the tendering process, in both). Whether the commit removes them too
-is for the TC.
+Its `images/` has **5 more files** that are none of the 96 and that `UBL.xml` does not
+use: whether the commit removes them too is "Questions for the TC", A2.
 
 The SVG is draw.io's own (`getSvg`, the viewer of the pinned release), with
 each label made SVG text: draw.io writes a label as HTML, which the browser
@@ -324,8 +315,7 @@ publishes its artwork (its README, "Artwork"; `build.xml`; `realta-user-paramete
   `htmlart/<figure>.png` (web: at most 750 px wide). Both PNGs are rendered from
   the SVG, so they cannot drift from it. `UBL.xml` keeps pointing at
   `art/<figure>.png`: nothing changes in how UBL is published. Publishing the
-  SVG itself (as `ubl-2.4-os-iso-pub` did, with SVGs that only wrapped the
-  PNGs) is for a wider discussion with the TC. A test build with these files
+  SVG itself: "Questions for the TC", B1. A test build with these files
   through Réalta, the UBL publishing server, is done on the UBL repository's
   side, in a test branch there, not from here.
 - **It replaces what is there:** for 20 of the 78 diagrams the UBL repository
@@ -334,7 +324,7 @@ publishes its artwork (its README, "Artwork"; `build.xml`; `realta-user-paramete
   other names (`UBL 2.3-Common Transportation Report-Process.drawio`,
   `UBL 2.3-ImportDeclaration-Process.drawio`, `UBL 2.3-Transit Declaration Process.drawio`).
   The UBL repository's history keeps them; the commit message names each (5 more
-  files there are not decided yet: above). The 7 illustrations have no source
+  files there: "Questions for the TC", A2). The 7 illustrations have no source
   there: the commit adds theirs.
 - **The 78, the 7 illustrations, the 4 of Group A and (2026-10-05) the 3 of Group B and the 4 of Group C:**
   the one other figure of the UBL repository is left as it is
@@ -375,8 +365,8 @@ publishes its artwork (its README, "Artwork"; `build.xml`; `realta-user-paramete
   at its natural size where it is narrower. The export reports per figure the
   scale and the size its text prints at. draw.io's "12 pt" is 12 px, and the
   page is 548 px wide at 96 px/in, so at natural size it prints at 9 pt, and in
-  the widest figure (Fulfilment Receipt Advice, scale 0.39) at 3.5 pt. Changing
-  the drawings to even that out is for later.
+  the widest figure (Fulfilment Receipt Advice, scale 0.39) at 3.5 pt. Whether
+  to change the drawings to even that out: "Questions for the TC", B3.
 - **draw.io's code is pinned:** the export draws with draw.io's viewer of one
   release (`tools/drawio-version.json`, now 32.0.2; the baseline's was 31.5.3), fetched from
   that release's tag in [jgraph/drawio](https://github.com/jgraph/drawio), so an
@@ -388,7 +378,8 @@ publishes its artwork (its README, "Artwork"; `build.xml`; `realta-user-paramete
   Liberation Sans, as the baseline's did. No font is embedded (both Helvetica
   and Cambria are licensed).
 
-**If ISO requires its own font** (ISO/CS asks for Cambria in graphics): do it for
+**If ISO requires its own font** (ISO/CS asks for Cambria in graphics; whether it
+does: "Questions for the TC", B2): do it for
 the ISO deliverables only, never in the drawings. Export the ISO SVGs with the
 font set at export time (`fontFamily=Cambria` on every cell), render them with
 Cambria or its metric-compatible stand-in Caladea, and check that every label
@@ -549,37 +540,226 @@ since:
 
 `history/README.md` is the repository's former README, describing steps 1-4.
 
+## Questions for the TC
+
+Every question this work leaves for the TC, in one place (collected 2026-10-06). Elsewhere
+in this repository a question is only pointed to, by its number here. A is to be settled
+before the commit to the UBL repository; B is how UBL publishes the figures; C is BPMN and
+the lost originals; D is what the diagrams say, for when they are next revised.
+
+### A. Before the commit to the UBL repository
+
+**A1. Which branch?** This work was read from `ubl-2.5` at `3d81e8a` (CSD03). Since then
+UBL 2.5 has become an OASIS Standard (`ubl-2.5-os`, 2026-08-15; `ubl-2.5-iso` for ISO) and
+the work goes on in `ubl-2.6` (2.6 CSD01). `art/`, `htmlart/` and `images/` are the same on
+all of them as at `3d81e8a` (checked 2026-10-06), so `to-ubl-repo/` applies to any of them
+as it is. Suggested: `ubl-2.6`, unless the SVGs are wanted for the ISO submission of 2.5.
+
+**A2. Remove 5 more files from `images/`?** Found 2026-10-06: none is a source of the 96
+under its name, and `UBL.xml` uses none; all came with the TC's initial load of 2021-05-15.
+Two are older sources of our figures, as the 3 the commit removes ("Images made from the
+drawings"): `UBL-2.3-GoodsCertificateProcess.svg` (Goods Certificate Export, under its
+former name: the same words) and `UBL-2.3-RequestForProofOfReexportationProcess-old.svg` (an
+earlier, smaller version of that figure). Three are of figures UBL does not have, none ever
+with a PNG in `art/` on any branch: `UBL-2.2-Tender-Contract.svg` (an earlier, smaller Tender
+Contract, 7 labels; `-Pre` and `-Post` have its place), and
+`UBL-2.2-Tender-TenderingProcess.svg` with `UBL-2.3-Tender-TenderingProcess.drawio` (one
+overview of the tendering process, in both). Suggested: remove all five; the UBL
+repository's history keeps them.
+
+**A3. How is a figure edited once it is in the UBL repository?** Its README's "Artwork"
+still says to export the PNG from draw.io by hand (600 dpi) and scale the `htmlart/` copy in
+GIMP. Done that way to one of these figures, its SVG goes stale unseen and its PNGs are
+unlike the others (not 1 bit, not rendered from the SVG). The section should change in the
+same commit: edit `images/<figure>.drawio`, then export as here. To decide: where the tools
+are (here, or moved to the UBL repository), and which copy of the drawings is edited from
+then on (`diagrams/` here, or `images/` there), so that a figure has one source.
+
+**A4. May the illustrations' clip art be published as it is?** The published SVGs carry it
+as vector art.
+
+- *The CPFR step figures:* the people were traced from copies of the Visio stencil's own
+  pictures (the originals are lost); they are drawn anew, but follow those drawings
+  closely. If that is not acceptable, the people would have to be drawn freely
+  (pictograms). The document, the clipboard, the desk's things and the stack of documents
+  are this work's own drawing (`history/illustrations/cpfr/README.md`).
+- *The Fulfilment figures:* 7 parts (the Supplier, the Buyer, the forwarder, Supplier B,
+  Buyer B, two parcels) are the clip art of Tim McGrath's deck, converted (WMF to SVG), and
+  the document is traced from the deck's picture; the pallet is this work's own drawing
+  (the deck has a stock photo) (`history/illustrations/README.md`).
+
+**A5. Remove `art/UBL-2.0-BillingwithCreditNoteProcess.png`?** It is in the UBL repository's
+`art/` (not in `htmlart/`) and not used: `UBL.xml` does not cite it. If the TC keeps it, it
+is a UML activity diagram and would be the 79th drawing: the pipeline of `history/` does
+not need to be run again for it, the drawing is made like the others
+(`history/drawio-writer/README.md`; `history/remaining-figures.md`).
+
+### B. How UBL publishes the figures (after the commit)
+
+**B1. Publish the SVG itself?** `UBL.xml` keeps pointing at `art/<figure>.png`: the commit
+changes nothing in how UBL is published. Publishing the SVG (as `ubl-2.4-os-iso-pub` did,
+with SVGs that only wrapped the PNGs) is for a wider discussion.
+
+**B2. Does ISO require its own font in graphics?** ISO/CS asks for Cambria. If it does, it
+is done for the ISO deliverables only, at export time, never in the drawings ("Decided for
+that export", "If ISO requires its own font").
+
+**B3. Even out the printed text size?** Each figure is fitted to the page width, so
+draw.io's 12 px text prints at 9 pt at natural size and at 3.5 pt in the widest figure
+(Fulfilment Receipt Advice, scale 0.39); the export reports it per figure. Evening it out
+means changing the drawings. With it: Pre-award and Procurement are the TC's drawings at
+3425 px wide (text 40-70 px, 8 px lines), not at the others' 12 px convention; a version
+rescaled to 0.3 exists as an experiment and could be adopted (`history/group-a/README.md`,
+"`redrawn/`").
+
+### C. BPMN, and the lost originals
+
+**C1. Should the 78 UML activity diagrams become BPMN too?** Their drawings use BPMN pools
+and lanes. Official BPMN 2.0 files are required (by the editor) for the two BPMN figures,
+Ordering and Business Information: a session of its own (`history/group-a/README.md`,
+"Future session"). The two phase maps stay draw.io.
+
+**C2. Business Information's envelopes, in its BPMN version.** A message flow joins two
+elements directly; the envelope can become a message event or a send/receive task (which
+changes what the figure says) or be dropped. Its message flows that end at an end event (not
+a message end event) need the same decision.
+
+**C3. If Ordering's `.bpmn` stays lost, is a reconstruction acceptable?** The original,
+`UBL-2.3-OrderingProcess.bpmn`, is attached to the `ubl` list's mail of 2019-05-07
+("UBL-171 - BPMN diagram + SVG") and is not found yet (`history/group-a/README.md`). Written
+from the bpmn-js SVG, which came from the model, little would be lost, and the file would
+say it is a reconstruction.
+
+**C4. Can someone with a browser search the `ubl` list's archive?** The archives
+(`lists.oasis-open.org`, `lists-archive.oasis-open.org`) refuse a script. Wanted: the
+2019-05-07 attachment above, and the posts of 2016-2020 around the figures' creation (UBL
+2.2: the IMFM, Open-edi, Schema Dependencies and UDT/QDT figures; UBL 2.3: Model
+Realization), where an attachment may be a source. Worth an hour: search for `svg`,
+`visio`, `vsd`, `png`, `bpmn` and the figure names. A find goes in
+`history/<group>/sources/` (`history/remaining-figures.md`, `history/group-a/README.md`).
+
+### D. What the diagrams say, for their next revision
+
+The drawings stay faithful to the artwork. These are the points where the artwork itself may
+be wrong, raised in the review of the figures with the TC (2026-09, the questions `q7` to
+`q15`: `history/docs/artwork-conversion-notes.md`, §11 and §16), kept for when the diagrams
+themselves are next revised. Figure numbers are as in that review.
+
+- **D1. Billing with Debit Note: the supplier's guards** (decided: to be fixed in UBL 2.6; to
+  confirm: the new guard). The supplier's Reconcile Charges sends [initial charges or under
+  charged] to *Raise Invoice* and [under charged] to *Raise Debit Note*: the two guards
+  overlap, so "under charged" does not say which way to go (on the credit-note twin the
+  second branch is [over charged]). The fault is new in 2.5: UBL 2.0 to 2.4 draw a different
+  process, the Customer raising the Debit Note when [over charged] (os-UBL-2.4
+  `art/UBL-2.0-BillingwithDebitNoteProcess.png`, the same drawing since 2.1, and in 2.0 as a
+  JPEG), with the Supplier's diamond sending only [initial charges or under charged] to
+  *Raise Invoice*. The 2.5 figure moves the Debit Note to the Supplier (the text after it now
+  says the Supplier specifies the tax requirements) and was redrawn from the credit-note
+  figure, keeping that guard; most likely the invoice branch should read [initial charges].
+  The figure is published unchanged in the OASIS Standard (os-UBL-2.5, 12 August 2026, the
+  same guards; the file there is a different export of the same drawing). The TC
+  (2026-09-28): to be fixed in UBL 2.6. (Approved Errata, TC Process
+  2.9, are limited to corrections that are not a Material Change, which a changed guard in a
+  process diagram arguably is.)
+- **D2. Update Catalogue Pricing, Create Catalogue, Update Catalogue Item Specification:** on
+  all three a document runs straight into an end with no step that receives it, and the
+  preparing step has two ways in (a start or a loop, and the fork) where "either" is meant -
+  in UML two ways into a step mean "both"; a merge diamond would say it.
+- **D3. Certification of Origin:** *Receive Response* has two ways out with no decision; the
+  accepted outcomes (*Endorse CoO*) never reach the Exporter.
+- **D4. Fig 37, Punch-out Sourcing** (`q7`, raised 2026-09-27):
+  - *Who builds the basket?* The artwork puts *Build shopping basket* in the Seller Supplier
+    Party's column. But in punch-out it is the Originator who browses the catalogue and
+    fills the basket, on the Seller's system. UBL.xml says so itself: "The Originators leave
+    ... their system and interact with the Seller's catalogue to locate and order products".
+    The column may be showing whose system it is rather than who acts. A revised diagram
+    could say this plainly, for instance with the action in the Originator's column and the
+    Seller's catalogue application named as where it happens.
+  - *UBL.xml's text reads "Seller" where "Originator" seems meant.* It says punch-out lets an
+    Originator access a Seller's catalogue application "from within the Seller's own
+    procurement application", which by the rest of the paragraph should be the Originator's
+    own. Whose procurement application "transparently gathers pertinent information" is
+    unclear for the same reason.
+- **D5. Fig 14, CPFR Exception Monitor** (`q9`): redraw the connector from the Buyer's *Send
+  Exception* to *Exception Notification (positive)* like its mirror on the Seller's side. A
+  layout matter, for the session that re-lays diagrams.
+- **D6. Goods Item Passport figures** (found 2026-09-27): the artwork writes the name both "GoodsItem" and
+  "Goodsitem". The model follows the artwork in each place; a revision could make them all
+  "GoodsItem".
+- **D7. Utility Billing** (`q12`): drop "(from Business Processes)" in a redraw: the package
+  means nothing to a reader of the specification; if the link matters, refer to the billing
+  section instead.
+- **D8. Documents across an intermediate lane** (`q14`): the artwork puts such a box next to
+  the receiver 5 times and next to the sender 4 times. A redraw could agree a convention -
+  simplest, always on the divider next to the receiver.
+- **D9. Freight Status Reporting** (`q15`): "Receiver Party" is a questionable name for a
+  party that both receives a request and sends the status report; and the divider marking
+  off the self-initiated start could go - in BPMN it would be a timer start inside the
+  Receiver Party's lane.
+- **D10. Waste Movement and Waste Notification** (`q15`): the column titles read
+  "Senderparty" and "ReceiverParty"; UBL.xml says "Sender Party" and "Receiver Party".
+- **D11. CPFR phase boxes:** size each to its steps and the words that belong to it, with the
+  same margin on every figure (Fig 9 is far too wide; Fig 7's "Retail Event Accepted ?"
+  pokes out of its box).
+- **D12. Decisions** (completeness sweep): guard every branch and give every diamond its question. Fig C.1,
+  Certification of Origin and Fulfilment Despatch Advice can take their guards from the step
+  each branch leads to; Create Catalogue's diamond can say "Respond to Request" as its Update
+  Catalogue siblings do; the 2.5 billing figures' unlabelled branch out of *Reconcile
+  Charges* can read [otherwise] or [dispute charges].
+- **D13. Intermodal Freight Management:** split *Provide Transportation Network Information*
+  into one step per phase (Planning, Execution).
+- **D14. Party names:** one style across the figures, and one name per role (Buyer / Buyer
+  Party / Originator Customer Party ...), checked against the party roles UBL.xml gives for
+  each document.
+- **D15. Self Billing** (text sweep): the choice after *Raise Self Billed Invoice* - accepted, or a reply
+  comes - drawn as a branch, in BPMN an event-based gateway: an Application Response, a
+  Credit Note, or no reply meaning the charges are accepted.
+- **D16. Tender Contract Information Preparation** (text sweep): "Publish Official Journal" would read
+  "Publish in Official Journal"; and the box says *Prior Information Notice* where both
+  steps call it a *Simplified Notice*.
+- **D17. Ends and starts** (actions sweep): an end after each of the 19 steps a path stops at, and a start
+  before the 4 it begins at. On Fulfilment Despatch Advice a goods flow from *Despatch Order
+  Item(s)* to *Receive Order Item(s)* (as in the notes' §11.6), and on Fig C.1 one into
+  *receive goods*; on Utility Billing connect *Report usage*, for instance alongside *Raise
+  Invoice*.
+- **D18. Fulfilment with Despatch Advice:** the Despatch Party lane has a start event labelled
+  "From Order", the Delivery Party lane has none. The TC: this diagram needs proper cleaning
+  up (notes §11.4).
+- **D19. Tender Award Notification** (documents sweep): draw the two notifications as two exchanges, or with a
+  decision (won / not won), rather than two boxes on one line (the TC: a decision diamond,
+  and arguably an extra lane for the awarded/unawarded split; notes §11.4).
+- **D20. Tender Contract Pre and Post:** *Prior exchange of public keys* appears in both lanes,
+  joined by a dashed line with an arrowhead at each end: a mutual precondition, not a flow.
+  It needs additional work in the BPMN conversion (notes §11.4).
+- **D21. CPFR two-way documents** (documents sweep): draw one box per direction, or say plainly that either
+  party may send it to the other.
+- **D22. Document names** (documents sweep): use UBL's document type names as they are ("Import Customs
+  Declaration", "Proof Of Reexportation Request", "Digital Capability", "Trade Item Location
+  Profile"), one spelling of "GoodsItem"; and on Initiate Freight Management "Send Bill of
+  Lading to Consignor" and "Send Waybill to Consignor" send to the Consignee as well.
+- **D23. Export Customs Declaration** (documents sweep): the stamped declaration is returned from the Customs
+  Party to the Exporter; UBL lists the document as sent by the Exporter only. Either the
+  roles in UBL.xml grow a second direction, or the return is drawn as a different document.
+- **D24. Tender Guarantee Deposit** (`q8`): obtaining the guarantee from a financial
+  institution is shown as one step with no document. Should UBL ever cover that exchange,
+  the financial institution would become a party with its own column.
+
 ## Open work
 
-- **Before the commit to the UBL repository**, for the TC (found 2026-10-06):
-  - **the branch** ("Images made from the drawings", "Which branch");
-  - **the 5 more files** in its `images/` (the same section, "5 more files");
-  - **its README's "Artwork"**, which still says to export the PNG from draw.io by
-    hand (600 dpi) and scale the `htmlart/` copy in GIMP. Done that way to one of
-    these figures, its SVG goes stale unseen and its PNGs are unlike the others (not
-    1 bit, not rendered from the SVG). The section should change in the same commit:
-    edit `images/<figure>.drawio`, then export as here. That needs a decision on
-    where the tools are (here, or moved to the UBL repository) and on which copy of
-    the drawings is edited from then on (`diagrams/` here, or `images/` there), so that
-    a figure has one source;
-  - **the clip art in the illustrations**: the CPFR people are traced from the
-    stencil's pictures (`history/illustrations/cpfr/README.md`, "Open work"); in the
-    Fulfilment figures 7 parts are the deck's own clip art, converted (WMF to SVG),
-    and the document is traced from the deck's picture (`history/illustrations/README.md`).
-    The published SVGs carry them as vector art; whether that may be published so is
-    the same question.
+- **The TC's answers** ("Questions for the TC"): A before the commit to the UBL
+  repository, the rest after it.
 - **The other figure** of the UBL repository: one that is no longer used
   (`UBL-2.0-BillingwithCreditNoteProcess`; Groups B and C are done: `history/group-b/`, `history/group-c/`);
-  what it is and how to go about it is in `history/remaining-figures.md`.
+  whether it stays is A5; what it is is in `history/remaining-figures.md`.
 - **Official BPMN 2.0 files for the BPMN figures** (Ordering, Business Information): the editor
-  requires them as the sources of BPMN diagrams; what is needed, and the decisions it takes, is in
-  `history/group-a/README.md` ("Future session").
+  requires them as the sources of BPMN diagrams; what is needed is in
+  `history/group-a/README.md` ("Future session"), the decisions it takes are C1-C3.
 - **The BPMN 2.0 XML of the Ordering Process** (`UBL-2.3-OrderingProcess.bpmn`, attached to
   the `ubl` list's mail of 2019-05-07, UBL-171): not found yet (not by the editor either,
-  2026-10-05; the list archives are not reachable from a script). Ordering's source here is the
+  2026-10-05; the list archives are not reachable from a script: C4). Ordering's source here is the
   bpmn-js SVG, a picture without the BPMN model: **do not hand-edit it**; there is no draw.io
   version, on purpose. If the `.bpmn` stays lost, the BPMN session writes it from the SVG as a
-  reconstruction (`history/group-a/README.md`, "Ordering: the SVG is all there is").
+  reconstruction, if the TC agrees (C3; `history/group-a/README.md`, "Ordering: the SVG is all there is").
 - **The CPFR step figures:** what is still open on them is in
   `history/illustrations/cpfr/README.md` ("Open work").
 

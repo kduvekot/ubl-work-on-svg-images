@@ -97,7 +97,8 @@ this commit writes exactly the JSONs, SVGs and draw.io files in `diagrams/`
    boxes; no grey; fork bars black; small arrowhead differences are accepted.
 6. **Points for a future UBL release**, where the artwork itself is wrong (for
    instance the guard overlap on Billing with Debit Note, for UBL 2.6), are
-   listed in notes §16.
+   listed with the TC's other open questions in the main README ("Questions for
+   the TC", D).
 
 ## Working method
 
