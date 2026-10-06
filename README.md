@@ -12,8 +12,8 @@ sources are lost; these drawings are now the figures' source. They are:
   Group B and the 4 reference figures of Group C.
 
 How they came to be, and the measurements behind the rules below: `history/README.md`. What the
-TC still has to decide is in one place, near the end: "Questions for the TC" (question A5
-before the commit to the UBL repository).
+TC still has to decide is in one place, near the end: "Questions for the TC" (the questions to
+settle before the commit to the UBL repository, A1-A5, are answered; B, C and D are for after it).
 
 **Once committed to the UBL repository, its drawings are the figures' source** (A3, answered
 2026-10-06): `images/<figure>.drawio` there, which its build renders into the SVG and the PNGs, so
@@ -263,9 +263,10 @@ how it is made, and what was decided"). `--report` writes, per figure, its size,
 fitted to the page at and the size its text prints at (kept out of `to-ubl-repo/`: it is not for
 UBL). The export needs Node with playwright; the check Python 3 with pillow.
 
-**The commit to the UBL repository also removes 8 files from `images/`**, which a folder of
-files cannot say (A2, answered): the 3 older sources of our figures under other names, and 5 more
-files that are none of the 96 and that `UBL.xml` does not use (left there, they would confuse):
+**The commit to the UBL repository also removes 9 files**, which a folder of files cannot say:
+from `images/`, the 3 older sources of our figures under other names and 5 more files that are
+none of the 96 and that `UBL.xml` does not use (A2; left there, they would confuse); from `art/`,
+the PNG of a figure `UBL.xml` no longer uses (A5):
 
 ```sh
 git rm "images/UBL 2.3-Common Transportation Report-Process.drawio" \
@@ -275,11 +276,27 @@ git rm "images/UBL 2.3-Common Transportation Report-Process.drawio" \
        images/UBL-2.3-RequestForProofOfReexportationProcess-old.svg \
        images/UBL-2.2-Tender-Contract.svg \
        images/UBL-2.2-Tender-TenderingProcess.svg \
-       images/UBL-2.3-Tender-TenderingProcess.drawio
+       images/UBL-2.3-Tender-TenderingProcess.drawio \
+       art/UBL-2.0-BillingwithCreditNoteProcess.png
 ```
 
-Then `images/` holds the 96 drawings and their SVGs and nothing else (tried on `ubl-2.6`,
-2026-10-06: the same 192 files as `to-ubl-repo/images/`).
+Then `images/` holds the 96 drawings and their SVGs and nothing else, and `art/` and `htmlart/`
+the 96 figures' PNGs (tried on `ubl-2.6`, 2026-10-06: the same files as `to-ubl-repo/`).
+
+**A second commit, of its own: the figures commented out in `UBL.xml`** (decided 2026-10-06 by the
+UBL editor). `UBL.xml` on `ubl-2.6` has one comment that points at figures: line 700, in "Business
+Object Overview" (`S-BUSINESS-OBJECT-OVERVIEW`), a paragraph and two figures,
+`UBL-2.2-UseCaseOverview` and `UBL-2.2-UseCase`, which no branch has ever had a PNG or a source of.
+It goes, in a commit of its own on `ubl-2.6`: it changes the specification's text, not its
+artwork, and what the build publishes stays the same (a comment is not published):
+
+```sh
+sed -i '/<!--<para>The following diagrams illustrate the business context use case/d' UBL.xml
+```
+
+One line goes (tried on `ubl-2.6` at `d3e98ac`: `xmllint` passes before and after, and `UBL.xml`
+then names neither figure). `UBL-2.5.xml` there, the document of the previous version, has the same
+comment and is left as it is.
 
 #### In the UBL repository: the build renders the drawings
 
@@ -469,9 +486,10 @@ UBL PNGs to these drawings, step by step, and the measurements and trials behind
 ## Questions for the TC
 
 Every question this work leaves for the TC, in one place (collected 2026-10-06). Elsewhere
-in this repository a question is only pointed to, by its number here. A is to be settled
-before the commit to the UBL repository; B is how UBL publishes the figures; C is BPMN and
-the lost originals; D is what the diagrams say, for when they are next revised.
+in this repository a question is only pointed to, by its number here. A was to be settled
+before the commit to the UBL repository (all answered, 2026-10-06); B is how UBL publishes the
+figures; C is BPMN and the lost originals; D is what the diagrams say, for when they are next
+revised.
 
 ### A. Before the commit to the UBL repository
 
@@ -517,7 +535,9 @@ as vector art.
   the document is traced from the deck's picture; the pallet is this work's own drawing
   (the deck has a stock photo) (`history/illustrations/README.md`).
 
-**A5. Remove `art/UBL-2.0-BillingwithCreditNoteProcess.png`?** It is in the UBL repository's
+**A5. Remove `art/UBL-2.0-BillingwithCreditNoteProcess.png`?** *Answered 2026-10-06 by the UBL
+editor:* yes; the commit removes it with A2's files ("Images made from the drawings"). It is in
+the UBL repository's
 `art/` (not in `htmlart/`) and not used: `UBL.xml` does not cite it. If the TC keeps it, it
 is a UML activity diagram and would be the 79th drawing: the pipeline of `history/` does
 not need to be run again for it, the drawing is made like the others
@@ -680,11 +700,11 @@ themselves are next revised. Figure numbers are as in that review.
 
 ## Open work
 
-- **The TC's answers** ("Questions for the TC"): question A5 before the
-  commit to the UBL repository, the rest after it.
-- **The commit to the UBL repository**, once A5 is answered: `to-ubl-repo/`
-  copied over a clone of `ubl-2.6` (A1), 8 files removed from `images/` (A2: the 3 older
-  sources and the 5 more files), and three of its files edited with it, `build-common.sh`,
+- **The TC's answers** ("Questions for the TC"): B, C and D, after the commit to the UBL
+  repository (A1-A5, before it, are answered).
+- **The commit to the UBL repository:** `to-ubl-repo/` copied over a clone of `ubl-2.6` (A1),
+  9 files removed (A2: the 3 older sources and the 5 more files in `images/`; A5: the unused PNG
+  in `art/`), and three of its files edited with it, `build-common.sh`,
   `.github/workflows/build.yml` and its README's "Artwork" (A3; "In the UBL repository: the build
   renders the drawings"). Its message names each file removed and what it was, and says that
   Group A's three drawings change only in form, that Ordering's bpmn-js SVG is replaced by its
@@ -693,6 +713,8 @@ themselves are next revised. Figure numbers are as in that review.
   renders them from the drawings ("Images made from the drawings"; `history/remaining-figures.md`,
   "Before the UBL repository gets any of it"). A test build on the UBL repository's side, on
   GitHub: the artwork step on the runner (its annotations), then Ant and Réalta.
+- **A second commit to `ubl-2.6`, of its own:** the figures commented out in `UBL.xml` removed
+  (one line; "Images made from the drawings").
 - **Official BPMN 2.0 files for the BPMN figures** (Ordering, Business Information): the
   UBL editor, Kees Duvekot, requires them as the sources of BPMN diagrams; what is needed
   is in `history/group-a/README.md` ("Future session"), the decisions it takes are C1-C3.

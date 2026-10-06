@@ -69,8 +69,9 @@ Checked 2026-10-06 against the UBL repository: the `UBL.xml` of the OASIS Standa
 (`ubl-2.5-os`, published 2026-08-12), of `ubl-2.5-iso` and of `ubl-2.6` cites these 96 and no
 other, as at `3d81e8a` (CSD03), which this work was read from; `art/`, `htmlart/` and
 `images/` have not changed since. `art/` has a 97th PNG, no longer used
-(`history/remaining-figures.md`); two more figures, `UBL-2.2-UseCase` and
-`UBL-2.2-UseCaseOverview`, are named only inside an XML comment and have no PNG.
+(`history/remaining-figures.md`; the commit removes it, A5); two more figures, `UBL-2.2-UseCase` and
+`UBL-2.2-UseCaseOverview`, are named only inside an XML comment and have no PNG (the comment is
+removed in a commit of its own: README, "Images made from the drawings").
 
 ## How the 78 were drawn
 
@@ -244,7 +245,7 @@ publishes its artwork (its README, "Artwork"; `build.xml`; `realta-user-paramete
   Model Realization) had no source, as the 78 and the 7 illustrations had none: they are
   drawn from the UBL repository's PNGs (`history/group-b/`, `history/group-c/`). The one
   other figure of the UBL repository, no longer used (`UBL-2.0-BillingwithCreditNoteProcess`),
-  is left as it is: whether it stays is README, "Questions for the TC", A5.
+  is not drawn: the commit removes it (README, "Questions for the TC", A5, answered 2026-10-06).
 - **The PNGs:** the drawings are black and white only (`#000000`, `#ffffff`),
   and so is `art/<figure>.png`: 1 bit, a pixel black where the drawing covers
   at least half of it, as line art is printed (at 600 dpi a pixel is 0.04 mm;

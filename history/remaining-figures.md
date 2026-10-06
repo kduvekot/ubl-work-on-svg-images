@@ -63,11 +63,13 @@ first, as the most likely to be pure boxes and arrows, then `DefaultValidation` 
 ## Not to do
 
 `UBL-2.0-BillingwithCreditNoteProcess` (3425x1813) is in the UBL repository's `art/` and not
-used: `UBL.xml` does not cite it. Ken Holman's SVG of it is real vector (34 texts). Whether it
-stays, and what then: README, "Questions for the TC", A5.
+used: `UBL.xml` does not cite it. Ken Holman's SVG of it is real vector (34 texts). The commit
+to the UBL repository removes it (README, "Questions for the TC", A5, answered 2026-10-06).
 
 `UBL-2.2-UseCase` and `UBL-2.2-UseCaseOverview` (checked 2026-10-06): `UBL.xml` names them only inside
-an XML comment, and no branch of the UBL repository has ever had a PNG or a source of them. Nothing to do.
+an XML comment, and no branch of the UBL repository has ever had a PNG or a source of them. Nothing to
+draw; the comment is removed from `UBL.xml` in a commit of its own (README, "Images made from the
+drawings", decided 2026-10-06).
 
 ## Where the originals may still be
 
