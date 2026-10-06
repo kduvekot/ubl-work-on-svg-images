@@ -178,8 +178,10 @@ completed by his symmetry, and only then the areas filled.
   the PNG;
 - the drawings edit as draw.io diagrams (panels as containers, flows attached),
   not as loose shapes;
-- the shading of the handshake people and one grey balance left for later
-  (below).
+- the shading of the handshake people left for later (below); the greys of
+  the five parts accepted as they are (2026-10-06): at their real size in the
+  figures they are a little paler than the UBL PNGs' pictures, which is good
+  enough.
 
 **Tools changed for these figures** (they hold for all figures):
 `tools/check_svg.py` judges "on white" by the page round the drawing, not the
@@ -206,8 +208,6 @@ the browser.
   table (`made/lines/`): their lines traced one by one, so that they split the
   bodies into the areas the render shades. A future improvement; the figures
   are complete without it.
-- **One grey balance** over the five parts: at their real size in the figures
-  they are a little paler than the UBL PNGs' pictures. Left as it is for now.
 - **The clip art's origin**, for the TC to decide: README, "Questions for the
   TC", A4. If the traced people are not acceptable, they would have to be
   drawn freely (pictograms).
