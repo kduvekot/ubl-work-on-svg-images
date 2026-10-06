@@ -230,7 +230,7 @@ publishes its artwork (its README, "Artwork"; `build.xml`; `realta-user-paramete
   other names (`UBL 2.3-Common Transportation Report-Process.drawio`,
   `UBL 2.3-ImportDeclaration-Process.drawio`, `UBL 2.3-Transit Declaration Process.drawio`).
   The UBL repository's history keeps them; the commit message names each (5 more
-  files there: README, "Questions for the TC", A2). The 7 illustrations have no source
+  files there, removed too: README, "Questions for the TC", A2, answered 2026-10-06). The 7 illustrations have no source
   there: the commit adds theirs.
 - **The other 11 of the 96** (2026-10-05): the 4 of Group A had a source in `images/`
   (`UBL-2.3-Pre-awardProcess`, `UBL-2.3-ProcurementProcess`, `UBL-2.4-BusinessInformation`:

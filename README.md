@@ -12,8 +12,8 @@ sources are lost; these drawings are now the figures' source. They are:
   Group B and the 4 reference figures of Group C.
 
 How they came to be, and the measurements behind the rules below: `history/README.md`. What the
-TC still has to decide is in one place, near the end: "Questions for the TC" (questions A2, A4
-and A5 before the commit to the UBL repository).
+TC still has to decide is in one place, near the end: "Questions for the TC" (questions A4 and
+A5 before the commit to the UBL repository).
 
 **Once committed to the UBL repository, its drawings are the figures' source** (A3, answered
 2026-10-06): `images/<figure>.drawio` there, which its build renders into the SVG and the PNGs, so
@@ -263,14 +263,23 @@ how it is made, and what was decided"). `--report` writes, per figure, its size,
 fitted to the page at and the size its text prints at (kept out of `to-ubl-repo/`: it is not for
 UBL). The export needs Node with playwright; the check Python 3 with pillow.
 
-**The commit to the UBL repository also removes** 3 older sources of our
-figures, under other names, which a folder of files cannot say:
-`images/UBL 2.3-Common Transportation Report-Process.drawio`,
-`images/UBL 2.3-ImportDeclaration-Process.drawio`,
-`images/UBL 2.3-Transit Declaration Process.drawio`.
+**The commit to the UBL repository also removes 8 files from `images/`**, which a folder of
+files cannot say (A2, answered): the 3 older sources of our figures under other names, and 5 more
+files that are none of the 96 and that `UBL.xml` does not use (left there, they would confuse):
 
-Its `images/` has **5 more files** that are none of the 96 and that `UBL.xml` does not
-use: whether the commit removes them too is "Questions for the TC", A2.
+```sh
+git rm "images/UBL 2.3-Common Transportation Report-Process.drawio" \
+       "images/UBL 2.3-ImportDeclaration-Process.drawio" \
+       "images/UBL 2.3-Transit Declaration Process.drawio" \
+       images/UBL-2.3-GoodsCertificateProcess.svg \
+       images/UBL-2.3-RequestForProofOfReexportationProcess-old.svg \
+       images/UBL-2.2-Tender-Contract.svg \
+       images/UBL-2.2-Tender-TenderingProcess.svg \
+       images/UBL-2.3-Tender-TenderingProcess.drawio
+```
+
+Then `images/` holds the 96 drawings and their SVGs and nothing else (tried on `ubl-2.6`,
+2026-10-06: the same 192 files as `to-ubl-repo/images/`).
 
 #### In the UBL repository: the build renders the drawings
 
@@ -288,7 +297,7 @@ there). `check_svg.py to-ubl-repo` also fails where a copy is behind: "utilities
 tools/X: copy it again" ("Before a pull request", step 4).
 
 `render.sh` renders the figures `UBL.xml` shows (`art/<figure>.png`) that have a drawing, so a
-drawing in `images/` that is not a figure (the 3 older sources, A2's files) is left alone. It
+drawing in `images/` that is not a figure (as before the commit, the 4 it removes) is left alone. It
 renders into a scratch folder and checks (`check_svg.py`); only a render that passes replaces the
 committed files. Where the tools are missing or the render fails (a drawing that is not well-formed
 is refused), the committed files are used. Where a committed SVG is not what its drawing gives, it
@@ -473,7 +482,9 @@ on `ubl-2.5-os`, `ubl-2.5-iso` and `ubl-2.6` as there (checked 2026-10-06), so t
 fit any of them; `build-common.sh` and `build.yml` are another version on the 2.5 branches than
 on `ubl-2.6`, where the build step was tested.
 
-**A2. Remove 5 more files from `images/`?** Found 2026-10-06: none is a source of the 96
+**A2. Remove 5 more files from `images/`?** *Answered 2026-10-06 by the UBL editor:* yes, all
+five, as they would confuse; the commit removes them with the 3 older sources, before it is merged
+("Images made from the drawings"). Found 2026-10-06: none is a source of the 96
 under its name, and `UBL.xml` uses none; all came with the TC's initial load of 2021-05-15.
 Two are older sources of our figures, as the 3 the commit removes ("Images made from the
 drawings"): `UBL-2.3-GoodsCertificateProcess.svg` (Goods Certificate Export, under its
@@ -482,8 +493,7 @@ earlier, smaller version of that figure). Three are of figures UBL does not have
 with a PNG in `art/` on any branch: `UBL-2.2-Tender-Contract.svg` (an earlier, smaller Tender
 Contract, 7 labels; `-Pre` and `-Post` have its place), and
 `UBL-2.2-Tender-TenderingProcess.svg` with `UBL-2.3-Tender-TenderingProcess.drawio` (one
-overview of the tendering process, in both). Suggested: remove all five; the UBL
-repository's history keeps them.
+overview of the tendering process, in both). The UBL repository's history keeps them.
 
 **A3. How is a figure edited once it is in the UBL repository?** *Answered 2026-10-06 by the UBL
 editor:* the UBL repository becomes the source: a figure is edited in its `images/<figure>.drawio`,
@@ -669,11 +679,11 @@ themselves are next revised. Figure numbers are as in that review.
 
 ## Open work
 
-- **The TC's answers** ("Questions for the TC"): questions A2, A4 and A5 before the
+- **The TC's answers** ("Questions for the TC"): questions A4 and A5 before the
   commit to the UBL repository, the rest after it.
-- **The commit to the UBL repository**, once A2, A4 and A5 are answered: `to-ubl-repo/`
-  copied over a clone of `ubl-2.6` (A1), the 3 older sources removed and the 5 more files
-  if the TC so decides (A2), and three of its files edited with it, `build-common.sh`,
+- **The commit to the UBL repository**, once A4 and A5 are answered: `to-ubl-repo/`
+  copied over a clone of `ubl-2.6` (A1), 8 files removed from `images/` (A2: the 3 older
+  sources and the 5 more files), and three of its files edited with it, `build-common.sh`,
   `.github/workflows/build.yml` and its README's "Artwork" (A3; "In the UBL repository: the build
   renders the drawings"). Its message names each file removed and what it was, and says that
   Group A's three drawings change only in form, that Ordering's bpmn-js SVG is replaced by its
