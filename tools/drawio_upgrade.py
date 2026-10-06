@@ -179,9 +179,15 @@ def svg_diff(a, b):
 NOT_IN_BASELINE = []
 
 
+def source(n):
+    """a figure's source: its drawing, or its SVG where it has none (Ordering: history/group-a)"""
+    d = os.path.join(ROOT, 'diagrams', n, n + '.drawio')
+    return d if os.path.exists(d) else os.path.join(ROOT, 'diagrams', n, n + '.svg')
+
+
 def compare(pin, cand, figs, outdir):
     summary = json.load(open(os.path.join(BASELINE, 'summary.json')))
-    files = [os.path.join(ROOT, 'diagrams', n, n + '.drawio') for n in figs]
+    files = [source(n) for n in figs]
     os.makedirs(outdir, exist_ok=True)
     with tempfile.TemporaryDirectory() as t:
         ex = {v: os.path.join(t, v) for v in (pin, cand)}
@@ -277,7 +283,11 @@ def file_diff(a,b):
 def editor_check(figs, outdir):
     """Each drawing opened and saved in the live editor: [(figure, [what differs])]."""
     summary = json.load(open(os.path.join(BASELINE, 'summary.json')))
-    files = [os.path.join(ROOT, 'diagrams', n, n + '.drawio') for n in figs]
+    svg = [n for n in figs if not source(n).endswith('.drawio')]
+    if svg:
+        print('not opened, no drawing (the source is an SVG): %s' % ', '.join(svg))
+    figs = [n for n in figs if n not in svg]
+    files = [source(n) for n in figs]
     pin = pinned()
     with tempfile.TemporaryDirectory() as t:
         print('opening and saving %d drawings in the live editor ...' % len(figs), flush=True)

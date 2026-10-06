@@ -81,14 +81,25 @@ commits of 2023-02-06 for Business Information).
   ("text 1.4 pt") assumes the others' 12 px and is wrong for these two. A rescale is a change to
   the TC's drawing; it was made in an experiment (`redrawn/`, below) at 0.3 and could be adopted.
 - **Business Information's grey bars** (`#C0C0C0`, the foot of each task): kept everywhere, as in the
-  UBL repository's PNG. The print PNG of this figure is therefore 8 bit grey, not 1 bit (the only
-  figure but the illustrations: its drawing says `ubl-art="grey"`, which `export_drawio.js` and
-  `check_svg.py` read). Decided 2026-10-05 by looking at both (1 bit lost the grey, the rules stayed).
+  UBL repository's PNG. The print PNG of this figure is therefore 8 bit grey, not 1 bit (as the
+  illustrations' are, and three of Group C's since: its drawing says `ubl-art="grey"`, which
+  `export_drawio.js` and `check_svg.py` read). Decided 2026-10-05 by looking at both (1 bit lost the
+  grey, the rules stayed).
 - **Business Information's envelopes** on the message flows are draw.io shapes (`shape=message`):
   BPMN 2.0 has no envelope on a message flow (below).
 - **Procurement's and Pre-award's shapes** are loose lines and groups (a phase's outline is five
   lines, a list of documents two), as drawn in 2020: they edit badly.
 - **None of the BPMN-style drawings is an official BPMN file** (next section).
+
+## Checked in the live editor
+
+draw.io 32.2.0 (2026-10-06, `tools/drawio_editor_roundtrip.js` and `python3 tools/drawio_upgrade.py --editor`):
+the three drawings opened and saved again come back the same in every cell, style and geometry,
+and exported, the same SVG and PNGs, byte for byte (`--editor` compares renders only of the
+baseline's figures). The file differs in its first line only: the editor drops the `modified`, `etag` and
+`version` that the TC's files carry (2020, 2023), so the first save in draw.io shows that line as
+changed in git, and `--editor` says `REVIEW` for it ("text: 2 lines differ"). Ordering has no
+drawing: `--editor` passes it by.
 
 ## Future session: real BPMN 2.0 files for the BPMN figures
 

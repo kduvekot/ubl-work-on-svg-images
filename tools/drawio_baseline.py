@@ -117,12 +117,13 @@ def compare(base, figs, out):
     with tempfile.TemporaryDirectory() as t:
         for n in figs:
             b, d = os.path.join(base, 'diagrams', n + '.drawio'), os.path.join(ROOT, 'diagrams', n, n + '.drawio')
-            if not os.path.exists(d):
-                state, notes = 'DRAWING', ['removed']
-            elif not os.path.exists(b):
-                # drawn after the baseline (Group A, Group B: the TC's own sources and figures drawn from the
-                # PNGs, which the baseline's tools - the model JSONs, the diff against the PNG - do not cover)
+            if not os.path.exists(b):
+                # drawn after the baseline (Group A, B, C: the TC's own sources and figures drawn from the
+                # PNGs, which the baseline's tools - the model JSONs, the diff against the PNG - do not cover);
+                # Ordering among them, whose source is an SVG, not a drawing
                 state, notes = 'new', ['not in the baseline; not compared']
+            elif not os.path.exists(d):
+                state, notes = 'DRAWING', ['removed']
             elif open(b, 'rb').read() == open(d, 'rb').read():
                 state, notes = 'same', []
             else:

@@ -66,6 +66,9 @@ to remove it from the repository; if they keep it, it is a UML activity diagram,
 the 79th: the pipeline of `history/` does not need to be run again for it, the drawing is made like
 the others (`history/drawio-writer/README.md`).
 
+`UBL-2.2-UseCase` and `UBL-2.2-UseCaseOverview` (checked 2026-10-06): `UBL.xml` names them only inside
+an XML comment, and no branch of the UBL repository has ever had a PNG or a source of them. Nothing to do.
+
 ## Where the originals may still be
 
 Searched 2026-10-05 (details: `history/group-a/README.md`): the UBL repository (all 31
@@ -84,6 +87,9 @@ The export (`to-ubl-repo/`) adds or replaces per figure `images/<figure>.drawio`
 `art/<figure>.png`, `htmlart/<figure>.png` (README, "Decided for that export"). For Group A
 the sources are the UBL repository's own, so the commit **changes them only in form** (the three
 `.drawio` uncompressed and in the editor's form with one added property; Procurement's stray line out;
-Ordering's SVG as it is) and replaces the PNGs by black and white print ones: say so in the message.
+Ordering's SVG as it is) and replaces the PNGs by black and white print ones (Business
+Information's: grey): say so in the message.
 **Future session, required by the editor:** real BPMN 2.0 files for the BPMN figures (Ordering,
 Business Information) - `history/group-a/README.md`, "Future session".
+**To decide with the TC first** (README, "Open work"): the branch, 5 more files in its `images/`,
+its README's "Artwork", the clip art in the illustrations.

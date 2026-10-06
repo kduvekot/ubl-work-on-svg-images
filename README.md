@@ -1,22 +1,31 @@
 # ubl-work-on-svg-images
 
-Editable sources for the artwork of the UBL specification: the **78 UML activity
-diagrams** of UBL 2.5 (of its 97 figures), **7 illustrations** (the
-4 Fulfilment figures: shipments and consignments; the 3 CPFR step figures), and
-**4 figures of other notations** (2 BPMN-style drawings, 2 phase maps, the TC's own files: `history/group-a/`)
-**3 phase and overview figures** (`history/group-b/`) and **4 reference figures** (`history/group-c/`),
-the last two groups drawn from the UBL PNGs,
-as **draw.io drawings**: 96 of the 97. UBL
-publishes these figures as PNG and most of their original sources are lost; these
-drawings replace them as the figures' source.
+Editable sources for the artwork of the UBL specification, for all **96 figures** UBL 2.5
+uses: the **78 UML activity diagrams**, **7 illustrations** (the 4 Fulfilment figures:
+shipments and consignments; the 3 CPFR step figures), **4 figures of other notations**
+(2 BPMN-style drawings, 2 phase maps, the TC's own files: `history/group-a/`),
+**3 phase and overview figures** (`history/group-b/`) and **4 reference figures**
+(`history/group-c/`), the last two groups drawn from the UBL PNGs. 95 are **draw.io
+drawings**; the 96th, the Ordering Process, is the TC's own **SVG** (bpmn-js), kept as it
+is. UBL publishes these figures as PNG and most of their original sources are lost;
+these files replace them as the figures' source.
+
+Checked 2026-10-06 against the UBL repository: the `UBL.xml` of the OASIS Standard
+(`ubl-2.5-os`, 2026-08-15), of `ubl-2.5-iso` and of `ubl-2.6` cites these 96 and no
+other, as at `3d81e8a` (CSD03), which this work was read from; `art/`, `htmlart/` and
+`images/` have not changed since. `art/` has a 97th PNG, no longer used
+(`history/remaining-figures.md`); two more figures, `UBL-2.2-UseCase` and
+`UBL-2.2-UseCaseOverview`, are named only inside an XML comment and have no PNG.
 
 ## The source of truth: the draw.io drawings
 
 ```
-diagrams/<figure>/<figure>.drawio        96 figures, e.g. diagrams/UBL-2.5-BillingwithDebitNoteProcess/
+diagrams/<figure>/<figure>.drawio        95 figures, e.g. diagrams/UBL-2.5-BillingwithDebitNoteProcess/
                                          (78 diagrams, 7 illustrations: UBL-2.2-Fulfilment-1simple ...,
-                                         4 of BPMN or phase maps: UBL-2.3-OrderingProcess ...,
-                                         and 3 phase or overview figures: UBL-2.2-Open-edi-Overview ...)
+                                         3 of BPMN or phase maps: UBL-2.3-Pre-awardProcess ...,
+                                         3 phase or overview figures: UBL-2.2-Open-edi-Overview ...,
+                                         and 4 reference figures: UBL-2.2-UDT-QDT ...)
+diagrams/UBL-2.3-OrderingProcess/*.svg   the 96th: its source is an SVG, not a drawing
 illustrations/parts/*.svg                the pictures the illustrations are made of, to edit
 tools/embed_parts.py                     puts an edited picture into the illustrations
 tools/ubl-library.xml                    the UBL shapes, as a draw.io library, for editing
@@ -118,7 +127,8 @@ it is, anything else as JSON.
    where these are missing.
 5. Save, and run the check.
 
-Tested in the draw.io editor (web, 31.5.3; all 85 drawings opened and saved again in 32.x, see "Upgrading draw.io") on Billing with Debit Note: a flow
+Tested in the draw.io editor (web, 31.5.3; all 95 drawings opened and saved again in 32.x: the 85 in
+"Upgrading draw.io", the 10 of Groups A, B and C in their READMEs) on Billing with Debit Note: a flow
 reconnected to another element, an action resized, another relabelled, an action
 and a flow from the library added and connected, and a lane added to the pool.
 The saved file passed the check, and the model read back out of it changed
@@ -238,13 +248,19 @@ with figures named, only those are added to (or replaced in) the baseline.
 ### Images made from the drawings: `to-ubl-repo/`
 
 `to-ubl-repo/` holds everything that is to be committed to the UBL repository,
-and nothing else, laid out as there: copied over a clone of it (branch
-`ubl-2.5`), it adds or replaces, per figure, `images/<figure>.drawio` and
+and nothing else, laid out as there: copied over a clone of it, it adds or
+replaces, per figure, `images/<figure>.drawio` (Ordering: none) and
 `images/<figure>.svg`, `art/<figure>.png` and `htmlart/<figure>.png`. Nothing
 in it is edited by hand: after an edit of a drawing, export it again and check.
 
+**Which branch** is for the TC. This work was read from `ubl-2.5` at `3d81e8a`
+(CSD03); since then UBL 2.5 has become an OASIS Standard (`ubl-2.5-os`, 2026-08-15;
+`ubl-2.5-iso` for ISO) and the work goes on in `ubl-2.6` (2.6 CSD01). `art/`,
+`htmlart/` and `images/` are the same on all of them as at `3d81e8a` (checked
+2026-10-06), so `to-ubl-repo/` applies to any of them as it is.
+
 ```sh
-NODE_PATH=$(npm root -g) node tools/export_drawio.js [--report <file.json>] to-ubl-repo diagrams/*/*.drawio
+NODE_PATH=$(npm root -g) node tools/export_drawio.js [--report <file.json>] to-ubl-repo diagrams/*/*.drawio diagrams/*/*.svg
 python3 tools/check_svg.py to-ubl-repo
 ```
 
@@ -252,7 +268,15 @@ The check also fails where a drawing in `to-ubl-repo/images/` is no longer its
 source in `diagrams/`: the export is out of date. An export of unchanged
 drawings is the same, byte for byte, so it changes nothing in git - whether a
 figure is exported alone or with others (each is drawn on a clean page; tried
-2026-10-05: all 85 at once, and each CPFR step figure alone, gave the same files). `--report`
+2026-10-05: all 85 at once, and each CPFR step figure alone, gave the same files).
+That holds in one environment. The `.drawio` and `.svg` files are the same anywhere,
+but the PNGs' text is rasterised with the container's fonts and font rendering, which
+nothing pins: in a newer container (2026-10-06) every PNG came out different, by
+0.02-5.9 % of its pixels (median 0.75 %; the most in small web PNGs dense with text),
+all at the edges of letters (a label measured: half a pixel apart, 3 % paler); every
+line and shape, every `.svg` and `.drawio` the same, and `check_svg.py` passes on both.
+Such PNGs are not a change: do not commit them for that alone; re-export only the
+figures whose drawing changed. `--report`
 writes, per figure, its size, the scale it is fitted to the page at and the
 size its text prints at (kept out of `to-ubl-repo/`: it is not for UBL). The
 export needs Node with playwright (as `tools/drawio_baseline.py`); the check
@@ -263,6 +287,18 @@ figures, under other names, which a folder of files cannot say:
 `images/UBL 2.3-Common Transportation Report-Process.drawio`,
 `images/UBL 2.3-ImportDeclaration-Process.drawio`,
 `images/UBL 2.3-Transit Declaration Process.drawio`.
+
+**5 more files in its `images/`, not decided yet** (found 2026-10-06): none is a
+source of the 96 under its name, and `UBL.xml` uses none; all came with the TC's
+initial load of 2021-05-15. Two are older sources of our figures, as the 3 above:
+`UBL-2.3-GoodsCertificateProcess.svg` (Goods Certificate Export, under its former
+name: the same words) and `UBL-2.3-RequestForProofOfReexportationProcess-old.svg` (an
+earlier, smaller version of that figure). Three are of figures UBL does not
+have, none ever with a PNG in `art/` on any branch: `UBL-2.2-Tender-Contract.svg` (an
+earlier, smaller Tender Contract, 7 labels; `-Pre` and `-Post` have its place), and
+`UBL-2.2-Tender-TenderingProcess.svg` with `UBL-2.3-Tender-TenderingProcess.drawio`
+(one overview of the tendering process, in both). Whether the commit removes them too
+is for the TC.
 
 The SVG is draw.io's own (`getSvg`, the viewer of the pinned release), with
 each label made SVG text: draw.io writes a label as HTML, which the browser
@@ -297,8 +333,9 @@ publishes its artwork (its README, "Artwork"; `build.xml`; `realta-user-paramete
   commit replaces them, and removes the 3 older sources of our figures under
   other names (`UBL 2.3-Common Transportation Report-Process.drawio`,
   `UBL 2.3-ImportDeclaration-Process.drawio`, `UBL 2.3-Transit Declaration Process.drawio`).
-  The UBL repository's history keeps them; the commit message names each. The
-  7 illustrations have no source there: the commit adds theirs.
+  The UBL repository's history keeps them; the commit message names each (5 more
+  files there are not decided yet: above). The 7 illustrations have no source
+  there: the commit adds theirs.
 - **The 78, the 7 illustrations, the 4 of Group A and (2026-10-05) the 3 of Group B and the 4 of Group C:**
   the one other figure of the UBL repository is left as it is
   (`history/remaining-figures.md`): it is no longer used (`UBL-2.0-BillingwithCreditNoteProcess`).
@@ -308,7 +345,8 @@ publishes its artwork (its README, "Artwork"; `build.xml`; `realta-user-paramete
   Application) had no source either: they are drawn from the UBL repository's PNGs.
   The 4 of Group A had a source in `images/` (`UBL-2.3-Pre-awardProcess`,
   `UBL-2.3-ProcurementProcess`, `UBL-2.4-BusinessInformation`: `.drawio`;
-  `UBL-2.3-OrderingProcess`: `.svg`, from bpmn.io): the commit replaces those too.
+  `UBL-2.3-OrderingProcess`: `.svg`, from bpmn.io): the commit replaces those too
+  (Ordering's SVG with the same file, byte for byte: only its PNGs change).
 - **The PNGs:** the drawings are black and white only (`#000000`, `#ffffff`),
   and so is `art/<figure>.png`: 1 bit, a pixel black where the drawing covers
   at least half of it, as line art is printed (at 600 dpi a pixel is 0.04 mm;
@@ -318,7 +356,10 @@ publishes its artwork (its README, "Artwork"; `build.xml`; `realta-user-paramete
   screen, is 8 bit grey, its edges smoothed. No coloured edges (LCD text) in
   either. All 78: `art/` 2.2 MB, `htmlart/` 1.5 MB, where the UBL repository's
   PNGs of these figures are 13 MB and 3 MB. The 7 illustrations have grey
-  pictures, and their `art/` is 8 bit grey, as the UBL PNGs of them are. A PNG
+  pictures, and their `art/` is 8 bit grey, as the UBL PNGs of them are; so is
+  that of the 4 figures with a grey fill, marked `ubl-art="grey"` in the drawing:
+  Business Information (`history/group-a/`), Schema Dependencies, UDT-QDT and Model
+  Realization (`history/group-c/`). 85 print PNGs are 1 bit, 11 grey. A PNG
   is on white when the page round the drawing is (its outer band, 2 % of the
   width): the CPFR step figures are mostly grey panel, as the UBL PNGs are.
 - **The SVG is real vector:** text as `<text>`, not in `<foreignObject>` (draw.io
@@ -364,7 +405,7 @@ API is not needed), and the live version of app.diagrams.net, the editor people
 use, which can be ahead of every tag. Exit 1: a newer release can be pinned.
 
 `python3 tools/drawio_upgrade.py [--to <version>] [--out <dir>]` then exports
-all 96 drawings with the pin and with the candidate and compares, per figure,
+all 96 figures (the 95 drawings and Ordering's SVG) with the pin and with the candidate and compares, per figure,
 the SVG (but for the version in its comment), both PNGs and the viewer render
 at the baseline's canvas, pixel for pixel; where pixels differ it writes a
 red/blue image. It ends in `VERDICT: SAFE` (nothing changed, exit 0) or
@@ -443,8 +484,10 @@ root (Node with playwright, Python with numpy and Pillow, and Chromium as
    drawings edited may differ, and each says how. The baseline itself is history:
    it is never edited; a new baseline is a new dated folder, made only when
    asked for.
-4. `NODE_PATH=$(npm root -g) node tools/export_drawio.js to-ubl-repo diagrams/*/*.drawio`
-   and `python3 tools/check_svg.py to-ubl-repo`: every figure `ok`. The export goes
+4. `NODE_PATH=$(npm root -g) node tools/export_drawio.js to-ubl-repo diagrams/*/*.drawio diagrams/*/*.svg`
+   and `python3 tools/check_svg.py to-ubl-repo`: every figure `ok`. In another
+   container than the one the PNGs were made in, export only the figures edited (see
+   "Images made from the drawings"). The export goes
    in the same commit as the drawing (the check fails on a stale one), and
    nothing in `to-ubl-repo/` is edited by hand.
 5. `python3 tools/drawio_upgrade.py --check`: the pin is the newest tag, or it
@@ -495,15 +538,36 @@ since:
    drawn from the UBL PNGs.
 9. **Four figures of other notations** - `history/group-a/` (2026-10-05): Ordering and
    Business Information (BPMN), Pre-award and Procurement (phase maps): the TC's own
-   sources from the UBL repository, adopted as they are; and `history/remaining-figures.md`: the 8 still to do.
+   sources from the UBL repository, adopted as they are; and `history/remaining-figures.md`:
+   the figures then still to do.
 10. **Three phase and overview figures** - `history/group-b/` (2026-10-05): the IMFM Generic
     Intermodal Freight Process and the two Open-edi figures, drawn from the UBL repository's
-    PNGs (no source exists); `history/remaining-figures.md`: the 5 still to do.
+    PNGs (no source exists).
+11. **Four reference figures** - `history/group-c/` (2026-10-05): Default Validation, Schema
+    Dependencies, UDT-QDT and Model Realization, drawn from the UBL repository's PNGs (no
+    source exists). With them every figure UBL uses has a source.
 
 `history/README.md` is the repository's former README, describing steps 1-4.
 
 ## Open work
 
+- **Before the commit to the UBL repository**, for the TC (found 2026-10-06):
+  - **the branch** ("Images made from the drawings", "Which branch");
+  - **the 5 more files** in its `images/` (the same section, "5 more files");
+  - **its README's "Artwork"**, which still says to export the PNG from draw.io by
+    hand (600 dpi) and scale the `htmlart/` copy in GIMP. Done that way to one of
+    these figures, its SVG goes stale unseen and its PNGs are unlike the others (not
+    1 bit, not rendered from the SVG). The section should change in the same commit:
+    edit `images/<figure>.drawio`, then export as here. That needs a decision on
+    where the tools are (here, or moved to the UBL repository) and on which copy of
+    the drawings is edited from then on (`diagrams/` here, or `images/` there), so that
+    a figure has one source;
+  - **the clip art in the illustrations**: the CPFR people are traced from the
+    stencil's pictures (`history/illustrations/cpfr/README.md`, "Open work"); in the
+    Fulfilment figures 7 parts are the deck's own clip art, converted (WMF to SVG),
+    and the document is traced from the deck's picture (`history/illustrations/README.md`).
+    The published SVGs carry them as vector art; whether that may be published so is
+    the same question.
 - **The other figure** of the UBL repository: one that is no longer used
   (`UBL-2.0-BillingwithCreditNoteProcess`; Groups B and C are done: `history/group-b/`, `history/group-c/`);
   what it is and how to go about it is in `history/remaining-figures.md`.
