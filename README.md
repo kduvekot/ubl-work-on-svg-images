@@ -13,8 +13,8 @@ sources are lost; these drawings are now the figures' source. They are:
 
 How they came to be, and the measurements behind the rules below: `history/README.md`. What the
 TC still has to decide is in one place, near the end: "Questions for the TC" (the questions to
-settle before the commit to the UBL repository, A1-A5, are answered, and so is B1; B2, B3, C and
-D are for after it).
+settle before the commit to the UBL repository, A1-A5, are answered, and so are B1 and B2; B3,
+C and D are for after it).
 
 **Once committed to the UBL repository, its drawings are the figures' source** (A3, answered
 2026-10-06): `images/<figure>.drawio` there, which its build renders into the SVG and the PNGs, so
@@ -558,9 +558,18 @@ question for later. `ubl-2.4-os-iso-pub` did switch, for ISO (`8801d64`, 2024-11
 to SVGs for ISO use": its `UBL.xml` points at `art/*.svg`), but those 95 SVGs, made in Inkscape,
 only wrap the PNG: each holds it as an embedded image, with no text and no vector drawing.
 
-**B2. Does ISO require its own font in graphics?** ISO/CS asks for Cambria. If it does, it
-is done for the ISO deliverables only, at export time, never in the drawings ("Decided for
-that export", "If ISO requires its own font").
+**B2. Does ISO require its own font in graphics?** *Answered 2026-10-06 by the UBL editor:* no
+change now; if ISO requires it in the future, it is handled then. UBL goes to ISO as a PAS
+submission, directly from OASIS. Should it come to that, the font is set for the ISO SVGs only, at
+export time, never in the drawings (`history/README.md`, "If ISO requires its own font"). What
+ISO's guidelines for drafts say (checked 2026-10-06, the version of 2022-04;
+[a copy at JSA](https://webdesk.jsa.or.jp/pdf/dev/md_5638.pdf); ISO's own current one, 2025-02,
+[RequirementsDrafts.pdf](https://www.iso.org/files/live/sites/isoorg/files/developing_standards/docs/en/RequirementsDrafts.pdf),
+refused the download): figures in Cambria, but "in figures which are not technical drawings other
+fonts are permissible if the figures are clear and the font used within them is consistent
+throughout a document"; SVG among the formats recommended; text editable, not outlined; no
+colour that carries meaning; words allowed in flowcharts; text at 10 pt, or smaller in the same
+ratio (8 pt, say: B3).
 
 **B3. Even out the printed text size?** Each figure is fitted to the page width, so
 draw.io's 12 px text prints at 9 pt at natural size and at 3.5 pt in Fulfilment Receipt
@@ -709,8 +718,8 @@ themselves are next revised. Figure numbers are as in that review.
 
 ## Open work
 
-- **The TC's answers** ("Questions for the TC"): B2, B3, C and D, after the commit to the UBL
-  repository (A1-A5, before it, and B1 are answered).
+- **The TC's answers** ("Questions for the TC"): B3, C and D, after the commit to the UBL
+  repository (A1-A5, before it, B1 and B2 are answered).
 - **The commit to the UBL repository:** `to-ubl-repo/` copied over a clone of `ubl-2.6` (A1),
   9 files removed (A2: the 3 older sources and the 5 more files in `images/`; A5: the unused PNG
   in `art/`), and three of its files edited with it, `build-common.sh`,

@@ -291,7 +291,8 @@ publishes its artwork (its README, "Artwork"; `build.xml`; `realta-user-paramete
   and Cambria are licensed).
 
 **If ISO requires its own font** (ISO/CS asks for Cambria in graphics; whether it
-does: README, "Questions for the TC", B2): do it for
+does: README, "Questions for the TC", B2, answered 2026-10-06: not now, handled
+if ISO requires it in the future): do it for
 the ISO deliverables only, never in the drawings. Export the ISO SVGs with the
 font set at export time (`fontFamily=Cambria` on every cell), render them with
 Cambria or its metric-compatible stand-in Caladea, and check that every label
