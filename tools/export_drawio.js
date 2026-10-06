@@ -37,8 +37,8 @@
 //
 // Both PNGs are renders of that SVG, as an image, so they show what the SVG
 // shows. Scale: the page is 5.7 in wide, 548 px at 96 px/in; a figure wider is
-// fitted to it, a narrower one kept at its natural size (README, "Decided for
-// that export").
+// fitted to it, a narrower one kept at its natural size (README, "The export's
+// rules").
 const { chromium } = require('playwright');
 const fs = require('fs'), path = require('path'), os = require('os'), https = require('https');
 

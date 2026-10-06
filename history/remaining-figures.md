@@ -3,7 +3,7 @@
 Written 2026-10-05, after Group A, for the sessions that carried on: what was left then (the 8:
 the 3 of Group B, the 4 of Group C and the one no longer used), what each figure is, what source
 it had, and how to go about it. All but that one are done. The same rules as for the others
-(README, "Decided for that export": draw.io as the source, an SVG that is real vector, black and
+(README, "The export's rules": draw.io as the source, an SVG that is real vector, black and
 white print PNGs, one text size) applied, and `history/group-a/README.md` is the worked example
 of a figure that is not a UML activity diagram.
 
@@ -55,8 +55,8 @@ arrows, so draw them with draw.io's own shapes (UML class, rectangles, plain arr
 the text live: do not trace them. In `history/svg-images/` each is only the PNG in an SVG
 (`<image>`), so the PNG is the only reference. The question before the session, if one of
 them were really a screenshot (a schema fragment, a generated diagram), whether to redraw it
-or keep it as an image with an SVG wrapper (the ISO would not accept it: README, "The SVG is
-real vector"), did not arise: all four are boxes and arrows, and are drawn
+or keep it as an image with an SVG wrapper (the ISO would not accept it: README, "The export's
+rules"), did not arise: all four are boxes and arrows, and are drawn
 (`history/group-c/README.md`). (The order advised then: `UDT-QDT` and `SchemaDependencies`
 first, as the most likely to be pure boxes and arrows, then `DefaultValidation` and `ModelRealization`.)
 
@@ -84,7 +84,7 @@ found, put it in `history/<group>/sources/` and say so here.
 ## Before the UBL repository gets any of it
 
 The export (`to-ubl-repo/`) adds or replaces per figure `images/<figure>.drawio`, `.svg`,
-`art/<figure>.png`, `htmlart/<figure>.png` (README, "Decided for that export"). For Group A
+`art/<figure>.png`, `htmlart/<figure>.png` (README, "The export's rules"). For Group A
 the sources are the UBL repository's own, so the commit **changes three of them only in form** (the
 `.drawio` uncompressed and in the editor's form with one added property; Procurement's stray line out)
 and **replaces Ordering's bpmn-js SVG** by a draw.io BPMN drawing made from it, with that drawing's
