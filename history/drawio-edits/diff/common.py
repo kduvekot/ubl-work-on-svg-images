@@ -12,6 +12,10 @@ ART = os.path.join(UBL, 'art')
 # playwright drives the renders; a global install is not on node's own path
 _g = subprocess.run(['npm', 'root', '-g'], capture_output=True, text=True).stdout.strip()
 NODE = dict(os.environ, NODE_PATH=os.pathsep.join(p for p in (os.environ.get('NODE_PATH'), _g) if p))
+# the render a baseline keeps is drawn as tools/drawio_baseline.py compare draws it again (draw.io at scale 1,
+# the browser enlarges: render-drawio.js), so that the check finds it as stored; the diff against the PNG
+# keeps the zoomed render, which puts lines where they are to the device pixel (since 2026-10-06)
+NODE_DEVICE = dict(NODE, DRAWIO_RENDER_DEVICE='1')
 RENDER = os.path.join(ROOT, 'history', 'drawio-writer', 'render-drawio.js')
 BEFORE_SPACE = 'f438cc7'     # the drawings before space was inserted for short arrows
 
@@ -23,6 +27,18 @@ def illustration(n):
     if 'ubl-kind="illustration"' not in t:
         return None
     return float(re.search(r'ubl-png-scale="([\d.]+)"', t)[1])
+
+
+def drawn_later(n):
+    """a figure drawn after the 78 were read (Groups A, B, C: history/group-*): not an illustration, no
+    model JSON in history/diagrams/, no space inserted. one.py places it on its PNG by its page (drawn on
+    the PNG's pixels at one scale: Groups B, C, Ordering) or by its ink (the TC's drawings of Group A)"""
+    return not illustration(n) and not os.path.exists(os.path.join(ROOT, 'history', 'diagrams', n, n + '-diagram.json'))
+
+
+def page(text):
+    """a drawing's page size, [w, h] (a drawing made on a PNG's pixels has fractions)"""
+    return [float(v) for v in re.search(r'pageWidth="([\d.]+)" pageHeight="([\d.]+)"', text).groups()]
 
 
 @functools.lru_cache(None)

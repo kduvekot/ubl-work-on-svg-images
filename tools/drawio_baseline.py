@@ -48,7 +48,8 @@ NODE = dict(os.environ, NODE_PATH=os.pathsep.join(p for p in (os.environ.get('NO
 
 
 def page(path):
-    return [int(v) for v in re.search(r'pageWidth="(\d+)" pageHeight="(\d+)"', open(path).read()).groups()]
+    # a drawing made on a PNG's pixels (Groups B, C) has a page with fractions
+    return [float(v) for v in re.search(r'pageWidth="([\d.]+)" pageHeight="([\d.]+)"', open(path).read()).groups()]
 
 
 def render(path, canvas, scale, out):
@@ -91,9 +92,12 @@ def make(base, diff, figs=()):
     for n in figs or sorted(os.listdir(os.path.join(ROOT, 'diagrams'))):
         shutil.copyfile(os.path.join(ROOT, 'diagrams', n, n + '.drawio'), os.path.join(base, 'diagrams', n + '.drawio'))
         r = json.load(open(os.path.join(diff, n, 'result.json')))
-        im = Image.open(os.path.join(diff, n, 'drawio.png')).convert('L')
+        # render.png: drawn as compare draws it again (a run since 2026-10-06); before, the diff's own render
+        kept = os.path.join(diff, n, 'render.png')
+        im = Image.open(kept if os.path.exists(kept) else os.path.join(diff, n, 'drawio.png')).convert('L')
         im.save(os.path.join(base, 'renders', n + '.png'), optimize=True)
-        summary[n] = dict(canvas=list(im.size), scale=r['png_size'][0] / natural_width(n), page=page(os.path.join(ROOT, 'diagrams', n, n + '.drawio')),
+        scale = r['scale'] if 'scale' in r else r['png_size'][0] / natural_width(n)
+        summary[n] = dict(canvas=list(im.size), scale=scale, page=page(os.path.join(ROOT, 'diagrams', n, n + '.drawio')),
                           png_size=r['png_size'], red=round(r['red'], 2), blue=round(r['blue'], 2),
                           **({'red_space_inserted': round(r['cut_red'], 2), 'blue_space_inserted': round(r['cut_blue'], 2)} if 'cut_red' in r else {}))
     summary = dict(sorted(summary.items()))

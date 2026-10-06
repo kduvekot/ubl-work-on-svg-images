@@ -73,7 +73,15 @@ async function viewer() {
     // with the SVG's
     const frame = doc.querySelector('object[ubl-kind="frame"]');
     const m = frame ? +(frame.getAttribute('ubl-offset') || 0) : 0;
-    graph.view.scaleAndTranslate(dev ? 1 : s, -m, -m);
+    let tx = -m, ty = -m;
+    if (!frame) {
+      // a drawing with no frame (an illustration, a figure drawn later: the TC's own) whose cells reach left
+      // of or above its origin (Business Information): moved in so that it is on the canvas whole
+      graph.view.scaleAndTranslate(1, 0, 0);
+      const b = graph.getGraphBounds();
+      tx = Math.max(0, -b.x); ty = Math.max(0, -b.y);
+    }
+    graph.view.scaleAndTranslate(dev ? 1 : s, tx, ty);
     return (typeof EditorUi !== 'undefined' && EditorUi.VERSION) || mxClient.VERSION;
   }, [fs.readFileSync(inp, 'utf8'), s, dev]);
   if (version !== DRAWIO_VERSION) throw new Error('draw.io ' + version + ', expected ' + DRAWIO_VERSION);
