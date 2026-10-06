@@ -45,3 +45,10 @@ blue: only in the export) says what to nudge.
 
 `ubl-notation="reference"` is on each frame; `tools/check_drawio.py` says "ok (reference)" for the four,
 `tools/drawio_format.py --check` and `tools/check_svg.py to-ubl-repo` (96 of 96) pass.
+
+## Checked in the live editor
+
+draw.io 32.2.0 (2026-10-06, `python3 tools/drawio_upgrade.py --editor <the 4 figures>`): the four drawings opened
+and saved again come back the same in every cell, style, geometry and the render (`VERDICT: SAFE`).
+(Needs the proxy's CA in the browser's trust store: every certificate of `/root/.ccr/ca-bundle.crt`, imported one by
+one with `certutil -d sql:$HOME/.pki/nssdb -A`; the first alone is not enough; `libnss3-tools` for `certutil`.)
