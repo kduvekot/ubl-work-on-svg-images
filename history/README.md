@@ -333,8 +333,9 @@ coordinates (its renders are reproduced exactly: four drawings of four kinds, to
 `same-drawing`).
 
 **Checked.** The published PNG of every figure (`to-ubl-repo/art`) against the render of the
-drawing's picture at its size: at most 1.2 % of the ink is in one only (VMI Invoicing; most below
-0.3 %), within the comparison's tolerance (2 px per 1480 px), where it was 30-92 % before. What is
+drawing's picture at its size: at most 1.45 % of the ink is in one only (VMI Invoicing; the median
+0.00 %, 93 of the 96 below 0.5 %), with the comparison's tolerance (2 px per 1480 px), where it was
+30-92 % before. What is
 left is text: a few labels, made SVG text by the export, sit up to a unit from where draw.io's own
 label puts them. The comparison deck now makes this check for every figure
 (`history/drawio-edits/diff/one.py`, "published PNG vs render"), so that should the two ever part
