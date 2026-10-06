@@ -12,7 +12,7 @@ sources are lost; these drawings are now the figures' source. They are:
   Group B and the 4 reference figures of Group C.
 
 How they came to be, and the measurements behind the rules below: `history/README.md`. What the
-TC still has to decide is in one place, near the end: "Questions for the TC" (questions A1, A2, A4
+TC still has to decide is in one place, near the end: "Questions for the TC" (questions A2, A4
 and A5 before the commit to the UBL repository).
 
 **Once committed to the UBL repository, its drawings are the figures' source** (A3, answered
@@ -245,8 +245,9 @@ replaces, per figure, `images/<figure>.drawio` and
 `utilities/artwork/`, the tools that render them there (below). Nothing
 in it is edited by hand: after an edit of a drawing, export it again and check.
 
-Which branch it goes to is for the TC ("Questions for the TC", A1); the artwork is
-the same on all of them, so `to-ubl-repo/` applies to any as it is.
+It goes to the branch `ubl-2.6` ("Questions for the TC", A1, answered). The figures' files
+would fit the 2.5 branches too (their `art/`, `htmlart/` and `images/` are the same); the build
+step was tested on `ubl-2.6` only.
 
 ```sh
 NODE_PATH=$(npm root -g) node tools/export_drawio.js [--report <file.json>] to-ubl-repo diagrams/*/*.drawio
@@ -465,11 +466,12 @@ the lost originals; D is what the diagrams say, for when they are next revised.
 
 ### A. Before the commit to the UBL repository
 
-**A1. Which branch?** This work was read from `ubl-2.5` at `3d81e8a` (CSD03). Since then
-UBL 2.5 has become an OASIS Standard (`ubl-2.5-os`, published 2026-08-12; `ubl-2.5-iso` for ISO) and
-the work goes on in `ubl-2.6` (2.6 CSD01). `art/`, `htmlart/` and `images/` are the same on
-all of them as at `3d81e8a` (checked 2026-10-06), so `to-ubl-repo/` applies to any of them
-as it is. Suggested: `ubl-2.6`, unless the SVGs are wanted for the ISO submission of 2.5.
+**A1. Which branch?** *Answered 2026-10-06 by the UBL editor:* `ubl-2.6`; everything goes there.
+The SVGs are taken from it separately for the ISO submission of 2.5 when they are needed. This
+work was read from `ubl-2.5` at `3d81e8a` (CSD03); `art/`, `htmlart/` and `images/` are the same
+on `ubl-2.5-os`, `ubl-2.5-iso` and `ubl-2.6` as there (checked 2026-10-06), so the figures' files
+fit any of them; `build-common.sh` and `build.yml` are another version on the 2.5 branches than
+on `ubl-2.6`, where the build step was tested.
 
 **A2. Remove 5 more files from `images/`?** Found 2026-10-06: none is a source of the 96
 under its name, and `UBL.xml` uses none; all came with the TC's initial load of 2021-05-15.
@@ -667,10 +669,10 @@ themselves are next revised. Figure numbers are as in that review.
 
 ## Open work
 
-- **The TC's answers** ("Questions for the TC"): questions A1, A2, A4 and A5 before the
+- **The TC's answers** ("Questions for the TC"): questions A2, A4 and A5 before the
   commit to the UBL repository, the rest after it.
-- **The commit to the UBL repository**, once A1, A2, A4 and A5 are answered: `to-ubl-repo/`
-  copied over a clone of the branch chosen (A1), the 3 older sources removed and the 5 more files
+- **The commit to the UBL repository**, once A2, A4 and A5 are answered: `to-ubl-repo/`
+  copied over a clone of `ubl-2.6` (A1), the 3 older sources removed and the 5 more files
   if the TC so decides (A2), and three of its files edited with it, `build-common.sh`,
   `.github/workflows/build.yml` and its README's "Artwork" (A3; "In the UBL repository: the build
   renders the drawings"). Its message names each file removed and what it was, and says that
