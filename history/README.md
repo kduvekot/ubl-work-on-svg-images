@@ -56,6 +56,10 @@ since:
 13. **A baseline of all 96** - `baselines/2026-10-06/` (2026-10-06): the comparison scripts of
     `history/drawio-edits/diff/` taught the figures drawn later; and the README cut down to a guide,
     what it held of the record moved here (below).
+14. **The build renders them** - `to-ubl-repo/utilities/artwork/` (2026-10-06): once committed, the
+    UBL repository's drawings are the source (A3), and its build renders them before Ant
+    (`render.sh`), with the tools copied there; tested on a checkout of `ubl-2.6` (README, "In the
+    UBL repository: the build renders the drawings").
 
 `history/former-README.md` is the repository's README until 2026-09-29, describing steps 1-4.
 

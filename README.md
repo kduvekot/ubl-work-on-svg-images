@@ -12,8 +12,13 @@ sources are lost; these drawings are now the figures' source. They are:
   Group B and the 4 reference figures of Group C.
 
 How they came to be, and the measurements behind the rules below: `history/README.md`. What the
-TC still has to decide is in one place, near the end: "Questions for the TC" (questions A1-A5
-before the commit to the UBL repository).
+TC still has to decide is in one place, near the end: "Questions for the TC" (questions A1, A2, A4
+and A5 before the commit to the UBL repository).
+
+**Once committed to the UBL repository, its drawings are the figures' source** (A3, answered
+2026-10-06): `images/<figure>.drawio` there, which its build renders into the SVG and the PNGs, so
+that the build goes on from `art/` and `htmlart/` as it always has ("In the UBL repository: the
+build renders the drawings").
 
 ## The source of truth: the draw.io drawings
 
@@ -34,7 +39,8 @@ tools/check_svg.py                       checks an export
 tools/drawio_upgrade.py                  is there a newer draw.io, and does it change anything
 tools/drawio_editor_roundtrip.js         opens and saves drawings in the live editor (for drawio_upgrade.py --editor)
 tools/drawio-version.json                the pinned draw.io release (the one place)
-to-ubl-repo/                             what goes to the UBL repository: the export
+to-ubl-repo/                             what goes to the UBL repository: the export, and the
+                                         tools that render it there (utilities/artwork/)
 baselines/2026-10-06/                    the baseline: all 96 drawings as they are now (2026-10-05, 2026-09-30: the ones before)
 ```
 
@@ -235,7 +241,8 @@ With figures named, only those are added to (or replaced in) the baseline, and a
 `to-ubl-repo/` holds everything that is to be committed to the UBL repository,
 and nothing else, laid out as there: copied over a clone of it, it adds or
 replaces, per figure, `images/<figure>.drawio` and
-`images/<figure>.svg`, `art/<figure>.png` and `htmlart/<figure>.png`. Nothing
+`images/<figure>.svg`, `art/<figure>.png` and `htmlart/<figure>.png`, and adds
+`utilities/artwork/`, the tools that render them there (below). Nothing
 in it is edited by hand: after an edit of a drawing, export it again and check.
 
 Which branch it goes to is for the TC ("Questions for the TC", A1); the artwork is
@@ -263,6 +270,65 @@ figures, under other names, which a folder of files cannot say:
 
 Its `images/` has **5 more files** that are none of the 96 and that `UBL.xml` does not
 use: whether the commit removes them too is "Questions for the TC", A2.
+
+#### In the UBL repository: the build renders the drawings
+
+Decided 2026-10-06 (A3): from the commit on, a figure is edited in the UBL repository, in its
+`images/<figure>.drawio`, and the build renders every figure from its drawing before Ant packages
+the specification: what comes after (`art/` for Réalta, `htmlart/` for the HTML) stays as it is. The
+rendered files are committed too, so that the repository shows them; the build renders its own.
+
+`to-ubl-repo/utilities/artwork/` is that: `render.sh`, the build's step; `README.md`, the editors'
+guide (editing a figure, the build, the draw.io pin); and copies of the tools and the pictures
+here: `export_drawio.js`, `check_svg.py`, `drawio-version.json`, `check_drawio.py`,
+`drawio_format.py`, `ubl-library.xml`, `embed_parts.py` (from `tools/`) and `parts/` (from
+`illustrations/parts/`). The tools work in either layout (`diagrams/<figure>/` here, `images/`
+there). `check_svg.py to-ubl-repo` also fails where a copy is behind: "utilities/artwork/X is not
+tools/X: copy it again" ("Before a pull request", step 4).
+
+`render.sh` renders the figures `UBL.xml` shows (`art/<figure>.png`) that have a drawing, so a
+drawing in `images/` that is not a figure (the 3 older sources, A2's files) is left alone. It
+renders into a scratch folder and checks (`check_svg.py`); only a render that passes replaces the
+committed files. Where the tools are missing or the render fails (a drawing that is not well-formed
+is refused), the committed files are used. Where a committed SVG is not what its drawing gives, it
+says so. Each is a GitHub annotation of the run; it never fails the build.
+
+**The commit also edits three files of the UBL repository** (a folder of files cannot carry an edit):
+
+- `build-common.sh`, before `echo Building package...`:
+  `bash utilities/artwork/render.sh`;
+- `.github/workflows/build.yml`, job `build`, between the steps `Dependencies` and `Build`: the
+  steps `Set up Node` (`actions/setup-node@v7`, Node 22) and `Artwork tools` (playwright 1.56.1 with
+  its Chromium, `fonts-liberation`, `python3-pil`), as in `to-ubl-repo/utilities/artwork/README.md`,
+  "The build";
+- `README.md`, its section "Artwork" (draw.io's PNG export by hand, the `htmlart/` copy scaled in
+  GIMP) replaced by:
+
+  ```markdown
+  ### Artwork
+
+  Each figure is drawn in [draw.io](https://www.drawio.com): `images/<figure>.drawio` is its
+  source, and every build renders it into `images/<figure>.svg`, `art/<figure>.png` and
+  `htmlart/<figure>.png`. How to edit a figure, or add one:
+  [`utilities/artwork/README.md`](utilities/artwork/README.md).
+  ```
+
+  `drawio-export.png`, the screenshot that section shows, is then used nowhere.
+
+**Tested 2026-10-06** on a checkout of `ubl-2.6` (`d3e98ac`), `to-ubl-repo/` copied over it and
+`build-common.sh` edited, with `build.sh` run as the workflow runs it (Java and 7z stubbed): all 96
+rendered and checked in about 1.5 minutes, before Ant; the committed SVGs came out the same, byte for
+byte, and the PNGs a fraction of a pixel apart (0.02-5.9 % of their pixels: another container than
+the export's, as said above); a drawing edited and committed without rendering gave the warning; a
+drawing cut short was refused and the committed files used; without Node the committed files were
+used; the 4 drawings that are no figure were left alone. The export with playwright's own Chromium,
+as on GitHub, gives the same files (3 figures tried). Not tested: the workflow on GitHub's runner, and the Ant and
+Réalta build after the step, whose input is the same as ever in kind. Both are the UBL repository's
+test build (Open work).
+
+After the commit, `diagrams/` here is the record of the drawings as committed, not their source.
+The tools that stay here, the baseline and the upgrade check, work on `diagrams/`: to use them on
+the UBL repository's drawings, bring those back into `diagrams/<figure>/` first.
 
 #### The export's rules
 
@@ -365,14 +431,19 @@ root (Node with playwright, Python with numpy and Pillow, and Chromium as
    container than the one the PNGs were made in, export only the figures edited (see
    "Images made from the drawings"). The export goes
    in the same commit as the drawing (the check fails on a stale one), and
-   nothing in `to-ubl-repo/` is edited by hand.
+   nothing in `to-ubl-repo/` is edited by hand. **A tool or a picture changed**
+   (in `tools/`, `illustrations/parts/`, the pin): copy it again into
+   `to-ubl-repo/utilities/artwork/` (the check fails on a copy behind):
+   `cp tools/{export_drawio.js,check_svg.py,drawio-version.json,check_drawio.py,drawio_format.py,ubl-library.xml,embed_parts.py} to-ubl-repo/utilities/artwork/`
+   and `cp illustrations/parts/*.svg to-ubl-repo/utilities/artwork/parts/`.
 5. `python3 tools/drawio_upgrade.py --check`: the pin is the newest tag, or it
    says so. Do this at the start of a session and before anything goes to the UBL
    repository. A newer tag: `python3 tools/drawio_upgrade.py` (exports and renders
    with both, ends in `SAFE` or `REVIEW`), then `python3 tools/drawio_upgrade.py --editor`
    (the live editor opens and saves every drawing; needs the proxy's CA in the
    browser's trust store, above). `SAFE` twice: change `version` in
-   `tools/drawio-version.json`, export all again (step 4), and expect only the
+   `tools/drawio-version.json`, export all again and copy the pin into
+   `to-ubl-repo/utilities/artwork/` (step 4), and expect only the
    version in each SVG's comment to change. `REVIEW`: look at the diff images, and
    do not move the pin until what differs is understood.
 6. A pin move is a pull request of its own, with the report's numbers in it, and
@@ -412,13 +483,13 @@ Contract, 7 labels; `-Pre` and `-Post` have its place), and
 overview of the tendering process, in both). Suggested: remove all five; the UBL
 repository's history keeps them.
 
-**A3. How is a figure edited once it is in the UBL repository?** Its README's "Artwork"
-still says to export the PNG from draw.io by hand (600 dpi) and scale the `htmlart/` copy in
-GIMP. Done that way to one of these figures, its SVG goes stale unseen and its PNGs are
-unlike the others (not 1 bit, not rendered from the SVG). The section should change in the
-same commit: edit `images/<figure>.drawio`, then export as here. To decide: where the tools
-are (here, or moved to the UBL repository), and which copy of the drawings is edited from
-then on (`diagrams/` here, or `images/` there), so that a figure has one source.
+**A3. How is a figure edited once it is in the UBL repository?** *Answered 2026-10-06 by the UBL
+editor:* the UBL repository becomes the source: a figure is edited in its `images/<figure>.drawio`,
+and its build renders the drawings into `images/<figure>.svg`, `art/` and `htmlart/` before Ant,
+so that what comes after stays the same; the rendered files are committed too. The tools go with
+the drawings (`utilities/artwork/`), and the README's "Artwork" (draw.io's PNG export by hand, the
+`htmlart/` copy scaled in GIMP) points to their guide ("In the UBL repository: the build renders
+the drawings").
 
 **A4. May the illustrations' clip art be published as it is?** The published SVGs carry it
 as vector art.
@@ -596,17 +667,19 @@ themselves are next revised. Figure numbers are as in that review.
 
 ## Open work
 
-- **The TC's answers** ("Questions for the TC"): questions A1-A5 before the commit to
-  the UBL repository, the rest after it.
-- **The commit to the UBL repository**, once A1-A5 are answered: `to-ubl-repo/` copied
-  over a clone of the branch chosen (A1), the 3 older sources removed and the 5 more files
-  if the TC so decides (A2), and its README's "Artwork" changed with it (A3). Its message
-  names each file removed and what it was, and says that Group A's three drawings change
-  only in form, that Ordering's bpmn-js SVG is replaced by its draw.io drawing and that
-  drawing's export, and that the PNGs are replaced by print PNGs in black and white (grey:
-  the illustrations, Business Information and three of Group C) ("Images made from the
-  drawings"; `history/remaining-figures.md`, "Before the UBL repository gets any of it").
-  A test build through Réalta is done on the UBL repository's side.
+- **The TC's answers** ("Questions for the TC"): questions A1, A2, A4 and A5 before the
+  commit to the UBL repository, the rest after it.
+- **The commit to the UBL repository**, once A1, A2, A4 and A5 are answered: `to-ubl-repo/`
+  copied over a clone of the branch chosen (A1), the 3 older sources removed and the 5 more files
+  if the TC so decides (A2), and three of its files edited with it, `build-common.sh`,
+  `.github/workflows/build.yml` and its README's "Artwork" (A3; "In the UBL repository: the build
+  renders the drawings"). Its message names each file removed and what it was, and says that
+  Group A's three drawings change only in form, that Ordering's bpmn-js SVG is replaced by its
+  draw.io drawing and that drawing's export, that the PNGs are replaced by print PNGs in black and
+  white (grey: the illustrations, Business Information and three of Group C), and that the build
+  renders them from the drawings ("Images made from the drawings"; `history/remaining-figures.md`,
+  "Before the UBL repository gets any of it"). A test build on the UBL repository's side, on
+  GitHub: the artwork step on the runner (its annotations), then Ant and Réalta.
 - **Official BPMN 2.0 files for the BPMN figures** (Ordering, Business Information): the
   UBL editor, Kees Duvekot, requires them as the sources of BPMN diagrams; what is needed
   is in `history/group-a/README.md` ("Future session"), the decisions it takes are C1-C3.
