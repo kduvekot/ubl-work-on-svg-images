@@ -384,10 +384,23 @@ on any other machine. The packages are half their size or less (57, 43 and 51 Mi
 **The problems file, tested 2026-10-07** as above (`build.sh`, Java and 7z stubbed): no file after a
 normal render; at the top of the package, the right report for each of the tools missing, a drawing
 cut short (the render's error, naming the drawing), the check failing (the figure, and why) and a
-drawing edited without rendering (its SVG). The commits as merged were built again on the fork
-(run 69, 2026-10-07), and by the UBL repository's own build of the merge; their results are not
-recorded here. Not tested: a failed install on GitHub's runner, and the ISO DOCX and NISO XML opened
-(only their size, smaller as the PDF's).
+drawing edited without rendering (its SVG). Not tested: a failed install on GitHub's runner, and
+the ISO DOCX and NISO XML opened (only their size, smaller as the PDF's).
+
+**The UBL repository's own build, checked 2026-10-07:** its first build of the merge
+([run 37634127894](https://github.com/oasis-tcs/ubl/actions/runs/37634127894)), held against its
+build before it ([run 34991886882](https://github.com/oasis-tcs/ubl/actions/runs/34991886882), head
+`d3e98ac`), the same way as the fork's runs 64 and 68. The artwork steps took 4 and 22 seconds; the
+96 figures were rendered and checked, with no warning; Ant, every validation and Réalta were as
+before, and no `ARTWORK-PROBLEMS.txt` or `INTEGRITY-PROBLEMS.txt` was made. Its packages hold what the
+fork's run 68 held, to the byte for the most part: the same file lists, `UBL-2.6.xml` without the
+661-character comment, the PDF of 210 pages (ISO: 198) with all 96 figures, the HTML the same but for
+its date, 92 of the 96 web PNGs and 93 of the 96 print PNGs the committed ones byte for byte (the
+others a few pixels of text apart, the same figures and the same amounts as on the fork). What else
+differed was not the artwork's: a newer runner image (newer LibreOffice and mesa packages), two
+spreadsheets and a validation report that hold the build's date, and a build step 7 minutes longer,
+of which the render is 1 minute and the rest two report steps on a slower runner. The fork's run 69,
+of the commits as merged, finished without error too (not looked at further).
 
 Since the commit, `diagrams/` here is the record of the drawings as committed, not their source.
 The tools that stay here, the baseline and the upgrade check, work on `diagrams/`: to use them on
@@ -801,9 +814,10 @@ it said in UBL 2.5. D1 too, which the TC wants fixed in UBL 2.6, comes after it.
 - **The commit to the UBL repository: done 2026-10-07.** Both commits, the artwork and the figures
   commented out in `UBL.xml` ("Images made from the drawings"), were made by the UBL editor on
   `kduvekot/ubl` and merged into `ubl-2.6` with
-  [oasis-tcs/ubl#40](https://github.com/oasis-tcs/ubl/pull/40) (merge `07fa265`). Left: check the
-  UBL repository's first build of it (its package without `ARTWORK-PROBLEMS.txt`), and delete the
-  test branches `ubl-2.6-artwork` and `ubl-2.6-drawio` on `kduvekot/ubl`.
+  [oasis-tcs/ubl#40](https://github.com/oasis-tcs/ubl/pull/40) (merge `07fa265`); the UBL
+  repository's first build of it checked and good ("In the UBL repository: the build renders the
+  drawings"). Left: delete the test branches `ubl-2.6-artwork` and `ubl-2.6-drawio` on
+  `kduvekot/ubl`.
 - **The original BPMN 2.0 XML of the Ordering Process** (`UBL-2.3-OrderingProcess.bpmn`, attached
   to the `ubl` list's mail of 2019-05-07, UBL-171): not found yet; the search goes on, no longer
   critical (C3, C4). Still to look in: the Sent folder of that mail, other list members' mailboxes
