@@ -16,10 +16,11 @@ TC still has to decide is in one place, near the end: "Questions for the TC" (th
 settle before the commit to the UBL repository, A1-A5, are answered, and so are B and C; D is for
 the diagrams' next revision).
 
-**Once committed to the UBL repository, its drawings are the figures' source** (A3, answered
-2026-10-06): `images/<figure>.drawio` there, which its build renders into the SVG and the PNGs, so
-that the build goes on from `art/` and `htmlart/` as it always has ("In the UBL repository: the
-build renders the drawings").
+**Committed to the UBL repository on 2026-10-07, its drawings are now the figures' source**
+([oasis-tcs/ubl#40](https://github.com/oasis-tcs/ubl/pull/40), into `ubl-2.6`; A3):
+`images/<figure>.drawio` there, which its build renders into the SVG and the PNGs, so that the build
+goes on from `art/` and `htmlart/` as it always has ("In the UBL repository: the build renders the
+drawings"). The drawings here are the record of what was committed.
 
 ## The source of truth: the draw.io drawings
 
@@ -46,8 +47,9 @@ to-ubl-repo/                             what goes to the UBL repository: the ex
 baselines/2026-10-06/                    the baseline: all 96 drawings as they are now (2026-10-05, 2026-09-30: the ones before)
 ```
 
-**Edit a figure by opening its `.drawio` file in draw.io** (the desktop app, or
-diagrams.net) and saving it back. Nothing is generated over these files any more.
+**Edit a figure in the UBL repository** (since 2026-10-07): its `images/<figure>.drawio`,
+opened in draw.io (the desktop app, or diagrams.net) and saved back; its guide is its
+`utilities/artwork/README.md`. How the drawings are drawn, below, holds for those drawings too.
 
 ### The 78 UML activity diagrams
 
@@ -244,14 +246,14 @@ With figures named, only those are added to (or replaced in) the baseline, and a
 
 ### Images made from the drawings: `to-ubl-repo/`
 
-`to-ubl-repo/` holds everything that is to be committed to the UBL repository,
-and nothing else, laid out as there: copied over a clone of it, it adds or
+`to-ubl-repo/` holds everything that was committed to the UBL repository (2026-10-07,
+[oasis-tcs/ubl#40](https://github.com/oasis-tcs/ubl/pull/40)), and nothing else, laid out as there: copied over a clone of it, it adds or
 replaces, per figure, `images/<figure>.drawio` and
 `images/<figure>.svg`, `art/<figure>.png` and `htmlart/<figure>.png`, and adds
 `utilities/artwork/`, the tools that render them there (below). Nothing
 in it is edited by hand: after an edit of a drawing, export it again and check.
 
-It goes to the branch `ubl-2.6` ("Questions for the TC", A1, answered). The figures' files
+It went to the branch `ubl-2.6` ("Questions for the TC", A1, answered). The figures' files
 would fit the 2.5 branches too (their `art/`, `htmlart/` and `images/` are the same); the build
 step was tested on `ubl-2.6` only.
 
@@ -324,16 +326,23 @@ drawing in `images/` that is not a figure (as before the commit, the 4 it remove
 renders into a scratch folder and checks (`check_svg.py`); only a render that passes replaces the
 committed files. Where the tools are missing or the render fails (a drawing that is not well-formed
 is refused), the committed files are used. Where a committed SVG is not what its drawing gives, it
-says so. Each is a GitHub annotation of the run; it never fails the build.
+says so. Each is a GitHub annotation of the run; it never fails the build. Each is also reported in
+the package, as the build reports its own problems (`INTEGRITY-PROBLEMS.txt`):
+`ARTWORK-PROBLEMS.txt`, at the top of the package beside the specification's PDF, says what
+happened and which files the build used (decided 2026-10-07 by the UBL editor). No problem, no file.
 
 **The commit also edits three files of the UBL repository** (a folder of files cannot carry an edit):
 
-- `build-common.sh`, before `echo Building package...`:
-  `bash utilities/artwork/render.sh`;
+- `build-common.sh`: before `echo Building package...`, `artworkProblems=$(mktemp)` and
+  `bash utilities/artwork/render.sh "$artworkProblems"`; after the Ant build (after `sleep 2`), that
+  file, if not empty, written to the package as `ARTWORK-PROBLEMS.txt`, and removed. Not before:
+  Ant takes a `.txt` file at the top of the package for a problem of its own and then skips its
+  consistency check (and one in its artefacts, the documentation);
 - `.github/workflows/build.yml`, job `build`, between the steps `Dependencies` and `Build`: the
   steps `Set up Node` (`actions/setup-node@v7`, Node 22) and `Artwork tools` (playwright 1.56.1 with
-  its Chromium, `fonts-liberation`, `python3-pil`), as in `to-ubl-repo/utilities/artwork/README.md`,
-  "The build";
+  its Chromium, `fonts-liberation`, `python3-pil`), both `continue-on-error`, so that a failed
+  install still builds the specification from the committed files and says so in
+  `ARTWORK-PROBLEMS.txt`; as in `to-ubl-repo/utilities/artwork/README.md`, "The build";
 - `README.md`, its section "Artwork" (draw.io's PNG export by hand, the `htmlart/` copy scaled in
   GIMP) replaced by:
 
@@ -355,11 +364,32 @@ byte, and the PNGs a fraction of a pixel apart (0.02-5.9 % of their pixels: anot
 the export's, as said above); a drawing edited and committed without rendering gave the warning; a
 drawing cut short was refused and the committed files used; without Node the committed files were
 used; the 4 drawings that are no figure were left alone. The export with playwright's own Chromium,
-as on GitHub, gives the same files (3 figures tried). Not tested: the workflow on GitHub's runner, and the Ant and
-Réalta build after the step, whose input is the same as ever in kind. Both are the UBL repository's
-test build (Open work).
+as on GitHub, gives the same files (3 figures tried).
 
-After the commit, `diagrams/` here is the record of the drawings as committed, not their source.
+**Tested on GitHub 2026-10-06**, on a fork of the UBL repository (`kduvekot/ubl`, with the UBL
+repository's workflow and a Réalta account): `ubl-2.6` as it is (run 64, the baseline) and with the
+commit (branch `ubl-2.6-artwork`, run 68, before the problems file). In run 68 the artwork tools
+installed in 22 seconds and the 96 figures rendered and checked in 62 seconds; then Ant
+(`BUILD SUCCESSFUL`, 39 minutes), no DTD or writing-rule errors, and Réalta without issues (the PDF,
+HTML, ISO DOCX, ISO PDF, NISO XML and ODT made). Held against run 64, its log differed only by the
+artwork steps and by `art/artpdf` holding 96 PNGs, not 97; the three packages (`.7z`), file by file,
+only by what the commit changes: the figures and their drawings, the files it edits, `UBL-2.6.xml` by
+the removed comment, and the documents that hold the figures. The PDF holds all 96 figures (black and
+white, grey for 11; 17 at another size, one page more: "Questions for the TC", B3); the HTML is the
+same but for its date. Of the 192 PNGs the build rendered, 185 are the committed ones byte for byte;
+7 (Default Validation, Open-edi Application, Ordering, Pre-award) are a few pixels of text apart, as
+on any other machine. The packages are half their size or less (57, 43 and 51 MiB to 28, 12 and
+26), the PDF 21 to 7 MB.
+
+**The problems file, tested 2026-10-07** as above (`build.sh`, Java and 7z stubbed): no file after a
+normal render; at the top of the package, the right report for each of the tools missing, a drawing
+cut short (the render's error, naming the drawing), the check failing (the figure, and why) and a
+drawing edited without rendering (its SVG). The commits as merged were built again on the fork
+(run 69, 2026-10-07), and by the UBL repository's own build of the merge; their results are not
+recorded here. Not tested: a failed install on GitHub's runner, and the ISO DOCX and NISO XML opened
+(only their size, smaller as the PDF's).
+
+Since the commit, `diagrams/` here is the record of the drawings as committed, not their source.
 The tools that stay here, the baseline and the upgrade check, work on `diagrams/`: to use them on
 the UBL repository's drawings, bring those back into `diagrams/<figure>/` first.
 
@@ -585,8 +615,10 @@ colour that carries meaning; words allowed in flowcharts; text at 10 pt, or smal
 ratio (8 pt, say: B3).
 
 **B3. Even out the printed text size?** *Answered 2026-10-06 by the UBL editor:* no change now;
-the figures print as they do today. Every figure is drawn with one text size, draw.io's 12 pt (12
-px), and fitted to the page width (5.7 in), as UBL's PNGs always were: at natural size its text
+no figure is redrawn to even it out. (This answer first said that the figures print as they do
+today, fitted to the page width as UBL's PNGs always were: they do not all, below.) Every figure is
+drawn with one text size, draw.io's 12 pt (12 px), and printed by one rule: fitted to the page width
+(5.7 in), or kept at its natural size where it is narrower. At natural size its text
 prints at 9 pt, and a figure twice the page's width prints it at 4.5 pt. Of the 87 drawn at 12 px
 (2026-10-06): 18 at 9 pt, 22 at 7-8.9 pt, 34 at 5-6.9 pt, 13 at 3.5-4.9 pt; the smallest are
 Fulfilment Receipt Advice (3.5 pt), Fulfilment Despatch Advice and Intermodal Freight Management
@@ -597,6 +629,27 @@ scaled less. Pre-award and Procurement are the TC's drawings at 3425 px wide (te
 lines, printing at about 5-8 and 6-10 pt), not at the others' 12 px convention; a version rescaled
 to 0.3 exists as an experiment and could be adopted then (`history/group-a/README.md`,
 "`redrawn/`").
+
+*Measured 2026-10-06, the rule kept 2026-10-07 by the UBL editor:* UBL's PNGs did not all follow
+that rule. In a test build of `ubl-2.6` with the figures rendered from the drawings (a fork of the
+UBL repository, `kduvekot/ubl`, branch `ubl-2.6-artwork`), 17 of the 96 figures print at another
+width than in UBL 2.6 today; the other 79 print within 2 % of it. The editor keeps the rule.
+
+- 6 print larger, their PNGs having been made smaller than the rule gives: Export Customs
+  Declaration (3.81 to 5.71 in wide, its text 5.9 to 8.9 pt; the PNG was 300 dpi), Waste
+  Notification and Waste Movement (4.17 to 5.34 in, 7.0 to 9.0 pt), Tender Contract Pre-signing
+  and Post-signing (5.37 to 5.63 in, 8.6 to 9.0 pt) and Procurement (4.61 to 5.71 in; the TC's
+  drawing, above).
+- 11 print 2-9 % narrower, at their natural size, where their PNGs were stretched to the page
+  width (text 9.2-9.9 pt, now 9 pt): Contract Information Notification, Unsubscribe from
+  Procedure, Submission of Tenders, Award Notification, Guarantee Deposit, Invoicing for Vendor
+  Managed Inventory, Transfer of Base Item Catalogue (CRP), Invoicing for Cyclic Replenishment
+  Program, Transfer of Base Article Catalogue (ROCD), the Generic Freight Management Process (IMFM)
+  and Open-edi Overview.
+
+The specification's PDF grows by one page (209 to 210; the ISO PDF 196 to 198), mostly through
+Waste Notification, Waste Movement and Export Customs Declaration, which together add about 3.6 in
+on its pages 67 to 71.
 
 ### C. BPMN, and the lost originals
 
@@ -745,19 +798,12 @@ it said in UBL 2.5. D1 too, which the TC wants fixed in UBL 2.6, comes after it.
   work, not part of this transition (D1, for UBL 2.6, after it). A and B
   are answered, and C: BPMN is a possible option for the distant future (C1, C2), Ordering's
   drawing is enough (C3), and the archive search goes on (C4).
-- **The commit to the UBL repository:** `to-ubl-repo/` copied over a clone of `ubl-2.6` (A1),
-  9 files removed (A2: the 3 older sources and the 5 more files in `images/`; A5: the unused PNG
-  in `art/`), and three of its files edited with it, `build-common.sh`,
-  `.github/workflows/build.yml` and its README's "Artwork" (A3; "In the UBL repository: the build
-  renders the drawings"). Its message names each file removed and what it was, and says that
-  Group A's three drawings change only in form, that Ordering's bpmn-js SVG is replaced by its
-  draw.io drawing and that drawing's export, that the PNGs are replaced by print PNGs in black and
-  white (grey: the illustrations, Business Information and three of Group C), and that the build
-  renders them from the drawings ("Images made from the drawings"; `history/remaining-figures.md`,
-  "Before the UBL repository gets any of it"). A test build on the UBL repository's side, on
-  GitHub: the artwork step on the runner (its annotations), then Ant and Réalta.
-- **A second commit to `ubl-2.6`, of its own:** the figures commented out in `UBL.xml` removed
-  (one line; "Images made from the drawings").
+- **The commit to the UBL repository: done 2026-10-07.** Both commits, the artwork and the figures
+  commented out in `UBL.xml` ("Images made from the drawings"), were made by the UBL editor on
+  `kduvekot/ubl` and merged into `ubl-2.6` with
+  [oasis-tcs/ubl#40](https://github.com/oasis-tcs/ubl/pull/40) (merge `07fa265`). Left: check the
+  UBL repository's first build of it (its package without `ARTWORK-PROBLEMS.txt`), and delete the
+  test branches `ubl-2.6-artwork` and `ubl-2.6-drawio` on `kduvekot/ubl`.
 - **The original BPMN 2.0 XML of the Ordering Process** (`UBL-2.3-OrderingProcess.bpmn`, attached
   to the `ubl` list's mail of 2019-05-07, UBL-171): not found yet; the search goes on, no longer
   critical (C3, C4). Still to look in: the Sent folder of that mail, other list members' mailboxes

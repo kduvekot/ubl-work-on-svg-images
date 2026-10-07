@@ -63,18 +63,31 @@ a committed SVG is not what its drawing gives, the run says that too: render aga
 PNGs are not compared: their text is rasterised a fraction of a pixel apart from one machine to
 another.) It never fails the build. It takes about 2 minutes for the 96 figures.
 
+**Each problem is also reported in the package**, as the build reports its own
+(`INTEGRITY-PROBLEMS.txt`): `ARTWORK-PROBLEMS.txt`, at the top of the package beside the
+specification's PDF, says what happened (the tools missing, the render or its check failed, a
+committed SVG out of date) and which files the build used. No problem, no file: a package without
+it was rendered from the drawings.
+
 It is wired into the build in two places:
 
-- `build-common.sh`, before the Ant build: `bash utilities/artwork/render.sh`
-- `.github/workflows/build.yml`, in the job `build`, between the steps `Dependencies` and `Build`:
+- `build-common.sh`: before the Ant build, `bash utilities/artwork/render.sh "$artworkProblems"`
+  (a scratch file, from `mktemp`); after it, that file, if not empty, becomes `ARTWORK-PROBLEMS.txt`
+  in the package. It is put there after Ant has finished, because a `.txt` file at the top of the
+  package before then would make Ant skip its consistency check.
+- `.github/workflows/build.yml`, in the job `build`, between the steps `Dependencies` and `Build`;
+  `continue-on-error`, so that a failed install still builds the specification, from the committed
+  files, and says so in `ARTWORK-PROBLEMS.txt`:
 
   ```yaml
       - name: Set up Node
+        continue-on-error: true
         uses: actions/setup-node@v7
         with:
           node-version: 22
 
       - name: Artwork tools
+        continue-on-error: true
         run: |
           npm install -g playwright@1.56.1
           playwright install --with-deps chromium
