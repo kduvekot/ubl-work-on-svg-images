@@ -585,8 +585,10 @@ colour that carries meaning; words allowed in flowcharts; text at 10 pt, or smal
 ratio (8 pt, say: B3).
 
 **B3. Even out the printed text size?** *Answered 2026-10-06 by the UBL editor:* no change now;
-the figures print as they do today. Every figure is drawn with one text size, draw.io's 12 pt (12
-px), and fitted to the page width (5.7 in), as UBL's PNGs always were: at natural size its text
+no figure is redrawn to even it out. (This answer first said that the figures print as they do
+today, fitted to the page width as UBL's PNGs always were: they do not all, below.) Every figure is
+drawn with one text size, draw.io's 12 pt (12 px), and printed by one rule: fitted to the page width
+(5.7 in), or kept at its natural size where it is narrower. At natural size its text
 prints at 9 pt, and a figure twice the page's width prints it at 4.5 pt. Of the 87 drawn at 12 px
 (2026-10-06): 18 at 9 pt, 22 at 7-8.9 pt, 34 at 5-6.9 pt, 13 at 3.5-4.9 pt; the smallest are
 Fulfilment Receipt Advice (3.5 pt), Fulfilment Despatch Advice and Intermodal Freight Management
@@ -597,6 +599,27 @@ scaled less. Pre-award and Procurement are the TC's drawings at 3425 px wide (te
 lines, printing at about 5-8 and 6-10 pt), not at the others' 12 px convention; a version rescaled
 to 0.3 exists as an experiment and could be adopted then (`history/group-a/README.md`,
 "`redrawn/`").
+
+*Measured 2026-10-06, the rule kept 2026-10-07 by the UBL editor:* UBL's PNGs did not all follow
+that rule. In a test build of `ubl-2.6` with the figures rendered from the drawings (a fork of the
+UBL repository, `kduvekot/ubl`, branch `ubl-2.6-artwork`), 17 of the 96 figures print at another
+width than in UBL 2.6 today; the other 79 print within 2 % of it. The editor keeps the rule.
+
+- 6 print larger, their PNGs having been made smaller than the rule gives: Export Customs
+  Declaration (3.81 to 5.71 in wide, its text 5.9 to 8.9 pt; the PNG was 300 dpi), Waste
+  Notification and Waste Movement (4.17 to 5.34 in, 7.0 to 9.0 pt), Tender Contract Pre-signing
+  and Post-signing (5.37 to 5.63 in, 8.6 to 9.0 pt) and Procurement (4.61 to 5.71 in; the TC's
+  drawing, above).
+- 11 print 2-9 % narrower, at their natural size, where their PNGs were stretched to the page
+  width (text 9.2-9.9 pt, now 9 pt): Contract Information Notification, Unsubscribe from
+  Procedure, Submission of Tenders, Award Notification, Guarantee Deposit, Invoicing for Vendor
+  Managed Inventory, Transfer of Base Item Catalogue (CRP), Invoicing for Cyclic Replenishment
+  Program, Transfer of Base Article Catalogue (ROCD), the Generic Freight Management Process (IMFM)
+  and Open-edi Overview.
+
+The specification's PDF grows by one page (209 to 210; the ISO PDF 196 to 198), mostly through
+Waste Notification, Waste Movement and Export Customs Declaration, which together add about 3.6 in
+on its pages 67 to 71.
 
 ### C. BPMN, and the lost originals
 
