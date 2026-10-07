@@ -16,10 +16,11 @@ TC still has to decide is in one place, near the end: "Questions for the TC" (th
 settle before the commit to the UBL repository, A1-A5, are answered, and so are B and C; D is for
 the diagrams' next revision).
 
-**Once committed to the UBL repository, its drawings are the figures' source** (A3, answered
-2026-10-06): `images/<figure>.drawio` there, which its build renders into the SVG and the PNGs, so
-that the build goes on from `art/` and `htmlart/` as it always has ("In the UBL repository: the
-build renders the drawings").
+**Committed to the UBL repository on 2026-10-07, its drawings are now the figures' source**
+([oasis-tcs/ubl#40](https://github.com/oasis-tcs/ubl/pull/40), into `ubl-2.6`; A3):
+`images/<figure>.drawio` there, which its build renders into the SVG and the PNGs, so that the build
+goes on from `art/` and `htmlart/` as it always has ("In the UBL repository: the build renders the
+drawings"). The drawings here are the record of what was committed.
 
 ## The source of truth: the draw.io drawings
 
@@ -46,8 +47,9 @@ to-ubl-repo/                             what goes to the UBL repository: the ex
 baselines/2026-10-06/                    the baseline: all 96 drawings as they are now (2026-10-05, 2026-09-30: the ones before)
 ```
 
-**Edit a figure by opening its `.drawio` file in draw.io** (the desktop app, or
-diagrams.net) and saving it back. Nothing is generated over these files any more.
+**Edit a figure in the UBL repository** (since 2026-10-07): its `images/<figure>.drawio`,
+opened in draw.io (the desktop app, or diagrams.net) and saved back; its guide is its
+`utilities/artwork/README.md`. How the drawings are drawn, below, holds for those drawings too.
 
 ### The 78 UML activity diagrams
 
@@ -244,14 +246,14 @@ With figures named, only those are added to (or replaced in) the baseline, and a
 
 ### Images made from the drawings: `to-ubl-repo/`
 
-`to-ubl-repo/` holds everything that is to be committed to the UBL repository,
-and nothing else, laid out as there: copied over a clone of it, it adds or
+`to-ubl-repo/` holds everything that was committed to the UBL repository (2026-10-07,
+[oasis-tcs/ubl#40](https://github.com/oasis-tcs/ubl/pull/40)), and nothing else, laid out as there: copied over a clone of it, it adds or
 replaces, per figure, `images/<figure>.drawio` and
 `images/<figure>.svg`, `art/<figure>.png` and `htmlart/<figure>.png`, and adds
 `utilities/artwork/`, the tools that render them there (below). Nothing
 in it is edited by hand: after an edit of a drawing, export it again and check.
 
-It goes to the branch `ubl-2.6` ("Questions for the TC", A1, answered). The figures' files
+It went to the branch `ubl-2.6` ("Questions for the TC", A1, answered). The figures' files
 would fit the 2.5 branches too (their `art/`, `htmlart/` and `images/` are the same); the build
 step was tested on `ubl-2.6` only.
 
@@ -382,11 +384,12 @@ on any other machine. The packages are half their size or less (57, 43 and 51 Mi
 **The problems file, tested 2026-10-07** as above (`build.sh`, Java and 7z stubbed): no file after a
 normal render; at the top of the package, the right report for each of the tools missing, a drawing
 cut short (the render's error, naming the drawing), the check failing (the figure, and why) and a
-drawing edited without rendering (its SVG). Not tested: the commit as now on GitHub (Open work), a
-failed install on GitHub's runner, and the ISO DOCX and NISO XML opened (only their size, smaller as
-the PDF's).
+drawing edited without rendering (its SVG). The commits as merged were built again on the fork
+(run 69, 2026-10-07), and by the UBL repository's own build of the merge; their results are not
+recorded here. Not tested: a failed install on GitHub's runner, and the ISO DOCX and NISO XML opened
+(only their size, smaller as the PDF's).
 
-After the commit, `diagrams/` here is the record of the drawings as committed, not their source.
+Since the commit, `diagrams/` here is the record of the drawings as committed, not their source.
 The tools that stay here, the baseline and the upgrade check, work on `diagrams/`: to use them on
 the UBL repository's drawings, bring those back into `diagrams/<figure>/` first.
 
@@ -795,22 +798,12 @@ it said in UBL 2.5. D1 too, which the TC wants fixed in UBL 2.6, comes after it.
   work, not part of this transition (D1, for UBL 2.6, after it). A and B
   are answered, and C: BPMN is a possible option for the distant future (C1, C2), Ordering's
   drawing is enough (C3), and the archive search goes on (C4).
-- **The commit to the UBL repository:** `to-ubl-repo/` copied over a clone of `ubl-2.6` (A1),
-  9 files removed (A2: the 3 older sources and the 5 more files in `images/`; A5: the unused PNG
-  in `art/`), and three of its files edited with it, `build-common.sh`,
-  `.github/workflows/build.yml` and its README's "Artwork" (A3; "In the UBL repository: the build
-  renders the drawings"). Its message names each file removed and what it was, and says that
-  Group A's three drawings change only in form, that Ordering's bpmn-js SVG is replaced by its
-  draw.io drawing and that drawing's export, that the PNGs are replaced by print PNGs in black and
-  white (grey: the illustrations, Business Information and three of Group C), and that the build
-  renders them from the drawings ("Images made from the drawings"; `history/remaining-figures.md`,
-  "Before the UBL repository gets any of it"). Both commits are made, by the UBL editor, on
-  `kduvekot/ubl` branch `ubl-2.6-artwork`, and tested on GitHub there ("In the UBL repository: the
-  build renders the drawings"). Still to do: run the commits as now (with the problems file) there
-  once more, then the pull request to `ubl-2.6`, by the UBL editor. The UBL repository's workflow
-  builds on a push only, not on a pull request, so the merge is its first build there.
-- **A second commit to `ubl-2.6`, of its own:** the figures commented out in `UBL.xml` removed
-  (one line; "Images made from the drawings"); made, with the first, on `ubl-2.6-artwork`.
+- **The commit to the UBL repository: done 2026-10-07.** Both commits, the artwork and the figures
+  commented out in `UBL.xml` ("Images made from the drawings"), were made by the UBL editor on
+  `kduvekot/ubl` and merged into `ubl-2.6` with
+  [oasis-tcs/ubl#40](https://github.com/oasis-tcs/ubl/pull/40) (merge `07fa265`). Left: check the
+  UBL repository's first build of it (its package without `ARTWORK-PROBLEMS.txt`), and delete the
+  test branches `ubl-2.6-artwork` and `ubl-2.6-drawio` on `kduvekot/ubl`.
 - **The original BPMN 2.0 XML of the Ordering Process** (`UBL-2.3-OrderingProcess.bpmn`, attached
   to the `ubl` list's mail of 2019-05-07, UBL-171): not found yet; the search goes on, no longer
   critical (C3, C4). Still to look in: the Sent folder of that mail, other list members' mailboxes
